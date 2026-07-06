@@ -9,23 +9,26 @@
 <meta property="og:title" content="Điểm Tin Thế Giới">
 <meta property="og:description" content="Chính trị · Kinh tế · Quân sự · Ngoại giao — cập nhật hằng ngày">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%23b3282d'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Times,serif' font-weight='bold' text-anchor='middle' fill='white'%3E%C4%90%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Lora:wght@400;700&family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&family=Roboto:wght@400;700&display=swap">
 <style>
+:root{--fs:1}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#f5f2ec;color:#1b1b1b;font-family:'Times New Roman',Times,serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{background:#f5f2ec;color:#1b1b1b;font-family:var(--reader-font,'Times New Roman',Times,serif);line-height:1.55;-webkit-text-size-adjust:100%}
 a{color:inherit}
-.serif{font-family:'Times New Roman',Times,serif}
-.wrap{max-width:860px;margin:0 auto;padding:18px 16px 48px}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 60px}
 .mast{text-align:center;padding:8px 0 14px;border-bottom:3px double #1b1b1b;margin-bottom:2px}
-.mast .kicker{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#b3282d;font-weight:700;margin-bottom:6px}
-.mast h1{font-family:'Times New Roman',Times,serif;font-size:34px;font-weight:800;letter-spacing:1px;line-height:1.1}
-.mast .tag{font-size:12.5px;color:#6b6459;margin-top:7px;font-style:italic}
-.dateline{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d8d2c6;padding:7px 2px;font-size:11.5px;color:#6b6459;text-transform:uppercase;letter-spacing:1px;flex-wrap:wrap;gap:6px}
+.mast .kicker{font-size:calc(11px*var(--fs));letter-spacing:3px;text-transform:uppercase;color:#b3282d;font-weight:700;margin-bottom:6px}
+.mast h1{font-family:inherit;font-size:calc(34px*var(--fs));font-weight:800;letter-spacing:1px;line-height:1.1}
+.mast .tag{font-size:calc(12.5px*var(--fs));color:#6b6459;margin-top:7px;font-style:italic}
+.dateline{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #d8d2c6;padding:7px 2px;font-size:calc(11.5px*var(--fs));color:#6b6459;text-transform:uppercase;letter-spacing:1px;flex-wrap:wrap;gap:6px}
 .tabs{display:flex;gap:2px;overflow-x:auto;margin:14px 0 16px;border-bottom:2px solid #1b1b1b}
-.tb{white-space:nowrap;padding:9px 15px;background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;color:#6b6459;cursor:pointer;font-size:14.5px;font-weight:700;font-family:inherit}
+.tb{white-space:nowrap;padding:9px 15px;background:none;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;color:#6b6459;cursor:pointer;font-size:calc(14.5px*var(--fs));font-weight:700;font-family:inherit}
 .tb.on{color:#b3282d;border-bottom-color:#b3282d}
-.note{font-size:13px;color:#5a5349;background:#efeae0;border-left:3px solid #b3282d;padding:10px 12px;border-radius:2px;margin-bottom:14px}
+.note{font-size:calc(13px*var(--fs));color:#5a5349;background:#efeae0;border-left:3px solid #b3282d;padding:10px 12px;border-radius:2px;margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
-.chip{font-size:12.5px;padding:6px 11px;border-radius:2px;background:#fff;border:1px solid #d8d2c6;color:#6b6459;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
+.chip{font-size:calc(12.5px*var(--fs));padding:6px 11px;border-radius:2px;background:#fff;border:1px solid #d8d2c6;color:#6b6459;cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-family:inherit}
 .chip.on{background:#1b1b1b;color:#fff;border-color:#1b1b1b}
 .chip.on .dot{outline:1px solid #fff}
 .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
@@ -33,19 +36,34 @@ a{color:inherit}
 .card{background:transparent;border-bottom:1px solid #ded8cc;padding:16px 2px}
 .card:first-child{padding-top:2px}
 .crow{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap}
-.badge{font-size:10.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#b3282d}
+.badge{font-size:calc(10.5px*var(--fs));font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:#b3282d}
 .badge .dot{margin-right:5px}
-.date{margin-left:auto;font-size:11.5px;color:#8a8378;text-transform:uppercase;letter-spacing:.5px}
-.title{font-family:'Times New Roman',Times,serif;font-size:19px;font-weight:700;line-height:1.3;margin-bottom:6px;color:#141414}
-.sum{font-size:14px;color:#3a352e}
-.take{font-size:13.5px;color:#1b1b1b;background:#efeae0;border-radius:2px;padding:8px 11px;margin:7px 0}
+.date{margin-left:auto;font-size:calc(11.5px*var(--fs));color:#8a8378;text-transform:uppercase;letter-spacing:.5px}
+.title{font-family:inherit;font-size:calc(19px*var(--fs));font-weight:700;line-height:1.35;margin-bottom:6px;color:#141414}
+.sum{font-size:calc(14px*var(--fs));color:#3a352e}
+.take{font-size:calc(13.5px*var(--fs));color:#1b1b1b;background:#efeae0;border-radius:2px;padding:8px 11px;margin:7px 0}
 .foot{margin-top:9px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.meta{font-size:12px;color:#8a8378}
-.src{font-size:12.5px;color:#b3282d;text-decoration:none;font-weight:700}
+.meta{font-size:calc(12px*var(--fs));color:#8a8378}
+.src{font-size:calc(12.5px*var(--fs));color:#b3282d;text-decoration:none;font-weight:700}
 .src:hover{text-decoration:underline}
-.empty{color:#8a8378;text-align:center;padding:34px;font-style:italic}
-.pgfoot{margin-top:30px;padding-top:16px;border-top:3px double #1b1b1b;font-size:11.5px;color:#8a8378;text-align:center;line-height:1.8}
-@media(max-width:520px){.mast h1{font-size:26px}.title{font-size:17.5px}.dateline{justify-content:center}}
+.empty{color:#8a8378;text-align:center;padding:34px;font-style:italic;font-size:calc(14px*var(--fs))}
+.pgfoot{margin-top:30px;padding-top:16px;border-top:3px double #1b1b1b;font-size:calc(11.5px*var(--fs));color:#8a8378;text-align:center;line-height:1.8}
+/* Bảng chọn phông & cỡ chữ cho người đọc */
+#reader-fab{position:fixed;right:16px;bottom:16px;z-index:60;width:48px;height:48px;border-radius:50%;background:#1b1b1b;color:#fff;border:none;font-size:19px;font-weight:800;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.28);font-family:'Times New Roman',Times,serif}
+#reader-panel{position:fixed;right:16px;bottom:74px;z-index:60;width:258px;max-width:calc(100vw - 32px);background:#fff;border:1px solid #d8d2c6;border-radius:10px;box-shadow:0 10px 34px rgba(0,0,0,.24);padding:14px;font-family:'Times New Roman',Times,serif}
+#reader-panel[hidden]{display:none}
+.rp-h{font-weight:800;font-size:15px;margin-bottom:6px}
+.rp-sub{font-size:11.5px;color:#8a8378;margin-bottom:8px;border-bottom:1px solid #ece7dd;padding-bottom:8px}
+.rp-lbl{font-size:10.5px;text-transform:uppercase;letter-spacing:1px;color:#8a8378;margin:12px 0 6px}
+.rp-sizes{display:flex;gap:6px}
+.rp-sizes button{flex:1;padding:9px 0;border:1px solid #d8d2c6;background:#f7f5f1;border-radius:6px;cursor:pointer;font-weight:700;font-family:'Times New Roman',Times,serif}
+.rp-sizes button:nth-child(1){font-size:12px}.rp-sizes button:nth-child(2){font-size:15px}.rp-sizes button:nth-child(3){font-size:18px}.rp-sizes button:nth-child(4){font-size:21px}
+.rp-sizes button.on{background:#1b1b1b;color:#fff;border-color:#1b1b1b}
+.rp-fonts{display:flex;flex-direction:column;gap:6px;max-height:266px;overflow:auto}
+.rp-fonts button{text-align:left;padding:9px 11px;border:1px solid #d8d2c6;background:#fff;border-radius:6px;cursor:pointer;font-size:16px;color:#1b1b1b}
+.rp-fonts button .vi{font-size:12px;color:#8a8378;font-family:'Times New Roman',serif}
+.rp-fonts button.on{border-color:#b3282d;background:#fbeceb}
+@media(max-width:520px){.mast h1{font-size:calc(26px*var(--fs))}.title{font-size:calc(17.5px*var(--fs))}.dateline{justify-content:center}}
 </style>
 </head>
 <body>
@@ -61,9 +79,49 @@ var RCOLOR={'Ấn Độ Dương - Thái Bình Dương':'#1f8a54','Châu Âu/NATO
 function rcolor(r){return RCOLOR[r]||'#6b6459';}
 var CATMETA={'Không quân':'✈️','Hải quân':'⚓','Lục quân':'🪖','Drone/UAV':'🛩️','Siêu thanh':'🚀','Vũ trụ':'🛰️','AI/Tự hành':'🤖','Tên lửa/Phòng thủ':'🎯','Năng lượng định hướng':'⚡'};
 var state={tab:'world',wcat:'Tất cả',areg:'Tất cả'};
+
+/* ==== Người đọc tự chọn phông + cỡ chữ (ưu tiên phông đẹp tiếng Việt) ==== */
+var FONTS=[
+  {n:'Times New Roman', s:"'Times New Roman',Times,serif", note:'Cổ điển, có sẵn'},
+  {n:'Be Vietnam Pro', s:"'Be Vietnam Pro',sans-serif", note:'Thiết kế riêng cho tiếng Việt'},
+  {n:'Noto Serif', s:"'Noto Serif',serif", note:'Có chân, đủ dấu'},
+  {n:'Lora', s:"'Lora',serif", note:'Có chân, thanh lịch'},
+  {n:'Merriweather', s:"'Merriweather',serif", note:'Có chân, dễ đọc'},
+  {n:'Roboto', s:"'Roboto',sans-serif", note:'Không chân, hiện đại'},
+  {n:'Noto Sans', s:"'Noto Sans',sans-serif", note:'Không chân, đủ dấu'},
+  {n:'Arial', s:"Arial,Helvetica,sans-serif", note:'Không chân, có sẵn'}
+];
+function getPref(k,d){try{var v=localStorage.getItem(k);return v==null?d:v;}catch(e){return d;}}
+function setPref(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function applyFont(s){document.documentElement.style.setProperty('--reader-font',s);}
+function applyFs(v){document.documentElement.style.setProperty('--fs',v);}
+function ensureReaderUI(){
+  var curFs=getPref('dt.fs','1'), curFont=getPref('dt.font',FONTS[0].s);
+  applyFs(curFs); applyFont(curFont);
+  var fab=document.createElement('button'); fab.id='reader-fab'; fab.textContent='Aa'; fab.setAttribute('aria-label','Cỡ chữ và phông chữ');
+  var panel=document.createElement('div'); panel.id='reader-panel'; panel.hidden=true;
+  var sizes=[['0.9','A'],['1','A'],['1.18','A'],['1.4','A']];
+  var h='<div class="rp-h">Tuỳ chỉnh hiển thị</div><div class="rp-sub">Lựa chọn được lưu trên máy bạn.</div>';
+  h+='<div class="rp-lbl">Cỡ chữ</div><div class="rp-sizes">';
+  sizes.forEach(function(s){h+='<button data-fs="'+s[0]+'"'+(s[0]===curFs?' class="on"':'')+'>'+s[1]+'</button>';});
+  h+='</div><div class="rp-lbl">Phông chữ (đọc tiếng Việt tốt)</div><div class="rp-fonts">';
+  FONTS.forEach(function(f){h+='<button data-font="'+esc(f.s)+'" style="font-family:'+f.s+'"'+(f.s===curFont?' class="on"':'')+'>'+f.n+' <span class="vi">— '+f.note+'</span></button>';});
+  h+='</div>';
+  panel.innerHTML=h;
+  document.body.appendChild(fab); document.body.appendChild(panel);
+  fab.addEventListener('click',function(e){e.stopPropagation();panel.hidden=!panel.hidden;});
+  panel.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b)return; e.stopPropagation();
+    if(b.getAttribute('data-fs')!=null){var v=b.getAttribute('data-fs');applyFs(v);setPref('dt.fs',v);
+      var ss=panel.querySelectorAll('.rp-sizes button'); for(var i=0;i<ss.length;i++)ss[i].classList.toggle('on',ss[i]===b);}
+    else if(b.getAttribute('data-font')!=null){var s=b.getAttribute('data-font');applyFont(s);setPref('dt.font',s);
+      var fs=panel.querySelectorAll('.rp-fonts button'); for(var j=0;j<fs.length;j++)fs[j].classList.toggle('on',fs[j]===b);}
+  });
+  document.addEventListener('click',function(){if(!panel.hidden)panel.hidden=true;});
+}
+
 function srcLink(o){var u=o.sourceUrl||o.url||'';var n=o.sourceName||o.outlet||u;return u?'<a class="src" href="'+esc(u)+'" target="_blank" rel="noreferrer">Nguồn ↗</a>':(n?'<span class="meta">'+esc(n)+'</span>':'');}
 function card(inner){return '<div class="card">'+inner+'</div>';}
-
 function renderWorld(){
   var arr=sortD(DATA.worldNews);
   var cats=[];arr.forEach(function(a){if(a.category&&cats.indexOf(a.category)<0)cats.push(a.category);});
@@ -116,6 +174,7 @@ document.addEventListener('click',function(e){
   else if(t.getAttribute('data-areg'))state.areg=t.getAttribute('data-areg');
   render();
 });
+ensureReaderUI();
 render();
 </script>
 </body>
