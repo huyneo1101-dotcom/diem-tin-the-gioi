@@ -46,6 +46,12 @@ a{color:inherit}
 .meta{font-size:calc(12px*var(--fs));color:#8a8378}
 .src{font-size:calc(12.5px*var(--fs));color:#b3282d;text-decoration:none;font-weight:700}
 .src:hover{text-decoration:underline}
+.favb{margin-left:auto;background:none;border:none;cursor:pointer;font-size:calc(18px*var(--fs));line-height:1;color:#c4b48f;padding:0 2px;font-family:inherit}
+.favb:hover{color:#d4a017}
+.favb.on{color:#d4a017}
+.filterbar{display:flex;align-items:center;gap:8px;margin:-2px 0 14px}
+.filterbar span{font-size:calc(11px*var(--fs));color:#8a8378;text-transform:uppercase;letter-spacing:1px}
+.dsel{font-family:inherit;font-size:calc(13px*var(--fs));padding:6px 9px;border:1px solid #d8d2c6;border-radius:3px;background:#fff;color:#1b1b1b;cursor:pointer}
 .empty{color:#8a8378;text-align:center;padding:34px;font-style:italic;font-size:calc(14px*var(--fs))}
 .pgfoot{margin-top:30px;padding-top:16px;border-top:3px double #1b1b1b;font-size:calc(11.5px*var(--fs));color:#8a8378;text-align:center;line-height:1.8}
 /* Bảng chọn phông & cỡ chữ cho người đọc */
@@ -78,7 +84,7 @@ function wmeta(c){return WMETA[c]||['🌍','#6b6459'];}
 var RCOLOR={'Ấn Độ Dương - Thái Bình Dương':'#1f8a54','Châu Âu/NATO':'#2b5f9e','Trung Đông':'#c98a2e','Đông Á':'#c0392b','Nam Á':'#7a4fb0','Châu Phi':'#2f9e6b','Châu Mỹ':'#4a5fb0','Bắc Cực':'#3a8fb8','Toàn cầu':'#6b6459'};
 function rcolor(r){return RCOLOR[r]||'#6b6459';}
 var CATMETA={'Không quân':'✈️','Hải quân':'⚓','Lục quân':'🪖','Drone/UAV':'🛩️','Siêu thanh':'🚀','Vũ trụ':'🛰️','AI/Tự hành':'🤖','Tên lửa/Phòng thủ':'🎯','Năng lượng định hướng':'⚡'};
-var state={tab:'world',wcat:'Tất cả',areg:'Tất cả'};
+var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả'};
 var USFLAG='<svg viewBox="0 0 19 10" width="18" height="10" style="vertical-align:-1px;margin-right:4px;border-radius:1px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)"><rect width="19" height="10" fill="#fff"/><g fill="#b22234"><rect width="19" height=".77"/><rect y="1.54" width="19" height=".77"/><rect y="3.08" width="19" height=".77"/><rect y="4.62" width="19" height=".77"/><rect y="6.15" width="19" height=".77"/><rect y="7.69" width="19" height=".77"/><rect y="9.23" width="19" height=".77"/></g><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg>';
 
 /* ==== Người đọc tự chọn phông + cỡ chữ (ưu tiên phông đẹp tiếng Việt) ==== */
@@ -122,39 +128,80 @@ function ensureReaderUI(){
 }
 
 function srcLink(o){var u=o.sourceUrl||o.url||'';var n=o.sourceName||o.outlet||u;return u?'<a class="src" href="'+esc(u)+'" target="_blank" rel="noreferrer">Nguồn ↗</a>':(n?'<span class="meta">'+esc(n)+'</span>':'');}
+function idOf(a){return a.sourceUrl||a.url||'';}
+/* ==== Lưu tin (favorite) — localStorage dt.fav, giữ cả snapshot để không mất khi tin gốc bị dọn ==== */
+function favList(){try{return JSON.parse(localStorage.getItem('dt.fav')||'[]');}catch(e){return [];}}
+function saveFav(a){try{localStorage.setItem('dt.fav',JSON.stringify(a));}catch(e){}}
+var FAV=[],FAVSET={};
+function refreshFav(){FAV=favList();FAVSET={};FAV.forEach(function(x){if(x&&x._id)FAVSET[x._id]=1;});}
+function isFav(id){return !!FAVSET[id];}
+function findItemById(id){
+  var src=[['world',DATA.worldNews],['us',DATA.usNews],['analysis',DATA.analyses]];
+  for(var i=0;i<src.length;i++){var arr=src[i][1]||[];for(var j=0;j<arr.length;j++){if(idOf(arr[j])===id)return {item:arr[j],kind:src[i][0]};}}
+  return null;
+}
+function toggleFav(id){
+  if(!id)return;
+  var favs=favList(),i=-1;
+  for(var k=0;k<favs.length;k++){if(favs[k]._id===id){i=k;break;}}
+  if(i>=0){favs.splice(i,1);}
+  else{var f=findItemById(id);if(!f)return;var snap={};for(var p in f.item)snap[p]=f.item[p];snap._id=id;snap._kind=f.kind;favs.unshift(snap);}
+  saveFav(favs);refreshFav();
+}
+function favBtn(a){var id=idOf(a);return '<button class="favb'+(isFav(id)?' on':'')+'" data-fav="'+esc(id)+'" title="Lưu / bỏ lưu tin">'+(isFav(id)?'★':'☆')+'</button>';}
+
 function card(inner){return '<div class="card">'+inner+'</div>';}
+function newsCardInner(a){var m=wmeta(a.category);
+  return '<div class="crow"><span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.significance?'<div class="take">'+esc(a.significance)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+favBtn(a)+'</div>';
+}
+function analysisCardInner(a){
+  return '<div class="crow"><span class="badge"><i class="dot" style="background:#7a4fb0"></i>'+esc(a.topic||'Phân tích')+'</span>'+(a.region?'<span class="date">'+esc(a.region)+'</span>':'')+'</div><div class="title">'+esc(a.title)+'</div>'+(a.takeaway?'<div class="take">'+esc(a.takeaway)+'</div>':'')+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.outlet||'')+(a.author?' · '+esc(a.author):'')+(a.date?' · '+fmtVN(a.date):'')+'</span>'+srcLink(a)+favBtn(a)+'</div>';
+}
+function dateBar(arr,cur,attr){
+  var ds=[];arr.forEach(function(a){if(a.date&&ds.indexOf(a.date)<0)ds.push(a.date);});
+  ds.sort();ds.reverse();
+  if(ds.length<2)return '';
+  var o='<option value="Tất cả"'+(cur==='Tất cả'?' selected':'')+'>Tất cả ngày</option>';
+  ds.forEach(function(d){o+='<option value="'+esc(d)+'"'+(cur===d?' selected':'')+'>'+fmtVN(d)+'</option>';});
+  return '<div class="filterbar"><span>📅 Lọc ngày</span><select class="dsel" '+attr+'>'+o+'</select></div>';
+}
 function renderCatNews(arr, note){
   arr=sortD(arr);
   var cats=[];arr.forEach(function(a){if(a.category&&cats.indexOf(a.category)<0)cats.push(a.category);});
-  var items=state.wcat==='Tất cả'?arr:arr.filter(function(a){return a.category===state.wcat;});
+  var items=arr.filter(function(a){return (state.wcat==='Tất cả'||a.category===state.wcat)&&(state.wdate==='Tất cả'||a.date===state.wdate);});
   var chips='<div class="chips"><span class="chip'+(state.wcat==='Tất cả'?' on':'')+'" data-wcat="Tất cả">Tất cả ('+arr.length+')</span>';
   cats.forEach(function(c){var m=wmeta(c);chips+='<span class="chip'+(state.wcat===c?' on':'')+'" data-wcat="'+esc(c)+'"><i class="dot" style="background:'+m[1]+'"></i>'+m[0]+' '+esc(c)+' ('+arr.filter(function(a){return a.category===c;}).length+')</span>';});
   chips+='</div>';
-  var cards=items.length?items.map(function(a){var m=wmeta(a.category);
-    return card('<div class="crow"><span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.significance?'<div class="take">'+esc(a.significance)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+'</div>');
-  }).join(''):'<div class="empty">Chưa có tin.</div>';
-  return note+chips+'<div class="list">'+cards+'</div>';
+  var cards=items.length?items.map(function(a){return card(newsCardInner(a));}).join(''):'<div class="empty">Không có tin khớp bộ lọc.</div>';
+  return note+chips+dateBar(arr,state.wdate,'data-wdate')+'<div class="list">'+cards+'</div>';
 }
 function renderAnalysis(){
   var arr=sortD(DATA.analyses);
   var regs=[];arr.forEach(function(a){if(a.region&&regs.indexOf(a.region)<0)regs.push(a.region);});
-  var items=state.areg==='Tất cả'?arr:arr.filter(function(a){return a.region===state.areg;});
+  var items=arr.filter(function(a){return (state.areg==='Tất cả'||a.region===state.areg)&&(state.adate==='Tất cả'||a.date===state.adate);});
   var chips='<div class="chips"><span class="chip'+(state.areg==='Tất cả'?' on':'')+'" data-areg="Tất cả">Tất cả ('+arr.length+')</span>';
   regs.forEach(function(r){chips+='<span class="chip'+(state.areg===r?' on':'')+'" data-areg="'+esc(r)+'"><i class="dot" style="background:'+rcolor(r)+'"></i>'+esc(r)+' ('+arr.filter(function(a){return a.region===r;}).length+')</span>';});
   chips+='</div>';
-  var cards=items.length?items.map(function(a){
-    return card('<div class="crow"><span class="badge"><i class="dot" style="background:#7a4fb0"></i>'+esc(a.topic||'Phân tích')+'</span>'+(a.region?'<span class="date">'+esc(a.region)+'</span>':'')+'</div><div class="title">'+esc(a.title)+'</div>'+(a.takeaway?'<div class="take">'+esc(a.takeaway)+'</div>':'')+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.outlet||'')+(a.author?' · '+esc(a.author):'')+(a.date?' · '+fmtVN(a.date):'')+'</span>'+srcLink(a)+'</div>');
-  }).join(''):'<div class="empty">Chưa có bài phân tích.</div>';
-  return '<div class="note">Phân tích, báo cáo chiến lược từ các viện nghiên cứu (think tank) uy tín. Lọc theo khu vực.</div>'+chips+'<div class="list">'+cards+'</div>';
+  var cards=items.length?items.map(function(a){return card(analysisCardInner(a));}).join(''):'<div class="empty">Không có bài khớp bộ lọc.</div>';
+  return '<div class="note">Phân tích, báo cáo chiến lược từ các viện nghiên cứu (think tank) uy tín.</div>'+chips+dateBar(arr,state.adate,'data-adate')+'<div class="list">'+cards+'</div>';
+}
+function renderSaved(){
+  var arr=FAV.slice();
+  arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
+  if(!arr.length)return '<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này và giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
+  var cards=arr.map(function(a){return card(a._kind==='analysis'?analysisCardInner(a):newsCardInner(a));}).join('');
+  return '<div class="note">Tin bạn đã lưu (trên máy này) — bấm ★ để bỏ lưu.</div><div class="list">'+cards+'</div>';
 }
 function content(){
   if(state.tab==='us')return renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
   if(state.tab==='analysis')return renderAnalysis();
+  if(state.tab==='saved')return renderSaved();
   return renderCatNews(DATA.worldNews,'<div class="note">Tin <b>thế giới</b> nổi bật trong <b>24 giờ qua</b> — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
 }
 function render(){
+  refreshFav();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
-  var tabs=[['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['analysis','🧠 Phân tích']];
+  var tabs=[['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
@@ -166,11 +213,17 @@ function render(){
   if(window.scrollTo)window.scrollTo(0,0);
 }
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg]'):null;if(!t)return;
-  if(t.getAttribute('data-tab')){state.tab=t.getAttribute('data-tab');state.wcat='Tất cả';}
+  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-fav]'):null;if(!t)return;
+  if(t.getAttribute('data-fav')!=null){toggleFav(t.getAttribute('data-fav'));render();return;}
+  if(t.getAttribute('data-tab')){state.tab=t.getAttribute('data-tab');state.wcat='Tất cả';state.wdate='Tất cả';}
   else if(t.getAttribute('data-wcat'))state.wcat=t.getAttribute('data-wcat');
   else if(t.getAttribute('data-areg'))state.areg=t.getAttribute('data-areg');
   render();
+});
+document.addEventListener('change',function(e){
+  var s=e.target;if(!s||!s.getAttribute)return;
+  if(s.getAttribute('data-wdate')!=null){state.wdate=s.value;render();}
+  else if(s.getAttribute('data-adate')!=null){state.adate=s.value;render();}
 });
 ensureReaderUI();
 render();
