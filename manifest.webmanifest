@@ -1,0 +1,16 @@
+{
+  "name": "Điểm Tin Thế Giới",
+  "short_name": "Điểm Tin",
+  "description": "Bản tin thế giới — Kinh tế · Chính trị · Ngoại giao · Quân sự, cập nhật hằng ngày",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f2ec",
+  "theme_color": "#b3282d",
+  "lang": "vi",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
