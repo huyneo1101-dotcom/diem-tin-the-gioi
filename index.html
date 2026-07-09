@@ -75,6 +75,7 @@ a{color:inherit}
 .dpill{font-size:calc(10.5px*var(--fs));font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:3px 10px;border-radius:20px}
 .dpill.live{background:#c0392b;color:#fff}
 .dpill.up{background:#2b5f9e;color:#fff}
+.dpill.done{background:#1f8a54;color:#fff}
 .drill-dates{font-size:calc(12px*var(--fs));color:var(--muted);font-weight:700}
 .drill-name{font-family:inherit;font-size:calc(21px*var(--fs));font-weight:800;line-height:1.25;color:var(--title);margin-bottom:5px}
 .drill-meta{font-size:calc(12.5px*var(--fs));color:var(--muted);margin-top:2px}
@@ -156,7 +157,20 @@ var EXERCISES=[
   ]}
 ];
 function drillItems(){var exs=(DATA.exercises&&DATA.exercises.length)?DATA.exercises:EXERCISES;var out=[];exs.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
-var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',q:''};
+/* ==== Sự kiện ngoại giao (seed dự phòng — daily task ghi đè bằng DATA.dipEvents) ==== */
+var DIPEVENTS=[
+  {name:'Thượng đỉnh NATO Ankara 2026',status:'recent',dates:'7–8/7/2026',location:'Ankara, Thổ Nhĩ Kỳ (Phủ Tổng thống)',scale:'Kỳ thứ 36 · 32 nước thành viên · TTK Mark Rutte · trọng tâm: tăng chi tiêu quốc phòng, công nghiệp quốc phòng xuyên Đại Tây Dương, hỗ trợ Ukraine',summary:'Hội nghị thượng đỉnh NATO lần thứ 36, lần thứ hai Thổ Nhĩ Kỳ đăng cai. Bị phủ bóng bởi sức ép của Tổng thống Trump về chia sẻ gánh nặng, thương mại và cả yêu sách Greenland; song song là làn sóng châu Âu tái vũ trang hướng tới tự chủ quốc phòng.',items:[
+    {date:'2026-07-08',title:"Thượng đỉnh NATO 2026 chống đỡ cơn 'lôi đình' của ông Trump",summary:'Hội nghị diễn ra trong căng thẳng khi liên minh xoay xở trước sức ép và chỉ trích gay gắt của Tổng thống Trump về chi tiêu quốc phòng và đóng góp của đồng minh.',sourceName:'Tuổi Trẻ',sourceUrl:'https://tuoitre.vn/thuong-dinh-nato-2026-chong-do-con-loi-dinh-cua-ong-trump-100260708163358076.htm',relate:'Bức tranh tổng thể bầu không khí thượng đỉnh Ankara — điểm khởi đầu để hiểu các diễn biến còn lại.'},
+    {date:'2026-07-08',title:'Trump dọa cắt quan hệ thương mại với Tây Ban Nha, đòi Mỹ tiếp quản Greenland tại NATO',summary:'Tại Ankara, ông Trump chỉ trích gay gắt các đồng minh, gọi Tây Ban Nha là "đối tác tồi tệ" và nhắc lại yêu sách Greenland.',sourceName:'Al Jazeera',sourceUrl:'https://www.aljazeera.com/news/2026/7/8/trump-threatens-spain-trade-demands-us-take-over-greenland-at-nato-summit',relate:'Các đòi hỏi gây căng thẳng nội khối ngay tại bàn thượng đỉnh — phép thử đoàn kết NATO.'},
+    {date:'2026-07-09',title:'Ông Trump khẳng định Mỹ muốn ở lại NATO',summary:'Sau loạt phát ngôn dọa rút quân, ông Trump tuyên bố Mỹ muốn tiếp tục là thành viên NATO, trấn an đồng minh.',sourceName:'Báo Mới',sourceUrl:'https://baomoi.com/ong-trump-khang-dinh-my-muon-o-lai-nato-c55575411.epi',relate:'Kết quả trấn an sau thượng đỉnh: Mỹ cam kết ở lại, xoa dịu lo ngại rạn nứt liên minh.'},
+    {date:'2026-07-08',title:'Trump cam kết cấp phép cho Ukraine tự sản xuất tên lửa đánh chặn Patriot',summary:'Bên lề thượng đỉnh, Mỹ tuyên bố cấp "giấy phép" để Ukraine tự chế tạo đạn đánh chặn Patriot (PAC-3) nhằm tăng phòng không.',sourceName:'Defense News',sourceUrl:'https://www.defensenews.com/global/europe/2026/07/08/ukraine-to-get-license-for-making-patriot-interceptors-trump-pledges/',relate:'Cam kết hỗ trợ Ukraine đưa ra bên lề thượng đỉnh — đúng một trong ba trọng tâm của kỳ họp.'},
+    {date:'2026-07-06',title:'Hãy biến Thượng đỉnh Ankara thành chuyện tự chủ quốc phòng châu Âu',summary:'Phân tích CSIS kêu gọi thành viên châu Âu dùng thượng đỉnh Ankara để chuẩn bị cho kịch bản Mỹ giảm hậu thuẫn, bằng kế hoạch phòng thủ lục địa tự chủ.',sourceName:'CSIS · phân tích',sourceUrl:'https://www.csis.org/analysis/make-ankara-summit-about-european-defense-autonomy',relate:'Góc phân tích chiến lược: định hướng thượng đỉnh vào tự chủ quốc phòng châu Âu trước rủi ro Mỹ rút lui.'},
+    {date:'2026-07-08',title:"Hàn Quốc đề xuất 'Đối tác công nghiệp quốc phòng NATO 2.0'",summary:'Seoul đưa sáng kiến thúc đẩy hợp tác sản xuất vũ khí và mở rộng vai trò trong chuỗi cung ứng quốc phòng phương Tây.',sourceName:'Báo Mới',sourceUrl:'https://baomoi.com/han-quoc-de-xuat-doi-tac-cong-nghiep-quoc-phong-nato-2-0-c55574217.epi',relate:'Sáng kiến gắn với trọng tâm công nghiệp quốc phòng của thượng đỉnh, mở rộng sang đối tác Ấn Độ Dương–Thái Bình Dương.'},
+    {date:'2026-07-02',title:"Trước thềm thượng đỉnh NATO, châu Âu tái vũ trang chống một 'nước Nga bóng ma'?",summary:'Nhiều nước châu Âu tăng mạnh chi quân sự dựa trên giả định Nga có thể tấn công NATO, dù kinh tế Nga trì trệ vì chiến tranh Ukraine.',sourceName:'The Nation',sourceUrl:'https://www.thenation.com/article/world/europe-russia-nato-rearmament-putin-military-spending-far-right-ukraine-war-analysis/',relate:'Bối cảnh trước thượng đỉnh — làn sóng tái vũ trang châu Âu tạo nền cho chương trình nghị sự Ankara.'}
+  ]}
+];
+function dipItems(){var arr=(DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS;var out=[];arr.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
+var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',q:''};
 var USFLAG='<svg viewBox="0 0 19 10" width="18" height="10" style="vertical-align:-1px;margin-right:4px;border-radius:1px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)"><rect width="19" height="10" fill="#fff"/><g fill="#b22234"><rect width="19" height=".77"/><rect y="1.54" width="19" height=".77"/><rect y="3.08" width="19" height=".77"/><rect y="4.62" width="19" height=".77"/><rect y="6.15" width="19" height=".77"/><rect y="7.69" width="19" height=".77"/><rect y="9.23" width="19" height=".77"/></g><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg>';
 
 /* ==== Người đọc tự chọn phông + cỡ chữ (ưu tiên phông đẹp tiếng Việt) ==== */
@@ -214,7 +228,7 @@ var FAV=[],FAVSET={};
 function refreshFav(){FAV=favList();FAVSET={};FAV.forEach(function(x){if(x&&x._id)FAVSET[x._id]=1;});}
 function isFav(id){return !!FAVSET[id];}
 function findItemById(id){
-  var src=[['world',DATA.worldNews],['us',DATA.usNews],['analysis',DATA.analyses],['x',DATA.xNews],['drill',drillItems()]];
+  var src=[['world',DATA.worldNews],['us',DATA.usNews],['analysis',DATA.analyses],['x',DATA.xNews],['drill',drillItems()],['dip',dipItems()]];
   for(var i=0;i<src.length;i++){var arr=src[i][1]||[];for(var j=0;j<arr.length;j++){if(idOf(arr[j])===id)return {item:arr[j],kind:src[i][0]};}}
   return null;
 }
@@ -345,14 +359,14 @@ function renderSaved(){
   var arr=FAV.slice().filter(matchQ);
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
   if(!FAV.length)return '<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này và giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
-  var cards=arr.length?arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):newsCardInner(a))),idOf(a));}).join(''):'<div class="empty">Không có tin đã lưu khớp tìm kiếm.</div>';
+  var cards=arr.length?arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):(a._kind==='dip'?drillCardInner(a,'Liên quan sự kiện'):newsCardInner(a)))),idOf(a));}).join(''):'<div class="empty">Không có tin đã lưu khớp tìm kiếm.</div>';
   return '<div class="note">Tin bạn đã lưu (trên máy này) — bấm ★ để bỏ lưu.</div>'+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
 }
-function drillCardInner(a){
-  return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>Liên quan tập trận:</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
+function drillCardInner(a,label){
+  return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>'+(label||'Liên quan tập trận')+':</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
 }
 function drillHeader(ex){
-  var pill=ex.status==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':'<span class="dpill up">◷ Sắp diễn ra</span>';
+  var pill=ex.status==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':(ex.status==='upcoming'?'<span class="dpill up">◷ Sắp diễn ra</span>':'<span class="dpill done">✓ Vừa diễn ra</span>');
   return '<div class="drill-h"><div class="drill-top">'+pill+(ex.dates?'<span class="drill-dates">'+esc(ex.dates)+'</span>':'')+'</div><div class="drill-name">'+esc(ex.name)+'</div>'+(ex.location?'<div class="drill-meta">📍 '+esc(ex.location)+'</div>':'')+(ex.scale?'<div class="drill-meta">🎖️ '+esc(ex.scale)+'</div>':'')+(ex.summary?'<div class="drill-sum">'+esc(ex.summary)+'</div>':'')+'</div>';
 }
 function renderExercises(){
@@ -371,6 +385,21 @@ function renderExercises(){
     return '<section class="drill">'+drillHeader(ex)+'<div class="list">'+cards+'</div></section>';
   }).join(''):'<div class="empty">Chưa có cuộc tập trận nào.</div>';
   return '<div class="note">Các cuộc tập trận quân sự <b>đang & sắp diễn ra</b> — mỗi mục gom tin liên quan kèm <b>nhận xét</b> tin đó liên quan tới cuộc tập trận thế nào. <b>'+live+'</b> đang diễn ra · <b>'+up+'</b> sắp diễn ra.</div>'+chips+body;
+}
+function renderDipEvents(){
+  var exs=((DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS).slice();
+  var ord={ongoing:0,recent:1,upcoming:2};
+  exs.sort(function(a,b){return (ord[a.status]==null?9:ord[a.status])-(ord[b.status]==null?9:ord[b.status]);});
+  var chips='<div class="chips"><span class="chip'+(state.dip==='Tất cả'?' on':'')+'" data-dip="Tất cả">Tất cả ('+exs.length+')</span>';
+  exs.forEach(function(e){var col=e.status==='ongoing'?'#c0392b':(e.status==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.dip===e.name?' on':'')+'" data-dip="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
+  chips+='</div>';
+  var shown=exs.filter(function(e){return state.dip==='Tất cả'||e.name===state.dip;});
+  var body=shown.length?shown.map(function(ex){
+    var items=sortD(ex.items||[]).filter(matchQ);
+    var cards=items.length?items.map(function(a){return card(drillCardInner(a,'Liên quan sự kiện'),idOf(a));}).join(''):'<div class="empty" style="padding:16px">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin liên quan.')+'</div>';
+    return '<section class="drill">'+drillHeader(ex)+'<div class="list">'+cards+'</div></section>';
+  }).join(''):'<div class="empty">Chưa có sự kiện nào.</div>';
+  return '<div class="note">Các <b>sự kiện ngoại giao</b> (thượng đỉnh, hội nghị, đàm phán…) — mỗi mục gom tin liên quan kèm <b>nhận xét</b> tin đó liên quan sự kiện thế nào.</div>'+chips+body;
 }
 function renderDossiers(){
   var pool=newsPool().filter(matchQ);
@@ -394,6 +423,7 @@ function content(){
   if(state.tab==='x')return renderX();
   if(state.tab==='analysis')return renderAnalysis();
   if(state.tab==='drills')return renderExercises();
+  if(state.tab==='dip')return renderDipEvents();
   if(state.tab==='dossier')return renderDossiers();
   if(state.tab==='saved')return renderSaved();
   return renderCatNews(DATA.worldNews,'<div class="note">Tin <b>thế giới</b> nổi bật trong <b>24 giờ qua</b> — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
@@ -401,7 +431,7 @@ function content(){
 function render(){
   refreshFav();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
-  var tabs=[['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['dossier','🧵 Hồ sơ'],['x',XLOGO+'X'],['drills','🎯 Tập trận'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
+  var tabs=[['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['dossier','🧵 Hồ sơ'],['x',XLOGO+'X'],['drills','🎯 Tập trận'],['dip','🕊️ Ngoại giao'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
@@ -415,18 +445,19 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dossier],[data-fav],[data-share],[data-copy],[data-say],[data-sx],[data-mark]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-fav],[data-share],[data-copy],[data-say],[data-sx],[data-mark]'):null;if(!t)return;
   if(t.getAttribute('data-say')!=null){var c0=t.closest('.card');if(c0){var ti=((c0.querySelector('.title')||{}).textContent||'').replace(/^\s*MỚI\s*/,'');var su=(c0.querySelector('.sum')||{}).textContent||'';speakText((ti+'. '+su).trim(),t);}return;}
   if(t.getAttribute('data-share')!=null){doShare(t.getAttribute('data-url'),t.getAttribute('data-title'));return;}
   if(t.getAttribute('data-copy')!=null){doCopy(t.getAttribute('data-url'));return;}
   if(t.getAttribute('data-mark')!=null){markRead(t.getAttribute('data-mark'));setTimeout(reContent,250);return;}
   if(t.getAttribute('data-sx')!=null){state.q='';render();return;}
   if(t.getAttribute('data-fav')!=null){toggleFav(t.getAttribute('data-fav'));render();return;}
-  if(t.getAttribute('data-tab')){if(window.speechSynthesis)speechSynthesis.cancel();state.tab=t.getAttribute('data-tab');state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dossier='Tất cả';}
+  if(t.getAttribute('data-tab')){if(window.speechSynthesis)speechSynthesis.cancel();state.tab=t.getAttribute('data-tab');state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
   else if(t.getAttribute('data-wcat'))state.wcat=t.getAttribute('data-wcat');
   else if(t.getAttribute('data-areg'))state.areg=t.getAttribute('data-areg');
   else if(t.getAttribute('data-xhandle'))state.xhandle=t.getAttribute('data-xhandle');
   else if(t.getAttribute('data-drill')!=null)state.drill=t.getAttribute('data-drill');
+  else if(t.getAttribute('data-dip')!=null)state.dip=t.getAttribute('data-dip');
   else if(t.getAttribute('data-dossier')!=null)state.dossier=t.getAttribute('data-dossier');
   render();
 });
