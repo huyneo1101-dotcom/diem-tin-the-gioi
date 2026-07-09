@@ -82,6 +82,17 @@ a{color:inherit}
 .seg{display:flex;gap:5px;margin:0 0 16px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:4px}
 .seg button{flex:1;padding:9px 6px;border:none;background:none;border-radius:7px;cursor:pointer;font-family:inherit;font-weight:700;font-size:calc(13.5px*var(--fs));color:var(--muted);white-space:nowrap}
 .seg button.on{background:var(--ink);color:var(--bg)}
+#concept-fab{position:fixed;z-index:90;background:var(--accent);color:#fff;border:none;border-radius:16px;padding:7px 13px;font-size:12.5px;font-weight:700;font-family:inherit;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.32);display:none}
+.cadd{display:flex;gap:7px;margin:0 0 14px}
+.cadd input{flex:1;min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:9px 11px;font-family:inherit;font-size:calc(13.5px*var(--fs));color:var(--ink);outline:none}
+.cadd button{border:none;background:var(--ink);color:var(--bg);border-radius:7px;padding:9px 16px;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
+.clist{display:flex;flex-direction:column;gap:10px}
+.citem{border:1px solid var(--line2);border-radius:8px;padding:11px 13px;background:var(--drill-bg)}
+.cterm{font-weight:800;font-size:calc(15px*var(--fs));color:var(--title);display:flex;align-items:center;gap:8px}
+.cx{margin-left:auto;background:none;border:none;color:var(--muted2);cursor:pointer;font-size:15px;font-family:inherit;line-height:1;padding:0 2px}
+.cx:hover{color:var(--accent)}
+.cexp{font-size:calc(13.5px*var(--fs));color:var(--sum);margin-top:6px;line-height:1.55}
+.cpend{font-style:italic;color:var(--muted2)}
 .drill-dates{font-size:calc(12px*var(--fs));color:var(--muted);font-weight:700}
 .drill-name{font-family:inherit;font-size:calc(21px*var(--fs));font-weight:800;line-height:1.25;color:var(--title);margin-bottom:5px}
 .drill-meta{font-size:calc(12.5px*var(--fs));color:var(--muted);margin-top:2px}
@@ -179,7 +190,7 @@ var DIPEVENTS=[
   {name:'Thượng đỉnh ASEAN 2026 (Philippines)',status:'upcoming',dates:'2026 · Philippines làm Chủ tịch',location:'Philippines',scale:'Philippines tiếp nhận ghế Chủ tịch ASEAN từ Malaysia · trọng tâm Biển Đông, kết nối khu vực',summary:'Philippines làm Chủ tịch luân phiên ASEAN 2026 và đăng cai các hội nghị cấp cao — đáng chú ý với Việt Nam do liên quan trực tiếp vấn đề Biển Đông và hợp tác khu vực.',items:[]}
 ];
 function dipItems(){var arr=(DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS;var out=[];arr.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
-var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',q:''};
+var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',savedSeg:'news',q:''};
 var USFLAG='<svg viewBox="0 0 19 10" width="18" height="10" style="vertical-align:-1px;margin-right:4px;border-radius:1px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)"><rect width="19" height="10" fill="#fff"/><g fill="#b22234"><rect width="19" height=".77"/><rect y="1.54" width="19" height=".77"/><rect y="3.08" width="19" height=".77"/><rect y="4.62" width="19" height=".77"/><rect y="6.15" width="19" height=".77"/><rect y="7.69" width="19" height=".77"/><rect y="9.23" width="19" height=".77"/></g><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg>';
 
 /* ==== Người đọc tự chọn phông + cỡ chữ (ưu tiên phông đẹp tiếng Việt) ==== */
@@ -290,6 +301,33 @@ function doCopy(u){if(!u)return;if(navigator.clipboard&&navigator.clipboard.writ
 /* ==== Giao diện sáng/tối ==== */
 function applyTheme(t){var dark=(t==='dark');document.documentElement.setAttribute('data-theme',dark?'dark':'light');var mc=document.querySelector('meta[name=theme-color]');if(mc)mc.setAttribute('content',dark?'#1a1712':'#f5f2ec');}
 function curTheme(){return getPref('dt.theme','light');}
+/* ==== Sổ tay khái niệm (bôi đen chữ trong tin để lưu; giải thích từ DATA.terms glossary) ==== */
+var TERMS=[
+ {term:'Hạm đội bóng tối',explain:'Đội tàu chở dầu cũ, sở hữu mờ ám mà Nga dùng để lách lệnh trừng phạt và trần giá dầu của phương Tây.'},
+ {term:'Carry-trade',explain:'Chiến lược vay đồng tiền lãi suất thấp (như yen Nhật) để đầu tư vào tài sản lợi suất cao hơn; khi đồng vay tăng giá, nhà đầu tư đảo chiều gây biến động toàn cầu.'},
+ {term:'USMCA',explain:'Hiệp định Thương mại Mỹ - Mexico - Canada (thay cho NAFTA), khung thương mại tự do của Bắc Mỹ.'},
+ {term:'Bộ Quy tắc Hague',explain:'Bộ Quy tắc Ứng xử Hague (HCoC) về chống phổ biến tên lửa đạn đạo, khuyến nghị thông báo trước các vụ phóng thử.'},
+ {term:'Chiến thuật vùng xám',explain:'Các hành động cưỡng ép dưới ngưỡng chiến tranh (dân quân biển, tàu hải cảnh, gây sức ép…) nhằm đạt mục tiêu mà không xung đột vũ trang công khai.'},
+ {term:'Phi đô la hóa',explain:'Xu hướng các nước giảm dùng và dự trữ USD, chuyển sang vàng hoặc đồng tiền khác để bớt phụ thuộc và giảm rủi ro bị trừng phạt.'},
+ {term:'S-400',explain:'Hệ thống tên lửa phòng không tầm xa của Nga, có thể đánh chặn máy bay, tên lửa hành trình và tên lửa đạn đạo.'},
+ {term:'MQ-9',explain:'MQ-9 Reaper — máy bay không người lái vũ trang tầm xa của Mỹ, dùng cho trinh sát và tấn công.'},
+ {term:'SLBM',explain:'Tên lửa đạn đạo phóng từ tàu ngầm — trụ cột khó bị đánh phủ đầu trong bộ ba răn đe hạt nhân.'},
+ {term:'Eo biển Hormuz',explain:'Eo biển hẹp giữa Iran và Oman, tuyến vận chuyển khoảng 1/5 lượng dầu thế giới; điểm nghẽn năng lượng chiến lược.'},
+ {term:'Chuỗi đảo thứ nhất',explain:'Tuyến đảo Nhật - Đài Loan - Philippines dùng để kiềm chế hải quân Trung Quốc vươn ra Thái Bình Dương.'}
+];
+function glossary(){return (DATA.terms&&DATA.terms.length)?DATA.terms:TERMS;}
+function explainTerm(t){var n=norm(t);if(!n)return null;var g=glossary();var hit=g.find(function(e){var tn=norm(e.term);return tn&&(tn===n||n.indexOf(tn)>=0||(tn.length>=5&&tn.indexOf(n)>=0));});return hit?hit.explain:null;}
+function conceptList(){return jget('dt.concepts');}
+function addConcept(t){t=(t||'').trim().replace(/\s+/g,' ');if(t.length<2)return;if(t.length>90)t=t.slice(0,90);var a=conceptList();var n=norm(t);if(a.some(function(x){return norm(x)===n;})){toast('Khái niệm đã có trong sổ tay');return;}a.unshift(t);if(a.length>200)a=a.slice(0,200);jset('dt.concepts',a);toast('Đã lưu khái niệm: '+t);}
+function removeConcept(t){jset('dt.concepts',conceptList().filter(function(x){return x!==t;}));}
+function renderConcepts(){
+  var cs=conceptList();
+  var h='<div class="note">📚 <b>Sổ tay khái niệm</b> — bôi đen một thuật ngữ trong <b>tóm tắt</b> hoặc <b>ý nghĩa</b> của tin rồi bấm nút "Lưu khái niệm" hiện lên; hoặc gõ tay bên dưới. Giải thích do bản cập nhật hằng ngày bổ sung.</div>';
+  h+='<div class="cadd"><input id="cnew" placeholder="Gõ một khái niệm để lưu…" autocomplete="off"><button data-caddbtn="1">Thêm</button></div>';
+  if(!cs.length)return h+'<div class="empty">Chưa lưu khái niệm nào.</div>';
+  h+='<div class="clist">'+cs.map(function(t){var ex=explainTerm(t);return '<div class="citem"><div class="cterm">'+esc(t)+'<button class="cx" data-crm="'+esc(t)+'" title="Bỏ khái niệm">✕</button></div>'+(ex?'<div class="cexp">'+esc(ex)+'</div>':'<div class="cexp cpend">Chưa có giải thích — sẽ được bổ sung trong bản cập nhật hằng ngày.</div>')+'</div>';}).join('')+'</div>';
+  return h;
+}
 function card(inner,id){return '<div class="card'+(isRead(id)?' read':'')+'">'+inner+'</div>';}
 function opBadge(){return '<span class="badge" style="color:#b5852a"><i class="dot" style="background:#b5852a"></i>💬 Bình luận</span>';}
 function newsCardInner(a){var m=wmeta(a.category);
@@ -356,11 +394,14 @@ function renderAnalysis(){
   return '<div class="note">Phân tích, báo cáo chiến lược từ các viện nghiên cứu (think tank) uy tín.</div>'+searchInfo(items.length)+chips+dateBar(arr,state.adate,'data-adate')+'<div class="list">'+cards+'</div>';
 }
 function renderSaved(){
+  var nc=conceptList().length;
+  var seg='<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
+  if(state.savedSeg==='concepts')return seg+renderConcepts();
   var arr=FAV.slice().filter(matchQ);
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
-  if(!FAV.length)return '<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này và giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
+  if(!FAV.length)return seg+'<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này và giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
   var cards=arr.length?arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):(a._kind==='dip'?drillCardInner(a,'Liên quan sự kiện'):newsCardInner(a)))),idOf(a));}).join(''):'<div class="empty">Không có tin đã lưu khớp tìm kiếm.</div>';
-  return '<div class="note">Tin bạn đã lưu (trên máy này) — bấm ★ để bỏ lưu.</div>'+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
+  return seg+'<div class="note">Tin bạn đã lưu (trên máy này) — bấm ★ để bỏ lưu.</div>'+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
 }
 function drillCardInner(a,label){
   return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>'+(label||'Liên quan tập trận')+':</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
@@ -449,7 +490,10 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-fav],[data-share],[data-copy],[data-sx],[data-mark]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-share],[data-copy],[data-sx],[data-mark]'):null;if(!t)return;
+  if(t.getAttribute('data-caddbtn')!=null){var ci=document.getElementById('cnew');if(ci){addConcept(ci.value);ci.value='';reContent();}return;}
+  if(t.getAttribute('data-crm')!=null){removeConcept(t.getAttribute('data-crm'));reContent();return;}
+  if(t.getAttribute('data-savedseg')!=null){state.savedSeg=t.getAttribute('data-savedseg');render();return;}
   if(t.getAttribute('data-share')!=null){doShare(t.getAttribute('data-url'),t.getAttribute('data-title'));return;}
   if(t.getAttribute('data-copy')!=null){doCopy(t.getAttribute('data-url'));return;}
   if(t.getAttribute('data-mark')!=null){markRead(t.getAttribute('data-mark'));setTimeout(reContent,250);return;}
@@ -482,6 +526,29 @@ applyTheme(curTheme());
 ensureReaderUI();
 render();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+/* ==== Bôi đen chữ trong tin → nút "Lưu khái niệm" ==== */
+function cFab(){var f=document.getElementById('concept-fab');if(!f){f=document.createElement('button');f.id='concept-fab';f.type='button';f.textContent='★ Lưu khái niệm';document.body.appendChild(f);
+  f.addEventListener('mousedown',function(e){e.preventDefault();});
+  f.addEventListener('click',function(e){e.stopPropagation();addConcept(f._t||'');f.style.display='none';var s=window.getSelection&&window.getSelection();if(s)s.removeAllRanges();if(state.tab==='saved'&&state.savedSeg==='concepts')reContent();});}
+  return f;}
+function onSel(){
+  var f=document.getElementById('concept-fab');
+  var s=window.getSelection?window.getSelection():null;
+  var txt=s&&s.rangeCount?(''+s).trim():'';
+  var node=s&&s.anchorNode; node=node&&node.nodeType===3?node.parentNode:node;
+  var host=node&&node.closest?node.closest('.sum,.take,.title,.relate,.drill-sum,.cexp'):null;
+  if(host&&host.closest('.cexp'))host=null; // đừng lưu từ chính phần giải thích
+  if(txt&&txt.length>=2&&txt.length<=90&&host){
+    f=cFab();f._t=txt;
+    var r=s.getRangeAt(0).getBoundingClientRect();
+    var x=Math.max(8,Math.min(r.left,window.innerWidth-150)),y=r.top-42;
+    if(y<6)y=r.bottom+8;
+    f.style.left=x+'px';f.style.top=y+'px';f.style.display='block';
+  }else if(f){f.style.display='none';}
+}
+document.addEventListener('mouseup',function(){setTimeout(onSel,10);});
+document.addEventListener('touchend',function(){setTimeout(onSel,10);});
+window.addEventListener('scroll',function(){var f=document.getElementById('concept-fab');if(f&&f.style.display==='block')f.style.display='none';});
 </script>
 </body>
 </html>
