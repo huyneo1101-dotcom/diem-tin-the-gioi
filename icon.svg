@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<rect width="512" height="512" fill="#b3282d"/>
-<text x="256" y="360" font-size="300" font-family="Georgia,'Times New Roman',serif" font-weight="bold" text-anchor="middle" fill="#ffffff">Đ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<rect x="2" y="2" width="96" height="96" rx="24" fill="#b3282d"/>
+<path d="M35 22h30a4 4 0 0 1 4 4v52l-19-13-19 13V26a4 4 0 0 1 4-4z" fill="#f5f2ec"/>
+<text x="50" y="52" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="26" text-anchor="middle" fill="#b3282d">Đ</text>
 </svg>
