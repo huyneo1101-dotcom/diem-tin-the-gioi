@@ -58,6 +58,7 @@ a{color:inherit}
 .title{font-family:inherit;font-size:calc(19px*var(--fs));font-weight:700;line-height:1.35;margin-bottom:6px;color:var(--title)}
 .sum{font-size:calc(14px*var(--fs));color:var(--sum)}
 .take{font-size:calc(13.5px*var(--fs));color:var(--ink);background:var(--soft);border-radius:2px;padding:8px 11px;margin:7px 0}
+.take b{color:var(--accent)}
 .foot{margin-top:9px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .meta{font-size:calc(12px*var(--fs));color:var(--muted2)}
 .src{font-size:calc(12.5px*var(--fs));color:var(--accent);text-decoration:none;font-weight:700}
@@ -65,8 +66,10 @@ a{color:inherit}
 .favb{margin-left:auto;background:none;border:none;cursor:pointer;font-size:calc(18px*var(--fs));line-height:1;color:var(--star);padding:0 2px;font-family:inherit}
 .favb:hover{color:var(--star-on)}
 .favb.on{color:var(--star-on)}
-.filterbar{display:flex;align-items:center;gap:8px;margin:-2px 0 14px}
-.filterbar span{font-size:calc(11px*var(--fs));color:var(--muted2);text-transform:uppercase;letter-spacing:1px}
+.filterbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px 18px;margin:-2px 0 14px}
+.fg{display:inline-flex;align-items:center;gap:6px}
+.filterbar .fg>span{font-size:calc(11px*var(--fs));color:var(--muted2);text-transform:uppercase;letter-spacing:1px;white-space:nowrap}
+.filterbar>span{font-size:calc(11px*var(--fs));color:var(--muted2);text-transform:uppercase;letter-spacing:1px}
 .dsel{font-family:inherit;font-size:calc(13px*var(--fs));padding:6px 9px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--ink);cursor:pointer}
 .empty{color:var(--muted2);text-align:center;padding:34px;font-style:italic;font-size:calc(14px*var(--fs))}
 /* ==== Tab Tập trận ==== */
@@ -118,11 +121,10 @@ a{color:inherit}
 .newb{display:inline-block;font-size:calc(9.5px*var(--fs));font-weight:800;letter-spacing:.5px;background:var(--accent);color:#fff;border-radius:3px;padding:1px 6px;margin-right:6px;vertical-align:1px}
 .foot-act{margin-left:auto;display:inline-flex;align-items:center;gap:9px}
 .foot-act .favb{margin-left:0}
-.shareb,.copyb,.sayb{background:none;border:none;cursor:pointer;color:var(--muted2);padding:2px;line-height:0;display:inline-flex;align-items:center;border-radius:5px}
-.shareb svg,.copyb svg,.sayb svg{display:block}
-.shareb:active,.copyb:active,.sayb:active{transform:scale(.9)}
-.shareb:hover,.copyb:hover,.sayb:hover{color:var(--accent)}
-.sayb.on{color:var(--accent)}
+.shareb,.copyb{background:none;border:none;cursor:pointer;color:var(--muted2);padding:2px;line-height:0;display:inline-flex;align-items:center;border-radius:5px}
+.shareb svg,.copyb svg{display:block}
+.shareb:active,.copyb:active{transform:scale(.9)}
+.shareb:hover,.copyb:hover{color:var(--accent)}
 #toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%) translateY(18px);z-index:80;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:14px;font-family:inherit;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;transition:.25s;pointer-events:none;max-width:90vw;text-align:center}
 #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .rp-themes{display:flex;gap:6px}
@@ -171,7 +173,11 @@ var DIPEVENTS=[
     {date:'2026-07-06',title:'Hãy biến Thượng đỉnh Ankara thành chuyện tự chủ quốc phòng châu Âu',summary:'Phân tích CSIS kêu gọi thành viên châu Âu dùng thượng đỉnh Ankara để chuẩn bị cho kịch bản Mỹ giảm hậu thuẫn, bằng kế hoạch phòng thủ lục địa tự chủ.',sourceName:'CSIS · phân tích',sourceUrl:'https://www.csis.org/analysis/make-ankara-summit-about-european-defense-autonomy',relate:'Góc phân tích chiến lược: định hướng thượng đỉnh vào tự chủ quốc phòng châu Âu trước rủi ro Mỹ rút lui.'},
     {date:'2026-07-08',title:"Hàn Quốc đề xuất 'Đối tác công nghiệp quốc phòng NATO 2.0'",summary:'Seoul đưa sáng kiến thúc đẩy hợp tác sản xuất vũ khí và mở rộng vai trò trong chuỗi cung ứng quốc phòng phương Tây.',sourceName:'Báo Mới',sourceUrl:'https://baomoi.com/han-quoc-de-xuat-doi-tac-cong-nghiep-quoc-phong-nato-2-0-c55574217.epi',relate:'Sáng kiến gắn với trọng tâm công nghiệp quốc phòng của thượng đỉnh, mở rộng sang đối tác Ấn Độ Dương–Thái Bình Dương.'},
     {date:'2026-07-02',title:"Trước thềm thượng đỉnh NATO, châu Âu tái vũ trang chống một 'nước Nga bóng ma'?",summary:'Nhiều nước châu Âu tăng mạnh chi quân sự dựa trên giả định Nga có thể tấn công NATO, dù kinh tế Nga trì trệ vì chiến tranh Ukraine.',sourceName:'The Nation',sourceUrl:'https://www.thenation.com/article/world/europe-russia-nato-rearmament-putin-military-spending-far-right-ukraine-war-analysis/',relate:'Bối cảnh trước thượng đỉnh — làn sóng tái vũ trang châu Âu tạo nền cho chương trình nghị sự Ankara.'}
-  ]}
+  ]},
+  {name:'Khóa họp Đại hội đồng LHQ lần 81 (UNGA 81)',status:'upcoming',dates:'Tháng 9/2026',location:'New York, Hoa Kỳ (trụ sở LHQ)',scale:'Phiên thảo luận chung cấp cao · lãnh đạo ~190 nước · nhiều cuộc gặp song phương bên lề',summary:'Tuần lễ cấp cao của Đại hội đồng Liên Hợp Quốc — diễn đàn ngoại giao đa phương lớn nhất năm, nơi lãnh đạo thế giới phát biểu và gặp gỡ song phương bên lề.',items:[]},
+  {name:'Thượng đỉnh G20 2026 (Miami, Mỹ)',status:'upcoming',dates:'Dự kiến cuối 2026',location:'Miami, Hoa Kỳ',scale:'Mỹ đăng cai · trọng tâm (theo Nhà Trắng): giảm rào cản quản lý, chuỗi cung ứng năng lượng, công nghệ–đổi mới',summary:'Kỳ thượng đỉnh G20 do Mỹ chủ nhà, dự kiến tổ chức tại Miami. Đáng chú ý vì đường hướng "Nước Mỹ trên hết" của chính quyền Trump có thể định hình lại chương trình nghị sự kinh tế toàn cầu.',items:[]},
+  {name:'Thượng đỉnh BRICS 2026 (Ấn Độ)',status:'upcoming',dates:'2026 · Ấn Độ đăng cai',location:'Ấn Độ',scale:'Ấn Độ giữ ghế Chủ tịch luân phiên · định hướng "Building Resilience and Innovation for Cooperation and Sustainability"',summary:'Ấn Độ đảm nhận Chủ tịch BRICS 2026 và đăng cai thượng đỉnh, giữa lúc khối mở rộng thành viên và chịu sức ép từ chính sách thương mại của Mỹ.',items:[]},
+  {name:'Thượng đỉnh ASEAN 2026 (Philippines)',status:'upcoming',dates:'2026 · Philippines làm Chủ tịch',location:'Philippines',scale:'Philippines tiếp nhận ghế Chủ tịch ASEAN từ Malaysia · trọng tâm Biển Đông, kết nối khu vực',summary:'Philippines làm Chủ tịch luân phiên ASEAN 2026 và đăng cai các hội nghị cấp cao — đáng chú ý với Việt Nam do liên quan trực tiếp vấn đề Biển Đông và hợp tác khu vực.',items:[]}
 ];
 function dipItems(){var arr=(DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS;var out=[];arr.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
 var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',q:''};
@@ -278,21 +284,7 @@ function commitSeen(){var store=jget('dt.seen'),set={};store.forEach(function(id
 /* ==== Chia sẻ + Telegram + toast ==== */
 var SVG_SHARE='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M8 6.5 12 2.5 16 6.5"/><path d="M5 11v8h14v-8"/></svg>';
 var SVG_COPY='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>';
-var SVG_PLAY='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M4 9v6h4l5 5V4L8 9H4z"/><path d="M16.5 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
-var SVG_STOP='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
-function speakText(text,btn){
-  if(!('speechSynthesis' in window)){toast('Trình duyệt không hỗ trợ đọc');return;}
-  var synth=window.speechSynthesis;var wasOn=btn.classList.contains('on');
-  synth.cancel();
-  [].forEach.call(document.querySelectorAll('.sayb.on'),function(b){b.classList.remove('on');b.innerHTML=SVG_PLAY;});
-  if(wasOn||!text)return;
-  var u=new SpeechSynthesisUtterance(text);u.lang='vi-VN';u.rate=1;
-  try{var vs=synth.getVoices()||[];var vi=vs.filter(function(v){return /vi[-_]?vn/i.test(v.lang)||/vietnam/i.test(v.name);})[0];if(vi)u.voice=vi;}catch(e){}
-  u.onend=function(){btn.classList.remove('on');btn.innerHTML=SVG_PLAY;};
-  u.onerror=u.onend;
-  btn.classList.add('on');btn.innerHTML=SVG_STOP;synth.speak(u);
-}
-function actions(a){var u=a.sourceUrl||a.url||'',t=a.title||a.text||'';var d='data-url="'+esc(u)+'" data-title="'+esc(t)+'"';var say='<button class="sayb" data-say="1" title="Nghe bản tin" aria-label="Nghe bản tin">'+SVG_PLAY+'</button>';var sh=u?'<button class="shareb" data-share="1" '+d+' title="Chia sẻ" aria-label="Chia sẻ">'+SVG_SHARE+'</button><button class="copyb" data-copy="1" '+d+' title="Sao chép liên kết" aria-label="Sao chép liên kết">'+SVG_COPY+'</button>':'';return '<span class="foot-act">'+say+sh+favBtn(a)+'</span>';}
+function actions(a){var u=a.sourceUrl||a.url||'',t=a.title||a.text||'';var d='data-url="'+esc(u)+'" data-title="'+esc(t)+'"';var sh=u?'<button class="shareb" data-share="1" '+d+' title="Chia sẻ" aria-label="Chia sẻ">'+SVG_SHARE+'</button><button class="copyb" data-copy="1" '+d+' title="Sao chép liên kết" aria-label="Sao chép liên kết">'+SVG_COPY+'</button>':'';return '<span class="foot-act">'+sh+favBtn(a)+'</span>';}
 function toast(msg){var el=document.getElementById('toast');if(!el){el=document.createElement('div');el.id='toast';document.body.appendChild(el);}el.textContent=msg;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on');},2200);}
 function doShare(u,t){if(!u)return;if(navigator.share){navigator.share({title:t||document.title,url:u}).catch(function(){});}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){toast('Đã sao chép liên kết');},function(){toast(u);});}else{toast(u);}}
 function doCopy(u){if(!u)return;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){toast('Đã sao chép liên kết');},function(){toast(u);});}else{try{var ta=document.createElement('textarea');ta.value=u;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('Đã sao chép liên kết');}catch(e){toast(u);}}}
@@ -302,7 +294,7 @@ function curTheme(){return getPref('dt.theme','light');}
 function card(inner,id){return '<div class="card'+(isRead(id)?' read':'')+'">'+inner+'</div>';}
 function opBadge(){return '<span class="badge" style="color:#b5852a"><i class="dot" style="background:#b5852a"></i>💬 Bình luận</span>';}
 function newsCardInner(a){var m=wmeta(a.category);
-  return '<div class="crow">'+(a.opinion?opBadge():'')+'<span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.significance?'<div class="take">'+esc(a.significance)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
+  return '<div class="crow">'+(a.opinion?opBadge():'')+'<span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.significance?'<div class="take"><b>Ý nghĩa:</b> '+esc(a.significance)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
 }
 function analysisCardInner(a){
   return '<div class="crow"><span class="badge" style="color:#b5852a"><i class="dot" style="background:#b5852a"></i>'+esc(a.topic||'Phân tích')+'</span>'+(a.region?'<span class="date">'+esc(a.region)+'</span>':'')+'</div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.takeaway?'<div class="take">'+esc(a.takeaway)+'</div>':'')+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.outlet||'')+(a.author?' · '+esc(a.author):'')+(a.date?' · '+fmtVN(a.date):'')+'</span>'+srcLink(a)+actions(a)+'</div>';
@@ -338,16 +330,21 @@ function renderCatNews(arr, note){
   cats.forEach(function(c){var m=wmeta(c);chips+='<span class="chip'+(state.wcat===c?' on':'')+'" data-wcat="'+esc(c)+'"><i class="dot" style="background:'+m[1]+'"></i>'+m[0]+' '+esc(c)+' ('+arr.filter(function(a){return a.category===c;}).length+')</span>';});
   chips+='</div>';
   var cards=items.length?items.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Không có tin khớp bộ lọc.')+'</div>';
-  return note+searchInfo(items.length)+chips+regionBar(arr)+dateBar(arr,state.wdate,'data-wdate')+'<div class="list">'+cards+'</div>';
+  return note+searchInfo(items.length)+chips+catFilters(arr)+'<div class="list">'+cards+'</div>';
 }
 function searchInfo(n){return state.q?'<div class="searchinfo">Kết quả cho “'+esc(state.q)+'”: <b>'+n+'</b> tin.</div>':'';}
-function regionBar(arr){
+function catFilters(arr){
+  var out='';
   var rs=[];arr.forEach(function(a){var r=regionOf(a);if(r!=='Khác'&&rs.indexOf(r)<0)rs.push(r);});
-  if(!rs.length)return '';
-  var ord=REGIONS.map(function(x){return x[0];});rs.sort(function(a,b){return ord.indexOf(a)-ord.indexOf(b);});
-  var o='<option value="Tất cả"'+(state.wregion==='Tất cả'?' selected':'')+'>Mọi khu vực</option>';
-  rs.forEach(function(r){o+='<option value="'+esc(r)+'"'+(state.wregion===r?' selected':'')+'>'+esc(r)+' ('+arr.filter(function(a){return regionOf(a)===r;}).length+')</option>';});
-  return '<div class="filterbar"><span>🌍 Khu vực</span><select class="dsel" data-wregion>'+o+'</select></div>';
+  if(rs.length){var ord=REGIONS.map(function(x){return x[0];});rs.sort(function(a,b){return ord.indexOf(a)-ord.indexOf(b);});
+    var o='<option value="Tất cả"'+(state.wregion==='Tất cả'?' selected':'')+'>Mọi khu vực</option>';
+    rs.forEach(function(r){o+='<option value="'+esc(r)+'"'+(state.wregion===r?' selected':'')+'>'+esc(r)+' ('+arr.filter(function(a){return regionOf(a)===r;}).length+')</option>';});
+    out+='<span class="fg"><span>🌍 Khu vực</span><select class="dsel" data-wregion>'+o+'</select></span>';}
+  var ds=[];arr.forEach(function(a){if(a.date&&ds.indexOf(a.date)<0)ds.push(a.date);});ds.sort();ds.reverse();
+  if(ds.length>=2){var d='<option value="Tất cả"'+(state.wdate==='Tất cả'?' selected':'')+'>Tất cả ngày</option>';
+    ds.forEach(function(x){d+='<option value="'+esc(x)+'"'+(state.wdate===x?' selected':'')+'>'+fmtVN(x)+'</option>';});
+    out+='<span class="fg"><span>📅 Lọc ngày</span><select class="dsel" data-wdate>'+d+'</select></span>';}
+  return out?'<div class="filterbar">'+out+'</div>':'';
 }
 function renderAnalysis(){
   var arr=sortD(DATA.analyses);
@@ -453,15 +450,14 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-fav],[data-share],[data-copy],[data-say],[data-sx],[data-mark]'):null;if(!t)return;
-  if(t.getAttribute('data-say')!=null){var c0=t.closest('.card');if(c0){var ti=((c0.querySelector('.title')||{}).textContent||'').replace(/^\s*MỚI\s*/,'');var su=(c0.querySelector('.sum')||{}).textContent||'';speakText((ti+'. '+su).trim(),t);}return;}
+  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-fav],[data-share],[data-copy],[data-sx],[data-mark]'):null;if(!t)return;
   if(t.getAttribute('data-share')!=null){doShare(t.getAttribute('data-url'),t.getAttribute('data-title'));return;}
   if(t.getAttribute('data-copy')!=null){doCopy(t.getAttribute('data-url'));return;}
   if(t.getAttribute('data-mark')!=null){markRead(t.getAttribute('data-mark'));setTimeout(reContent,250);return;}
   if(t.getAttribute('data-sx')!=null){state.q='';render();return;}
   if(t.getAttribute('data-fav')!=null){toggleFav(t.getAttribute('data-fav'));render();return;}
   if(t.getAttribute('data-topicseg')!=null){state.topicSeg=t.getAttribute('data-topicseg');state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';render();return;}
-  if(t.getAttribute('data-tab')){if(window.speechSynthesis)speechSynthesis.cancel();state.tab=t.getAttribute('data-tab');state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
+  if(t.getAttribute('data-tab')){state.tab=t.getAttribute('data-tab');state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
   else if(t.getAttribute('data-wcat'))state.wcat=t.getAttribute('data-wcat');
   else if(t.getAttribute('data-areg'))state.areg=t.getAttribute('data-areg');
   else if(t.getAttribute('data-xhandle'))state.xhandle=t.getAttribute('data-xhandle');
