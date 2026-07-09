@@ -53,6 +53,22 @@ a{color:inherit}
 .filterbar span{font-size:calc(11px*var(--fs));color:#8a8378;text-transform:uppercase;letter-spacing:1px}
 .dsel{font-family:inherit;font-size:calc(13px*var(--fs));padding:6px 9px;border:1px solid #d8d2c6;border-radius:3px;background:#fff;color:#1b1b1b;cursor:pointer}
 .empty{color:#8a8378;text-align:center;padding:34px;font-style:italic;font-size:calc(14px*var(--fs))}
+/* ==== Tab Tập trận ==== */
+.drill{margin-bottom:24px;border:1px solid #ded8cc;border-radius:7px;overflow:hidden;background:#fbfaf7}
+.drill-h{padding:14px 14px 12px;background:#efeae0;border-bottom:1px solid #ded8cc}
+.drill-top{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:6px}
+.dpill{font-size:calc(10.5px*var(--fs));font-weight:800;text-transform:uppercase;letter-spacing:.6px;padding:3px 10px;border-radius:20px}
+.dpill.live{background:#c0392b;color:#fff}
+.dpill.up{background:#2b5f9e;color:#fff}
+.drill-dates{font-size:calc(12px*var(--fs));color:#6b6459;font-weight:700}
+.drill-name{font-family:inherit;font-size:calc(21px*var(--fs));font-weight:800;line-height:1.25;color:#141414;margin-bottom:5px}
+.drill-meta{font-size:calc(12.5px*var(--fs));color:#6b6459;margin-top:2px}
+.drill-sum{font-size:calc(13.5px*var(--fs));color:#3a352e;margin-top:8px;line-height:1.5}
+.drill .list{padding:0 14px 4px}
+.drill .card{padding:14px 0}
+.drill .card:last-child{border-bottom:none}
+.relate{font-size:calc(13px*var(--fs));color:#1b1b1b;background:#eef3ee;border-left:3px solid #1f8a54;border-radius:2px;padding:8px 11px;margin:8px 0 2px;line-height:1.5}
+.relate b{color:#1f8a54}
 .pgfoot{margin-top:30px;padding-top:16px;border-top:3px double #1b1b1b;font-size:calc(11.5px*var(--fs));color:#8a8378;text-align:center;line-height:1.8}
 /* Bảng chọn phông & cỡ chữ cho người đọc */
 #reader-fab{position:fixed;right:16px;bottom:16px;z-index:60;width:48px;height:48px;border-radius:50%;background:#1b1b1b;color:#fff;border:none;font-size:19px;font-weight:800;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.28);font-family:'Times New Roman',Times,serif}
@@ -84,6 +100,23 @@ function wmeta(c){return WMETA[c]||['🌍','#6b6459'];}
 var RCOLOR={'Ấn Độ Dương - Thái Bình Dương':'#1f8a54','Châu Âu/NATO':'#2b5f9e','Trung Đông':'#c98a2e','Đông Á':'#c0392b','Nam Á':'#7a4fb0','Châu Phi':'#2f9e6b','Châu Mỹ':'#4a5fb0','Bắc Cực':'#3a8fb8','Toàn cầu':'#6b6459'};
 function rcolor(r){return RCOLOR[r]||'#6b6459';}
 var CATMETA={'Không quân':'✈️','Hải quân':'⚓','Lục quân':'🪖','Drone/UAV':'🛩️','Siêu thanh':'🚀','Vũ trụ':'🛰️','AI/Tự hành':'🤖','Tên lửa/Phòng thủ':'🎯','Năng lượng định hướng':'⚡'};
+/* ==== Tập trận (seed dự phòng — daily task có thể ghi đè bằng DATA.exercises) ==== */
+var EXERCISES=[
+  {name:'RIMPAC 2026 (Vành đai Thái Bình Dương)',status:'ongoing',dates:'24/6 – 31/7/2026',location:'Quần đảo Hawaii & Đông Thái Bình Dương',scale:'31 nước · ~30 tàu mặt nước · 5 tàu ngầm · ~197 máy bay · 30.000 quân · kỳ hạm USS Theodore Roosevelt',summary:'Tập trận hải quân đa quốc gia lớn nhất thế giới, kỳ thứ 30, do Hạm đội Thái Bình Dương của Mỹ dẫn dắt. Trọng tâm năm nay: khả năng phối hợp giữa đồng minh–đối tác và đối phó chiến thuật vùng xám, bảo vệ Chuỗi đảo thứ nhất (Nhật–Đài Loan–Philippines).',items:[
+    {date:'2026-07-05',title:"Giải mã cuộc tập trận 'khủng' đang diễn ra ở Thái Bình Dương",summary:'Bài phân tích quy mô, thành phần và mục tiêu của RIMPAC 2026.',sourceName:'Thanh Niên',sourceUrl:'https://thanhnien.vn/giai-ma-cuoc-tap-tran-khung-dang-dien-ra-o-thai-binh-duong-185260705183313573.htm',relate:'Làm rõ khung tổng thể của RIMPAC 2026 — trọng tâm đối phó chiến thuật vùng xám của Trung Quốc và bảo vệ Chuỗi đảo thứ nhất; đặt nền cho toàn bộ các tin còn lại trong mục này.'},
+    {date:'2026-07-07',title:'Philippines lần đầu cử cả cảnh sát biển tham gia RIMPAC',summary:'Manila cử khinh hạm BRP Miguel Malvar cùng tàu tuần tra cảnh sát biển BRP Gabriela Silang.',sourceName:'Manila Bulletin',sourceUrl:'https://mb.com.ph/2026/07/07/us-philippines-among-key-partners-in-full-scale-rimpac-drills',relate:'Lần đầu Philippines cử cả cảnh sát biển bên cạnh hải quân — dấu hiệu Manila nâng mức tham gia và gắn RIMPAC trực tiếp với căng thẳng ở Biển Đông.'},
+    {date:'2026-07-06',title:'Trung Quốc thử tên lửa từ tàu ngầm, khởi động tập trận với Nga giữa lúc RIMPAC diễn ra',summary:'Bắc Kinh phóng thử tên lửa đạn đạo từ tàu ngầm ở Thái Bình Dương và mở tập trận Joint Sea-2026 với Nga cùng thời điểm.',sourceName:'USNI News',sourceUrl:'https://news.usni.org/2026/07/06/china-tests-submarine-launched-ballistic-missile-kicks-off-annual-exercise-with-russia',relate:'Phản ứng đáp trả của Trung Quốc ngay khi RIMPAC diễn ra — cho thấy tập trận đang đẩy cạnh tranh nước lớn ở Thái Bình Dương nóng lên; liên hệ trực tiếp tới mục Joint Sea-2026 bên dưới.'}
+  ]},
+  {name:'Joint Sea-2026 (Hải quân Liên hợp) — Trung–Nga',status:'ongoing',dates:'6/7 – 13/7/2026',location:'Hoàng Hải, ngoài khơi Thanh Đảo (Trung Quốc)',scale:'Hải quân Trung Quốc & Nga · kỳ hạm Nga: tuần dương hạm Varyag · sau tập trận sẽ tuần tra chung ở Thái Bình Dương',summary:'Tập trận hải quân thường niên Trung–Nga, năm nay được mô tả "thiên về thực chiến" hơn: trinh sát, phòng không–phòng thủ tên lửa, chống ngầm, đánh tàu mặt nước, bắn pháo và tìm kiếm cứu nạn chung.',items:[
+    {date:'2026-07-07',title:'Trung Quốc và Nga khởi động tập trận Joint Sea-2026 tại Hoàng Hải',summary:'Tập trận khai mạc tại quân cảng Thanh Đảo, kéo dài đến 13/7.',sourceName:'CGTN',sourceUrl:'https://news.cgtn.com/news/2026-07-07/China-Russia-Joint-Sea-2026-joint-exercise-kicks-off-1Oz4fEx66KA/p.html',relate:'Tin khai mạc — xác định thời gian, địa điểm và thành phần lực lượng của cuộc tập trận, cơ sở để theo dõi các diễn biến tiếp theo.'},
+    {date:'2026-07-07',title:'Joint Sea-2026 mang tính thực chiến cao hơn, kèm tuần tra chung ở Thái Bình Dương',summary:'Truyền thông nhà nước nhấn mạnh nội dung sát thực chiến và kế hoạch tuần tra biển chung sau tập trận.',sourceName:'Global Times',sourceUrl:'https://www.globaltimes.cn/page/202607/1365305.shtml',relate:'Cho thấy mức độ mở rộng hợp tác hải quân chiến lược Trung–Nga: không dừng ở tập trận mà nối tiếp bằng tuần tra chung ở Thái Bình Dương — đối trọng rõ với RIMPAC.'}
+  ]},
+  {name:'Pitch Black 2026 (Úc)',status:'upcoming',dates:'20/7 – 7/8/2026',location:'Bắc Úc — căn cứ RAAF Darwin, Tindal & Amberley',scale:'>100 máy bay · 19 nước (có Nhật, Hàn, Ấn Độ, Philippines, Singapore, Thái Lan, Pháp, Anh, Mỹ…)',summary:'Tập trận không quân lớn nhất của Úc, tổ chức 2 năm/lần. Các kịch bản không chiến phức tạp tăng dần trong 3 tuần nhằm nâng khả năng phối hợp giữa không quân Úc và đối tác khu vực–toàn cầu.',items:[
+    {date:'2026-06-15',title:'Pitch Black trở lại vùng Top End: lịch 20/7–7/8, 19 nước tham gia',summary:'Bộ Quốc phòng Úc xác nhận lịch và danh sách quốc gia tham gia Pitch Black 2026.',sourceName:'Bộ Quốc phòng Úc',sourceUrl:'https://www.defence.gov.au/news-events/releases/2026-06-15/exercise-pitch-black-returns-top-end',relate:'Thông báo chính thức chốt khung thời gian và quy mô — mốc để tính "sắp diễn ra" và theo dõi các nước cử lực lượng.'},
+    {date:'2026-05-07',title:'Không quân Hoàng gia Úc công bố Pitch Black cho tháng 7–8/2026',summary:'Xác nhận hơn 100 máy bay và 19 quốc gia đối tác tham gia.',sourceName:'AeroTime',sourceUrl:'https://www.aerotime.aero/articles/royal-australian-air-force-announces-exercise-pitch-black-for-july-august-2026',relate:'Xác nhận quy mô >100 máy bay và mức độ quốc tế hoá — nhiều đối tác Đông Nam Á (Philippines, Singapore, Thái Lan) tham gia, đáng chú ý với Việt Nam về xu hướng khu vực.'}
+  ]}
+];
+function drillItems(){var exs=(DATA.exercises&&DATA.exercises.length)?DATA.exercises:EXERCISES;var out=[];exs.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
 var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả'};
 var USFLAG='<svg viewBox="0 0 19 10" width="18" height="10" style="vertical-align:-1px;margin-right:4px;border-radius:1px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)"><rect width="19" height="10" fill="#fff"/><g fill="#b22234"><rect width="19" height=".77"/><rect y="1.54" width="19" height=".77"/><rect y="3.08" width="19" height=".77"/><rect y="4.62" width="19" height=".77"/><rect y="6.15" width="19" height=".77"/><rect y="7.69" width="19" height=".77"/><rect y="9.23" width="19" height=".77"/></g><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg>';
 
@@ -136,7 +169,7 @@ var FAV=[],FAVSET={};
 function refreshFav(){FAV=favList();FAVSET={};FAV.forEach(function(x){if(x&&x._id)FAVSET[x._id]=1;});}
 function isFav(id){return !!FAVSET[id];}
 function findItemById(id){
-  var src=[['world',DATA.worldNews],['us',DATA.usNews],['analysis',DATA.analyses],['x',DATA.xNews]];
+  var src=[['world',DATA.worldNews],['us',DATA.usNews],['analysis',DATA.analyses],['x',DATA.xNews],['drill',drillItems()]];
   for(var i=0;i<src.length;i++){var arr=src[i][1]||[];for(var j=0;j<arr.length;j++){if(idOf(arr[j])===id)return {item:arr[j],kind:src[i][0]};}}
   return null;
 }
@@ -204,20 +237,41 @@ function renderSaved(){
   var arr=FAV.slice();
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
   if(!arr.length)return '<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này và giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
-  var cards=arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):newsCardInner(a)));}).join('');
+  var cards=arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):newsCardInner(a))));}).join('');
   return '<div class="note">Tin bạn đã lưu (trên máy này) — bấm ★ để bỏ lưu.</div><div class="list">'+cards+'</div>';
+}
+function drillCardInner(a){
+  return '<div class="crow"><span class="badge" style="color:#1f8a54"><i class="dot" style="background:#1f8a54"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>Liên quan tập trận:</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+favBtn(a)+'</div>';
+}
+function drillHeader(ex){
+  var pill=ex.status==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':'<span class="dpill up">◷ Sắp diễn ra</span>';
+  return '<div class="drill-h"><div class="drill-top">'+pill+(ex.dates?'<span class="drill-dates">'+esc(ex.dates)+'</span>':'')+'</div><div class="drill-name">'+esc(ex.name)+'</div>'+(ex.location?'<div class="drill-meta">📍 '+esc(ex.location)+'</div>':'')+(ex.scale?'<div class="drill-meta">🎖️ '+esc(ex.scale)+'</div>':'')+(ex.summary?'<div class="drill-sum">'+esc(ex.summary)+'</div>':'')+'</div>';
+}
+function renderExercises(){
+  var exs=((DATA.exercises&&DATA.exercises.length)?DATA.exercises:EXERCISES).slice();
+  var ord={ongoing:0,upcoming:1};
+  exs.sort(function(a,b){return (ord[a.status]==null?9:ord[a.status])-(ord[b.status]==null?9:ord[b.status]);});
+  var live=exs.filter(function(e){return e.status==='ongoing';}).length;
+  var up=exs.filter(function(e){return e.status==='upcoming';}).length;
+  var body=exs.length?exs.map(function(ex){
+    var items=sortD(ex.items||[]);
+    var cards=items.length?items.map(function(a){return card(drillCardInner(a));}).join(''):'<div class="empty" style="padding:16px">Chưa có tin liên quan.</div>';
+    return '<section class="drill">'+drillHeader(ex)+'<div class="list">'+cards+'</div></section>';
+  }).join(''):'<div class="empty">Chưa có cuộc tập trận nào.</div>';
+  return '<div class="note">Các cuộc tập trận quân sự <b>đang & sắp diễn ra</b> — mỗi mục gom tin liên quan kèm <b>nhận xét</b> tin đó liên quan tới cuộc tập trận thế nào. <b>'+live+'</b> đang diễn ra · <b>'+up+'</b> sắp diễn ra.</div>'+body;
 }
 function content(){
   if(state.tab==='us')return renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
   if(state.tab==='x')return renderX();
   if(state.tab==='analysis')return renderAnalysis();
+  if(state.tab==='drills')return renderExercises();
   if(state.tab==='saved')return renderSaved();
   return renderCatNews(DATA.worldNews,'<div class="note">Tin <b>thế giới</b> nổi bật trong <b>24 giờ qua</b> — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
 }
 function render(){
   refreshFav();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
-  var tabs=[['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
+  var tabs=[['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['drills','🎯 Tập trận'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
