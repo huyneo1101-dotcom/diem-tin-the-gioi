@@ -309,7 +309,8 @@ var REGIONS=[
  ['Châu Mỹ',['venezuela','brazil','mexico','argentina','cuba','latinh','colombia','panama']]
 ];
 var _RRE=REGIONS.map(function(x){return [x[0],new RegExp('(^|[^a-z])('+x[1].map(function(k){return k.trim().replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}).join('|')+')([^a-z]|$)')];});
-function regionOf(a){var s=norm((a.title||'')+' '+(a.summary||'')+' '+(a.significance||''));for(var i=0;i<_RRE.length;i++){if(_RRE[i][1].test(s))return _RRE[i][0];}return 'Khác';}
+function _rhits(re,s){var n=0,g=new RegExp(re.source,'g'),mt;while((mt=g.exec(s))){n++;g.lastIndex=mt.index+1;}return n;}
+function regionOf(a){var t=norm(a.title||''),su=norm(a.summary||''),si=norm(a.significance||'');var best='Khác',bs=0;for(var i=0;i<_RRE.length;i++){var re=_RRE[i][1],sc=_rhits(re,t)*3+_rhits(re,su)*2+_rhits(re,si);if(sc>bs){bs=sc;best=_RRE[i][0];}}return best;}
 function newsPool(){return sortD((DATA.worldNews||[]).concat(DATA.usNews||[]));}
 /* ==== Đã đọc / MỚI ==== */
 function jget(k){try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return [];}}
