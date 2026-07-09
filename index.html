@@ -113,7 +113,9 @@ a{color:inherit}
 .newb{display:inline-block;font-size:calc(9.5px*var(--fs));font-weight:800;letter-spacing:.5px;background:var(--accent);color:#fff;border-radius:3px;padding:1px 6px;margin-right:6px;vertical-align:1px}
 .foot-act{margin-left:auto;display:inline-flex;align-items:center;gap:9px}
 .foot-act .favb{margin-left:0}
-.shareb,.tgb{background:none;border:none;cursor:pointer;font-size:calc(15px*var(--fs));line-height:1;color:var(--muted2);padding:0 2px;font-family:inherit}
+.shareb,.tgb{background:none;border:none;cursor:pointer;color:var(--muted2);padding:2px;line-height:0;display:inline-flex;align-items:center;border-radius:5px}
+.shareb svg,.tgb svg{display:block}
+.shareb:active,.tgb:active{transform:scale(.9)}
 .shareb:hover,.tgb:hover{color:var(--accent)}
 #toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%) translateY(18px);z-index:80;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:14px;font-family:inherit;box-shadow:0 6px 24px rgba(0,0,0,.35);opacity:0;transition:.25s;pointer-events:none;max-width:90vw;text-align:center}
 #toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -240,7 +242,9 @@ function allIds(){var out=[];[DATA.worldNews,DATA.usNews,DATA.analyses,DATA.xNew
 function initSeen(){SEEN0={};jget('dt.seen').forEach(function(id){SEEN0[id]=1;});}
 function commitSeen(){var store=jget('dt.seen'),set={};store.forEach(function(id){set[id]=1;});allIds().forEach(function(id){if(!set[id]){set[id]=1;store.push(id);}});if(store.length>1500)store=store.slice(-1500);jset('dt.seen',store);}
 /* ==== Chia sẻ + Telegram + toast ==== */
-function actions(a){var u=a.sourceUrl||a.url||'',t=a.title||a.text||'';var d='data-url="'+esc(u)+'" data-title="'+esc(t)+'"';var sh=u?'<button class="shareb" '+d+' title="Chia sẻ">↗</button><button class="tgb" '+d+' title="Chia sẻ qua Telegram">✈️</button>':'';return '<span class="foot-act">'+sh+favBtn(a)+'</span>';}
+var SVG_SHARE='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M8 6.5 12 2.5 16 6.5"/><path d="M5 11v8h14v-8"/></svg>';
+var SVG_TG='<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M21.9 4.3 18.8 19c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.24.24-.45.45-.92.45l.33-4.7 8.6-7.8c.37-.33-.08-.5-.58-.2L7.3 12.9l-4.6-1.4c-1-.3-1-.98.2-1.45L20.5 3c.83-.3 1.56.2 1.4 1.3z"/></svg>';
+function actions(a){var u=a.sourceUrl||a.url||'',t=a.title||a.text||'';var d='data-url="'+esc(u)+'" data-title="'+esc(t)+'"';var sh=u?'<button class="shareb" data-share="1" '+d+' title="Chia sẻ" aria-label="Chia sẻ">'+SVG_SHARE+'</button><button class="tgb" data-tg="1" '+d+' title="Chia sẻ qua Telegram" aria-label="Chia sẻ qua Telegram">'+SVG_TG+'</button>':'';return '<span class="foot-act">'+sh+favBtn(a)+'</span>';}
 function toast(msg){var el=document.getElementById('toast');if(!el){el=document.createElement('div');el.id='toast';document.body.appendChild(el);}el.textContent=msg;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on');},2200);}
 function doShare(u,t){if(!u)return;if(navigator.share){navigator.share({title:t||document.title,url:u}).catch(function(){});}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){toast('Đã sao chép liên kết');},function(){toast(u);});}else{toast(u);}}
 function tgShare(u,t){if(!u)return;window.open('https://t.me/share/url?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t||''),'_blank','noopener');}
