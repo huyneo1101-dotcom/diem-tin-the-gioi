@@ -99,6 +99,10 @@ a{color:inherit}
 .rp-fonts button{text-align:left;padding:9px 11px;border:1px solid var(--line);background:var(--paper);border-radius:6px;cursor:pointer;font-size:16px;color:var(--ink)}
 .rp-fonts button .vi{font-size:12px;color:var(--muted2);font-family:'Times New Roman',serif}
 .rp-fonts button.on{border-color:var(--accent);background:var(--accent-soft)}
+.rp-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-height:186px;overflow:auto;padding:2px}
+.rp-icons button{padding:4px;border:1px solid var(--line);background:var(--paper2);border-radius:9px;cursor:pointer;line-height:0}
+.rp-icons button svg{width:100%;height:auto;display:block;border-radius:7px}
+.rp-icons button.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
 @media(max-width:520px){.mast h1{font-size:calc(26px*var(--fs))}.title{font-size:calc(17.5px*var(--fs))}.dateline{justify-content:center}}
 
 /* ==== Tính năng mới ==== */
@@ -176,16 +180,45 @@ function getPref(k,d){try{var v=localStorage.getItem(k);return v==null?d:v;}catc
 function setPref(k,v){try{localStorage.setItem(k,v);}catch(e){}}
 function applyFont(s){document.documentElement.style.setProperty('--reader-font',s);}
 function applyFs(v){document.documentElement.style.setProperty('--fs',v);}
+/* ==== Icon ứng dụng (chọn được, lưu dt.icon; đổi favicon tab) ==== */
+var ICONS=[
+ {n:'Đ cổ điển', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#b3282d"/><text x="50" y="73" font-family="Georgia,serif" font-weight="700" font-size="62" text-anchor="middle" fill="#f5f2ec">Đ</text>'},
+ {n:'Địa cầu', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#23395d"/><g fill="none" stroke="#f5f2ec" stroke-width="3.4"><circle cx="50" cy="50" r="27"/><ellipse cx="50" cy="50" rx="11" ry="27"/><line x1="23" y1="50" x2="77" y2="50"/><line x1="28" y1="34" x2="72" y2="34"/><line x1="28" y1="66" x2="72" y2="66"/></g>'},
+ {n:'Nhật báo', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#b3282d"/><rect x="24" y="22" width="52" height="56" rx="4" fill="#f5f2ec"/><rect x="30" y="29" width="40" height="9" fill="#b3282d"/><g fill="#c9c2b3"><rect x="30" y="45" width="40" height="3.5"/><rect x="30" y="53" width="40" height="3.5"/><rect x="30" y="61" width="26" height="3.5"/><rect x="30" y="68" width="34" height="3.5"/></g>'},
+ {n:'Đ vàng', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#1b1b1b"/><text x="50" y="73" font-family="Georgia,serif" font-weight="700" font-size="62" text-anchor="middle" fill="#e0b53a">Đ</text>'},
+ {n:'La bàn', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#1b1b1b"/><circle cx="50" cy="50" r="30" fill="none" stroke="#f5f2ec" stroke-width="2.6"/><polygon points="50,22 57,50 50,50" fill="#b3282d"/><polygon points="50,78 43,50 50,50" fill="#f5f2ec"/><circle cx="50" cy="50" r="4.5" fill="#e0b53a"/>'},
+ {n:'Radar', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#0f2338"/><g fill="none" stroke="#2fa37a" stroke-width="2.4"><circle cx="50" cy="50" r="10"/><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="30"/></g><path d="M50 50 L50 20 A30 30 0 0 1 76 40 Z" fill="#2fa37a" opacity=".38"/><circle cx="66" cy="36" r="4" fill="#7ee6bd"/>'},
+ {n:'Toạ độ', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#1f8a54"/><g stroke="#f5f2ec" stroke-width="1.5" opacity=".45"><line x1="20" y1="38" x2="80" y2="38"/><line x1="20" y1="55" x2="80" y2="55"/><line x1="35" y1="20" x2="35" y2="80"/><line x1="62" y1="20" x2="62" y2="80"/></g><path d="M50 26c-11 0-19 8-19 19 0 14 19 31 19 31s19-17 19-31c0-11-8-19-19-19z" fill="#f5f2ec"/><circle cx="50" cy="45" r="8" fill="#b3282d"/>'},
+ {n:'Phát sóng', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#b3282d"/><g fill="none" stroke="#f5f2ec" stroke-width="4" stroke-linecap="round"><path d="M35 62a21 21 0 0 1 30 0"/><path d="M28 55a31 31 0 0 1 44 0"/></g><polygon points="50,44 58,72 42,72" fill="#f5f2ec"/><circle cx="50" cy="42" r="5" fill="#f5f2ec"/>'},
+ {n:'Kinh tuyến', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#f5f2ec"/><g fill="none" stroke="#b3282d" stroke-width="3.2"><circle cx="50" cy="50" r="28"/><ellipse cx="50" cy="50" rx="11.5" ry="28"/><line x1="22" y1="50" x2="78" y2="50"/><line x1="27" y1="33" x2="73" y2="33"/><line x1="27" y1="67" x2="73" y2="67"/></g>'},
+ {n:'Bong bóng', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#23395d"/><path d="M26 28h48a6 6 0 0 1 6 6v28a6 6 0 0 1-6 6H52l-14 12v-12H26a6 6 0 0 1-6-6V34a6 6 0 0 1 6-6z" fill="#f5f2ec"/><text x="50" y="60" font-family="Georgia,serif" font-weight="700" font-size="34" text-anchor="middle" fill="#23395d">Đ</text>'},
+ {n:'Con mắt', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#1b1b1b"/><path d="M20 50c8-14 22-21 30-21s22 7 30 21c-8 14-22 21-30 21s-22-7-30-21z" fill="none" stroke="#f5f2ec" stroke-width="3.4"/><circle cx="50" cy="50" r="11" fill="#b3282d"/><circle cx="50" cy="50" r="4.5" fill="#1b1b1b"/>'},
+ {n:'Đ & sao', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#b3282d"/><text x="47" y="74" font-family="Georgia,serif" font-weight="700" font-size="60" text-anchor="middle" fill="#f5f2ec">Đ</text><polygon points="74,20 77.6,29 87,29 79.5,35 82,44 74,38.5 66,44 68.5,35 61,29 70.4,29" fill="#e0b53a"/>'},
+ {n:'Tổng hợp', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#f5f2ec"/><g stroke="#1b1b1b" stroke-width="2.2"><line x1="28" y1="30" x2="50" y2="50"/><line x1="72" y1="30" x2="50" y2="50"/><line x1="26" y1="60" x2="50" y2="50"/><line x1="74" y1="60" x2="50" y2="50"/><line x1="50" y1="76" x2="50" y2="50"/></g><g fill="#1b1b1b"><circle cx="28" cy="30" r="5"/><circle cx="72" cy="30" r="5"/><circle cx="26" cy="60" r="5"/><circle cx="74" cy="60" r="5"/><circle cx="50" cy="76" r="5"/></g><circle cx="50" cy="50" r="9" fill="#b3282d"/>'},
+ {n:'Bình minh', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#23395d"/><path d="M20 64a30 30 0 0 1 60 0z" fill="#e0b53a"/><g stroke="#e0b53a" stroke-width="3" stroke-linecap="round"><line x1="50" y1="20" x2="50" y2="28"/><line x1="28" y1="30" x2="33" y2="35"/><line x1="72" y1="30" x2="67" y2="35"/></g><line x1="16" y1="64" x2="84" y2="64" stroke="#f5f2ec" stroke-width="3"/><g stroke="#f5f2ec" stroke-width="3" opacity=".8"><line x1="30" y1="73" x2="70" y2="73"/><line x1="34" y1="80" x2="66" y2="80"/></g>'},
+ {n:'Bản đồ gấp', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#f5f2ec"/><path d="M24 34l17-8 18 8 17-8v40l-17 8-18-8-17 8z" fill="none" stroke="#23395d" stroke-width="3" stroke-linejoin="round"/><g stroke="#23395d" stroke-width="3"><line x1="41" y1="26" x2="41" y2="66"/><line x1="59" y1="34" x2="59" y2="74"/></g><path d="M62 40c-6 0-10 4-10 10 0 7 10 16 10 16s10-9 10-16c0-6-4-10-10-10z" fill="#b3282d"/>'},
+ {n:'Con dấu ĐT', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#1b1b1b"/><circle cx="50" cy="50" r="31" fill="none" stroke="#f5f2ec" stroke-width="2.4"/><text x="50" y="60" font-family="Georgia,serif" font-weight="700" font-size="30" text-anchor="middle" fill="#f5f2ec">ĐT</text><circle cx="50" cy="24" r="4" fill="#b3282d"/>'},
+ {n:'Dấu trang', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#b3282d"/><path d="M35 22h30a4 4 0 0 1 4 4v52l-19-13-19 13V26a4 4 0 0 1 4-4z" fill="#f5f2ec"/><text x="50" y="52" font-family="Georgia,serif" font-weight="700" font-size="26" text-anchor="middle" fill="#b3282d">Đ</text>'},
+ {n:'Địa cầu & cờ', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#23395d"/><g fill="none" stroke="#f5f2ec" stroke-width="2.8"><circle cx="46" cy="52" r="24"/><ellipse cx="46" cy="52" rx="10" ry="24"/><line x1="22" y1="52" x2="70" y2="52"/></g><line x1="68" y1="20" x2="68" y2="50" stroke="#b3282d" stroke-width="3.4"/><polygon points="68,20 86,26 68,32" fill="#b3282d"/>'},
+ {n:'Tiêu đề', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#f5f2ec"/><rect x="2" y="62" width="96" height="36" fill="#b3282d"/><g fill="none" stroke="#1b1b1b" stroke-width="3"><circle cx="50" cy="44" r="22"/><ellipse cx="50" cy="44" rx="9" ry="22"/><line x1="28" y1="44" x2="72" y2="44"/></g><g stroke="#f5f2ec" stroke-width="3.2" stroke-linecap="round"><line x1="30" y1="76" x2="70" y2="76"/><line x1="34" y1="85" x2="66" y2="85"/></g>'},
+ {n:'ĐT hiện đại', s:'<rect x="2" y="2" width="96" height="96" rx="24" fill="#b3282d"/><text x="50" y="66" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="40" text-anchor="middle" fill="#f5f2ec" letter-spacing="-1">ĐT</text><rect x="34" y="72" width="32" height="4" rx="2" fill="#e0b53a"/>'}
+];
+function icoSVG(s){return '<svg viewBox="0 0 100 100">'+s+'</svg>';}
+function curIcon(){var i=parseInt(getPref('dt.icon','0'),10);return (isNaN(i)||i<0||i>=ICONS.length)?0:i;}
+function applyIcon(i){var ic=ICONS[i]||ICONS[0];var uri='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">'+ic.s+'</svg>');var l=document.querySelector('link[rel~="icon"]');if(!l){l=document.createElement('link');l.rel='icon';document.head.appendChild(l);}l.href=uri;}
 function ensureReaderUI(){
   var curFs=getPref('dt.fs','1'), curFont=getPref('dt.font',FONTS[0].s);
   applyFs(curFs); applyFont(curFont);
-  var fab=document.createElement('button'); fab.id='reader-fab'; fab.textContent='Aa'; fab.setAttribute('aria-label','Cỡ chữ và phông chữ');
+  var fab=document.createElement('button'); fab.id='reader-fab'; fab.textContent='⚙'; fab.setAttribute('aria-label','Cài đặt');
   var panel=document.createElement('div'); panel.id='reader-panel'; panel.hidden=true;
   var sizes=[['0.9','A'],['1','A'],['1.18','A'],['1.4','A']];
   var curTh=curTheme();
-  var h='<div class="rp-h">Tuỳ chỉnh hiển thị</div><div class="rp-sub">Lựa chọn được lưu trên máy bạn.</div>';
+  var h='<div class="rp-h">⚙ Cài đặt</div><div class="rp-sub">Lựa chọn được lưu trên máy bạn.</div>';
   h+='<div class="rp-lbl">Giao diện</div><div class="rp-themes">';
   [['light','☀️ Sáng'],['dark','🌙 Tối']].forEach(function(t){h+='<button data-theme="'+t[0]+'"'+(t[0]===curTh?' class="on"':'')+'>'+t[1]+'</button>';});
+  h+='</div>';
+  h+='<div class="rp-lbl">Icon ứng dụng</div><div class="rp-icons">';
+  ICONS.forEach(function(ic,ix){h+='<button data-icon="'+ix+'"'+(ix===curIcon()?' class="on"':'')+' title="'+esc(ic.n)+'">'+icoSVG(ic.s)+'</button>';});
   h+='</div>';
   h+='<div class="rp-lbl">Cỡ chữ</div><div class="rp-sizes">';
   sizes.forEach(function(s){h+='<button data-fs="'+s[0]+'"'+(s[0]===curFs?' class="on"':'')+'>'+s[1]+'</button>';});
@@ -203,6 +236,8 @@ function ensureReaderUI(){
       var fs=panel.querySelectorAll('.rp-fonts button'); for(var j=0;j<fs.length;j++)fs[j].classList.toggle('on',fs[j]===b);}
     else if(b.getAttribute('data-theme')!=null){var th=b.getAttribute('data-theme');applyTheme(th);setPref('dt.theme',th);
       var ts=panel.querySelectorAll('.rp-themes button'); for(var t=0;t<ts.length;t++)ts[t].classList.toggle('on',ts[t]===b);}
+    else if(b.getAttribute('data-icon')!=null){var ix=+b.getAttribute('data-icon');applyIcon(ix);setPref('dt.icon',ix);
+      var is=panel.querySelectorAll('.rp-icons button'); for(var q=0;q<is.length;q++)is[q].classList.toggle('on',is[q]===b);toast('Đã đổi icon: '+ICONS[ix].n);}
   });
   document.addEventListener('click',function(){if(!panel.hidden)panel.hidden=true;});
 }
@@ -392,6 +427,7 @@ refreshRead();
 var _firstRun=false;try{_firstRun=localStorage.getItem('dt.seen')==null;}catch(e){}
 initSeen();commitSeen();if(_firstRun)initSeen();
 applyTheme(curTheme());
+applyIcon(curIcon());
 ensureReaderUI();
 render();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
