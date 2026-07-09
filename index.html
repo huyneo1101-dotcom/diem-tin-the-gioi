@@ -111,16 +111,9 @@ a{color:inherit}
 .search input{flex:1;min-width:0;border:none;background:none;outline:none;font-family:inherit;font-size:calc(14px*var(--fs));color:var(--ink)}
 .search .sx{cursor:pointer;color:var(--muted2);border:none;background:none;font-size:16px;font-family:inherit;padding:0 2px;line-height:1}
 .searchinfo{font-size:calc(12.5px*var(--fs));color:var(--muted2);margin:-4px 0 12px}
-.hotband{border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:20px;background:linear-gradient(180deg,var(--soft),transparent)}
-.hotband-h{font-size:calc(12px*var(--fs));font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--accent);padding:11px 14px 3px}
-.hotband .list{padding:0 14px 6px}
-.hotband .card{padding:12px 0}
-.hotband .card:first-child{padding-top:4px}
-.hotband .card:last-child{border-bottom:none}
 .card.read .title{color:var(--muted)}
 .card.read .sum{opacity:.7}
 .newb{display:inline-block;font-size:calc(9.5px*var(--fs));font-weight:800;letter-spacing:.5px;background:var(--accent);color:#fff;border-radius:3px;padding:1px 6px;margin-right:6px;vertical-align:1px}
-.opb{color:#8a5cc0!important}
 .foot-act{margin-left:auto;display:inline-flex;align-items:center;gap:9px}
 .foot-act .favb{margin-left:0}
 .shareb,.tgb{background:none;border:none;cursor:pointer;font-size:calc(15px*var(--fs));line-height:1;color:var(--muted2);padding:0 2px;font-family:inherit}
@@ -139,9 +132,9 @@ var DATA = {"brand":"Điểm Tin Thế Giới","tagline":"Kinh tế · Chính tr
 function esc(s){s=(s==null?'':''+s);return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function fmtVN(s){if(!s)return '';var p=(''+s).split('-');return p.length===3?(p[2]+'/'+p[1]+'/'+p[0]):(''+s);}
 function sortD(a){return (a||[]).slice().sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});}
-var WMETA={'Kinh tế':['💹','#1f8a54'],'Chính trị':['🏛️','#c0392b'],'Ngoại giao':['🕊️','#7a4fb0'],'Công nghệ quân sự':['🎖️','#2b5f9e']};
+var WMETA={'Kinh tế':['💹','#1f8a54'],'Chính trị':['🏛️','#c0392b'],'Ngoại giao':['🕊️','#0e8a8a'],'Công nghệ quân sự':['🎖️','#2b5f9e']};
 function wmeta(c){return WMETA[c]||['🌍','#6b6459'];}
-var RCOLOR={'Ấn Độ Dương - Thái Bình Dương':'#1f8a54','Châu Âu/NATO':'#2b5f9e','Trung Đông':'#c98a2e','Đông Á':'#c0392b','Nam Á':'#7a4fb0','Châu Phi':'#2f9e6b','Châu Mỹ':'#4a5fb0','Bắc Cực':'#3a8fb8','Toàn cầu':'#6b6459'};
+var RCOLOR={'Ấn Độ Dương - Thái Bình Dương':'#1f8a54','Châu Âu/NATO':'#2b5f9e','Trung Đông':'#c98a2e','Đông Á':'#c0392b','Nam Á':'#a15c3a','Châu Phi':'#2f9e6b','Châu Mỹ':'#4a5fb0','Bắc Cực':'#3a8fb8','Toàn cầu':'#6b6459'};
 function rcolor(r){return RCOLOR[r]||'#6b6459';}
 var CATMETA={'Không quân':'✈️','Hải quân':'⚓','Lục quân':'🪖','Drone/UAV':'🛩️','Siêu thanh':'🚀','Vũ trụ':'🛰️','AI/Tự hành':'🤖','Tên lửa/Phòng thủ':'🎯','Năng lượng định hướng':'⚡'};
 /* ==== Tập trận (seed dự phòng — daily task có thể ghi đè bằng DATA.exercises) ==== */
@@ -289,12 +282,12 @@ function tgShare(u,t){if(!u)return;window.open('https://t.me/share/url?url='+enc
 function applyTheme(t){var dark=(t==='dark');document.documentElement.setAttribute('data-theme',dark?'dark':'light');var mc=document.querySelector('meta[name=theme-color]');if(mc)mc.setAttribute('content',dark?'#1a1712':'#f5f2ec');}
 function curTheme(){return getPref('dt.theme','light');}
 function card(inner,id){return '<div class="card'+(isRead(id)?' read':'')+'">'+inner+'</div>';}
-function opBadge(){return '<span class="badge opb"><i class="dot" style="background:#8a5cc0"></i>💬 Bình luận</span>';}
+function opBadge(){return '<span class="badge" style="color:#b5852a"><i class="dot" style="background:#b5852a"></i>💬 Bình luận</span>';}
 function newsCardInner(a){var m=wmeta(a.category);
   return '<div class="crow">'+(a.opinion?opBadge():'')+'<span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.significance?'<div class="take">'+esc(a.significance)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
 }
 function analysisCardInner(a){
-  return '<div class="crow"><span class="badge opb"><i class="dot" style="background:#7a4fb0"></i>💬 Bình luận'+(a.topic?' · '+esc(a.topic):'')+'</span>'+(a.region?'<span class="date">'+esc(a.region)+'</span>':'')+'</div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.takeaway?'<div class="take">'+esc(a.takeaway)+'</div>':'')+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.outlet||'')+(a.author?' · '+esc(a.author):'')+(a.date?' · '+fmtVN(a.date):'')+'</span>'+srcLink(a)+actions(a)+'</div>';
+  return '<div class="crow"><span class="badge" style="color:#b5852a"><i class="dot" style="background:#b5852a"></i>'+esc(a.topic||'Phân tích')+'</span>'+(a.region?'<span class="date">'+esc(a.region)+'</span>':'')+'</div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.takeaway?'<div class="take">'+esc(a.takeaway)+'</div>':'')+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.outlet||'')+(a.author?' · '+esc(a.author):'')+(a.date?' · '+fmtVN(a.date):'')+'</span>'+srcLink(a)+actions(a)+'</div>';
 }
 var XLOGO='<svg viewBox="0 0 24 24" width="15" height="15" style="vertical-align:-2px;margin-right:5px"><rect width="24" height="24" rx="5" fill="#1b1b1b"/><path d="M6 6 L18 18 M18 6 L6 18" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>';
 function xLink(a){var u=a.url||a.sourceUrl||'';return u?'<a class="src" href="'+esc(u)+'" target="_blank" rel="noreferrer" data-mark="'+esc(u)+'">Xem trên X ↗</a>':'';}
@@ -323,16 +316,11 @@ function renderCatNews(arr, note){
   arr=sortD(arr);
   var cats=[];arr.forEach(function(a){if(a.category&&cats.indexOf(a.category)<0)cats.push(a.category);});
   var items=arr.filter(function(a){return (state.wcat==='Tất cả'||a.category===state.wcat)&&(state.wdate==='Tất cả'||a.date===state.wdate)&&matchQ(a);});
-  var hot='';
-  if(state.wcat==='Tất cả'&&state.wdate==='Tất cả'&&!state.q){
-    var feat=arr.filter(function(a){return a.hot;});if(!feat.length)feat=arr.slice(0,4);else feat=feat.slice(0,5);
-    if(feat.length)hot='<div class="hotband"><div class="hotband-h">🔥 Nổi bật</div><div class="list">'+feat.map(function(a){return card(newsCardInner(a),idOf(a));}).join('')+'</div></div>';
-  }
   var chips='<div class="chips"><span class="chip'+(state.wcat==='Tất cả'?' on':'')+'" data-wcat="Tất cả">Tất cả ('+arr.length+')</span>';
   cats.forEach(function(c){var m=wmeta(c);chips+='<span class="chip'+(state.wcat===c?' on':'')+'" data-wcat="'+esc(c)+'"><i class="dot" style="background:'+m[1]+'"></i>'+m[0]+' '+esc(c)+' ('+arr.filter(function(a){return a.category===c;}).length+')</span>';});
   chips+='</div>';
   var cards=items.length?items.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Không có tin khớp bộ lọc.')+'</div>';
-  return note+searchInfo(items.length)+hot+chips+dateBar(arr,state.wdate,'data-wdate')+'<div class="list">'+cards+'</div>';
+  return note+searchInfo(items.length)+chips+dateBar(arr,state.wdate,'data-wdate')+'<div class="list">'+cards+'</div>';
 }
 function searchInfo(n){return state.q?'<div class="searchinfo">Kết quả cho “'+esc(state.q)+'”: <b>'+n+'</b> tin.</div>':'';}
 function renderAnalysis(){
