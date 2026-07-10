@@ -14,12 +14,14 @@ Tin mới được chèn vào ĐẦU worldNews/usNews hiện có trong index.htm
 generatedAt/worldGeneratedAt/usGeneratedAt được cập nhật theo "date"
 (chỉ field nào có tin mới tương ứng mới được cập nhật).
 """
+import collections
 import json
 import pathlib
 import sys
 
 REQUIRED_FIELDS = {"date", "category", "title", "summary", "sourceName", "sourceUrl", "significance"}
 VALID_CATEGORIES = {"Kinh tế", "Chính trị", "Công nghệ quân sự", "Ngoại giao"}
+MIN_PER_CATEGORY = 2
 
 
 def find_data_span(html: str) -> tuple[int, int]:
@@ -62,6 +64,19 @@ def validate_items(items: list, label: str) -> None:
             raise ValueError(f"{label}[{idx}] sourceUrl không hợp lệ: {item['sourceUrl']}")
 
 
+def category_report(items: list, label: str) -> bool:
+    counts = collections.Counter(item["category"] for item in items)
+    ok = True
+    print(f"  {label}: {len(items)} tin")
+    for cat in sorted(VALID_CATEGORIES):
+        n = counts.get(cat, 0)
+        flag = "" if n >= MIN_PER_CATEGORY else "  <-- THIẾU (cần >= 2)"
+        if n < MIN_PER_CATEGORY:
+            ok = False
+        print(f"    {cat}: {n}{flag}")
+    return ok
+
+
 def main() -> None:
     if len(sys.argv) != 2:
         print("Dùng: add_news.py <new_items.json>", file=sys.stderr)
@@ -95,6 +110,11 @@ def main() -> None:
     html_path.write_text(html[:start] + new_data_str + html[end:], encoding="utf-8")
 
     print(f"OK: +{len(world_new)} tin Thế giới, +{len(us_new)} tin Mỹ. generatedAt={date}")
+    print("Phân bổ category (batch vừa thêm):")
+    world_ok = category_report(world_new, "worldNews") if world_new else True
+    us_ok = category_report(us_new, "usNews") if us_new else True
+    if not (world_ok and us_ok):
+        print("=> Còn category thiếu tin (< 2). Nếu đã thử hết nguồn hợp lý, chấp nhận và nêu rõ trong tóm tắt cuối; nếu chưa, quét bổ sung rồi chạy lại script.")
 
 
 if __name__ == "__main__":

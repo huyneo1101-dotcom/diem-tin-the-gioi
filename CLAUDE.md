@@ -40,7 +40,8 @@ Mỗi tin:
 2. Kiểm tra tần suất nguồn đã dùng (để áp dụng ưu tiên #3 ở trên) bằng grep, không đọc cả file:
    `grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn`
 3. Áp dụng thứ tự ưu tiên nguồn ở trên. Ưu tiên đọc tin qua RSS (nhẹ, có cấu trúc) hơn WebFetch nguyên trang báo (nặng, nhiều nhiễu). Khi tóm tắt, dựa vào phần mô tả/summary có sẵn trong RSS thay vì fetch toàn bộ bài viết nếu đã đủ thông tin.
-4. Quét tin mới trong 24h qua. Mục tiêu ~10–15 tin Thế giới + ~4–5 tin Mỹ (không cần cố đạt mức tối đa, ưu tiên chất lượng và tiết kiệm số lượt gọi tool).
+4. Quét tin mới trong 24h qua. **Yêu cầu bắt buộc về cân bằng chuyên mục**: mỗi mục (`worldNews` VÀ `usNews`) phải có **tối thiểu 2 tin, mục tiêu 2–3 tin, cho MỖI category trong 4 category** (Kinh tế, Chính trị, Công nghệ quân sự, Ngoại giao). Tức mỗi mục dao động ~8–12 tin (4 category × 2–3), có thể hơn nếu 1 category có nhiều tin nóng trong ngày. Không quét đại trà rồi để lệch category — quét lần lượt theo từng category, ưu tiên nguồn phù hợp category đó trước (vd Defense News/Naval News cho Công nghệ quân sự, CNBC/Fortune cho Kinh tế, Politico/Axios cho Chính trị/Ngoại giao Mỹ).
+   - Nếu một category thực sự không đủ 2 tin sau khi đã thử nhiều nguồn (kể cả nguồn Việt bổ sung) — chấp nhận thiếu, KHÔNG bịa tin, nhưng phải nêu rõ trong tóm tắt cuối category nào bị thiếu và đã thử nguồn nào.
 5. Viết `title`/`summary` tiếng Việt (2–3 câu, súc tích), `significance` (1 câu). `sourceUrl` phải là link thật — không bịa link, tin không chắc link thì bỏ.
 6. Gom TOÀN BỘ tin mới (world + us) thành một file JSON nhỏ, ví dụ ghi bằng heredoc vào `/tmp/new_items.json`, format:
    ```json
@@ -48,9 +49,10 @@ Mỗi tin:
    ```
 7. Chèn vào `index.html` bằng script có sẵn, KHÔNG dùng Edit/Write trực tiếp lên `index.html`:
    `python3 scripts/add_news.py /tmp/new_items.json`
-   Script tự động: chèn tin mới vào đầu mảng tương ứng, cập nhật `generatedAt`/`worldGeneratedAt`/`usGeneratedAt`, validate field bắt buộc và category hợp lệ, không đụng tới các phần khác của `DATA` (`analyses`, `xNews`, `exercises`, `dipEvents`, `terms`...). Nếu script báo lỗi, sửa lại `/tmp/new_items.json` rồi chạy lại — không tự sửa `index.html` bằng tay.
+   Script tự động: chèn tin mới vào đầu mảng tương ứng, cập nhật `generatedAt`/`worldGeneratedAt`/`usGeneratedAt`, validate field bắt buộc và category hợp lệ, in ra bảng phân bổ category của batch tin vừa thêm (worldNews + usNews riêng), không đụng tới các phần khác của `DATA` (`analyses`, `xNews`, `exercises`, `dipEvents`, `terms`...). Nếu script báo lỗi, sửa lại `/tmp/new_items.json` rồi chạy lại — không tự sửa `index.html` bằng tay.
+   - Đọc bảng phân bổ category script in ra. Nếu category nào < 2 tin ở worldNews hoặc usNews, quay lại bước 4 quét bổ sung riêng cho category đó rồi chạy lại script (script tự cộng dồn an toàn nếu chạy nhiều lần trong cùng 1 lượt, miễn `date` giống nhau — không tạo trùng vì mỗi lần chỉ gồm tin mới).
 8. Commit theo mẫu: `Cap nhat ban tin DD/MM: +N tin (TG +x, My +y)`, push vào `main`.
-9. Trong tóm tắt trả lời cuối cùng, chỉ cần ngắn gọn (số tin, nguồn, trạng thái push) — không cần liệt kê lại toàn bộ nội dung từng tin đã viết (nội dung đã nằm trong commit).
+9. Trong tóm tắt trả lời cuối cùng, ngắn gọn: tổng số tin, bảng phân bổ theo category cho từng mục (TG/Mỹ), category nào thiếu (nếu có), nguồn đã dùng, trạng thái push. Không cần liệt kê lại toàn bộ nội dung từng tin (đã nằm trong commit).
 
 ## Đánh giá lại chiến lược quét
 **Vào hoặc sau ngày 17/07/2026** (1 tuần kể từ khi áp dụng quy tắc này), xem lại:
