@@ -65,7 +65,10 @@ Không dùng 1 agent lớn ôm hết việc quét (dễ quá tải/timeout/tốn
 | 6 | exercises + dipEvents (cập nhật sự kiện ongoing) | 1–2 tin mỗi loại |
 
 Quy tắc khi giao việc cho từng agent (viết prompt độc lập, đầy đủ ngữ cảnh vì subagent KHÔNG thấy hội thoại chính):
-- Nêu rõ: phạm vi (category/phần), chỉ tiêu số lượng, danh sách nguồn phù hợp (lọc từ bảng nguồn ở trên theo đúng thứ tự ưu tiên Anh > RSS > chưa quét), định dạng field bắt buộc đúng như trên.
+- **KHÔNG bảo subagent tự đọc `CLAUDE.md`** — file này ngày càng dài, để 6 agent cùng đọc là lãng phí token 6 lần. Agent điều phối tự trích đúng phần cần (nguồn phù hợp + URL RSS nếu có + định dạng field) rồi nhúng thẳng nội dung đó vào prompt của từng agent.
+- Nêu rõ: phạm vi (category/phần), chỉ tiêu số lượng, danh sách nguồn phù hợp kèm URL RSS đã biết (xem bảng RSS bên dưới — đưa thẳng URL, không bắt agent tự dò), định dạng field bắt buộc đúng như trên.
+- **Đa dạng hoá sự kiện**: mỗi tin trong batch nên là một sự kiện/câu chuyện KHÁC NHAU. Tránh việc 2-3 "tin" trong cùng category thực chất chỉ là cùng 1 sự kiện do nhiều báo đưa lại — vậy chỉ tính 1, chọn nguồn tường thuật tốt nhất.
+- **Chống trùng với tin cũ**: agent điều phối chạy `python3 scripts/add_news.py --recent-titles 20` (rẻ, không đọc cả file) rồi dán danh sách tiêu đề gần đây vào prompt mỗi subagent, kèm dặn "không report lại các tin/sự kiện đã có trong danh sách này, trừ khi có diễn biến mới đáng kể".
 - Yêu cầu agent CHỈ trả lời bằng đoạn JSON kết quả (mảng tin của phần đó) — không giải thích dài dòng, để việc gộp kết quả ở agent điều phối rẻ.
 - Không bịa link — bỏ tin nếu không chắc `sourceUrl`.
 - Gọi các agent này song song trong cùng 1 lượt (không cần tuần tự) để tiết kiệm thời gian, dùng `run_in_background: false` vì cần kết quả ngay để lắp ráp.
@@ -77,7 +80,8 @@ Sau khi các agent trả kết quả, session điều phối gộp toàn bộ JS
 
 1. Kiểm tra ngày cập nhật gần nhất bằng grep: `grep -oE '"generatedAt":"[^"]+"' index.html | head -1`
 2. Kiểm tra tần suất nguồn đã dùng bằng grep: `grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn`
-3. Giao việc cho 6 agent Haiku theo bảng kiến trúc ở trên, mỗi agent tự áp dụng thứ tự ưu tiên nguồn + ưu tiên RSS.
+2b. Lấy tiêu đề gần đây để chống trùng: `python3 scripts/add_news.py --recent-titles 20`
+3. Giao việc cho 6 agent Haiku theo bảng kiến trúc ở trên, mỗi agent tự áp dụng thứ tự ưu tiên nguồn + ưu tiên RSS (dùng URL RSS đã chốt sẵn ở bảng dưới nếu có), nhúng sẵn danh sách tiêu đề gần đây (bước 2b) và quy tắc đa dạng hoá sự kiện vào prompt.
 4. Gộp kết quả các agent thành 1 file JSON, ví dụ ghi bằng heredoc vào `/tmp/new_items.json`, format:
    ```json
    {
@@ -105,3 +109,4 @@ Sau khi các agent trả kết quả, session điều phối gộp toàn bộ JS
 ## Ghi chú vận hành
 - Routine tự động **đã tạo thành công** (10/07/2026), chạy mỗi ngày 20:00 giờ VN (`0 13 * * *` UTC), tạo session mới mỗi lần chạy, tự đọc file này để lấy quy tắc.
 - Việc quét thực tế (WebSearch/WebFetch/RSS) được giao cho các subagent chạy **model Haiku** (rẻ, nhanh) theo kiến trúc ở trên — session điều phối chỉ lo gộp kết quả, chạy script, commit/push (rẻ, ít token). KHÔNG đọc `index.html` (172KB) trực tiếp — dùng `scripts/add_news.py`.
+- **Đã thử và KHÔNG khả thi**: dùng `curl` thuần trong Bash để tự kiểm tra link chết (`sourceUrl`) trước khi publish — môi trường chặn `curl`/kết nối HTTPS thô tới domain ngoài ở tầng network policy (chỉ tool WebFetch/WebSearch mới có đường truy cập web được duyệt riêng). Đừng thử lại `curl -I` để check link — sẽ luôn bị từ chối (403 ở tầng proxy). Nếu cần verify link, phải dùng WebFetch (tốn token hơn) — hiện KHÔNG bắt buộc làm bước này, dựa vào quy tắc "không chắc link thì bỏ" là chính.

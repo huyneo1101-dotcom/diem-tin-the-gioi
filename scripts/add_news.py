@@ -2,6 +2,10 @@
 """Chèn tin mới vào DATA trong index.html mà không cần đọc toàn bộ file.
 
 Dùng: python3 scripts/add_news.py new_items.json
+Hoặc: python3 scripts/add_news.py --recent-titles [N]
+      In ra N tiêu đề gần nhất (mặc định 20) của worldNews + usNews, để
+      truyền cho các agent quét tránh report lại tin/sự kiện vừa đưa gần đây.
+      Không ghi file, chỉ đọc.
 
 new_items.json:
 {
@@ -122,9 +126,27 @@ def category_report(items: list, label: str) -> bool:
     return ok
 
 
+def print_recent_titles(html_path: pathlib.Path, n: int) -> None:
+    html = html_path.read_text(encoding="utf-8")
+    start, end = find_data_span(html)
+    data = json.loads(html[start:end])
+    print(f"worldNews ({min(n, len(data.get('worldNews', [])))} gần nhất):")
+    for item in data.get("worldNews", [])[:n]:
+        print(f"  [{item['date']}] {item['title']}")
+    print(f"usNews ({min(n, len(data.get('usNews', [])))} gần nhất):")
+    for item in data.get("usNews", [])[:n]:
+        print(f"  [{item['date']}] {item['title']}")
+
+
 def main() -> None:
+    if len(sys.argv) >= 2 and sys.argv[1] == "--recent-titles":
+        n = int(sys.argv[2]) if len(sys.argv) > 2 else 20
+        repo_root = pathlib.Path(__file__).resolve().parent.parent
+        print_recent_titles(repo_root / "index.html", n)
+        return
+
     if len(sys.argv) != 2:
-        print("Dùng: add_news.py <new_items.json>", file=sys.stderr)
+        print("Dùng: add_news.py <new_items.json>  |  add_news.py --recent-titles [N]", file=sys.stderr)
         sys.exit(1)
 
     repo_root = pathlib.Path(__file__).resolve().parent.parent
