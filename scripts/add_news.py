@@ -53,7 +53,8 @@ KNOWN_SOURCES = {
     "NATO", "Liên Hợp Quốc", "United Nations", "EU", "Hội đồng châu Âu", "IMF",
     "Nhà Trắng", "The White House", "Bộ Quốc phòng Mỹ", "U.S. Department of Defense",
     "Bộ Ngoại giao Mỹ", "U.S. Department of State", "CENTCOM", "Lực lượng Không gian Mỹ",
-    "Fed", "Federal Reserve", "Bộ Quốc phòng Anh", "Phủ Tổng thống Ukraine",
+    "Fed", "Federal Reserve", "Bộ Quốc phòng Anh", "Chính phủ Anh", "Phủ Tổng thống Ukraine",
+    "World Bank", "Ngân hàng Thế giới",
     "Chính phủ Việt Nam", "Báo Chính phủ", "Bộ Ngoại giao Việt Nam",
     # Truyền thông nhà nước (chỉ dùng cho phát ngôn của chính họ — xem CLAUDE.md)
     "Xinhua", "TASS",
