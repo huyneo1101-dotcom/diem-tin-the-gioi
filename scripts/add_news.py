@@ -43,10 +43,20 @@ EVENT_ITEM_REQUIRED_FIELDS = {"date", "title", "summary", "sourceName", "sourceU
 
 # Nguồn đã biết (chỉ để CẢNH BÁO nếu gặp nguồn lạ, không chặn — nguồn mới hợp lệ vẫn xuất hiện)
 KNOWN_SOURCES = {
+    # Báo chí
     "Defense News", "Naval News", "Breaking Defense", "Defense One", "SpaceNews", "Task & Purpose",
     "Al Jazeera", "Al Arabiya", "The Straits Times", "The Moscow Times", "South China Morning Post",
     "Politico", "Axios", "The Hindu", "Africanews", "CNBC", "Fortune",
     "VnEconomy", "VnExpress", "Tuổi Trẻ", "Thanh Niên", "Dân Trí", "Báo Mới", "Thế giới & Việt Nam",
+    "Reuters", "Kyiv Post", "The Kyiv Independent", "Korea Times", "ANTARA News", "CGTN",
+    # Nguồn chính phủ/chính thức (primary — ưu tiên cao)
+    "NATO", "Liên Hợp Quốc", "United Nations", "EU", "Hội đồng châu Âu", "IMF",
+    "Nhà Trắng", "The White House", "Bộ Quốc phòng Mỹ", "U.S. Department of Defense",
+    "Bộ Ngoại giao Mỹ", "U.S. Department of State", "CENTCOM", "Lực lượng Không gian Mỹ",
+    "Fed", "Federal Reserve", "Bộ Quốc phòng Anh", "Phủ Tổng thống Ukraine",
+    "Chính phủ Việt Nam", "Báo Chính phủ", "Bộ Ngoại giao Việt Nam",
+    # Truyền thông nhà nước (chỉ dùng cho phát ngôn của chính họ — xem CLAUDE.md)
+    "Xinhua", "TASS",
 }
 
 # Pattern URL rác: trang live-blog / tổng hợp liên tục (không phải bài viết cố định)
