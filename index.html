@@ -317,8 +317,8 @@ function jget(k){try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){
 function jset(k,a){try{localStorage.setItem(k,JSON.stringify(a));}catch(e){}}
 var READ={},SEEN0={};
 /* ==== Tài khoản đám mây (Supabase, magic link) — để trống 2 biến dưới = TẮT, app chạy y như cũ (localStorage) ==== */
-var SB_URL='';   /* dán Project URL Supabase (https://xxx.supabase.co) để bật */
-var SB_ANON='';  /* dán anon public key */
+var SB_URL='https://ltmlueqkajqmduoqghdf.supabase.co';   /* Project URL Supabase */
+var SB_ANON='sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg';  /* publishable (public) key */
 var SB=null,SB_USER=null;
 function sbReady(){return !!(SB&&SB_USER);}
 function initSupabase(){
