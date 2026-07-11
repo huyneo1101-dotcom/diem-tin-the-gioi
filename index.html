@@ -260,8 +260,8 @@ function toggleFav(id){
   if(!id)return;
   var favs=favList(),i=-1;
   for(var k=0;k<favs.length;k++){if(favs[k]._id===id){i=k;break;}}
-  if(i>=0){favs.splice(i,1);}
-  else{var f=findItemById(id);if(!f)return;var snap={};for(var p in f.item)snap[p]=f.item[p];snap._id=id;snap._kind=f.kind;snap._savedAt=todayISO();favs.unshift(snap);}
+  if(i>=0){favs.splice(i,1);sbRemoveItem(id);}
+  else{var f=findItemById(id);if(!f)return;var snap={};for(var p in f.item)snap[p]=f.item[p];snap._id=id;snap._kind=f.kind;snap._savedAt=todayISO();favs.unshift(snap);sbSaveItem(snap);}
   saveFav(favs);refreshFav();
 }
 function todayISO(){try{return new Date().toISOString().slice(0,10);}catch(e){return '';}}
@@ -316,6 +316,63 @@ function newsPool(){return sortD((DATA.worldNews||[]).concat(DATA.usNews||[]));}
 function jget(k){try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return [];}}
 function jset(k,a){try{localStorage.setItem(k,JSON.stringify(a));}catch(e){}}
 var READ={},SEEN0={};
+/* ==== Tài khoản đám mây (Supabase, magic link) — để trống 2 biến dưới = TẮT, app chạy y như cũ (localStorage) ==== */
+var SB_URL='';   /* dán Project URL Supabase (https://xxx.supabase.co) để bật */
+var SB_ANON='';  /* dán anon public key */
+var SB=null,SB_USER=null;
+function sbReady(){return !!(SB&&SB_USER);}
+function initSupabase(){
+  if(!SB_URL||!SB_ANON)return;
+  var s=document.createElement('script');
+  s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+  s.onload=function(){try{
+    SB=window.supabase.createClient(SB_URL,SB_ANON);
+    SB.auth.getSession().then(function(r){onAuth(r&&r.data?r.data.session:null);});
+    SB.auth.onAuthStateChange(function(_e,sess){onAuth(sess);});
+  }catch(e){}};
+  document.head.appendChild(s);
+}
+function onAuth(sess){var u=sess&&sess.user?sess.user:null;var was=!!SB_USER;SB_USER=u;if(u&&!was)pullCloud();render();}
+function sbSignIn(email){
+  if(!SB){toast('Chưa cấu hình tài khoản');return;}
+  email=(email||'').trim();if(!email){toast('Nhập email');return;}
+  SB.auth.signInWithOtp({email:email,options:{emailRedirectTo:location.href.split('#')[0]}}).then(function(r){
+    toast(r&&r.error?('Lỗi: '+r.error.message):'Đã gửi link đăng nhập tới '+email+' — kiểm tra hộp thư.');});
+}
+function sbSignOut(){if(SB)SB.auth.signOut().then(function(){SB_USER=null;render();});}
+function pullCloud(){
+  if(!sbReady())return;
+  SB.from('saved_items').select('item_id,kind,payload').then(function(r){
+    if(!r||r.error||!r.data)return;
+    var favs=favList(),have={};favs.forEach(function(f){have[f._id]=1;});
+    r.data.forEach(function(row){if(!have[row.item_id]){var snap=row.payload||{};snap._id=row.item_id;snap._kind=row.kind;favs.unshift(snap);have[row.item_id]=1;}});
+    saveFav(favs);refreshFav();
+    var cloud={};r.data.forEach(function(row){cloud[row.item_id]=1;});
+    var push=favs.filter(function(f){return !cloud[f._id];}).map(function(f){return {user_id:SB_USER.id,item_id:f._id,kind:f._kind||null,payload:f};});
+    if(push.length)SB.from('saved_items').upsert(push,{onConflict:'user_id,item_id'}).then(function(){});
+    render();
+  });
+  SB.from('saved_concepts').select('term').then(function(r){
+    if(!r||r.error||!r.data)return;
+    var a=conceptList(),have={};a.forEach(function(x){have[norm(x)]=1;});
+    r.data.forEach(function(row){if(row.term&&!have[norm(row.term)]){a.unshift(row.term);have[norm(row.term)]=1;}});
+    jset('dt.concepts',a);
+    var cloud={};r.data.forEach(function(row){cloud[norm(row.term)]=1;});
+    var push=a.filter(function(x){return !cloud[norm(x)];}).map(function(x){return {user_id:SB_USER.id,term:x};});
+    if(push.length)SB.from('saved_concepts').upsert(push,{onConflict:'user_id,term'}).then(function(){});
+    render();
+  });
+}
+function sbSaveItem(f){if(sbReady())SB.from('saved_items').upsert([{user_id:SB_USER.id,item_id:f._id,kind:f._kind||null,payload:f}],{onConflict:'user_id,item_id'}).then(function(){});}
+function sbRemoveItem(id){if(sbReady())SB.from('saved_items').delete().eq('user_id',SB_USER.id).eq('item_id',id).then(function(){});}
+function sbSaveConcept(t){if(sbReady())SB.from('saved_concepts').upsert([{user_id:SB_USER.id,term:t}],{onConflict:'user_id,term'}).then(function(){});}
+function sbRemoveConcept(t){if(sbReady())SB.from('saved_concepts').delete().eq('user_id',SB_USER.id).eq('term',t).then(function(){});}
+function accountBar(){
+  if(!SB)return '';
+  var box='border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 14px;background:var(--paper2)';
+  if(SB_USER)return '<div class="acctbar" style="'+box+';display:flex;align-items:center;gap:10px;flex-wrap:wrap">👤 <b>'+esc(SB_USER.email||'Đã đăng nhập')+'</b><span style="color:var(--muted)">— bài &amp; khái niệm đang đồng bộ</span> <button class="wbtn" data-signout="1">Đăng xuất</button></div>';
+  return '<div class="acctbar" style="'+box+'"><div class="note" style="margin:0 0 8px">🔒 Đăng nhập để lưu bài &amp; khái niệm vào tài khoản riêng, đồng bộ mọi thiết bị.</div><div class="cadd"><input id="acctemail" type="email" placeholder="Email của bạn…" autocomplete="email"><button data-signin="1">Gửi link đăng nhập</button></div></div>';
+}
 function refreshRead(){READ={};jget('dt.read').forEach(function(id){READ[id]=1;});}
 function isRead(id){return !!READ[id];}
 function markRead(id){if(!id||READ[id])return;READ[id]=1;var a=jget('dt.read');a.push(id);if(a.length>800)a=a.slice(-800);jset('dt.read',a);}
@@ -351,8 +408,8 @@ var TERMS=[
 function glossary(){return (DATA.terms&&DATA.terms.length)?DATA.terms:TERMS;}
 function explainTerm(t){var n=norm(t);if(!n)return null;var g=glossary();var hit=g.find(function(e){var tn=norm(e.term);return tn&&(tn===n||n.indexOf(tn)>=0||(tn.length>=5&&tn.indexOf(n)>=0));});return hit?hit.explain:null;}
 function conceptList(){return jget('dt.concepts');}
-function addConcept(t){t=(t||'').trim().replace(/\s+/g,' ');if(t.length<2)return;if(t.length>90)t=t.slice(0,90);var a=conceptList();var n=norm(t);if(a.some(function(x){return norm(x)===n;})){toast('Khái niệm đã có trong sổ tay');return;}a.unshift(t);if(a.length>200)a=a.slice(0,200);jset('dt.concepts',a);toast('Đã lưu khái niệm: '+t);}
-function removeConcept(t){jset('dt.concepts',conceptList().filter(function(x){return x!==t;}));}
+function addConcept(t){t=(t||'').trim().replace(/\s+/g,' ');if(t.length<2)return;if(t.length>90)t=t.slice(0,90);var a=conceptList();var n=norm(t);if(a.some(function(x){return norm(x)===n;})){toast('Khái niệm đã có trong sổ tay');return;}a.unshift(t);if(a.length>200)a=a.slice(0,200);jset('dt.concepts',a);sbSaveConcept(t);toast('Đã lưu khái niệm: '+t);}
+function removeConcept(t){jset('dt.concepts',conceptList().filter(function(x){return x!==t;}));sbRemoveConcept(t);}
 function renderConcepts(){
   var cs=conceptList();
   var h='<div class="note">📚 <b>Sổ tay khái niệm</b> — bôi đen một thuật ngữ trong <b>tóm tắt</b> hoặc <b>ý nghĩa</b> của tin rồi bấm nút "Lưu khái niệm" hiện lên; hoặc gõ tay bên dưới. Giải thích do bản cập nhật hằng ngày bổ sung.</div>';
@@ -459,15 +516,15 @@ function renderAnalysis(){
 }
 function renderSaved(){
   var nc=conceptList().length;
-  var seg='<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
+  var seg=accountBar()+'<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
   if(state.savedSeg==='concepts')return seg+renderConcepts();
   var arr=FAV.slice().filter(matchQ);
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
-  if(!FAV.length)return seg+'<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này và giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
+  if(!FAV.length)return seg+'<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này (và trên tài khoản nếu đã đăng nhập), giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
   var nToday=savedTodayList().length;
   var exp='<div class="expbar"><button class="wbtn" data-export="1">📄 Xuất Word — tin lưu hôm nay ('+nToday+')</button></div>';
   var cards=arr.length?arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):(a._kind==='dip'?drillCardInner(a,'Liên quan sự kiện'):newsCardInner(a)))),idOf(a));}).join(''):'<div class="empty">Không có tin đã lưu khớp tìm kiếm.</div>';
-  return seg+'<div class="note">Tin bạn đã lưu (trên máy này) — bấm ★ để bỏ lưu.</div>'+exp+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
+  return seg+'<div class="note">Tin bạn đã lưu — bấm ★ để bỏ lưu.</div>'+exp+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
 }
 function drillCardInner(a,label){
   return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>'+(label||'Liên quan tập trận')+':</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
@@ -557,7 +614,9 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-share],[data-copy],[data-sx],[data-mark]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signout]'):null;if(!t)return;
+  if(t.getAttribute('data-signin')!=null){var _em=document.getElementById('acctemail');sbSignIn(_em?_em.value:'');return;}
+  if(t.getAttribute('data-signout')!=null){sbSignOut();return;}
   if(t.getAttribute('data-caddbtn')!=null){var ci=document.getElementById('cnew');if(ci){addConcept(ci.value);ci.value='';reContent();}return;}
   if(t.getAttribute('data-crm')!=null){removeConcept(t.getAttribute('data-crm'));reContent();return;}
   if(t.getAttribute('data-savedseg')!=null){state.savedSeg=t.getAttribute('data-savedseg');render();return;}
@@ -592,6 +651,7 @@ document.addEventListener('change',function(e){
 refreshRead();
 var _firstRun=false;try{_firstRun=localStorage.getItem('dt.seen')==null;}catch(e){}
 initSeen();commitSeen();if(_firstRun)initSeen();
+initSupabase();
 applyTheme(curTheme());
 ensureReaderUI();
 render();
