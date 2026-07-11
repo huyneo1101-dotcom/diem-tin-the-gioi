@@ -54,7 +54,7 @@ KNOWN_SOURCES = {
     "Nhà Trắng", "The White House", "Bộ Quốc phòng Mỹ", "U.S. Department of Defense",
     "Bộ Ngoại giao Mỹ", "U.S. Department of State", "CENTCOM", "Lực lượng Không gian Mỹ",
     "Fed", "Federal Reserve", "Bộ Quốc phòng Anh", "Chính phủ Anh", "Phủ Tổng thống Ukraine",
-    "World Bank", "Ngân hàng Thế giới",
+    "World Bank", "Ngân hàng Thế giới", "Royal Navy", "Bộ Ngoại giao Nhật Bản",
     "Chính phủ Việt Nam", "Báo Chính phủ", "Bộ Ngoại giao Việt Nam",
     # Truyền thông nhà nước (chỉ dùng cho phát ngôn của chính họ — xem CLAUDE.md)
     "Xinhua", "TASS",
