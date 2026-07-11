@@ -194,7 +194,7 @@ var DIPEVENTS=[
   {name:'Thượng đỉnh ASEAN 2026 (Philippines)',status:'upcoming',dates:'2026 · Philippines làm Chủ tịch',location:'Philippines',scale:'Philippines tiếp nhận ghế Chủ tịch ASEAN từ Malaysia · trọng tâm Biển Đông, kết nối khu vực',summary:'Philippines làm Chủ tịch luân phiên ASEAN 2026 và đăng cai các hội nghị cấp cao — đáng chú ý với Việt Nam do liên quan trực tiếp vấn đề Biển Đông và hợp tác khu vực.',items:[]}
 ];
 function dipItems(){var arr=(DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS;var out=[];arr.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
-var state={tab:'world',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',savedSeg:'news',q:''};
+var state={tab:'fresh',fresh:'Tất cả',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',savedSeg:'news',q:''};
 var USFLAG='<svg viewBox="0 0 19 10" width="18" height="10" style="vertical-align:-1px;margin-right:4px;border-radius:1px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)"><rect width="19" height="10" fill="#fff"/><g fill="#b22234"><rect width="19" height=".77"/><rect y="1.54" width="19" height=".77"/><rect y="3.08" width="19" height=".77"/><rect y="4.62" width="19" height=".77"/><rect y="6.15" width="19" height=".77"/><rect y="7.69" width="19" height=".77"/><rect y="9.23" width="19" height=".77"/></g><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg>';
 
 /* ==== Người đọc tự chọn phông + cỡ chữ (ưu tiên phông đẹp tiếng Việt) ==== */
@@ -321,7 +321,7 @@ function isRead(id){return !!READ[id];}
 function markRead(id){if(!id||READ[id])return;READ[id]=1;var a=jget('dt.read');a.push(id);if(a.length>800)a=a.slice(-800);jset('dt.read',a);}
 function isNew(id){return !!id&&!SEEN0[id];}
 function newBadge(id){return isNew(id)?'<span class="newb">MỚI</span>':'';}
-function allIds(){var out=[];[DATA.worldNews,DATA.usNews,DATA.analyses,DATA.xNews,drillItems()].forEach(function(arr){(arr||[]).forEach(function(a){var id=idOf(a);if(id)out.push(id);});});return out;}
+function allIds(){var out=[];[DATA.worldNews,DATA.usNews,DATA.analyses,DATA.xNews,drillItems()].forEach(function(arr){(arr||[]).forEach(function(a){var id=idOf(a);if(id)out.push(id);});});(DATA.dipEvents||[]).forEach(function(e){(e.items||[]).forEach(function(it){var id=idOf(it);if(id)out.push(id);});});return out;}
 function initSeen(){SEEN0={};jget('dt.seen').forEach(function(id){SEEN0[id]=1;});}
 function commitSeen(){var store=jget('dt.seen'),set={};store.forEach(function(id){set[id]=1;});allIds().forEach(function(id){if(!set[id]){set[id]=1;store.push(id);}});if(store.length>1500)store=store.slice(-1500);jset('dt.seen',store);}
 /* ==== Chia sẻ + Telegram + toast ==== */
@@ -403,6 +403,30 @@ function renderCatNews(arr, note){
   chips+='</div>';
   var cards=items.length?items.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Không có tin khớp bộ lọc.')+'</div>';
   return note+searchInfo(items.length)+chips+catFilters(arr)+'<div class="list">'+cards+'</div>';
+}
+function freshList(){
+  var out=[];
+  (DATA.worldNews||[]).forEach(function(a){out.push({it:a,fk:'world',rk:'news'});});
+  (DATA.usNews||[]).forEach(function(a){out.push({it:a,fk:'us',rk:'news'});});
+  (DATA.xNews||[]).forEach(function(a){out.push({it:a,fk:'x',rk:'x'});});
+  (DATA.exercises||[]).forEach(function(e){(e.items||[]).forEach(function(it){out.push({it:it,fk:'event',rk:'drill'});});});
+  (DATA.dipEvents||[]).forEach(function(e){(e.items||[]).forEach(function(it){out.push({it:it,fk:'event',rk:'dip'});});});
+  out.sort(function(x,y){return (''+(y.it.date||'')).localeCompare(''+(x.it.date||''));});
+  return out;
+}
+function freshCard(w){var a=w.it;var inner=w.rk==='x'?xCardInner(a):(w.rk==='drill'?drillCardInner(a):(w.rk==='dip'?drillCardInner(a,'Liên quan sự kiện'):newsCardInner(a)));return card(inner,idOf(a));}
+function renderFresh(){
+  var all=freshList();
+  var kinds=[['Tất cả','Tất cả'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x','X'],['event','🗂️ Sự kiện']];
+  var sel=state.fresh||'Tất cả';
+  var items=all.filter(function(w){return (sel==='Tất cả'||w.fk===sel)&&matchQ(w.it);});
+  var nNew=all.filter(function(w){return isNew(idOf(w.it));}).length;
+  var cap=40, shown=items.slice(0,cap);
+  var chips='<div class="chips">'+kinds.map(function(k){var n=(k[0]==='Tất cả'?all:all.filter(function(w){return w.fk===k[0];})).length;return '<span class="chip'+(sel===k[0]?' on':'')+'" data-fresh="'+k[0]+'">'+k[1]+' ('+n+')</span>';}).join('')+'</div>';
+  var note=nNew?'<div class="note">🆕 <b>'+nNew+'</b> tin mới kể từ lần bạn xem gần nhất (đánh dấu <span class="newb">MỚI</span>) — tổng hợp tin mới nhất từ mọi mục.</div>':'<div class="note">Bạn đã xem hết tin mới. Dưới đây là các tin mới nhất từ mọi mục.</div>';
+  var cards=shown.length?shown.map(freshCard).join(''):'<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin.')+'</div>';
+  var more=items.length>cap?'<div class="note" style="text-align:center">Đang hiển thị '+cap+'/'+items.length+' tin gần nhất — vào từng mục để xem thêm.</div>':'';
+  return note+searchInfo(shown.length)+chips+'<div class="list">'+cards+'</div>'+more;
 }
 function searchInfo(n){return state.q?'<div class="searchinfo">Kết quả cho “'+esc(state.q)+'”: <b>'+n+'</b> tin.</div>':'';}
 function catFilters(arr){
@@ -503,6 +527,7 @@ function renderTopic(){
   return seg+view;
 }
 function content(){
+  if(state.tab==='fresh')return renderFresh();
   if(state.tab==='us')return renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
   if(state.tab==='x')return renderX();
   if(state.tab==='analysis')return renderAnalysis();
@@ -513,7 +538,7 @@ function content(){
 function render(){
   refreshFav();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
-  var tabs=[['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
+  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
@@ -527,7 +552,7 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-share],[data-copy],[data-sx],[data-mark]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-share],[data-copy],[data-sx],[data-mark]'):null;if(!t)return;
   if(t.getAttribute('data-caddbtn')!=null){var ci=document.getElementById('cnew');if(ci){addConcept(ci.value);ci.value='';reContent();}return;}
   if(t.getAttribute('data-crm')!=null){removeConcept(t.getAttribute('data-crm'));reContent();return;}
   if(t.getAttribute('data-savedseg')!=null){state.savedSeg=t.getAttribute('data-savedseg');render();return;}
@@ -538,7 +563,8 @@ document.addEventListener('click',function(e){
   if(t.getAttribute('data-sx')!=null){state.q='';render();return;}
   if(t.getAttribute('data-fav')!=null){toggleFav(t.getAttribute('data-fav'));render();return;}
   if(t.getAttribute('data-topicseg')!=null){state.topicSeg=t.getAttribute('data-topicseg');state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';render();return;}
-  if(t.getAttribute('data-tab')){state.tab=t.getAttribute('data-tab');state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
+  if(t.getAttribute('data-tab')){state.tab=t.getAttribute('data-tab');state.fresh='Tất cả';state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
+  else if(t.getAttribute('data-fresh')!=null)state.fresh=t.getAttribute('data-fresh');
   else if(t.getAttribute('data-wcat'))state.wcat=t.getAttribute('data-wcat');
   else if(t.getAttribute('data-areg'))state.areg=t.getAttribute('data-areg');
   else if(t.getAttribute('data-xhandle'))state.xhandle=t.getAttribute('data-xhandle');
