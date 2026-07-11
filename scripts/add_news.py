@@ -49,6 +49,20 @@ KNOWN_SOURCES = {
     "Politico", "Axios", "The Hindu", "Africanews", "CNBC", "Fortune",
     "VnEconomy", "VnExpress", "Tuổi Trẻ", "Thanh Niên", "Dân Trí", "Báo Mới", "Thế giới & Việt Nam",
     "Reuters", "Kyiv Post", "The Kyiv Independent", "Korea Times", "ANTARA News", "CGTN",
+    # Wire + báo chí quốc tế (bổ sung 11/07 từ bộ nguồn chuẩn báo cáo)
+    "Associated Press", "AP", "Agence France-Presse", "AFP", "Bloomberg", "Financial Times",
+    "Wall Street Journal", "The Economist", "Nikkei Asia", "BBC", "Deutsche Welle", "France 24",
+    "The Japan Times", "The Korea Herald", "USNI News", "C4ISRNet", "Army Recognition", "Oryx",
+    "The Diplomat", "Foreign Policy", "Foreign Affairs",
+    # Nguồn dữ liệu (tầng 2)
+    "OECD", "WTO", "BIS", "UNCTAD", "IEA", "SIPRI", "IISS", "Janes",
+    # Viện nghiên cứu (tầng 3)
+    "CSIS", "RAND", "RUSI", "Chatham House", "CSET", "Brookings", "Carnegie Endowment", "CFR",
+    "CNAS", "Atlantic Council", "Lowy Institute", "ASPI", "ISEAS", "RSIS", "ORF", "MERICS",
+    "Jamestown Foundation", "ECFR", "Stimson Center", "Hudson Institute",
+    # Tổ chức/cơ quan chính thức bổ sung (tầng 1)
+    "EEAS", "ASEAN", "Hội đồng Bảo an Liên Hợp Quốc", "DARPA", "CISA", "NIST", "ENISA", "NATO DIANA",
+    "Thông tấn xã Việt Nam", "Nhân Dân", "Quân đội Nhân dân",
     # Nguồn chính phủ/chính thức (primary — ưu tiên cao)
     "NATO", "Liên Hợp Quốc", "United Nations", "EU", "Hội đồng châu Âu", "IMF",
     "Nhà Trắng", "The White House", "Bộ Quốc phòng Mỹ", "U.S. Department of Defense",
