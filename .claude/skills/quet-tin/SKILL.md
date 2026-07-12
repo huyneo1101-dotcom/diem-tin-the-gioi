@@ -55,14 +55,14 @@ python3 scripts/add_news.py --recent-titles 20                          # tiêu 
 cat preferences.json   # {stats:[{scope,key,up,down,net,total}]} — GitHub Action tu cap nhat hang ngay tu Supabase
 ```
 Dùng `net` (👍−👎) làm điểm: `scope=category/region/source`, điểm dương → ưu tiên; điểm âm → giảm ưu tiên.
-Nếu `stats` rỗng → chưa có vote, quét bình thường. (Bảng chữ trong `preferences.md` là bản người-đọc/khi
-cập nhật tay — tham khảo thêm nếu cần.) KHÔNG tự WebFetch Supabase khi quét: `*.supabase.co` bị Cloudflare
-chặn 403 từ môi trường quét — việc lấy dữ liệu đã do GitHub Action `sync-preferences.yml` lo.
+Nếu `stats` rỗng → chưa có vote, quét bình thường. KHÔNG tự WebFetch Supabase khi quét: `*.supabase.co` bị
+Cloudflare chặn 403 từ môi trường quét — việc lấy dữ liệu đã do GitHub Action `sync-preferences.yml` lo.
+Giao diện KHÔNG hiển thị phân tích sở thích (theo yêu cầu người dùng) — chỉ thu vote; phân tích là việc của
+quy trình quét từ `preferences.json`.
 
 Áp dụng: chuyên mục/khu vực/nguồn điểm dương (`net`>0) → ưu tiên hơn; điểm âm → giảm ưu tiên (vẫn giữ
 tối thiểu 2 tin/category theo CLAUDE.md, không bỏ hẳn mục nào, không ghi đè quy tắc nguồn 3 tầng). Nhúng
-top ưu tiên / cần tránh vào prompt agent ở Bước 2. Nếu lấy được từ Supabase, cập nhật lại bảng trong
-`preferences.md` cho khớp (và commit).
+top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 
 ## Bước 2 — Giao 6 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
 | Agent | Phạm vi | Sản lượng |

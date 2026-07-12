@@ -102,19 +102,6 @@ a{color:inherit}
 .wbtn{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:7px;padding:9px 14px;font-weight:700;font-family:inherit;font-size:calc(13.5px*var(--fs));cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .wbtn:hover{border-color:var(--accent);color:var(--accent)}
 .wbtn:active{transform:scale(.98)}
-.itbl{width:100%;border-collapse:collapse;margin:2px 0 4px;font-size:calc(13.5px*var(--fs))}
-.itbl td{padding:7px 10px;border-top:1px solid var(--line)}
-.itbl tr:first-child td{border-top:none}
-.itbl .itname{font-weight:600;color:var(--ink)}
-.itbl .itnum{text-align:right;white-space:nowrap;color:var(--muted2);width:1%}
-.itbl .itnet{text-align:right;font-weight:800;width:1%;white-space:nowrap;color:var(--muted2)}
-.itbl .itnet.pos{color:var(--green)}
-.itbl .itnet.neg{color:#c0392b}
-.itbl .itname{max-width:60vw;overflow-wrap:anywhere}
-section.drill .sub{font-weight:700;font-size:calc(12.5px*var(--fs));color:var(--muted2);padding:10px 10px 2px}
-.crit{padding:6px 10px 10px}
-.crit-l{padding:6px 0;border-top:1px solid var(--line);font-size:calc(13px*var(--fs));line-height:1.5}
-.crit-l:first-child{border-top:none}
 .drill-dates{font-size:calc(12px*var(--fs));color:var(--muted);font-weight:700}
 .drill-name{font-family:inherit;font-size:calc(21px*var(--fs));font-weight:800;line-height:1.25;color:var(--title);margin-bottom:5px}
 .drill-meta{font-size:calc(12.5px*var(--fs));color:var(--muted);margin-top:2px}
@@ -583,11 +570,8 @@ function renderAnalysis(){
 }
 function renderSaved(){
   var nc=conceptList().length;
-  var nv=0;for(var _k in VOTES){if(VOTES[_k])nv++;}
-  function sb(k,lbl){return '<button class="'+(state.savedSeg===k?'on':'')+'" data-savedseg="'+k+'">'+lbl+'</button>';}
-  var seg=accountBar()+'<div class="seg">'+sb('news','⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':''))+sb('concepts','📚 Khái niệm'+(nc?' ('+nc+')':''))+sb('interest','📊 Sở thích'+(nv?' ('+nv+')':''))+'</div>';
+  var seg=accountBar()+'<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
   if(state.savedSeg==='concepts')return seg+renderConcepts();
-  if(state.savedSeg==='interest')return seg+renderInterest();
   var arr=FAV.slice().filter(matchQ);
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
   if(!FAV.length)return seg+'<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này (và trên tài khoản nếu đã đăng nhập), giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
@@ -595,161 +579,6 @@ function renderSaved(){
   var exp='<div class="expbar"><button class="wbtn" data-export="1">📄 Xuất Word — tin lưu hôm nay ('+nToday+')</button></div>';
   var cards=arr.length?arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):(a._kind==='dip'?drillCardInner(a,'Liên quan sự kiện'):newsCardInner(a)))),idOf(a));}).join(''):'<div class="empty">Không có tin đã lưu khớp tìm kiếm.</div>';
   return seg+'<div class="note">Tin bạn đã lưu — bấm ★ để bỏ lưu.</div>'+exp+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
-}
-/* Trọng số tín hiệu: 👍 +2 · 👎 −2 · lưu ★ +3 · đã đọc +1 */
-var W_UP=2,W_DOWN=-2,W_SAVE=3,W_READ=1;
-var STOP_KW={};('tổng chính các những một và của cho với khi sau trước trong ngoài về tại từ đến vào là bị được có không sẽ đã đang này đó thì mà nếu vì do theo giữa trên dưới cùng hơn cả thêm mới lại nói gần việc sự người nước cuộc bản đây khi giữa trước the a an of to in on for and with as at by new').split(' ').forEach(function(w){STOP_KW[w]=1;});
-function isUpperCh(ch){return !!ch&&ch.toLowerCase()!==ch.toUpperCase()&&ch===ch.toUpperCase();}
-function extractKeywords(title){
-  if(!title)return [];
-  var clauses;try{clauses=(''+title).split(/[^\p{L}\p{N} -]+/u);}catch(e){clauses=(''+title).split(/[^0-9A-Za-zÀ-ỹ -]+/);}
-  var out=[];
-  clauses.forEach(function(cl){
-    var toks=cl.split(/\s+/).filter(function(x){return x&&x!=='-';});
-    var cur=[];
-    function flush(){if(cur.length){var ph=cur.join(' ');if(!(cur.length===1&&STOP_KW[ph.toLowerCase()]))out.push(ph);cur=[];}}
-    for(var i=0;i<toks.length;i++){var t=toks[i];var acr=/^[A-Z0-9][A-Z0-9-]{1,}$/.test(t);
-      if(isUpperCh(t.charAt(0))||acr){cur.push(t);}else{flush();}}
-    flush();
-  });
-  return out;
-}
-function interestProfile(){
-  var byCat={},bySrc={},byReg={},byX={},up=0,down=0,total=0;
-  for(var id in VOTES){var v=VOTES[id];if(!v)continue;total++;var s=v.v>0;s?up++:down++;
-    function acc(m,k){if(!k)return;m[k]=m[k]||{up:0,down:0};m[k][s?'up':'down']++;}
-    var isX=v.kind==='x'||v.cat==='X/Twitter';
-    if(isX){acc(byX,v.src);}else{acc(byCat,v.cat);acc(byReg,v.region);acc(bySrc,v.src);}}
-  return {byCat:byCat,bySrc:bySrc,byReg:byReg,byX:byX,up:up,down:down,total:total};
-}
-function keywordProfile(){
-  var m={};
-  function add(title,w){extractKeywords(title).forEach(function(k){m[k]=m[k]||{score:0,n:0};m[k].score+=w;m[k].n++;});}
-  for(var id in VOTES){var v=VOTES[id];if(v)add(v.title,v.v>0?W_UP:W_DOWN);}
-  FAV.forEach(function(f){if(f)add(f.title||f.text,W_SAVE);});
-  return m;
-}
-function implicitProfile(){
-  var savedByCat={},readByCat={},saved=FAV.length,read=0;
-  FAV.forEach(function(f){var c=f.category||(f._kind==='x'?'X/Twitter':'Khác');savedByCat[c]=(savedByCat[c]||0)+1;});
-  for(var id in READ){read++;var f=findItemById(id);if(f&&f.item){var c=f.item.category||(f.kind==='x'?'X/Twitter':'Khác');readByCat[c]=(readByCat[c]||0)+1;}}
-  return {saved:saved,read:read,savedByCat:savedByCat,readByCat:readByCat};
-}
-var VN_SRC='vnexpress|tuổi trẻ|tuoi tre|thanh niên|thanh nien|dân trí|dan tri|vneconomy|ttxvn|vietnamplus|nhân dân|nhan dan|quân đội|quan doi|qđnd|qdnd|báo mới|bao moi|thế giới & việt nam|chính phủ|baochinhphu|vietnamnet|người lao động';
-function isVNsrc(s){s=(s||'').toLowerCase();return VN_SRC.split('|').some(function(w){return s.indexOf(w)>=0;});}
-function ageDays(d){if(!d)return null;var p=(''+d).split('-');if(p.length!==3)return null;var t=Date.parse(p[0]+'-'+p[1]+'-'+p[2]);if(isNaN(t))return null;return Math.max(0,Math.round((Date.now()-t)/86400000));}
-function positiveIds(){var s={};for(var id in VOTES){if(VOTES[id]&&VOTES[id].v>0)s[id]=1;}FAV.forEach(function(f){if(f&&f._id)s[f._id]=1;});return s;}
-function engagementProfile(){
-  var pos=positiveIds(),byCat={},bySrc={};
-  function bump(m,k,eng){if(!k)return;m[k]=m[k]||{seen:0,eng:0};m[k].seen++;if(eng)m[k].eng++;}
-  ['worldNews','usNews','xNews','analyses'].forEach(function(key){(DATA[key]||[]).forEach(function(a){
-    var id=idOf(a);if(!SEEN0[id])return;var eng=!!pos[id];
-    bump(byCat,a.category||(a.handle?'X/Twitter':'Khác'),eng);
-    var src=a.sourceName||a.handle||a.outlet||'';if(src)bump(bySrc,src,eng);});});
-  return {byCat:byCat,bySrc:bySrc};
-}
-function engagedItems(){
-  var seen={},out=[];
-  function ni(a,kind){return {title:a.title||a.text||'',category:a.category||(kind==='x'||a.handle?'X/Twitter':''),kind:kind||a._kind||(a.handle?'x':'news'),date:a.date||'',opinion:!!a.opinion,source:a.sourceName||a.handle||a.outlet||''};}
-  FAV.forEach(function(f){if(f&&f._id&&!seen[f._id]){seen[f._id]=1;out.push(ni(f,f._kind));}});
-  for(var id in VOTES){var v=VOTES[id];if(v&&v.v>0&&!seen[id]){seen[id]=1;var f=findItemById(id);if(f&&f.item)out.push(ni(f.item,f.kind));else out.push({title:v.title||'',category:v.cat||'',kind:v.kind||'news',date:'',opinion:false,source:v.src||''});}}
-  return out;
-}
-function criteriaProfile(){
-  var items=engagedItems(),kindPref={},lang={vn:0,en:0},op={opinion:0,plain:0},ages=[],pairs={};
-  var KLBL={news:'Tin thường',x:'X/Twitter',analysis:'Phân tích',drill:'Tập trận',dip:'Ngoại giao'};
-  items.forEach(function(a){
-    var kl=KLBL[a.kind]||a.kind||'Tin thường';kindPref[kl]=(kindPref[kl]||0)+1;
-    (isVNsrc(a.source)?lang.vn++:lang.en++);
-    (a.opinion?op.opinion++:op.plain++);
-    var g=ageDays(a.date);if(g!=null)ages.push(g);
-    var ks=extractKeywords(a.title);for(var i=0;i<ks.length;i++)for(var j=i+1;j<ks.length;j++){var pr=[ks[i],ks[j]].sort().join(' + ');pairs[pr]=(pairs[pr]||0)+1;}
-  });
-  var kw=keywordProfile(),avoid=Object.keys(kw).filter(function(k){return kw[k].score<0;}).sort(function(a,b){return kw[a].score-kw[b].score;}).slice(0,10);
-  var topPairs=Object.keys(pairs).filter(function(k){return pairs[k]>=2;}).sort(function(a,b){return pairs[b]-pairs[a];}).slice(0,8);
-  var avgAge=ages.length?Math.round(ages.reduce(function(s,x){return s+x;},0)/ages.length):null;
-  return {engaged:items.length,kindPref:kindPref,lang:lang,opinion:op,avgAgeDays:avgAge,avoidTopics:avoid,cooccur:topPairs,concepts:conceptList()};
-}
-function interestRows(map){
-  var keys=Object.keys(map);
-  if(!keys.length)return '<div class="empty" style="padding:12px">Chưa có dữ liệu.</div>';
-  keys.sort(function(a,b){return (map[b].up-map[b].down)-(map[a].up-map[a].down);});
-  return '<table class="itbl">'+keys.map(function(k){var m=map[k],net=m.up-m.down,cls=net>0?'pos':(net<0?'neg':'');
-    return '<tr><td class="itname">'+esc(k)+'</td><td class="itnum">👍 '+m.up+'</td><td class="itnum">👎 '+m.down+'</td><td class="itnet '+cls+'">'+(net>0?'+':'')+net+'</td></tr>';}).join('')+'</table>';
-}
-function kwRows(m){
-  var keys=Object.keys(m).filter(function(k){return m[k].n>=2;});
-  if(keys.length<5)keys=Object.keys(m);
-  keys=keys.filter(function(k){return m[k].score!==0;});
-  if(!keys.length)return '<div class="empty" style="padding:12px">Chưa đủ dữ liệu để rút chủ đề.</div>';
-  keys.sort(function(a,b){return m[b].score-m[a].score;});
-  keys=keys.slice(0,20);
-  return '<table class="itbl">'+keys.map(function(k){var sc=m[k].score,cls=sc>0?'pos':(sc<0?'neg':'');
-    return '<tr><td class="itname">'+esc(k)+'</td><td class="itnum">'+m[k].n+' tin</td><td class="itnet '+cls+'">'+(sc>0?'+':'')+sc+'</td></tr>';}).join('')+'</table>';
-}
-function cntRows(map){
-  var keys=Object.keys(map);if(!keys.length)return '';
-  keys.sort(function(a,b){return map[b]-map[a];});
-  return '<table class="itbl">'+keys.map(function(k){return '<tr><td class="itname">'+esc(k)+'</td><td class="itnet pos">'+map[k]+'</td></tr>';}).join('')+'</table>';
-}
-function rateRows(map){
-  var keys=Object.keys(map).filter(function(k){return map[k].seen>=3;});
-  if(keys.length<2)keys=Object.keys(map).filter(function(k){return map[k].seen>=1;});
-  if(!keys.length)return '<div class="empty" style="padding:12px">Chưa đủ dữ liệu (cần xem & tương tác thêm).</div>';
-  keys.sort(function(a,b){return (map[b].eng/map[b].seen)-(map[a].eng/map[a].seen);});
-  return '<table class="itbl">'+keys.map(function(k){var m=map[k],pct=Math.round(100*m.eng/m.seen),cls=pct>0?'pos':'';
-    return '<tr><td class="itname">'+esc(k)+'</td><td class="itnum">'+m.eng+'/'+m.seen+'</td><td class="itnet '+cls+'">'+pct+'%</td></tr>';}).join('')+'</table>';
-}
-function criteriaSummary(c){
-  if(!c.engaged)return '<div class="empty" style="padding:12px">Chưa có tín hiệu tích cực (thích/lưu) để suy tiêu chí.</div>';
-  var L=[];
-  var kp=Object.keys(c.kindPref).sort(function(a,b){return c.kindPref[b]-c.kindPref[a];});
-  if(kp.length)L.push('<b>Loại nội dung thích nhất:</b> '+esc(kp[0])+' ('+c.kindPref[kp[0]]+')');
-  if(c.avgAgeDays!=null)L.push('<b>Độ mới TB tin quan tâm:</b> '+c.avgAgeDays+' ngày'+(c.avgAgeDays<=1?' (thích tin rất nóng)':(c.avgAgeDays>=4?' (thiên tin nền/phân tích)':'')));
-  var lt=c.lang.vn+c.lang.en;if(lt)L.push('<b>Ngôn ngữ nguồn:</b> Việt '+Math.round(100*c.lang.vn/lt)+'% · Anh/khác '+Math.round(100*c.lang.en/lt)+'%');
-  var ot=c.opinion.opinion+c.opinion.plain;if(ot)L.push('<b>Tin bình luận/quan điểm:</b> '+Math.round(100*c.opinion.opinion/ot)+'%');
-  if(c.avoidTopics.length)L.push('<b>Chủ đề nên tránh:</b> '+c.avoidTopics.map(esc).join(', '));
-  if(c.concepts.length)L.push('<b>Khái niệm đang theo dõi:</b> '+c.concepts.slice(0,12).map(esc).join(', '));
-  if(c.cooccur.length)L.push('<b>Cặp chủ đề hay đi cùng:</b> '+c.cooccur.map(esc).join(' · '));
-  return '<div class="crit">'+L.map(function(x){return '<div class="crit-l">'+x+'</div>';}).join('')+'</div>';
-}
-function renderInterest(){
-  var p=interestProfile(),kw=keywordProfile(),im=implicitProfile();
-  var hasAny=p.total||im.saved||im.read;
-  if(!hasAny)return '<div class="note">Bấm 👍 / 👎 (hoặc lưu ★) ở mỗi tin để cho biết bạn quan tâm gì. Dữ liệu lưu trên máy này, dùng để định hướng lần quét tin sau ra kết quả hợp gu bạn hơn.</div><div class="empty">Chưa có tín hiệu nào.</div>';
-  var head='<div class="note">Suy ra <b>mối quan tâm</b> từ nhiều tín hiệu: 👍/👎 (±2), lưu ★ (+3), đã đọc (+1). Tổng <b>'+p.total+'</b> lượt vote (👍 '+p.up+' · 👎 '+p.down+') · '+im.saved+' bài đã lưu · '+im.read+' tin đã đọc. Xuất file để đưa vào quy trình quét lần sau.</div>';
-  var exp='<div class="expbar"><button class="wbtn" data-expvotes="1">📤 Xuất hồ sơ sở thích (JSON)</button></div>';
-  function sec(name,html){return '<section class="drill"><div class="drill-h"><div class="drill-name">'+name+'</div></div>'+html+'</section>';}
-  var body=sec('🔑 Theo chủ đề / từ khóa',kwRows(kw))+
-           sec('📂 Theo chuyên mục',interestRows(p.byCat))+
-           sec('🌍 Theo khu vực',interestRows(p.byReg))+
-           sec('📰 Theo nguồn',interestRows(p.bySrc));
-  if(Object.keys(p.byX).length)body+=sec('𝕏 Theo tài khoản X',interestRows(p.byX));
-  var eng=engagementProfile();
-  body+=sec('📊 Tỷ lệ tương tác (đã tương tác / đã xem)','<div class="sub">Theo chuyên mục</div>'+rateRows(eng.byCat)+'<div class="sub">Theo nguồn</div>'+rateRows(eng.bySrc));
-  body+=sec('🧭 Tiêu chí khác (tóm tắt)',criteriaSummary(criteriaProfile()));
-  var imHtml='';
-  if(im.saved)imHtml+='<div class="sub">Bài đã lưu theo chuyên mục</div>'+cntRows(im.savedByCat);
-  if(im.read)imHtml+='<div class="sub">Tin đã đọc theo chuyên mục</div>'+cntRows(im.readByCat);
-  if(imHtml)body+=sec('💾 Tín hiệu ngầm (lưu · đọc)',imHtml);
-  return head+exp+body;
-}
-function exportVotes(){
-  var p=interestProfile(),kw=keywordProfile(),im=implicitProfile();
-  if(!p.total&&!im.saved&&!im.read){toast('Chưa có tín hiệu nào để xuất');return;}
-  var kwTop={};Object.keys(kw).sort(function(a,b){return kw[b].score-kw[a].score;}).slice(0,40).forEach(function(k){kwTop[k]=kw[k];});
-  var out={generatedAt:todayISO(),totalVotes:p.total,likes:p.up,dislikes:p.down,
-    byCategory:p.byCat,byRegion:p.byReg,bySource:p.bySrc,byXhandle:p.byX,
-    keywords:kwTop,implicit:im,engagementRate:engagementProfile(),criteria:criteriaProfile(),
-    weights:{up:W_UP,down:W_DOWN,save:W_SAVE,read:W_READ},votes:VOTES};
-  try{
-    var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
-    var u=URL.createObjectURL(blob);var el=document.createElement('a');
-    el.href=u;el.download='diemtin-sothich.json';
-    document.body.appendChild(el);el.click();
-    setTimeout(function(){document.body.removeChild(el);URL.revokeObjectURL(u);},200);
-    toast('Đã xuất hồ sơ sở thích');
-  }catch(e){toast('Không xuất được file');}
 }
 function drillCardInner(a,label){
   return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>'+(label||'Liên quan tập trận')+':</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
@@ -839,7 +668,7 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-expvotes],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout]'):null;if(!t)return;
   if(t.getAttribute('data-signin')!=null){var _em=document.getElementById('acctemail'),_pw=document.getElementById('acctpass');sbSignIn(_em?_em.value:'',_pw?_pw.value:'');return;}
   if(t.getAttribute('data-signup')!=null){var _em2=document.getElementById('acctemail'),_pw2=document.getElementById('acctpass');sbSignUp(_em2?_em2.value:'',_pw2?_pw2.value:'');return;}
   if(t.getAttribute('data-signout')!=null){sbSignOut();return;}
@@ -853,7 +682,6 @@ document.addEventListener('click',function(e){
   if(t.getAttribute('data-sx')!=null){state.q='';render();return;}
   if(t.getAttribute('data-fav')!=null){toggleFav(t.getAttribute('data-fav'));render();return;}
   if(t.getAttribute('data-vote')!=null){var _vid=t.getAttribute('data-vid');castVote(_vid,t.getAttribute('data-vote')==='up'?1:-1);reContent();return;}
-  if(t.getAttribute('data-expvotes')!=null){exportVotes();return;}
   if(t.getAttribute('data-topicseg')!=null){state.topicSeg=t.getAttribute('data-topicseg');state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';render();return;}
   if(t.getAttribute('data-tab')){state.tab=t.getAttribute('data-tab');state.fresh='Tất cả';state.freshDate='';state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
   else if(t.getAttribute('data-fresh')!=null){state.fresh=t.getAttribute('data-fresh');state.freshDate='';}
