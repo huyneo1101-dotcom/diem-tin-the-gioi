@@ -32,7 +32,13 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
 - Kiểm tra đã xong chưa: `grep -oE '"generatedAt":"[^"]+"' index.html | head -1`. Nếu == `$NGAY`
   → bản tin hôm nay ĐÃ XONG: ghi log `SKIP`, commit+push log, KẾT THÚC.
 
-## Bước 1 — Dữ liệu nền (chỉ grep, không đọc cả file)
+## Bước 1 — Nguồn + dữ liệu nền
+**Nguồn quét lấy từ `CLAUDE.md`** (tự nạp trong context): đọc mục **"Nguồn theo 3 tầng"** (chính
+thức · dữ liệu · phân tích · báo chí) và bảng **"URL RSS đã biết"** để biết dùng nguồn nào cho
+category nào và URL RSS tương ứng. Skill không tự chứa danh sách nguồn — CLAUDE.md là nguồn chân lý
+duy nhất (tránh lệch khi cập nhật).
+
+Sau đó lấy dữ liệu nền (chỉ grep, không đọc cả file):
 ```
 grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn   # nguồn đã dùng nhiều → né
 python3 scripts/add_news.py --recent-titles 20                          # tiêu đề gần đây → chống trùng
