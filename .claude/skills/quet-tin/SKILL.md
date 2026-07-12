@@ -67,14 +67,20 @@ top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 ## Bước 2 — Giao 6 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
 | Agent | Phạm vi | Sản lượng |
 |---|---|---|
-| 1 | Kinh tế — worldNews + usNews | 2–3 tin mỗi mục |
-| 2 | Chính trị — worldNews + usNews | 2–3 tin mỗi mục |
-| 3 | Công nghệ quân sự — worldNews + usNews | 2–3 tin mỗi mục |
-| 4 | Ngoại giao — worldNews + usNews | 2–3 tin mỗi mục |
-| 5 | xNews | 4–5 tin |
+| 1 | Kinh tế — worldNews + usNews | 3–4 mỗi mục (CHỈ vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
+| 2 | Chính trị — worldNews + usNews | 2 mỗi mục (CHỈ thể chế/luật/chiến lược great-power) |
+| 3 | Công nghệ quân sự — worldNews + usNews | **4–6 mỗi mục** (chủ đề thích nhất) |
+| 4 | Ngoại giao — worldNews + usNews | **4–6 mỗi mục** (hiệp định/khuôn khổ an ninh-QP có kết quả) |
+| 5 | xNews | 4–5 tin (ưu tiên QP/an ninh/chính thức) |
 | 6 | exercises + dipEvents (cập nhật `ongoing` + tạo sự kiện ngoại giao mới nếu có) | 1–2 mỗi loại |
 
+Mục tiêu tổng ~28–40 tin/ngày, dồn cho Công nghệ quân sự + Ngoại giao. Xem chỉ tiêu + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
+
 **Nhúng vào MỌI prompt agent** (agent KHÔNG thấy hội thoại chính — viết prompt độc lập):
+- **BỘ LỌC SỞ THÍCH (bắt buộc — từ `preferences.md`/CLAUDE.md):** ƯU TIÊN khí tài/hệ thống QP cụ thể,
+  hiệp định an ninh-QP, Kinh tế vĩ mô/chuỗi cung ứng chiến lược, Chính trị thể chế/chiến lược. **LOẠI BỎ**:
+  cáo phó/người qua đời, chính trị nhân vật/bê bối/drama, đua bầu cử horserace, lợi nhuận công ty đơn lẻ
+  (trừ khi gắn QP/chip-AI/chuỗi cung ứng), nội bộ xã hội-tư pháp thuần, Nga–Ukraine chiến sự lặp lại.
 - **Ràng buộc chất lượng**: (a) `date` trong 48h–3 ngày, ưu tiên mới nhất; (b) `sourceUrl` trỏ
   THẲNG 1 bài viết cụ thể, KHÔNG trang chủ / "live" / live-blog / tổng hợp, link KHỚP nội dung;
   (c) `sourceName` chỉ trong danh sách nguồn được giao HOẶC nguồn chính thức phù hợp; (d) xNews:

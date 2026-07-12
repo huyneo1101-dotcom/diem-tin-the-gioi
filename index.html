@@ -532,13 +532,15 @@ function renderFresh(){
   var sel=state.fresh||'Tất cả';
   var byKind=all.filter(function(w){return sel==='Tất cả'||w.fk===sel;});
   var ds=[];byKind.forEach(function(w){var d=w.it.date;if(d&&ds.indexOf(d)<0)ds.push(d);});ds.sort();ds.reverse();
-  var effDate=state.freshDate?state.freshDate:(ds[0]||'Tất cả');
-  var items=byKind.filter(function(w){return (effDate==='Tất cả'||w.it.date===effDate)&&matchQ(w.it);});
+  var recent2=ds.slice(0,2);            // 2 ngày gần nhất
+  var mode=state.freshDate||'__2d__';   // mặc định: 2 ngày gần nhất
+  var items=byKind.filter(function(w){var d=w.it.date;var ok=mode==='__2d__'?(recent2.indexOf(d)>=0):(mode==='Tất cả'?true:(d===mode));return ok&&matchQ(w.it);});
   var nNew=all.filter(function(w){return isNew(idOf(w.it));}).length;
   var cap=40, shown=items.slice(0,cap);
   var chips='<div class="chips">'+kinds.map(function(k){var n=(k[0]==='Tất cả'?all:all.filter(function(w){return w.fk===k[0];})).length;return '<span class="chip'+(sel===k[0]?' on':'')+'" data-fresh="'+k[0]+'">'+k[1]+' ('+n+')</span>';}).join('')+'</div>';
-  var dsel=ds.length?'<div class="filterbar"><span>📅 Lọc ngày</span><select class="dsel" data-freshdate><option value="Tất cả"'+(effDate==='Tất cả'?' selected':'')+'>Tất cả ngày</option>'+ds.map(function(d){return '<option value="'+esc(d)+'"'+(effDate===d?' selected':'')+'>'+fmtVN(d)+'</option>';}).join('')+'</select></div>':'';
-  var dhint=(effDate!=='Tất cả')?' Đang xem ngày <b>'+fmtVN(effDate)+'</b> — chọn "Tất cả ngày" để xem thêm.':'';
+  var dopts='<option value="__2d__"'+(mode==='__2d__'?' selected':'')+'>2 ngày gần nhất</option><option value="Tất cả"'+(mode==='Tất cả'?' selected':'')+'>Tất cả ngày</option>'+ds.map(function(d){return '<option value="'+esc(d)+'"'+(mode===d?' selected':'')+'>'+fmtVN(d)+'</option>';}).join('');
+  var dsel=ds.length?'<div class="filterbar"><span>📅 Lọc ngày</span><select class="dsel" data-freshdate>'+dopts+'</select></div>':'';
+  var dhint=mode==='__2d__'?(recent2.length?' Đang xem <b>2 ngày gần nhất</b> ('+recent2.map(fmtVN).join(', ')+').':''):(mode!=='Tất cả'?' Đang xem ngày <b>'+fmtVN(mode)+'</b> — chọn "2 ngày gần nhất" hoặc "Tất cả ngày" để xem thêm.':'');
   var note=nNew?'<div class="note">🆕 <b>'+nNew+'</b> tin mới kể từ lần bạn xem gần nhất (đánh dấu <span class="newb">MỚI</span>).'+dhint+'</div>':'<div class="note">Tổng hợp tin mới nhất từ mọi mục.'+dhint+'</div>';
   var cards=shown.length?shown.map(freshCard).join(''):'<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin ngày này.')+'</div>';
   var more=items.length>cap?'<div class="note" style="text-align:center">Đang hiển thị '+cap+'/'+items.length+' tin — vào từng mục để xem thêm.</div>':'';
