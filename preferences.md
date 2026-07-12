@@ -19,7 +19,9 @@ Hồ sơ sở thích (file export `diemtin-sothich.json`) suy từ **nhiều tí
 - **`keywords`** — chủ đề/từ khóa (danh từ riêng) rút từ tiêu đề tin đã vote/lưu, kèm điểm tổng hợp. Đây là chiều **mịn nhất, giá trị nhất** để bám đúng chủ đề (vd "Iran", "NATO", "Biển Đông", "bán dẫn", "F-16").
 - **`byXhandle`** — sở thích theo từng tài khoản X (@NATO, @Reuters…).
 - **`implicit`** — tín hiệu ngầm: số bài đã lưu ★ / đã đọc, phân theo chuyên mục (quan tâm dù không vote).
-> Lưu ý: `keywords`, `byXhandle`, `implicit` chỉ có qua **export thủ công** (nằm ở localStorage, không đồng bộ Supabase). View Supabase tự động (`preferences.json`) chỉ có category/region/source.
+- **`engagementRate`** — tỷ lệ tương tác chuẩn hóa: trong số tin đã XEM (dt.seen) theo chuyên mục/nguồn, bao nhiêu % được thích/lưu (`eng/seen`). Phân biệt "thấy nhiều nhưng chán" vs "thấy ít nhưng mê" — chính xác hơn đếm thô.
+- **`criteria`** — bộ tiêu chí suy diễn: `kindPref` (loại nội dung thích: tin/X/phân tích/tập trận/ngoại giao), `avgAgeDays` (độ mới TB tin quan tâm), `lang` (nguồn Việt vs Anh), `opinion` (tỷ lệ tin bình luận/quan điểm), `avoidTopics` (chủ đề điểm âm nên tránh), `cooccur` (cặp chủ đề hay đi cùng), `concepts` (khái niệm đang theo dõi).
+> Lưu ý: mọi chiều trừ category/region/source chỉ có qua **export thủ công** (localStorage, không đồng bộ Supabase). View Supabase tự động (`preferences.json`) chỉ có category/region/source.
 
 ## Cách áp dụng khi quét (đọc ở Bước 1 của skill)
 - **Chủ đề/từ khóa điểm cao** → chủ động tìm thêm tin về đúng chủ đề đó; **điểm âm** → giảm.
