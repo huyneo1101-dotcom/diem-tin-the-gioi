@@ -314,9 +314,8 @@ function getVote(id){var v=VOTES[id];return v?v.v:0;}
 function castVote(id,val,a){
   if(!id)return;
   var cur=VOTES[id]?VOTES[id].v:0;
-  if(cur===val){delete VOTES[id];}
-  else{var m=voteMeta(a||findById(id));VOTES[id]={v:val,cat:m.cat,src:m.src,region:m.region,title:m.title,t:todayISO()};}
-  saveVotes();
+  if(cur===val){delete VOTES[id];saveVotes();sbSaveVote(id,null);}
+  else{var m=voteMeta(a||findById(id));VOTES[id]={v:val,cat:m.cat,src:m.src,region:m.region,title:m.title,t:todayISO()};saveVotes();sbSaveVote(id,VOTES[id]);}
 }
 function findById(id){var f=findItemById(id);return f?f.item:{};}
 function voteBtns(a){var id=idOf(a),v=getVote(id);
@@ -392,15 +391,29 @@ function pullCloud(){
     if(push.length)SB.from('saved_concepts').upsert(push,{onConflict:'user_id,term'}).then(function(){});
     render();
   });
+  SB.from('votes').select('item_id,v,category,region,source,title').then(function(r){
+    if(!r||r.error||!r.data)return;
+    r.data.forEach(function(row){if(!VOTES[row.item_id]){VOTES[row.item_id]={v:row.v,cat:row.category||'',src:row.source||'',region:row.region||'',title:row.title||'',t:''};}});
+    saveVotes();
+    var cloud={};r.data.forEach(function(row){cloud[row.item_id]=1;});
+    var push=[];for(var id in VOTES){var rec=VOTES[id];if(rec&&!cloud[id])push.push({user_id:SB_USER.id,item_id:id,v:rec.v,category:rec.cat||null,region:rec.region||null,source:rec.src||null,title:rec.title||null});}
+    if(push.length)SB.from('votes').upsert(push,{onConflict:'user_id,item_id'}).then(function(){});
+    render();
+  });
 }
 function sbSaveItem(f){if(sbReady())SB.from('saved_items').upsert([{user_id:SB_USER.id,item_id:f._id,kind:f._kind||null,payload:f}],{onConflict:'user_id,item_id'}).then(function(){});}
 function sbRemoveItem(id){if(sbReady())SB.from('saved_items').delete().eq('user_id',SB_USER.id).eq('item_id',id).then(function(){});}
 function sbSaveConcept(t){if(sbReady())SB.from('saved_concepts').upsert([{user_id:SB_USER.id,term:t}],{onConflict:'user_id,term'}).then(function(){});}
 function sbRemoveConcept(t){if(sbReady())SB.from('saved_concepts').delete().eq('user_id',SB_USER.id).eq('term',t).then(function(){});}
+function sbSaveVote(id,rec){
+  if(!sbReady())return;
+  if(!rec){SB.from('votes').delete().eq('user_id',SB_USER.id).eq('item_id',id).then(function(){});return;}
+  SB.from('votes').upsert([{user_id:SB_USER.id,item_id:id,v:rec.v,category:rec.cat||null,region:rec.region||null,source:rec.src||null,title:rec.title||null,updated_at:new Date().toISOString()}],{onConflict:'user_id,item_id'}).then(function(){});
+}
 function accountBar(){
   if(!SB)return '';
   var box='border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 14px;background:var(--paper2)';
-  if(SB_USER)return '<div class="acctbar" style="'+box+';display:flex;align-items:center;gap:10px;flex-wrap:wrap">👤 <b>'+esc(SB_USER.email||'Đã đăng nhập')+'</b><span style="color:var(--muted)">— bài &amp; khái niệm đang đồng bộ</span> <button class="wbtn" data-signout="1">Đăng xuất</button></div>';
+  if(SB_USER)return '<div class="acctbar" style="'+box+';display:flex;align-items:center;gap:10px;flex-wrap:wrap">👤 <b>'+esc(SB_USER.email||'Đã đăng nhập')+'</b><span style="color:var(--muted)">— bài · khái niệm · sở thích đang đồng bộ</span> <button class="wbtn" data-signout="1">Đăng xuất</button></div>';
   return '<div class="acctbar" style="'+box+'"><div class="note" style="margin:0 0 8px">🔒 Đăng nhập để lưu bài &amp; khái niệm vào tài khoản riêng, đồng bộ mọi thiết bị.</div><div class="cadd"><input id="acctemail" type="email" placeholder="Email của bạn…" autocomplete="email"><button data-signin="1">Gửi link đăng nhập</button></div></div>';
 }
 function refreshRead(){READ={};jget('dt.read').forEach(function(id){READ[id]=1;});}

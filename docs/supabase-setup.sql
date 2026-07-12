@@ -28,3 +28,46 @@ create table if not exists saved_concepts (
 alter table saved_concepts enable row level security;
 create policy "own_concepts" on saved_concepts for all
   using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+-- Thích / không thích (👍/👎) từng bài — mỗi user 1 vote / 1 tin
+create table if not exists votes (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid not null references auth.users(id) on delete cascade,
+  item_id text not null,        -- id/URL của tin
+  v smallint not null check (v in (-1, 1)),   -- 1 = thích, -1 = không thích
+  category text,                -- chuyên mục (để tổng hợp sở thích)
+  region text,                  -- khu vực
+  source text,                  -- nguồn / handle
+  title text,                   -- tiêu đề (tham khảo)
+  created_at timestamptz default now(),
+  updated_at timestamptz default now(),
+  unique(user_id, item_id)
+);
+alter table votes enable row level security;
+create policy "own_votes" on votes for all
+  using (auth.uid() = user_id) with check (auth.uid() = user_id);
+
+-- View TỔNG HỢP công khai (CHỈ số đếm, KHÔNG lộ danh tính) — để session quét đọc bằng
+-- publishable key qua REST: GET /rest/v1/vote_stats?select=*  (điều hướng preferences.md).
+-- View chạy quyền owner (bỏ qua RLS) nên gộp được toàn bộ user, nhưng chỉ trả count tổng.
+create or replace view vote_stats
+with (security_invoker = false) as
+  select 'category'::text as scope, category as key,
+         count(*) filter (where v = 1)  as up,
+         count(*) filter (where v = -1) as down,
+         coalesce(sum(v), 0)            as net,
+         count(*)                       as total
+  from votes where category is not null and category <> '' group by category
+  union all
+  select 'region', region,
+         count(*) filter (where v = 1), count(*) filter (where v = -1),
+         coalesce(sum(v), 0), count(*)
+  from votes where region is not null and region <> '' group by region
+  union all
+  select 'source', source,
+         count(*) filter (where v = 1), count(*) filter (where v = -1),
+         coalesce(sum(v), 0), count(*)
+  from votes where source is not null and source <> '' group by source;
+
+-- Cho phép đọc view tổng hợp bằng cả anon (publishable) lẫn user đã đăng nhập.
+grant select on vote_stats to anon, authenticated;
