@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Luyện sở thích — Điểm Tin Thế Giới</title>
+<style>
+:root{--bg:#0f1216;--paper:#171b21;--paper2:#1d222a;--line:#2a313b;--ink:#e8ecf1;--muted:#9aa6b2;--muted2:#7f8a97;--accent:#5b9dff;--green:#2ec77a;--red:#ff5d5d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5;font-size:15px}
+.wrap{max-width:680px;margin:0 auto;padding:16px 14px 60px}
+h1{font-size:20px;margin:2px 0 4px}
+.sub{color:var(--muted);font-size:13.5px;margin:0 0 14px}
+.banner{background:#3a2f14;border:1px solid #6b5620;color:#f0d99a;border-radius:9px;padding:10px 12px;font-size:13px;margin:0 0 14px}
+.acct{background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 14px}
+.acct input{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:9px 11px;color:var(--ink);font:inherit;margin:0 0 8px;outline:none}
+.acct input:focus{border-color:var(--accent)}
+.btns{display:flex;gap:8px}
+button{font:inherit;cursor:pointer}
+.pbtn{flex:1;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:7px;padding:9px 12px;font-weight:700}
+.pbtn:hover{border-color:var(--accent);color:var(--accent)}
+.who{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px}
+.prog{position:sticky;top:0;background:var(--bg);padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted);z-index:5}
+.prog b{color:var(--ink)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:11px;padding:13px 14px;margin:11px 0}
+.badge{display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);background:#12203a;border-radius:20px;padding:2px 9px;margin:0 0 7px}
+.title{font-weight:700;font-size:15.5px;margin:0 0 5px}
+.summary{color:var(--muted);font-size:13.5px;margin:0 0 7px}
+.src{color:var(--muted2);font-size:12.5px;margin:0 0 10px}
+.vote{display:flex;gap:9px}
+.vb{flex:1;border:1px solid var(--line);background:var(--paper2);color:var(--muted);border-radius:9px;padding:9px 0;font-size:17px;font-weight:700;transition:all .12s}
+.vb.up.on{background:rgba(46,199,122,.16);border-color:var(--green);color:var(--green)}
+.vb.down.on{background:rgba(255,93,93,.14);border-color:var(--red);color:var(--red)}
+.vb:active{transform:scale(.96)}
+.msg{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#2a313b;color:#fff;padding:9px 15px;border-radius:20px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:20}
+.msg.on{opacity:1}
+.done{color:var(--green);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🎯 Luyện sở thích</h1>
+  <p class="sub">Chấm 👍 / 👎 cho từng tin để hệ thống hiểu gu bạn hơn. Vote lưu vào cùng tài khoản với trang bản tin.</p>
+  <div class="banner">⚠️ Đây là <b>tin mẫu để chấm điểm</b> — KHÔNG phải bản tin thật, không có trong trang tin tức. Nội dung chỉ dùng để dò sở thích.</div>
+  <div id="acct" class="acct"></div>
+  <div id="prog" class="prog"></div>
+  <div id="list"></div>
+</div>
+<div id="msg" class="msg"></div>
+<script>
+var SB_URL='https://ltmlueqkajqmduoqghdf.supabase.co';
+var SB_ANON='sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg';
+var SB=null,USER=null,VOTES={};
+var ITEMS=[
+/* ===== Công nghệ quân sự (25) ===== */
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"Defense News",t:"Lục quân Mỹ chọn nhà thầu phát triển pháo tầm xa thế hệ mới thay thế chương trình ERCA đã hủy",u:"Sau khi hủy pháo tự hành tầm xa ERCA, Lục quân Mỹ khởi động lại cuộc thi tìm giải pháp pháo 155mm tầm bắn 70km."},
+{c:"Công nghệ quân sự",r:"Ấn Độ Dương - Thái Bình Dương",s:"Naval News",t:"Nhật Bản hạ thủy khu trục hạm Aegis cỡ lớn đầu tiên lớp ASEV chuyên phòng thủ tên lửa đạn đạo",u:"Tàu dài 190m, radar SPY-7, được thiết kế để đánh chặn tên lửa Triều Tiên thay cho hệ thống Aegis Ashore trên bộ."},
+{c:"Công nghệ quân sự",r:"Châu Âu/NATO",s:"Breaking Defense",t:"Đức đặt mua thêm 20 tiêm kích Eurofighter phiên bản tác chiến điện tử để thay thế Tornado",u:"Hợp đồng trị giá hơn 2 tỷ euro nhằm duy trì năng lực áp chế phòng không đối phương của không quân Đức."},
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"SpaceNews",t:"Space Force ký hợp đồng phóng chùm vệ tinh cảnh báo tên lửa siêu vượt âm lên quỹ đạo tầm trung",u:"Chương trình nhằm phát hiện và bám bắt vũ khí siêu vượt âm mà vệ tinh cảnh báo sớm truyền thống khó theo dõi."},
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"Task & Purpose",t:"Thủy quân lục chiến Mỹ biên chế đại đội đầu tiên trang bị robot tiếp tế bốn chân",u:"Robot mang được 70kg hàng, đi theo binh sĩ trên địa hình phức tạp, giảm tải hậu cần tuyến đầu."},
+{c:"Công nghệ quân sự",r:"Châu Âu/NATO",s:"Defense News",t:"Pháp và Ý khởi động dự án chung phát triển tên lửa hành trình tấn công mặt đất tầm 1.000km",u:"Vũ khí thay thế SCALP/Storm Shadow, dự kiến trang bị cho cả tiêm kích Rafale lẫn tàu chiến."},
+{c:"Công nghệ quân sự",r:"Ấn Độ Dương - Thái Bình Dương",s:"Naval News",t:"Hàn Quốc thử nghiệm thành công tàu ngầm KSS-III phóng tên lửa đạn đạo từ ống phóng thẳng đứng",u:"Đưa Hàn Quốc vào nhóm ít quốc gia có năng lực răn đe từ tàu ngầm quy ước."},
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"Breaking Defense",t:"Không quân Mỹ công bố chương trình máy bay không người lái cộng tác CCA giai đoạn hai",u:"Drone giá rẻ bay kèm tiêm kích F-35 và NGAD, mang vũ khí và cảm biến, được điều khiển bằng AI."},
+{c:"Công nghệ quân sự",r:"Trung Đông",s:"Defense News",t:"Israel giới thiệu hệ thống laser Iron Beam sẵn sàng biên chế đánh chặn rocket tầm ngắn",u:"Vũ khí laser 100kW bổ sung cho Vòm Sắt, chi phí mỗi lần bắn chỉ vài USD."},
+{c:"Công nghệ quân sự",r:"Châu Âu/NATO",s:"Naval News",t:"Anh khởi công đóng tàu ngầm hạt nhân lớp Dreadnought thứ ba mang tên lửa Trident",u:"Chương trình răn đe hạt nhân trên biển trị giá 31 tỷ bảng, thay thế lớp Vanguard từ thập niên 2030."},
+{c:"Công nghệ quân sự",r:"Ấn Độ Dương - Thái Bình Dương",s:"Defense News",t:"Úc đầu tư nâng cấp căn cứ phía bắc để tiếp nhận máy bay ném bom B-52 luân phiên của Mỹ",u:"Một phần của thỏa thuận tăng hiện diện lực lượng Mỹ tại Úc nhằm răn đe ở Ấn Độ Dương-Thái Bình Dương."},
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"SpaceNews",t:"DARPA trình diễn động cơ tên lửa hạt nhân nhiệt cho tàu vũ trụ cơ động nhanh trên quỹ đạo",u:"Công nghệ giúp vệ tinh quân sự thay đổi quỹ đạo linh hoạt, khó bị theo dõi và đánh chặn."},
+{c:"Công nghệ quân sự",r:"Châu Âu/NATO",s:"Breaking Defense",t:"Ba Lan nhận lô xe tăng K2 đầu tiên từ Hàn Quốc trong hợp đồng 1.000 chiếc",u:"Ba Lan tái vũ trang quy mô lớn sau chiến sự Ukraine, trở thành lực lượng lục quân mạnh nhất châu Âu."},
+{c:"Công nghệ quân sự",r:"Toàn cầu",s:"Defense News",t:"NATO lập quỹ đầu tư mạo hiểm rót vốn cho startup công nghệ lưỡng dụng và AI quốc phòng",u:"Quỹ DIANA trị giá 1 tỷ euro hỗ trợ các công ty phát triển drone, lượng tử, vật liệu mới."},
+{c:"Công nghệ quân sự",r:"Ấn Độ Dương - Thái Bình Dương",s:"Naval News",t:"Đài Loan hạ thủy tàu ngầm nội địa đầu tiên Hải Côn, tăng năng lực chống phong tỏa",u:"Chương trình tàu ngầm tự đóng nhằm răn đe hải quân Trung Quốc trong kịch bản phong tỏa đảo."},
+{c:"Công nghệ quân sự",r:"Nam Á",s:"Defense News",t:"Ấn Độ thử nghiệm thành công tên lửa hành trình siêu vượt âm nội địa tầm bắn 1.500km",u:"Tên lửa bay tốc độ Mach 7, là bước tiến trong tham vọng tự chủ vũ khí chiến lược của New Delhi."},
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"Task & Purpose",t:"Hải quân Mỹ thử nghiệm bầy drone mặt nước không người lái điều phối bằng AI ở Vịnh Ba Tư",u:"Đội tàu tự hành tuần tra, trinh sát và có thể tấn công phối hợp, giảm rủi ro cho thủy thủ."},
+{c:"Công nghệ quân sự",r:"Châu Âu/NATO",s:"SpaceNews",t:"Cơ quan Vũ trụ châu Âu và EU khởi động chùm vệ tinh trinh sát quân sự dùng chung",u:"Hệ thống cung cấp ảnh vệ tinh độ phân giải cao cho các nước thành viên, giảm phụ thuộc vào Mỹ."},
+{c:"Công nghệ quân sự",r:"Đông Á",s:"Defense News",t:"Trung Quốc trình làng máy bay không người lái tàng hình cỡ lớn nghi dùng cho tác chiến điện tử",u:"Ảnh vệ tinh cho thấy mẫu drone mới tại sân bay thử nghiệm, giới phân tích đánh giá là bước tiến đáng kể."},
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"Breaking Defense",t:"Lầu Năm Góc lập văn phòng chuyên trách tích hợp AI tạo sinh vào chỉ huy tác chiến",u:"Mục tiêu rút ngắn chu trình ra quyết định, xử lý dữ liệu tình báo đa nguồn theo thời gian thực."},
+{c:"Công nghệ quân sự",r:"Châu Âu/NATO",s:"Naval News",t:"Na Uy và Đức đặt chung sáu tàu ngầm lớp 212CD, tiêu chuẩn hóa hạm đội tàu ngầm Bắc Âu",u:"Hợp tác nhằm tăng khả năng phối hợp và giảm chi phí vận hành trong vùng biển Baltic và Bắc Cực."},
+{c:"Công nghệ quân sự",r:"Trung Đông",s:"Defense News",t:"Saudi Arabia ký thỏa thuận sản xuất nội địa hệ thống phòng không tầm ngắn với đối tác châu Âu",u:"Một phần chương trình nội địa hóa công nghiệp quốc phòng theo Tầm nhìn 2030 của vương quốc."},
+{c:"Công nghệ quân sự",r:"Châu Mỹ",s:"SpaceNews",t:"Space Force đề xuất ngân sách tăng mạnh cho năng lực tác chiến không gian phòng thủ vệ tinh",u:"Yêu cầu tập trung vào cảm biến cảnh giới không gian và khả năng vô hiệu hóa vệ tinh đối phương."},
+{c:"Công nghệ quân sự",r:"Ấn Độ Dương - Thái Bình Dương",s:"Naval News",t:"Philippines nhận hệ thống tên lửa bờ BrahMos đầu tiên, tăng năng lực phòng thủ Biển Đông",u:"Tên lửa siêu thanh tầm 290km giúp Manila kiểm soát tuyến hàng hải quanh vùng đặc quyền kinh tế."},
+{c:"Công nghệ quân sự",r:"Châu Âu/NATO",s:"Breaking Defense",t:"Thụy Điển hội nhập hệ thống phòng không vào mạng lưới NATO sau khi gia nhập liên minh",u:"Tiêm kích Gripen và radar Thụy Điển được kết nối vào hệ thống chỉ huy phòng không tích hợp của NATO."},
+/* ===== Ngoại giao (22) ===== */
+{c:"Ngoại giao",r:"Ấn Độ Dương - Thái Bình Dương",s:"Bộ Ngoại giao Nhật Bản",t:"Nhật Bản và Philippines ký hiệp định tiếp cận đối ứng cho phép quân đội hai nước đồn trú luân phiên",u:"Thỏa thuận RAA đầu tiên của Nhật ở Đông Nam Á, tăng phối hợp an ninh trước sức ép ở Biển Đông."},
+{c:"Ngoại giao",r:"Châu Âu/NATO",s:"Hội đồng châu Âu",t:"EU và Nhật Bản nâng cấp quan hệ lên Đối tác An ninh và Quốc phòng chính thức",u:"Khung hợp tác mới bao gồm tập trận chung, an ninh mạng và chuỗi cung ứng công nghiệp quốc phòng."},
+{c:"Ngoại giao",r:"Trung Đông",s:"Bộ Ngoại giao Mỹ",t:"Mỹ làm trung gian đạt thỏa thuận phân định biên giới biển giữa Liban và Israel",u:"Thỏa thuận mở đường cho khai thác khí đốt ngoài khơi và giảm căng thẳng khu vực đông Địa Trung Hải."},
+{c:"Ngoại giao",r:"Ấn Độ Dương - Thái Bình Dương",s:"Bộ Ngoại giao Nhật Bản",t:"Hàn Quốc và Nhật Bản khôi phục hoàn toàn hiệp định chia sẻ tình báo quân sự GSOMIA",u:"Bước hàn gắn quan hệ song phương, tăng phối hợp đối phó tên lửa Triều Tiên dưới ô an ninh Mỹ."},
+{c:"Ngoại giao",r:"Toàn cầu",s:"Reuters",t:"Nhóm G7 ra tuyên bố chung thiết lập cơ chế giám sát chuỗi cung ứng khoáng sản chiến lược",u:"Nhằm giảm phụ thuộc vào Trung Quốc trong đất hiếm và kim loại phục vụ công nghệ, quốc phòng."},
+{c:"Ngoại giao",r:"Châu Âu/NATO",s:"NATO",t:"NATO và Liên minh châu Âu ký tuyên bố hợp tác thứ tư về an ninh hàng hải và hạ tầng ngầm",u:"Tập trung bảo vệ cáp ngầm và đường ống sau loạt sự cố phá hoại nghi ngờ ở biển Baltic."},
+{c:"Ngoại giao",r:"Ấn Độ Dương - Thái Bình Dương",s:"Bộ Ngoại giao Mỹ",t:"Mỹ, Nhật, Hàn thiết lập ban thư ký ba bên thường trực điều phối an ninh khu vực",u:"Thể chế hóa hợp tác ba bên sau thượng đỉnh Trại David, đảm bảo duy trì bất kể thay đổi chính quyền."},
+{c:"Ngoại giao",r:"Nam Á",s:"Văn phòng Thủ tướng Ấn Độ",t:"Ấn Độ và Pháp gia hạn thỏa thuận hậu cần quân sự, mở rộng tiếp cận căn cứ Ấn Độ Dương",u:"Cho phép tàu chiến và máy bay hai nước tiếp nhiên liệu, bảo trì tại cảng của nhau."},
+{c:"Ngoại giao",r:"Châu Phi",s:"Hội đồng châu Âu",t:"EU khởi động khuôn khổ đối tác đầu tư hạ tầng mới với Liên minh châu Phi",u:"Gói tài trợ nhằm cạnh tranh với sáng kiến Vành đai Con đường của Trung Quốc tại lục địa này."},
+{c:"Ngoại giao",r:"Đông Á",s:"Reuters",t:"Trung Quốc và Hàn Quốc nối lại đối thoại chiến lược ngoại giao-quốc phòng cấp thứ trưởng",u:"Cuộc gặp đầu tiên sau nhiều năm, bàn về chuỗi cung ứng và căng thẳng bán đảo Triều Tiên."},
+{c:"Ngoại giao",r:"Châu Mỹ",s:"Bộ Ngoại giao Mỹ",t:"Mỹ và các nước Mỹ Latinh ký sáng kiến chung chống tội phạm xuyên quốc gia và di cư bất hợp pháp",u:"Khuôn khổ hợp tác chia sẻ tình báo và tuần tra biên giới đa phương."},
+{c:"Ngoại giao",r:"Châu Âu/NATO",s:"AFP",t:"Thượng đỉnh EU thông qua gói mở rộng, khởi động đàm phán kết nạp với Ukraine và Moldova",u:"Quyết định mang tính bước ngoặt về địa chính trị, dù còn nhiều rào cản cải cách nội bộ."},
+{c:"Ngoại giao",r:"Trung Đông",s:"Al Jazeera",t:"Các nước vùng Vịnh và Ai Cập họp khẩn ra tuyên bố chung về tái thiết Gaza",u:"Kế hoạch nhiều giai đoạn kèm cơ chế quản trị chuyển tiếp, còn vướng bất đồng về vai trò các bên."},
+{c:"Ngoại giao",r:"Ấn Độ Dương - Thái Bình Dương",s:"Reuters",t:"Úc và Papua New Guinea ký hiệp ước an ninh song phương mang tính ràng buộc",u:"Canberra tăng cam kết ở Thái Bình Dương nhằm ngăn ảnh hưởng an ninh của Bắc Kinh trong khu vực."},
+{c:"Ngoại giao",r:"Châu Âu/NATO",s:"NATO",t:"Các bộ trưởng quốc phòng NATO nhất trí mục tiêu chi tiêu quân sự mới cao hơn 2% GDP",u:"Phản ánh môi trường an ninh xấu đi, với lộ trình nhiều năm và cơ chế đánh giá năng lực."},
+{c:"Ngoại giao",r:"Đông Á",s:"Bộ Ngoại giao Nhật Bản",t:"Nhật Bản và Anh hoàn tất phê chuẩn hiệp định phát triển chung tiêm kích thế hệ sáu GCAP",u:"Dự án ba bên với Ý, đặt trụ sở liên doanh tại Anh, mục tiêu bay thử vào đầu thập niên 2030."},
+{c:"Ngoại giao",r:"Toàn cầu",s:"UN News",t:"Đại hội đồng Liên Hợp Quốc thông qua nghị quyết khung về quản trị trí tuệ nhân tạo toàn cầu",u:"Văn kiện không ràng buộc nhưng đặt nền cho hợp tác về an toàn AI và thu hẹp khoảng cách công nghệ."},
+{c:"Ngoại giao",r:"Trung Đông",s:"Bộ Ngoại giao Mỹ",t:"Ngoại trưởng Mỹ công du vùng Vịnh thúc đẩy bình thường hóa quan hệ Saudi Arabia - Israel",u:"Gói thỏa thuận tiềm năng gắn với hiệp ước an ninh Mỹ-Saudi và chương trình hạt nhân dân sự."},
+{c:"Ngoại giao",r:"Châu Phi",s:"AFP",t:"Liên minh châu Phi làm trung gian đạt lệnh ngừng bắn giữa các phe phái ở Sudan",u:"Thỏa thuận mở hành lang nhân đạo, dù giới quan sát hoài nghi khả năng thực thi trên thực địa."},
+{c:"Ngoại giao",r:"Châu Âu/NATO",s:"Reuters",t:"Phần Lan và Thụy Điển ký thỏa thuận hợp tác quốc phòng chung với các nước Baltic",u:"Tăng cường phòng thủ tập thể sườn đông bắc NATO trước mối đe dọa từ Nga."},
+{c:"Ngoại giao",r:"Ấn Độ Dương - Thái Bình Dương",s:"Bộ Ngoại giao Nhật Bản",t:"Nhóm Bộ Tứ QUAD ra tuyên bố chung mở rộng hợp tác an ninh hàng hải và hạ tầng số",u:"Sáng kiến giám sát hàng hải khu vực và cáp ngầm được nâng cấp với sự tham gia của đối tác mới."},
+/* ===== Kinh tế (24) — trộn vĩ mô và doanh nghiệp đơn lẻ ===== */
+{c:"Kinh tế",r:"Châu Mỹ",s:"Federal Reserve",t:"Fed giữ nguyên lãi suất nhưng phát tín hiệu thận trọng về lạm phát dịch vụ dai dẳng",u:"Biên bản họp cho thấy chia rẽ nội bộ về thời điểm hạ lãi suất trong bối cảnh thị trường lao động vững."},
+{c:"Kinh tế",r:"Châu Âu/NATO",s:"Reuters",t:"Ngân hàng Trung ương châu Âu hạ lãi suất lần thứ ba khi lạm phát khu vực đồng euro về gần mục tiêu",u:"Động thái nhằm hỗ trợ tăng trưởng yếu, dù ECB cảnh báo rủi ro từ giá năng lượng và thương mại."},
+{c:"Kinh tế",r:"Toàn cầu",s:"IMF",t:"IMF hạ dự báo tăng trưởng kinh tế toàn cầu, cảnh báo phân mảnh thương mại và nợ công",u:"Báo cáo Triển vọng Kinh tế Thế giới chỉ ra rủi ro từ căng thẳng địa chính trị và chủ nghĩa bảo hộ."},
+{c:"Kinh tế",r:"Châu Mỹ",s:"CNBC",t:"Apple báo doanh thu quý vượt kỳ vọng nhờ dịch vụ, nhưng doanh số iPhone tại Trung Quốc giảm",u:"Cổ phiếu biến động sau giờ giao dịch khi nhà đầu tư lo ngại về thị trường Trung Quốc."},
+{c:"Kinh tế",r:"Châu Âu/NATO",s:"CNBC",t:"Volkswagen tiếp tục cắt giảm nhân sự và đóng cửa nhà máy tại Đức giữa khủng hoảng xe điện",u:"Hãng đối mặt cạnh tranh từ xe điện Trung Quốc và chi phí sản xuất cao tại châu Âu."},
+{c:"Kinh tế",r:"Toàn cầu",s:"Reuters",t:"WTO cảnh báo làn sóng thuế quan mới có thể kéo giảm thương mại hàng hóa toàn cầu năm tới",u:"Tổ chức kêu gọi các nền kinh tế lớn kiềm chế biện pháp trả đũa để tránh vòng xoáy leo thang."},
+{c:"Kinh tế",r:"Đông Á",s:"Nikkei Asia",t:"Ngân hàng Trung ương Nhật Bản tăng lãi suất lần đầu sau nhiều năm, chấm dứt chính sách siêu nới lỏng",u:"Đồng yên tăng giá mạnh sau quyết định, đánh dấu bước ngoặt chính sách tiền tệ của Nhật."},
+{c:"Kinh tế",r:"Châu Mỹ",s:"CNBC",t:"Boeing lỗ quý mở rộng do đình trệ sản xuất và chi phí chương trình máy bay quân sự vượt dự toán",u:"Hãng chật vật khôi phục niềm tin sau loạt sự cố an toàn và đình công kéo dài."},
+{c:"Kinh tế",r:"Toàn cầu",s:"Financial Times",t:"Giá vàng lập kỷ lục mới khi nhà đầu tư tìm nơi trú ẩn giữa bất ổn địa chính trị",u:"Ngân hàng trung ương các nước tiếp tục mua ròng vàng để đa dạng hóa dự trữ khỏi đồng USD."},
+{c:"Kinh tế",r:"Nam Á",s:"Reuters",t:"Kinh tế Ấn Độ tăng trưởng nhanh nhất nhóm nền kinh tế lớn nhờ đầu tư hạ tầng và tiêu dùng",u:"GDP quý vượt dự báo, củng cố vị thế Ấn Độ là động lực tăng trưởng của kinh tế toàn cầu."},
+{c:"Kinh tế",r:"Châu Mỹ",s:"CNBC",t:"Nvidia vượt mốc vốn hóa kỷ lục nhờ nhu cầu chip AI, trở thành công ty giá trị nhất thế giới",u:"Đà tăng của cổ phiếu làm dấy lên tranh luận về bong bóng định giá trong lĩnh vực trí tuệ nhân tạo."},
+{c:"Kinh tế",r:"Châu Âu/NATO",s:"Financial Times",t:"Kinh tế Đức suy giảm năm thứ hai liên tiếp, mô hình công nghiệp xuất khẩu gặp thách thức",u:"Chi phí năng lượng cao và nhu cầu Trung Quốc yếu bào mòn ngành chế tạo trụ cột của Đức."},
+{c:"Kinh tế",r:"Toàn cầu",s:"OECD",t:"OECD kêu gọi cải cách thuế doanh nghiệp toàn cầu, cảnh báo cạnh tranh xuống đáy",u:"Báo cáo thúc đẩy thực thi mức thuế tối thiểu 15% với các tập đoàn đa quốc gia."},
+{c:"Kinh tế",r:"Đông Á",s:"Nikkei Asia",t:"Trung Quốc tung gói kích thích tài khóa lớn nhằm vực dậy tiêu dùng và thị trường bất động sản",u:"Giới phân tích hoài nghi hiệu quả khi niềm tin hộ gia đình và doanh nghiệp vẫn ở mức thấp."},
+{c:"Kinh tế",r:"Châu Mỹ",s:"CNBC",t:"Tesla giảm giá bán trên nhiều thị trường khi doanh số quý sụt giảm vì cạnh tranh gay gắt",u:"Biên lợi nhuận thu hẹp làm dấy lo ngại về triển vọng tăng trưởng của hãng xe điện."},
+{c:"Kinh tế",r:"Trung Đông",s:"Reuters",t:"OPEC+ gia hạn cắt giảm sản lượng dầu nhằm giữ giá giữa lo ngại nhu cầu yếu",u:"Quyết định phản ánh nỗ lực cân bằng ngân sách của các nước xuất khẩu dầu vùng Vịnh."},
+{c:"Kinh tế",r:"Châu Mỹ",s:"Financial Times",t:"Thâm hụt ngân sách Mỹ phình to, chi phí trả lãi nợ công vượt ngân sách quốc phòng",u:"Giới đầu tư trái phiếu đòi lợi suất cao hơn, gây áp lực lên tài chính công dài hạn."},
+{c:"Kinh tế",r:"Châu Âu/NATO",s:"CNBC",t:"Ngân hàng Thụy Sĩ UBS công bố lợi nhuận quý tăng mạnh sau khi sáp nhập Credit Suisse",u:"Kết quả vượt kỳ vọng nhờ mảng quản lý tài sản, dù chi phí tái cơ cấu vẫn còn lớn."},
+{c:"Kinh tế",r:"Toàn cầu",s:"Reuters",t:"Chỉ số nhà quản trị mua hàng toàn cầu cho thấy sản xuất phục hồi nhẹ sau nhiều tháng thu hẹp",u:"Đơn hàng mới cải thiện ở Mỹ và Ấn Độ nhưng châu Âu và Trung Quốc vẫn yếu."},
+{c:"Kinh tế",r:"Ấn Độ Dương - Thái Bình Dương",s:"Nikkei Asia",t:"Các hãng chip Đài Loan và Hàn Quốc tăng đầu tư nhà máy tại Mỹ theo chính sách khuyến khích",u:"Dịch chuyển chuỗi cung ứng bán dẫn nhằm giảm rủi ro địa chính trị quanh eo biển Đài Loan."},
+{c:"Kinh tế",r:"Châu Mỹ",s:"CNBC",t:"Amazon vượt dự báo doanh thu nhờ mảng điện toán đám mây và quảng cáo tăng trưởng",u:"Lợi nhuận hoạt động cải thiện khi công ty cắt giảm chi phí và mở rộng dịch vụ AI."},
+{c:"Kinh tế",r:"Châu Phi",s:"Reuters",t:"Nigeria đàm phán tái cơ cấu nợ với các chủ nợ quốc tế giữa khủng hoảng tiền tệ",u:"Đồng naira mất giá mạnh, lạm phát cao gây sức ép lên nền kinh tế lớn nhất châu Phi."},
+{c:"Kinh tế",r:"Toàn cầu",s:"Financial Times",t:"BIS cảnh báo rủi ro hệ thống từ đòn bẩy cao trong các quỹ đầu cơ trên thị trường trái phiếu",u:"Ngân hàng của các ngân hàng trung ương kêu gọi giám sát chặt hơn khu vực tài chính phi ngân hàng."},
+{c:"Kinh tế",r:"Đông Á",s:"CNBC",t:"Samsung Electronics báo lợi nhuận phục hồi nhờ giá chip nhớ tăng và nhu cầu AI",u:"Mảng bán dẫn thoát đáy sau giai đoạn dư cung, dù mảng điện thoại chịu cạnh tranh."},
+/* ===== Chính trị (24) — trộn thể chế/cấu trúc và nhân vật/cáo phó ===== */
+{c:"Chính trị",r:"Châu Mỹ",s:"Reuters",t:"Tòa án Tối cao Mỹ ra phán quyết giới hạn thẩm quyền cơ quan liên bang trong ban hành quy định",u:"Quyết định có thể định hình lại cách các bộ ngành thực thi luật môi trường, lao động và tài chính."},
+{c:"Chính trị",r:"Châu Âu/NATO",s:"AFP",t:"Nghị viện châu Âu thông qua đạo luật trí tuệ nhân tạo toàn diện đầu tiên trên thế giới",u:"Luật phân loại rủi ro AI và đặt nghĩa vụ minh bạch, có hiệu lực theo lộ trình nhiều năm."},
+{c:"Chính trị",r:"Châu Mỹ",s:"Axios",t:"Thượng nghị sĩ kỳ cựu bang California qua đời ở tuổi 82 sau thời gian dài lâm bệnh",u:"Sự ra đi để lại ghế trống làm thay đổi cán cân quyền lực mong manh tại Thượng viện."},
+{c:"Chính trị",r:"Đông Á",s:"Reuters",t:"Quốc hội Hàn Quốc thông qua cải cách hệ thống công tố sau nhiều tháng bế tắc chính trị",u:"Đạo luật tái phân bổ quyền điều tra, được xem là thay đổi thể chế lớn nhất trong nhiều năm."},
+{c:"Chính trị",r:"Châu Âu/NATO",s:"Al Jazeera",t:"Cựu tổng thống một nước Đông Âu bị kết án tù vì tội tham nhũng trong nhiệm kỳ",u:"Phiên tòa kéo dài nhiều năm khép lại, gây chia rẽ dư luận về động cơ chính trị."},
+{c:"Chính trị",r:"Nam Á",s:"Al Jazeera",t:"Lãnh đạo phe đối lập Pakistan bị bắt giữ giữa căng thẳng trước thềm bầu cử",u:"Vụ bắt giữ làm dấy lên biểu tình và cáo buộc đàn áp chính trị từ những người ủng hộ."},
+{c:"Chính trị",r:"Châu Mỹ",s:"Reuters",t:"Quốc hội Mỹ thông qua dự luật ngân sách quốc phòng thường niên với mức chi kỷ lục",u:"Đạo luật ủy quyền các chương trình vũ khí, tăng lương binh sĩ và hỗ trợ đồng minh."},
+{c:"Chính trị",r:"Châu Âu/NATO",s:"AFP",t:"Chính phủ liên minh tại Đức sụp đổ, mở đường cho bầu cử sớm giữa khủng hoảng ngân sách",u:"Bất đồng về chính sách chi tiêu và năng lượng khiến liên minh cầm quyền tan rã."},
+{c:"Chính trị",r:"Trung Đông",s:"Al Jazeera",t:"Cựu quan chức hoàng gia một nước vùng Vịnh qua đời, để lại di sản ngoại giao gây tranh cãi",u:"Tang lễ có sự tham dự của nhiều nguyên thủ khu vực giữa lúc căng thẳng địa chính trị."},
+{c:"Chính trị",r:"Châu Mỹ",s:"Axios",t:"Nhà Trắng công bố cải tổ nội các, thay thế ba bộ trưởng giữa nhiệm kỳ",u:"Động thái được xem là nỗ lực định hình lại chính sách trước cuộc bầu cử giữa kỳ."},
+{c:"Chính trị",r:"Đông Á",s:"Reuters",t:"Nhật Bản thông qua sửa đổi hiến pháp diễn giải cho phép mở rộng vai trò phòng vệ tập thể",u:"Bước đi lịch sử nới lỏng ràng buộc hậu chiến, gây tranh luận trong nước và khu vực."},
+{c:"Chính trị",r:"Châu Phi",s:"Al Jazeera",t:"Đảo chính quân sự lật đổ chính phủ dân sự tại một quốc gia Tây Phi",u:"Cộng đồng quốc tế lên án, khu vực đối mặt làn sóng bất ổn chính trị lan rộng."},
+{c:"Chính trị",r:"Châu Âu/NATO",s:"Reuters",t:"Quốc hội Anh thông qua cải cách Thượng viện, loại bỏ ghế quý tộc cha truyền con nối",u:"Cải cách hiến pháp lớn nhất trong nhiều thập niên đối với thượng viện không dân cử."},
+{c:"Chính trị",r:"Châu Mỹ",s:"Al Jazeera",t:"Tổng thống một nước Nam Mỹ đối mặt thủ tục luận tội giữa bê bối tham nhũng",u:"Phe đối lập thu thập đủ chữ ký, đẩy đất nước vào khủng hoảng chính trị kéo dài."},
+{c:"Chính trị",r:"Nga–Ukraine",s:"The Moscow Times",t:"Nga thông qua luật siết chặt kiểm soát tổ chức phi chính phủ và truyền thông độc lập",u:"Đạo luật mở rộng danh sách 'điệp viên nước ngoài', bị chỉ trích là công cụ đàn áp bất đồng."},
+{c:"Chính trị",r:"Đông Á",s:"Reuters",t:"Đài Loan tổ chức bầu cử địa phương, đảng cầm quyền chịu tổn thất trước phe đối lập",u:"Kết quả được xem là chỉ dấu về tâm lý cử tri trước quan hệ với Bắc Kinh."},
+{c:"Chính trị",r:"Châu Âu/NATO",s:"AFP",t:"Pháp giải tán quốc hội, tổng thống kêu gọi bầu cử lập pháp sớm sau thất bại bầu cử châu Âu",u:"Quyết định gây bất ngờ, đẩy chính trường Pháp vào giai đoạn bất định."},
+{c:"Chính trị",r:"Nam Á",s:"Al Jazeera",t:"Cựu thủ tướng lưu vong tuyên bố sẽ trở về nước tham gia chính trường bất chấp lệnh truy nã",u:"Tuyên bố làm nóng bầu không khí chính trị vốn đã chia rẽ sâu sắc."},
+{c:"Chính trị",r:"Châu Mỹ",s:"Reuters",t:"Canada cải tổ luật nhập cư, siết chỉ tiêu thường trú nhân giữa áp lực nhà ở",u:"Chính sách đảo ngược xu hướng mở cửa nhiều năm, phản ánh lo ngại về chi phí sinh hoạt."},
+{c:"Chính trị",r:"Trung Đông",s:"Al Jazeera",t:"Thủ lĩnh một phong trào chính trị khu vực từ chức sau nhiều năm cầm quyền",u:"Việc chuyển giao quyền lực đặt ra câu hỏi về định hướng tương lai của phong trào."},
+{c:"Chính trị",r:"Châu Âu/NATO",s:"Reuters",t:"Liên minh châu Âu thông qua cơ chế trừng phạt mới nhắm vào lách luật xuất khẩu công nghệ",u:"Quy định cho phép trừng phạt bên thứ ba tiếp tay chuyển giao hàng hóa lưỡng dụng."},
+{c:"Chính trị",r:"Châu Phi",s:"AFP",t:"Nam Phi tổ chức bầu cử, đảng cầm quyền lần đầu mất đa số tuyệt đối sau ba thập niên",u:"Kết quả buộc đảng cầm quyền đàm phán lập chính phủ liên minh lần đầu tiên."},
+{c:"Chính trị",r:"Châu Mỹ",s:"Axios",t:"Thống đốc một bang lớn của Mỹ tuyên bố không tái tranh cử vì lý do sức khỏe",u:"Thông báo mở ra cuộc đua kế nhiệm sôi động trong nội bộ đảng."},
+{c:"Chính trị",r:"Đông Á",s:"Reuters",t:"Triều Tiên sửa đổi hiến pháp, chính thức định nghĩa Hàn Quốc là quốc gia thù địch",u:"Bước đi đánh dấu thay đổi lớn trong chính sách thống nhất kéo dài nhiều thập niên."},
+/* ===== Bổ sung cho đủ 100 ===== */
+{c:"Ngoại giao",r:"Đông Á",s:"TTXVN",t:"Việt Nam nâng cấp quan hệ lên Đối tác Chiến lược Toàn diện với một cường quốc lớn",u:"Khuôn khổ mới mở rộng hợp tác kinh tế, công nghệ và an ninh, nâng vị thế đối ngoại của Việt Nam."},
+{c:"Ngoại giao",r:"Đông Á",s:"ASEAN",t:"ASEAN và Trung Quốc thông qua khung Bộ Quy tắc Ứng xử ở Biển Đông sau nhiều năm đàm phán",u:"Văn kiện đặt nền cho quản lý tranh chấp, dù tính ràng buộc pháp lý vẫn còn bỏ ngỏ."},
+{c:"Ngoại giao",r:"Nam Á",s:"Bộ Ngoại giao Mỹ",t:"Mỹ và Ấn Độ ký thỏa thuận khung hợp tác công nghệ quốc phòng, bán dẫn và không gian",u:"Sáng kiến iCET được thể chế hóa nhằm tăng chuỗi cung ứng công nghệ then chốt giữa hai nước."},
+{c:"Ngoại giao",r:"Châu Âu/NATO",s:"NATO",t:"Hàn Quốc ký chương trình đối tác cá thể hóa mở rộng hợp tác an ninh với NATO",u:"Hợp tác gồm chia sẻ tình báo, an ninh mạng và phối hợp về công nghiệp quốc phòng."},
+{c:"Kinh tế",r:"Toàn cầu",s:"World Bank",t:"Ngân hàng Thế giới cảnh báo gánh nặng nợ của các nước đang phát triển đạt mức cao kỷ lục",u:"Chi phí trả nợ tăng vọt bào mòn ngân sách y tế, giáo dục ở nhiều nền kinh tế thu nhập thấp."},
+{c:"Chính trị",r:"Châu Mỹ",s:"Reuters",t:"Quốc hội Mỹ thông qua luật cải cách quy trình chứng nhận kết quả bầu cử tổng thống",u:"Đạo luật thu hẹp khoảng trống pháp lý nhằm ngăn tranh cãi khi kiểm phiếu đại cử tri."}
+];
+
+function toast(m){var e=document.getElementById('msg');e.textContent=m;e.className='msg on';clearTimeout(e._t);e._t=setTimeout(function(){e.className='msg';},1600);}
+function regionOf(it){return it.r||'';}
+function idOf(i){return 'calib:'+String(i+1).padStart(3,'0');}
+
+function loadSB(cb){
+  if(window.supabase&&window.supabase.createClient)return cb();
+  var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+  s.onload=cb;s.onerror=function(){document.getElementById('acct').innerHTML='<div style="color:var(--red)">Không tải được thư viện Supabase (mạng?). Thử lại sau.</div>';};
+  document.head.appendChild(s);
+}
+function init(){
+  renderList();      // luôn hiển thị 100 tin, không phụ thuộc Supabase
+  renderAcct();      // hiện form đăng nhập (nút sẽ chờ Supabase tải xong)
+  loadSB(function(){
+    try{SB=window.supabase.createClient(SB_URL,SB_ANON,{auth:{persistSession:true,autoRefreshToken:true}});}catch(e){}
+    if(!SB){renderAcct();return;}
+    SB.auth.getSession().then(function(r){onAuth(r&&r.data?r.data.session:null);});
+    SB.auth.onAuthStateChange(function(_e,se){onAuth(se);});
+  });
+}
+function onAuth(se){USER=se&&se.user?se.user:null;renderAcct();if(USER)pullVotes();renderList();}
+function renderAcct(){
+  var el=document.getElementById('acct');
+  if(USER){el.innerHTML='<div class="who">👤 <b>'+esc(USER.email||'Đã đăng nhập')+'</b> — vote đang lưu vào tài khoản. <button class="pbtn" style="flex:0;padding:6px 12px" onclick="doOut()">Đăng xuất</button></div>';return;}
+  el.innerHTML='<div style="font-size:13.5px;color:var(--muted);margin:0 0 8px">🔒 Đăng nhập bằng tài khoản trang bản tin để vote được lưu và đưa vào phân tích.</div>'+
+    '<input id="em" type="email" placeholder="Email" autocomplete="email">'+
+    '<input id="pw" type="password" placeholder="Mật khẩu" autocomplete="current-password">'+
+    '<div class="btns"><button class="pbtn" onclick="doIn()">Đăng nhập</button><button class="pbtn" onclick="doUp()">Tạo tài khoản</button></div>';
+}
+function cred(){var e=(document.getElementById('em')||{}).value||'',p=(document.getElementById('pw')||{}).value||'';
+  if(!e||e.indexOf('@')<0){toast('Nhập email hợp lệ');return null;}if(p.length<6){toast('Mật khẩu ≥ 6 ký tự');return null;}return {email:e.trim(),password:p};}
+function doIn(){var c=cred();if(!c||!SB)return;SB.auth.signInWithPassword(c).then(function(r){toast(r&&r.error?('Lỗi: '+r.error.message):'Đã đăng nhập');});}
+function doUp(){var c=cred();if(!c||!SB)return;SB.auth.signUp(c).then(function(r){toast(r&&r.error?('Lỗi: '+r.error.message):'Đã tạo tài khoản');});}
+function doOut(){if(SB)SB.auth.signOut().then(function(){USER=null;renderAcct();renderList();});}
+function pullVotes(){
+  if(!SB||!USER)return;
+  SB.from('votes').select('item_id,v').like('item_id','calib:%').then(function(r){
+    if(r&&r.data){r.data.forEach(function(row){VOTES[row.item_id]=row.v;});renderList();}
+  });
+}
+function castVote(i,val){
+  var id=idOf(i),it=ITEMS[i];
+  if(!SB||!USER){toast('Hãy đăng nhập trước khi vote');return;}
+  var cur=VOTES[id]||0;
+  if(cur===val){delete VOTES[id];SB.from('votes').delete().eq('user_id',USER.id).eq('item_id',id).then(function(){});}
+  else{VOTES[id]=val;SB.from('votes').upsert([{user_id:USER.id,item_id:id,v:val,category:it.c,region:it.r,source:it.s,title:it.t,updated_at:new Date().toISOString()}],{onConflict:'user_id,item_id'}).then(function(r){if(r&&r.error)toast('Lỗi lưu: '+r.error.message);});}
+  renderProg();paintCard(i);
+}
+function esc(s){return (''+s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function paintCard(i){
+  var id=idOf(i),v=VOTES[id]||0;
+  var up=document.getElementById('up'+i),dn=document.getElementById('dn'+i);
+  if(up)up.className='vb up'+(v===1?' on':'');
+  if(dn)dn.className='vb down'+(v===-1?' on':'');
+}
+function renderProg(){
+  var n=0;for(var k in VOTES){if(('' +k).indexOf('calib:')===0&&VOTES[k])n++;}
+  var el=document.getElementById('prog');
+  el.innerHTML=n>=ITEMS.length?'<span class="done">✓ Đã chấm đủ '+ITEMS.length+'/'+ITEMS.length+' tin — cảm ơn!</span>':('Đã chấm <b>'+n+'</b>/'+ITEMS.length+' tin'+(USER?'':' — <b>hãy đăng nhập</b> để lưu'));
+}
+function renderList(){
+  var h='';
+  for(var i=0;i<ITEMS.length;i++){var it=ITEMS[i],id=idOf(i),v=VOTES[id]||0;
+    h+='<div class="card"><span class="badge">'+esc(it.c)+' · '+esc(it.r)+'</span>'+
+       '<div class="title">'+(i+1)+'. '+esc(it.t)+'</div>'+
+       '<div class="summary">'+esc(it.u)+'</div>'+
+       '<div class="src">Nguồn (mẫu): '+esc(it.s)+'</div>'+
+       '<div class="vote"><button id="up'+i+'" class="vb up'+(v===1?' on':'')+'" onclick="castVote('+i+',1)">👍 Thích</button>'+
+       '<button id="dn'+i+'" class="vb down'+(v===-1?' on':'')+'" onclick="castVote('+i+',-1)">👎 Không</button></div></div>';
+  }
+  document.getElementById('list').innerHTML=h;renderProg();
+}
+init();
+</script>
+</body>
+</html>
