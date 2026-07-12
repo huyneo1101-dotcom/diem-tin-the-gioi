@@ -2,16 +2,17 @@
 
 File này là **cầu nối phản hồi**: người đọc bấm 👍 / 👎 trên từng tin (mục **⭐ Đã lưu → 📊 Sở thích**), dữ liệu đồng bộ lên Supabase. Mỗi lần quét, quy trình (skill `quet-tin`) **đọc tổng hợp sở thích** rồi ưu tiên/giảm ưu tiên chuyên mục · khu vực · nguồn cho hợp gu người đọc, và cập nhật bảng trọng số dưới đây.
 
-## Lấy sở thích ở đâu (2 đường — ưu tiên A)
-**A. Tự động — Supabase (khi người đọc đã đăng nhập & bấm vote):** session quét WebFetch view tổng hợp công khai (chỉ số đếm, không lộ danh tính):
+## Lấy sở thích ở đâu (2 đường)
+**A. Thử tự động — Supabase view `vote_stats` (best-effort, KHÔNG đảm bảo):** session quét WebFetch view tổng hợp công khai (chỉ số đếm, không lộ danh tính):
 ```
 https://ltmlueqkajqmduoqghdf.supabase.co/rest/v1/vote_stats?select=*&apikey=sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg
 ```
-Trả JSON các dòng `{scope: category|region|source, key, up, down, net, total}`. Dùng `net` (👍−👎) làm điểm. (Nếu WebFetch không gắn được header, `apikey` truyền qua query param như trên là đủ.)
+Trả JSON `{scope: category|region|source, key, up, down, net, total}`; dùng `net` (👍−👎) làm điểm.
+> ⚠️ **Đã kiểm chứng 12/07/2026:** lớp biên (Cloudflare) của `*.supabase.co` **chặn 403 mọi request từ WebFetch/máy chủ** (kể cả endpoint health công khai), trong khi trình duyệt thật vẫn vào được. Nên đường A khi quét **thường thất bại** → thử 1 lần, lỗi thì bỏ, dùng đường B. (Trình duyệt người đọc ghi vote lên Supabase vẫn CHẠY bình thường — chỉ phía đọc bằng máy chủ mới bị chặn.)
 
-**B. Thủ công — export JSON:** nếu Supabase trống/không truy cập được, người đọc bấm **"Xuất hồ sơ sở thích (JSON)"** → gửi file `diemtin-sothich.json` cho agent cập nhật tay.
+**B. Thủ công — export JSON (ĐƯỜNG CHÍNH, đảm bảo):** người đọc bấm **"📤 Xuất hồ sơ sở thích (JSON)"** (tab ⭐ Đã lưu → 📊 Sở thích) → gửi file `diemtin-sothich.json` cho agent → agent cập nhật bảng trọng số dưới đây rồi commit. Đây là cầu nối đáng tin cậy vì không phụ thuộc lớp biên Supabase.
 
-> Vote cá nhân lưu riêng theo user (RLS), chỉ **bản tổng hợp** `vote_stats` là công khai để session quét đọc bằng publishable key. Không lộ ai đã vote gì. Schema: `docs/supabase-setup.sql`.
+> Vote cá nhân lưu riêng theo user (RLS), chỉ **bản tổng hợp** `vote_stats` công khai. Không lộ ai đã vote gì. Schema: `docs/supabase-setup.sql`.
 
 ## Cách áp dụng khi quét (đọc ở Bước 1 của skill)
 - **Điểm dương cao** (nhiều 👍) → **tăng** chỉ tiêu/độ ưu tiên cho chuyên mục/khu vực/nguồn đó (trong giới hạn chỉ tiêu tối thiểu mỗi category vẫn giữ nguyên — không bỏ hẳn mục nào).

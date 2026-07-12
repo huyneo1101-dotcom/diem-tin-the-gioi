@@ -51,10 +51,13 @@ python3 scripts/add_news.py --recent-titles 20                          # tiêu 
 ```
 
 **Đọc sở thích người đọc** (suy từ 👍/👎) để điều hướng mềm:
-- **Tự động (ưu tiên):** WebFetch view tổng hợp Supabase (chỉ số đếm, công khai) —
+- **Đường chính — `preferences.md`:** đọc bảng trọng số (cập nhật tay từ file `diemtin-sothich.json`
+  người đọc export). Đây là cầu nối đáng tin cậy.
+- **Thử tự động (best-effort):** WebFetch view `vote_stats` —
   `https://ltmlueqkajqmduoqghdf.supabase.co/rest/v1/vote_stats?select=*&apikey=sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg`
-  → JSON `{scope,key,up,down,net}`. Nếu trả rỗng/lỗi → bỏ qua, dùng `preferences.md`.
-- **Fallback:** đọc `preferences.md` (bảng trọng số cập nhật tay từ JSON export).
+  → JSON `{scope,key,up,down,net}`. ⚠️ `*.supabase.co` **thường 403 với WebFetch** (Cloudflare chặn
+  máy chủ — đã kiểm chứng 12/07); nếu lỗi thì BỎ QUA ngay, dùng `preferences.md`. Nếu may mắn đọc được
+  thì cập nhật lại bảng trong `preferences.md` cho khớp và commit.
 
 Áp dụng: chuyên mục/khu vực/nguồn điểm dương (`net`>0) → ưu tiên hơn; điểm âm → giảm ưu tiên (vẫn giữ
 tối thiểu 2 tin/category theo CLAUDE.md, không bỏ hẳn mục nào, không ghi đè quy tắc nguồn 3 tầng). Nhúng
