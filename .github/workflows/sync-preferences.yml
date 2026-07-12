@@ -1,0 +1,53 @@
+name: Sync reader preferences
+# Keo tong hop 👍/👎 (view cong khai vote_stats) tu Supabase ve repo => preferences.json.
+# Chay tren may GitHub (khong bi Cloudflare/proxy chan nhu moi truong quet), commit vao main
+# de session quet doc file LOCAL (luon truy cap duoc, khong phu thuoc mang ngoai).
+on:
+  schedule:
+    - cron: '0 11 * * *'   # 18:00 gio VN moi ngay (truoc gio quet 19-21h)
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sync-preferences
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Fetch vote_stats from Supabase
+        env:
+          # Publishable key la key CONG KHAI (da co trong index.html) — view vote_stats chi tra
+          # so dem tong hop, khong lo danh tinh. Khong can GitHub secret.
+          SB_URL: https://ltmlueqkajqmduoqghdf.supabase.co
+          SB_KEY: sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg
+        run: |
+          set -euo pipefail
+          resp=$(curl -sS --fail-with-body \
+            -H "apikey: $SB_KEY" \
+            -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/vote_stats?select=*&order=scope.asc,net.desc")
+          # Phai la JSON array hop le
+          echo "$resp" | jq -e 'type == "array"' >/dev/null
+          new=$(echo "$resp" | jq -S -c .)
+          old=$(jq -S -c '.stats // empty' preferences.json 2>/dev/null || true)
+          if [ "$new" = "$old" ]; then
+            echo "vote_stats khong doi — bo qua."
+            echo "changed=0" >> "$GITHUB_ENV"
+          else
+            jq -n --argjson stats "$resp" --arg t "$(date -u +%FT%TZ)" \
+              '{generatedAt:$t, source:"supabase vote_stats view (auto by GitHub Action)", stats:$stats}' \
+              > preferences.json
+            echo "changed=1" >> "$GITHUB_ENV"
+            echo "Cap nhat preferences.json:"; cat preferences.json
+          fi
+      - name: Commit if changed
+        if: env.changed == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add preferences.json
+          git commit -m "chore: cap nhat so thich nguoi doc (vote_stats)"
+          git push

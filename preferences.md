@@ -2,17 +2,16 @@
 
 File này là **cầu nối phản hồi**: người đọc bấm 👍 / 👎 trên từng tin (mục **⭐ Đã lưu → 📊 Sở thích**), dữ liệu đồng bộ lên Supabase. Mỗi lần quét, quy trình (skill `quet-tin`) **đọc tổng hợp sở thích** rồi ưu tiên/giảm ưu tiên chuyên mục · khu vực · nguồn cho hợp gu người đọc, và cập nhật bảng trọng số dưới đây.
 
-## Lấy sở thích ở đâu (2 đường)
-**A. Thử tự động — Supabase view `vote_stats` (best-effort, KHÔNG đảm bảo):** session quét WebFetch view tổng hợp công khai (chỉ số đếm, không lộ danh tính):
+## Lấy sở thích ở đâu (tự động, ưu tiên `preferences.json`)
+**A. Tự động — đọc `preferences.json` (ĐƯỜNG CHÍNH):** file này ở gốc repo, được **GitHub Action `sync-preferences.yml`** cập nhật hằng ngày (18:00 VN): Action chạy trên máy GitHub, curl view `vote_stats` từ Supabase rồi commit vào `main`. Session quét chỉ cần **đọc file local** — luôn truy cập được, không phụ thuộc mạng ngoài. Cấu trúc:
+```json
+{"generatedAt":"...","source":"...","stats":[{"scope":"category|region|source","key":"...","up":N,"down":N,"net":N,"total":N}]}
 ```
-https://ltmlueqkajqmduoqghdf.supabase.co/rest/v1/vote_stats?select=*&apikey=sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg
-```
-Trả JSON `{scope: category|region|source, key, up, down, net, total}`; dùng `net` (👍−👎) làm điểm.
-> ⚠️ **Đã kiểm chứng 12/07/2026:** lớp biên (Cloudflare) của `*.supabase.co` **chặn 403 mọi request từ WebFetch/máy chủ** (kể cả endpoint health công khai), trong khi trình duyệt thật vẫn vào được. Nên đường A khi quét **thường thất bại** → thử 1 lần, lỗi thì bỏ, dùng đường B. (Trình duyệt người đọc ghi vote lên Supabase vẫn CHẠY bình thường — chỉ phía đọc bằng máy chủ mới bị chặn.)
+Dùng `net` (👍−👎) làm điểm. Nếu `stats` rỗng → chưa ai vote, quét bình thường.
 
-**B. Thủ công — export JSON (ĐƯỜNG CHÍNH, đảm bảo):** người đọc bấm **"📤 Xuất hồ sơ sở thích (JSON)"** (tab ⭐ Đã lưu → 📊 Sở thích) → gửi file `diemtin-sothich.json` cho agent → agent cập nhật bảng trọng số dưới đây rồi commit. Đây là cầu nối đáng tin cậy vì không phụ thuộc lớp biên Supabase.
+**B. Thủ công — export JSON (khi cần chỉnh tay):** người đọc bấm **"📤 Xuất hồ sơ sở thích (JSON)"** (tab ⭐ Đã lưu → 📊 Sở thích) → gửi file `diemtin-sothich.json` cho agent → agent cập nhật bảng trọng số dưới đây.
 
-> Vote cá nhân lưu riêng theo user (RLS), chỉ **bản tổng hợp** `vote_stats` công khai. Không lộ ai đã vote gì. Schema: `docs/supabase-setup.sql`.
+> **Vì sao cần GitHub Action:** lớp biên (Cloudflare) của `*.supabase.co` **chặn 403 mọi request từ môi trường quét/WebFetch** (kiểm chứng 12/07/2026 — kể cả endpoint health công khai), nhưng KHÔNG chặn máy GitHub Action và trình duyệt thật. Nên: trình duyệt người đọc ghi vote → Supabase; GitHub Action đọc Supabase → `preferences.json`; session quét đọc `preferences.json` (local). Vote cá nhân lưu riêng theo user (RLS), chỉ **bản tổng hợp** `vote_stats` công khai — không lộ ai vote gì. Schema: `docs/supabase-setup.sql`.
 
 ## Cách áp dụng khi quét (đọc ở Bước 1 của skill)
 - **Điểm dương cao** (nhiều 👍) → **tăng** chỉ tiêu/độ ưu tiên cho chuyên mục/khu vực/nguồn đó (trong giới hạn chỉ tiêu tối thiểu mỗi category vẫn giữ nguyên — không bỏ hẳn mục nào).
