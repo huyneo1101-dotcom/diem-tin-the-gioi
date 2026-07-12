@@ -39,7 +39,28 @@ Nguồn: `preferences.json` (Action kéo từ Supabase `vote_stats`). Điểm = 
 - **Giảm:** tin "Chính trị" thuần; nguồn Al Jazeera / CNBC / Axios; hạn chế tin Nga–Ukraine trùng lặp.
 - Vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào.
 
-> ⚠️ Đây mới là mức **chuyên mục/khu vực/nguồn**. Phân tích **tiêu đề/chủ đề chi tiết** (điểm chung ở mức từ khóa cụ thể như nước nào, vũ khí nào) cần view `vote_items` — xem `docs/supabase-setup.sql`; sau khi tạo view + Action chạy, `preferences.json` sẽ có mảng `items` (tiêu đề) để phân tích sâu hơn.
+## PHÁT HIỆN ở mức TIÊU ĐỀ (chi tiết — từ `preferences.json.items`, 15👍/8👎)
+
+### 🟢 THÍCH — điểm chung nội dung
+- **Khí tài / công nghệ quốc phòng CỤ THỂ** (7 tin): gây nhiễu vệ tinh (Meadowlands), phòng không tầm trung (MRIC), tên lửa siêu vượt âm (AQUILA/HYDIS), laser hải quân, động cơ đẩy vệ tinh (DOTS), máy bay tiếp dầu Thái Bình Dương, phòng thí nghiệm AI quân sự. → thích **năng lực & hệ thống cụ thể**; nổi bật **Không gian/Space Force** (2 lần) và **tên lửa/phòng không**.
+- **Ngoại giao màu QUỐC PHÒNG/an ninh** (5 tin): hiệp định hậu cần quân sự (ACSA Nhật–NZ, Ấn–NZ nâng cấp đối tác + hàng hải/hậu cần QP), điện đàm an ninh khu vực, tuyên bố chung chính thức. → thích **thoả thuận/hành động chính thức có kết quả**, không phải phát ngôn suông.
+- **Chính sách vĩ mô & định chế**: báo cáo chính sách Fed; tuyên bố chính thức EU/Bộ Ngoại giao. Trong Kinh tế chỉ thích **vĩ mô/hệ thống** (Fed, thị trường-vs-tăng trưởng-AI).
+- **Chủ thể ưa thích:** Mỹ, EU, Nhật, Ấn Độ, New Zealand, Anh, Đức — phương Tây/đồng minh & đối tác; định chế (EU, Fed, MBDA, Rheinmetall).
+
+### 🔴 KHÔNG THÍCH — điểm chung nội dung
+- **Cáo phó / cái chết cá nhân** (2/8): TNS Lindsey Graham qua đời, cựu Quốc vương Qatar qua đời. → né tin người qua đời.
+- **Chính trị NHÂN VẬT / drama / nội bộ** (3): triệu tập phóng viên NYT, dán nhãn 'điệp viên nước ngoài', cựu TT Bangladesh lên kế hoạch trở về. → né chính trị xoay quanh cá nhân/bê bối.
+- **Lãi–lỗ DOANH NGHIỆP đơn lẻ** (2): Delta lãi kỷ lục, VW cắt dòng xe. → trong Kinh tế **ghét tin từng công ty** (dù thích vĩ mô).
+- **Nga–Ukraine lặp lại** (1): Zelensky thúc sản xuất Patriot.
+
+### 🔑 Phân biệt tinh (quy tắc rút ra — quan trọng cho quét)
+- **Cấu trúc/định chế > cá nhân/drama:** cùng "Chính trị", tin *Trump sa thải ủy viên Ủy ban Bầu cử* (hành động thể chế) được THÍCH, còn cáo phó/nhân vật bị GHÉT.
+- **Vĩ mô > vi mô doanh nghiệp:** Fed/thị trường THÍCH; Delta/VW GHÉT.
+- **Khí tài & thoả thuận cụ thể > tường thuật/bình luận chung.**
+
+### 🎯 Điều hướng quét (bổ sung mức tiêu đề)
+- **Tăng:** khí tài/công nghệ QP cụ thể (không gian, tên lửa, phòng không, laser, AI quân sự); hiệp định QP/an ninh có kết quả; chính sách vĩ mô định chế.
+- **Giảm/né:** cáo phó, chính trị nhân vật/bê bối, tin lãi-lỗ doanh nghiệp đơn lẻ, Nga–Ukraine trùng lặp.
 
 ## Nhật ký cập nhật
-- **12/07/2026:** phân tích lần đầu từ 23 vote (15👍/8👎) ở mức chuyên mục/khu vực/nguồn — thấy rõ thích Quốc phòng+Ngoại giao & nguồn chính thức/quốc phòng; ghét Chính trị chung & nguồn đại chúng (Al Jazeera).
+- **12/07/2026:** phân tích từ 23 vote (15👍/8👎). Mức chuyên mục/nguồn: thích Quốc phòng+Ngoại giao & nguồn chính thức/quốc phòng; ghét Chính trị chung & nguồn đại chúng. Mức tiêu đề: thích khí tài cụ thể + thoả thuận QP + vĩ mô định chế; ghét cáo phó + chính trị nhân vật + lãi/lỗ doanh nghiệp đơn lẻ. Rút quy tắc: cấu trúc>cá nhân, vĩ mô>vi mô.
