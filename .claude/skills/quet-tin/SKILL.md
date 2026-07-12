@@ -1,0 +1,106 @@
+---
+name: quet-tin
+description: >-
+  Quét và cập nhật bản tin cho dự án "Điểm Tin Thế Giới" (worldNews · usNews · xNews ·
+  tập trận · sự kiện ngoại giao). Dùng khi người dùng yêu cầu "quét tin", "cập nhật bản
+  tin", "scan tin", hoặc khi Routine tự động chạy. Đóng gói kiến trúc 6 agent Sonnet, mô
+  hình nguồn 3 tầng, ưu tiên nguồn chính phủ, ràng buộc chất lượng, guardrail add_news.py,
+  chỉ tiêu số lượng và log. Chi tiết nguồn/RSS xem CLAUDE.md ở gốc repo.
+---
+
+# Skill: Quét tin "Điểm Tin Thế Giới"
+
+Playbook vận hành để cập nhật bản tin. `CLAUDE.md` ở gốc repo là tài liệu tham chiếu ĐẦY ĐỦ
+(bảng nguồn 3 tầng, URL RSS, cấu trúc `DATA`). Skill này là quy trình CHẠY từng bước.
+
+## Nguyên tắc cốt lõi
+- **Chất lượng > số lượng.** Thà ít tin đạt chuẩn còn hơn nhồi tin sai. Được phép trả mảng rỗng.
+- **Nguồn 3 tầng (chuẩn INTREP):** sự kiện ← nguồn CHÍNH THỨC (tầng 1); số liệu ← nguồn DỮ LIỆU
+  (tầng 2: IMF/WB/OECD/SIPRI...); nhận định (`significance`) ← VIỆN NGHIÊN CỨU (tầng 3). Báo chí
+  chỉ để PHÁT HIỆN tin, luôn đối chiếu.
+- **Ưu tiên nguồn chính phủ/chính thức**: khi tin từ thông báo chính thức, link THẲNG nguồn gốc
+  (defense.gov, state.gov, nato.int, mofa..., baochinhphu.vn) thay vì báo dẫn lại. Truyền thông
+  nhà nước độc tài (Xinhua/TASS/Global Times/KCNA) chỉ dùng cho phát ngôn của chính họ.
+- **KHÔNG đọc trực tiếp `index.html` (~180KB)** — dùng grep + `scripts/add_news.py`.
+- **KHÔNG tự sửa `index.html` bằng tay** — chèn tin qua script.
+
+## Bước 0 — Log + idempotent
+```
+NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
+```
+- Ghi `[$T] START` vào `logs/scan-$NGAY.log`.
+- Kiểm tra đã xong chưa: `grep -oE '"generatedAt":"[^"]+"' index.html | head -1`. Nếu == `$NGAY`
+  → bản tin hôm nay ĐÃ XONG: ghi log `SKIP`, commit+push log, KẾT THÚC.
+
+## Bước 1 — Dữ liệu nền (chỉ grep, không đọc cả file)
+```
+grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn   # nguồn đã dùng nhiều → né
+python3 scripts/add_news.py --recent-titles 20                          # tiêu đề gần đây → chống trùng
+```
+
+## Bước 2 — Giao 6 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
+| Agent | Phạm vi | Sản lượng |
+|---|---|---|
+| 1 | Kinh tế — worldNews + usNews | 2–3 tin mỗi mục |
+| 2 | Chính trị — worldNews + usNews | 2–3 tin mỗi mục |
+| 3 | Công nghệ quân sự — worldNews + usNews | 2–3 tin mỗi mục |
+| 4 | Ngoại giao — worldNews + usNews | 2–3 tin mỗi mục |
+| 5 | xNews | 4–5 tin |
+| 6 | exercises + dipEvents (cập nhật `ongoing` + tạo sự kiện ngoại giao mới nếu có) | 1–2 mỗi loại |
+
+**Nhúng vào MỌI prompt agent** (agent KHÔNG thấy hội thoại chính — viết prompt độc lập):
+- **Ràng buộc chất lượng**: (a) `date` trong 48h–3 ngày, ưu tiên mới nhất; (b) `sourceUrl` trỏ
+  THẲNG 1 bài viết cụ thể, KHÔNG trang chủ / "live" / live-blog / tổng hợp, link KHỚP nội dung;
+  (c) `sourceName` chỉ trong danh sách nguồn được giao HOẶC nguồn chính thức phù hợp; (d) xNews:
+  KHÔNG bịa status ID (ID thật ~19 chữ số ngẫu nhiên, không tròn số); (e) thà ít còn hơn sai.
+- **Ưu tiên nguồn chính phủ** khi tin từ thông báo chính thức (link thẳng nguồn gốc).
+- **Ưu tiên nguồn ít dùng** (theo output bước 1) và **tiếng Anh + có RSS** trước (URL RSS: xem
+  bảng trong CLAUDE.md — đưa thẳng URL cho agent, đừng bắt tự dò).
+- **Đa dạng sự kiện**: mỗi tin 1 sự kiện KHÁC NHAU; không để nhiều báo đưa cùng 1 chuyện thành
+  nhiều tin.
+- **Chống trùng**: dán NGUYÊN khối output `--recent-titles` (bước 1) vào prompt TẤT CẢ 6 agent;
+  dặn không report lại tin/sự kiện đã có kể cả dưới góc nhìn khác.
+- **Cảnh báo mâu thuẫn dữ liệu**: tóm tắt trạng thái sự kiện đang tiếp diễn (vd Mỹ-Iran) và dặn
+  agent không đưa tin mâu thuẫn.
+- Yêu cầu agent CHỈ trả JSON kết quả, không giải thích dài.
+
+**Agent 6 — tạo sự kiện ngoại giao mới**: được phép TẠO `newDipEvents` cho ký kết song/đa phương,
+thượng đỉnh, thăm cấp cao có kết quả, sáng kiến lớn (KHÔNG cho điện đàm/phát ngôn lẻ). Mỗi sự kiện
+đủ `name/status/dates/location/scale/summary` + ≥1 `items`. Nếu sự kiện giống cái đã có → dùng
+`dipEventUpdates` thay vì tạo mới (script sẽ chặn nếu trùng).
+
+## Bước 3 — Review + gộp
+Session điều phối **tự review từng tin** theo ràng buộc chất lượng, loại tin không đạt (sai ngày,
+link rác/không khớp, trùng chéo mục, mâu thuẫn, ID nghi bịa, nguồn ngoài danh sách). Gộp vào
+`/tmp/new_items.json`:
+```json
+{
+  "date": "YYYY-MM-DD",
+  "worldNews": [ ... ], "usNews": [ ... ], "xNews": [ ... ],
+  "exerciseUpdates": [ {"name":"<tên đúng đã có>","items":[ ... ]} ],
+  "dipEventUpdates": [ {"name":"<tên đúng đã có>","items":[ ... ]} ],
+  "newDipEvents": [ {"name","status","dates","location","scale","summary","items":[ ... ]} ]
+}
+```
+Nếu một tin phẳng được nâng thành `newDipEvents`, bỏ nó khỏi worldNews/usNews để URL không trùng.
+
+## Bước 4 — Chèn bằng script (guardrail chặn lần cuối)
+```
+python3 scripts/add_news.py /tmp/new_items.json
+```
+Script **CHẶN** (sửa JSON rồi chạy lại): thiếu field; category sai; date ngoài khung (>5 ngày/tương
+lai); URL trang chủ/live-blog; URL trùng trong batch hoặc đã có trong DATA; status ID X nghi bịa;
+tên exercise/dipEvent (`*Updates`) không khớp; tên `newDipEvents` trùng sự kiện đã có (Jaccard≥0.6)
+hoặc thiếu field. **CẢNH BÁO** (không chặn): nguồn lạ; tiêu đề nghi trùng; phần chưa đủ chỉ tiêu.
+- Đọc bảng phân bổ category script in ra. Category nào <2 tin (world/us) → giao thêm 1 agent Sonnet
+  bổ sung riêng phần đó rồi chạy lại (script cộng dồn an toàn nếu cùng `date`).
+- Nếu thật sự không đủ tin sạch → chấp nhận, nêu rõ trong tóm tắt.
+
+## Bước 5 — Xuất bản + log
+- Commit: `Cap nhat ban tin DD/MM: +N tin (TG +x, My +y, X +z)`; `git add index.html logs/`.
+- Push nhánh `main` (branch deploy → GitHub Pages tự cập nhật). Ghi log `[$T] DONE: ...`. Nếu FAIL
+  ở bất kỳ bước nào, ghi log `FAIL tại <bước>: <lý do>` và VẪN push log (git không cần mạng ngoài).
+
+## Bước 6 — Tóm tắt cuối
+Ngắn gọn: tổng số tin từng phần, bảng phân bổ category, phần thiếu chỉ tiêu (nếu có), nguồn nổi bật,
+trạng thái push. KHÔNG liệt kê lại nội dung từng tin.
