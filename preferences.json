@@ -1,5 +1,222 @@
 {
-  "generatedAt": "",
+  "generatedAt": "2026-07-12T16:42:25Z",
   "source": "supabase vote_stats view (auto by GitHub Action)",
-  "stats": []
+  "stats": [
+    {
+      "scope": "category",
+      "key": "Công nghệ quân sự",
+      "up": 7,
+      "down": 0,
+      "net": 7,
+      "total": 7
+    },
+    {
+      "scope": "category",
+      "key": "Ngoại giao",
+      "up": 3,
+      "down": 0,
+      "net": 3,
+      "total": 3
+    },
+    {
+      "scope": "category",
+      "key": "Kinh tế",
+      "up": 2,
+      "down": 2,
+      "net": 0,
+      "total": 4
+    },
+    {
+      "scope": "category",
+      "key": "Chính trị",
+      "up": 1,
+      "down": 5,
+      "net": -4,
+      "total": 6
+    },
+    {
+      "scope": "region",
+      "key": "Khác",
+      "up": 4,
+      "down": 0,
+      "net": 4,
+      "total": 4
+    },
+    {
+      "scope": "region",
+      "key": "Châu Âu/NATO",
+      "up": 3,
+      "down": 1,
+      "net": 2,
+      "total": 4
+    },
+    {
+      "scope": "region",
+      "key": "Trung Đông",
+      "up": 3,
+      "down": 2,
+      "net": 1,
+      "total": 5
+    },
+    {
+      "scope": "region",
+      "key": "Châu Mỹ",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "region",
+      "key": "Châu Phi",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "region",
+      "key": "Nam Á",
+      "up": 0,
+      "down": 1,
+      "net": -1,
+      "total": 1
+    },
+    {
+      "scope": "region",
+      "key": "Nga–Ukraine",
+      "up": 1,
+      "down": 2,
+      "net": -1,
+      "total": 3
+    },
+    {
+      "scope": "region",
+      "key": "Đông Á",
+      "up": 0,
+      "down": 1,
+      "net": -1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Bộ Ngoại giao Mỹ",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Defense News",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Federal Reserve",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Naval News",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Văn phòng Thủ tướng Ấn Độ",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Task & Purpose",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Bộ Quốc phòng Anh",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Hội đồng châu Âu",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Bộ Ngoại giao Nhật Bản",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Breaking Defense",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "SpaceNews",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "The Moscow Times",
+      "up": 0,
+      "down": 1,
+      "net": -1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Axios",
+      "up": 0,
+      "down": 1,
+      "net": -1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "CNBC",
+      "up": 1,
+      "down": 2,
+      "net": -1,
+      "total": 3
+    },
+    {
+      "scope": "source",
+      "key": "Al Jazeera",
+      "up": 1,
+      "down": 4,
+      "net": -3,
+      "total": 5
+    }
+  ]
 }
