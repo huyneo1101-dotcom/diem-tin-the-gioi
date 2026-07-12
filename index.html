@@ -86,6 +86,11 @@ a{color:inherit}
 .cadd{display:flex;gap:7px;margin:0 0 14px}
 .cadd input{flex:1;min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:9px 11px;font-family:inherit;font-size:calc(13.5px*var(--fs));color:var(--ink);outline:none}
 .cadd button{border:none;background:var(--ink);color:var(--bg);border-radius:7px;padding:9px 16px;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
+.acctform{display:flex;flex-direction:column;gap:8px}
+.acctform input{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:9px 11px;font-family:inherit;font-size:calc(13.5px*var(--fs));color:var(--ink);outline:none}
+.acctform input:focus{border-color:var(--accent)}
+.acctbtns{display:flex;gap:8px}
+.acctbtns .wbtn{flex:1;justify-content:center}
 .clist{display:flex;flex-direction:column;gap:10px}
 .citem{border:1px solid var(--line2);border-radius:8px;padding:11px 13px;background:var(--drill-bg)}
 .cterm{font-weight:800;font-size:calc(15px*var(--fs));color:var(--title);display:flex;align-items:center;gap:8px}
@@ -345,7 +350,7 @@ function newsPool(){return sortD((DATA.worldNews||[]).concat(DATA.usNews||[]));}
 function jget(k){try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return [];}}
 function jset(k,a){try{localStorage.setItem(k,JSON.stringify(a));}catch(e){}}
 var READ={},SEEN0={};
-/* ==== Tài khoản đám mây (Supabase, magic link) — để trống 2 biến dưới = TẮT, app chạy y như cũ (localStorage) ==== */
+/* ==== Tài khoản đám mây (Supabase, email + mật khẩu) — để trống 2 biến dưới = TẮT, app chạy y như cũ (localStorage) ==== */
 var SB_URL='https://ltmlueqkajqmduoqghdf.supabase.co';   /* Project URL Supabase */
 var SB_ANON='sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg';  /* publishable (public) key */
 var SB=null,SB_USER=null;
@@ -362,11 +367,25 @@ function initSupabase(){
   document.head.appendChild(s);
 }
 function onAuth(sess){var u=sess&&sess.user?sess.user:null;var was=!!SB_USER;SB_USER=u;if(u&&!was)pullCloud();render();}
-function sbSignIn(email){
-  if(!SB){toast('Chưa cấu hình tài khoản');return;}
-  email=(email||'').trim();if(!email){toast('Nhập email');return;}
-  SB.auth.signInWithOtp({email:email,options:{emailRedirectTo:location.href.split('#')[0]}}).then(function(r){
-    toast(r&&r.error?('Lỗi: '+r.error.message):'Đã gửi link đăng nhập tới '+email+' — kiểm tra hộp thư.');});
+function sbCred(email,pass){
+  email=(email||'').trim();pass=(pass||'');
+  if(!SB){toast('Chưa cấu hình tài khoản');return null;}
+  if(!email||email.indexOf('@')<0){toast('Nhập email hợp lệ');return null;}
+  if(pass.length<6){toast('Mật khẩu tối thiểu 6 ký tự');return null;}
+  return {email:email,password:pass};
+}
+function sbSignIn(email,pass){
+  var c=sbCred(email,pass);if(!c)return;
+  SB.auth.signInWithPassword(c).then(function(r){
+    if(r&&r.error){toast('Đăng nhập lỗi: '+r.error.message);return;}
+    toast('Đã đăng nhập');});
+}
+function sbSignUp(email,pass){
+  var c=sbCred(email,pass);if(!c)return;
+  SB.auth.signUp(c).then(function(r){
+    if(r&&r.error){toast('Đăng ký lỗi: '+r.error.message);return;}
+    if(r&&r.data&&r.data.session){toast('Đã tạo tài khoản & đăng nhập');}
+    else{toast('Đã tạo tài khoản. Nếu bật xác nhận email, hãy kiểm tra hộp thư rồi đăng nhập.');}});
 }
 function sbSignOut(){if(SB)SB.auth.signOut().then(function(){SB_USER=null;render();});}
 function pullCloud(){
@@ -414,7 +433,7 @@ function accountBar(){
   if(!SB)return '';
   var box='border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 14px;background:var(--paper2)';
   if(SB_USER)return '<div class="acctbar" style="'+box+';display:flex;align-items:center;gap:10px;flex-wrap:wrap">👤 <b>'+esc(SB_USER.email||'Đã đăng nhập')+'</b><span style="color:var(--muted)">— bài · khái niệm · sở thích đang đồng bộ</span> <button class="wbtn" data-signout="1">Đăng xuất</button></div>';
-  return '<div class="acctbar" style="'+box+'"><div class="note" style="margin:0 0 8px">🔒 Đăng nhập để lưu bài &amp; khái niệm vào tài khoản riêng, đồng bộ mọi thiết bị.</div><div class="cadd"><input id="acctemail" type="email" placeholder="Email của bạn…" autocomplete="email"><button data-signin="1">Gửi link đăng nhập</button></div></div>';
+  return '<div class="acctbar" style="'+box+'"><div class="note" style="margin:0 0 8px">🔒 Đăng nhập để lưu bài · khái niệm · sở thích vào tài khoản riêng, đồng bộ mọi thiết bị.</div><div class="acctform"><input id="acctemail" type="email" placeholder="Email" autocomplete="email"><input id="acctpass" type="password" placeholder="Mật khẩu (≥ 6 ký tự)" autocomplete="current-password"><div class="acctbtns"><button class="wbtn" data-signin="1">Đăng nhập</button><button class="wbtn" data-signup="1">Tạo tài khoản</button></div></div></div>';
 }
 function refreshRead(){READ={};jget('dt.read').forEach(function(id){READ[id]=1;});}
 function isRead(id){return !!READ[id];}
@@ -697,8 +716,9 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-expvotes],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signout]'):null;if(!t)return;
-  if(t.getAttribute('data-signin')!=null){var _em=document.getElementById('acctemail');sbSignIn(_em?_em.value:'');return;}
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-expvotes],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout]'):null;if(!t)return;
+  if(t.getAttribute('data-signin')!=null){var _em=document.getElementById('acctemail'),_pw=document.getElementById('acctpass');sbSignIn(_em?_em.value:'',_pw?_pw.value:'');return;}
+  if(t.getAttribute('data-signup')!=null){var _em2=document.getElementById('acctemail'),_pw2=document.getElementById('acctpass');sbSignUp(_em2?_em2.value:'',_pw2?_pw2.value:'');return;}
   if(t.getAttribute('data-signout')!=null){sbSignOut();return;}
   if(t.getAttribute('data-caddbtn')!=null){var ci=document.getElementById('cnew');if(ci){addConcept(ci.value);ci.value='';reContent();}return;}
   if(t.getAttribute('data-crm')!=null){removeConcept(t.getAttribute('data-crm'));reContent();return;}
