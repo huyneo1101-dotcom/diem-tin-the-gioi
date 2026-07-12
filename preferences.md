@@ -18,49 +18,38 @@ Bảng `votes` trên Supabase lưu MỖI vote kèm `title · category · region 
 - **Điểm dương** chuyên mục/khu vực/nguồn → **tăng** ưu tiên; **điểm âm** → **giảm** (vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào).
 - Đây là **định hướng mềm**, không ghi đè quy tắc chất lượng/nguồn 3 tầng trong CLAUDE.md.
 
-## PHÁT HIỆN sở thích (cập nhật 12/07/2026 — từ 23 lượt vote, đã BỎ QUA ngày tháng)
-Nguồn: `preferences.json` (Action kéo từ Supabase `vote_stats`). Điểm = 👍 − 👎.
+## PHÁT HIỆN sở thích (cập nhật 12/07/2026 — từ 117 lượt vote, độ tin cậy CAO, đã BỎ QUA ngày tháng)
+Nguồn: `preferences.json` (`stats` + `items`). 94 👍 / 23 👎. Gồm 23 tin thật + 100 tin mẫu cân bằng 4 chủ đề → đủ để tách rõ trục sở thích.
 
-### 🟢 Nội dung THÍCH — điểm chung
-- **Chủ đề:** **Công nghệ quân sự** (7/7 thích, +7) và **Ngoại giao** (3/3 thích, +3) — thích gần như tuyệt đối.
-- **Nguồn:** nghiêng mạnh về 2 nhóm — (a) **nguồn CHÍNH THỨC/chính phủ** (Bộ Ngoại giao Mỹ +2, Bộ Quốc phòng Anh, Hội đồng châu Âu, Bộ Ngoại giao Nhật, Văn phòng Thủ tướng Ấn Độ, Federal Reserve); (b) **báo QUỐC PHÒNG chuyên ngành** (Defense News +2, Naval News, Breaking Defense, SpaceNews, Task & Purpose). KHÔNG có nguồn tổng hợp đại chúng nào lọt nhóm thích.
-- **Khu vực:** Châu Âu/NATO (+2), Trung Đông (+1), Châu Mỹ, Châu Phi (+1).
-- **→ ĐIỂM CHUNG:** tin **quốc phòng/an ninh + ngoại giao cấp nhà nước**, ưu tiên **nguồn gốc chính thức & báo quốc phòng chuyên ngành**. Thích tin "sự kiện/chính sách cứng" hơn bình luận.
+### 🟢 THÍCH — điểm chung
+- **Trục chủ đề rõ nhất:** **Công nghệ quân sự (31👍/0👎)** và **Ngoại giao (27👍/0👎)** — thích TUYỆT ĐỐI, không một tin nào bị ghét. **Kinh tế vĩ mô (22👍)** cũng thích mạnh.
+- **Nội dung thích:** khí tài/hệ thống QP cụ thể (tên lửa, phòng không, hải quân, không gian/Space Force, laser, AI quân sự, tàu ngầm); **hiệp định/khuôn khổ an ninh–quốc phòng** (ACSA, RAA, đối tác chiến lược, tuyên bố chung có kết quả); **chính sách vĩ mô & định chế** (Fed/ECB/BOJ, IMF/OECD/WTO/BIS/World Bank, nợ công, thuế toàn cầu, chuỗi cung ứng chip).
+- **Chính trị được thích CÓ CHỌN LỌC (12👍):** chỉ loại **thể chế/luật/hiến pháp/chiến lược** — cải cách Thượng viện Anh, EU AI Act, ngân sách quốc phòng, cải tổ nội các, cơ chế trừng phạt, sửa hiến pháp phòng vệ (Nhật). 
+- **Nguồn:** báo quốc phòng chuyên ngành (Defense News, Naval News, Breaking Defense, SpaceNews, Task & Purpose) + nguồn chính thức (Bộ NG Mỹ/Nhật, Bộ QP Anh, Hội đồng châu Âu, Fed) = **luôn tích cực**. Wire (Reuters/AFP) trung tính, thích/ghét tùy nội dung.
+- **Khu vực KHÔNG phải trục ưu tiên mạnh** — tin thích trải đều Âu/NATO, Châu Mỹ, Ấn Độ Dương-TBD, Đông Á, Toàn cầu. Trục quyết định là **CHỦ ĐỀ + KIỂU TIN**, không phải khu vực.
 
-### 🔴 Nội dung KHÔNG THÍCH — điểm chung
-- **Chủ đề:** **Chính trị** (5/6 không thích, −4) — mục bị ghét rõ nhất.
-- **Nguồn:** **Al Jazeera** nổi bật nhất (4/5 không thích, −3), rồi CNBC (−1), Axios (−1), The Moscow Times (−1) — đều là **báo tổng hợp/đại chúng**.
-- **Khu vực:** Đông Á (−1), Nam Á (−1), Nga–Ukraine (−1) hơi âm.
-- **→ ĐIỂM CHUNG:** tin **chính trị chung chung** + **nguồn tổng hợp/bình luận đại chúng** (đặc biệt Al Jazeera); có xu hướng né tin **chiến sự Nga–Ukraine** lặp lại.
-- *Trung tính:* Kinh tế (2/2, net 0).
+### 🔴 KHÔNG THÍCH — điểm chung (23👎, trong đó 19 là Chính trị)
+- **Cáo phó / cái chết cá nhân** (≈5): TNS Graham, cựu Quốc vương Qatar, TNS California, cựu quan chức hoàng gia Vịnh... → **né gần như tuyệt đối tin người qua đời**.
+- **Chính trị NHÂN VẬT / drama / bê bối cá nhân**: cựu thủ tướng lưu vong trở về, bắt lãnh đạo đối lập, dán nhãn 'điệp viên', triệu tập phóng viên, kết án tham nhũng, thống đốc không tái tranh cử, thủ lĩnh từ chức.
+- **Đua bầu cử / horserace** (thắng–thua đảng phái): bầu cử địa phương Đài Loan, Nam Phi mất đa số.
+- **Chính trị DOMESTIC xã hội/tư pháp** (kể cả mang tính thể chế): cải cách công tố Hàn, luật nhập cư Canada, Tòa Tối cao Mỹ giới hạn cơ quan liên bang → **ghét dù là "thể chế"**, vì thuộc nội bộ/hành chính, không mang màu an ninh–chiến lược.
+- **Lợi nhuận DOANH NGHIỆP đơn lẻ** (3/3 dislike Kinh tế): UBS lãi quý, Delta lãi kỷ lục, VW giảm công suất → **ghét tin lãi/lỗ/vận hành từng công ty**.
+- **Nga–Ukraine chiến sự lặp lại** (Zelensky/Patriot).
 
-### 🎯 Điều hướng quét (mềm — không ghi đè quy tắc 3 tầng)
-- **Tăng:** Công nghệ quân sự, Ngoại giao; ưu tiên nguồn chính thức + báo quốc phòng chuyên ngành; khu vực Âu/NATO, Trung Đông.
-- **Giảm:** tin "Chính trị" thuần; nguồn Al Jazeera / CNBC / Axios; hạn chế tin Nga–Ukraine trùng lặp.
+### 🔑 QUY TẮC LỌC (rút ra, độ tin cậy cao — dùng khi quét)
+1. **Thể chế/luật/chiến lược > cá nhân/drama/cáo phó.** Ghét mạnh nhất: cáo phó, nhân vật chính trị, đua bầu cử.
+2. **Vĩ mô/chính sách/hệ thống > lợi nhuận công ty đơn lẻ.** (Kinh tế: 3/3 tin bị ghét đều là earnings công ty.)
+3. **"Cứu" được nhờ gắn chủ đề chiến lược:** tin công ty/chính trị vẫn được thích NẾU gắn quốc phòng / chip–AI / chuỗi cung ứng / địa chính trị (vd Boeing=máy bay quân sự, Samsung=chip AI, VW=khủng hoảng ngành). Cùng chủ thể, khung "chiến lược/ngành" được thích, khung "chỉ số vận hành" bị ghét.
+4. **An ninh–đối ngoại–great power > nội bộ xã hội/tư pháp.** Chính trị domestic (nhập cư, tư pháp, công tố) leans ghét.
+5. **Khu vực trung lập** — không thiên vị vùng; ưu tiên theo chủ đề/kiểu tin.
+
+### 🎯 Điều hướng quét (mềm — không ghi đè quy tắc nguồn 3 tầng)
+- **Tăng mạnh:** Công nghệ quân sự (khí tài/hệ thống cụ thể, không gian, tên lửa/phòng không, hải quân, AI quân sự); Ngoại giao (hiệp định/khuôn khổ an ninh có kết quả); Kinh tế vĩ mô/chính sách/chuỗi cung ứng chiến lược.
+- **Trong Chính trị:** ưu tiên tin **luật/hiến pháp/ngân sách QP/trừng phạt/chiến lược great-power**; **né** cáo phó, nhân vật/bê bối, đua bầu cử, nội bộ xã hội-tư pháp.
+- **Trong Kinh tế:** ưu tiên vĩ mô/định chế; **né** tin lãi–lỗ công ty đơn lẻ trừ khi gắn chủ đề chiến lược.
+- **Né:** cáo phó nói chung; Nga–Ukraine chiến sự lặp lại. Nguồn Al Jazeera lệch tiêu cực (phần lớn do gắn tin chính trị/nhân vật).
 - Vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào.
 
-## PHÁT HIỆN ở mức TIÊU ĐỀ (chi tiết — từ `preferences.json.items`, 15👍/8👎)
-
-### 🟢 THÍCH — điểm chung nội dung
-- **Khí tài / công nghệ quốc phòng CỤ THỂ** (7 tin): gây nhiễu vệ tinh (Meadowlands), phòng không tầm trung (MRIC), tên lửa siêu vượt âm (AQUILA/HYDIS), laser hải quân, động cơ đẩy vệ tinh (DOTS), máy bay tiếp dầu Thái Bình Dương, phòng thí nghiệm AI quân sự. → thích **năng lực & hệ thống cụ thể**; nổi bật **Không gian/Space Force** (2 lần) và **tên lửa/phòng không**.
-- **Ngoại giao màu QUỐC PHÒNG/an ninh** (5 tin): hiệp định hậu cần quân sự (ACSA Nhật–NZ, Ấn–NZ nâng cấp đối tác + hàng hải/hậu cần QP), điện đàm an ninh khu vực, tuyên bố chung chính thức. → thích **thoả thuận/hành động chính thức có kết quả**, không phải phát ngôn suông.
-- **Chính sách vĩ mô & định chế**: báo cáo chính sách Fed; tuyên bố chính thức EU/Bộ Ngoại giao. Trong Kinh tế chỉ thích **vĩ mô/hệ thống** (Fed, thị trường-vs-tăng trưởng-AI).
-- **Chủ thể ưa thích:** Mỹ, EU, Nhật, Ấn Độ, New Zealand, Anh, Đức — phương Tây/đồng minh & đối tác; định chế (EU, Fed, MBDA, Rheinmetall).
-
-### 🔴 KHÔNG THÍCH — điểm chung nội dung
-- **Cáo phó / cái chết cá nhân** (2/8): TNS Lindsey Graham qua đời, cựu Quốc vương Qatar qua đời. → né tin người qua đời.
-- **Chính trị NHÂN VẬT / drama / nội bộ** (3): triệu tập phóng viên NYT, dán nhãn 'điệp viên nước ngoài', cựu TT Bangladesh lên kế hoạch trở về. → né chính trị xoay quanh cá nhân/bê bối.
-- **Lãi–lỗ DOANH NGHIỆP đơn lẻ** (2): Delta lãi kỷ lục, VW cắt dòng xe. → trong Kinh tế **ghét tin từng công ty** (dù thích vĩ mô).
-- **Nga–Ukraine lặp lại** (1): Zelensky thúc sản xuất Patriot.
-
-### 🔑 Phân biệt tinh (quy tắc rút ra — quan trọng cho quét)
-- **Cấu trúc/định chế > cá nhân/drama:** cùng "Chính trị", tin *Trump sa thải ủy viên Ủy ban Bầu cử* (hành động thể chế) được THÍCH, còn cáo phó/nhân vật bị GHÉT.
-- **Vĩ mô > vi mô doanh nghiệp:** Fed/thị trường THÍCH; Delta/VW GHÉT.
-- **Khí tài & thoả thuận cụ thể > tường thuật/bình luận chung.**
-
-### 🎯 Điều hướng quét (bổ sung mức tiêu đề)
-- **Tăng:** khí tài/công nghệ QP cụ thể (không gian, tên lửa, phòng không, laser, AI quân sự); hiệp định QP/an ninh có kết quả; chính sách vĩ mô định chế.
-- **Giảm/né:** cáo phó, chính trị nhân vật/bê bối, tin lãi-lỗ doanh nghiệp đơn lẻ, Nga–Ukraine trùng lặp.
-
 ## Nhật ký cập nhật
-- **12/07/2026:** phân tích từ 23 vote (15👍/8👎). Mức chuyên mục/nguồn: thích Quốc phòng+Ngoại giao & nguồn chính thức/quốc phòng; ghét Chính trị chung & nguồn đại chúng. Mức tiêu đề: thích khí tài cụ thể + thoả thuận QP + vĩ mô định chế; ghét cáo phó + chính trị nhân vật + lãi/lỗ doanh nghiệp đơn lẻ. Rút quy tắc: cấu trúc>cá nhân, vĩ mô>vi mô.
+- **12/07/2026 (a):** phân tích lần đầu từ 23 vote (15👍/8👎) — thích Quốc phòng+Ngoại giao, ghét Chính trị chung; rút quy tắc cấu trúc>cá nhân, vĩ mô>vi mô.
+- **12/07/2026 (b):** phân tích lại từ **117 vote** (94👍/23👎, thêm 100 tin mẫu cân bằng). Xác nhận & làm SẮC: QP+Ngoại giao thích tuyệt đối; ghét = cáo phó + chính trị nhân vật + đua bầu cử + lợi nhuận công ty đơn lẻ. Bổ sung quy tắc: (3) tin "cứu" được nhờ gắn chủ đề chiến lược; (4) an ninh–đối ngoại > nội bộ xã hội/tư pháp; (5) khu vực không phải trục ưu tiên.
