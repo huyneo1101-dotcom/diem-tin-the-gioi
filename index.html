@@ -110,6 +110,8 @@ a{color:inherit}
 .itbl .itnet{text-align:right;font-weight:800;width:1%;white-space:nowrap;color:var(--muted2)}
 .itbl .itnet.pos{color:var(--green)}
 .itbl .itnet.neg{color:#c0392b}
+.itbl .itname{max-width:60vw;overflow-wrap:anywhere}
+section.drill .sub{font-weight:700;font-size:calc(12.5px*var(--fs));color:var(--muted2);padding:10px 10px 2px}
 .drill-dates{font-size:calc(12px*var(--fs));color:var(--muted);font-weight:700}
 .drill-name{font-family:inherit;font-size:calc(21px*var(--fs));font-weight:800;line-height:1.25;color:var(--title);margin-bottom:5px}
 .drill-meta{font-size:calc(12.5px*var(--fs));color:var(--muted);margin-top:2px}
@@ -314,13 +316,13 @@ function favBtn(a){var id=idOf(a);return '<button class="favb'+(isFav(id)?' on':
 function loadVotes(){try{return JSON.parse(localStorage.getItem('dt.votes')||'{}');}catch(e){return {};}}
 var VOTES=loadVotes();
 function saveVotes(){try{localStorage.setItem('dt.votes',JSON.stringify(VOTES));}catch(e){}}
-function voteMeta(a){a=a||{};return {cat:a.category||(a.handle?'X/Twitter':''),src:a.sourceName||a.handle||a.outlet||'',region:(a.category?regionOf(a):''),title:a.title||a.text||''};}
+function voteMeta(a){a=a||{};return {cat:a.category||(a.handle?'X/Twitter':''),src:a.sourceName||a.handle||a.outlet||'',region:(a.category?regionOf(a):''),title:a.title||a.text||'',kind:(a.handle?'x':'news')};}
 function getVote(id){var v=VOTES[id];return v?v.v:0;}
 function castVote(id,val,a){
   if(!id)return;
   var cur=VOTES[id]?VOTES[id].v:0;
   if(cur===val){delete VOTES[id];saveVotes();sbSaveVote(id,null);}
-  else{var m=voteMeta(a||findById(id));VOTES[id]={v:val,cat:m.cat,src:m.src,region:m.region,title:m.title,t:todayISO()};saveVotes();sbSaveVote(id,VOTES[id]);}
+  else{var m=voteMeta(a||findById(id));VOTES[id]={v:val,cat:m.cat,src:m.src,region:m.region,title:m.title,kind:m.kind,t:todayISO()};saveVotes();sbSaveVote(id,VOTES[id]);}
 }
 function findById(id){var f=findItemById(id);return f?f.item:{};}
 function voteBtns(a){var id=idOf(a),v=getVote(id);
@@ -591,12 +593,44 @@ function renderSaved(){
   var cards=arr.length?arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):(a._kind==='dip'?drillCardInner(a,'Liên quan sự kiện'):newsCardInner(a)))),idOf(a));}).join(''):'<div class="empty">Không có tin đã lưu khớp tìm kiếm.</div>';
   return seg+'<div class="note">Tin bạn đã lưu — bấm ★ để bỏ lưu.</div>'+exp+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
 }
+/* Trọng số tín hiệu: 👍 +2 · 👎 −2 · lưu ★ +3 · đã đọc +1 */
+var W_UP=2,W_DOWN=-2,W_SAVE=3,W_READ=1;
+var STOP_KW={};('tổng chính các những một và của cho với khi sau trước trong ngoài về tại từ đến vào là bị được có không sẽ đã đang này đó thì mà nếu vì do theo giữa trên dưới cùng hơn cả thêm mới lại nói gần việc sự người nước cuộc bản đây khi giữa trước the a an of to in on for and with as at by new').split(' ').forEach(function(w){STOP_KW[w]=1;});
+function isUpperCh(ch){return !!ch&&ch.toLowerCase()!==ch.toUpperCase()&&ch===ch.toUpperCase();}
+function extractKeywords(title){
+  if(!title)return [];
+  var clauses;try{clauses=(''+title).split(/[^\p{L}\p{N} -]+/u);}catch(e){clauses=(''+title).split(/[^0-9A-Za-zÀ-ỹ -]+/);}
+  var out=[];
+  clauses.forEach(function(cl){
+    var toks=cl.split(/\s+/).filter(function(x){return x&&x!=='-';});
+    var cur=[];
+    function flush(){if(cur.length){var ph=cur.join(' ');if(!(cur.length===1&&STOP_KW[ph.toLowerCase()]))out.push(ph);cur=[];}}
+    for(var i=0;i<toks.length;i++){var t=toks[i];var acr=/^[A-Z0-9][A-Z0-9-]{1,}$/.test(t);
+      if(isUpperCh(t.charAt(0))||acr){cur.push(t);}else{flush();}}
+    flush();
+  });
+  return out;
+}
 function interestProfile(){
-  var byCat={},bySrc={},byReg={},up=0,down=0,total=0;
+  var byCat={},bySrc={},byReg={},byX={},up=0,down=0,total=0;
   for(var id in VOTES){var v=VOTES[id];if(!v)continue;total++;var s=v.v>0;s?up++:down++;
     function acc(m,k){if(!k)return;m[k]=m[k]||{up:0,down:0};m[k][s?'up':'down']++;}
-    acc(byCat,v.cat);acc(bySrc,v.src);acc(byReg,v.region);}
-  return {byCat:byCat,bySrc:bySrc,byReg:byReg,up:up,down:down,total:total};
+    var isX=v.kind==='x'||v.cat==='X/Twitter';
+    if(isX){acc(byX,v.src);}else{acc(byCat,v.cat);acc(byReg,v.region);acc(bySrc,v.src);}}
+  return {byCat:byCat,bySrc:bySrc,byReg:byReg,byX:byX,up:up,down:down,total:total};
+}
+function keywordProfile(){
+  var m={};
+  function add(title,w){extractKeywords(title).forEach(function(k){m[k]=m[k]||{score:0,n:0};m[k].score+=w;m[k].n++;});}
+  for(var id in VOTES){var v=VOTES[id];if(v)add(v.title,v.v>0?W_UP:W_DOWN);}
+  FAV.forEach(function(f){if(f)add(f.title||f.text,W_SAVE);});
+  return m;
+}
+function implicitProfile(){
+  var savedByCat={},readByCat={},saved=FAV.length,read=0;
+  FAV.forEach(function(f){var c=f.category||(f._kind==='x'?'X/Twitter':'Khác');savedByCat[c]=(savedByCat[c]||0)+1;});
+  for(var id in READ){read++;var f=findItemById(id);if(f&&f.item){var c=f.item.category||(f.kind==='x'?'X/Twitter':'Khác');readByCat[c]=(readByCat[c]||0)+1;}}
+  return {saved:saved,read:read,savedByCat:savedByCat,readByCat:readByCat};
 }
 function interestRows(map){
   var keys=Object.keys(map);
@@ -605,27 +639,53 @@ function interestRows(map){
   return '<table class="itbl">'+keys.map(function(k){var m=map[k],net=m.up-m.down,cls=net>0?'pos':(net<0?'neg':'');
     return '<tr><td class="itname">'+esc(k)+'</td><td class="itnum">👍 '+m.up+'</td><td class="itnum">👎 '+m.down+'</td><td class="itnet '+cls+'">'+(net>0?'+':'')+net+'</td></tr>';}).join('')+'</table>';
 }
+function kwRows(m){
+  var keys=Object.keys(m).filter(function(k){return m[k].n>=2;});
+  if(keys.length<5)keys=Object.keys(m);
+  keys=keys.filter(function(k){return m[k].score!==0;});
+  if(!keys.length)return '<div class="empty" style="padding:12px">Chưa đủ dữ liệu để rút chủ đề.</div>';
+  keys.sort(function(a,b){return m[b].score-m[a].score;});
+  keys=keys.slice(0,20);
+  return '<table class="itbl">'+keys.map(function(k){var sc=m[k].score,cls=sc>0?'pos':(sc<0?'neg':'');
+    return '<tr><td class="itname">'+esc(k)+'</td><td class="itnum">'+m[k].n+' tin</td><td class="itnet '+cls+'">'+(sc>0?'+':'')+sc+'</td></tr>';}).join('')+'</table>';
+}
+function cntRows(map){
+  var keys=Object.keys(map);if(!keys.length)return '';
+  keys.sort(function(a,b){return map[b]-map[a];});
+  return '<table class="itbl">'+keys.map(function(k){return '<tr><td class="itname">'+esc(k)+'</td><td class="itnet pos">'+map[k]+'</td></tr>';}).join('')+'</table>';
+}
 function renderInterest(){
-  var p=interestProfile();
-  if(!p.total)return '<div class="note">Bấm 👍 hoặc 👎 ở mỗi tin để cho biết bạn quan tâm gì. Dữ liệu lưu trên máy này, dùng để định hướng lần quét tin sau ra kết quả hợp gu bạn hơn.</div><div class="empty">Chưa có lượt thích / không thích nào.</div>';
-  var head='<div class="note">Tổng <b>'+p.total+'</b> lượt · 👍 '+p.up+' · 👎 '+p.down+'. Bảng dưới suy ra <b>mối quan tâm</b> của bạn theo chuyên mục · khu vực · nguồn (điểm = số 👍 trừ số 👎). Xuất file để đưa vào quy trình quét lần sau.</div>';
+  var p=interestProfile(),kw=keywordProfile(),im=implicitProfile();
+  var hasAny=p.total||im.saved||im.read;
+  if(!hasAny)return '<div class="note">Bấm 👍 / 👎 (hoặc lưu ★) ở mỗi tin để cho biết bạn quan tâm gì. Dữ liệu lưu trên máy này, dùng để định hướng lần quét tin sau ra kết quả hợp gu bạn hơn.</div><div class="empty">Chưa có tín hiệu nào.</div>';
+  var head='<div class="note">Suy ra <b>mối quan tâm</b> từ nhiều tín hiệu: 👍/👎 (±2), lưu ★ (+3), đã đọc (+1). Tổng <b>'+p.total+'</b> lượt vote (👍 '+p.up+' · 👎 '+p.down+') · '+im.saved+' bài đã lưu · '+im.read+' tin đã đọc. Xuất file để đưa vào quy trình quét lần sau.</div>';
   var exp='<div class="expbar"><button class="wbtn" data-expvotes="1">📤 Xuất hồ sơ sở thích (JSON)</button></div>';
-  var body='<section class="drill"><div class="drill-h"><div class="drill-name">Theo chuyên mục</div></div>'+interestRows(p.byCat)+'</section>'+
-           '<section class="drill"><div class="drill-h"><div class="drill-name">Theo khu vực</div></div>'+interestRows(p.byReg)+'</section>'+
-           '<section class="drill"><div class="drill-h"><div class="drill-name">Theo nguồn</div></div>'+interestRows(p.bySrc)+'</section>';
+  function sec(name,html){return '<section class="drill"><div class="drill-h"><div class="drill-name">'+name+'</div></div>'+html+'</section>';}
+  var body=sec('🔑 Theo chủ đề / từ khóa',kwRows(kw))+
+           sec('📂 Theo chuyên mục',interestRows(p.byCat))+
+           sec('🌍 Theo khu vực',interestRows(p.byReg))+
+           sec('📰 Theo nguồn',interestRows(p.bySrc));
+  if(Object.keys(p.byX).length)body+=sec('𝕏 Theo tài khoản X',interestRows(p.byX));
+  var imHtml='';
+  if(im.saved)imHtml+='<div class="sub">Bài đã lưu theo chuyên mục</div>'+cntRows(im.savedByCat);
+  if(im.read)imHtml+='<div class="sub">Tin đã đọc theo chuyên mục</div>'+cntRows(im.readByCat);
+  if(imHtml)body+=sec('💾 Tín hiệu ngầm (lưu · đọc)',imHtml);
   return head+exp+body;
 }
 function exportVotes(){
-  var p=interestProfile();
-  if(!p.total){toast('Chưa có lượt thích / không thích nào để xuất');return;}
-  var out={generatedAt:todayISO(),totalVotes:p.total,likes:p.up,dislikes:p.down,byCategory:p.byCat,byRegion:p.byReg,bySource:p.bySrc,votes:VOTES};
+  var p=interestProfile(),kw=keywordProfile(),im=implicitProfile();
+  if(!p.total&&!im.saved&&!im.read){toast('Chưa có tín hiệu nào để xuất');return;}
+  var kwTop={};Object.keys(kw).sort(function(a,b){return kw[b].score-kw[a].score;}).slice(0,40).forEach(function(k){kwTop[k]=kw[k];});
+  var out={generatedAt:todayISO(),totalVotes:p.total,likes:p.up,dislikes:p.down,
+    byCategory:p.byCat,byRegion:p.byReg,bySource:p.bySrc,byXhandle:p.byX,
+    keywords:kwTop,implicit:im,weights:{up:W_UP,down:W_DOWN,save:W_SAVE,read:W_READ},votes:VOTES};
   try{
     var blob=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});
     var u=URL.createObjectURL(blob);var el=document.createElement('a');
     el.href=u;el.download='diemtin-sothich.json';
     document.body.appendChild(el);el.click();
     setTimeout(function(){document.body.removeChild(el);URL.revokeObjectURL(u);},200);
-    toast('Đã xuất hồ sơ sở thích ('+p.total+' lượt)');
+    toast('Đã xuất hồ sơ sở thích');
   }catch(e){toast('Không xuất được file');}
 }
 function drillCardInner(a,label){

@@ -13,9 +13,17 @@ Dùng `net` (👍−👎) làm điểm. Nếu `stats` rỗng → chưa ai vote, 
 
 > **Vì sao cần GitHub Action:** lớp biên (Cloudflare) của `*.supabase.co` **chặn 403 mọi request từ môi trường quét/WebFetch** (kiểm chứng 12/07/2026 — kể cả endpoint health công khai), nhưng KHÔNG chặn máy GitHub Action và trình duyệt thật. Nên: trình duyệt người đọc ghi vote → Supabase; GitHub Action đọc Supabase → `preferences.json`; session quét đọc `preferences.json` (local). Vote cá nhân lưu riêng theo user (RLS), chỉ **bản tổng hợp** `vote_stats` công khai — không lộ ai vote gì. Schema: `docs/supabase-setup.sql`.
 
+## Các tiêu chí đánh giá mối quan tâm
+Hồ sơ sở thích (file export `diemtin-sothich.json`) suy từ **nhiều tín hiệu**, có trọng số: 👍 +2 · 👎 −2 · lưu ★ +3 · đã đọc +1. Gồm các chiều:
+- **`byCategory` / `byRegion` / `bySource`** — điểm 👍/👎 theo chuyên mục · khu vực · nguồn (chiều này cũng có ở view Supabase tự động).
+- **`keywords`** — chủ đề/từ khóa (danh từ riêng) rút từ tiêu đề tin đã vote/lưu, kèm điểm tổng hợp. Đây là chiều **mịn nhất, giá trị nhất** để bám đúng chủ đề (vd "Iran", "NATO", "Biển Đông", "bán dẫn", "F-16").
+- **`byXhandle`** — sở thích theo từng tài khoản X (@NATO, @Reuters…).
+- **`implicit`** — tín hiệu ngầm: số bài đã lưu ★ / đã đọc, phân theo chuyên mục (quan tâm dù không vote).
+> Lưu ý: `keywords`, `byXhandle`, `implicit` chỉ có qua **export thủ công** (nằm ở localStorage, không đồng bộ Supabase). View Supabase tự động (`preferences.json`) chỉ có category/region/source.
+
 ## Cách áp dụng khi quét (đọc ở Bước 1 của skill)
-- **Điểm dương cao** (nhiều 👍) → **tăng** chỉ tiêu/độ ưu tiên cho chuyên mục/khu vực/nguồn đó (trong giới hạn chỉ tiêu tối thiểu mỗi category vẫn giữ nguyên — không bỏ hẳn mục nào).
-- **Điểm âm** (nhiều 👎) → **giảm** ưu tiên, tránh nguồn/kiểu tin đó khi có lựa chọn tương đương; KHÔNG loại bỏ hoàn toàn một category (vẫn giữ tối thiểu 2 tin/category theo CLAUDE.md).
+- **Chủ đề/từ khóa điểm cao** → chủ động tìm thêm tin về đúng chủ đề đó; **điểm âm** → giảm.
+- **Điểm dương** chuyên mục/khu vực/nguồn → **tăng** ưu tiên; **điểm âm** → **giảm** (vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào).
 - Đây là **định hướng mềm**, không ghi đè quy tắc chất lượng/nguồn 3 tầng trong CLAUDE.md.
 
 ## Trọng số hiện tại
