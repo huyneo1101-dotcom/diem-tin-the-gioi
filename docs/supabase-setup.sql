@@ -71,3 +71,12 @@ with (security_invoker = false) as
 
 -- Cho phép đọc view tổng hợp bằng cả anon (publishable) lẫn user đã đăng nhập.
 grant select on vote_stats to anon, authenticated;
+
+-- View TIÊU ĐỀ đã vote (để phân tích ĐIỂM CHUNG nội dung thích/không thích) — công khai,
+-- gộp theo (dấu vote + tiêu đề), KHÔNG lộ user nào vote. sign=1 thích, sign=-1 không thích.
+create or replace view vote_items
+with (security_invoker = false) as
+  select v as sign, title, category, region, source, count(*) as n
+  from votes where title is not null and title <> ''
+  group by v, title, category, region, source;
+grant select on vote_items to anon, authenticated;

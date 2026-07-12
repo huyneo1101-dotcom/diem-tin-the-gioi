@@ -26,19 +26,21 @@ jobs:
         run: |
           set -euo pipefail
           resp=$(curl -sS --fail-with-body \
-            -H "apikey: $SB_KEY" \
-            -H "Authorization: Bearer $SB_KEY" \
+            -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
             "$SB_URL/rest/v1/vote_stats?select=*&order=scope.asc,net.desc")
-          # Phai la JSON array hop le
           echo "$resp" | jq -e 'type == "array"' >/dev/null
-          new=$(echo "$resp" | jq -S -c .)
-          old=$(jq -S -c '.stats // empty' preferences.json 2>/dev/null || true)
+          # vote_items (tieu de da vote) — best-effort: neu view chua tao thi bo qua, khong lam fail job
+          items=$(curl -sS -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/vote_items?select=*&order=sign.desc,n.desc" || echo '[]')
+          echo "$items" | jq -e 'type == "array"' >/dev/null || items='[]'
+          new=$(jq -n --argjson s "$resp" --argjson i "$items" '{stats:$s,items:$i}' | jq -S -c .)
+          old=$(jq -S -c '{stats:(.stats//[]),items:(.items//[])}' preferences.json 2>/dev/null || echo 'null')
           if [ "$new" = "$old" ]; then
-            echo "vote_stats khong doi — bo qua."
+            echo "khong doi — bo qua."
             echo "changed=0" >> "$GITHUB_ENV"
           else
-            jq -n --argjson stats "$resp" --arg t "$(date -u +%FT%TZ)" \
-              '{generatedAt:$t, source:"supabase vote_stats view (auto by GitHub Action)", stats:$stats}' \
+            jq -n --argjson stats "$resp" --argjson items "$items" --arg t "$(date -u +%FT%TZ)" \
+              '{generatedAt:$t, source:"supabase vote_stats + vote_items (auto by GitHub Action)", stats:$stats, items:$items}' \
               > preferences.json
             echo "changed=1" >> "$GITHUB_ENV"
             echo "Cap nhat preferences.json:"; cat preferences.json
