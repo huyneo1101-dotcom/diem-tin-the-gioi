@@ -1,0 +1,6 @@
+# Python cache (sinh ra khi import scripts/add_news.py)
+__pycache__/
+*.pyc
+
+# File tạm khi quét tin
+/tmp/new_items.json
