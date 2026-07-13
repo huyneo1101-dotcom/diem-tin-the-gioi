@@ -103,8 +103,14 @@ thượng đỉnh, thăm cấp cao có kết quả, sáng kiến lớn (KHÔNG c
 
 ## Bước 3 — Review + gộp
 Session điều phối **tự review từng tin** theo ràng buộc chất lượng, loại tin không đạt (sai ngày,
-link rác/không khớp, trùng chéo mục, mâu thuẫn, ID nghi bịa, nguồn ngoài danh sách). Gộp vào
-`/tmp/new_items.json`:
+link rác/không khớp, trùng chéo mục, mâu thuẫn, ID nghi bịa, nguồn ngoài danh sách).
+
+**BẮT BUỘC ghi tin bị loại** vào `logs/loai-tin.md` (append 1 mục ngày mới): mỗi tin bị loại ghi
+`[chủ đề/mục] tiêu đề (nguồn, ngày) — lý do loại`. **Đánh dấu ⭐ và để riêng lên đầu** các tin thuộc
+CHỦ ĐỀ THÍCH (Công nghệ quân sự, Ngoại giao, Kinh tế vĩ mô) mà vẫn bị loại — để người dùng rà xem có
+loại nhầm tin đúng gu không. Commit + push file này cùng bản tin.
+
+Gộp tin ĐẠT vào `/tmp/new_items.json`:
 ```json
 {
   "date": "YYYY-MM-DD",
