@@ -20,13 +20,13 @@ Bảng `votes` trên Supabase lưu MỖI vote kèm `title · category · region 
 - **Điểm dương** chuyên mục/khu vực/nguồn → **tăng** ưu tiên; **điểm âm** → **giảm** (vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào).
 - Đây là **định hướng mềm**, không ghi đè quy tắc chất lượng/nguồn 3 tầng trong CLAUDE.md.
 
-## PHÁT HIỆN sở thích (cập nhật 12/07/2026 — từ 117 lượt vote, độ tin cậy CAO, đã BỎ QUA ngày tháng)
-Nguồn: `preferences.json` (`stats` + `items`). 94 👍 / 23 👎. Gồm 23 tin thật + 100 tin mẫu cân bằng 4 chủ đề → đủ để tách rõ trục sở thích.
+## PHÁT HIỆN sở thích (cập nhật 13/07/2026 — từ 121 lượt vote, độ tin cậy CAO, đã BỎ QUA ngày tháng)
+Nguồn: `preferences.json` (`stats` + `items`). 101 👍 / 23 👎 (124 tiêu đề). Gồm 23 tin thật + 100 tin mẫu cân bằng + vote cứu tin ở mục Bị loại → đủ để tách rõ trục sở thích.
 
 ### 🟢 THÍCH — điểm chung
-- **Trục chủ đề rõ nhất:** **Công nghệ quân sự (31👍/0👎)** và **Ngoại giao (27👍/0👎)** — thích TUYỆT ĐỐI, không một tin nào bị ghét. **Kinh tế vĩ mô (22👍)** cũng thích mạnh.
+- **Trục chủ đề rõ nhất:** **Công nghệ quân sự (32👍/0👎)** và **Ngoại giao (31👍/0👎)** — thích TUYỆT ĐỐI, không một tin nào bị ghét. **Kinh tế vĩ mô (22👍/3👎)** cũng thích mạnh.
 - **Nội dung thích:** khí tài/hệ thống QP cụ thể (tên lửa, phòng không, hải quân, không gian/Space Force, laser, AI quân sự, tàu ngầm); **hiệp định/khuôn khổ an ninh–quốc phòng** (ACSA, RAA, đối tác chiến lược, tuyên bố chung có kết quả); **chính sách vĩ mô & định chế** (Fed/ECB/BOJ, IMF/OECD/WTO/BIS/World Bank, nợ công, thuế toàn cầu, chuỗi cung ứng chip).
-- **Chính trị được thích CÓ CHỌN LỌC (12👍):** chỉ loại **thể chế/luật/hiến pháp/chiến lược** — cải cách Thượng viện Anh, EU AI Act, ngân sách quốc phòng, cải tổ nội các, cơ chế trừng phạt, sửa hiến pháp phòng vệ (Nhật). 
+- **Chính trị được thích CÓ CHỌN LỌC (14👍/19👎, net −5):** chỉ loại **thể chế/luật/trừng phạt/chiến lược** — cải cách Thượng viện Anh, EU AI Act, ngân sách quốc phòng, cải tổ nội các, **dự luật/lệnh trừng phạt Nga & Iran**, sửa hiến pháp phòng vệ (Nhật). Các vote mới đều là tin trừng phạt/thể chế → càng khẳng định lằn ranh này.
 - **Nguồn:** báo quốc phòng chuyên ngành (Defense News, Naval News, Breaking Defense, SpaceNews, Task & Purpose) + nguồn chính thức (Bộ NG Mỹ/Nhật, Bộ QP Anh, Hội đồng châu Âu, Fed) = **luôn tích cực**. Wire (Reuters/AFP) trung tính, thích/ghét tùy nội dung.
 - **Khu vực KHÔNG phải trục ưu tiên mạnh** — tin thích trải đều Âu/NATO, Châu Mỹ, Ấn Độ Dương-TBD, Đông Á, Toàn cầu. Trục quyết định là **CHỦ ĐỀ + KIỂU TIN**, không phải khu vực.
 
@@ -55,3 +55,4 @@ Nguồn: `preferences.json` (`stats` + `items`). 94 👍 / 23 👎. Gồm 23 tin
 ## Nhật ký cập nhật
 - **12/07/2026 (a):** phân tích lần đầu từ 23 vote (15👍/8👎) — thích Quốc phòng+Ngoại giao, ghét Chính trị chung; rút quy tắc cấu trúc>cá nhân, vĩ mô>vi mô.
 - **12/07/2026 (b):** phân tích lại từ **117 vote** (94👍/23👎, thêm 100 tin mẫu cân bằng). Xác nhận & làm SẮC: QP+Ngoại giao thích tuyệt đối; ghét = cáo phó + chính trị nhân vật + đua bầu cử + lợi nhuận công ty đơn lẻ. Bổ sung quy tắc: (3) tin "cứu" được nhờ gắn chủ đề chiến lược; (4) an ninh–đối ngoại > nội bộ xã hội/tư pháp; (5) khu vực không phải trục ưu tiên.
+- **13/07/2026 (routine tự động):** **121 vote** (101👍/23👎). +7 vote 👍 (từ việc chủ trang cứu tin ở mục Bị loại) — **không đảo gu**, chỉ CỦNG CỐ: Ngoại giao 27→31👍 (vẫn 0👎), CNQS 31→32, Chính trị 12→14👍 (2 tin mới đều là **trừng phạt Nga/Iran** = thể chế). 5 quy tắc lọc giữ nguyên. Vote vẫn 100% của chủ trang, chưa có người đọc khác.
