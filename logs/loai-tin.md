@@ -39,3 +39,12 @@
 
 ### Xóa TIN CŨ không hợp gu (dọn kho, 31 tin — không có tin chủ đề thích)
 Cáo phó (Qatar, Lindsey Graham); lãi–lỗ/IPO công ty đơn lẻ (VW, Luxshare, AstraZeneca, Delta, Amazon trái phiếu, Blue Origin, PepsiCo, Saudi tech→HK); chính trị nhân vật/bê bối/xử án (Nadezhdin, Hasina, Le Pen, Yoon, E. Jean Carroll, triệu tập phóng viên NYT, Kazakhstan–Naftogaz, Rahm Emanuel, FSB "âm mưu khủng bố", McConnell vắng mặt); đua bầu cử (Burnham, Graham Platner, AIPAC–Cori Bush); nội bộ xã hội/tư pháp (Tòa Senegal, Guinea-Bissau, Congo, Tanzania, điều tra H-1B, công đoàn kiện Lầu Năm Góc, quyền công dân nơi sinh).
+
+### Quét ứng viên Haiku 13/07 (đổ vào mục 🚫 Bị loại để người dùng lọc)
+3 agent Haiku gom ứng viên nhưng phần lớn TRÙNG tin đã có hoặc CŨ (Haiku bỏ qua khung 2 ngày). Giữ 5 ứng viên vào Bị loại:
+- ⭐ [NG] 14 nước tuyên bố chung 10 năm phán quyết Biển Đông (State Dept, 07-12) — mới, hợp gu.
+- [NG] ASEAN họp không chính thức Myanmar (Bloomberg, 07-12) — mới.
+- ⭐ [CNQS] Indonesia đóng nội địa tàu ngầm Scorpène Evolved (Naval News, 07-02) — cũ ~1 tuần.
+- ⭐ [CNQS] Hải quân Mỹ tăng sản xuất tên lửa chống radar AESM (Defense News, 07-02) — cũ ~1 tuần.
+- [KT] IMF nâng dự báo WEO tháng 7 (IMF, 07-08) — cũ.
+Bỏ (trùng/cũ hẳn): laser Lockheed-nLIGHT, laser Đức Rheinmetall-MBDA, MRIC Guam, NATO GlobalEye, F-35 Thổ Nhĩ Kỳ, TQ SLBM, THAAD 35 tỷ, Patriot Ukraine, dự luật trừng phạt Nga, Mỹ-EU trade, Infineon Dresden, Samsung/SK Hynix, USMCA, + 3 tin NG link sai/homepage/trivial.
