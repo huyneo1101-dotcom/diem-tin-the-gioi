@@ -393,6 +393,7 @@ def main() -> None:
     exercise_updates = new_items.get("exerciseUpdates", [])
     dip_updates = new_items.get("dipEventUpdates", [])
     new_dip_events = new_items.get("newDipEvents", [])
+    rejected_new = new_items.get("rejectedNews", [])
     date = new_items.get("date")
 
     if not date:
@@ -433,6 +434,27 @@ def main() -> None:
     if new_dip_events:
         data["dipEvents"] = data.get("dipEvents", []) + new_dip_events
 
+    # rejectedNews: tin bị loại khi quét — hiện ở mục "Bị loại" trên web để người dùng cứu (like)
+    # hoặc xác nhận không thích (dislike). Không áp guardrail ngày/trùng-DATA (chúng là tin bị loại,
+    # có thể cũ); chỉ cần title + sourceUrl, kèm 'reason'. Chống trùng trong rejectedNews + với tin live.
+    rejected_added = 0
+    if rejected_new:
+        live_urls = {i.get("sourceUrl", "") for i in data.get("worldNews", [])} | {i.get("sourceUrl", "") for i in data.get("usNews", [])}
+        existing = data.get("rejectedNews", [])
+        existing_urls = {i.get("sourceUrl", "") for i in existing}
+        clean = []
+        for it in rejected_new:
+            u = it.get("sourceUrl", "")
+            if not it.get("title") or not u:
+                continue
+            if u in live_urls or u in existing_urls:
+                continue
+            it.setdefault("reason", "")
+            existing_urls.add(u)
+            clean.append(it)
+        data["rejectedNews"] = (clean + existing)[:80]
+        rejected_added = len(clean)
+
     data["generatedAt"] = date
     if world_new:
         data["worldGeneratedAt"] = date
@@ -445,9 +467,10 @@ def main() -> None:
     html_path.write_text(html[:start] + new_data_str + html[end:], encoding="utf-8")
 
     new_ev_note = f", +{len(new_dip_events)} SỰ KIỆN ngoại giao MỚI" if new_dip_events else ""
+    rej_note = f", +{rejected_added} tin BỊ LOẠI (mục Bị loại)" if rejected_added else ""
     print(
         f"OK: +{len(world_new)} tin Thế giới, +{len(us_new)} tin Mỹ, +{len(x_new)} tin X, "
-        f"+{exercise_items_added} tin tập trận, +{dip_items_added} tin ngoại giao (sự kiện){new_ev_note}. generatedAt={date}"
+        f"+{exercise_items_added} tin tập trận, +{dip_items_added} tin ngoại giao (sự kiện){new_ev_note}{rej_note}. generatedAt={date}"
     )
     for ev in new_dip_events:
         print(f"  [SỰ KIỆN MỚI] dipEvents += '{ev['name']}' ({ev['status']}, {len(ev['items'])} item)")

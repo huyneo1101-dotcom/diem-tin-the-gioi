@@ -105,21 +105,25 @@ thượng đỉnh, thăm cấp cao có kết quả, sáng kiến lớn (KHÔNG c
 Session điều phối **tự review từng tin** theo ràng buộc chất lượng, loại tin không đạt (sai ngày,
 link rác/không khớp, trùng chéo mục, mâu thuẫn, ID nghi bịa, nguồn ngoài danh sách).
 
-**BẮT BUỘC ghi tin bị loại** vào `logs/loai-tin.md` (append 1 mục ngày mới): mỗi tin bị loại ghi
-`[chủ đề/mục] tiêu đề (nguồn, ngày) — lý do loại`. **Đánh dấu ⭐ và để riêng lên đầu** các tin thuộc
-CHỦ ĐỀ THÍCH (Công nghệ quân sự, Ngoại giao, Kinh tế vĩ mô) mà vẫn bị loại — để người dùng rà xem có
-loại nhầm tin đúng gu không. Commit + push file này cùng bản tin.
+**BẮT BUỘC ghi tin bị loại** vào 2 nơi: (a) `logs/loai-tin.md` (append 1 mục ngày mới, dạng chữ để
+người dùng đọc: `[chủ đề/mục] tiêu đề (nguồn, ngày) — lý do loại`, **⭐ để riêng lên đầu** các tin
+CHỦ ĐỀ THÍCH — Công nghệ quân sự · Ngoại giao · Kinh tế vĩ mô — bị loại); (b) field **`rejectedNews`**
+trong `/tmp/new_items.json` (dạng có cấu trúc, để hiện ở mục **🚫 Bị loại** trên web — người dùng bấm
+👍 cứu vào Bài mới / 👎 xác nhận không thích). Ưu tiên đưa các tin CHỦ ĐỀ THÍCH bị loại (nhất là loại
+do ngày/nghi trùng) vào `rejectedNews` để người dùng có cơ hội cứu.
 
-Gộp tin ĐẠT vào `/tmp/new_items.json`:
+Gộp tin ĐẠT + tin bị loại vào `/tmp/new_items.json`:
 ```json
 {
   "date": "YYYY-MM-DD",
   "worldNews": [ ... ], "usNews": [ ... ], "xNews": [ ... ],
   "exerciseUpdates": [ {"name":"<tên đúng đã có>","items":[ ... ]} ],
   "dipEventUpdates": [ {"name":"<tên đúng đã có>","items":[ ... ]} ],
-  "newDipEvents": [ {"name","status","dates","location","scale","summary","items":[ ... ]} ]
+  "newDipEvents": [ {"name","status","dates","location","scale","summary","items":[ ... ]} ],
+  "rejectedNews": [ {"date","category","title","summary","sourceName","sourceUrl","region","reason":"<lý do loại>"} ]
 }
 ```
+`rejectedNews` KHÔNG bị guardrail ngày/trùng-DATA (là tin bị loại, có thể cũ) — chỉ cần `title`+`sourceUrl`+`reason`.
 Nếu một tin phẳng được nâng thành `newDipEvents`, bỏ nó khỏi worldNews/usNews để URL không trùng.
 
 ## Bước 4 — Chèn bằng script (guardrail chặn lần cuối)
