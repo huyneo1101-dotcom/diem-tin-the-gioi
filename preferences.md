@@ -2,6 +2,8 @@
 
 File này là **cầu nối phản hồi**: người đọc bấm 👍 / 👎 trên từng tin, dữ liệu đồng bộ lên Supabase (KHÔNG hiển thị phân tích/sở thích gì trên giao diện — theo yêu cầu người dùng, mọi phân tích chỉ để quy trình quét tự dùng). Mỗi lần quét, skill `quet-tin` **đọc tổng hợp sở thích** rồi ưu tiên/giảm ưu tiên chuyên mục · khu vực · nguồn cho hợp gu người đọc.
 
+> **Định hướng = TỔNG HỢP vote của MỌI tài khoản người đọc** (view `vote_stats`/`vote_items` gộp tất cả user, không tách riêng). Vote của **người đọc thật là định hướng CHÍNH** cho việc quét; các vote ban đầu của chủ trang chỉ là **hạt giống mồi** khi chưa có ai vote. Người đọc vote càng nhiều thì hồ sơ càng nghiêng theo họ. (Khi lượng vote người đọc đủ lớn, có thể cân nhắc giảm trọng số / loại các vote mồi `item_id` bắt đầu bằng `calib:` để readers chi phối hoàn toàn — chưa cần làm bây giờ.)
+
 ## Lấy sở thích ở đâu — đọc `preferences.json` (tự động, đường DUY NHẤT)
 File `preferences.json` ở gốc repo, do **GitHub Action `sync-preferences.yml`** cập nhật hằng ngày (18:00 VN): Action chạy trên máy GitHub, curl view `vote_stats` từ Supabase rồi commit vào `main`. Session quét chỉ cần **đọc file local** — luôn truy cập được, không phụ thuộc mạng ngoài. Cấu trúc:
 ```json
