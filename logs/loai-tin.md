@@ -55,3 +55,7 @@ Kết quả 6 agent Sonnet (khung 2 ngày 12-13/07). Nhận: +3 TG (EU+Anh trừ
 - Kinh tế TG+Mỹ: agent trả rỗng — tin vĩ mô đạt chuẩn trong 2 ngày đều đã đăng (Fed Warsh, biên bản Fed, SK Hynix...) hoặc là earnings công ty đơn lẻ (bị lọc).
 - Nhiều tin CNQS "nóng" (Aselsan Steel Dome, Tomahawk cho Đức, LRASM/JASSM, Sentinel A4, laser Lockheed-nLIGHT...) rơi vào 06-11/07 → ngoài khung 2 ngày.
 - Chính trị Mỹ: cáo phó TNS Lindsey Graham (loại theo quy tắc cáo phó); NDAA FY2027 mới ở giai đoạn ủy ban.
+
+### Bổ sung mục 🚫 Bị loại (chiều 13/07) — thu từ ghi chú 2 agent, +14 tin
+Người dùng hỏi vì sao mục Bị loại không có thêm tin. Nguyên nhân: 6 agent Sonnet lượt chính chỉ ghi tên tin loại bằng văn xuôi, không kèm URL nên không tạo được thẻ. Đã hỏi lại 2 agent (CNQS + Kinh tế) để xuất kèm link. (Người dùng xác nhận "không cần url" nên không verify — WebFetch cũng bị 403 toàn bộ.) Thêm 14 tin, đa số là **CNQS đúng gu bị rớt vì ngoài khung 2 ngày** (đăng 01-11/07): Aselsan Steel Dome, Đức mua Tomahawk/Typhon, LRASM/JASSM x3, EABC phá mìn, MQ-25A bay thử 2, Canada JSM cho F-35, AeroVironment C-UAS, HALO L3Harris, Đài Loan HF-III, TQ vũ khí vi sóng 100GW; + Kinh tế vĩ mô: tuyên bố chung IMF/WB/WTO/IEA, CBO thâm hụt 1.400 tỷ, Hà Lan-ASML chip, WB lưới điện Pakistan.
+Bỏ 1 tin: "IMF hạ dự báo còn 3%" — mâu thuẫn với tin "IMF nâng dự báo WEO tháng 7" đã có trong mục (nghi bịa, agent trả từ trí nhớ không tra lại).
