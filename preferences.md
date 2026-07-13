@@ -1,4 +1,6 @@
-# Sở thích người đọc — điều hướng quét tin
+# Sở thích người đọc — điều hướng quét tin (hồ sơ VOTE)
+
+> **Quan hệ với `diemtin-content-prefs.md`** (đọc để KHÔNG conflict): file KIA là **Hiến chương biên tập** (bản KHAI BÁO chủ động, quyết định cấu trúc/triết lý/cách viết). File NÀY là **tín hiệu hành vi** (suy từ vote), chỉ **tinh chỉnh MỨC ưu tiên chủ đề/khu vực/nguồn TRONG khuôn khổ hiến chương**. Khi mâu thuẫn: *cấu trúc/triết lý/cách viết* → hiến chương thắng; *mức ưu tiên chủ đề* → vote (file này) điều chỉnh. Bảng hoà giải 5 điểm từng lệch nằm ở cuối `diemtin-content-prefs.md`.
 
 File này là **cầu nối phản hồi**: người đọc bấm 👍 / 👎 trên từng tin, dữ liệu đồng bộ lên Supabase (KHÔNG hiển thị phân tích/sở thích gì trên giao diện — theo yêu cầu người dùng, mọi phân tích chỉ để quy trình quét tự dùng). Mỗi lần quét, skill `quet-tin` **đọc tổng hợp sở thích** rồi ưu tiên/giảm ưu tiên chuyên mục · khu vực · nguồn cho hợp gu người đọc.
 
