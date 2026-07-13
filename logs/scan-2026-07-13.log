@@ -5,3 +5,4 @@
 [13:50Z] Da giao 6 agent Sonnet (KT/CT/CNQS/NG/xNews/SuKien), khung 2 ngay 12-13/07. Cho ket qua.
 [13:58Z] DONE quet bo sung: +3 TG, +1 My, +1 X, +2 tap tran, +1 rejected. Script OK, guardrail pass.
 [14:07Z] Bo sung +14 tin vao muc Bi loai (CNQS ngoai khung 2 ngay + KT vi mo), tu ghi chu 2 agent. Bo 1 tin IMF nghi mau thuan.
+[14:08Z] SKIP news-scan routine (fire 21:00): generatedAt=2026-07-13 == hom nay -> DA XONG (da quet + bo sung Bi loai), no-op.
