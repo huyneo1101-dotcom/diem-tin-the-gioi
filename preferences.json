@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-12T23:42:24Z",
+  "generatedAt": "2026-07-13T06:09:49Z",
   "source": "supabase vote_stats + vote_items (auto by GitHub Action)",
   "stats": [
     {
       "scope": "category",
       "key": "Công nghệ quân sự",
-      "up": 31,
+      "up": 32,
       "down": 0,
-      "net": 31,
-      "total": 31
+      "net": 32,
+      "total": 32
     },
     {
       "scope": "category",
       "key": "Ngoại giao",
-      "up": 27,
+      "up": 31,
       "down": 0,
-      "net": 27,
-      "total": 27
+      "net": 31,
+      "total": 31
     },
     {
       "scope": "category",
@@ -29,10 +29,10 @@
     {
       "scope": "category",
       "key": "Chính trị",
-      "up": 12,
+      "up": 14,
       "down": 19,
-      "net": -7,
-      "total": 31
+      "net": -5,
+      "total": 33
     },
     {
       "scope": "region",
@@ -52,14 +52,6 @@
     },
     {
       "scope": "region",
-      "key": "Châu Mỹ",
-      "up": 15,
-      "down": 5,
-      "net": 10,
-      "total": 20
-    },
-    {
-      "scope": "region",
       "key": "Toàn cầu",
       "up": 10,
       "down": 0,
@@ -68,27 +60,43 @@
     },
     {
       "scope": "region",
-      "key": "Đông Á",
-      "up": 10,
-      "down": 3,
-      "net": 7,
-      "total": 13
+      "key": "Châu Mỹ",
+      "up": 15,
+      "down": 5,
+      "net": 10,
+      "total": 20
     },
     {
       "scope": "region",
-      "key": "Trung Đông",
-      "up": 9,
-      "down": 4,
-      "net": 5,
-      "total": 13
+      "key": "Đông Á",
+      "up": 11,
+      "down": 3,
+      "net": 8,
+      "total": 14
     },
     {
       "scope": "region",
       "key": "Khác",
-      "up": 4,
+      "up": 6,
       "down": 0,
-      "net": 4,
-      "total": 4
+      "net": 6,
+      "total": 6
+    },
+    {
+      "scope": "region",
+      "key": "Trung Đông",
+      "up": 10,
+      "down": 4,
+      "net": 6,
+      "total": 14
+    },
+    {
+      "scope": "region",
+      "key": "Nga–Ukraine",
+      "up": 4,
+      "down": 2,
+      "net": 2,
+      "total": 6
     },
     {
       "scope": "region",
@@ -100,19 +108,19 @@
     },
     {
       "scope": "region",
+      "key": "Đông Nam Á",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "region",
       "key": "Châu Phi",
       "up": 3,
       "down": 2,
       "net": 1,
       "total": 5
-    },
-    {
-      "scope": "region",
-      "key": "Nga–Ukraine",
-      "up": 2,
-      "down": 2,
-      "net": 0,
-      "total": 4
     },
     {
       "scope": "source",
@@ -132,14 +140,6 @@
     },
     {
       "scope": "source",
-      "key": "Naval News",
-      "up": 7,
-      "down": 0,
-      "net": 7,
-      "total": 7
-    },
-    {
-      "scope": "source",
       "key": "Bộ Ngoại giao Mỹ",
       "up": 7,
       "down": 0,
@@ -148,15 +148,23 @@
     },
     {
       "scope": "source",
-      "key": "Bộ Ngoại giao Nhật Bản",
-      "up": 5,
+      "key": "Naval News",
+      "up": 7,
       "down": 0,
-      "net": 5,
-      "total": 5
+      "net": 7,
+      "total": 7
     },
     {
       "scope": "source",
       "key": "Breaking Defense",
+      "up": 6,
+      "down": 0,
+      "net": 6,
+      "total": 6
+    },
+    {
+      "scope": "source",
+      "key": "SpaceNews",
       "up": 5,
       "down": 0,
       "net": 5,
@@ -164,7 +172,7 @@
     },
     {
       "scope": "source",
-      "key": "SpaceNews",
+      "key": "Bộ Ngoại giao Nhật Bản",
       "up": 5,
       "down": 0,
       "net": 5,
@@ -177,14 +185,6 @@
       "down": 0,
       "net": 4,
       "total": 4
-    },
-    {
-      "scope": "source",
-      "key": "NATO",
-      "up": 3,
-      "down": 0,
-      "net": 3,
-      "total": 3
     },
     {
       "scope": "source",
@@ -220,11 +220,11 @@
     },
     {
       "scope": "source",
-      "key": "Federal Reserve",
-      "up": 2,
+      "key": "NATO",
+      "up": 3,
       "down": 0,
-      "net": 2,
-      "total": 2
+      "net": 3,
+      "total": 3
     },
     {
       "scope": "source",
@@ -236,47 +236,23 @@
     },
     {
       "scope": "source",
-      "key": "World Bank",
-      "up": 1,
+      "key": "Federal Reserve",
+      "up": 2,
       "down": 0,
-      "net": 1,
-      "total": 1
+      "net": 2,
+      "total": 2
     },
     {
       "scope": "source",
-      "key": "CNBC",
-      "up": 4,
-      "down": 3,
-      "net": 1,
-      "total": 7
-    },
-    {
-      "scope": "source",
-      "key": "IMF",
-      "up": 1,
+      "key": "U.S. Department of State",
+      "up": 2,
       "down": 0,
-      "net": 1,
-      "total": 1
+      "net": 2,
+      "total": 2
     },
     {
       "scope": "source",
-      "key": "TTXVN",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "UN News",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "ASEAN",
+      "key": "Bloomberg",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -292,11 +268,83 @@
     },
     {
       "scope": "source",
+      "key": "Senate Foreign Relations Committee",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "TTXVN",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "World Bank",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Euronews",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "IMF",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
       "key": "Bộ Quốc phòng Anh",
       "up": 1,
       "down": 0,
       "net": 1,
       "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "ASEAN",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "U.S. Department of the Treasury",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "UN News",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "CNBC",
+      "up": 4,
+      "down": 3,
+      "net": 1,
+      "total": 7
     },
     {
       "scope": "source",
@@ -330,14 +378,6 @@
       "category": "Công nghệ quân sự",
       "region": "Châu Âu/NATO",
       "source": "SpaceNews",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Quốc hội Anh thông qua cải cách Thượng viện, loại bỏ ghế quý tộc cha truyền con nối",
-      "category": "Chính trị",
-      "region": "Châu Âu/NATO",
-      "source": "Reuters",
       "n": 1
     },
     {
@@ -486,6 +526,14 @@
     },
     {
       "sign": 1,
+      "title": "Hải quân, Thủy quân lục chiến và Lục quân Mỹ định hình lại máy bay không người lái đồng đội chiến đấu (CCA)",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Breaking Defense",
+      "n": 1
+    },
+    {
+      "sign": 1,
       "title": "Việt Nam nâng cấp quan hệ lên Đối tác Chiến lược Toàn diện với một cường quốc lớn",
       "category": "Ngoại giao",
       "region": "Đông Á",
@@ -610,6 +658,14 @@
       "category": "Ngoại giao",
       "region": "Ấn Độ Dương - Thái Bình Dương",
       "source": "Bộ Ngoại giao Nhật Bản",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Thượng viện Mỹ đạt thỏa thuận với Nhà Trắng về dự luật trừng phạt Nga",
+      "category": "Chính trị",
+      "region": "Nga–Ukraine",
+      "source": "Senate Foreign Relations Committee",
       "n": 1
     },
     {
@@ -766,10 +822,34 @@
     },
     {
       "sign": 1,
+      "title": "ASEAN họp không chính thức với Myanmar lần đầu kể từ đảo chính 2021",
+      "category": "Ngoại giao",
+      "region": "Đông Nam Á",
+      "source": "Bloomberg",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ trừng phạt mạng lưới tài chính của giới lãnh đạo Iran",
+      "category": "Chính trị",
+      "region": "Trung Đông",
+      "source": "U.S. Department of the Treasury",
+      "n": 1
+    },
+    {
+      "sign": 1,
       "title": "Na Uy và Đức đặt chung sáu tàu ngầm lớp 212CD, tiêu chuẩn hóa hạm đội tàu ngầm Bắc Âu",
       "category": "Công nghệ quân sự",
       "region": "Châu Âu/NATO",
       "source": "Naval News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ và CARICOM IMPACS ký thỏa thuận chia sẻ dữ liệu sinh trắc học đầu tiên",
+      "category": "Ngoại giao",
+      "region": "Khác",
+      "source": "U.S. Department of State",
       "n": 1
     },
     {
@@ -998,6 +1078,14 @@
     },
     {
       "sign": 1,
+      "title": "14 quốc gia ra tuyên bố chung kỷ niệm 10 năm phán quyết Biển Đông",
+      "category": "Ngoại giao",
+      "region": "Đông Á",
+      "source": "U.S. Department of State",
+      "n": 1
+    },
+    {
+      "sign": 1,
       "title": "Philippines nhận hệ thống tên lửa bờ BrahMos đầu tiên, tăng năng lực phòng thủ Biển Đông",
       "category": "Công nghệ quân sự",
       "region": "Ấn Độ Dương - Thái Bình Dương",
@@ -1018,6 +1106,14 @@
       "category": "Kinh tế",
       "region": "Đông Á",
       "source": "CNBC",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "EU nhất trí mở cụm đàm phán gia nhập thứ 6 cho Ukraine và Moldova",
+      "category": "Ngoại giao",
+      "region": "Nga–Ukraine",
+      "source": "Euronews",
       "n": 1
     },
     {
@@ -1077,11 +1173,27 @@
       "n": 1
     },
     {
+      "sign": 1,
+      "title": "Quốc hội Anh thông qua cải cách Thượng viện, loại bỏ ghế quý tộc cha truyền con nối",
+      "category": "Chính trị",
+      "region": "Châu Âu/NATO",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
       "sign": -1,
       "title": "Đài Loan tổ chức bầu cử địa phương, đảng cầm quyền chịu tổn thất trước phe đối lập",
       "category": "Chính trị",
       "region": "Đông Á",
       "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Lãnh đạo phe đối lập Pakistan bị bắt giữ giữa căng thẳng trước thềm bầu cử",
+      "category": "Chính trị",
+      "region": "Nam Á",
+      "source": "Al Jazeera",
       "n": 1
     },
     {
@@ -1094,26 +1206,18 @@
     },
     {
       "sign": -1,
-      "title": "Cựu Thủ tướng Bangladesh bị lưu vong Hasina lên kế hoạch trở về tháng 12",
+      "title": "Thống đốc một bang lớn của Mỹ tuyên bố không tái tranh cử vì lý do sức khỏe",
       "category": "Chính trị",
-      "region": "Nam Á",
-      "source": "Al Jazeera",
+      "region": "Châu Mỹ",
+      "source": "Axios",
       "n": 1
     },
     {
       "sign": -1,
-      "title": "Cựu thủ tướng lưu vong tuyên bố sẽ trở về nước tham gia chính trường bất chấp lệnh truy nã",
+      "title": "Tòa án Tối cao Mỹ ra phán quyết giới hạn thẩm quyền cơ quan liên bang trong ban hành quy định",
       "category": "Chính trị",
-      "region": "Nam Á",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Cựu Quốc vương Qatar Sheikh Hamad bin Khalifa Al Thani qua đời ở tuổi 74",
-      "category": "Chính trị",
-      "region": "Trung Đông",
-      "source": "Al Jazeera",
+      "region": "Châu Mỹ",
+      "source": "Reuters",
       "n": 1
     },
     {
@@ -1126,18 +1230,18 @@
     },
     {
       "sign": -1,
-      "title": "Thủ lĩnh một phong trào chính trị khu vực từ chức sau nhiều năm cầm quyền",
+      "title": "Cựu Thủ tướng Bangladesh bị lưu vong Hasina lên kế hoạch trở về tháng 12",
       "category": "Chính trị",
-      "region": "Trung Đông",
+      "region": "Nam Á",
       "source": "Al Jazeera",
       "n": 1
     },
     {
       "sign": -1,
-      "title": "Nga gắn nhãn 'điệp viên nước ngoài' cho chính trị gia phản chiến Nadezhdin",
+      "title": "Canada cải tổ luật nhập cư, siết chỉ tiêu thường trú nhân giữa áp lực nhà ở",
       "category": "Chính trị",
-      "region": "Nga–Ukraine",
-      "source": "The Moscow Times",
+      "region": "Châu Mỹ",
+      "source": "Reuters",
       "n": 1
     },
     {
@@ -1158,10 +1262,10 @@
     },
     {
       "sign": -1,
-      "title": "Thượng nghị sĩ kỳ cựu bang California qua đời ở tuổi 82 sau thời gian dài lâm bệnh",
+      "title": "Nga gắn nhãn 'điệp viên nước ngoài' cho chính trị gia phản chiến Nadezhdin",
       "category": "Chính trị",
-      "region": "Châu Mỹ",
-      "source": "Axios",
+      "region": "Nga–Ukraine",
+      "source": "The Moscow Times",
       "n": 1
     },
     {
@@ -1177,6 +1281,14 @@
       "title": "Cựu tổng thống một nước Đông Âu bị kết án tù vì tội tham nhũng trong nhiệm kỳ",
       "category": "Chính trị",
       "region": "Châu Âu/NATO",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Cựu thủ tướng lưu vong tuyên bố sẽ trở về nước tham gia chính trường bất chấp lệnh truy nã",
+      "category": "Chính trị",
+      "region": "Nam Á",
       "source": "Al Jazeera",
       "n": 1
     },
@@ -1198,14 +1310,6 @@
     },
     {
       "sign": -1,
-      "title": "Tổng thống một nước Nam Mỹ đối mặt thủ tục luận tội giữa bê bối tham nhũng",
-      "category": "Chính trị",
-      "region": "Châu Mỹ",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
       "title": "Đảo chính quân sự lật đổ chính phủ dân sự tại một quốc gia Tây Phi",
       "category": "Chính trị",
       "region": "Châu Phi",
@@ -1214,26 +1318,34 @@
     },
     {
       "sign": -1,
-      "title": "Canada cải tổ luật nhập cư, siết chỉ tiêu thường trú nhân giữa áp lực nhà ở",
-      "category": "Chính trị",
-      "region": "Châu Mỹ",
-      "source": "Reuters",
+      "title": "Volkswagen cắt giảm một nửa số dòng xe, giảm công suất xuống 9 triệu xe/năm",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "CNBC",
       "n": 1
     },
     {
       "sign": -1,
-      "title": "Lãnh đạo phe đối lập Pakistan bị bắt giữ giữa căng thẳng trước thềm bầu cử",
+      "title": "Thủ lĩnh một phong trào chính trị khu vực từ chức sau nhiều năm cầm quyền",
       "category": "Chính trị",
-      "region": "Nam Á",
+      "region": "Trung Đông",
       "source": "Al Jazeera",
       "n": 1
     },
     {
       "sign": -1,
-      "title": "Thống đốc một bang lớn của Mỹ tuyên bố không tái tranh cử vì lý do sức khỏe",
+      "title": "Cựu Quốc vương Qatar Sheikh Hamad bin Khalifa Al Thani qua đời ở tuổi 74",
+      "category": "Chính trị",
+      "region": "Trung Đông",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Tổng thống một nước Nam Mỹ đối mặt thủ tục luận tội giữa bê bối tham nhũng",
       "category": "Chính trị",
       "region": "Châu Mỹ",
-      "source": "Axios",
+      "source": "Al Jazeera",
       "n": 1
     },
     {
@@ -1246,18 +1358,10 @@
     },
     {
       "sign": -1,
-      "title": "Tòa án Tối cao Mỹ ra phán quyết giới hạn thẩm quyền cơ quan liên bang trong ban hành quy định",
+      "title": "Thượng nghị sĩ kỳ cựu bang California qua đời ở tuổi 82 sau thời gian dài lâm bệnh",
       "category": "Chính trị",
       "region": "Châu Mỹ",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Volkswagen cắt giảm một nửa số dòng xe, giảm công suất xuống 9 triệu xe/năm",
-      "category": "Kinh tế",
-      "region": "Đông Á",
-      "source": "CNBC",
+      "source": "Axios",
       "n": 1
     }
   ]
