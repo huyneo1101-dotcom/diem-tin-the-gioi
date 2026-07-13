@@ -43,7 +43,7 @@ import urllib.parse
 NEWS_REQUIRED_FIELDS = {"date", "category", "title", "summary", "sourceName", "sourceUrl", "significance"}
 VALID_CATEGORIES = {"Kinh tế", "Chính trị", "Công nghệ quân sự", "Ngoại giao"}
 MIN_PER_CATEGORY = 2
-MAX_AGE_DAYS = 5  # backstop: tin cũ hơn ngần này (so với ngày batch) bị chặn
+MAX_AGE_DAYS = 1  # CHỈ nhận 2 ngày gần nhất (hôm nay + hôm qua); cũ hơn -> chặn
 
 X_REQUIRED_FIELDS = {"date", "handle", "name", "title", "summary", "significance", "url"}
 EVENT_ITEM_REQUIRED_FIELDS = {"date", "title", "summary", "sourceName", "sourceUrl"}
