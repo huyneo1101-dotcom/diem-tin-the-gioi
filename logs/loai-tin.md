@@ -48,3 +48,10 @@ Cáo phó (Qatar, Lindsey Graham); lãi–lỗ/IPO công ty đơn lẻ (VW, Luxs
 - ⭐ [CNQS] Hải quân Mỹ tăng sản xuất tên lửa chống radar AESM (Defense News, 07-02) — cũ ~1 tuần.
 - [KT] IMF nâng dự báo WEO tháng 7 (IMF, 07-08) — cũ.
 Bỏ (trùng/cũ hẳn): laser Lockheed-nLIGHT, laser Đức Rheinmetall-MBDA, MRIC Guam, NATO GlobalEye, F-35 Thổ Nhĩ Kỳ, TQ SLBM, THAAD 35 tỷ, Patriot Ukraine, dự luật trừng phạt Nga, Mỹ-EU trade, Infineon Dresden, Samsung/SK Hynix, USMCA, + 3 tin NG link sai/homepage/trivial.
+
+### Quét bổ sung thủ công 13/07 (chiều/tối, user yêu cầu)
+Kết quả 6 agent Sonnet (khung 2 ngày 12-13/07). Nhận: +3 TG (EU+Anh trừng phạt mạng Nga; Anh đánh chặn drone giá rẻ; Canada radar OTHR Bắc Cực), +1 Mỹ (Bullseye TQLC NDAA), +1 X (Zelensky phòng thủ tên lửa đạn đạo Paris), +2 cập nhật tập trận (RIMPAC giai đoạn trên biển; Joint Sea-2026 kết thúc). Loại:
+- [NG/TG] ASEAN họp Ngoại trưởng Myanmar tại Bangkok (Bloomberg, 07-12) — gặp KHÔNG chính thức, không văn kiện/kết quả cụ thể → đưa vào mục 🚫 Bị loại để người dùng cân nhắc cứu.
+- Kinh tế TG+Mỹ: agent trả rỗng — tin vĩ mô đạt chuẩn trong 2 ngày đều đã đăng (Fed Warsh, biên bản Fed, SK Hynix...) hoặc là earnings công ty đơn lẻ (bị lọc).
+- Nhiều tin CNQS "nóng" (Aselsan Steel Dome, Tomahawk cho Đức, LRASM/JASSM, Sentinel A4, laser Lockheed-nLIGHT...) rơi vào 06-11/07 → ngoài khung 2 ngày.
+- Chính trị Mỹ: cáo phó TNS Lindsey Graham (loại theo quy tắc cáo phó); NDAA FY2027 mới ở giai đoạn ủy ban.
