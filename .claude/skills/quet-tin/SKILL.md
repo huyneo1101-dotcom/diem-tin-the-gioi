@@ -65,16 +65,16 @@ tối thiểu 2 tin/category theo CLAUDE.md, không bỏ hẳn mục nào, khôn
 top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 
 ## Bước 2 — Giao 6 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
-| Agent | Phạm vi | Sản lượng |
+| Agent | Phạm vi | Sản lượng (khung 2 ngày, best-effort) |
 |---|---|---|
-| 1 | Kinh tế — worldNews + usNews | 3–4 mỗi mục (CHỈ vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
-| 2 | Chính trị — worldNews + usNews | 2 mỗi mục (CHỈ thể chế/luật/chiến lược great-power) |
-| 3 | Công nghệ quân sự — worldNews + usNews | **4–6 mỗi mục** (chủ đề thích nhất) |
-| 4 | Ngoại giao — worldNews + usNews | **4–6 mỗi mục** (hiệp định/khuôn khổ an ninh-QP có kết quả) |
-| 5 | xNews | 4–5 tin (ưu tiên QP/an ninh/chính thức) |
+| 1 | Kinh tế — worldNews + usNews | 1–2 mỗi mục (CHỈ vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
+| 2 | Chính trị — worldNews + usNews | 1–2 mỗi mục (CHỈ thể chế/luật/chiến lược great-power) |
+| 3 | Công nghệ quân sự — worldNews + usNews | **2–4 mỗi mục** (chủ đề thích nhất) |
+| 4 | Ngoại giao — worldNews + usNews | **2–4 mỗi mục** (hiệp định/khuôn khổ an ninh-QP có kết quả) |
+| 5 | xNews | 2–4 tin (ưu tiên QP/an ninh/chính thức) |
 | 6 | exercises + dipEvents (cập nhật `ongoing` + tạo sự kiện ngoại giao mới nếu có) | 1–2 mỗi loại |
 
-Mục tiêu tổng ~28–40 tin/ngày, dồn cho Công nghệ quân sự + Ngoại giao. Xem chỉ tiêu + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
+Tổng thực tế ~10–20 tin/ngày (CHỈ 2 ngày gần nhất) — đủ thì lấy, thiếu thì thôi, KHÔNG nới ngày/bộ lọc. Dồn cho Công nghệ quân sự + Ngoại giao. Xem chỉ tiêu + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
 
 **Nhúng vào MỌI prompt agent** (agent KHÔNG thấy hội thoại chính — viết prompt độc lập):
 - **BỘ LỌC SỞ THÍCH (bắt buộc — từ `preferences.md`/CLAUDE.md):** ƯU TIÊN khí tài/hệ thống QP cụ thể,
