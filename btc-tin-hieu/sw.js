@@ -1,7 +1,8 @@
 // BTC Tín Hiệu — service worker
 // network-first cho dữ liệu mới, cache dự phòng để mở offline.
 var C = 'btc-tin-hieu-v1';
-var SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './data/fomc.json', './data/btc.json'];
+var SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg',
+  './data/fomc.json', './data/btc.json', './data/etf.json', './data/mstr.json'];
 
 self.addEventListener('install', function (e) {
   self.skipWaiting();
@@ -23,8 +24,9 @@ self.addEventListener('activate', function (e) {
 self.addEventListener('fetch', function (e) {
   if (e.request.method !== 'GET') return;
   var url = e.request.url;
-  // Không cache API bên thứ ba (CoinGecko) — luôn lấy live, lỗi thì thôi
-  if (url.indexOf('api.coingecko.com') !== -1) return;
+  // Không cache API bên thứ ba (CoinGecko / alternative.me / Binance) — luôn lấy live
+  if (url.indexOf('api.coingecko.com') !== -1 || url.indexOf('alternative.me') !== -1
+      || url.indexOf('binance.com') !== -1) return;
   e.respondWith(
     fetch(e.request).then(function (r) {
       var cp = r.clone();

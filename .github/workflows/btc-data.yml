@@ -1,7 +1,7 @@
 name: Cap nhat du lieu BTC
-# Lay gia BTC + tinh EMA50/EMA200 tu CoinGecko, ghi btc-tin-hieu/data/btc.json.
-# Chay tren may GitHub (khong bi chan proxy nhu moi truong quet), commit vao main lam ban DU PHONG
-# cho app (app van uu tien lay LIVE tu CoinGecko phia client; file nay dung khi offline/API loi).
+# Lay gia BTC + EMA (CoinGecko), dong ETF (Farside), filing MicroStrategy (SEC EDGAR)
+# -> ghi btc-tin-hieu/data/*.json. Chay tren may GitHub (khong bi chan proxy), commit vao main.
+# App van uu tien lay LIVE phia client; cac file nay la ban DU PHONG / bo sung.
 # LUU Y: workflow theo lich chi chay tu nhanh mac dinh (main) — kich hoat sau khi merge.
 on:
   schedule:
@@ -18,65 +18,120 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Fetch va tinh EMA
+
+      - name: Gia BTC + EMA (CoinGecko)
         run: |
           python3 - <<'PY'
           import json, urllib.request, datetime, sys, os
-
           URL = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365&interval=daily"
           try:
               req = urllib.request.Request(URL, headers={"User-Agent": "btc-tin-hieu-action"})
-              with urllib.request.urlopen(req, timeout=60) as r:
-                  j = json.load(r)
+              with urllib.request.urlopen(req, timeout=60) as r: j = json.load(r)
           except Exception as e:
-              print("Fetch loi:", e, "— bo qua, khong ghi de.")
-              sys.exit(0)
-
+              print("CoinGecko loi:", e, "— bo qua."); sys.exit(0)
           prices = [p[1] for p in j.get("prices", []) if isinstance(p[1], (int, float))]
           dates  = [datetime.datetime.utcfromtimestamp(p[0]/1000).strftime("%Y-%m-%d") for p in j.get("prices", [])]
-          if len(prices) < 200:
-              print("Thieu du lieu lich su (", len(prices), ") — bo qua.")
-              sys.exit(0)
-
+          if len(prices) < 200: print("Thieu du lieu:", len(prices)); sys.exit(0)
           def ema(vals, period):
-              if len(vals) < period: return None
-              k = 2/(period+1)
-              e = sum(vals[:period])/period
-              for v in vals[period:]:
-                  e = v*k + e*(1-k)
+              k = 2/(period+1); e = sum(vals[:period])/period
+              for v in vals[period:]: e = v*k + e*(1-k)
               return e
-
-          price = prices[-1]
-          e50, e200 = ema(prices, 50), ema(prices, 200)
-          if price > e50 and price > e200: trend = "above_both"
-          elif price < e50 and price < e200: trend = "below_both"
-          else: trend = "mixed"
-
-          hist = [{"date": d, "price": round(p, 2)} for d, p in zip(dates[-90:], prices[-90:])]
-          out = {
-              "generatedAt": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-              "note": "Tu dong cap nhat boi GitHub Action btc-data.yml. App uu tien lay LIVE tu CoinGecko; file nay la ban du phong.",
-              "currency": "usd",
-              "price": round(price, 2),
-              "ema50": round(e50, 2),
-              "ema200": round(e200, 2),
-              "trend": trend,
-              "history": hist,
-          }
+          price, e50, e200 = prices[-1], ema(prices,50), ema(prices,200)
+          trend = "above_both" if price>e50 and price>e200 else "below_both" if price<e50 and price<e200 else "mixed"
+          out = {"generatedAt": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                 "note":"Tu dong boi Action btc-data.yml. App uu tien LIVE tu CoinGecko; day la ban du phong.",
+                 "currency":"usd","price":round(price,2),"ema50":round(e50,2),"ema200":round(e200,2),"trend":trend,
+                 "history":[{"date":d,"price":round(p,2)} for d,p in zip(dates[-90:], prices[-90:])]}
           os.makedirs("btc-tin-hieu/data", exist_ok=True)
-          with open("btc-tin-hieu/data/btc.json", "w") as f:
-              json.dump(out, f, ensure_ascii=False, indent=2)
-          print("Da ghi btc.json: price", out["price"], "ema50", out["ema50"], "ema200", out["ema200"], "trend", trend)
+          json.dump(out, open("btc-tin-hieu/data/btc.json","w"), ensure_ascii=False, indent=2)
+          print("btc.json OK:", out["price"], out["trend"])
           PY
+
+      - name: Dong ETF (Farside — best-effort)
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, datetime, os, re
+          # Farside publish bang dong tien ETF BTC. Best-effort: co the bi Cloudflare chan (403) -> bo qua.
+          URL = "https://farside.co.uk/btc/"
+          try:
+              req = urllib.request.Request(URL, headers={
+                  "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                  "Accept":"text/html"})
+              html = urllib.request.urlopen(req, timeout=60).read().decode("utf-8","ignore")
+          except Exception as e:
+              print("Farside khong truy cap duoc:", e, "— giu file cu / bo qua."); raise SystemExit(0)
+          # Tim cac dong: ngay (dd Mon yyyy) ... so Total cuoi dong. Lay ~7 ngay gan nhat.
+          rows = re.findall(r"(\d{1,2}\s+[A-Za-z]{3}\s+20\d{2})(.*?)</tr>", html, re.S)
+          def to_num(s):
+              s = s.replace(",","").replace("(","-").replace(")","").strip()
+              try: return float(s)
+              except: return None
+          recs = []
+          for date_s, rest in rows:
+              nums = re.findall(r"-?\(?\$?[\d,]+\.?\d*\)?", re.sub(r"<[^>]+>"," ", rest))
+              vals = [to_num(x.replace("$","")) for x in nums]
+              vals = [v for v in vals if v is not None]
+              if vals:
+                  try: d = datetime.datetime.strptime(date_s, "%d %b %Y").strftime("%Y-%m-%d")
+                  except: continue
+                  recs.append({"date": d, "total": vals[-1]})  # cot cuoi = Total (trieu USD)
+          if not recs:
+              print("Khong parse duoc du lieu Farside — bo qua."); raise SystemExit(0)
+          recs = recs[-7:]
+          last = recs[-1]["total"]
+          streak = 0
+          for r in reversed(recs):
+              if r["total"] < 0: streak += 1
+              else: break
+          out = {"generatedAt": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                 "source":"farside.co.uk/btc (auto, best-effort)","unit":"trieu USD",
+                 "latestDate":recs[-1]["date"],"latestNetFlow":round(last,1),
+                 "outflowStreak":streak, "recent":recs}
+          os.makedirs("btc-tin-hieu/data", exist_ok=True)
+          json.dump(out, open("btc-tin-hieu/data/etf.json","w"), ensure_ascii=False, indent=2)
+          print("etf.json OK: latest", last, "streak", streak)
+          PY
+
+      - name: Filing MicroStrategy (SEC EDGAR)
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, datetime, os
+          # MicroStrategy/Strategy CIK=1050446. Cong bo giao dich BTC qua 8-K. SEC API mien phi (can User-Agent).
+          URL = "https://data.sec.gov/submissions/CIK0001050446.json"
+          try:
+              req = urllib.request.Request(URL, headers={"User-Agent":"btc-tin-hieu contact huyneo1101@gmail.com"})
+              j = json.load(urllib.request.urlopen(req, timeout=60))
+          except Exception as e:
+              print("SEC EDGAR loi:", e, "— bo qua."); raise SystemExit(0)
+          rec = j.get("filings",{}).get("recent",{})
+          forms = rec.get("form",[]); dates = rec.get("filingDate",[]); accs = rec.get("accessionNumber",[]); docs = rec.get("primaryDocument",[])
+          items = []
+          for i in range(len(forms)):
+              if forms[i] == "8-K":
+                  acc = accs[i].replace("-","")
+                  url = f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=1050446&type=8-K"
+                  fil = f"https://www.sec.gov/Archives/edgar/data/1050446/{acc}/{accs[i]}-index.htm"
+                  items.append({"date":dates[i],"form":forms[i],"url":fil})
+              if len(items) >= 5: break
+          out = {"generatedAt": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                 "source":"data.sec.gov (auto)","company":"MicroStrategy / Strategy (CIK 1050446)",
+                 "note":"Chi liet ke 8-K gan nhat de nguoi dung tu vao xem mua hay ban — khong tu phan loai.",
+                 "latest8K": items[0] if items else None, "recent8K": items}
+          os.makedirs("btc-tin-hieu/data", exist_ok=True)
+          json.dump(out, open("btc-tin-hieu/data/mstr.json","w"), ensure_ascii=False, indent=2)
+          print("mstr.json OK:", len(items), "filings")
+          PY
+
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # bo qua field generatedAt khi so sanh de tranh commit rong moi ngay
-          if git diff --quiet -- btc-tin-hieu/data/btc.json; then
+          if git diff --quiet -- btc-tin-hieu/data/; then
             echo "khong doi — bo qua."
           else
-            git add btc-tin-hieu/data/btc.json
-            git commit -m "chore: cap nhat du lieu gia BTC (EMA50/200)"
+            git add btc-tin-hieu/data/*.json
+            git commit -m "chore: cap nhat du lieu BTC (gia/EMA, ETF, MSTR)"
             git push
           fi
