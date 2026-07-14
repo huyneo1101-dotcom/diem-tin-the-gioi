@@ -1,0 +1,82 @@
+name: Cap nhat du lieu BTC
+# Lay gia BTC + tinh EMA50/EMA200 tu CoinGecko, ghi btc-tin-hieu/data/btc.json.
+# Chay tren may GitHub (khong bi chan proxy nhu moi truong quet), commit vao main lam ban DU PHONG
+# cho app (app van uu tien lay LIVE tu CoinGecko phia client; file nay dung khi offline/API loi).
+# LUU Y: workflow theo lich chi chay tu nhanh mac dinh (main) — kich hoat sau khi merge.
+on:
+  schedule:
+    - cron: '30 0 * * *'   # ~07:30 gio VN moi ngay
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: btc-data
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Fetch va tinh EMA
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, datetime, sys, os
+
+          URL = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=365&interval=daily"
+          try:
+              req = urllib.request.Request(URL, headers={"User-Agent": "btc-tin-hieu-action"})
+              with urllib.request.urlopen(req, timeout=60) as r:
+                  j = json.load(r)
+          except Exception as e:
+              print("Fetch loi:", e, "— bo qua, khong ghi de.")
+              sys.exit(0)
+
+          prices = [p[1] for p in j.get("prices", []) if isinstance(p[1], (int, float))]
+          dates  = [datetime.datetime.utcfromtimestamp(p[0]/1000).strftime("%Y-%m-%d") for p in j.get("prices", [])]
+          if len(prices) < 200:
+              print("Thieu du lieu lich su (", len(prices), ") — bo qua.")
+              sys.exit(0)
+
+          def ema(vals, period):
+              if len(vals) < period: return None
+              k = 2/(period+1)
+              e = sum(vals[:period])/period
+              for v in vals[period:]:
+                  e = v*k + e*(1-k)
+              return e
+
+          price = prices[-1]
+          e50, e200 = ema(prices, 50), ema(prices, 200)
+          if price > e50 and price > e200: trend = "above_both"
+          elif price < e50 and price < e200: trend = "below_both"
+          else: trend = "mixed"
+
+          hist = [{"date": d, "price": round(p, 2)} for d, p in zip(dates[-90:], prices[-90:])]
+          out = {
+              "generatedAt": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "note": "Tu dong cap nhat boi GitHub Action btc-data.yml. App uu tien lay LIVE tu CoinGecko; file nay la ban du phong.",
+              "currency": "usd",
+              "price": round(price, 2),
+              "ema50": round(e50, 2),
+              "ema200": round(e200, 2),
+              "trend": trend,
+              "history": hist,
+          }
+          os.makedirs("btc-tin-hieu/data", exist_ok=True)
+          with open("btc-tin-hieu/data/btc.json", "w") as f:
+              json.dump(out, f, ensure_ascii=False, indent=2)
+          print("Da ghi btc.json: price", out["price"], "ema50", out["ema50"], "ema200", out["ema200"], "trend", trend)
+          PY
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # bo qua field generatedAt khi so sanh de tranh commit rong moi ngay
+          if git diff --quiet -- btc-tin-hieu/data/btc.json; then
+            echo "khong doi — bo qua."
+          else
+            git add btc-tin-hieu/data/btc.json
+            git commit -m "chore: cap nhat du lieu gia BTC (EMA50/200)"
+            git push
+          fi
