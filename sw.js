@@ -1,5 +1,5 @@
 // Điểm Tin Thế Giới — service worker (network-first cho nội dung mới, cache dự phòng offline)
-var C = 'diemtin-v1';
+var C = 'diemtin-v2';
 var SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
 
 self.addEventListener('install', function (e) {

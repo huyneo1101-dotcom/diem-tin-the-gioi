@@ -51,13 +51,13 @@ Ba hồ sơ quy tắc trong repo, phân lớp rõ:
 - Cuối tuần **bù bằng phân tích**.
 - **Bỏ ảnh.**
 
-### Việc CODE sau (đã đánh dấu trong memory — CHƯA làm)
-- Cập nhật 12h trưa.
-- Tab **VN & Biển Đông** (chủ quyền biển + kinh tế VN quốc tế).
-- Tin nổi bật lên đầu.
-- Nhãn độ tin cậy theo từng tin.
-- Siết cap tin thường + nới cap phân tích.
-- Mục theo dõi 4 hồ sơ sống.
+### Việc CODE sau (trạng thái)
+- ✅ **Tab VN & Biển Đông** (chủ quyền biển + kinh tế VN quốc tế) — tab `🇻🇳 VN·Biển Đông`, lọc tự động Thế giới+Mỹ+X theo từ khoá VN/Biển Đông.
+- ✅ **Tin nổi bật lên đầu** — dải "⭐ Nổi bật" (Công nghệ quân sự & Ngoại giao có `significance`) ở đầu tab Bài mới.
+- ✅ **Nhãn độ tin cậy theo từng tin** — badge 🏛️ Chính thức / 📊 Dữ liệu / 🧠 Phân tích / 📡 Hãng tin / 📰 Báo chí, suy từ `sourceName` theo mô hình nguồn 3 tầng.
+- ✅ **Mục theo dõi 4 hồ sơ sống** — segment "🧵 Hồ sơ" (trong tab Chuyên đề) đổi thành 4 hồ sơ: Nga–Ukraine · Trung Đông · Đài Loan/Biển Đông · Mỹ–Trung (gom tin+X theo từ khoá).
+- ⏳ **Siết cap tin thường + nới cap phân tích** — UI đã sẵn (tab 🧠 Phân tích không giới hạn; tab Bài mới cap 40). Phần còn lại là **việc QUÉT** (agent sản xuất thêm mục `analyses`) — điều chỉnh ở quy tắc quét, không phải code UI.
+- ⏳ **Cập nhật 12h trưa** — cần thêm 1 Routine quét lúc 12:00 VN (tốn token hằng ngày) → chờ chủ trang quyết định bật hay không.
 
 ## Hoà giải với hồ sơ VOTE (`preferences.md`) — 5 điểm từng lệch
 | # | Điểm lệch | Chốt (áp dụng khi quét) |

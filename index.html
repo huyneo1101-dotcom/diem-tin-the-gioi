@@ -53,6 +53,8 @@ a{color:inherit}
 .card:first-child{padding-top:2px}
 .crow{display:flex;align-items:center;gap:8px;margin-bottom:7px;flex-wrap:wrap}
 .badge{font-size:calc(10.5px*var(--fs));font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--accent)}
+.tier{display:inline-block;font-size:calc(9.5px*var(--fs));font-weight:800;letter-spacing:.2px;padding:1px 7px;border-radius:10px;border:1px solid var(--line);color:var(--muted2);white-space:nowrap}
+.tier.t1{color:#1f8a54;border-color:#1f8a5455}.tier.t2{color:#2b5f9e;border-color:#2b5f9e55}.tier.t3{color:#8e44ad;border-color:#8e44ad55}.tier.t4{color:#0e7c86;border-color:#0e7c8655}.tier.t5{color:var(--muted2)}
 .badge .dot{margin-right:5px}
 .date{margin-left:auto;font-size:calc(11.5px*var(--fs));color:var(--muted2);text-transform:uppercase;letter-spacing:.5px}
 .title{font-family:inherit;font-size:calc(19px*var(--fs));font-weight:700;line-height:1.35;margin-bottom:6px;color:var(--title)}
@@ -518,10 +520,40 @@ function renderConcepts(){
   h+='<div class="clist">'+cs.map(function(t){var ex=explainTerm(t);return '<div class="citem"><div class="cterm">'+esc(t)+'<button class="cx" data-crm="'+esc(t)+'" title="Bỏ khái niệm">✕</button></div>'+(ex?'<div class="cexp">'+esc(ex)+'</div>':'<div class="cexp cpend">Chưa có giải thích — sẽ được bổ sung trong bản cập nhật hằng ngày.</div>')+'</div>';}).join('')+'</div>';
   return h;
 }
+/* ===== Bổ sung theo hiến chương: nhãn độ tin cậy · VN&Biển Đông · 4 hồ sơ sống ===== */
+var _T1=['gov.uk','defense.gov','defense','state.gov','bộ ngoại giao','bộ quốc phòng','nhà trắng','white house','whitehouse','nato','liên hợp quốc','un news','hội đồng châu âu','european council','eeas','asean','mofa','baochinhphu','chính phủ','ttxvn','nhân dân','quân đội nhân dân','federal reserve','fed','treasury','senate','centcom','president','u.s. department','department of state','department of defense','department of the treasury','xinhua','tass'];
+var _T2=['imf','world bank','oecd','wto','bis','sipri','iea','cbo','unctad','iiss','janes'];
+var _T3=['csis','rand','rusi','chatham','brookings','carnegie','cfr','cnas','atlantic council','stimson','hudson','lowy','aspi','iseas','rsis','orf','merics','jamestown','nbr','icds','fiia','belfer','cset','ecfr','swp','ifri'];
+var _WIRE=['reuters','associated press','afp','agence france','bloomberg','financial times','nikkei'];
+function tierBadge(name){var n=(name||'').toLowerCase();if(!n)return '';
+  function hit(L){for(var i=0;i<L.length;i++){if(n.indexOf(L[i])>=0)return true;}return false;}
+  if(hit(_T1))return '<span class="tier t1" title="Nguồn chính thức (tầng 1)">🏛️ Chính thức</span>';
+  if(hit(_T2))return '<span class="tier t2" title="Nguồn dữ liệu (tầng 2)">📊 Dữ liệu</span>';
+  if(hit(_T3))return '<span class="tier t3" title="Viện nghiên cứu (tầng 3)">🧠 Phân tích</span>';
+  if(hit(_WIRE))return '<span class="tier t4" title="Hãng tin/kinh tế lớn">📡 Hãng tin</span>';
+  return '<span class="tier t5" title="Báo chí — cần đối chiếu">📰 Báo chí</span>';
+}
+function txtOf(a){return ((a.title||'')+' '+(a.summary||'')+' '+(a.significance||'')+' '+(a.text||'')).toLowerCase();}
+var VN_RE=/việt nam|vietnam|biển đông|south china sea|hoàng sa|trường sa|scarborough|spratly|paracel|hà nội|hanoi/i;
+function renderVN(){
+  var news=newsPool().filter(function(a){return (VN_RE.test(txtOf(a))||regionOf(a)==='Biển Đông')&&matchQ(a);});
+  var xs=sortD(DATA.xNews||[]).filter(function(a){return VN_RE.test(txtOf(a))&&matchQ(a);});
+  var body='';
+  if(news.length)body+='<div class="list">'+news.map(function(a){return card(newsCardInner(a),idOf(a));}).join('')+'</div>';
+  if(xs.length)body+='<div class="rejsec">Từ X</div><div class="list">'+xs.map(function(a){return card(xCardInner(a),idOf(a));}).join('')+'</div>';
+  if(!body)body='<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin Việt Nam / Biển Đông trong bản tin hiện tại.')+'</div>';
+  return '<div class="note">Tin <b>Việt Nam gắn quốc tế</b> & <b>Biển Đông</b> — chủ quyền biển, an ninh khu vực, kinh tế đối ngoại. Gom tự động từ Thế giới + Mỹ + X.</div>'+searchInfo(news.length+xs.length)+body;
+}
+var LIVE_DOSSIERS=[
+  ['🔴 Nga – Ukraine',/nga\b|russia|ukrain|zelensky|kremlin|moscow|putin|patriot|kyiv|kiev/i],
+  ['🟠 Trung Đông',/iran|israel|gaza|hezbollah|hormuz|houthi|lebanon|syria|trung đông|centcom|tehran|tel aviv/i],
+  ['🔵 Đài Loan / Biển Đông',/đài loan|taiwan|biển đông|south china sea|hoàng sa|trường sa|senkaku|eo biển/i],
+  ['🟣 Mỹ – Trung',/u\.?s\.?[ -]china|china[ -]u\.?s|beijing|bắc kinh|thương chiến|chip war|semiconductor|chất bán dẫn/i]
+];
 function card(inner,id){return '<div class="card'+(isRead(id)?' read':'')+'">'+inner+'</div>';}
 function opBadge(){return '<span class="badge" style="color:#b5852a"><i class="dot" style="background:#b5852a"></i>💬 Bình luận</span>';}
 function newsCardInner(a){var m=wmeta(a.category);
-  var head='<div class="crow">'+(a.opinion?opBadge():'')+'<span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span><span class="date">'+fmtVN(a.date)+'</span></div>';
+  var head='<div class="crow">'+(a.opinion?opBadge():'')+'<span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span>'+tierBadge(a.sourceName)+'<span class="date">'+fmtVN(a.date)+'</span></div>';
   var body='<div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.significance?'<div class="take">'+esc(a.significance)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
   return head+body;
 }
@@ -582,17 +614,22 @@ function renderFresh(){
   var mode=state.freshDate||'__2d__';   // mặc định: 2 ngày gần nhất
   var items=byKind.filter(function(w){var d=w.it.date;var ok=mode==='__2d__'?(recent2.indexOf(d)>=0):(mode==='Tất cả'?true:(d===mode));return ok&&matchQ(w.it);});
   var nNew=all.filter(function(w){return isNew(idOf(w.it));}).length;
-  var cap=40, shown=items.slice(0,cap);
+  var LIKEFT={'Công nghệ quân sự':1,'Ngoại giao':1};
+  var feat=(mode!=='Tất cả'?items.filter(function(w){return w.rk==='news'&&LIKEFT[w.it.category]&&w.it.significance;}).slice(0,3):[]);
+  var featIds={};feat.forEach(function(w){featIds[idOf(w.it)]=1;});
+  var rest=items.filter(function(w){return !featIds[idOf(w.it)];});
+  var cap=40, shown=rest.slice(0,cap);
   var chips='<div class="chips">'+kinds.map(function(k){var n=(k[0]==='Tất cả'?all:all.filter(function(w){return w.fk===k[0];})).length;return '<span class="chip'+(sel===k[0]?' on':'')+'" data-fresh="'+k[0]+'">'+k[1]+' ('+n+')</span>';}).join('')+'</div>';
   var dopts='<option value="__2d__"'+(mode==='__2d__'?' selected':'')+'>2 ngày gần nhất</option><option value="Tất cả"'+(mode==='Tất cả'?' selected':'')+'>Tất cả ngày</option>'+ds.map(function(d){return '<option value="'+esc(d)+'"'+(mode===d?' selected':'')+'>'+fmtVN(d)+'</option>';}).join('');
   var dsel=ds.length?'<div class="filterbar"><span>📅 Lọc ngày</span><select class="dsel" data-freshdate>'+dopts+'</select></div>':'';
   var dhint=mode==='__2d__'?(recent2.length?' Đang xem <b>2 ngày gần nhất</b> ('+recent2.map(fmtVN).join(', ')+').':''):(mode!=='Tất cả'?' Đang xem ngày <b>'+fmtVN(mode)+'</b> — chọn "2 ngày gần nhất" hoặc "Tất cả ngày" để xem thêm.':'');
   var note=nNew?'<div class="note">🆕 <b>'+nNew+'</b> tin mới kể từ lần bạn xem gần nhất (đánh dấu <span class="newb">MỚI</span>).'+dhint+'</div>':'<div class="note">Tổng hợp tin mới nhất từ mọi mục.'+dhint+'</div>';
   var cards=shown.length?shown.map(freshCard).join(''):'<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin ngày này.')+'</div>';
-  var more=items.length>cap?'<div class="note" style="text-align:center">Đang hiển thị '+cap+'/'+items.length+' tin — vào từng mục để xem thêm.</div>':'';
+  var more=rest.length>cap?'<div class="note" style="text-align:center">Đang hiển thị '+cap+'/'+rest.length+' tin — vào từng mục để xem thêm.</div>':'';
+  var featHtml=feat.length?'<div class="rejsec">⭐ Nổi bật — Công nghệ quân sự & Ngoại giao</div><div class="list">'+feat.map(freshCard).join('')+'</div>':'';
   var resc=rescuedItems().filter(matchQ);
   var rescHtml=resc.length?'<div class="rejsec">⭐ Tin bạn đã cứu từ mục Bị loại ('+resc.length+')</div>'+resc.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'';
-  return note+searchInfo(shown.length)+chips+dsel+rescHtml+'<div class="list">'+cards+'</div>'+more;
+  return note+searchInfo(shown.length)+chips+dsel+featHtml+rescHtml+'<div class="list">'+cards+'</div>'+more;
 }
 function searchInfo(n){return state.q?'<div class="searchinfo">Kết quả cho “'+esc(state.q)+'”: <b>'+n+'</b> tin.</div>':'';}
 function catFilters(arr){
@@ -670,21 +707,21 @@ function renderDipEvents(){
   return '<div class="note">Các <b>sự kiện ngoại giao</b> (thượng đỉnh, hội nghị, đàm phán…) — mỗi mục gom tin liên quan kèm <b>nhận xét</b> tin đó liên quan sự kiện thế nào.</div>'+chips+body;
 }
 function renderDossiers(){
-  var pool=newsPool().filter(matchQ);
-  var groups={},order=[];
-  pool.forEach(function(a){var r=regionOf(a);if(!groups[r]){groups[r]=[];order.push(r);}groups[r].push(a);});
-  order.sort(function(a,b){if(a==='Khác')return 1;if(b==='Khác')return -1;return groups[b].length-groups[a].length;});
-  var chips='<div class="chips"><span class="chip'+(state.dossier==='Tất cả'?' on':'')+'" data-dossier="Tất cả">Tất cả ('+order.length+')</span>';
-  order.forEach(function(r){chips+='<span class="chip'+(state.dossier===r?' on':'')+'" data-dossier="'+esc(r)+'">'+esc(r)+' ('+groups[r].length+')</span>';});
+  var pool=newsPool().concat(sortD(DATA.xNews||[]));
+  var groups=LIVE_DOSSIERS.map(function(d){var arr=pool.filter(function(a){return d[1].test(txtOf(a))&&matchQ(a);});return [d[0],arr];});
+  var chips='<div class="chips"><span class="chip'+(state.dossier==='Tất cả'?' on':'')+'" data-dossier="Tất cả">Tất cả (4)</span>';
+  groups.forEach(function(g){chips+='<span class="chip'+(state.dossier===g[0]?' on':'')+'" data-dossier="'+esc(g[0])+'">'+esc(g[0])+' ('+g[1].length+')</span>';});
   chips+='</div>';
-  var shown=order.filter(function(r){return state.dossier==='Tất cả'||r===state.dossier;});
-  var body=shown.length?shown.map(function(r){
-    var a2=groups[r];var ds=a2.map(function(a){return a.date;}).filter(Boolean).slice().sort();
+  var shown=groups.filter(function(g){return state.dossier==='Tất cả'||g[0]===state.dossier;});
+  var body=shown.map(function(g){
+    var arr=g[1];
+    if(!arr.length)return '<section class="drill"><div class="drill-h"><div class="drill-name">'+esc(g[0])+'</div><div class="drill-meta">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có diễn biến mới.')+'</div></div></section>';
+    var ds=arr.map(function(a){return a.date;}).filter(Boolean).slice().sort();
     var range=ds.length?(fmtVN(ds[0])+(ds[ds.length-1]!==ds[0]?' – '+fmtVN(ds[ds.length-1]):'')):'';
-    var cards=a2.map(function(a){return card(newsCardInner(a),idOf(a));}).join('');
-    return '<section class="drill"><div class="drill-h"><div class="drill-name">'+esc(r)+'</div><div class="drill-meta">📰 '+a2.length+' tin'+(range?' · '+range:'')+'</div></div><div class="list">'+cards+'</div></section>';
-  }).join(''):'<div class="empty">'+(state.q?'Không có hồ sơ khớp tìm kiếm.':'Chưa có hồ sơ.')+'</div>';
-  return '<div class="note">Gom tin <b>Thế giới + Mỹ</b> theo <b>khu vực/chủ đề</b> — mỗi hồ sơ là một câu chuyện đang chạy (suy ra tự động từ nội dung). Sắp theo độ "nóng".</div>'+chips+body;
+    var cards=arr.map(function(a){return card(a.handle?xCardInner(a):newsCardInner(a),idOf(a));}).join('');
+    return '<section class="drill"><div class="drill-h"><div class="drill-name">'+esc(g[0])+'</div><div class="drill-meta">📰 '+arr.length+' tin'+(range?' · '+range:'')+'</div></div><div class="list">'+cards+'</div></section>';
+  }).join('');
+  return '<div class="note"><b>4 hồ sơ sống</b> — các câu chuyện lớn đang chạy, gom tin Thế giới + Mỹ + X theo chủ đề (tự động). Bấm chip để lọc từng hồ sơ.</div>'+chips+body;
 }
 function renderTopic(){
   var segs=[['drills','🎯 Tập trận'],['dip','🕊️ Ngoại giao'],['dossier','🧵 Hồ sơ']];
@@ -696,6 +733,7 @@ function content(){
   if(state.tab==='fresh')return renderFresh();
   if(state.tab==='us')return renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
   if(state.tab==='x')return renderX();
+  if(state.tab==='vn')return renderVN();
   if(state.tab==='analysis')return renderAnalysis();
   if(state.tab==='topic')return renderTopic();
   if(state.tab==='saved')return renderSaved();
@@ -706,7 +744,7 @@ function render(){
   refreshFav();refreshRej();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
   var nRej=rejectedPool().length;
-  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
+  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['vn','🇻🇳 VN·Biển Đông'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
