@@ -1,8 +1,9 @@
 // BTC Tín Hiệu — service worker
 // network-first cho dữ liệu mới, cache dự phòng để mở offline.
-var C = 'btc-tin-hieu-v1';
+var C = 'btc-tin-hieu-v2';
 var SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg',
-  './data/fomc.json', './data/btc.json', './data/etf.json', './data/mstr.json'];
+  './data/fomc.json', './data/btc.json', './data/etf.json', './data/mstr.json',
+  './data/onchain.json', './data/macro.json', './data/backtest.json'];
 
 self.addEventListener('install', function (e) {
   self.skipWaiting();

@@ -156,9 +156,9 @@ function daysToNextFOMC(meetings){
 }
 
 /* ---------- tính điểm thận trọng ---------- */
-const MAX_SCORE = 9;
+const MAX_SCORE = 14;
 function computeScore(s){
-  const { trend, fomc, rsi, fng, funding, etf, mstr } = s;
+  const { trend, fomc, rsi, fng, funding, etf, mstr, mvrv, macro } = s;
   let score = 0; const F = [];
   const add = (w,c,l,d)=>{ score+=w; F.push({w,c,l,d}); };
 
@@ -187,10 +187,23 @@ function computeScore(s){
     etf.auto ? ('Quỹ ETF bán ròng '+etf.streak+' phiên liền — thiếu lực mua đỡ giá.') : 'Tiền quỹ lớn đang bán/đứng ngoài — thiếu lực mua đỡ giá.');
   if(mstr) add(1,'red','MicroStrategy vừa bán lớn (bạn tự bật)','Tay chơi hay gom mua bất ngờ bán ra — tín hiệu bất thường.');
 
+  if(mvrv!=null){
+    if(mvrv >= 7) add(2,'red','MVRV Z-score rất cao ('+mvrv.toFixed(1)+')','Giá đang cao hơn nhiều so với giá vốn toàn mạng — vùng đỉnh lịch sử, rủi ro rất lớn.');
+    else if(mvrv >= 5) add(1,'red','MVRV Z-score cao ('+mvrv.toFixed(1)+')','Giá đã vượt xa giá vốn trung bình — vùng định giá nóng.');
+    else if(mvrv < 0.1) add(0,'green','MVRV Z-score thấp ('+mvrv.toFixed(1)+')','Giá quanh/dưới giá vốn toàn mạng — vùng đáy lịch sử, thường là cơ hội gom.');
+  }
+  if(macro){
+    const y = macro.us10y, d = macro.dxy, m = macro.m2;
+    if(y && y.trend==='up' && y.chg20>=0.3) add(1,'red','Lợi suất 10Y tăng nhanh ('+y.value+'%)','Lãi suất dài hạn lên — siết thanh khoản, bất lợi cho tài sản rủi ro như BTC.');
+    if(d && d.trend==='up' && d.chg20>=1.5) add(1,'red','Đồng đô mạnh lên (chỉ số '+d.value+')','Đô mạnh thường đè giá tài sản rủi ro và crypto.');
+    if(m && m.trend==='down') add(1,'red','Cung tiền M2 co lại','Thanh khoản toàn hệ thống thu hẹp — thiếu "tiền mới" đẩy giá.');
+    else if(m && m.trend==='up') add(0,'green','Cung tiền M2 đang nới','Thanh khoản mở rộng — nền thuận lợi hơn cho tài sản rủi ro.');
+  }
+
   let level, color, guide;
-  if(score <= 2){ level='Thoáng'; color='green';
+  if(score <= 3){ level='Thoáng'; color='green';
     guide='Ít tín hiệu cản trở. Môi trường tương đối bình thường — vẫn nên mua chia nhỏ theo kế hoạch, đừng dồn một lần.'; }
-  else if(score <= 5){ level='Cần chú ý'; color='yellow';
+  else if(score <= 7){ level='Cần chú ý'; color='yellow';
     guide='Có vài tín hiệu thận trọng. Cân nhắc chia nhỏ lệnh mua, giữ một phần tiền mặt dự phòng, đừng vội.'; }
   else { level='Rất thận trọng'; color='red';
     guide='Nhiều tín hiệu cùng xuất hiện. Ưu tiên chia nhỏ, không dồn tiền, chờ thị trường rõ ràng hơn trước khi mua mạnh.'; }
@@ -226,6 +239,9 @@ function App(){
   const [funding, setFunding] = useState(null);
   const [etfData, setEtfData] = useState(null);
   const [mstrData, setMstrData] = useState(null);
+  const [mvrv, setMvrv] = useState(null);
+  const [macro, setMacro] = useState(null);
+  const [backtest, setBacktest] = useState(null);
   const [updatedAt, setUpdatedAt] = useState(null);
 
   useEffect(()=>{ saveState({etfOutflow:etfManual,mstrSelling:mstr,etfNote,mstrNote,notify,
@@ -237,6 +253,12 @@ function App(){
     .then(j=>{ if(j && j.latestNetFlow!=null) setEtfData(j); }).catch(()=>{}); },[]);
   useEffect(()=>{ fetch('./data/mstr.json').then(r=>r.json())
     .then(j=>{ if(j && j.latest8K) setMstrData(j); }).catch(()=>{}); },[]);
+  useEffect(()=>{ fetch('./data/onchain.json').then(r=>r.json())
+    .then(j=>{ if(j && j.mvrvZscore!=null) setMvrv(j.mvrvZscore); }).catch(()=>{}); },[]);
+  useEffect(()=>{ fetch('./data/macro.json').then(r=>r.json())
+    .then(j=>{ if(j && (j.dxy||j.us10y||j.m2)) setMacro(j); }).catch(()=>{}); },[]);
+  useEffect(()=>{ fetch('./data/backtest.json').then(r=>r.json())
+    .then(j=>{ if(j && j.current) setBacktest(j); }).catch(()=>{}); },[]);
 
   // giá + EMA + RSI (CoinGecko live, fallback file)
   useEffect(()=>{
@@ -282,8 +304,8 @@ function App(){
   const trend = data ? trendOf(data.price, data.e50, data.e200) : null;
   const etfAutoOutflow = !!(etfData && etfData.outflowStreak >= 2);
   const etf = { active: etfManual || etfAutoOutflow, auto: etfAutoOutflow && !etfManual, streak: etfData?etfData.outflowStreak:0 };
-  const result = useMemo(()=>computeScore({trend,fomc,rsi:data?data.rsi:null,fng,funding,etf,mstr}),
-    [trend,fomc,data,fng,funding,etf.active,etf.auto,etf.streak,mstr]);
+  const result = useMemo(()=>computeScore({trend,fomc,rsi:data?data.rsi:null,fng,funding,etf,mstr,mvrv,macro}),
+    [trend,fomc,data,fng,funding,etf.active,etf.auto,etf.streak,mstr,mvrv,macro]);
 
   useEffect(()=>{
     if(!notify || loading || !data) return;
@@ -382,6 +404,43 @@ function App(){
         <div className="hint">RSI &gt;70 = quá mua (dễ chỉnh) · &lt;30 = quá bán. Sợ hãi/Tham lam: 0 = sợ tột độ, 100 = tham lam tột độ. Funding cao = phe long đông, dễ bị đè.</div>
       </div>
 
+      {/* ON-CHAIN MVRV */}
+      {mvrv!=null && <div className="card">
+        <h2>On-chain — MVRV Z-score</h2>
+        <div className="price-row">
+          <span className="price" style={{color: mvrv>=7?'var(--red)':mvrv>=5?'var(--yellow)':mvrv<0.1?'var(--green)':'var(--text)'}}>{mvrv.toFixed(2)}</span>
+          <span className="chg" style={{color:'var(--muted)',fontWeight:600}}>
+            {mvrv>=7?'Vùng đỉnh lịch sử':mvrv>=5?'Định giá nóng':mvrv<0.1?'Vùng đáy — cơ hội gom':'Trung tính'}</span>
+        </div>
+        <div className="hint">So sánh giá với "giá vốn trung bình toàn mạng". Trong quá khứ: &gt;7 thường là vùng đỉnh (bán), &lt;0 là vùng đáy (gom). Nguồn: bitcoin-data.com.</div>
+      </div>}
+
+      {/* MACRO */}
+      {macro && <div className="card">
+        <h2>Vĩ mô (FRED)</h2>
+        <div className="ind3">
+          <div className="ind">
+            <div className="kk">Chỉ số Đô la</div>
+            <div className="vv" style={{fontSize:'18px'}}>{macro.dxy?macro.dxy.value:'—'}</div>
+            <div className="tt" style={{color: macro.dxy&&macro.dxy.trend==='up'?'var(--red)':'var(--green)'}}>
+              {macro.dxy?(macro.dxy.trend==='up'?'▲ mạnh lên':'▼ yếu đi'):''}</div>
+          </div>
+          <div className="ind">
+            <div className="kk">Lợi suất 10Y</div>
+            <div className="vv" style={{fontSize:'18px'}}>{macro.us10y?macro.us10y.value+'%':'—'}</div>
+            <div className="tt" style={{color: macro.us10y&&macro.us10y.trend==='up'?'var(--red)':'var(--green)'}}>
+              {macro.us10y?(macro.us10y.trend==='up'?'▲ tăng':'▼ giảm'):''}</div>
+          </div>
+          <div className="ind">
+            <div className="kk">Cung tiền M2</div>
+            <div className="vv" style={{fontSize:'18px'}}>{macro.m2?macro.m2.trend==='up'?'Nới':'Co':'—'}</div>
+            <div className="tt" style={{color: macro.m2&&macro.m2.trend==='up'?'var(--green)':'var(--red)'}}>
+              {macro.m2?(macro.m2.trend==='up'?'▲ thanh khoản ↑':'▼ thanh khoản ↓'):''}</div>
+          </div>
+        </div>
+        <div className="hint">Đô mạnh + lợi suất tăng + M2 co = môi trường siết tiền, bất lợi cho BTC. Ngược lại là thuận lợi.</div>
+      </div>}
+
       {/* FED */}
       <div className="card">
         <h2>Đếm ngược cuộc họp Fed (FOMC)</h2>
@@ -437,6 +496,29 @@ function App(){
           </div>
         ))}
       </div>
+
+      {/* BACKTEST */}
+      {backtest && backtest.current && <div className="card">
+        <h2>Kiểm chứng lịch sử (backtest)</h2>
+        <div style={{fontSize:'14px',lineHeight:1.6,background:'var(--panel2)',borderRadius:12,padding:'12px 13px'}}>
+          {backtest.current.statement}
+        </div>
+        {backtest.tiers && <div style={{marginTop:12}}>
+          {backtest.tiers.map((t,i)=>(
+            <div className="factor" key={i} style={t.tier===backtest.current.tier?{background:'rgba(247,147,26,.07)',borderRadius:8}:null}>
+              <span className="dot" style={{background:t.tier==='Rat than trong'?'var(--red)':t.tier==='Can chu y'?'var(--yellow)':'var(--green)'}}></span>
+              <div className="ftext">
+                <div className="fl">{t.tier==='Rat than trong'?'Rất thận trọng':t.tier==='Can chu y'?'Cần chú ý':'Thoáng'} {t.tier===backtest.current.tier?'← hiện tại':''}</div>
+                <div className="fd">{t.n90>0?(t.n90+' lần · giá 90 ngày sau: TB '+t.avgFwd90+'% · '+t.pctNeg90+'% số lần giảm'):'chưa đủ dữ liệu'}</div>
+              </div>
+            </div>
+          ))}
+        </div>}
+        <div className="hint">
+          {backtest.coverage && ('Dữ liệu '+backtest.coverage.from+' → '+backtest.coverage.to+' ('+backtest.coverage.days+' ngày)'+(backtest.coverage.hasMVRV?', có MVRV':', chưa có MVRV')+'. ')}
+          Backtest chỉ dùng tín hiệu tính được từ lịch sử (EMA, RSI, MVRV) — chưa gồm ETF/Fed/funding vì thiếu lịch sử miễn phí. Quá khứ không đảm bảo tương lai.
+        </div>
+      </div>}
 
       {/* NHẮC */}
       <div className="card">
