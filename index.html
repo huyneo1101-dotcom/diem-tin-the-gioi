@@ -356,7 +356,7 @@ function rejCard(a){
   return '<div class="card rejcard">'+head+body+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span></div>'+why+acts+'</div>';
 }
 function renderRejected(){
-  var pool=rejectedPool().filter(matchQ);
+  var pool=sortD(rejectedPool().filter(matchQ));
   var LIKE={'Công nghệ quân sự':1,'Ngoại giao':1,'Kinh tế':1};
   var star=pool.filter(function(a){return LIKE[a.category];});
   var rest=pool.filter(function(a){return !LIKE[a.category];});
@@ -627,7 +627,7 @@ function renderFresh(){
   var cards=shown.length?shown.map(freshCard).join(''):'<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin ngày này.')+'</div>';
   var more=rest.length>cap?'<div class="note" style="text-align:center">Đang hiển thị '+cap+'/'+rest.length+' tin — vào từng mục để xem thêm.</div>':'';
   var featHtml=feat.length?'<div class="rejsec">⭐ Nổi bật — Công nghệ quân sự & Ngoại giao</div><div class="list">'+feat.map(freshCard).join('')+'</div>':'';
-  var resc=rescuedItems().filter(matchQ);
+  var resc=rescuedItems().filter(function(a){var d=a.date;var ok=mode==='__2d__'?(recent2.indexOf(d)>=0):(mode==='Tất cả'?true:(d===mode));return ok&&matchQ(a);});
   var rescHtml=resc.length?'<div class="rejsec">⭐ Tin bạn đã cứu từ mục Bị loại ('+resc.length+')</div>'+resc.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'';
   return note+searchInfo(shown.length)+chips+dsel+featHtml+rescHtml+'<div class="list">'+cards+'</div>'+more;
 }
