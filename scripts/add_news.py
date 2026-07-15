@@ -455,7 +455,14 @@ def main() -> None:
         data["rejectedNews"] = (clean + existing)[:80]
         rejected_added = len(clean)
 
-    data["generatedAt"] = date
+    # Chỉ đẩy generatedAt khi có nội dung BẢN TIN thật — lô chỉ có rejectedNews
+    # (tin bị loại) KHÔNG được coi là "đã cập nhật bản tin" (tránh làm routine quét SKIP nhầm).
+    content_added = bool(
+        world_new or us_new or x_new
+        or exercise_items_added or dip_items_added or new_dip_events
+    )
+    if content_added:
+        data["generatedAt"] = date
     if world_new:
         data["worldGeneratedAt"] = date
     if us_new:
