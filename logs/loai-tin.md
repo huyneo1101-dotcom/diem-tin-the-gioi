@@ -59,3 +59,10 @@ Kết quả 6 agent Sonnet (khung 2 ngày 12-13/07). Nhận: +3 TG (EU+Anh trừ
 ### Bổ sung mục 🚫 Bị loại (chiều 13/07) — thu từ ghi chú 2 agent, +14 tin
 Người dùng hỏi vì sao mục Bị loại không có thêm tin. Nguyên nhân: 6 agent Sonnet lượt chính chỉ ghi tên tin loại bằng văn xuôi, không kèm URL nên không tạo được thẻ. Đã hỏi lại 2 agent (CNQS + Kinh tế) để xuất kèm link. (Người dùng xác nhận "không cần url" nên không verify — WebFetch cũng bị 403 toàn bộ.) Thêm 14 tin, đa số là **CNQS đúng gu bị rớt vì ngoài khung 2 ngày** (đăng 01-11/07): Aselsan Steel Dome, Đức mua Tomahawk/Typhon, LRASM/JASSM x3, EABC phá mìn, MQ-25A bay thử 2, Canada JSM cho F-35, AeroVironment C-UAS, HALO L3Harris, Đài Loan HF-III, TQ vũ khí vi sóng 100GW; + Kinh tế vĩ mô: tuyên bố chung IMF/WB/WTO/IEA, CBO thâm hụt 1.400 tỷ, Hà Lan-ASML chip, WB lưới điện Pakistan.
 Bỏ 1 tin: "IMF hạ dự báo còn 3%" — mâu thuẫn với tin "IMF nâng dự báo WEO tháng 7" đã có trong mục (nghi bịa, agent trả từ trí nhớ không tra lại).
+
+## 2026-07-14
+### Quét routine 14/07 (khung 2 ngày 14+13/07)
+Nhận: +5 TG (Corsair USV đánh tàu ngầm Iran; EU trừng phạt VK/SORM; TQ xuất nhập khẩu tăng vọt/chip AI; Nvidia whitelist chip; Thổ-Ai Cập MoU QP), +4 Mỹ (SDA vệ tinh Golden Dome; Lầu Năm Góc dừng CMMC; Fed Waller cảnh báo tăng lãi; Treasury trừng phạt ransomware), +2 X (CENTCOM tái phong tỏa Iran; ISW ngừng bắn sụp đổ), +1 tập trận (RIMPAC in 3D + drone tiếp tế), +1 sự kiện ngoại giao MỚI (Liên minh phòng thủ tên lửa đạn đạo Paris). Loại:
+- [CNQS/TG] Freyja - 9 nước thay Patriot (Defense News, 14/07) — **gom vào sự kiện "Liên minh phòng thủ Paris"** (cùng thượng đỉnh) để không trùng URL 2 chỗ.
+- [NG/TG] Coalition of the Willing Paris (GOV.UK, 13/07) — **trùng sự kiện Paris**, đã gom vào dipEvent.
+- Kinh tế/Chính trị Mỹ khác + xNews chủ đề khác: agent tìm nhưng ngoài khung ngày hoặc không xác minh được ID/URL → bỏ theo nguyên tắc "không chắc thì bỏ".
