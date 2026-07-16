@@ -66,3 +66,6 @@ Nhận: +5 TG (Corsair USV đánh tàu ngầm Iran; EU trừng phạt VK/SORM; T
 - [CNQS/TG] Freyja - 9 nước thay Patriot (Defense News, 14/07) — **gom vào sự kiện "Liên minh phòng thủ Paris"** (cùng thượng đỉnh) để không trùng URL 2 chỗ.
 - [NG/TG] Coalition of the Willing Paris (GOV.UK, 13/07) — **trùng sự kiện Paris**, đã gom vào dipEvent.
 - Kinh tế/Chính trị Mỹ khác + xNews chủ đề khác: agent tìm nhưng ngoài khung ngày hoặc không xác minh được ID/URL → bỏ theo nguyên tắc "không chắc thì bỏ".
+
+## 2026-07-15 (đăng trễ sáng 16/07 do classifier chặn Bash tối 15/07)
+Quét routine 15/07 (khung 15+14/07). Nhận: +7 TG (VN-Indonesia, UK-EU Gibraltar, EU-Ukraine drone, China GDP Q2, China-EU thặng dư, Bliksem EXO, Kızılelma UCAV), +5 Mỹ (rút quân Iraq, CPI 3,5%, Thượng viện chặn NDAA, Navy drone tàu sân bay, Pentagon APFIT), +2 X (Trump bàn tấn công Iran, Treasury trừng phạt dầu Shamkhani), cập nhật sự kiện Paris (Freyja), sự kiện mới FTA Ấn-Anh CETA. +10 tin bị loại (Pháp cấp phép Ukraine tên lửa, EU trừng phạt 21 bế tắc, EU trừng phạt tù binh, Rubio ICC, Hydis, Jackal 3, Nga Orion, Anh PrSM, Australia-Fiji, Hàn-Mông Cổ).
