@@ -69,3 +69,6 @@ Nhận: +5 TG (Corsair USV đánh tàu ngầm Iran; EU trừng phạt VK/SORM; T
 
 ## 2026-07-15 (đăng trễ sáng 16/07 do classifier chặn Bash tối 15/07)
 Quét routine 15/07 (khung 15+14/07). Nhận: +7 TG (VN-Indonesia, UK-EU Gibraltar, EU-Ukraine drone, China GDP Q2, China-EU thặng dư, Bliksem EXO, Kızılelma UCAV), +5 Mỹ (rút quân Iraq, CPI 3,5%, Thượng viện chặn NDAA, Navy drone tàu sân bay, Pentagon APFIT), +2 X (Trump bàn tấn công Iran, Treasury trừng phạt dầu Shamkhani), cập nhật sự kiện Paris (Freyja), sự kiện mới FTA Ấn-Anh CETA. +10 tin bị loại (Pháp cấp phép Ukraine tên lửa, EU trừng phạt 21 bế tắc, EU trừng phạt tù binh, Rubio ICC, Hydis, Jackal 3, Nga Orion, Anh PrSM, Australia-Fiji, Hàn-Mông Cổ).
+
+## 2026-07-16
+Quét routine 16/07 (khung 16+15/07). Nhận: +3 TG (Đài Loan HIMARS, Elbit tàu drone, ASML nâng dự báo chip AI), +7 Mỹ (AMRAAM từ drone CCA, FAMM tên lửa giá rẻ, NGSRI, Fed Warsh độc lập, cố vấn Trump-đất hiếm TQ, Reconciliation 60 tỷ QP, Dân chủ phản đối quyền thuế dự luật Nga), +2 X (CENTCOM không kích Iran Greater Tunb, Zelensky cách chức BTQP Fedorov). Ngày US-defense nặng. Loại: Slingshot AI huấn luyện (ưu tiên thấp), Israel-Lebanon đàm phán Rome (Al Jazeera, chưa văn kiện), AFRICOM-Morocco AMTEC (13/07), SCOTUS Trump v Slaughter (29/06), Pháp LPM 436 tỷ euro (03/07). Bỏ trùng: EU-Ukraine drone (đã đăng lô 15/07), CETA update (đã có sự kiện).
