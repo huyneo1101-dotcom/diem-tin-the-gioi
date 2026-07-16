@@ -1,0 +1,45 @@
+name: Notify push khi có bản tin mới
+
+# Chạy khi index.html được push lên main. Chỉ gửi push nếu generatedAt (ngày bản tin)
+# THỰC SỰ đổi — nên sửa code/UI (không đổi ngày) sẽ không gửi thông báo rác.
+on:
+  push:
+    branches: [main]
+    paths: ['index.html']
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Kiểm tra generatedAt có tiến ngày không
+        id: chk
+        run: |
+          cur=$(grep -oE '"generatedAt":"[0-9-]+"' index.html | head -1 | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' || echo "")
+          prev=$(git show HEAD~1:index.html 2>/dev/null | grep -oE '"generatedAt":"[0-9-]+"' | head -1 | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' || echo "")
+          echo "cur=$cur prev=$prev"
+          if [ -n "$cur" ] && [ "$cur" != "$prev" ]; then
+            echo "go=1" >> "$GITHUB_OUTPUT"
+            echo "date=$cur" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node
+        if: steps.chk.outputs.go == '1'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gửi push
+        if: steps.chk.outputs.go == '1'
+        env:
+          VAPID_PRIVATE: ${{ secrets.VAPID_PRIVATE }}
+          NEWS_DATE: ${{ steps.chk.outputs.date }}
+        run: |
+          npm install web-push@3 --no-save
+          node .github/scripts/send-push.js

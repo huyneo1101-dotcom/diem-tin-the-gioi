@@ -393,6 +393,7 @@ var READ={},SEEN0={};
 /* ==== Tài khoản đám mây (Supabase, email + mật khẩu) — để trống 2 biến dưới = TẮT, app chạy y như cũ (localStorage) ==== */
 var SB_URL='https://ltmlueqkajqmduoqghdf.supabase.co';   /* Project URL Supabase */
 var SB_ANON='sb_publishable_74Lm6cc0CkoOOzy3A4IRrQ_BX0jHQcg';  /* publishable (public) key */
+var VAPID_PUBLIC='BN0PSYP1rgXE8KojMqRdrDis3hZCU8tiE5OpdGF6zFO5B_Ho3ba3UZ590rUfOKgUSgJR0iMVjdhRZX3aFk8d2qo';  /* khoá CÔNG KHAI push (an toàn) — khoá riêng nằm trong GitHub Secret VAPID_PRIVATE */
 var SB=null,SB_USER=null;
 function sbReady(){return !!(SB&&SB_USER);}
 function initSupabase(){
@@ -468,6 +469,46 @@ function sbSaveVote(id,rec){
   if(!sbReady())return;
   if(!rec){SB.from('votes').delete().eq('user_id',SB_USER.id).eq('item_id',id).then(function(){});return;}
   SB.from('votes').upsert([{user_id:SB_USER.id,item_id:id,v:rec.v,category:rec.cat||null,region:rec.region||null,source:rec.src||null,title:rec.title||null,updated_at:new Date().toISOString()}],{onConflict:'user_id,item_id'}).then(function(){});
+}
+/* ==== Thông báo đẩy (Web Push qua VAPID + GitHub Action) ==== */
+function pushSupported(){return ('serviceWorker' in navigator)&&('PushManager' in window)&&('Notification' in window);}
+function _u8(s){var pad='='.repeat((4-s.length%4)%4);var b=(s+pad).replace(/-/g,'+').replace(/_/g,'/');var raw=atob(b);var arr=new Uint8Array(raw.length);for(var i=0;i<raw.length;i++)arr[i]=raw.charCodeAt(i);return arr;}
+function sbSavePushSub(sub){if(!SB)return Promise.resolve();var j=sub.toJSON(),k=j.keys||{};return SB.from('push_subs').upsert([{endpoint:sub.endpoint,p256dh:k.p256dh,auth:k.auth}],{onConflict:'endpoint'}).then(function(){});}
+function sbRemovePushSub(ep){if(!SB)return Promise.resolve();return SB.from('push_subs').delete().eq('endpoint',ep).then(function(){});}
+function enablePush(){
+  if(!pushSupported()){toast('Máy/trình duyệt không hỗ trợ thông báo đẩy');return;}
+  if(!SB){toast('Chưa cấu hình máy chủ thông báo');return;}
+  var perm=Notification.permission;
+  var go=perm==='granted'?Promise.resolve('granted'):Notification.requestPermission();
+  Promise.resolve(go).then(function(p){
+    if(p!=='granted'){toast('Bạn chưa cho phép thông báo');return;}
+    navigator.serviceWorker.ready.then(function(reg){
+      return reg.pushManager.getSubscription().then(function(sub){
+        return sub||reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:_u8(VAPID_PUBLIC)});
+      }).then(function(sub){
+        return sbSavePushSub(sub).then(function(){
+          localStorage.setItem('dt.pushOn','1');
+          reg.showNotification('Đã bật thông báo 🔔',{body:'Bạn sẽ được báo khi có bản tin mới.',icon:'icon.svg',badge:'icon.svg'});
+          render();
+        });
+      });
+    }).catch(function(e){toast('Bật thông báo lỗi: '+((e&&e.message)||e));});
+  });
+}
+function disablePush(){
+  navigator.serviceWorker.ready.then(function(reg){
+    return reg.pushManager.getSubscription().then(function(sub){
+      if(!sub)return;var ep=sub.endpoint;return sub.unsubscribe().then(function(){return sbRemovePushSub(ep);});
+    });
+  }).catch(function(){}).then(function(){localStorage.removeItem('dt.pushOn');toast('Đã tắt thông báo');render();});
+}
+function testPush(){if(Notification.permission!=='granted'){toast('Chưa cho phép thông báo');return;}navigator.serviceWorker.ready.then(function(reg){reg.showNotification('📰 Thử thông báo',{body:'Thông báo hoạt động! Bản tin mới sẽ hiện như thế này.',icon:'icon.svg',badge:'icon.svg',tag:'diemtin-test'});});}
+function pushRow(){
+  if(!SB||!pushSupported())return '';
+  var box='border:1px solid var(--line);border-radius:10px;padding:12px;margin:0 0 14px;background:var(--paper2)';
+  var on=localStorage.getItem('dt.pushOn')==='1'&&Notification.permission==='granted';
+  var ctrl=on?'<span style="color:var(--green);font-weight:700">— đang bật</span> <button class="wbtn" data-pushtest="1">Thử</button> <button class="wbtn" data-pushoff="1">Tắt</button>':'<button class="wbtn" data-pushon="1">🔔 Bật thông báo</button>';
+  return '<div class="acctbar" style="'+box+';display:flex;align-items:center;gap:10px;flex-wrap:wrap">🔔 <b>Thông báo tin mới</b> '+ctrl+'<div class="note" style="margin:8px 0 0;width:100%">Báo ngay khi bản tin cập nhật (thường 19–21h giờ VN). Cần cho phép quyền thông báo; trên iPhone phải "Thêm vào Màn hình chính" trước rồi mở từ icon đó.</div></div>';
 }
 function accountBar(){
   if(!SB)return '';
@@ -657,7 +698,7 @@ function renderAnalysis(){
 }
 function renderSaved(){
   var nc=conceptList().length;
-  var seg=accountBar()+'<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
+  var seg=pushRow()+accountBar()+'<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
   if(state.savedSeg==='concepts')return seg+renderConcepts();
   var arr=FAV.slice().filter(matchQ);
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
@@ -758,7 +799,10 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest]'):null;if(!t)return;
+  if(t.getAttribute('data-pushon')!=null){enablePush();return;}
+  if(t.getAttribute('data-pushoff')!=null){disablePush();return;}
+  if(t.getAttribute('data-pushtest')!=null){testPush();return;}
   if(t.getAttribute('data-rejlike')!=null){castVote(t.getAttribute('data-rejlike'),1);reContent();return;}
   if(t.getAttribute('data-rejdislike')!=null){castVote(t.getAttribute('data-rejdislike'),-1);reContent();return;}
   if(t.getAttribute('data-rescue')!=null){rescueItem(t.getAttribute('data-rescue'));render();return;}
