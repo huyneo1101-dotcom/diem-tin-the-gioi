@@ -72,3 +72,6 @@ Quét routine 15/07 (khung 15+14/07). Nhận: +7 TG (VN-Indonesia, UK-EU Gibralt
 
 ## 2026-07-16
 Quét routine 16/07 (khung 16+15/07). Nhận: +3 TG (Đài Loan HIMARS, Elbit tàu drone, ASML nâng dự báo chip AI), +7 Mỹ (AMRAAM từ drone CCA, FAMM tên lửa giá rẻ, NGSRI, Fed Warsh độc lập, cố vấn Trump-đất hiếm TQ, Reconciliation 60 tỷ QP, Dân chủ phản đối quyền thuế dự luật Nga), +2 X (CENTCOM không kích Iran Greater Tunb, Zelensky cách chức BTQP Fedorov). Ngày US-defense nặng. Loại: Slingshot AI huấn luyện (ưu tiên thấp), Israel-Lebanon đàm phán Rome (Al Jazeera, chưa văn kiện), AFRICOM-Morocco AMTEC (13/07), SCOTUS Trump v Slaughter (29/06), Pháp LPM 436 tỷ euro (03/07). Bỏ trùng: EU-Ukraine drone (đã đăng lô 15/07), CETA update (đã có sự kiện).
+
+### Quét bổ sung cuối ngày 16/07 (user yêu cầu, tối)
+Tìm tin ĐỀ NGÀY 16/07 (diễn biến trong ngày). Nhận: +2 TG (Đài Loan-Mỹ đồng sản xuất drone Mighty Hornet; IEA đất hiếm TQ đe dọa 6.500 tỷ USD), +2 Mỹ (SDA nối lại phóng vệ tinh Transport Layer; Mỹ áp thuế 25% Brazil Section 301), +2 X (CENTCOM bắn tàu dầu M/T Belma; ISW Mỹ không kích sâu nội địa Iran), +1 tập trận (USV Typhoon tiếp tế USS Essex tại RIMPAC). Ngoại giao + Chính trị 16/07: agent trả rỗng (không có tin đề ngày 16/07 đạt chuẩn - thượng đỉnh Helsinki chưa xác minh được, chấp nhận thiếu).
