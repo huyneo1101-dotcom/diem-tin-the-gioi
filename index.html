@@ -712,7 +712,7 @@ function drillCardInner(a,label){
   return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>'+(label||'Liên quan tập trận')+':</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
 }
 function drillHeader(ex){
-  var pill=ex.status==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':(ex.status==='upcoming'?'<span class="dpill up">◷ Sắp diễn ra</span>':'<span class="dpill done">✓ Vừa diễn ra</span>');
+  var pill=ex.status==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':(ex.status==='upcoming'?'<span class="dpill up">◷ Sắp diễn ra</span>':'<span class="dpill done">✓ Đã kết thúc</span>');
   return '<div class="drill-h"><div class="drill-top">'+pill+(ex.dates?'<span class="drill-dates">'+esc(ex.dates)+'</span>':'')+'</div><div class="drill-name">'+esc(ex.name)+'</div>'+(ex.location?'<div class="drill-meta">📍 '+esc(ex.location)+'</div>':'')+(ex.scale?'<div class="drill-meta">🎖️ '+esc(ex.scale)+'</div>':'')+(ex.summary?'<div class="drill-sum">'+esc(ex.summary)+'</div>':'')+'</div>';
 }
 function renderExercises(){
@@ -740,12 +740,19 @@ function renderDipEvents(){
   exs.forEach(function(e){var col=e.status==='ongoing'?'#c0392b':(e.status==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.dip===e.name?' on':'')+'" data-dip="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
   chips+='</div>';
   var shown=exs.filter(function(e){return state.dip==='Tất cả'||e.name===state.dip;});
-  var body=shown.length?shown.map(function(ex){
+  function sec(ex){
     var items=sortD(ex.items||[]).filter(matchQ);
     var cards=items.length?items.map(function(a){return card(drillCardInner(a,'Liên quan sự kiện'),idOf(a));}).join(''):'<div class="empty" style="padding:16px">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin liên quan.')+'</div>';
     return '<section class="drill">'+drillHeader(ex)+'<div class="list">'+cards+'</div></section>';
-  }).join(''):'<div class="empty">Chưa có sự kiện nào.</div>';
-  return '<div class="note">Các <b>sự kiện ngoại giao</b> (thượng đỉnh, hội nghị, đàm phán…) — mỗi mục gom tin liên quan kèm <b>nhận xét</b> tin đó liên quan sự kiện thế nào.</div>'+chips+body;
+  }
+  var GROUPS=[['upcoming','🔵 Sắp diễn ra'],['ongoing','🔴 Đang diễn ra'],['recent','✓ Đã kết thúc']];
+  var body='';
+  GROUPS.forEach(function(g){
+    var grp=shown.filter(function(e){var st=e.status||'recent';return g[0]==='recent'?(st!=='ongoing'&&st!=='upcoming'):(st===g[0]);});
+    if(grp.length)body+='<div class="rejsec">'+g[1]+' ('+grp.length+')</div>'+grp.map(sec).join('');
+  });
+  if(!body)body='<div class="empty">'+(state.q?'Không có sự kiện khớp tìm kiếm.':'Chưa có sự kiện nào.')+'</div>';
+  return '<div class="note">Các <b>sự kiện ngoại giao</b> (thượng đỉnh, hội nghị, ký kết, đàm phán…) — phân theo <b>Sắp diễn ra · Đang diễn ra · Đã kết thúc</b>; mỗi sự kiện gom tin liên quan.</div>'+chips+body;
 }
 function renderDossiers(){
   var pool=newsPool().concat(sortD(DATA.xNews||[]));
