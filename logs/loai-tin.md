@@ -78,3 +78,6 @@ Tìm tin ĐỀ NGÀY 16/07 (diễn biến trong ngày). Nhận: +2 TG (Đài Loa
 
 ### Nhập bản tin chiến lược từ Google Drive 16/07 (test run)
 File ban-tin-chien-luoc-2026-07-16.json (13 tin). Nhận 5 tin MỚI: Bank of Korea nâng lãi 2,75% (KT/TG), TSMC Q2 kỷ lục + đầu tư Mỹ (KT/TG, chip), EU buộc Google mở AI (CT/TG), Ukraine-ĐNA Âu thượng đỉnh trừng phạt+QP (NG/TG), Bán lẻ Mỹ + trợ cấp thất nghiệp (KT/US). Loại: 01 Mỹ đánh tàu Iran + 04 Zelensky cách chức Fedorov + 11 thuế 25% Brazil (ĐÃ đăng hôm nay - trùng); 03 Nga-Ukraine đánh tàu/giá lúa mì (lọc: chiến sự lặp); 02 Iran-Houthi Bab el-Mandeb (đe dọa/tình báo, không category rõ); 09 Fed Cook+Beige Book (đã nhiều tin Fed); 12 Đức cảnh báo Mỹ can thiệp bầu cử + 13 ASEAN đặc phái viên Myanmar (chưa kết quả cụ thể / chính trị tranh cãi).
+
+## 2026-07-18
+Web-scan bù (generatedAt kẹt 16/07, nhỡ 17/07). Nhận: +1 TG (Nikkei rơi vùng điều chỉnh/bán tháo bán dẫn), +3 Mỹ (JASSM/LRASM tăng sản xuất; Zumwalt siêu vượt âm chậm 2 năm; nhà khởi công Mỹ +19%), +2 SỰ KIỆN ngoại giao mới (ASEAN AMM Manila upcoming; Congo-Rwanda JSCM recent). +9 tin Bị loại (WAICO AI, India Semicon 2.0, phong tỏa dầu Iran, EU trừng phạt drone Nga, Helsing, GCAP, NATO Triton, Mỹ-Nhật-Hàn commanders, ANZAC) - đa số ngoài khung/bão hoà. xNews rỗng (Iran đã saturated). Routine Google Drive (sáng+tối) KHÔNG chạy được: connector Drive mất kết nối.
