@@ -1,0 +1,33 @@
+name: Baomoi diag (temporary)
+on:
+  push:
+    branches: [claude/baomoi-saved-articles-k7jvhp]
+    paths: ['.github/workflows/baomoi-diag.yml']
+  workflow_dispatch:
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe w-api.baomoi.com signature strictness
+        run: |
+          BASE="https://w-api.baomoi.com/api/v1/user/get/contents-by-type"
+          COMMON="version=0.8.26&apiKey=kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw"
+          CAP_CTIME=1784379006
+          CAP_SIG=a88b5f86ea991fd566dc12486b55889db9108f47bd475dad83529a25fd1bd0d3
+          NOW=$(date +%s)
+          H=(-H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36' -H 'referer: https://baomoi.com/' -H 'origin: https://baomoi.com' -H 'accept: */*')
+          probe () {
+            local name="$1"; local url="$2"
+            echo "=================== $name ==================="
+            echo "URL: $url"
+            code=$(curl -sS -o /tmp/body.txt -w '%{http_code}' "${H[@]}" "$url" || echo "CURL_FAIL")
+            echo "HTTP: $code"
+            echo "BODY (first 600 chars):"
+            head -c 600 /tmp/body.txt; echo; echo
+          }
+          probe "1_EXACT_CAPTURED (fixed sig+ctime, no cookie)" "$BASE?listType=3&page=1&ctime=$CAP_CTIME&version=0.8.26&sig=$CAP_SIG&apiKey=kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw"
+          probe "2_NEW_CTIME_OLD_SIG (ctime=now, sig unchanged)" "$BASE?listType=3&page=1&ctime=$NOW&version=0.8.26&sig=$CAP_SIG&apiKey=kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw"
+          probe "3_GARBAGE_SIG (invalid sig)" "$BASE?listType=3&page=1&ctime=$CAP_CTIME&version=0.8.26&sig=deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef&apiKey=kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw"
+          probe "4_NO_SIG_PARAM" "$BASE?listType=3&page=1&ctime=$CAP_CTIME&version=0.8.26&apiKey=kI44ARvPwaqL7v0KuDSM0rGORtdY1nnw"
+          probe "5_PUBLIC_CONTENT_ENDPOINT (list-by-type, sanity check reachability)" "https://w-api.baomoi.com/api/v1/content/get/list-by-type?type=0&page=1&$COMMON"
+          echo "=== DONE ==="
