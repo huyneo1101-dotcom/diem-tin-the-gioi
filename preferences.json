@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-17T16:01:57Z",
+  "generatedAt": "2026-07-18T14:37:25Z",
   "source": "supabase vote_stats + vote_items (auto by GitHub Action)",
   "stats": [
     {
@@ -21,10 +21,10 @@
     {
       "scope": "category",
       "key": "Kinh tế",
-      "up": 59,
+      "up": 60,
       "down": 5,
-      "net": 54,
-      "total": 64
+      "net": 55,
+      "total": 65
     },
     {
       "scope": "category",
@@ -77,10 +77,10 @@
     {
       "scope": "region",
       "key": "Nga–Ukraine",
-      "up": 26,
+      "up": 27,
       "down": 4,
-      "net": 22,
-      "total": 30
+      "net": 23,
+      "total": 31
     },
     {
       "scope": "region",
@@ -108,19 +108,19 @@
     },
     {
       "scope": "region",
-      "key": "Đông Nam Á",
-      "up": 4,
-      "down": 1,
-      "net": 3,
-      "total": 5
-    },
-    {
-      "scope": "region",
       "key": "Nam Á",
       "up": 6,
       "down": 3,
       "net": 3,
       "total": 9
+    },
+    {
+      "scope": "region",
+      "key": "Đông Nam Á",
+      "up": 4,
+      "down": 1,
+      "net": 3,
+      "total": 5
     },
     {
       "scope": "region",
@@ -204,14 +204,6 @@
     },
     {
       "scope": "source",
-      "key": "@TheStudyofWar",
-      "up": 5,
-      "down": 0,
-      "net": 5,
-      "total": 5
-    },
-    {
-      "scope": "source",
       "key": "U.S. Department of State",
       "up": 5,
       "down": 0,
@@ -236,15 +228,15 @@
     },
     {
       "scope": "source",
-      "key": "Federal Reserve",
-      "up": 4,
+      "key": "@TheStudyofWar",
+      "up": 5,
       "down": 0,
-      "net": 4,
-      "total": 4
+      "net": 5,
+      "total": 5
     },
     {
       "scope": "source",
-      "key": "VnExpress",
+      "key": "Financial Times",
       "up": 4,
       "down": 0,
       "net": 4,
@@ -268,7 +260,7 @@
     },
     {
       "scope": "source",
-      "key": "Financial Times",
+      "key": "VnExpress",
       "up": 4,
       "down": 0,
       "net": 4,
@@ -276,7 +268,31 @@
     },
     {
       "scope": "source",
-      "key": "@ZelenskyyUa",
+      "key": "Federal Reserve",
+      "up": 4,
+      "down": 0,
+      "net": 4,
+      "total": 4
+    },
+    {
+      "scope": "source",
+      "key": "Task & Purpose",
+      "up": 3,
+      "down": 0,
+      "net": 3,
+      "total": 3
+    },
+    {
+      "scope": "source",
+      "key": "U.S. Department of the Treasury",
+      "up": 3,
+      "down": 0,
+      "net": 3,
+      "total": 3
+    },
+    {
+      "scope": "source",
+      "key": "NATO",
       "up": 3,
       "down": 0,
       "net": 3,
@@ -285,6 +301,14 @@
     {
       "scope": "source",
       "key": "Hội đồng châu Âu",
+      "up": 3,
+      "down": 0,
+      "net": 3,
+      "total": 3
+    },
+    {
+      "scope": "source",
+      "key": "@ZelenskyyUa",
       "up": 3,
       "down": 0,
       "net": 3,
@@ -308,22 +332,6 @@
     },
     {
       "scope": "source",
-      "key": "NATO",
-      "up": 3,
-      "down": 0,
-      "net": 3,
-      "total": 3
-    },
-    {
-      "scope": "source",
-      "key": "Task & Purpose",
-      "up": 3,
-      "down": 0,
-      "net": 3,
-      "total": 3
-    },
-    {
-      "scope": "source",
       "key": "World Bank",
       "up": 3,
       "down": 0,
@@ -332,11 +340,35 @@
     },
     {
       "scope": "source",
-      "key": "U.S. Department of the Treasury",
-      "up": 3,
+      "key": "USNI News",
+      "up": 2,
       "down": 0,
-      "net": 3,
-      "total": 3
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Taipei Times",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Defence Industry Europe",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "IMF",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
     },
     {
       "scope": "source",
@@ -348,7 +380,47 @@
     },
     {
       "scope": "source",
+      "key": "Federal Reserve Board",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
       "key": "TechTimes",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "@BarakRavid",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Senate Foreign Relations Committee",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Tuổi Trẻ",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "South China Morning Post",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -372,71 +444,15 @@
     },
     {
       "scope": "source",
-      "key": "Asian Military Review",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "Defence Industry Europe",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "Senate Foreign Relations Committee",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "South China Morning Post",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "IMF",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "Kyiv Independent",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "The Japan Times",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "USNI News",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
       "key": "@CENTCOM",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Asian Military Review",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -452,7 +468,7 @@
     },
     {
       "scope": "source",
-      "key": "Federal Reserve Board",
+      "key": "The Japan Times",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -460,23 +476,7 @@
     },
     {
       "scope": "source",
-      "key": "@BarakRavid",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "Taipei Times",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "Tuổi Trẻ",
+      "key": "Kyiv Independent",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -581,6 +581,14 @@
     {
       "scope": "source",
       "key": "U.S. Department of War",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Caixin Global",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -1894,14 +1902,6 @@
     },
     {
       "sign": 1,
-      "title": "Ấn Độ - New Zealand nâng cấp lên Đối tác Chiến lược, ký thỏa thuận hàng hải và hậu cần quốc phòng",
-      "category": null,
-      "region": null,
-      "source": "Văn phòng Thủ tướng Ấn Độ",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "Thủy quân lục chiến Mỹ biên chế đại đội đầu tiên trang bị robot tiếp tế bốn chân",
       "category": "Công nghệ quân sự",
       "region": "Châu Mỹ",
@@ -2042,6 +2042,14 @@
       "category": "Kinh tế",
       "region": "Châu Âu/NATO",
       "source": "Financial Times",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "29 nước ký thành lập Tổ chức Hợp tác AI Thế giới (WAICO) tại Thượng Hải",
+      "category": "Kinh tế",
+      "region": "Nga–Ukraine",
+      "source": "Caixin Global",
       "n": 1
     },
     {
@@ -2882,6 +2890,14 @@
       "category": "Công nghệ quân sự",
       "region": "Đông Á",
       "source": "Defense News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Ấn Độ - New Zealand nâng cấp lên Đối tác Chiến lược, ký thỏa thuận hàng hải và hậu cần quốc phòng",
+      "category": null,
+      "region": null,
+      "source": "Văn phòng Thủ tướng Ấn Độ",
       "n": 1
     },
     {
