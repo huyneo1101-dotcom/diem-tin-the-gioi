@@ -81,3 +81,6 @@ File ban-tin-chien-luoc-2026-07-16.json (13 tin). Nhận 5 tin MỚI: Bank of Ko
 
 ## 2026-07-18
 Web-scan bù (generatedAt kẹt 16/07, nhỡ 17/07). Nhận: +1 TG (Nikkei rơi vùng điều chỉnh/bán tháo bán dẫn), +3 Mỹ (JASSM/LRASM tăng sản xuất; Zumwalt siêu vượt âm chậm 2 năm; nhà khởi công Mỹ +19%), +2 SỰ KIỆN ngoại giao mới (ASEAN AMM Manila upcoming; Congo-Rwanda JSCM recent). +9 tin Bị loại (WAICO AI, India Semicon 2.0, phong tỏa dầu Iran, EU trừng phạt drone Nga, Helsing, GCAP, NATO Triton, Mỹ-Nhật-Hàn commanders, ANZAC) - đa số ngoài khung/bão hoà. xNews rỗng (Iran đã saturated). Routine Google Drive (sáng+tối) KHÔNG chạy được: connector Drive mất kết nối.
+
+### Nhập bản tin chiến lược Drive 18/07 (sáng, file ban-tin-chien-luoc-2026-07-18-0800-ICT.json, connector đã nối lại)
+10 tin. Nhận: +3 TG (Iraq-Mỹ ký 60 tỷ USD né Hormuz; Pháp-Đức mở rộng răn đe hạt nhân; Brazil 13,3 tỷ real tín dụng ứng phó thuế Mỹ), +1 Mỹ (GAO cảnh báo chiến lược CPS siêu vượt âm), +1 cập nhật sự kiện (ASEAN ấn định lễ ký TAC 24/7 Manila). Loại: Mỹ mở rộng không kích Iran (bão hoà), Ukraine khủng hoảng lãnh đạo QP (tiếp nối Fedorov), Iran lan Syria al-Tanf (bão hoà), TQ tăng giá xăng (niche); + bán tháo bán dẫn (trùng Nikkei + link live-blog). File 17/07-2000 chưa nhập (đa số trùng/Iran, để sau).
