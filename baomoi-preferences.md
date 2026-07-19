@@ -1,6 +1,6 @@
 # Phân tích sở thích từ bài đã lưu (Báo Mới)
 
-_Cập nhật: 2026-07-19T16:13:43+0700 — tổng 44 bài._
+_Cập nhật: 2026-07-19T16:15:16+0700 — tổng 44 bài._
 
 Trong 44 bài đã lưu, chủ đề nổi bật nhất là "Kinh tế & Năng lượng" (10 bài). Phân bổ chủ đề: Kinh tế & Năng lượng 10, Tâm lý & Kỹ năng sống 8, Ngoại giao & Thế giới 6, Gia đình & Nuôi dạy con 5, Sức khỏe & Dinh dưỡng 4, Quân sự & Quốc phòng 3, Khác 2, Thể thao 2, Giải trí 2, Đời sống & Cảnh giác 2. Nguồn hay lưu nhất: Tạp chí Tri thức (11), Báo VietnamNet (7), Báo Tin Tức TTXVN (5), Báo Thế Giới & Việt Nam (3), Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân (2).
 
@@ -38,4 +38,4 @@ Trong 44 bài đã lưu, chủ đề nổi bật nhất là "Kinh tế & Năng l
 | Báo Tri thức & Cuộc sống | 1 |
 
 ## Từ khoá lặp lại nhiều
-cảnh (5), iran (4), đối (4), quốc (4), gia (4), con (4), chiến (3), xuất (3), nga (3), kinh (3), thành (3), dầu (3), báo (3), nói (3), bất (3), trung (3), cách (3), hiệu (3), dấu (3), hòa (3), đình (3), cha (3), kích (2), hình (2), rút (2)
+kinh tế (3), cảnh báo (3), dấu hiệu (3), gia đình (3), kích iran (2), xuất khẩu (2), kiểm soát (2), phản ứng (2), dầu mỏ (2), nói gì (2), trung quốc (2), đối mặt (2), cha mẹ (2), lừa đảo (2)
