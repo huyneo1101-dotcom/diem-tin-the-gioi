@@ -31,11 +31,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add baomoi-saved.json baomoi-analysis.json baomoi-preferences.md
+          git add baomoi-saved.json
           if git diff --cached --quiet; then
             echo "Khong co thay doi — bo qua commit."
           else
-            git commit -m "chore: cap nhat bai da luu Bao Moi + phan tich so thich"
+            git commit -m "chore: cap nhat bai da luu Bao Moi (loc dung chu de)"
             git push
           fi
 
