@@ -1,0 +1,41 @@
+name: Sync Baomoi saved articles
+# Keo danh sach "Bai da luu" tu tai khoan Bao Moi ve repo (baomoi-saved.json)
+# + phan tich so thich (baomoi-analysis.json, baomoi-preferences.md).
+# Chay tren may GitHub (mang mo, khong bi chan nhu moi truong quet).
+# Can GitHub Secret BAOMOI_COOKIE = chuoi cookie dang nhap Bao Moi (co bmsid...).
+on:
+  schedule:
+    - cron: '30 10 * * *'   # 17:30 gio VN moi ngay
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sync-baomoi
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Fetch saved articles + analyze
+        env:
+          BAOMOI_COOKIE: ${{ secrets.BAOMOI_COOKIE }}
+        run: |
+          if [ -z "$BAOMOI_COOKIE" ]; then
+            echo "::error::Thieu secret BAOMOI_COOKIE. Vao Settings > Secrets and variables > Actions de them."
+            exit 1
+          fi
+          python3 scripts/baomoi_sync.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add baomoi-saved.json baomoi-analysis.json baomoi-preferences.md
+          if git diff --cached --quiet; then
+            echo "Khong co thay doi — bo qua commit."
+          else
+            git commit -m "chore: cap nhat bai da luu Bao Moi + phan tich so thich"
+            git push
+          fi
+
