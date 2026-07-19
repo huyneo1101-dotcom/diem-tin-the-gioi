@@ -5,7 +5,7 @@ name: Sync Baomoi saved articles
 # Can GitHub Secret BAOMOI_COOKIE = chuoi cookie dang nhap Bao Moi (co bmsid...).
 on:
   schedule:
-    - cron: '30 10 * * *'   # 17:30 gio VN moi ngay
+    - cron: '30 10 * * *'   # 17:30 gio VN moi ngay (test-run sau khi them secret)
   workflow_dispatch:
   push:                     # TAM THOI: de test tren branch, se go khi dua len main
     branches: [claude/baomoi-saved-articles-k7jvhp]
@@ -41,3 +41,4 @@ jobs:
             git commit -m "chore: cap nhat bai da luu Bao Moi + phan tich so thich"
             git push
           fi
+
