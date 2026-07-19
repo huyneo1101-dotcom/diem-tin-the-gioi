@@ -152,9 +152,16 @@ def classify(title):
     return best
 
 
-def tokenize(title):
-    words = re.findall(r"[a-zà-ỹA-ZÀ-Ỹ0-9]+", title.lower())
-    return [w for w in words if len(w) >= 3 and w not in STOPWORDS and not w.isdigit()]
+def keyphrases(title):
+    # Bigram (cum 2 tieng lien tiep) — hop voi tieng Viet da am tiet, tranh tu vun.
+    ws = [w for w in re.findall(r"[a-zà-ỹ0-9]+", title.lower()) if len(w) >= 2]
+    out = []
+    for i in range(len(ws) - 1):
+        a, b = ws[i], ws[i + 1]
+        if a in STOPWORDS or b in STOPWORDS or a.isdigit() or b.isdigit():
+            continue
+        out.append(a + " " + b)
+    return out
 
 
 def analyze(items):
@@ -162,7 +169,7 @@ def analyze(items):
     by_source = Counter(it["source"] for it in items if it["source"])
     kw = Counter()
     for it in items:
-        kw.update(set(tokenize(it["title"])))  # set() -> dem theo so bai, khong nhan doi trong 1 tieu de
+        kw.update(set(keyphrases(it["title"])))  # set() -> dem theo so bai, khong nhan doi trong 1 tieu de
     total = len(items)
 
     def pct(n):
