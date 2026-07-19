@@ -694,6 +694,8 @@ function renderTopic(){
 }
 /* ==== Bài đã lưu từ Báo Mới (tự đồng bộ hằng ngày qua GitHub Action sync-baomoi) ==== */
 var BAOMOI={saved:null,analysis:null,loaded:false};
+var BMMETA={'Gia đình & Nuôi dạy con':['👨‍👩‍👧','#c0392b'],'Tâm lý & Kỹ năng sống':['🧠','#7b4fa0'],'Sức khỏe & Dinh dưỡng':['🩺','#1f8a54'],'Thể thao':['⚽','#2f9e6b'],'Giải trí':['🎬','#d81b8c'],'Quân sự & Quốc phòng':['🎖️','#2b5f9e'],'Kinh tế & Năng lượng':['💹','#c98a2e'],'Ngoại giao & Thế giới':['🌍','#0e8a8a'],'Đời sống & Cảnh giác':['⚠️','#b5852a'],'Khác':['🗂️','#6b6459']};
+function bmMeta(c){return BMMETA[c]||['🗂️','#6b6459'];}
 function loadBaomoi(){
   function g(u){return fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});}
   Promise.all([g('baomoi-saved.json'),g('baomoi-analysis.json')]).then(function(res){
@@ -702,7 +704,7 @@ function loadBaomoi(){
   });
 }
 function bmCardInner(a){
-  var m=wmeta(a.category);
+  var m=bmMeta(a.category);
   var thumb=a.thumb?'<img src="'+esc(a.thumb)+'" alt="" loading="lazy" style="float:right;width:92px;height:62px;object-fit:cover;border-radius:8px;margin:0 0 6px 10px" onerror="this.style.display=\'none\'">':'';
   var vid=a.isVideo?'<span class="badge" style="color:#c0392b"><i class="dot" style="background:#c0392b"></i>▶ Video</span>':'';
   var head='<div class="crow"><span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+m[0]+' '+esc(a.category||'Khác')+'</span>'+vid+'<span class="date">'+fmtVN(a.date)+'</span></div>';
@@ -716,7 +718,7 @@ function renderBaomoi(){
   var items=sv.items.slice();
   var panel='';
   if(an){
-    var bars=(an.byCategory||[]).map(function(c){var m=wmeta(c.name);return '<div style="display:flex;align-items:center;gap:8px;margin:3px 0;font-size:.92em"><span style="width:160px;flex:none">'+m[0]+' '+esc(c.name)+'</span><span style="flex:1;background:rgba(128,128,128,.18);border-radius:6px;height:12px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;width:'+c.percent+'%;background:'+m[1]+';border-radius:6px"></span></span><span style="width:78px;text-align:right;flex:none">'+c.count+' ('+c.percent+'%)</span></div>';}).join('');
+    var bars=(an.byCategory||[]).map(function(c){var m=bmMeta(c.name);return '<div style="display:flex;align-items:center;gap:8px;margin:3px 0;font-size:.92em"><span style="width:160px;flex:none">'+m[0]+' '+esc(c.name)+'</span><span style="flex:1;background:rgba(128,128,128,.18);border-radius:6px;height:12px;position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;width:'+c.percent+'%;background:'+m[1]+';border-radius:6px"></span></span><span style="width:78px;text-align:right;flex:none">'+c.count+' ('+c.percent+'%)</span></div>';}).join('');
     var kws=(an.topKeywords||[]).slice(0,15).map(function(k){return '<span class="chip">'+esc(k.word)+' ('+k.count+')</span>';}).join('');
     panel='<div class="note" style="line-height:1.55"><b>🧭 Phân tích sở thích của bạn</b><br>'+esc(an.summary)+'</div>'
       +'<div style="margin:10px 2px">'+bars+'</div>'
@@ -724,7 +726,7 @@ function renderBaomoi(){
   }
   var cats=[];items.forEach(function(a){if(a.category&&cats.indexOf(a.category)<0)cats.push(a.category);});
   var chips='<div class="chips"><span class="chip'+(state.bmcat==='Tất cả'?' on':'')+'" data-bmcat="Tất cả">Tất cả ('+items.length+')</span>';
-  cats.forEach(function(c){var m=wmeta(c);chips+='<span class="chip'+(state.bmcat===c?' on':'')+'" data-bmcat="'+esc(c)+'"><i class="dot" style="background:'+m[1]+'"></i>'+m[0]+' '+esc(c)+' ('+items.filter(function(a){return a.category===c;}).length+')</span>';});
+  cats.forEach(function(c){var m=bmMeta(c);chips+='<span class="chip'+(state.bmcat===c?' on':'')+'" data-bmcat="'+esc(c)+'"><i class="dot" style="background:'+m[1]+'"></i>'+m[0]+' '+esc(c)+' ('+items.filter(function(a){return a.category===c;}).length+')</span>';});
   chips+='</div>';
   var shown=items.filter(function(a){return (state.bmcat==='Tất cả'||a.category===state.bmcat)&&matchQ({title:a.title,sourceName:a.source,category:a.category});});
   var cards=shown.length?shown.map(function(a){return card(bmCardInner(a),a.url);}).join(''):'<div class="empty">'+(state.q?'Không có bài khớp tìm kiếm.':'Không có bài khớp bộ lọc.')+'</div>';

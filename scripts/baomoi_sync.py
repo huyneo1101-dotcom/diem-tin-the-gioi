@@ -34,38 +34,55 @@ LIST_TYPE_SAVED = 3  # 3 = danh sach bai da luu
 VN_TZ = timezone(timedelta(hours=7))
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# --- Phan loai chu de theo tu khoa (dung 4 category cua du an) ---
-# Thu tu uu tien khi hoa: Cong nghe quan su > Ngoai giao > Kinh te > Chinh tri
+# --- Phan loai chu de theo tu khoa (taxonomy tong quat cho tin da luu ca nhan) ---
+# Thu tu = do uu tien khi hoa (nhieu tu khop nhat thang; hoa thi theo thu tu nay).
 CATEGORY_KEYWORDS = [
-    ("Công nghệ quân sự", [
-        "tên lửa", "tiêm kích", "máy bay", "chiến đấu cơ", "tàu ngầm", "tàu chiến",
-        "chiến hạm", "khu trục", "hàng không mẫu hạm", "drone", "uav", "radar",
-        "phòng không", "hải quân", "lục quân", "không quân", "vũ khí", "quân sự",
-        "quốc phòng", "xe tăng", "thiết giáp", "f-22", "f-35", "f-16", "su-",
-        "s-400", "s-500", "patriot", "thaad", "himars", "laser", "vệ tinh",
-        "không gian", "space force", "hạt nhân", "khí tài", "đạn", "pháo",
-        "siêu vượt âm", "siêu thanh", "trực thăng", "hạm đội", "căn cứ quân sự",
-        "tập trận", "diễn tập", "nato", "tác chiến", "phi đội", "chiến hào",
+    ("Gia đình & Nuôi dạy con", [
+        "cha mẹ", "mẹ chồng", "nàng dâu", "dạy con", "con gái", "con trai", "con yêu",
+        "con ghét", "gia đình", "vợ chồng", "hôn nhân", "học thêm", "cha là", "con là",
+        "nuôi dạy", "đứa trẻ", "trẻ không muốn", "làm cha", "làm mẹ", "con cái",
     ]),
-    ("Ngoại giao", [
-        "ngoại giao", "hiệp định", "thượng đỉnh", "hội nghị", "ký kết", "ký thỏa thuận",
-        "đàm phán", "quan hệ", "đại sứ", "công du", "thăm", "đối tác chiến lược",
-        "liên minh", "tuyên bố chung", "song phương", "đa phương", "hội đàm",
-        "bộ trưởng ngoại giao", "phái đoàn", "asean", "liên hợp quốc", "eu",
-        "cấm vận", "hòa đàm", "hòa bình", "gặp gỡ", "điện đàm",
+    ("Tâm lý & Kỹ năng sống", [
+        "tâm lý", "dấu hiệu", "thói quen", "tính cách", "người độc hại", "tử tế",
+        "độc đoán", "cảm xúc", "trò truyện", "trò chuyện", "sở hữu", "hiện hữu",
+        "bản lĩnh", "áp lực", "suy ngẫm", "lựa chọn", "đối mặt", "con bạc", "giúp người",
+        "quên đi", "phong cách", "chuyện tình cảm", "trưởng thành", "thấu hiểu",
     ]),
-    ("Kinh tế", [
-        "kinh tế", "gdp", "lạm phát", "fed", "lãi suất", "thương mại", "thuế quan",
-        "thuế", "xuất khẩu", "nhập khẩu", "chip", "bán dẫn", "tỷ giá", "ngân hàng",
-        "imf", "wto", "oecd", "chứng khoán", "cổ phiếu", "dầu", "khí đốt",
-        "năng lượng", "đầu tư", "chuỗi cung ứng", "tài chính", "đồng usd", "vàng",
-        "doanh nghiệp", "tăng trưởng", "suy thoái", "ngân sách", "nợ công", "giá",
+    ("Sức khỏe & Dinh dưỡng", [
+        "sức khỏe", "dinh dưỡng", "ăn sáng", "thực phẩm", "dạ dày", "thoái hóa",
+        "tuổi thọ", "loại nước", "chế độ ăn", "mất tập trung", "căn bệnh", "giấc ngủ",
+        "não", "gan", "tim mạch", "ung thư", "vitamin", "miễn dịch", "uống nước",
     ]),
-    ("Chính trị", [
-        "bầu cử", "quốc hội", "tổng thống", "thủ tướng", "chính phủ", "hiến pháp",
-        "đảng", "biểu tình", "chính sách", "nội các", "trừng phạt", "luật",
-        "bộ trưởng", "chính quyền", "nghị sĩ", "phe đối lập", "đảo chính",
-        "lãnh đạo", "chủ tịch", "cải cách", "bỏ phiếu",
+    ("Thể thao", [
+        "bóng đá", "barca", "real madrid", "yamal", "vinicius", "cầu thủ", "ghi bàn",
+        "cú đúp", "vô địch", "hlv", "đội tuyển", "áo số", "ngoại hạng", "champions league",
+        "world cup", "sea games", "bàn thắng",
+    ]),
+    ("Giải trí", [
+        "sao nữ", "sao nam", "hoa hậu", "diễn viên", "ca sĩ", "bộ phim", "showbiz",
+        "nghệ sĩ", "đạo diễn", "cắt cảnh", "thái hòa", "quyền linh", "vóc dáng",
+        "khao khát", "lọ lem", "phim điện ảnh", "mv", "concert",
+    ]),
+    ("Quân sự & Quốc phòng", [
+        "tiêm kích", "tên lửa", "quân sự", "không kích", "tập kích", "hải quân",
+        "vũ khí", "f-22", "f-35", "nato", "tàu ngầm", "quốc phòng", "chiến dịch",
+        "vũ trụ", "tàng hình", "uav", "drone", "tàu chiến", "phòng không", "hạt nhân",
+        "chiến hạm", "quân đội", "khí tài",
+    ]),
+    ("Kinh tế & Năng lượng", [
+        "kinh tế", "dầu", "năng lượng", "thương mại", "xuất khẩu", "nhập khẩu", "chip",
+        "doanh nghiệp", "lạm phát", "thị trường", "dầu mỏ", "diesel", "tài chính",
+        "giá dầu", "đầu tư", "gdp", "lãi suất", "khí đốt", "chứng khoán", "tỷ giá",
+        "thuế", "ngân hàng", "chuỗi cung ứng",
+    ]),
+    ("Ngoại giao & Thế giới", [
+        "ngoại giao", "hội nghị", "thượng đỉnh", "asean", "eu", "quan hệ", "đối thoại",
+        "hiệp định", "địa chính trị", "liên minh", "trump", "ukraine", "iran", "zelensky",
+        "bất ổn", "từ chức", "canada", "liên hợp quốc", "đàm phán", "cấm vận", "trừng phạt",
+    ]),
+    ("Đời sống & Cảnh giác", [
+        "lừa đảo", "cảnh giác", "chiêu trò", "số điện thoại", "nhấc máy", "cuộc gọi",
+        "chiếm đoạt", "giả mạo", "bẫy", "mạo danh",
     ]),
 ]
 
