@@ -1,31 +1,56 @@
 {
- "generatedAt": "2026-07-19T16:09:12+0700",
+ "generatedAt": "2026-07-19T16:13:43+0700",
  "total": 44,
  "byCategory": [
   {
-   "name": "Khác",
-   "count": 28,
-   "percent": 63.6
-  },
-  {
-   "name": "Kinh tế",
+   "name": "Kinh tế & Năng lượng",
    "count": 10,
    "percent": 22.7
   },
   {
-   "name": "Công nghệ quân sự",
+   "name": "Tâm lý & Kỹ năng sống",
+   "count": 8,
+   "percent": 18.2
+  },
+  {
+   "name": "Ngoại giao & Thế giới",
+   "count": 6,
+   "percent": 13.6
+  },
+  {
+   "name": "Gia đình & Nuôi dạy con",
+   "count": 5,
+   "percent": 11.4
+  },
+  {
+   "name": "Sức khỏe & Dinh dưỡng",
+   "count": 4,
+   "percent": 9.1
+  },
+  {
+   "name": "Quân sự & Quốc phòng",
    "count": 3,
    "percent": 6.8
   },
   {
-   "name": "Ngoại giao",
+   "name": "Khác",
    "count": 2,
    "percent": 4.5
   },
   {
-   "name": "Chính trị",
-   "count": 1,
-   "percent": 2.3
+   "name": "Thể thao",
+   "count": 2,
+   "percent": 4.5
+  },
+  {
+   "name": "Giải trí",
+   "count": 2,
+   "percent": 4.5
+  },
+  {
+   "name": "Đời sống & Cảnh giác",
+   "count": 2,
+   "percent": 4.5
   }
  ],
  "bySource": [
@@ -192,5 +217,5 @@
    "count": 2
   }
  ],
- "summary": "Trong 44 bài đã lưu, chủ đề nổi bật nhất là \"Khác\" (28 bài). Phân bổ chủ đề: Khác 28, Kinh tế 10, Công nghệ quân sự 3, Ngoại giao 2, Chính trị 1. Nguồn hay lưu nhất: Tạp chí Tri thức (11), Báo VietnamNet (7), Báo Tin Tức TTXVN (5), Báo Thế Giới & Việt Nam (3), Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân (2)."
+ "summary": "Trong 44 bài đã lưu, chủ đề nổi bật nhất là \"Kinh tế & Năng lượng\" (10 bài). Phân bổ chủ đề: Kinh tế & Năng lượng 10, Tâm lý & Kỹ năng sống 8, Ngoại giao & Thế giới 6, Gia đình & Nuôi dạy con 5, Sức khỏe & Dinh dưỡng 4, Quân sự & Quốc phòng 3, Khác 2, Thể thao 2, Giải trí 2, Đời sống & Cảnh giác 2. Nguồn hay lưu nhất: Tạp chí Tri thức (11), Báo VietnamNet (7), Báo Tin Tức TTXVN (5), Báo Thế Giới & Việt Nam (3), Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân (2)."
 }
