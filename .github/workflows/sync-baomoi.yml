@@ -5,11 +5,8 @@ name: Sync Baomoi saved articles
 # Can GitHub Secret BAOMOI_COOKIE = chuoi cookie dang nhap Bao Moi (co bmsid...).
 on:
   schedule:
-    - cron: '30 10 * * *'   # 17:30 gio VN moi ngay (test-run sau khi them secret)
+    - cron: '30 10 * * *'   # 17:30 gio VN moi ngay
   workflow_dispatch:
-  push:                     # TAM THOI: de test tren branch, se go khi dua len main
-    branches: [claude/baomoi-saved-articles-k7jvhp]
-    paths: ['scripts/baomoi_sync.py', '.github/workflows/sync-baomoi.yml']
 permissions:
   contents: write
 concurrency:
