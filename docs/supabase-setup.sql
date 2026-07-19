@@ -80,3 +80,30 @@ with (security_invoker = false) as
   from votes where title is not null and title <> ''
   group by v, title, category, region, source;
 grant select on vote_items to anon, authenticated;
+
+
+-- =====================================================================
+-- THÔNG BÁO ĐẨY (Web Push) — bảng lưu đăng ký thiết bị
+-- =====================================================================
+-- Mỗi trình duyệt/thiết bị bật thông báo sẽ lưu 1 dòng ở đây. GitHub Action
+-- `notify-push.yml` đọc bảng này và gửi push khi bản tin cập nhật.
+-- Endpoint KHÔNG thể bị lạm dụng nếu lộ (muốn gửi push hợp lệ phải có khoá
+-- riêng VAPID_PRIVATE — chỉ nằm trong GitHub Secret).
+create table if not exists push_subs (
+  endpoint   text primary key,
+  p256dh     text not null,
+  auth       text not null,
+  created_at timestamptz default now()
+);
+alter table push_subs enable row level security;
+
+-- Ai cũng được tự đăng ký / cập nhật / xoá đăng ký của thiết bị mình (không cần đăng nhập).
+drop policy if exists push_insert on push_subs;
+create policy push_insert on push_subs for insert to anon, authenticated with check (true);
+drop policy if exists push_update on push_subs;
+create policy push_update on push_subs for update to anon, authenticated using (true) with check (true);
+drop policy if exists push_delete on push_subs;
+create policy push_delete on push_subs for delete to anon, authenticated using (true);
+-- Cho phép đọc để Action (dùng publishable key) lấy danh sách thiết bị mà gửi push.
+drop policy if exists push_select on push_subs;
+create policy push_select on push_subs for select to anon, authenticated using (true);

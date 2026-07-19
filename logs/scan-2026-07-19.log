@@ -1,0 +1,8 @@
+[08:38 VN] SKIP news-scan routine: generatedAt=2026-07-19 == hom nay -> DA XONG (web-scan sang + Drive 18/07), no-op.
+[08:39 VN] SUA: dong tren ghi nham - HOM NAY LA 19/07, generatedAt=18/07 => web-scan 19/07 CHUA chay (se chay toi nay 19-21h). Sang nay chi co routine Drive 08:30 fire, nhung Google Drive MAT KET NOI nen khong nhap duoc.
+[19:08 VN] START web-scan 19/07 (khung 19+18/07).
+[20:34 VN] FAIL web-scan 19/07: agent Sonnet bi chan boi 'session limit' (reset ~13:30 UTC = 20:30 VN). Chua quet duoc. Lan fire 21:00 VN (sau reset) se quet lai; idempotent bao dam khong trung.
+[2026-07-19 21:24 ICT] DONE — 4 agent Sonnet trả kết quả (cuối tuần, tin thưa + bão hòa Mỹ-Iran).
+  Kết quả: usNews +1 (Kinh tế: Fed/Warsh reform), xNews +2 (CENTCOM Jordan casualties 17/7, đêm không kích Iran thứ 8), dipEventUpdate +1 (ASEAN SOM/EAS SOM khai mạc Manila 19/7), rejectedNews +4 (EU sanctions 17/7, Golden Dome 17/7, DARPA VENOM 16/7, Iron Beam recycled).
+  CNQS + worldNews: rỗng — không có tin đạt chuẩn trong khung 18-19/7. Chấp nhận thiếu (không nhồi).
+  Script OK, generatedAt=2026-07-19. Commit + push main.
