@@ -1,2 +1,3 @@
 [2026-07-20 19:13 ICT] SKIP — generatedAt=2026-07-20 (đã == hôm nay VN). Bản tin hôm nay đã cập nhật, không quét lại (idempotent).
 [2026-07-20 20:13 ICT] SKIP — generatedAt=2026-07-20 == hôm nay VN. Đã xong, không quét lại (idempotent, lần fire kế tiếp).
+[2026-07-20 21:10 ICT] SKIP — generatedAt=2026-07-20 == hôm nay VN. Đã xong, không quét lại (idempotent, lần fire cuối trong ngày).
