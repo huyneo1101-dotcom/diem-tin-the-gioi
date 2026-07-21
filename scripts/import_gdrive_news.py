@@ -19,10 +19,10 @@ import sys
 try:
     from google.auth.transport.requests import Request
     from google.oauth2.service_account import Credentials
-    from google.colab.auth import authenticate_user
-    import googleapiclient.discovery as discovery
-except ImportError:
-    print("ERROR: google-auth-oauthlib not installed. Run: pip install google-auth-oauthlib google-api-python-client")
+    from googleapiclient.discovery import build
+except ImportError as e:
+    print(f"ERROR: Missing Google libraries: {e}")
+    print("Run: pip install google-auth google-auth-oauthlib google-api-python-client")
     sys.exit(1)
 
 # Get folder ID from env
@@ -48,7 +48,6 @@ def build_drive_service():
     try:
         # Try using API key (simplest, but read-only)
         if API_KEY and API_KEY.startswith("AIza"):
-            from googleapiclient.discovery import build
             return build("drive", "v3", developerKey=API_KEY)
 
         # Try service account JSON from env (base64 encoded)
@@ -57,11 +56,9 @@ def build_drive_service():
             try:
                 sa_json = json.loads(base64.b64decode(API_KEY))
                 creds = Credentials.from_service_account_info(sa_json, scopes=["https://www.googleapis.com/auth/drive.readonly"])
-                from googleapiclient.discovery import build
                 return build("drive", "v3", credentials=creds)
             except Exception as e:
                 print(f"WARN: Service account decode failed ({e}), falling back to API key")
-                from googleapiclient.discovery import build
                 return build("drive", "v3", developerKey=API_KEY)
     except Exception as e:
         print(f"ERROR: Cannot build Drive service: {e}")
