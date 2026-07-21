@@ -550,21 +550,32 @@ def main() -> None:
 
     # (a) Ứng viên Báo Mới KHÔNG được chọn -> tự đổ vào mục Bị loại, không tốn token agent
     #     (dữ liệu đã đủ field sẵn trong baomoi-topics.json). Ưu tiên chủ đề người dùng thích.
-    baomoi_rejects = []
+    #     CHIA ĐỀU 4 chuyên mục (xoay vòng) thay vì lấy hết mục ưu tiên trước — kho ứng viên
+    #     lệch nặng (vd 45 Kinh tế / 5 Ngoại giao) nên xếp theo độ ưu tiên sẽ ăn hết 10 slot
+    #     bằng đúng 1 mục, người dùng không thấy được ứng viên của 3 mục còn lại.
+    #     Vòng xoay đi theo thứ tự ưu tiên nên mục thích hơn vẫn được nhiều hơn: 3-3-2-2.
     cand_pool, _ = _load_baomoi(repo_root / "baomoi-topics.json")
-    # mới nhất trước, rồi sắp lại theo thứ tự chủ đề ưu tiên (sort của Python ổn định)
-    cand_pool = sorted(cand_pool, key=lambda x: x.get("date", ""), reverse=True)
-    for it in sorted(cand_pool, key=lambda x: REJECT_CATEGORY_ORDER.get(x.get("category", ""), 9)):
-        if len(baomoi_rejects) >= BAOMOI_REJECT_PER_RUN:
-            break
+    by_cat = collections.defaultdict(collections.deque)
+    for it in sorted(cand_pool, key=lambda x: x.get("date", ""), reverse=True):  # mới nhất trước
         u = it.get("sourceUrl", "")
         if not it.get("title") or not u or u in live_urls or u in existing_urls:
             continue
-        existing_urls.add(u)
-        baomoi_rejects.append(
-            {k: v for k, v in it.items() if k != "topic"}
-            | {"reason": "Ứng viên Báo Mới không được chọn — 👍 để đưa vào bản tin", "addedAt": date}
-        )
+        by_cat[it.get("category", "")].append(it)
+
+    baomoi_rejects = []
+    cats = sorted(by_cat, key=lambda c: REJECT_CATEGORY_ORDER.get(c, 9))
+    while len(baomoi_rejects) < BAOMOI_REJECT_PER_RUN and any(by_cat[c] for c in cats):
+        for c in cats:
+            if len(baomoi_rejects) >= BAOMOI_REJECT_PER_RUN:
+                break
+            if not by_cat[c]:
+                continue  # mục hết bài -> các mục khác lấp chỗ, vẫn đủ hạn mức
+            it = by_cat[c].popleft()
+            existing_urls.add(it["sourceUrl"])
+            baomoi_rejects.append(
+                {k: v for k, v in it.items() if k != "topic"}
+                | {"reason": "Ứng viên Báo Mới không được chọn — 👍 để đưa vào bản tin", "addedAt": date}
+            )
 
     # (b) Tin agent chủ động loại (sai ngày/không hợp gu) — GIÁ TRỊ HƠN nên được xếp trước và
     #     luôn còn ít nhất REJECTED_PER_RUN - BAOMOI_REJECT_PER_RUN slot.
