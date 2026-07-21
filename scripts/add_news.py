@@ -6,12 +6,16 @@ Hoặc: python3 scripts/add_news.py --recent-titles [N]
       In ra N tiêu đề gần nhất (mặc định 20) của worldNews + usNews + xNews +
       item của exercises/dipEvents, để nhúng vào prompt các agent quét nhằm
       tránh report lại tin/sự kiện đã có. Không ghi file, chỉ đọc.
+Hoặc: python3 scripts/add_news.py --baomoi-pending
+      In các bài "đã lưu" Báo Mới (baomoi-saved.json) CHƯA có trong DATA, để giao
+      agent viết summary + significance rồi nạp lại qua section `baomoiNews`.
 
 new_items.json:
 {
   "date": "YYYY-MM-DD",
   "worldNews": [ {...}, ... ],
   "usNews": [ {...}, ... ],
+  "baomoiNews": [ {...}, ... ],
   "xNews": [ {...}, ... ],
   "exerciseUpdates": [ {"name": "<tên đúng exercise đã có trong DATA>", "items": [ {...}, ... ]} ],
   "dipEventUpdates": [ {"name": "<tên đúng dipEvent đã có trong DATA>", "items": [ {...}, ... ]} ],
@@ -23,6 +27,11 @@ new_items.json:
   có (Jaccard>=0.6) -> khi đó dùng dipEventUpdates. status: ongoing/recent/
   upcoming. Mỗi sự kiện phải có >=1 item (nguồn chứng minh), item bị kiểm tra
   ngày + link như tin thường.
+
+- baomoiNews: bài "đã lưu" Báo Mới sau khi agent viết summary + significance. Chèn
+  vào chung DATA.worldNews, gắn cờ `_baomoi` để web hiện nhãn 📌 Đã lưu. KHÔNG bị
+  kiểm tra khung ngày (người dùng tự bookmark, bài có thể cũ hàng tháng); các kiểm
+  tra khác (category, URL rác, trùng URL) vẫn áp dụng.
 
 Guardrail tự động (chặn = raise lỗi, phải sửa JSON rồi chạy lại; cảnh báo = in ra):
 - CHẶN: thiếu field, category sai, sourceUrl/url không hợp lệ, date ngoài khung
@@ -174,6 +183,29 @@ def validate_news_items(items: list, label: str, ref: datetime.date) -> None:
         check_url_quality(item["sourceUrl"], ctx)
 
 
+def validate_baomoi_items(items: list) -> None:
+    """Tin 'Bài đã lưu' Báo Mới — KHÔNG kiểm tra khung ngày.
+
+    Đây là bài NGƯỜI DÙNG tự tay bookmark, có thể lưu bài đăng từ tuần trước; chặn theo
+    khung 2 ngày như tin quét thì loại sạch. Các kiểm tra còn lại (category, URL rác,
+    trùng URL) vẫn áp dụng bình thường.
+    """
+    for idx, item in enumerate(items):
+        ctx = f"baomoiNews[{idx}]"
+        missing = NEWS_REQUIRED_FIELDS - item.keys()
+        if missing:
+            raise ValueError(f"{ctx} thiếu field: {missing}")
+        if item["category"] not in VALID_CATEGORIES:
+            raise ValueError(f"{ctx} category không hợp lệ: {item['category']}")
+        if not item["sourceUrl"].startswith("http"):
+            raise ValueError(f"{ctx} sourceUrl không hợp lệ: {item['sourceUrl']}")
+        try:
+            parse_date(item["date"])
+        except ValueError:
+            raise ValueError(f"{ctx}: date không đúng định dạng YYYY-MM-DD: {item['date']!r}")
+        check_url_quality(item["sourceUrl"], ctx)
+
+
 def validate_x_items(items: list, ref: datetime.date) -> None:
     for idx, item in enumerate(items):
         ctx = f"xNews[{idx}]"
@@ -202,7 +234,7 @@ def validate_event_updates(updates: list, label: str, ref: datetime.date) -> Non
 
 
 def iter_new_urls(new_items: dict):
-    for label in ("worldNews", "usNews"):
+    for label in ("worldNews", "usNews", "baomoiNews"):
         for idx, it in enumerate(new_items.get(label, [])):
             yield f"{label}[{idx}]", it["sourceUrl"]
     for idx, it in enumerate(new_items.get("xNews", [])):
@@ -372,6 +404,33 @@ def print_recent_titles(html_path: pathlib.Path, n: int) -> None:
             print(f"  * {ev['name']} [{ev.get('status','?')}]: {titles}")
 
 
+def print_baomoi_pending(html_path: pathlib.Path, baomoi_path: pathlib.Path) -> None:
+    """In các bài 'đã lưu' Báo Mới CHƯA có trong DATA — để giao agent viết summary+significance.
+
+    baomoi-saved.json do Action sync-baomoi sinh ra chỉ có date/category/title/sourceName/
+    sourceUrl/region, KHÔNG có summary lẫn significance (2 field guardrail bắt buộc), nên
+    phải qua 1 agent viết bổ sung trước khi chèn bằng section `baomoiNews`.
+    """
+    try:
+        saved = json.loads(baomoi_path.read_text(encoding="utf-8")).get("items", [])
+    except FileNotFoundError:
+        print("(chưa có baomoi-saved.json — Action sync-baomoi chưa chạy lần nào)")
+        return
+    html = html_path.read_text(encoding="utf-8")
+    start, end = find_data_span(html)
+    data = json.loads(html[start:end])
+    existing = collect_existing_urls(data)
+    pending = [it for it in saved if it.get("sourceUrl") and it["sourceUrl"] not in existing]
+    print(f"Báo Mới — {len(pending)}/{len(saved)} bài đã lưu CHƯA nạp vào DATA:")
+    for it in pending:
+        print(
+            f"  [{it.get('date','?')}] ({it.get('category','?')} · {it.get('region','') or 'không rõ'}) "
+            f"{it.get('title','')}\n      {it.get('sourceName','')} — {it['sourceUrl']}"
+        )
+    if not pending:
+        print("  (không có bài mới — bỏ qua agent Báo Mới)")
+
+
 def main() -> None:
     if len(sys.argv) >= 2 and sys.argv[1] == "--recent-titles":
         n = int(sys.argv[2]) if len(sys.argv) > 2 else 20
@@ -379,8 +438,17 @@ def main() -> None:
         print_recent_titles(repo_root / "index.html", n)
         return
 
+    if len(sys.argv) >= 2 and sys.argv[1] == "--baomoi-pending":
+        repo_root = pathlib.Path(__file__).resolve().parent.parent
+        print_baomoi_pending(repo_root / "index.html", repo_root / "baomoi-saved.json")
+        return
+
     if len(sys.argv) != 2:
-        print("Dùng: add_news.py <new_items.json>  |  add_news.py --recent-titles [N]", file=sys.stderr)
+        print(
+            "Dùng: add_news.py <new_items.json>  |  add_news.py --recent-titles [N]"
+            "  |  add_news.py --baomoi-pending",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     repo_root = pathlib.Path(__file__).resolve().parent.parent
@@ -389,6 +457,7 @@ def main() -> None:
 
     world_new = new_items.get("worldNews", [])
     us_new = new_items.get("usNews", [])
+    baomoi_new = new_items.get("baomoiNews", [])
     x_new = new_items.get("xNews", [])
     exercise_updates = new_items.get("exerciseUpdates", [])
     dip_updates = new_items.get("dipEventUpdates", [])
@@ -402,6 +471,7 @@ def main() -> None:
 
     validate_news_items(world_new, "worldNews", ref)
     validate_news_items(us_new, "usNews", ref)
+    validate_baomoi_items(baomoi_new)
     validate_x_items(x_new, ref)
     validate_event_updates(exercise_updates, "exerciseUpdates", ref)
     validate_event_updates(dip_updates, "dipEventUpdates", ref)
@@ -423,7 +493,11 @@ def main() -> None:
         "xNews": list(data.get("xNews", [])),
     }
 
-    data["worldNews"] = world_new + data.get("worldNews", [])
+    # Tin Báo Mới vào chung luồng worldNews, giữ cờ _baomoi để web gắn nhãn 📌 Đã lưu
+    # (và để loadBaomoi trong index.html nhận ra là đã xử lý, không trộn lại lần nữa).
+    for it in baomoi_new:
+        it["_baomoi"] = True
+    data["worldNews"] = world_new + baomoi_new + data.get("worldNews", [])
     data["usNews"] = us_new + data.get("usNews", [])
     data["xNews"] = x_new + data.get("xNews", [])
 
@@ -458,12 +532,12 @@ def main() -> None:
     # Chỉ đẩy generatedAt khi có nội dung BẢN TIN thật — lô chỉ có rejectedNews
     # (tin bị loại) KHÔNG được coi là "đã cập nhật bản tin" (tránh làm routine quét SKIP nhầm).
     content_added = bool(
-        world_new or us_new or x_new
+        world_new or us_new or x_new or baomoi_new
         or exercise_items_added or dip_items_added or new_dip_events
     )
     if content_added:
         data["generatedAt"] = date
-    if world_new:
+    if world_new or baomoi_new:
         data["worldGeneratedAt"] = date
     if us_new:
         data["usGeneratedAt"] = date
@@ -475,8 +549,9 @@ def main() -> None:
 
     new_ev_note = f", +{len(new_dip_events)} SỰ KIỆN ngoại giao MỚI" if new_dip_events else ""
     rej_note = f", +{rejected_added} tin BỊ LOẠI (mục Bị loại)" if rejected_added else ""
+    bm_note = f", +{len(baomoi_new)} tin Báo Mới (📌 đã lưu)" if baomoi_new else ""
     print(
-        f"OK: +{len(world_new)} tin Thế giới, +{len(us_new)} tin Mỹ, +{len(x_new)} tin X, "
+        f"OK: +{len(world_new)} tin Thế giới{bm_note}, +{len(us_new)} tin Mỹ, +{len(x_new)} tin X, "
         f"+{exercise_items_added} tin tập trận, +{dip_items_added} tin ngoại giao (sự kiện){new_ev_note}{rej_note}. generatedAt={date}"
     )
     for ev in new_dip_events:

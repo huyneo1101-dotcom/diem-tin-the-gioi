@@ -5,8 +5,10 @@ name: Sync Baomoi saved articles
 # Can GitHub Secret BAOMOI_COOKIE = chuoi cookie dang nhap Bao Moi (co bmsid...).
 on:
   schedule:
-    - cron: '30 1,13 * * *'   # 08:30 & 20:30 gio VN — de import-news-from-drive (08:00/20:00) xong han
-                              # roi moi chay, tranh 2 job cung push vao main mot luc
+    - cron: '5 1,13 * * *'   # 08:05 & 20:05 gio VN — chay SAU import-news-from-drive (08:00/20:00)
+                             # va TRUOC routine quet web (08:15/20:15), de phien quet thay du
+                             # ca tin Drive lan bai da luu Bao Moi ma ne trung. Push race da co
+                             # pull --rebase + retry o buoc commit ben duoi.
   workflow_dispatch:
 permissions:
   contents: write

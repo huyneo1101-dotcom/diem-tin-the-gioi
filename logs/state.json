@@ -1,14 +1,20 @@
 {
   "drive-import": {
     "lastRunAt": "2026-07-21T08:46:00+07:00",
+    "lastSlot": "sang",
     "lastStatus": "DONE",
     "note": "seed: ban 0800-ICT, +2 tin (TG+1, My+1) + cap nhat ASEAN",
-    "lastSuccessDate": "2026-07-21"
+    "lastSuccess": {
+      "sang": "2026-07-21"
+    }
   },
   "web-scan": {
     "lastRunAt": "2026-07-19T21:24:00+07:00",
+    "lastSlot": "toi",
     "lastStatus": "DONE",
     "note": "seed: lan quet 6-agent gan nhat; 20-21/07 bi SKIP nham do dung chung co generatedAt",
-    "lastSuccessDate": "2026-07-19"
+    "lastSuccess": {
+      "toi": "2026-07-19"
+    }
   }
 }

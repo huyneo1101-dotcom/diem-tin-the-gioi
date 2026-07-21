@@ -38,9 +38,14 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
   ```
   python3 scripts/state.py check web-scan
   ```
-  In `SKIP` → hôm nay đã quét xong: ghi log `SKIP`, push log, KẾT THÚC. In `RUN` → quét tiếp.
+  In `SKIP` → buổi này đã quét xong: ghi log `SKIP`, push log, KẾT THÚC. In `RUN` → quét tiếp.
+  Cờ tách theo BUỔI (`sang` trước 14:00 VN, `toi` từ 14:00) nên bản sáng không chặn bản tối.
   (`generatedAt` là ngày bản tin hiển thị trên web — Action nhập tin từ Drive lúc 08:00 cũng bump nó,
-  nên dùng nó làm cờ sẽ khiến phiên quét tối SKIP oan. Đã xảy ra 20–21/07/2026.)
+  nên dùng nó làm cờ sẽ khiến phiên quét SKIP oan. Đã xảy ra 20–21/07/2026.)
+- **Chạy lúc 08:15 & 20:15 VN** (dự phòng 09:15 & 21:15 — tự no-op nếu mốc chính đã DONE).
+  Trước đó Action đã nạp sẵn: `import-news-from-drive` (08:00/20:00) + `sync-baomoi` (08:05/20:05).
+  **Kéo bản mới nhất về trước khi làm gì**: `git pull --rebase origin main` — nếu không sẽ quét
+  trùng đúng những tin 2 Action vừa nạp.
 - Nếu lỗi ở bất kỳ bước nào: ghi `[<giờ>] FAIL tại <bước>: <lý do ngắn>`, chạy
   `python3 scripts/state.py fail web-scan "<lý do>"` (FAIL không chặn lần fire sau), push log, rồi dừng.
 
@@ -54,7 +59,10 @@ Sau đó lấy dữ liệu nền (chỉ grep, không đọc cả file):
 ```
 grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn   # nguồn đã dùng nhiều → né
 python3 scripts/add_news.py --recent-titles 20                          # tiêu đề gần đây → chống trùng
+python3 scripts/add_news.py --baomoi-pending                            # bài Báo Mới chưa nạp → Agent 7
 ```
+Output `--recent-titles` đã bao gồm tin Action Drive vừa nạp lúc 08:00/20:00 → nhúng nguyên khối
+vào prompt mọi agent là tự động né trùng với bản tin Drive.
 
 **Đọc sở thích người đọc** (suy từ 👍/👎) để điều hướng mềm — đọc file LOCAL, không cần mạng ngoài:
 ```
@@ -70,7 +78,7 @@ quy trình quét từ `preferences.json`.
 tối thiểu 2 tin/category theo CLAUDE.md, không bỏ hẳn mục nào, không ghi đè quy tắc nguồn 3 tầng). Nhúng
 top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 
-## Bước 2 — Giao 6 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
+## Bước 2 — Giao 7 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
 | Agent | Phạm vi | Sản lượng (khung 2 ngày, best-effort) |
 |---|---|---|
 | 1 | Kinh tế — worldNews + usNews | 1–2 mỗi mục (CHỈ vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
@@ -79,6 +87,17 @@ top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 | 4 | Ngoại giao — worldNews + usNews | **2–4 mỗi mục** (hiệp định/khuôn khổ an ninh-QP có kết quả) |
 | 5 | xNews | 2–4 tin (ưu tiên QP/an ninh/chính thức) |
 | 6 | exercises + dipEvents (cập nhật `ongoing` + tạo sự kiện ngoại giao mới nếu có) | 1–2 mỗi loại |
+| 7 | **Báo Mới** — viết `summary` + `significance` cho bài đã lưu | tất cả bài `--baomoi-pending` |
+
+**Agent 7 (Báo Mới)** — KHÔNG quét web tìm tin mới, chỉ xử lý danh sách có sẵn. Nhúng nguyên khối
+output `--baomoi-pending` (bước 1) vào prompt, yêu cầu với MỖI bài:
+- Mở `sourceUrl` (WebFetch) để đọc nội dung thật → viết `summary` 2–3 câu và `significance`
+  (ý nghĩa chiến lược) đúng giọng bản tin. Không đọc được thì viết từ tiêu đề, KHÔNG bịa chi tiết.
+- Giữ nguyên `date`, `title`, `sourceName`, `sourceUrl`; **sửa lại `category`/`region` nếu phân loại
+  tự động sai** (`category` chỉ trong 4 mục hợp lệ).
+- Trả về mảng JSON đặt vào field **`baomoiNews`**. Bài đã lưu là do người dùng TỰ CHỌN nên
+  **KHÔNG áp bộ lọc sở thích, KHÔNG loại vì cũ** — guardrail cũng miễn kiểm tra ngày cho mục này.
+- Không có bài nào pending → bỏ qua agent này.
 
 Tổng thực tế ~10–20 tin/ngày (CHỈ 2 ngày gần nhất) — đủ thì lấy, thiếu thì thôi, KHÔNG nới ngày/bộ lọc. Dồn cho Công nghệ quân sự + Ngoại giao. Xem chỉ tiêu + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
 
@@ -128,6 +147,7 @@ Gộp tin ĐẠT + tin bị loại vào `/tmp/new_items.json`:
 {
   "date": "YYYY-MM-DD",
   "worldNews": [ ... ], "usNews": [ ... ], "xNews": [ ... ],
+  "baomoiNews": [ ... ],
   "exerciseUpdates": [ {"name":"<tên đúng đã có>","items":[ ... ]} ],
   "dipEventUpdates": [ {"name":"<tên đúng đã có>","items":[ ... ]} ],
   "newDipEvents": [ {"name","status","dates","location","scale","summary","items":[ ... ]} ],
