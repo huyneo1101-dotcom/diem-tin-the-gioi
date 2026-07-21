@@ -108,6 +108,8 @@ Khác nhau ở chỗ:
   Công nghệ quân sự + Ngoại giao, mỗi bài một sự kiện KHÁC nhau, né trùng với `--recent-titles`.
   Chỉ chọn **3–6 bài** đáng đưa nhất. Trả về field **`worldNews`** như tin thường (KHÔNG phải
   `baomoiNews`, không gắn nhãn 📌 — đây không phải bài người dùng lưu).
+  **KHÔNG cần liệt kê các bài không chọn** — `add_news.py` tự lấy 10 bài trong số còn lại đổ vào
+  mục 🚫 Bị loại (ưu tiên CNQS → Ngoại giao → Kinh tế → Chính trị), khỏi tốn token viết lại.
 
 Tổng thực tế ~10–20 tin/ngày (CHỈ 2 ngày gần nhất) — đủ thì lấy, thiếu thì thôi, KHÔNG nới ngày/bộ lọc. Dồn cho Công nghệ quân sự + Ngoại giao. Xem chỉ tiêu + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
 

@@ -53,6 +53,13 @@ VALID_CATEGORIES = {"Kinh tế", "Chính trị", "Công nghệ quân sự", "Ngo
 MIN_PER_CATEGORY = 2
 MAX_AGE_DAYS = 1  # CHỈ nhận 2 ngày gần nhất (hôm nay + hôm qua); cũ hơn -> chặn
 
+# Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
+# ứng viên Báo Mới (~80 bài/lần) không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent
+# phải loại vì ngày/nghi trùng — đó mới là thứ người dùng cần rà để 👍 cứu.
+REJECTED_PER_RUN = 20          # tổng thêm mỗi lần quét
+BAOMOI_REJECT_PER_RUN = 10     # trong đó, phần ứng viên chuyên mục Báo Mới
+REJECT_CATEGORY_ORDER = {"Công nghệ quân sự": 0, "Ngoại giao": 1, "Kinh tế": 2, "Chính trị": 3}
+
 X_REQUIRED_FIELDS = {"date", "handle", "name", "title", "summary", "significance", "url"}
 EVENT_ITEM_REQUIRED_FIELDS = {"date", "title", "summary", "sourceName", "sourceUrl"}
 
@@ -530,23 +537,47 @@ def main() -> None:
     # rejectedNews: tin bị loại khi quét — hiện ở mục "Bị loại" trên web để người dùng cứu (like)
     # hoặc xác nhận không thích (dislike). Không áp guardrail ngày/trùng-DATA (chúng là tin bị loại,
     # có thể cũ); chỉ cần title + sourceUrl, kèm 'reason'. Chống trùng trong rejectedNews + với tin live.
-    rejected_added = 0
-    if rejected_new:
-        live_urls = {i.get("sourceUrl", "") for i in data.get("worldNews", [])} | {i.get("sourceUrl", "") for i in data.get("usNews", [])}
-        existing = data.get("rejectedNews", [])
-        existing_urls = {i.get("sourceUrl", "") for i in existing}
-        clean = []
-        for it in rejected_new:
-            u = it.get("sourceUrl", "")
-            if not it.get("title") or not u:
-                continue
-            if u in live_urls or u in existing_urls:
-                continue
-            it.setdefault("reason", "")
-            existing_urls.add(u)
-            clean.append(it)
-        data["rejectedNews"] = (clean + existing)[:80]
-        rejected_added = len(clean)
+    # KHÔNG giới hạn tổng số, chỉ giới hạn số thêm MỖI LẦN QUÉT (xem 2 hằng số ở đầu file).
+    live_urls = {i.get("sourceUrl", "") for i in data.get("worldNews", [])} | {
+        i.get("sourceUrl", "") for i in data.get("usNews", [])
+    }
+    existing = data.get("rejectedNews", [])
+    existing_urls = {i.get("sourceUrl", "") for i in existing}
+
+    # (a) Ứng viên Báo Mới KHÔNG được chọn -> tự đổ vào mục Bị loại, không tốn token agent
+    #     (dữ liệu đã đủ field sẵn trong baomoi-topics.json). Ưu tiên chủ đề người dùng thích.
+    baomoi_rejects = []
+    cand_pool, _ = _load_baomoi(repo_root / "baomoi-topics.json")
+    # mới nhất trước, rồi sắp lại theo thứ tự chủ đề ưu tiên (sort của Python ổn định)
+    cand_pool = sorted(cand_pool, key=lambda x: x.get("date", ""), reverse=True)
+    for it in sorted(cand_pool, key=lambda x: REJECT_CATEGORY_ORDER.get(x.get("category", ""), 9)):
+        if len(baomoi_rejects) >= BAOMOI_REJECT_PER_RUN:
+            break
+        u = it.get("sourceUrl", "")
+        if not it.get("title") or not u or u in live_urls or u in existing_urls:
+            continue
+        existing_urls.add(u)
+        baomoi_rejects.append(
+            {k: v for k, v in it.items() if k != "topic"}
+            | {"reason": "Ứng viên Báo Mới không được chọn — 👍 để đưa vào bản tin"}
+        )
+
+    # (b) Tin agent chủ động loại (sai ngày/không hợp gu) — GIÁ TRỊ HƠN nên được xếp trước và
+    #     luôn còn ít nhất REJECTED_PER_RUN - BAOMOI_REJECT_PER_RUN slot.
+    clean = []
+    for it in rejected_new:
+        if len(clean) >= REJECTED_PER_RUN - len(baomoi_rejects):
+            break
+        u = it.get("sourceUrl", "")
+        if not it.get("title") or not u or u in live_urls or u in existing_urls:
+            continue
+        it.setdefault("reason", "")
+        existing_urls.add(u)
+        clean.append(it)
+
+    rejected_added = len(clean) + len(baomoi_rejects)
+    if rejected_added:
+        data["rejectedNews"] = clean + baomoi_rejects + existing
 
     # Chỉ đẩy generatedAt khi có nội dung BẢN TIN thật — lô chỉ có rejectedNews
     # (tin bị loại) KHÔNG được coi là "đã cập nhật bản tin" (tránh làm routine quét SKIP nhầm).

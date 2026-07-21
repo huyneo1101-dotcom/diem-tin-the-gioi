@@ -253,6 +253,12 @@ timestamp thật của Báo Mới) và đúng 4 chủ đề của web. Cả hai 
 ```
 python3 scripts/add_news.py --baomoi-pending   # in cả 2 nhóm, đã bỏ bài quá 24h + bài đã có trong DATA
 ```
+**Ứng viên không được chọn → tự vào mục 🚫 Bị loại** (người dùng 👍 để cứu lên bản tin). Agent KHÔNG
+phải liệt kê lại — `add_news.py` tự đọc `baomoi-topics.json` và lấy phần chưa dùng. Hạn mức mỗi lần
+quét (hằng số đầu `add_news.py`): `REJECTED_PER_RUN = 20` tổng, trong đó `BAOMOI_REJECT_PER_RUN = 10`
+là ứng viên Báo Mới (ưu tiên CNQS → Ngoại giao → Kinh tế → Chính trị, mới nhất trước).
+**Tổng mục Bị loại KHÔNG giới hạn** — chỉ giới hạn lượng thêm mỗi lần, để một lô ~80 ứng viên Báo Mới
+không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent phải loại vì ngày/nghi trùng.
 Lệnh này **tự loại bài ngoài khung ngày** trước khi tới tay agent — nếu Action lỗi và file trong
 repo là bản cũ, agent sẽ không nhìn thấy bài quá hạn, tránh việc guardrail chặn NGUYÊN LÔ và mất
 cả bản tin. `baomoiNews` áp đúng khung ngày như tin thường (chốt chặn lớp hai).
