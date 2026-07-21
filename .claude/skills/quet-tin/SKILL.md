@@ -34,9 +34,15 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
   sạch dấu vết — đây chính là lý do trước đây Routine fail mà không có log nào.)
 - **Checkpoint sau MỖI mốc lớn** (xong baseline · xong 6 agent · xong script · trước khi push tin):
   ghi thêm 1 dòng `[<giờ>] <mốc>: <tóm tắt>` vào log rồi push ngay → biết chính xác chết ở đâu.
-- Idempotent: `grep -oE '"generatedAt":"[^"]+"' index.html | head -1`. Nếu == `$NGAY` → đã xong:
-  ghi `SKIP`, push log, KẾT THÚC (không quét lại).
-- Nếu lỗi ở bất kỳ bước nào: ghi `[<giờ>] FAIL tại <bước>: <lý do ngắn>`, push log, rồi dừng.
+- Idempotent — **dùng cờ riêng của pipeline `web-scan`, KHÔNG dùng `generatedAt`**:
+  ```
+  python3 scripts/state.py check web-scan
+  ```
+  In `SKIP` → hôm nay đã quét xong: ghi log `SKIP`, push log, KẾT THÚC. In `RUN` → quét tiếp.
+  (`generatedAt` là ngày bản tin hiển thị trên web — Action nhập tin từ Drive lúc 08:00 cũng bump nó,
+  nên dùng nó làm cờ sẽ khiến phiên quét tối SKIP oan. Đã xảy ra 20–21/07/2026.)
+- Nếu lỗi ở bất kỳ bước nào: ghi `[<giờ>] FAIL tại <bước>: <lý do ngắn>`, chạy
+  `python3 scripts/state.py fail web-scan "<lý do>"` (FAIL không chặn lần fire sau), push log, rồi dừng.
 
 ## Bước 1 — Nguồn + dữ liệu nền
 **Nguồn quét lấy từ `CLAUDE.md`** (tự nạp trong context): đọc mục **"Nguồn theo 3 tầng"** (chính
@@ -144,9 +150,14 @@ hoặc thiếu field. **CẢNH BÁO** (không chặn): nguồn lạ; tiêu đề
 - Nếu thật sự không đủ tin sạch → chấp nhận, nêu rõ trong tóm tắt.
 
 ## Bước 5 — Xuất bản + log
-- Commit: `Cap nhat ban tin DD/MM: +N tin (TG +x, My +y, X +z)`; `git add index.html logs/`.
-- Push nhánh `main` (branch deploy → GitHub Pages tự cập nhật). Ghi log `[$T] DONE: ...`. Nếu FAIL
-  ở bất kỳ bước nào, ghi log `FAIL tại <bước>: <lý do>` và VẪN push log (git không cần mạng ngoài).
+- Đánh dấu xong: `python3 scripts/state.py done web-scan "+N tin (TG +x, My +y, X +z)"` — CHỈ gọi khi
+  thật sự nạp được tin; lô rỗng thì dùng `skip` để lần fire sau còn quét lại.
+- Commit: `Cap nhat ban tin DD/MM: +N tin (TG +x, My +y, X +z)`; `git add index.html logs/`
+  (`logs/state.json` nằm trong đó — phải commit kèm, nếu không lần fire sau sẽ quét lại từ đầu).
+- Push nhánh `main` (branch deploy → GitHub Pages tự cập nhật). **Push bị từ chối** (3 GitHub Action
+  cũng push vào `main`) → `git pull --rebase origin main` rồi push lại, tối đa vài lần.
+- Ghi log `[$T] DONE: ...`. Nếu FAIL ở bất kỳ bước nào, ghi log `FAIL tại <bước>: <lý do>` và VẪN
+  push log (git không cần mạng ngoài).
 
 ## Bước 6 — Tóm tắt cuối
 Ngắn gọn: tổng số tin từng phần, bảng phân bổ category, phần thiếu chỉ tiêu (nếu có), nguồn nổi bật,
