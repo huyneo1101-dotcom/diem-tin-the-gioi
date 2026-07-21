@@ -1,240 +1,300 @@
 #!/usr/bin/env python3
 """
 Import news from Google Drive ban-tin-chien-luoc JSON files.
-Searches for files from the last 2 days (VN time), downloads, deduplicates, and saves to /tmp/new_items.json.
+
+Tìm MỌI file ban-tin-chien-luoc-YYYY-MM-DD-HHMM-ICT.json trong khung 2 ngày
+(hôm nay + hôm qua, giờ VN), tải hết, GỘP thành MỘT batch duy nhất (dedupe theo
+URL, ưu tiên ấn bản mới nhất), rồi ghi ra /tmp/new_items.json cho add_news.py.
 
 Requires:
   - GOOGLE_DRIVE_FOLDER_ID: Folder ID on Drive
   - GDRIVE_API_KEY: API key for Google Drive API (or service account JSON as base64)
-  - TZ: Set to Asia/Ho_Chi_Minh for correct date handling
 """
 
 import os
+import time
 import json
-import subprocess
+import re
 from datetime import datetime, timedelta
 from pathlib import Path
 import sys
 
 try:
-    from google.auth.transport.requests import Request
-    from google.oauth2.service_account import Credentials
     from googleapiclient.discovery import build
+    from google.oauth2.service_account import Credentials
 except ImportError as e:
     print(f"ERROR: Missing Google libraries: {e}")
     print("Run: pip install google-auth google-auth-oauthlib google-api-python-client")
     sys.exit(1)
 
-# Get folder ID from env
 FOLDER_ID = os.getenv("GOOGLE_DRIVE_FOLDER_ID")
 API_KEY = os.getenv("GDRIVE_API_KEY")
 
-if not FOLDER_ID:
-    print("ERROR: GOOGLE_DRIVE_FOLDER_ID not set")
-    sys.exit(1)
-
-# Set timezone to VN
+# Giờ VN — phải gọi tzset() thì datetime.now() mới thực sự đổi múi giờ trên Linux
 os.environ["TZ"] = "Asia/Ho_Chi_Minh"
+try:
+    time.tzset()
+except AttributeError:  # Windows
+    pass
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+OUTPUT_PATH = "/tmp/new_items.json"
+
+NEWS_SECTIONS = ("worldNews", "usNews")
+EVENT_UPDATE_SECTIONS = ("exerciseUpdates", "dipEventUpdates")
+
+_log_lines = []
+
+
+def log(msg: str) -> None:
+    """In ra stdout (cho Action log) VÀ gom lại để ghi vào logs/gdrive-<ngày>.log."""
+    print(msg)
+    _log_lines.append(msg)
+
+
+def flush_log(status: str) -> None:
+    """Ghi log ngày + cập nhật cờ pipeline 'drive-import' trong logs/state.json.
+
+    Cờ nằm RIÊNG khỏi DATA.generatedAt: generatedAt là ngày bản tin hiển thị trên web,
+    không phải cờ "pipeline nào đã chạy" (xem scripts/state.py).
+    """
+    today = datetime.now().strftime("%Y-%m-%d")
+    hhmm = datetime.now().strftime("%H:%M")
+    log_path = REPO_ROOT / "logs" / f"gdrive-{today}.log"
+    detail = " | ".join(_log_lines)
+    try:
+        log_path.parent.mkdir(exist_ok=True)
+        header = "" if log_path.exists() else f"# Log nhap ban tin tu Google Drive - {today} (gio VN)\n"
+        with log_path.open("a", encoding="utf-8") as f:
+            f.write(f"{header}[{hhmm} VN] {status} (GitHub Action) {detail}\n")
+    except Exception as e:  # log không được thì cũng đừng làm hỏng job
+        print(f"WARN: khong ghi duoc log: {e}")
+    try:
+        sys.path.insert(0, str(REPO_ROOT / "scripts"))
+        import state
+
+        state.STATE_PATH = REPO_ROOT / "logs" / "state.json"
+        state.record("drive-import", status, detail[:300])
+    except Exception as e:
+        print(f"WARN: khong cap nhat duoc state.json: {e}")
+
 
 def get_vn_dates():
-    """Get today and yesterday dates in VN timezone (YYYY-MM-DD format)."""
+    """Hôm nay + hôm qua theo giờ VN (YYYY-MM-DD)."""
     now = datetime.now()
-    today = now.strftime("%Y-%m-%d")
-    yesterday = (now - timedelta(days=1)).strftime("%Y-%m-%d")
-    return [today, yesterday]
+    return [now.strftime("%Y-%m-%d"), (now - timedelta(days=1)).strftime("%Y-%m-%d")]
+
 
 def build_drive_service():
-    """Build Google Drive API service."""
+    if not API_KEY:
+        print("ERROR: GDRIVE_API_KEY not set")
+        sys.exit(1)
     try:
-        # Try using API key (simplest, but read-only)
-        if API_KEY and API_KEY.startswith("AIza"):
+        if API_KEY.startswith("AIza"):
             return build("drive", "v3", developerKey=API_KEY)
+        # Service account JSON dạng base64
+        import base64
 
-        # Try service account JSON from env (base64 encoded)
-        if API_KEY and not API_KEY.startswith("AIza"):
-            import base64
-            try:
-                sa_json = json.loads(base64.b64decode(API_KEY))
-                creds = Credentials.from_service_account_info(sa_json, scopes=["https://www.googleapis.com/auth/drive.readonly"])
-                return build("drive", "v3", credentials=creds)
-            except Exception as e:
-                print(f"WARN: Service account decode failed ({e}), falling back to API key")
-                return build("drive", "v3", developerKey=API_KEY)
+        try:
+            sa_json = json.loads(base64.b64decode(API_KEY))
+            creds = Credentials.from_service_account_info(
+                sa_json, scopes=["https://www.googleapis.com/auth/drive.readonly"]
+            )
+            return build("drive", "v3", credentials=creds)
+        except Exception as e:
+            print(f"WARN: Service account decode failed ({e}), falling back to API key")
+            return build("drive", "v3", developerKey=API_KEY)
     except Exception as e:
         print(f"ERROR: Cannot build Drive service: {e}")
         sys.exit(1)
 
+
 def download_file(service, file_id):
-    """Download file content from Drive as JSON."""
     try:
-        request = service.files().get_media(fileId=file_id)
-        content = request.execute()
+        content = service.files().get_media(fileId=file_id).execute()
         return json.loads(content.decode("utf-8"))
     except Exception as e:
-        print(f"WARN: Failed to download {file_id}: {e}")
+        log(f"WARN: tai/parse that bai {file_id}: {e}")
         return None
+
 
 def search_news_files(service, folder_id, dates):
-    """Search for ban-tin-chien-luoc files from last 2 days in VN TZ."""
-    file_pattern_prefix = "ban-tin-chien-luoc-"
+    """Tìm TẤT CẢ file ban-tin-chien-luoc của các ngày trong khung (không lọc bớt)."""
     results = []
-
     for date_str in dates:
         try:
-            # Search for files matching the pattern
-            query = f"'{folder_id}' in parents and trashed=false and name contains '{file_pattern_prefix}{date_str}'"
-            files = service.files().list(
-                q=query,
-                spaces="drive",
-                fields="files(id, name, modifiedTime, mimeType)",
-                pageSize=10
-            ).execute().get("files", [])
-
-            for file in files:
-                if file["mimeType"] == "application/json":
-                    results.append({
-                        "id": file["id"],
-                        "name": file["name"],
-                        "date_str": date_str,
-                        "modified": file.get("modifiedTime")
-                    })
-                    print(f"Found: {file['name']} (modified: {file.get('modifiedTime')})")
+            query = (
+                f"'{folder_id}' in parents and trashed=false "
+                f"and name contains 'ban-tin-chien-luoc-{date_str}'"
+            )
+            files = (
+                service.files()
+                .list(q=query, spaces="drive", fields="files(id, name, modifiedTime, mimeType)", pageSize=25)
+                .execute()
+                .get("files", [])
+            )
+            for f in files:
+                if f["name"].endswith(".json"):
+                    results.append(
+                        {"id": f["id"], "name": f["name"], "date_str": date_str, "modified": f.get("modifiedTime")}
+                    )
         except Exception as e:
-            print(f"WARN: Search for {date_str} failed: {e}")
-
+            log(f"WARN: tim file ngay {date_str} loi: {e}")
     return results
 
-def extract_edition_time(filename):
-    """Extract edition time from filename (e.g., 2026-07-21-2000 -> 20:00)."""
-    # Pattern: ban-tin-chien-luoc-YYYY-MM-DD-HHMM-ICT.json
-    parts = filename.replace(".json", "").split("-")
-    if len(parts) >= 5:
-        hhmm = parts[-2]  # -2 because last is "ICT"
-        if len(hhmm) == 4 and hhmm.isdigit():
-            return f"{hhmm[0:2]}:{hhmm[2:4]}"
-    return "unknown"
+
+def edition_key(f):
+    """Khoá sắp xếp ấn bản: (ngày, giờ phát hành trong tên file). Mới nhất = lớn nhất."""
+    m = re.search(r"(\d{4}-\d{2}-\d{2})-(\d{4})", f["name"])
+    if m:
+        return (m.group(1), m.group(2))
+    return (f["date_str"], "0000")
+
 
 def get_existing_urls():
-    """Extract all existing URLs from index.html to prevent duplicates."""
-    index_path = Path("index.html")
+    """Mọi sourceUrl/url đã có trong index.html — để không nhập lại tin cũ."""
+    index_path = REPO_ROOT / "index.html"
     if not index_path.exists():
         return set()
-
     try:
-        content = index_path.read_text()
-        # Simple grep for sourceUrl
-        import re
-        urls = set(re.findall(r'"sourceUrl":"([^"]+)"', content))
-        return urls
+        content = index_path.read_text(encoding="utf-8")
+        return set(re.findall(r'"(?:sourceUrl|url)":"([^"]+)"', content))
     except Exception as e:
-        print(f"WARN: Could not read existing URLs: {e}")
+        log(f"WARN: khong doc duoc URL cu: {e}")
         return set()
 
-def process_and_save_batch(batch_data, existing_urls, output_path="/tmp/new_items.json"):
-    """Process batch, deduplicate, and save to output."""
-    if not batch_data:
-        return None
 
-    processed = {
-        "date": batch_data.get("date", datetime.now().strftime("%Y-%m-%d")),
+def merge_batches(batches, existing_urls, window):
+    """Gộp nhiều file bản tin thành MỘT batch.
+
+    batches: list các dict bản tin, đã sắp MỚI NHẤT TRƯỚC (bản mới thắng khi trùng URL).
+    window: set các ngày (YYYY-MM-DD) được phép — item ngoài khung bị đẩy sang rejectedNews
+            thay vì để add_news.py chặn cả lô.
+    """
+    out = {
+        "date": max(window),
         "worldNews": [],
         "usNews": [],
         "xNews": [],
+        "exerciseUpdates": [],
         "dipEventUpdates": [],
         "newDipEvents": [],
-        "exerciseUpdates": [],
-        "rejectedNews": []
+        "rejectedNews": [],
     }
+    seen = set(existing_urls)  # URL đã dùng: trong index.html hoặc đã nhận ở lô này
+    stats = {"trung": 0, "ngoai_khung": 0, "thieu_url": 0}
 
-    # Process world news
-    for item in batch_data.get("worldNews", []):
-        if item.get("sourceUrl") not in existing_urls:
-            processed["worldNews"].append(item)
-        else:
-            processed["rejectedNews"].append({**item, "reason": "URL trùng"})
+    def take(item, url_field):
+        """True nếu item hợp lệ & chưa trùng → nhận. Ngược lại ghi lý do."""
+        url = item.get(url_field)
+        if not url:
+            stats["thieu_url"] += 1
+            return False
+        if url in seen:
+            stats["trung"] += 1
+            return False
+        if item.get("date") not in window:
+            stats["ngoai_khung"] += 1
+            out["rejectedNews"].append(
+                {**item, "sourceUrl": url, "reason": f"ngoài khung 2 ngày ({item.get('date')})"}
+            )
+            seen.add(url)
+            return False
+        seen.add(url)
+        return True
 
-    # Process US news
-    for item in batch_data.get("usNews", []):
-        if item.get("sourceUrl") not in existing_urls:
-            processed["usNews"].append(item)
-        else:
-            processed["rejectedNews"].append({**item, "reason": "URL trùng"})
+    updates_by_name = {k: {} for k in EVENT_UPDATE_SECTIONS}
+    new_events_by_name = {}
 
-    # Process X news (if present)
-    for item in batch_data.get("xNews", []):
-        if item.get("url") not in existing_urls:
-            processed["xNews"].append(item)
+    for batch in batches:
+        for section in NEWS_SECTIONS:
+            for item in batch.get(section, []):
+                if take(item, "sourceUrl"):
+                    out[section].append(item)
 
-    # Pass through other sections (dipEventUpdates, newDipEvents, exerciseUpdates)
-    processed["dipEventUpdates"] = batch_data.get("dipEventUpdates", [])
-    processed["newDipEvents"] = batch_data.get("newDipEvents", [])
-    processed["exerciseUpdates"] = batch_data.get("exerciseUpdates", [])
-    processed["rejectedNews"].extend(batch_data.get("rejectedNews", []))
+        for item in batch.get("xNews", []):
+            if take(item, "url"):
+                out["xNews"].append(item)
 
-    # Save to output
-    Path(output_path).write_text(json.dumps(processed, ensure_ascii=False, indent=2))
+        # Cập nhật sự kiện: gộp theo tên, item dedupe theo sourceUrl
+        for section in EVENT_UPDATE_SECTIONS:
+            for upd in batch.get(section, []):
+                name = upd.get("name")
+                if not name:
+                    continue
+                items = [it for it in upd.get("items", []) if take(it, "sourceUrl")]
+                if items:
+                    updates_by_name[section].setdefault(name, []).extend(items)
 
-    # Log summary
-    total = len(processed["worldNews"]) + len(processed["usNews"]) + len(processed["xNews"])
-    print(f"✓ Processed: {len(processed['worldNews'])} world + {len(processed['usNews'])} US + {len(processed['xNews'])} X news")
-    if processed["rejectedNews"]:
-        print(f"  Loại: {len(processed['rejectedNews'])} tin")
+        # Sự kiện ngoại giao mới: dedupe theo tên (bản mới nhất thắng)
+        for ev in batch.get("newDipEvents", []):
+            name = ev.get("name")
+            if not name or name in new_events_by_name:
+                continue
+            items = [it for it in ev.get("items", []) if take(it, "sourceUrl")]
+            if items:
+                new_events_by_name[name] = {**ev, "items": items}
 
-    return total
+        # Tin bị loại sẵn trong file nguồn
+        out["rejectedNews"].extend(batch.get("rejectedNews", []))
+
+    for section in EVENT_UPDATE_SECTIONS:
+        out[section] = [{"name": n, "items": items} for n, items in updates_by_name[section].items()]
+    out["newDipEvents"] = list(new_events_by_name.values())
+
+    return out, stats
+
 
 def main():
-    print("=" * 60)
-    print("Import news from Google Drive")
-    print("=" * 60)
+    if not FOLDER_ID:
+        print("ERROR: GOOGLE_DRIVE_FOLDER_ID not set")
+        sys.exit(1)
 
-    # Get VN dates
     vn_dates = get_vn_dates()
-    print(f"Searching for files from: {', '.join(vn_dates)}")
-
-    # Build Drive service
-    print("Connecting to Google Drive...")
+    window = set(vn_dates)
     service = build_drive_service()
 
-    # Search for files
     files = search_news_files(service, FOLDER_ID, vn_dates)
-
     if not files:
-        print("No news files found on Drive.")
+        log(f"khong tim thay file ban-tin-chien-luoc nao cho {', '.join(vn_dates)}")
+        flush_log("SKIP")
         return 0
 
-    # Get existing URLs
+    # Mới nhất trước — khi trùng URL thì bản mới thắng, và tin mới nằm đầu danh sách
+    files.sort(key=edition_key, reverse=True)
+    log(f"tim thay {len(files)} file: {', '.join(f['name'] for f in files)}")
+
     existing_urls = get_existing_urls()
-    print(f"Existing URLs to avoid: {len(existing_urls)}")
+    batches = [b for b in (download_file(service, f["id"]) for f in files) if b]
+    if not batches:
+        log("tai duoc 0 file hop le")
+        flush_log("FAIL")
+        return 0
 
-    # Download and process files
-    # Prefer newer editions (evening > morning for same date)
-    files_by_date = {}
-    for f in files:
-        date = f["date_str"]
-        edition_time = extract_edition_time(f["name"])
+    merged, stats = merge_batches(batches, existing_urls, window)
 
-        if date not in files_by_date or edition_time > files_by_date[date]["time"]:
-            files_by_date[date] = {**f, "time": edition_time}
+    total = len(merged["worldNews"]) + len(merged["usNews"]) + len(merged["xNews"])
+    ev_items = sum(len(u["items"]) for s in EVENT_UPDATE_SECTIONS for u in merged[s])
+    ev_items += sum(len(e["items"]) for e in merged["newDipEvents"])
 
-    total_new = 0
-    for date_str, file_info in sorted(files_by_date.items(), reverse=True):
-        print(f"\nProcessing: {file_info['name']} ({file_info['time']})")
-        batch = download_file(service, file_info["id"])
+    if total == 0 and ev_items == 0:
+        log(
+            f"khong co tin moi (trung {stats['trung']}, ngoai khung {stats['ngoai_khung']}, "
+            f"thieu url {stats['thieu_url']})"
+        )
+        Path(OUTPUT_PATH).unlink(missing_ok=True)
+        flush_log("SKIP")
+        return 0
 
-        if batch:
-            count = process_and_save_batch(batch, existing_urls)
-            if count:
-                total_new += count
+    Path(OUTPUT_PATH).write_text(json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8")
+    log(
+        f"nhan TG+{len(merged['worldNews'])} My+{len(merged['usNews'])} X+{len(merged['xNews'])}, "
+        f"{ev_items} item su kien ({len(merged['newDipEvents'])} su kien moi); "
+        f"loai: trung {stats['trung']}, ngoai khung {stats['ngoai_khung']}, thieu url {stats['thieu_url']}"
+    )
+    flush_log("DONE")
+    return total
 
-    print("\n" + "=" * 60)
-    if total_new > 0:
-        print(f"✓ Total new items: {total_new}")
-        print(f"Saved to: /tmp/new_items.json")
-    else:
-        print("No new items to import.")
-    print("=" * 60)
-
-    return total_new
 
 if __name__ == "__main__":
     try:
@@ -243,7 +303,9 @@ if __name__ == "__main__":
         print("\nInterrupted.")
         sys.exit(1)
     except Exception as e:
-        print(f"\nERROR: {e}")
         import traceback
+
         traceback.print_exc()
+        log(f"loi: {e}")
+        flush_log("FAIL")
         sys.exit(1)

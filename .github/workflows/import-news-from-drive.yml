@@ -53,12 +53,29 @@ jobs:
           git add index.html logs/
 
           if git diff --cached --quiet; then
-            echo "Khong co tin moi hoac da xu ly roi."
+            echo "Khong co gi de commit."
             git log --oneline -1
+            exit 0
+          fi
+
+          # index.html khong doi => lo nay chi co log/state (van commit de luon co dau vet chay)
+          if git diff --cached --quiet -- index.html; then
+            git commit -m "log: drive-import $(TZ='Asia/Ho_Chi_Minh' date '+%d/%m %H:%M') — khong co tin moi"
           else
-            # Lay tong so tin them
             git commit -m "$(python3 scripts/gen-commit-msg.py)" 2>/dev/null || \
             git commit -m "Nhap ban tin tu Google Drive (auto-sync)"
-            git push
-            echo "✓ Commit va push thanh cong"
           fi
+
+          # main co nhieu nguon cung push (sync-baomoi, sync-preferences, routine quet tin)
+          # => push tran co the bi tu choi non-fast-forward. Rebase roi thu lai.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "✓ Commit va push thanh cong"
+              exit 0
+            fi
+            echo "push bi tu choi — rebase roi thu lai ($i/5)"
+            git pull --rebase origin main || { echo "::error::rebase conflict, can xu ly tay"; exit 1; }
+            sleep $((i * 5))
+          done
+          echo "::error::push that bai sau 5 lan"
+          exit 1

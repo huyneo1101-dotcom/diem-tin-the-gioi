@@ -2,6 +2,9 @@ name: Deploy static site to Pages
 on:
   push:
     branches: [main]
+    # Commit chi co log/state (Action chay nhung khong co tin moi) khong lam doi noi dung web
+    # => khoi ton 1 lan deploy. Moi thu khac van deploy nhu cu.
+    paths-ignore: ['logs/**']
   workflow_dispatch:
 permissions:
   contents: read

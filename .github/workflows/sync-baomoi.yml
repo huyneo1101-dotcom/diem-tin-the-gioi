@@ -5,7 +5,8 @@ name: Sync Baomoi saved articles
 # Can GitHub Secret BAOMOI_COOKIE = chuoi cookie dang nhap Bao Moi (co bmsid...).
 on:
   schedule:
-    - cron: '5 1,13 * * *'   # 08:05 & 20:05 gio VN (sau khi quet tin chinh)
+    - cron: '30 1,13 * * *'   # 08:30 & 20:30 gio VN — de import-news-from-drive (08:00/20:00) xong han
+                              # roi moi chay, tranh 2 job cung push vao main mot luc
   workflow_dispatch:
 permissions:
   contents: write
@@ -34,8 +35,16 @@ jobs:
           git add baomoi-saved.json
           if git diff --cached --quiet; then
             echo "Khong co thay doi — bo qua commit."
-          else
-            git commit -m "chore: cap nhat bai da luu Bao Moi (loc dung chu de)"
-            git push
+            exit 0
           fi
+          git commit -m "chore: cap nhat bai da luu Bao Moi (loc dung chu de)"
+          # Nhieu nguon cung push vao main => rebase roi thu lai neu bi tu choi
+          for i in 1 2 3 4 5; do
+            if git push; then exit 0; fi
+            echo "push bi tu choi — rebase roi thu lai ($i/5)"
+            git pull --rebase origin main || { echo "::error::rebase conflict, can xu ly tay"; exit 1; }
+            sleep $((i * 5))
+          done
+          echo "::error::push that bai sau 5 lan"
+          exit 1
 
