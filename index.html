@@ -243,6 +243,7 @@ function ensureReaderUI(){
   var sizes=[['0.9','A'],['1','A'],['1.18','A'],['1.4','A']];
   var curTh=curTheme();
   var h='<div class="rp-h">⚙ Cài đặt</div><div class="rp-sub">Lựa chọn được lưu trên máy bạn.</div>';
+  h+='<div id="rp-account"></div>';
   h+='<div class="rp-lbl">Giao diện</div><div class="rp-themes">';
   [['light','☀️ Sáng'],['dark','🌙 Tối']].forEach(function(t){h+='<button data-theme="'+t[0]+'"'+(t[0]===curTh?' class="on"':'')+'>'+t[1]+'</button>';});
   h+='</div>';
@@ -253,7 +254,8 @@ function ensureReaderUI(){
   h+='</div>';
   panel.innerHTML=h;
   document.body.appendChild(fab); document.body.appendChild(panel);
-  fab.addEventListener('click',function(e){e.stopPropagation();panel.hidden=!panel.hidden;});
+  renderReaderAccount();
+  fab.addEventListener('click',function(e){e.stopPropagation();panel.hidden=!panel.hidden;if(!panel.hidden)renderReaderAccount();});
   panel.addEventListener('click',function(e){
     var b=e.target.closest('button'); if(!b)return; e.stopPropagation();
     if(b.getAttribute('data-fs')!=null){var v=b.getAttribute('data-fs');applyFs(v);setPref('dt.fs',v);
@@ -262,8 +264,24 @@ function ensureReaderUI(){
       var fs=panel.querySelectorAll('.rp-fonts button'); for(var j=0;j<fs.length;j++)fs[j].classList.toggle('on',fs[j]===b);}
     else if(b.getAttribute('data-theme')!=null){var th=b.getAttribute('data-theme');applyTheme(th);setPref('dt.theme',th);
       var ts=panel.querySelectorAll('.rp-themes button'); for(var t=0;t<ts.length;t++)ts[t].classList.toggle('on',ts[t]===b);}
+    else if(b.getAttribute('data-pushon')!=null){enablePush();}
+    else if(b.getAttribute('data-pushoff')!=null){disablePush();}
+    else if(b.getAttribute('data-pushtest')!=null){testPush();}
+    else if(b.getAttribute('data-signin')!=null){var e1=panel.querySelector('#acctemail'),p1=panel.querySelector('#acctpass');sbSignIn(e1?e1.value:'',p1?p1.value:'');}
+    else if(b.getAttribute('data-signup')!=null){var e2=panel.querySelector('#acctemail'),p2=panel.querySelector('#acctpass');sbSignUp(e2?e2.value:'',p2?p2.value:'');}
+    else if(b.getAttribute('data-signout')!=null){sbSignOut();}
   });
   document.addEventListener('click',function(){if(!panel.hidden)panel.hidden=true;});
+}
+/* Đưa Thông báo + Đăng nhập vào bảng ⚙ Cài đặt (chỉ hiện nhãn khi có nội dung) */
+function renderReaderAccount(){
+  var box=document.getElementById('rp-account');if(!box)return;
+  var acc=(typeof accountBar==='function')?accountBar():'';
+  var push=(typeof pushRow==='function')?pushRow():'';
+  var h='';
+  if(acc)h+='<div class="rp-lbl">Tài khoản</div>'+acc;
+  if(push)h+='<div class="rp-lbl">Thông báo</div>'+push;
+  box.innerHTML=h;
 }
 
 function srcLink(o){var u=o.sourceUrl||o.url||'';var n=o.sourceName||o.outlet||u;return u?'<a class="src" href="'+esc(u)+'" target="_blank" rel="noreferrer" data-mark="'+esc(u)+'">Nguồn ↗</a>':(n?'<span class="meta">'+esc(n)+'</span>':'');}
@@ -718,7 +736,7 @@ function renderAnalysis(){
 }
 function renderSaved(){
   var nc=conceptList().length;
-  var seg=pushRow()+accountBar()+'<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
+  var seg='<div class="seg"><button class="'+(state.savedSeg==='concepts'?'':'on')+'" data-savedseg="news">⭐ Tin đã lưu'+(FAV.length?' ('+FAV.length+')':'')+'</button><button class="'+(state.savedSeg==='concepts'?'on':'')+'" data-savedseg="concepts">📚 Khái niệm'+(nc?' ('+nc+')':'')+'</button></div>';
   if(state.savedSeg==='concepts')return seg+renderConcepts();
   var arr=FAV.slice().filter(matchQ);
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
@@ -789,7 +807,8 @@ function renderDossiers(){
     var cards=arr.map(function(a){return card(a.handle?xCardInner(a):newsCardInner(a),idOf(a));}).join('');
     return '<section class="drill"><div class="drill-h"><div class="drill-name">'+esc(g[0])+'</div><div class="drill-meta">📰 '+arr.length+' tin'+(range?' · '+range:'')+'</div></div><div class="list">'+cards+'</div></section>';
   }).join('');
-  return '<div class="note"><b>4 hồ sơ sống</b> — các câu chuyện lớn đang chạy, gom tin Thế giới + Mỹ + X theo chủ đề (tự động). Bấm chip để lọc từng hồ sơ.</div>'+chips+body;
+  var vnSec='<div class="rejsec">🇻🇳 VN·Biển Đông</div>'+renderVN();
+  return vnSec+'<div class="rejsec">🧵 4 hồ sơ sống</div><div class="note"><b>4 hồ sơ sống</b> — các câu chuyện lớn đang chạy, gom tin Thế giới + Mỹ + X theo chủ đề (tự động). Bấm chip để lọc từng hồ sơ.</div>'+chips+body;
 }
 function renderTopic(){
   var segs=[['drills','🎯 Tập trận'],['dip','🕊️ Ngoại giao'],['dossier','🧵 Hồ sơ']];
@@ -822,7 +841,6 @@ function content(){
   if(state.tab==='fresh')return renderFresh();
   if(state.tab==='us')return renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
   if(state.tab==='x')return renderX();
-  if(state.tab==='vn')return renderVN();
   if(state.tab==='analysis')return renderAnalysis();
   if(state.tab==='topic')return renderTopic();
   if(state.tab==='saved')return renderSaved();
@@ -833,7 +851,7 @@ function render(){
   refreshFav();refreshRej();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
   var nRej=rejectedPool().length;
-  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['vn','🇻🇳 VN·Biển Đông'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
+  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
@@ -843,6 +861,7 @@ function render(){
   h+='<div class="pgfoot">'+esc(DATA.brand)+' — bản tin tham khảo, tổng hợp từ nguồn mở, cập nhật tự động hằng ngày.<br>Mỗi tin đều dẫn liên kết nguồn gốc. Không đại diện quan điểm của bất kỳ tổ chức nào.</div>';
   h+='</div>';
   document.getElementById('app').innerHTML=h;
+  if(typeof renderReaderAccount==='function')renderReaderAccount();
   if(window.scrollTo)window.scrollTo(0,0);
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
