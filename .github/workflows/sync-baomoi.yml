@@ -5,7 +5,7 @@ name: Sync Baomoi saved articles
 # Can GitHub Secret BAOMOI_COOKIE = chuoi cookie dang nhap Bao Moi (co bmsid...).
 on:
   schedule:
-    - cron: '30 10 * * *'   # 17:30 gio VN moi ngay
+    - cron: '5 1,13 * * *'   # 08:05 & 20:05 gio VN (sau khi quet tin chinh)
   workflow_dispatch:
 permissions:
   contents: write
