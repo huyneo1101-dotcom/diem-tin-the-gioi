@@ -1,0 +1,64 @@
+name: Import news from Google Drive
+
+# Tìm và nạp file ban-tin-chien-luoc-YYYY-MM-DD-HHNN-ICT.json từ Drive
+# Chạy lúc 08:00 & 20:00 VN mỗi ngày (01:00 & 13:00 UTC)
+# Cần secret GOOGLE_DRIVE_FOLDER_ID (folder chứa file tin) & GDRIVE_API_KEY (hoặc service account JSON)
+
+on:
+  schedule:
+    - cron: '0 1,13 * * *'   # 08:00 & 20:00 VN
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: import-news-drive
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Download news from Google Drive
+        env:
+          GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
+          GDRIVE_API_KEY: ${{ secrets.GDRIVE_API_KEY }}
+        run: |
+          python3 scripts/import_gdrive_news.py
+
+      - name: Run add_news.py if file exists
+        run: |
+          if [ -f /tmp/new_items.json ]; then
+            python3 scripts/add_news.py /tmp/new_items.json
+          fi
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add index.html logs/
+
+          if git diff --cached --quiet; then
+            echo "Khong co tin moi hoac da xu ly roi."
+            git log --oneline -1
+          else
+            # Lay tong so tin them
+            git commit -m "$(python3 scripts/gen-commit-msg.py)" 2>/dev/null || \
+            git commit -m "Nhap ban tin tu Google Drive (auto-sync)"
+            git push
+            echo "✓ Commit va push thanh cong"
+          fi
