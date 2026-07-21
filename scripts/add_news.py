@@ -58,6 +58,10 @@ MAX_AGE_DAYS = 1  # CHỈ nhận 2 ngày gần nhất (hôm nay + hôm qua); cũ
 # phải loại vì ngày/nghi trùng — đó mới là thứ người dùng cần rà để 👍 cứu.
 REJECTED_PER_RUN = 20          # tổng thêm mỗi lần quét
 BAOMOI_REJECT_PER_RUN = 10     # trong đó, phần ứng viên chuyên mục Báo Mới
+# Tự dọn mục Bị loại: bỏ mục đã NẰM TRONG MỤC quá 2 ngày (tính theo `addedAt` — ngày được
+# đưa vào, KHÔNG phải ngày đăng bài; tin "vừa rơi khỏi khung 3-7 ngày" vẫn vào được).
+# Web giữ snapshot riêng cho tin đã 👍 kéo vào Bài mới (dt.promotedSnap) nên dọn không mất tin đã cứu.
+REJECTED_KEEP_DAYS = 1
 REJECT_CATEGORY_ORDER = {"Công nghệ quân sự": 0, "Ngoại giao": 1, "Kinh tế": 2, "Chính trị": 3}
 
 X_REQUIRED_FIELDS = {"date", "handle", "name", "title", "summary", "significance", "url"}
@@ -559,7 +563,7 @@ def main() -> None:
         existing_urls.add(u)
         baomoi_rejects.append(
             {k: v for k, v in it.items() if k != "topic"}
-            | {"reason": "Ứng viên Báo Mới không được chọn — 👍 để đưa vào bản tin"}
+            | {"reason": "Ứng viên Báo Mới không được chọn — 👍 để đưa vào bản tin", "addedAt": date}
         )
 
     # (b) Tin agent chủ động loại (sai ngày/không hợp gu) — GIÁ TRỊ HƠN nên được xếp trước và
@@ -572,12 +576,33 @@ def main() -> None:
         if not it.get("title") or not u or u in live_urls or u in existing_urls:
             continue
         it.setdefault("reason", "")
+        it["addedAt"] = date
         existing_urls.add(u)
         clean.append(it)
 
+    # (c) Dọn mục cũ: bỏ mục đã nằm trong Bị loại quá REJECTED_KEEP_DAYS ngày. Mục cũ chưa có
+    #     `addedAt` (từ trước khi thêm trường này) được đóng dấu ngày hôm nay để sống thêm 1 vòng,
+    #     thay vì biến mất ngay lập tức.
+    keep_from = ref - datetime.timedelta(days=REJECTED_KEEP_DAYS)
+    kept_existing, pruned = [], 0
+    for it in existing:
+        stamp = it.get("addedAt")
+        if not stamp:
+            it["addedAt"] = date
+            kept_existing.append(it)
+            continue
+        try:
+            if parse_date(stamp) >= keep_from:
+                kept_existing.append(it)
+            else:
+                pruned += 1
+        except ValueError:
+            it["addedAt"] = date
+            kept_existing.append(it)
+
     rejected_added = len(clean) + len(baomoi_rejects)
-    if rejected_added:
-        data["rejectedNews"] = clean + baomoi_rejects + existing
+    if rejected_added or pruned:
+        data["rejectedNews"] = clean + baomoi_rejects + kept_existing
 
     # Chỉ đẩy generatedAt khi có nội dung BẢN TIN thật — lô chỉ có rejectedNews
     # (tin bị loại) KHÔNG được coi là "đã cập nhật bản tin" (tránh làm routine quét SKIP nhầm).
@@ -599,6 +624,8 @@ def main() -> None:
 
     new_ev_note = f", +{len(new_dip_events)} SỰ KIỆN ngoại giao MỚI" if new_dip_events else ""
     rej_note = f", +{rejected_added} tin BỊ LOẠI (mục Bị loại)" if rejected_added else ""
+    if pruned:
+        rej_note += f" [-{pruned} mục cũ quá {REJECTED_KEEP_DAYS + 1} ngày]"
     bm_note = f", +{len(baomoi_new)} tin Báo Mới (📌 đã lưu)" if baomoi_new else ""
     print(
         f"OK: +{len(world_new)} tin Thế giới{bm_note}, +{len(us_new)} tin Mỹ, +{len(x_new)} tin X, "

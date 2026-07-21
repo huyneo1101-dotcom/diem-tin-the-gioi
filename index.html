@@ -340,9 +340,17 @@ var PROMOTED={};
 function refreshRej(){PROMOTED={};jarr('dt.promoted').forEach(function(id){PROMOTED[id]=1;});}
 function addTo(k,id){var a=jarr(k);if(a.indexOf(id)<0){a.unshift(id);if(a.length>400)a=a.slice(0,400);jsetArr(k,a);}}
 /* Thích/Không thích = dữ liệu sở thích (toggle, tin ở lại). Kéo vào Bài mới = tính năng riêng, chuyển tab. */
-function rescueItem(id){if(!id)return;addTo('dt.promoted',id);refreshRej();toast('Đã kéo vào Bài mới');}
+/* Kéo vào Bài mới: lưu CẢ snapshot (như dt.fav) — mục Bị loại tự dọn mục quá 2 ngày,
+   nếu chỉ lưu id thì tin vừa cứu sẽ biến mất khi tin gốc bị dọn khỏi DATA.rejectedNews. */
+function rescueItem(id){if(!id)return;addTo('dt.promoted',id);
+  var it=(DATA.rejectedNews||[]).filter(function(a){return idOf(a)===id;})[0];
+  if(it){var s=jarr('dt.promotedSnap').filter(function(x){return idOf(x)!==id;});s.unshift(it);if(s.length>400)s=s.slice(0,400);jsetArr('dt.promotedSnap',s);}
+  refreshRej();toast('Đã kéo vào Bài mới');}
 function rejectedPool(){return (DATA.rejectedNews||[]).filter(function(a){return !PROMOTED[idOf(a)];});}
-function rescuedItems(){return (DATA.rejectedNews||[]).filter(function(a){return PROMOTED[idOf(a)];});}
+function rescuedItems(){var live=(DATA.rejectedNews||[]).filter(function(a){return PROMOTED[idOf(a)];});
+  var have={};live.forEach(function(a){have[idOf(a)]=1;});
+  var snap=jarr('dt.promotedSnap').filter(function(a){return PROMOTED[idOf(a)]&&!have[idOf(a)];});
+  return live.concat(snap);}
 function rejCard(a){
   var m=wmeta(a.category),id=idOf(a),v=getVote(id);
   var head='<div class="crow"><span class="badge"><i class="dot" style="background:'+m[1]+'"></i>'+esc(a.category||'Thời sự')+'</span><span class="date">'+fmtVN(a.date)+'</span></div>';
