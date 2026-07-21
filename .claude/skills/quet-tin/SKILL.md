@@ -3,7 +3,7 @@ name: quet-tin
 description: >-
   Quét và cập nhật bản tin cho dự án "Điểm Tin Thế Giới" (worldNews · usNews · xNews ·
   tập trận · sự kiện ngoại giao). Dùng khi người dùng yêu cầu "quét tin", "cập nhật bản
-  tin", "scan tin", hoặc khi Routine tự động chạy. Đóng gói kiến trúc 6 agent Sonnet, mô
+  tin", "scan tin", hoặc khi Routine tự động chạy. Đóng gói kiến trúc 8 agent Sonnet, mô
   hình nguồn 3 tầng, ưu tiên nguồn chính phủ, ràng buộc chất lượng, guardrail add_news.py,
   chỉ tiêu số lượng và log. Chi tiết nguồn/RSS xem CLAUDE.md ở gốc repo.
 ---
@@ -32,7 +32,7 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
   `git add logs/ && git commit -q -m "log: start $NGAY $T" && git push origin main -q`
   (Bắt buộc push sớm: session tự động là ephemeral, nếu chết giữa lúc quét mà chưa push thì mất
   sạch dấu vết — đây chính là lý do trước đây Routine fail mà không có log nào.)
-- **Checkpoint sau MỖI mốc lớn** (xong baseline · xong 6 agent · xong script · trước khi push tin):
+- **Checkpoint sau MỖI mốc lớn** (xong baseline · xong các agent · xong script · trước khi push tin):
   ghi thêm 1 dòng `[<giờ>] <mốc>: <tóm tắt>` vào log rồi push ngay → biết chính xác chết ở đâu.
 - Idempotent — **dùng cờ riêng của pipeline `web-scan`, KHÔNG dùng `generatedAt`**:
   ```
@@ -42,8 +42,8 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
   Cờ tách theo BUỔI (`sang` trước 14:00 VN, `toi` từ 14:00) nên bản sáng không chặn bản tối.
   (`generatedAt` là ngày bản tin hiển thị trên web — Action nhập tin từ Drive lúc 08:00 cũng bump nó,
   nên dùng nó làm cờ sẽ khiến phiên quét SKIP oan. Đã xảy ra 20–21/07/2026.)
-- **Chạy lúc 08:15 & 20:15 VN** (dự phòng 09:15 & 21:15 — tự no-op nếu mốc chính đã DONE).
-  Trước đó Action đã nạp sẵn: `import-news-from-drive` (08:00/20:00) + `sync-baomoi` (08:05/20:05).
+- **Chạy lúc 09:15 & 20:15 VN** (dự phòng 10:15 & 21:15 — tự no-op nếu mốc chính đã DONE).
+  Trước đó Action đã nạp sẵn: `import-news-from-drive` (08:00/20:00) + `sync-baomoi` (08:05/20:05, sinh `baomoi-saved.json` + `baomoi-topics.json`).
   **Kéo bản mới nhất về trước khi làm gì**: `git pull --rebase origin main` — nếu không sẽ quét
   trùng đúng những tin 2 Action vừa nạp.
 - Nếu lỗi ở bất kỳ bước nào: ghi `[<giờ>] FAIL tại <bước>: <lý do ngắn>`, chạy
@@ -59,7 +59,7 @@ Sau đó lấy dữ liệu nền (chỉ grep, không đọc cả file):
 ```
 grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn   # nguồn đã dùng nhiều → né
 python3 scripts/add_news.py --recent-titles 20                          # tiêu đề gần đây → chống trùng
-python3 scripts/add_news.py --baomoi-pending                            # bài Báo Mới chưa nạp → Agent 7
+python3 scripts/add_news.py --baomoi-pending                            # 2 nhóm Báo Mới → Agent 7 + 8
 ```
 Output `--recent-titles` đã bao gồm tin Action Drive vừa nạp lúc 08:00/20:00 → nhúng nguyên khối
 vào prompt mọi agent là tự động né trùng với bản tin Drive.
@@ -78,7 +78,7 @@ quy trình quét từ `preferences.json`.
 tối thiểu 2 tin/category theo CLAUDE.md, không bỏ hẳn mục nào, không ghi đè quy tắc nguồn 3 tầng). Nhúng
 top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 
-## Bước 2 — Giao 7 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
+## Bước 2 — Giao 8 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
 | Agent | Phạm vi | Sản lượng (khung 2 ngày, best-effort) |
 |---|---|---|
 | 1 | Kinh tế — worldNews + usNews | 1–2 mỗi mục (CHỈ vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
@@ -87,17 +87,27 @@ top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 | 4 | Ngoại giao — worldNews + usNews | **2–4 mỗi mục** (hiệp định/khuôn khổ an ninh-QP có kết quả) |
 | 5 | xNews | 2–4 tin (ưu tiên QP/an ninh/chính thức) |
 | 6 | exercises + dipEvents (cập nhật `ongoing` + tạo sự kiện ngoại giao mới nếu có) | 1–2 mỗi loại |
-| 7 | **Báo Mới** — viết `summary` + `significance` cho bài đã lưu | tất cả bài `--baomoi-pending` |
+| 7 | **Báo Mới — bài đã lưu** (viết `summary` + `significance`) | TẤT CẢ bài trong nhóm "BÀI ĐÃ LƯU" |
+| 8 | **Báo Mới — ứng viên chuyên mục** (chọn lọc) | **3–6 bài** tốt nhất trong kho ~50–100 ứng viên |
 
-**Agent 7 (Báo Mới)** — KHÔNG quét web tìm tin mới, chỉ xử lý danh sách có sẵn. Nhúng nguyên khối
-output `--baomoi-pending` (bước 1) vào prompt, yêu cầu với MỖI bài:
-- Mở `sourceUrl` (WebFetch) để đọc nội dung thật → viết `summary` 2–3 câu và `significance`
-  (ý nghĩa chiến lược) đúng giọng bản tin. Không đọc được thì viết từ tiêu đề, KHÔNG bịa chi tiết.
-- Giữ nguyên `date`, `title`, `sourceName`, `sourceUrl`; **sửa lại `category`/`region` nếu phân loại
-  tự động sai** (`category` chỉ trong 4 mục hợp lệ).
-- Trả về mảng JSON đặt vào field **`baomoiNews`**. Bài đã lưu là do người dùng TỰ CHỌN nên
-  **KHÔNG áp bộ lọc sở thích, KHÔNG loại vì cũ** — guardrail cũng miễn kiểm tra ngày cho mục này.
-- Không có bài nào pending → bỏ qua agent này.
+Cả 2 agent này KHÔNG quét web tìm tin mới — chỉ xử lý danh sách có sẵn từ
+`python3 scripts/add_news.py --baomoi-pending` (bước 1). Output lệnh đó tách sẵn 2 nhóm; nhúng
+NGUYÊN KHỐI nhóm tương ứng vào prompt từng agent. Cả 2 nhóm đã được lọc "đăng trong 24h" — **KHÔNG
+nới khung này**, và không có bài nào trong nhóm thì bỏ qua agent tương ứng.
+
+Việc chung của cả 2: mở `sourceUrl` (WebFetch) đọc nội dung thật → viết `summary` 2–3 câu +
+`significance` (ý nghĩa chiến lược) đúng giọng bản tin; không đọc được thì viết từ tiêu đề, KHÔNG
+bịa chi tiết. Giữ nguyên `date`/`title`/`sourceName`/`sourceUrl`; sửa `category`/`region` nếu bộ
+từ khoá phân loại sai (`category` chỉ trong 4 mục hợp lệ).
+
+Khác nhau ở chỗ:
+- **Agent 7 — bài đã lưu**: người dùng TỰ tay bookmark → lấy **HẾT**, **KHÔNG áp bộ lọc sở thích**
+  (không loại vì "không hợp gu"). Trả về field **`baomoiNews`** → web gắn nhãn 📌 Đã lưu.
+- **Agent 8 — ứng viên chuyên mục**: đây là feed công khai, phần lớn là nhiễu → **ÁP ĐÚNG bộ lọc sở
+  thích** như tin thường (loại cáo phó/drama/horserace/lợi nhuận doanh nghiệp đơn lẻ...), ưu tiên
+  Công nghệ quân sự + Ngoại giao, mỗi bài một sự kiện KHÁC nhau, né trùng với `--recent-titles`.
+  Chỉ chọn **3–6 bài** đáng đưa nhất. Trả về field **`worldNews`** như tin thường (KHÔNG phải
+  `baomoiNews`, không gắn nhãn 📌 — đây không phải bài người dùng lưu).
 
 Tổng thực tế ~10–20 tin/ngày (CHỈ 2 ngày gần nhất) — đủ thì lấy, thiếu thì thôi, KHÔNG nới ngày/bộ lọc. Dồn cho Công nghệ quân sự + Ngoại giao. Xem chỉ tiêu + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
 

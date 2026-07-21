@@ -29,9 +29,8 @@ new_items.json:
   ngày + link như tin thường.
 
 - baomoiNews: bài "đã lưu" Báo Mới sau khi agent viết summary + significance. Chèn
-  vào chung DATA.worldNews, gắn cờ `_baomoi` để web hiện nhãn 📌 Đã lưu. KHÔNG bị
-  kiểm tra khung ngày (người dùng tự bookmark, bài có thể cũ hàng tháng); các kiểm
-  tra khác (category, URL rác, trùng URL) vẫn áp dụng.
+  vào chung DATA.worldNews, gắn cờ `_baomoi` để web hiện nhãn 📌 Đã lưu. Áp ĐÚNG
+  khung ngày như tin thường — chỉ bài đăng trong 24h gần nhất mới được lên web.
 
 Guardrail tự động (chặn = raise lỗi, phải sửa JSON rồi chạy lại; cảnh báo = in ra):
 - CHẶN: thiếu field, category sai, sourceUrl/url không hợp lệ, date ngoài khung
@@ -180,29 +179,6 @@ def validate_news_items(items: list, label: str, ref: datetime.date) -> None:
         if not item["sourceUrl"].startswith("http"):
             raise ValueError(f"{ctx} sourceUrl không hợp lệ: {item['sourceUrl']}")
         check_date_window(item["date"], ref, ctx)
-        check_url_quality(item["sourceUrl"], ctx)
-
-
-def validate_baomoi_items(items: list) -> None:
-    """Tin 'Bài đã lưu' Báo Mới — KHÔNG kiểm tra khung ngày.
-
-    Đây là bài NGƯỜI DÙNG tự tay bookmark, có thể lưu bài đăng từ tuần trước; chặn theo
-    khung 2 ngày như tin quét thì loại sạch. Các kiểm tra còn lại (category, URL rác,
-    trùng URL) vẫn áp dụng bình thường.
-    """
-    for idx, item in enumerate(items):
-        ctx = f"baomoiNews[{idx}]"
-        missing = NEWS_REQUIRED_FIELDS - item.keys()
-        if missing:
-            raise ValueError(f"{ctx} thiếu field: {missing}")
-        if item["category"] not in VALID_CATEGORIES:
-            raise ValueError(f"{ctx} category không hợp lệ: {item['category']}")
-        if not item["sourceUrl"].startswith("http"):
-            raise ValueError(f"{ctx} sourceUrl không hợp lệ: {item['sourceUrl']}")
-        try:
-            parse_date(item["date"])
-        except ValueError:
-            raise ValueError(f"{ctx}: date không đúng định dạng YYYY-MM-DD: {item['date']!r}")
         check_url_quality(item["sourceUrl"], ctx)
 
 
@@ -404,31 +380,72 @@ def print_recent_titles(html_path: pathlib.Path, n: int) -> None:
             print(f"  * {ev['name']} [{ev.get('status','?')}]: {titles}")
 
 
-def print_baomoi_pending(html_path: pathlib.Path, baomoi_path: pathlib.Path) -> None:
-    """In các bài 'đã lưu' Báo Mới CHƯA có trong DATA — để giao agent viết summary+significance.
+def _load_baomoi(path: pathlib.Path) -> tuple[list, int]:
+    """Đọc file Báo Mới, LOẠI bài ngoài khung ngày. Trả (items trong khung, số bài quá cũ).
 
-    baomoi-saved.json do Action sync-baomoi sinh ra chỉ có date/category/title/sourceName/
-    sourceUrl/region, KHÔNG có summary lẫn significance (2 field guardrail bắt buộc), nên
-    phải qua 1 agent viết bổ sung trước khi chèn bằng section `baomoiNews`.
+    Hai script sync đã lọc 24h theo timestamp rồi, nhưng nếu Action lỗi/không chạy thì file
+    trong repo là bản CŨ — để agent nhìn thấy bài quá hạn là nó sẽ báo lên và guardrail chặn
+    NGUYÊN LÔ, mất cả bản tin. Lọc ở đây để bài cũ không bao giờ tới tay agent.
     """
     try:
-        saved = json.loads(baomoi_path.read_text(encoding="utf-8")).get("items", [])
-    except FileNotFoundError:
-        print("(chưa có baomoi-saved.json — Action sync-baomoi chưa chạy lần nào)")
-        return
+        items = json.loads(path.read_text(encoding="utf-8")).get("items", [])
+    except (FileNotFoundError, json.JSONDecodeError):
+        return [], 0
+    cutoff = datetime.date.today() - datetime.timedelta(days=MAX_AGE_DAYS)
+    fresh = []
+    for it in items:
+        try:
+            if parse_date(it.get("date", "")) >= cutoff:
+                fresh.append(it)
+        except ValueError:
+            continue
+    return fresh, len(items) - len(fresh)
+
+
+def print_baomoi_pending(html_path: pathlib.Path, repo_root: pathlib.Path) -> None:
+    """In bài Báo Mới CHƯA có trong DATA, tách 2 nhóm xử lý KHÁC NHAU.
+
+    Cả 2 file đều do Action sync-baomoi sinh ra và chỉ có date/category/title/sourceName/
+    sourceUrl/region — thiếu summary + significance (2 field guardrail bắt buộc), nên phải
+    qua agent viết bổ sung. Cả 2 đã được lọc sẵn "đăng trong 24h" theo timestamp.
+
+    - baomoi-saved.json  : bài NGƯỜI DÙNG tự bookmark -> lấy HẾT, không áp bộ lọc sở thích,
+                           nạp qua section `baomoiNews` (web gắn nhãn 📌 Đã lưu).
+    - baomoi-topics.json : KHO ỨNG VIÊN quét từ chuyên mục công khai -> CHỌN LỌC theo bộ lọc
+                           sở thích, chỉ lấy vài bài tốt nhất, nạp qua `worldNews` như tin thường.
+    """
     html = html_path.read_text(encoding="utf-8")
     start, end = find_data_span(html)
     data = json.loads(html[start:end])
     existing = collect_existing_urls(data)
-    pending = [it for it in saved if it.get("sourceUrl") and it["sourceUrl"] not in existing]
-    print(f"Báo Mới — {len(pending)}/{len(saved)} bài đã lưu CHƯA nạp vào DATA:")
-    for it in pending:
-        print(
+
+    def fmt(it):
+        return (
             f"  [{it.get('date','?')}] ({it.get('category','?')} · {it.get('region','') or 'không rõ'}) "
             f"{it.get('title','')}\n      {it.get('sourceName','')} — {it['sourceUrl']}"
         )
-    if not pending:
-        print("  (không có bài mới — bỏ qua agent Báo Mới)")
+
+    saved, saved_old = _load_baomoi(repo_root / "baomoi-saved.json")
+    pending = [it for it in saved if it.get("sourceUrl") and it["sourceUrl"] not in existing]
+    old_note = f", bỏ {saved_old} bài đăng quá 24h" if saved_old else ""
+    print(f"=== BÀI ĐÃ LƯU (lấy HẾT, không lọc sở thích) — {len(pending)}/{len(saved)} chưa nạp{old_note} ===")
+    print("\n".join(fmt(it) for it in pending) or "  (không có bài mới)")
+
+    topics, topics_old = _load_baomoi(repo_root / "baomoi-topics.json")
+    cand = [it for it in topics if it.get("sourceUrl") and it["sourceUrl"] not in existing]
+    old_note = f", bỏ {topics_old} bài đăng quá 24h" if topics_old else ""
+    print(
+        f"\n=== KHO ỨNG VIÊN theo chuyên mục (CHỌN LỌC, chỉ lấy bài tốt nhất) — "
+        f"{len(cand)}/{len(topics)} chưa nạp{old_note} ==="
+    )
+    by_cat = collections.defaultdict(list)
+    for it in cand:
+        by_cat[it.get("category", "?")].append(it)
+    for cat in sorted(by_cat):
+        print(f"\n-- {cat} ({len(by_cat[cat])} bài) --")
+        print("\n".join(fmt(it) for it in by_cat[cat]))
+    if not cand:
+        print("  (không có ứng viên — bỏ qua)")
 
 
 def main() -> None:
@@ -440,7 +457,7 @@ def main() -> None:
 
     if len(sys.argv) >= 2 and sys.argv[1] == "--baomoi-pending":
         repo_root = pathlib.Path(__file__).resolve().parent.parent
-        print_baomoi_pending(repo_root / "index.html", repo_root / "baomoi-saved.json")
+        print_baomoi_pending(repo_root / "index.html", repo_root)
         return
 
     if len(sys.argv) != 2:
@@ -471,7 +488,9 @@ def main() -> None:
 
     validate_news_items(world_new, "worldNews", ref)
     validate_news_items(us_new, "usNews", ref)
-    validate_baomoi_items(baomoi_new)
+    # baomoiNews áp ĐÚNG khung ngày như tin thường (yêu cầu 22/07: bài Báo Mới chỉ lên web
+    # nếu đăng trong 24h gần nhất) — baomoi_sync.py đã lọc sẵn theo timestamp, đây là chốt chặn.
+    validate_news_items(baomoi_new, "baomoiNews", ref)
     validate_x_items(x_new, ref)
     validate_event_updates(exercise_updates, "exerciseUpdates", ref)
     validate_event_updates(dip_updates, "dipEventUpdates", ref)

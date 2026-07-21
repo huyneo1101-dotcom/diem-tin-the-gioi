@@ -28,6 +28,10 @@ VERSION = "0.8.26"
 SIG = "a88b5f86ea991fd566dc12486b55889db9108f47bd475dad83529a25fd1bd0d3"  # khong bi kiem tra
 LIST_TYPE_SAVED = 3
 
+# Chi dang len web bai DANG trong 24h gan nhat (yeu cau nguoi dung 22/07/2026).
+# Bookmark cu hon van nam trong tai khoan Bao Moi, chi khong duoc dua vao web.
+MAX_AGE_HOURS = 24
+
 VN_TZ = timezone(timedelta(hours=7))
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -147,6 +151,8 @@ def main():
     max_pages = int(os.environ.get("BAOMOI_MAX_PAGES", "40"))
     items, seen, seen_ids = [], set(), set()
     total_raw = 0
+    cutoff = int(time.time()) - MAX_AGE_HOURS * 3600
+    too_old = 0
     for page in range(1, max_pages + 1):
         try:
             data = fetch(build_url(page), cookie)
@@ -173,6 +179,13 @@ def main():
             seen_ids.add(key)
             new_ids += 1
             total_raw += 1
+            try:
+                ts = int(it.get("date") or 0)
+            except (TypeError, ValueError):
+                ts = 0
+            if ts < cutoff:  # bookmark cu -> khong dua len web
+                too_old += 1
+                continue
             norm = normalize(it)
             if norm and norm["sourceUrl"] and norm["sourceUrl"] not in seen:
                 seen.add(norm["sourceUrl"])
@@ -190,7 +203,10 @@ def main():
     out = {
         "generatedAt": datetime.now(VN_TZ).strftime("%Y-%m-%dT%H:%M:%S%z"),
         "count": len(items),
-        "source": "Bao Moi - bai da luu (loc dung 4 chu de cua web, tu dong qua GitHub Action)",
+        "source": (
+            f"Bao Moi - bai da luu (loc dung 4 chu de cua web + chi bai dang trong "
+            f"{MAX_AGE_HOURS}h, tu dong qua GitHub Action)"
+        ),
         "items": items,
     }
     with open(os.path.join(ROOT, "baomoi-saved.json"), "w", encoding="utf-8") as f:
@@ -198,7 +214,10 @@ def main():
 
     from collections import Counter
     dist = Counter(i["category"] for i in items)
-    print(f"OK: giu {len(items)}/{total_raw} bai dung chu de. Phan bo: {dict(dist)}")
+    print(
+        f"OK: giu {len(items)}/{total_raw} bai (bo {too_old} bai dang qua {MAX_AGE_HOURS}h, "
+        f"{total_raw - too_old - len(items)} bai ngoai 4 chu de). Phan bo: {dict(dist)}"
+    )
     return 0
 
 
