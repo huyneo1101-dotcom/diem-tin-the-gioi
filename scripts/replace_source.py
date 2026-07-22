@@ -88,6 +88,11 @@ def main() -> None:
                 item[f] = r[f]
         if r.get("dropBaomoiFlag"):
             item.pop("_baomoi", None)
+        elif item.get("_baomoi") and "baomoi.com" in old:
+            # Giữ dấu vết bookmark gốc. Không có nó thì loadBaomoi trong index.html mất mốc so URL
+            # (sourceUrl giờ trỏ nguồn nước ngoài) và sẽ TRỘN LẠI bài từ baomoi-saved.json thành
+            # tin thứ hai — vì tiêu đề đã bị phiên quét viết lại nên so tiêu đề cũng trượt nốt.
+            item["_baomoiUrl"] = old
         existing.discard(old)
         existing.add(new)
         loc.pop(old)
