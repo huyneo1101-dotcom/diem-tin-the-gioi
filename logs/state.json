@@ -1,9 +1,9 @@
 {
   "drive-import": {
-    "lastRunAt": "2026-07-21T08:46:00+07:00",
+    "lastRunAt": "2026-07-22T11:11:00+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "seed: ban 0800-ICT, +2 tin (TG+1, My+1) + cap nhat ASEAN",
+    "lastStatus": "SKIP",
+    "note": "khong tim thay file ban-tin-chien-luoc nao cho 2026-07-22, 2026-07-21",
     "lastSuccess": {
       "sang": "2026-07-21"
     }
