@@ -1,94 +1,94 @@
 {
-  "generatedAt": "2026-07-20T13:11:05Z",
+  "generatedAt": "2026-07-22T03:56:23Z",
   "source": "supabase vote_stats + vote_items (auto by GitHub Action)",
   "stats": [
     {
       "scope": "category",
       "key": "Công nghệ quân sự",
-      "up": 74,
+      "up": 83,
       "down": 3,
-      "net": 71,
-      "total": 77
+      "net": 80,
+      "total": 86
     },
     {
       "scope": "category",
       "key": "Ngoại giao",
-      "up": 58,
+      "up": 63,
       "down": 3,
-      "net": 55,
-      "total": 61
+      "net": 60,
+      "total": 66
     },
     {
       "scope": "category",
       "key": "Kinh tế",
-      "up": 56,
-      "down": 3,
-      "net": 53,
-      "total": 59
+      "up": 60,
+      "down": 5,
+      "net": 55,
+      "total": 65
     },
     {
       "scope": "category",
       "key": "X/Twitter",
-      "up": 29,
+      "up": 30,
       "down": 0,
-      "net": 29,
-      "total": 29
+      "net": 30,
+      "total": 30
     },
     {
       "scope": "category",
       "key": "Chính trị",
-      "up": 32,
-      "down": 20,
+      "up": 33,
+      "down": 21,
       "net": 12,
-      "total": 52
+      "total": 54
     },
     {
       "scope": "region",
       "key": "Trung Đông",
-      "up": 43,
+      "up": 46,
       "down": 6,
-      "net": 37,
-      "total": 49
-    },
-    {
-      "scope": "region",
-      "key": "Châu Âu/NATO",
-      "up": 38,
-      "down": 3,
-      "net": 35,
-      "total": 41
+      "net": 40,
+      "total": 52
     },
     {
       "scope": "region",
       "key": "Khác",
-      "up": 34,
+      "up": 40,
       "down": 1,
-      "net": 33,
-      "total": 35
+      "net": 39,
+      "total": 41
+    },
+    {
+      "scope": "region",
+      "key": "Châu Âu/NATO",
+      "up": 40,
+      "down": 4,
+      "net": 36,
+      "total": 44
     },
     {
       "scope": "region",
       "key": "Đông Á",
-      "up": 26,
-      "down": 3,
-      "net": 23,
-      "total": 29
+      "up": 31,
+      "down": 5,
+      "net": 26,
+      "total": 36
     },
     {
       "scope": "region",
       "key": "Nga–Ukraine",
-      "up": 26,
+      "up": 27,
       "down": 4,
-      "net": 22,
-      "total": 30
+      "net": 23,
+      "total": 31
     },
     {
       "scope": "region",
       "key": "Châu Mỹ",
-      "up": 18,
+      "up": 19,
       "down": 5,
-      "net": 13,
-      "total": 23
+      "net": 14,
+      "total": 24
     },
     {
       "scope": "region",
@@ -117,10 +117,10 @@
     {
       "scope": "region",
       "key": "Đông Nam Á",
-      "up": 3,
+      "up": 4,
       "down": 1,
-      "net": 2,
-      "total": 4
+      "net": 3,
+      "total": 5
     },
     {
       "scope": "region",
@@ -133,18 +133,26 @@
     {
       "scope": "source",
       "key": "Defense News",
-      "up": 19,
+      "up": 23,
       "down": 0,
-      "net": 19,
-      "total": 19
+      "net": 23,
+      "total": 23
     },
     {
       "scope": "source",
       "key": "Naval News",
-      "up": 14,
+      "up": 15,
       "down": 0,
-      "net": 14,
-      "total": 14
+      "net": 15,
+      "total": 15
+    },
+    {
+      "scope": "source",
+      "key": "Breaking Defense",
+      "up": 13,
+      "down": 0,
+      "net": 13,
+      "total": 13
     },
     {
       "scope": "source",
@@ -156,19 +164,19 @@
     },
     {
       "scope": "source",
-      "key": "Breaking Defense",
-      "up": 11,
+      "key": "Bộ Ngoại giao Mỹ",
+      "up": 10,
       "down": 0,
-      "net": 11,
-      "total": 11
+      "net": 10,
+      "total": 10
     },
     {
       "scope": "source",
-      "key": "Bộ Ngoại giao Mỹ",
-      "up": 8,
-      "down": 0,
-      "net": 8,
-      "total": 8
+      "key": "CNBC",
+      "up": 12,
+      "down": 3,
+      "net": 9,
+      "total": 15
     },
     {
       "scope": "source",
@@ -180,15 +188,15 @@
     },
     {
       "scope": "source",
-      "key": "CNBC",
-      "up": 10,
-      "down": 3,
+      "key": "SpaceNews",
+      "up": 7,
+      "down": 0,
       "net": 7,
-      "total": 13
+      "total": 7
     },
     {
       "scope": "source",
-      "key": "SpaceNews",
+      "key": "Bloomberg",
       "up": 6,
       "down": 0,
       "net": 6,
@@ -196,39 +204,55 @@
     },
     {
       "scope": "source",
-      "key": "@TheStudyofWar",
-      "up": 4,
-      "down": 0,
-      "net": 4,
-      "total": 4
-    },
-    {
-      "scope": "source",
       "key": "Euronews",
-      "up": 4,
+      "up": 5,
       "down": 0,
-      "net": 4,
-      "total": 4
+      "net": 5,
+      "total": 5
     },
     {
       "scope": "source",
       "key": "Bộ Ngoại giao Nhật Bản",
-      "up": 4,
+      "up": 5,
       "down": 0,
-      "net": 4,
-      "total": 4
+      "net": 5,
+      "total": 5
     },
     {
       "scope": "source",
-      "key": "Bloomberg",
-      "up": 4,
+      "key": "U.S. Department of State",
+      "up": 5,
       "down": 0,
-      "net": 4,
-      "total": 4
+      "net": 5,
+      "total": 5
+    },
+    {
+      "scope": "source",
+      "key": "@TheStudyofWar",
+      "up": 5,
+      "down": 0,
+      "net": 5,
+      "total": 5
     },
     {
       "scope": "source",
       "key": "Financial Times",
+      "up": 4,
+      "down": 0,
+      "net": 4,
+      "total": 4
+    },
+    {
+      "scope": "source",
+      "key": "Federal Reserve",
+      "up": 4,
+      "down": 0,
+      "net": 4,
+      "total": 4
+    },
+    {
+      "scope": "source",
+      "key": "Báo Mới",
       "up": 4,
       "down": 0,
       "net": 4,
@@ -252,19 +276,11 @@
     },
     {
       "scope": "source",
-      "key": "Báo Mới",
-      "up": 4,
+      "key": "World Bank",
+      "up": 3,
       "down": 0,
-      "net": 4,
-      "total": 4
-    },
-    {
-      "scope": "source",
-      "key": "U.S. Department of State",
-      "up": 4,
-      "down": 0,
-      "net": 4,
-      "total": 4
+      "net": 3,
+      "total": 3
     },
     {
       "scope": "source",
@@ -284,31 +300,7 @@
     },
     {
       "scope": "source",
-      "key": "World Bank",
-      "up": 3,
-      "down": 0,
-      "net": 3,
-      "total": 3
-    },
-    {
-      "scope": "source",
-      "key": "Federal Reserve",
-      "up": 3,
-      "down": 0,
-      "net": 3,
-      "total": 3
-    },
-    {
-      "scope": "source",
-      "key": "Nikkei Asia",
-      "up": 3,
-      "down": 0,
-      "net": 3,
-      "total": 3
-    },
-    {
-      "scope": "source",
-      "key": "@ZelenskyyUa",
+      "key": "Task & Purpose",
       "up": 3,
       "down": 0,
       "net": 3,
@@ -324,6 +316,22 @@
     },
     {
       "scope": "source",
+      "key": "@ZelenskyyUa",
+      "up": 3,
+      "down": 0,
+      "net": 3,
+      "total": 3
+    },
+    {
+      "scope": "source",
+      "key": "Nikkei Asia",
+      "up": 3,
+      "down": 0,
+      "net": 3,
+      "total": 3
+    },
+    {
+      "scope": "source",
       "key": "AFP",
       "up": 4,
       "down": 1,
@@ -332,7 +340,7 @@
     },
     {
       "scope": "source",
-      "key": "The Japan Times",
+      "key": "Kyiv Independent",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -340,23 +348,7 @@
     },
     {
       "scope": "source",
-      "key": "Federal Reserve Board",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "GOV.UK",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "TechTimes",
+      "key": "Taipei Times",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -372,7 +364,39 @@
     },
     {
       "scope": "source",
-      "key": "Task & Purpose",
+      "key": "Senate Foreign Relations Committee",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "GOV.UK",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "USNI News",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "TechTimes",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Federal Reserve Board",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -388,23 +412,7 @@
     },
     {
       "scope": "source",
-      "key": "Defence Industry Europe",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "Asian Military Review",
-      "up": 2,
-      "down": 0,
-      "net": 2,
-      "total": 2
-    },
-    {
-      "scope": "source",
-      "key": "Bộ Quốc phòng Anh",
+      "key": "@BarakRavid",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -420,7 +428,7 @@
     },
     {
       "scope": "source",
-      "key": "@BarakRavid",
+      "key": "Văn phòng Thủ tướng Ấn Độ",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -428,7 +436,7 @@
     },
     {
       "scope": "source",
-      "key": "Kyiv Independent",
+      "key": "Bộ Quốc phòng Anh",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -436,7 +444,15 @@
     },
     {
       "scope": "source",
-      "key": "@CENTCOM",
+      "key": "Asian Military Review",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "Defence Industry Europe",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -452,7 +468,7 @@
     },
     {
       "scope": "source",
-      "key": "Senate Foreign Relations Committee",
+      "key": "@CENTCOM",
       "up": 2,
       "down": 0,
       "net": 2,
@@ -460,7 +476,15 @@
     },
     {
       "scope": "source",
-      "key": "Fortune",
+      "key": "The Japan Times",
+      "up": 2,
+      "down": 0,
+      "net": 2,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "@usf_army",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -468,15 +492,7 @@
     },
     {
       "scope": "source",
-      "key": "Axios",
-      "up": 4,
-      "down": 3,
-      "net": 1,
-      "total": 7
-    },
-    {
-      "scope": "source",
-      "key": "@AJEnglish",
+      "key": "ClearanceJobs",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -484,7 +500,7 @@
     },
     {
       "scope": "source",
-      "key": "U.S. Department of War",
+      "key": "Chính phủ Anh",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -492,7 +508,7 @@
     },
     {
       "scope": "source",
-      "key": "The Hill",
+      "key": "Thế giới & Việt Nam",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -500,7 +516,55 @@
     },
     {
       "scope": "source",
-      "key": "Văn phòng Thủ tướng Ấn Độ",
+      "key": "Office of the President of Ukraine",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "USTR",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "@WarshipCam",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "The Diplomat",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "@NewsHour",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "@Defence_IDA",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "DefenseScoop",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -516,7 +580,55 @@
     },
     {
       "scope": "source",
+      "key": "U.S. Department of War",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Caixin Global",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
       "key": "CBO",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "@straits_times",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "@EU_ISS",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "ASEAN",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Dân Trí",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -540,14 +652,6 @@
     },
     {
       "scope": "source",
-      "key": "Caixin Global",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
       "key": "Council of the European Union",
       "up": 1,
       "down": 0,
@@ -556,7 +660,7 @@
     },
     {
       "scope": "source",
-      "key": "TTXVN",
+      "key": "UN News",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -564,7 +668,31 @@
     },
     {
       "scope": "source",
-      "key": "Taipei Times",
+      "key": "Axios",
+      "up": 4,
+      "down": 3,
+      "net": 1,
+      "total": 7
+    },
+    {
+      "scope": "source",
+      "key": "@AJEnglish",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "The Hill",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "TTXVN",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -581,14 +709,6 @@
     {
       "scope": "source",
       "key": "@AndrewSErickson",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "OECD",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -620,14 +740,6 @@
     },
     {
       "scope": "source",
-      "key": "@usf_army",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
       "key": "@NATO",
       "up": 1,
       "down": 0,
@@ -644,30 +756,6 @@
     },
     {
       "scope": "source",
-      "key": "Office of the President of Ukraine",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "Thế giới & Việt Nam",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "DefenseScoop",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
       "key": "@KyivIndependent",
       "up": 1,
       "down": 0,
@@ -677,22 +765,6 @@
     {
       "scope": "source",
       "key": "@MarketWatch",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "@defense_news",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "Chính phủ Anh",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -721,30 +793,6 @@
       "down": 1,
       "net": 1,
       "total": 3
-    },
-    {
-      "scope": "source",
-      "key": "USNI News",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "ClearanceJobs",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "@Defence_IDA",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
     },
     {
       "scope": "source",
@@ -780,7 +828,7 @@
     },
     {
       "scope": "source",
-      "key": "@NewsHour",
+      "key": "Fortune",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -788,7 +836,15 @@
     },
     {
       "scope": "source",
-      "key": "European Commission",
+      "key": "OECD",
+      "up": 1,
+      "down": 0,
+      "net": 1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "@defense_news",
       "up": 1,
       "down": 0,
       "net": 1,
@@ -801,78 +857,6 @@
       "down": 0,
       "net": 1,
       "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "The Diplomat",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "UN News",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "@straits_times",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "@EU_ISS",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "@WarshipCam",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "ASEAN",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "USTR",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "Dân Trí",
-      "up": 1,
-      "down": 0,
-      "net": 1,
-      "total": 1
-    },
-    {
-      "scope": "source",
-      "key": "AFRICOM",
-      "up": 1,
-      "down": 1,
-      "net": 0,
-      "total": 2
     },
     {
       "scope": "source",
@@ -892,6 +876,38 @@
     },
     {
       "scope": "source",
+      "key": "European Commission",
+      "up": 1,
+      "down": 1,
+      "net": 0,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "AFRICOM",
+      "up": 1,
+      "down": 1,
+      "net": 0,
+      "total": 2
+    },
+    {
+      "scope": "source",
+      "key": "U.S. Census Bureau",
+      "up": 0,
+      "down": 1,
+      "net": -1,
+      "total": 1
+    },
+    {
+      "scope": "source",
+      "key": "Bank of Korea",
+      "up": 0,
+      "down": 1,
+      "net": -1,
+      "total": 1
+    },
+    {
+      "scope": "source",
       "key": "Council of the EU (Consilium)",
       "up": 0,
       "down": 1,
@@ -901,27 +917,35 @@
     {
       "scope": "source",
       "key": "Al Jazeera",
-      "up": 5,
-      "down": 11,
+      "up": 6,
+      "down": 12,
       "net": -6,
-      "total": 16
+      "total": 18
     }
   ],
   "items": [
     {
       "sign": 1,
-      "title": "EU và MBDA ký thỏa thuận phát triển tên lửa đánh chặn siêu vượt âm AQUILA trong dự án HYDIS",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Âu/NATO",
-      "source": "Naval News",
+      "title": "Lãnh đạo IMF, WB, WTO, IEA ra tuyên bố chung phối hợp ứng phó tác động kinh tế của chiến sự Trung Đông",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "WTO",
       "n": 2
     },
     {
       "sign": 1,
-      "title": "Anh đầu tư 2 tỷ bảng xây phòng thí nghiệm AI huấn luyện quân đội",
-      "category": "Công nghệ quân sự",
-      "region": "Nga–Ukraine",
-      "source": "Bộ Quốc phòng Anh",
+      "title": "Fed công bố Báo cáo Chính sách Tiền tệ bán niên, tân Chủ tịch Warsh cam kết ổn định giá",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "Federal Reserve",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Cố vấn thương mại Trump nhận định Trung Quốc vi phạm thỏa thuận nhưng Mỹ chọn không trả đũa",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "Bloomberg",
       "n": 2
     },
     {
@@ -934,10 +958,138 @@
     },
     {
       "sign": 1,
+      "title": "Trump sa thải toàn bộ ủy viên còn lại của Ủy ban Hỗ trợ Bầu cử Mỹ",
+      "category": "Chính trị",
+      "region": "Khác",
+      "source": "Al Jazeera",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Nhà khoa học Trung Quốc công bố vũ khí vi sóng công suất cao 100GW nhắm vệ tinh quỹ đạo thấp",
+      "category": "Công nghệ quân sự",
+      "region": "Đông Á",
+      "source": "South China Morning Post",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "EU và Ukraine ký thỏa thuận hợp tác sản xuất drone quy mô toàn khối",
+      "category": "Ngoại giao",
+      "region": "Nga–Ukraine",
+      "source": "Euronews",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Không quân Mỹ tìm giải pháp máy bay tiếp dầu cỡ nhỏ cho kịch bản chiến tranh Thái Bình Dương",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Âu/NATO",
+      "source": "Breaking Defense",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ và CARICOM IMPACS ký thỏa thuận chia sẻ dữ liệu sinh trắc học đầu tiên",
+      "category": "Ngoại giao",
+      "region": "Khác",
+      "source": "U.S. Department of State",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "ASEAN họp không chính thức với Myanmar lần đầu kể từ đảo chính 2021",
+      "category": "Ngoại giao",
+      "region": "Đông Nam Á",
+      "source": "Bloomberg",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Đài Loan điều động HIMARS và tên lửa diệt hạm cho tập trận phòng thủ lớn",
+      "category": "Công nghệ quân sự",
+      "region": "Đông Á",
+      "source": "USNI News",
+      "n": 2
+    },
+    {
+      "sign": 1,
       "title": "EU nhất trí mở cụm đàm phán gia nhập thứ 6 cho Ukraine và Moldova",
       "category": "Ngoại giao",
       "region": "Nga–Ukraine",
       "source": "Euronews",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Thủy quân lục chiến Mỹ thử nghiệm thành công hệ thống phòng không tầm trung MRIC tại Guam",
+      "category": "Công nghệ quân sự",
+      "region": "Trung Đông",
+      "source": "Defense News",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Không quân Mỹ chuẩn bị tăng gấp ba sản lượng tên lửa LRASM và JASSM theo hợp đồng mới",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Naval News",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "L3Harris thắng hợp đồng 500 triệu USD duy trì đội cảm biến trên không HALO cho phòng thủ tên lửa",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "TechTimes",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "EU và MBDA ký thỏa thuận phát triển tên lửa đánh chặn siêu vượt âm AQUILA trong dự án HYDIS",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Âu/NATO",
+      "source": "Naval News",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "14 quốc gia ra tuyên bố chung kỷ niệm 10 năm phán quyết Biển Đông",
+      "category": "Ngoại giao",
+      "region": "Đông Á",
+      "source": "U.S. Department of State",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Fed nhấn mạnh rủi ro lạm phát trong khi Beige Book cho thấy kinh tế Mỹ còn chống chịu",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "Federal Reserve Board",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ và các nước \"Shield of the Americas\" ra tuyên bố chung về tiến trình bầu cử ở Colombia",
+      "category": "Ngoại giao",
+      "region": "Châu Mỹ",
+      "source": "Bộ Ngoại giao Mỹ",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Đài Loan - Mỹ đạt thoả thuận đồng sản xuất drone tấn công Mighty Hornet I",
+      "category": "Công nghệ quân sự",
+      "region": "Đông Á",
+      "source": "Taipei Times",
+      "n": 2
+    },
+    {
+      "sign": 1,
+      "title": "Chứng khoán Mỹ lập đỉnh trong khi tăng trưởng thực chỉ quanh 1,9%, giới kinh tế chỉ ra AI",
+      "category": "Kinh tế",
+      "region": "Khác",
+      "source": "CNBC",
       "n": 2
     },
     {
@@ -958,18 +1110,10 @@
     },
     {
       "sign": 1,
-      "title": "Không quân Mỹ chuẩn bị tăng gấp ba sản lượng tên lửa LRASM và JASSM theo hợp đồng mới",
-      "category": "Công nghệ quân sự",
-      "region": "Khác",
-      "source": "Naval News",
-      "n": 2
-    },
-    {
-      "sign": 1,
-      "title": "Mỹ và CARICOM IMPACS ký thỏa thuận chia sẻ dữ liệu sinh trắc học đầu tiên",
-      "category": "Ngoại giao",
-      "region": "Khác",
-      "source": "U.S. Department of State",
+      "title": "ISW: Mỹ lần đầu không kích mục tiêu sâu trong nội địa Iran, cách bờ biển hơn 200km",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@TheStudyofWar",
       "n": 2
     },
     {
@@ -982,131 +1126,19 @@
     },
     {
       "sign": 1,
-      "title": "Nhà khoa học Trung Quốc công bố vũ khí vi sóng công suất cao 100GW nhắm vệ tinh quỹ đạo thấp",
-      "category": "Công nghệ quân sự",
-      "region": "Đông Á",
-      "source": "South China Morning Post",
-      "n": 2
-    },
-    {
-      "sign": 1,
-      "title": "L3Harris thắng hợp đồng 500 triệu USD duy trì đội cảm biến trên không HALO cho phòng thủ tên lửa",
-      "category": "Công nghệ quân sự",
-      "region": "Khác",
-      "source": "TechTimes",
-      "n": 2
-    },
-    {
-      "sign": 1,
-      "title": "Fed nhấn mạnh rủi ro lạm phát trong khi Beige Book cho thấy kinh tế Mỹ còn chống chịu",
-      "category": "Kinh tế",
-      "region": "Trung Đông",
-      "source": "Federal Reserve Board",
-      "n": 2
-    },
-    {
-      "sign": 1,
-      "title": "Lãnh đạo IMF, WB, WTO, IEA ra tuyên bố chung phối hợp ứng phó tác động kinh tế của chiến sự Trung Đông",
-      "category": "Kinh tế",
-      "region": "Trung Đông",
-      "source": "WTO",
-      "n": 2
-    },
-    {
-      "sign": 1,
-      "title": "Đặc phái viên ASEAN sẽ báo cáo tham vấn Myanmar trước hội nghị Manila",
+      "title": "Ngoại trưởng Mỹ điện đàm với Ngoại trưởng Saudi Arabia về an ninh khu vực",
       "category": "Ngoại giao",
-      "region": "Đông Nam Á",
-      "source": "BusinessWorld Online",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "IMF cảnh báo căng thẳng Trung Đông đẩy cao áp lực lạm phát toàn cầu",
-      "category": "Kinh tế",
       "region": "Trung Đông",
-      "source": "VnEconomy",
-      "n": 1
+      "source": "Bộ Ngoại giao Mỹ",
+      "n": 2
     },
     {
       "sign": 1,
-      "title": "Zelensky trình bày Chương trình Phòng thủ Chống tên lửa đạn đạo tại Paris",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@ZelenskyyUa",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Nga cấm hoàn toàn xuất khẩu dầu diesel để bình ổn thị trường nội địa",
-      "category": "Kinh tế",
-      "region": "Nga–Ukraine",
-      "source": "VnEconomy",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "ADB hạ dự báo tăng trưởng châu Á - Thái Bình Dương 2026 xuống 4,9%",
-      "category": "Kinh tế",
-      "region": "Khác",
-      "source": "Báo Mới",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Trump gợi ý cấp phép cho Ukraine tự lắp ráp tên lửa Patriot",
+      "title": "Anh đầu tư 2 tỷ bảng xây phòng thí nghiệm AI huấn luyện quân đội",
       "category": "Công nghệ quân sự",
       "region": "Nga–Ukraine",
-      "source": "Breaking Defense",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "CENTCOM khẳng định eo biển Hormuz vẫn mở cho tàu bè qua lại",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@CENTCOM",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Phần Lan và Thụy Điển ký thỏa thuận hợp tác quốc phòng chung với các nước Baltic",
-      "category": "Ngoại giao",
-      "region": "Châu Âu/NATO",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Phân tích: Tổng thống Erdogan nổi lên là bên hưởng lợi chính trị lớn nhất từ thượng đỉnh NATO tại Ankara.",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@EU_ISS",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Trump ngỏ ý rút bớt quân Mỹ khỏi châu Âu, gắn với vấn đề Greenland",
-      "category": "Ngoại giao",
-      "region": "Châu Âu/NATO",
-      "source": "Dân Trí",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Ấn Độ thử nghiệm thành công tên lửa hành trình siêu vượt âm nội địa tầm bắn 1.500km",
-      "category": "Công nghệ quân sự",
-      "region": "Nam Á",
-      "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Mỹ thu hồi quyền miễn trừ trừng phạt dầu mỏ với Iran sau loạt vụ tấn công tàu chở dầu ở Hormuz.",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@Rory_Johnston",
-      "n": 1
+      "source": "Bộ Quốc phòng Anh",
+      "n": 2
     },
     {
       "sign": 1,
@@ -1146,6 +1178,14 @@
       "category": "Chính trị",
       "region": "Châu Âu/NATO",
       "source": "AFP",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Tăng trưởng GDP quý 2 Trung Quốc chậm lại còn 4,3%, thấp nhất kể từ 2022",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "CNBC",
       "n": 1
     },
     {
@@ -1198,6 +1238,14 @@
     },
     {
       "sign": 1,
+      "title": "Đức mua tên lửa Tomahawk của Mỹ, triển khai trên lãnh thổ",
+      "category": null,
+      "region": null,
+      "source": "Defense News",
+      "n": 1
+    },
+    {
+      "sign": 1,
       "title": "Mỹ: Việc rút khỏi USMCA có thể buộc Quốc hội phải hành động",
       "category": "Chính trị",
       "region": "Châu Mỹ",
@@ -1246,14 +1294,6 @@
     },
     {
       "sign": 1,
-      "title": "Cố vấn thương mại Trump nhận định Trung Quốc vi phạm thỏa thuận nhưng Mỹ chọn không trả đũa",
-      "category": "Kinh tế",
-      "region": "Đông Á",
-      "source": "Bloomberg",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "Thượng đỉnh EU thông qua gói mở rộng, khởi động đàm phán kết nạp với Ukraine và Moldova",
       "category": "Ngoại giao",
       "region": "Châu Âu/NATO",
@@ -1266,342 +1306,6 @@
       "category": "Kinh tế",
       "region": "Châu Mỹ",
       "source": "Tuổi Trẻ",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Trump họp Situation Room bàn tấn công quy mô lớn hơn vào Iran",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@BarakRavid",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Space Force đề xuất ngân sách tăng mạnh cho năng lực tác chiến không gian phòng thủ vệ tinh",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Mỹ",
-      "source": "SpaceNews",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Chứng khoán Mỹ lập đỉnh trong khi tăng trưởng thực chỉ quanh 1,9%, giới kinh tế chỉ ra AI",
-      "category": "Kinh tế",
-      "region": "Khác",
-      "source": "CNBC",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Tòa Tối cao Mỹ mở rộng quyền sa thải của Tổng thống với cơ quan độc lập (Trump v. Slaughter)",
-      "category": "Chính trị",
-      "region": "Khác",
-      "source": "NPR",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "NATO công bố Tuyên bố thượng đỉnh Ankara",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@NATO",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Giá vàng thế giới bật tăng trở lại giữa căng thẳng Trung Đông",
-      "category": "Kinh tế",
-      "region": "Trung Đông",
-      "source": "VnEconomy",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "EU không đạt đồng thuận gói trừng phạt Nga thứ 21, trần giá dầu Nga có nguy cơ tự tăng",
-      "category": "Chính trị",
-      "region": "Nga–Ukraine",
-      "source": "The Japan Times",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "ADB hạ dự báo tăng trưởng châu Á vì chiến tranh Mỹ - Iran kéo dài",
-      "category": "Kinh tế",
-      "region": "Trung Đông",
-      "source": "VnEconomy",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Thượng viện Mỹ rót 40 triệu USD tích hợp tên lửa Bullseye cho Thủy quân lục chiến đối phó Trung Quốc",
-      "category": "Công nghệ quân sự",
-      "region": "Đông Á",
-      "source": "Naval News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Dow Jones lao dốc khi giá dầu nhảy hơn 5% vì căng thẳng Vùng Vịnh",
-      "category": "Kinh tế",
-      "region": "Trung Đông",
-      "source": "VnEconomy",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Canada thành nước thứ sáu chọn tên lửa Joint Strike Missile của Kongsberg cho F-35",
-      "category": "Công nghệ quân sự",
-      "region": "Khác",
-      "source": "The Aviationist",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Chính quyền Trump gỡ hạn chế với OpenAI, mở đường phát hành rộng GPT-5.6",
-      "category": "Kinh tế",
-      "region": "Khác",
-      "source": "Axios",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "OECD kêu gọi cải cách thuế doanh nghiệp toàn cầu, cảnh báo cạnh tranh xuống đáy",
-      "category": "Kinh tế",
-      "region": "Toàn cầu",
-      "source": "OECD",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Ngân hàng Trung ương Nhật Bản tăng lãi suất lần đầu sau nhiều năm, chấm dứt chính sách siêu nới lỏng",
-      "category": "Kinh tế",
-      "region": "Đông Á",
-      "source": "Nikkei Asia",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Hà Lan vận động Mỹ nới hạn chế bán thiết bị ASML cho Trung Quốc giữa siết kiểm soát xuất khẩu chip",
-      "category": "Kinh tế",
-      "region": "Đông Á",
-      "source": "Bloomberg",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Dự án Hydis của châu Âu chốt phương án thiết bị đánh chặn tên lửa siêu vượt âm",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Âu/NATO",
-      "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Sa thải tại Amazon phơi bày thị trường lao động Mỹ bị AI làm bão hòa",
-      "category": "Kinh tế",
-      "region": "Khác",
-      "source": "CNBC",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Liên minh châu Âu thông qua cơ chế trừng phạt mới nhắm vào lách luật xuất khẩu công nghệ",
-      "category": "Chính trị",
-      "region": "Châu Âu/NATO",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Lục quân Mỹ chọn 4 công ty phát triển xe phá bãi mìn tự hành (chương trình EABC)",
-      "category": "Công nghệ quân sự",
-      "region": "Khác",
-      "source": "Breaking Defense",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Anh và Canada ra tuyên bố chung về tài trợ quốc phòng đa phương",
-      "category": "Kinh tế",
-      "region": "Châu Âu/NATO",
-      "source": "Chính phủ Anh",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Chỉ số nhà quản trị mua hàng toàn cầu cho thấy sản xuất phục hồi nhẹ sau nhiều tháng thu hẹp",
-      "category": "Kinh tế",
-      "region": "Toàn cầu",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Quốc hội Anh thông qua cải cách Thượng viện, loại bỏ ghế quý tộc cha truyền con nối",
-      "category": "Chính trị",
-      "region": "Châu Âu/NATO",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "EU khởi động khuôn khổ đối tác đầu tư hạ tầng mới với Liên minh châu Phi",
-      "category": "Ngoại giao",
-      "region": "Châu Phi",
-      "source": "Hội đồng châu Âu",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Mỹ cam kết tiếp tục đàm phán với Iran bất chấp các cuộc tấn công gần đây",
-      "category": "Ngoại giao",
-      "region": "Trung Đông",
-      "source": "Axios",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Iran tập kích 85 căn cứ Mỹ ở vùng Vịnh, chứng khoán toàn cầu bán tháo và giá dầu vọt tăng",
-      "category": "Kinh tế",
-      "region": "Trung Đông",
-      "source": "Fortune",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "DARPA trình diễn động cơ tên lửa hạt nhân nhiệt cho tàu vũ trụ cơ động nhanh trên quỹ đạo",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Mỹ",
-      "source": "SpaceNews",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Kinh tế Đức suy giảm năm thứ hai liên tiếp, mô hình công nghiệp xuất khẩu gặp thách thức",
-      "category": "Kinh tế",
-      "region": "Châu Âu/NATO",
-      "source": "Financial Times",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "29 nước ký thành lập Tổ chức Hợp tác AI Thế giới (WAICO) tại Thượng Hải",
-      "category": "Kinh tế",
-      "region": "Nga–Ukraine",
-      "source": "Caixin Global",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Volkswagen tiếp tục cắt giảm nhân sự và đóng cửa nhà máy tại Đức giữa khủng hoảng xe điện",
-      "category": "Kinh tế",
-      "region": "Châu Âu/NATO",
-      "source": "CNBC",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Trump thông báo Quốc hội ý định đưa Syria ra khỏi danh sách quốc gia bảo trợ khủng bố",
-      "category": "Ngoại giao",
-      "region": "Trung Đông",
-      "source": "Al Arabiya",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Hàn Quốc và Nhật Bản khôi phục hoàn toàn hiệp định chia sẻ tình báo quân sự GSOMIA",
-      "category": "Ngoại giao",
-      "region": "Ấn Độ Dương - Thái Bình Dương",
-      "source": "Bộ Ngoại giao Nhật Bản",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Fed giữ nguyên lãi suất nhưng phát tín hiệu thận trọng về lạm phát dịch vụ dai dẳng",
-      "category": "Kinh tế",
-      "region": "Châu Mỹ",
-      "source": "Federal Reserve",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Hải quân Mỹ thử nghiệm bầy drone mặt nước không người lái điều phối bằng AI ở Vịnh Ba Tư",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Mỹ",
-      "source": "Task & Purpose",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Mỹ làm trung gian đạt thỏa thuận phân định biên giới biển giữa Liban và Israel",
-      "category": "Ngoại giao",
-      "region": "Trung Đông",
-      "source": "Bộ Ngoại giao Mỹ",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Úc đầu tư nâng cấp căn cứ phía bắc để tiếp nhận máy bay ném bom B-52 luân phiên của Mỹ",
-      "category": "Công nghệ quân sự",
-      "region": "Ấn Độ Dương - Thái Bình Dương",
-      "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Ukraine tập kích 10 tàu Nga ở biển Azov và Hắc Hải, cắt tiếp tế Crimea",
-      "category": "Công nghệ quân sự",
-      "region": "Nga–Ukraine",
-      "source": "Naval News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Zelensky ký thỏa thuận hợp tác sản xuất drone với Đan Mạch — thỏa thuận thứ chín thuộc mô hình liên kết quốc phòng của Ukraine.",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@ZelenskyyUa",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Mỹ, Nhật Bản, Hàn Quốc ra tuyên bố chung tái khẳng định cam kết hòa bình eo biển Đài Loan",
-      "category": "Ngoại giao",
-      "region": "Đông Á",
-      "source": "Bộ Ngoại giao Mỹ",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Vụ phóng SLBM 6/7 vào Nam TBD là lần đầu Trung Quốc công khai kể từ 1982",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@AndrewSErickson",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Ba Lan cảnh báo Ukraine: biểu tượng UPA có thể cản trở con đường gia nhập EU",
-      "category": "Ngoại giao",
-      "region": "Nga–Ukraine",
-      "source": "VnExpress",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "CENTCOM vô hiệu hóa tàu chở dầu vi phạm phong tỏa hải quân nhắm vào Iran",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@CENTCOM",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Hải quân Mỹ muốn tăng sản xuất tên lửa chống radar thế hệ mới (AESM)",
-      "category": "Công nghệ quân sự",
-      "region": "Khác",
-      "source": "Defense News",
       "n": 1
     },
     {
@@ -1666,6 +1370,14 @@
       "category": "Kinh tế",
       "region": "Trung Đông",
       "source": "Tuổi Trẻ",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Space Force hậu thuẫn thử nghiệm động cơ đẩy lai DOTS của Parabilis cho vệ tinh CubeSat cơ động",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "SpaceNews",
       "n": 1
     },
     {
@@ -1950,14 +1662,6 @@
     },
     {
       "sign": 1,
-      "title": "ISW: Mỹ lần đầu không kích mục tiêu sâu trong nội địa Iran, cách bờ biển hơn 200km",
-      "category": "X/Twitter",
-      "region": null,
-      "source": "@TheStudyofWar",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "NATO lập quỹ đầu tư mạo hiểm rót vốn cho startup công nghệ lưỡng dụng và AI quốc phòng",
       "category": "Công nghệ quân sự",
       "region": "Toàn cầu",
@@ -1974,10 +1678,482 @@
     },
     {
       "sign": 1,
-      "title": "Ngoại trưởng Mỹ điện đàm với Ngoại trưởng Saudi Arabia về an ninh khu vực",
+      "title": "Trump họp Situation Room bàn tấn công quy mô lớn hơn vào Iran",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@BarakRavid",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Space Force đề xuất ngân sách tăng mạnh cho năng lực tác chiến không gian phòng thủ vệ tinh",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Mỹ",
+      "source": "SpaceNews",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Tòa Tối cao Mỹ mở rộng quyền sa thải của Tổng thống với cơ quan độc lập (Trump v. Slaughter)",
+      "category": "Chính trị",
+      "region": "Khác",
+      "source": "NPR",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "NATO công bố Tuyên bố thượng đỉnh Ankara",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@NATO",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Giá vàng thế giới bật tăng trở lại giữa căng thẳng Trung Đông",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "VnEconomy",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "EU không đạt đồng thuận gói trừng phạt Nga thứ 21, trần giá dầu Nga có nguy cơ tự tăng",
+      "category": "Chính trị",
+      "region": "Nga–Ukraine",
+      "source": "The Japan Times",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "ADB hạ dự báo tăng trưởng châu Á vì chiến tranh Mỹ - Iran kéo dài",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "VnEconomy",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Thượng viện Mỹ rót 40 triệu USD tích hợp tên lửa Bullseye cho Thủy quân lục chiến đối phó Trung Quốc",
+      "category": "Công nghệ quân sự",
+      "region": "Đông Á",
+      "source": "Naval News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Dow Jones lao dốc khi giá dầu nhảy hơn 5% vì căng thẳng Vùng Vịnh",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "VnEconomy",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Canada thành nước thứ sáu chọn tên lửa Joint Strike Missile của Kongsberg cho F-35",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "The Aviationist",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "5 tập đoàn quốc phòng châu Âu lập liên danh Bliksem EXO phát triển thiết bị đánh chặn ngoài khí quyển",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Âu/NATO",
+      "source": "Defense News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Chính quyền Trump gỡ hạn chế với OpenAI, mở đường phát hành rộng GPT-5.6",
+      "category": "Kinh tế",
+      "region": "Khác",
+      "source": "Axios",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "OECD kêu gọi cải cách thuế doanh nghiệp toàn cầu, cảnh báo cạnh tranh xuống đáy",
+      "category": "Kinh tế",
+      "region": "Toàn cầu",
+      "source": "OECD",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Đặc phái viên ASEAN sẽ báo cáo tham vấn Myanmar trước hội nghị Manila",
+      "category": "Ngoại giao",
+      "region": "Đông Nam Á",
+      "source": "BusinessWorld Online",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "IMF cảnh báo căng thẳng Trung Đông đẩy cao áp lực lạm phát toàn cầu",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "VnEconomy",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "USV Typhoon lần đầu tiếp tế tự động trên biển cho tàu đổ bộ USS Essex tại RIMPAC 2026",
+      "category": null,
+      "region": null,
+      "source": "Naval News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Zelensky trình bày Chương trình Phòng thủ Chống tên lửa đạn đạo tại Paris",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@ZelenskyyUa",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Nga cấm hoàn toàn xuất khẩu dầu diesel để bình ổn thị trường nội địa",
+      "category": "Kinh tế",
+      "region": "Nga–Ukraine",
+      "source": "VnEconomy",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "ADB hạ dự báo tăng trưởng châu Á - Thái Bình Dương 2026 xuống 4,9%",
+      "category": "Kinh tế",
+      "region": "Khác",
+      "source": "Báo Mới",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Trump gợi ý cấp phép cho Ukraine tự lắp ráp tên lửa Patriot",
+      "category": "Công nghệ quân sự",
+      "region": "Nga–Ukraine",
+      "source": "Breaking Defense",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "CENTCOM khẳng định eo biển Hormuz vẫn mở cho tàu bè qua lại",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@CENTCOM",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Phần Lan và Thụy Điển ký thỏa thuận hợp tác quốc phòng chung với các nước Baltic",
+      "category": "Ngoại giao",
+      "region": "Châu Âu/NATO",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Phân tích: Tổng thống Erdogan nổi lên là bên hưởng lợi chính trị lớn nhất từ thượng đỉnh NATO tại Ankara.",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@EU_ISS",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Trump ngỏ ý rút bớt quân Mỹ khỏi châu Âu, gắn với vấn đề Greenland",
+      "category": "Ngoại giao",
+      "region": "Châu Âu/NATO",
+      "source": "Dân Trí",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Space Force đưa vào biên chế hệ thống gây nhiễu vệ tinh đối phương Meadowlands",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Task & Purpose",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Ấn Độ thử nghiệm thành công tên lửa hành trình siêu vượt âm nội địa tầm bắn 1.500km",
+      "category": "Công nghệ quân sự",
+      "region": "Nam Á",
+      "source": "Defense News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ thu hồi quyền miễn trừ trừng phạt dầu mỏ với Iran sau loạt vụ tấn công tàu chở dầu ở Hormuz.",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@Rory_Johnston",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Thủy quân lục chiến Mỹ biên chế đại đội đầu tiên trang bị robot tiếp tế bốn chân",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Mỹ",
+      "source": "Task & Purpose",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Philippines nhận hệ thống tên lửa bờ BrahMos đầu tiên, tăng năng lực phòng thủ Biển Đông",
+      "category": "Công nghệ quân sự",
+      "region": "Ấn Độ Dương - Thái Bình Dương",
+      "source": "Naval News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "AFRICOM và Morocco ký MOU lập Trung tâm Huấn luyện - Thử nghiệm Đa miền châu Phi (AMTEC)",
+      "category": "Ngoại giao",
+      "region": "Châu Phi",
+      "source": "AFRICOM",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "8 nước NATO ra mắt sáng kiến chòm vệ tinh HALO",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Âu/NATO",
+      "source": "Defense News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Ngân hàng Trung ương Nhật Bản tăng lãi suất lần đầu sau nhiều năm, chấm dứt chính sách siêu nới lỏng",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "Nikkei Asia",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Hà Lan vận động Mỹ nới hạn chế bán thiết bị ASML cho Trung Quốc giữa siết kiểm soát xuất khẩu chip",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "Bloomberg",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Dự án Hydis của châu Âu chốt phương án thiết bị đánh chặn tên lửa siêu vượt âm",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Âu/NATO",
+      "source": "Defense News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Sa thải tại Amazon phơi bày thị trường lao động Mỹ bị AI làm bão hòa",
+      "category": "Kinh tế",
+      "region": "Khác",
+      "source": "CNBC",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Liên minh châu Âu thông qua cơ chế trừng phạt mới nhắm vào lách luật xuất khẩu công nghệ",
+      "category": "Chính trị",
+      "region": "Châu Âu/NATO",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Lục quân Mỹ chọn 4 công ty phát triển xe phá bãi mìn tự hành (chương trình EABC)",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Breaking Defense",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Anh và Canada ra tuyên bố chung về tài trợ quốc phòng đa phương",
+      "category": "Kinh tế",
+      "region": "Châu Âu/NATO",
+      "source": "Chính phủ Anh",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Chỉ số nhà quản trị mua hàng toàn cầu cho thấy sản xuất phục hồi nhẹ sau nhiều tháng thu hẹp",
+      "category": "Kinh tế",
+      "region": "Toàn cầu",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Quốc hội Anh thông qua cải cách Thượng viện, loại bỏ ghế quý tộc cha truyền con nối",
+      "category": "Chính trị",
+      "region": "Châu Âu/NATO",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "EU khởi động khuôn khổ đối tác đầu tư hạ tầng mới với Liên minh châu Phi",
+      "category": "Ngoại giao",
+      "region": "Châu Phi",
+      "source": "Hội đồng châu Âu",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ cam kết tiếp tục đàm phán với Iran bất chấp các cuộc tấn công gần đây",
+      "category": "Ngoại giao",
+      "region": "Trung Đông",
+      "source": "Axios",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Iran tập kích 85 căn cứ Mỹ ở vùng Vịnh, chứng khoán toàn cầu bán tháo và giá dầu vọt tăng",
+      "category": "Kinh tế",
+      "region": "Trung Đông",
+      "source": "Fortune",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "DARPA trình diễn động cơ tên lửa hạt nhân nhiệt cho tàu vũ trụ cơ động nhanh trên quỹ đạo",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Mỹ",
+      "source": "SpaceNews",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Kinh tế Đức suy giảm năm thứ hai liên tiếp, mô hình công nghiệp xuất khẩu gặp thách thức",
+      "category": "Kinh tế",
+      "region": "Châu Âu/NATO",
+      "source": "Financial Times",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "29 nước ký thành lập Tổ chức Hợp tác AI Thế giới (WAICO) tại Thượng Hải",
+      "category": "Kinh tế",
+      "region": "Nga–Ukraine",
+      "source": "Caixin Global",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Volkswagen tiếp tục cắt giảm nhân sự và đóng cửa nhà máy tại Đức giữa khủng hoảng xe điện",
+      "category": "Kinh tế",
+      "region": "Châu Âu/NATO",
+      "source": "CNBC",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Trump thông báo Quốc hội ý định đưa Syria ra khỏi danh sách quốc gia bảo trợ khủng bố",
+      "category": "Ngoại giao",
+      "region": "Trung Đông",
+      "source": "Al Arabiya",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Hàn Quốc và Nhật Bản khôi phục hoàn toàn hiệp định chia sẻ tình báo quân sự GSOMIA",
+      "category": "Ngoại giao",
+      "region": "Ấn Độ Dương - Thái Bình Dương",
+      "source": "Bộ Ngoại giao Nhật Bản",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Fed giữ nguyên lãi suất nhưng phát tín hiệu thận trọng về lạm phát dịch vụ dai dẳng",
+      "category": "Kinh tế",
+      "region": "Châu Mỹ",
+      "source": "Federal Reserve",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Hải quân Mỹ thử nghiệm bầy drone mặt nước không người lái điều phối bằng AI ở Vịnh Ba Tư",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Mỹ",
+      "source": "Task & Purpose",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ làm trung gian đạt thỏa thuận phân định biên giới biển giữa Liban và Israel",
       "category": "Ngoại giao",
       "region": "Trung Đông",
       "source": "Bộ Ngoại giao Mỹ",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Úc đầu tư nâng cấp căn cứ phía bắc để tiếp nhận máy bay ném bom B-52 luân phiên của Mỹ",
+      "category": "Công nghệ quân sự",
+      "region": "Ấn Độ Dương - Thái Bình Dương",
+      "source": "Defense News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Ukraine tập kích 10 tàu Nga ở biển Azov và Hắc Hải, cắt tiếp tế Crimea",
+      "category": "Công nghệ quân sự",
+      "region": "Nga–Ukraine",
+      "source": "Naval News",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Zelensky ký thỏa thuận hợp tác sản xuất drone với Đan Mạch — thỏa thuận thứ chín thuộc mô hình liên kết quốc phòng của Ukraine.",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@ZelenskyyUa",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Mỹ, Nhật Bản, Hàn Quốc ra tuyên bố chung tái khẳng định cam kết hòa bình eo biển Đài Loan",
+      "category": "Ngoại giao",
+      "region": "Đông Á",
+      "source": "Bộ Ngoại giao Mỹ",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Vụ phóng SLBM 6/7 vào Nam TBD là lần đầu Trung Quốc công khai kể từ 1982",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@AndrewSErickson",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Ba Lan cảnh báo Ukraine: biểu tượng UPA có thể cản trở con đường gia nhập EU",
+      "category": "Ngoại giao",
+      "region": "Nga–Ukraine",
+      "source": "VnExpress",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "CENTCOM vô hiệu hóa tàu chở dầu vi phạm phong tỏa hải quân nhắm vào Iran",
+      "category": "X/Twitter",
+      "region": null,
+      "source": "@CENTCOM",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Hải quân Mỹ muốn tăng sản xuất tên lửa chống radar thế hệ mới (AESM)",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Defense News",
       "n": 1
     },
     {
@@ -2006,6 +2182,14 @@
     },
     {
       "sign": 1,
+      "title": "Nhật Bản - New Zealand ký thỏa thuận hậu cần quân sự ACSA, nâng cấp quan hệ song phương",
+      "category": null,
+      "region": null,
+      "source": "Bộ Ngoại giao Nhật Bản",
+      "n": 1
+    },
+    {
+      "sign": 1,
       "title": "Mỹ lần đầu tập kích hạ tầng bên trong Iran kể từ ngừng bắn 8/4, bắn tên lửa hành trình vào 2 cầu đường sắt",
       "category": "X/Twitter",
       "region": null,
@@ -2026,14 +2210,6 @@
       "category": "Kinh tế",
       "region": "Trung Đông",
       "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Mỹ và các nước \"Shield of the Americas\" ra tuyên bố chung về tiến trình bầu cử ở Colombia",
-      "category": "Ngoại giao",
-      "region": "Châu Mỹ",
-      "source": "Bộ Ngoại giao Mỹ",
       "n": 1
     },
     {
@@ -2158,14 +2334,6 @@
     },
     {
       "sign": 1,
-      "title": "Thủy quân lục chiến Mỹ thử nghiệm thành công hệ thống phòng không tầm trung MRIC tại Guam",
-      "category": "Công nghệ quân sự",
-      "region": "Trung Đông",
-      "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "Giá dầu thô tăng khi Mỹ mở các đợt không kích nhằm vào Iran.",
       "category": "X/Twitter",
       "region": null,
@@ -2214,14 +2382,6 @@
     },
     {
       "sign": 1,
-      "title": "Không quân Mỹ tìm giải pháp máy bay tiếp dầu cỡ nhỏ cho kịch bản chiến tranh Thái Bình Dương",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Âu/NATO",
-      "source": "Breaking Defense",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "Mỹ và Ấn Độ ký thỏa thuận khung hợp tác công nghệ quốc phòng, bán dẫn và không gian",
       "category": "Ngoại giao",
       "region": "Nam Á",
@@ -2234,14 +2394,6 @@
       "category": "Công nghệ quân sự",
       "region": "Châu Mỹ",
       "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "EU và Ukraine ký thỏa thuận hợp tác sản xuất drone quy mô toàn khối",
-      "category": "Ngoại giao",
-      "region": "Nga–Ukraine",
-      "source": "Euronews",
       "n": 1
     },
     {
@@ -2374,14 +2526,6 @@
     },
     {
       "sign": 1,
-      "title": "Fed công bố Báo cáo Chính sách Tiền tệ bán niên, tân Chủ tịch Warsh cam kết ổn định giá",
-      "category": "Kinh tế",
-      "region": "Trung Đông",
-      "source": "Federal Reserve",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "Biên bản họp Fed hé lộ bất đồng sâu sắc về hướng đi lãi suất",
       "category": "Kinh tế",
       "region": "Khác",
@@ -2430,14 +2574,6 @@
     },
     {
       "sign": 1,
-      "title": "Đài Loan điều động HIMARS và tên lửa diệt hạm cho tập trận phòng thủ lớn",
-      "category": "Công nghệ quân sự",
-      "region": "Đông Á",
-      "source": "USNI News",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "Canada dùng radar vượt đường chân trời của Úc để lấp khoảng trống giám sát Bắc Cực",
       "category": "Công nghệ quân sự",
       "region": "Nga–Ukraine",
@@ -2454,18 +2590,18 @@
     },
     {
       "sign": 1,
-      "title": "Trung Quốc thử tên lửa đạn đạo phóng từ tàu ngầm (SLBM) ra Thái Bình Dương",
+      "title": "Không quân Mỹ ký khung hợp đồng dài hạn mua hàng nghìn tên lửa hành trình giá rẻ FAMM",
       "category": "Công nghệ quân sự",
-      "region": "Đông Á",
+      "region": "Khác",
       "source": "Defense News",
       "n": 1
     },
     {
       "sign": 1,
-      "title": "ASEAN họp không chính thức với Myanmar lần đầu kể từ đảo chính 2021",
-      "category": "Ngoại giao",
-      "region": "Đông Nam Á",
-      "source": "Bloomberg",
+      "title": "Trung Quốc thử tên lửa đạn đạo phóng từ tàu ngầm (SLBM) ra Thái Bình Dương",
+      "category": "Công nghệ quân sự",
+      "region": "Đông Á",
+      "source": "Defense News",
       "n": 1
     },
     {
@@ -2522,6 +2658,14 @@
       "category": "Công nghệ quân sự",
       "region": "Nga–Ukraine",
       "source": "CNBC",
+      "n": 1
+    },
+    {
+      "sign": 1,
+      "title": "Không quân Mỹ lần đầu bắn tên lửa AMRAAM thật từ drone đồng đội CCA",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Breaking Defense",
       "n": 1
     },
     {
@@ -2602,14 +2746,6 @@
       "category": "Công nghệ quân sự",
       "region": "Trung Đông",
       "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Đài Loan - Mỹ đạt thoả thuận đồng sản xuất drone tấn công Mighty Hornet I",
-      "category": "Công nghệ quân sự",
-      "region": "Đông Á",
-      "source": "Taipei Times",
       "n": 1
     },
     {
@@ -2742,14 +2878,6 @@
     },
     {
       "sign": 1,
-      "title": "Trump sa thải toàn bộ ủy viên còn lại của Ủy ban Hỗ trợ Bầu cử Mỹ",
-      "category": "Chính trị",
-      "region": "Khác",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": 1,
       "title": "Quốc hội Pháp thông qua cập nhật Luật Chương trình Quân sự, nâng đầu tư QP lên 436 tỷ euro tới 2030",
       "category": "Chính trị",
       "region": "Châu Âu/NATO",
@@ -2758,74 +2886,18 @@
     },
     {
       "sign": 1,
+      "title": "Ấn Độ - New Zealand nâng cấp lên Đối tác Chiến lược, ký thỏa thuận hàng hải và hậu cần quốc phòng",
+      "category": null,
+      "region": null,
+      "source": "Văn phòng Thủ tướng Ấn Độ",
+      "n": 1
+    },
+    {
+      "sign": 1,
       "title": "Trung Quốc trình làng máy bay không người lái tàng hình cỡ lớn nghi dùng cho tác chiến điện tử",
       "category": "Công nghệ quân sự",
       "region": "Đông Á",
       "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Thủy quân lục chiến Mỹ biên chế đại đội đầu tiên trang bị robot tiếp tế bốn chân",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Mỹ",
-      "source": "Task & Purpose",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "14 quốc gia ra tuyên bố chung kỷ niệm 10 năm phán quyết Biển Đông",
-      "category": "Ngoại giao",
-      "region": "Đông Á",
-      "source": "U.S. Department of State",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "Philippines nhận hệ thống tên lửa bờ BrahMos đầu tiên, tăng năng lực phòng thủ Biển Đông",
-      "category": "Công nghệ quân sự",
-      "region": "Ấn Độ Dương - Thái Bình Dương",
-      "source": "Naval News",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "AFRICOM và Morocco ký MOU lập Trung tâm Huấn luyện - Thử nghiệm Đa miền châu Phi (AMTEC)",
-      "category": "Ngoại giao",
-      "region": "Châu Phi",
-      "source": "AFRICOM",
-      "n": 1
-    },
-    {
-      "sign": 1,
-      "title": "8 nước NATO ra mắt sáng kiến chòm vệ tinh HALO",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Âu/NATO",
-      "source": "Defense News",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Tòa án Tối cao Mỹ ra phán quyết giới hạn thẩm quyền cơ quan liên bang trong ban hành quy định",
-      "category": "Chính trị",
-      "region": "Châu Mỹ",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Đảo chính quân sự lật đổ chính phủ dân sự tại một quốc gia Tây Phi",
-      "category": "Chính trị",
-      "region": "Châu Phi",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Thượng nghị sĩ Lindsey Graham qua đời đột ngột ở tuổi 71",
-      "category": "Chính trị",
-      "region": "Nga–Ukraine",
-      "source": "Axios",
       "n": 1
     },
     {
@@ -2838,42 +2910,10 @@
     },
     {
       "sign": -1,
-      "title": "Nga gắn nhãn 'điệp viên nước ngoài' cho chính trị gia phản chiến Nadezhdin",
+      "title": "Thủ lĩnh một phong trào chính trị khu vực từ chức sau nhiều năm cầm quyền",
       "category": "Chính trị",
-      "region": "Nga–Ukraine",
-      "source": "The Moscow Times",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Nguồn tin nói Iran yêu cầu Houthi sẵn sàng đóng Bab el-Mandeb nếu Mỹ đánh lưới điện",
-      "category": "Công nghệ quân sự",
       "region": "Trung Đông",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Nam Phi tổ chức bầu cử, đảng cầm quyền lần đầu mất đa số tuyệt đối sau ba thập niên",
-      "category": "Chính trị",
-      "region": "Châu Phi",
-      "source": "AFP",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Thống đốc một bang lớn của Mỹ tuyên bố không tái tranh cử vì lý do sức khỏe",
-      "category": "Chính trị",
-      "region": "Châu Mỹ",
-      "source": "Axios",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Đài Loan tổ chức bầu cử địa phương, đảng cầm quyền chịu tổn thất trước phe đối lập",
-      "category": "Chính trị",
-      "region": "Đông Á",
-      "source": "Reuters",
+      "source": "Al Jazeera",
       "n": 1
     },
     {
@@ -2886,34 +2926,26 @@
     },
     {
       "sign": -1,
-      "title": "Lãnh đạo phe đối lập Pakistan bị bắt giữ giữa căng thẳng trước thềm bầu cử",
+      "title": "Nga gắn nhãn 'điệp viên nước ngoài' cho chính trị gia phản chiến Nadezhdin",
       "category": "Chính trị",
-      "region": "Nam Á",
+      "region": "Nga–Ukraine",
+      "source": "The Moscow Times",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Zelensky thúc giục xúc tiến khẩn cấp việc sản xuất tên lửa Patriot tại Ukraine",
+      "category": null,
+      "region": null,
       "source": "Al Jazeera",
       "n": 1
     },
     {
       "sign": -1,
-      "title": "Cựu Thủ tướng Bangladesh bị lưu vong Hasina lên kế hoạch trở về tháng 12",
-      "category": "Chính trị",
-      "region": "Nam Á",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Quốc hội Hàn Quốc thông qua cải cách hệ thống công tố sau nhiều tháng bế tắc chính trị",
-      "category": "Chính trị",
-      "region": "Đông Á",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Cựu quan chức hoàng gia một nước vùng Vịnh qua đời, để lại di sản ngoại giao gây tranh cãi",
-      "category": "Chính trị",
+      "title": "Nguồn tin nói Iran yêu cầu Houthi sẵn sàng đóng Bab el-Mandeb nếu Mỹ đánh lưới điện",
+      "category": "Công nghệ quân sự",
       "region": "Trung Đông",
-      "source": "Al Jazeera",
+      "source": "Reuters",
       "n": 1
     },
     {
@@ -2934,6 +2966,150 @@
     },
     {
       "sign": -1,
+      "title": "Nam Phi tổ chức bầu cử, đảng cầm quyền lần đầu mất đa số tuyệt đối sau ba thập niên",
+      "category": "Chính trị",
+      "region": "Châu Phi",
+      "source": "AFP",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Volkswagen cắt giảm một nửa số dòng xe, giảm công suất xuống 9 triệu xe/năm",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "CNBC",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Cựu tổng thống một nước Đông Âu bị kết án tù vì tội tham nhũng trong nhiệm kỳ",
+      "category": "Chính trị",
+      "region": "Châu Âu/NATO",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Bán lẻ Mỹ tăng nhẹ, đơn xin trợ cấp thất nghiệp xuống mức thấp mười tuần",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "U.S. Census Bureau",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Đài Loan tổ chức bầu cử địa phương, đảng cầm quyền chịu tổn thất trước phe đối lập",
+      "category": "Chính trị",
+      "region": "Đông Á",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Canada cải tổ luật nhập cư, siết chỉ tiêu thường trú nhân giữa áp lực nhà ở",
+      "category": "Chính trị",
+      "region": "Châu Mỹ",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Tổng thống một nước Nam Mỹ đối mặt thủ tục luận tội giữa bê bối tham nhũng",
+      "category": "Chính trị",
+      "region": "Châu Mỹ",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Thống đốc một bang lớn của Mỹ tuyên bố không tái tranh cử vì lý do sức khỏe",
+      "category": "Chính trị",
+      "region": "Châu Mỹ",
+      "source": "Axios",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Ngân hàng Trung ương Hàn Quốc nâng lãi suất lên 2,75%",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "Bank of Korea",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Thượng nghị sĩ Lindsey Graham qua đời đột ngột ở tuổi 71",
+      "category": "Chính trị",
+      "region": "Nga–Ukraine",
+      "source": "Axios",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "EU buộc Google mở khả năng tương tác AI trên Android và chia sẻ dữ liệu tìm kiếm",
+      "category": "Chính trị",
+      "region": "Châu Âu/NATO",
+      "source": "European Commission",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Tòa án Tối cao Mỹ ra phán quyết giới hạn thẩm quyền cơ quan liên bang trong ban hành quy định",
+      "category": "Chính trị",
+      "region": "Châu Mỹ",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Đảo chính quân sự lật đổ chính phủ dân sự tại một quốc gia Tây Phi",
+      "category": "Chính trị",
+      "region": "Châu Phi",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Israel và Lebanon kết thúc vòng đàm phán thứ 6 tại Rome về vùng thí điểm rút quân",
+      "category": "Ngoại giao",
+      "region": "Trung Đông",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Cựu thủ tướng lưu vong tuyên bố sẽ trở về nước tham gia chính trường bất chấp lệnh truy nã",
+      "category": "Chính trị",
+      "region": "Nam Á",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Cựu Quốc vương Qatar Sheikh Hamad bin Khalifa Al Thani qua đời ở tuổi 74",
+      "category": "Chính trị",
+      "region": "Trung Đông",
+      "source": "Al Jazeera",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Quốc hội Hàn Quốc thông qua cải cách hệ thống công tố sau nhiều tháng bế tắc chính trị",
+      "category": "Chính trị",
+      "region": "Đông Á",
+      "source": "Reuters",
+      "n": 1
+    },
+    {
+      "sign": -1,
+      "title": "Ngân hàng Thụy Sĩ UBS công bố lợi nhuận quý tăng mạnh sau khi sáp nhập Credit Suisse",
+      "category": "Kinh tế",
+      "region": "Châu Âu/NATO",
+      "source": "CNBC",
+      "n": 1
+    },
+    {
+      "sign": -1,
       "title": "Delta Air Lines báo lãi kỷ lục quý 2, giữ nguyên dự báo cả năm 2026 bất chấp chi phí nhiên liệu cao",
       "category": "Kinh tế",
       "region": "Trung Đông",
@@ -2950,25 +3126,17 @@
     },
     {
       "sign": -1,
-      "title": "Canada cải tổ luật nhập cư, siết chỉ tiêu thường trú nhân giữa áp lực nhà ở",
+      "title": "Lãnh đạo phe đối lập Pakistan bị bắt giữ giữa căng thẳng trước thềm bầu cử",
       "category": "Chính trị",
-      "region": "Châu Mỹ",
-      "source": "Reuters",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Cựu tổng thống một nước Đông Âu bị kết án tù vì tội tham nhũng trong nhiệm kỳ",
-      "category": "Chính trị",
-      "region": "Châu Âu/NATO",
+      "region": "Nam Á",
       "source": "Al Jazeera",
       "n": 1
     },
     {
       "sign": -1,
-      "title": "Cựu thủ tướng lưu vong tuyên bố sẽ trở về nước tham gia chính trường bất chấp lệnh truy nã",
+      "title": "Cựu quan chức hoàng gia một nước vùng Vịnh qua đời, để lại di sản ngoại giao gây tranh cãi",
       "category": "Chính trị",
-      "region": "Nam Á",
+      "region": "Trung Đông",
       "source": "Al Jazeera",
       "n": 1
     },
@@ -2982,14 +3150,6 @@
     },
     {
       "sign": -1,
-      "title": "Tổng thống một nước Nam Mỹ đối mặt thủ tục luận tội giữa bê bối tham nhũng",
-      "category": "Chính trị",
-      "region": "Châu Mỹ",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
       "title": "AFRICOM và Morocco ký MOU lập Trung tâm Huấn luyện - Thử nghiệm Đa miền châu Phi (AMTEC)",
       "category": "Ngoại giao",
       "region": "Châu Phi",
@@ -2998,42 +3158,10 @@
     },
     {
       "sign": -1,
-      "title": "Volkswagen cắt giảm một nửa số dòng xe, giảm công suất xuống 9 triệu xe/năm",
-      "category": "Kinh tế",
-      "region": "Đông Á",
-      "source": "CNBC",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Israel và Lebanon kết thúc vòng đàm phán thứ 6 tại Rome về vùng thí điểm rút quân",
-      "category": "Ngoại giao",
-      "region": "Trung Đông",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Thủ lĩnh một phong trào chính trị khu vực từ chức sau nhiều năm cầm quyền",
+      "title": "Cựu Thủ tướng Bangladesh bị lưu vong Hasina lên kế hoạch trở về tháng 12",
       "category": "Chính trị",
-      "region": "Trung Đông",
+      "region": "Nam Á",
       "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Cựu Quốc vương Qatar Sheikh Hamad bin Khalifa Al Thani qua đời ở tuổi 74",
-      "category": "Chính trị",
-      "region": "Trung Đông",
-      "source": "Al Jazeera",
-      "n": 1
-    },
-    {
-      "sign": -1,
-      "title": "Ngân hàng Thụy Sĩ UBS công bố lợi nhuận quý tăng mạnh sau khi sáp nhập Credit Suisse",
-      "category": "Kinh tế",
-      "region": "Châu Âu/NATO",
-      "source": "CNBC",
       "n": 1
     }
   ]
