@@ -287,7 +287,10 @@ function toggleFav(id){
   else{var f=findItemById(id);if(!f)return;var snap={};for(var p in f.item)snap[p]=f.item[p];snap._id=id;snap._kind=f.kind;snap._savedAt=todayISO();favs.unshift(snap);sbSaveItem(snap);}
   saveFav(favs);refreshFav();
 }
-function todayISO(){try{return new Date().toISOString().slice(0,10);}catch(e){return '';}}
+/* Ngày theo giờ VN, KHÔNG dùng toISOString() (trả về ngày UTC): từ 00:00-07:00 giờ VN, UTC vẫn
+   đang ở ngày hôm trước, nên tin lưu lúc 2h sáng bị đóng dấu _savedAt của hôm qua và biến mất
+   khỏi "tin lưu hôm nay" khi xuất Word. */
+function todayISO(){try{return new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'});}catch(e){try{return new Date().toISOString().slice(0,10);}catch(e2){return '';}}}
 function savedTodayList(){var t=todayISO();return FAV.filter(function(a){return a._savedAt===t;});}
 function exportWord(){
   var items=savedTodayList();
@@ -584,20 +587,14 @@ function tierBadge(name){var n=(name||'').toLowerCase();if(!n)return '';
 }
 function txtOf(a){return ((a.title||'')+' '+(a.summary||'')+' '+(a.significance||'')+' '+(a.text||'')).toLowerCase();}
 var VN_RE=/việt nam|vietnam|biển đông|south china sea|hoàng sa|trường sa|scarborough|spratly|paracel|hà nội|hanoi/i;
-function renderVN(){
-  var news=newsPool().filter(function(a){return (VN_RE.test(txtOf(a))||regionOf(a)==='Biển Đông')&&matchQ(a);});
-  var xs=sortD(DATA.xNews||[]).filter(function(a){return VN_RE.test(txtOf(a))&&matchQ(a);});
-  var body='';
-  if(news.length)body+='<div class="list">'+news.map(function(a){return card(newsCardInner(a),idOf(a));}).join('')+'</div>';
-  if(xs.length)body+='<div class="rejsec">Từ X</div><div class="list">'+xs.map(function(a){return card(xCardInner(a),idOf(a));}).join('')+'</div>';
-  if(!body)body='<div class="empty">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin Việt Nam / Biển Đông trong bản tin hiện tại.')+'</div>';
-  return '<div class="note">Tin <b>Việt Nam gắn quốc tế</b> & <b>Biển Đông</b> — chủ quyền biển, an ninh khu vực, kinh tế đối ngoại. Gom tự động từ Thế giới + Mỹ + X.</div>'+searchInfo(news.length+xs.length)+body;
-}
 var LIVE_DOSSIERS=[
   ['🔴 Nga – Ukraine',/nga\b|russia|ukrain|zelensky|kremlin|moscow|putin|patriot|kyiv|kiev/i],
   ['🟠 Trung Đông',/iran|israel|gaza|hezbollah|hormuz|houthi|lebanon|syria|trung đông|centcom|tehran|tel aviv/i],
   ['🔵 Đài Loan / Biển Đông',/đài loan|taiwan|biển đông|south china sea|hoàng sa|trường sa|senkaku|eo biển/i],
-  ['🟣 Mỹ – Trung',/u\.?s\.?[ -]china|china[ -]u\.?s|beijing|bắc kinh|thương chiến|chip war|semiconductor|chất bán dẫn/i]
+  ['🟣 Mỹ – Trung',/u\.?s\.?[ -]china|china[ -]u\.?s|beijing|bắc kinh|thương chiến|chip war|semiconductor|chất bán dẫn/i],
+  /* Phần tử thứ 3 (tuỳ chọn) = hàm khớp bổ sung. VN·Biển Đông trước đây là tab riêng, chuyển vào
+     đây 23/07/2026; giữ điều kiện region để không mất tin chỉ gắn nhãn khu vực mà tiêu đề không nhắc. */
+  ['🇻🇳 VN – Biển Đông',VN_RE,function(a){return regionOf(a)==='Biển Đông';}]
 ];
 function card(inner,id){return '<div class="card'+(isRead(id)?' read':'')+'">'+inner+'</div>';}
 function opBadge(){return '<span class="badge" style="color:#b5852a"><i class="dot" style="background:#b5852a"></i>💬 Bình luận</span>';}
@@ -765,8 +762,8 @@ function renderDipEvents(){
 }
 function renderDossiers(){
   var pool=newsPool().concat(sortD(DATA.xNews||[]));
-  var groups=LIVE_DOSSIERS.map(function(d){var arr=pool.filter(function(a){return d[1].test(txtOf(a))&&matchQ(a);});return [d[0],arr];});
-  var chips='<div class="chips"><span class="chip'+(state.dossier==='Tất cả'?' on':'')+'" data-dossier="Tất cả">Tất cả (4)</span>';
+  var groups=LIVE_DOSSIERS.map(function(d){var arr=pool.filter(function(a){return (d[1].test(txtOf(a))||(d[2]&&d[2](a)))&&matchQ(a);});return [d[0],arr];});
+  var chips='<div class="chips"><span class="chip'+(state.dossier==='Tất cả'?' on':'')+'" data-dossier="Tất cả">Tất cả ('+groups.length+')</span>';
   groups.forEach(function(g){chips+='<span class="chip'+(state.dossier===g[0]?' on':'')+'" data-dossier="'+esc(g[0])+'">'+esc(g[0])+' ('+g[1].length+')</span>';});
   chips+='</div>';
   var shown=groups.filter(function(g){return state.dossier==='Tất cả'||g[0]===state.dossier;});
@@ -811,7 +808,6 @@ function content(){
   if(state.tab==='fresh')return renderFresh();
   if(state.tab==='us')return renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
   if(state.tab==='x')return renderX();
-  if(state.tab==='vn')return renderVN();
   if(state.tab==='analysis')return renderAnalysis();
   if(state.tab==='topic')return renderTopic();
   if(state.tab==='saved')return renderSaved();
@@ -822,7 +818,7 @@ function render(){
   refreshFav();refreshRej();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
   var nRej=rejectedPool().length;
-  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['vn','🇻🇳 VN·Biển Đông'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
+  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
@@ -836,7 +832,7 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest],[data-export]'):null;if(!t)return;
   if(t.getAttribute('data-pushon')!=null){enablePush();return;}
   if(t.getAttribute('data-pushoff')!=null){disablePush();return;}
   if(t.getAttribute('data-pushtest')!=null){testPush();return;}
