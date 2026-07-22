@@ -33,12 +33,18 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
   (Bắt buộc push sớm: session tự động là ephemeral, nếu chết giữa lúc quét mà chưa push thì mất
   sạch dấu vết — đây chính là lý do trước đây Routine fail mà không có log nào.)
 - **Checkpoint sau MỖI mốc lớn** (xong baseline · xong các agent · xong script · trước khi push tin):
-  ghi thêm 1 dòng `[<giờ>] <mốc>: <tóm tắt>` vào log rồi push ngay → biết chính xác chết ở đâu.
-- Idempotent — **dùng cờ riêng của pipeline `web-scan`, KHÔNG dùng `generatedAt`**:
+  ghi thêm 1 dòng `[<giờ>] <mốc>: <tóm tắt>` vào log, chạy `python3 scripts/state.py beat web-scan`
+  rồi push ngay → biết chính xác chết ở đâu, đồng thời gia hạn khoá.
+  **Nhịp tim là bắt buộc**: khoá tự hết hạn sau 30 phút không có nhịp (để phiên chết không khoá
+  vĩnh viễn mất bản tin của buổi đó) — quét lâu mà quên `beat` thì lần fire sau sẽ cướp khoá.
+- Idempotent + khoá — **dùng cờ riêng của pipeline `web-scan`, KHÔNG dùng `generatedAt`**:
   ```
-  python3 scripts/state.py check web-scan
+  python3 scripts/state.py claim web-scan
   ```
-  In `SKIP` → buổi này đã quét xong: ghi log `SKIP`, push log, KẾT THÚC. In `RUN` → quét tiếp.
+  `SKIP` (exit 10) → buổi này đã quét xong · `SKIP` (exit 11) → **có phiên khác đang chạy**, không
+  quét chồng. Cả hai: ghi log `SKIP`, push log, KẾT THÚC. `RUN` (exit 0) → đã giữ khoá, quét tiếp.
+  Mốc chính và mốc dự phòng chỉ cách nhau 60' mà một phiên mất ~60' → không có khoá là hai phiên
+  chạy song song, cùng push, đụng nhau lúc rebase.
   Cờ tách theo BUỔI (`sang` trước 14:00 VN, `toi` từ 14:00) nên bản sáng không chặn bản tối.
   (`generatedAt` là ngày bản tin hiển thị trên web — Action nhập tin từ Drive lúc 08:00 cũng bump nó,
   nên dùng nó làm cờ sẽ khiến phiên quét SKIP oan. Đã xảy ra 20–21/07/2026.)
@@ -47,7 +53,7 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
   **Kéo bản mới nhất về trước khi làm gì**: `git pull --rebase origin main` — nếu không sẽ quét
   trùng đúng những tin 2 Action vừa nạp.
 - Nếu lỗi ở bất kỳ bước nào: ghi `[<giờ>] FAIL tại <bước>: <lý do ngắn>`, chạy
-  `python3 scripts/state.py fail web-scan "<lý do>"` (FAIL không chặn lần fire sau), push log, rồi dừng.
+  `python3 scripts/state.py fail web-scan "<lý do>"` (FAIL nhả khoá + KHÔNG chặn lần fire sau), push log, rồi dừng.
 
 ## Bước 1 — Nguồn + dữ liệu nền
 **Nguồn quét lấy từ `CLAUDE.md`** (tự nạp trong context): đọc mục **"Nguồn theo 3 tầng"** (chính

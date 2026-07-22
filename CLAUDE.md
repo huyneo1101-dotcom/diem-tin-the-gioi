@@ -247,12 +247,21 @@ Cờ idempotent theo pipeline (xem mục dưới): `drive-import` và `web-scan`
 **Cờ idempotent nằm ở `logs/state.json`, KHÔNG phải `DATA.generatedAt`.** `generatedAt` là *ngày bản tin hiển thị trên web* — dùng nó làm cờ chạy việc thì Action Drive nhập lúc 08:00 sẽ bump nó và làm routine quét tối SKIP vĩnh viễn (đã xảy ra 20–21/07: `xGeneratedAt` kẹt ở 19/07, tập trận/sự kiện ngoại giao không ai cập nhật). Mỗi pipeline giờ có dòng riêng, chỉ tự chặn CHÍNH NÓ.
 
 ```
-python3 scripts/state.py check web-scan     # RUN (exit 0) hoặc SKIP (exit 10) — theo buổi hiện tại
-python3 scripts/state.py done web-scan "+12 tin (TG+5, My+5, X+2)"
-python3 scripts/state.py fail web-scan "session limit"     # FAIL/SKIP không chặn lần fire sau
-python3 scripts/state.py show                              # xem cả 2 pipeline, cả 2 buổi
+python3 scripts/state.py claim web-scan     # giành KHOÁ + kiểm tra: 0=quét đi · 10=xong rồi · 11=đang chạy
+python3 scripts/state.py beat  web-scan     # nhịp tim — gọi ở MỖI checkpoint, nếu không khoá tự hết hạn
+python3 scripts/state.py done  web-scan "+12 tin (TG+5, My+5, X+2)"
+python3 scripts/state.py fail  web-scan "session limit"    # FAIL/SKIP nhả khoá, KHÔNG chặn lần fire sau
+python3 scripts/state.py show                              # xem cả 2 pipeline, cả 2 buổi, trạng thái khoá
 ```
 Chỉ `done` mới đẩy `lastSuccess[buổi]` → chỉ khi thật sự nạp được tin mới chặn lần fire kế tiếp; `fail`/`skip` để lần sau quét lại.
+
+**Khoá chống chạy chồng (thêm 22/07/2026).** Mốc chính và mốc dự phòng cách nhau đúng 60 phút mà một
+phiên quét mất ~60 phút → `check` (chỉ biết ĐÃ XONG hay chưa) để lần fire dự phòng khởi động phiên THỨ
+HAI song song: hai phiên cùng quét, cùng push, tốn token đôi, đụng nhau lúc rebase. `claim` giữ khoá,
+`done/skip/fail` nhả khoá.
+Khoá dùng **heartbeat** chứ không phải hạn giờ cứng — phiên chết mà khoá không tự mở thì còn tệ hơn
+không có khoá (mất luôn bản tin của buổi đó). Không có nhịp nào trong `LOCK_STALE_MIN` = 30 phút →
+coi phiên đã chết, phiên mới giành được khoá. Biết chắc phiên cũ đã chết thì `claim --force`.
 
 ## Log & tự phục hồi (Routine tự động)
 Routine chạy trong session mới (ephemeral) nên phải để lại dấu vết để chẩn đoán khi lỗi:
