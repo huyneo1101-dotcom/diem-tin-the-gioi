@@ -9,10 +9,10 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-19T21:24:00+07:00",
+    "lastRunAt": "2026-07-22T14:56:25+07:00",
     "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "seed: lan quet 6-agent gan nhat; 20-21/07 bi SKIP nham do dung chung co generatedAt",
+    "lastStatus": "SKIP",
+    "note": "nguoi dung dung giua chung, gop vao ban tin toi",
     "lastSuccess": {
       "toi": "2026-07-19"
     }
