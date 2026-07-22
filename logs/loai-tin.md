@@ -84,3 +84,21 @@ Web-scan bù (generatedAt kẹt 16/07, nhỡ 17/07). Nhận: +1 TG (Nikkei rơi 
 
 ### Nhập bản tin chiến lược Drive 18/07 (sáng, file ban-tin-chien-luoc-2026-07-18-0800-ICT.json, connector đã nối lại)
 10 tin. Nhận: +3 TG (Iraq-Mỹ ký 60 tỷ USD né Hormuz; Pháp-Đức mở rộng răn đe hạt nhân; Brazil 13,3 tỷ real tín dụng ứng phó thuế Mỹ), +1 Mỹ (GAO cảnh báo chiến lược CPS siêu vượt âm), +1 cập nhật sự kiện (ASEAN ấn định lễ ký TAC 24/7 Manila). Loại: Mỹ mở rộng không kích Iran (bão hoà), Ukraine khủng hoảng lãnh đạo QP (tiếp nối Fedorov), Iran lan Syria al-Tanf (bão hoà), TQ tăng giá xăng (niche); + bán tháo bán dẫn (trùng Nikkei + link live-blog). File 17/07-2000 chưa nhập (đa số trùng/Iran, để sau).
+
+## 22/07/2026 (bản tin tối)
+
+⭐ **Chủ đề THÍCH bị loại — rà xem có loại nhầm không:**
+- [CNQS] Lockheed Martin PAC-3 ACE — bản gốc tiếng Anh của Defense One bị loại vì **TRÙNG** với bài Báo Mới bạn đã tự lưu ("Patriot có tên lửa đánh chặn giá rẻ"). Đã giữ bản bạn lưu (có nhãn 📌), bỏ bản Defense One.
+- [CNQS] Vũ khí vi sóng Morfius X-Rotor · IAI Hypnosis · Anduril Thunder · Space Force nâng trần hợp đồng phóng 17 tỷ USD · Elbit căn cứ drone nổi — ngoài khung 2 ngày (15-20/07), đã đưa vào mục 🚫 Bị loại để cứu.
+- [Ngoại giao] EU-Djibouti SOFA (16/07) · Thổ Nhĩ Kỳ-Ai Cập LOI quốc phòng (13/07) · EU-Bahrain khởi động đàm phán SPA (13/07) — ngoài khung, đã vào mục Bị loại.
+- [Kinh tế] Trump áp thuế 50% hàng Canada theo Mục 338 (20/07) · Xuất khẩu dầu Saudi qua Biển Đỏ giảm 36% (20/07) · EDA: chi tiêu QP EU 454 tỷ euro 2026 (16/07) — ngoài khung, đã vào mục Bị loại.
+
+**Loại vì trùng chéo giữa các agent (giữ 1 bỏ 1):**
+- Thỏa thuận hạt nhân dân sự Mỹ-Saudi: bỏ bản Spokesman-Review (xếp Chính trị), giữ bản CNN (xếp Ngoại giao, có thêm thương vụ F-35).
+- Mỹ áp thuế 60 đối tác thương mại: bỏ bản Bloomberg/Yahoo, giữ bản Báo Mới bạn đã tự lưu.
+- Trump áp thuế 100% thuốc gốc: bỏ bản Bloomberg/Yahoo (link chưa verify được), giữ bản Thế giới & Việt Nam từ kho ứng viên.
+
+**Loại vì chất lượng:**
+- [xNews] @WhiteHouse "Iran hasn't seen anything yet" — phát ngôn đơn lẻ kiểu khẩu chiến, không có giá trị tin, lại không verify được link X. Bỏ.
+- [CNQS] "Vệ tinh độc nhất vô nhị của Trung Quốc" (Ludi Tance-4 01) — bài hồi cố về vệ tinh phóng từ 2023, không phải tin mới. Bỏ, để rơi vào mục Bị loại.
+- [Chính trị] 4 tin agent Chính trị đề xuất loại nhưng chỉ đưa link, thiếu tiêu đề/tóm tắt → không đủ dữ liệu để đưa vào mục Bị loại.
