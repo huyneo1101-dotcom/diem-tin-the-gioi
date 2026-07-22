@@ -239,6 +239,10 @@ def collect_existing_urls(data: dict) -> set:
     urls = set()
     for it in data.get("worldNews", []) + data.get("usNews", []):
         urls.add(it.get("sourceUrl"))
+        # Tin đã ĐỔI NGUỒN từ Báo Mới sang nguồn gốc nước ngoài vẫn phải nhớ link Báo Mới cũ:
+        # thiếu nó thì `--baomoi-pending` coi bài đó là "chưa nạp" và phiên sau nạp lại y hệt.
+        if it.get("_baomoiUrl"):
+            urls.add(it["_baomoiUrl"])
     for it in data.get("xNews", []):
         urls.add(it.get("url"))
     for ev in data.get("exercises", []) + data.get("dipEvents", []):

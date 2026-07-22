@@ -94,21 +94,45 @@ top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 | 5 | xNews | 2–4 tin (ưu tiên QP/an ninh/chính thức) |
 | 6 | exercises + dipEvents (cập nhật `ongoing` + tạo sự kiện ngoại giao mới nếu có) | 1–2 mỗi loại |
 | 7 | **Báo Mới — bài đã lưu** (viết `summary` + `significance`) | TẤT CẢ bài trong nhóm "BÀI ĐÃ LƯU" |
-| 8 | **Báo Mới — ứng viên chuyên mục** (chọn lọc) | **3–6 bài** tốt nhất trong kho ~50–100 ứng viên |
+| 8 | **Báo Mới — ứng viên chuyên mục** (chọn lọc + truy về nguồn gốc) | **3–6 bài** tốt nhất, tính SAU khi đã tìm được bài gốc nước ngoài |
 
 Cả 2 agent này KHÔNG quét web tìm tin mới — chỉ xử lý danh sách có sẵn từ
 `python3 scripts/add_news.py --baomoi-pending` (bước 1). Output lệnh đó tách sẵn 2 nhóm; nhúng
 NGUYÊN KHỐI nhóm tương ứng vào prompt từng agent. Cả 2 nhóm đã được lọc "đăng trong 24h" — **KHÔNG
 nới khung này**, và không có bài nào trong nhóm thì bỏ qua agent tương ứng.
 
-Việc chung của cả 2: mở `sourceUrl` (WebFetch) đọc nội dung thật → viết `summary` 2–3 câu +
-`significance` (ý nghĩa chiến lược) đúng giọng bản tin; không đọc được thì viết từ tiêu đề, KHÔNG
-bịa chi tiết. Giữ nguyên `date`/`title`/`sourceName`/`sourceUrl`; sửa `category`/`region` nếu bộ
-từ khoá phân loại sai (`category` chỉ trong 4 mục hợp lệ).
+### Việc chung của cả 2: TRUY NGƯỢC VỀ NGUỒN GỐC (bắt buộc — áp dụng từ 23/07/2026)
+Báo Mới là trang TỔNG HỢP, gần như mọi bài quốc tế trên đó đều dẫn lại từ một nguồn nước ngoài.
+Bản tin phải trỏ tới **bài gốc**, không trỏ tới bản dẫn lại. Với MỖI bài:
+
+1. Mở `sourceUrl` (WebFetch) đọc nội dung thật, xác định sự kiện gốc.
+2. **Tìm bài gốc nước ngoài** về đúng sự kiện đó, **đăng trong 24h** (hôm nay hoặc hôm qua giờ VN).
+   Ưu tiên: **nguồn chính thức** ([`docs/nguon-chinh-thuc-my.md`](../../../docs/nguon-chinh-thuc-my.md),
+   gov.uk, mod.go.jp, asean.org, nato.int, europa.eu…) → **wire** (Reuters, AP, AFP) → **báo quốc tế
+   uy tín**. Tránh Politico / USNI News / Al Arabiya (bị chặn, xem bảng RSS trong CLAUDE.md).
+3. **Mở link gốc bằng WebFetch để XÁC NHẬN có thật + đúng nội dung + đúng ngày.** Không mở được →
+   coi như KHÔNG tìm thấy. (Đã có tiền lệ agent báo "đã xác nhận" nhưng link trả 404.)
+4. Tìm được → lấy **`sourceName` + `sourceUrl` + `title` + `summary` + `significance` theo bài GỐC**.
+   Đổi **cả tiêu đề lẫn URL**, không giữ cách đặt tiêu đề của bản dẫn lại. Số liệu lấy theo bài gốc —
+   bản dẫn lại hay làm tròn/rút gọn sai (thực tế 22/07: "87 tỷ" thay vì 87,6 tỷ; "tính tới 21/7"
+   thay vì "hết năm tài khóa 30/9").
+5. **Không tìm được bài gốc trong 24h** — xử lý KHÁC nhau giữa 2 agent:
+   - **Agent 7 (bài đã lưu)**: GIỮ link Báo Mới. Người dùng đã tự tay bookmark, không được bỏ tin.
+   - **Agent 8 (ứng viên chuyên mục)**: **BỎ bài đó**, chọn ứng viên khác thay. Kho có 50–90 bài nên
+     không thiếu; không việc gì phải hạ chuẩn nguồn.
+
+`category` sửa nếu bộ từ khoá phân loại sai (chỉ 4 mục hợp lệ); `region` điền nếu đang trống.
+Không đọc được nội dung bài nào thì viết từ tiêu đề, ngắn gọn, **KHÔNG bịa chi tiết/con số**.
+
+**Riêng Agent 7 khi đã đổi nguồn:** thêm field `"_baomoiUrl": "<link Báo Mới gốc>"` vào tin.
+Bắt buộc, vì 2 lý do — (a) `loadBaomoi` trong `index.html` dedupe theo url + tiêu đề, đổi cả hai
+là bài trong `baomoi-saved.json` bị trộn lại thành tin THỨ HAI trên web; (b) `--baomoi-pending`
+coi bài đó là "chưa nạp" và phiên sau nạp lại y hệt. Agent 8 KHÔNG cần field này.
 
 Khác nhau ở chỗ:
 - **Agent 7 — bài đã lưu**: người dùng TỰ tay bookmark → lấy **HẾT**, **KHÔNG áp bộ lọc sở thích**
   (không loại vì "không hợp gu"). Trả về field **`baomoiNews`** → web gắn nhãn 📌 Đã lưu.
+  Vẫn phải truy ngược về nguồn gốc theo mục trên; không tìm được thì giữ link Báo Mới.
 - **Agent 8 — ứng viên chuyên mục**: đây là feed công khai, phần lớn là nhiễu → **ÁP ĐÚNG bộ lọc sở
   thích** như tin thường (loại cáo phó/drama/horserace/lợi nhuận doanh nghiệp đơn lẻ...), ưu tiên
   Công nghệ quân sự + Ngoại giao, mỗi bài một sự kiện KHÁC nhau, né trùng với `--recent-titles`.
