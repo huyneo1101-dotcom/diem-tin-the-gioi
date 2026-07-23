@@ -202,6 +202,7 @@ a{color:inherit}
 .bs-si:hover h3{color:var(--accent)}
 .bs-si .src{font-size:.64rem;color:var(--muted)}
 .bs-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:16px}
+.bs-topic{margin:0 0 18px}
 .bs-col{padding:0 22px}
 .bs-col:first-child{border-right:1px solid var(--line);padding-left:0}
 .bs-colh{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--title);border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:4px}
@@ -932,17 +933,27 @@ function renderHome(){
   lead+='<button class="morebtn" data-home-goto="topic|dossier|'+(mali?esc(mali[0]):'')+'|">Xem hồ sơ →</button></div></div>';
   h+=lead;
   /* --- Hai cột: Thế giới nổi bật / Mỹ nổi bật --- */
-  function colHtml(arr,goto){
+  function colHtml(arr){
     return arr.map(function(a){
-      return '<a class="bs-art" href="'+esc(a.sourceUrl||'#')+'" target="_blank" rel="noreferrer"><h4>'+esc(a.title)+'</h4><div class="bs-am">'+esc(a.category||'')+' · '+esc(a.sourceName||'')+(a.date?' · '+fmtVN(a.date):'')+'</div></a>';
+      return '<a class="bs-art" href="'+esc(a.sourceUrl||a.url||'#')+'" target="_blank" rel="noreferrer"><h4>'+esc(a.title)+'</h4><div class="bs-am">'+esc(a.category||'')+' \u00b7 '+esc(a.sourceName||a.handle||'')+(a.date?' \u00b7 '+fmtVN(a.date):'')+'</div></a>';
     }).join('');
   }
-  var wtop=sortD(DATA.worldNews||[]).slice(0,5), utop=sortD(DATA.usNews||[]).slice(0,5);
-  h+='<div class="bs-cols">'+
-     '<div class="bs-col"><div class="bs-colh"><span>🌍 Thế giới nổi bật</span><button class="morebtn sm" data-home-goto="world">Tất cả →</button></div>'+(wtop.length?colHtml(wtop):'<div class="bs-meta">Chưa có tin.</div>')+'</div>'+
-     '<div class="bs-col"><div class="bs-colh"><span>'+USFLAG+'Mỹ nổi bật</span><button class="morebtn sm" data-home-goto="us">Tất cả →</button></div>'+(utop.length?colHtml(utop):'<div class="bs-meta">Chưa có tin.</div>')+'</div>'+
-     '</div>';
-  h+='<div class="bs-foot">Cập nhật '+esc(stamp)+' · Bấm tiêu đề để mở nguồn gốc</div>';
+  /* 3 chủ đề trên Trang chủ (thay 2 cột Thế giới/Mỹ) */
+  var _reUS=/hạ viện|thượng viện|nghị sĩ|dự luật|đạo luật|lưỡng viện|ndaa|h\.con|h\.r\.|\bfcc\b|\bustr\b|nhà trắng|tòa tối cao|sắc lệnh hành pháp|điều trần|phê chuẩn|luận tội|quốc hội mỹ|quốc hội hoa kỳ|ủy ban (quân vụ|tài chính|đối ngoại|tình báo|chuẩn chi|tư pháp)/i;
+  var _reAUSC=/australia|aukus|canberra|penny wong|biển đông|south china sea|scarborough|cỏ mây|second thomas|trường sa|hoàng sa|marcos|philippines|(^|[^\p{L}])úc([^\p{L}]|$)/iu;
+  var _reMILUS=/lầu năm góc|space force|lockheed|raytheon|\brtx\b|boeing|northrop|darpa|hải quân mỹ|không quân mỹ|lục quân mỹ|thủy quân lục chiến|pentagon|centcom|coaspire|anduril|l3harris|general dynamics|bộ chiến tranh|quân đội mỹ|(^|[^\p{L}])mỹ([^\p{L}]|$)/iu;
+  var _uspool=sortD(DATA.usNews||[]);
+  var _allpool=newsPool();
+  var t1=_uspool.filter(function(a){return _reUS.test(txtOf(a));}).slice(0,5);
+  var t2=_allpool.filter(function(a){return _reAUSC.test(txtOf(a));}).slice(0,5);
+  var t3=_allpool.filter(function(a){return a.category==='Công nghệ quân sự'&&_reMILUS.test(txtOf(a));}).slice(0,5);
+  function topicSec(icon,label,arr){
+    return '<section class="bs-topic"><div class="bs-colh"><span>'+icon+' '+label+'</span></div>'+(arr.length?colHtml(arr):'<div class="bs-meta" style="padding:8px 0">Chưa có tin trong 24h.</div>')+'</section>';
+  }
+  h+=topicSec('\uD83C\uDFDB\uFE0F','Tin Nội bộ Mỹ',t1);
+  h+=topicSec('\uD83C\uDDE6\uD83C\uDDFA','Úc và Biển Đông',t2);
+  h+=topicSec('\uD83D\uDEE1\uFE0F','CN quân sự Mỹ',t3);
+h+='<div class="bs-foot">Cập nhật '+esc(stamp)+' · Bấm tiêu đề để mở nguồn gốc</div>';
   h+='</div>';
   return h;
 }
