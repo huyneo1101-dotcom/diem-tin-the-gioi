@@ -151,17 +151,24 @@ Vì **chỉ quét 2 ngày gần nhất** (hôm nay + hôm qua), sản lượng t
 | **Công nghệ quân sự** | **2–4 tin** (chủ đề thích nhất — khí tài/hệ thống cụ thể) |
 | **Ngoại giao** | **2–4 tin** (hiệp định/khuôn khổ an ninh–QP, thượng đỉnh có kết quả) |
 | **Kinh tế** | 1–2 tin (CHỈ vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
-| **Chính trị** | 1–2 tin (CHỈ thể chế/luật/chiến lược great-power) |
+| **Chính trị** | 1–2 tin (world: CHỈ thể chế/luật/chiến lược great-power · **us: MỞ TOÀN BỘ nội bộ Mỹ**) |
+| 🎯 **Trọng tâm chủ động** | **Úc 1–2 · Biển Đông 1–2 · Nội bộ Mỹ 1–2** mỗi phiên nếu có (nằm rải trong 4 category trên, KHÔNG phải mục riêng) |
 | `xNews` | 2–4 tin (ưu tiên tài khoản QP/an ninh/chính thức) |
 | `exercises` (tập trận) | 1–2 tin cập nhật (sự kiện `ongoing`) |
 | `dipEvents` (ngoại giao) | **2–4 tin cập nhật + CHỦ ĐỘNG tạo 1–2 sự kiện MỚI mỗi ngày** (ưu tiên tăng số sự kiện ngoại giao) — mỗi sự kiện PHẢI có `status` đúng: `upcoming` (sắp diễn ra) · `ongoing` (đang diễn ra) · `recent` (đã kết thúc) |
 
-→ Tổng thực tế **~10–20 tin/ngày** tuỳ ngày nhiều/ít sự kiện. Ưu tiên Công nghệ quân sự + Ngoại giao. **Không có tối thiểu cứng mỗi category** — ngày ít tin thì chấp nhận thiếu, nêu rõ trong tóm tắt (không bịa, không lấy tin cũ hơn hôm qua).
+→ Tổng thực tế **~12–24 tin/ngày** tuỳ ngày (cao hơn trước vì mở nội bộ Mỹ + 3 trọng tâm). Ưu tiên Công nghệ quân sự + Ngoại giao + 3 trọng tâm chủ động (Úc · Biển Đông · Nội bộ Mỹ). **Không có tối thiểu cứng mỗi category** — ngày ít tin thì chấp nhận thiếu, nêu rõ trong tóm tắt (không bịa, không lấy tin cũ hơn hôm qua).
 
 ### Bộ LỌC SỞ THÍCH (bắt buộc — nhúng vào mọi agent; nguồn: `diemtin-content-prefs.md` + `preferences.md`)
 > **Hai hồ sơ, không conflict:** `diemtin-content-prefs.md` = **Hiến chương** (cấu trúc/triết lý/cách viết — thắng khi lệch về mấy thứ đó); `preferences.md`/`preferences.json` = **vote** (tinh chỉnh mức ưu tiên chủ đề). Bảng hoà giải 5 điểm từng lệch (hải quân xếp phụ · ưu tiên nước lớn · Nga–Ukraine chỉ giữ diễn biến MỚI · dung hoà số lượng · nhấn VN–Biển Đông khi gắn quốc tế) nằm CUỐI `diemtin-content-prefs.md` — theo đúng bảng đó.
 **ƯU TIÊN (tìm nhiều):** khí tài/công nghệ QP cụ thể (tên lửa, phòng không, hải quân, không gian/Space Force, laser, AI quân sự, tàu ngầm, drone); hiệp định/khuôn khổ an ninh–QP có kết quả (ACSA/RAA/đối tác chiến lược); Kinh tế vĩ mô & định chế (Fed/ECB/BOJ/IMF/OECD/WTO/BIS/WB, nợ công, thuế, chuỗi cung ứng chip); Chính trị THỂ CHẾ/luật/hiến pháp/ngân sách QP/trừng phạt/chiến lược great-power.
 **LOẠI BỎ (KHÔNG đưa vào worldNews/usNews):** ❌ cáo phó/người qua đời; ❌ chính trị NHÂN VẬT/bê bối/drama/scandal cá nhân; ❌ đua bầu cử horserace (thắng–thua đảng phái, bầu cử địa phương); ❌ lợi nhuận/vận hành DOANH NGHIỆP đơn lẻ (trừ khi gắn QP / chip–AI / chuỗi cung ứng chiến lược); ❌ chính trị nội bộ xã hội/tư pháp thuần (nhập cư, cải cách công tố…); ❌ tin Nga–Ukraine chiến sự lặp lại.
+
+**🎯 TRỌNG TÂM CHỦ ĐỘNG mỗi phiên — thêm 23/07/2026 (chỉ thị người dùng, GHI ĐÈ các dòng trên khi va chạm):** mỗi lần quét CHỦ ĐỘNG tìm cho đủ 3 trọng tâm này, nhắm **1–2 tin/trọng tâm/phiên nếu có** (best-effort, không đủ thì thôi):
+1. **Úc** — AUKUS, quốc phòng/khí tài Úc, ADF, quan hệ an ninh Úc–Mỹ/Nhật/Anh, chính sách Thái Bình Dương của Úc. Gán `region: "Ấn Độ Dương - Thái Bình Dương"`.
+2. **Biển Đông** — chủ quyền biển, đụng độ/tuần tra, phán quyết, tập trận, hoạt động của Philippines/VN/TQ/Mỹ ở Biển Đông. Nâng từ "VN chỉ khi gắn quốc tế" thành trọng tâm CHỦ ĐỘNG. Gán `region: "Đông Á"` (hoặc "Ấn Độ Dương - Thái Bình Dương").
+3. **Nội bộ Mỹ (usNews) — MỞ TOÀN BỘ:** với tin nội bộ Mỹ, **KHÔNG áp** các dòng ❌ về chính trị (nhân vật · bê bối/drama chính trị · horserace bầu cử · nội bộ xã hội/tư pháp như nhập cư, cải cách công tố). Nhận cả **tranh cãi đảng phái, chân dung/động thái chính trị gia, đua bầu cử, chính sách nhập cư, cải cách tư pháp, biểu tình, điều trần**. CHỈ vẫn loại: cáo phó thuần và tin giải trí/đời tư người nổi tiếng KHÔNG dính chính sách. (Ngoại lệ này chỉ cho **usNews** — tin thế giới ngoài Mỹ vẫn theo bộ lọc gốc.)
+
 **Nguyên tắc "cứu":** tin công ty/chính trị VẪN nhận nếu gắn chủ đề chiến lược (vd Boeing↔máy bay quân sự, Samsung↔chip AI).
 **Khu vực (hoà giải hiến chương):** chọn theo chủ đề/kiểu tin là chính, NHƯNG khi 2 tin ngang chất → ưu tiên tin dính **nước lớn**, hạ (không loại) vùng xa. **VN chỉ khi gắn quốc tế; TQ để tự nhiên** (không đậm/né thêm).
 **Trong CNQS:** ưu tiên không quân/tên lửa · hạt nhân–răn đe · không gian/mạng; **hải quân là mảng phụ** (vẫn nhận, nhưng cắt sau cùng).

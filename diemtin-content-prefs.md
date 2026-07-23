@@ -66,4 +66,4 @@ Ba hồ sơ quy tắc trong repo, phân lớp rõ:
 | 2 | **Khu vực**: vote trung lập, khai báo ưu tiên nước lớn | Chủ đề là trục chính; khi 2 tin ngang chất → **ưu tiên tin dính nước lớn**, HẠ (không loại) vùng xa. |
 | 3 | **Nga–Ukraine**: vote loại tin lặp, khai báo là hồ sơ sống | **Theo dõi hồ sơ sống** (bước ngoặt / ngoại giao / vũ khí mới) NHƯNG **loại tin chiến sự lặp** (đường tiền tuyến hằng ngày). |
 | 4 | **Số lượng vs phân tích** | **Dung hoà (hiện trạng):** giữ quota ~10–20 tin/ngày, **không sàn cứng mỗi category**, ưu tiên chất. Lớp phân tích chuyên sâu = việc CODE sau (chưa làm). |
-| 5 | **VN & Biển Đông** chưa được nhấn | Ưu tiên tin **chủ quyền biển + kinh tế VN quốc tế** (theo tinh thần "VN chỉ khi gắn quốc tế"). Tab riêng = việc CODE sau. |
+| 5 | **VN & Biển Đông** chưa được nhấn | Ưu tiên tin **chủ quyền biển + kinh tế VN quốc tế**. **Cập nhật 23/07/2026 (chỉ thị người dùng): Biển Đông nâng thành TRỌNG TÂM CHỦ ĐỘNG mỗi phiên** (không còn "chỉ khi gắn quốc tế") — cùng Úc và Nội bộ Mỹ. Chi tiết ở mục "🎯 Trọng tâm chủ động" trong `CLAUDE.md`. |
