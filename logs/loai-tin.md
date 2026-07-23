@@ -102,3 +102,21 @@ Web-scan bù (generatedAt kẹt 16/07, nhỡ 17/07). Nhận: +1 TG (Nikkei rơi 
 - [xNews] @WhiteHouse "Iran hasn't seen anything yet" — phát ngôn đơn lẻ kiểu khẩu chiến, không có giá trị tin, lại không verify được link X. Bỏ.
 - [CNQS] "Vệ tinh độc nhất vô nhị của Trung Quốc" (Ludi Tance-4 01) — bài hồi cố về vệ tinh phóng từ 2023, không phải tin mới. Bỏ, để rơi vào mục Bị loại.
 - [Chính trị] 4 tin agent Chính trị đề xuất loại nhưng chỉ đưa link, thiếu tiêu đề/tóm tắt → không đủ dữ liệu để đưa vào mục Bị loại.
+
+## 2026-07-23 (bản tin sáng)
+⭐ Tin CHỦ ĐỀ THÍCH bị loại (chủ yếu do NGOÀI KHUNG 2 NGÀY — để rà cứu):
+- ⭐ [CNQS] Lockheed Morfius X-Rotor diệt 50 drone/lần bay (C4ISRNet, 20/07) — ngoài khung 2 ngày
+- ⭐ [CNQS] IAI Hypnosis gây nhiễu vô hiệu bầy drone (C4ISRNet, 20/07) — ngoài khung 2 ngày
+- ⭐ [CNQS] Doodle Labs mở nhà máy radio chống nhiễu Mỹ/Âu (C4ISRNet, 20/07) — ngoài khung 2 ngày
+- ⭐ [Ngoại giao] Thổ Nhĩ Kỳ - Anh ký thỏa thuận an ninh-QP London (Greek City Times, 09/07) — ngoài khung
+- ⭐ [Kinh tế] JPMorgan tài trợ quỹ đầu tư 550 tỷ USD của Nhật vào Mỹ (Reuters, 21/07) — ngoài khung
+- ⭐ [Kinh tế] Trump áp thuế 50% hàng Canada theo Mục 338 (White House, 20/07) — ngoài khung (bản 22/07 Carney-Trump đã lấy)
+Tin khác bị loại:
+- [Chính trị] Hạ viện Indonesia phê chuẩn hiệp định QP với Thổ Nhĩ Kỳ/Malaysia (Antara, 21/07) — ngoài khung
+- [Chính trị] Mỹ để tình trạng khẩn cấp Hong Kong hết hiệu lực (HKFP, 19/07) — ngoài khung
+- [Chính trị] Thượng viện Dân chủ chặn NDAA 1.150 tỷ vì chiến tranh Iran (Al Jazeera, 14/07) — ngoài khung
+Loại do TRÙNG chéo agent (không đưa vào mục Bị loại):
+- MQ-28 Ghost Bat + Leonardo (Aviationist, 21/07) — trùng tin MQ-28 Valiant Shield đã lấy + ngoài khung
+- Mỹ-Nhật-Hàn Manila (Korea Times) — trùng bản Korea Herald đã lấy ở usNews
+- Trump muốn Infantino làm TTK LHQ (NY Post, 21/07) — ngoài khung + thiên tin đồn/nhân vật
+Loại do TRÙNG DATA (Báo Mới ứng viên): Saudi hạt nhân, Pentagon 37,5 tỷ Iran, Canada GCAP, AliExpress EU, thuế 100% thuốc gốc, Houthi Bab el-Mandeb, Mỹ không kích Iran... + tin tuyên truyền một phía (Iran "xuyên thủng phòng không Mỹ").
