@@ -111,6 +111,18 @@ def diff_new(cur, prev, kind):
     return [it for it in cur_list if it.get(key) and it.get(key) not in prev_urls]
 
 
+def today_items(cur, kind):
+    """Toàn bộ tin đưa lên hôm nay (fallback khi diff rỗng)."""
+    today = cur.get("generatedAt")
+    if kind == "x":
+        lst = cur.get("xNews", []) or []
+    elif kind == "events":
+        lst = event_items(cur)
+    else:
+        lst = cur.get(kind, []) or []
+    return [it for it in lst if it.get("_addedDate") == today or it.get("date") == today]
+
+
 # ---------- docx helpers ----------
 def set_font(run, size=13, bold=False, italic=False, color=None):
     run.font.name = FONT
@@ -204,6 +216,16 @@ def main():
         ("Sự kiện", diff_new(cur, prev, "events"), "events"),
     ]
     total = sum(len(items) for _, items, _ in sections)
+
+    # Fallback: diff rỗng (chạy tay / không có tin mới trong commit) -> lấy toàn bộ tin đưa lên hôm nay
+    if total == 0:
+        sections = [
+            ("Mỹ", today_items(cur, "usNews"), "usNews"),
+            ("Thế giới", today_items(cur, "worldNews"), "worldNews"),
+            ("Mạng xã hội (X)", today_items(cur, "x"), "x"),
+            ("Sự kiện", today_items(cur, "events"), "events"),
+        ]
+        total = sum(len(items) for _, items, _ in sections)
     if total == 0:
         print("DOCX=")
         return
