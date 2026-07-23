@@ -51,7 +51,7 @@ import urllib.parse
 NEWS_REQUIRED_FIELDS = {"date", "category", "title", "summary", "sourceName", "sourceUrl", "significance"}
 VALID_CATEGORIES = {"Kinh tế", "Chính trị", "Công nghệ quân sự", "Ngoại giao"}
 MIN_PER_CATEGORY = 2
-FLOOR = 10  # SÀN CỨNG mỗi phiên: worldNews ≥ 10 VÀ usNews ≥ 10 (chỉ thị người dùng 23/07/2026)
+FLOOR_DAY = 15  # SÀN CỨNG TỔNG NGÀY (sáng+tối): worldNews ≥ 15 VÀ usNews ≥ 15 (chỉ thị người dùng 23/07/2026)
 MAX_AGE_DAYS = 1  # CHỈ nhận 2 ngày gần nhất (hôm nay + hôm qua); cũ hơn -> chặn
 
 # Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
@@ -532,6 +532,11 @@ def main() -> None:
     # (và để loadBaomoi trong index.html nhận ra là đã xử lý, không trộn lại lần nữa).
     for it in baomoi_new:
         it["_baomoi"] = True
+    # _addedDate = ngày ĐƯA LÊN (= batch date). Dùng để đếm SÀN TỔNG NGÀY: cả phiên sáng và tối
+    # cùng ngày đều set date = hôm nay VN, nên đếm _addedDate == date gộp được tin của cả 2 phiên.
+    # (web bỏ qua field này). Không dùng date đăng bài vì tin đăng hôm qua vẫn tính vào ngày đưa lên.
+    for it in world_new + baomoi_new + us_new:
+        it["_addedDate"] = date
     data["worldNews"] = world_new + baomoi_new + data.get("worldNews", [])
     data["usNews"] = us_new + data.get("usNews", [])
     data["xNews"] = x_new + data.get("xNews", [])
@@ -658,24 +663,24 @@ def main() -> None:
     if not (world_ok and us_ok):
         print("=> Còn category thiếu tin (< 2). Nếu đã thử hết nguồn hợp lý, chấp nhận và nêu rõ trong tóm tắt cuối; nếu chưa, quét bổ sung rồi chạy lại script.")
 
-    # ── SÀN CỨNG mỗi phiên: worldNews ≥ FLOOR và usNews ≥ FLOOR (chỉ thị người dùng 23/07/2026).
-    # Đếm tin trong KHUNG PHIÊN (date == ngày batch hoặc hôm trước) trên DATA SAU khi chèn, nên
-    # số tăng dần qua từng vòng bổ sung. Đây là TÍN HIỆU cho session điều phối, KHÔNG chặn.
-    window = {date, (ref - datetime.timedelta(days=1)).isoformat()}
-    w_cnt = sum(1 for it in data.get("worldNews", []) if it.get("date") in window)
-    u_cnt = sum(1 for it in data.get("usNews", []) if it.get("date") in window)
-    print(f"── SÀN CỨNG (khung 2 ngày, tính cả các vòng trước trong phiên): "
-          f"worldNews {w_cnt}/{FLOOR} · usNews {u_cnt}/{FLOOR}")
-    if w_cnt < FLOOR or u_cnt < FLOOR:
+    # ── SÀN CỨNG TỔNG NGÀY: worldNews ≥ FLOOR_DAY và usNews ≥ FLOOR_DAY tin ĐƯA LÊN trong ngày
+    # (chỉ thị người dùng 23/07/2026 — tính cả 2 phiên sáng+tối). Đếm tin có _addedDate == ngày batch
+    # trên DATA SAU khi chèn, nên gộp được phiên sáng và tăng dần qua từng vòng bổ sung. TÍN HIỆU,
+    # KHÔNG chặn — việc lặp là của session điều phối (phiên tối phải kéo tổng ngày lên đủ FLOOR_DAY).
+    w_cnt = sum(1 for it in data.get("worldNews", []) if it.get("_addedDate") == date)
+    u_cnt = sum(1 for it in data.get("usNews", []) if it.get("_addedDate") == date)
+    print(f"── SÀN CỨNG TỔNG NGÀY {date} (gộp cả sáng+tối, tăng dần qua từng vòng): "
+          f"worldNews {w_cnt}/{FLOOR_DAY} · usNews {u_cnt}/{FLOOR_DAY}")
+    if w_cnt < FLOOR_DAY or u_cnt < FLOOR_DAY:
         need = []
-        if w_cnt < FLOOR:
-            need.append(f"worldNews thiếu {FLOOR - w_cnt}")
-        if u_cnt < FLOOR:
-            need.append(f"usNews thiếu {FLOOR - u_cnt}")
-        print(f"   ⚠️ CHƯA ĐẠT SÀN ({', '.join(need)}) → GIAO THÊM AGENT bổ sung rồi chạy lại. "
-              f"CHƯA ĐỦ THÌ CHƯA DỪNG (nội bộ Mỹ mở toàn bộ = dư địa lớn nhất).")
+        if w_cnt < FLOOR_DAY:
+            need.append(f"worldNews thiếu {FLOOR_DAY - w_cnt}")
+        if u_cnt < FLOOR_DAY:
+            need.append(f"usNews thiếu {FLOOR_DAY - u_cnt}")
+        print(f"   ⚠️ CHƯA ĐẠT SÀN NGÀY ({', '.join(need)}). Phiên SÁNG: nhắm ~10/mục là đủ, để tối bù. "
+              f"Phiên TỐI: CHƯA ĐỦ THÌ CHƯA DỪNG → giao thêm agent (nội bộ Mỹ mở toàn bộ = dư địa lớn nhất).")
     else:
-        print("   ✅ ĐẠT SÀN cả worldNews lẫn usNews.")
+        print("   ✅ ĐẠT SÀN NGÀY cả worldNews lẫn usNews.")
     if len(x_new) < 4:
         print(f"  xNews: {len(x_new)} tin  <-- THIẾU (mục tiêu 4-5)")
     if exercise_items_added < 1:

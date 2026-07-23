@@ -85,8 +85,9 @@ tối thiểu 2 tin/category theo CLAUDE.md, không bỏ hẳn mục nào, khôn
 top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 
 ## Bước 2 — Giao 8 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
-Sản lượng dưới đây là ĐỢT GIAO ĐẦU — nhắm để **tổng world ≥10 + us ≥10** ngay từ vòng 1 (có đệm cho
-review loại). Cộng world của agent 1–4 ≈ 10–14, us ≈ 10–14. Thiếu sau review thì lặp bổ sung (Bước 4).
+Sản lượng dưới đây là ĐỢT GIAO ĐẦU của MỘT phiên — nhắm **~10–12/mục** (có đệm cho review loại).
+**Phiên SÁNG:** ~10/mục là đủ. **Phiên TỐI:** cũng giao đợt đầu ~10/mục rồi LẶP bổ sung (Bước 4) cho tới
+khi TỔNG NGÀY (sáng+tối) mỗi mục ≥15. Cộng world của agent 1–4 ≈ 10–14, us ≈ 10–14 mỗi đợt.
 
 | Agent | Phạm vi | Sản lượng đợt đầu (khung 2 ngày) |
 |---|---|---|
@@ -144,7 +145,9 @@ Khác nhau ở chỗ:
   **KHÔNG cần liệt kê các bài không chọn** — `add_news.py` tự lấy 10 bài trong số còn lại đổ vào
   mục 🚫 Bị loại (chia đều 4 chuyên mục theo vòng xoay, ~3-3-2-2), khỏi tốn token viết lại.
 
-**SÀN CỨNG mỗi phiên: worldNews ≥ 10 · usNews ≥ 10 tin chất lượng — CHƯA ĐỦ THÌ CHƯA DỪNG** (giao thêm agent bổ sung, xem Bước 4). Đợt giao đầu nhắm mỗi mục ~10–12 tin để có đệm sau khi review loại; thiếu thì lặp. KHÔNG nới khung ngày, KHÔNG bịa để lấp. Xem đầy đủ ở "Chỉ tiêu số lượng" + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
+**SÀN CỨNG TỔNG NGÀY: worldNews ≥ 15 · usNews ≥ 15 tin/ngày (gộp sáng+tối).** Phiên SÁNG nhắm ~10/mục;
+phiên TỐI bù cho tổng ngày đủ 15/mục — **CHƯA ĐỦ THÌ CHƯA DỪNG** (giao thêm agent, xem Bước 4). KHÔNG nới
+khung ngày, KHÔNG bịa để lấp. Xem đầy đủ ở "Chỉ tiêu số lượng" + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
 
 **Nhúng vào MỌI prompt agent** (agent KHÔNG thấy hội thoại chính — viết prompt độc lập):
 - **BỘ LỌC SỞ THÍCH (bắt buộc — từ `preferences.md`/CLAUDE.md):** ƯU TIÊN khí tài/hệ thống QP cụ thể,
@@ -218,16 +221,17 @@ Script **CHẶN** (sửa JSON rồi chạy lại): thiếu field; category sai; 
 lai); URL trang chủ/live-blog; URL trùng trong batch hoặc đã có trong DATA; status ID X nghi bịa;
 tên exercise/dipEvent (`*Updates`) không khớp; tên `newDipEvents` trùng sự kiện đã có (Jaccard≥0.6)
 hoặc thiếu field. **CẢNH BÁO** (không chặn): nguồn lạ; tiêu đề nghi trùng; phần chưa đủ chỉ tiêu.
-- **SÀN CỨNG — VÒNG LẶP BẮT BUỘC (chỉ thị người dùng 23/07/2026):** dòng cuối script in ra
-  `── SÀN CỨNG … worldNews X/10 · usNews Y/10`. **Nếu mục nào < 10 → CHƯA ĐƯỢC DỪNG:**
-  1. Giao thêm agent Sonnet bổ sung riêng mục thiếu (world hoặc us), chỉ rõ category còn thiếu +
-     nguồn/góc CHƯA khai thác. **Nội bộ Mỹ đã mở toàn bộ → dư địa lớn nhất để bù usNews** (đảng phái,
-     nhân vật, horserace, nhập cư, tư pháp, điều trần, biểu tình). worldNews thiếu → dồn 3 trọng tâm
-     Úc/Biển Đông + CNQS/Ngoại giao ở các khu vực chưa lấy.
-  2. Ghi checkpoint + `state.py beat web-scan`, gộp kết quả vào `/tmp/new_items.json` mới, chạy lại
-     script (cộng dồn an toàn, không tạo trùng).
-  3. **LẶP** cho tới khi script in `✅ ĐẠT SÀN cả worldNews lẫn usNews`.
-- Category-level (<2/category) là gợi ý phân bổ, KHÔNG phải sàn; sàn thật là **tổng mục ≥10**.
+- **SÀN CỨNG TỔNG NGÀY — VÒNG LẶP BẮT BUỘC (chỉ thị người dùng 23/07/2026):** dòng cuối script in
+  `── SÀN CỨNG TỔNG NGÀY … worldNews X/15 · usNews Y/15` (gộp cả phiên sáng + tối trong ngày).
+  - **Phiên SÁNG:** nhắm ~10/mục là đủ — KHÔNG cần lặp tới 15, để tối bù. Đạt ~10 thì kết thúc bình thường.
+  - **Phiên TỐI (hoặc phiên duy nhất chạy khi phiên kia SKIP/FAIL): nếu mục nào < 15 → CHƯA ĐƯỢC DỪNG:**
+    1. Giao thêm agent Sonnet bổ sung riêng mục thiếu (world/us), chỉ rõ category còn thiếu + nguồn/góc
+       CHƯA khai thác. **Nội bộ Mỹ mở toàn bộ → dư địa lớn nhất để bù usNews** (đảng phái, nhân vật,
+       horserace, nhập cư, tư pháp, điều trần, biểu tình). worldNews thiếu → dồn Úc/Biển Đông + CNQS/
+       Ngoại giao ở khu vực chưa lấy.
+    2. Ghi checkpoint + `state.py beat web-scan`, gộp vào `/tmp/new_items.json` mới, chạy lại script.
+    3. **LẶP** tới khi script in `✅ ĐẠT SÀN NGÀY cả worldNews lẫn usNews`.
+- Category-level (<2/category) là gợi ý phân bổ, KHÔNG phải sàn; sàn thật là **tổng ngày mỗi mục ≥15**.
 - **Chỉ được dừng khi chưa đủ trong 1 trường hợp:** đã giao **≥3 vòng bổ sung** mà vẫn cạn tin SẠCH
   (ngày cực khan / môi trường lỗi). Khi đó ghi RÕ trong log + tóm tắt còn thiếu bao nhiêu, vì sao.
   **Tuyệt đối KHÔNG bịa tin/link, KHÔNG lấy tin cũ hơn hôm qua, KHÔNG nhồi tin rác để lấp số.**
