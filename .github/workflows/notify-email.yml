@@ -1,0 +1,45 @@
+name: Gửi email điểm tin khi có bản tin mới
+
+# Chạy khi index.html được push lên main. CHỈ gửi email khi commit là bản tin thật
+# (message bắt đầu "Cap nhat ban tin ...") — nên commit sửa code/UI hay commit SKIP
+# sẽ không gửi mail rác. Bắt cả phiên sáng lẫn tối (khác notify-push chỉ theo ngày).
+on:
+  push:
+    branches: [main]
+    paths: ['index.html']
+  workflow_dispatch:
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Kiểm tra commit có phải bản tin mới không
+        id: chk
+        run: |
+          msg=$(git log -1 --format=%s)
+          echo "commit: $msg"
+          if echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
+            echo "go=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup Node
+        if: steps.chk.outputs.go == '1'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gửi email
+        if: steps.chk.outputs.go == '1'
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ vars.EMAIL_TO || 'lamgiaphat1603@gmail.com' }}
+        run: |
+          npm install nodemailer@6 --no-save
+          node .github/scripts/send-email.js
