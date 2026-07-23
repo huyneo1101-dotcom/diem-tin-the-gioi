@@ -19,7 +19,8 @@ new_items.json:
   "xNews": [ {...}, ... ],
   "exerciseUpdates": [ {"name": "<tên đúng exercise đã có trong DATA>", "items": [ {...}, ... ]} ],
   "dipEventUpdates": [ {"name": "<tên đúng dipEvent đã có trong DATA>", "items": [ {...}, ... ]} ],
-  "newDipEvents": [ {"name","status","dates","location","scale","summary","items":[{...}]}, ... ]
+  "newDipEvents": [ {"name","status","dates","location","scale","summary","items":[{...}]}, ... ],
+  "newExercises": [ {"name","status","dates","location","scale","summary","items":[{...}]}, ... ]
 }
 
 - newDipEvents: TẠO sự kiện ngoại giao MỚI trong dipEvents (vd ký kết song
@@ -231,9 +232,10 @@ def iter_new_urls(new_items: dict):
         for u_idx, upd in enumerate(new_items.get(key, [])):
             for idx, it in enumerate(upd["items"]):
                 yield f"{label}[{u_idx}].items[{idx}]", it["sourceUrl"]
-    for e_idx, ev in enumerate(new_items.get("newDipEvents", [])):
-        for idx, it in enumerate(ev.get("items", [])):
-            yield f"newDipEvents[{e_idx}].items[{idx}]", it["sourceUrl"]
+    for key in ("newDipEvents", "newExercises"):
+        for e_idx, ev in enumerate(new_items.get(key, [])):
+            for idx, it in enumerate(ev.get("items", [])):
+                yield f"{key}[{e_idx}].items[{idx}]", it["sourceUrl"]
 
 
 def collect_existing_urls(data: dict) -> set:
@@ -263,8 +265,18 @@ def check_duplicate_urls(new_items: dict, data: dict) -> None:
             raise ValueError(f"{ctx}: URL đã có sẵn trong DATA (tin trùng): {url}")
 
 
+def strip_accents(s: str) -> str:
+    """Bỏ dấu tiếng Việt để so trùng không lệ thuộc dấu ('tập trận' == 'tap tran')."""
+    import unicodedata
+
+    s = s.replace("đ", "d").replace("Đ", "D")
+    return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn")
+
+
 def norm_tokens(title: str) -> set:
-    return set(re.sub(r"[^\w\s]", " ", title.lower()).split())
+    # Bỏ dấu TRƯỚC khi tách token — nếu không, tên có dấu vs không dấu bị coi là khác nhau và
+    # guardrail chống trùng tên (Jaccard) sẽ hụt (đã gặp 23/07 với tên tập trận).
+    return set(re.sub(r"[^\w\s]", " ", strip_accents(title).lower()).split())
 
 
 def warn_similar_titles(new_items: dict, data: dict) -> None:
@@ -310,9 +322,11 @@ def warn_unknown_sources(new_items: dict) -> None:
         print(f"  [CẢNH BÁO] nguồn lạ ngoài danh sách đã biết (kiểm tra lại độ tin cậy): {', '.join(sorted(unknown))}")
 
 
-def validate_new_events(events: list, ref: datetime.date) -> None:
+def validate_new_events(events: list, ref: datetime.date, label: str = "newDipEvents", check_dates: bool = True) -> None:
+    # check_dates=False cho newExercises: tạo THẺ tập trận lần đầu, item khai mạc có thể đăng
+    # >2 ngày trước (vd tập trận 9 ngày, mới thêm giữa chừng). Vẫn giữ mọi kiểm tra field + URL.
     for idx, ev in enumerate(events):
-        ctx = f"newDipEvents[{idx}]"
+        ctx = f"{label}[{idx}]"
         missing = NEW_EVENT_REQUIRED_FIELDS - ev.keys()
         if missing:
             raise ValueError(f"{ctx} thiếu field: {missing} (cần đủ để tạo sự kiện mới)")
@@ -327,24 +341,26 @@ def validate_new_events(events: list, ref: datetime.date) -> None:
                 raise ValueError(f"{ictx} thiếu field: {miss}")
             if not it["sourceUrl"].startswith("http"):
                 raise ValueError(f"{ictx} sourceUrl không hợp lệ: {it['sourceUrl']}")
-            check_date_window(it["date"], ref, ictx)
+            if check_dates:
+                check_date_window(it["date"], ref, ictx)
             check_url_quality(it["sourceUrl"], ictx)
 
 
-def check_new_event_names(new_events: list, existing_events: list) -> None:
+def check_new_event_names(new_events: list, existing_events: list, label: str = "newDipEvents") -> None:
     ex = [(e.get("name", ""), norm_tokens(e.get("name", ""))) for e in existing_events]
     for ev in new_events:
         nt = norm_tokens(ev["name"])
         if not nt:
-            raise ValueError(f"newDipEvents: name rỗng/không hợp lệ")
+            raise ValueError(f"{label}: name rỗng/không hợp lệ")
         for oname, ot in ex:
             if not ot:
                 continue
             jaccard = len(nt & ot) / len(nt | ot)
             if jaccard >= 0.6:
+                kind = "dipEventUpdates" if label == "newDipEvents" else "exerciseUpdates"
                 raise ValueError(
-                    f"newDipEvents: '{ev['name']}' trùng/giống sự kiện đã có '{oname}' (Jaccard {jaccard:.2f}) "
-                    f"— dùng dipEventUpdates để cập nhật item vào sự kiện đó thay vì tạo mới"
+                    f"{label}: '{ev['name']}' trùng/giống sự kiện đã có '{oname}' (Jaccard {jaccard:.2f}) "
+                    f"— dùng {kind} để cập nhật item vào sự kiện đó thay vì tạo mới"
                 )
 
 
@@ -495,6 +511,7 @@ def main() -> None:
     exercise_updates = new_items.get("exerciseUpdates", [])
     dip_updates = new_items.get("dipEventUpdates", [])
     new_dip_events = new_items.get("newDipEvents", [])
+    new_exercises = new_items.get("newExercises", [])
     rejected_new = new_items.get("rejectedNews", [])
     date = new_items.get("date")
 
@@ -511,13 +528,15 @@ def main() -> None:
     validate_event_updates(exercise_updates, "exerciseUpdates", ref)
     validate_event_updates(dip_updates, "dipEventUpdates", ref)
     validate_new_events(new_dip_events, ref)
+    validate_new_events(new_exercises, ref, "newExercises", check_dates=False)
 
     html = html_path.read_text(encoding="utf-8")
     start, end = find_data_span(html)
     data = json.loads(html[start:end])
 
-    # Chống trùng tên sự kiện ngoại giao mới với sự kiện đã có
+    # Chống trùng tên sự kiện/tập trận mới với cái đã có
     check_new_event_names(new_dip_events, data.get("dipEvents", []))
+    check_new_event_names(new_exercises, data.get("exercises", []), "newExercises")
 
     # Cross-check với dữ liệu đang có (chặn URL trùng; cảnh báo tiêu đề gần giống)
     # Phải chạy TRƯỚC khi chèn để so với tin cũ, tránh tự trùng với tin vừa thêm.
@@ -547,6 +566,9 @@ def main() -> None:
     # Tạo sự kiện ngoại giao MỚI (append vào cuối dipEvents)
     if new_dip_events:
         data["dipEvents"] = data.get("dipEvents", []) + new_dip_events
+    # Tạo TẬP TRẬN MỚI (append vào đầu exercises để thẻ mới hiện lên trước)
+    if new_exercises:
+        data["exercises"] = new_exercises + data.get("exercises", [])
 
     # rejectedNews: tin bị loại khi quét — hiện ở mục "Bị loại" trên web để người dùng cứu (like)
     # hoặc xác nhận không thích (dislike). Không áp guardrail ngày/trùng-DATA (chúng là tin bị loại,
@@ -629,7 +651,7 @@ def main() -> None:
     # (tin bị loại) KHÔNG được coi là "đã cập nhật bản tin" (tránh làm routine quét SKIP nhầm).
     content_added = bool(
         world_new or us_new or x_new or baomoi_new
-        or exercise_items_added or dip_items_added or new_dip_events
+        or exercise_items_added or dip_items_added or new_dip_events or new_exercises
     )
     if content_added:
         data["generatedAt"] = date
@@ -644,6 +666,8 @@ def main() -> None:
     html_path.write_text(html[:start] + new_data_str + html[end:], encoding="utf-8")
 
     new_ev_note = f", +{len(new_dip_events)} SỰ KIỆN ngoại giao MỚI" if new_dip_events else ""
+    new_ex_note = f", +{len(new_exercises)} TẬP TRẬN MỚI" if new_exercises else ""
+    new_ev_note += new_ex_note
     rej_note = f", +{rejected_added} tin BỊ LOẠI (mục Bị loại)" if rejected_added else ""
     if pruned:
         rej_note += f" [-{pruned} mục cũ quá {REJECTED_KEEP_DAYS + 1} ngày]"
@@ -654,6 +678,8 @@ def main() -> None:
     )
     for ev in new_dip_events:
         print(f"  [SỰ KIỆN MỚI] dipEvents += '{ev['name']}' ({ev['status']}, {len(ev['items'])} item)")
+    for ev in new_exercises:
+        print(f"  [TẬP TRẬN MỚI] exercises += '{ev['name']}' ({ev['status']}, {len(ev['items'])} item)")
     # Cảnh báo (không chặn)
     warn_unknown_sources(new_items)
     warn_similar_titles(new_items, similar_warnings_data)
