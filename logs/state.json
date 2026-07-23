@@ -9,12 +9,13 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-22T22:38:48+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+22 tin (TG+11, My+6, BaoMoi+4, X+1) + 2 item ASEAN",
+    "lastRunAt": "2026-07-23T10:59:59+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-22"
-    }
+    },
+    "heartbeat": "2026-07-23T10:59:59+07:00"
   }
 }
