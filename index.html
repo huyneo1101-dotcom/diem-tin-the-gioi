@@ -101,6 +101,11 @@ a{color:inherit}
 .acctform input:focus{border-color:var(--accent)}
 .acctbtns{display:flex;gap:8px}
 .acctbtns .wbtn{flex:1;justify-content:center}
+.wbtn:disabled{opacity:.45;cursor:not-allowed}
+.wbtn.ghost{font-weight:600;color:var(--muted)}
+.pickb{display:inline-flex;align-items:center;gap:4px;font-size:calc(11.5px*var(--fs));color:var(--muted);cursor:pointer;user-select:none;padding:2px 7px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}
+.pickb input{margin:0;cursor:pointer;accent-color:var(--accent)}
+.pickb.on{color:var(--accent);border-color:var(--accent);font-weight:700}
 .clist{display:flex;flex-direction:column;gap:10px}
 .citem{border:1px solid var(--line2);border-radius:8px;padding:11px 13px;background:var(--drill-bg)}
 .cterm{font-weight:800;font-size:calc(15px*var(--fs));color:var(--title);display:flex;align-items:center;gap:8px}
@@ -337,31 +342,76 @@ function toggleFav(id){
    đang ở ngày hôm trước, nên tin lưu lúc 2h sáng bị đóng dấu _savedAt của hôm qua và biến mất
    khỏi "tin lưu hôm nay" khi xuất Word. */
 function todayISO(){try{return new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'});}catch(e){try{return new Date().toISOString().slice(0,10);}catch(e2){return '';}}}
-function savedTodayList(){var t=todayISO();return FAV.filter(function(a){return a._savedAt===t;});}
-function exportWord(){
-  var items=savedTodayList();
-  if(!items.length){toast('Hôm nay bạn chưa lưu tin nào để xuất');return;}
-  var day=fmtVN(todayISO());
-  var h='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Tin đã lưu '+day+'</title></head><body>';
-  h+='<h1>Điểm Tin Thế Giới — Tin đã lưu ngày '+day+'</h1>';
-  h+='<p><i>'+items.length+' tin.</i></p>';
-  items.forEach(function(a,i){
-    var title=a.title||a.text||'(không tiêu đề)';
-    var sum=a.summary||(a.title&&a.text?a.text:'')||a.takeaway||'';
-    var url=a.sourceUrl||a.url||'';
-    var src=a.sourceName||a.outlet||a.handle||'';
-    h+='<h2>'+(i+1)+'. '+esc(title)+'</h2>';
-    if(sum)h+='<p>'+esc(sum)+'</p>';
-    if(url)h+='<p><b>Link:</b> <a href="'+esc(url)+'">'+esc(url)+'</a>'+(src?' <span style="color:#777">('+esc(src)+')</span>':'')+'</p>';
+/* ===== Chọn tin bằng checkbox + Xuất Word (.docx thật) ===== */
+function loadPick(){try{return new Set(JSON.parse(localStorage.getItem('dt.pick')||'[]'));}catch(e){return new Set();}}
+var PICK=loadPick();
+function savePick(){try{localStorage.setItem('dt.pick',JSON.stringify(Array.from(PICK)));}catch(e){}}
+function isPicked(id){return PICK.has(id);}
+function togglePick(id){if(!id)return;if(PICK.has(id))PICK['delete'](id);else PICK.add(id);savePick();}
+function pickBtn(a){var id=idOf(a);return '<label class="pickb'+(isPicked(id)?' on':'')+'" title="Chọn để xuất Word"><input type="checkbox" data-pick="'+esc(id)+'"'+(isPicked(id)?' checked':'')+'>Chọn</label>';}
+function exportBar(){var n=PICK.size;return '<div class="expbar"><button class="wbtn" data-export-picked="1"'+(n?'':' disabled')+'>\u{1F4C4} Xuất Word — '+n+' tin đã chọn</button>'+(n?'<button class="wbtn ghost" data-clear-pick="1">Bỏ chọn hết</button>':'')+'</div>';}
+/* --- CRC32 + UTF8 + ZIP (store) thuần, không phụ thuộc thư viện --- */
+var _crcT=(function(){var t=[],c,n,k;for(n=0;n<256;n++){c=n;for(k=0;k<8;k++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);t[n]=c>>>0;}return t;})();
+function crc32(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=_crcT[(c^b[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function utf8(str){var o=[],i,c,c2,cp;for(i=0;i<str.length;i++){c=str.charCodeAt(i);
+  if(c<0x80)o.push(c);
+  else if(c<0x800)o.push(0xC0|(c>>6),0x80|(c&0x3F));
+  else if(c>=0xD800&&c<=0xDBFF){c2=str.charCodeAt(++i);cp=0x10000+((c&0x3FF)<<10)+(c2&0x3FF);o.push(0xF0|(cp>>18),0x80|((cp>>12)&0x3F),0x80|((cp>>6)&0x3F),0x80|(cp&0x3F));}
+  else o.push(0xE0|(c>>12),0x80|((c>>6)&0x3F),0x80|(c&0x3F));}
+  return new Uint8Array(o);}
+function zipStore(files){
+  var chunks=[],central=[],offset=0;
+  function u16(v){return [v&0xFF,(v>>8)&0xFF];}
+  function u32(v){v=v>>>0;return [v&0xFF,(v>>8)&0xFF,(v>>16)&0xFF,(v>>24)&0xFF];}
+  files.forEach(function(f){var nm=utf8(f.name),crc=crc32(f.data),sz=f.data.length;
+    var lh=[].concat(u32(0x04034b50),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(sz),u32(sz),u16(nm.length),u16(0));
+    chunks.push(new Uint8Array(lh),nm,f.data);
+    var ch=[].concat(u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(sz),u32(sz),u16(nm.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(offset));
+    central.push(new Uint8Array(ch),nm);
+    offset+=30+nm.length+sz;});
+  var cdSize=0;central.forEach(function(c){cdSize+=c.length;});
+  var eocd=new Uint8Array([].concat(u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(cdSize),u32(offset),u16(0)));
+  var all=chunks.concat(central);all.push(eocd);
+  var total=0;all.forEach(function(c){total+=c.length;});
+  var out=new Uint8Array(total),p=0;all.forEach(function(c){out.set(c,p);p+=c.length;});return out;}
+function xmlEsc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function docDate(){try{var p=new Date().toLocaleDateString('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).split('-');return parseInt(p[2],10)+'.'+parseInt(p[1],10)+'.'+p[0];}catch(e){var d=new Date();return d.getDate()+'.'+(d.getMonth()+1)+'.'+d.getFullYear();}}
+function _run(text,o){o=o||{};var r='';if(o.b)r+='<w:b/>';if(o.i)r+='<w:i/>';if(o.sz)r+='<w:sz w:val="'+o.sz+'"/><w:szCs w:val="'+o.sz+'"/>';if(o.color)r+='<w:color w:val="'+o.color+'"/>';if(o.u)r+='<w:u w:val="single"/>';
+  return '<w:r>'+(r?'<w:rPr>'+r+'</w:rPr>':'')+'<w:t xml:space="preserve">'+xmlEsc(text)+'</w:t></w:r>';}
+function makeDocx(groups,dateStr){
+  var rels=[],rc=0,body='';
+  body+='<w:p><w:pPr><w:jc w:val="center"/></w:pPr>'+_run('ĐIỂM TIN NGÀY '+dateStr,{b:1,sz:32})+'</w:p>';
+  groups.forEach(function(g,gi){
+    body+='<w:p>'+_run((gi+1)+'. '+g.label,{b:1,sz:26})+'</w:p>';
+    g.items.forEach(function(it){
+      body+='<w:p>'+_run('- '+it.title+' ',{i:1})+(it.summary?_run(it.summary,{}):'')+'</w:p>';
+      if(it.url){rc++;var rid='rId'+(100+rc);rels.push({id:rid,url:it.url});
+        body+='<w:p><w:hyperlink r:id="'+rid+'"><w:r><w:rPr><w:color w:val="0563C1"/><w:u w:val="single"/></w:rPr><w:t xml:space="preserve">'+xmlEsc(it.url)+'</w:t></w:r></w:hyperlink></w:p>';}
+    });
+    body+='<w:p/>';
   });
-  h+='</body></html>';
-  try{
-    var blob=new Blob(['﻿'+h],{type:'application/msword'});
-    var u=URL.createObjectURL(blob);var el=document.createElement('a');
-    el.href=u;el.download='Tin-da-luu-'+todayISO()+'.doc';
-    document.body.appendChild(el);el.click();
-    setTimeout(function(){document.body.removeChild(el);URL.revokeObjectURL(u);},200);
-    toast('Đã xuất '+items.length+' tin ra file Word');
+  var docXml='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><w:body>'+body+'<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134"/></w:sectPr></w:body></w:document>';
+  var ct='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>';
+  var rootRels='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>';
+  var docRels='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'+rels.map(function(r){return '<Relationship Id="'+r.id+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink" Target="'+xmlEsc(r.url)+'" TargetMode="External"/>';}).join('')+'</Relationships>';
+  return zipStore([{name:'[Content_Types].xml',data:utf8(ct)},{name:'_rels/.rels',data:utf8(rootRels)},{name:'word/document.xml',data:utf8(docXml)},{name:'word/_rels/document.xml.rels',data:utf8(docRels)}]);
+}
+function exportPickedDocx(){
+  if(!PICK.size){toast('Chưa chọn tin nào để xuất');return;}
+  var byKind={};
+  Array.from(PICK).forEach(function(id){var f=findItemById(id);if(!f)return;
+    var it={title:f.item.title||f.item.text||'',summary:f.item.summary||'',url:f.item.sourceUrl||f.item.url||''};
+    (byKind[f.kind]=byKind[f.kind]||[]).push(it);});
+  var groups=[];[['us','Mỹ'],['world','Thế giới']].forEach(function(o){if(byKind[o[0]]&&byKind[o[0]].length){groups.push({label:o[1],items:byKind[o[0]]});delete byKind[o[0]];}});
+  var rest=[];Object.keys(byKind).forEach(function(k){rest=rest.concat(byKind[k]);});
+  if(rest.length)groups.push({label:'Khác',items:rest});
+  if(!groups.length){toast('Không tìm thấy tin đã chọn (có thể đã cũ và bị dọn)');return;}
+  var dateStr=docDate();
+  try{var bytes=makeDocx(groups,dateStr);
+    var blob=new Blob([bytes],{type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
+    var u=URL.createObjectURL(blob),el=document.createElement('a');el.href=u;el.download='Diem-tin-'+dateStr.replace(/\./g,'-')+'.docx';
+    document.body.appendChild(el);el.click();setTimeout(function(){document.body.removeChild(el);URL.revokeObjectURL(u);},200);
+    var n=groups.reduce(function(s,g){return s+g.items.length;},0);toast('Đã xuất '+n+' tin ra Word (.docx)');
   }catch(e){toast('Không xuất được file');}
 }
 function favBtn(a){var id=idOf(a);return '<button class="favb'+(isFav(id)?' on':'')+'" data-fav="'+esc(id)+'" title="Lưu / bỏ lưu tin">'+(isFav(id)?'★':'☆')+'</button>';}
@@ -584,7 +634,7 @@ function commitSeen(){var store=jget('dt.seen'),set={};store.forEach(function(id
 /* ==== Chia sẻ + Telegram + toast ==== */
 var SVG_SHARE='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="M8 6.5 12 2.5 16 6.5"/><path d="M5 11v8h14v-8"/></svg>';
 var SVG_COPY='<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg>';
-function actions(a){var u=a.sourceUrl||a.url||'',t=a.title||a.text||'';var d='data-url="'+esc(u)+'" data-title="'+esc(t)+'"';var sh=u?'<button class="shareb" data-share="1" '+d+' title="Chia sẻ" aria-label="Chia sẻ">'+SVG_SHARE+'</button><button class="copyb" data-copy="1" '+d+' title="Sao chép liên kết" aria-label="Sao chép liên kết">'+SVG_COPY+'</button>':'';return '<span class="foot-act">'+voteBtns(a)+sh+favBtn(a)+'</span>';}
+function actions(a){var u=a.sourceUrl||a.url||'',t=a.title||a.text||'';var d='data-url="'+esc(u)+'" data-title="'+esc(t)+'"';var sh=u?'<button class="shareb" data-share="1" '+d+' title="Chia sẻ" aria-label="Chia sẻ">'+SVG_SHARE+'</button><button class="copyb" data-copy="1" '+d+' title="Sao chép liên kết" aria-label="Sao chép liên kết">'+SVG_COPY+'</button>':'';return '<span class="foot-act">'+pickBtn(a)+voteBtns(a)+sh+favBtn(a)+'</span>';}
 function toast(msg){var el=document.getElementById('toast');if(!el){el=document.createElement('div');el.id='toast';document.body.appendChild(el);}el.textContent=msg;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(function(){el.classList.remove('on');},2200);}
 function doShare(u,t){if(!u)return;if(navigator.share){navigator.share({title:t||document.title,url:u}).catch(function(){});}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){toast('Đã sao chép liên kết');},function(){toast(u);});}else{toast(u);}}
 function doCopy(u){if(!u)return;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){toast('Đã sao chép liên kết');},function(){toast(u);});}else{try{var ta=document.createElement('textarea');ta.value=u;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('Đã sao chép liên kết');}catch(e){toast(u);}}}
@@ -723,7 +773,7 @@ function renderFresh(){
   var featHtml=feat.length?'<div class="rejsec">⭐ Nổi bật — Công nghệ quân sự & Ngoại giao</div><div class="list">'+feat.map(freshCard).join('')+'</div>':'';
   var resc=rescuedItems().filter(function(a){var d=a.date;var ok=mode==='__2d__'?(recent2.indexOf(d)>=0):(mode==='Tất cả'?true:(d===mode));return ok&&matchQ(a);});
   var rescHtml=resc.length?'<div class="rejsec">⭐ Tin bạn đã cứu từ mục Bị loại ('+resc.length+')</div>'+resc.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'';
-  return note+searchInfo(shown.length)+chips+dsel+featHtml+rescHtml+'<div class="list">'+cards+'</div>'+more;
+  return exportBar()+note+searchInfo(shown.length)+chips+dsel+featHtml+rescHtml+'<div class="list">'+cards+'</div>'+more;
 }
 function searchInfo(n){return state.q?'<div class="searchinfo">Kết quả cho “'+esc(state.q)+'”: <b>'+n+'</b> tin.</div>':'';}
 function catFilters(arr){
@@ -756,10 +806,8 @@ function renderSaved(){
   var arr=FAV.slice().filter(matchQ);
   arr.sort(function(x,y){return (''+(y.date||'')).localeCompare(''+(x.date||''));});
   if(!FAV.length)return seg+'<div class="note">Bấm ngôi sao ☆ ở mỗi tin để lưu lại đây. Tin đã lưu nằm trên máy này (và trên tài khoản nếu đã đăng nhập), giữ được cả khi tin gốc đã cũ.</div><div class="empty">Chưa lưu tin nào.</div>';
-  var nToday=savedTodayList().length;
-  var exp='<div class="expbar"><button class="wbtn" data-export="1">📄 Xuất Word — tin lưu hôm nay ('+nToday+')</button></div>';
   var cards=arr.length?arr.map(function(a){return card(a._kind==='x'?xCardInner(a):(a._kind==='analysis'?analysisCardInner(a):(a._kind==='drill'?drillCardInner(a):(a._kind==='dip'?drillCardInner(a,'Liên quan sự kiện'):newsCardInner(a)))),idOf(a));}).join(''):'<div class="empty">Không có tin đã lưu khớp tìm kiếm.</div>';
-  return seg+'<div class="note">Tin bạn đã lưu — bấm ★ để bỏ lưu.</div>'+exp+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
+  return seg+'<div class="note">Tin bạn đã lưu — bấm ★ để bỏ lưu.</div>'+searchInfo(arr.length)+'<div class="list">'+cards+'</div>';
 }
 function drillCardInner(a,label){
   return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>'+(label||'Liên quan tập trận')+':</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
@@ -927,7 +975,7 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest],[data-export],[data-home-goto]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest],[data-export-picked],[data-clear-pick],[data-pick],[data-home-goto]'):null;if(!t)return;
   if(t.getAttribute('data-home-goto')!=null){var _p=t.getAttribute('data-home-goto').split('|');state.tab=_p[0]||'home';if(_p[1])state.topicSeg=_p[1];if(_p[2])state.dossier=_p[2];if(_p[3])state.drill=_p[3];render();return;}
   if(t.getAttribute('data-pushon')!=null){enablePush();return;}
   if(t.getAttribute('data-pushoff')!=null){disablePush();return;}
@@ -941,7 +989,9 @@ document.addEventListener('click',function(e){
   if(t.getAttribute('data-caddbtn')!=null){var ci=document.getElementById('cnew');if(ci){addConcept(ci.value);ci.value='';reContent();}return;}
   if(t.getAttribute('data-crm')!=null){removeConcept(t.getAttribute('data-crm'));reContent();return;}
   if(t.getAttribute('data-savedseg')!=null){state.savedSeg=t.getAttribute('data-savedseg');render();return;}
-  if(t.getAttribute('data-export')!=null){exportWord();return;}
+  if(t.getAttribute('data-pick')!=null){togglePick(t.getAttribute('data-pick'));reContent();return;}
+  if(t.getAttribute('data-export-picked')!=null){exportPickedDocx();return;}
+  if(t.getAttribute('data-clear-pick')!=null){PICK.clear();savePick();reContent();return;}
   if(t.getAttribute('data-share')!=null){doShare(t.getAttribute('data-url'),t.getAttribute('data-title'));return;}
   if(t.getAttribute('data-copy')!=null){doCopy(t.getAttribute('data-url'));return;}
   if(t.getAttribute('data-mark')!=null){markRead(t.getAttribute('data-mark'));setTimeout(reContent,250);return;}
