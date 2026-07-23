@@ -9,13 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-23T11:32:13+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+19 tin (TG+10, My+8, X+1) + 1 su kien ngoai giao moi",
+    "lastRunAt": "2026-07-23T20:33:15+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-22",
       "sang": "2026-07-23"
-    }
+    },
+    "heartbeat": "2026-07-23T20:33:15+07:00"
   }
 }
