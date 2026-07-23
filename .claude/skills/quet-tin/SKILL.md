@@ -85,12 +85,15 @@ tối thiểu 2 tin/category theo CLAUDE.md, không bỏ hẳn mục nào, khôn
 top ưu tiên / cần tránh vào prompt agent ở Bước 2.
 
 ## Bước 2 — Giao 8 agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
-| Agent | Phạm vi | Sản lượng (khung 2 ngày, best-effort) |
+Sản lượng dưới đây là ĐỢT GIAO ĐẦU — nhắm để **tổng world ≥10 + us ≥10** ngay từ vòng 1 (có đệm cho
+review loại). Cộng world của agent 1–4 ≈ 10–14, us ≈ 10–14. Thiếu sau review thì lặp bổ sung (Bước 4).
+
+| Agent | Phạm vi | Sản lượng đợt đầu (khung 2 ngày) |
 |---|---|---|
-| 1 | Kinh tế — worldNews + usNews | 1–2 mỗi mục (CHỈ vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
-| 2 | Chính trị — worldNews + usNews | world 1–2 (thể chế/chiến lược great-power) · **us 2–4 (MỞ TOÀN BỘ nội bộ Mỹ: đảng phái/nhân vật/horserace/nhập cư/tư pháp)** |
-| 3 | Công nghệ quân sự — worldNews + usNews | **2–4 mỗi mục** (chủ đề thích nhất) |
-| 4 | Ngoại giao — worldNews + usNews | **2–4 mỗi mục** (hiệp định/khuôn khổ an ninh-QP có kết quả) |
+| 1 | Kinh tế — worldNews + usNews | **2–3 mỗi mục** (vĩ mô/chính sách/chuỗi cung ứng chiến lược) |
+| 2 | Chính trị — worldNews + usNews | world 2–3 (thể chế/chiến lược great-power) · **us 3–5 (MỞ TOÀN BỘ nội bộ Mỹ: đảng phái/nhân vật/horserace/nhập cư/tư pháp — dư địa lớn nhất để đạt sàn us)** |
+| 3 | Công nghệ quân sự — worldNews + usNews | **3–5 mỗi mục** (chủ đề thích nhất) |
+| 4 | Ngoại giao — worldNews + usNews | **3–5 mỗi mục** (hiệp định/khuôn khổ an ninh-QP có kết quả) |
 | 5 | xNews | 2–4 tin (ưu tiên QP/an ninh/chính thức) |
 | 6 | exercises + dipEvents (cập nhật `ongoing` + tạo sự kiện ngoại giao mới nếu có) | 1–2 mỗi loại |
 | 7 | **Báo Mới — bài đã lưu** (viết `summary` + `significance`) | TẤT CẢ bài trong nhóm "BÀI ĐÃ LƯU" |
@@ -141,7 +144,7 @@ Khác nhau ở chỗ:
   **KHÔNG cần liệt kê các bài không chọn** — `add_news.py` tự lấy 10 bài trong số còn lại đổ vào
   mục 🚫 Bị loại (chia đều 4 chuyên mục theo vòng xoay, ~3-3-2-2), khỏi tốn token viết lại.
 
-Tổng thực tế ~10–20 tin/ngày (CHỈ 2 ngày gần nhất) — đủ thì lấy, thiếu thì thôi, KHÔNG nới ngày/bộ lọc. Dồn cho Công nghệ quân sự + Ngoại giao. Xem chỉ tiêu + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
+**SÀN CỨNG mỗi phiên: worldNews ≥ 10 · usNews ≥ 10 tin chất lượng — CHƯA ĐỦ THÌ CHƯA DỪNG** (giao thêm agent bổ sung, xem Bước 4). Đợt giao đầu nhắm mỗi mục ~10–12 tin để có đệm sau khi review loại; thiếu thì lặp. KHÔNG nới khung ngày, KHÔNG bịa để lấp. Xem đầy đủ ở "Chỉ tiêu số lượng" + **Bộ LỌC SỞ THÍCH** trong CLAUDE.md.
 
 **Nhúng vào MỌI prompt agent** (agent KHÔNG thấy hội thoại chính — viết prompt độc lập):
 - **BỘ LỌC SỞ THÍCH (bắt buộc — từ `preferences.md`/CLAUDE.md):** ƯU TIÊN khí tài/hệ thống QP cụ thể,
@@ -215,9 +218,19 @@ Script **CHẶN** (sửa JSON rồi chạy lại): thiếu field; category sai; 
 lai); URL trang chủ/live-blog; URL trùng trong batch hoặc đã có trong DATA; status ID X nghi bịa;
 tên exercise/dipEvent (`*Updates`) không khớp; tên `newDipEvents` trùng sự kiện đã có (Jaccard≥0.6)
 hoặc thiếu field. **CẢNH BÁO** (không chặn): nguồn lạ; tiêu đề nghi trùng; phần chưa đủ chỉ tiêu.
-- Đọc bảng phân bổ category script in ra. Category nào <2 tin (world/us) → giao thêm 1 agent Sonnet
-  bổ sung riêng phần đó rồi chạy lại (script cộng dồn an toàn nếu cùng `date`).
-- Nếu thật sự không đủ tin sạch → chấp nhận, nêu rõ trong tóm tắt.
+- **SÀN CỨNG — VÒNG LẶP BẮT BUỘC (chỉ thị người dùng 23/07/2026):** dòng cuối script in ra
+  `── SÀN CỨNG … worldNews X/10 · usNews Y/10`. **Nếu mục nào < 10 → CHƯA ĐƯỢC DỪNG:**
+  1. Giao thêm agent Sonnet bổ sung riêng mục thiếu (world hoặc us), chỉ rõ category còn thiếu +
+     nguồn/góc CHƯA khai thác. **Nội bộ Mỹ đã mở toàn bộ → dư địa lớn nhất để bù usNews** (đảng phái,
+     nhân vật, horserace, nhập cư, tư pháp, điều trần, biểu tình). worldNews thiếu → dồn 3 trọng tâm
+     Úc/Biển Đông + CNQS/Ngoại giao ở các khu vực chưa lấy.
+  2. Ghi checkpoint + `state.py beat web-scan`, gộp kết quả vào `/tmp/new_items.json` mới, chạy lại
+     script (cộng dồn an toàn, không tạo trùng).
+  3. **LẶP** cho tới khi script in `✅ ĐẠT SÀN cả worldNews lẫn usNews`.
+- Category-level (<2/category) là gợi ý phân bổ, KHÔNG phải sàn; sàn thật là **tổng mục ≥10**.
+- **Chỉ được dừng khi chưa đủ trong 1 trường hợp:** đã giao **≥3 vòng bổ sung** mà vẫn cạn tin SẠCH
+  (ngày cực khan / môi trường lỗi). Khi đó ghi RÕ trong log + tóm tắt còn thiếu bao nhiêu, vì sao.
+  **Tuyệt đối KHÔNG bịa tin/link, KHÔNG lấy tin cũ hơn hôm qua, KHÔNG nhồi tin rác để lấp số.**
 
 ## Bước 5 — Xuất bản + log
 - Đánh dấu xong: `python3 scripts/state.py done web-scan "+N tin (TG +x, My +y, X +z)"` — CHỈ gọi khi

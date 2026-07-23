@@ -51,6 +51,7 @@ import urllib.parse
 NEWS_REQUIRED_FIELDS = {"date", "category", "title", "summary", "sourceName", "sourceUrl", "significance"}
 VALID_CATEGORIES = {"Kinh tế", "Chính trị", "Công nghệ quân sự", "Ngoại giao"}
 MIN_PER_CATEGORY = 2
+FLOOR = 10  # SÀN CỨNG mỗi phiên: worldNews ≥ 10 VÀ usNews ≥ 10 (chỉ thị người dùng 23/07/2026)
 MAX_AGE_DAYS = 1  # CHỈ nhận 2 ngày gần nhất (hôm nay + hôm qua); cũ hơn -> chặn
 
 # Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
@@ -656,6 +657,25 @@ def main() -> None:
     us_ok = category_report(us_new, "usNews") if us_new else True
     if not (world_ok and us_ok):
         print("=> Còn category thiếu tin (< 2). Nếu đã thử hết nguồn hợp lý, chấp nhận và nêu rõ trong tóm tắt cuối; nếu chưa, quét bổ sung rồi chạy lại script.")
+
+    # ── SÀN CỨNG mỗi phiên: worldNews ≥ FLOOR và usNews ≥ FLOOR (chỉ thị người dùng 23/07/2026).
+    # Đếm tin trong KHUNG PHIÊN (date == ngày batch hoặc hôm trước) trên DATA SAU khi chèn, nên
+    # số tăng dần qua từng vòng bổ sung. Đây là TÍN HIỆU cho session điều phối, KHÔNG chặn.
+    window = {date, (ref - datetime.timedelta(days=1)).isoformat()}
+    w_cnt = sum(1 for it in data.get("worldNews", []) if it.get("date") in window)
+    u_cnt = sum(1 for it in data.get("usNews", []) if it.get("date") in window)
+    print(f"── SÀN CỨNG (khung 2 ngày, tính cả các vòng trước trong phiên): "
+          f"worldNews {w_cnt}/{FLOOR} · usNews {u_cnt}/{FLOOR}")
+    if w_cnt < FLOOR or u_cnt < FLOOR:
+        need = []
+        if w_cnt < FLOOR:
+            need.append(f"worldNews thiếu {FLOOR - w_cnt}")
+        if u_cnt < FLOOR:
+            need.append(f"usNews thiếu {FLOOR - u_cnt}")
+        print(f"   ⚠️ CHƯA ĐẠT SÀN ({', '.join(need)}) → GIAO THÊM AGENT bổ sung rồi chạy lại. "
+              f"CHƯA ĐỦ THÌ CHƯA DỪNG (nội bộ Mỹ mở toàn bộ = dư địa lớn nhất).")
+    else:
+        print("   ✅ ĐẠT SÀN cả worldNews lẫn usNews.")
     if len(x_new) < 4:
         print(f"  xNews: {len(x_new)} tin  <-- THIẾU (mục tiêu 4-5)")
     if exercise_items_added < 1:
