@@ -112,16 +112,27 @@ async function main() {
     auth: { user: EMAIL_USER, pass: EMAIL_PASS },
   });
 
+  // Đính kèm file docx toàn bộ tin vừa quét (do make_docx.py tạo, truyền qua DOCX_PATH)
+  const attachments = [];
+  const docxPath = process.env.DOCX_PATH;
+  if (docxPath && fs.existsSync(docxPath)) {
+    attachments.push({ filename: `Diem-tin-ngay-${(DATA.generatedAt || '').replace(/\//g, '-')}.docx`, path: docxPath });
+    console.log('Đính kèm docx:', docxPath);
+  } else {
+    console.log('Không có file docx để đính kèm (DOCX_PATH rỗng hoặc file không tồn tại).');
+  }
+
   const info = await transporter.sendMail({
     from: `"Điểm Tin Thế Giới" <${EMAIL_USER}>`,
     to: EMAIL_TO,
     subject: `📰 Điểm Tin Thế Giới — bản tin ${ddmm} (${items.length} tin nổi bật)`,
     text: `Bản tin ${ddmm} đã cập nhật.\n\n` +
       items.map(it => `• [${it._kind}] ${it.title}\n  ${trim(it.summary, 180)}\n  ${it.sourceName || ''} — ${it.sourceUrl || ''}`).join('\n\n') +
-      `\n\nĐọc toàn bộ: ${WEB_URL}`,
+      `\n\n(File .docx đính kèm chứa toàn bộ tin vừa quét.)\n\nĐọc toàn bộ: ${WEB_URL}`,
     html: buildHtml(DATA, items),
+    attachments,
   });
-  console.log(`Đã gửi email tới ${EMAIL_TO}: ${info.messageId} (${items.length} tin)`);
+  console.log(`Đã gửi email tới ${EMAIL_TO}: ${info.messageId} (${items.length} tin, ${attachments.length} đính kèm)`);
 }
 
 main().catch(e => { console.log('Lỗi gửi email:', e && e.message); process.exit(0); });

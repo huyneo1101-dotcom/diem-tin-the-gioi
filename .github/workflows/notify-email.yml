@@ -21,8 +21,9 @@ jobs:
         id: chk
         run: |
           msg=$(git log -1 --format=%s)
-          echo "commit: $msg"
-          if echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
+          echo "commit: $msg ; event: ${{ github.event_name }}"
+          # Chạy tay (workflow_dispatch) luôn gửi để test; tự động thì chỉ khi commit là bản tin.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
             echo "go=1" >> "$GITHUB_OUTPUT"
           else
             echo "go=0" >> "$GITHUB_OUTPUT"
@@ -33,6 +34,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Setup Python
+        if: steps.chk.outputs.go == '1'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tạo file docx toàn bộ tin vừa quét
+        if: steps.chk.outputs.go == '1'
+        run: |
+          pip install --quiet python-docx
+          out=$(python3 .github/scripts/make_docx.py)
+          echo "$out"
+          echo "DOCX_PATH=${out#DOCX=}" >> "$GITHUB_ENV"
 
       - name: Gửi email
         if: steps.chk.outputs.go == '1'
