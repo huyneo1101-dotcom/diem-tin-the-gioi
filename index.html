@@ -167,6 +167,11 @@ a{color:inherit}
 .rp-themes{display:flex;gap:6px}
 .rp-themes button{flex:1;padding:8px 6px;border:1px solid var(--line);background:var(--paper2);border-radius:6px;cursor:pointer;font-weight:700;font-size:12.5px;font-family:inherit;color:var(--ink)}
 .rp-themes button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.home-sec{margin:0 0 22px}
+.home-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+.home-h h2{font-size:1.05rem;margin:0;font-weight:800;letter-spacing:-.01em}
+.morebtn{flex:none;background:none;border:1px solid var(--line);border-radius:999px;padding:3px 11px;font-size:.8rem;color:var(--ink);cursor:pointer;white-space:nowrap}
+.morebtn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 </style>
 </head>
 <body>
@@ -217,7 +222,7 @@ var DIPEVENTS=[
   {name:'Thượng đỉnh ASEAN 2026 (Philippines)',status:'upcoming',dates:'2026 · Philippines làm Chủ tịch',location:'Philippines',scale:'Philippines tiếp nhận ghế Chủ tịch ASEAN từ Malaysia · trọng tâm Biển Đông, kết nối khu vực',summary:'Philippines làm Chủ tịch luân phiên ASEAN 2026 và đăng cai các hội nghị cấp cao — đáng chú ý với Việt Nam do liên quan trực tiếp vấn đề Biển Đông và hợp tác khu vực.',items:[]}
 ];
 function dipItems(){var arr=(DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS;var out=[];arr.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
-var state={tab:'fresh',fresh:'Tất cả',freshDate:'',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',savedSeg:'news',q:''};
+var state={tab:'home',fresh:'Tất cả',freshDate:'',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',savedSeg:'news',q:''};
 var USFLAG='<svg viewBox="0 0 19 10" width="18" height="10" style="vertical-align:-1px;margin-right:4px;border-radius:1px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)"><rect width="19" height="10" fill="#fff"/><g fill="#b22234"><rect width="19" height=".77"/><rect y="1.54" width="19" height=".77"/><rect y="3.08" width="19" height=".77"/><rect y="4.62" width="19" height=".77"/><rect y="6.15" width="19" height=".77"/><rect y="7.69" width="19" height=".77"/><rect y="9.23" width="19" height=".77"/></g><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg>';
 
 /* ==== Người đọc tự chọn phông + cỡ chữ (ưu tiên phông đẹp tiếng Việt) ==== */
@@ -813,7 +818,31 @@ function loadBaomoi(){
     render();
   }).catch(function(){BAOMOI_MERGED=true;});
 }
+function renderHome(){
+  var h='<div class="note">🏠 <b>Trang chủ</b> — điểm nhấn nổi bật &amp; tin mới nhất. Cập nhật '+fmtVN(DATA.worldGeneratedAt||DATA.generatedAt)+'.</div>';
+  /* 1) Tập trận Predator's Run — thẻ nổi bật + vài item mới nhất */
+  var pred=(DATA.exercises||[]).filter(function(e){return /predator/i.test(e.name||'');})[0];
+  if(pred){
+    var pit=sortD(pred.items||[]).slice(0,3);
+    var pc=pit.length?pit.map(function(a){return card(drillCardInner(a),idOf(a));}).join(''):'<div class="empty" style="padding:12px">Chưa có tin cập nhật.</div>';
+    h+='<section class="home-sec"><div class="home-h"><h2>🎯 Tập trận Predator’s Run</h2><button class="morebtn" data-home-goto="topic|drills||'+esc(pred.name)+'">Xem tất cả →</button></div>'+drillHeader(pred)+'<div class="list">'+pc+'</div></section>';
+  }
+  /* 2) Hồ sơ Mỹ – Mali — lấy regex từ LIVE_DOSSIERS */
+  var mali=LIVE_DOSSIERS.filter(function(d){return /mali/i.test(d[0]);})[0];
+  if(mali){
+    var pool=newsPool().concat(sortD(DATA.xNews||[]));
+    var marr=pool.filter(function(a){return (mali[1].test(txtOf(a))||(mali[2]&&mali[2](a)));}).slice(0,4);
+    var mc=marr.length?marr.map(function(a){return card(a.handle?xCardInner(a):newsCardInner(a),idOf(a));}).join(''):'<div class="empty" style="padding:12px">Chưa có tin.</div>';
+    h+='<section class="home-sec"><div class="home-h"><h2>'+esc(mali[0])+'</h2><button class="morebtn" data-home-goto="topic|dossier|'+esc(mali[0])+'|">Xem tất cả →</button></div><div class="list">'+mc+'</div></section>';
+  }
+  /* 3) Tin nổi bật mới nhất — 5 Thế giới + 5 Mỹ */
+  var wtop=sortD(DATA.worldNews||[]).slice(0,5), utop=sortD(DATA.usNews||[]).slice(0,5);
+  h+='<section class="home-sec"><div class="home-h"><h2>🌍 Thế giới nổi bật</h2><button class="morebtn" data-home-goto="world">Xem tất cả →</button></div><div class="list">'+(wtop.length?wtop.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'<div class="empty" style="padding:12px">Chưa có tin.</div>')+'</div></section>';
+  h+='<section class="home-sec"><div class="home-h"><h2>'+USFLAG+'Mỹ nổi bật</h2><button class="morebtn" data-home-goto="us">Xem tất cả →</button></div><div class="list">'+(utop.length?utop.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'<div class="empty" style="padding:12px">Chưa có tin.</div>')+'</div></section>';
+  return h;
+}
 function content(){
+  if(state.tab==='home')return renderHome();
   if(state.tab==='fresh')return renderFresh();
   if(state.tab==='us')return renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
   if(state.tab==='x')return renderX();
@@ -827,7 +856,7 @@ function render(){
   refreshFav();refreshRej();
   var stamp=fmtVN(DATA.worldGeneratedAt||DATA.generatedAt);
   var nRej=rejectedPool().length;
-  var tabs=[['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
+  var tabs=[['home','🏠 Trang chủ'],['fresh','🆕 Bài mới'],['world','🌍 Thế giới'],['us',USFLAG+'Mỹ'],['x',XLOGO+'X'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')],['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
@@ -841,7 +870,8 @@ function render(){
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
 document.addEventListener('click',function(e){
-  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest],[data-export]'):null;if(!t)return;
+  var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest],[data-export],[data-home-goto]'):null;if(!t)return;
+  if(t.getAttribute('data-home-goto')!=null){var _p=t.getAttribute('data-home-goto').split('|');state.tab=_p[0]||'home';if(_p[1])state.topicSeg=_p[1];if(_p[2])state.dossier=_p[2];if(_p[3])state.drill=_p[3];render();return;}
   if(t.getAttribute('data-pushon')!=null){enablePush();return;}
   if(t.getAttribute('data-pushoff')!=null){disablePush();return;}
   if(t.getAttribute('data-pushtest')!=null){testPush();return;}
