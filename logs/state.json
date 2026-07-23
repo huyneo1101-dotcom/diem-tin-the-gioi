@@ -9,14 +9,13 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-23T20:33:15+07:00",
+    "lastRunAt": "2026-07-23T21:26:11+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+20 tin (TG +17, My +14, X +2) + 2 tap tran",
     "lastSuccess": {
-      "toi": "2026-07-22",
+      "toi": "2026-07-23",
       "sang": "2026-07-23"
-    },
-    "heartbeat": "2026-07-23T20:33:15+07:00"
+    }
   }
 }

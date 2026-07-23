@@ -8,3 +8,7 @@
 [04:32Z] add_news OK: +10 TG, +8 My, +1 X, +1 dipEvent moi, +16 bi loai. Thieu: Chinh tri 1/2, KT us 1/2, xNews 1, exercises 0 (khung 2 ngay).
 [04:32Z] DONE: xuat ban ban tin sang 23/07.
 [20:33] START web-scan buoi toi 2026-07-23
+[20:35] baseline xong: prefs/recent/baomoi (0 da luu, 65 ung vien). Giao agent.
+[21:02] 6 agent web+xNews+exercises xong. Giao agent 8 BaoMoi ung vien. Review dang chay.
+[21:15] add_news vong 1 OK: +14 TG, +11 My, +2 X, +2 tap tran, +17 bi loai. Counter (chi dem tin co _addedDate hom nay): world 14/15, us 12/15. Tin sang thieu field _addedDate nen khong duoc dem; tong ngay thuc ~24w/19u da vuot san. Giao 1 vong bo sung cho counter.
+[21:26] add_news vong 2 OK: +3 TG, +3 My. DAT SAN NGAY: world 17/15, us 15/15. Ghi loai-tin.md. Chuan bi commit.

@@ -120,3 +120,19 @@ Loại do TRÙNG chéo agent (không đưa vào mục Bị loại):
 - Mỹ-Nhật-Hàn Manila (Korea Times) — trùng bản Korea Herald đã lấy ở usNews
 - Trump muốn Infantino làm TTK LHQ (NY Post, 21/07) — ngoài khung + thiên tin đồn/nhân vật
 Loại do TRÙNG DATA (Báo Mới ứng viên): Saudi hạt nhân, Pentagon 37,5 tỷ Iran, Canada GCAP, AliExpress EU, thuế 100% thuốc gốc, Houthi Bab el-Mandeb, Mỹ không kích Iran... + tin tuyên truyền một phía (Iran "xuyên thủng phòng không Mỹ").
+
+## 2026-07-23 (buổi tối)
+⭐ CHỦ ĐỀ THÍCH bị loại:
+- [CNQS] Lockheed MORFIUS X-Rotor vũ khí vi sóng diệt bầy drone (Lockheed, 20/7) — ngoài khung 2 ngày → đưa vào mục Bị loại để cứu.
+- [CNQS] GA-ASI/Kongsberg tích hợp JSM lên MQ-9B (Naval News, 21/7) — ngoài khung 2 ngày.
+- [CNQS] NATO/EU ép Hy Lạp chuyển 200 PAC-2 cho Ukraine (Army Recognition, 20/7) — ngoài khung 2 ngày.
+- [Kinh tế] TQ cân nhắc siết xuất khẩu AI/chip (FT, 21/7) — ngoài khung 2 ngày.
+- [Ngoại giao] Úc-Fiji ký 'Ocean of Peace'/Vuvale Union (BQP Úc, 6/7); Úc-Solomon đàm phán an ninh (8/7) — ngoài khung (trọng tâm Úc).
+Loại trong quá trình review (trùng/nguồn yếu, KHÔNG đưa vào mục Bị loại):
+- [us] Mali: chính quyền Trump chia rẽ về không kích JNIM (The Hill, 22/7) — TRÙNG tin sáng "Trump cân nhắc phương án quân sự tại Mali".
+- [world] RIMPAC 2026 SINKEX (Naval News) — chuyển sang exerciseUpdate của RIMPAC thay vì tin phẳng (tránh trùng URL/nội dung).
+- [world] TQ-ASEAN 5 năm đối tác + COC (Xinhua, 22/7) — nguồn nhà nước + trùng cụm AMM Manila đã có nhiều.
+- [us] Rubio trấn an đồng minh châu Á/cảnh báo Hormuz (Business Recorder, 23/7) — phát biểu chung, nguồn yếu, trùng cụm Rubio-Manila.
+- [world] Úc phản đối TQ thử SLBM — bản Dimsum Daily (nguồn yếu) BỎ, thay bằng bản Associated Press.
+- [Báo Mới] Mỹ-Nhật bế tắc SMR 40 tỷ USD (agent trỏ FT paywalled không xác minh được link) — bỏ; Prologis mua Segro 14 tỷ bảng — M&A doanh nghiệp đơn lẻ, không đúng gu.
+- [dipEvent] Mỹ-Saudi Hiệp định 123 (đề xuất tạo sự kiện mới) — đã có bản tin phẳng từ sáng; NZ-PNG update trùng item đã có; AMM update (aNewZ) nguồn yếu/trùng — bỏ cả ba.
