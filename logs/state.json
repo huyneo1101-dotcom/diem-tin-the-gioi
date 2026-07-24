@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-25T03:25:30+07:00",
+    "lastRunAt": "2026-07-25T03:46:23+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+13 tin (5 chu de): NoiboMy 3, Uc-BienDong 5, CNQS 4, Mali 1, Predator 0",
     "lastSuccess": {
       "toi": "2026-07-23",
-      "sang": "2026-07-23"
-    },
-    "heartbeat": "2026-07-25T03:42:57+07:00"
+      "sang": "2026-07-25"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-07-24T16:06:06+07:00",

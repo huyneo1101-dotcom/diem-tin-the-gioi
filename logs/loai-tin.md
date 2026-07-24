@@ -136,3 +136,11 @@ Loại trong quá trình review (trùng/nguồn yếu, KHÔNG đưa vào mục B
 - [world] Úc phản đối TQ thử SLBM — bản Dimsum Daily (nguồn yếu) BỎ, thay bằng bản Associated Press.
 - [Báo Mới] Mỹ-Nhật bế tắc SMR 40 tỷ USD (agent trỏ FT paywalled không xác minh được link) — bỏ; Prologis mua Segro 14 tỷ bảng — M&A doanh nghiệp đơn lẻ, không đúng gu.
 - [dipEvent] Mỹ-Saudi Hiệp định 123 (đề xuất tạo sự kiện mới) — đã có bản tin phẳng từ sáng; NZ-PNG update trùng item đã có; AMM update (aNewZ) nguồn yếu/trùng — bỏ cả ba.
+
+## 2026-07-25 (phiên tối)
+- [CNQS Mỹ] Hải quân Mỹ +1,4 tỷ USD tên lửa siêu vượt âm CPS (Lockheed PR, 23/7) — trùng URL earnings với tin Sanctum, giữ 1 bỏ 1
+- [CNQS Mỹ] Lockheed 44,6 triệu USD tác chiến điện tử tàu ngầm TI-26 (war.gov contracts, 23/7) — trùng URL trang contracts với tin Virginia, giữ 1 bỏ 1
+- [Mali] JNIM-Tuareg phục kích giết 50 lính Mali (Eastern Herald, 23/7 — sự kiện 18/7) — nguồn yếu + sự kiện ngoài 48h, loại
+- [Báo Mới] EU-Trung Quốc nguy cơ xung đột thương mại (Kinh tế) — ngoài 5 chủ đề
+- [Báo Mới] Australia +3,2 tỷ USD tàu ngầm AUKUS — đã có trong DATA (trùng)
+- [Nội bộ Mỹ] H.R.8884 gia hạn thí điểm việc làm người khuyết tật (GovTrack, 23/7) — nguồn tracker không phải bài báo, để lại chưa nạp
