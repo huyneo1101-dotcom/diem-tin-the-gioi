@@ -864,18 +864,42 @@ function renderSaved(){
 function drillCardInner(a,label){
   return '<div class="crow"><span class="badge" style="color:var(--green)"><i class="dot" style="background:var(--green)"></i>Tin liên quan</span><span class="date">'+fmtVN(a.date)+'</span></div><div class="title">'+newBadge(idOf(a))+esc(a.title)+'</div>'+(a.summary?'<div class="sum">'+esc(a.summary)+'</div>':'')+(a.relate?'<div class="relate"><b>'+(label||'Liên quan tập trận')+':</b> '+esc(a.relate)+'</div>':'')+'<div class="foot"><span class="meta">'+esc(a.sourceName||'')+'</span>'+srcLink(a)+actions(a)+'</div>';
 }
+/* Trạng thái sự kiện/tập trận suy ĐỘNG từ dải ngày `dates` so với hôm nay (giờ VN) — vì `status`
+   lưu trong DATA là tĩnh, gán lúc quét, không tự đổi khi ngày trôi (19-24/7 vẫn "sắp diễn ra"
+   vào đúng 24/7). Parse được ngày thì lấy ngày làm chuẩn; không parse được (vd "Tháng 9/2026")
+   thì fallback về status lưu sẵn. */
+function evRange(ev){
+  var s=(ev.dates||'').replace(/[–—]/g,'-'),m;
+  // "20/7 - 7/8/2026" (ngày/tháng ở cả hai đầu) — thử TRƯỚC để không bị "day-day" bắt nhầm
+  m=s.match(/(\d{1,2})\/(\d{1,2})\s*-\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if(m)return {a:{d:+m[1],mo:+m[2],y:+m[5]},b:{d:+m[3],mo:+m[4],y:+m[5]}};
+  // "19-24/07/2026" (chung tháng/năm)
+  m=s.match(/(\d{1,2})\s*-\s*(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if(m)return {a:{d:+m[1],mo:+m[3],y:+m[4]},b:{d:+m[2],mo:+m[3],y:+m[4]}};
+  // một ngày "24/7/2026"
+  m=s.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if(m)return {a:{d:+m[1],mo:+m[2],y:+m[3]},b:{d:+m[1],mo:+m[2],y:+m[3]}};
+  return null;
+}
+function effStatus(ev){
+  var r=evRange(ev);if(!r)return ev.status||'recent';
+  var p=todayISO().split('-'),t=(+p[0])*10000+(+p[1])*100+(+p[2]);
+  var a=r.a.y*10000+r.a.mo*100+r.a.d,b=r.b.y*10000+r.b.mo*100+r.b.d;
+  return t<a?'upcoming':(t>b?'recent':'ongoing');
+}
 function drillHeader(ex){
-  var pill=ex.status==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':(ex.status==='upcoming'?'<span class="dpill up">◷ Sắp diễn ra</span>':'<span class="dpill done">✓ Đã kết thúc</span>');
+  var st=effStatus(ex);
+  var pill=st==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':(st==='upcoming'?'<span class="dpill up">◷ Sắp diễn ra</span>':'<span class="dpill done">✓ Đã kết thúc</span>');
   return '<div class="drill-h"><div class="drill-top">'+pill+(ex.dates?'<span class="drill-dates">'+esc(ex.dates)+'</span>':'')+'</div><div class="drill-name">'+esc(ex.name)+'</div>'+(ex.location?'<div class="drill-meta">📍 '+esc(ex.location)+'</div>':'')+(ex.scale?'<div class="drill-meta">🎖️ '+esc(ex.scale)+'</div>':'')+(ex.summary?'<div class="drill-sum">'+esc(ex.summary)+'</div>':'')+'</div>';
 }
 function renderExercises(){
   var exs=((DATA.exercises&&DATA.exercises.length)?DATA.exercises:EXERCISES).slice();
   var ord={ongoing:0,upcoming:1,recent:2};   // Đang diễn ra → Sắp diễn ra → Đã kết thúc
-  exs.sort(function(a,b){return (ord[a.status]==null?9:ord[a.status])-(ord[b.status]==null?9:ord[b.status]);});
-  var live=exs.filter(function(e){return e.status==='ongoing';}).length;
-  var up=exs.filter(function(e){return e.status==='upcoming';}).length;
+  exs.sort(function(a,b){return (ord[effStatus(a)]==null?9:ord[effStatus(a)])-(ord[effStatus(b)]==null?9:ord[effStatus(b)]);});
+  var live=exs.filter(function(e){return effStatus(e)==='ongoing';}).length;
+  var up=exs.filter(function(e){return effStatus(e)==='upcoming';}).length;
   var chips='<div class="chips"><span class="chip'+(state.drill==='Tất cả'?' on':'')+'" data-drill="Tất cả">Tất cả ('+exs.length+')</span>';
-  exs.forEach(function(e){var col=e.status==='ongoing'?'#c0392b':(e.status==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.drill===e.name?' on':'')+'" data-drill="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
+  exs.forEach(function(e){var st=effStatus(e),col=st==='ongoing'?'#c0392b':(st==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.drill===e.name?' on':'')+'" data-drill="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
   chips+='</div>';
   var shown=exs.filter(function(e){return state.drill==='Tất cả'||e.name===state.drill;});
   function sec(ex){
@@ -886,7 +910,7 @@ function renderExercises(){
   var GROUPS=[['ongoing','🔴 Đang diễn ra'],['upcoming','🔵 Sắp diễn ra'],['recent','✓ Đã kết thúc']];
   var body='';
   GROUPS.forEach(function(g){
-    var grp=shown.filter(function(e){var st=e.status||'recent';return g[0]==='recent'?(st!=='ongoing'&&st!=='upcoming'):(st===g[0]);});
+    var grp=shown.filter(function(e){return effStatus(e)===g[0];});
     if(grp.length)body+='<div class="rejsec">'+g[1]+' ('+grp.length+')</div>'+grp.map(sec).join('');
   });
   if(!body)body='<div class="empty">Chưa có cuộc tập trận nào.</div>';
@@ -895,9 +919,9 @@ function renderExercises(){
 function renderDipEvents(){
   var exs=((DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS).slice();
   var ord={ongoing:0,upcoming:1,recent:2};   // Đang diễn ra → Sắp diễn ra → Đã kết thúc
-  exs.sort(function(a,b){return (ord[a.status]==null?9:ord[a.status])-(ord[b.status]==null?9:ord[b.status]);});
+  exs.sort(function(a,b){return (ord[effStatus(a)]==null?9:ord[effStatus(a)])-(ord[effStatus(b)]==null?9:ord[effStatus(b)]);});
   var chips='<div class="chips"><span class="chip'+(state.dip==='Tất cả'?' on':'')+'" data-dip="Tất cả">Tất cả ('+exs.length+')</span>';
-  exs.forEach(function(e){var col=e.status==='ongoing'?'#c0392b':(e.status==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.dip===e.name?' on':'')+'" data-dip="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
+  exs.forEach(function(e){var st=effStatus(e),col=st==='ongoing'?'#c0392b':(st==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.dip===e.name?' on':'')+'" data-dip="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
   chips+='</div>';
   var shown=exs.filter(function(e){return state.dip==='Tất cả'||e.name===state.dip;});
   function sec(ex){
@@ -908,7 +932,7 @@ function renderDipEvents(){
   var GROUPS=[['ongoing','🔴 Đang diễn ra'],['upcoming','🔵 Sắp diễn ra'],['recent','✓ Đã kết thúc']];
   var body='';
   GROUPS.forEach(function(g){
-    var grp=shown.filter(function(e){var st=e.status||'recent';return g[0]==='recent'?(st!=='ongoing'&&st!=='upcoming'):(st===g[0]);});
+    var grp=shown.filter(function(e){return effStatus(e)===g[0];});
     if(grp.length)body+='<div class="rejsec">'+g[1]+' ('+grp.length+')</div>'+grp.map(sec).join('');
   });
   if(!body)body='<div class="empty">'+(state.q?'Không có sự kiện khớp tìm kiếm.':'Chưa có sự kiện nào.')+'</div>';
