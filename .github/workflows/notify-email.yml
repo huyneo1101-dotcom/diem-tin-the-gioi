@@ -58,3 +58,30 @@ jobs:
         run: |
           npm install nodemailer@6 --no-save
           node .github/scripts/send-email.js
+
+      # Gửi kèm file docx sang Discord. Chỉ chạy khi đã khai báo secret DISCORD_WEBHOOK —
+      # chưa khai báo thì bỏ qua im lặng, KHÔNG làm đỏ workflow (email vẫn là kênh chính).
+      - name: Gửi file docx lên Discord
+        if: steps.chk.outputs.go == '1'
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "Chưa có secret DISCORD_WEBHOOK — bỏ qua bước Discord."
+            exit 0
+          fi
+          if [ ! -f "$DOCX_PATH" ]; then
+            echo "Không thấy file $DOCX_PATH — bỏ qua bước Discord."
+            exit 0
+          fi
+          ngay=$(TZ='Asia/Ho_Chi_Minh' date +%d/%m/%Y)
+          code=$(curl -s -o /tmp/discord_resp.txt -w '%{http_code}' \
+            -F "payload_json={\"content\":\"📰 **Điểm tin ngày $ngay**\"}" \
+            -F "file=@$DOCX_PATH" \
+            "$DISCORD_WEBHOOK")
+          echo "Discord HTTP $code"
+          # 200/204 = ok. Lỗi thì in phản hồi để chẩn đoán nhưng KHÔNG fail cả job.
+          if [ "$code" != "200" ] && [ "$code" != "204" ]; then
+            cat /tmp/discord_resp.txt
+            echo "::warning::Gửi Discord thất bại (HTTP $code) — email vẫn đã gửi."
+          fi
