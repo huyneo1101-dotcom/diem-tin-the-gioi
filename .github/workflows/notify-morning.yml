@@ -1,0 +1,52 @@
+name: Email sáng — sự kiện & báo cáo tuần
+
+# Chạy khi phiên QUÉT SÁNG push index.html. Gửi newsletter buổi sáng khi có sự kiện
+# ngoại giao/tập trận mới cập nhật HOẶC báo cáo tuần mới (gộp chung nếu cùng ngày).
+# Gate theo commit message để KHÔNG bắn khi push bản tin tối ("Cap nhat ban tin") hay
+# khi sửa code/UI. So diff với commit trước để biết cái gì thật sự mới.
+on:
+  push:
+    branches: [main]
+    paths: ['index.html']
+  workflow_dispatch:
+
+jobs:
+  morning:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Xác định có phải commit quét sáng / báo cáo tuần không
+        id: chk
+        run: |
+          msg=$(git log -1 --format=%s)
+          echo "commit: $msg ; event: ${{ github.event_name }}"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || echo "$msg" | grep -qiE '^(Cap nhat su kien|Dang bao cao tuan)'; then
+            echo "go=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Lấy bản index.html của commit trước (để so cái gì mới)
+        if: steps.chk.outputs.go == '1'
+        run: |
+          git show HEAD~1:index.html > /tmp/prev-index.html 2>/dev/null || echo "" > /tmp/prev-index.html
+          echo "PREV_HTML=/tmp/prev-index.html" >> "$GITHUB_ENV"
+
+      - name: Setup Node
+        if: steps.chk.outputs.go == '1'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Gửi email sáng
+        if: steps.chk.outputs.go == '1'
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
+          EMAIL_TO: ${{ vars.EMAIL_TO || 'lamgiaphat1603@gmail.com' }}
+        run: |
+          npm install nodemailer@6 --no-save
+          node .github/scripts/send-morning-email.js

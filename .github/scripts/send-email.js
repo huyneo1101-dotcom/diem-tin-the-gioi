@@ -60,16 +60,13 @@ function pickHighlights(DATA) {
 function buildHtml(DATA, items) {
   const p = (DATA.generatedAt || '').split('-');
   const ddmm = p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : (DATA.generatedAt || '');
+  // Chỉ TIÊU ĐỀ (điểm tin nhanh) — KHÔNG tóm tắt; chi tiết đầy đủ nằm trong file Word đính kèm.
   const rows = items.map(it => `
-    <tr><td style="padding:14px 0;border-bottom:1px solid #eceff3;">
-      <div style="font-size:12px;color:#8a94a6;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;">
-        ${esc(it._kind)}${it.category ? ' · ' + esc(it.category) : ''}
-      </div>
-      <a href="${esc(it.sourceUrl || WEB_URL)}" style="font-size:16px;font-weight:600;color:#12233b;text-decoration:none;line-height:1.4;">
-        ${esc(trim(it.title, 140))}
+    <tr><td style="padding:11px 0;border-bottom:1px solid #eceff3;">
+      <a href="${esc(it.sourceUrl || WEB_URL)}" style="font-size:15px;font-weight:600;color:#12233b;text-decoration:none;line-height:1.45;">
+        ${esc(trim(it.title, 150))}
       </a>
-      <div style="font-size:14px;color:#48566b;line-height:1.55;margin-top:6px;">${esc(trim(it.summary, 180))}</div>
-      <div style="font-size:12px;color:#9aa4b2;margin-top:6px;">${esc(it.sourceName || '')}</div>
+      <div style="font-size:12px;color:#9aa4b2;margin-top:4px;">${esc(it._kind)}${it.category ? ' · ' + esc(it.category) : ''}${it.sourceName ? ' · ' + esc(it.sourceName) : ''}</div>
     </td></tr>`).join('');
 
   return `<!doctype html><html><body style="margin:0;background:#f4f6f9;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
@@ -78,7 +75,7 @@ function buildHtml(DATA, items) {
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e6eaf0;">
         <tr><td style="background:#12233b;padding:22px 28px;">
           <div style="font-size:20px;font-weight:700;color:#ffffff;">📰 Điểm Tin Thế Giới</div>
-          <div style="font-size:13px;color:#aebbcf;margin-top:4px;">Bản tin ${esc(ddmm)} — vài tin đáng chú ý vừa cập nhật</div>
+          <div style="font-size:13px;color:#aebbcf;margin-top:4px;">Điểm tin ${esc(ddmm)} — chi tiết đầy đủ trong file Word đính kèm</div>
         </td></tr>
         <tr><td style="padding:8px 28px 4px;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
@@ -126,9 +123,9 @@ async function main() {
     from: `"Điểm Tin Thế Giới" <${EMAIL_USER}>`,
     to: EMAIL_TO,
     subject: `📰 Điểm Tin Thế Giới — bản tin ${ddmm} (${items.length} tin nổi bật)`,
-    text: `Bản tin ${ddmm} đã cập nhật.\n\n` +
-      items.map(it => `• [${it._kind}] ${it.title}\n  ${trim(it.summary, 180)}\n  ${it.sourceName || ''} — ${it.sourceUrl || ''}`).join('\n\n') +
-      `\n\n(File .docx đính kèm chứa toàn bộ tin vừa quét.)\n\nĐọc toàn bộ: ${WEB_URL}`,
+    text: `Điểm tin ${ddmm} — chi tiết đầy đủ trong file Word đính kèm.\n\n` +
+      items.map(it => `• [${it._kind}${it.category ? ' · ' + it.category : ''}] ${it.title}\n  ${it.sourceName || ''} — ${it.sourceUrl || ''}`).join('\n') +
+      `\n\nĐọc toàn bộ: ${WEB_URL}`,
     html: buildHtml(DATA, items),
     attachments,
   });
