@@ -870,24 +870,31 @@ function drillHeader(ex){
 }
 function renderExercises(){
   var exs=((DATA.exercises&&DATA.exercises.length)?DATA.exercises:EXERCISES).slice();
-  var ord={ongoing:0,upcoming:1};
+  var ord={ongoing:0,upcoming:1,recent:2};   // Đang diễn ra → Sắp diễn ra → Đã kết thúc
   exs.sort(function(a,b){return (ord[a.status]==null?9:ord[a.status])-(ord[b.status]==null?9:ord[b.status]);});
   var live=exs.filter(function(e){return e.status==='ongoing';}).length;
   var up=exs.filter(function(e){return e.status==='upcoming';}).length;
   var chips='<div class="chips"><span class="chip'+(state.drill==='Tất cả'?' on':'')+'" data-drill="Tất cả">Tất cả ('+exs.length+')</span>';
-  exs.forEach(function(e){var on=e.status==='ongoing';chips+='<span class="chip'+(state.drill===e.name?' on':'')+'" data-drill="'+esc(e.name)+'"><i class="dot" style="background:'+(on?'#c0392b':'#2b5f9e')+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
+  exs.forEach(function(e){var col=e.status==='ongoing'?'#c0392b':(e.status==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.drill===e.name?' on':'')+'" data-drill="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
   chips+='</div>';
   var shown=exs.filter(function(e){return state.drill==='Tất cả'||e.name===state.drill;});
-  var body=shown.length?shown.map(function(ex){
+  function sec(ex){
     var items=sortD(ex.items||[]).filter(matchQ);
     var cards=items.length?items.map(function(a){return card(drillCardInner(a),idOf(a));}).join(''):'<div class="empty" style="padding:16px">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin liên quan.')+'</div>';
     return '<section class="drill">'+drillHeader(ex)+'<div class="list">'+cards+'</div></section>';
-  }).join(''):'<div class="empty">Chưa có cuộc tập trận nào.</div>';
-  return '<div class="note">Các cuộc tập trận quân sự <b>đang & sắp diễn ra</b> — mỗi mục gom tin liên quan kèm <b>nhận xét</b> tin đó liên quan tới cuộc tập trận thế nào. <b>'+live+'</b> đang diễn ra · <b>'+up+'</b> sắp diễn ra.</div>'+chips+body;
+  }
+  var GROUPS=[['ongoing','🔴 Đang diễn ra'],['upcoming','🔵 Sắp diễn ra'],['recent','✓ Đã kết thúc']];
+  var body='';
+  GROUPS.forEach(function(g){
+    var grp=shown.filter(function(e){var st=e.status||'recent';return g[0]==='recent'?(st!=='ongoing'&&st!=='upcoming'):(st===g[0]);});
+    if(grp.length)body+='<div class="rejsec">'+g[1]+' ('+grp.length+')</div>'+grp.map(sec).join('');
+  });
+  if(!body)body='<div class="empty">Chưa có cuộc tập trận nào.</div>';
+  return '<div class="note">Các cuộc tập trận quân sự — phân theo <b>Đang diễn ra · Sắp diễn ra · Đã kết thúc</b>; mỗi mục gom tin liên quan kèm <b>nhận xét</b>. <b>'+live+'</b> đang diễn ra · <b>'+up+'</b> sắp diễn ra.</div>'+chips+body;
 }
 function renderDipEvents(){
   var exs=((DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS).slice();
-  var ord={ongoing:0,recent:1,upcoming:2};
+  var ord={ongoing:0,upcoming:1,recent:2};   // Đang diễn ra → Sắp diễn ra → Đã kết thúc
   exs.sort(function(a,b){return (ord[a.status]==null?9:ord[a.status])-(ord[b.status]==null?9:ord[b.status]);});
   var chips='<div class="chips"><span class="chip'+(state.dip==='Tất cả'?' on':'')+'" data-dip="Tất cả">Tất cả ('+exs.length+')</span>';
   exs.forEach(function(e){var col=e.status==='ongoing'?'#c0392b':(e.status==='upcoming'?'#2b5f9e':'#1f8a54');chips+='<span class="chip'+(state.dip===e.name?' on':'')+'" data-dip="'+esc(e.name)+'"><i class="dot" style="background:'+col+'"></i>'+esc(e.name.split('(')[0].trim())+'</span>';});
@@ -898,14 +905,14 @@ function renderDipEvents(){
     var cards=items.length?items.map(function(a){return card(drillCardInner(a,'Liên quan sự kiện'),idOf(a));}).join(''):'<div class="empty" style="padding:16px">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin liên quan.')+'</div>';
     return '<section class="drill">'+drillHeader(ex)+'<div class="list">'+cards+'</div></section>';
   }
-  var GROUPS=[['upcoming','🔵 Sắp diễn ra'],['ongoing','🔴 Đang diễn ra'],['recent','✓ Đã kết thúc']];
+  var GROUPS=[['ongoing','🔴 Đang diễn ra'],['upcoming','🔵 Sắp diễn ra'],['recent','✓ Đã kết thúc']];
   var body='';
   GROUPS.forEach(function(g){
     var grp=shown.filter(function(e){var st=e.status||'recent';return g[0]==='recent'?(st!=='ongoing'&&st!=='upcoming'):(st===g[0]);});
     if(grp.length)body+='<div class="rejsec">'+g[1]+' ('+grp.length+')</div>'+grp.map(sec).join('');
   });
   if(!body)body='<div class="empty">'+(state.q?'Không có sự kiện khớp tìm kiếm.':'Chưa có sự kiện nào.')+'</div>';
-  return '<div class="note">Các <b>sự kiện ngoại giao</b> (thượng đỉnh, hội nghị, ký kết, đàm phán…) — phân theo <b>Sắp diễn ra · Đang diễn ra · Đã kết thúc</b>; mỗi sự kiện gom tin liên quan.</div>'+chips+body;
+  return '<div class="note">Các <b>sự kiện ngoại giao</b> (thượng đỉnh, hội nghị, ký kết, đàm phán…) — phân theo <b>Đang diễn ra · Sắp diễn ra · Đã kết thúc</b>; mỗi sự kiện gom tin liên quan.</div>'+chips+body;
 }
 function renderDossiers(){
   var pool=newsPool().concat(sortD(DATA.xNews||[]));
