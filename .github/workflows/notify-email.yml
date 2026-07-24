@@ -54,7 +54,7 @@ jobs:
         env:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
-          EMAIL_TO: ${{ vars.EMAIL_TO || 'lamgiaphat1603@gmail.com' }}
+          EMAIL_TO: ${{ vars.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com' }}
         run: |
           npm install nodemailer@6 --no-save
           node .github/scripts/send-email.js

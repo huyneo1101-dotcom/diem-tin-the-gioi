@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer');
 const WEB_URL = 'https://huyneo1101-dotcom.github.io/diem-tin-the-gioi';
 const EMAIL_USER = process.env.EMAIL_USER;
 const EMAIL_PASS = process.env.EMAIL_APP_PASSWORD;
-const EMAIL_TO = process.env.EMAIL_TO || 'lamgiaphat1603@gmail.com';
+const EMAIL_TO = process.env.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com';
 
 function extractDATA(html) {
   const i = html.indexOf('var DATA');

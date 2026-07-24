@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 const WEB_URL = 'https://huyneo1101-dotcom.github.io/diem-tin-the-gioi';
 const EMAIL_USER = process.env.EMAIL_USER;                 // gmail dùng để gửi
 const EMAIL_PASS = process.env.EMAIL_APP_PASSWORD;         // App Password 16 ký tự
-const EMAIL_TO = process.env.EMAIL_TO || 'lamgiaphat1603@gmail.com';
+const EMAIL_TO = process.env.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com';
 const MAX_ITEMS = parseInt(process.env.EMAIL_MAX_ITEMS || '6', 10);
 
 // --- Trích object DATA = {...} trong index.html bằng cách đếm ngoặc (không đọc bằng Read) ---
