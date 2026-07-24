@@ -128,6 +128,9 @@ link rác/không khớp, trùng, không đúng 5 chủ đề, nội bộ Mỹ ng
 nếu có tin đúng chủ đề nhưng lệch khung giờ, đáng để người dùng cứu.
 
 Gộp vào `/tmp/new_items.json`:
+> ⚠️ **`date` batch = NGÀY TIN MỚI NHẤT trong lô** (thường là hôm qua nếu quét sau nửa đêm / máy chạy
+> trễ), KHÔNG phải ngày hệ thống. Script chặn tin cũ hơn 1 ngày so với `date` này — neo sai (theo hôm
+> nay) sẽ chặn oan tin nới-48h.
 ```json
 {
   "date": "YYYY-MM-DD",
@@ -144,8 +147,11 @@ Chính trị, CNQS Mỹ→Công nghệ quân sự, Úc/Biển Đông→theo nộ
 ```
 python3 scripts/add_news.py /tmp/new_items.json
 ```
-Script **CHẶN** (sửa JSON rồi chạy lại): thiếu field; category sai; date ngoài khung (script cho tối đa
-2 ngày — 48h nằm trong khung này, OK); URL trang chủ/live-blog; URL trùng trong batch hoặc đã có trong
+Script **CHẶN** (sửa JSON rồi chạy lại): thiếu field; category sai; date ngoài khung (`MAX_AGE_DAYS=1`
+— script chỉ cho lùi TỐI ĐA 1 ngày so với `date` batch. Vì vậy đặt `date` batch = **NGÀY TIN MỚI NHẤT
+trong lô**, KHÔNG neo theo ngày hệ thống; khi đó tin nới-48h = hôm trước vẫn khít khung 1 ngày. Nếu neo
+`date` theo hôm nay mà tin mới nhất là hôm qua thì tin 48h bị chặn oan — lỗi hay mắc); URL trang
+chủ/live-blog; URL trùng trong batch hoặc đã có trong
 DATA; tên exercise (`exerciseUpdates`) không khớp entry có sẵn. **CẢNH BÁO** (không chặn): nguồn lạ;
 tiêu đề nghi trùng.
 - **KHÔNG còn sàn 15+15.** Dòng script in `SÀN CỨNG … X/15 · Y/15` là DI SẢN cũ — **BỎ QUA nó**. Mục
