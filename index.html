@@ -177,11 +177,9 @@ a{color:inherit}
 .wk-pt-b{font-size:calc(13.5px*var(--fs));color:var(--ink);line-height:1.55}
 .wk-src{font-size:calc(11.5px*var(--fs));color:var(--muted);margin-top:4px}
 .wk-src a{color:var(--accent);text-decoration:none}
-/* Link nội dòng trong body báo cáo tuần — xanh, gạch chân, bấm sang bài tin gốc */
-.wk-link{color:#1f6feb;text-decoration:underline;text-underline-offset:2px;font-weight:600}
-.wk-link:hover{color:#0b57d0}
-[data-theme=dark] .wk-link,[data-theme=intel] .wk-link{color:#6ea8fe}
-[data-theme=dark] .wk-link:hover,[data-theme=intel] .wk-link:hover{color:#93c0ff}
+/* Link nội dòng trong body báo cáo tuần — màu đỏ như link "Nguồn", gạch chân, KHÔNG đậm */
+.wk-link{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.wk-link:hover{opacity:.78}
 .rejcard{opacity:.92}
 .rejwhy{font-size:calc(12.5px*var(--fs));color:#c0392b;background:rgba(192,57,43,.08);border-radius:7px;padding:6px 9px;margin:8px 0 0}
 .rejacts{display:flex;gap:8px;align-items:center;margin:9px 0 0;flex-wrap:wrap}
