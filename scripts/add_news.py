@@ -48,6 +48,7 @@ import pathlib
 import re
 import sys
 import urllib.parse
+import zoneinfo
 
 NEWS_REQUIRED_FIELDS = {"date", "category", "title", "summary", "sourceName", "sourceUrl", "significance"}
 VALID_CATEGORIES = {"Kinh tế", "Chính trị", "Công nghệ quân sự", "Ngoại giao"}
@@ -653,14 +654,22 @@ def main() -> None:
         world_new or us_new or x_new or baomoi_new
         or exercise_items_added or dip_items_added or new_dip_events or new_exercises
     )
+    # Giờ chạy thật (HH:MM giờ VN) đi kèm từng mốc ngày — web hiện "Cập nhật 23-07-26 20:30".
+    # Để RIÊNG khỏi generatedAt vì generatedAt phải giữ đúng dạng YYYY-MM-DD: notify-push.yml
+    # grep nó bằng regex ngày, send-email.js/make_docx.py split('-') và so với _addedDate.
+    now_vn = datetime.datetime.now(zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")).strftime("%H:%M")
     if content_added:
         data["generatedAt"] = date
+        data["generatedTime"] = now_vn
     if world_new or baomoi_new:
         data["worldGeneratedAt"] = date
+        data["worldGeneratedTime"] = now_vn
     if us_new:
         data["usGeneratedAt"] = date
+        data["usGeneratedTime"] = now_vn
     if x_new:
         data["xGeneratedAt"] = date
+        data["xGeneratedTime"] = now_vn
 
     new_data_str = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     html_path.write_text(html[:start] + new_data_str + html[end:], encoding="utf-8")
