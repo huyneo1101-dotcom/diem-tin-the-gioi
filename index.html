@@ -92,9 +92,10 @@ a{color:inherit}
 .seg{display:flex;gap:5px;margin:0 0 16px;background:var(--paper2);border:1px solid var(--line);border-radius:10px;padding:4px}
 .seg button{flex:1;padding:9px 6px;border:none;background:none;border-radius:7px;cursor:pointer;font-family:inherit;font-weight:700;font-size:calc(13.5px*var(--fs));color:var(--muted);white-space:nowrap}
 .seg button.on{background:var(--ink);color:var(--bg)}
-/* Thanh mục con của tab "Điểm Tin" có 5 nút — trên mobile cho cuộn ngang thay vì bóp chữ. */
-.seg-news button{font-size:calc(12.5px*var(--fs));padding:9px 4px}
-@media (max-width:640px){.seg-news{overflow-x:auto;-webkit-overflow-scrolling:touch}.seg-news button{flex:0 0 auto;padding:9px 11px}}
+/* Pill "Bị loại" — tách khỏi cụm chip lọc (đẩy về cuối hàng), tô đỏ nhạt cho khác luồng đọc. */
+.chips .chip-rej{margin-left:auto;border-color:#c0392b;color:#c0392b}
+.chips .chip-rej.on{background:#c0392b;color:#fff;border-color:#c0392b}
+@media (max-width:640px){.chips .chip-rej{margin-left:0}}
 #concept-fab{position:fixed;z-index:90;background:var(--accent);color:#fff;border:none;border-radius:16px;padding:7px 13px;font-size:12.5px;font-weight:700;font-family:inherit;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.32);display:none}
 .cadd{display:flex;gap:7px;margin:0 0 14px}
 .cadd input{flex:1;min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:9px 11px;font-family:inherit;font-size:calc(13.5px*var(--fs));color:var(--ink);outline:none}
@@ -812,7 +813,9 @@ function renderFresh(){
   var featIds={};feat.forEach(function(w){featIds[idOf(w.it)]=1;});
   var rest=items.filter(function(w){return !featIds[idOf(w.it)];});
   var cap=40, shown=rest.slice(0,cap);
-  var chips='<div class="chips">'+kinds.map(function(k){var n=(k[0]==='Tất cả'?all:all.filter(function(w){return w.fk===k[0];})).length;return '<span class="chip'+(sel===k[0]?' on':'')+'" data-fresh="'+k[0]+'">'+k[1]+' ('+n+')</span>';}).join('')+'</div>';
+  var _nRej=rejectedPool().length;
+  var rejPill='<span class="chip chip-rej" data-newsseg="rejected" title="Tin bị loại khi quét — bấm để rà/cứu">🚫 Bị loại'+(_nRej?' ('+_nRej+')':'')+'</span>';
+  var chips='<div class="chips">'+kinds.map(function(k){var n=(k[0]==='Tất cả'?all:all.filter(function(w){return w.fk===k[0];})).length;return '<span class="chip'+(sel===k[0]?' on':'')+'" data-fresh="'+k[0]+'">'+k[1]+' ('+n+')</span>';}).join('')+rejPill+'</div>';
   var dopts='<option value="__2d__"'+(mode==='__2d__'?' selected':'')+'>2 ngày gần nhất</option><option value="Tất cả"'+(mode==='Tất cả'?' selected':'')+'>Tất cả ngày</option>'+ds.map(function(d){return '<option value="'+esc(d)+'"'+(mode===d?' selected':'')+'>'+fmtVN(d)+'</option>';}).join('');
   var dsel=ds.length?'<div class="filterbar"><span>📅 Lọc ngày</span><select class="dsel" data-freshdate>'+dopts+'</select></div>':'';
   var dhint=mode==='__2d__'?(recent2.length?' Đang xem <b>2 ngày gần nhất</b> ('+recent2.map(fmtVN).join(', ')+').':''):(mode!=='Tất cả'?' Đang xem ngày <b>'+fmtVN(mode)+'</b> — chọn "2 ngày gần nhất" hoặc "Tất cả ngày" để xem thêm.':'');
@@ -1034,33 +1037,25 @@ h+='<div class="bs-foot">Cập nhật '+esc(stamp)+' · Bấm tiêu đề để 
   h+='</div>';
   return h;
 }
-/* Tab "Điểm Tin" — gộp 5 mục cũ (Bài mới · Thế giới · Mỹ · X · Bị loại) thành thanh mục con,
-   dùng lại nguyên các hàm render cũ nên không đổi hành vi từng mục, chỉ đổi nơi truy cập. */
+/* Tab "Điểm Tin" — MỘT luồng tin duy nhất, lọc bằng hàng chip của renderFresh
+   (Tất cả · Thế giới · Mỹ · X · Sự kiện) + lọc ngày. "Bị loại" là pill phụ cuối hàng chip
+   (data-newsseg="rejected"), tách khỏi luồng đọc nhưng vẫn 1 chạm tới. */
 function renderNews(){
-  var seg=state.newsSeg||'fresh';
-  var nRej=rejectedPool().length;
-  var nNew=freshList().filter(function(w){return isNew(idOf(w.it));}).length;
-  var segs=[
-    ['fresh','🆕 Bài mới'+(nNew?' ('+nNew+')':'')],
-    ['world','🌍 Thế giới ('+((DATA.worldNews||[]).length)+')'],
-    ['us',USFLAG+'Mỹ ('+((DATA.usNews||[]).length)+')'],
-    ['x',XLOGO+'X ('+((DATA.xNews||[]).length)+')'],
-    ['rejected','🚫 Bị loại'+(nRej?' ('+nRej+')':'')]
-  ];
-  var bar='<div class="seg seg-news">'+segs.map(function(s){return '<button class="'+(seg===s[0]?'on':'')+'" data-newsseg="'+s[0]+'">'+s[1]+'</button>';}).join('')+'</div>';
-  var view;
-  if(seg==='world')view=renderCatNews(DATA.worldNews,'<div class="note">Tin <b>thế giới</b> nổi bật trong <b>24 giờ qua</b> — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
-  else if(seg==='us')view=renderCatNews(DATA.usNews,'<div class="note">Tin <b>yếu tố Mỹ</b> nổi bật trong <b>24 giờ qua</b> (giờ Mỹ) — kinh tế · chính trị · ngoại giao · công nghệ quân sự — tổng hợp từ các báo lớn.</div>');
-  else if(seg==='x')view=renderX();
-  else if(seg==='rejected')view=renderRejected();
-  else view=renderFresh();
-  return bar+view;
+  if(state.newsSeg==='rejected'){
+    var n=rejectedPool().length;
+    var back='<div class="chips"><span class="chip" data-newsseg="fresh">← Bài mới</span>'+
+      '<span class="chip chip-rej on" data-newsseg="rejected">🚫 Bị loại'+(n?' ('+n+')':'')+'</span></div>';
+    return back+renderRejected();
+  }
+  return renderFresh();
 }
 function content(){
   if(state.tab==='home')return renderHome();
-  /* Tương thích ngược: link/tab cũ trỏ tới fresh/world/us/x/rejected → mở tab Điểm Tin đúng mục. */
-  var SEGMAP={fresh:'fresh',world:'world',us:'us',x:'x',rejected:'rejected'};
-  if(SEGMAP[state.tab]){state.newsSeg=SEGMAP[state.tab];state.tab='news';}
+  /* Tương thích ngược: link/tab cũ. fresh/world/us/x → mở Điểm Tin với đúng chip lọc;
+     rejected → mở mục Bị loại. */
+  var SEG2FRESH={fresh:'Tất cả',world:'world',us:'us',x:'x'};
+  if(SEG2FRESH[state.tab]!=null){state.fresh=SEG2FRESH[state.tab];state.newsSeg='fresh';state.tab='news';}
+  else if(state.tab==='rejected'){state.newsSeg='rejected';state.tab='news';}
   if(state.tab==='news')return renderNews();
   if(state.tab==='analysis')return renderAnalysis();
   if(state.tab==='topic')return renderTopic();
