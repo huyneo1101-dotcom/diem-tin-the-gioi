@@ -1,6 +1,25 @@
 {
- "generatedAt": "2026-07-24T11:26:19+0700",
- "count": 0,
+ "generatedAt": "2026-07-24T22:04:01+0700",
+ "count": 2,
  "source": "Bao Moi - bai da luu (loc dung 4 chu de cua web + chi bai dang trong 24h, tu dong qua GitHub Action)",
- "items": []
+ "items": [
+  {
+   "date": "2026-07-24",
+   "category": "Kinh tế",
+   "title": "EU - Trung Quốc trước nguy cơ xung đột thương mại",
+   "summary": "",
+   "sourceName": "Báo Sài Gòn Giải Phóng",
+   "sourceUrl": "https://baomoi.com/eu-trung-quoc-truoc-nguy-co-xung-dot-thuong-mai-c55682273.epi",
+   "region": "Châu Âu/NATO"
+  },
+  {
+   "date": "2026-07-24",
+   "category": "Công nghệ quân sự",
+   "title": "Australia bổ sung 3,2 tỷ USD phát triển dự án tàu ngầm hạt nhân AUKUS",
+   "summary": "",
+   "sourceName": "Báo Lâm Đồng",
+   "sourceUrl": "https://baomoi.com/australia-bo-sung-3-2-ty-usd-phat-trien-du-an-tau-ngam-hat-nhan-aukus-c55685082.epi",
+   "region": "Ấn Độ Dương - Thái Bình Dương"
+  }
+ ]
 }
