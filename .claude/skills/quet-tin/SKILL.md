@@ -79,8 +79,9 @@ NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
   web-scan "<lý do>"` (nhả khoá + KHÔNG chặn lần fire sau), push log, dừng.
 
 ## Bước 1 — Nguồn + dữ liệu nền
-Đọc mục **"Nguồn theo 3 tầng"** + bảng **"URL RSS đã biết"** trong `CLAUDE.md` để biết nguồn/URL cho
-từng chủ đề (ưu tiên nguồn quốc phòng/chính thức Mỹ + Úc + AFRICOM cho 5 chủ đề này). Lấy dữ liệu nền:
+Đọc mục **"Nguồn theo 3 tầng"** + bảng **"URL RSS đã biết"** trong `CLAUDE.md`, VÀ **Phụ lục "NGUỒN MỞ
+RỘNG theo 5 chủ đề"** ở cuối skill này (danh sách nguồn cụ thể cho từng chủ đề — chọn vài nguồn hợp rồi
+nhúng vào prompt agent). Ưu tiên nguồn quốc phòng/chính thức Mỹ + Úc + AFRICOM cho 5 chủ đề này. Lấy dữ liệu nền:
 ```
 grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn   # nguồn đã dùng nhiều → né
 python3 scripts/add_news.py --recent-titles 20                          # tiêu đề gần đây → chống trùng
@@ -173,3 +174,52 @@ tiêu đề nghi trùng.
 ## Bước 6 — Tóm tắt cuối
 Ngắn gọn: số tin mỗi chủ đề (Nội bộ Mỹ / Úc-Biển Đông / CNQS Mỹ / Mali / Predator), chủ đề nào thiếu +
 lý do (đã nới 48h chưa), nguồn nổi bật, trạng thái push. KHÔNG liệt kê lại nội dung từng tin.
+
+## Phụ lục — NGUỒN MỞ RỘNG theo 5 chủ đề (bổ sung 25/07/2026)
+Agent điều phối chọn vài nguồn hợp chủ đề rồi nhúng vào prompt agent (đừng dán cả phụ lục). Ưu tiên
+tầng 1 (chính thức, link thẳng) → wire (Reuters/AP/AFP) → chuyên ngành. Nguồn có RSS thì đưa thẳng URL
+cho agent fetch; nguồn không RSS thì dùng WebSearch `site:domain`.
+
+### 1. Nội bộ Mỹ (điều trần + bỏ phiếu thông qua)
+- **Bản ghi bỏ phiếu chính thức**: clerk.house.gov/Votes · senate.gov/legislative/LIS/roll_call_lists ·
+  congress.gov (tra bill + trạng thái). GovTrack/govtrack.us chỉ để TRA, link bài báo kèm.
+- **Uỷ ban** (lịch điều trần + thông cáo): armedservices.house.gov · appropriations.house.gov ·
+  foreignaffairs.house.gov · armed-services.senate.gov · appropriations.senate.gov · foreign.senate.gov ·
+  banking.senate.gov · intelligence.senate.gov (đủ 101 uỷ ban trong `docs/nguon-chinh-thuc-my.md`).
+- **Video/tường thuật**: C-SPAN (c-span.org). **Báo chuyên Quốc hội**: The Hill, Politico, Roll Call,
+  Punchbowl News, NOTUS (notus.org), CQ. **Cơ quan liên bang**: Government Executive (govexec.com),
+  Federal News Network. **Phân tích luật**: CRS (crsreports.congress.gov).
+
+### 2. Úc & Biển Đông
+- **Úc chính thức**: defence.gov.au · minister.defence.gov.au · pm.gov.au · dfat.gov.au · aph.gov.au
+  (nghị viện). **Phân tích Úc**: ASPI The Strategist (aspistrategist.org.au), Lowy Interpreter
+  (lowyinstitute.org/the-interpreter). **Báo Úc**: ABC News AU (abc.net.au), The Australian, SMH,
+  Defence Connect (defenceconnect.com.au), Australian Defence Magazine, ADBR.
+- **Biển Đông**: AMTI/CSIS (amti.csis.org — bản đồ/phân tích) · Philippine Coast Guard (coastguard.gov.ph) ·
+  Philippine News Agency (pna.gov.ph) · Rappler · Inquirer · Philstar · GMA News · Manila Bulletin ·
+  BenarNews · Radio Free Asia · The Maritime Executive · gCaptain · Naval News · Nikkei Asia · SCMP ·
+  VN: vietnamplus.vn, thanhnien.vn. **TQ (chỉ phát ngôn của họ)**: mod.gov.cn, mfa.gov.cn.
+
+### 3. CNQS Mỹ
+- **Chính thức**: defense.gov · war.gov/News/Contracts (hợp đồng hằng ngày) · navy.mil · army.mil ·
+  af.mil · spaceforce.mil · dvidshub.net · DARPA (darpa.mil) · Missile Defense Agency (mda.mil) ·
+  DIU (diu.mil) · NAVSEA. **Chuyên ngành**: Defense News, Breaking Defense, Defense One, Naval News,
+  USNI News, C4ISRNet, SpaceNews, Air & Space Forces Magazine, DefenseScoop, The War Zone, National
+  Defense Magazine (nationaldefensemagazine.org), Defense Daily, Inside Defense, Aviation Week, Naval
+  Technology. **Nhà thầu (thông báo của họ)**: Lockheed Martin, RTX, Boeing, Northrop Grumman, General
+  Dynamics. *Kiểm chứng thêm*: Janes, SIPRI, Army Recognition (chỉ tham khảo).
+
+### 4. Mỹ–Mali (JNIM/Sahel)
+- **Chính thức**: africom.mil (AFRICOM — chính) · defense.gov · state.gov · centcom.mil. **Theo dõi
+  khủng bố/JNIM**: FDD Long War Journal (longwarjournal.org) · Jamestown Foundation (Terrorism Monitor /
+  Militant Leadership Monitor) · Critical Threats (criticalthreats.org — AEI). **Dữ liệu xung đột**:
+  ACLED (acleddata.com). **Phân tích Phi**: ISS Africa (issafrica.org) · Africa Center for Strategic
+  Studies (africacenter.org). **Báo**: Reuters, AP, AFP, WaPo, France24/RFI, Al Jazeera, Jeune Afrique,
+  The Africa Report, BBC Africa.
+
+### 5. Predator's Run 2026 (Mỹ–Úc–Philippines)
+- **Chính thức**: pacom.mil (INDOPACOM) · usarpac.army.mil (US Army Pacific) · marines.mil / III MEF ·
+  army.mil · defence.gov.au · army.gov.au (Australian Army, 1st Division) · dvidshub.net (thông cáo +
+  ảnh diễn tập). **Philippines**: Philippine Army, AFP (armedforces). **Báo**: ABC News AU, Defence
+  Connect, ADBR, The Townsville Bulletin (địa phương), Naval News. Từ khoá WebSearch: "Predator's Run
+  2026", "Exercise Carabaroo 2026".
