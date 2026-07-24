@@ -125,9 +125,10 @@ function buildHtml(evs, weekly, ddmm) {
 }
 
 async function main() {
-  if (!EMAIL_USER || !EMAIL_PASS) { console.log('Thiếu secret EMAIL_USER/EMAIL_APP_PASSWORD — bỏ qua.'); return; }
+  // Thiếu secret / không đọc được DATA = LỖI CẤU HÌNH (không phải no-op) -> để job ĐỎ.
+  if (!EMAIL_USER || !EMAIL_PASS) { console.error('LỖI: thiếu secret EMAIL_USER/EMAIL_APP_PASSWORD.'); process.exit(1); }
   const cur = readDATA('index.html');
-  if (!cur) { console.log('Không đọc được DATA hiện tại — bỏ qua.'); return; }
+  if (!cur) { console.error('LỖI: không đọc được DATA hiện tại (index.html).'); process.exit(1); }
   const prev = process.env.PREV_HTML ? readDATA(process.env.PREV_HTML) : null;
 
   const evs = diffEvents(cur, prev);
@@ -160,4 +161,4 @@ async function main() {
   console.log(`Đã gửi email sáng tới ${EMAIL_TO}: ${info.messageId} (${evs.length} sự kiện, báo cáo tuần: ${weekly ? 'có' : 'không'})`);
 }
 
-main().catch(e => { console.log('Lỗi gửi email sáng:', e && e.message); process.exit(0); });
+main().catch(e => { console.error('LỖI gửi email sáng:', (e && e.stack) || e); process.exit(1); });

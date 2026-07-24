@@ -95,8 +95,8 @@ function buildHtml(DATA, items) {
 
 async function main() {
   if (!EMAIL_USER || !EMAIL_PASS) {
-    console.log('Thiếu secret EMAIL_USER / EMAIL_APP_PASSWORD — bỏ qua gửi email.');
-    return;
+    console.error('LỖI: thiếu secret EMAIL_USER / EMAIL_APP_PASSWORD.');
+    process.exit(1); // lỗi cấu hình -> để job ĐỎ, không nuốt im lặng
   }
   const DATA = extractDATA();
   const items = pickHighlights(DATA);
@@ -132,4 +132,4 @@ async function main() {
   console.log(`Đã gửi email tới ${EMAIL_TO}: ${info.messageId} (${items.length} tin, ${attachments.length} đính kèm)`);
 }
 
-main().catch(e => { console.log('Lỗi gửi email:', e && e.message); process.exit(0); });
+main().catch(e => { console.error('LỖI gửi email:', (e && e.stack) || e); process.exit(1); });
