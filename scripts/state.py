@@ -49,7 +49,7 @@ except AttributeError:  # Windows
     pass
 
 STATE_PATH = Path(__file__).resolve().parent.parent / "logs" / "state.json"
-PIPELINES = ("drive-import", "web-scan")
+PIPELINES = ("drive-import", "web-scan", "event-scan")
 SLOTS = ("sang", "toi")
 SLOT_SPLIT_HOUR = 14  # < 14:00 VN = buổi sáng (fire 09:15 + dự phòng 10:15); >= 14:00 = buổi tối
 # Không có nhịp tim trong ngần này phút -> coi phiên đang chạy là đã chết, cho giành lại khoá.
