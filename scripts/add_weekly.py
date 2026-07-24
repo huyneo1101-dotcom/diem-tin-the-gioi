@@ -19,7 +19,8 @@ weekly.json:
       "lede": "1-2 câu tổng quan cả tuần của nước này",
       "points": [
         {"title": "Tiêu đề luận điểm",
-         "body":  "Đoạn phân tích/nhận định",
+         "body":  "Đoạn phân tích. Chỗ nhắc tới tin đã có, gắn LINK NỘI DÒNG dạng markdown "
+                  "[cụm chữ](https://url-bài-gốc) — web đổi thành chữ xanh gạch chân bấm được.",
          "sources": [ {"name": "Reuters", "url": "https://..."} ]}
       ]
     },
