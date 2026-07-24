@@ -17,5 +17,14 @@
       "toi": "2026-07-23",
       "sang": "2026-07-23"
     }
+  },
+  "event-scan": {
+    "lastRunAt": "2026-07-24T16:06:06+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "DONE",
+    "note": "Sang 24/07: +1 su kien ngoai giao moi (My-Saudi Thoa thuan 123 hat nhan), +1 cap nhat AMM-59 (ACSA Nhat-Philippines hieu luc 22/8). Khong co cap nhat tap tran.",
+    "lastSuccess": {
+      "toi": "2026-07-24"
+    }
   }
 }
