@@ -223,3 +223,31 @@ cho agent fetch; nguồn không RSS thì dùng WebSearch `site:domain`.
   ảnh diễn tập). **Philippines**: Philippine Army, AFP (armedforces). **Báo**: ABC News AU, Defence
   Connect, ADBR, The Townsville Bulletin (địa phương), Naval News. Từ khoá WebSearch: "Predator's Run
   2026", "Exercise Carabaroo 2026".
+
+### ✅ RSS nguồn mở rộng — ĐÃ VERIFY BẰNG FETCH THẬT 25/07/2026
+Chạy tốt (đưa THẲNG URL cho agent):
+| Nguồn | RSS URL | item |
+|---|---|---|
+| The Hill (chung) | https://thehill.com/feed/ | 100 |
+| The Hill — Defense | https://thehill.com/policy/defense/feed/ | 15 |
+| Roll Call | https://rollcall.com/feed/ | 10 |
+| Government Executive | https://www.govexec.com/rss/all/ | 22 |
+| ABC News AU (world) | https://www.abc.net.au/news/feed/51120/rss.xml | 25 |
+| Lowy Interpreter | https://www.lowyinstitute.org/the-interpreter/rss.xml | 50 |
+| AMTI/CSIS (Biển Đông) | https://amti.csis.org/feed/ | 10 |
+| Rappler | https://www.rappler.com/feed/ | 10 |
+| Philstar (headlines) | https://www.philstar.com/rss/headlines | 10 |
+| Inquirer | https://www.inquirer.net/fullfeed/ | 20 |
+| gCaptain | https://gcaptain.com/feed/ | 12 |
+| Naval Technology | https://www.naval-technology.com/feed/ | 10 |
+| The War Zone (TWZ) | https://www.twz.com/feed | 44 |
+| DefenseScoop | https://defensescoop.com/feed/ | 10 |
+| Aviation Week | https://aviationweek.com/rss.xml | 10 |
+| Long War Journal (Mali/JNIM) | https://www.longwarjournal.org/feed | 30 |
+| DVIDS news (Predator) | https://www.dvidshub.net/rss/news | 20 |
+
+KHÔNG có RSS dùng được → **WebSearch `site:domain`** (đã thử, 403/404/0-item 25/07): NOTUS
+(notus.org) · Punchbowl (trả phí) · C-SPAN · Defence Connect · ADBR · Philippine News Agency
+(pna.gov.ph) · Manila Bulletin (mb.com.ph) · Radio Free Asia (rfa.org) · The Maritime Executive ·
+National Defense Magazine · Jeune Afrique · The Africa Report · RFI (rfi.fr) · ISS Africa (issafrica.org).
+Nguồn chính thức (.gov/.mil/committee) vốn ít RSS ổn định — mặc định WebSearch `site:...`.
