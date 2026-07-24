@@ -169,6 +169,39 @@ trước** — feed thật nhưng gần như đứng. Ưu tiên thấp, đừng 
 
 **Cách kiểm lại về sau:** `scripts/rss_check.py` (đọc thẳng bảng này trong CLAUDE.md rồi fetch từng URL).
 
+### Nguồn MỞ RỘNG 5 chủ đề — verify fetch thật 25/07/2026 (gộp vào để `rss_check.py` tự kiểm)
+Bổ sung cho 5 chủ đề (Nội bộ Mỹ · Úc–Biển Đông · CNQS Mỹ · Mali · Predator). Chi tiết cách dùng từng
+nguồn xem Phụ lục trong `.claude/skills/quet-tin/SKILL.md`.
+| Nguồn | RSS URL | Kiểm 25/07 |
+|---|---|---|
+| The Hill | https://thehill.com/feed/ | 100 item |
+| The Hill — Defense | https://thehill.com/policy/defense/feed/ | 15 item |
+| Roll Call | https://rollcall.com/feed/ | 10 item |
+| Government Executive | https://www.govexec.com/rss/all/ | 22 item |
+| ABC News AU (world) | https://www.abc.net.au/news/feed/51120/rss.xml | 25 item |
+| Lowy Interpreter | https://www.lowyinstitute.org/the-interpreter/rss.xml | 50 item |
+| AMTI/CSIS (Biển Đông) | https://amti.csis.org/feed/ | 10 item |
+| Rappler | https://www.rappler.com/feed/ | 10 item |
+| Philstar (headlines) | https://www.philstar.com/rss/headlines | 10 item |
+| Inquirer | https://www.inquirer.net/fullfeed/ | 20 item |
+| gCaptain | https://gcaptain.com/feed/ | 12 item |
+| Naval Technology | https://www.naval-technology.com/feed/ | 10 item |
+| The War Zone (TWZ) | https://www.twz.com/feed | 44 item |
+| DefenseScoop | https://defensescoop.com/feed/ | 10 item |
+| Aviation Week | https://aviationweek.com/rss.xml | 10 item |
+| Long War Journal (Mali/JNIM) | https://www.longwarjournal.org/feed | 30 item |
+| DVIDS news (Predator) | https://www.dvidshub.net/rss/news | 20 item |
+
+⚠️ **Feed fetch được nhưng ĐỨNG — đừng trông vào cho tin trong ngày** (kiểm 25/07): **AMTI/CSIS** bài
+mới nhất ~81 ngày trước (nguồn phân tích tầng 3, đăng thưa — dùng làm nền/bối cảnh Biển Đông thôi);
+**Aviation Week** (`rss.xml`) ~115 ngày trước (gần như chết như Fortune → WebSearch cho tin CNQS trong
+ngày). Lowy Interpreter ~32h (blog phân tích, chấp nhận được).
+
+**WebSearch-only (không RSS dùng được — kiểm 25/07, ĐỪNG đưa vào bảng trên):** NOTUS · Punchbowl (trả
+phí) · C-SPAN · Defence Connect · ADBR · Philippine News Agency (pna.gov.ph 403) · Manila Bulletin (403)
+· Radio Free Asia (rfa.org) · The Maritime Executive · National Defense Magazine · Jeune Afrique (403) ·
+The Africa Report (403) · RFI (rfi.fr) · ISS Africa → dùng `WebSearch site:domain`.
+
 ## Thứ tự ưu tiên khi chọn nguồn để quét (áp dụng từ 10/07/2026, cập nhật 10/07 thêm ưu tiên #1)
 1. **Ưu tiên nguồn chính phủ/chính thức (primary).** Khi một tin dựa trên thông báo/phát ngôn/tài liệu chính thức, ưu tiên link THẲNG tới nguồn gốc (defense.gov, nato.int, state.gov, whitehouse.gov, baochinhphu.vn...) thay vì chỉ dẫn lại báo chí. Chủ động tìm tin đáng đưa từ các nguồn chính thức này. LƯU Ý ngoại lệ truyền thông nhà nước độc tài (xem cảnh báo ở mục "Nguồn chính phủ/chính thức").
 2. **Ưu tiên nguồn tiếng Anh** trước nguồn tiếng Việt. Nguồn Việt chỉ dùng bổ sung khi nguồn Anh không đủ tin, hoặc để lấy góc nhìn/tin trong nước.
