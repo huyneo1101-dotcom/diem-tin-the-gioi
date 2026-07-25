@@ -56,18 +56,20 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 - **KHÔNG tự sửa `index.html` bằng tay** — chèn tin qua script.
 
 ## Bước 0 — Log SỚM + idempotent (QUAN TRỌNG — push log NGAY để luôn có dấu vết)
-```
-NGAY=$(TZ='Asia/Ho_Chi_Minh' date +%F); T=$(date -u +%H:%MZ)
-```
-- Ghi `[$T] START` vào `logs/scan-$NGAY.log` rồi **commit + push NGAY LẬP TỨC**:
-  `git add logs/ && git commit -q -m "log: start $NGAY $T" && git push origin main -q`
+⚠️ **LỆNH NGUYÊN DẠNG — KHÔNG WRAPPER, KHÔNG BIẾN SHELL** (sự cố 25/07/2026: phiên tối thêm prefix
+`cd() { echo "cd disabled"; };` trước lệnh git → harness coi chuỗi `{`+`"` là "expansion obfuscation",
+BỎ QUA allowlist, bật prompt xin quyền, routine treo chờ bấm nút). "Không dùng cd" = ĐỪNG GỌI `cd`,
+KHÔNG phải vô hiệu hoá nó. Lấy ngày/giờ bằng 2 lệnh riêng `TZ='Asia/Ho_Chi_Minh' date +%F` và
+`date -u +%H:%MZ`, rồi ĐIỀN GIÁ TRỊ THẬT vào các lệnh sau (không dùng `$NGAY`/`$T` trong lệnh git).
+- Ghi `[<giờ>Z] START` vào `logs/scan-<ngày VN>.log` (tool Write/Edit) rồi **commit + push NGAY LẬP TỨC**:
+  `git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/ && git -C /Users/Huy/Claude/diem-tin-the-gioi commit -q -m "log: start <ngày> <giờ>Z phien toi" && git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main -q`
   (Session tự động là ephemeral — chết giữa lúc quét mà chưa push thì mất sạch dấu vết.)
 - **Checkpoint sau MỖI mốc lớn** (xong baseline · xong các agent · xong script · trước khi push tin):
-  ghi thêm dòng `[<giờ>] <mốc>: <tóm tắt>` vào log, chạy `python3 scripts/state.py beat web-scan` rồi
+  ghi thêm dòng `[<giờ>] <mốc>: <tóm tắt>` vào log, chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat web-scan` rồi
   push ngay → biết chết ở đâu + gia hạn khoá. **Nhịp tim bắt buộc**: khoá tự hết hạn sau 30' không có nhịp.
 - Idempotent + khoá — **dùng cờ riêng pipeline `web-scan`, KHÔNG dùng `generatedAt`**:
   ```
-  python3 scripts/state.py claim web-scan
+  python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim web-scan
   ```
   `SKIP` (exit 10) → buổi này đã quét xong · `SKIP` (exit 11) → **có phiên khác đang chạy**, không quét
   chồng. Cả hai: ghi log `SKIP`, push log, KẾT THÚC. `RUN` (exit 0) → đã giữ khoá, quét tiếp.
@@ -163,9 +165,9 @@ tiêu đề nghi trùng.
 ## Bước 5 — Xuất bản + log
 - `python3 scripts/state.py done web-scan "+N tin (5 chủ đề)"` — CHỈ khi thật sự nạp được tin; lô rỗng
   thì `skip` để lần fire sau còn quét lại.
-- Commit: `Cap nhat ban tin DD/MM: +N tin (5 chu de)`; `git add index.html logs/` (phải có
-  `logs/state.json`). Push `main` (deploy → GitHub Pages). Push bị từ chối → `git pull --rebase origin
-  main` rồi push lại.
+- Commit: `Cap nhat ban tin DD/MM: +N tin (5 chu de)`; `git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html logs/`
+  (phải có `logs/state.json`). Push `main` (deploy → GitHub Pages): `git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main`.
+  Push bị từ chối → `git -C /Users/Huy/Claude/diem-tin-the-gioi pull --rebase origin main` rồi push lại.
 - **Email + file Word tự động**: GitHub Action `notify-email.yml` bắt commit `Cap nhat ban tin` → xuất
   .docx toàn bộ tin vừa quét (đúng format bản tin mẫu) + gửi lamgiaphat1603@gmail.com. KHÔNG cần làm gì
   thêm trong skill — chỉ cần commit đúng mẫu `Cap nhat ban tin ...`.
