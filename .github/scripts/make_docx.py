@@ -5,30 +5,34 @@ Tạo file .docx "ĐIỂM TIN NGÀY d.M.yyyy" chứa các tin VỪA QUÉT ĐƯ�
 Cách xác định "tin mới của lần quét": diff DATA trong index.html (HEAD) với bản trước
 (git show HEAD~1:index.html) — URL nào chưa có ở bản trước là tin của lần quét này.
 
-Chia mục theo khu vực (giống bản tin mẫu):
-  1. Mỹ           -> usNews
-  2. Thế giới     -> worldNews
-  3. Mạng xã hội (X) -> xNews
-  4. Sự kiện      -> items mới trong exercises + dipEvents
+BÁM CHẶT format bản tin mẫu buổi tối (Diem-tin-ngay-2026-07-23.docx — 5 chủ đề):
+  1. Nội bộ Mỹ        -> usNews category "Chính trị", region "Bắc Mỹ" (điều trần + bỏ phiếu)
+  2. Úc và Biển Đông  -> worldNews
+  3. QS-KHCN          -> mọi usNews còn lại (CNQS Mỹ + Mỹ–Mali) + item tập trận/sự kiện mới
+(Đã BỎ mục Mạng xã hội (X) — ngoài phạm vi.)
 
-Định dạng mỗi tin khớp ảnh mẫu:
-  - Dòng tiêu đề: "- <title>" in NGHIÊNG + ĐẬM
-  - Đoạn nội dung: căn đều (justify)
-  - Link nguồn: hyperlink xanh gạch chân
-Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (không có tin) -> in "DOCX=" (bỏ trống).
+Định dạng khớp mẫu:
+  - Chữ: Times New Roman 14pt toàn bộ.
+  - Tiêu đề "ĐIỂM TIN NGÀY d.M.yyyy": căn giữa, đậm, 14pt.
+  - Đầu mục "N. <tên>": căn đều (justify), đậm, 14pt.
+  - Mỗi tin: MỘT đoạn "- <nội dung>" (summary + significance), căn đều, 14pt, chữ thường
+    (không đậm/nghiêng); dòng dưới là link nguồn (hyperlink xanh gạch chân).
+  - Lề: trái/phải 1.25 inch, trên/dưới 1.0 inch.
+Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (không có tin) -> in "DOCX=".
 
 Chạy: python3 .github/scripts/make_docx.py
 """
-import json, os, subprocess, sys
+import json, subprocess
 
 from docx import Document
-from docx.shared import Pt, RGBColor
+from docx.shared import Pt, Inches, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 FONT = "Times New Roman"
+SIZE = 14  # pt — khớp mẫu
 
 
 def extract_data(html):
@@ -67,9 +71,13 @@ def prev_data():
 
 
 def event_items(data):
-    """Gom mọi item con của exercises + dipEvents thành list phẳng."""
+    """Gom item con của exercises (Predator...) thành list phẳng.
+
+    CHỈ lấy `exercises` — bản tin TỐI không đưa sự kiện ngoại giao (dipEvents do phiên
+    SÁNG tạo, gửi qua notify-morning). Predator's Run gộp vào mục QS-KHCN.
+    """
     items = []
-    for grp in ("exercises", "dipEvents"):
+    for grp in ("exercises",):
         for ev in data.get(grp, []) or []:
             ev_name = ev.get("name", "")
             for it in ev.get("items", []) or []:
@@ -84,16 +92,11 @@ def urls_of(items, key="sourceUrl"):
 
 
 def diff_new(cur, prev, kind):
-    """Trả list tin mới (có trong cur, không có trong prev)."""
-    if kind == "x":
-        cur_list = cur.get("xNews", []) or []
-        key = "url"
-    elif kind == "events":
+    """Trả list tin mới (có trong cur, không có trong prev). kind: usNews|worldNews|events."""
+    if kind == "events":
         cur_list = event_items(cur)
-        key = "sourceUrl"
     else:
         cur_list = cur.get(kind, []) or []  # worldNews / usNews
-        key = "sourceUrl"
 
     if prev is None:
         # Không có bản trước -> fallback: lấy tin đưa lên hôm nay
@@ -101,37 +104,45 @@ def diff_new(cur, prev, kind):
         return [it for it in cur_list
                 if it.get("_addedDate") == today or it.get("date") == today]
 
-    if kind == "x":
-        prev_urls = urls_of(prev.get("xNews", []) or [], "url")
-    elif kind == "events":
-        prev_urls = urls_of(event_items(prev), "sourceUrl")
+    if kind == "events":
+        prev_urls = urls_of(event_items(prev))
     else:
-        prev_urls = urls_of(prev.get(kind, []) or [], "sourceUrl")
+        prev_urls = urls_of(prev.get(kind, []) or [])
 
-    return [it for it in cur_list if it.get(key) and it.get(key) not in prev_urls]
+    return [it for it in cur_list if it.get("sourceUrl") and it.get("sourceUrl") not in prev_urls]
 
 
 def today_items(cur, kind):
     """Toàn bộ tin đưa lên hôm nay (fallback khi diff rỗng)."""
     today = cur.get("generatedAt")
-    if kind == "x":
-        lst = cur.get("xNews", []) or []
-    elif kind == "events":
-        lst = event_items(cur)
-    else:
-        lst = cur.get(kind, []) or []
+    lst = event_items(cur) if kind == "events" else (cur.get(kind, []) or [])
     return [it for it in lst if it.get("_addedDate") == today or it.get("date") == today]
 
 
+def is_noibo_my(it):
+    """Nội bộ Mỹ = usNews chính trị trong nước (điều trần/bỏ phiếu). Mali (Châu Phi) KHÔNG tính."""
+    return it.get("category") == "Chính trị" and it.get("region") == "Bắc Mỹ"
+
+
+def build_sections(us, world, events):
+    """Chia theo 5 chủ đề, gộp thành 3 mục của bản tin mẫu."""
+    sec1 = [it for it in us if is_noibo_my(it)]            # 1. Nội bộ Mỹ
+    sec3_us = [it for it in us if not is_noibo_my(it)]     # CNQS Mỹ + Mỹ–Mali
+    return [
+        ("Nội bộ Mỹ", sec1),
+        ("Úc và Biển Đông", list(world)),
+        ("QS-KHCN", sec3_us + list(events)),
+    ]
+
+
 # ---------- docx helpers ----------
-def set_font(run, size=13, bold=False, italic=False, color=None):
+def set_font(run, size=SIZE, bold=False, italic=False, color=None):
     run.font.name = FONT
     run.font.size = Pt(size)
     run.font.bold = bold
     run.font.italic = italic
     if color:
         run.font.color.rgb = color
-    # đảm bảo font áp cho cả ký tự tiếng Việt
     rpr = run._element.get_or_add_rPr()
     rfonts = rpr.find(qn("w:rFonts"))
     if rfonts is None:
@@ -152,8 +163,8 @@ def add_hyperlink(paragraph, url, text):
     for a in ("w:ascii", "w:hAnsi", "w:cs"):
         rfonts.set(qn(a), FONT)
     rpr.append(rfonts)
-    sz = OxmlElement("w:sz"); sz.set(qn("w:val"), "26"); rpr.append(sz)  # 13pt
-    color = OxmlElement("w:color"); color.set(qn("w:val"), "1155CC"); rpr.append(color)
+    sz = OxmlElement("w:sz"); sz.set(qn("w:val"), str(SIZE * 2)); rpr.append(sz)  # 14pt
+    color = OxmlElement("w:color"); color.set(qn("w:val"), "0000FF"); rpr.append(color)
     u = OxmlElement("w:u"); u.set(qn("w:val"), "single"); rpr.append(u)
     r.append(rpr)
     t = OxmlElement("w:t"); t.set(qn("xml:space"), "preserve"); t.text = text
@@ -162,44 +173,29 @@ def add_hyperlink(paragraph, url, text):
     paragraph._p.append(hyperlink)
 
 
-def item_title(it, kind):
-    if kind == "x":
-        who = it.get("name") or it.get("handle") or ""
-        base = it.get("title") or it.get("summary") or ""
-        return f"{base} ({who})" if who else base
-    return it.get("title", "")
-
-
 def item_body(it):
+    """Nội dung tin: summary + significance (fallback title nếu thiếu summary)."""
     parts = []
     if it.get("summary"):
         parts.append(it["summary"].strip())
     if it.get("significance"):
         parts.append(it["significance"].strip())
+    if not parts and it.get("title"):
+        parts.append(it["title"].strip())
     return " ".join(parts)
 
 
-def item_url(it, kind):
-    return it.get("url") if kind == "x" else it.get("sourceUrl")
-
-
-def add_item(doc, it, kind):
-    # tiêu đề in nghiêng đậm, mở đầu "- "
-    p = doc.add_paragraph()
-    p.paragraph_format.space_after = Pt(2)
-    run = p.add_run("- " + item_title(it, kind))
-    set_font(run, size=13, bold=True, italic=True)
-
+def add_item(doc, it):
     body = item_body(it)
-    if body:
-        pb = doc.add_paragraph()
-        pb.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-        pb.paragraph_format.space_after = Pt(2)
-        set_font(pb.add_run(body), size=13)
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    p.paragraph_format.space_after = Pt(2)
+    set_font(p.add_run("- " + body), size=SIZE)
 
-    url = item_url(it, kind)
+    url = it.get("sourceUrl")
     if url:
         pu = doc.add_paragraph()
+        pu.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
         pu.paragraph_format.space_after = Pt(8)
         add_hyperlink(pu, url, url)
 
@@ -209,23 +205,17 @@ def main():
         cur = extract_data(f.read())
     prev = prev_data()
 
-    sections = [
-        ("Mỹ", diff_new(cur, prev, "usNews"), "usNews"),
-        ("Thế giới", diff_new(cur, prev, "worldNews"), "worldNews"),
-        ("Mạng xã hội (X)", diff_new(cur, prev, "x"), "x"),
-        ("Sự kiện", diff_new(cur, prev, "events"), "events"),
-    ]
-    total = sum(len(items) for _, items, _ in sections)
+    us = diff_new(cur, prev, "usNews")
+    world = diff_new(cur, prev, "worldNews")
+    events = diff_new(cur, prev, "events")
+    if not (us or world or events):
+        # Fallback: chạy tay / không có tin mới trong commit -> lấy tin đưa lên hôm nay
+        us = today_items(cur, "usNews")
+        world = today_items(cur, "worldNews")
+        events = today_items(cur, "events")
 
-    # Fallback: diff rỗng (chạy tay / không có tin mới trong commit) -> lấy toàn bộ tin đưa lên hôm nay
-    if total == 0:
-        sections = [
-            ("Mỹ", today_items(cur, "usNews"), "usNews"),
-            ("Thế giới", today_items(cur, "worldNews"), "worldNews"),
-            ("Mạng xã hội (X)", today_items(cur, "x"), "x"),
-            ("Sự kiện", today_items(cur, "events"), "events"),
-        ]
-        total = sum(len(items) for _, items, _ in sections)
+    sections = build_sections(us, world, events)
+    total = sum(len(items) for _, items in sections)
     if total == 0:
         print("DOCX=")
         return
@@ -238,23 +228,31 @@ def main():
         title_date = gen
 
     doc = Document()
-    # tiêu đề căn giữa, đậm
+    # Lề khớp mẫu: trái/phải 1.25", trên/dưới 1.0"
+    for s in doc.sections:
+        s.left_margin = Inches(1.25)
+        s.right_margin = Inches(1.25)
+        s.top_margin = Inches(1.0)
+        s.bottom_margin = Inches(1.0)
+
+    # Tiêu đề căn giữa, đậm, 14pt
     pt = doc.add_paragraph()
     pt.alignment = WD_ALIGN_PARAGRAPH.CENTER
     pt.paragraph_format.space_after = Pt(10)
-    set_font(pt.add_run(f"ĐIỂM TIN NGÀY {title_date}"), size=15, bold=True)
+    set_font(pt.add_run(f"ĐIỂM TIN NGÀY {title_date}"), size=SIZE, bold=True)
 
     idx = 0
-    for name, items, kind in sections:
+    for name, items in sections:
         if not items:
             continue
         idx += 1
         ph = doc.add_paragraph()
-        ph.paragraph_format.space_before = Pt(6)
+        ph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        ph.paragraph_format.space_before = Pt(8)
         ph.paragraph_format.space_after = Pt(4)
-        set_font(ph.add_run(f"{idx}. {name}"), size=14, bold=True)
+        set_font(ph.add_run(f"{idx}. {name}"), size=SIZE, bold=True)
         for it in items:
-            add_item(doc, it, kind)
+            add_item(doc, it)
 
     safe = (gen or "diem-tin").replace("/", "-")
     out = f"/tmp/Diem-tin-ngay-{safe}.docx"
