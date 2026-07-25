@@ -656,7 +656,14 @@ function initSupabase(){
   }catch(e){}};
   document.head.appendChild(s);
 }
-function onAuth(sess){var u=sess&&sess.user?sess.user:null;var was=!!SB_USER;SB_USER=u;if(u&&!was)pullCloud();render();}
+function onAuth(sess){
+  var u=sess&&sess.user?sess.user:null;var was=!!SB_USER;SB_USER=u;if(u&&!was)pullCloud();
+  /* CHỈ render khi user thực sự đổi (đăng nhập/xuất/đổi tài khoản). Supabase còn bắn
+     onAuthStateChange lúc TOKEN_REFRESHED khi quay lại tab → render thừa làm mất vị trí cuộn.
+     Bỏ qua khi cùng user; render có đổi thì giữ nguyên chỗ đang cuộn (tab Cà phê). */
+  var newId=u?u.id:null;
+  if((window._cfLastUid||null)!==newId){window._cfLastUid=newId;var _y=window.scrollY;render();if(state.tab==='cafe')window.scrollTo(0,_y);}
+}
 function sbCred(email,pass){
   email=(email||'').trim();pass=(pass||'');
   if(!SB){toast('Chưa cấu hình tài khoản');return null;}
