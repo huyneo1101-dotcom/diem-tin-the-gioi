@@ -8,13 +8,20 @@ tập trận/sự kiện ngoại giao không ai cập nhật). `generatedAt` là
 trên web — không phải cờ chạy việc. Tách ra đây, mỗi pipeline một dòng riêng.
 
 Pipeline đang dùng:
-  drive-import  — GitHub Action import-news-from-drive.yml (08:00 & 20:00 VN)
-  web-scan      — routine Claude quét 6+1 agent Sonnet (08:15 & 20:15 VN, dự phòng 09:15 & 21:15)
+  drive-import  — GitHub Action import-news-from-drive.yml (08:00 & 20:00 VN) — THẬT SỰ 2 buổi/ngày
+  web-scan      — routine Claude quét bản tin 5 chủ đề (22:00 VN, dự phòng 23:00) — 1 phiên/ngày, buổi TỐI
+  event-scan    — routine Claude quét sự kiện/tập trận + báo cáo tuần CN (08:45, dự phòng 09:45) — 1 phiên/ngày, buổi SÁNG
 
-CỜ TÁCH THEO BUỔI, không phải theo ngày: mỗi ngày có 2 bản tin (sáng + tối). Nếu chỉ so
-theo ngày thì bản sáng xong sẽ làm bản tối cùng ngày bị SKIP oan — đúng cái bệnh mà việc
-tách cờ khỏi generatedAt vừa sửa, chỉ khác quy mô. Buổi tự suy từ giờ VN lúc chạy:
-trước 14:00 = "sang", từ 14:00 = "toi" (che được cả lần fire dự phòng 09:15 và 21:15).
+CỜ TÁCH THEO BUỔI, không phải theo ngày. Với drive-import (2 buổi/ngày) đây đúng nghĩa "buổi":
+nếu chỉ so theo ngày thì lô sáng xong sẽ làm lô tối cùng ngày SKIP oan.
+
+Với web-scan/event-scan (1 phiên/ngày) ô "buổi" còn giá trị KHÁC: nó là lưới chống MẤT PHIÊN khi
+máy ngủ. Ví dụ web-scan lẽ ra chạy 22:00 ngày 24 nhưng máy ngủ, mở máy 03:46 ngày 25 mới chạy bù —
+lần chạy bù đó rơi vào ô "sang" nên KHÔNG chiếm ô "toi" của ngày 25, và bản tin tối 25 vẫn quét bình
+thường. Nếu ép mỗi pipeline một ô cố định thì lần chạy bù sẽ ăn luôn suất của ngày mới → mất 1 bản tin.
+Vì vậy giữ nguyên cách suy ô theo giờ VN (trước 14:00 = "sang", từ 14:00 = "toi"), CHỈ đổi NHÃN in ra:
+với pipeline 1 phiên/ngày, ô không phải giờ chạy chuẩn của nó được gọi thẳng là "chay bu" (xem
+SLOT_LABELS) — trước đây in "web-scan buoi sang" nghe như web có phiên sáng, mà phiên sáng đã bỏ từ 23/07.
 
 KHOÁ CHỐNG CHẠY CHỒNG (thêm 22/07/2026): mốc chính và mốc dự phòng chỉ cách nhau 60 phút
 mà một phiên quét mất ~60 phút, nên `check` (chỉ biết ĐÃ XONG hay chưa) sẽ để lần fire dự
@@ -51,7 +58,18 @@ except AttributeError:  # Windows
 STATE_PATH = Path(__file__).resolve().parent.parent / "logs" / "state.json"
 PIPELINES = ("drive-import", "web-scan", "event-scan")
 SLOTS = ("sang", "toi")
-SLOT_SPLIT_HOUR = 14  # < 14:00 VN = buổi sáng (fire 09:15 + dự phòng 10:15); >= 14:00 = buổi tối
+SLOT_SPLIT_HOUR = 14  # < 14:00 VN = ô "sang"; >= 14:00 = ô "toi"
+
+# NHÃN in ra cho từng ô của từng pipeline. Chỉ ảnh hưởng chữ hiển thị, KHÔNG ảnh hưởng logic khoá.
+# web-scan/event-scan mỗi ngày chỉ 1 phiên nên ô còn lại chính là ô CHẠY BÙ (máy ngủ, chạy trễ sang
+# nửa ngày kia) — gọi đúng tên để đọc log không tưởng là pipeline có 2 phiên.
+SLOT_LABELS = {
+    "drive-import": {"sang": "buoi sang", "toi": "buoi toi"},
+    "web-scan": {"toi": "phien toi", "sang": "phien toi CHAY BU (sang som)"},
+    "event-scan": {"sang": "phien sang", "toi": "phien sang CHAY BU (chieu/toi)"},
+}
+# Ô "chuẩn" của pipeline — dùng để xếp thứ tự khi in bảng `show`.
+PRIMARY_SLOT = {"web-scan": "toi", "event-scan": "sang"}
 # Không có nhịp tim trong ngần này phút -> coi phiên đang chạy là đã chết, cho giành lại khoá.
 # Đặt 30': phiên khoẻ ghi checkpoint dày hơn thế nhiều (sau baseline, sau agent, sau script).
 LOCK_STALE_MIN = 30
@@ -134,6 +152,19 @@ def beat(pipeline: str) -> str:
     return f"{pipeline}: nhip tim @ {entry['heartbeat']}"
 
 
+def slot_label(pipeline: str, slot: str) -> str:
+    """Tên ô để IN RA. Không dùng làm khoá — khoá vẫn là 'sang'/'toi'."""
+    return SLOT_LABELS.get(pipeline, {}).get(slot, f"buoi {slot}")
+
+
+def slots_ordered(pipeline: str) -> tuple:
+    """Ô chuẩn của pipeline in trước, ô chạy bù in sau."""
+    primary = PRIMARY_SLOT.get(pipeline)
+    if primary is None:
+        return SLOTS
+    return (primary,) + tuple(s for s in SLOTS if s != primary)
+
+
 def last_success(entry: dict, slot: str) -> str:
     return (entry.get("lastSuccess") or {}).get(slot)
 
@@ -164,10 +195,16 @@ def main() -> None:
             print(f"(chua co {STATE_PATH.name})")
             return
         now_slot = slot or current_slot()
-        print(f"Hom nay {today()}, buoi hien tai: {now_slot}\n")
+        print(f"Hom nay {today()}, o hien tai: {now_slot}\n")
         for name, e in state.items():
-            done = " · ".join(f"{s}={last_success(e, s) or '-'}" for s in SLOTS)
-            flag = "" if last_success(e, now_slot) == today() else f"  <- buoi {now_slot} CHUA xong"
+            done = " · ".join(
+                f"{slot_label(name, s)}={last_success(e, s) or '-'}" for s in slots_ordered(name)
+            )
+            flag = (
+                ""
+                if last_success(e, now_slot) == today()
+                else f"  <- {slot_label(name, now_slot)} CHUA xong"
+            )
             print(f"{name:<14} {done}  lastStatus={e.get('lastStatus','-')} lastRunAt={e.get('lastRunAt','-')}{flag}")
             if is_running(e):
                 age = minutes_since(e.get("heartbeat", "")) or 0
@@ -189,7 +226,7 @@ def main() -> None:
         entry = load().get(pipeline, {})
         if not should_run(pipeline, use_slot):
             print(
-                f"SKIP — {pipeline} buoi {use_slot} ngay {today()} DA XONG "
+                f"SKIP — {pipeline} [{slot_label(pipeline, use_slot)}] ngay {today()} DA XONG "
                 f"(lan chay cuoi {entry.get('lastRunAt')}). Khong lam lai."
             )
             sys.exit(10)
@@ -204,9 +241,15 @@ def main() -> None:
         if cmd == "claim":
             record(pipeline, "RUNNING", "dang quet", use_slot)
             extra = " (da CUOP khoa bang --force)" if force and is_running(entry) else ""
-            print(f"RUN — {pipeline} buoi {use_slot} ngay {today()} chua xong, da giu khoa{extra}. Quet di.")
+            print(
+                f"RUN — {pipeline} [{slot_label(pipeline, use_slot)}] ngay {today()} chua xong, "
+                f"da giu khoa{extra}. Quet di."
+            )
         else:
-            print(f"RUN — {pipeline} buoi {use_slot} ngay {today()} chua xong (check: KHONG giu khoa).")
+            print(
+                f"RUN — {pipeline} [{slot_label(pipeline, use_slot)}] ngay {today()} chua xong "
+                f"(check: KHONG giu khoa)."
+            )
         sys.exit(0)
 
     if cmd == "beat":
@@ -216,7 +259,10 @@ def main() -> None:
     if cmd in ("done", "skip", "fail"):
         note = args[2] if len(args) > 2 else ""
         e = record(pipeline, cmd.upper(), note, use_slot)
-        print(f"{pipeline}[{use_slot}]: {e['lastStatus']} @ {e['lastRunAt']}" + (f" — {note}" if note else ""))
+        print(
+            f"{pipeline} [{slot_label(pipeline, use_slot)}]: {e['lastStatus']} @ {e['lastRunAt']}"
+            + (f" — {note}" if note else "")
+        )
         return
 
     print(f"Lenh khong hop le: {cmd}", file=sys.stderr)
