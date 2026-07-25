@@ -8,7 +8,12 @@ const WEB_URL = 'https://huyneo1101-dotcom.github.io/diem-tin-the-gioi';
 const EMAIL_USER = process.env.EMAIL_USER;                 // gmail dùng để gửi
 const EMAIL_PASS = process.env.EMAIL_APP_PASSWORD;         // App Password 16 ký tự
 const EMAIL_TO = process.env.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com';
-const MAX_ITEMS = parseInt(process.env.EMAIL_MAX_ITEMS || '6', 10);
+// Trần số tin liệt kê trong THÂN email. Để 30 (chỉ thị Huy 25/07/2026: email tối liệt kê ĐỦ
+// tiêu đề điểm tin, không tóm tắt) — bản tin 5 chủ đề thường 12–20 tin nên 30 là dư, không cắt.
+// Trước để 6 nên body chỉ hiện 6/15 tiêu đề, phần còn lại chỉ nằm trong .docx đính kèm.
+const MAX_ITEMS = parseInt(process.env.EMAIL_MAX_ITEMS || '30', 10);
+// Sàn: hôm nay ít hơn ngần này tin thì mới bù bằng tin cũ cho email khỏi trống.
+const MIN_ITEMS = parseInt(process.env.EMAIL_MIN_ITEMS || '3', 10);
 // Bản kê sản lượng + lý do thiếu chủ đề, do PHIÊN QUÉT ghi ra (xem CLAUDE.md mục
 // "Bản kê chủ đề thiếu"). Lý do thiếu là kiến thức của phiên quét, Action không tự suy ra được.
 const GAPS_PATH = process.env.GAPS_PATH || 'logs/scan-gaps.json';
@@ -53,9 +58,12 @@ function pickHighlights(DATA) {
     return out;
   };
   let pool = interleave(world.filter(isToday), us.filter(isToday));
-  if (pool.length < MAX_ITEMS) {
+  // Bù bằng tin cũ CHỈ khi hôm nay gần như không có tin (email trống thì vô nghĩa) — bù tới
+  // MIN_ITEMS, KHÔNG bù tới MAX_ITEMS. Trước đây bù tới MAX_ITEMS: hồi trần còn 6 thì vô hại,
+  // nhưng khi nâng trần lên 30 (25/07/2026) nó sẽ nhồi ~15 tin CŨ của hôm trước vào email.
+  if (pool.length < MIN_ITEMS) {
     const seen = new Set(pool.map(it => it.sourceUrl));
-    for (const it of interleave(world, us)) { if (pool.length >= MAX_ITEMS) break; if (!seen.has(it.sourceUrl)) { pool.push(it); seen.add(it.sourceUrl); } }
+    for (const it of interleave(world, us)) { if (pool.length >= MIN_ITEMS) break; if (!seen.has(it.sourceUrl)) { pool.push(it); seen.add(it.sourceUrl); } }
   }
   return pool.slice(0, MAX_ITEMS);
 }
