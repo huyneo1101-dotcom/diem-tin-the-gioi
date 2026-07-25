@@ -1,5 +1,9 @@
 -- Điểm Tin Thế Giới — thiết lập Supabase cho tính năng tài khoản (bài + khái niệm)
 -- Chạy trong Supabase SQL Editor sau khi tạo project.
+-- ⚠️ LỊCH SỬ 25/07/2026: kiểm DB thật thì mới lộ ra `saved_items`, `saved_concepts`, `push_subs`
+-- CHƯA TỪNG được tạo (chỉ có `votes`) — nên đồng bộ tin đã lưu, khái niệm và push đều hỏng CÂM
+-- (code gọi `.then()` không bắt lỗi nên không ai thấy). Đã áp migration
+-- `diemtin_saved_items_concepts_push_subs`. File này là bản chuẩn, chạy lại được nhiều lần.
 -- Bảo mật: Row Level Security bật để mỗi người dùng chỉ truy cập dữ liệu của chính mình.
 
 -- Bài đã lưu (giữ cả snapshot nội dung để không mất khi tin gốc bị dọn)
@@ -16,7 +20,9 @@ alter table saved_items enable row level security;
 create policy "own_items" on saved_items for all
   using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
--- Khái niệm đã lưu (explanation do tác vụ hàng ngày điền — tính năng ④)
+-- Khái niệm đã lưu. `explanation`/`source` nạp từ mục Tập trận (ex.concepts) hoặc tác vụ
+-- hằng ngày; `box`/`due` là tiến độ ôn tập Leitner của tab 📚 Khái niệm (thêm 25/07/2026).
+-- `updated_at` dùng để TRỘN 2 chiều: bản nào mới hơn thắng, ôn ở máy này không bị máy khác kéo lùi.
 create table if not exists saved_concepts (
   id uuid primary key default gen_random_uuid(),
   user_id uuid not null references auth.users(id) on delete cascade,
@@ -25,6 +31,10 @@ create table if not exists saved_concepts (
   created_at timestamptz default now(),
   unique(user_id, term)
 );
+alter table saved_concepts add column if not exists source text;
+alter table saved_concepts add column if not exists box smallint default 0 check (box between 0 and 5);
+alter table saved_concepts add column if not exists due date;
+alter table saved_concepts add column if not exists updated_at timestamptz default now();
 alter table saved_concepts enable row level security;
 create policy "own_concepts" on saved_concepts for all
   using (auth.uid() = user_id) with check (auth.uid() = user_id);
