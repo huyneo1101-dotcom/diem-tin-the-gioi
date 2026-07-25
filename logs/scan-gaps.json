@@ -1,0 +1,53 @@
+{
+  "date": "2026-07-25",
+  "session": "toi",
+  "topics": [
+    {
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 0,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Quốc hội Mỹ nghỉ: Hạ viện rời Washington nghỉ August recess từ 24/7 tới 31/8, Thượng viện nghỉ tới thứ Hai 27/7, hôm nay lại là thứ Bảy. Đã nới trọn khung 48h: NDAA 1,15 nghìn tỷ USD (216-212) và các phiên điều trần Senate Finance/Appropriations đều diễn ra 21-22/7 nên ngoài khung; phiếu duy nhất trong khung là chuẩn thuận NHÂN SỰ (thẩm phán liên bang, ứng viên FEMA) - không phải thông qua dự luật nên ngoài phạm vi. Không nới sang drama/đảng phái để lấp cho đủ số."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Đã chạy thêm một vòng bổ sung khung 48h. Nhánh Úc gần cạn vì tin lớn nhất trong khung (Úc rót thêm 4,6 tỷ AUD cho xưởng tàu ngầm Osborne) hoá ra đã có trong bản tin trước dưới dạng '3,2 tỷ USD' nên phải bỏ; defence.gov.au và asa.gov.au fetch timeout liên tục nên vài tin gốc khác không xác nhận được, đành loại."
+    },
+    {
+      "name": "Công nghệ quân sự Mỹ",
+      "count": 8,
+      "target": "5-10",
+      "min": 5,
+      "thieu": false,
+      "reason": ""
+    },
+    {
+      "name": "Mỹ - Mali (JNIM/Sahel)",
+      "count": 1,
+      "target": "2-5",
+      "min": 2,
+      "thieu": true,
+      "reason": "Trong khung 48h chỉ có các bài viết lại hai sự kiện đã đưa hôm trước (phóng sự WaPo về chia rẽ nội bộ chính quyền Trump quanh cố vấn Gorka, và họp báo của Ngoại trưởng Mali Diop) - khác góc đưa tin chứ không phải diễn biến mới. Tin duy nhất thật sự mới là phản ứng của các thượng nghị sĩ Mỹ về việc không được tham vấn."
+    },
+    {
+      "name": "Tập trận Predator's Run 2026",
+      "count": 0,
+      "target": "1-2",
+      "min": 1,
+      "thieu": true,
+      "reason": "Không có diễn biến mới nào trong khung 23-25/7 trên DVIDS, PACOM, marines.mil và defence.gov.au - đã kiểm hai lần trong ngày (cả phiên sáng). Một vụ bắn thử Apache tại Townsville hoá ra thuộc 'Exercise Possum Guns', không liên quan. Tập trận kết thúc khoảng 29/7, khi đó sẽ đổi status sang 'recent'."
+    },
+    {
+      "name": "Báo Mới (bài Huy tự lưu, giữ hết)",
+      "count": 2,
+      "thieu": false,
+      "reason": ""
+    }
+  ],
+  "note": "Ngoài ra đã loại 2 tin vì trùng SỰ KIỆN với tin đã có (Osborne 4,6 tỷ AUD; CoAspire/CHAOS 70 triệu USD), 1 tin vì link là trang ảnh DVIDS, 1 tin vì nguồn mirror thông cáo. Chi tiết trong logs/loai-tin.md."
+}

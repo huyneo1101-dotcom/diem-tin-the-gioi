@@ -162,7 +162,36 @@ tiêu đề nghi trùng.
 - Chủ đề nào **<5 bài trong 24h** → giao thêm agent cho riêng chủ đề đó với khung **48h**; vẫn thiếu thì
   CHẤP NHẬN (ghi rõ trong tóm tắt), KHÔNG bịa/nhồi. Không lặp vô hạn — 1–2 vòng bổ sung là đủ.
 
+## Bước 4b — Ghi `logs/scan-gaps.json` (BẮT BUỘC — email của Huy lấy mục "Chủ đề thiếu và lý do" từ đây)
+Chỉ thị Huy 25/07/2026: **email gửi lamgiaphat1603 phải ghi cả chủ đề thiếu VÀ lý do**. Lý do là kiến
+thức của phiên quét, GitHub Action không tự suy ra được → phiên quét phải ghi ra file, `send-email.js`
+đọc file đó và dựng mục trong email. **Không ghi file = email thiếu mục này.**
+
+Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5 chủ đề (+ Báo Mới nếu có nạp):
+```json
+{
+  "date": "<= đúng DATA.generatedAt sau khi chạy add_news.py, KHÔNG phải ngày hệ thống>",
+  "session": "toi",
+  "topics": [
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":0,"target":"5-10","min":5,"thieu":true,
+     "reason":"<vì sao thiếu: đã nới 48h chưa, nguồn nào cạn/chặn, tin nào bị loại vì lý do gì>"},
+    {"name":"Công nghệ quân sự Mỹ","count":8,"target":"5-10","min":5,"thieu":false,"reason":""}
+  ],
+  "note": "<tuỳ chọn: tin bị loại đáng chú ý, trỏ tới logs/loai-tin.md>"
+}
+```
+- `date` **PHẢI khớp `DATA.generatedAt`** — `send-email.js` so hai giá trị này, LỆCH thì bỏ cả mục (chống
+  gửi lý do của hôm trước). Nạp nhiều lô thì lấy ngày của lô CHẠY CUỐI.
+- `thieu` là cờ tường minh (không có thì script suy từ `count < min`). Chủ đề ĐỦ vẫn phải liệt kê để
+  email in được dòng sản lượng cả 5 chủ đề; khi đó `reason` để rỗng.
+- `reason` viết cho NGƯỜI ĐỌC, nêu nguyên nhân thật (Quốc hội nghỉ họp, nguồn 403/timeout, tin trùng sự
+  kiện, ngoài khung 48h…), KHÔNG viết chung chung kiểu "không tìm được tin".
+- Kiểm mắt trước khi push (máy Huy KHÔNG có `node`; chạy được ở đâu có node):
+  `DRY_RUN=1 node .github/scripts/send-email.js` → in mục "Chủ đề thiếu và lý do" + ghi
+  `/tmp/email-preview.html`, KHÔNG gửi email.
+
 ## Bước 5 — Xuất bản + log
+- `git add index.html logs/` phải gồm **`logs/scan-gaps.json`** (cùng `logs/state.json`).
 - `python3 scripts/state.py done web-scan "+N tin (5 chủ đề)"` — CHỈ khi thật sự nạp được tin; lô rỗng
   thì `skip` để lần fire sau còn quét lại.
 - Commit: `Cap nhat ban tin DD/MM: +N tin (5 chu de)`; `git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html logs/`
