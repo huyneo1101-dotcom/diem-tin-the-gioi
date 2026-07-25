@@ -1503,7 +1503,7 @@ function content(){
 function render(){
   refreshFav();refreshRej();
   var stamp=stampVN();
-  var tabs=[['home','🏠 Trang chủ'],['news','📰 Điểm Tin'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['cafe','☕ Cà phê'],['concepts','📚 Khái niệm'+(function(){var n=dueConcepts().length;return n?' ('+n+')':'';})()],['saved','⭐ Đã lưu'+(FAV.length?' ('+FAV.length+')':'')]];
+  var tabs=[['home','🏠 Trang chủ'],['news','📰 Điểm Tin'],['topic','🗂️ Chuyên đề'],['analysis','🧠 Phân tích'],['cafe','☕ Cà phê'],['concepts','📚 Khái niệm'+(function(){var n=dueConcepts().length;return n?' ('+n+')':'';})()]];
   var h='<div class="wrap">';
   h+='<div class="mast"><div class="kicker">Bản tin độc lập</div><h1>'+esc(DATA.brand)+'</h1><div class="tag">'+esc(DATA.tagline)+'</div></div>';
   h+='<div class="dateline"><span>Cập nhật '+stamp+'</span><span>Tổng hợp từ nguồn mở</span></div>';
