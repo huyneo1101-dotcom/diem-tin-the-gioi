@@ -1149,10 +1149,9 @@ function renderCafes(){
     '<button class="cf-btn'+(st&&st.src==='geo'?' on':'')+'" data-cafegeo="1">📡 Vị trí của tôi</button>'+
     '<button class="cf-btn" data-cafeaddloc="1">➕ Lưu mốc</button></div>'+
     '<div class="cf-now">'+(st?'Điểm xuất phát: <b>'+esc(st.label)+'</b> — xếp theo khoảng cách gần → xa.':(noPreset&&!LM.length?'Bạn chưa có mốc xuất phát — bấm <b>📡 Vị trí của tôi</b> hoặc <b>➕ Lưu mốc</b> để tự tạo mốc riêng.':'Chưa đặt điểm — đang xếp theo <b>mức hợp làm việc</b>. Chọn mốc để xếp theo khoảng cách.'))+'</div>'+
-    '<div class="cf-lab">Sắp xếp</div><div class="chips">'+
-      [['dist','Gần nhất'],['rating','Rating cao'],['work','Hợp làm việc']].map(function(s){return '<span class="chip'+((state.cafeSort||'dist')===s[0]?' on':'')+'" data-cafesort="'+s[0]+'">'+s[1]+'</span>';}).join('')+'</div>'+
-    '<div class="cf-lab">Lọc</div><div class="cf-row" style="margin-bottom:8px"><select class="dsel" data-cafedistrict style="flex:1;min-width:180px">'+dOpts+'</select></div>'+
+    '<div class="cf-lab">Sắp xếp &amp; lọc</div><div class="cf-row" style="margin-bottom:8px"><select class="dsel" data-cafedistrict style="flex:1;min-width:180px">'+dOpts+'</select></div>'+
     '<div class="chips">'+
+      [['dist','Gần nhất'],['rating','Rating cao']].map(function(s){return '<span class="chip'+((state.cafeSort||'dist')===s[0]?' on':'')+'" data-cafesort="'+s[0]+'">'+s[1]+'</span>';}).join('')+
       [['fav','⭐ Ưa thích'],['solo','🧑‍💻 Làm việc 1 mình'],['worktable','🪑 Ngồi bàn công việc'],['h24','Mở 24h'],['wifi','Wifi mạnh'],['power','Nhiều ổ cắm'],['quiet','Yên tĩnh']].map(function(x){return '<span class="chip'+(f[x[0]]?' on':'')+'" data-cafef="'+x[0]+'">'+x[1]+'</span>';}).join('')+
       '<span class="chip'+(state.cafeHideBusy?' on':'')+'" data-cafebusy="1">🕐 Ẩn quán dễ đông lúc này</span>'+
     '</div>'+
@@ -1172,7 +1171,7 @@ function renderCafes(){
   if(state.q)arr=arr.filter(function(c){return norm(cfTxt(c)+' '+(c.address||'')).indexOf(norm(state.q))>=0;});
   var d=cfNow(),hidden=0;
   if(state.cafeHideBusy){var b4=arr.length;arr=arr.filter(function(c){return !cfBusy(c,d);});hidden=b4-arr.length;}
-  var eff=((state.cafeSort||'dist')==='dist'&&!st)?'work':(state.cafeSort||'dist');
+  var eff=((state.cafeSort||'dist')==='dist'&&!st)?'rating':(state.cafeSort||'dist');
   arr.sort(function(a,b){
     if(eff==='dist')return (a._d==null?1e9:a._d)-(b._d==null?1e9:b._d);
     if(eff==='rating')return (b.googleRating||0)-(a.googleRating||0)||(b.googleReviews||0)-(a.googleReviews||0);
