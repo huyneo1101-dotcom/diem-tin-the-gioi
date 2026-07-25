@@ -246,6 +246,38 @@ Chạy tốt (đưa THẲNG URL cho agent):
 | Long War Journal (Mali/JNIM) | https://www.longwarjournal.org/feed | 30 |
 | DVIDS news (Predator) | https://www.dvidshub.net/rss/news | 20 |
 
+Bổ sung 25/07/2026 — gộp từ kho tư liệu `docs/diemtin-*-sources.md`, đã fetch thật cùng ngày:
+| Nguồn | RSS URL | item | Chủ đề |
+|---|---|---|---|
+| Defense Daily | https://www.defensedaily.com/feed/ | 50 | 3 |
+| Air & Space Forces Magazine | https://www.airandspaceforces.com/feed/ | 9 | 3 |
+| Military Times | https://www.militarytimes.com/arc/outboundfeeds/rss/ | 25 | 3 |
+| FlightGlobal | https://www.flightglobal.com/rss/ | 10 | 3 |
+| The Aviationist | https://theaviationist.com/feed/ | 15 | 3 |
+| Soldier Systems Daily | https://soldiersystems.net/feed/ | 6 | 3 |
+| Sandboxx News | https://www.sandboxx.us/news/feed/ | 15 | 3 |
+| DVIDS (toàn bộ, rộng hơn /rss/news) | https://www.dvidshub.net/rss/all | 419 | 3 + 5 |
+| Shephard Media | https://www.shephardmedia.com/news/feed/ | 10 | 3 + 2 |
+| The Japan Times | https://www.japantimes.co.jp/feed/ | 30 | 2 |
+| Yonhap | https://en.yna.co.kr/RSS/news.xml | 97 | 2 |
+| AllAfrica | https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf | 30 | 4 |
+| Federal News Network — Defense | https://federalnewsnetwork.com/category/defense-main/feed/ | 15 | 1 |
+| Atlantic Council | https://www.atlanticcouncil.org/feed/ | 100 | phân tích |
+| Foreign Policy | https://foreignpolicy.com/feed/ | 25 | phân tích |
+| Bellingcat | https://www.bellingcat.com/feed/ | 10 | OSINT |
+| The Guardian — World | https://www.theguardian.com/world/rss | 45 | chung |
+| Semafor | https://www.semafor.com/rss.xml | 261 | chung |
+| NPR — World | https://feeds.npr.org/1004/rss.xml | 10 | chung |
+| VietnamPlus (TTXVN) | https://www.vietnamplus.vn/rss/thegioi.rss | 50 | 2 · VN |
+| Nhân Dân | https://nhandan.vn/rss/thegioi-1231.rss | 50 | VN |
+| Báo Chính phủ | https://baochinhphu.vn/quoc-te.rss | 50 | VN |
+| VietnamNet | https://vietnamnet.vn/rss/the-gioi.rss | 1000 | VN |
+| Báo Thế giới & Việt Nam | https://baoquocte.vn/rss_feed/ | 25 | VN ngoại giao |
+
+Nguồn VN là **ưu tiên #2** (tiếng Anh trước) — dùng khi cần góc trong nước hoặc tin Biển Đông.
+**Feed CHẾT, đừng thử lại:** CSIS `csis.org/rss.xml` (bài mới nhất 2016) · War on the Rocks (403) ·
+DARPA `darpa.mil/rss.xml` (không phân giải tên miền) → WebSearch `site:...`.
+
 KHÔNG có RSS dùng được → **WebSearch `site:domain`** (đã thử, 403/404/0-item 25/07): NOTUS
 (notus.org) · Punchbowl (trả phí) · C-SPAN · Defence Connect · ADBR · Philippine News Agency
 (pna.gov.ph) · Manila Bulletin (mb.com.ph) · Radio Free Asia (rfa.org) · The Maritime Executive ·
