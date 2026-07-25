@@ -1586,8 +1586,16 @@ document.addEventListener('click',function(e){
   else if(t.getAttribute('data-drill')!=null)state.drill=t.getAttribute('data-drill');
   else if(t.getAttribute('data-dip')!=null)state.dip=t.getAttribute('data-dip');
   else if(t.getAttribute('data-dossier')!=null)state.dossier=t.getAttribute('data-dossier');
+  /* Quay lại tab Cà phê thì về đúng chỗ đang xem dở (không nhảy lên đầu). Chụp vị trí TRƯỚC render
+     + khoá ghi đè để scroll-reset lúc render không xoá mất vị trí đã lưu. */
+  var _toCafe=(t.getAttribute('data-tab')==='cafe'), _cfY=cfScrollY;
+  if(_toCafe)cfRestoring=true;
   render();
+  if(_toCafe)setTimeout(function(){window.scrollTo(0,_cfY);cfScrollY=_cfY;cfRestoring=false;},0);
 });
+/* Ghi nhớ vị trí cuộn khi đang ở tab Cà phê (bỏ qua lúc đang khôi phục) */
+var cfScrollY=0,cfRestoring=false;
+window.addEventListener('scroll',function(){if(state.tab==='cafe'&&!cfRestoring)cfScrollY=window.scrollY;},{passive:true});
 document.addEventListener('input',function(e){
   if(e.target&&e.target.id==='q'){var had=!!state.q;state.q=e.target.value;if((!had)!==(!state.q)){render();var el=document.getElementById('q');if(el){el.focus();var v=el.value;el.value='';el.value=v;}}else{reContent();}}
 });
