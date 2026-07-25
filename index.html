@@ -641,6 +641,7 @@ function initSupabase(){
   s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
   s.onload=function(){try{
     SB=window.supabase.createClient(SB_URL,SB_ANON);
+    cfLoadDeleted();   // nạp danh sách quán bị xoá GLOBAL (đọc anon, áp cho mọi user)
     SB.auth.getSession().then(function(r){onAuth(r&&r.data?r.data.session:null);});
     SB.auth.onAuthStateChange(function(_e,sess){onAuth(sess);});
   }catch(e){}};
@@ -1105,9 +1106,24 @@ function cfStars(n){n=Math.round(n||0);return '★★★★★'.slice(0,n)+'☆�
 function cfId(c){return c._cid?('c:'+c._cid):('k:'+((c.name||'')+'|'+(c.address||'')).toLowerCase().replace(/\s+/g,' ').trim());}
 function _cfArr(k){try{return JSON.parse(localStorage.getItem(k)||'[]');}catch(e){return [];}}
 function _cfSet(k,a){try{localStorage.setItem(k,JSON.stringify(a));}catch(e){}}
-function cfHiddenIds(){return _cfArr('dt.cafeHidden');}
-function cfDelete(id){var a=cfHiddenIds();if(a.indexOf(id)<0){a.push(id);_cfSet('dt.cafeHidden',a);}}
-function cfUnhideAll(){_cfSet('dt.cafeHidden',[]);}
+/* Xoá quán = GLOBAL cho mọi user (bảng Supabase chung `cafe_deleted`): mọi người đọc bảng này
+   (kể cả chưa đăng nhập, RLS cho anon select) và lọc bỏ; user ĐÃ ĐĂNG NHẬP xoá thì ghi vào bảng.
+   localStorage `dt.cafeHidden` là lớp dự phòng (offline / khi Supabase chưa nạp). Xoá là VĨNH VIỄN. */
+var CF_DEL_CLOUD=[];
+function cfIsAdmin(){return !!(SB_USER&&((SB_USER.email||'').toLowerCase().indexOf('huyneo')>=0));}   // CHỈ huyneo xoá cho mọi user
+function cfLocalHidden(){return _cfArr('dt.cafeHidden');}
+function cfHiddenIds(){var s={};cfLocalHidden().forEach(function(x){s[x]=1;});CF_DEL_CLOUD.forEach(function(x){s[x]=1;});return Object.keys(s);}
+function cfDelete(id){
+  var a=cfLocalHidden();if(a.indexOf(id)<0){a.push(id);_cfSet('dt.cafeHidden',a);}   // luôn ẩn ở máy mình
+  if(cfIsAdmin()){                                                                    // huyneo → GLOBAL cho mọi user
+    if(CF_DEL_CLOUD.indexOf(id)<0)CF_DEL_CLOUD.push(id);
+    try{SB.from('cafe_deleted').upsert([{cid:id,deleted_by:SB_USER.id}],{onConflict:'cid'}).then(function(){});}catch(e){}
+  }
+}
+function cfLoadDeleted(){ // đọc danh sách xoá GLOBAL (anon read) — gọi khi SB sẵn sàng
+  if(!SB)return;
+  try{SB.from('cafe_deleted').select('cid').then(function(r){if(r&&r.data){CF_DEL_CLOUD=r.data.map(function(x){return x.cid;});if(state.tab==='cafe')reContent();}});}catch(e){}
+}
 function cfFavIds(){return _cfArr('dt.cafeFav');}
 function cfIsFav(id){return cfFavIds().indexOf(id)>=0;}
 function cfToggleFav(id){var a=cfFavIds(),i=a.indexOf(id);if(i>=0)a.splice(i,1);else a.unshift(id);_cfSet('dt.cafeFav',a);}
@@ -1155,8 +1171,7 @@ function renderCafes(){
       [['fav','⭐ Ưa thích'],['solo','🧑‍💻 Làm việc 1 mình'],['worktable','🪑 Ngồi bàn công việc'],['view','🌅 View đẹp'],['h24','Mở 24h'],['quiet','Yên tĩnh']].map(function(x){return '<span class="chip'+(f[x[0]]?' on':'')+'" data-cafef="'+x[0]+'">'+x[1]+'</span>';}).join('')+
       '<span class="chip'+(state.cafeHideBusy?' on':'')+'" data-cafebusy="1">🕐 Ẩn quán dễ đông lúc này</span>'+
     '</div>'+
-    '<div class="cf-row" style="margin-top:10px"><button class="cf-btn" data-cafeaddcafe="1">➕ Thêm quán của bạn</button>'+
-      (nHidden?'<button class="cf-btn" data-cafeunhide="1" title="Bỏ ẩn các quán bạn đã xoá">↩︎ Hiện lại '+nHidden+' quán đã ẩn</button>':'')+'</div>'+
+    '<div class="cf-row" style="margin-top:10px"><button class="cf-btn" data-cafeaddcafe="1">➕ Thêm quán của bạn</button></div>'+
     (state.cafeAdding?cfAddForm():'')+
     '</div>';
   var arr=cafes.map(function(c){return Object.assign({},c,{_d:st?cfHav(st.lat,st.lng,c.lat,c.lng):null});});
@@ -1543,8 +1558,7 @@ document.addEventListener('click',function(e){
   if(t.getAttribute('data-cafegeo')!=null){cfUseGeo();return;}
   if(t.getAttribute('data-cafeaddloc')!=null){cfAddLocation();return;}
   if(t.getAttribute('data-cafefav')!=null){cfToggleFav(t.getAttribute('data-cafefav'));reContent();return;}
-  if(t.getAttribute('data-cafedel')!=null){if(window.confirm('Xoá vĩnh viễn “'+(t.getAttribute('data-cafenm')||'quán này')+'” khỏi danh sách? Quán đã xoá sẽ KHÔNG hiện lại.')){cfDelete(t.getAttribute('data-cafedel'));render();}return;}
-  if(t.getAttribute('data-cafeunhide')!=null){cfUnhideAll();render();toast&&toast('Đã hiện lại các quán đã ẩn');return;}
+  if(t.getAttribute('data-cafedel')!=null){var _nm=t.getAttribute('data-cafenm')||'quán này';if(window.confirm('Xoá vĩnh viễn “'+_nm+'”'+(cfIsAdmin()?' cho TẤT CẢ người dùng':'')+'? Không hiện lại được.')){cfDelete(t.getAttribute('data-cafedel'));var _y=window.scrollY;reContent();window.scrollTo(0,_y);}return;}
   if(t.getAttribute('data-cafeaddcafe')!=null){state.cafeAdding=!state.cafeAdding;window._cfCoord=null;render();return;}
   if(t.getAttribute('data-cafeformgps')!=null){cfFormGeo();return;}
   if(t.getAttribute('data-cafesave')!=null){cfSaveCustom2();return;}

@@ -117,3 +117,26 @@ create policy push_delete on push_subs for delete to anon, authenticated using (
 -- Cho phép đọc để Action (dùng publishable key) lấy danh sách thiết bị mà gửi push.
 drop policy if exists push_select on push_subs;
 create policy push_select on push_subs for select to anon, authenticated using (true);
+
+-- ============================================================================
+-- cafe_deleted — danh sách quán cà phê bị XOÁ GLOBAL (áp cho MỌI người dùng).
+-- CHỈ user huyneo được ghi (xoá cho tất cả); mọi người (kể cả chưa đăng nhập) ĐỌC
+-- danh sách này để lọc bỏ quán khỏi tab Cà phê. User khác vẫn xoá được nhưng chỉ ở
+-- máy họ (localStorage), không ghi vào đây.
+create table if not exists cafe_deleted (
+  cid        text primary key,          -- id quán (name|address, hoặc c:<id> quán tự thêm)
+  deleted_by uuid,
+  created_at timestamptz default now()
+);
+alter table cafe_deleted enable row level security;
+-- Ai cũng đọc được (để lọc quán bị xoá cho mọi người, kể cả khách chưa đăng nhập).
+drop policy if exists cafedel_select on cafe_deleted;
+create policy cafedel_select on cafe_deleted for select to anon, authenticated using (true);
+-- CHỈ huyneo được ghi (xoá global). Đổi email nếu cần.
+drop policy if exists cafedel_insert on cafe_deleted;
+create policy cafedel_insert on cafe_deleted for insert to authenticated
+  with check ((auth.jwt() ->> 'email') like 'huyneo%');
+drop policy if exists cafedel_update on cafe_deleted;
+create policy cafedel_update on cafe_deleted for update to authenticated
+  using ((auth.jwt() ->> 'email') like 'huyneo%')
+  with check ((auth.jwt() ->> 'email') like 'huyneo%');
