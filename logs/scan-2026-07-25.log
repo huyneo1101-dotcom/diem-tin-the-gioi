@@ -6,6 +6,9 @@
 
 === PHIÊN TỐI 22:00 (web-scan, o `toi`) 25/07/2026 ===
 [15:04Z] START web-scan phien toi (5 chu de) — claim RUN, da giu khoa
+[15:20Z] 5 agent xong: NoiboMy 0 (QH nghi August recess + thu Bay), Uc-BienDong 3, CNQS My 9, Mali 1, Predator 0, BaoMoi 2 (bai da luu)
+[15:32Z] add_news 2 lo (neo ngay khac nhau: lo1 date=24/07 cho tin 23-24/07, lo2 date=25/07 cho tin 25/07): +14 tin = TG 2, My 10, BaoMoi 2. generatedAt=2026-07-25. Bo qua canh bao "SAN CUNG 15+15" + "category thieu" (di san cu, phạm vi moi la 5 chu de).
+[15:25Z] review: LOAI 1 tin (USS George Washington qua eo Luzon — link la trang ANH DVIDS, anh chup 21/7 ngoai khung). Sua nguon tin Osborne (asa.gov.au timeout, doi sang Defence Connect da fetch xac nhan). Sua ngay tin Han Quoc/TAC: 25/7 chu khong phai 24/7. Bo TASS lam nguon tin EU tich thu dau Nga (truyen thong nha nuoc Nga, khong dung cho su kien ben thu ba) -> giu link Bao Moi. Da fetch xac nhan: Defence Connect, Semafor, TWZ, Defense Daily, VietnamPlus, DVIDS.
 
 === PHIÊN SÁNG (event-scan) 25/07/2026 10:09 ===
 - Sự kiện ngoại giao MỚI: 1 — "Canada - Ecuador ký Hiệp định Thương mại Tự do (FTA)" (ký 24/7 tại Ottawa, 29 chương, miễn thuế 99,6% hàng Ecuador; nguồn Xinhua).
