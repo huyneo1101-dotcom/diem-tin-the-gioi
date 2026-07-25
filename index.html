@@ -180,6 +180,15 @@ a{color:inherit}
 /* Link nội dòng trong body báo cáo tuần — màu đỏ như link "Nguồn", gạch chân, KHÔNG đậm */
 .wk-link{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
 .wk-link:hover{opacity:.78}
+/* Thẻ Bối cảnh + Khái niệm dưới mỗi tập trận */
+.drill-brief,.drill-concepts{margin:2px 0 10px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--paper2)}
+.drill-brief{border-left:3px solid var(--blue,#2b5f9e)}
+.drill-concepts{border-left:3px solid var(--green,#1f8a54)}
+.db-h{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:6px}
+.db-body{font-size:.9rem;color:var(--ink);line-height:1.55;margin-bottom:4px}
+.dc-item{font-size:.88rem;color:var(--ink);line-height:1.5;padding:3px 0;border-bottom:1px dashed var(--line2)}
+.dc-item:last-child{border-bottom:0}
+.dc-item b{color:var(--title)}
 /* ==== Tab Cà phê làm việc ==== */
 .cf-panel{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px;margin:0 0 14px}
 .cf-h{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:800}
@@ -1062,6 +1071,19 @@ function drillHeader(ex){
   var pill=st==='ongoing'?'<span class="dpill live">● Đang diễn ra</span>':(st==='upcoming'?'<span class="dpill up">◷ Sắp diễn ra</span>':'<span class="dpill done">✓ Đã kết thúc</span>');
   return '<div class="drill-h"><div class="drill-top">'+pill+(ex.dates?'<span class="drill-dates">'+esc(ex.dates)+'</span>':'')+'</div><div class="drill-name">'+esc(ex.name)+'</div>'+(ex.location?'<div class="drill-meta">📍 '+esc(ex.location)+'</div>':'')+(ex.scale?'<div class="drill-meta">🎖️ '+esc(ex.scale)+'</div>':'')+(ex.summary?'<div class="drill-sum">'+esc(ex.summary)+'</div>':'')+'</div>';
 }
+/* Thẻ Bối cảnh + Khái niệm dưới mỗi cuộc tập trận — nội dung từ "file thông tin nền" (background
+   briefing) do phiên quét sáng sinh ra: ex.background (đoạn bối cảnh), ex.concepts ([{term,def}]). */
+function drillBriefing(ex){
+  var h='';
+  if(ex.background)h+='<div class="drill-brief"><div class="db-h">📔 Bối cảnh</div><div class="db-body">'+esc(ex.background).replace(/\n+/g,'</div><div class="db-body">')+'</div></div>';
+  var cc=ex.concepts||[];
+  if(cc.length){
+    h+='<div class="drill-concepts"><div class="db-h">📚 Khái niệm</div>';
+    cc.forEach(function(k){if(k&&(k.term||k.def))h+='<div class="dc-item"><b>'+esc(k.term||'')+'</b>'+(k.def?' — '+esc(k.def):'')+'</div>';});
+    h+='</div>';
+  }
+  return h;
+}
 function renderExercises(){
   var exs=((DATA.exercises&&DATA.exercises.length)?DATA.exercises:EXERCISES).slice();
   var ord={ongoing:0,upcoming:1,recent:2};   // Đang diễn ra → Sắp diễn ra → Đã kết thúc
@@ -1075,7 +1097,7 @@ function renderExercises(){
   function sec(ex){
     var items=sortD(ex.items||[]).filter(matchQ);
     var cards=items.length?items.map(function(a){return card(drillCardInner(a),idOf(a));}).join(''):'<div class="empty" style="padding:16px">'+(state.q?'Không có tin khớp tìm kiếm.':'Chưa có tin liên quan.')+'</div>';
-    return '<section class="drill">'+drillHeader(ex)+'<div class="list">'+cards+'</div></section>';
+    return '<section class="drill">'+drillHeader(ex)+drillBriefing(ex)+'<div class="list">'+cards+'</div></section>';
   }
   var GROUPS=[['ongoing','🔴 Đang diễn ra'],['upcoming','🔵 Sắp diễn ra'],['recent','✓ Đã kết thúc']];
   var body='';
