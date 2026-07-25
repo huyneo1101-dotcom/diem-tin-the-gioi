@@ -119,6 +119,29 @@ def today_items(cur, kind):
     return [it for it in lst if it.get("_addedDate") == today or it.get("date") == today]
 
 
+def pick_items(cur, prev, kind):
+    """Tin của bản tin hôm nay = HỢP của (mới so với commit cha) và (_addedDate/date == generatedAt).
+
+    ⚠️ Sự cố 25/07/2026 — docx chỉ có 3/15 tin: phiên quét commit `index.html` HAI lần
+    (một commit `log: checkpoint ...` giữa chừng, rồi commit `Cap nhat ban tin` cuối).
+    Chỉ commit cuối gửi email, nhưng lúc đó HEAD~1 đã chứa sẵn 12 tin nạp ở lô đầu nên
+    `diff_new` chỉ còn 3 tin — và fallback cũ chỉ chạy khi diff RỖNG HẲN nên không cứu.
+    Ngược lại, chỉ dùng `today_items` lại hụt tin của lô neo ngày cũ (`_addedDate` lệch
+    `generatedAt`, xem "HAI BẪY khi lô tin trải QUÁ 2 NGÀY" trong CLAUDE.md).
+    → Lấy HỢP để chắc cả hai chiều. Giữ nguyên thứ tự trong mảng gốc, không trùng lặp.
+    """
+    lst = event_items(cur) if kind == "events" else (cur.get(kind, []) or [])
+    today = cur.get("generatedAt")
+    new_urls = urls_of(diff_new(cur, prev, kind))
+    out = []
+    for it in lst:
+        is_today = it.get("_addedDate") == today or it.get("date") == today
+        url = it.get("sourceUrl")
+        if is_today or (url and url in new_urls):
+            out.append(it)
+    return out
+
+
 def is_noibo_my(it):
     """Nội bộ Mỹ = usNews chính trị trong nước (điều trần/bỏ phiếu). Mali (Châu Phi) KHÔNG tính."""
     return it.get("category") == "Chính trị" and it.get("region") == "Bắc Mỹ"
@@ -205,14 +228,9 @@ def main():
         cur = extract_data(f.read())
     prev = prev_data()
 
-    us = diff_new(cur, prev, "usNews")
-    world = diff_new(cur, prev, "worldNews")
-    events = diff_new(cur, prev, "events")
-    if not (us or world or events):
-        # Fallback: chạy tay / không có tin mới trong commit -> lấy tin đưa lên hôm nay
-        us = today_items(cur, "usNews")
-        world = today_items(cur, "worldNews")
-        events = today_items(cur, "events")
+    us = pick_items(cur, prev, "usNews")
+    world = pick_items(cur, prev, "worldNews")
+    events = pick_items(cur, prev, "events")
 
     sections = build_sections(us, world, events)
     total = sum(len(items) for _, items in sections)

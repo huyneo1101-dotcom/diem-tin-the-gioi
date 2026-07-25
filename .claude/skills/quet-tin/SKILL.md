@@ -67,6 +67,15 @@ KHÔNG phải vô hiệu hoá nó. Lấy ngày/giờ bằng 2 lệnh riêng `TZ=
 - **Checkpoint sau MỖI mốc lớn** (xong baseline · xong các agent · xong script · trước khi push tin):
   ghi thêm dòng `[<giờ>] <mốc>: <tóm tắt>` vào log, chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat web-scan` rồi
   push ngay → biết chết ở đâu + gia hạn khoá. **Nhịp tim bắt buộc**: khoá tự hết hạn sau 30' không có nhịp.
+- ⚠️ **Checkpoint CHỈ `git add logs/` — TUYỆT ĐỐI KHÔNG kèm `index.html`** (sự cố 25/07/2026).
+  `index.html` chỉ được commit ĐÚNG MỘT LẦN, ở commit cuối `Cap nhat ban tin ...`. Lý do: commit
+  checkpoint mang tên `log: ...` KHÔNG khớp gate `^Cap nhat ban tin` nên không gửi email, nhưng nó
+  vẫn nằm ở `HEAD~1` của commit bản tin — mà `make_docx.py` dựng file Word bằng diff với `HEAD~1`.
+  Hôm 25/07 checkpoint 22:23 đã ôm sẵn 12 tin, tới commit bản tin 22:41 diff chỉ còn 3 → **file Word
+  gửi Huy mất 12/15 tin** dù web hiện đủ. (`make_docx.py` đã được vá lấy HỢP `diff` ∪ `today_items`
+  nên không còn mất tin, nhưng vẫn giữ nguyên tắc này — đừng dựa vào một lớp chặn.)
+  Nạp tin nhiều lô giữa chừng thì cứ chạy `add_news.py`, để `index.html` ở trạng thái chưa commit,
+  checkpoint bằng `git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/` thôi.
 - Idempotent + khoá — **dùng cờ riêng pipeline `web-scan`, KHÔNG dùng `generatedAt`**:
   ```
   python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim web-scan
