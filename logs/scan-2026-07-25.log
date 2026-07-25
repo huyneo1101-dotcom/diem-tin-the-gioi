@@ -11,3 +11,6 @@
 - KHÔNG phải Chủ Nhật (thứ 7) → không chạy báo cáo tuần.
 - Bị loại tự động: +10 mục; prune -63 mục cũ quá 2 ngày.
 - Ghi chú: ARF thông qua "Manila Plan of Action 2026-2036" bị bỏ vì ngày 23/7, ngoài khung MAX_AGE_DAYS.
+
+=== event-scan mốc dự phòng 09:45 (chạy 10:12 giờ VN) ===
+SKIP — state.py claim trả exit 10: phiên sáng 08:45 hôm nay đã hoàn tất lúc 10:09:07+07:00. Không quét lại, không nạp tin, không báo cáo tuần (thứ 7).

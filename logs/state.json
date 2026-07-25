@@ -19,10 +19,10 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-07-25T10:09:07+07:00",
+    "lastRunAt": "2026-07-25T10:12:37+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "1 su kien ngoai giao moi (Canada-Ecuador FTA) + 1 tin cap nhat AMM-59/TAC; tap tran khong co dien bien moi",
+    "lastStatus": "SKIP",
+    "note": "Mốc du phong 09:45 - phien 08:45 da hoan tat luc 10:09, khong lam lai",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-07-25"
