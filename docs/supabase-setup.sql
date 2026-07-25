@@ -140,3 +140,24 @@ drop policy if exists cafedel_update on cafe_deleted;
 create policy cafedel_update on cafe_deleted for update to authenticated
   using ((auth.jwt() ->> 'email') like 'huyneo%')
   with check ((auth.jwt() ->> 'email') like 'huyneo%');
+
+-- ============================================================================
+-- cafe_tags — PHÂN LOẠI quán theo tiêu chí lọc (Làm việc 1 mình / Ngồi bàn / View đẹp /
+-- Thú vị / Đẹp-Check-in / 24h / Yên tĩnh). Admin (huyneo) đặt thủ công, GLOBAL cho mọi user
+-- (mọi người đọc để lọc; chỉ huyneo ghi). `tags` = jsonb {tag: true/false} (đè auto-detect).
+create table if not exists cafe_tags (
+  cid        text primary key,
+  tags       jsonb not null default '{}'::jsonb,
+  updated_by uuid,
+  updated_at timestamptz default now()
+);
+alter table cafe_tags enable row level security;
+drop policy if exists cafetags_select on cafe_tags;
+create policy cafetags_select on cafe_tags for select to anon, authenticated using (true);
+drop policy if exists cafetags_insert on cafe_tags;
+create policy cafetags_insert on cafe_tags for insert to authenticated
+  with check ((auth.jwt() ->> 'email') like 'huyneo%');
+drop policy if exists cafetags_update on cafe_tags;
+create policy cafetags_update on cafe_tags for update to authenticated
+  using ((auth.jwt() ->> 'email') like 'huyneo%')
+  with check ((auth.jwt() ->> 'email') like 'huyneo%');
