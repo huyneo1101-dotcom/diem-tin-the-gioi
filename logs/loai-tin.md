@@ -144,3 +144,15 @@ Loại trong quá trình review (trùng/nguồn yếu, KHÔNG đưa vào mục B
 - [Báo Mới] EU-Trung Quốc nguy cơ xung đột thương mại (Kinh tế) — ngoài 5 chủ đề
 - [Báo Mới] Australia +3,2 tỷ USD tàu ngầm AUKUS — đã có trong DATA (trùng)
 - [Nội bộ Mỹ] H.R.8884 gia hạn thí điểm việc làm người khuyết tật (GovTrack, 23/7) — nguồn tracker không phải bài báo, để lại chưa nạp
+
+## 2026-07-25 (phiên tối 22:00 — ô `toi`)
+- ⭐ [Úc & Biển Đông] Úc rót thêm 4,6 tỷ AUD cho xưởng tàu ngầm AUKUS Osborne (Defence Connect, 24/7) — ĐÃ NẠP RỒI XOÁ: trùng SỰ KIỆN với tin "Australia đầu tư thêm 3,2 tỷ USD cho chương trình tàu ngầm hạt nhân AUKUS" đã có trong DATA (4,6 tỷ AUD = 3,2 tỷ USD, guardrail không bắt vì khác URL + khác cách quy đổi tiền)
+- ⭐ [CNQS Mỹ] CoAspire 70 triệu USD tên lửa RAACM-ER / chương trình CHAOS (Defense Daily, 23/7) — ĐÃ NẠP RỒI XOÁ: trùng sự kiện với "Hải quân Mỹ trao 70 triệu USD phát triển tên lửa hành trình giá rẻ CHAOS cho đồng minh" (Naval News, 22/7) đã có
+- [Úc & Biển Đông] Nhóm tác chiến tàu sân bay USS George Washington qua eo biển Luzon (DVIDS, agent ghi 24/7) — sourceUrl là trang ẢNH dvidshub.net/image/..., không phải bài viết; ảnh chụp 21/7 nằm ngoài khung 48h
+- [Úc & Biển Đông] HMAS Choules và HMAS Supply tiếp liệu trên biển ở Biển Đông (Mirage News, 24/7) — nguồn là trang mirror thông cáo (không phải nguồn tầng 1 gốc, defence.gov.au fetch timeout), nội dung hậu cần thường lệ, giá trị tin thấp
+- [Báo Mới] EU tịch thu và bán dầu Nga từ tàu bị bắt giữ — agent truy về bài gốc TASS: LOẠI NGUỒN (truyền thông nhà nước Nga chỉ dùng cho phát ngôn của chính họ, không làm nguồn cho sự kiện của EU) → giữ link Báo Mới thay vì đổi nguồn
+- [Nội bộ Mỹ] Hạ viện thông qua NDAA 1,15 nghìn tỷ USD (216-212) + tu chính án Grothman cắt biên chế dân sự Lầu Năm Góc (254-175) — bỏ phiếu ngày 22/7, ngoài khung 48h
+- [Nội bộ Mỹ] Điều trần Senate Finance với Đại diện Thương mại Jamieson Greer (22/7); Senate Appropriations về ngân sách bổ sung (21/7); phiên làm việc Senate Foreign Relations (22/7) — đều ngoài khung 48h
+- [Nội bộ Mỹ] Thượng viện chuẩn thuận thẩm phán liên bang Traynor, Pozos + phiếu uỷ ban với ứng viên lãnh đạo FEMA (8-4, 23/7) — là bỏ phiếu NHÂN SỰ, không phải thông qua dự luật → ngoài phạm vi siết
+- [Mali] Các bài về scoop WaPo (Gorka/nội bộ chia rẽ) và họp báo Ngoại trưởng Diop — cùng 2 sự kiện đã nạp, chỉ khác góc đưa tin
+- [Predator's Run 2026] Bắn thử Apache tại Townsville 17/7 — thuộc "Exercise Possum Guns", không liên quan Predator's Run; không có diễn biến mới nào trong khung 23-25/7 trên DVIDS/PACOM/defence.gov.au
