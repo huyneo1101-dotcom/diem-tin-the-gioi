@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Fetch vote_stats from Supabase
         env:
           # Publishable key la key CONG KHAI (da co trong index.html) — view vote_stats chi tra

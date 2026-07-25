@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       # Chay TRUOC va doc lap voi buoc can cookie: cookie het han thi van con nguon nay.
       - name: Quet chuyen muc cong khai (khong can cookie)
         run: python3 scripts/baomoi_topics.py
