@@ -24,3 +24,6 @@
 
 === event-scan mốc dự phòng 09:45 (chạy 10:12 giờ VN) ===
 SKIP — state.py claim trả exit 10: phiên sáng 08:45 hôm nay đã hoàn tất lúc 10:09:07+07:00. Không quét lại, không nạp tin, không báo cáo tuần (thứ 7).
+
+=== web-scan mốc DỰ PHÒNG 23:00 (chạy 23:06 giờ VN / 16:06Z) ===
+SKIP — state.py claim trả exit 10: phiên tối 22:00 hôm nay đã hoàn tất lúc 2026-07-25T22:41:50+07:00 (+15 tin). Không quét chồng, không nạp tin, không commit bản tin.
