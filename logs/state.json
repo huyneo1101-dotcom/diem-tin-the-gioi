@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-27T05:19:51+07:00",
+    "lastRunAt": "2026-07-27T05:35:30+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+5 tin phien sang som (Bien Dong 1, CNQS My 4, NoiboMy 0, Mali 0, Predator 0) — local quet bu vi CI 04:30 khong no",
     "lastSuccess": {
       "toi": "2026-07-26",
-      "sang": "2026-07-26"
-    },
-    "heartbeat": "2026-07-27T05:19:51+07:00"
+      "sang": "2026-07-27"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-07-26T10:37:42+07:00",

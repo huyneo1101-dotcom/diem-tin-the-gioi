@@ -25,3 +25,29 @@ DA LAM:
   moc 04:30. Hien dang la wakepoweron 21:25 hang ngay.
 QUET BU NGAY: gio 05:19 VN, cron CI moi (04:00/05:00) da qua va cron cu 05:30 vua bi xoa -> hom nay
 khong con moc CI nao cho phien sang. claim exit 0 = RUN, da giu khoa. Quet 5 chu de theo SKILL.
+
+[2026-07-27 05:35 +07] DONE — +5 tin (Huy yeu cau quet nhanh 15')
+4 agent Sonnet song song:
+  A Noi bo My: 0 tin — Ha vien recess 24/7-31/8 + Chu Nhat o My. Da soi congress.gov, lich uy ban
+    Thuong vien, The Hill, Roll Call, GovExec. Ung vien gan nhat deu ngoai khung (war powers vote 23/7,
+    dieu tran du kien 29/7).
+  B Uc & Bien Dong: 1 tin (tau hang Khoi Nguyen 18 chim gan da Chu Thap, VN-TQ cung cuu ho — SCMP 26/7).
+    Da sua sourceName tu "SCMP / Tuoi Tre (Bo Ngoai giao Viet Nam)" thanh "South China Morning Post"
+    (guardrail + quy tac 1 nguon 1 link). Tin AUKUS Osborne 4,6 ty AUD hut khung dung 1 ngay (24/7).
+  C CNQS My: 4 tin (Lockheed kien truc tu hanh dung chung; Project Dynamis AI o Twentynine Palms;
+    in 3D da chien X-FAB sua tau Tuan duyen tai CJLOTS 26 Han Quoc; robot BARB lap dong co P&W).
+  D Mali + Predator: Mali 1 ung vien, Predator 0.
+LOAI 1 TIN (ghi ro de Huy ra soat): "Nga mo tuyen hau can moi qua Togo, dua khi tai Africa Corps toi
+Bamako" (The Africa Report, 25/7) — WebFetch tra HTTP 403, dung nhu CLAUDE.md da ghi domain nay chan
+fetch (nhom WebSearch-only). Bai co nhieu so lieu rat cu the (1.400km, cua khau Doulai Diassa, ngay
+23/7) ma khong xac minh duoc mot chu nao -> BO theo quy tac "khong chac link thi bo", thay vi nap mu.
+Day la ly do chu de Mali ve 0.
+NAP: 1 lo duy nhat date=2026-07-27 (toan tin 26/7, lui 1 ngay -> qua guardrail). add_news.py OK:
++1 the gioi, +4 My, +10 muc Bi loai, -50 muc cu. generatedAt=2026-07-27, _addedDate khop luon nen
+KHONG can patch (khong tach lo -> khong dinh BAY 1).
+Canh bao script: "nguon la" DVIDS / The Aviationist / The War Zone — deu la nguon da co trong bang
+CLAUDE.md, chi la chua nam trong danh sach cung cua script; san 15+15 la muc LOI THOI (pham vi gio
+la 5 chu de) -> bo qua ca hai.
+Da ghi logs/scan-gaps.json (date=2026-07-27 khop generatedAt, du 5 chu de + Bao Moi, moi muc kem
+ly do that). state.py done.
+

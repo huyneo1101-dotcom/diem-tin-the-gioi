@@ -1,6 +1,6 @@
 {
-  "date": "2026-07-26",
-  "session": "toi",
+  "date": "2026-07-27",
+  "session": "sang som (local quet bu — CI 04:30 khong no)",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
@@ -8,40 +8,48 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Hạ viện Mỹ nghỉ họp (recess) từ 24/7 tới 31/8, Thượng viện gần như đóng cửa. Các phiên điều trần/bỏ phiếu tìm được (war powers vote Hạ viện+Thượng viện, NDAA vote 216-212, điều trần Senate Finance/Banking) đều diễn ra 21-23/7, ngoài khung 48h và đã ghi nhận ở phiên tối 25/7. Không có hoạt động lập pháp mới trong 48h qua."
+      "reason": "Hạ viện nghỉ họp (recess) từ 24/7 tới 31/8, Thượng viện gần như đóng cửa, cộng thêm hôm nay là Chủ Nhật ở Mỹ nên không có phiên điều trần hay bỏ phiếu nào. Đã soi congress.gov, lịch uỷ ban Thượng viện (armed-services, foreign, judiciary), The Hill, Roll Call, Government Executive. Ứng viên gần nhất đều ngoài khung: bỏ phiếu war powers Iran ở Hạ viện 23/7, điều trần dự kiến 29/7. Không hạ chuẩn để lấp."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 2,
+      "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Sau vòng quét chính + 1 vòng bổ sung (đổi hướng AUKUS ngầm, ADF, VN-TQ-Philippines, Nhật-Úc-Philippines), chỉ có 1 tin mới thật sự (Trung Quốc tuần tra đáp trả diễn tập Nhật-Phi-Mỹ). Phần lớn ứng viên khác trùng sự kiện đã đưa tin các phiên trước (AUKUS Osborne, vòi rồng Scarborough lần 3, diễn tập Nhật-Phi-Mỹ, PCA 10 năm) hoặc ngoài khung 48h (HMS Anson, Penny Wong, NZ-PNG Pukpuk)."
+      "reason": "Cuối tuần nên tin thưa, và phần lớn diễn biến Biển Đông đang chạy đã nạp ở phiên tối 26/7 (Trung Quốc tuần tra đáp trả diễn tập Nhật-Phi-Mỹ, vòi rồng Scarborough, Bãi Cỏ Mây, Marcos - Tập). Tin Úc rót thêm 4,6 tỷ AUD cho xưởng tàu ngầm AUKUS Osborne hụt khung đúng 1 ngày (24/7). Bài SONA của Marcos 27/7 chưa xác minh được nội dung đã phát biểu nên không đưa."
     },
     {
-      "name": "CNQS Mỹ",
+      "name": "Công nghệ quân sự Mỹ",
       "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Đạt gần chuẩn (4/5). Nhiều ứng viên hợp đồng/hệ thống khác trong 48h qua trùng sự kiện đã đưa (MUOS SATCOM, UUV Tuần duyên, Lockheed laser 500kW là tin cũ đăng lại) hoặc không fetch xác minh được (war.gov/globalsecurity.org 403)."
+      "reason": "Thiếu 1 bài so với sàn tối thiểu: cuối tuần Mỹ nên các trang quốc phòng đăng ít. Loạt tin nổi bật tìm được (Dark Eagle tới Guam, vệ tinh Golden Dome, laser JLWS, CCA bắn thử tên lửa, tàu drone Marauder) đều đăng 09-22/7, ngoài khung 48h."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 1,
-      "target": "2-5",
-      "min": 2,
+      "count": 0,
+      "target": "5-10",
+      "min": 5,
       "thieu": true,
-      "reason": "Sau vòng quét chính + 1 vòng bổ sung (JNIM chiến sự cụ thể, Africa Corps, Pháp/EU, AFRICOM/Pentagon), chỉ 1 tin mới thật sự (Mỹ đổ lỗi Nga, Washington Examiner). Các sự kiện khác (đụng độ Anéfis, phục kích Gao) ngoài khung 48h; tin Bloomberg/Heritage Times/WaPo về Mali đều thuật lại cùng họp báo Ngoại trưởng Diop 24/7 đã nạp."
+      "reason": "Chỉ tìm được 1 ứng viên trong khung (đoàn xe Africa Corps của Nga đi vòng qua cảng Lomé, Togo để né trừng phạt, đưa xe bọc thép tới Bamako) nhưng nguồn duy nhất là The Africa Report — WebFetch trả HTTP 403 nên không xác minh được nội dung và loạt số liệu chi tiết trong bài, đã bỏ theo quy tắc không chắc link thì bỏ. Long War Journal, AllAfrica, Al Jazeera, France 24 không có bài Mali/JNIM mới trong khung 25-27/7."
     },
     {
-      "name": "Predator's Run 2026",
+      "name": "Tập trận Predator's Run 2026",
       "count": 0,
-      "target": "1-2",
+      "target": "1-3",
       "min": 1,
       "thieu": true,
-      "reason": "Không có diễn biến mới sau lễ khai mạc 21/7 (đã có trong DATA). Kiểm DVIDS, PACOM, Philippine Army/Carabaroo, defence.gov.au trong 48h qua không ra bài mới. Tập trận dự kiến kết thúc ~29/7 — khuyến nghị phiên sau kiểm lại gần mốc đó để bắt tin tổng kết/đổi status sang recent."
+      "reason": "Không có diễn biến mới sau 2 item đã có (khai mạc Townsville + Carabaroo 2026). DVIDS, pacom.mil, army.gov.au, defence.gov.au chưa đăng bài mới về bắn đạn thật hay giai đoạn kế tiếp. Tập trận kết thúc khoảng 29/7."
+    },
+    {
+      "name": "Báo Mới",
+      "count": 0,
+      "target": "0-6",
+      "min": 0,
+      "thieu": false,
+      "reason": "Phiên sáng sớm quét bù nhanh theo yêu cầu, không chạy vòng chọn lọc Báo Mới; kho ứng viên chuyên mục vẫn được add_news.py đẩy vào mục Bị loại (+10 mục) để người đọc tự cứu bằng 👍."
     }
   ],
-  "note": "Phiên tối 26/07: tổng 6 tin nạp mới (worldNews +1, usNews +5), thấp hơn mục tiêu ở cả 5 chủ đề dù đã chạy 2 vòng agent (chính + bổ sung cho Úc-Biển Đông và Mali). Không bịa/hạ chuẩn để lấp — chi tiết từng tin bị loại xem logs/loai-tin.md mục 2026-07-26 (phiên tối)."
+  "note": "Phiên SÁNG SỚM 27/07 do bản local quét bù: cron CI 04:30 không nổ (gh run list không có run nào sau 26/07 15:54Z). Từ hôm nay lịch đổi thành CI 04:00 -> local 04:30 -> CI 05:00 -> local 05:30. Tổng 5 tin (Biển Đông 1, CNQS Mỹ 4)."
 }
