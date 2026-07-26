@@ -127,3 +127,7 @@ Commit "Cap nhat ban tin 26/07: +6 tin (5 chu de)" kem index.html + logs/. Day l
 2 vong agent (chinh + bo sung) — Quoc hoi My nghi hop lam Noi bo My = 0, Predator's Run khong co dien
 bien moi = 0, Uc-BienDong va Mali deu duoi san toi thieu du da noi 48h + thu nhieu goc. Khong bia/ha
 chuan de lap. push origin main.
+
+[2026-07-26 22:54 +07] web-scan (CI) — SKIP
+claim tra ve exit 10 -- web-scan [phien toi] ngay 2026-07-26 DA XONG (lan chay cuoi 2026-07-26T22:29:26+07:00,
++6 tin 5 chu de, xem checkpoint/DONE phia tren). Khong lam lai, ket thuc em.
