@@ -51,3 +51,8 @@ Ban tin 26/07 se do CI claude-web-scan.yml 22:00 (chinh) / local 22:30 (du phong
 Luu y: `git pull --rebase` luc dau bi chan boi unstaged CLAUDE.md (ban va tay 26/07 ve viec chuyen
 moc chinh sang GitHub Actions, chua commit) -> da stash + pull (already up to date) + stash pop,
 giu nguyen thay doi do, KHONG commit ho file la.
+
+[2026-07-26 04:26 +07(UTC)/11:26+07] web-scan (CI TEST) — START
+Phien TEST ha tang CI (mode=test, chi thi rieng) — muc tieu chung minh pipeline claim -> quet -> add_news
+-> commit -> push voi chi phi nho nhat, KHONG phai ra ban tin day du. claim exit 0 = RUN, da giu khoa.
+Se giao 1 agent Sonnet quet nhe 2-4 tin (CNQS My + Uc & Bien Dong), KHONG lam 5 chu de, KHONG vong bo sung.
