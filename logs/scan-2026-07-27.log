@@ -1,0 +1,16 @@
+[2026-07-27 04:57 +07] web-scan (LOCAL du phong 21:30/22:30 toi 26/07, may ngu -> fire bu sang 27/07) — SKIP
+KHONG goi claim (co y), KHONG goi state.py skip/fail (co y). Ly do:
+1) Ban tin TOI 26/07 DA RA: state.py show cho web-scan [phien toi] = 2026-07-26 DONE luc
+   2026-07-26T22:29:26+07:00, +6 tin (Uc-BienDong 1, CNQS My 4, Mali 1, NoiboMy 0, Predator 0),
+   commit 3220304 "Cap nhat ban tin 26/07: +6 tin (5 chu de)". Khong con gi de chay bu.
+2) Gio VN 04:57 roi vao o `sang` = o cua phien SANG SOM 04:30/05:30, ma phien do la CI-ONLY
+   (chi thi 26/07: "Phien sang som KHONG co du phong local (may ngu) — dung ganh ho").
+   claim luc nay se tra RUN (o `sang` con trong) va local se dang them 1 ban tin luc ~5h sang,
+   dong thoi CI claude-web-scan.yml 04:30 rat co the DANG chay -> lap lai dung su co 26/07
+   (hai phien cung quet). Khoa dong bo qua git nen local khong nhin thay CI claim cho toi khi
+   CI push.
+3) Khong goi state.py skip/fail vi neu CI dang RUNNING thi lenh do ghi de trang thai + nha khoa
+   cua phien dang chay (dung bai hoc 26/07 muc "phien khac cuop khoa").
+git pull --rebase origin main: Already up to date (chua thay commit CI sang 27/07 tinh toi 04:57 —
+CI 04:30 co the con dang chay hoac se do moc 05:30 lo). Chi commit rieng dong log nay.
+KET THUC ngay: khong Monitor, khong cho, khong dieu tra them.
