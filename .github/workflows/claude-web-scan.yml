@@ -3,7 +3,7 @@ name: Claude web-scan (bản tin tối + sáng sớm)
 # Quét bản tin trên máy GitHub — máy Mac tắt vẫn ra bản tin. 2 phiên/ngày cùng playbook
 # 5 chủ đề: TỐI (ô khoá `toi`) và SÁNG SỚM 04:00 (ô khoá `sang`, có email như bản tối).
 # Từ 27/07/2026 phiên SÁNG SỚM CÓ dự phòng local: CI 04:00 -> local 04:30 -> CI 05:00 -> local 05:30.
-# Phiên TỐI neo theo HẠN CHÓT email 22:00, chỉ 2 lớp: CI 21:00 -> local 21:30 (lưới cuối).
+# Phiên TỐI neo theo HẠN CHÓT email 22:00: CI 21:00 -> local 21:30 (lớp cuối trong hạn) -> CI 22:00 (lớp vét).
 # Dùng chung khoá logs/state.json với bản local (scheduled task trên Mac):
 # bên nào claim trước thì bên kia tự SKIP, không quét chồng.
 # Thiếu secret CLAUDE_CODE_OAUTH_TOKEN thì workflow tự bỏ qua êm (local vẫn quét như cũ).
@@ -15,9 +15,14 @@ on:
     # (đo thật: CI 26/07 hết 20m45s, local 27/07 hết 16') + email ~20 giây => lớp cuối phải fire
     # chậm nhất 21:30, và lớp cuối phải là LOCAL vì cron GitHub hay trễ 5-20' còn scheduled task
     # local chỉ jitter ~3,5'.
-    # Huy chốt CHỈ 2 lớp cho phiên tối: CI 21:00 (email ~21:22) -> local 21:30 (email ~21:52).
-    # ĐỪNG thêm mốc CI sau 21:00 và ĐỪNG dời mốc nào trễ hơn — mốc cuối trễ 10' là vỡ hạn 22:00.
+    # Phiên tối = 2 lớp TRONG HẠN + 1 lớp VÉT ngoài hạn:
+    #   CI 21:00 (email ~21:22) -> local 21:30 (email ~21:52, lớp cuối trong hạn)
+    #   -> CI 22:00 = LỚP VÉT, chỉ chạy khi cả hai lớp trên đều chết (GitHub bỏ cron + máy Mac ngủ).
+    #      Email hôm đó tới ~22:22, tức QUÁ hạn 22:00 — chấp nhận có muộn còn hơn mất hẳn bản tin.
+    # ĐỪNG dời 2 lớp đầu trễ hơn, và đừng biến lớp vét thành mốc chính: mốc cuối trong hạn phải là
+    # local 21:30 vì cron GitHub trễ 5-20' bất định.
     - cron: '0 14 * * *'    # 21:00 VN — bản tin TỐI, mốc chính (email ~21:22)
+    - cron: '0 15 * * *'    # 22:00 VN — LỚP VÉT (idempotent tự SKIP nếu 2 lớp trước đã xong)
     - cron: '0 21 * * *'    # 04:00 VN hôm sau — bản tin SÁNG SỚM, mốc chính (đổi 27/07: 04:30 -> 04:00)
     - cron: '0 22 * * *'    # 05:00 VN — sáng sớm, dự phòng CI (sau mốc local 04:30)
   workflow_dispatch:
