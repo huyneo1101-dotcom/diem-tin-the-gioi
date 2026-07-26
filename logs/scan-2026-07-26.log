@@ -131,3 +131,18 @@ chuan de lap. push origin main.
 [2026-07-26 22:54 +07] web-scan (CI) — SKIP
 claim tra ve exit 10 -- web-scan [phien toi] ngay 2026-07-26 DA XONG (lan chay cuoi 2026-07-26T22:29:26+07:00,
 +6 tin 5 chu de, xem checkpoint/DONE phia tren). Khong lam lai, ket thuc em.
+
+[2026-07-26 15:39Z / 22:39+07] web-scan (LOCAL du phong 21:30) — SKIP (nhuong CI)
+claim luc 21:41+07 tra RUN nen phien local da lam baseline (recent-titles + baomoi-pending: 0 bai da luu,
+65 ung vien chuyen muc gan nhu toan Iran-Ukraine-kinh te VN). Nhung khi push log START thi push bi tu choi
+-> pull --rebase ra CONFLICT logs/state.json + log: remote da co phien CI claim luc 22:09+07 dang RUNNING
+(commit 906ffa4, tac gia claude-scan-ci) va dang quet dung 5 chu de.
+=> Nhuong CI, KHONG quet chong: rebase --abort + reset --hard origin/main (bo commit log cua local),
+KHONG goi state.py skip/fail (goi la ghi de trang thai RUNNING + nha khoa cua CI dang chay). Chi ghi log nay.
+NGUYEN NHAN GOC (dang ghi de tranh tai dien): khoa `state.py` dong bo QUA GIT, nen hai phien deu doc duoc
+"khong ai giu khoa" neu phien truoc CHUA PUSH kip. Local claim 21:41 nhung chua push -> CI pull luc 22:09
+khong thay khoa -> claim tiep. Ngoai ra phien local nay bi keo dai bat thuong (lenh `git pull --rebase`
+timeout 2', tong cong ~58' troi tu luc claim toi luc phat hien) nen CI kip chen vao giua.
+CACH CHAN: sau `state.py claim`, PHAI commit + push logs/state.json NGAY (truoc khi lam baseline),
+va truoc khi nap tin phai pull --rebase kiem lai xem con giu khoa khong.
+KET QUA: nhuong dung — CI da DONE luc 22:29+07 voi +6 tin (5 chu de), ban tin 26/07 DA RA.
