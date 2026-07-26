@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-26T11:52:00+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+1 tin (QUET TEST CI lan 2)",
+    "lastRunAt": "2026-07-26T22:09:54+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-25",
       "sang": "2026-07-26"
-    }
+    },
+    "heartbeat": "2026-07-26T22:09:54+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-07-26T10:37:42+07:00",

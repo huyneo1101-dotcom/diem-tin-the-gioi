@@ -96,3 +96,9 @@ KHONG giao them vong vi day la bai test ha tang, khong phai phien quet day du).
 state.py done web-scan "+1 tin (QUET TEST CI lan 2)" luc 11:52+07.
 KET LUAN: pipeline claim -> giao agent -> kiem tra chong trung (bat duoc 1 tin trung ma agent bo sot,
 guardrail add_news.py) -> nap -> done hoat dong dung thiet ke. Se commit index.html + logs, push.
+
+[2026-07-26 15:09Z / 22:09+07] web-scan (CI, phien TOI that su) — START
+claim exit 0 = RUN, da giu khoa (phien toi 2026-07-26 chua xong — phien TEST truoc do luc 04:xxZ
+roi vao o CHAY BU sang som, khong tinh la phien toi). Day la phien quet 5 chu de day du theo SKILL.md:
+Noi bo My (dieu tran+bo phieu) / Uc & Bien Dong / CNQS My / My-Mali / Predator's Run 2026.
+Se giao 4 agent Sonnet song song (A/B/C/D), khung 24h noi 48h neu thieu <5 bai.
