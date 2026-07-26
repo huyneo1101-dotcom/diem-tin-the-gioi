@@ -78,3 +78,21 @@ gu thay vi chi CNQS My + Uc/Bien Dong, toi da 3 vong doi nguon). claim exit 0 = 
 Giao 1 agent Sonnet quet nhe 2-4 tin trong 48h, chu de mo (CNQS/AUKUS/Bien Dong/hiep dinh an ninh-QP/
 kinh te vi mo dinh che/chinh tri the che), nhung nguon cuoi tuan (Guardian World, DVIDS, TWZ, Defense
 News, SCMP, Nikkei Asia, Al Jazeera, BBC World).
+
+KET QUA vong 1: agent tra 2 ung vien (Nhat-Philippines kich hoat ACSA 22/8 + may bay trinh sat Nga
+vi pham khong phan Nhat tren lanh tho phuong Bac). Doi chieu grep index.html: tin ACSA TRUNG 100% voi
+item da co san trong dipEvents (su kien AMM ASEAN Manila: "Nhat Ban - Philippines xac nhan ACSA co
+hieu luc tu 22/8 ben le AMM-59") -> LOAI. Tin may bay Nga: WebFetch link Japan Times tra 402 (paywall)
+nhung WebSearch xac nhan bai that (dung tieu de, dung ngay 25/07, khop CBS News dua cung tin voi
+chi tiet trung khop) -> GIU.
+Giao lai agent tim 1 tin thay the (vong 2): sau khi thu AUKUS Osborne (trung), Scarborough Shoal vong
+rong (trung chuoi tin da co), F-35 1.6B (trung), Golden Dome (trung), NDAA/war-powers vote (Quoc hoi
+da nghi hop, khong co ban moi trong 48h) -> KHONG tim duoc tin thu 2 sach. Dung dung chi thi "tha it
+tin sach con hon nhoi au" -> CHOT 1 tin.
+
+NAP: /tmp/new_items.json (1 tin worldNews, Chinh tri, Dong A) -> add_news.py OK: +1 tin The gioi.
+San cung ngay 2026-07-26: worldNews 1/15, usNews 0/15 (CHUA DAT - dung nhu ky vong cua phien TEST,
+KHONG giao them vong vi day la bai test ha tang, khong phai phien quet day du).
+state.py done web-scan "+1 tin (QUET TEST CI lan 2)" luc 11:52+07.
+KET LUAN: pipeline claim -> giao agent -> kiem tra chong trung (bat duoc 1 tin trung ma agent bo sot,
+guardrail add_news.py) -> nap -> done hoat dong dung thiet ke. Se commit index.html + logs, push.
