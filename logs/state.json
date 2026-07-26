@@ -19,13 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-07-25T10:12:37+07:00",
+    "lastRunAt": "2026-07-26T10:37:42+07:00",
     "lastSlot": "sang",
-    "lastStatus": "SKIP",
-    "note": "Mốc du phong 09:45 - phien 08:45 da hoan tat luc 10:09, khong lam lai",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran (RIMPAC SINKEX xuong cam tu), 0 su kien ngoai giao moi, bao cao tuan My-Trung-Nga 15 luan diem",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-07-25"
+      "sang": "2026-07-26"
     }
   }
 }

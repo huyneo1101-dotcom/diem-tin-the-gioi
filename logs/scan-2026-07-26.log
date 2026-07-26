@@ -1,0 +1,32 @@
+[2026-07-26 09:46 +07] event-scan (moc du phong 09:45) — SKIP
+Ly do: claim tra ve exit 11 — phien event-scan khac dang RUNNING (bat dau 2026-07-26T09:43:54+07:00, nhip tim 3' truoc).
+Khong chay chong len. Khong nap tin, khong lam bao cao tuan (phien dang chay se lo, hom nay Chu Nhat).
+Luu y: `git pull --rebase` bi chan boi unstaged logs/state.json (do phien dang chay ghi RUNNING) — khong commit ho file do.
+
+[2026-07-26 09:43 +07] event-scan (moc chinh 08:45, may mo tre) — START
+claim exit 0 = RUN. Hom nay CHU NHAT (date +%u = 7) -> co them Buoc 3 bao cao tuan.
+Trang thai truoc khi quet: exercises 10 cuoc (3 ongoing: Pitch Black 2026, Predator's Run 2026, RIMPAC 2026 — TAT CA da co background+concepts), dipEvents 12 su kien.
+
+BUOC 2 — 2 agent Sonnet chay song song:
+  - Agent ngoai giao (48h, 25-26/07): quet ~15 huong (hau AMM-59 Manila, Quad FMM, DRC-Rwanda JSCM, Han-My MASGA,
+    Iran-Iraq, Kosovo-Serbia, Guterres tham Syria, Mercosur-EU, Armenia-Azerbaijan, Trump-Tap, COC Philippines-TQ...).
+    KET QUA RONG: moi su kien co ky ket cu the deu (a) da co trong DATA khong co tien trien moi, hoac
+    (b) khong co van kien ky ket that (Guterres tham Syria 25/7 chi cam ket chung chung), hoac (c) ngoai khung 25-26/07.
+    25-26/07 roi vao Thu Bay - Chu Nhat, hoat dong ngoai giao chinh thuc co ky ket thua han. Khong bia de lap.
+  - Agent tap tran: +1 item cho "RIMPAC 2026 (Rim of the Pacific)" — Hai quan My lan dau dung xuong cam tu
+    khong nguoi lai kieu Ukraine trong SINKEX ban tau USS Peleliu (Naval News 25/07). URL da verify HTTP 200 bang curl.
+    Khong co newExercises sach trong khung 48h.
+
+BUOC 2b — BO QUA: khong co newExercises; ca 3 cuoc dang dien ra deu DA CO background + concepts (viet 25/07).
+
+BUOC 3 — BAO CAO TUAN (Chu Nhat): weekly_context.py -> /tmp/weekly_ctx.json (us=83, cn=29, ru=22 tin, tuan 20-26/07).
+Agent OPUS tong hop -> /tmp/weekly.json: 3 nuoc x 5 luan diem = 15 luan diem, 50 link noi dong markdown.
+Agent tu chay validate() cua add_weekly.py = PASS; tu kiem 100% URL trong lede/body/sources khop nguyen van
+tap url cua ngu lieu (0 URL bia, 0 link tran, khong live-blog).
+Luu y schema: add_weekly.py doi khoa `countries` (moi phan tu co key + name), KHONG phai `sections`/`title` — agent da sua theo script.
+add_weekly.py OK: ghi bao cao tuan 2026-07-20 -> 2026-07-26 (3 nuoc, 15 luan diem).
+
+NAP: add_news.py OK — +1 tin tap tran, +0 ngoai giao, +10 tin BI LOAI (mucBi loai), -50 muc cu qua 2 ngay. generatedAt=2026-07-26.
+(Canh bao san cung 15+15 worldNews/usNews la viec cua phien TOI, ngoai pham vi phien sang.)
+
+DONE — commit `Cap nhat su kien 26/07: +1 su kien/tap tran, bao cao tuan` -> email sang do notify-morning.yml lo.
