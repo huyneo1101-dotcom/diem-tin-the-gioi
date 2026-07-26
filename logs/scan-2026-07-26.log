@@ -56,3 +56,18 @@ giu nguyen thay doi do, KHONG commit ho file la.
 Phien TEST ha tang CI (mode=test, chi thi rieng) — muc tieu chung minh pipeline claim -> quet -> add_news
 -> commit -> push voi chi phi nho nhat, KHONG phai ra ban tin day du. claim exit 0 = RUN, da giu khoa.
 Se giao 1 agent Sonnet quet nhe 2-4 tin (CNQS My + Uc & Bien Dong), KHONG lam 5 chu de, KHONG vong bo sung.
+
+1 agent Sonnet quet CNQS My + Uc-Bien Dong (24-48h). Ket qua lan 1: 0 tin Uc/Bien Dong (deu trung/qua
+cu/khong fetch duoc), 1 tin CNQS (Hai quan My xuong cam tu SINKEX USS Peleliu RIMPAC) NHUNG phat hien
+TRUNG voi item da co san trong exercises RIMPAC 2026 (2026-07-25, cung noi dung USS Peleliu/USS Mobile
+Bay) -> loai, yeu cau agent tim lai tin khac. Lan 2: agent thu them Naval News/Defense News/Breaking
+Defense/Defense One/TWZ/C4ISRNet/Military Times/Air&Space Forces + WebSearch nhieu huong, moi ung vien
+deu roi vao 1 trong 3 nhom loai: trung tin da co (MUOS/SATCOM), qua khung 24-48h (CCA YFQ-44A, Dark
+Eagle, Golden Dome), hoac khong fetch duoc de xac minh (war.gov/globalsecurity.org 403). KET QUA CUOI:
+0 tin ca 2 muc — dung chi thi "tha JSON rong con hon tin an/trung", KHONG bia/ha chuan de co du so luong.
+
+KET THUC: khong co tin nao de nap -> add_news.py KHONG chay (khong co gi de them vao index.html).
+state.py skip web-scan (0 tin, ly do: khong tim duoc tin sach/khong trung trong pham vi test).
+Day la PHIEN TEST ha tang CI: da chung minh duoc claim + giao agent + kiem tra chong trung + review +
+quyet dinh dung dung khi khong du chat luong -> hoat dong dung nhu thiet ke, dan du khong co tin moi
+de commit ban tin lan nay.
