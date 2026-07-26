@@ -156,3 +156,16 @@ Loại trong quá trình review (trùng/nguồn yếu, KHÔNG đưa vào mục B
 - [Nội bộ Mỹ] Thượng viện chuẩn thuận thẩm phán liên bang Traynor, Pozos + phiếu uỷ ban với ứng viên lãnh đạo FEMA (8-4, 23/7) — là bỏ phiếu NHÂN SỰ, không phải thông qua dự luật → ngoài phạm vi siết
 - [Mali] Các bài về scoop WaPo (Gorka/nội bộ chia rẽ) và họp báo Ngoại trưởng Diop — cùng 2 sự kiện đã nạp, chỉ khác góc đưa tin
 - [Predator's Run 2026] Bắn thử Apache tại Townsville 17/7 — thuộc "Exercise Possum Guns", không liên quan Predator's Run; không có diễn biến mới nào trong khung 23-25/7 trên DVIDS/PACOM/defence.gov.au
+
+## 2026-07-26 (phiên tối 22:00 — ô `toi`, phiên đầy đủ 5 chủ đề)
+- [Nội bộ Mỹ] KHÔNG có ứng viên nào để loại — Hạ viện nghỉ họp từ 24/7 tới 31/8, Thượng viện gần như đóng cửa; các phiên điều trần/bỏ phiếu tìm được (war powers vote, NDAA vote, Senate Finance/Banking hearing) đều rơi vào 21-23/7, ngoài khung 48h hoặc đã ghi log phiên trước.
+- [Úc & Biển Đông] AUKUS Osborne 4,6 tỷ AUD — lại xuất hiện, vẫn trùng sự kiện "Australia đầu tư 3,2 tỷ USD tàu ngầm AUKUS" đã có trong DATA (xem cảnh báo BẪY 2 CLAUDE.md)
+- [Úc & Biển Đông] Vòi rồng Scarborough "lần 3" (Philstar/Inquirer, 24/7) — trùng sự kiện đã có "Tàu hải cảnh TQ phun vòi rồng tàu Philippines lần 3"
+- [Úc & Biển Đông] Diễn tập Nhật-Philippines-Mỹ kết thúc (Bloomberg/Japan Times/Korea Herald nhắc lại 26/7) — trùng tin đã có 25/7
+- [Úc & Biển Đông] Marcos phát biểu "Biển Đông là vùng biển hoà bình" nhân 10 năm PCA — trùng chủ đề với item PCA đã có trong dipEvents (23/7)
+- [Úc & Biển Đông] HMS Anson bảo trì tàu ngầm AUKUS tại Úc — sự kiện thực tế xảy ra tháng 2/2026, báo đăng lại nên quá cũ
+- [Úc & Biển Đông] Penny Wong phát biểu "aggression" Biển Đông, NZ-PNG Pukpuk Treaty — ngoài khung 48h (22-23/7 hoặc cũ hơn)
+- [Mali] Đụng độ Anéfis, phục kích đoàn xe Gao (Africa Corps/JNIM) — có ngày cụ thể 4-18/7, ngoài khung 48h
+- [Mali] Bloomberg "Mali Says It Awaits US Position" (25/7) + Heritage Times "Mali Rejects US Troop Deployment" (24/7) — cùng sự kiện họp báo Ngoại trưởng Diop 24/7 đã nạp, không phải diễn biến mới
+- [Mali] WaPo "Mali's government does not rule out US military intervention" (24/7) — WebFetch 403, không xác minh được nội dung
+- [Predator's Run 2026] Không tìm được diễn biến mới sau lễ khai mạc 21/7 (đã có trong DATA) — kiểm DVIDS/PACOM/Philippine Army/Carabaroo đều không có bài mới trong 48h; khuyến nghị kiểm lại gần ngày kết thúc dự kiến ~29/7
