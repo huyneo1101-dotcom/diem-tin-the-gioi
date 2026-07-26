@@ -220,7 +220,7 @@ async function main() {
   const info = await transporter.sendMail({
     from: `"Điểm Tin Thế Giới" <${EMAIL_USER}>`,
     to: EMAIL_TO,
-    subject: `📰 Điểm Tin Thế Giới — bản tin ${ddmm} (${items.length} tin nổi bật)`,
+    subject: `${process.env.SUBJECT_TAG || ''}📰 Điểm Tin Thế Giới — bản tin ${ddmm} (${items.length} tin nổi bật)`,
     text: `Điểm tin ${ddmm} — chi tiết đầy đủ trong file Word đính kèm.\n\n` +
       items.map(it => `• [${it._kind}${it.category ? ' · ' + it.category : ''}] ${it.title}\n  ${it.sourceName || ''} — ${it.sourceUrl || ''}`).join('\n') +
       buildGapsText(gaps) +

@@ -8,6 +8,11 @@ on:
     branches: [main]
     paths: ['index.html']
   workflow_dispatch:
+    inputs:
+      subject_tag:
+        description: 'Tiền tố gắn trước subject email (vd "[QUET TEST] ")'
+        required: false
+        default: ''
 
 jobs:
   email:
@@ -55,6 +60,7 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ vars.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com' }}
+          SUBJECT_TAG: ${{ inputs.subject_tag || '' }}
         run: |
           npm install nodemailer@6 --no-save
           node .github/scripts/send-email.js

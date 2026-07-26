@@ -13,6 +13,12 @@ on:
     - cron: '30 21 * * *'   # 04:30 VN hôm sau — bản tin SÁNG SỚM, mốc chính
     - cron: '30 22 * * *'   # 05:30 VN — sáng sớm, dự phòng
   workflow_dispatch:
+    inputs:
+      mode:
+        description: 'normal = bản tin thật đủ 5 chủ đề · test = quét ~3 tin, email gắn [QUET TEST]'
+        type: choice
+        options: [normal, test]
+        default: normal
 
 concurrency:
   group: claude-web-scan
@@ -66,12 +72,16 @@ jobs:
         if: steps.gate.outputs.run == 'true'
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: Quét bản tin tối
+      - name: Quét bản tin
         if: steps.gate.outputs.run == 'true'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          MODE: ${{ inputs.mode || 'normal' }}
         run: |
-          claude -p "$(cat .github/prompts/web-scan-ci.md)" \
+          PROMPT_FILE=.github/prompts/web-scan-ci.md
+          if [ "$MODE" = "test" ]; then PROMPT_FILE=.github/prompts/web-scan-test.md; fi
+          echo "MODE=$MODE PROMPT=$PROMPT_FILE"
+          claude -p "$(cat $PROMPT_FILE)" \
             --allowedTools "Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite" \
             --max-turns 500
 
@@ -79,13 +89,18 @@ jobs:
         if: steps.gate.outputs.run == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
+          MODE: ${{ inputs.mode || 'normal' }}
         run: |
           git pull --rebase origin main || true
           msg=$(git log -1 --format=%s)
           echo "HEAD: $msg"
           if echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
-            gh workflow run notify-email.yml
-            gh workflow run notify-push.yml || true
+            if [ "$MODE" = "test" ]; then
+              gh workflow run notify-email.yml -f subject_tag='[QUET TEST TU DONG] '
+            else
+              gh workflow run notify-email.yml
+              gh workflow run notify-push.yml || true
+            fi
           else
             echo "Không có commit bản tin mới — không kích email."
           fi
