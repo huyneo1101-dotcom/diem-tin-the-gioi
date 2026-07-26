@@ -3,12 +3,16 @@
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)
-Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 21:00** và **SÁNG SỚM 04:30**
+Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 21:00** và **SÁNG SỚM 04:00**
 (đêm VN = ngày làm việc Mỹ nên nhiều tin mới; cả 2 phiên đều gửi email). Mốc CHÍNH chạy trên **GitHub
-Actions** `claude-web-scan.yml` (giờ VN: tối 21:00/22:00, sáng sớm 04:30/05:30 — máy Mac tắt vẫn ra bản
-tin); scheduled task local `web-scan` là DỰ PHÒNG cho phiên TỐI (cron `30 21,22 * * *` giờ VN): CI không
-quét thì 30 phút sau local nhảy vào, CI đã xong/đang chạy thì local SKIP êm qua khoá `state.py`. Phiên
-sáng sớm KHÔNG có dự phòng local (máy ngủ). **Phiên sáng 10:15 kiểu cũ vẫn BỎ.** Mỗi phiên **CHỈ quét 5 chủ đề, mỗi chủ đề 5–10
+Actions** `claude-web-scan.yml` (giờ VN: tối 21:00/22:00, sáng sớm **04:00/05:00** — máy Mac tắt vẫn ra bản
+tin); scheduled task local `web-scan` là DỰ PHÒNG cho **CẢ HAI** phiên (cron `30 4,5,21,22 * * *` giờ VN):
+CI không quét thì 30 phút sau local nhảy vào, CI đã xong/đang chạy thì local SKIP êm qua khoá `state.py`.
+**Đổi 27/07/2026 (chỉ thị Huy):** mốc CI sáng dời 04:30 → **04:00** và phiên sáng sớm **CÓ dự phòng local
+04:30/05:30** — vì sáng 27/07 cron CI 04:30 không nổ (GitHub hay trễ/bỏ cron lúc tải cao) mà phiên sáng
+khi đó không có lưới local nên suýt mất trắng bản tin. Xen kẽ đầy đủ: **CI 04:00 → local 04:30 → CI 05:00
+→ local 05:30**. Local chỉ chạy khi máy đã thức: cần lịch `pmset repeat wakeorpoweron … 04:25`.
+**Phiên sáng 10:15 kiểu cũ vẫn BỎ.** Mỗi phiên **CHỈ quét 5 chủ đề, mỗi chủ đề 5–10
 bài, khung 24 GIỜ gần nhất — nới 48h nếu chủ đề đó thiếu (<5 bài):**
 1. **Nội bộ Mỹ (SIẾT)** — CHỈ điều trần Quốc hội/uỷ ban + kết quả bỏ phiếu thông qua dự luật; loại
    drama/đảng phái/horserace/nhân vật/nhập cư/tư pháp thuần. → `usNews`, cat `Chính trị`.
@@ -42,7 +46,7 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
 `/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc` với stub `require`/`console`.)
 
 ## ⚠️ HAI PHIÊN QUÉT + HAI EMAIL (chốt 24/07/2026)
-- **Bản tin (TỐI 21:00 + SÁNG SỚM 04:30)** — CI `claude-web-scan.yml` là mốc chính (tối 21:00/22:00, sáng sớm 04:30/05:30 VN), local `web-scan` dự phòng riêng phiên tối 21:30/22:30: 5 chủ đề (xem banner trên). Commit
+- **Bản tin (TỐI 21:00 + SÁNG SỚM 04:00)** — CI `claude-web-scan.yml` là mốc chính (tối 21:00/22:00, sáng sớm 04:00/05:00 VN), local `web-scan` dự phòng CẢ HAI phiên (04:30/05:30 + 21:30/22:30): 5 chủ đề (xem banner trên). Commit
   `Cap nhat ban tin ...` → `notify-email.yml` gửi **email tối** (tiêu đề điểm tin + .docx đính kèm).
 - **Phiên SÁNG** — CI `claude-event-scan.yml` 08:45/09:45 VN là mốc chính, local `event-scan-diem-tin` dự phòng 09:15/10:15 (SKILL ở
   `~/.claude/scheduled-tasks/event-scan-diem-tin/`): CHỈ quét **sự kiện ngoại giao có ký kết + cập nhật
@@ -499,7 +503,7 @@ coi phiên đã chết, phiên mới giành được khoá. Biết chắc phiên
 Routine chạy trong session mới (ephemeral) nên phải để lại dấu vết để chẩn đoán khi lỗi:
 - **Log bắt buộc mỗi lần chạy**: ghi vào `logs/scan-<NGÀY-VN>.log` (ngày theo `TZ='Asia/Ho_Chi_Minh' date +%F`) các mốc: START, kết quả từng agent/phần, chạy script, và DONE/SKIP/FAIL kèm lý do. **Luôn commit + push file log** kể cả khi quét thất bại (git không cần mạng ngoài nên push được ngay cả khi WebSearch/WebFetch bị chặn) — đây là cách duy nhất biết Routine fail ở đâu.
 - **Idempotent (chống chạy trùng)**: đầu mỗi lần chạy, `python3 scripts/state.py claim <pipeline>` (dùng `claim` để GIÀNH KHOÁ, không phải `check` — `check` chỉ hỏi, không chặn được phiên chạy chồng). exit 10 = buổi đó ĐÃ XONG · exit 11 = phiên khác đang chạy → cả hai: ghi log `SKIP`, push log, KẾT THÚC. exit 0 = quét bình thường, xong thì `state.py done <pipeline> "<tóm tắt>"` và commit `logs/state.json` kèm bản tin. **KHÔNG dùng `generatedAt` làm cờ** (xem mục trên).
-- **Retry cho tới khi xong (xen kẽ CI/local từ 26/07/2026)**: bản tin TỐI: CI 21:00 → local 21:30 → CI 22:00 → local 22:30 (local cron `30 21,22 * * *`); bản tin SÁNG SỚM (CI-only): 04:30 → 05:30; event-scan sáng: CI 08:45 → local 09:15 → CI 09:45 → local 10:15 (local cron `15 9,10 * * *`). Nhờ khoá idempotent `state.py`, mốc nào thấy DONE/RUNNING thì tự SKIP; phiên chết giữa chừng thì 30' sau heartbeat thối, mốc kế cướp khoá quét lại. Cron local là giờ LOCAL (Asia/Ho_Chi_Minh), **KHÔNG phải UTC**; cron CI là UTC.
+- **Retry cho tới khi xong (xen kẽ CI/local từ 26/07/2026)**: bản tin TỐI: CI 21:00 → local 21:30 → CI 22:00 → local 22:30 (local cron `30 21,22 * * *`); bản tin SÁNG SỚM (từ 27/07/2026 CÓ local dự phòng): CI 04:00 → local 04:30 → CI 05:00 → local 05:30; event-scan sáng: CI 08:45 → local 09:15 → CI 09:45 → local 10:15 (local cron `15 9,10 * * *`). Nhờ khoá idempotent `state.py`, mốc nào thấy DONE/RUNNING thì tự SKIP; phiên chết giữa chừng thì 30' sau heartbeat thối, mốc kế cướp khoá quét lại. Cron local là giờ LOCAL (Asia/Ho_Chi_Minh), **KHÔNG phải UTC**; cron CI là UTC.
 - **Cờ tách theo Ô `sang`/`toi`, không chỉ theo ngày.** Ô tự suy từ giờ VN lúc chạy (trước 14:00 = `sang`, từ 14:00 = `toi`), routine KHÔNG cần truyền gì thêm; chạy tay ngoài giờ thì ép bằng `--slot sang|toi`. Ý nghĩa của ô KHÁC nhau theo pipeline:
   - `drive-import` (Action 08:00 & 20:00) — đúng nghĩa 2 buổi/ngày: nếu so thuần theo ngày thì lô sáng DONE sẽ làm lô tối cùng ngày SKIP oan.
   - `web-scan` (1 phiên/ngày buổi tối) và `event-scan` (1 phiên/ngày buổi sáng) — ô còn lại KHÔNG phải "phiên thứ hai", nó là ô **CHẠY BÙ** khi máy ngủ. Ví dụ bản tin tối 24/07 không chạy được, mở máy 03:46 ngày 25 mới chạy bù → lần đó rơi vào ô `sang` nên KHÔNG chiếm ô `toi` của ngày 25, và bản tin tối 25 vẫn quét bình thường. **ĐỪNG "dọn cho gọn" thành mỗi pipeline một ô cố định** — làm vậy lần chạy bù sẽ ăn luôn suất của ngày mới, mất 1 bản tin.
@@ -585,7 +589,7 @@ khung 2 ngày bị đẩy sang `rejectedNews` thay vì làm hỏng cả lô), r�
 
   | taskId | cron | File SKILL.md | Việc |
   |---|---|---|---|
-  | `web-scan-diem-tin` | `30 21,22 * * *` (DỰ PHÒNG sau CI tối 21:00/22:00; phiên sáng sớm 04:30 là CI-only) | `~/.claude/scheduled-tasks/web-scan-diem-tin/` | Bản tin 5 chủ đề (tối + sáng sớm) |
+  | `web-scan-diem-tin` | `30 4,5,21,22 * * *` (DỰ PHÒNG sau CI: sáng 04:00/05:00, tối 21:00/22:00) | `~/.claude/scheduled-tasks/web-scan-diem-tin/` | Bản tin 5 chủ đề (tối + sáng sớm) |
   | `event-scan-diem-tin` | `15 9,10 * * *` (DỰ PHÒNG sau CI 08:45/09:45) | `~/.claude/scheduled-tasks/event-scan-diem-tin/` | Sự kiện ngoại giao + tập trận, CN thêm báo cáo tuần (phiên SÁNG) |
 
   Mốc CHÍNH từ 26/07/2026 là 2 workflow GitHub Actions `claude-web-scan.yml` + `claude-event-scan.yml` (chạy `claude -p` với prompt `.github/prompts/*-ci.md`, secret `CLAUDE_CODE_OAUTH_TOKEN`, máy Mac tắt vẫn chạy; xong tự kích notify-email/notify-morning/notify-push qua `gh workflow run`).

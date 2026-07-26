@@ -1,7 +1,8 @@
 name: Claude web-scan (bản tin tối + sáng sớm)
 
 # Quét bản tin trên máy GitHub — máy Mac tắt vẫn ra bản tin. 2 phiên/ngày cùng playbook
-# 5 chủ đề: TỐI (ô khoá `toi`) và SÁNG SỚM 04:30 (ô khoá `sang`, có email như bản tối).
+# 5 chủ đề: TỐI (ô khoá `toi`) và SÁNG SỚM 04:00 (ô khoá `sang`, có email như bản tối).
+# Từ 27/07/2026 phiên SÁNG SỚM CÓ dự phòng local: CI 04:00 -> local 04:30 -> CI 05:00 -> local 05:30.
 # Dùng chung khoá logs/state.json với bản local (scheduled task trên Mac):
 # bên nào claim trước thì bên kia tự SKIP, không quét chồng.
 # Thiếu secret CLAUDE_CODE_OAUTH_TOKEN thì workflow tự bỏ qua êm (local vẫn quét như cũ).
@@ -10,8 +11,8 @@ on:
   schedule:
     - cron: '0 14 * * *'    # 21:00 VN — bản tin TỐI, mốc chính
     - cron: '0 15 * * *'    # 22:00 VN — tối, dự phòng (idempotent tự SKIP nếu xong)
-    - cron: '30 21 * * *'   # 04:30 VN hôm sau — bản tin SÁNG SỚM, mốc chính
-    - cron: '30 22 * * *'   # 05:30 VN — sáng sớm, dự phòng
+    - cron: '0 21 * * *'    # 04:00 VN hôm sau — bản tin SÁNG SỚM, mốc chính (đổi 27/07: 04:30 -> 04:00)
+    - cron: '0 22 * * *'    # 05:00 VN — sáng sớm, dự phòng CI (sau mốc local 04:30)
   workflow_dispatch:
     inputs:
       mode:
