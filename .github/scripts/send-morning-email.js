@@ -112,7 +112,7 @@ function buildHtml(evs, weekly, ddmm) {
     <tr><td align="center">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e6eaf0;">
         <tr><td style="background:#0e4d4d;padding:22px 28px;">
-          <div style="font-size:20px;font-weight:700;color:#ffffff;">🌏 Bản tin sáng — Sự kiện & Báo cáo</div>
+          <div style="font-size:20px;font-weight:700;color:#ffffff;">🎖️ Sự kiện &amp; Tập trận</div>
           <div style="font-size:13px;color:#a9cccc;margin-top:4px;">${esc(ddmm)}${sub ? ' — ' + esc(sub) : ''}</div>
         </td></tr>
         ${sections}
@@ -154,8 +154,13 @@ async function main() {
   const info = await transporter.sendMail({
     from: `"Điểm Tin Thế Giới" <${EMAIL_USER}>`,
     to: EMAIL_TO,
-    subject: `🌏 Bản tin sáng ${ddmm} — ${subjBits.join(' + ')}`,
-    text: `Bản tin sáng ${ddmm}.\n\n` + textLines.join('\n') + `\n\nMở trang: ${WEB_URL}`,
+    // Tên email này ĐỔI 27/07/2026 (chỉ thị Huy): trước là "🌏 Bản tin sáng ..." — trùng chữ với
+    // bản tin 5 chủ đề phiên sáng sớm (`📰 Điểm Tin Thế Giới BUỔI SÁNG ...`, send-email.js) nên
+    // nhìn hộp thư không phân biệt được. Đây KHÔNG phải điểm tin: nội dung là sự kiện ngoại giao
+    // có ký kết + cập nhật tập trận (+ báo cáo tuần vào Chủ Nhật) → gọi thẳng tên nội dung, và
+    // dùng emoji khác hẳn (🎖️ vs 📰) để liếc là ra.
+    subject: `🎖️ Sự kiện & Tập trận ${ddmm} — ${subjBits.join(' + ')}`,
+    text: `Sự kiện & Tập trận ${ddmm}.\n\n` + textLines.join('\n') + `\n\nMở trang: ${WEB_URL}`,
     html: buildHtml(evs, weekly, ddmm),
   });
   console.log(`Đã gửi email sáng tới ${EMAIL_TO}: ${info.messageId} (${evs.length} sự kiện, báo cáo tuần: ${weekly ? 'có' : 'không'})`);
