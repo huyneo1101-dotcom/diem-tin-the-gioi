@@ -3,8 +3,10 @@
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)
-Bản tin giờ **CHỈ chạy 1 lần/ngày, buổi TỐI 22:00** (dự phòng 23:00; scheduled task local `web-scan`,
-cron `0 22,23 * * *` giờ VN). **BỎ HẲN phiên sáng.** Mỗi phiên **CHỈ quét 5 chủ đề, mỗi chủ đề 5–10
+Bản tin giờ **CHỈ chạy 1 lần/ngày, buổi TỐI 22:00**. Từ 26/07/2026 mốc CHÍNH chạy trên **GitHub Actions**
+(`claude-web-scan.yml`, cron UTC = 22:00/23:00 VN — máy Mac tắt vẫn ra bản tin); scheduled task local
+`web-scan` lùi thành DỰ PHÒNG xen kẽ (cron `30 22,23 * * *` giờ VN): CI không quét thì 30 phút sau local
+nhảy vào, CI đã xong/đang chạy thì local SKIP êm qua khoá `state.py`. **BỎ HẲN phiên sáng.** Mỗi phiên **CHỈ quét 5 chủ đề, mỗi chủ đề 5–10
 bài, khung 24 GIỜ gần nhất — nới 48h nếu chủ đề đó thiếu (<5 bài):**
 1. **Nội bộ Mỹ (SIẾT)** — CHỈ điều trần Quốc hội/uỷ ban + kết quả bỏ phiếu thông qua dự luật; loại
    drama/đảng phái/horserace/nhân vật/nhập cư/tư pháp thuần. → `usNews`, cat `Chính trị`.
@@ -38,9 +40,9 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
 `/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc` với stub `require`/`console`.)
 
 ## ⚠️ HAI PHIÊN QUÉT + HAI EMAIL (chốt 24/07/2026)
-- **Phiên TỐI** — scheduled task local `web-scan` (22:00): bản tin 5 chủ đề (xem banner trên). Commit
+- **Phiên TỐI** — CI `claude-web-scan.yml` 22:00/23:00 VN là mốc chính, local `web-scan` dự phòng 22:30/23:30: bản tin 5 chủ đề (xem banner trên). Commit
   `Cap nhat ban tin ...` → `notify-email.yml` gửi **email tối** (tiêu đề điểm tin + .docx đính kèm).
-- **Phiên SÁNG** — scheduled task local `event-scan-diem-tin` (~08:45, dự phòng 09:45 — sau khi Huy tới văn phòng 8:30 mở máy; SKILL ở
+- **Phiên SÁNG** — CI `claude-event-scan.yml` 08:45/09:45 VN là mốc chính, local `event-scan-diem-tin` dự phòng 09:15/10:15 (SKILL ở
   `~/.claude/scheduled-tasks/event-scan-diem-tin/`): CHỈ quét **sự kiện ngoại giao có ký kết + cập nhật
   tập trận + tin liên quan**. **Chủ nhật** chạy thêm **agent OPUS** viết **báo cáo tuần Mỹ-Trung-Nga**
   (`weekly_context.py` → agent Opus → `add_weekly.py` ghi `DATA.weeklyReport`). Idempotent: `state.py …
@@ -495,7 +497,7 @@ coi phiên đã chết, phiên mới giành được khoá. Biết chắc phiên
 Routine chạy trong session mới (ephemeral) nên phải để lại dấu vết để chẩn đoán khi lỗi:
 - **Log bắt buộc mỗi lần chạy**: ghi vào `logs/scan-<NGÀY-VN>.log` (ngày theo `TZ='Asia/Ho_Chi_Minh' date +%F`) các mốc: START, kết quả từng agent/phần, chạy script, và DONE/SKIP/FAIL kèm lý do. **Luôn commit + push file log** kể cả khi quét thất bại (git không cần mạng ngoài nên push được ngay cả khi WebSearch/WebFetch bị chặn) — đây là cách duy nhất biết Routine fail ở đâu.
 - **Idempotent (chống chạy trùng)**: đầu mỗi lần chạy, `python3 scripts/state.py claim <pipeline>` (dùng `claim` để GIÀNH KHOÁ, không phải `check` — `check` chỉ hỏi, không chặn được phiên chạy chồng). exit 10 = buổi đó ĐÃ XONG · exit 11 = phiên khác đang chạy → cả hai: ghi log `SKIP`, push log, KẾT THÚC. exit 0 = quét bình thường, xong thì `state.py done <pipeline> "<tóm tắt>"` và commit `logs/state.json` kèm bản tin. **KHÔNG dùng `generatedAt` làm cờ** (xem mục trên).
-- **Retry cho tới khi xong**: mỗi pipeline có 1 mốc chính + 1 mốc dự phòng cách 1 giờ, giờ LOCAL (Asia/Ho_Chi_Minh), **KHÔNG phải UTC**: `web-scan` cron `0 22,23 * * *` · `event-scan` cron `45 8,9 * * *`. Nhờ bước idempotent, khi mốc chính đã DONE thì mốc dự phòng tự no-op; chỉ khi phiên chính chết (session limit, mạng, máy ngủ) thì mốc sau mới quét lại. **1 bản tin/ngày** (phiên sáng của bản tin đã bỏ từ 23/07/2026), mốc dự phòng chỉ là lưới an toàn. (Scheduler tối thiểu 1 giờ/lần — không đặt 15 phút được.)
+- **Retry cho tới khi xong (4 lớp xen kẽ CI/local từ 26/07/2026)**: mỗi pipeline có 2 mốc CI (GitHub Actions, cron UTC) + 2 mốc local (giờ VN) cách nhau 30 phút — tối: CI 22:00 → local 22:30 → CI 23:00 → local 23:30 (`30 22,23 * * *`); sáng: CI 08:45 → local 09:15 → CI 09:45 → local 10:15 (`15 9,10 * * *`). Nhờ khoá idempotent `state.py`, mốc nào thấy DONE/RUNNING thì tự SKIP; phiên chết giữa chừng thì 30' sau heartbeat thối, mốc kế cướp khoá quét lại. Cron local là giờ LOCAL (Asia/Ho_Chi_Minh), **KHÔNG phải UTC**; cron CI là UTC.
 - **Cờ tách theo Ô `sang`/`toi`, không chỉ theo ngày.** Ô tự suy từ giờ VN lúc chạy (trước 14:00 = `sang`, từ 14:00 = `toi`), routine KHÔNG cần truyền gì thêm; chạy tay ngoài giờ thì ép bằng `--slot sang|toi`. Ý nghĩa của ô KHÁC nhau theo pipeline:
   - `drive-import` (Action 08:00 & 20:00) — đúng nghĩa 2 buổi/ngày: nếu so thuần theo ngày thì lô sáng DONE sẽ làm lô tối cùng ngày SKIP oan.
   - `web-scan` (1 phiên/ngày buổi tối) và `event-scan` (1 phiên/ngày buổi sáng) — ô còn lại KHÔNG phải "phiên thứ hai", nó là ô **CHẠY BÙ** khi máy ngủ. Ví dụ bản tin tối 24/07 không chạy được, mở máy 03:46 ngày 25 mới chạy bù → lần đó rơi vào ô `sang` nên KHÔNG chiếm ô `toi` của ngày 25, và bản tin tối 25 vẫn quét bình thường. **ĐỪNG "dọn cho gọn" thành mỗi pipeline một ô cố định** — làm vậy lần chạy bù sẽ ăn luôn suất của ngày mới, mất 1 bản tin.
@@ -581,12 +583,14 @@ khung 2 ngày bị đẩy sang `rejectedNews` thay vì làm hỏng cả lô), r�
 
   | taskId | cron | File SKILL.md | Việc |
   |---|---|---|---|
-  | `web-scan-diem-tin` | `0 22,23 * * *` | `~/.claude/scheduled-tasks/web-scan-diem-tin/` | Bản tin 5 chủ đề (phiên TỐI) |
-  | `event-scan-diem-tin` | `45 8,9 * * *` | `~/.claude/scheduled-tasks/event-scan-diem-tin/` | Sự kiện ngoại giao + tập trận, CN thêm báo cáo tuần (phiên SÁNG) |
+  | `web-scan-diem-tin` | `30 22,23 * * *` (DỰ PHÒNG sau CI 22:00/23:00) | `~/.claude/scheduled-tasks/web-scan-diem-tin/` | Bản tin 5 chủ đề (phiên TỐI) |
+  | `event-scan-diem-tin` | `15 9,10 * * *` (DỰ PHÒNG sau CI 08:45/09:45) | `~/.claude/scheduled-tasks/event-scan-diem-tin/` | Sự kiện ngoại giao + tập trận, CN thêm báo cáo tuần (phiên SÁNG) |
+
+  Mốc CHÍNH từ 26/07/2026 là 2 workflow GitHub Actions `claude-web-scan.yml` + `claude-event-scan.yml` (chạy `claude -p` với prompt `.github/prompts/*-ci.md`, secret `CLAUDE_CODE_OAUTH_TOKEN`, máy Mac tắt vẫn chạy; xong tự kích notify-email/notify-morning/notify-push qua `gh workflow run`).
 
   Mỗi lần fire tạo session mới, tự đọc SKILL.md để lấy quy tắc, có log + khoá idempotent (`state.py claim <pipeline>`) + mốc dự phòng.
 - **Routine phải viết lệnh bằng ĐƯỜNG DẪN TUYỆT ĐỐI** (chốt 25/07/2026): `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/<x>.py` và `git -C /Users/Huy/Claude/diem-tin-the-gioi ...`. **TUYỆT ĐỐI KHÔNG `cd repo && ...`** — harness bật prompt xin quyền riêng cho `cd` ("can execute untrusted hooks from the target directory"), routine chạy lúc Huy không có mặt sẽ treo giữa đường chờ bấm nút. Các script đều tự tìm repo root từ `__file__` nên không cần đứng trong repo. Allowlist ở `/Users/Huy/Claude/.claude/settings.local.json` phải là **pattern** (`Bash(git -C /path *)`, `Bash(python3 /path/scripts/*)`), không phải câu lệnh literal do bấm "Always allow" — literal chỉ khớp đúng một chuỗi, đổi một chữ là hỏi lại. **VÀ mọi lệnh Bash phải PHẲNG — không wrapper, không biến, không vòng lặp (25–26/07/2026, treo 3 lần):** hễ lệnh chứa hàm/brace (`cd() { echo "cd disabled"; };` — flag "expansion obfuscation"), biến shell/`$(...)` (`$NGAY`, `$f` — flag "simple_expansion"), `for ... done` hay heredoc là harness BỎ QUA allowlist và vẫn bật prompt, dù lệnh bên trong hợp lệ (vụ 26/07: `for f in ...; do grep .../$f.jsonl; done` treo, trong khi 2 dòng `grep <path đầy đủ>` viết rời thì khớp `Bash(grep *)` chạy thẳng). Chỉ dùng lệnh đơn / pipe / chuỗi `&&`, đối số điền giá trị thật: ngày giờ chạy `date` riêng rồi điền literal; lặp nhiều file → viết N lệnh rời hoặc gói vào `python3 -c`. "Không dùng cd" = đừng gọi `cd`, không phải vô hiệu hoá nó.
-- **HẠN CHẾ phải biết**: scheduled task local **chỉ chạy khi app Claude đang mở**; app đóng lúc tới giờ thì nó chạy bù ở lần mở kế tiếp. Không còn routine server-side nào dự phòng (routine cũ trên claude.ai đã mất khi đổi máy). Máy ngủ lúc 22:00 → bản tin tối trễ tới lúc mở máy (có hôm ra lò 03:46 sáng), KHÔNG phải lỗi code — kiểm tra `state.py show` trước khi đi truy bug.
+- **HẠN CHẾ phải biết**: scheduled task local **chỉ chạy khi app Claude đang mở**; app đóng lúc tới giờ thì nó chạy bù ở lần mở kế tiếp. Từ 26/07/2026 điều này ĐỠ nghiêm trọng vì mốc chính đã là GitHub Actions (chạy không cần máy) — máy tắt thì CI vẫn ra bản tin; local chỉ là lưới cuối khi CI trễ/chết/hết quota. Bản tin ra trễ bất thường → kiểm tra `state.py show` + `gh run list` trước khi đi truy bug.
 - **Nhiều nơi cùng push vào `main`** (3 Action + routine quét). Cả 3 workflow đã có `pull --rebase` + retry 5 lần khi push bị từ chối; routine quét nếu push fail thì cũng `git pull --rebase origin main` rồi push lại.
 - Việc quét thực tế (WebSearch/WebFetch/RSS) được giao cho các subagent chạy **model Sonnet** theo kiến trúc ở trên — session điều phối review + gộp kết quả, chạy script, commit/push. KHÔNG đọc `index.html` (172KB) trực tiếp — dùng `scripts/add_news.py`.
 - **Bài học lần quét đầu 10/07/2026** (đã xử lý): tỷ lệ loại tin cao do (1) Haiku yếu → đã đổi Sonnet; (2) agent thiếu danh sách chống trùng đầy đủ chéo mục → đã bắt buộc nhúng nguyên khối `--recent-titles` cho mọi agent; (3) không có kiểm tra máy → đã thêm guardrail trong script; (4) WebFetch lỗi 403 hệ thống nên không tự verify link được — nếu sau này WebFetch ổn định, có thể thêm 1 pass verify `sourceUrl` bằng WebFetch trước khi publish (tùy chọn, tốn token).
