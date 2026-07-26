@@ -120,3 +120,10 @@ Da patch _addedDate cua 4 tin lo A tu 2026-07-25 sang 2026-07-26 (khop generated
 tranh BAY 1 lam file Word mat tin. Kiem index.html van parse JSON hop le sau patch.
 Ghi logs/loai-tin.md (muc 2026-07-26 phien toi) + logs/scan-gaps.json (date khop generatedAt=2026-07-26,
 du 5 chu de, tat ca deu "thieu":true kem ly do that).
+
+[2026-07-26 15:29Z / 22:29+07] DONE
+state.py done web-scan "+6 tin (5 chu de: Uc-BienDong 1, CNQS My 4, Mali 1, NoiboMy 0, Predator 0)".
+Commit "Cap nhat ban tin 26/07: +6 tin (5 chu de)" kem index.html + logs/. Day la ket qua that su sau
+2 vong agent (chinh + bo sung) — Quoc hoi My nghi hop lam Noi bo My = 0, Predator's Run khong co dien
+bien moi = 0, Uc-BienDong va Mali deu duoi san toi thieu du da noi 48h + thu nhieu goc. Khong bia/ha
+chuan de lap. push origin main.
