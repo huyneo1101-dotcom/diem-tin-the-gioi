@@ -56,11 +56,14 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 - **KHÔNG tự sửa `index.html` bằng tay** — chèn tin qua script.
 
 ## Bước 0 — Log SỚM + idempotent (QUAN TRỌNG — push log NGAY để luôn có dấu vết)
-⚠️ **LỆNH NGUYÊN DẠNG — KHÔNG WRAPPER, KHÔNG BIẾN SHELL** (sự cố 25/07/2026: phiên tối thêm prefix
-`cd() { echo "cd disabled"; };` trước lệnh git → harness coi chuỗi `{`+`"` là "expansion obfuscation",
-BỎ QUA allowlist, bật prompt xin quyền, routine treo chờ bấm nút). "Không dùng cd" = ĐỪNG GỌI `cd`,
-KHÔNG phải vô hiệu hoá nó. Lấy ngày/giờ bằng 2 lệnh riêng `TZ='Asia/Ho_Chi_Minh' date +%F` và
-`date -u +%H:%MZ`, rồi ĐIỀN GIÁ TRỊ THẬT vào các lệnh sau (không dùng `$NGAY`/`$T` trong lệnh git).
+⚠️ **MỌI LỆNH BASH PHẢI PHẲNG — không wrapper, không biến, không vòng lặp** (25–26/07/2026 treo 3 lần:
+prefix `cd() { echo "cd disabled"; };` → flag "expansion obfuscation"; biến `$f` trong
+`for f in ...; do grep .../$f.jsonl; done` → flag "simple_expansion" — harness gặp các cú pháp đó là
+BỎ QUA allowlist, bật prompt xin quyền, routine treo chờ bấm nút dù lệnh bên trong hợp lệ).
+Chỉ dùng lệnh đơn / pipe / chuỗi `&&`; "không dùng cd" = ĐỪNG GỌI `cd`, KHÔNG phải vô hiệu hoá nó.
+Lấy ngày/giờ bằng 2 lệnh riêng `TZ='Asia/Ho_Chi_Minh' date +%F` và `date -u +%H:%MZ`, rồi ĐIỀN GIÁ
+TRỊ THẬT vào các lệnh sau (không dùng `$NGAY`/`$T`). Cần lặp nhiều file → viết N lệnh rời hoặc gói
+vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc.
 - Ghi `[<giờ>Z] START` vào `logs/scan-<ngày VN>.log` (tool Write/Edit) rồi **commit + push NGAY LẬP TỨC**:
   `git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/ && git -C /Users/Huy/Claude/diem-tin-the-gioi commit -q -m "log: start <ngày> <giờ>Z phien toi" && git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main -q`
   (Session tự động là ephemeral — chết giữa lúc quét mà chưa push thì mất sạch dấu vết.)
