@@ -67,9 +67,9 @@ jobs:
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
-          claude -p "$(cat .github/prompts/event-scan-ci.md)" \
-            --allowedTools "Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite" \
-            --max-turns 300
+          TOOLS="Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(sleep *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite"
+          claude -p "$(cat .github/prompts/event-scan-ci.md)" --allowedTools "$TOOLS" --max-turns 300 \
+            || { echo "claude -p lỗi (mạng/server?) — retry sau 60s"; sleep 60; claude -p "$(cat .github/prompts/event-scan-ci.md)" --allowedTools "$TOOLS" --max-turns 300; }
 
       - name: Kích email sáng nếu có sự kiện/báo cáo tuần mới
         if: steps.gate.outputs.run == 'true'

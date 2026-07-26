@@ -81,9 +81,9 @@ jobs:
           PROMPT_FILE=.github/prompts/web-scan-ci.md
           if [ "$MODE" = "test" ]; then PROMPT_FILE=.github/prompts/web-scan-test.md; fi
           echo "MODE=$MODE PROMPT=$PROMPT_FILE"
-          claude -p "$(cat $PROMPT_FILE)" \
-            --allowedTools "Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite" \
-            --max-turns 500
+          TOOLS="Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(sleep *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite"
+          claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 500 \
+            || { echo "claude -p lỗi (mạng/server?) — retry sau 60s"; sleep 60; claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 500; }
 
       - name: Kích email + push notification nếu có bản tin mới
         if: steps.gate.outputs.run == 'true'
