@@ -144,7 +144,7 @@ function buildGapsText(gaps) {
   return lines.join('\n') + '\n';
 }
 
-function buildHtml(DATA, items, gaps) {
+function buildHtml(DATA, items, gaps, buoi) {
   const p = (DATA.generatedAt || '').split('-');
   const ddmm = p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : (DATA.generatedAt || '');
   // Chỉ TIÊU ĐỀ (điểm tin nhanh) — KHÔNG tóm tắt; chi tiết đầy đủ nằm trong file Word đính kèm.
@@ -161,8 +161,8 @@ function buildHtml(DATA, items, gaps) {
     <tr><td align="center">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e6eaf0;">
         <tr><td style="background:#12233b;padding:22px 28px;">
-          <div style="font-size:20px;font-weight:700;color:#ffffff;">📰 Điểm Tin Thế Giới</div>
-          <div style="font-size:13px;color:#aebbcf;margin-top:4px;">Điểm tin ${esc(ddmm)} — chi tiết đầy đủ trong file Word đính kèm</div>
+          <div style="font-size:20px;font-weight:700;color:#ffffff;">📰 Điểm Tin Thế Giới${buoi ? ' — ' + esc(buoi) : ''}</div>
+          <div style="font-size:13px;color:#aebbcf;margin-top:4px;">Bản tin ${esc(ddmm)}${buoi ? ' · ' + esc(buoi.toLowerCase()) : ''} — chi tiết đầy đủ trong file Word đính kèm</div>
         </td></tr>
         <tr><td style="padding:8px 28px 4px;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rows}</table>
@@ -192,16 +192,28 @@ async function main() {
   if (!items.length) { console.log('Không có tin để gửi — bỏ qua.'); return; }
   const gaps = readGaps(DATA);
 
+  const p = (DATA.generatedAt || '').split('-');
+  const ddmm = p.length === 3 ? `${p[2]}/${p[1]}` : (DATA.generatedAt || '');
+
+  // BUỔI của bản tin — phải ghi RÕ trong subject (chỉ thị Huy 27/07/2026: nhìn tiêu đề là biết
+  // ngay bản sáng hay bản tối, không phải mở ra đoán). Suy theo giờ VN lúc Action chạy, giống
+  // quy ước ô khoá của scripts/state.py: trước 14:00 = phiên SÁNG SỚM (fire 04:00-05:30),
+  // từ 14:00 = phiên TỐI (fire 21:00-22:30). Action notify-email chạy ngay sau commit bản tin
+  // nên giờ chạy ≈ giờ quét. PHẢI tính TRƯỚC nhánh DRY_RUN để bản xem trước hiện đúng buổi.
+  const hourVN = Number(new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Ho_Chi_Minh', hour: '2-digit', hour12: false,
+  }).format(new Date()));
+  const buoi = hourVN < 14 ? 'BUỔI SÁNG' : 'BUỔI TỐI';
+
   // DRY_RUN=1: in ra nội dung email rồi dừng, KHÔNG gửi. Dùng để kiểm mắt trước khi push.
   if (dryRun) {
+    console.log(`SUBJECT: 📰 Điểm Tin Thế Giới ${buoi} ${ddmm} (${items.length} tin)`);
     console.log(buildGapsText(gaps) || '(không có mục "Chủ đề thiếu và lý do")');
-    fs.writeFileSync('/tmp/email-preview.html', buildHtml(DATA, items, gaps));
+    fs.writeFileSync('/tmp/email-preview.html', buildHtml(DATA, items, gaps, buoi));
     console.log(`${items.length} tin nổi bật · HTML xem tại /tmp/email-preview.html · DRY_RUN nên KHÔNG gửi email.`);
     return;
   }
 
-  const p = (DATA.generatedAt || '').split('-');
-  const ddmm = p.length === 3 ? `${p[2]}/${p[1]}` : (DATA.generatedAt || '');
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com', port: 465, secure: true,
     auth: { user: EMAIL_USER, pass: EMAIL_PASS },
@@ -211,7 +223,9 @@ async function main() {
   const attachments = [];
   const docxPath = process.env.DOCX_PATH;
   if (docxPath && fs.existsSync(docxPath)) {
-    attachments.push({ filename: `Diem-tin-ngay-${(DATA.generatedAt || '').replace(/\//g, '-')}.docx`, path: docxPath });
+    // Tên file kèm buổi: hai bản tin cùng ngày (sáng + tối) không còn trùng tên khi lưu máy.
+    const buoiFile = hourVN < 14 ? 'sang' : 'toi';
+    attachments.push({ filename: `Diem-tin-${(DATA.generatedAt || '').replace(/\//g, '-')}-${buoiFile}.docx`, path: docxPath });
     console.log('Đính kèm docx:', docxPath);
   } else {
     console.log('Không có file docx để đính kèm (DOCX_PATH rỗng hoặc file không tồn tại).');
@@ -220,12 +234,12 @@ async function main() {
   const info = await transporter.sendMail({
     from: `"Điểm Tin Thế Giới" <${EMAIL_USER}>`,
     to: EMAIL_TO,
-    subject: `${process.env.SUBJECT_TAG || ''}📰 Điểm Tin Thế Giới — bản tin ${ddmm} (${items.length} tin nổi bật)`,
-    text: `Điểm tin ${ddmm} — chi tiết đầy đủ trong file Word đính kèm.\n\n` +
+    subject: `${process.env.SUBJECT_TAG || ''}📰 Điểm Tin Thế Giới ${buoi} ${ddmm} (${items.length} tin)`,
+    text: `Điểm Tin Thế Giới ${buoi.toLowerCase()} ${ddmm} — chi tiết đầy đủ trong file Word đính kèm.\n\n` +
       items.map(it => `• [${it._kind}${it.category ? ' · ' + it.category : ''}] ${it.title}\n  ${it.sourceName || ''} — ${it.sourceUrl || ''}`).join('\n') +
       buildGapsText(gaps) +
       `\nĐọc toàn bộ: ${WEB_URL}`,
-    html: buildHtml(DATA, items, gaps),
+    html: buildHtml(DATA, items, gaps, buoi),
     attachments,
   });
   console.log(`Đã gửi email tới ${EMAIL_TO}: ${info.messageId} (${items.length} tin, ${attachments.length} đính kèm)`);
