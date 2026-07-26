@@ -71,3 +71,10 @@ state.py skip web-scan (0 tin, ly do: khong tim duoc tin sach/khong trung trong 
 Day la PHIEN TEST ha tang CI: da chung minh duoc claim + giao agent + kiem tra chong trung + review +
 quyet dinh dung dung khi khong du chat luong -> hoat dong dung nhu thiet ke, dan du khong co tin moi
 de commit ban tin lan nay.
+
+[2026-07-26 04:37 +07(UTC)/11:37+07] web-scan (CI TEST 2) — START
+Phien TEST ha tang CI lan 2, sau khi CLAUDE.md duoc noi rong pham vi test (khung 48h, moi chu de hop
+gu thay vi chi CNQS My + Uc/Bien Dong, toi da 3 vong doi nguon). claim exit 0 = RUN, da giu khoa.
+Giao 1 agent Sonnet quet nhe 2-4 tin trong 48h, chu de mo (CNQS/AUKUS/Bien Dong/hiep dinh an ninh-QP/
+kinh te vi mo dinh che/chinh tri the che), nhung nguon cuoi tuan (Guardian World, DVIDS, TWZ, Defense
+News, SCMP, Nikkei Asia, Al Jazeera, BBC World).

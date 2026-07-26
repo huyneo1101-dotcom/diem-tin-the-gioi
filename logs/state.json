@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-26T11:33:53+07:00",
+    "lastRunAt": "2026-07-26T11:37:40+07:00",
     "lastSlot": "sang",
-    "lastStatus": "SKIP",
-    "note": "0 tin (QUET TEST CI - khong tim duoc tin sach/khong trung)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-25",
       "sang": "2026-07-25"
-    }
+    },
+    "heartbeat": "2026-07-26T11:37:40+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-07-26T10:37:42+07:00",
