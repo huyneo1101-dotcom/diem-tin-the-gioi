@@ -38,3 +38,16 @@ claim tra ve exit 10 — event-scan hom nay (2026-07-26) DA XONG, lan chay cuoi 
 [2026-07-26 10:49 +07] event-scan — SKIP
 claim tra ve exit 10 lan nua (event-scan 2026-07-26 DA XONG luc 10:37:42+07:00). Khong quet lai,
 khong lam bao cao tuan (da dang sang nay). Ket thuc ngay: khong Monitor, khong cho phien khac.
+
+[2026-07-26 11:06 +07] web-scan (moc du phong 22:30/23:30 toi 25/07, may ngu -> fire bu sang 26/07) — SKIP
+KHONG goi claim (co y): gio VN 11:06 roi vao o `sang` = o CHAY BU, ma state.py show cho thay
+web-scan [phien toi] = 2026-07-25 DONE luc 2026-07-25T22:41:50+07:00 (+15 tin: Uc-BienDong 4,
+CNQS My 8, Mali 1, BaoMoi 2, NoiboMy 0, Predator 0). Ban tin toi qua DA RA -> khong can chay bu.
+Neu claim thi no se tra RUN (o `sang` con trong) va phien nay se dang them 1 ban tin luc 11h sang,
+sai chi thi "1 ban tin/ngay, buoi TOI" va lam khung quet toi nay chi con ~12h. Vi vay dung han.
+Khong goi state.py skip de KHONG ghi de lastStatus=DONE + note cua phien toi 25/07 (chi la ban ghi
+chan doan; lastSuccess moi la co that su, va SKIP/FAIL khong dong o nao ca).
+Ban tin 26/07 se do CI claude-web-scan.yml 22:00 (chinh) / local 22:30 (du phong) lo.
+Luu y: `git pull --rebase` luc dau bi chan boi unstaged CLAUDE.md (ban va tay 26/07 ve viec chuyen
+moc chinh sang GitHub Actions, chua commit) -> da stash + pull (already up to date) + stash pop,
+giu nguyen thay doi do, KHONG commit ho file la.
