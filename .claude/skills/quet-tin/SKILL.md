@@ -83,6 +83,13 @@ vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc
   ```
   python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim web-scan
   ```
+  ⚠️ **PUSH `logs/state.json` NGAY SAU KHI CLAIM, TRƯỚC khi làm baseline** (sự cố 26/07/2026): khoá đồng
+  bộ QUA GIT — phiên nào chưa push khoá thì phiên kia pull về vẫn thấy "không ai giữ khoá" và claim tiếp.
+  Local claim 21:41 mà để dành push → CI pull 22:09 không thấy khoá → hai phiên cùng quét, local mất
+  trắng công baseline. Và **trước khi chạy `add_news.py` phải `pull --rebase` + đọc lại `logs/state.json`**:
+  thấy `lastRunAt`/`heartbeat` của phiên khác mới hơn mình = đã bị cướp khoá → DỪNG, ghi log SKIP,
+  **KHÔNG gọi `state.py skip/fail`** (ghi đè RUNNING + nhả khoá của phiên đang chạy), `reset --hard
+  origin/main` rồi commit riêng dòng log.
   `SKIP` (exit 10) → buổi này đã quét xong · `SKIP` (exit 11) → **có phiên khác đang chạy**, không quét
   chồng. Cả hai: ghi log `SKIP`, push log, KẾT THÚC. `RUN` (exit 0) → đã giữ khoá, quét tiếp.
   Cờ theo BUỔI: giờ chỉ còn buổi TỐI (`toi`, từ 14:00 VN) — mốc chính 22:00, dự phòng 23:00 tự no-op
