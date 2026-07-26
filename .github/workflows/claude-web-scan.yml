@@ -1,0 +1,88 @@
+name: Claude web-scan (bản tin tối)
+
+# Quét bản tin TỐI trên máy GitHub — máy Mac tắt vẫn ra bản tin.
+# Dùng chung khoá logs/state.json với bản local (scheduled task trên Mac):
+# bên nào claim trước thì bên kia tự SKIP, không quét chồng.
+# Thiếu secret CLAUDE_CODE_OAUTH_TOKEN thì workflow tự bỏ qua êm (local vẫn quét như cũ).
+
+on:
+  schedule:
+    - cron: '0 15 * * *'   # 22:00 VN — mốc chính
+    - cron: '0 16 * * *'   # 23:00 VN — dự phòng, idempotent tự SKIP nếu đã xong
+  workflow_dispatch:
+
+concurrency:
+  group: claude-web-scan
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write   # để kích notify-email/notify-push sau khi push bản tin
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Kiểm tra secret
+        id: gate
+        env:
+          TOK: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$TOK" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Chưa có secret CLAUDE_CODE_OAUTH_TOKEN — bỏ qua (bản local trên Mac vẫn quét như cũ)."
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v7
+        if: steps.gate.outputs.run == 'true'
+        with:
+          fetch-depth: 0
+
+      - name: Git identity
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name "claude-scan-ci"
+          git config user.email "noreply@anthropic.com"
+
+      - name: Setup Node
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Setup Python
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Cài Claude Code
+        if: steps.gate.outputs.run == 'true'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Quét bản tin tối
+        if: steps.gate.outputs.run == 'true'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          claude -p "$(cat .github/prompts/web-scan-ci.md)" \
+            --allowedTools "Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite" \
+            --max-turns 500
+
+      - name: Kích email + push notification nếu có bản tin mới
+        if: steps.gate.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git pull --rebase origin main || true
+          msg=$(git log -1 --format=%s)
+          echo "HEAD: $msg"
+          if echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
+            gh workflow run notify-email.yml
+            gh workflow run notify-push.yml || true
+          else
+            echo "Không có commit bản tin mới — không kích email."
+          fi
