@@ -269,7 +269,8 @@ def html_pages_from_claude_md():
             continue
         url = m.group(0).rstrip("|").strip()
         cols = [c.strip() for c in line.split("|")]
-        name = cols[1] if len(cols) > 1 else url
+        # bỏ dấu ** của markdown: bảng CLAUDE.md in đậm vài tên -> lọt thẳng vào prompt agent
+        name = re.sub(r"\*+", "", cols[1]).strip() if len(cols) > 1 else url
         ci_only = any(re.fullmatch(r"\*{0,2}CI\*{0,2}", c) for c in cols[2:])
         if url in seen:
             continue
@@ -458,7 +459,12 @@ CI_TOI_DA_PHUT = 240   # quá 4 tiếng coi như ôi -> bỏ, đừng nạp tin 
 
 
 def ghi_ung_vien_ci(path, out, window):
-    """CI ghi lô ứng viên kèm dấu thời gian + khung ngày để local kiểm độ tươi."""
+    """CI ghi lô ứng viên kèm dấu thời gian + khung ngày để local kiểm độ tươi.
+
+    Chỉ ghi [RSS] + [HTML]: bên nhận (`doc_ung_vien_ci`) vốn đã bỏ [GNEWS], mà lớp đó
+    chiếm ~70% dung lượng — file này commit vào repo 4 lần/ngày nên cắt đi cho đỡ phình.
+    """
+    out = [h for h in out if h.get("lop") != "GNEWS"]
     payload = {
         "tao_luc": datetime.datetime.now(VN).isoformat(timespec="seconds"),
         "moi_truong": "CI" if os.environ.get("GITHUB_ACTIONS") else "local",
@@ -499,10 +505,18 @@ def doc_ung_vien_ci(window):
         print(f"[CI] lô CI tạo lúc {payload['tao_luc']} ({tuoi:.0f} phút trước) — "
               f"quá {CI_TOI_DA_PHUT} phút, BỎ", file=sys.stderr)
         return []
+    # CHỈ lấy [RSS] + [HTML], BỎ [GNEWS]. Đây là chỗ sai lần chạy thử đầu (27/07): gộp cả lô
+    # thì nhận thêm 220 mục Google News mà local tự quét được y hệt (Google không chặn local),
+    # lại là lớp rác nhất (bóng đá Mali, cáo phó, cá độ) — và link GNEWS là redirect sinh mới
+    # mỗi lần gọi nên bộ lọc trùng URL KHÔNG bắt được, thành nhân đôi rác trong prompt agent.
+    # [RSS] + [HTML] thì link là link gốc ổn định: trùng thì bị loại sạch ở vòng lọc bên dưới,
+    # còn lại đúng PHẦN CHÊNH (15 trang uỷ ban Thượng viện + 2 feed .mil chỉ CI vào được),
+    # tiện thể vá luôn những feed chập chờn lúc local quét.
+    hits = [h for h in hits if h.get("lop") != "GNEWS"]
     for h in hits:
         h["lop"] = f"CI-{h.get('lop', '?')}"
-    print(f"[CI] gộp {len(hits)} ứng viên do runner Mỹ gom lúc {payload['tao_luc']} "
-          f"({tuoi:.0f} phút trước)", file=sys.stderr)
+    print(f"[CI] gộp {len(hits)} ứng viên [RSS]+[HTML] do runner Mỹ gom lúc {payload['tao_luc']} "
+          f"({tuoi:.0f} phút trước) — đã bỏ lớp [GNEWS] vì local tự quét được", file=sys.stderr)
     return hits
 
 
