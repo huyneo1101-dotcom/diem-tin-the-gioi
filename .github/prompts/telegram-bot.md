@@ -84,6 +84,25 @@ tin rác**:
 - `url` phải là **bài cụ thể**, không phải trang chủ hay live-blog.
 - **Tối đa 3 tin.** Không đủ chuẩn thì để rỗng — không có gì phải lấp.
 
+**Mỗi tin phải nói rõ XẾP VÀO MỤC NÀO CÓ SẴN trên web** (chỉ thị Huy 27/07/2026). Web đã
+có đủ chỗ cho gần như mọi tin quốc tế — cái bị siết hôm 23/07 là *phạm vi quét*, không phải
+cấu trúc lưu. Chọn trong đây:
+
+| Mục | Dùng cho | Trường bắt buộc |
+|---|---|---|
+| `worldNews` | Tin thế giới (kể cả Nga–Ukraine, Trung Đông, châu Âu… — ngoài 5 chủ đề vẫn xếp được) | `category` + `region` |
+| `usNews` | Tin về Mỹ | `category` |
+| `exercises` → `items` | Diễn biến một cuộc tập trận **đã có** trong DATA | tên cuộc tập trận khớp chính xác |
+| `dipEvents` → `items` | Diễn biến một sự kiện ngoại giao **đã có** | tên sự kiện khớp chính xác |
+| `analyses` | Bài phân tích của viện nghiên cứu (think-tank) | `outlet`, `takeaway` |
+
+`category` chọn 1: **Kinh tế · Chính trị · Công nghệ quân sự · Ngoại giao**.
+`region` chọn 1: **Châu Âu/NATO · Trung Đông · Đông Á · Toàn cầu · Châu Mỹ · Ấn Độ Dương -
+Thái Bình Dương** (một số tin cũ dùng Bắc Mỹ / Châu Phi / Bắc Cực).
+
+⛔ **KHÔNG được đề nghị tạo mục mới.** Tin không xếp vừa mục nào có sẵn thì nói thẳng
+"không có mục phù hợp" và để Huy quyết — **tạo mục mới là việc phải hỏi Huy trước**.
+
 ### 3. Lưu lại và báo cho Huy
 
 Ghi một file JSON cho mỗi lượt hỏi rồi lưu:
@@ -96,7 +115,9 @@ python3 scripts/bot_luu.py --json /tmp/luu-<chat>.json
 {"chat_id": "…", "ten": "…", "cau_hoi": "…", "tra_loi": "…",
  "chu_de": ["…"], "trong_pham_vi": true,
  "tin_de_xuat": [{"title": "…", "url": "…", "source": "…",
-                  "date": "2026-07-27", "ly_do": "vì sao đáng đưa"}]}
+                  "date": "2026-07-27", "ly_do": "vì sao đáng đưa",
+                  "xep_vao": "worldNews", "category": "Chính trị",
+                  "region": "Châu Âu/NATO"}]}
 ```
 
 Lưu **mọi lượt hỏi**, kể cả khi không có tin đề xuất — đó là dữ liệu để dựng hồ sơ sở thích
@@ -111,6 +132,7 @@ người đọc. Lưu hỏng thì cứ đi tiếp, đừng để mất câu tr�
 1. <tiêu đề> — <nguồn>, <ngày>
    <link>
    Vì sao: <lý do>
+   Xếp vào: <mục> / <category> / <region>
 
 2. …
 

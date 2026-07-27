@@ -322,8 +322,26 @@ hoặc đổi sang webhook.
 
 ### Học từ câu hỏi người đọc (thêm 27/07/2026, chỉ thị Huy)
 Mỗi lượt hỏi bot được phân loại, lưu lại, và nếu gợi ra tin đáng đưa thì **đề xuất cho Huy
-qua Telegram**. Ba lựa chọn Huy đã chốt: **bot CHỈ đề xuất, không tự nạp web** · tin ngoài
-5 chủ đề thì để **mục riêng** trên web (dựng khi có tin thật đầu tiên) · hồ sơ lưu **Supabase**.
+qua Telegram**. Huy đã chốt: **bot CHỈ đề xuất, không tự nạp web** · hồ sơ lưu **Supabase**.
+
+### ⛔ TIN MỚI PHẢI XẾP VÀO MỤC CÓ SẴN — TẠO MỤC MỚI PHẢI HỎI HUY TRƯỚC
+Chỉ thị Huy 27/07/2026, áp cho **mọi** đề xuất tin, không riêng bot Telegram.
+
+Web đã có đủ chỗ cho gần như mọi tin quốc tế — cái bị siết hôm 23/07 là **phạm vi QUÉT**,
+không phải cấu trúc lưu. Tin Nga–Ukraine, Trung Đông, châu Âu… vẫn xếp vừa `worldNews` với
+`category` + `region` phù hợp. Vì vậy **đừng đề nghị dựng mục mới cho tin ngoài 5 chủ đề** —
+đó là phản xạ sai, và một mục mới kéo theo sửa giao diện, sửa script nạp, sửa email/.docx.
+
+| Mục có sẵn | Dùng cho |
+|---|---|
+| `worldNews` | Tin thế giới, **kể cả ngoài 5 chủ đề** — cần `category` + `region` |
+| `usNews` | Tin về Mỹ — cần `category` |
+| `exercises` → `items` | Diễn biến cuộc tập trận ĐÃ CÓ (tên khớp chính xác) |
+| `dipEvents` → `items` | Diễn biến sự kiện ngoại giao ĐÃ CÓ (tên khớp chính xác) |
+| `analyses` | Bài viện nghiên cứu — cần `outlet` + `takeaway` |
+
+Không xếp vừa mục nào thì **nói thẳng "không có mục phù hợp"** và để Huy quyết. Tạo mục mới
+là **quyết định của Huy**, không phải chuyện tự làm rồi báo sau.
 
 | Mảnh | Việc |
 |---|---|
