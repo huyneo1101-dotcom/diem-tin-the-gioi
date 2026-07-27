@@ -40,6 +40,9 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from tg_api import call  # noqa: E402
 
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+REPO = "huyneo1101-dotcom/diem-tin-the-gioi"
+
 
 def main():
     print(__doc__)
@@ -108,16 +111,30 @@ def main():
 
     print(f"\nTELEGRAM_CHAT_ID = {chat_id}")
     if input("\nĐặt luôn 2 secret trên GitHub bằng `gh`? [Y/n] ").strip().lower() in ("", "y"):
+        ok = True
         for name, val in (("TELEGRAM_BOT_TOKEN", token), ("TELEGRAM_CHAT_ID", chat_id)):
+            # ⚠️ cwd=ROOT là BẮT BUỘC: `gh` dò repo từ thư mục hiện tại. Script này thường
+            # được chạy bằng đường dẫn tuyệt đối từ thư mục khác (~), khi đó gh không biết
+            # repo nào và fail. Đã vấp thật 27/07 — secret im lặng không được đặt.
             p = subprocess.run(["gh", "secret", "set", name, "--body", val],
-                               capture_output=True, text=True)
-            print(f"  {name}: " + ("OK" if p.returncode == 0
-                                   else f"LỖI {p.stderr.strip()[:120]}"))
-        print("\nXong. Bản tin tối/sáng tiếp theo sẽ tự gửi qua Telegram.")
+                               capture_output=True, text=True, cwd=str(ROOT))
+            if p.returncode == 0:
+                print(f"  {name}: OK")
+            else:
+                ok = False
+                print(f"  {name}: LỖI — {(p.stderr or p.stdout).strip()[:200]}")
+        if ok:
+            print("\n✅ Xong. Kiểm lại bằng:  gh secret list --repo "
+                  "huyneo1101-dotcom/diem-tin-the-gioi | grep TELEGRAM")
+            print("Bản tin tối/sáng tiếp theo sẽ tự gửi qua Telegram, và bot trả lời được câu hỏi.")
+        else:
+            print("\n⚠️ Có secret chưa đặt được — xem lỗi ở trên. Đặt tay bằng lệnh dưới.")
+            print(f"  gh secret set TELEGRAM_BOT_TOKEN --repo {REPO}   # dán token khi được hỏi")
+            print(f"  gh secret set TELEGRAM_CHAT_ID --repo {REPO} --body '{chat_id}'")
     else:
         print("\nTự đặt sau bằng:")
-        print("  gh secret set TELEGRAM_BOT_TOKEN   # dán token khi được hỏi")
-        print(f"  gh secret set TELEGRAM_CHAT_ID --body '{chat_id}'")
+        print(f"  gh secret set TELEGRAM_BOT_TOKEN --repo {REPO}   # dán token khi được hỏi")
+        print(f"  gh secret set TELEGRAM_CHAT_ID --repo {REPO} --body '{chat_id}'")
     return 0
 
 
