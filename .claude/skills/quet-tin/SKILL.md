@@ -43,6 +43,17 @@ vùng khác (Trung Đông, Châu Âu, Nga–Ukraine…), tạo mới dipEvents. 
 **Khung thời gian: tin trong 24 GIỜ gần nhất** (theo giờ VN). Chủ đề nào **thiếu** (<5 bài) trong 24h
 thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48h, KHÔNG bịa tin/link.
 
+> ⛔ **"NỚI 48H" = HÔM NAY + HÔM QUA, HẾT** (chỉ thị Huy 27/07/2026, nguyên văn: *"ví dụ quét tin ngày 26
+> thì chỉ được lấy tin tối đa là ngày 25. không được phép lấy tin ngày 24"*). Đừng hiểu 48h thành "lùi 2
+> ngày lịch". Quét ngày 27 → chỉ nhận `date` 27/07 hoặc 26/07; tin 25/07 là **QUÁ CŨ**, bỏ luôn, ghi vào
+> `logs/loai-tin.md`, và ghi lý do thiếu vào `scan-gaps.json` — thà chủ đề đó về 0 còn hơn nhét tin cũ.
+> **Vì sao phải nói rõ:** phiên tối 26/07 hiểu 48h = lùi 2 ngày nên nạp 3 tin ngày **24/07** vào bản tin,
+> Huy mở file Word ra thấy ngay. Nó lách được vì mẹo "tách lô, neo lô A về ngày cũ" (dùng để né
+> `MAX_AGE_DAYS` khi lô trải 2 ngày) vô tình cũng kéo lùi luôn khung tin.
+> **Đã bịt bằng máy 27/07:** `add_news.py` giờ kiểm ngày **hai lớp** — so với `date` batch VÀ so với ngày
+> thật hôm nay (giờ VN). Neo batch về ngày nào cũng vô ích, tin quá 1 ngày tuổi bị CHẶN thẳng. Gặp lỗi
+> "cũ hơn 1 ngày so với HÔM NAY" thì **bỏ tin đó**, TUYỆT ĐỐI đừng lùi ngày batch để lách.
+
 **Báo Mới: được phép quét** — nhưng LỌC chỉ giữ bài hợp 5 chủ đề trên (xem Agent Báo Mới).
 
 ## Nguyên tắc cốt lõi (giữ nguyên)
@@ -132,6 +143,9 @@ theo bài GỐC (đổi cả tiêu đề lẫn URL). Không tìm được: bài 
 - **Chủ đề + tiêu chí lọc riêng** của agent đó (copy đúng đoạn PHẠM VI MỚI tương ứng).
 - **Khung thời gian: CHỈ tin đăng trong 24 GIỜ gần nhất** (theo giờ VN). Nếu chủ đề khan (<5 bài) →
   được nới thành **48 giờ**. TUYỆT ĐỐI không lấy tin cũ hơn 48h, không bịa.
+  **Viết THẲNG 2 ngày cụ thể vào prompt agent, đừng viết chữ "24h/48h"** — agent hay hiểu 48h thành lùi
+  2 ngày lịch. Ví dụ phiên ngày 27/07: *"chỉ nhận bài đăng 27/07 hoặc 26/07; tin 25/07 trở về trước là
+  QUÁ CŨ, bỏ"*. `add_news.py` cũng chặn cứng đúng biên này nên nhận về cũng không nạp được.
 - **Ràng buộc chất lượng**: (a) `date` đúng khung 24h/48h; (b) `sourceUrl` trỏ THẲNG 1 bài cụ thể,
   KHÔNG trang chủ/"live"/live-blog/tổng hợp, link KHỚP nội dung; (c) `sourceName` trong danh sách nguồn
   được giao HOẶC nguồn chính thức phù hợp; (d) thà ÍT còn hơn sai — được phép trả mảng rỗng.
@@ -153,6 +167,9 @@ Gộp vào `/tmp/new_items.json`:
 > ⚠️ **`date` batch = NGÀY TIN MỚI NHẤT trong lô** (thường là hôm qua nếu quét sau nửa đêm / máy chạy
 > trễ), KHÔNG phải ngày hệ thống. Script chặn tin cũ hơn 1 ngày so với `date` này — neo sai (theo hôm
 > nay) sẽ chặn oan tin nới-48h.
+> ⛔ **Nhưng neo lùi KHÔNG kéo lùi được khung tin** (bịt 27/07/2026): script kiểm thêm lớp thứ hai — mọi
+> tin phải trong vòng 1 ngày so với **HÔM NAY giờ VN thật**. Neo `date` batch về 25/07 để nạp tin 24/07
+> là đường lách đã bị chặn (chính là cách 3 tin ngày 24/07 lọt vào bản tin tối 26/07).
 ```json
 {
   "date": "YYYY-MM-DD",
@@ -169,10 +186,12 @@ Chính trị, CNQS Mỹ→Công nghệ quân sự, Úc/Biển Đông→theo nộ
 ```
 python3 scripts/add_news.py /tmp/new_items.json
 ```
-Script **CHẶN** (sửa JSON rồi chạy lại): thiếu field; category sai; date ngoài khung (`MAX_AGE_DAYS=1`
-— script chỉ cho lùi TỐI ĐA 1 ngày so với `date` batch. Vì vậy đặt `date` batch = **NGÀY TIN MỚI NHẤT
-trong lô**, KHÔNG neo theo ngày hệ thống; khi đó tin nới-48h = hôm trước vẫn khít khung 1 ngày. Nếu neo
-`date` theo hôm nay mà tin mới nhất là hôm qua thì tin 48h bị chặn oan — lỗi hay mắc); URL trang
+Script **CHẶN** (sửa JSON rồi chạy lại): thiếu field; category sai; date ngoài khung (`MAX_AGE_DAYS=1`,
+kiểm **HAI LỚP**: lùi tối đa 1 ngày so với `date` batch **VÀ** lùi tối đa 1 ngày so với **hôm nay giờ VN
+thật**. Vì vậy đặt `date` batch = **NGÀY TIN MỚI NHẤT trong lô**, KHÔNG neo theo ngày hệ thống; khi đó
+tin nới-48h = hôm trước vẫn khít khung. Neo `date` theo hôm nay mà tin mới nhất là hôm qua thì tin 48h
+bị chặn oan — lỗi hay mắc. Còn báo *"cũ hơn 1 ngày so với HÔM NAY"* thì tin đó thật sự quá cũ: **BỎ**,
+đừng lùi ngày batch để lách); URL trang
 chủ/live-blog; URL trùng trong batch hoặc đã có trong
 DATA; tên exercise (`exerciseUpdates`) không khớp entry có sẵn. **CẢNH BÁO** (không chặn): nguồn lạ;
 tiêu đề nghi trùng.

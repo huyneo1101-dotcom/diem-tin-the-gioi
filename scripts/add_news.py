@@ -54,7 +54,11 @@ NEWS_REQUIRED_FIELDS = {"date", "category", "title", "summary", "sourceName", "s
 VALID_CATEGORIES = {"Kinh tế", "Chính trị", "Công nghệ quân sự", "Ngoại giao"}
 MIN_PER_CATEGORY = 2
 FLOOR_DAY = 15  # SÀN CỨNG TỔNG NGÀY (sáng+tối): worldNews ≥ 15 VÀ usNews ≥ 15 (chỉ thị người dùng 23/07/2026)
-MAX_AGE_DAYS = 1  # CHỈ nhận 2 ngày gần nhất (hôm nay + hôm qua); cũ hơn -> chặn
+# CHỈ nhận 2 ngày gần nhất: HÔM NAY + HÔM QUA (giờ VN). Cũ hơn -> chặn cứng.
+# Chỉ thị Huy 27/07/2026: "quét ngày 26 thì chỉ được lấy tin tối đa ngày 25, KHÔNG được lấy
+# tin ngày 24". Áp cho CẢ `date` batch LẪN ngày thật hôm nay (xem check_date_window) — trước
+# đây chỉ so với batch nên tách lô neo ngày cũ lách được, lọt 3 tin 24/07 vào bản tin 26/07.
+MAX_AGE_DAYS = 1
 
 # Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
 # ứng viên Báo Mới (~80 bài/lần) không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent
@@ -149,7 +153,23 @@ def parse_date(s: str) -> datetime.date:
     return datetime.date.fromisoformat(s)
 
 
+def today_vn() -> datetime.date:
+    """Ngày THẬT theo giờ VN — mốc không ai khai gian được (khác `date` của batch trong JSON)."""
+    return datetime.datetime.now(zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")).date()
+
+
 def check_date_window(date_str: str, ref: datetime.date, ctx: str) -> None:
+    """Chặn hai lớp: so với `date` batch VÀ so với ngày thật hôm nay.
+
+    ⚠️ Lỗ hổng đã bịt 27/07/2026 (chỉ thị Huy: "quét ngày 26 thì chỉ được lấy tin tối đa
+    ngày 25, KHÔNG được lấy tin ngày 24"). Trước đây chỉ so với `ref` = `date` của batch,
+    mà `date` đó do chính file JSON khai — nên mẹo "tách lô, neo lô A về ngày cũ" (dùng khi
+    lô có tin trải 3 ngày) vô tình trở thành đường lách: phiên tối 26/07 neo lô A `date`
+    = 25/07 và nạp lọt 3 tin ngày 24/07 vào bản tin, tức tin 2 ngày tuổi.
+    Nay mọi tin phải nằm trong [hôm nay - MAX_AGE_DAYS, hôm nay] theo GIỜ VN THẬT, bất kể
+    batch khai ngày nào. Tách lô vẫn dùng được cho mục đích ban đầu (né MAX_AGE_DAYS khi
+    lô trải 2 ngày) nhưng không còn kéo lùi được khung tin.
+    """
     try:
         d = parse_date(date_str)
     except (ValueError, TypeError):
@@ -159,6 +179,13 @@ def check_date_window(date_str: str, ref: datetime.date, ctx: str) -> None:
     if (ref - d).days > MAX_AGE_DAYS:
         raise ValueError(
             f"{ctx}: date {date_str} cũ hơn {MAX_AGE_DAYS} ngày so với batch {ref} — tin quá cũ, bỏ hoặc thay tin mới hơn"
+        )
+    today = today_vn()
+    if (today - d).days > MAX_AGE_DAYS:
+        raise ValueError(
+            f"{ctx}: date {date_str} cũ hơn {MAX_AGE_DAYS} ngày so với HÔM NAY ({today}, giờ VN) — "
+            f"khung cứng là hôm nay + hôm qua, tin cũ hơn KHÔNG được nạp dù batch neo ngày nào. "
+            f"Bỏ tin này (ghi vào logs/loai-tin.md), đừng lùi ngày batch để lách."
         )
 
 
