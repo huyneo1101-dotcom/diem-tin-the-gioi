@@ -110,6 +110,40 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
   **email này gọi theo NỘI DUNG (sự kiện/tập trận), email bản tin gọi theo BUỔI** — đừng đặt tên hai cái
   cùng chứa chữ "sáng", và giữ emoji khác nhau (🎖️ vs 📰) để liếc là ra.
 
+### 📩 EMAIL TỐI GỒM NHỮNG GÌ (chỉ thị Huy 27/07/2026 — quy tắc chốt)
+
+> **Email tối = TOÀN BỘ tin đã quét được trong ngày, TRỪ ba loại:**
+> 1. tin đã quét ở **phiên sáng sớm 04:00/05:00** (chúng đã đi trong email `📰 … BUỔI SÁNG`);
+> 2. tin **tập trận / sự kiện ngoại giao** (đã đi trong email `🎖️ Sự kiện & Tập trận`);
+> 3. bài **think-tank** (`DATA.analyses` — cũng thuộc email sáng).
+
+**Vì sao cần quy tắc này:** `notify-email.yml` kích theo **PUSH** chứ không theo cron, nên phiên sáng
+sớm và phiên tối đều bắn email — mà cả ba kênh (thân email, `.docx`, tin nhắn Telegram) đều từng chọn
+tin bằng luật "cùng ngày" `_addedDate == generatedAt`. Kết quả: bản tối liệt kê lại y nguyên tin đã gửi
+sáng. Huy bắt lỗi 27/07.
+
+**Cơ chế thực thi — SỔ ĐÃ GỬI `logs/da-gui-email.json`** (`.github/scripts/so_da_gui.py`), KHÔNG dùng mốc
+giờ: `_addedDate` chỉ có độ phân giải NGÀY, và mốc giờ vỡ ngay khi bản tin gửi trễ qua nửa đêm, phải gửi
+lại tay, hoặc mốc dự phòng chạy bù. Sổ URL thì đúng trong mọi trường hợp đó.
+
+| Thứ | Lọc sổ? | Vì sao |
+|---|---|---|
+| **Thân email tối** (`send-email.js`) | **CÓ** | là thông báo — lặp tin đã báo thì thừa |
+| **Tin nhắn Telegram** (`send_telegram.py`) | **CÓ** | cùng vai với thân email |
+| **File `.docx` đính kèm** (`make_docx.py`) | **KHÔNG** | là **bản tổng hợp CẢ NGÀY** Huy lưu lại — chỉ thị Huy: *"gửi file word tối nay… thì gộp cả 11 tin hôm nay đó vào"* |
+
+Ba cái bẫy đã vấp thật, đừng lặp lại:
+- **Ghi sổ phải là bước CUỐI**, sau CẢ email lẫn Telegram. Ghi sớm hơn thì Telegram đọc sổ thấy chính lô
+  vừa gửi và lọc sạch → **Telegram rỗng**.
+- **Chỉ ghi sổ khi `github.event_name == 'push'`.** Hai lần chạy tay `workflow_dispatch` lúc 14:24/14:36
+  ngày 27/07 đã ghi 11 tin của cả ngày vào sổ, suýt làm bản tối bỏ sạch chúng — trong khi chúng được quét
+  rải rác **09:13–14:17**, không phải phiên sáng. Chạy tay là để TEST, không được để dấu vết lên bản thật.
+- **`notify-morning.yml` ghi sổ với `--chi events`**, tuyệt đối không ghi `usNews`/`worldNews`: email đó
+  CHỈ gửi sự kiện, ghi thừa là **xoá sổ tin thường trước khi chúng kịp lên bản tin tối** — mất tin, chứ
+  không phải trùng tin.
+- `send_telegram.py` dựng `.docx` **TRƯỚC** khi xét `total == 0`, và `total == 0` vẫn gửi file kèm — nếu
+  không, hôm nào mọi tin đều đã báo là Huy mất luôn file tổng hợp.
+
 ### 🆕 Mới trên web + 💡 Có thể bạn chưa biết — trong email SÁNG (chỉ thị Huy 27/07/2026)
 Email sáng có thêm 2 mục cuối, nguồn dữ liệu là **`whats-new.json` ở gốc repo** (`send-morning-email.js`:
 `readWhatsNew` · `freshFeatures` · `tipOfDay` · `featuresHtml` · `tipHtml`):

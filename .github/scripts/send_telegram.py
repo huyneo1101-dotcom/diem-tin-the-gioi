@@ -289,8 +289,12 @@ def main():
     # cả ngày Huy lưu lại (chỉ thị Huy 27/07). Hai thứ lệch nhau là CỐ Ý, không phải bug.
     us = md.loc_chua_gui(md.pick_items(cur, prev, "usNews"))
     world = md.loc_chua_gui(md.pick_items(cur, prev, "worldNews"))
-    events = md.loc_chua_gui(md.pick_items(cur, prev, "events"))
-    sections = md.build_sections(us, world, events)
+    # KHÔNG liệt kê tin TẬP TRẬN/SỰ KIỆN ở đây — chúng thuộc email `🎖️ Sự kiện & Tập trận`
+    # buổi sáng (quy tắc "EMAIL TỐI GỒM NHỮNG GÌ" trong CLAUDE.md, chỉ thị Huy 27/07). Làm vậy
+    # tin nhắn Telegram khớp đúng THÂN EMAIL — vốn chỉ đọc worldNews + usNews.
+    # ⚠️ Chỉ bỏ khỏi phần LIỆT KÊ. FILE .docx đính kèm VẪN giữ chúng: đó là bản tổng hợp cả
+    # ngày, và `events` là đường duy nhất Predator's Run vào bản tin tối (xem `event_items`).
+    sections = md.build_sections(us, world, [])
     total = sum(len(items) for _, items in sections)
 
     generated_at = cur.get("generatedAt", "")
