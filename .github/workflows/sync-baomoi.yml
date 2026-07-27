@@ -6,7 +6,9 @@ name: Sync Baomoi (bai da luu + quet chuyen muc)
 # Ca hai chi giu bai DANG TRONG 24H gan nhat va dung 4 chu de cua web.
 on:
   schedule:
-    - cron: '5 1,13 * * *'   # 08:05 & 20:05 gio VN — chay SAU import-news-from-drive (08:00/20:00)
+    # Dời khỏi đầu giờ (27/07/2026) — đo thật 08:05 → chạy 11:47 (trễ 3h42), 20:05 → 21:42.
+    # Vẫn phải chạy SAU import-news-from-drive (nay :23) và TRƯỚC phiên quét tối (20:47).
+    - cron: '28 0,12 * * *'   # 07:28 & 19:28 gio VN — chay SAU import-news-from-drive (07:23/19:23)
                              # va TRUOC routine quet web (09:15/20:15), de phien quet thay du
                              # ca tin Drive lan tin Bao Moi ma ne trung. Push race da co
                              # pull --rebase + retry o buoc commit ben duoi.

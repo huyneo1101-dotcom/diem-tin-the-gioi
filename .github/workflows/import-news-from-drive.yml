@@ -6,7 +6,10 @@ name: Import news from Google Drive
 
 on:
   schedule:
-    - cron: '0 1,13 * * *'   # 08:00 & 20:00 VN
+    # Dời khỏi giờ TRÒN (27/07/2026): mốc `:00` là lúc cron GitHub xếp hàng đông nhất — đo
+    # thật 08:00 → chạy 11:30 (trễ 3h30), 20:00 → 21:22 (trễ 1h22). Phải xong TRƯỚC
+    # sync-baomoi (:28) và trước phiên quét tối (20:47), nên lùi sớm hẳn về :23.
+    - cron: '23 0,12 * * *'   # 07:23 & 19:23 VN
   workflow_dispatch:
 
 permissions:

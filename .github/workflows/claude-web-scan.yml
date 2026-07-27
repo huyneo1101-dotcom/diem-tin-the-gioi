@@ -22,10 +22,19 @@ on:
     #      Email hôm đó tới ~22:22, tức QUÁ hạn 22:00 — chấp nhận có muộn còn hơn mất hẳn bản tin.
     # ĐỪNG dời 2 lớp đầu trễ hơn, và đừng biến lớp vét thành mốc chính: mốc cuối trong hạn phải là
     # local 21:15 (task riêng `web-scan-diem-tin-toi` trên máy Mac) vì cron GitHub trễ bất định.
-    - cron: '0 14 * * *'    # 21:00 VN — bản tin TỐI, mốc chính (email ~21:22)
-    - cron: '0 15 * * *'    # 22:00 VN — LỚP VÉT (idempotent tự SKIP nếu 2 lớp trước đã xong)
-    - cron: '0 21 * * *'    # 04:00 VN hôm sau — bản tin SÁNG SỚM, mốc chính (đổi 27/07: 04:30 -> 04:00)
-    - cron: '0 22 * * *'    # 05:00 VN — sáng sớm, dự phòng CI (sau mốc local 04:30)
+    #
+    # ⏱️ VÌ SAO PHÚT LẺ, KHÔNG PHẢI GIỜ TRÒN (đo thật 27/07/2026):
+    # Cron GitHub xếp hàng chung toàn cầu, và mốc `:00`/`:05` là lúc hàng triệu job cùng dồn
+    # vào. Đo 10 mốc của repo này trong 24h: 8 mốc CÓ chạy nhưng KHÔNG mốc nào đúng giờ —
+    # 08:00 → 11:30 (trễ 3h30), 08:05 → 11:47, 08:45 → 12:30 (trễ 3h45), 21:00 → 22:09,
+    # 22:00 → 22:54. Chính mốc 21:00 trễ 69' là thứ làm bản tin tối 26/07 vỡ hạn email 22:00.
+    # => Dời sang phút LẺ, LÙI SỚM ~13' so với mốc cũ: trễ bao nhiêu cũng còn biên, mà nếu
+    #    chạy đúng giờ thì chỉ sớm hơn 13 phút, không phá thiết kế lớp.
+    # ⚠️ ĐỪNG "cho tròn lại cho đẹp" — giờ tròn chính là nguyên nhân.
+    - cron: '47 13 * * *'   # 20:47 VN — bản tin TỐI, mốc chính (trước: 21:00)
+    - cron: '47 14 * * *'   # 21:47 VN — LỚP VÉT (idempotent tự SKIP nếu 2 lớp trước đã xong)
+    - cron: '47 20 * * *'   # 03:47 VN hôm sau — bản tin SÁNG SỚM, mốc chính (trước: 04:00)
+    - cron: '47 21 * * *'   # 04:47 VN — sáng sớm, dự phòng CI (sau mốc local 04:30)
   workflow_dispatch:
     inputs:
       mode:

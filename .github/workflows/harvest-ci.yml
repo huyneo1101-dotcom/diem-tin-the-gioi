@@ -17,10 +17,13 @@ on:
     # Giờ UTC. VN = UTC+7. Chạy TRƯỚC mỗi mốc quét ~15 phút để lô còn tươi khi phiên local
     # đọc tới (harvest.py bỏ lô quá 4 tiếng). Cron của GitHub hay trễ 5-15 phút — trễ thì
     # phiên local chỉ mất phần CI-only chứ không hỏng, vì nó vẫn tự quét 3 lớp của mình.
-    - cron: '45 13 * * *'   # 20:45 VN — trước mốc TỐI (CI 21:00 · local 21:15)
-    - cron: '45 14 * * *'   # 21:45 VN — trước lớp VÉT tối (CI 22:00)
-    - cron: '45 20 * * *'   # 03:45 VN hôm sau — trước mốc SÁNG (CI 04:00 · local 04:30)
-    - cron: '45 21 * * *'   # 04:45 VN — trước mốc sáng dự phòng (CI 05:00 · local 05:30)
+    # Dời sớm 13' (20:45 → 20:32...) khi web-scan dời 21:00 → 20:47: harvest phải xong TRƯỚC
+    # khi phiên quét bắt đầu, mà chênh 2 phút thì chỉ cần CI trễ tí là lô ứng viên tới muộn,
+    # vô dụng. 15 phút là biên tối thiểu cho một lượt harvest (~1m08s) cộng độ trễ cron.
+    - cron: '32 13 * * *'   # 20:32 VN — trước mốc TỐI (CI 20:47 · local 21:21)
+    - cron: '32 14 * * *'   # 21:32 VN — trước lớp VÉT tối (CI 21:47)
+    - cron: '32 20 * * *'   # 03:32 VN hôm sau — trước mốc SÁNG (CI 03:47 · local 04:33)
+    - cron: '32 21 * * *'   # 04:32 VN — trước mốc sáng dự phòng (CI 04:47 · local 05:33)
   workflow_dispatch:
 
 permissions:

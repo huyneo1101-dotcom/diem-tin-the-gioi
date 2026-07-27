@@ -6,8 +6,14 @@ name: Claude event-scan (phiên sáng)
 
 on:
   schedule:
-    - cron: '45 1 * * *'   # 08:45 VN — mốc chính
-    - cron: '45 2 * * *'   # 09:45 VN — dự phòng, idempotent tự SKIP nếu đã xong
+    # ⚠️ BẰNG CHỨNG PHÚT LẺ KHÔNG PHẢI THUỐC TIÊN: hai mốc này VỐN ĐÃ ở phút `:45` mà đo thật
+    # 27/07/2026 vẫn trễ — 08:45 → chạy 12:30, 09:45 → 13:05 (trễ ~3h45). Thủ phạm nặng hơn là
+    # KHUNG GIỜ UTC: mọi mốc rơi vào 01:00–03:00 UTC đều trễ 3h+, còn 13:00–15:00 UTC chỉ trễ
+    # ~1h. Hai mốc này nằm đúng 01:45/02:45 UTC — khung tệ nhất, mà không dời được vì giờ VN
+    # cố định. Đổi sang phút hiếm gặp hơn cho đỡ đụng đám đông, nhưng ĐỪNG kỳ vọng nhiều:
+    # lớp thật sự gánh phiên sáng là task local `event-scan-diem-tin` (09:15/10:15).
+    - cron: '38 1 * * *'   # 08:38 VN — mốc chính
+    - cron: '38 2 * * *'   # 09:38 VN — dự phòng, idempotent tự SKIP nếu đã xong
   workflow_dispatch:
 
 concurrency:
