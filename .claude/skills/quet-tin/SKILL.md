@@ -160,6 +160,12 @@ Feud` và `The Hill — GOP senator ahead of Fauci testimony`, đều từ ngu�
 
 **Cách dùng kết quả — ĐỌC KỸ, đây là chỗ dễ sai:**
 - `[RSS]` có link bài GỐC thật → kiểm nội dung rồi dùng luôn được.
+- `[HTML]` — quét thẳng trang thông cáo của các trang KHÔNG có RSS (thêm 27/07/2026 sau khi Huy nhắc
+  *"không có RSS thì mày vẫn xem được mà"*; kiểm lại: 42/85 domain nguồn chính thức Mỹ mở được HTML).
+  **Chủ lực là uỷ ban HẠ VIỆN — tức đúng nhóm 1** (điều trần + bỏ phiếu), nhóm luôn thiếu tin nhất:
+  thực tế bắt được "Chairman Rogers Applauds House Passage of FY27 NDAA", "House Passes H.R. 9770",
+  "Cole Testifies at Rules Committee". Link là link gốc thật, NHƯNG **ngày lấy từ khối HTML quanh link
+  nên có thể sai** → phải mở bài kiểm ngày sự kiện như với `[GNEWS]`. Uỷ ban THƯỢNG VIỆN đều 403.
 - `[GNEWS]` chỉ là **RADAR phát hiện đề tài**: link là redirect `news.google.com` (không resolve bằng
   HEAD được, nó redirect bằng JS) và tiêu đề bị rút gọn. **Agent PHẢI tự tìm bài gốc** (WebSearch theo
   tiêu đề + tên nguồn) rồi mới nạp. TUYỆT ĐỐI không nạp link `news.google.com` vào DATA.
