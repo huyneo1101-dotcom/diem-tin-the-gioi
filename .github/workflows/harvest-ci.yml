@@ -1,0 +1,57 @@
+name: Gom ứng viên tin từ CI (Mỹ)
+
+# VÌ SAO CÓ WORKFLOW NÀY (dựng 27/07/2026)
+# `harvest.py` có lớp [HTML] quét thẳng các trang không có RSS. Đo thật bằng
+# `scripts/probe_sources.py` chạy ở CẢ hai nơi: runner GitHub (đặt ở Mỹ) đọc được 25 trang,
+# máy Mac của Huy chỉ 10 — 21 domain CHỈ CI vào được, gồm TOÀN BỘ uỷ ban THƯỢNG VIỆN
+# (chính là nhóm 1: điều trần + bỏ phiếu, nhóm luôn thiếu tin nhất) và 2 feed .mil mà
+# máy Mac không phân giải nổi DNS zone `.mil`.
+# Hệ quả trước đây: hôm nào lớp CI-quét-bằng-Claude chết (hết quota / GitHub bỏ cron) và
+# phiên local phải gánh thì phần chênh đó MẤT TRẮNG.
+# Workflow này tách riêng KHÂU THU THẬP: chạy thuần curl, KHÔNG gọi Claude, KHÔNG tốn quota,
+# ~2-3 phút. Nó commit lô ứng viên vào docs/ung-vien-ci.json; phiên local `git pull` rồi
+# `harvest.py --gop-ci` gộp lại. Nên kể cả khi lớp Claude trên CI chết, nguyên liệu vẫn
+# được lấy từ Mỹ.
+on:
+  schedule:
+    # Giờ UTC. VN = UTC+7. Chạy TRƯỚC mỗi mốc quét ~15 phút để lô còn tươi khi phiên local
+    # đọc tới (harvest.py bỏ lô quá 4 tiếng). Cron của GitHub hay trễ 5-15 phút — trễ thì
+    # phiên local chỉ mất phần CI-only chứ không hỏng, vì nó vẫn tự quét 3 lớp của mình.
+    - cron: '45 13 * * *'   # 20:45 VN — trước mốc TỐI (CI 21:00 · local 21:15)
+    - cron: '45 14 * * *'   # 21:45 VN — trước lớp VÉT tối (CI 22:00)
+    - cron: '45 20 * * *'   # 03:45 VN hôm sau — trước mốc SÁNG (CI 04:00 · local 04:30)
+    - cron: '45 21 * * *'   # 04:45 VN — trước mốc sáng dự phòng (CI 05:00 · local 05:30)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: harvest-ci
+  cancel-in-progress: false
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Gom ứng viên (RSS + HTML + Google News)
+        run: python3 scripts/harvest.py --ci-out docs/ung-vien-ci.json
+
+      - name: Commit lô ứng viên
+        run: |
+          git config user.name "claude-scan-ci"
+          git config user.email "noreply@anthropic.com"
+          git add docs/ung-vien-ci.json
+          git diff --cached --quiet && { echo "khong co thay doi"; exit 0; }
+          git commit -m "harvest: lo ung vien gom tu CI (My)"
+          # Các workflow quét chạy sát giờ và cũng push vào main -> phải rebase rồi thử lại.
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin main && exit 0
+            echo "push lan $i that bai, thu lai sau 10s"
+            sleep 10
+          done
+          echo "::error::khong push duoc lo ung vien sau 5 lan thu"
+          exit 1

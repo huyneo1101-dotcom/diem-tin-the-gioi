@@ -138,7 +138,7 @@ vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc
 RỘNG theo 5 chủ đề"** ở cuối skill này (danh sách nguồn cụ thể cho từng chủ đề — chọn vài nguồn hợp rồi
 nhúng vào prompt agent). Ưu tiên nguồn quốc phòng/chính thức Mỹ + Úc + AFRICOM cho 5 chủ đề này. Lấy dữ liệu nền:
 ```
-python3 scripts/harvest.py --json /tmp/ung-vien.json                    # ⭐ GOM ỨNG VIÊN — chạy TRƯỚC
+python3 scripts/harvest.py --gop-ci --json /tmp/ung-vien.json           # ⭐ GOM ỨNG VIÊN — chạy TRƯỚC
 grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn   # nguồn đã dùng nhiều → né
 python3 scripts/add_news.py --recent-titles 20                          # tiêu đề gần đây → chống trùng
 python3 scripts/add_news.py --baomoi-pending                            # 2 nhóm Báo Mới
@@ -170,6 +170,16 @@ Feud` và `The Hill — GOP senator ahead of Fauci testimony`, đều từ ngu�
   mới vào được** (local 403), cộng census.gov và occ.treas.gov. `harvest.py` tự nhận biết môi trường qua
   biến `GITHUB_ACTIONS` và bỏ qua nhóm CI-only khi chạy local, nên **số trang in ra khác nhau là ĐÚNG,
   đừng đi truy bug**. Ngược lại CI hụt 3 nguồn local có (`axios.com`, `flightglobal.com`, `rappler.com`).
+- ⭐ **`--gop-ci` — vá phần chênh đó cho phiên local** (thêm 27/07/2026). Workflow `harvest-ci.yml` tách
+  riêng KHÂU THU THẬP: chạy thuần `curl` trên runner Mỹ, **không gọi Claude nên không tốn quota**, mất
+  ~2-3 phút, chạy lúc **20:45 · 21:45 · 03:45 · 04:45 VN** (trước mỗi mốc quét ~15 phút) rồi commit lô
+  ứng viên vào `docs/ung-vien-ci.json`. Phiên local `pull --rebase` (đã làm ở Bước 1) rồi chạy
+  `harvest.py --gop-ci` để gộp. Nhờ vậy **kể cả khi lớp CI-quét-bằng-Claude chết vì hết quota hay
+  GitHub bỏ cron, nguyên liệu vẫn được lấy từ Mỹ** — trước đây phần chênh 15 trang Thượng viện mất trắng.
+  Lô CI mang nhãn `[CI-HTML]` / `[CI-RSS]` để phân biệt. Script tự BỎ lô nếu **lệch khung ngày** hoặc
+  **quá 4 tiếng** (khung ngày của mốc sáng và mốc tối cùng ngày là giống hệt nhau, chỉ so khung thì lô
+  04:45 vẫn "hợp lệ" lúc 21:15 và bản tin tối sẽ thiếu sạch tin ban ngày) — thấy dòng `[CI] ... BỎ`
+  trên stderr là bình thường, cứ đi tiếp bằng lô local.
 - `[GNEWS]` chỉ là **RADAR phát hiện đề tài**: link là redirect `news.google.com` (không resolve bằng
   HEAD được, nó redirect bằng JS) và tiêu đề bị rút gọn. **Agent PHẢI tự tìm bài gốc** (WebSearch theo
   tiêu đề + tên nguồn) rồi mới nạp. TUYỆT ĐỐI không nạp link `news.google.com` vào DATA.

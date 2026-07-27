@@ -64,8 +64,17 @@ BẮT BUỘC pull --rebase trước (2 GitHub Action nạp tin chạy 20:00/20:0
 
 ## Bước 1b — GOM ỨNG VIÊN (bắt buộc từ 27/07/2026, chạy TRƯỚC khi giao agent)
 ```
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/harvest.py --json /tmp/ung-vien.json
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/harvest.py --gop-ci --json /tmp/ung-vien.json
 ```
+⭐ **Cờ `--gop-ci` là bắt buộc ở phiên LOCAL** (thêm 27/07/2026). Lớp `[HTML]` chạy ở máy Mac chỉ vào
+được 10 trang, chạy ở runner Mỹ vào được 25 — 21 domain **chỉ CI đọc được**, trong đó có TOÀN BỘ uỷ ban
+THƯỢNG VIỆN (đúng nhóm 1: điều trần + bỏ phiếu, nhóm luôn thiếu tin nhất) và 2 feed `.mil` mà máy Mac
+không phân giải nổi DNS. Workflow `harvest-ci.yml` chạy thuần curl (không gọi Claude, không tốn quota)
+lúc 20:45 · 21:45 · 03:45 · 04:45 VN và commit lô ứng viên vào `docs/ung-vien-ci.json`; `--gop-ci` gộp
+lô đó vào. Đã `pull --rebase` ở bước 1 nên file luôn là bản mới nhất. Lô quá 4 tiếng hoặc lệch khung
+ngày thì script tự BỎ và in lý do ra stderr — thấy dòng `[CI] ... BỎ` thì đó là bình thường (CI trễ
+cron), KHÔNG phải bug, cứ đi tiếp bằng lô local.
+
 Máy đi lấy, agent đi thẩm định: script quét 67 feed RSS + 8 truy vấn Google News, lọc theo khung hôm nay + hôm qua và theo 5 chủ đề, rồi in ứng viên. Lý do bắt buộc: **WebFetch của subagent bị chặn 403** trong khi curl từ máy trả 200 — nên agent tự quét là sót nguồn (Long War Journal, AllAfrica, Philstar, Inquirer, Lowy, gCaptain đều 0 tin dù nằm trong bảng nguồn). Sáng 27/07 agent Mali báo "không có bài mới" trong khi Google News có 88 item, gồm tin Bloomberg phải nạp bù sau.
 Đọc kỹ 3 điều trong output: `[RSS]` có link gốc dùng được; `[GNEWS]` chỉ là RADAR, phải tự tìm bài gốc, KHÔNG nạp link news.google.com; và **ngày in ra là ngày ĐĂNG BÀI, không phải ngày SỰ KIỆN** — nhiều trang đăng lại tin cũ với pubDate mới, phải mở bài kiểm rồi neo `date` theo ngày sự kiện.
 

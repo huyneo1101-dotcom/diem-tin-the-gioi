@@ -5,6 +5,8 @@ Dùng:  python3 scripts/harvest.py                 # cả RSS + Google News
        python3 scripts/harvest.py --rss           # chỉ RSS trong bảng CLAUDE.md
        python3 scripts/harvest.py --gnews         # chỉ Google News
        python3 scripts/harvest.py --json /tmp/ung-vien.json    # ghi thêm ra JSON
+       python3 scripts/harvest.py --gop-ci                     # LOCAL: gộp thêm lô runner Mỹ gom sẵn
+       python3 scripts/harvest.py --ci-out docs/ung-vien-ci.json   # CI: ghi lô cho local gộp (harvest-ci.yml)
 
 VÌ SAO CÓ SCRIPT NÀY (dựng 27/07/2026, chỉ thị Huy "quét sao cho đầy đủ hơn"):
 Đo thật trên DATA — 161 nguồn từng đóng góp tin, NHƯNG các nguồn chuyên đúng chủ
@@ -445,12 +447,76 @@ def existing_urls_and_titles():
     return urls, titles
 
 
+# ── Lô ứng viên do CI (runner Mỹ) gom sẵn ──────────────────────────────────────
+# VÌ SAO: lớp [HTML] ở local chỉ quét được 10 trang, còn CI quét 25 (toàn bộ uỷ ban
+# THƯỢNG VIỆN + 2 feed .mil chỉ phân giải được DNS từ Mỹ — xem docs/probe-ci.json).
+# Trước 27/07 phần chênh đó mất trắng mỗi khi CI chết và local phải gánh. Nay workflow
+# `harvest-ci.yml` chạy THUẦN curl (không gọi Claude, không tốn quota) trước mỗi mốc
+# quét, commit lô ứng viên vào file này; phiên local `git pull` rồi gộp vào.
+CI_FILE = ROOT / "docs" / "ung-vien-ci.json"
+CI_TOI_DA_PHUT = 240   # quá 4 tiếng coi như ôi -> bỏ, đừng nạp tin cũ của phiên trước
+
+
+def ghi_ung_vien_ci(path, out, window):
+    """CI ghi lô ứng viên kèm dấu thời gian + khung ngày để local kiểm độ tươi."""
+    payload = {
+        "tao_luc": datetime.datetime.now(VN).isoformat(timespec="seconds"),
+        "moi_truong": "CI" if os.environ.get("GITHUB_ACTIONS") else "local",
+        "khung_ngay": sorted(d.isoformat() for d in window),
+        "ung_vien": out,
+    }
+    p = pathlib.Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\nĐã ghi lô ứng viên CI ({len(out)} bài) ra {path}")
+
+
+def doc_ung_vien_ci(window):
+    """Đọc lô CI nếu còn TƯƠI. Trả list hit (rỗng nếu không dùng được) — im lặng thất bại.
+
+    Hai cổng kiểm, phải qua CẢ HAI:
+      1. `khung_ngay` khớp khung đang quét (chống dùng lô của ngày khác);
+      2. tuổi <= CI_TOI_DA_PHUT — vì khung ngày của mốc SÁNG (04:30) và mốc TỐI (21:15)
+         cùng ngày là GIỐNG HỆT nhau (hôm nay + hôm qua), chỉ so khung thì lô 04:15
+         vẫn "hợp lệ" lúc 21:15 và bản tin tối sẽ thiếu sạch tin ban ngày.
+    """
+    if not CI_FILE.exists():
+        print(f"[CI] không có {CI_FILE.name} — bỏ qua, chỉ dùng lô local", file=sys.stderr)
+        return []
+    try:
+        payload = json.loads(CI_FILE.read_text(encoding="utf-8"))
+        tao_luc = datetime.datetime.fromisoformat(payload["tao_luc"])
+        khung = payload.get("khung_ngay") or []
+        hits = payload.get("ung_vien") or []
+    except (ValueError, KeyError, OSError) as e:
+        print(f"[CI] {CI_FILE.name} hỏng ({e}) — bỏ qua", file=sys.stderr)
+        return []
+    if khung != sorted(d.isoformat() for d in window):
+        print(f"[CI] lô CI thuộc khung {khung} ≠ khung đang quét — BỎ", file=sys.stderr)
+        return []
+    tuoi = (datetime.datetime.now(VN) - tao_luc).total_seconds() / 60
+    if tuoi > CI_TOI_DA_PHUT or tuoi < -10:
+        print(f"[CI] lô CI tạo lúc {payload['tao_luc']} ({tuoi:.0f} phút trước) — "
+              f"quá {CI_TOI_DA_PHUT} phút, BỎ", file=sys.stderr)
+        return []
+    for h in hits:
+        h["lop"] = f"CI-{h.get('lop', '?')}"
+    print(f"[CI] gộp {len(hits)} ứng viên do runner Mỹ gom lúc {payload['tao_luc']} "
+          f"({tuoi:.0f} phút trước)", file=sys.stderr)
+    return hits
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rss", action="store_true", help="chỉ quét RSS trong bảng CLAUDE.md")
     ap.add_argument("--gnews", action="store_true", help="chỉ quét Google News")
     ap.add_argument("--html", action="store_true", help="chỉ quét trang HTML không có RSS")
     ap.add_argument("--json", metavar="PATH", help="ghi kết quả ra file JSON")
+    ap.add_argument("--ci-out", metavar="PATH", nargs="?", const=str(CI_FILE),
+                    help="ghi lô ứng viên (kèm dấu thời gian) cho phiên khác gộp lại — "
+                         f"mặc định {CI_FILE.relative_to(ROOT)}")
+    ap.add_argument("--gop-ci", action="store_true",
+                    help=f"gộp thêm lô ứng viên trong {CI_FILE.relative_to(ROOT)} nếu còn tươi")
     args = ap.parse_args()
 
     today = datetime.datetime.now(VN).date()
@@ -467,6 +533,11 @@ def main():
         hits += harvest_html(window)
     if args.gnews or not chi_dinh:
         hits += harvest_gnews(window)
+    if args.gop_ci:
+        # Gộp TRƯỚC vòng lọc bên dưới, không phải sau: lô CI gom lúc 20:45 chưa biết những
+        # tin mà lớp CI 21:00 vừa nạp vào DATA — phải để nó đi qua đúng bộ lọc trùng/rác
+        # với DATA hiện tại. Lô local đứng trước nên khi trùng sự kiện thì bản local được giữ.
+        hits += doc_ung_vien_ci(window)
 
     urls, titles = existing_urls_and_titles()
     out, seen = [], set()
@@ -533,6 +604,9 @@ def main():
         pathlib.Path(args.json).write_text(
             json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"\nĐã ghi {len(out)} ứng viên ra {args.json}")
+
+    if args.ci_out:
+        ghi_ung_vien_ci(args.ci_out, out, window)
 
 
 if __name__ == "__main__":
