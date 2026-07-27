@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-28T04:31:43+07:00",
+  "tao_luc": "2026-07-28T04:41:28+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-27",
@@ -50,6 +50,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-28",
+      "tieu_de": "Trump asks US Supreme Court to allow mail-in voting restrictions",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/7/27/trump-asks-us-supreme-court-to-allow-mail-in-voting-restrictions?traffic_source=rss",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
       "tieu_de": "Hakeem Jeffries puts affordability at centre of Democrats’ midterm campaign",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/7/27/hakeem-jeffries-puts-affordability-at-centre-of-democrats-midterm-campaign?traffic_source=rss",
@@ -80,15 +89,6 @@
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/zelenskiy-to-meet-us-senators-russia-sanctions-vote-expected",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "US Justice Dept asks Supreme Court to restore Trump mail-in voting order",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-justice-dept-asks-supreme-court-to-restore-trump-mail-in-voting-order",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -507,6 +507,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "USS George Washington operating in South China Sea as China-Philippines tension escalates",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-navy/2026/07/27/uss-george-washington-operating-in-south-china-sea-as-china-philippines-tension-escalates/"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
       "tieu_de": "Pentagon calls for cheaper long-range strike weapons, with testing in just 3 months",
@@ -633,15 +641,6 @@
       "tieu_de": "Baby missing after mother and toddler found dead off coast of South Australia",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/2026/jul/27/baby-missing-after-mother-and-toddler-found-dead-off-coast-of-south-australia-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "DoJ urges supreme court to allow Trump order targeting mail-in voting",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/jul/27/trump-doj-supreme-court-voting",
-      "nhom": 5
     },
     {
       "lop": "RSS",
