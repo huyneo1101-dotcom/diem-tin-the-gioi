@@ -47,7 +47,7 @@ import xml.etree.ElementTree as ET
 import zoneinfo
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from topics import match_topic  # noqa: E402
+from topics import match_topic, us_subgroup  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
@@ -59,6 +59,9 @@ GNEWS_QUERIES = {
     "Úc & Biển Đông": [
         '"South China Sea" OR Scarborough OR "Second Thomas Shoal" OR "West Philippine Sea"',
         'AUKUS OR "Australian Defence Force" OR "Royal Australian Navy"',
+        # các nước khác quanh Biển Đông (mở rộng 27/07/2026 theo chỉ thị Huy)
+        'Malaysia OR Indonesia OR Vietnam OR Taiwan maritime "South China Sea" patrol OR protest',
+        '"code of conduct" ASEAN China sea OR Natuna OR "Vanguard Bank"',
     ],
     "CNQS Mỹ": [
         '"U.S. Air Force" OR "U.S. Navy" OR Pentagon missile OR hypersonic OR "Space Force"',
@@ -66,11 +69,24 @@ GNEWS_QUERIES = {
     ],
     "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],
     "Predator's Run": ['"Predator\'s Run"'],
+    # 4 NHÓM theo thứ tự ưu tiên Huy chốt 27/07/2026 — nhóm 1 trước, thiếu mới tới 2/3/4.
     "Nội bộ Mỹ": [
-        '"Senate Armed Services" hearing OR "House Armed Services" markup',
-        '"House passes" OR "Senate passes" defense bill OR NDAA',
+        # (1) điều trần + bỏ phiếu thông qua dự luật  ← BẮT BUỘC, tìm trước
+        '"Senate Armed Services" hearing OR "House Armed Services" markup OR testimony',
+        '"House passes" OR "Senate passes" OR "committee approves" bill',
+        # (2) sáng kiến/chiến lược chính quyền trên kênh chính thống các bộ
+        '"executive order" OR "White House announces" OR "national strategy" Trump',
+        # (3) biểu tình + diễn biến bầu cử
+        'protest OR rally OR midterm OR "primary election" United States',
+        # (4) kinh tế Mỹ + động thái Trump và nội các
+        '"Federal Reserve" OR tariff OR sanctions OR "jobs report" United States',
     ],
 }
+
+# Khung ngày NỚI RIÊNG cho CNQS Mỹ: quét ngày 27 thì lấy được tới ngày 24 (chỉ thị Huy
+# 27/07/2026). Khớp `MAX_AGE_DAYS_CNQS` trong add_news.py — sửa một bên phải sửa bên kia,
+# nếu không harvest sẽ đưa ứng viên mà guardrail chặn (hoặc bỏ sót ứng viên hợp lệ).
+CNQS_LOOKBACK_DAYS = 3
 
 
 # Rác hay lọt qua truy vấn Google News — loại thẳng, khỏi tốn mắt agent.
@@ -103,6 +119,14 @@ FORCE_TOPIC = {
     "DoD Contracts": "CNQS Mỹ",
     "DoD News Releases": "CNQS Mỹ",
 }
+
+
+def _daykey(s: str) -> int:
+    """'2026-07-27' -> 20260727 để sắp xếp; '?' -> 0."""
+    try:
+        return int(s.replace("-", ""))
+    except (ValueError, AttributeError):
+        return 0
 
 
 def norm_title(t: str) -> set:
@@ -208,6 +232,14 @@ def items_of(xml_bytes: bytes):
     return out
 
 
+def window_for(topic: str, base: set) -> set:
+    """Khung ngày của từng chủ đề. CNQS Mỹ được nới xuống CNQS_LOOKBACK_DAYS ngày."""
+    if topic != "CNQS Mỹ":
+        return base
+    today = max(base)
+    return {today - datetime.timedelta(days=i) for i in range(CNQS_LOOKBACK_DAYS + 1)}
+
+
 def harvest_rss(window):
     hits = []
     feeds = feeds_from_claude_md()
@@ -216,10 +248,10 @@ def harvest_rss(window):
         forced = FORCE_TOPIC.get(name)
         for title, link, pub, _ in items_of(curl(url)):
             d = parse_date(pub)
-            if d is not None and d not in window:
-                continue
             topic = forced or match_topic(title, "both")
             if not topic:
+                continue
+            if d is not None and d not in window_for(topic, window):
                 continue
             hits.append({
                 "lop": "RSS", "chu_de": topic, "ngay": d.isoformat() if d else "?",
@@ -239,7 +271,7 @@ def harvest_gnews(window):
                    + "&hl=en-US&gl=US&ceid=US:en")
             for title, link, pub, src in items_of(curl(url)):
                 d = parse_date(pub)
-                if d is not None and d not in window:
+                if d is not None and d not in window_for(topic, window):
                     continue
                 # Google News gắn " - Tên nguồn" vào cuối tiêu đề -> tách ra cho sạch
                 t = title.rsplit(" - ", 1)[0] if " - " in title else title
@@ -300,8 +332,9 @@ def main():
 
     today = datetime.datetime.now(VN).date()
     window = {today, today - datetime.timedelta(days=1)}
-    print(f"Khung ngày: {sorted(window)[0]} .. {sorted(window)[1]} (hôm nay + hôm qua, giờ VN)",
-          file=sys.stderr)
+    cnqs = sorted(window_for("CNQS Mỹ", window))
+    print(f"Khung ngày: {sorted(window)[0]} .. {sorted(window)[1]} (hôm nay + hôm qua, giờ VN) · "
+          f"riêng CNQS Mỹ nới: {cnqs[0]} .. {cnqs[-1]}", file=sys.stderr)
 
     hits = []
     if not args.gnews:
@@ -338,12 +371,24 @@ def main():
           f"{bo_trung_nhau} bản trùng nhau của cùng sự kiện)")
     for topic in ("Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", "Predator's Run"):
         lst = by_topic.get(topic, [])
-        extra = f" — in {PER_TOPIC_CAP} bài mới nhất" if len(lst) > PER_TOPIC_CAP else ""
+        extra = f" — in {PER_TOPIC_CAP} bài" if len(lst) > PER_TOPIC_CAP else ""
         print(f"\n-- {topic} ({len(lst)} bài{extra}) --")
         if not lst:
             print("   (không có ứng viên nào trong khung hôm nay + hôm qua)")
-        for h in sorted(lst, key=lambda x: x["ngay"], reverse=True)[:PER_TOPIC_CAP]:
-            print(f"   [{h['lop']}][{h['ngay']}] {h['tieu_de'][:105]}")
+        if topic == "Nội bộ Mỹ":
+            # Xếp theo NHÓM ƯU TIÊN trước, ngày sau. Huy chốt 27/07: vét cạn nhóm (1) điều trần
+            # + bỏ phiếu rồi mới xuống (2) sáng kiến/chiến lược → (3) biểu tình/bầu cử → (4)
+            # kinh tế + động thái nội các. Xếp thuần theo ngày thì nhóm 3-4 (đăng dày hơn hẳn)
+            # sẽ chiếm hết chỗ và luật ưu tiên thành vô nghĩa.
+            for h in lst:
+                h["nhom"] = us_subgroup(h["tieu_de"])
+            ordered = sorted(lst, key=lambda x: (x["nhom"], x["ngay"] == "?", -_daykey(x["ngay"])))
+            print("   (xếp theo NHÓM ƯU TIÊN 1→4; vét cạn nhóm 1 rồi mới xuống nhóm sau)")
+        else:
+            ordered = sorted(lst, key=lambda x: x["ngay"], reverse=True)
+        for h in ordered[:PER_TOPIC_CAP]:
+            nhom = f"[nhóm {h['nhom']}]" if h.get("nhom") and h["nhom"] != 9 else ""
+            print(f"   [{h['lop']}][{h['ngay']}]{nhom} {h['tieu_de'][:100]}")
             print(f"        {h['nguon']} — {h['url'][:120]}")
 
     print("\n⚠️  [GNEWS] = RADAR, link là redirect news.google.com: PHẢI tự tìm bài gốc "

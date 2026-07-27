@@ -59,6 +59,10 @@ FLOOR_DAY = 15  # SÀN CỨNG TỔNG NGÀY (sáng+tối): worldNews ≥ 15 VÀ u
 # tin ngày 24". Áp cho CẢ `date` batch LẪN ngày thật hôm nay (xem check_date_window) — trước
 # đây chỉ so với batch nên tách lô neo ngày cũ lách được, lọt 3 tin 24/07 vào bản tin 26/07.
 MAX_AGE_DAYS = 1
+# NGOẠI LỆ: riêng category "Công nghệ quân sự" được lùi 3 ngày (chỉ thị Huy 27/07/2026:
+# "với riêng công nghệ quân sự thì có thể nới ngày: ví dụ quét ngày 27 thì có thể lấy tin
+# xuống tận ngày 24"). Tin khí tài/hợp đồng đăng thưa, cuối tuần Mỹ gần như trắng.
+MAX_AGE_DAYS_CNQS = 3
 
 # Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
 # ứng viên Báo Mới (~80 bài/lần) không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent
@@ -158,7 +162,7 @@ def today_vn() -> datetime.date:
     return datetime.datetime.now(zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")).date()
 
 
-def check_date_window(date_str: str, ref: datetime.date, ctx: str) -> None:
+def check_date_window(date_str: str, ref: datetime.date, ctx: str, category: str = "") -> None:
     """Chặn hai lớp: so với `date` batch VÀ so với ngày thật hôm nay.
 
     ⚠️ Lỗ hổng đã bịt 27/07/2026 (chỉ thị Huy: "quét ngày 26 thì chỉ được lấy tin tối đa
@@ -166,25 +170,32 @@ def check_date_window(date_str: str, ref: datetime.date, ctx: str) -> None:
     mà `date` đó do chính file JSON khai — nên mẹo "tách lô, neo lô A về ngày cũ" (dùng khi
     lô có tin trải 3 ngày) vô tình trở thành đường lách: phiên tối 26/07 neo lô A `date`
     = 25/07 và nạp lọt 3 tin ngày 24/07 vào bản tin, tức tin 2 ngày tuổi.
-    Nay mọi tin phải nằm trong [hôm nay - MAX_AGE_DAYS, hôm nay] theo GIỜ VN THẬT, bất kể
-    batch khai ngày nào. Tách lô vẫn dùng được cho mục đích ban đầu (né MAX_AGE_DAYS khi
-    lô trải 2 ngày) nhưng không còn kéo lùi được khung tin.
+    Nay mọi tin phải nằm trong [hôm nay - hạn, hôm nay] theo GIỜ VN THẬT, bất kể batch khai
+    ngày nào. Tách lô vẫn dùng được cho mục đích ban đầu nhưng không kéo lùi được khung tin.
+
+    NGOẠI LỆ theo CATEGORY (chỉ thị Huy 27/07/2026, bổ sung cùng ngày): riêng **Công nghệ
+    quân sự** được nới xuống `MAX_AGE_DAYS_CNQS` ngày ("quét ngày 27 thì có thể lấy tin
+    xuống tận ngày 24"). Lý do thực tế: tin khí tài/hợp đồng quốc phòng đăng thưa và không
+    theo nhịp ngày, cuối tuần Mỹ gần như trắng — siết 1 ngày thì chủ đề này thường xuyên
+    về 0 dù tin vẫn còn giá trị. Các chủ đề khác GIỮ NGUYÊN hôm nay + hôm qua.
     """
     try:
         d = parse_date(date_str)
     except (ValueError, TypeError):
         raise ValueError(f"{ctx}: date không đúng định dạng YYYY-MM-DD: {date_str!r}")
+    limit = MAX_AGE_DAYS_CNQS if category == "Công nghệ quân sự" else MAX_AGE_DAYS
+    note = " (nới riêng cho Công nghệ quân sự)" if limit != MAX_AGE_DAYS else ""
     if d > ref:
         raise ValueError(f"{ctx}: date {date_str} ở TƯƠNG LAI so với ngày batch {ref} — nghi sai/bịa")
-    if (ref - d).days > MAX_AGE_DAYS:
+    if (ref - d).days > limit:
         raise ValueError(
-            f"{ctx}: date {date_str} cũ hơn {MAX_AGE_DAYS} ngày so với batch {ref} — tin quá cũ, bỏ hoặc thay tin mới hơn"
+            f"{ctx}: date {date_str} cũ hơn {limit} ngày so với batch {ref}{note} — tin quá cũ, bỏ hoặc thay tin mới hơn"
         )
     today = today_vn()
-    if (today - d).days > MAX_AGE_DAYS:
+    if (today - d).days > limit:
         raise ValueError(
-            f"{ctx}: date {date_str} cũ hơn {MAX_AGE_DAYS} ngày so với HÔM NAY ({today}, giờ VN) — "
-            f"khung cứng là hôm nay + hôm qua, tin cũ hơn KHÔNG được nạp dù batch neo ngày nào. "
+            f"{ctx}: date {date_str} cũ hơn {limit} ngày so với HÔM NAY ({today}, giờ VN){note} — "
+            f"tin cũ hơn KHÔNG được nạp dù batch neo ngày nào. "
             f"Bỏ tin này (ghi vào logs/loai-tin.md), đừng lùi ngày batch để lách."
         )
 
@@ -219,7 +230,8 @@ def validate_news_items(items: list, label: str, ref: datetime.date) -> None:
             raise ValueError(f"{ctx} category không hợp lệ: {item['category']}")
         if not item["sourceUrl"].startswith("http"):
             raise ValueError(f"{ctx} sourceUrl không hợp lệ: {item['sourceUrl']}")
-        check_date_window(item["date"], ref, ctx)
+        # truyền category để "Công nghệ quân sự" được hưởng khung ngày nới (MAX_AGE_DAYS_CNQS)
+        check_date_window(item["date"], ref, ctx, item.get("category", ""))
         check_url_quality(item["sourceUrl"], ctx)
 
 

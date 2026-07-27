@@ -30,6 +30,12 @@ TOPIC_KEYWORDS_VI = {
         "hải cảnh", "dân quân biển", "tuần duyên", "philippines", "manila",
         "balikatan", "kamandag", "aukus", "australia", "úc", "canberra",
         "tàu ngầm hạt nhân", "biển tây philippines",
+        # CÁC NƯỚC KHÁC trong khu vực Biển Đông (mở rộng theo chỉ thị Huy 27/07/2026):
+        # tranh chấp/tuần tra/tập trận của Malaysia, Indonesia, Brunei, Đài Loan, và
+        # hoạt động của Nhật/Ấn Độ/Hàn tại vùng biển này cũng thuộc chủ đề.
+        "malaysia", "indonesia", "brunei", "đài loan", "natuna", "bãi tư chính",
+        "luconia", "bãi cỏ rong", "trường sa lớn", "biển hoa đông", "coc",
+        "bộ quy tắc ứng xử",
     ],
     "CNQS Mỹ": [
         "lầu năm góc", "không quân mỹ", "hải quân mỹ", "lục quân mỹ", "thủy quân lục chiến",
@@ -44,12 +50,53 @@ TOPIC_KEYWORDS_VI = {
         "liên minh các quốc gia sahel",
     ],
     "Predator's Run": ["predator's run", "predator run", "townsville", "carabaroo"],
+    # 4 NHÓM theo thứ tự ưu tiên (chỉ thị Huy 27/07/2026) — nhóm 1 BẮT BUỘC tìm trước,
+    # thiếu chỉ tiêu mới xuống 2, 3, 4. Xem chi tiết trong CLAUDE.md / SKILL quét tin.
+    # Ở đây CHỈ để từ khoá TỰ ĐỦ (nhắc tới là biết chuyện nội bộ Mỹ). Từ khoá chung chung
+    # của nhóm 3-4 (biểu tình, thuế quan, lạm phát...) nằm ở WEAK_NEED_US bên dưới vì
+    # chúng cần kèm ngữ cảnh Mỹ — nếu không sẽ lôi cả tin Philippines/Singapore/Nhật vào.
     "Nội bộ Mỹ": [
+        # (1) điều trần + kết quả bỏ phiếu thông qua dự luật
         "hạ viện mỹ", "thượng viện mỹ", "quốc hội mỹ", "điều trần", "phiên điều trần",
         "ủy ban quân vụ", "uỷ ban quân vụ", "thông qua dự luật", "dự luật quốc phòng",
-        "ngân sách quốc phòng", "ndaa", "phê chuẩn",
+        "ngân sách quốc phòng", "ndaa",
+        # (2) sáng kiến / chiến lược của chính quyền Trump trên kênh chính thống các bộ
+        "sắc lệnh hành pháp", "nhà trắng công bố", "chiến lược quốc gia",
+        "bộ ngoại giao mỹ", "bộ quốc phòng mỹ", "bộ tài chính mỹ", "bộ thương mại mỹ",
+        "bộ an ninh nội địa",
+        # (4) kinh tế Mỹ + nội các
+        "cục dự trữ liên bang", "lạm phát mỹ", "bộ trưởng mỹ",
     ],
 }
+
+# Từ khoá YẾU: tự nó không đủ để kết luận thuộc chủ đề, PHẢI kèm ngữ cảnh nước tương ứng.
+# Dựng 27/07/2026 sau khi mở rộng Nội bộ Mỹ sang 4 nhóm: "protest" kéo theo tin nghị sĩ
+# Philippines mặc đồ đen phản đối, "inflation" kéo theo chính sách tiền tệ Singapore và
+# chi tiêu vốn Nhật Bản — đều không phải nội bộ Mỹ.
+WEAK_NEED_US = {
+    "Nội bộ Mỹ": [
+        "sắc lệnh", "sáng kiến", "bỏ phiếu", "phê chuẩn", "nội các",
+        "biểu tình", "tuần hành", "bầu cử giữa nhiệm kỳ", "bầu cử sơ bộ", "cử tri",
+        "fed", "thuế quan", "trừng phạt",
+        "executive order", "protest", "protests", "demonstration", "demonstrations",
+        "rally", "rallies", "midterm", "midterms", "primary election", "ballot",
+        "voter", "voters", "federal reserve", "tariff", "tariffs", "sanctions",
+        "jobs report", "inflation", "cabinet meeting", "secretary announces",
+        "national strategy", "fact sheet", "policy directive",
+    ],
+}
+
+# Khớp theo ranh giới từ nên phải liệt kê CẢ dạng số nhiều: "midterm" không khớp "midterms"
+# (thực tế lọt: "Trump administration ... ahead of midterms" bị bỏ sót ở bản đầu).
+US_CONTEXT = [
+    "mỹ", "hoa kỳ", "nhà trắng", "washington", "trump", "quốc hội mỹ",
+    "u.s.", "us", "usa", "united states", "america", "american", "white house",
+    "congress", "congressional", "capitol hill", "pentagon", "federal",
+    # đảng phái / chức danh Mỹ — "House Republicans ... midterm playbook" không có chữ
+    # US/America nào nhưng rõ ràng là chuyện nội bộ Mỹ
+    "gop", "republican", "republicans", "democrat", "democrats",
+    "senator", "senators", "lawmakers", "house republicans", "house democrats",
+]
 
 # ------------------------------------------------------------------ tiếng Anh
 # Dùng cho RSS + Google News.
@@ -63,6 +110,9 @@ TOPIC_KEYWORDS_EN = {
         "china coast guard", "maritime militia", "philippine coast guard", "philippines",
         "manila", "balikatan", "kamandag", "aukus", "australia", "australian",
         "canberra", "adf", "royal australian navy", "nuclear submarine", "collins-class",
+        # các nước khác quanh Biển Đông (mở rộng 27/07/2026)
+        "malaysia", "indonesia", "brunei", "taiwan", "natuna", "vanguard bank",
+        "luconia shoals", "reed bank", "code of conduct", "asean maritime",
     ],
     "CNQS Mỹ": [
         "pentagon", "u.s. air force", "us air force", "u.s. navy", "us navy", "u.s. army",
@@ -78,11 +128,17 @@ TOPIC_KEYWORDS_EN = {
         "alliance of sahel states",
     ],
     "Predator's Run": ["predator's run", "predators run", "townsville", "carabaroo"],
+    # 4 NHÓM theo thứ tự ưu tiên (chỉ thị Huy 27/07/2026) — nhóm 1 tìm TRƯỚC, thiếu mới xuống 2/3/4.
+    # Chỉ để từ khoá TỰ ĐỦ ở đây; từ khoá chung của nhóm 3-4 nằm ở WEAK_NEED_US (cần ngữ cảnh Mỹ).
     "Nội bộ Mỹ": [
+        # (1) điều trần + bỏ phiếu thông qua dự luật
         "senate armed services", "house armed services", "senate appropriations",
         "house appropriations", "congressional hearing", "testifies", "testimony",
         "markup", "committee vote", "floor vote", "house passes", "senate passes",
         "ndaa", "defense authorization", "defense appropriations", "confirmation hearing",
+        # (2) sáng kiến / chiến lược chính quyền, công bố trên kênh chính thống các bộ
+        "presidential memorandum", "white house announces",
+        "state department announces", "treasury announces", "commerce department",
     ],
 }
 
@@ -96,10 +152,53 @@ def _compile(table):
 
 _RE_VI = _compile(TOPIC_KEYWORDS_VI)
 _RE_EN = _compile(TOPIC_KEYWORDS_EN)
+_RE_WEAK = _compile(WEAK_NEED_US)
+_RE_US_CTX = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in US_CONTEXT]
+
+
+def _has_us_context(text: str) -> bool:
+    return any(p.search(text) for p in _RE_US_CTX)
+
+
+# Nhận diện ứng viên "Nội bộ Mỹ" thuộc NHÓM ƯU TIÊN nào (1 cao nhất → 4 thấp nhất).
+# Cần vì Huy chốt 27/07/2026: phải vét cạn nhóm 1 (điều trần + bỏ phiếu) rồi mới xuống 2/3/4.
+# Nếu chỉ xếp ứng viên theo ngày thì agent sẽ toàn thấy nhóm 3-4 (biểu tình/thuế quan đăng
+# dày hơn hẳn) và luật ưu tiên thành vô nghĩa.
+US_SUBGROUPS = {
+    1: ["điều trần", "phiên điều trần", "thông qua dự luật", "bỏ phiếu", "ủy ban quân vụ",
+        "uỷ ban quân vụ", "ndaa", "dự luật quốc phòng", "ngân sách quốc phòng",
+        "hearing", "testimony", "testifies", "markup", "mark-up", "committee vote",
+        "floor vote", "house passes", "senate passes", "committee approves",
+        "defense authorization", "defense appropriations", "confirmation hearing"],
+    2: ["sắc lệnh", "chiến lược quốc gia", "nhà trắng công bố", "sáng kiến",
+        "executive order", "presidential memorandum", "white house announces",
+        "national strategy", "fact sheet", "policy directive", "state department announces",
+        "treasury announces", "commerce department"],
+    3: ["biểu tình", "tuần hành", "bầu cử giữa nhiệm kỳ", "bầu cử sơ bộ", "cử tri",
+        "protest", "protests", "demonstration", "demonstrations", "rally", "rallies",
+        "midterm", "midterms", "primary election", "ballot", "voter", "voters"],
+    4: ["fed", "cục dự trữ liên bang", "thuế quan", "lạm phát", "trừng phạt", "nội các",
+        "federal reserve", "tariff", "tariffs", "sanctions", "jobs report", "inflation",
+        "cabinet meeting", "secretary announces"],
+}
+_RE_SUB = {g: [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in kws]
+           for g, kws in US_SUBGROUPS.items()}
+
+
+def us_subgroup(text: str) -> int:
+    """Nhóm ưu tiên 1-4 của một ứng viên Nội bộ Mỹ; 9 = không rõ (xếp cuối)."""
+    for g in (1, 2, 3, 4):
+        if any(p.search(text) for p in _RE_SUB[g]):
+            return g
+    return 9
 
 
 def match_topic(text: str, lang: str = "both"):
-    """Trả về tên chủ đề đầu tiên khớp, hoặc None. lang: 'vi' | 'en' | 'both'."""
+    """Trả về tên chủ đề đầu tiên khớp, hoặc None. lang: 'vi' | 'en' | 'both'.
+
+    Hai vòng: từ khoá TỰ ĐỦ trước; nếu không khớp thì mới xét từ khoá YẾU, và từ khoá yếu
+    chỉ tính khi văn bản CÓ ngữ cảnh Mỹ (xem WEAK_NEED_US).
+    """
     tables = []
     if lang in ("vi", "both"):
         tables.append(_RE_VI)
@@ -109,4 +208,7 @@ def match_topic(text: str, lang: str = "both"):
         for topic, pats in table.items():
             if any(p.search(text) for p in pats):
                 return topic
+    for topic, pats in _RE_WEAK.items():
+        if any(p.search(text) for p in pats) and _has_us_context(text):
+            return topic
     return None

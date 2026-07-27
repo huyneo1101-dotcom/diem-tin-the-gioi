@@ -17,17 +17,37 @@ Playbook vận hành để cập nhật bản tin. `CLAUDE.md` ở gốc repo l�
 Bản tin **CHỈ chạy MỘT lần/ngày, buổi TỐI 22:00** (dự phòng 23:00). Mỗi phiên **CHỈ quét 5 chủ đề**,
 **mỗi chủ đề 5–10 bài** (best-effort — thiếu thì thôi, KHÔNG bịa):
 
-1. **Nội bộ Mỹ (SIẾT)** — `usNews`, category `Chính trị`. **CHỈ nhận 2 loại:** (a) phiên **điều trần**
-   Quốc hội/uỷ ban (hearing, testimony, mark-up, chất vấn quan chức); (b) **kết quả bỏ phiếu THÔNG QUA
-   dự luật** (committee vote, floor vote, passage của bill/nghị quyết/NDAA/ngân sách). **LOẠI** phần còn
-   lại: drama/đảng phái, chân dung/động thái chính trị gia, horserace bầu cử, biểu tình, nhập cư, cải
-   cách tư pháp thuần, bê bối cá nhân.
+1. **Nội bộ Mỹ — 4 NHÓM CÓ THỨ TỰ** (chỉ thị Huy 27/07/2026, GHI ĐÈ mức "SIẾT" cũ) — `usNews`,
+   category `Chính trị` (nhóm 4 có thể `Kinh tế`). **BẮT BUỘC vét cạn nhóm (1) TRƯỚC; chỉ khi chưa đủ
+   chỉ tiêu 5–10 bài mới lần lượt xuống (2) → (3) → (4).** Đừng nhảy cóc xuống nhóm dễ tìm hơn.
+   1. **Điều trần + bỏ phiếu** — liệt kê **TOÀN BỘ phiên điều trần trong ngày** (hearing, testimony,
+      mark-up, chất vấn quan chức) + **TOÀN BỘ kết quả** hội đồng/uỷ ban/hai viện **bỏ phiếu thông qua
+      dự luật** (committee vote, floor vote, passage của bill/nghị quyết/NDAA/ngân sách).
+   2. **Sáng kiến & chiến lược chính quyền Trump** công bố trên **kênh chính thống của các bộ**: sắc
+      lệnh hành pháp, presidential memorandum, chiến lược quốc gia, fact sheet Nhà Trắng, thông cáo
+      của State/Treasury/Commerce/DHS…
+   3. **Biểu tình + bầu cử**: diễn biến biểu tình, tuần hành; động thái bầu cử giữa nhiệm kỳ/sơ bộ,
+      quy định cử tri.
+   4. **Kinh tế Mỹ + động thái bộ sậu**: Fed, thuế quan, trừng phạt, số liệu vĩ mô; và các hoạt động
+      khác của Nhà Trắng + nội các (Trump và bộ sậu action).
+   ⚠️ Nhóm 3–4 **đảo lại** phần cấm cũ (drama/đảng phái/horserace/biểu tình nay ĐƯỢC nhận) — nhưng chỉ
+   khi nhóm 1 đã cạn thật. Và phải là chuyện **NỘI BỘ MỸ**: từ khoá nhóm 3–4 rất chung nên
+   `scripts/topics.py` bắt buộc kèm ngữ cảnh Mỹ (`WEAK_NEED_US`) — thực tế đã lọt tin nghị sĩ
+   Philippines mặc đồ đen phản đối, chính sách tiền tệ Singapore, chi tiêu vốn Nhật Bản.
 2. **Úc & Biển Đông** — `worldNews`. **Úc**: AUKUS, QP/khí tài Úc, ADF, an ninh Úc–Mỹ/Nhật/Anh, chính
    sách Thái Bình Dương (region `Ấn Độ Dương - Thái Bình Dương`). **Biển Đông**: chủ quyền biển, đụng
    độ/tuần tra, phán quyết, tập trận, hoạt động Philippines/VN/TQ/Mỹ (region `Đông Á`). category theo
    nội dung (CNQS/Ngoại giao/Chính trị).
+   ➕ **MỞ RỘNG 27/07/2026 (chỉ thị Huy): tìm thêm tin của CÁC NƯỚC KHÁC trong khu vực Biển Đông** —
+   Malaysia, Indonesia, Brunei, Đài Loan; đàm phán **COC** ASEAN–Trung Quốc; các thực thể Natuna, Bãi
+   Tư Chính (Vanguard Bank), Luconia, Bãi Cỏ Rong (Reed Bank); hoạt động của Nhật/Ấn/Hàn tại vùng biển
+   này. Đây là dư địa lớn khi diễn biến Philippines–Trung Quốc đã nạp hết ở phiên trước.
 3. **CNQS Mỹ** — `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống cụ thể: tên lửa, phòng không,
    hải quân, không gian/Space Force, laser, AI quân sự, tàu ngầm, drone, siêu vượt âm.
+   ⏳ **KHUNG NGÀY NỚI RIÊNG CHO CHỦ ĐỀ NÀY: lùi tới 3 ngày** (chỉ thị Huy 27/07/2026 — "quét ngày 27
+   thì có thể lấy tin xuống tận ngày 24"). 4 chủ đề còn lại VẪN chỉ hôm nay + hôm qua. `add_news.py`
+   áp theo **category**: item `Công nghệ quân sự` được lùi 3 ngày (`MAX_AGE_DAYS_CNQS`), item khác lùi
+   1 ngày — nên nhớ đặt đúng category, đặt sai là bị chặn oan hoặc lọt tin cũ.
 4. **Mỹ–Mali** — `usNews` (dossier `🟤 Mỹ – Mali`). Mỹ cân nhắc/triển khai quân sự ở Mali nhắm JNIM
    (al-Qaeda): không kích drone, phản ứng Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin
    gắn Mali/JNIM/Bamako/Sahel để tự vào dossier. Nguồn: defense.gov, state.gov, centcom.mil (AFRICOM),
@@ -155,7 +175,7 @@ Chỉ **5 luồng** cho 5 chủ đề (gộp Mali+Predator vào 1 agent; Báo M�
 
 | Agent | Chủ đề | Sản lượng (24h, nới 48h nếu thiếu) |
 |---|---|---|
-| A | **Nội bộ Mỹ (SIẾT)** → `usNews` cat `Chính trị` | **5–10** — CHỈ điều trần + bỏ phiếu thông qua dự luật (xem PHẠM VI MỚI mục 1). Thiếu thì thôi, KHÔNG nới sang drama/đảng phái. |
+| A | **Nội bộ Mỹ (4 nhóm có thứ tự)** → `usNews` cat `Chính trị`/`Kinh tế` | **5–10** — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới xuống (2) sáng kiến/chiến lược các bộ → (3) biểu tình + bầu cử → (4) kinh tế Mỹ + động thái Nhà Trắng/nội các. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ thứ tự này và bắt agent báo lại đã cạn nhóm 1 chưa. |
 | B | **Úc & Biển Đông** → `worldNews` | **5–10** — Úc (region IPAC) + Biển Đông (region Đông Á). |
 | C | **CNQS Mỹ** → `usNews` cat `Công nghệ quân sự` | **5–10** — khí tài/hệ thống cụ thể. |
 | D | **Mỹ–Mali + Predator's Run 2026** | Mali 2–5 (`usNews` dossier) · Predator 1–2 (`exerciseUpdates`). |
