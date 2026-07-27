@@ -129,6 +129,20 @@ function diffEvents(cur, prev) {
   return out;
 }
 
+// Bài phân tích think-tank vừa nạp (DATA.analyses) — thêm 27/07/2026 theo chỉ thị Huy
+// "quét tin buổi sáng nhớ quét thêm cả các bài từ think-tank".
+function diffAnalyses(cur, prev) {
+  const arr = Array.isArray(cur.analyses) ? cur.analyses : [];
+  if (prev) {
+    const seen = new Set((prev.analyses || []).map(a => a && a.url).filter(Boolean));
+    return arr.filter(a => a && a.url && !seen.has(a.url));
+  }
+  // Không có bản trước để so (workflow_dispatch, hoặc commit đầu): dựa vào dấu `_addedDate`
+  // do add_analyses.py đóng. Bài không có dấu = bài đời cũ -> coi như cũ. Thà bỏ sót một
+  // email còn hơn liệt kê nguyên kho 24 bài như thể vừa nạp hết trong sáng nay.
+  return arr.filter(a => a && a._addedDate && a._addedDate === cur.generatedAt);
+}
+
 function weeklyIsNew(cur, prev) {
   const w = cur.weeklyReport;
   if (!w || !(w.countries || []).length) return null;
@@ -142,7 +156,7 @@ function weeklyIsNew(cur, prev) {
 // đây là làm mất chính thứ Huy chọn; muốn đổi phong cách thì lấy mẫu khác trong file mockup.
 // Vì sao mẫu này an toàn nhất: không ô nào dựa vào background-color, nên Outlook/Gmail dark mode
 // không thể tạo ra cảnh chữ trắng trên nền trắng như các mẫu nền tối.
-const ACCENT = { ex: '#b45309', dip: '#0f766e' };   // tập trận = hổ phách · ngoại giao = xanh mòng
+const ACCENT = { ex: '#b45309', dip: '#0f766e', ana: '#3730a3' };   // tập trận = hổ phách · ngoại giao = xanh mòng · think-tank = chàm
 const INK = '#111827', BODY = '#4b5563', MUTED = '#9ca3af', RULE = '#eceff3';
 
 // Số mục in ở lề trái: 01, 02, 03… Mục mẹo dùng 💡 thay số (xem tipHtml).
@@ -209,15 +223,31 @@ function weeklyHtml(w, i) {
   return rowHtml(String(i + 1).padStart(2, '0'), inner);
 }
 
-function buildHtml(evs, weekly, ddmm, feats, tip) {
+// Khối 🏛️ Think-tank: mỗi bài một dòng tít + viện/tác giả + câu takeaway (thứ đáng đọc nhất
+// của bài phân tích). Cap 6 bài để email không dài hơn phần sự kiện.
+const ANA_MAX = 6;
+function analysesHtml(list, i) {
+  const rows = list.slice(0, ANA_MAX).map((a, k) => `<div style="margin-top:${k ? 12 : 8}px;">
+        <a href="${esc(a.url || WEB_URL)}" style="font-size:14.5px;font-weight:700;color:${INK};text-decoration:none;line-height:1.45;">${esc(trim(a.title, 150))}</a>
+        <div style="font-size:12.5px;color:${MUTED};margin-top:2px;">${[esc(a.outlet || ''), esc(a.author || ''), esc(a.topic || '')].filter(Boolean).join(' · ')}</div>
+        ${a.takeaway ? `<div style="font-size:13.5px;color:${BODY};line-height:1.62;margin-top:4px;">${esc(trim(a.takeaway, 260))}</div>` : ''}
+      </div>`).join('');
+  const more = list.length > ANA_MAX
+    ? `<div style="font-size:12.5px;color:${MUTED};margin-top:10px;">…và ${list.length - ANA_MAX} bài nữa trên web.</div>` : '';
+  return rowHtml(String(i + 1).padStart(2, '0'), labelHtml('Think-tank', ACCENT.ana) + rows + more);
+}
+
+function buildHtml(evs, weekly, anas, ddmm, feats, tip) {
   // Số mục chạy LIÊN TỤC qua mọi khối có nội dung: mỗi sự kiện một số, rồi báo cáo tuần, rồi
   // Mới trên web. Ngày rỗng khối nào thì số tự dồn lên, không để lỗ 01 → 03.
   let n = 0, sections = '';
   evs.forEach(d => { if (n) sections += ruleHtml(); sections += evBlockHtml(d, n++); });
   if (weekly) { if (n) sections += ruleHtml(); sections += weeklyHtml(weekly, n++); }
+  if (anas && anas.length) { if (n) sections += ruleHtml(); sections += analysesHtml(anas, n++); }
   if (feats && feats.length) { if (n) sections += ruleHtml(); sections += featuresHtml(feats, n++); }
   if (tip) { if (n) sections += ruleHtml(); sections += tipHtml(tip); }
-  const sub = [evs.length ? `${evs.length} cập nhật` : '', weekly ? 'báo cáo tuần' : ''].filter(Boolean).join(' · ');
+  const sub = [evs.length ? `${evs.length} cập nhật` : '', weekly ? 'báo cáo tuần' : '',
+    anas && anas.length ? `${anas.length} bài think-tank` : ''].filter(Boolean).join(' · ');
   return `<!doctype html><html><body style="margin:0;background:#f2f4f7;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f4f7;padding:24px 12px;">
     <tr><td align="center">
@@ -246,13 +276,18 @@ async function main() {
 
   const evs = diffEvents(cur, prev);
   const weekly = weeklyIsNew(cur, prev);
-  if (!evs.length && !weekly) { console.log('Không có sự kiện/tập trận mới, không có báo cáo tuần mới — bỏ qua gửi.'); return; }
+  const anas = diffAnalyses(cur, prev);
+  if (!evs.length && !weekly && !anas.length) {
+    console.log('Không có sự kiện/tập trận mới, không có báo cáo tuần mới, không có bài think-tank mới — bỏ qua gửi.');
+    return;
+  }
 
   const p = (cur.generatedAt || '').split('-');
   const ddmm = p.length === 3 ? `${p[2]}/${p[1]}/${p[0]}` : new Date().toISOString().slice(0, 10);
   const subjBits = [];
   if (evs.length) subjBits.push(`${evs.length} sự kiện/tập trận`);
   if (weekly) subjBits.push('báo cáo tuần');
+  if (anas.length) subjBits.push(`${anas.length} bài think-tank`);
 
   const transporter = nodemailer.createTransport({ host: 'smtp.gmail.com', port: 465, secure: true, auth: { user: EMAIL_USER, pass: EMAIL_PASS } });
   const textLines = [];
@@ -263,6 +298,10 @@ async function main() {
   if (weekly) {
     textLines.push('', `📊 Báo cáo tuần ${weekly.weekStart || ''}–${weekly.weekEnd || ''}:`);
     (weekly.countries || []).forEach(c => textLines.push(`   ${c.flag || ''} ${c.name}: ${(c.points || []).map(x => x.title).slice(0, 4).join(' · ')}`));
+  }
+  if (anas.length) {
+    textLines.push('', '🏛️ Think-tank:');
+    anas.slice(0, ANA_MAX).forEach(a => textLines.push(`   - [${a.outlet || ''}] ${a.title} — ${a.url || ''}`));
   }
   const wn = readWhatsNew();
   const feats = freshFeatures(wn, cur.generatedAt);
@@ -284,9 +323,9 @@ async function main() {
     // dùng emoji khác hẳn (🎖️ vs 📰) để liếc là ra.
     subject: `🎖️ Sự kiện & Tập trận ${ddmm} — ${subjBits.join(' + ')}`,
     text: `Sự kiện & Tập trận ${ddmm}.\n\n` + textLines.join('\n') + `\n\nMở trang: ${WEB_URL}`,
-    html: buildHtml(evs, weekly, ddmm, feats, tip),
+    html: buildHtml(evs, weekly, anas, ddmm, feats, tip),
   });
-  console.log(`Đã gửi email sáng tới ${EMAIL_TO}: ${info.messageId} (${evs.length} sự kiện, báo cáo tuần: ${weekly ? 'có' : 'không'}, tính năng mới: ${feats.length}, mẹo: ${tip ? tip.title : 'không'})`);
+  console.log(`Đã gửi email sáng tới ${EMAIL_TO}: ${info.messageId} (${evs.length} sự kiện, báo cáo tuần: ${weekly ? 'có' : 'không'}, think-tank: ${anas.length}, tính năng mới: ${feats.length}, mẹo: ${tip ? tip.title : 'không'})`);
 }
 
 main().catch(e => { console.error('LỖI gửi email sáng:', (e && e.stack) || e); process.exit(1); });

@@ -59,7 +59,11 @@ var weekly = (D.weeklyReport && (D.weeklyReport.countries || []).length) ? D.wee
     { flag: '🇷🇺', name: 'Nga', points: [{ title: 'Luận điểm mẫu' }] }]
 };
 
+// Think-tank: bài có `_addedDate` = generatedAt, đúng cách diffAnalyses hoạt động khi
+// không có bản trước để so.
+var anas = diffAnalyses(D, null);
+
 var wn = readWhatsNew();
 var p = String(D.generatedAt || '').split('-');
 var ddmm = p.length === 3 ? (p[2] + '/' + p[1] + '/' + p[0]) : String(D.generatedAt);
-print(buildHtml(evs, weekly, ddmm, freshFeatures(wn, D.generatedAt), tipOfDay(wn, D.generatedAt)));
+print(buildHtml(evs, weekly, anas, ddmm, freshFeatures(wn, D.generatedAt), tipOfDay(wn, D.generatedAt)));

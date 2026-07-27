@@ -136,3 +136,44 @@ nhay sang tab Phan tich. Da tao chip viec nen de sua rieng.
 - `state.py claim event-scan` -> exit 10: phien sang 27/07 DA XONG luc 09:41 (CI claude-event-scan.yml).
   => SKIP em, khong quet lai, khong gan Monitor. Ket thuc phien.
 
+=== 11:05 THEM MANG THINK-TANK cho phien sang (chi thi Huy: "quet tin buoi sang nho quet
+    them ca cac bai tu think-tank") ===
+PHAT HIEN GOC: web DA co san tab 🧠 Phan tich -> muc con 🏛️ Think-tank doc DATA.analyses,
+  nhung KHONG co script nao ghi vao mang do (chi prune_news.py xoa) -> muc dung im tu
+  09/07, bai moi nhat 18 ngay tuoi. Muc chet vi thieu duong nap, khong phai vi quen quet.
+DA LAM:
+1) scripts/add_analyses.py (FILE MOI — khong dung add_news.py dang do cua phien khac):
+   - `--candidates`: fetch RSS 13 vien da VERIFY THAT hom nay (Atlantic Council 33 bai/7ngay,
+     Lowy 20, ASPI 20, War on the Rocks 14, Jamestown 10, Long War Journal 6, RAND 4,
+     MERICS 3, CSET 2, Hudson 10, Heritage 16, AMTI, Crisis Group) = 131 ung vien;
+     tu bo bai da co trong DATA + duong dan rac /in-the-news/ /event/ /podcast...
+     ⚠️ War on the Rocks THUC TE CHAY DUOC (CLAUDE.md ghi "BO HAN 403") — chi can UA +
+     --compressed. Da thu 2 bien the URL cho moi noi hong: Brookings/RUSI/Chatham House/
+     ORF/CNAS/FPRI tra HTML · 38North/Stimson Cloudflare · USIP 404 · Carnegie/Belfer/
+     Wilson XML hop le nhung 0 item -> ghi vao WEBSEARCH_ONLY, dung thu lai.
+   - Nap: guardrail CHAN thieu field · ngay ngoai khung 7 ngay (KIEM 2 LOP nhu add_news,
+     neo lo ve ngay cu khong lach duoc) · url trang chu/live-blog/trung · DOMAIN khong
+     thuoc vien nghien cuu (THINKTANK_DOMAINS, ~60 domain). Da TEST 2 ca chan that: bai
+     Al Jazeera -> chan dung; bai 14/07 neo lo 20/07 -> lop 2 chan dung.
+2) Nap 6 bai that (da MO DOC tung bai bang WebFetch, khong bia): ASPI x2 (tau ngam hat nhan
+   My o HMAS Stirling; Uc dung sau Philippines), Lowy x2 (My tu ha chuan hat nhan
+   Saudi; VN "vua hop tac vua dau tranh" voi TQ), War on the Rocks (chien tranh nhan thuc
+   nham Dai Bac), Hudson (Dong Nam A truoc canh tranh My-Trung).
+   Muc Phan tich 18 -> 24 bai. Da KIEM TREN WEB THAT: tab hien "🏛️ Think-tank (24)",
+   badge chu de + nhan MOI + takeaway + bo loc ngay/khu vuc gom dung.
+   ⚠️ Bo vai so lieu WebFetch tra ve loi ky tu (ten thuc the o Hoang Sa, so thuc the boi
+   dap) thay vi doan — quy tac 6 CLAUDE.md toan cuc.
+3) Email sang (.github/scripts/send-morning-email.js): them diffAnalyses + khoi 🏛️ Think-tank
+   (mau digest toi gian, accent cham #3730a3, cap 6 bai) + dua vao GATE gui: bai think-tank
+   moi cung du de mo email ke ca khi khong co su kien/tap tran. Da test bang jsc: preview
+   dung so muc 01-05 lien tuc, khoi 04 = Think-tank; test rieng diffAnalyses 4 ca (co prev /
+   khong prev / DATA khong co analyses / prev rong) deu dung.
+4) Quy tac: SKILL event-scan (BUOC 2c) + .github/prompts/event-scan-ci.md (buoc 3b) +
+   whats-new.json (feature nguoi doc thay).
+5) CLAUDE.md goc repo: them muc "### 4. analyses — bai phan tich THINK-TANK" + sua mo ta
+   phien SANG. Luc dau HOAN lai vi file dang modified boi phien khac (khong commit ho file
+   la — muc 14 quy tac toan cuc); giua chung phien kia da commit xong 3 commit (harvest.py,
+   noi bo My 4 nhom, docx) nen file sach tro lai -> lam not.
+KIEM TRUOC KHI COMMIT: diff DATA giua HEAD va ban lam viec — CHI analyses 18->24, cac mang
+  worldNews/usNews/exercises/dipEvents/rejectedNews/weeklyReport giu nguyen so luong.
+
