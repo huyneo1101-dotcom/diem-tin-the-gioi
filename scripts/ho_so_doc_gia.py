@@ -30,6 +30,37 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 URL = "https://ltmlueqkajqmduoqghdf.supabase.co"
+# Mã cấp quyền ĐỌC hai bảng dt_* — nằm NGOÀI repo (repo này public), chmod 600.
+# Database chỉ giữ SHA-256 của mã, không giữ mã. Xem migration dt_quyen_doc_bang_ma_rieng.
+FILE_MA = pathlib.Path(os.environ.get("DT_KEY_FILE", "/Users/Huy/Claude/.dt-bot-key"))
+
+
+def ma_doc():
+    m = os.environ.get("DT_BOT_KEY", "").strip()
+    if m:
+        return m
+    try:
+        return FILE_MA.read_text(encoding="utf-8").strip()
+    except OSError:
+        return ""
+
+
+def tai_bot_hoi(gioi_han=500):
+    """Đọc `dt_bot_hoi` bằng mã riêng. Không có mã -> trả None để người gọi báo rõ."""
+    key, ma = anon_key(), ma_doc()
+    if not key or not ma:
+        return None
+    p = subprocess.run(
+        ["curl", "-sS", "--max-time", "45",
+         f"{URL}/rest/v1/dt_bot_hoi?select=*&order=created_at.desc&limit={gioi_han}",
+         "-H", f"apikey: {key}", "-H", f"Authorization: Bearer {key}",
+         "-H", f"x-dt-key: {ma}"],
+        capture_output=True, text=True)
+    try:
+        d = json.loads(p.stdout)
+        return d if isinstance(d, list) else None
+    except Exception:
+        return None
 
 
 def anon_key():
@@ -83,10 +114,15 @@ def luu(ho_so):
     if not key:
         print("Không tìm được key Supabase.", file=sys.stderr)
         return 1
+    # Upsert = INSERT + UPDATE, mà UPDATE chỉ mở khi có mã (xem migration
+    # dt_quyen_doc_bang_ma_rieng). Thiếu header này thì lần lưu THỨ HAI trở đi im lặng
+    # không ghi đè được — hồ sơ đứng yên mãi ở bản đầu tiên.
+    ma = ma_doc()
     p = subprocess.run(
         ["curl", "-sS", "--max-time", "30", "-X", "POST",
          f"{URL}/rest/v1/dt_ho_so_doc_gia",
          "-H", f"apikey: {key}", "-H", f"Authorization: Bearer {key}",
+         "-H", f"x-dt-key: {ma}",
          "-H", "Content-Type: application/json",
          "-H", "Prefer: resolution=merge-duplicates,return=minimal",
          "-w", "\n@@%{http_code}", "-d", json.dumps(ho_so, ensure_ascii=False)],
@@ -114,13 +150,15 @@ def main():
         return luu(json.loads(pathlib.Path(args.luu).read_text(encoding="utf-8")))
 
     if args.so_lieu:
-        if not args.tu_json:
-            print("Cần --tu-json: anon key KHÔNG đọc được dt_bot_hoi (RLS chỉ mở INSERT).\n"
-                  "Trong phiên Claude Code, dùng MCP Supabase chạy:\n"
-                  "  select * from dt_bot_hoi order by created_at desc limit 500;\n"
-                  "rồi ghi kết quả ra JSON và truyền vào --tu-json.", file=sys.stderr)
-            return 1
-        rows = json.loads(pathlib.Path(args.tu_json).read_text(encoding="utf-8"))
+        if args.tu_json:
+            rows = json.loads(pathlib.Path(args.tu_json).read_text(encoding="utf-8"))
+        else:
+            rows = tai_bot_hoi()
+            if rows is None:
+                print(f"Không đọc được dt_bot_hoi. Cần mã trong {FILE_MA} (hoặc biến "
+                      "DT_BOT_KEY). Mã này cấp quyền đọc 2 bảng dt_* — xem migration "
+                      "dt_quyen_doc_bang_ma_rieng.", file=sys.stderr)
+                return 1
         so_lieu(rows, args.chat)
         return 0
 

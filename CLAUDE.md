@@ -329,11 +329,26 @@ công khai trong `index.html`; nếu mở SELECT thì ai cũng đọc được c
 riêng cho bot. Đã kiểm thật bằng chính anon key đó: chèn trả **201**, đọc trả **`[]`** dù
 bảng có dữ liệu. Nhờ vậy workflow ghi được mà **không cần service key** trong GitHub secret.
 
-⚠️ **ĐỌC `dt_bot_hoi` phải chạy từ phiên Claude Code local, KHÔNG qua GitHub Actions.**
-Đọc cần quyền cao hơn anon, mà service key mở **toàn bộ database** — gồm ViNha, bi-a, Hương
-Diện. Nhét nó vào secret của một repo public là cái giá quá đắt cho một việc chạy mỗi tuần
-một lần. Phiên local đã có sẵn quyền qua MCP Supabase: truy vấn `dt_bot_hoi`, ghi ra JSON,
-rồi `ho_so_doc_gia.py --so-lieu --tu-json`.
+⚠️ **ĐỌC `dt_bot_hoi` dùng MÃ RIÊNG, KHÔNG dùng service key.** Service key mở **toàn bộ
+database** — gồm ViNha, bi-a, Hương Diện; quá đắt cho một việc chạy 10 lần/tháng. Thay vào
+đó có mã chỉ mở quyền đọc 2 bảng `dt_*`, gửi qua header `x-dt-key`:
+| | |
+|---|---|
+| Mã nằm ở | `/Users/Huy/Claude/.dt-bot-key` (chmod 600, **NGOÀI repo** vì repo public) |
+| Database giữ | Chỉ **SHA-256** của mã — đọc được DB cũng không suy ngược ra mã |
+| Cơ chế | Hàm `public.dt_ma_hop_le()` + policy SELECT/UPDATE, migration `dt_quyen_doc_bang_ma_rieng` |
+| Đổi mã | Sinh mã mới vào file đó → tính lại sha256 → chạy lại migration với hash mới |
+Đã kiểm 3 ca: không mã → `[]` · mã đúng → đọc được · mã sai → `[]`.
+⚠️ `--luu` **cũng phải gửi header này**: upsert = INSERT + UPDATE, mà UPDATE chỉ mở khi có
+mã. Thiếu nó thì lần lưu thứ hai trở đi im lặng không ghi đè — hồ sơ đứng yên ở bản đầu.
+
+⚠️ **KHÔNG dựa vào MCP Supabase cho phiên tự động.** MCP này là connector claude.ai, có thể
+**vắng mặt trong phiên headless/cron** — đó là lý do routine đi bằng mã riêng + `curl` chứ
+không gọi MCP.
+
+**Routine `ho-so-doc-gia`** — scheduled task local, cron `0 10 */3 * *` (10:00 giờ VN, 3
+ngày/lần). Quy trình: `docs/routine-ho-so-doc-gia.md` (nguồn sự thật; SKILL.md chỉ là stub).
+"Không có dữ liệu" là kết quả hợp lệ → ghi log, KHÔNG gửi Telegram, kết thúc.
 
 ⚠️ **Chia việc giữa đếm và nhận định.** `--so-lieu` chỉ ĐẾM (số lượt, chủ đề hay hỏi, tỉ lệ
 trong/ngoài phạm vi, giờ hay hỏi). Phần "người này quan tâm gì, hỏi theo lối nào" do phiên
