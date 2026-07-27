@@ -10,16 +10,16 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Thử phân giải DNS + tải trang
+      - name: Xac nhan noi dung 3 feed da chay
         run: |
-          for d in www.army.mil www.navy.mil www.af.mil www.marines.mil www.centcom.mil www.pacom.mil www.jcs.mil www.news.uscg.mil www.spaceforce.mil www.war.gov; do
-            ip=$(getent hosts "$d" | head -1 | awk '{print $1}')
-            code=$(curl -sL --max-time 20 -o /dev/null -w '%{http_code}/%{size_download}' "https://$d/" || echo "000/0")
-            echo "$d | DNS=${ip:-KHONG-PHAN-GIAI} | HTTP=$code"
+          for u in "https://www.af.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.marines.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.news.uscg.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.army.mil/rss/static/1.xml"; do
+            echo "=== $u"
+            curl -sL --max-time 25 "$u" | grep -o '<title>[^<]*</title>' | head -4
+            curl -sL --max-time 25 "$u" | grep -o '<pubDate>[^<]*</pubDate>' | head -2
           done
-      - name: Thử feed RSS kiểu DesktopModules
+      - name: Do bien the cho 4 domain con thieu
         run: |
-          for u in "https://www.af.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.navy.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1105&max=10" "https://www.army.mil/rss/static/1.xml" "https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=95&max=10" "https://www.pacom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.jcs.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.marines.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.news.uscg.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10"; do
-            n=$(curl -sL --max-time 20 "$u" | grep -c "<item" || true)
+          for u in "https://www.navy.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.navy.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=800&Site=1105&max=10" "https://www.navy.mil/Press-Office/News-Stories/rss/" "https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=800&Site=95&max=10" "https://www.pacom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=800&Site=1&max=10" "https://www.jcs.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=800&Site=1&max=10" "https://www.spaceforce.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1060&max=10" "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=400&Site=945&max=10" "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=10"; do
+            n=$(curl -sL --max-time 25 "$u" | grep -c "<item" || true)
             echo "items=$n | $u"
           done
