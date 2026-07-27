@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Lora:wght@400;700&family=Merriweather:wght@400;700&family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&family=Roboto:wght@400;700&display=swap">
 <style>
-:root{--fs:1;
+:root{--fs:1.18;
   --bg:#f5f2ec;--paper:#fff;--paper2:#f7f5f1;--ink:#1b1b1b;--title:#141414;--sum:#3a352e;
   --muted:#6b6459;--muted2:#8a8378;--line:#d8d2c6;--line2:#ded8cc;--accent:#b3282d;
   --soft:#efeae0;--note-ink:#5a5349;--star:#c4b48f;--star-on:#d4a017;--accent-soft:#fbeceb;
@@ -38,7 +38,7 @@
 [data-theme=intel] .card{border-left:3px solid var(--accent)}
 [data-theme=intel] .bs-eye,[data-theme=intel] .bs-colh,[data-theme=intel] .bs-si .k{font-family:ui-monospace,Menlo,Consolas,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font-family:var(--reader-font,'Times New Roman',Times,serif);line-height:1.55;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--reader-font,'Lora','Times New Roman',Times,serif);line-height:1.55;-webkit-text-size-adjust:100%}
 a{color:inherit}
 .wrap{max-width:860px;margin:0 auto;padding:18px 16px 60px}
 .mast{text-align:center;padding:8px 0 14px;border-bottom:3px double var(--ink);margin-bottom:2px}
@@ -436,7 +436,7 @@ function setPref(k,v){try{localStorage.setItem(k,v);}catch(e){}}
 function applyFont(s){document.documentElement.style.setProperty('--reader-font',s);}
 function applyFs(v){document.documentElement.style.setProperty('--fs',v);}
 function ensureReaderUI(){
-  var curFs=getPref('dt.fs','1'), curFont=getPref('dt.font',FONTS[0].s);
+  var curFs=getPref('dt.fs','1.18'), curFont=getPref('dt.font',"'Lora',serif");
   applyFs(curFs); applyFont(curFont);
   var fab=document.createElement('button'); fab.id='reader-fab'; fab.textContent='⚙'; fab.setAttribute('aria-label','Cài đặt');
   var panel=document.createElement('div'); panel.id='reader-panel'; panel.hidden=true;
