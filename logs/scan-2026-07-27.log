@@ -51,6 +51,31 @@ la 5 chu de) -> bo qua ca hai.
 Da ghi logs/scan-gaps.json (date=2026-07-27 khop generatedAt, du 5 chu de + Bao Moi, moi muc kem
 ly do that). state.py done.
 
+[2026-07-27 ~06:5x +07] BO SUNG BAO MOI (Huy hoi: "may van tu quet bao moi de tim tin chu?")
+THUA NHAN: phien sang 05:19-05:35 KHONG chay vong Bao Moi vi Huy yeu cau "quet nhanh 15 phut" —
+da ghi trong scan-gaps.json nhung van la phan bi bo. Nay lam bu.
+Trang thai kho: baomoi-saved 0 bai (Huy chua bookmark bai nao) · baomoi-topics 72 bai deu ngay 26/07,
+chua nap. Action sync-baomoi.yml chay binh thuong (gan nhat 26/07 21:42 VN, success).
+LOC 72 ung vien theo 5 chu de: dung 1 bai hop — "Tau 015-Tran Hung Dao bat dau tham, giao luu voi
+Hai quan Philippines" (chu de 2 Bien Dong). 71 bai con lai la Iran/Ukraine/Anh/Duc/Nhat — ngoai pham vi.
+TRUY NGUOC VE NGUON GOC (bat buoc voi ung vien chuyen muc): bai goc la Bao Quan doi Nhan dan.
+- WebFetch link Bao Moi: MO DUOC, day du chi tiet (Dai ta Do Minh, Pho Tu lenh Vung 4, cap cang Manila
+  sang 26/7, Lu doan 162).
+- WebFetch qdnd.vn (ca ban Viet lan en.qdnd.vn) + curl voi user-agent trinh duyet: deu tra 302 REDIRECT
+  LOOP -> khong doc duoc noi dung tai link goc bang tool.
+- WebSearch (allowed_domains qdnd.vn) tra DUNG bai + snippet khop: "docked at Manila" sang 26/7, Brigade
+  162, Senior Captain Do Minh. Them mach su kien khop: tau roi Cam Ranh 17/7 di tham Trung Quoc +
+  Philippines (Thanh Nien, Nhan Dan).
+=> QUYET DINH NAP (khac vu The Africa Report sang nay): o day noi dung da XAC NHAN CHEO 2 duong doc lap
+va link goc ton tai trong index tim kiem; 302 la han che cua tool tu dong (trinh duyet that mo binh
+thuong), khong phai link chet. Vu Mali thi chi co 1 nguon duy nhat 403, khong xac nhan duoc mot chu nao.
+NAP: lo date=2026-07-27 (tin 26/07, lui 1 ngay -> qua ca 2 lop guardrail moi). add_news.py OK: +1 tin
+The gioi. Canh bao "nguon la: Bao Quan doi Nhan dan" — nguon tang 1 VN da co trong bang CLAUDE.md,
+chi la chua nam trong danh sach cung cua script. Bo qua.
+COMMIT tien to "Bo sung tin" (KHONG phai "Cap nhat ban tin") de notify-email.yml KHONG gui email lan 2
+trong buoi sang; tin van len web ngay va se nam trong file Word cua email TOI nay (vi _addedDate =
+2026-07-27 = generatedAt).
+
 [2026-07-27 05:38 +07] web-scan (LOCAL du phong 05:30 — moc luoi cuoi phien SANG SOM) — SKIP
 claim exit 10: "ngay 2026-07-27 DA XONG (lan chay cuoi 2026-07-27T05:35:30+07:00)" — chinh la phien
 quet bu 05:19-05:35 o tren (+5 tin, da push, email + .docx tu gui qua notify-email.yml). Cach day 3
