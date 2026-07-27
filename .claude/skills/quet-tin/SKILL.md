@@ -17,21 +17,24 @@ Playbook vận hành để cập nhật bản tin. `CLAUDE.md` ở gốc repo l�
 Bản tin **CHỈ chạy MỘT lần/ngày, buổi TỐI 22:00** (dự phòng 23:00). Mỗi phiên **CHỈ quét 5 chủ đề**,
 **mỗi chủ đề 5–10 bài** (best-effort — thiếu thì thôi, KHÔNG bịa):
 
-1. **Nội bộ Mỹ — 4 NHÓM CÓ THỨ TỰ** (chỉ thị Huy 27/07/2026, GHI ĐÈ mức "SIẾT" cũ) — `usNews`,
+1. **Nội bộ Mỹ — 5 NHÓM, HAI HẠNG ƯU TIÊN** (chỉ thị Huy 27/07/2026, GHI ĐÈ mức "SIẾT" cũ) — `usNews`,
    category `Chính trị` (nhóm 4 có thể `Kinh tế`). **BẮT BUỘC vét cạn nhóm (1) TRƯỚC; chỉ khi chưa đủ
-   chỉ tiêu 5–10 bài mới lần lượt xuống (2) → (3) → (4).** Đừng nhảy cóc xuống nhóm dễ tìm hơn.
-   1. **Điều trần + bỏ phiếu** — liệt kê **TOÀN BỘ phiên điều trần trong ngày** (hearing, testimony,
-      mark-up, chất vấn quan chức) + **TOÀN BỘ kết quả** hội đồng/uỷ ban/hai viện **bỏ phiếu thông qua
-      dự luật** (committee vote, floor vote, passage của bill/nghị quyết/NDAA/ngân sách).
+   chỉ tiêu 5–10 bài mới lấy sang các nhóm còn lại — và (2)(3)(4)(5) NGANG HÀNG, không có thứ tự giữa
+   chúng.** Đừng nhảy cóc bỏ qua nhóm 1, cũng đừng coi nhóm 2 hơn nhóm 5.
+   1. **[HẠNG 1] Điều trần + bỏ phiếu** — liệt kê **TOÀN BỘ phiên điều trần trong ngày** (hearing,
+      testimony, mark-up, chất vấn quan chức) + **TOÀN BỘ kết quả** hội đồng/uỷ ban/hai viện **bỏ
+      phiếu thông qua dự luật** (committee vote, floor vote, passage của bill/nghị quyết/NDAA/ngân sách).
    2. **Sáng kiến & chiến lược chính quyền Trump** công bố trên **kênh chính thống của các bộ**: sắc
       lệnh hành pháp, presidential memorandum, chiến lược quốc gia, fact sheet Nhà Trắng, thông cáo
       của State/Treasury/Commerce/DHS…
-   3. **Biểu tình + bầu cử**: diễn biến biểu tình, tuần hành; động thái bầu cử giữa nhiệm kỳ/sơ bộ,
-      quy định cử tri.
+   3. **Biểu tình**: diễn biến biểu tình, tuần hành, đình công.
    4. **Kinh tế Mỹ + động thái bộ sậu**: Fed, thuế quan, trừng phạt, số liệu vĩ mô; và các hoạt động
       khác của Nhà Trắng + nội các (Trump và bộ sậu action).
-   ⚠️ Nhóm 3–4 **đảo lại** phần cấm cũ (drama/đảng phái/horserace/biểu tình nay ĐƯỢC nhận) — nhưng chỉ
-   khi nhóm 1 đã cạn thật. Và phải là chuyện **NỘI BỘ MỸ**: từ khoá nhóm 3–4 rất chung nên
+   5. **BẦU CỬ** *(tách riêng 27/07/2026 — trước gộp chung nhóm 3)*: bầu cử giữa nhiệm kỳ, bầu cử sơ
+      bộ, tranh cử/vận động, thăm dò dư luận, quy định cử tri, kiểm phiếu, phân định lại khu vực bầu
+      cử (redistricting/gerrymander), đua ghế Thượng viện/Hạ viện/thống đốc.
+   ⚠️ Nhóm 3, 4, 5 **đảo lại** phần cấm cũ (drama/đảng phái/horserace/biểu tình nay ĐƯỢC nhận) — nhưng
+   chỉ khi nhóm 1 đã cạn thật. Số nhóm 2→5 là NHÃN, không phải thứ tự ưu tiên. Và phải là chuyện **NỘI BỘ MỸ**: từ khoá nhóm 3–4 rất chung nên
    `scripts/topics.py` bắt buộc kèm ngữ cảnh Mỹ (`WEAK_NEED_US`) — thực tế đã lọt tin nghị sĩ
    Philippines mặc đồ đen phản đối, chính sách tiền tệ Singapore, chi tiêu vốn Nhật Bản.
 2. **Úc & Biển Đông** — `worldNews`. **Úc**: AUKUS, QP/khí tài Úc, ADF, an ninh Úc–Mỹ/Nhật/Anh, chính
@@ -175,7 +178,7 @@ Chỉ **5 luồng** cho 5 chủ đề (gộp Mali+Predator vào 1 agent; Báo M�
 
 | Agent | Chủ đề | Sản lượng (24h, nới 48h nếu thiếu) |
 |---|---|---|
-| A | **Nội bộ Mỹ (4 nhóm có thứ tự)** → `usNews` cat `Chính trị`/`Kinh tế` | **5–10** — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới xuống (2) sáng kiến/chiến lược các bộ → (3) biểu tình + bầu cử → (4) kinh tế Mỹ + động thái Nhà Trắng/nội các. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ thứ tự này và bắt agent báo lại đã cạn nhóm 1 chưa. |
+| A | **Nội bộ Mỹ (5 nhóm, 2 hạng)** → `usNews` cat `Chính trị`/`Kinh tế` | **5–10** — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới lấy sang (2) sáng kiến/chiến lược các bộ · (3) biểu tình · (4) kinh tế Mỹ + Nhà Trắng/nội các · (5) bầu cử — bốn nhóm này NGANG HÀNG. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ hai hạng này và bắt agent báo lại đã cạn nhóm 1 chưa + số bài mỗi nhóm. |
 | B | **Úc & Biển Đông** → `worldNews` | **5–10** — Úc (region IPAC) + Biển Đông (region Đông Á). |
 | C | **CNQS Mỹ** → `usNews` cat `Công nghệ quân sự` | **5–10** — khí tài/hệ thống cụ thể. |
 | D | **Mỹ–Mali + Predator's Run 2026** | Mali 2–5 (`usNews` dossier) · Predator 1–2 (`exerciseUpdates`). |

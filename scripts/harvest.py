@@ -47,7 +47,7 @@ import xml.etree.ElementTree as ET
 import zoneinfo
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from topics import match_topic, us_subgroup  # noqa: E402
+from topics import match_topic, us_subgroup, us_rank  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
@@ -76,10 +76,13 @@ GNEWS_QUERIES = {
         '"House passes" OR "Senate passes" OR "committee approves" bill',
         # (2) sáng kiến/chiến lược chính quyền trên kênh chính thống các bộ
         '"executive order" OR "White House announces" OR "national strategy" Trump',
-        # (3) biểu tình + diễn biến bầu cử
-        'protest OR rally OR midterm OR "primary election" United States',
+        # (3) biểu tình
+        'protest OR rally OR demonstration United States Washington',
         # (4) kinh tế Mỹ + động thái Trump và nội các
         '"Federal Reserve" OR tariff OR sanctions OR "jobs report" United States',
+        # (5) BẦU CỬ — nhóm riêng, ngang hàng 2/3/4 (Huy bổ sung 27/07/2026)
+        'midterms OR "primary election" OR redistricting OR "voter" United States 2026',
+        '"Senate race" OR "House race" OR campaign OR poll midterm elections',
     ],
 }
 
@@ -376,14 +379,17 @@ def main():
         if not lst:
             print("   (không có ứng viên nào trong khung hôm nay + hôm qua)")
         if topic == "Nội bộ Mỹ":
-            # Xếp theo NHÓM ƯU TIÊN trước, ngày sau. Huy chốt 27/07: vét cạn nhóm (1) điều trần
-            # + bỏ phiếu rồi mới xuống (2) sáng kiến/chiến lược → (3) biểu tình/bầu cử → (4)
-            # kinh tế + động thái nội các. Xếp thuần theo ngày thì nhóm 3-4 (đăng dày hơn hẳn)
-            # sẽ chiếm hết chỗ và luật ưu tiên thành vô nghĩa.
+            # Xếp theo HẠNG ưu tiên trước, ngày sau. Huy chốt 27/07: vét cạn nhóm (1) điều trần
+            # + bỏ phiếu rồi mới tới các nhóm còn lại — và bốn nhóm còn lại NGANG NHAU
+            # (2 sáng kiến/chiến lược · 3 biểu tình · 4 kinh tế+nội các · 5 bầu cử), nên xếp
+            # theo `us_rank` chứ KHÔNG theo số nhóm; xếp theo số nhóm sẽ dìm bầu cử xuống cuối.
+            # Xếp thuần theo ngày cũng hỏng: nhóm đăng dày (biểu tình/bầu cử/thuế quan) chiếm hết chỗ.
             for h in lst:
                 h["nhom"] = us_subgroup(h["tieu_de"])
-            ordered = sorted(lst, key=lambda x: (x["nhom"], x["ngay"] == "?", -_daykey(x["ngay"])))
-            print("   (xếp theo NHÓM ƯU TIÊN 1→4; vét cạn nhóm 1 rồi mới xuống nhóm sau)")
+            ordered = sorted(
+                lst, key=lambda x: (us_rank(x["nhom"]), x["ngay"] == "?", -_daykey(x["ngay"])))
+            print("   (hạng 1 = nhóm 1 điều trần+bỏ phiếu, vét trước; "
+                  "nhóm 2/3/4/5 NGANG NHAU, xếp theo ngày)")
         else:
             ordered = sorted(lst, key=lambda x: x["ngay"], reverse=True)
         for h in ordered[:PER_TOPIC_CAP]:

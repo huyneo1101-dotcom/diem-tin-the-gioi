@@ -79,10 +79,16 @@ WEAK_NEED_US = {
         "biểu tình", "tuần hành", "bầu cử giữa nhiệm kỳ", "bầu cử sơ bộ", "cử tri",
         "fed", "thuế quan", "trừng phạt",
         "executive order", "protest", "protests", "demonstration", "demonstrations",
-        "rally", "rallies", "midterm", "midterms", "primary election", "ballot",
-        "voter", "voters", "federal reserve", "tariff", "tariffs", "sanctions",
+        "rally", "rallies", "federal reserve", "tariff", "tariffs", "sanctions",
         "jobs report", "inflation", "cabinet meeting", "secretary announces",
         "national strategy", "fact sheet", "policy directive",
+        # nhóm 5 BẦU CỬ (Huy bổ sung 27/07/2026) — vẫn là từ khoá YẾU vì "election",
+        # "ballot", "campaign" xuất hiện đầy trong tin bầu cử nước khác; phải kèm ngữ cảnh Mỹ.
+        "election", "elections", "midterm", "midterms", "primary election", "primaries",
+        "ballot", "ballots", "voter", "voters", "turnout", "campaign trail",
+        "redistricting", "gerrymander", "gerrymandering", "early voting", "absentee",
+        "mail-in", "senate race", "house race", "caucus",
+        "bầu cử", "cử tri", "tranh cử", "ứng cử viên", "kiểm phiếu", "phiếu bầu",
     ],
 }
 
@@ -160,10 +166,14 @@ def _has_us_context(text: str) -> bool:
     return any(p.search(text) for p in _RE_US_CTX)
 
 
-# Nhận diện ứng viên "Nội bộ Mỹ" thuộc NHÓM ƯU TIÊN nào (1 cao nhất → 4 thấp nhất).
-# Cần vì Huy chốt 27/07/2026: phải vét cạn nhóm 1 (điều trần + bỏ phiếu) rồi mới xuống 2/3/4.
-# Nếu chỉ xếp ứng viên theo ngày thì agent sẽ toàn thấy nhóm 3-4 (biểu tình/thuế quan đăng
-# dày hơn hẳn) và luật ưu tiên thành vô nghĩa.
+# Nhận diện ứng viên "Nội bộ Mỹ" thuộc NHÓM nào.
+# Huy chốt 27/07/2026: vét cạn nhóm 1 (điều trần + bỏ phiếu) rồi mới tới các nhóm sau.
+# BỔ SUNG cùng ngày: tách **bầu cử** thành nhóm 5 RIÊNG, "ưu tiên ngang bằng với 2, 3, 4"
+# (trước đó bầu cử bị gộp chung vào nhóm 3 với biểu tình).
+# ⚠️ THỨ HẠNG CHỈ CÓ HAI MỨC: nhóm 1 = hạng 1; nhóm 2/3/4/5 = hạng 2, NGANG NHAU — số thứ tự
+# 2→5 chỉ là NHÃN phân loại, KHÔNG phải thứ tự ưu tiên. Đừng xếp nhóm 2 trên nhóm 5.
+# Nếu chỉ xếp ứng viên theo ngày thì agent sẽ toàn thấy nhóm đăng dày (biểu tình/bầu cử/thuế
+# quan) và luật "nhóm 1 trước" thành vô nghĩa — nên harvest phải xếp theo HẠNG.
 US_SUBGROUPS = {
     1: ["điều trần", "phiên điều trần", "thông qua dự luật", "bỏ phiếu", "ủy ban quân vụ",
         "uỷ ban quân vụ", "ndaa", "dự luật quốc phòng", "ngân sách quốc phòng",
@@ -174,23 +184,42 @@ US_SUBGROUPS = {
         "executive order", "presidential memorandum", "white house announces",
         "national strategy", "fact sheet", "policy directive", "state department announces",
         "treasury announces", "commerce department"],
-    3: ["biểu tình", "tuần hành", "bầu cử giữa nhiệm kỳ", "bầu cử sơ bộ", "cử tri",
+    3: ["biểu tình", "tuần hành", "đình công",
         "protest", "protests", "demonstration", "demonstrations", "rally", "rallies",
-        "midterm", "midterms", "primary election", "ballot", "voter", "voters"],
+        "march on", "walkout", "strike action"],
     4: ["fed", "cục dự trữ liên bang", "thuế quan", "lạm phát", "trừng phạt", "nội các",
         "federal reserve", "tariff", "tariffs", "sanctions", "jobs report", "inflation",
         "cabinet meeting", "secretary announces"],
+    # 5 — BẦU CỬ (Huy bổ sung 27/07/2026, ngang hàng 2/3/4)
+    5: ["bầu cử", "bầu cử giữa nhiệm kỳ", "bầu cử sơ bộ", "cử tri", "tranh cử", "ứng cử viên",
+        "kiểm phiếu", "phiếu bầu", "vận động tranh cử", "phân định khu vực bầu cử",
+        "election", "elections", "midterm", "midterms", "primary election", "primaries",
+        "ballot", "ballots", "voter", "voters", "turnout", "campaign trail", "candidate",
+        "candidates", "redistricting", "gerrymander", "gerrymandering", "early voting",
+        "absentee", "mail-in", "polling place", "senate race", "house race", "governor race",
+        "dnc", "rnc", "caucus"],
 }
 _RE_SUB = {g: [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in kws]
            for g, kws in US_SUBGROUPS.items()}
 
+# Hạng ưu tiên: chỉ nhóm 1 được ưu tiên tuyệt đối; 2/3/4/5 ngang nhau.
+US_RANK = {1: 1, 2: 2, 3: 2, 4: 2, 5: 2, 9: 3}
+
 
 def us_subgroup(text: str) -> int:
-    """Nhóm ưu tiên 1-4 của một ứng viên Nội bộ Mỹ; 9 = không rõ (xếp cuối)."""
-    for g in (1, 2, 3, 4):
+    """NHÃN nhóm 1-5 của một ứng viên Nội bộ Mỹ; 9 = không rõ (xếp cuối).
+
+    Nhãn KHÁC hạng ưu tiên — dùng `us_rank()` để xếp thứ tự.
+    """
+    for g in (1, 2, 3, 4, 5):
         if any(p.search(text) for p in _RE_SUB[g]):
             return g
     return 9
+
+
+def us_rank(subgroup: int) -> int:
+    """Hạng ưu tiên để XẾP: 1 = điều trần/bỏ phiếu (vét trước), 2 = bốn nhóm còn lại (ngang nhau)."""
+    return US_RANK.get(subgroup, 3)
 
 
 def match_topic(text: str, lang: str = "both"):
