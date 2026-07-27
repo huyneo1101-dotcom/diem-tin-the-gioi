@@ -284,6 +284,39 @@ hoặc đổi sang webhook.
 đã vấp thật với `Log: $RUN_URL`. Dùng block scalar `run: |`.
 ⚠️ Prompt cấm bot commit/push. Phiên bot chỉ đọc; `permissions: contents: read`.
 
+### Học từ câu hỏi người đọc (thêm 27/07/2026, chỉ thị Huy)
+Mỗi lượt hỏi bot được phân loại, lưu lại, và nếu gợi ra tin đáng đưa thì **đề xuất cho Huy
+qua Telegram**. Ba lựa chọn Huy đã chốt: **bot CHỈ đề xuất, không tự nạp web** · tin ngoài
+5 chủ đề thì để **mục riêng** trên web (dựng khi có tin thật đầu tiên) · hồ sơ lưu **Supabase**.
+
+| Mảnh | Việc |
+|---|---|
+| Bảng `dt_bot_hoi` | Mỗi lượt hỏi: `cau_hoi`, `tra_loi`, `chu_de[]`, `trong_pham_vi`, `tin_de_xuat` (jsonb) |
+| Bảng `dt_ho_so_doc_gia` | Hồ sơ sở thích đọc tin theo `chat_id` |
+| `scripts/bot_luu.py` | Bot ghi một lượt hỏi vào `dt_bot_hoi` |
+| `scripts/ho_so_doc_gia.py` | `--so-lieu` đếm thống kê thô · `--luu` lưu hồ sơ đã viết |
+| `.github/prompts/telegram-bot.md` | Mục "Sau khi trả lời" — phân loại, tìm tin, lưu, đề xuất |
+
+⚠️ **RLS cố ý CHẶT — anon chỉ INSERT, KHÔNG SELECT.** Repo này PUBLIC nên anon key nằm
+công khai trong `index.html`; nếu mở SELECT thì ai cũng đọc được câu hỏi người khác nhắn
+riêng cho bot. Đã kiểm thật bằng chính anon key đó: chèn trả **201**, đọc trả **`[]`** dù
+bảng có dữ liệu. Nhờ vậy workflow ghi được mà **không cần service key** trong GitHub secret.
+
+⚠️ **ĐỌC `dt_bot_hoi` phải chạy từ phiên Claude Code local, KHÔNG qua GitHub Actions.**
+Đọc cần quyền cao hơn anon, mà service key mở **toàn bộ database** — gồm ViNha, bi-a, Hương
+Diện. Nhét nó vào secret của một repo public là cái giá quá đắt cho một việc chạy mỗi tuần
+một lần. Phiên local đã có sẵn quyền qua MCP Supabase: truy vấn `dt_bot_hoi`, ghi ra JSON,
+rồi `ho_so_doc_gia.py --so-lieu --tu-json`.
+
+⚠️ **Chia việc giữa đếm và nhận định.** `--so-lieu` chỉ ĐẾM (số lượt, chủ đề hay hỏi, tỉ lệ
+trong/ngoài phạm vi, giờ hay hỏi). Phần "người này quan tâm gì, hỏi theo lối nào" do phiên
+đọc số liệu + câu hỏi thật rồi viết — vì đó đúng là chỗ dễ bịa nhất, và Huy đã bác một lần
+vì suy luận bắc cầu (27/07, mục khí tài).
+
+⚠️ Prompt CẤM bot tự nạp tin (`add_news.py`, sửa `index.html`) — người duyệt là Huy.
+Chuẩn tin đề xuất giống hệt chuẩn bản tin: khung hôm nay + hôm qua, nguồn theo thang 3 tầng,
+`url` là bài cụ thể, **tối đa 3 tin, thà rỗng còn hơn đề xuất rác**.
+
 ### Quét tin từ kênh Telegram
 `scripts/telegram_harvest.py` + bảng kênh `docs/telegram-channels.md` (script đọc thẳng bảng đó —
 thêm kênh chỉ sửa một chỗ). Lớp `[TG]` **cùng vai RADAR với `[GNEWS]`**: Telegram là mạng xã hội,

@@ -50,8 +50,76 @@ Ghi câu trả lời ra file rồi gửi — ĐỪNG gửi bằng cách nhét te
 python3 scripts/telegram_bot.py --tra-loi /tmp/tra-loi-<chat>.txt --chat <chat>
 ```
 
-Script tự cắt tin nhắn dài thành nhiều phần. Gửi xong là hết việc — **KHÔNG commit,
-KHÔNG push, KHÔNG sửa bất cứ file nào trong repo.** Phiên này chỉ đọc và trả lời.
+Script tự cắt tin nhắn dài thành nhiều phần, và tự chuyển tiếp bản sao về cho Huy nếu
+người hỏi không phải Huy — mày không phải làm gì thêm cho việc đó.
+
+**KHÔNG commit, KHÔNG push, KHÔNG sửa bất cứ file nào trong repo.** Phiên này chỉ đọc.
+
+## Sau khi trả lời: ghi nhận + đề xuất tin (bắt buộc, làm cho TỪNG lượt hỏi)
+
+Mục đích: bản tin học dần từ chuyện người đọc thật sự quan tâm. Hai việc.
+
+### 1. Phân loại câu hỏi
+
+Tự xác định hai thứ:
+
+- **`chu_de`** — mảng chủ đề câu hỏi chạm tới, đặt tên tự do bằng tiếng Việt cho dễ đọc
+  ("Kinh tế Mỹ", "Nga–Ukraine", "Biển Đông", "Bi-a"…).
+- **`trong_pham_vi`** — câu hỏi có nằm trong **5 chủ đề đang quét** không:
+  (1) Nội bộ Mỹ · (2) Úc & Biển Đông · (3) CNQS Mỹ · (4) Mỹ–Mali/Sahel ·
+  (5) Tập trận Predator's Run. Ngoài 5 cái đó → `false`.
+
+### 2. Có tin nào đáng đưa lên bản tin không?
+
+Chỉ đi tìm khi câu hỏi **về một chủ đề thời sự cụ thể** mà bản tin đang **thiếu hoặc không
+có**. Câu chào hỏi, câu hỏi cách dùng web, câu hỏi về chuyện đã có đủ trong bản tin → bỏ
+qua bước này, để `tin_de_xuat` rỗng.
+
+Khi đi tìm thì dùng `WebSearch`, và áp đúng chuẩn của bản tin — **thà rỗng còn hơn đề xuất
+tin rác**:
+
+- Trong khung **hôm nay + hôm qua** (giờ VN). Cũ hơn thì bỏ.
+- Nguồn theo thang trong `CLAUDE.md`: chính thức / wire / báo chuyên ngành / báo phổ thông
+  uy tín. Trang tổng hợp thì phải truy về bài gốc.
+- `url` phải là **bài cụ thể**, không phải trang chủ hay live-blog.
+- **Tối đa 3 tin.** Không đủ chuẩn thì để rỗng — không có gì phải lấp.
+
+### 3. Lưu lại và báo cho Huy
+
+Ghi một file JSON cho mỗi lượt hỏi rồi lưu:
+
+```
+python3 scripts/bot_luu.py --json /tmp/luu-<chat>.json
+```
+
+```json
+{"chat_id": "…", "ten": "…", "cau_hoi": "…", "tra_loi": "…",
+ "chu_de": ["…"], "trong_pham_vi": true,
+ "tin_de_xuat": [{"title": "…", "url": "…", "source": "…",
+                  "date": "2026-07-27", "ly_do": "vì sao đáng đưa"}]}
+```
+
+Lưu **mọi lượt hỏi**, kể cả khi không có tin đề xuất — đó là dữ liệu để dựng hồ sơ sở thích
+người đọc. Lưu hỏng thì cứ đi tiếp, đừng để mất câu trả lời đã gửi.
+
+**Nếu `tin_de_xuat` KHÔNG rỗng**, nhắn thêm cho Huy (chat id **đầu tiên** trong
+`TELEGRAM_CHAT_ID`) một tin đề xuất — ghi ra file rồi gửi bằng `--bao`:
+
+```
+📌 Từ câu hỏi của <tên> về <chủ đề>, tao thấy 2 tin đáng lên bản tin:
+
+1. <tiêu đề> — <nguồn>, <ngày>
+   <link>
+   Vì sao: <lý do>
+
+2. …
+
+Trong phạm vi 5 chủ đề: có/không.
+Muốn nạp thì bảo tao trong phiên Claude Code.
+```
+
+⛔ **TUYỆT ĐỐI KHÔNG tự nạp tin vào web** — không chạy `add_news.py`, không sửa
+`index.html`. Huy đã chốt: bot chỉ **đề xuất**, người duyệt là Huy.
 
 ## Nếu hỏng
 
