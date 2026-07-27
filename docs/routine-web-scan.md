@@ -69,6 +69,14 @@ python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/harvest.py --json /tmp/ung-v
 Máy đi lấy, agent đi thẩm định: script quét 67 feed RSS + 8 truy vấn Google News, lọc theo khung hôm nay + hôm qua và theo 5 chủ đề, rồi in ứng viên. Lý do bắt buộc: **WebFetch của subagent bị chặn 403** trong khi curl từ máy trả 200 — nên agent tự quét là sót nguồn (Long War Journal, AllAfrica, Philstar, Inquirer, Lowy, gCaptain đều 0 tin dù nằm trong bảng nguồn). Sáng 27/07 agent Mali báo "không có bài mới" trong khi Google News có 88 item, gồm tin Bloomberg phải nạp bù sau.
 Đọc kỹ 3 điều trong output: `[RSS]` có link gốc dùng được; `[GNEWS]` chỉ là RADAR, phải tự tìm bài gốc, KHÔNG nạp link news.google.com; và **ngày in ra là ngày ĐĂNG BÀI, không phải ngày SỰ KIỆN** — nhiều trang đăng lại tin cũ với pubDate mới, phải mở bài kiểm rồi neo `date` theo ngày sự kiện.
 
+Chạy tiếp lớp Telegram (thêm 27/07/2026):
+```
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/telegram_harvest.py
+```
+Quét kênh Telegram công khai trong `docs/telegram-channels.md`. Lớp `[TG]` **cùng vai RADAR với `[GNEWS]`**: link `t.me` TUYỆT ĐỐI không được nạp vào `sourceUrl`, phải truy về bài gốc — script in sẵn dòng `link dẫn:` là URL ngoài mà bài Telegram trỏ tới, dùng nó trước khi WebSearch. Kênh gắn `⚠️nhanuoc` (TASS/Sputnik/Rybar) chỉ dùng cho phát ngôn CỦA CHÍNH HỌ.
+Độ phủ đo thật: mạnh ở **Mỹ–Mali/Sahel** (@AfricaIntel thường kèm link africanews/theafricareport — nguồn mà curl hay bị 403) và một phần **CNQS Mỹ** (@OSINTdefender); **gần như trắng Úc & Biển Đông** vì không kênh nào vừa sống vừa đúng chuyên môn. Đây là lớp BỔ SUNG, thiếu nó không phải lý do hoãn bản tin — lỗi mạng/kênh chết thì bỏ qua, đi tiếp.
+Có session Telethon trong môi trường (`TG_API_ID`/`TG_API_HASH`/`TG_SESSION`) thì thêm `--mtproto` để đọc luôn kênh tắt xem trước web; thiếu biến thì script tự lùi về đường web, không lỗi.
+
 ## Bước 2 — Quét
 Đọc TRỰC TIẾP file `/Users/Huy/Claude/diem-tin-the-gioi/.claude/skills/quet-tin/SKILL.md` (tool Skill KHÔNG đăng ký skill này — gọi qua tool sẽ báo "Unknown skill", cứ Read thẳng file) và làm ĐÚNG playbook trong đó (đã cập nhật theo 5 chủ đề). CLAUDE.md gốc repo tự nạp — đọc banner "CẬP NHẬT PHẠM VI 2026-07-23" ở đầu file.
 GIỮ NHỊP TIM: sau mỗi mốc lớn (xong baseline · xong agent · xong script) chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat web-scan` + ghi checkpoint log + push. Khoá hết hạn sau 30' không nhịp.

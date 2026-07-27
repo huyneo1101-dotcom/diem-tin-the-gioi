@@ -155,6 +155,71 @@ thì mới trỏ lại `#analysis`.
 ## Tab "Cà phê" (ngoài chủ đề tin — thêm 24-25/07/2026)
 Tab **☕ Cà phê**: tìm quán cà phê làm việc HN, xếp theo khoảng cách từ điểm xuất phát (Giảng Võ/Trường Chinh/GPS). Dữ liệu `DATA.workCafes` (embed index.html); code `renderCafes`/`cf*`/CSS `.cf-*`. Scheduled task local **`cafe-rating-retry`** (`15 9 * * 2,5`) vét dần rating Google còn thiếu qua `scripts/cafe_ratings.py` (--missing/--apply), commit **`Cap nhat rating quan ca phe: ...`** — tiền tố này KHÔNG khớp gate email nên không gửi mail. Chi tiết: memory `diem-tin-tab-cafe`.
 
+## 📨 TELEGRAM — kênh gửi thứ hai + lớp nguồn thứ ba (thêm 27/07/2026, chỉ thị Huy)
+
+### Gửi bản tin qua Telegram
+`.github/scripts/send_telegram.py` — chạy **song song, KHÔNG thay** email. Cả hai workflow đều
+đặt step Telegram SAU step email và `continue-on-error: true`: email là kênh chính, Telegram
+hỏng không được phép làm đỏ workflow. Thiếu secret thì script thoát êm (exit 0), không lỗi.
+
+| Bản tin | Workflow | Lệnh | Nội dung |
+|---|---|---|---|
+| 5 chủ đề (tối + sáng sớm) | `notify-email.yml` | `send_telegram.py` | Tiêu đề tin theo 3 mục + "Chủ đề thiếu và lý do" + **file .docx đính kèm** |
+| Sự kiện & Tập trận (sáng) | `notify-morning.yml` | `send_telegram.py --morning` | Sự kiện/tập trận mới + báo cáo tuần + think-tank + Mới trên web + mẹo |
+
+**KHÔNG viết lại logic chọn tin ở phía Python.** Nhánh tối `import` thẳng `make_docx.py`
+(`pick_items`/`build_sections`) nên Telegram luôn đúng bằng bộ tin trong .docx. Nhánh sáng đọc
+`/tmp/morning-telegram.json` do **`send-morning-email.js` tự ghi ra trước khi gửi mail** — nhờ
+vậy **gate gửi của hai kênh không bao giờ lệch**: không có gì mới thì không có payload, Telegram
+im đúng lúc email im. Ghi TRƯỚC `sendMail` chứ không phải sau, để Gmail chết thì Telegram vẫn tới.
+
+Secret cần: `TELEGRAM_BOT_TOKEN` (@BotFather) + `TELEGRAM_CHAT_ID` (nhiều nơi nhận thì ngăn bằng
+dấu phẩy). Xem trước không gửi thật:
+```
+DRY_RUN=1 python3 .github/scripts/send_telegram.py
+/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc /Users/Huy/Claude/diem-tin-the-gioi/.github/scripts/preview-morning-telegram.jsc.js
+```
+File `preview-morning-telegram.jsc.js` chạy NGUYÊN `main()` của send-morning-email.js với
+nodemailer giả — kiểm được cả đoạn ghi payload, thứ mà kiểm cú pháp không bắt được (máy Huy
+không có `node`). Nó KHÔNG set `PREV_HTML` nên coi mọi sự kiện là mới (22 cái) — đừng lấy con
+số đó đánh giá độ dài tin nhắn hằng ngày. Trần **12 sự kiện/tin nhắn** (`MORNING_MAX_EVENTS`),
+phần cắt được nói rõ bằng dòng "… và N sự kiện nữa", không im lặng.
+
+### Quét tin từ kênh Telegram
+`scripts/telegram_harvest.py` + bảng kênh `docs/telegram-channels.md` (script đọc thẳng bảng đó —
+thêm kênh chỉ sửa một chỗ). Lớp `[TG]` **cùng vai RADAR với `[GNEWS]`**: Telegram là mạng xã hội,
+nằm ngoài thang xác minh nguồn → **link `t.me` TUYỆT ĐỐI không được vào `sourceUrl`**, phải truy
+về bài gốc; script in sẵn dòng `link dẫn:` (URL ngoài mà bài Telegram trỏ tới) để đỡ công.
+Kênh hạng `nhanuoc` (TASS/Sputnik/Rybar) chỉ dùng cho phát ngôn CỦA CHÍNH HỌ.
+
+**Độ phủ thật (đo 27/07, dò 77 kênh):** mạnh ở **Mỹ–Mali/Sahel** (@AfricaIntel hay kèm link
+africanews/theafricareport — nguồn curl thường 403) và một phần **CNQS Mỹ** (@OSINTdefender);
+**gần như trắng Úc & Biển Đông** — không kênh nào vừa sống vừa đúng chuyên môn. Là lớp BỔ SUNG,
+không thay được RSS + Google News. Thiếu nó KHÔNG phải lý do hoãn bản tin.
+
+⚠️ **Bốn cái bẫy đã vấp thật, đừng vấp lại:**
+1. **Sai hoa/thường là mất kênh.** `@sentdefender` trả trang tắt preview; `@OSINTdefender` — cùng
+   kênh, viết đúng hoa — chạy bình thường, 20 bài/ngày. Suýt phải dựng cả MTProto vì lỗi này.
+2. **Kênh mạo danh cơ quan.** `@NATO_HQ` = "NATO-HQ Usibjonov_98", `@un_news` = "УкрСнюс",
+   `@scspi` = kênh cá nhân tên "Silvia", `@navalnews` = "Навальный News" chứ không phải Naval
+   News. Luôn xem `og:title` (cột TÊN của `--probe`) trước khi tin vào handle nghe hợp lý.
+   **Không cơ quan chính thức nào có kênh Telegram đọc được** — tầng 1 vẫn phải lấy qua RSS/web.
+3. **"Không có message" ≠ "không tồn tại".** Mở `t.me/<kênh>` (không `/s/`): `og:title` ra
+   "Telegram: Contact @x" là không tồn tại; ra tên thật là có thật mà tắt preview. `--probe` đã
+   phân biệt sẵn hai ca này.
+4. **Khớp chủ đề trên 200 ký tự ĐẦU bài** (`HEAD_CHARS`), không phải cả bài — bài Telegram dài
+   kiểu digest, khớp toàn văn kéo tin Triều Tiên/Trung Quốc vào "CNQS Mỹ" chỉ vì cuối bài có chữ
+   Pentagon. Siết lại giảm 10 ứng viên xuống 4, cả 4 đều đúng chủ đề.
+
+**Đường MTProto** (`--mtproto`, Telethon): đọc được cả kênh tắt xem trước web. Cần
+`TG_API_ID`/`TG_API_HASH`/`TG_SESSION`, tạo bằng `python3 scripts/telegram_login.py` — **Huy tự
+chạy trong terminal, Zim không nhập hộ** vì bước đó nhập số điện thoại + OTP + 2FA. Session
+string = quyền đọc TOÀN BỘ tài khoản Telegram, đừng dán vào chat, huỷ bằng Telegram → Settings →
+Devices. Chạy TUẦN TỰ, không đa luồng (MTProto tính giới hạn theo tài khoản, bắn song song là ăn
+FloodWait). Thiếu biến thì tự lùi về đường web, không lỗi. Sau khi sửa lại lỗi hoa/thường ở bẫy
+1, MTProto **chỉ còn cần cho `@militarylandnet` và `@DefenceU`** — giá trị nhỏ hơn nhiều so với
+ước tính ban đầu.
+
 ## Nơi lưu dữ liệu
 Toàn bộ dữ liệu nằm trong `index.html`, biến `var DATA = {...}` (~170KB, xem mục "Quy trình" bên dưới — KHÔNG đọc trực tiếp file này). Các phần liên quan tới quét tin:
 

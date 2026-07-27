@@ -64,3 +64,15 @@ jobs:
         run: |
           npm install nodemailer@6 --no-save
           node .github/scripts/send-email.js
+
+      # Gửi Telegram SAU email và không được làm hỏng workflow: email vẫn là kênh chính,
+      # Telegram chỉ là kênh phụ. Chưa cài secret thì script tự thoát êm (exit 0).
+      - name: Gửi Telegram
+        if: steps.chk.outputs.go == '1'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DOCX_PATH: ${{ env.DOCX_PATH }}
+          SUBJECT_TAG: ${{ inputs.subject_tag || '' }}
+        run: python3 .github/scripts/send_telegram.py

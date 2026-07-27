@@ -313,6 +313,42 @@ async function main() {
   if (tip) {
     textLines.push('', `💡 Có thể bạn chưa biết — ${tip.title}`, `   ${tip.desc || ''}${tip.path ? ' → ' + WEB_URL + tip.path : ''}`);
   }
+  // ---- Payload cho Telegram (thêm 27/07/2026) ----
+  // Ghi ra file NGAY TẠI ĐÂY, TRƯỚC sendMail, vì đây là chỗ duy nhất đã biết "hôm nay có
+  // gì mới" — cùng dữ liệu, cùng gate với email. Viết lại diffEvents/weeklyIsNew/
+  // diffAnalyses bằng Python là cách chắc chắn để hai kênh lệch nhau sau vài tháng (bài
+  // học preview-morning-email.jsc.js: load lại chính file này thay vì copy code).
+  // TRƯỚC sendMail chứ không phải sau: Gmail chết thì Telegram vẫn phải tới được.
+  // Bọc try/catch — hỏng phần phụ TUYỆT ĐỐI không được làm vỡ email.
+  try {
+    const payloadPath = process.env.TELEGRAM_PAYLOAD || '/tmp/morning-telegram.json';
+    fs.writeFileSync(payloadPath, JSON.stringify({
+      ddmm, generatedAt: cur.generatedAt || '', subjBits, webUrl: WEB_URL,
+      events: evs.map(d => ({
+        kind: d.kind, isNewEvent: !!d.isNewEvent, name: d.ev.name,
+        dates: d.ev.dates || '', location: d.ev.location || '',
+        items: (d.newItems || []).slice(0, 5).map(it => ({
+          title: it.title, sourceUrl: it.sourceUrl || '', sourceName: it.sourceName || '',
+        })),
+      })),
+      weekly: weekly ? {
+        weekStart: weekly.weekStart || '', weekEnd: weekly.weekEnd || '',
+        countries: (weekly.countries || []).map(c => ({
+          flag: c.flag || '', name: c.name,
+          points: (c.points || []).map(x => x.title).slice(0, 4),
+        })),
+      } : null,
+      analyses: anas.slice(0, ANA_MAX).map(a => ({
+        outlet: a.outlet || '', title: a.title, url: a.url || '', takeaway: a.takeaway || '',
+      })),
+      features: feats.map(f => ({ title: f.title, desc: f.desc || '' })),
+      tip: tip ? { title: tip.title, desc: tip.desc || '', path: tip.path || '' } : null,
+    }, null, 2), 'utf8');
+    console.log(`Đã ghi payload Telegram: ${payloadPath}`);
+  } catch (e) {
+    console.error('[telegram] không ghi được payload (bỏ qua, email vẫn gửi):', e && e.message);
+  }
+
   const info = await transporter.sendMail({
     from: `"Điểm Tin Thế Giới" <${EMAIL_USER}>`,
     to: EMAIL_TO,

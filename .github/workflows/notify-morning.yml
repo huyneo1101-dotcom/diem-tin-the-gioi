@@ -47,6 +47,19 @@ jobs:
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ vars.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com' }}
+          TELEGRAM_PAYLOAD: /tmp/morning-telegram.json
         run: |
           npm install nodemailer@6 --no-save
           node .github/scripts/send-morning-email.js
+
+      # Gửi SAU email, không được làm hỏng workflow. Không có payload (không có gì mới,
+      # hoặc bước trên fail) thì script tự thoát êm — gate luôn khớp với email vì cả hai
+      # đọc chung một quyết định do send-morning-email.js ghi ra.
+      - name: Gửi Telegram (sự kiện & tập trận)
+        if: steps.chk.outputs.go == '1'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_PAYLOAD: /tmp/morning-telegram.json
+        run: python3 .github/scripts/send_telegram.py --morning
