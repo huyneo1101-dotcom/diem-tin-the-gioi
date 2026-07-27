@@ -1,0 +1,180 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Bot hỏi–đáp Telegram: đọc câu hỏi mới, và gửi câu trả lời về.
+
+    python3 scripts/telegram_bot.py --doc                 # đọc câu hỏi mới
+    python3 scripts/telegram_bot.py --tra-loi tl.txt --chat 123   # gửi trả lời
+    python3 scripts/telegram_bot.py --bao "..." --chat 123        # gửi một dòng thông báo
+
+`--doc` in câu hỏi ra stdout, ghi `/tmp/tg-questions.json`, và trả mã thoát:
+    0  = có câu hỏi mới      10 = không có gì      1 = lỗi
+
+⚠️ KHÔNG LƯU OFFSET VÀO REPO. Telegram tự giữ hàng đợi update chưa xác nhận trong 24h;
+gọi `getUpdates?offset=<id cuối + 1>` là nó xoá các update cũ. Dùng chính cơ chế đó làm
+"con trỏ đã đọc" thì không phải commit file state mỗi 5 phút (rác lịch sử git, và đụng
+`git pull --rebase` của phiên quét đang chạy).
+
+⚠️ XÁC NHẬN NGAY SAU KHI ĐỌC, TRƯỚC KHI XỬ LÝ. Nếu xác nhận sau, một câu hỏi làm Claude
+lỗi sẽ được đọc lại mỗi 5 phút và lỗi mãi mãi. Đổi lại, câu hỏi bị mất nếu workflow chết
+giữa chừng — nên workflow gửi ngay tin "đang xử lý" và gửi tin báo lỗi nếu hỏng, để Huy
+không bao giờ rơi vào cảnh im lặng không biết vì sao.
+
+⚠️ CHỈ TRẢ LỜI CHAT TRONG DANH SÁCH TRẮNG (`TELEGRAM_CHAT_ID`). Bot Telegram ai cũng nhắn
+được — không lọc thì người lạ dùng được hạn mức Claude của Huy và đọc được dữ liệu bản tin.
+"""
+import argparse
+import datetime
+import html
+import json
+import os
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from tg_api import call  # noqa: E402
+
+QUESTIONS = "/tmp/tg-questions.json"
+# Bỏ câu hỏi cũ hơn ngần này — tránh trả lời một câu Huy hỏi từ hôm qua khi bot vừa hồi sinh
+# sau sự cố (Telegram giữ hàng đợi tới 24h).
+MAX_AGE_PHUT = 60
+MAX_LEN = 3800
+
+
+def chats_cho_phep():
+    return {c.strip() for c in os.environ.get("TELEGRAM_CHAT_ID", "").split(",") if c.strip()}
+
+
+def doc(token):
+    cho_phep = chats_cho_phep()
+    if not cho_phep:
+        print("Thiếu TELEGRAM_CHAT_ID — không biết ai được phép hỏi.", file=sys.stderr)
+        return 1
+
+    r = call(token, "getUpdates", {"timeout": 0, "allowed_updates": ["message"]})
+    if not r.get("ok"):
+        print(f"getUpdates lỗi: {r.get('description')}", file=sys.stderr)
+        return 1
+    updates = r.get("result") or []
+    if not updates:
+        print("Không có tin nhắn mới.")
+        return 10
+
+    # Xác nhận NGAY (xem docstring): offset = id cuối + 1 xoá cả lô khỏi hàng đợi Telegram.
+    last = max(u["update_id"] for u in updates)
+    call(token, "getUpdates", {"offset": last + 1, "limit": 1, "timeout": 0})
+
+    bay_gio = datetime.datetime.now(datetime.timezone.utc).timestamp()
+    hoi, bo_la, bo_cu = [], 0, 0
+    for u in updates:
+        m = u.get("message") or {}
+        text = (m.get("text") or "").strip()
+        chat = str((m.get("chat") or {}).get("id", ""))
+        if not text or not chat:
+            continue
+        if chat not in cho_phep:
+            bo_la += 1
+            continue
+        if bay_gio - float(m.get("date", 0)) > MAX_AGE_PHUT * 60:
+            bo_cu += 1
+            continue
+        if text.startswith("/start"):
+            continue
+        hoi.append({"chat": chat, "text": text,
+                    "ten": (m.get("from") or {}).get("first_name", "")})
+
+    if bo_la:
+        print(f"Bỏ {bo_la} tin nhắn từ chat NGOÀI danh sách trắng.", file=sys.stderr)
+    if bo_cu:
+        print(f"Bỏ {bo_cu} tin nhắn cũ hơn {MAX_AGE_PHUT} phút.", file=sys.stderr)
+    if not hoi:
+        print("Không có câu hỏi hợp lệ.")
+        return 10
+
+    # Nhiều câu liên tiếp từ cùng một người: gộp thành một lượt hỏi, trả lời một lần.
+    gop = {}
+    for h in hoi:
+        gop.setdefault(h["chat"], []).append(h["text"])
+    ket = [{"chat": c, "text": "\n".join(t)} for c, t in gop.items()]
+
+    pathlib.Path(QUESTIONS).write_text(
+        json.dumps(ket, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"Có {len(ket)} lượt hỏi:")
+    for k in ket:
+        print(f"  [chat {k['chat']}] {k['text'][:200]}")
+    return 0
+
+
+def gui(token, chat, noi_dung):
+    """Gửi text thường (không parse_mode) — câu trả lời của Claude là markdown tự do,
+    ép parse_mode HTML/Markdown sẽ khiến Telegram từ chối cả tin khi gặp ký tự lạ."""
+    con = noi_dung.strip()
+    if not con:
+        return 0
+    phan = []
+    while con:
+        if len(con) <= MAX_LEN:
+            phan.append(con)
+            break
+        # Cắt ở lần xuống dòng gần nhất để không đứt giữa câu.
+        cat = con.rfind("\n", 0, MAX_LEN)
+        if cat < MAX_LEN // 2:
+            cat = MAX_LEN
+        phan.append(con[:cat])
+        con = con[cat:].lstrip("\n")
+    for p in phan:
+        r = call(token, "sendMessage",
+                 {"chat_id": chat, "text": p, "disable_web_page_preview": True})
+        if not r.get("ok"):
+            print(f"sendMessage lỗi: {r.get('description')}", file=sys.stderr)
+            return 1
+    print(f"Đã gửi {len(phan)} tin nhắn tới {chat}")
+    return 0
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--doc", action="store_true", help="đọc câu hỏi mới")
+    ap.add_argument("--tra-loi", metavar="FILE", help="gửi nội dung file về chat")
+    ap.add_argument("--bao", metavar="TEXT", help="gửi một dòng thông báo")
+    ap.add_argument("--bao-tat-ca", metavar="TEXT",
+                    help="gửi một dòng thông báo tới MỌI chat đang có câu hỏi chờ "
+                         "(đọc /tmp/tg-questions.json) — dùng trong workflow để khỏi heredoc")
+    ap.add_argument("--chat", help="chat id nhận (bắt buộc với --tra-loi/--bao)")
+    args = ap.parse_args()
+
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    if not token:
+        print("Thiếu TELEGRAM_BOT_TOKEN.", file=sys.stderr)
+        return 1
+
+    if args.doc:
+        return doc(token)
+    if args.bao_tat_ca:
+        try:
+            qs = json.loads(pathlib.Path(QUESTIONS).read_text(encoding="utf-8"))
+        except Exception as e:
+            # Không có file = không có ai đang chờ. Không phải lỗi.
+            print(f"Không đọc được {QUESTIONS} ({e}) — không gửi cho ai.", file=sys.stderr)
+            return 0
+        cho_phep = chats_cho_phep()
+        for q in qs:
+            if q.get("chat") in cho_phep:
+                gui(token, q["chat"], args.bao_tat_ca)
+        return 0
+    if args.tra_loi or args.bao:
+        if not args.chat:
+            print("Thiếu --chat.", file=sys.stderr)
+            return 1
+        if args.chat not in chats_cho_phep():
+            print(f"chat {args.chat} không nằm trong danh sách trắng — từ chối gửi.",
+                  file=sys.stderr)
+            return 1
+        noi_dung = (pathlib.Path(args.tra_loi).read_text(encoding="utf-8")
+                    if args.tra_loi else args.bao)
+        return gui(token, args.chat, noi_dung)
+    ap.print_help()
+    return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

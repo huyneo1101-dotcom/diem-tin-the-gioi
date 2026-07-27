@@ -1,0 +1,118 @@
+name: Bot Telegram — trả lời câu hỏi về bản tin
+
+# Huy nhắn câu hỏi cho @diemtin24h_bot; mỗi 5 phút workflow này đọc hàng đợi Telegram,
+# và nếu có câu hỏi thì chạy `claude -p` để trả lời — dùng CHUNG secret
+# CLAUDE_CODE_OAUTH_TOKEN với routine quét, nên KHÔNG phát sinh hoá đơn API mới.
+#
+# Đánh đổi đã biết: độ trễ 1–3 phút cho vòng cron + ~1 phút cài Claude Code. Đây là cái giá
+# của việc chạy miễn phí trên gói thuê bao thay vì gọi Claude API (xem lựa chọn mức 2 trong
+# mục 📨 TELEGRAM của CLAUDE.md).
+#
+# Vì sao cron 5 phút không tốn gì: repo này PUBLIC, mà GitHub Actions miễn phí không giới
+# hạn phút cho repo public. Nếu repo chuyển thành PRIVATE thì lịch này sẽ ngốn hạn mức
+# 2.000 phút/tháng — khi đó phải giãn cron hoặc chuyển sang webhook.
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+# Không cho hai vòng chồng nhau: vòng sau sẽ đọc lại hàng đợi mà vòng trước đang xử lý.
+concurrency:
+  group: telegram-bot
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  reply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Kiểm tra secret
+        id: gate
+        env:
+          TOK: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TG: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          if [ -z "$TOK" ] || [ -z "$TG" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Thiếu CLAUDE_CODE_OAUTH_TOKEN hoặc TELEGRAM_BOT_TOKEN — bỏ qua êm."
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v7
+        if: steps.gate.outputs.run == 'true'
+
+      - name: Setup Python
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      # Bước rẻ, chạy mỗi 5 phút: chỉ gọi getUpdates. Không có câu hỏi thì job dừng ở đây
+      # (~15 giây) và KHÔNG cài Claude Code — đó là lý do lịch dày này không tốn gì đáng kể.
+      - name: Đọc câu hỏi mới
+        if: steps.gate.outputs.run == 'true'
+        id: doc
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set +e
+          python3 scripts/telegram_bot.py --doc
+          code=$?
+          set -e
+          if [ "$code" = "0" ]; then
+            echo "co=true" >> "$GITHUB_OUTPUT"
+          elif [ "$code" = "10" ]; then
+            echo "co=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "co=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::telegram_bot.py --doc lỗi (mã $code)"
+          fi
+
+      # Báo ngay là đã nhận, vì bước sau mất 1-3 phút. Không có tin này thì Huy không biết
+      # bot có nghe thấy mình không.
+      - name: Báo đã nhận
+        if: steps.doc.outputs.co == 'true'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          python3 scripts/telegram_bot.py --bao-tat-ca "⏳ Đang tra bản tin, chờ tao một hai phút..."
+
+      - name: Setup Node
+        if: steps.doc.outputs.co == 'true'
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Cài Claude Code
+        if: steps.doc.outputs.co == 'true'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Trả lời
+        if: steps.doc.outputs.co == 'true'
+        id: traloi
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          TOOLS="Bash(python3 *),Bash(ls *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(cat /tmp/*),Read,Write,Glob,Grep,WebSearch,WebFetch"
+          claude -p "$(cat .github/prompts/telegram-bot.md)" --allowedTools "$TOOLS" --max-turns 40
+
+      # Không im lặng khi hỏng: Huy đã nhận tin "đang tra" nên phải nhận được kết cục.
+      - name: Báo lỗi nếu trả lời hỏng
+        if: failure() && steps.doc.outputs.co == 'true'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        # Block scalar (`|`) chứ không phải một dòng: chuỗi có "Log: " và YAML sẽ đọc
+        # dấu hai chấm + khoảng trắng thành mapping, làm hỏng cả file workflow.
+        run: |
+          python3 scripts/telegram_bot.py --bao-tat-ca "❌ Tao tra không xong câu vừa rồi (workflow lỗi). Hỏi lại giúp tao. Log: $RUN_URL"
