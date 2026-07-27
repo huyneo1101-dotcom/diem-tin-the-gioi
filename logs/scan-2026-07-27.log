@@ -207,3 +207,52 @@ DA LAM:
 KIEM TRUOC KHI COMMIT: diff DATA giua HEAD va ban lam viec — CHI analyses 18->24, cac mang
   worldNews/usNews/exercises/dipEvents/rejectedNews/weeklyReport giu nguyen so luong.
 
+=== 11:20 MO RONG NGUON THINK-TANK theo KHU VUC (Huy: "nguon think-tank da day du chua? …
+    co the quet cac bai think tank ve cac khu vuc quan trong khac tren the gioi") ===
+DO THAT 43 + 24 URL (curl UA + --compressed, moi noi >=2 bien the URL truoc khi gach):
+- THEM 11 feed song -> THINKTANK_FEEDS tu 13 len **24 vien**, xep theo KHU VUC:
+  Nga/Dong Au: CEPA (10 bai/7ngay) · Riddle Russia (5) · Jamestown (da co)
+  Dong Nam A: Fulcrum/ISEAS (6) — vung truoc gio TRONG hoan toan
+  Chau Phi: SAIIA (3) | Hat nhan: Arms Control Association (10)
+  Quan su: Modern War Institute (4) · Small Wars Journal (10) · CIMSEC (3)
+  Khac: GMF (9) · Bruegel (1) · Interpret China (1)
+- BAT DUOC 1 CA GACH OAN: Arms Control Association bi cham "hong" 2 lan vi ET.fromstring
+  bao "junk after document element" — server nhet noi dung SAU `</rss>`. Da them fallback
+  `parse_feed()` cat toi the dong roi parse lai -> lay duoc 10 item. (Cung kieu bai hoc UN
+  News 22/07 va War on the Rocks sang nay: dung gach nguon khi chua loai tru loi ky thuat.)
+- LOAI 2 FEED DU CHAY DUOC — SWP Berlin + Clingendael: feed cua ho la DIEM BAO, khong phai
+  nghien cuu. SWP tra link thang ra cicero.de/deutschlandfunk.de (guardrail domain chan),
+  CLINGENDAEL nguy hiem hon: phat duoi chinh domain minh (`/node/21028`, tieu de "… / DW
+  (Jul 21, 2026)") nen guardrail KHONG chan duoc -> bai bao se lot vao muc Think-tank ma
+  trong nhu bai vien. Da chuyen ca hai sang WEBSEARCH_ONLY.
+- WEBSEARCH_ONLY doi tu list phang -> DICT THEO VUNG (10 vung: Trung Dong · Chau Phi/Sahel ·
+  My Latin · Nam A · Dong Bac A · Trung A · Bac Cuc · Hat nhan/khung bo · Chau Au · vien lon
+  My). `--candidates` in ra cuoi output de phien sang biet vung nao trong ma bu bang WebSearch.
+  Domain cua cac noi nay DA nam trong THINKTANK_DOMAINS (99 domain) -> bai tim bang WebSearch
+  van nap duoc, khong bi guardrail chan oan.
+- Them: PER_FEED_CAP=8 (26 vien x 12 bai thi ngop context agent) · NOISE_PATHS them
+  /media-citations/ (Arms Control day ca muc diem bao vao feed) · clean_url() bo utm_*
+  (CIMSEC gan utm vao MOI link -> url ban + dedupe hut, cung bai nap 2 lan) · VALID_REGIONS
+  them "Bac Cuc" + "Trung A" cho khop bang mau RCOLOR trong index.html.
+UNG VIEN: 131 -> **202 bai**.
+NAP THEM 5 BAI, CO Y CHON KHU VUC MOI (sang nay 4/6 bai dinh Dong A):
+  CEPA (Nga bop nghet internet di dong) · Riddle (Nga-Trung lien minh khong nghia vu) ·
+  Modern War Institute (nghich ly B-21 va ran de hat nhan) · CIMSEC (quan tri Bac Cuc/Nam Cuc)
+  · SAIIA (chau Phi trong BRICS). Muc Phan tich 24 -> **29 bai**, hom nay nap 11.
+  Phan bo khu vuc: Chau Au/NATO 7 · Dong A 6 · Trung Dong 5 · Toan cau 5 · An Do Duong-TBD 2 ·
+  Chau My 2 · Chau Phi 1 · Bac Cuc 1.
+BO 2 BAI (ghi ro de Huy ra soat):
+  1) CEPA "Ukraine Embraces the New Warmakers" — WebFetch tra tom tat TU MAU THUAN ve nhan su
+     (chuc vu/tuoi lan lon giua Fedorov, Drapatyi, Syrskyi). Khong xac minh duoc thi bo, doi
+     sang bai khac cung vien — quy tac 6 (khong suy dien du lieu mo ho).
+  2) Washington Institute "Countering Iran's Smart Control Gambit in Hormuz" — tim duoc bang
+     WebSearch (dung duong bu cho vung Trung Dong khong co RSS) NHUNG bai dang **03/06/2026**,
+     ngoai khung 7 ngay -> bo. Trung Dong hom nay khong co bai moi trong khung.
+KIEM TREN WEB THAT: tab "🏛️ Think-tank (29)"; chip khu vuc moi hien dung mau rieng —
+  Bac Cuc rgb(58,143,184) = #3a8fb8, Chau Phi rgb(47,158,107) = #2f9e6b, khong roi ve xam.
+CHUA COMMIT (viec do cua phien khac dan xen): CLAUDE.md (phien kia them muc "Thang xac minh"),
+  whats-new.json, .github/prompts/event-scan-ci.md, scripts/set_exercise_briefing.py, sw.js
+  dang staged/sua boi phien khac -> commit lo nay bang PATHSPEC chi 3 file thuan cua tao
+  (index.html, scripts/add_analyses.py, docs/routine-event-scan.md) + log. Phan "24 vien"
+  tao sua trong CLAUDE.md se di theo commit cua phien kia.
+

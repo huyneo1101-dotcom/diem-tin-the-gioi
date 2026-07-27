@@ -70,11 +70,17 @@ VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 # tuần trước mà không biến mục thành kho lưu trữ bài cũ.
 MAX_AGE_DAYS = 7
 
+# Trần số bài in ra MỖI VIỆN. 26 viện × 12 bài thì danh sách ứng viên dài hơn cả bài phân
+# tích, ngốn hết context của agent chọn bài.
+PER_FEED_CAP = 8
+
 REQUIRED_FIELDS = {"date", "outlet", "title", "summary", "takeaway", "url"}
 
+# Khớp bảng màu `RCOLOR` trong index.html (dòng ~347) — region ngoài bảng đó vẫn hiện được
+# nhưng chấm màu rơi về xám mặc định. Thêm khu vực mới thì thêm cả màu bên index.html.
 VALID_REGIONS = {
     "Châu Âu/NATO", "Trung Đông", "Đông Á", "Toàn cầu", "Châu Mỹ",
-    "Ấn Độ Dương - Thái Bình Dương", "Châu Phi", "Nam Á",
+    "Ấn Độ Dương - Thái Bình Dương", "Châu Phi", "Nam Á", "Bắc Cực", "Trung Á",
 }
 
 # Domain của viện nghiên cứu (tầng 3 trong CLAUDE.md) + vài nơi xuất bản nghiên cứu chiến
@@ -101,6 +107,30 @@ THINKTANK_DOMAINS = {
     "inss.org.il", "issafrica.org", "crisisgroup.org",
     # Dữ liệu (tầng 2) nhưng xuất bản phân tích
     "sipri.org",
+    # ——— Bổ sung 27/07/2026 khi mở rộng theo KHU VỰC (chỉ thị Huy). Gồm CẢ nơi không có RSS
+    # (xem WEBSEARCH_ONLY): bài tìm được bằng WebSearch vẫn phải nạp được, nếu không thì
+    # guardrail domain sẽ chặn oan chính đường bù cho vùng trống RSS.
+    # Nga · Đông Âu · châu Âu
+    "cepa.org", "ridl.io", "globsec.org", "bruegel.org", "ceps.eu", "iss.europa.eu",
+    # Trung Đông
+    "mei.edu", "washingtoninstitute.org", "agsiw.org", "carnegie-mec.org",
+    "epc.ae", "gulfif.org",
+    # Châu Phi · Sahel
+    "africacenter.org", "saiia.org.za", "timbuktu-institute.org",
+    # Mỹ Latin
+    "wola.org", "dialogo-americas.com", "thedialogue.org",
+    # Nam Á · Trung Á
+    "idsa.in", "takshashila.org.in", "cacianalyst.org", "sipa.columbia.edu",
+    # Đông Bắc Á · Đông Nam Á
+    "jiia.or.jp", "spf.org", "tokyofoundation.org", "sejong.org", "fulcrum.sg",
+    "interpret.csis.org",
+    # Bắc Cực
+    "thearcticinstitute.org", "highnorthnews.com",
+    # Hạt nhân · kiểm soát vũ khí · khủng bố
+    "armscontrol.org", "thebulletin.org", "nti.org", "fas.org",
+    "ctc.westpoint.edu", "thesoufancenter.org",
+    # Quân sự · hải quân
+    "mwi.westpoint.edu", "smallwarsjournal.com", "cimsec.org", "gmfus.org",
 }
 
 BAD_URL = re.compile(r"/(live|live-blog|live-updates|liveblog)(/|$)", re.I)
@@ -108,41 +138,74 @@ BAD_URL = re.compile(r"/(live|live-blog|live-updates|liveblog)(/|$)", re.I)
 # RSS của các viện — VERIFY BẰNG FETCH THẬT 27/07/2026 (curl có UA + --compressed).
 # ⚠️ Phải kèm cả hai cờ đó: War on the Rocks trả 403 khi curl trần (CLAUDE.md từng chấm
 # "BỎ HẲN" vì vậy), nhưng có UA thì trả 100 item bình thường.
+# Cột 3 = khu vực/mảng chính. Có cột này để nhìn phát biết mình đang phủ đâu và TRỐNG đâu
+# (chỉ thị Huy 27/07/2026: "có thể quét các bài think tank về các khu vực quan trọng khác").
 THINKTANK_FEEDS = [
-    ("Atlantic Council", "https://www.atlanticcouncil.org/feed/"),
-    ("Lowy Institute", "https://www.lowyinstitute.org/the-interpreter/rss.xml"),
-    ("ASPI", "https://www.aspistrategist.org.au/feed/"),
-    ("War on the Rocks", "https://warontherocks.com/feed/"),
-    ("Jamestown Foundation", "https://jamestown.org/feed/"),
-    ("Long War Journal", "https://www.longwarjournal.org/feed"),
-    ("RAND", "https://www.rand.org/blog.xml"),
-    ("MERICS", "https://merics.org/en/rss"),
-    ("CSET", "https://cset.georgetown.edu/feed/"),
-    ("Hudson Institute", "https://www.hudson.org/rss.xml"),
-    ("Heritage Foundation", "https://www.heritage.org/rss"),
-    ("AMTI/CSIS", "https://amti.csis.org/feed/"),
-    ("Crisis Group", "https://www.crisisgroup.org/rss.xml"),
+    # — Ấn Độ Dương - Thái Bình Dương / Đông Á
+    ("Lowy Institute", "https://www.lowyinstitute.org/the-interpreter/rss.xml", "Ấn Độ Dương - TBD"),
+    ("ASPI", "https://www.aspistrategist.org.au/feed/", "Úc · Ấn Độ Dương - TBD"),
+    ("Fulcrum (ISEAS)", "https://fulcrum.sg/feed/", "Đông Nam Á"),
+    ("MERICS", "https://merics.org/en/rss", "Trung Quốc"),
+    ("Interpret China (CSIS)", "https://interpret.csis.org/feed/", "Trung Quốc"),
+    ("AMTI/CSIS", "https://amti.csis.org/feed/", "Biển Đông"),
+    # — Nga · Đông Âu · châu Âu
+    ("CEPA", "https://cepa.org/feed/", "Nga · Đông Âu"),
+    ("Riddle Russia", "https://ridl.io/feed/", "Nga (nội tình)"),
+    ("Jamestown Foundation", "https://jamestown.org/feed/", "Nga · Trung Á · TQ"),
+    ("GMF", "https://www.gmfus.org/rss.xml", "Xuyên Đại Tây Dương ⚠️ lẫn tin tổ chức"),
+    ("Bruegel", "https://www.bruegel.org/rss.xml", "Kinh tế châu Âu"),
+    # — Trung Đông · châu Phi · Sahel
+    ("Long War Journal", "https://www.longwarjournal.org/feed", "Sahel · khủng bố"),
+    ("SAIIA", "https://saiia.org.za/research/feed/", "Châu Phi"),
+    ("Crisis Group", "https://www.crisisgroup.org/rss.xml", "Xung đột toàn cầu"),
+    # — Mỹ · quốc phòng · xuyên suốt
+    ("Atlantic Council", "https://www.atlanticcouncil.org/feed/", "Toàn cầu"),
+    ("War on the Rocks", "https://warontherocks.com/feed/", "Chiến lược quân sự"),
+    ("RAND", "https://www.rand.org/blog.xml", "Toàn cầu"),
+    ("Hudson Institute", "https://www.hudson.org/rss.xml", "Mỹ · châu Á"),
+    ("Heritage Foundation", "https://www.heritage.org/rss", "Mỹ"),
+    ("CSET", "https://cset.georgetown.edu/feed/", "AI · công nghệ"),
+    ("Modern War Institute", "https://mwi.westpoint.edu/feed/", "Tác chiến"),
+    ("Small Wars Journal", "https://smallwarsjournal.com/feed", "Xung đột phi quy ước"),
+    ("CIMSEC", "https://cimsec.org/feed/", "Hải quân · biển"),
+    ("Arms Control Association", "https://www.armscontrol.org/rss.xml", "Hạt nhân · kiểm soát vũ khí"),
 ]
 
-# KHÔNG có RSS dùng được (kiểm 27/07/2026 — đã thử 2 biến thể URL mỗi nơi, ĐỪNG thử lại):
-#   Brookings · RUSI · Chatham House · ORF · CNAS · FPRI — trả HTML thay vì XML;
-#   38 North · Stimson — Cloudflare "Just a moment"; USIP — 404;
-#   Carnegie · Belfer · Wilson Center — XML hợp lệ nhưng 0 item.
-#   CSIS (csis.org) — feed bỏ hoang từ 2016 (xem CLAUDE.md).
-# Muốn bài của mấy nơi này thì dùng WebSearch `site:<domain>`, đừng chờ RSS.
 # Đường dẫn KHÔNG phải bài phân tích, tuy nằm chung feed. Không lọc thì mục Think-tank đầy
 # mẩu "chuyên gia X được Coindesk trích dẫn" — Atlantic Council đẩy cả chuyên mục
 # /insight-impact/in-the-news/ vào feed (thực tế 33 bài/7 ngày thì 8 là loại này).
 NOISE_PATHS = (
     "/in-the-news/", "/insight-impact/", "/press-release", "/media-advisory",
     "/event/", "/events/", "/podcast", "/newsletter", "/webinar", "/transcript",
+    # Arms Control Association đẩy cả mục điểm báo (bài CNN/NYT trích lời chuyên gia) vào
+    # feed — không phải nghiên cứu của viện.
+    "/media-citations/", "/in-the-media", "/press-mention",
 )
 
-WEBSEARCH_ONLY = [
-    "csis.org", "brookings.edu", "rusi.org", "chathamhouse.org", "orfonline.org",
-    "cnas.org", "38north.org", "stimson.org", "carnegieendowment.org", "fpri.org",
-    "belfercenter.org", "wilsoncenter.org", "usip.org", "iiss.org",
-]
+# KHÔNG có RSS dùng được — đã thử ÍT NHẤT 2 biến thể URL mỗi nơi (27/07/2026), ĐỪNG thử lại.
+# Xếp theo KHU VỰC để phiên sáng biết vùng nào đang trống RSS mà chủ động `WebSearch
+# site:<domain>`. Lý do hỏng: phần lớn Cloudflare 403 · vài nơi 404 · Africa Center và AGSIW
+# trả RSS hợp lệ nhưng feed RỖNG (0 item) · IFRI feed đứng từ 2023.
+WEBSEARCH_ONLY = {
+    "Trung Đông": ["mei.edu", "washingtoninstitute.org", "inss.org.il", "agsiw.org", "carnegie-mec.org"],
+    "Châu Phi · Sahel": ["africacenter.org", "issafrica.org"],
+    "Mỹ Latin": ["wola.org", "dialogo-americas.com"],
+    "Nam Á": ["orfonline.org", "idsa.in", "takshashila.org.in"],
+    "Đông Bắc Á": ["38north.org", "jiia.or.jp", "spf.org", "eastasiaforum.org"],
+    "Trung Á · Caucasus": ["cacianalyst.org"],
+    "Bắc Cực": ["thearcticinstitute.org"],
+    "Hạt nhân · khủng bố": ["thebulletin.org", "nti.org", "fas.org", "ctc.westpoint.edu", "thesoufancenter.org"],
+    # SWP + Clingendael CÓ feed chạy được nhưng là feed ĐIỂM BÁO, không phải nghiên cứu:
+    # SWP phát link thẳng ra cicero.de/deutschlandfunk.de (guardrail domain chặn), còn
+    # Clingendael phát dưới chính domain của nó (`/node/NNNNN`, tiêu đề dạng "… / DW (Jul 21)")
+    # nên guardrail KHÔNG chặn được — đó mới là loại nguy hiểm, bài báo lọt vào mục Think-tank
+    # mà trông như bài viện. Đã BỎ khỏi THINKTANK_FEEDS, muốn bài của họ thì WebSearch.
+    "Châu Âu": ["ecfr.eu", "chathamhouse.org", "rusi.org", "globsec.org", "ifri.org",
+                "swp-berlin.org", "clingendael.org"],
+    "Viện lớn của Mỹ": ["csis.org", "brookings.edu", "cnas.org", "stimson.org",
+                        "carnegieendowment.org", "fpri.org", "belfercenter.org",
+                        "wilsoncenter.org", "usip.org", "iiss.org"],
+}
 
 
 def die(msg: str) -> None:
@@ -210,6 +273,22 @@ def is_homepage(url: str) -> bool:
     return path in ("", "/") or len(path.strip("/").split("/")) < 2 and not re.search(r"[-_]\w+[-_]", path)
 
 
+def clean_url(u: str) -> str:
+    """Bỏ tham số theo dõi (utm_*, fbclid…) khỏi URL.
+
+    CIMSEC gắn `?utm_source=rss&utm_medium=rss&utm_campaign=…` vào MỌI link trong feed.
+    Không cắt thì: (a) url lưu vào DATA bẩn, (b) dedupe hụt — cùng một bài mà khác chuỗi
+    utm sẽ lọt qua kiểm trùng và nạp hai lần.
+    """
+    u = (u or "").strip()
+    if "?" not in u:
+        return u
+    base, _, query = u.partition("?")
+    keep = [p for p in query.split("&")
+            if p and not p.lower().startswith(("utm_", "fbclid=", "gclid=", "mc_cid=", "mc_eid="))]
+    return base + ("?" + "&".join(keep) if keep else "")
+
+
 def norm_title(t: str) -> set:
     return set(re.sub(r"[^\w\s]", " ", t.lower()).split())
 
@@ -271,11 +350,31 @@ def curl(url: str) -> bytes:
         return b""
 
 
+def parse_feed(xml_bytes: bytes):
+    """Parse XML, có FALLBACK cắt tới thẻ đóng cuối cùng.
+
+    Vì sao cần fallback: feed Arms Control Association trả XML hợp lệ NHƯNG server nhét
+    thêm nội dung sau `</rss>` → ET báo "junk after document element" và ta suýt gạch nhầm
+    một nguồn hạt nhân đang sống (10 item). Cắt tới thẻ đóng rồi parse lại là lấy được.
+    """
+    try:
+        return ET.fromstring(xml_bytes)
+    except Exception:
+        pass
+    for close in (b"</rss>", b"</feed>", b"</rdf:RDF>"):
+        k = xml_bytes.rfind(close)
+        if k > 0:
+            try:
+                return ET.fromstring(xml_bytes[:k + len(close)])
+            except Exception:
+                continue
+    return None
+
+
 def feed_items(xml_bytes: bytes):
     """[(title, link, ngày)] cho cả RSS 2.0, RDF lẫn Atom."""
-    try:
-        root = ET.fromstring(xml_bytes)
-    except Exception:
+    root = parse_feed(xml_bytes)
+    if root is None:
         return []
     out = []
     for it in root.iter():
@@ -327,26 +426,38 @@ def list_candidates() -> None:
 
     today_vn = datetime.datetime.now(VN).date()
     total = 0
-    print(f"=== ỨNG VIÊN THINK-TANK (đăng trong {MAX_AGE_DAYS} ngày, tính tới {today_vn.isoformat()}) ===")
-    for name, url in THINKTANK_FEEDS:
+    empty = []
+    print(f"=== ỨNG VIÊN THINK-TANK ({len(THINKTANK_FEEDS)} viện · đăng trong {MAX_AGE_DAYS} ngày, "
+          f"tính tới {today_vn.isoformat()}) ===")
+    for name, url, area in THINKTANK_FEEDS:
         rows = []
         for title, link, d in feed_items(curl(url)):
             if d is None or (today_vn - d).days > MAX_AGE_DAYS or d > today_vn:
                 continue
-            if link.split("?")[0] in existing or link in existing:
+            link = clean_url(link)
+            if link in existing or link.split("?")[0] in existing:
                 continue
             if any(p in link.lower() for p in NOISE_PATHS):
                 continue
             rows.append((d, title, link))
         if not rows:
+            empty.append(f"{name} ({area})")
             continue
         rows.sort(reverse=True)
-        print(f"\n## {name} ({len(rows)} bài)")
-        for d, title, link in rows[:12]:
+        print(f"\n## {name} — {area} ({len(rows)} bài)")
+        for d, title, link in rows[:PER_FEED_CAP]:
             print(f"  [{d.isoformat()}] {title}\n      {link}")
+        if len(rows) > PER_FEED_CAP:
+            print(f"  … còn {len(rows) - PER_FEED_CAP} bài nữa (cắt bớt cho gọn context)")
         total += len(rows)
     print(f"\n=== TỔNG {total} ứng viên ===")
-    print("Viện KHÔNG có RSS (dùng WebSearch site:<domain>): " + " · ".join(WEBSEARCH_ONLY))
+    if empty:
+        # In ra để phiên sáng BIẾT vùng nào đang trống mà bù bằng WebSearch, thay vì tưởng
+        # là hôm nay không có gì đáng đọc.
+        print("Feed không ra bài nào trong khung ngày: " + " · ".join(empty))
+    print("\nVùng KHÔNG có RSS — chủ động bù bằng `WebSearch site:<domain>` khi vùng đó vắng:")
+    for area, doms in WEBSEARCH_ONLY.items():
+        print(f"  {area}: " + " · ".join(doms))
 
 
 def main() -> None:
@@ -391,7 +502,7 @@ def main() -> None:
 
         check_date(it["date"], batch_date, today_vn)
 
-        url = it["url"].strip()
+        url = clean_url(it["url"])
         if not url.startswith(("http://", "https://")):
             die(f"bài #{i} url không phải http(s): {url}")
         if BAD_URL.search(url):
