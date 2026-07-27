@@ -1,0 +1,25 @@
+name: TEST truy cập trang .mil từ CI
+
+# Workflow TẠM (27/07/2026) — kiểm xem GitHub runner có đọc được các trang quân chủng Mỹ không,
+# trong khi máy Mac của Huy KHÔNG phân giải được DNS zone .mil (SERVFAIL, EDE(9)/EDE(22)).
+# Chạy tay bằng `gh workflow run test-mil-access.yml`, đọc log rồi XOÁ file này.
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Thử phân giải DNS + tải trang
+        run: |
+          for d in www.army.mil www.navy.mil www.af.mil www.marines.mil www.centcom.mil www.pacom.mil www.jcs.mil www.news.uscg.mil www.spaceforce.mil www.war.gov; do
+            ip=$(getent hosts "$d" | head -1 | awk '{print $1}')
+            code=$(curl -sL --max-time 20 -o /dev/null -w '%{http_code}/%{size_download}' "https://$d/" || echo "000/0")
+            echo "$d | DNS=${ip:-KHONG-PHAN-GIAI} | HTTP=$code"
+          done
+      - name: Thử feed RSS kiểu DesktopModules
+        run: |
+          for u in "https://www.af.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.navy.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1105&max=10" "https://www.army.mil/rss/static/1.xml" "https://www.centcom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=95&max=10" "https://www.pacom.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.jcs.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.marines.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10" "https://www.news.uscg.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=10"; do
+            n=$(curl -sL --max-time 20 "$u" | grep -c "<item" || true)
+            echo "items=$n | $u"
+          done
