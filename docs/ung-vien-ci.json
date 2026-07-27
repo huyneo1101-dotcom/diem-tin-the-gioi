@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-28T04:41:28+07:00",
+  "tao_luc": "2026-07-28T05:36:20+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-27",
@@ -83,9 +83,17 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Pentagon says it will not finish spending Ukraine funds until year Trump leaves office, source says",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/pentagon-says-it-will-not-finish-spending-ukraine-funds-until-year-trump-leaves-office-source-says"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Zelenskiy to meet US senators, Russia sanctions vote expected",
+      "tieu_de": "Zelensky to meet US senators, Russia sanctions vote expected",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/zelenskiy-to-meet-us-senators-russia-sanctions-vote-expected",
       "nhom": 4
@@ -360,12 +368,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-28",
-      "tieu_de": "New US tariff worries PH firms",
+      "tieu_de": "Four Manila-bound acts, four stories of growth",
       "nguon": "Inquirer",
-      "url": "https://business.inquirer.net/602631/new-us-tariff-worries-ph-firms",
-      "nhom": 4
+      "url": "https://lifestyle.inquirer.net/577339/four-manila-bound-acts-four-stories-of-growth/"
     },
     {
       "lop": "RSS",
@@ -375,14 +382,6 @@
       "nguon": "Long War Journal (Mali/JNIM)",
       "url": "https://www.longwarjournal.org/archives/2026/07/analysis-us-treasury-sanctions-turkish-hamas-financiers-as-erdogan-presses-for-f-35s.php",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Buckley Space Force Base and Aurora Leaders Strengthen Ties with Community Day",
-      "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/570822/buckley-space-force-base-and-aurora-leaders-strengthen-ties-with-community-day"
     },
     {
       "lop": "RSS",
@@ -460,14 +459,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Contracts for July 27, 2026",
-      "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4556787/contracts-for-july-27-2026/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-26",
       "tieu_de": "DOW Identifies Army Casualty",
       "nguon": "DoD News Releases",
@@ -536,6 +527,14 @@
       "tieu_de": "Pentagon moves recent KIA numbers from Iran war into ‘Overseas Operations’ category",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/07/27/pentagon-moves-recent-kia-numbers-from-iran-war-into-overseas-operations-category/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Buckley Space Force Base and Aurora Leaders Strengthen Ties with Community Day",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/570822/buckley-space-force-base-and-aurora-leaders-strengthen-ties-with-community-day"
     },
     {
       "lop": "RSS",
@@ -630,7 +629,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-28",
-      "tieu_de": "Australia news live: Anthony Albanese praises Sally McManus and Michele O’Neil as ‘giants’ as they step down from ACTU",
+      "tieu_de": "Australia news live: Labor MPs gather before Victorian leadership challenge; PM praises outgoing ACTU ‘giants’",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/jul/28/jacinta-allan-victoria-labor-leadership-spill-ben-carroll-challenge-antisemitism-royal-commission-nsw-icac-inquiry-queensland-estimates-ntwnfb"
     },
