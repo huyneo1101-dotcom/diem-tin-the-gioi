@@ -120,6 +120,15 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
 > **⇒ Tin quét TAY giữa ngày KHÔNG gửi email riêng — nó nằm chờ và dồn hết vào bản tin TỐI.**
 > Nguyên văn Huy: *"tao quét tin 4h, rồi quét tin 8h45, rồi quét tay thêm hai lần trong ngày,
 > thì tin buổi tối chỉ quét bình thường + các tin lấy được từ 2 lần quét tay đó thôi."*
+>
+> **⇒ VÀ NẾU ĐÃ LỠ GỬI EMAIL Ở LẦN QUÉT TAY ĐÓ, BẢN TỐI VẪN PHẢI CÓ CHÚNG.** Nguyên văn Huy:
+> *"ví dụ mà tao quét tay 2 lần giữa ngày xong có gửi email đi thì email tối vẫn phải có các
+> tin đó."* Chỉ tin của **ca SÁNG SỚM** mới bị loại khỏi bản tối, không phải mọi tin đã gửi.
+
+**Cơ chế bảo đảm điều đó:** bước `Ghi sổ đã gửi` có thêm điều kiện `github.event_name == 'push'`.
+Gửi bằng `workflow_dispatch` (chạy tay) thì **KHÔNG ghi sổ** → tin không bị đánh dấu "đã gửi" → bản
+tối vẫn liệt kê. Nói cách khác **chỉ lần gửi TỰ ĐỘNG của một ca chính thức mới để lại dấu trong sổ**;
+mọi lần gửi tay đều là "gửi thêm", không trừ đi thứ gì của bản tối.
 
 **CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY** — `notify-email.yml` có **hai cổng**, phải qua CẢ HAI:
 | Cổng | Điều kiện |
