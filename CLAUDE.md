@@ -451,6 +451,32 @@ phí) · C-SPAN · Defence Connect · ADBR · Philippine News Agency (pna.gov.ph
 · Radio Free Asia (rfa.org) · The Maritime Executive · National Defense Magazine · Jeune Afrique (403) ·
 The Africa Report (403) · RFI (rfi.fr) · ISS Africa → dùng `WebSearch site:domain`.
 
+### Trang CHÍNH THỨC Mỹ có RSS — verify fetch thật 27/07/2026 (đưa `docs/nguon-chinh-thuc-my.md` vào đường quét)
+Huy gửi file `trang chính thống của Mỹ.doc` (199 URL / 85 domain) và bảo kiểm xem đã có chưa. Kết quả
+đối chiếu: **199/199 URL ĐÃ có** trong `docs/nguon-chinh-thuc-my.md` từ 22/07 — nhưng đó chỉ là **danh
+sách tra cứu**, không nằm trong đường quét: **0/85 domain có trong bảng RSS**, và **76/85 chưa bao giờ
+đóng góp một tin nào**. Đúng bệnh "có mục mà không có đường nạp thì mục chết".
+Đã dò RSS cho 30 domain hợp 5 chủ đề, **9 cái chạy** → đưa vào bảng để `harvest.py` tự quét:
+| Nguồn | RSS URL | Kiểm 27/07 | Hợp nhóm/chủ đề |
+|---|---|---|---|
+| Nhà Trắng — Presidential Actions | https://www.whitehouse.gov/presidential-actions/feed/ | 30 item | **Nội bộ Mỹ nhóm 2** (sắc lệnh, memorandum) |
+| Uỷ ban Đối ngoại Hạ viện | https://foreignaffairs.house.gov/rss.xml | 10 item | **Nội bộ Mỹ nhóm 1** (điều trần/thông cáo uỷ ban) |
+| Cục Dự trữ Liên bang | https://www.federalreserve.gov/feeds/press_all.xml | 20 item | Nội bộ Mỹ nhóm 4 |
+| SEC | https://www.sec.gov/news/pressreleases.rss | 25 item | Nội bộ Mỹ nhóm 4 |
+| FTC | https://www.ftc.gov/feeds/press-release.xml | 10 item | Nội bộ Mỹ nhóm 4 |
+| USTR | https://www.ustr.gov/rss.xml | 10 item | Nội bộ Mỹ nhóm 4 (thuế quan) |
+| BEA | https://www.bea.gov/news/rss | 12 item | Nội bộ Mỹ nhóm 4 (số liệu vĩ mô) |
+| Bộ Năng lượng | https://www.energy.gov/rss.xml | 10 item | nhóm 2/4 + hạt nhân |
+| Lực lượng Không gian Mỹ | https://www.spaceforce.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1060&max=20 | 20 item | **CNQS Mỹ** |
+
+⚠️ **KHÔNG có RSS dùng được — đừng thử lại, dùng WebSearch `site:domain`** (kiểm 27/07): các uỷ ban
+Thượng viện (armed-services, foreign, appropriations, intelligence — đều 403) · armedservices.house.gov
+· state.gov · commerce.gov · justice.gov · dhs.gov · home.treasury.gov · bls.gov · dni.gov · stripes.com.
+⛔ **CHẶN HOÀN TOÀN từ máy này (curl trả `000`)**: `army.mil`, `navy.mil`, `af.mil`, `marines.mil`,
+`centcom.mil`, `pacom.mil`, `jcs.mil`, `news.uscg.mil`. Đây là lý do chúng nằm trong danh sách 85 domain
+mà chưa bao giờ đưa được tin nào. **Thay thế: DVIDS** (`dvidshub.net/rss/all` — đã có trong bảng, gom
+tin của mọi quân chủng) và feed hợp đồng/thông cáo `war.gov` ở mục dưới.
+
 ### RealClear — verify fetch thật 27/07/2026 (Huy chỉ định thêm)
 | Nguồn | RSS URL | Kiểm 27/07 | Hợp chủ đề |
 |---|---|---|---|
