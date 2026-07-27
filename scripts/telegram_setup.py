@@ -13,8 +13,21 @@ TRƯỚC KHI CHẠY, làm 2 bước trong Telegram (mất ~1 phút):
   2. Tìm bot vừa tạo theo username → bấm **START** rồi nhắn cho nó một chữ bất kỳ.
      Bắt buộc: Telegram KHÔNG cho bot nhắn trước người chưa từng nhắn nó.
 
-Muốn nhận trong NHÓM: thêm bot vào nhóm rồi nhắn một tin trong nhóm — script sẽ thấy cả
-chat nhóm (id âm) và hỏi chọn.
+GỬI CHO NGƯỜI KHÁC NỮA — chọn 1 trong 3, rồi chạy lại script này:
+  a) **Từng người**: người đó tự mở `t.me/<username bot>` và bấm START. Không có đường nào
+     khác — Telegram CẤM bot nhắn trước người chưa từng nhắn nó, biết số điện thoại cũng
+     không gửi được. Chạy lại script, họ sẽ hiện trong danh sách, chọn nhiều số ngăn bằng
+     dấu phẩy.
+  b) **NHÓM** (gọn nhất khi có vài người): tạo nhóm → thêm bot vào → **nhắn `/start` trong
+     nhóm**. ⚠️ Phải là `/start` hoặc câu có @tên_bot: bot trong nhóm mặc định bật "privacy
+     mode", tin thường nó KHÔNG nhận nên script sẽ không thấy nhóm đâu. Sau này thêm/bớt
+     người chỉ việc mời vào nhóm, không phải sửa secret.
+  c) **KÊNH** (phát một chiều cho nhiều người): tạo kênh → thêm bot làm **admin** (phải có
+     quyền đăng bài) → đăng một tin bất kỳ trong kênh. Người đọc chỉ cần bấm Join theo link
+     mời, không phải tương tác gì với bot.
+
+Script gộp mọi nơi đã chọn vào `TELEGRAM_CHAT_ID` (ngăn bằng dấu phẩy) — bản tin gửi tới
+tất cả. Chạy lại script là GHI ĐÈ secret cũ, nên lần nào cũng chọn ĐỦ mọi nơi cần nhận.
 
 ⚠️ Token bot = quyền điều khiển bot. Đừng dán vào chat hay commit. Lộ thì `/revoke` trong
 BotFather. Script này KHÔNG ghi token ra file nào.
@@ -59,17 +72,22 @@ def main():
             chats[str(c["id"])] = f"{ten} [{c.get('type')}]"
 
     if not chats:
+        u = me["result"].get("username")
         print("\n❌ Chưa thấy cuộc trò chuyện nào.")
-        print("   → Mở Telegram, tìm bot theo username ở trên, bấm START rồi nhắn một chữ,")
-        print("     sau đó chạy lại script này.")
+        print(f"   → Mở https://t.me/{u} → bấm START → chạy lại script này.")
         print("   (Telegram không cho bot nhắn trước người chưa từng nhắn nó — không có")
         print("    cách nào lách, kể cả biết sẵn số điện thoại.)")
+        print("   Nếu định gửi vào NHÓM: đã thêm bot vào nhóm thì phải nhắn `/start` trong")
+        print(f"   nhóm (hoặc câu có @{u}) — bot bật privacy mode nên KHÔNG thấy tin thường.")
+        print("   Nếu định gửi vào KÊNH: bot phải là ADMIN và kênh phải có ít nhất 1 bài đăng.")
         return 1
 
     print("\nCác nơi có thể nhận bản tin:")
     ids = list(chats)
     for i, cid in enumerate(ids, 1):
         print(f"  {i}. {cid}  —  {chats[cid]}")
+    print("  (Thiếu người/nhóm nào? Bảo họ bấm START với bot — hoặc nhắn `/start` trong nhóm")
+    print("   — rồi chạy lại script. Xem đầu file để biết cách cho nhóm và kênh.)")
     chon = input("Chọn số (nhiều nơi thì ngăn bằng dấu phẩy, Enter = tất cả): ").strip()
     if chon:
         try:

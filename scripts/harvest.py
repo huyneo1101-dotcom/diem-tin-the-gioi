@@ -170,6 +170,13 @@ def feeds_from_claude_md():
     except ValueError:
         print("Không tìm thấy mục '## URL RSS' trong CLAUDE.md", file=sys.stderr)
         return []
+    # Bảng "TRANG HTML QUÉT TRỰC TIẾP" nằm cùng mục ## URL RSS nhưng KHÔNG phải feed —
+    # cắt ra, nếu không lớp RSS sẽ tốn 8 request vô ích và số feed in ra bị sai (81 -> 89).
+    if "TRANG HTML QUÉT TRỰC TIẾP" in block:
+        i = block.index("TRANG HTML QUÉT TRỰC TIẾP")
+        rest = block[i:]
+        j = rest.index("\n### ", 1) if "\n### " in rest[1:] else len(rest)
+        block = block[:i] + rest[j:]
     out, seen = [], set()
     for line in block.split("\n"):
         if not line.startswith("|"):
@@ -233,6 +240,103 @@ def items_of(xml_bytes: bytes):
                 src = (c.text or "").strip()
         out.append((title.strip(), (link or "").strip(), pub, src))
     return out
+
+
+def html_pages_from_claude_md():
+    """Lấy (tên trang, url) từ bảng '🕸️ TRANG HTML QUÉT TRỰC TIẾP' trong CLAUDE.md."""
+    text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
+    key = "TRANG HTML QUÉT TRỰC TIẾP"
+    if key not in text:
+        return []
+    block = text[text.index(key):]
+    block = block[: block.index("\n### ", 1)] if "\n### " in block[1:] else block
+    out, seen = [], set()
+    for line in block.split("\n"):
+        if not line.startswith("|"):
+            continue
+        m = re.search(r"https?://\S+", line)
+        if not m:
+            continue
+        url = m.group(0).rstrip("|").strip()
+        name = line.split("|")[1].strip()
+        if url in seen:
+            continue
+        seen.add(url)
+        out.append((name, url))
+    return out
+
+
+# Ngày trong HTML: "July 22, 2026" hoặc "2026-07-22" hoặc "07/22/2026"
+_DATE_PATTERNS = [
+    re.compile(r"(20\d\d-\d\d-\d\d)"),
+    re.compile(r"((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+20\d\d)"),
+    re.compile(r"(\d{1,2}/\d{1,2}/20\d\d)"),
+]
+_MONTHS = {m: i + 1 for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"])}
+
+
+def parse_date_loose(s: str):
+    """Parse ngày kiểu 'July 22, 2026' / '2026-07-22' / '07/22/2026' -> date."""
+    s = s.strip()
+    try:
+        return datetime.date.fromisoformat(s)
+    except ValueError:
+        pass
+    m = re.match(r"([A-Za-z]+)\.?\s+(\d{1,2}),?\s+(20\d\d)", s)
+    if m and m.group(1)[:3].lower() in _MONTHS:
+        return datetime.date(int(m.group(3)), _MONTHS[m.group(1)[:3].lower()], int(m.group(2)))
+    m = re.match(r"(\d{1,2})/(\d{1,2})/(20\d\d)", s)
+    if m:
+        return datetime.date(int(m.group(3)), int(m.group(1)), int(m.group(2)))
+    return None
+
+
+def harvest_html(window):
+    """Quét thẳng trang danh sách thông cáo (không có RSS).
+
+    Huy nhắc 27/07/2026: "không có RSS thì mày vẫn xem được mà" — đúng. Kiểm lại thì 42/85 domain
+    nguồn chính thức Mỹ mở được HTML bằng curl; đặc biệt TOÀN BỘ uỷ ban Hạ viện, tức đúng nhóm 1
+    (điều trần + bỏ phiếu) — nhóm luôn thiếu tin nhất.
+    ⚠️ Nhiễu cao hơn RSS và NGÀY lấy từ khối HTML quanh link nên có thể sai → output đánh dấu
+    `[HTML]`, agent phải mở bài kiểm ngày sự kiện như với `[GNEWS]`.
+    """
+    pages = html_pages_from_claude_md()
+    if not pages:
+        return []
+    print(f"[HTML] quét {len(pages)} trang không có RSS (uỷ ban Hạ viện...)...", file=sys.stderr)
+    hits = []
+    for name, page_url in pages:
+        body = curl(page_url).decode("utf-8", "replace")
+        base = "{0.scheme}://{0.netloc}".format(urllib.parse.urlparse(page_url))
+        for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', body, re.S | re.I):
+            href, raw = m.group(1), m.group(2)
+            title = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", raw)).strip()
+            title = title.replace("&amp;", "&").replace("&#39;", "'").replace("&quot;", '"')
+            if len(title) < 25 or len(title) > 200:
+                continue
+            if not re.search(r"/(news|press|media|hearing|markup|document)", href, re.I):
+                continue
+            topic = match_topic(title, "both")
+            if not topic:
+                continue
+            # ngày: tìm trong khối HTML quanh link (±600 ký tự)
+            around = body[max(0, m.start() - 600): m.end() + 600]
+            d = None
+            for pat in _DATE_PATTERNS:
+                mm = pat.search(around)
+                if mm:
+                    d = parse_date_loose(mm.group(1))
+                    if d:
+                        break
+            if d is not None and d not in window_for(topic, window):
+                continue
+            url = href if href.startswith("http") else urllib.parse.urljoin(base, href.lstrip("/"))
+            hits.append({
+                "lop": "HTML", "chu_de": topic, "ngay": d.isoformat() if d else "?",
+                "tieu_de": title, "nguon": name, "url": url,
+            })
+    return hits
 
 
 def window_for(topic: str, base: set) -> set:
@@ -330,6 +434,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rss", action="store_true", help="chỉ quét RSS trong bảng CLAUDE.md")
     ap.add_argument("--gnews", action="store_true", help="chỉ quét Google News")
+    ap.add_argument("--html", action="store_true", help="chỉ quét trang HTML không có RSS")
     ap.add_argument("--json", metavar="PATH", help="ghi kết quả ra file JSON")
     args = ap.parse_args()
 
@@ -339,10 +444,13 @@ def main():
     print(f"Khung ngày: {sorted(window)[0]} .. {sorted(window)[1]} (hôm nay + hôm qua, giờ VN) · "
           f"riêng CNQS Mỹ nới: {cnqs[0]} .. {cnqs[-1]}", file=sys.stderr)
 
+    chi_dinh = args.rss or args.gnews or args.html
     hits = []
-    if not args.gnews:
+    if args.rss or not chi_dinh:
         hits += harvest_rss(window)
-    if not args.rss:
+    if args.html or not chi_dinh:
+        hits += harvest_html(window)
+    if args.gnews or not chi_dinh:
         hits += harvest_gnews(window)
 
     urls, titles = existing_urls_and_titles()

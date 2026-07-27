@@ -494,6 +494,30 @@ Thượng viện (armed-services, foreign, appropriations, intelligence — đ�
 mà chưa bao giờ đưa được tin nào. **Thay thế: DVIDS** (`dvidshub.net/rss/all` — đã có trong bảng, gom
 tin của mọi quân chủng) và feed hợp đồng/thông cáo `war.gov` ở mục dưới.
 
+### 🕸️ TRANG HTML QUÉT TRỰC TIẾP — không có RSS nhưng vẫn đọc được (thêm 27/07/2026)
+Huy nhắc đúng: *"không có RSS thì mày vẫn xem được mà"*. Kiểm lại 85 domain trong file nguồn chính thức
+Mỹ: **42 mở được HTML bằng curl** (chỉ 34 chặn 403). `harvest.py` có lớp `[HTML]` quét thẳng trang danh
+sách thông cáo — lấy link + tiêu đề + ngày (tìm trong khối HTML quanh mỗi link).
+**Giá trị lớn nhất: toàn bộ uỷ ban HẠ VIỆN đều mở được**, mà đó chính là **nhóm 1** (điều trần + bỏ
+phiếu) — nhóm luôn thiếu tin nhất. Thực tế lần chạy đầu bắt được "Chairman Rogers Applauds House Passage
+of FY27 NDAA", "House Passes H.R. 9770", "Opening Statement at the FY27 NDAA Markup".
+
+| Trang | URL | Kiểm 27/07 | Nhóm/chủ đề |
+|---|---|---|---|
+| Uỷ ban Quân vụ Hạ viện | https://armedservices.house.gov/news/press-releases | 15 link, có ngày | **Nội bộ Mỹ nhóm 1** |
+| Uỷ ban Chuẩn chi Hạ viện | https://appropriations.house.gov/news/press-releases | 10 link, có ngày | **Nội bộ Mỹ nhóm 1** |
+| Uỷ ban Tình báo Hạ viện | https://intelligence.house.gov/news/ | mở được | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Tư pháp Hạ viện | https://judiciary.house.gov/news/documentquery.aspx?DocumentTypeID=2 | mở được | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban An ninh Nội địa Hạ viện | https://homeland.house.gov/news/ | mở được | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Giám sát Hạ viện | https://oversight.house.gov/news/ | mở được | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Tài chính Hạ viện | https://financialservices.house.gov/news/ | mở được | nhóm 1 + 4 |
+| Uỷ ban Thuế vụ Hạ viện | https://waysandmeans.house.gov/news/ | mở được | nhóm 1 + 4 |
+
+⚠️ Đây là **quét HTML thô**, nhiễu cao hơn RSS: có thể lẫn link điều hướng, và **ngày lấy từ khối HTML
+quanh link nên có thể sai** — agent PHẢI mở bài kiểm ngày sự kiện như với lớp `[GNEWS]`.
+⚠️ Trang **uỷ ban THƯỢNG VIỆN đều 403** (armed-services, foreign, appropriations, intelligence,
+banking, finance, judiciary…) — không scrape được, dùng WebSearch `site:`.
+
 ### RealClear — verify fetch thật 27/07/2026 (Huy chỉ định thêm)
 | Nguồn | RSS URL | Kiểm 27/07 | Hợp chủ đề |
 |---|---|---|---|
