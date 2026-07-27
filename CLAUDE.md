@@ -294,6 +294,51 @@ không có `node`). Nó KHÔNG set `PREV_HTML` nên coi mọi sự kiện là m�
 số đó đánh giá độ dài tin nhắn hằng ngày. Trần **12 sự kiện/tin nhắn** (`MORNING_MAX_EVENTS`),
 phần cắt được nói rõ bằng dòng "… và N sự kiện nữa", không im lặng.
 
+### 🐤 CANARY — báo khi bản tin KHÔNG tới nơi (thêm 27/07/2026, chỉ thị Huy)
+`.github/scripts/canary.py` + `.github/workflows/canary.yml`. Ngày bình thường nó **im lặng**;
+chỉ nhắn Telegram khi bản tin đã hụt.
+
+**Lỗ nó bịt:** mọi cảnh báo khác của repo đều do CHÍNH routine phát ra, nên chúng đòi routine
+phải CHẠY mới báo được. Kiểu hỏng nguy hiểm nhất lại là **không chạy phát nào** — máy Mac đóng
+nắp/caffeinate không giữ nổi · GitHub bỏ cron lúc tải cao (đã xảy ra sáng 27/07, chính vì thế
+mới dời 04:30→04:00) · phiên chết trước khi push, mà `notify-email.yml` kích theo PUSH nên
+không có push là không có gì hết. Cả ba đều **im lặng tuyệt đối**: Huy không phân biệt được
+"hôm nay không có tin đáng" với "cả hệ thống chết từ chiều".
+
+| Cron (VN) | Ca | Kiểm gì |
+|---|---|---|
+| **22:45** | `toi` | sổ `logs/da-gui-email.json` có dòng `buoi: toi` ngày hôm nay chưa |
+| **06:15** | `sang` | như trên, `buoi: sang` |
+| **10:45** | `sukien` | `logs/state.json` → `event-scan.lastSuccess.sang == hôm nay` |
+
+**Hai nguyên tắc, đừng "dọn cho gọn" mất:**
+1. **Kiểm ĐẦU RA, không kiểm quy trình.** Không hỏi "job có chạy không" (job xanh mà gửi rỗng
+   vẫn là hỏng) mà hỏi "bản tin có tới tay không". Bằng chứng là **sổ đã gửi** — thứ chỉ được
+   ghi ở BƯỚC CUỐI sau khi đã gửi xong mọi kênh, nên là dấu vết việc-đã-làm chứ không phải lời
+   tự khai của một job.
+2. **Người báo phải KHÁC người làm.** Workflow riêng, cron riêng, `permissions: contents: read`,
+   không import gì của đường quét. Chết cùng lúc với routine thì nó vô nghĩa.
+
+⏰ **Chạy sau LỚP CUỐI, không phải sau HẠN CHÓT.** Hạn email tối là 22:00 nhưng lớp vét CI 22:00
+gửi tới ~22:22 — đó là thiết kế bình thường. Kêu lúc 22:05 là kêu oan, mà cảnh báo kêu oan vài
+lần là hết ai đọc, lúc đó canary chết thật. Đánh đổi có chủ ý: báo trễ hạn ~45' nhưng không nhiễu.
+
+**Ba ca chẩn đoán** — canary phải nói HỎNG Ở KHÂU NÀO, không chỉ "có gì đó sai": sổ có dòng →
+im lặng · sổ trống mà state DONE → *hỏng khâu GỬI, hoặc phiên 0 tin nên không có commit kích
+notify* · sổ trống và state chưa DONE → *hỏng khâu QUÉT*, in kèm `lastRunAt/lastStatus/note`.
+
+**Ba giới hạn đã biết, đừng tưởng là bug:** (a) gửi TAY `workflow_dispatch` cố ý KHÔNG ghi sổ →
+hôm nào gửi bù bằng tay thì canary vẫn kêu, và như thế là đúng (ca tự động đã hỏng thật);
+(b) bước ghi sổ có `continue-on-error` + retry push 5 lần — hỏng cả 5 thì bản tin tới tay mà sổ
+trống → kêu oan, ca này hiếm và đã có `::warning::` riêng; (c) ca `sukien` KHÔNG kiểm sổ vì
+`notify-morning.yml` cố ý không gửi khi không có gì mới — "im lặng" ở đó là hành vi ĐÚNG.
+
+Thiếu secret Telegram → thoát êm exit 0 ("chưa cấu hình" ≠ "hỏng"); gửi được → exit 0; gửi hỏng
+→ exit 1 làm job ĐỎ. Xem trước không gửi thật:
+```
+DRY_RUN=1 python3 .github/scripts/canary.py --ca toi
+```
+
 ### Bot hỏi–đáp qua Telegram (thêm 27/07/2026 — "option 3", chạy MIỄN PHÍ)
 Huy nhắn câu hỏi cho **@diemtin24h_bot**; workflow `telegram-bot.yml` (cron **mỗi 5 phút**)
 đọc hàng đợi Telegram và chạy `claude -p` để trả lời, dùng **CHUNG secret

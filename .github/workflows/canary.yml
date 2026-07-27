@@ -1,0 +1,58 @@
+name: Canary — báo khi bản tin KHÔNG tới nơi
+
+# Con chim trong mỏ than: chỉ kêu khi bản tin đã hụt. Ngày bình thường nó im.
+#
+# VÌ SAO PHẢI LÀ WORKFLOW RIÊNG: mọi cảnh báo khác của repo này đều do chính routine phát ra,
+# nên chúng đòi routine phải CHẠY mới báo được. Kiểu hỏng nguy hiểm nhất lại là KHÔNG CHẠY
+# PHÁT NÀO (máy Mac ngủ · GitHub bỏ cron · phiên chết trước khi push nên notify-email.yml —
+# vốn kích theo PUSH — không có gì để kích). Canary cố tình không dùng chung cron, không dùng
+# chung job, không import gì của đường quét: nó chết cùng lúc với routine thì nó vô nghĩa.
+#
+# GIỜ CHẠY = SAU LỚP CUỐI, KHÔNG PHẢI SAU HẠN CHÓT. Lớp vét CI 22:00 gửi tới ~22:22 là hành vi
+# ĐÚNG; kêu lúc 22:05 là kêu oan, mà cảnh báo kêu oan vài lần là hết ai đọc. Xem docstring
+# canary.py, mục "CHẠY SAU LỚP VÉT".
+on:
+  schedule:
+    - cron: '45 15 * * *'   # 22:45 VN — sau lớp vét TỐI (CI 21:00 · local 21:15 · vét CI 22:00)
+    - cron: '15 23 * * *'   # 06:15 VN hôm sau — sau lớp cuối SÁNG SỚM (… CI 05:00 · local 05:30)
+    - cron: '45 3 * * *'    # 10:45 VN — sau lớp cuối EVENT-SCAN (… CI 09:45 · local 10:15)
+  workflow_dispatch:
+    inputs:
+      ca:
+        description: 'Ca cần kiểm'
+        required: true
+        default: toi
+        type: choice
+        options: [toi, sang, sukien]
+
+# CHỈ ĐỌC. Canary không commit, không push, không sửa gì — nó chỉ nhìn và kêu.
+permissions:
+  contents: read
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Chọn ca theo cron đã kích
+        id: ca
+        run: |
+          case "${{ github.event.schedule }}" in
+            "45 15 * * *") ca=toi    ;;
+            "15 23 * * *") ca=sang   ;;
+            "45 3 * * *")  ca=sukien ;;
+            *)             ca="${{ inputs.ca }}" ;;   # chạy tay
+          esac
+          echo "ca=$ca" >> "$GITHUB_OUTPUT"
+          echo "ca = $ca"
+
+      - name: Kiểm và báo nếu hụt
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python3 .github/scripts/canary.py --ca "${{ steps.ca.outputs.ca }}"
