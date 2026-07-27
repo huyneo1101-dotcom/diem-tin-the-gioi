@@ -127,3 +127,12 @@ PHAT HIEN KEM (chua sua, ngoai pham vi): link "Doc bao cao tuan day du" trong em
 WEB_URL + "#analysis" nhung index.html KHONG he doc location.hash -> bam vao chi mo trang chu, khong
 nhay sang tab Phan tich. Da tao chip viec nen de sua rieng.
 
+=== 10:20 event-scan LOCAL (moc du phong 10:15) — SKIP ===
+- Buoc 1 `git pull --rebase origin main` LOI: "cannot pull with rebase: You have unstaged changes"
+  (ton du chua commit cua phien khac: .claude/skills/quet-tin/SKILL.md, .github/prompts/web-scan-ci.md,
+  CLAUDE.md, scripts/add_news.py + 2 file moi scripts/harvest.py, scripts/topics.py).
+  Xu ly theo ghi chu van hanh CLAUDE.md: `git fetch origin main` -> 0 commit lech ca hai chieu
+  => pull von la no-op, di tiep. KHONG stash, KHONG commit ho file la.
+- `state.py claim event-scan` -> exit 10: phien sang 27/07 DA XONG luc 09:41 (CI claude-event-scan.yml).
+  => SKIP em, khong quet lai, khong gan Monitor. Ket thuc phien.
+
