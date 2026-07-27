@@ -1,0 +1,28 @@
+name: Dò nguồn từ CI (Mỹ)
+
+# Chạy `scripts/probe_sources.py` trên GitHub runner để biết nguồn nào đọc được TỪ MỸ —
+# đối chiếu với bản dò trên máy Mac của Huy (DNS zone .mil fail ở local, còn CI thì được;
+# ngược lại vài trang chặn IP datacenter GitHub nhưng mở từ máy Huy).
+# Kết quả commit vào docs/probe-ci.json để so sánh.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - name: Dò nguồn
+        run: python3 scripts/probe_sources.py --json docs/probe-ci.json --workers 12
+      - name: Commit kết quả
+        run: |
+          git config user.name "claude-scan-ci"
+          git config user.email "noreply@anthropic.com"
+          git add docs/probe-ci.json
+          git commit -m "probe: ket qua do nguon tu CI (My)" || echo "khong co thay doi"
+          git pull --rebase origin main || true
+          git push origin main
