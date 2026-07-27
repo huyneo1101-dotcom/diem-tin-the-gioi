@@ -269,7 +269,12 @@ function buildHtml(evs, weekly, anas, ddmm, feats, tip) {
 
 async function main() {
   // Thiếu secret / không đọc được DATA = LỖI CẤU HÌNH (không phải no-op) -> để job ĐỎ.
-  if (!EMAIL_USER || !EMAIL_PASS) { console.error('LỖI: thiếu secret EMAIL_USER/EMAIL_APP_PASSWORD.'); process.exit(1); }
+  // Chỉ bắt buộc secret khi THẬT SỰ gửi email. Với GUI_EMAIL=0 script vẫn phải chạy tới cuối
+  // để ghi payload cho Telegram — chết ở đây là Telegram sáng chết theo, kể cả khi Huy đã gỡ
+  // secret email khỏi repo (chuyện rất dễ xảy ra sau khi bỏ hẳn kênh email).
+  if (process.env.GUI_EMAIL !== '0' && (!EMAIL_USER || !EMAIL_PASS)) {
+    console.error('LỖI: thiếu secret EMAIL_USER/EMAIL_APP_PASSWORD.'); process.exit(1);
+  }
   const cur = readDATA('index.html');
   if (!cur) { console.error('LỖI: không đọc được DATA hiện tại (index.html).'); process.exit(1); }
   const prev = process.env.PREV_HTML ? readDATA(process.env.PREV_HTML) : null;
@@ -347,6 +352,15 @@ async function main() {
     console.log(`Đã ghi payload Telegram: ${payloadPath}`);
   } catch (e) {
     console.error('[telegram] không ghi được payload (bỏ qua, email vẫn gửi):', e && e.message);
+  }
+
+  // TẮT EMAIL (chỉ thị Huy 27/07/2026: "từ giờ không cần gửi email cho ai nữa, gửi telegram
+  // thôi"). Đặt Ở ĐÂY chứ KHÔNG ở đầu main(): payload Telegram được ghi ngay phía trên, và
+  // đây là chỗ DUY NHẤT biết "hôm nay có gì mới" — thoát sớm là Telegram sáng chết theo.
+  // BẬT LẠI: đổi `GUI_EMAIL: '0'` thành `'1'` trong .github/workflows/notify-morning.yml.
+  if (process.env.GUI_EMAIL === '0') {
+    console.log('GUI_EMAIL=0 — BỎ QUA gửi email sáng (payload Telegram đã ghi xong ở trên).');
+    return;
   }
 
   const info = await transporter.sendMail({

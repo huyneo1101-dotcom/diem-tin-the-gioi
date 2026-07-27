@@ -92,15 +92,18 @@ jobs:
           EMAIL_APP_PASSWORD: ${{ secrets.EMAIL_APP_PASSWORD }}
           EMAIL_TO: ${{ vars.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com' }}
           SUBJECT_TAG: ${{ inputs.subject_tag || '' }}
+          # TẮT EMAIL — chỉ thị Huy 27/07/2026: "từ giờ không cần gửi email cho ai nữa, gửi
+          # telegram thôi". Đổi thành '1' là bật lại, không phải dựng lại gì.
+          GUI_EMAIL: '0'
         run: |
           npm install nodemailer@6 --no-save
           node .github/scripts/send-email.js
 
-      # Gửi Telegram SAU email và không được làm hỏng workflow: email vẫn là kênh chính,
-      # Telegram chỉ là kênh phụ. Chưa cài secret thì script tự thoát êm (exit 0).
+      # ⚠️ TELEGRAM LÀ KÊNH DUY NHẤT (email đã tắt 27/07/2026) -> BỎ `continue-on-error`.
+      # Trước đây nuốt lỗi vì email gánh chính; giữ nguyên thì Telegram chết mà job vẫn XANH,
+      # và Huy không nhận được bản tin nào mà chẳng có dấu hiệu gì. Nay hỏng là job ĐỎ.
       - name: Gửi Telegram
         if: steps.chk.outputs.go == '1'
-        continue-on-error: true
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

@@ -217,6 +217,14 @@ function buildHtml(DATA, items, gaps, buoi) {
 }
 
 async function main() {
+  // TẮT EMAIL (chỉ thị Huy 27/07/2026: "từ giờ không cần gửi email cho ai nữa, gửi telegram
+  // thôi"). Dừng NGAY ở đầu — script này không có tác dụng phụ nào mà Telegram cần, khác hẳn
+  // send-morning-email.js (chỗ đó phải chạy tiếp để ghi payload cho Telegram sáng).
+  // BẬT LẠI: đổi `GUI_EMAIL: '0'` thành `'1'` trong .github/workflows/notify-email.yml.
+  if (process.env.GUI_EMAIL === '0') {
+    console.log('GUI_EMAIL=0 — BỎ QUA gửi email (Telegram là kênh duy nhất).');
+    return;
+  }
   const dryRun = process.env.DRY_RUN === '1';
   if (!dryRun && (!EMAIL_USER || !EMAIL_PASS)) {
     console.error('LỖI: thiếu secret EMAIL_USER / EMAIL_APP_PASSWORD.');
