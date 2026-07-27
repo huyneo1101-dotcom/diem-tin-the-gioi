@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-28T04:01:01+07:00",
+    "lastRunAt": "2026-07-28T04:17:42+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+9 tin (5 chu de: Noi bo My +5, Uc-Bien Dong +4, CNQS/Mali/Predator +0)",
     "lastSuccess": {
       "toi": "2026-07-27",
-      "sang": "2026-07-27"
-    },
-    "heartbeat": "2026-07-28T04:01:01+07:00"
+      "sang": "2026-07-28"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-07-27T09:41:33+07:00",

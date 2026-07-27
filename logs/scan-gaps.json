@@ -1,46 +1,46 @@
 {
-  "date": "2026-07-27",
-  "session": "phien toi (local 21:15)",
+  "date": "2026-07-28",
+  "session": "sang",
   "topics": [
     {
-      "name": "Nội bộ Mỹ (5 nhóm ưu tiên)",
-      "count": 3,
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 5,
       "target": "5-10",
       "min": 5,
-      "thieu": true,
-      "reason": "Nhóm 1 (điều trần + bỏ phiếu) vẫn gần như trống: Hạ viện đã nghỉ tới 31/8, các cuộc bỏ phiếu mà hàng chục trang đăng lại ngày 26-27/7 đều là sự kiện 21-22/7 (dự luật cấm nghị sĩ giao dịch cổ phiếu, dự luật ngân sách tạm, NDAA 1,15 nghìn tỷ USD 216-212, đổi tên Bộ Quốc phòng thành Bộ Chiến tranh) — ngoài khung hôm nay + hôm qua. Lấy được 1 tin nhóm 1 dạng chuẩn bị điều trần Fauci, 1 tin nhóm 4 (gói thuế quan mới hiệu lực 27/7) và 1 tin nhóm 5 (rạn nứt nội bộ Dân chủ trước bầu cử giữa nhiệm kỳ). Đã loại toàn bộ tin nghị viện BANG (Massachusetts, Washington) và quốc hội nước khác (Malaysia, Nigeria) mà Google News trộn vào từ khoá 'House/Senate passes'."
+      "thieu": false,
+      "reason": "Nhóm 1 (điều trần + bỏ phiếu) chỉ vét được 1 tin chắc chắn (Thượng viện bỏ phiếu cloture đề cử Jay Clayton làm DNI, 27/7) — Quốc hội phần lớn đang trong kỳ nghỉ hè nên phiên điều trần/bỏ phiếu thưa; 4 tin còn lại lấy từ nhóm 2-5 ngang hàng (bầu cử, kinh tế/Nhà Trắng) để đủ chỉ tiêu tối thiểu."
     },
     {
-      "name": "Úc & Biển Đông (đã mở rộng sang các nước khác)",
-      "count": 2,
+      "name": "Úc & Biển Đông",
+      "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Mọi diễn biến THỰC ĐỊA của 26-27/7 đã nạp ở các lô trước trong ngày (tàu hàng Việt Nam chìm gần đá Chữ Thập, tàu 015-Trần Hưng Đạo thăm Manila, Trung Quốc tuần tra đáp trả diễn tập ba bên). Các ứng viên còn lại đều là bài đăng lại về sự kiện ngoài khung: SM-2 phóng từ mặt đất của Úc (thử tháng 6, công bố 09/7), Đài Loan biên chế tàu Tuo Chiang Batch 2 (24/7), Quốc hội Mỹ duyệt tiền phòng thủ Đài Loan (15/7), bài gCaptain 'ba vụ va chạm trong một tuần' chỉ tổng hợp lại các vụ đã có. Hai tin giữ lại là bài phân tích đúng khung của Lowy Institute và Asia Times, không phải tin sự kiện."
+      "reason": "Thiếu 1 tin để đạt sàn tối thiểu 5 — phần lớn ứng viên gom được (AUKUS Osborne, SM-2 Woomera, vòi rồng Scarborough lần 3, diễn tập Nhật-Phi-Mỹ) đã trùng sự kiện nạp trong các phiên trước; mảng mở rộng Malaysia/Indonesia/Brunei/Đài Loan/COC ASEAN-TQ chưa tìm được ứng viên mới trong khung 27-28/7."
     },
     {
-      "name": "Công nghệ quân sự Mỹ",
-      "count": 2,
+      "name": "CNQS Mỹ",
+      "count": 0,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Đã dùng khung nới riêng 3 ngày (24-27/7). Cuối tuần Mỹ không có trang hợp đồng mới của Lầu Năm Góc (bản gần nhất vẫn là 'Contracts for July 24'), và loạt tin khí tài nổi bật trong tuần rơi vào 17-23/7 quanh triển lãm Farnborough. Lấy được 2 tin đúng khung từ nguồn tầng 1 và báo chuyên ngành (thoả thuận động cơ đẩy PAC-3 MSE/THAAD trên war.gov, hợp đồng phóng 266 triệu USD của Rocket Lab trên SpaceNews). Loại: CoAspire/CHAOS (trùng tin đã nạp 25/7), chiến lược KH-CN của ONR (công bố 23/7), tuyên bố về sự cố New Glenn (sự cố xảy ra 29/5 — harvest gắn sai ngày), và các bài opinion của RealClearDefense."
+      "reason": "Chạy 2 vòng agent (vòng chính + vòng bổ sung góc khác: war.gov Contracts RSS, Patriot/Golden Dome/Navy/Space Force qua WebSearch) — mọi ứng viên đều TRÙNG sự kiện đã nạp các phiên trước (L3Harris/PAC-3/THAAD 27/7, Rocket Lab Alaska 27/7, CoAspire/CHAOS 24/7) hoặc sự kiện thật ngoài khung 3 ngày dù bài đăng lại gần đây. Về 0 tin sau khi khử trùng — xem logs/loai-tin.md."
     },
     {
       "name": "Mỹ – Mali",
       "count": 0,
-      "target": "5-10",
-      "min": 5,
+      "target": "2-5",
+      "min": 2,
       "thieu": true,
-      "reason": "Về 0 vì mọi ứng viên đều là tin cũ được aggregator đăng lại đúng ngày 27/7, đã tự kiểm chéo từng cái: 'Trump cân nhắc đánh JNIM ở Mali' (AOL/Yahoo/NewsNation) truy về gốc là Washington Post và The Hill ngày 22/7; 'Phiến quân Mali phục kích đoàn xe lính Nga' (DW/allAfrica) là vụ tấn công đoàn tiếp viện tới Anéfis ngày 09-10/7, xác nhận cùng mốc trên France 24, Meduza và Arab News. Phần còn lại có chữ Mali nhưng ngoài chủ đề an ninh (bắt cóc thương nhân kim cương đòi 4 triệu euro, thoả thuận số hoá trường học, điện lực, bóng đá). Không có tin mới nào của 26-27/7."
+      "reason": "Tin 'Trump cân nhắc không kích Mali' đang lan truyền rộng trên Google News (27-28/7) nhưng truy gốc ra là bài Washington Post đăng từ 22/7 — ngoài khung 1 ngày, chỉ là aggregator đăng lại. Tin 'Goïta siết an ninh nội bộ Mali' cũng ngoài khung 1 ngày. Không có diễn biến thật sự mới trong 27-28/7."
     },
     {
-      "name": "Tập trận Predator's Run 2026",
+      "name": "Predator's Run 2026",
       "count": 0,
-      "target": "1-3",
+      "target": "1-2",
       "min": 1,
       "thieu": true,
-      "reason": "Không có diễn biến mới nào của 26-27/7 sau hai item đã có (khai mạc Townsville 21/7 + Carabaroo 2026). Ứng viên duy nhất là bài Stars and Stripes về việc Thuỷ quân lục chiến dùng drone chuyển máu lạnh trong tập trận tại Úc, nhưng không chốt được ngày sự kiện nằm trong khung nên bỏ theo nguyên tắc không chắc thì bỏ. Tập trận kết thúc khoảng 29/7 — nên kiểm lại ở phiên sáng mai."
+      "reason": "Không xác nhận được ứng viên duy nhất tìm thấy (Marines dùng drone chuyển máu trong diễn tập Úc, stripes.com) có thực sự là bài mới 2026 hay không — WebSearch chỉ ra bài tương tự từ 2022. Không tìm thêm được diễn biến khác qua DVIDS/PACOM trong khung 27-28/7."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": "0-6",
       "min": 0,
       "thieu": false,
-      "reason": "Cổng Báo Mới nhắc 4 ứng viên, đã xử lý HẾT và loại cả 4 có lý do: tàu săn ngầm không người lái của Nga (khí tài Nga, chủ đề chỉ nhận CNQS Mỹ), EU bán dầu Nga bị tịch thu (không thuộc CNQS Mỹ, đồng thời trùng tin đã có 25/7), Trump doạ áp thêm thuế lên hàng châu Âu (trùng sự kiện gói thuế 27/7 vừa nạp qua CNBC), Australia phản đối thuế quan Mỹ (tin thương mại, không thuộc AUKUS/quốc phòng Úc/chủ quyền Biển Đông)."
+      "reason": "Cổng Báo Mới nhắc 4 ứng viên, đã xử lý HẾT và loại cả 4 có lý do: tàu săn ngầm không người lái của Nga (khí tài Nga, chủ đề chỉ nhận CNQS Mỹ), EU bán dầu Nga bị tịch thu (không thuộc CNQS Mỹ, trùng tin đã có 25/7), Trump doạ áp thêm thuế lên hàng châu Âu (trùng nội dung thuế quan đã nạp cùng phiên này), Australia phản đối thuế quan Mỹ (tin thương mại, không thuộc AUKUS/quốc phòng Úc/chủ quyền Biển Đông)."
     }
   ],
-  "note": "Phiên tối chạy ở mốc local 21:15 (CI 21:00 không hoàn tất nên khoá còn trống). Tổng 7 tin: 2 thế giới + 5 Mỹ. Đặc điểm chung của ngày 27/7 là các trang tổng hợp đồng loạt đăng lại tin cũ với pubDate mới — phần lớn công sức phiên này dành cho việc truy ngày sự kiện thật và loại chúng, chi tiết trong logs/loai-tin.md."
+  "note": "Vòng bổ sung CNQS Mỹ đã chạy 1 lần với góc tìm khác (war.gov Contracts, Patriot, Golden Dome) nhưng vẫn 0 — chấp nhận thiếu thay vì lặp vô hạn. Chi tiết từng tin bị loại + lý do: logs/loai-tin.md mục '2026-07-28 (phiên sáng sớm)'. Tổng nạp: 4 tin worldNews + 5 tin usNews = 9 tin."
 }
