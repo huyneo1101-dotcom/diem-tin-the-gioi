@@ -22,7 +22,7 @@ Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (kh
 
 Chạy: python3 .github/scripts/make_docx.py
 """
-import json, os, subprocess, sys
+import json, os, subprocess, sys, unicodedata
 
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
