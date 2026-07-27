@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 """Gắn "thông tin nền" (Bối cảnh + Khái niệm) vào các cuộc tập trận trong DATA.exercises.
 
-Web hiển thị 2 thẻ dưới mỗi tập trận: 📔 Bối cảnh (ex.background) + 📚 Khái niệm (ex.concepts).
+Web hiển thị 2 NÚT dưới mỗi tập trận: 📔 Bối cảnh + 📚 Khái niệm → mở TRANG RIÊNG đọc toàn văn.
 Nội dung do phiên quét sáng (event-scan) sinh ra khi tạo "file thông tin nền" cho tập trận.
 
 Dùng: python3 scripts/set_exercise_briefing.py briefing.json
 briefing.json = [
   {"name":"<khớp đúng name exercise đã có>",
-   "background":"Đoạn bối cảnh (có thể nhiều đoạn, ngăn bằng \\n).",
+   "background":"Đoạn bối cảnh NGẮN (fallback khi chưa có backgroundDoc; nhiều đoạn ngăn bằng \\n).",
+   "backgroundDoc":[{"t":"h","x":"Tiêu đề mục"}, {"t":"p","x":"Đoạn nội dung"}, ...],
    "concepts":[{"term":"Chuỗi đảo thứ nhất","def":"tuyến đảo Nhật–Đài Loan–Philippines"}, ...]}
 ]
+- backgroundDoc = TOÀN VĂN bài nền (như file Word background), mảng khối: t='h' (heading) | 'p' (đoạn).
+  Web ưu tiên backgroundDoc; không có thì dựng trang từ `background`.
 Chỉ cập nhật exercise có tên KHỚP (bỏ qua tên lạ). In số cuộc đã gắn.
 """
 import json
@@ -66,6 +69,11 @@ def main():
             continue
         if b.get("background"):
             ex["background"] = b["background"]
+        if b.get("backgroundDoc"):
+            ex["backgroundDoc"] = [
+                {"t": ("h" if blk.get("t") == "h" else "p"), "x": blk.get("x", "")}
+                for blk in b["backgroundDoc"] if blk and blk.get("x")
+            ]
         if b.get("concepts"):
             ex["concepts"] = [
                 {"term": k.get("term", ""), "def": k.get("def", "")}
