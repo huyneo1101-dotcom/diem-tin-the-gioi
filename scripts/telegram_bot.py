@@ -21,6 +21,16 @@ không bao giờ rơi vào cảnh im lặng không biết vì sao.
 
 ⚠️ CHỈ TRẢ LỜI CHAT TRONG DANH SÁCH TRẮNG (`TELEGRAM_CHAT_ID`). Bot Telegram ai cũng nhắn
 được — không lọc thì người lạ dùng được hạn mức Claude của Huy và đọc được dữ liệu bản tin.
+
+⚠️ KHÔNG IN NỘI DUNG CÂU HỎI RA STDOUT (chốt 27/07/2026). Stdout của phiên này đi thẳng vào
+log GitHub Actions, mà repo đang PUBLIC — đã kiểm: khách vãng lai không đăng nhập thì không
+xem được log, nhưng người có tài khoản GitHub bất kỳ thì rất có thể xem được (public repo =
+ai cũng có quyền đọc). Câu hỏi người ta nhắn riêng cho bot không nên nằm ở đó. Log chỉ in
+chat id + độ dài — đủ để chẩn đoán.
+
+Bù lại, Huy vẫn theo dõi được đầy đủ: `--tra-loi` TỰ ĐỘNG chuyển tiếp câu hỏi + câu trả lời
+về chat của Huy khi người hỏi không phải Huy. Cố ý đặt trong script chứ không nhờ prompt —
+prompt thì Claude có thể quên, còn cơ chế thì không.
 """
 import argparse
 import datetime
@@ -40,8 +50,26 @@ MAX_AGE_PHUT = 60
 MAX_LEN = 3800
 
 
+def danh_sach_chat():
+    return [c.strip() for c in os.environ.get("TELEGRAM_CHAT_ID", "").split(",") if c.strip()]
+
+
 def chats_cho_phep():
-    return {c.strip() for c in os.environ.get("TELEGRAM_CHAT_ID", "").split(",") if c.strip()}
+    return set(danh_sach_chat())
+
+
+def chat_chu():
+    """Chat của Huy — nơi nhận bản sao hội thoại của người khác.
+
+    Mặc định là chat ĐẦU TIÊN trong `TELEGRAM_CHAT_ID` (telegram_setup.py liệt kê theo thứ
+    tự Huy chọn, và Huy là người bấm START đầu tiên). Đặt `TELEGRAM_OWNER_CHAT` để ghi đè
+    nếu thứ tự đó đổi.
+    """
+    rieng = os.environ.get("TELEGRAM_OWNER_CHAT", "").strip()
+    if rieng:
+        return rieng
+    ds = danh_sach_chat()
+    return ds[0] if ds else ""
 
 
 def doc(token):
@@ -91,16 +119,21 @@ def doc(token):
         return 10
 
     # Nhiều câu liên tiếp từ cùng một người: gộp thành một lượt hỏi, trả lời một lần.
-    gop = {}
+    gop, ten_theo_chat = {}, {}
     for h in hoi:
         gop.setdefault(h["chat"], []).append(h["text"])
-    ket = [{"chat": c, "text": "\n".join(t)} for c, t in gop.items()]
+        if h.get("ten"):
+            ten_theo_chat[h["chat"]] = h["ten"]
+    ket = [{"chat": c, "ten": ten_theo_chat.get(c, ""), "text": "\n".join(t)}
+           for c, t in gop.items()]
 
     pathlib.Path(QUESTIONS).write_text(
         json.dumps(ket, ensure_ascii=False, indent=2), encoding="utf-8")
+    # ⚠️ CHỈ in chat id + độ dài, KHÔNG in nội dung — stdout đi vào log Actions của một repo
+    # public (xem docstring đầu file). Huy vẫn đọc được đầy đủ qua bản chuyển tiếp Telegram.
     print(f"Có {len(ket)} lượt hỏi:")
     for k in ket:
-        print(f"  [chat {k['chat']}] {k['text'][:200]}")
+        print(f"  [chat …{k['chat'][-4:]}] {len(k['text'])} ký tự")
     return 0
 
 
@@ -129,6 +162,36 @@ def gui(token, chat, noi_dung):
             return 1
     print(f"Đã gửi {len(phan)} tin nhắn tới {chat}")
     return 0
+
+
+def chuyen_tiep_cho_chu(token, chat_goc, tra_loi):
+    """Gửi bản sao (câu hỏi + câu trả lời) về chat của Huy khi người hỏi KHÔNG phải Huy.
+
+    Gắn vào chính `--tra-loi` chứ không tách thành lệnh riêng: Claude gọi `--tra-loi` để
+    trả lời, nên chuyển tiếp xảy ra tự động: không có đường nào trả lời mà quên chuyển tiếp.
+    Hỏng ở bước này KHÔNG được làm hỏng việc trả lời — bọc try/except, chỉ log.
+    """
+    chu = chat_chu()
+    if not chu or chat_goc == chu:
+        return
+    try:
+        ten = ""
+        try:
+            for q in json.loads(pathlib.Path(QUESTIONS).read_text(encoding="utf-8")):
+                if q.get("chat") == chat_goc:
+                    ten, cau_hoi = q.get("ten", ""), q.get("text", "")
+                    break
+            else:
+                cau_hoi = "(không đọc được câu hỏi gốc)"
+        except Exception:
+            cau_hoi = "(không đọc được câu hỏi gốc)"
+        nhan = f"{ten} (…{chat_goc[-4:]})" if ten else f"chat …{chat_goc[-4:]}"
+        ban_sao = (f"📋 BẢN SAO — {nhan} vừa hỏi bot:\n\n"
+                   f"❓ {cau_hoi}\n\n"
+                   f"💬 Tao trả lời:\n{tra_loi}")
+        gui(token, chu, ban_sao)
+    except Exception as e:
+        print(f"[chuyển tiếp] hỏng, bỏ qua: {e}", file=sys.stderr)
 
 
 def main():
@@ -171,7 +234,12 @@ def main():
             return 1
         noi_dung = (pathlib.Path(args.tra_loi).read_text(encoding="utf-8")
                     if args.tra_loi else args.bao)
-        return gui(token, args.chat, noi_dung)
+        ma = gui(token, args.chat, noi_dung)
+        # Chỉ chuyển tiếp với --tra-loi (câu trả lời thật), KHÔNG với --bao (tin "đang tra",
+        # tin báo lỗi) — chuyển tiếp cả những cái đó thì chat của Huy thành bãi rác.
+        if ma == 0 and args.tra_loi:
+            chuyen_tiep_cho_chu(token, args.chat, noi_dung)
+        return ma
     ap.print_help()
     return 1
 

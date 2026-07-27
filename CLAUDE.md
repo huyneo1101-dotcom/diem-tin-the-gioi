@@ -228,6 +228,18 @@ Muốn tức thì thì phải chuyển sang Claude API + API key riêng (~78–1
 3. **Danh sách trắng theo `TELEGRAM_CHAT_ID`.** Bot Telegram ai cũng nhắn được — không lọc
    thì người lạ xài hạn mức Claude của Huy. Lọc ở CẢ hai đầu: `--doc` bỏ chat lạ, và
    `--tra-loi/--bao` từ chối gửi ra ngoài danh sách.
+3b. **KHÔNG in nội dung câu hỏi vào log, CHUYỂN TIẾP bản sao cho Huy qua Telegram** (chốt
+   27/07/2026). Stdout đi thẳng vào log GitHub Actions của một repo **public**. Đã kiểm
+   thực tế: khách không đăng nhập thì **không** xem được log (trang job hiện "Sign in to
+   view logs") và API tải log đòi quyền admin (`403 Must have admin rights`) — nhưng người
+   có tài khoản GitHub bất kỳ thì rất có thể xem được, vì public repo cho mọi người quyền
+   đọc. Câu người ta nhắn riêng cho bot không nên nằm ở đó. Log nay chỉ in
+   `[chat …4309] 38 ký tự`.
+   Bù lại Huy vẫn theo dõi đủ: `--tra-loi` **tự động** gửi bản sao (câu hỏi + câu trả lời)
+   về chat của Huy khi người hỏi không phải Huy. **Đặt trong script chứ không nhờ prompt** —
+   prompt thì Claude có thể quên, cơ chế thì không. Chat của Huy = phần tử ĐẦU trong
+   `TELEGRAM_CHAT_ID`, ghi đè bằng `TELEGRAM_OWNER_CHAT`. Chỉ chuyển tiếp với `--tra-loi`;
+   `--bao` (tin "đang tra", tin báo lỗi) thì không, kẻo chat của Huy thành bãi rác.
 4. **Bước đọc chạy TRƯỚC bước cài Claude Code.** Không có câu hỏi thì job dừng sau ~15 giây
    và không cài gì — đó là lý do cron 5 phút không tốn gì đáng kể.
 
