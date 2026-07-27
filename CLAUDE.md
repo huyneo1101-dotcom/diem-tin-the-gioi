@@ -489,10 +489,28 @@ sách tra cứu**, không nằm trong đường quét: **0/85 domain có trong b
 ⚠️ **KHÔNG có RSS dùng được — đừng thử lại, dùng WebSearch `site:domain`** (kiểm 27/07): các uỷ ban
 Thượng viện (armed-services, foreign, appropriations, intelligence — đều 403) · armedservices.house.gov
 · state.gov · commerce.gov · justice.gov · dhs.gov · home.treasury.gov · bls.gov · dni.gov · stripes.com.
-⛔ **CHẶN HOÀN TOÀN từ máy này (curl trả `000`)**: `army.mil`, `navy.mil`, `af.mil`, `marines.mil`,
-`centcom.mil`, `pacom.mil`, `jcs.mil`, `news.uscg.mil`. Đây là lý do chúng nằm trong danh sách 85 domain
-mà chưa bao giờ đưa được tin nào. **Thay thế: DVIDS** (`dvidshub.net/rss/all` — đã có trong bảng, gom
-tin của mọi quân chủng) và feed hợp đồng/thông cáo `war.gov` ở mục dưới.
+### 🪖 Trang .mil — CHỈ ĐỌC ĐƯỢC TỪ CI, KHÔNG đọc được từ máy Mac (chẩn đoán 27/07/2026)
+Huy hỏi "8 trang quân chủng có cách nào đọc được không" → đào ra nguyên nhân thật, KHÔNG phải bị chặn IP
+hay sai user-agent: **máy Mac không phân giải nổi DNS zone `.mil`**. Cloudflare DoH trả đúng lý do:
+`EDE(9): DNSKEY Missing no SEP matching the DS found for mil` + `EDE(22): No Reachable Authority` — tức
+**DNSSEC của zone `.mil` lỗi/không tới được authority từ đây**. Thử `dig @8.8.8.8` và `@1.1.1.1` đều
+SERVFAIL, `+cd` cũng không cứu. Đây là giới hạn tầng DNS, không vá được bằng cờ curl.
+**Nhưng GitHub runner (Mỹ) phân giải được hết** → chạy test thật trên CI và thu được 2 feed dùng được:
+| Nguồn | RSS URL | Kiểm 27/07 (từ CI) |
+|---|---|---|
+| Không quân Mỹ — Air Force Link News | https://www.af.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=20 | 10 item, mới 25/07 |
+| Lục quân Mỹ | https://www.army.mil/rss/static/1.xml | 2 item, mới 27/07 |
+
+⚠️ **Hai feed này CHỈ chạy trong CI.** Trên máy local, `harvest.py` sẽ fail êm (curl không phân giải được
+→ trả rỗng → bỏ qua), nên **kết quả harvest local ÍT HƠN CI vài ứng viên** — đó là bình thường, đừng đi
+truy bug. CI mới là mốc chính nên chỗ này không mất tin.
+⚠️ **BẪY `Site=1`:** tham số này trả **feed của Air Force bất kể domain** — thử `marines.mil` và
+`news.uscg.mil` với `Site=1` đều ra y hệt "Air Force Link News". Thêm cả ba vào bảng là nạp trùng nội
+dung ba lần. Phải kiểm tiêu đề thật trước khi tin một feed `DesktopModules`.
+⛔ **Chưa tìm được feed riêng** (mọi biến thể ContentType/Site đã thử đều 0 item): `navy.mil`,
+`marines.mil`, `centcom.mil`, `pacom.mil`, `jcs.mil`, `news.uscg.mil`. Trang HTML của chúng **403 với cả
+CI lẫn local** (WAF chặn IP datacenter). **Thay thế: DVIDS** (`dvidshub.net/rss/all` — đã có trong bảng,
+gom tin của mọi quân chủng) và feed hợp đồng/thông cáo `war.gov`.
 
 ### 🕸️ TRANG HTML QUÉT TRỰC TIẾP — không có RSS nhưng vẫn đọc được (thêm 27/07/2026)
 Huy nhắc đúng: *"không có RSS thì mày vẫn xem được mà"*. Kiểm lại 85 domain trong file nguồn chính thức
