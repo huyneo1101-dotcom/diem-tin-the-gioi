@@ -19,8 +19,13 @@ on:
     inputs:
       noi_dung:
         description: 'Nội dung tin nhắn (hỗ trợ thẻ HTML: <b> <i> <code>)'
-        required: true
+        required: false
         type: string
+      kiem_kenh:
+        description: 'Chỉ SOI xem TELEGRAM_CHAT_ID là chat riêng hay nhóm — KHÔNG gửi gì'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -33,7 +38,34 @@ jobs:
   bao:
     runs-on: ubuntu-latest
     steps:
+      # Soi ai đang nhận tin. Huy hỏi 27/07/2026: "người dùng Jay Lâm có đọc được tin HĐĐT
+      # không?" — tin HĐĐT có doanh số 2 hộ, lọt sang người ngoài là hỏng to. Không đọc
+      # ngược được secret, nên hỏi thẳng Telegram xem mỗi chat_id là loại gì.
+      # CHỈ IN type/title/số thành viên — KHÔNG in chat_id (GitHub che secret, và bản thân
+      # id cũng không cần thiết để trả lời câu hỏi này).
+      - name: Soi kênh nhận
+        if: ${{ inputs.kiem_kenh }}
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -uo pipefail
+          echo "Số chat trong TELEGRAM_CHAT_ID: $(echo "${TELEGRAM_CHAT_ID}" | tr ',' '\n' | grep -c .)"
+          for chat in $(echo "${TELEGRAM_CHAT_ID}" | tr ',' ' '); do
+            curl -sS "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getChat" \
+                 --data-urlencode "chat_id=${chat}" -o /tmp/chat.json
+            echo "--- một chat ---"
+            python3 -c "import json;d=json.load(open('/tmp/chat.json')).get('result',{});print('  loai:',d.get('type'));print('  ten :',d.get('title') or ((d.get('first_name') or '')+' '+(d.get('last_name') or '')).strip());print('  username:',d.get('username'))"
+            curl -sS "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getChatMemberCount" \
+                 --data-urlencode "chat_id=${chat}" -o /tmp/count.json
+            python3 -c "import json;d=json.load(open('/tmp/count.json'));print('  so thanh vien:',d.get('result','(khong lay duoc)'))"
+          done
+          echo
+          echo "ĐỌC KẾT QUẢ: loai=private => chat RIÊNG 1-1, người khác KHÔNG đọc được."
+          echo "             loai=group/supergroup/channel => CÓ người khác đọc được."
+
       - name: Gửi Telegram
+        if: ${{ !inputs.kiem_kenh }}
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
