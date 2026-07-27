@@ -4,3 +4,4 @@
 [21:26Z] Xong agent bo sung CNQS My vong 2: van +0 (da rong het, chap nhan thieu)
 [21:30Z] Chay add_news.py: OK +4 TG, +5 My. Da xu ly 4 ung vien Bao Moi (loai ca 4, co ly do). Ghi loai-tin.md + scan-gaps.json.
 [21:32Z] DONE web-scan: +9 tin (5 chu de). Chuan bi commit + push index.html.
+[21:30Z] SKIP (CI, lan fire ke tiep) - state.py claim tra ve exit 10: phien sang som 28/07 DA XONG luc 2026-07-28T04:17:42+07:00 (lan chay cuoi). Khong quet lai, ket thuc em.
