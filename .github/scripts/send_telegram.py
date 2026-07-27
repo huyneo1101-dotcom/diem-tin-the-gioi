@@ -33,12 +33,15 @@ import os
 import pathlib
 import subprocess
 import sys
-import urllib.request
 import zoneinfo
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
-API = "https://api.telegram.org/bot{token}/{method}"
+
+# Gọi API qua curl, KHÔNG qua urllib: máy Huy có cert chèn giữa nên urllib trượt
+# CERTIFICATE_VERIFY_FAILED (gặp thật 27/07/2026). Chi tiết trong scripts/tg_api.py.
+sys.path.insert(0, str(ROOT / "scripts"))
+from tg_api import call, send_document  # noqa: E402
 
 # Telegram chặn message > 4096 ký tự. Chừa biên cho thẻ HTML bị đếm nguyên văn.
 MAX_LEN = 3800
@@ -224,39 +227,10 @@ def build_morning_messages(pl, tag=""):
     return msgs
 
 
-def api(token, method, payload=None, files=None):
-    url = API.format(token=token, method=method)
-    if files is None:
-        data = json.dumps(payload).encode("utf-8")
-        req = urllib.request.Request(
-            url, data=data, headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=60) as r:
-            return json.loads(r.read().decode("utf-8"))
-
-    # multipart/form-data cho sendDocument
-    boundary = "----dtwgTelegramBoundary7e3f"
-    body = b""
-    for k, v in (payload or {}).items():
-        body += (f"--{boundary}\r\nContent-Disposition: form-data; name=\"{k}\"\r\n\r\n"
-                 f"{v}\r\n").encode("utf-8")
-    for field, path in files.items():
-        p = pathlib.Path(path)
-        body += (f"--{boundary}\r\nContent-Disposition: form-data; name=\"{field}\"; "
-                 f"filename=\"{p.name}\"\r\n"
-                 "Content-Type: application/octet-stream\r\n\r\n").encode("utf-8")
-        body += p.read_bytes() + b"\r\n"
-    body += f"--{boundary}--\r\n".encode("utf-8")
-    req = urllib.request.Request(
-        url, data=body,
-        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"})
-    with urllib.request.urlopen(req, timeout=120) as r:
-        return json.loads(r.read().decode("utf-8"))
-
-
 def send_all(token, chats, msgs, docx="", caption=""):
     for chat in chats:
         for m in msgs:
-            r = api(token, "sendMessage", {
+            r = call(token, "sendMessage", {
                 "chat_id": chat, "text": m, "parse_mode": "HTML",
                 "disable_web_page_preview": True,
             })
@@ -264,8 +238,7 @@ def send_all(token, chats, msgs, docx="", caption=""):
                 print(f"LỖI sendMessage tới {chat}: {r}", file=sys.stderr)
                 return 1
         if docx:
-            r = api(token, "sendDocument", {"chat_id": chat, "caption": caption},
-                    {"document": docx})
+            r = send_document(token, chat, docx, caption)
             if not r.get("ok"):
                 print(f"LỖI sendDocument tới {chat}: {r}", file=sys.stderr)
                 return 1

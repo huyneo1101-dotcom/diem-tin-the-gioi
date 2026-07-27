@@ -19,35 +19,21 @@ chat nhóm (id âm) và hỏi chọn.
 ⚠️ Token bot = quyền điều khiển bot. Đừng dán vào chat hay commit. Lộ thì `/revoke` trong
 BotFather. Script này KHÔNG ghi token ra file nào.
 """
-import json
+import getpass
+import pathlib
 import subprocess
 import sys
-import urllib.error
-import urllib.request
 
-API = "https://api.telegram.org/bot{t}/{m}"
-
-
-def call(token, method, payload=None):
-    req = urllib.request.Request(
-        API.format(t=token, m=method),
-        data=json.dumps(payload or {}).encode("utf-8"),
-        headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            return json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        try:
-            return json.loads(e.read().decode("utf-8"))
-        except Exception:
-            return {"ok": False, "description": f"HTTP {e.code}"}
-    except Exception as e:
-        return {"ok": False, "description": str(e)}
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from tg_api import call  # noqa: E402
 
 
 def main():
     print(__doc__)
-    token = input("Dán token của @BotFather: ").strip()
+    # getpass: token KHÔNG hiện trên màn hình và không vào lịch sử terminal. Bản đầu dùng
+    # input() nên token in nguyên văn ra màn hình — đúng thứ không được để lộ.
+    token = getpass.getpass("Dán token của @BotFather (gõ/dán xong Enter, "
+                            "màn hình sẽ không hiện gì): ").strip()
     if not token or ":" not in token:
         print("Token không hợp lệ (phải có dạng 123456789:AAH...).", file=sys.stderr)
         return 1

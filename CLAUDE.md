@@ -174,7 +174,24 @@ vậy **gate gửi của hai kênh không bao giờ lệch**: không có gì m�
 im đúng lúc email im. Ghi TRƯỚC `sendMail` chứ không phải sau, để Gmail chết thì Telegram vẫn tới.
 
 Secret cần: `TELEGRAM_BOT_TOKEN` (@BotFather) + `TELEGRAM_CHAT_ID` (nhiều nơi nhận thì ngăn bằng
-dấu phẩy). Xem trước không gửi thật:
+dấu phẩy). Cài một lần bằng `python3 scripts/telegram_setup.py` (kiểm token · tự dò chat_id ·
+gửi tin thử · `gh secret set`).
+
+⚠️ **GỌI BOT API PHẢI QUA `curl`, KHÔNG QUA `urllib`** (`scripts/tg_api.py` — dùng chung cho cả
+setup lẫn send). Máy Huy có thiết bị chèn cert ở giữa nên `urllib` trượt thẳng
+`CERTIFICATE_VERIFY_FAILED: self-signed certificate in certificate chain`; `curl` tin được vì
+đọc keychain macOS. **Cài `certifi` KHÔNG cứu** — cert chèn không nằm trong bundle CA nào. Cả
+repo vốn đã đi bằng curl (`harvest.py`, `telegram_harvest.py`), đây là về đúng một đường.
+Kiểm nhanh mà không cần token thật: gọi `call('111:GIA','getMe')` phải trả `error_code 401` —
+ra 401 tức mạng + parse JSON đều thông, chỉ token sai.
+
+⚠️ **TOKEN KHÔNG ĐƯỢC HIỆN RA MÀN HÌNH.** `telegram_setup.py` nhận token bằng `getpass`, và
+`tg_api.py` đưa URL qua `curl -K -` (stdin) thay vì tham số dòng lệnh — nếu không, token nằm
+trong `ps aux` và trong lịch sử terminal. Bản đầu dùng `input()` nên token in nguyên văn lên
+màn hình; ảnh chụp màn hình gửi đi là lộ luôn (đã xảy ra 27/07 → phải `/revoke` lấy token mới).
+Lộ token thì vào @BotFather gõ `/revoke`, rồi chạy lại `telegram_setup.py`.
+
+Xem trước không gửi thật:
 ```
 DRY_RUN=1 python3 .github/scripts/send_telegram.py
 /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc /Users/Huy/Claude/diem-tin-the-gioi/.github/scripts/preview-morning-telegram.jsc.js
