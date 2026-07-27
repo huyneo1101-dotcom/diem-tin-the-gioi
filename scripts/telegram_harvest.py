@@ -314,7 +314,9 @@ def main():
         if not lst:
             print("   (không có)")
         for h in lst[:PER_TOPIC_CAP]:
-            hang = f" ⚠️{h['hang']}" if h["hang"] == "nhanuoc" else ""
+            hang = f" ⚠️{h['hang']}" if h["hang"] in ("nhanuoc", "tonghop-vi") else ""
+            if h["hang"] == "tonghop-vi" and not h["links"]:
+                hang += " (KHÔNG dẫn nguồn — phải WebSearch tìm bài gốc, không ra thì BỎ)"
             print(f"   [TG][{h['ngay']} {h['gio']}] {h['kenh']}{hang}: {h['tieu_de'][:150]}")
             print(f"        post: {h['url']}")
             for u in h["links"][:3]:
@@ -326,6 +328,9 @@ def main():
     print("\n⚠️  [TG] LÀ RADAR — link t.me KHÔNG được nạp vào `sourceUrl`. Phải truy về bài gốc")
     print("    (dùng cột 'link dẫn' nếu có, hoặc WebSearch theo nội dung) rồi mới nạp.")
     print("⚠️  Kênh đánh dấu ⚠️nhanuoc: chỉ dùng cho phát ngôn CỦA CHÍNH HỌ (CLAUDE.md).")
+    print("⚠️  Kênh ⚠️tonghop-vi (@quantin, @tra_da_via_he): tin đã DỊCH, không kèm link gốc và")
+    print("    nhiều bài lấy từ nguồn Nga. Bắt buộc WebSearch ra bài gốc tiếng Anh rồi nạp theo")
+    print("    bài đó (đổi cả tiêu đề lẫn URL, số liệu lấy theo gốc); không ra gốc thì BỎ.")
     print("⚠️  GIỜ ĐĂNG TRÊN KÊNH ≠ NGÀY SỰ KIỆN — kênh hay đăng lại tin cũ. Neo `date` theo")
     print("    ngày sự kiện trong bài gốc, ngoài khung thì BỎ.")
 

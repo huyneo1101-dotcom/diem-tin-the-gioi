@@ -8,6 +8,7 @@ bằng `| @handle |`. Cột 3 là **hạng**, quyết định cách agent đư�
 | `osint` | Kênh tổng hợp/quan sát, không thuộc nhà nước nào | RADAR — truy về bài gốc rồi mới nạp |
 | `radar` | Kênh tổng hợp tin nhanh, chất lượng không đồng đều | RADAR — bắt buộc truy gốc, không trích thẳng |
 | `nhanuoc` | Truyền thông nhà nước độc tài | CHỈ dùng cho phát ngôn CỦA CHÍNH HỌ (CLAUDE.md) |
+| `tonghop-vi` | Kênh tin tiếng Việt tổng hợp, **dịch lại và KHÔNG dẫn nguồn** | Nặng nhất: phải WebSearch tìm bài gốc theo nội dung; **không tìm được thì BỎ**, đúng luật trang tổng hợp trong CLAUDE.md |
 | `chinhthuc` | Kênh chính thức của cơ quan nhà nước dân chủ | Tầng 1, vẫn nên link về web chính thức thay vì t.me |
 
 ⛔ **KHÔNG kênh nào trong bảng này được dùng làm `sourceUrl`.** Telegram là mạng xã hội, nằm
@@ -35,6 +36,8 @@ Telethon. Kênh `mtproto` vẫn để trong bảng: chạy đường web nó ch�
 | @SputnikInt | Sputnik International | nhanuoc | web |
 | @tass_agency | TASS (tiếng Nga) | nhanuoc | web |
 | @OSINTdefender | Quốc phòng & xung đột toàn cầu — kênh lớn nhất mảng này | osint | web |
+| @quantin | Quán Tin — chính trị quốc tế, tiếng Việt (Huy theo dõi) | tonghop-vi | web |
+| @tra_da_via_he | Trà đá vỉa hè — tin thế giới 24h, tiếng Việt (Huy theo dõi) | tonghop-vi | web |
 | @militarylandnet | MilitaryLand.net — bản đồ & diễn biến đơn vị | osint | mtproto |
 
 ## ⚠️ Đã dò và KHÔNG dùng được — đừng thử lại
