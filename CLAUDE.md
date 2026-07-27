@@ -91,8 +91,8 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
 ## ⚠️ HAI PHIÊN QUÉT + HAI EMAIL (chốt 24/07/2026)
 - **Bản tin (TỐI 21:00 + SÁNG SỚM 04:00)** — CI `claude-web-scan.yml` là mốc chính (tối 21:00 + vét 22:00, sáng sớm 04:00/05:00 VN), local dự phòng CẢ HAI phiên bằng **2 task tách riêng**: `web-scan-diem-tin` (sáng 04:30/05:30) và `web-scan-diem-tin-toi` (tối 21:15): 5 chủ đề (xem banner trên). Commit
   `Cap nhat ban tin ...` → `notify-email.yml` gửi **email tối** (tiêu đề điểm tin + .docx đính kèm).
-- **Phiên SÁNG** — CI `claude-event-scan.yml` 08:45/09:45 VN là mốc chính, local `event-scan-diem-tin` dự phòng 09:15/10:15 (SKILL ở
-  `~/.claude/scheduled-tasks/event-scan-diem-tin/`): CHỈ quét **sự kiện ngoại giao có ký kết + cập nhật
+- **Phiên SÁNG** — CI `claude-event-scan.yml` 08:45/09:45 VN là mốc chính, local `event-scan-diem-tin` dự phòng 09:15/10:15 (quy trình:
+  **`docs/routine-event-scan.md`** — nguồn sự thật duy nhất, dời từ `~/.claude` 27/07/2026): CHỈ quét **sự kiện ngoại giao có ký kết + cập nhật
   tập trận + tin liên quan + 4–6 BÀI THINK-TANK** (mục 4 phần "Nơi lưu dữ liệu" — thêm 27/07/2026 theo
   chỉ thị Huy, chạy MỖI phiên sáng chứ không riêng Chủ nhật). **Chủ nhật** chạy thêm **agent OPUS** viết **báo cáo tuần Mỹ-Trung-Nga**
   (`weekly_context.py` → agent Opus → `add_weekly.py` ghi `DATA.weeklyReport`). Idempotent: `state.py …
@@ -178,7 +178,7 @@ KHÁC với category "Ngoại giao" ở trên — đây là các **sự kiện l
 ```
 Với **`exercises` (tập trận)**: cập nhật `items` con vào cuộc **đã có** (khớp `name`) qua `exerciseUpdates`; **được phép TẠO cuộc tập trận MỚI** qua `newExercises` (phiên sáng `event-scan` chủ động quét tập trận lớn KHẮP THẾ GIỚI đang/sắp diễn ra — không chỉ Ấn Độ Dương-TBD). Ưu tiên cập nhật `status: "ongoing"`. `dates` ghi dạng CÓ ngày/tháng/năm để web tự suy trạng thái (`effStatus`).
 
-**BỐI CẢNH + KHÁI NIỆM (thông tin nền — cập nhật 25/07/2026):** mỗi cuộc tập trận có thể mang `background` (đoạn Bối cảnh chiến lược, nhiều đoạn ngăn bằng `\n`) + `concepts` ([{term,def}]) — web hiện 2 thẻ **📔 Bối cảnh** + **📚 Khái niệm** dưới mỗi cuộc (hàm `drillBriefing`). Chỉ thị Huy: **TỰ ĐỘNG sinh Bối cảnh khi phát hiện tập trận MỚI, và thêm Bối cảnh cho mọi cuộc ĐANG diễn ra chưa có.** Sinh qua agent rồi ghi bằng `scripts/set_exercise_briefing.py briefing.json` (`[{name,background,concepts}]`). Quy trình routine: xem `event-scan` SKILL Bước 2b.
+**BỐI CẢNH + KHÁI NIỆM (thông tin nền — cập nhật 25/07/2026):** mỗi cuộc tập trận có thể mang `background` (đoạn Bối cảnh chiến lược, nhiều đoạn ngăn bằng `\n`) + `concepts` ([{term,def}]) — web hiện 2 thẻ **📔 Bối cảnh** + **📚 Khái niệm** dưới mỗi cuộc (hàm `drillBriefing`). Chỉ thị Huy: **TỰ ĐỘNG sinh Bối cảnh khi phát hiện tập trận MỚI, và thêm Bối cảnh cho mọi cuộc ĐANG diễn ra chưa có.** Sinh qua agent rồi ghi bằng `scripts/set_exercise_briefing.py briefing.json` (`[{name,background,concepts}]`). Quy trình routine: xem `docs/routine-event-scan.md` Bước 2b.
 
 Với **`dipEvents` (sự kiện ngoại giao)** — áp dụng từ 11/07/2026 — được phép **tự động TẠO sự kiện mới** cho các sự kiện ngoại giao đáng đưa (dùng field `newDipEvents`), gồm: **ký kết/hiệp định song phương hoặc đa phương** (vd Nhật–New Zealand ký ACSA), **thượng đỉnh / hội nghị cấp cao**, **thăm cấp nguyên thủ/bộ trưởng có kết quả cụ thể**, **sáng kiến/khuôn khổ ngoại giao lớn mới**. KHÔNG tạo sự kiện cho: điện đàm/cuộc gọi thường lệ, phát ngôn đơn lẻ, tin đồn. **TĂNG số sự kiện ngoại giao mỗi ngày** (chủ động tạo 1–2 sự kiện mới + cập nhật item cho sự kiện đang chạy). Mỗi sự kiện mới phải có đủ `name`, `status`, `dates`, `location`, `scale`, `summary`, và ≥1 `items`. **`status` PHÂN LOẠI đúng 3 mức** (giao diện hiển thị theo nhóm này): `upcoming` = **Sắp diễn ra** (thượng đỉnh/hội nghị chưa họp) · `ongoing` = **Đang diễn ra** (đang họp/đàm phán nhiều ngày) · `recent` = **Đã kết thúc** (đã ký/đã họp xong). Khi một sự kiện `ongoing`/`upcoming` kết thúc, dùng `dipEventUpdates` KÈM đổi trạng thái (nêu trong tóm tắt để cập nhật status sang `recent`) (nguồn chứng minh — ưu tiên nguồn chính thức tầng 1). **LƯU Ý (24/07/2026): giao diện giờ tự SUY trạng thái hiển thị từ dải ngày `dates` so với hôm nay** (hàm `effStatus` trong `index.html`: parse "19-24/07/2026", "20/7 – 7/8/2026", "24/7/2026"… → trong khoảng = Đang diễn ra, trước = Sắp, sau = Đã kết thúc). Vì vậy KHÔNG cần sửa tay `status` mỗi ngày cho các mốc có `dates` rõ; `status` lưu trong DATA chỉ còn là **fallback** khi `dates` không parse được ngày (vd "Tháng 9/2026", "Cuối năm 2026"). Vẫn nên đặt `status` hợp lý lúc tạo, và ưu tiên ghi `dates` dạng có ngày/tháng/năm để auto hoạt động. Script tự CHẶN nếu tên trùng/giống sự kiện đã có (Jaccard ≥ 0.6) → khi đó dùng `dipEventUpdates` để thêm item vào sự kiện cũ thay vì tạo trùng. Nếu một tin đã đưa ở `worldNews`/`usNews` được nâng thành sự kiện, bỏ bản ở mảng tin phẳng để URL không trùng 2 chỗ.
 
@@ -212,7 +212,7 @@ cho lọt; đúng là viện thật mà thiếu thì thêm domain vào danh sác
 
 **Email sáng** (`send-morning-email.js`): có khối 🏛️ Think-tank riêng, và **bài think-tank mới cũng đủ
 để mở email** kể cả khi không có sự kiện/tập trận nào (hàm `diffAnalyses`; không có bản HEAD~1 để so thì
-dựa vào `_addedDate == generatedAt`). Quy trình phiên sáng: `event-scan` SKILL **Bước 2c** /
+dựa vào `_addedDate == generatedAt`). Quy trình phiên sáng: `docs/routine-event-scan.md` **Bước 2c** /
 `.github/prompts/event-scan-ci.md` **bước 3b**.
 
 ## Nguồn theo 3 tầng (chuẩn báo cáo/INTREP — áp dụng từ 11/07/2026)
@@ -739,17 +739,17 @@ khung 2 ngày bị đẩy sang `rejectedNews` thay vì làm hỏng cả lô), r�
 > 2 ấn bản thì file chạy sau (ấn bản CŨ hơn) xoá sạch kết quả của ấn bản mới → mất tin âm thầm.
 
 ## Ghi chú vận hành
-- **Hai routine nằm ở ĐÂU** (cập nhật 25/07/2026): đều là **scheduled task LOCAL trên máy Mac của Huy**, không phải routine trên claude.ai. Quản lý ở mục "Scheduled" trên sidebar, hoặc bằng tool `mcp__scheduled-tasks__*`. Cron **giờ LOCAL (Asia/Ho_Chi_Minh), KHÔNG phải UTC**:
+- **Hai routine nằm ở ĐÂU** (cập nhật 27/07/2026): đều là **scheduled task LOCAL trên máy Mac của Huy**, không phải routine trên claude.ai. Quản lý ở mục "Scheduled" trên sidebar, hoặc bằng tool `mcp__scheduled-tasks__*`. Cron **giờ LOCAL (Asia/Ho_Chi_Minh), KHÔNG phải UTC**. **NGUỒN SỰ THẬT về quy trình nằm TRONG REPO** (`docs/routine-web-scan.md` + `docs/routine-event-scan.md`, dời 27/07/2026 khỏi `~/.claude/scheduled-tasks/` vì vùng đó sensitive — Edit luôn bị hỏi quyền); SKILL.md của 3 task giờ chỉ là stub Read file repo tương ứng — **sửa quy trình thì sửa file trong docs/, ĐỪNG đụng stub**:
 
-  | taskId | cron | File SKILL.md | Việc |
+  | taskId | cron | Nguồn sự thật quy trình | Việc |
   |---|---|---|---|
-  | `web-scan-diem-tin` | `30 4,5 * * *` (DỰ PHÒNG phiên SÁNG SỚM, sau CI 04:00/05:00) | `~/.claude/scheduled-tasks/web-scan-diem-tin/` | Bản tin 5 chủ đề — phiên sáng sớm |
-  | `web-scan-diem-tin-toi` | `15 21 * * *` (DỰ PHÒNG phiên TỐI, sau CI 21:00 — lớp CUỐI còn kịp hạn email 22:00) | `~/.claude/scheduled-tasks/web-scan-diem-tin-toi/` | Bản tin 5 chủ đề — phiên tối. **Prompt task này KHÔNG chép quy trình**, nó Read `web-scan-diem-tin/SKILL.md` để hai task không lệch nhau — sửa cách quét thì sửa file kia |
-  | `event-scan-diem-tin` | `15 9,10 * * *` (DỰ PHÒNG sau CI 08:45/09:45) | `~/.claude/scheduled-tasks/event-scan-diem-tin/` | Sự kiện ngoại giao + tập trận, CN thêm báo cáo tuần (phiên SÁNG) |
+  | `web-scan-diem-tin` | `30 4,5 * * *` (DỰ PHÒNG phiên SÁNG SỚM, sau CI 04:00/05:00) | `docs/routine-web-scan.md` | Bản tin 5 chủ đề — phiên sáng sớm |
+  | `web-scan-diem-tin-toi` | `15 21 * * *` (DỰ PHÒNG phiên TỐI, sau CI 21:00 — lớp CUỐI còn kịp hạn email 22:00) | `docs/routine-web-scan.md` (chung file với phiên sáng sớm để hai phiên không lệch nhau; mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" cuối file) | Bản tin 5 chủ đề — phiên tối |
+  | `event-scan-diem-tin` | `15 9,10 * * *` (DỰ PHÒNG sau CI 08:45/09:45) | `docs/routine-event-scan.md` | Sự kiện ngoại giao + tập trận, CN thêm báo cáo tuần (phiên SÁNG) |
 
   Mốc CHÍNH từ 26/07/2026 là 2 workflow GitHub Actions `claude-web-scan.yml` + `claude-event-scan.yml` (chạy `claude -p` với prompt `.github/prompts/*-ci.md`, secret `CLAUDE_CODE_OAUTH_TOKEN`, máy Mac tắt vẫn chạy; xong tự kích notify-email/notify-morning/notify-push qua `gh workflow run`).
 
-  Mỗi lần fire tạo session mới, tự đọc SKILL.md để lấy quy tắc, có log + khoá idempotent (`state.py claim <pipeline>`) + mốc dự phòng.
+  Mỗi lần fire tạo session mới, stub SKILL.md dẫn nó Read file quy trình trong `docs/`, có log + khoá idempotent (`state.py claim <pipeline>`) + mốc dự phòng.
 - **Routine phải viết lệnh bằng ĐƯỜNG DẪN TUYỆT ĐỐI** (chốt 25/07/2026): `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/<x>.py` và `git -C /Users/Huy/Claude/diem-tin-the-gioi ...`. **TUYỆT ĐỐI KHÔNG `cd repo && ...`** — harness bật prompt xin quyền riêng cho `cd` ("can execute untrusted hooks from the target directory"), routine chạy lúc Huy không có mặt sẽ treo giữa đường chờ bấm nút. Các script đều tự tìm repo root từ `__file__` nên không cần đứng trong repo. Allowlist ở `/Users/Huy/Claude/.claude/settings.local.json` phải là **pattern** (`Bash(git -C /path *)`, `Bash(python3 /path/scripts/*)`), không phải câu lệnh literal do bấm "Always allow" — literal chỉ khớp đúng một chuỗi, đổi một chữ là hỏi lại. **VÀ mọi lệnh Bash phải PHẲNG — không wrapper, không biến, không vòng lặp (25–26/07/2026, treo 3 lần):** hễ lệnh chứa hàm/brace (`cd() { echo "cd disabled"; };` — flag "expansion obfuscation"), biến shell/`$(...)` (`$NGAY`, `$f` — flag "simple_expansion"), `for ... done` hay heredoc là harness BỎ QUA allowlist và vẫn bật prompt, dù lệnh bên trong hợp lệ (vụ 26/07: `for f in ...; do grep .../$f.jsonl; done` treo, trong khi 2 dòng `grep <path đầy đủ>` viết rời thì khớp `Bash(grep *)` chạy thẳng). Chỉ dùng lệnh đơn / pipe / chuỗi `&&`, đối số điền giá trị thật: ngày giờ chạy `date` riêng rồi điền literal; lặp nhiều file → viết N lệnh rời hoặc gói vào `python3 -c`. "Không dùng cd" = đừng gọi `cd`, không phải vô hiệu hoá nó.
 - **⚠️ ĐỪNG để tồn dư chưa commit trong repo — nó làm NGHẼN bước 1 của mọi phiên routine sau** (gặp thật
   sáng 27/07/2026): `git pull --rebase origin main` chết ngay với *"cannot pull with rebase: You have
