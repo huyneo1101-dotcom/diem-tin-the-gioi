@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-27T22:51:37+07:00",
+  "tao_luc": "2026-07-27T23:40:26+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-26",
@@ -192,6 +192,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-27",
+      "tieu_de": "Việt Nam đưa 48 người trên tàu chìm ở Biển Đông về đất liền",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/viet-nam-dua-48-nguoi-tren-tau-chim-o-bien-dong-ve-dat-lien-5102263.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-26",
       "tieu_de": "Tàu Việt Nam chìm ở Biển Đông, 45 người được cứu sống",
       "nguon": "VnExpress",
@@ -263,6 +271,15 @@
       "tieu_de": "Thế giới tiếp tục phản ứng với các mức thuế quan mới của Mỹ",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/the-gioi-tiep-tuc-phan-ung-voi-cac-muc-thue-quan-moi-cua-my-100260726110931291.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Labubu takes Manhattan: Chinese brands target inflation-hit US",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/consumer/labubu-takes-manhattan-chinese-brands-target-inflation-hit-us",
       "nhom": 4
     },
     {
@@ -341,6 +358,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "Pentagon’s Iran war casualty count tops 600 amid transparency questions",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/5992132-pentagon-iran-war-casualties-top-600/"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-27",
       "tieu_de": "Sanders dismisses Rahm Emanuel’s warning that ‘Bernie bros’ could ‘spoil’ Democrats in the midterms",
@@ -377,14 +402,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Pentagon's Iran war casualty count tops 600 amid transparency questions",
-      "nguon": "The Hill — Defense",
-      "url": "https://thehill.com/policy/defense/5992132-pentagon-iran-war-casualties-top-600/"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
       "tieu_de": "DCCC targets Republican-held seats with digital ad to mark 100 days till midterms",
@@ -418,14 +435,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-26",
-      "tieu_de": "Three Clashes in a Week Escalate China-Philippines Sea Feud",
-      "nguon": "gCaptain",
-      "url": "https://gcaptain.com/three-clashes-in-a-week-escalate-china-philippines-sea-feud/"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-24",
       "tieu_de": "U.S. Army Is Buying Older PAC-2 Patriot Missiles For The First Time In Decades",
@@ -447,6 +456,15 @@
       "tieu_de": "Pentagon awards Oracle $7B agreement for consolidated software tools, licenses",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/07/23/pentagon-awards-oracle-7b-dollar-software-licenses/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "Analysis: US Treasury sanctions Turkish Hamas financiers as Erdogan presses for F-35s",
+      "nguon": "Long War Journal (Mali/JNIM)",
+      "url": "https://www.longwarjournal.org/archives/2026/07/analysis-us-treasury-sanctions-turkish-hamas-financiers-as-erdogan-presses-for-f-35s.php",
+      "nhom": 4
     },
     {
       "lop": "RSS",
