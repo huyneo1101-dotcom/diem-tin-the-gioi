@@ -33,6 +33,16 @@ Bấm **Generate token**, copy chuỗi `github_pat_...` — **nó chỉ hiện M
 
 **https://console.cron-job.org/signup** — email + mật khẩu, không cần thẻ.
 
+> ✅ **ĐÃ DỰNG XONG 27/07/2026** (tài khoản `huyneo1101@gmail.com`). Hai job đang chạy:
+> `Điểm Tin — quét TỐI (21:00)` (job 8170014) và `Điểm Tin — quét SÁNG (04:00)` (job 8170018).
+> Nghiệm thu thật: TEST RUN trả **204**, GitHub ghi nhận run `15:30:21Z` event `workflow_dispatch`,
+> kết thúc `success`. 4 mốc còn lại (harvest 20:45/03:45, vét 22:00, sự kiện 08:45) **chưa dựng** —
+> nhân bản bằng ACTIONS → Clone khi cần.
+
+**Làm NGAY sau khi đăng nhập: Settings → Default timezone → `Asia/Ho_Chi_Minh` → SAVE.**
+Mặc định là UTC, và ô này *"only applies to new jobs"* — đặt trước khi tạo job thì khỏi quy đổi giờ,
+đặt sau thì phải sửa timezone trong từng job. Bước 3 dưới đây vì thế điền **giờ VN thẳng**.
+
 ## Bước 3 — Tạo cronjob đầu tiên
 
 Bấm **CREATE CRONJOB**, điền:
@@ -117,6 +127,16 @@ cron-job.org lưu lịch sử từng lần gọi kèm mã lỗi — vào job →
 
 - **Token hết hạn là chuỗi quét chết câm.** Nếu đặt 1 năm, ghi luôn vào lịch một nhắc nhở
   trước ngày hết hạn. Đây là kiểu hỏng tệ nhất: không báo lỗi, chỉ đơn giản không có bản tin.
+  ⚠️ **Token đang dùng hết hạn `2026-08-26 14:23 UTC`** — đọc từ header
+  `github-authentication-token-expiration` trong response TEST RUN ngày 27/07. Tức **30 ngày**, KHÔNG
+  phải 1 năm như định đặt: ô Expiration lúc tạo token đã giữ mặc định. Bài học chung — **đừng tin ô
+  mình vừa chọn, đọc header đó ở lần test đầu**. Trước 26/08 phải tạo token mới rồi sửa header
+  `Authorization` của **cả hai** job (Clone không giúp gì ở khâu này).
+- **Quên chữ `Bearer ` là 401.** Đã vấp thật 27/07: token dán đúng 93 ký tự nhưng thiếu tiền tố.
+  Soi bằng cách đo thuộc tính chứ đừng in token ra màn hình — script kiểm nằm ở mục 3b của
+  `/Users/Huy/Claude/HUONG-DAN-CRON.md`.
+- **Bản Clone sinh ra ở trạng thái TẮT** — phải bật `Enable job`, không thì nhìn danh sách vẫn thấy
+  job mà nó không bao giờ chạy.
 - cron-job.org tự **tắt job** sau nhiều lần lỗi liên tiếp — nên nếu bản tin biến mất vài ngày,
   chỗ đầu tiên phải xem là job còn `enabled` không.
 - Đừng xoá cron GitHub. Nó trễ nhưng vẫn là lớp thứ hai miễn phí, và khoá idempotent lo phần
