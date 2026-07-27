@@ -244,6 +244,13 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
 Ngắn gọn: số tin mỗi chủ đề (Nội bộ Mỹ / Úc-Biển Đông / CNQS Mỹ / Mali / Predator), chủ đề nào thiếu +
 lý do (đã nới 48h chưa), nguồn nổi bật, trạng thái push. KHÔNG liệt kê lại nội dung từng tin.
 
+⚠️ **NÊU RÕ BƯỚC NÀO BỊ CẮT — ngay trong tóm tắt gửi Huy, không chỉ chôn trong `scan-gaps.json`**
+(rút từ 27/07/2026: Huy bảo "quét nhanh 15 phút", Zim cắt vòng Báo Mới, có ghi vào `scan-gaps.json`
+nhưng **không nói trong báo cáo cuối** — nên Huy phải tự hỏi lại "mày vẫn quét Báo Mới chứ?"). Áp cho
+mọi lần rút gọn quy trình dù vì lý do gì (Huy giục nhanh, sát hạn chót 21:45, nguồn chết, agent lỗi):
+liệt kê thẳng **bước bị bỏ + vì sao + hệ quả** thành một dòng riêng. Huy bác bỏ cũng được, nhưng phải
+được biết mà bác — im lặng cắt bước là thứ Huy không có cách nào phát hiện.
+
 ## Phụ lục — NGUỒN MỞ RỘNG theo 5 chủ đề (bổ sung 25/07/2026)
 Agent điều phối chọn vài nguồn hợp chủ đề rồi nhúng vào prompt agent (đừng dán cả phụ lục). Ưu tiên
 tầng 1 (chính thức, link thẳng) → wire (Reuters/AP/AFP) → chuyên ngành. Nguồn có RSS thì đưa thẳng URL
