@@ -208,6 +208,12 @@ cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhan
   **Viết THẲNG 2 ngày cụ thể vào prompt agent, đừng viết chữ "24h/48h"** — agent hay hiểu 48h thành lùi
   2 ngày lịch. Ví dụ phiên ngày 27/07: *"chỉ nhận bài đăng 27/07 hoặc 26/07; tin 25/07 trở về trước là
   QUÁ CŨ, bỏ"*. `add_news.py` cũng chặn cứng đúng biên này nên nhận về cũng không nạp được.
+- **THANG XÁC MINH — bao nhiêu nguồn là đủ** (chốt 27/07/2026, xem bảng đầy đủ trong `CLAUDE.md` mục
+  "THANG XÁC MINH"): nguồn **tầng 1 chính thức** đọc được → ĐỦ, không cần báo chí xác nhận lại; **wire /
+  báo chuyên ngành / báo phổ thông uy tín** → một nguồn là đủ; **trang tổng hợp hoặc dẫn lại** (Báo Mới,
+  RealClear*, Investing.com, Yahoo/AOL/MSN) → BẮT BUỘC truy về bài gốc, không ra gốc thì cần 2 nguồn
+  độc lập, không thì bỏ; **link không mở được bằng tool** (403/302) KHÔNG phải lý do bỏ nếu nội dung đã
+  xác nhận được qua đường khác. Đừng bỏ tin tầng 1 chỉ vì chưa thấy báo nào đưa lại.
 - **Ràng buộc chất lượng**: (a) `date` đúng khung 24h/48h; (b) `sourceUrl` trỏ THẲNG 1 bài cụ thể,
   KHÔNG trang chủ/"live"/live-blog/tổng hợp, link KHỚP nội dung; (c) `sourceName` trong danh sách nguồn
   được giao HOẶC nguồn chính thức phù hợp; (d) thà ÍT còn hơn sai — được phép trả mảng rỗng.
