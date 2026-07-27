@@ -33,11 +33,22 @@ Bấm **Generate token**, copy chuỗi `github_pat_...` — **nó chỉ hiện M
 
 **https://console.cron-job.org/signup** — email + mật khẩu, không cần thẻ.
 
-> ✅ **ĐÃ DỰNG XONG 27/07/2026** (tài khoản `huyneo1101@gmail.com`). Hai job đang chạy:
-> `Điểm Tin — quét TỐI (21:00)` (job 8170014) và `Điểm Tin — quét SÁNG (04:00)` (job 8170018).
-> Nghiệm thu thật: TEST RUN trả **204**, GitHub ghi nhận run `15:30:21Z` event `workflow_dispatch`,
-> kết thúc `success`. 4 mốc còn lại (harvest 20:45/03:45, vét 22:00, sự kiện 08:45) **chưa dựng** —
-> nhân bản bằng ACTIONS → Clone khi cần.
+> ✅ **ĐÃ DỰNG ĐỦ 6 MỐC 27/07/2026** (tài khoản `huyneo1101@gmail.com`), tất cả bật, timezone
+> `Asia/Ho_Chi_Minh`, đều có "Save responses" + "Notify khi fail":
+>
+> | Job | ID | Workflow | Giờ VN |
+> |---|---|---|---|
+> | gom nguồn TỐI | 8170049 | `harvest-ci.yml` | 20:45 |
+> | quét TỐI | 8170014 | `claude-web-scan.yml` | 21:00 |
+> | vét TỐI | 8170056 | `claude-web-scan.yml` | 22:00 |
+> | gom nguồn SÁNG | 8170069 | `harvest-ci.yml` | 03:45 |
+> | quét SÁNG | 8170018 | `claude-web-scan.yml` | 04:00 |
+> | sự kiện SÁNG | 8170086 | `claude-event-scan.yml` | 08:45 |
+>
+> Nghiệm thu THẬT (không phải nhìn màn hình): TEST RUN `claude-web-scan` trả **204** → GitHub run
+> `15:30:21Z` `workflow_dispatch` **success**; TEST RUN `harvest-ci` trả **204** → run `15:50:24Z`
+> "Gom ứng viên tin từ CI (Mỹ)". Job `claude-event-scan` **chưa chạy thử** (không muốn kích phiên
+> quét sự kiện lúc nửa đêm) — URL đã đối chiếu đúng tên file, nó tự kiểm ở mốc 08:45 sáng mai.
 
 **Làm NGAY sau khi đăng nhập: Settings → Default timezone → `Asia/Ho_Chi_Minh` → SAVE.**
 Mặc định là UTC, và ô này *"only applies to new jobs"* — đặt trước khi tạo job thì khỏi quy đổi giờ,
@@ -137,6 +148,11 @@ cron-job.org lưu lịch sử từng lần gọi kèm mã lỗi — vào job →
   `/Users/Huy/Claude/HUONG-DAN-CRON.md`.
 - **Bản Clone sinh ra ở trạng thái TẮT** — phải bật `Enable job`, không thì nhìn danh sách vẫn thấy
   job mà nó không bao giờ chạy.
+- ⛔ **Đổi URL khi clone thì phải GÕ TAY cả dòng**, đừng set bằng JavaScript: đã vấp 27/07 — màn hình
+  hiện URL mới, Save không báo lỗi, mở lại thì vẫn URL cũ. Hậu quả nếu không phát hiện: job "gom
+  nguồn TỐI" trỏ vào `claude-web-scan.yml`, mỗi tối 20:45 chạy sai workflow trong im lặng.
+  **Sau khi sửa loạt job, mở lại trang `/jobs` và đối chiếu workflow ↔ giờ của cả 6 dòng** (script
+  đọc DOM có trong `HUONG-DAN-CRON.md` mục 3b) — danh sách cắt URL bằng `…` nên nhìn không ra sai.
 - cron-job.org tự **tắt job** sau nhiều lần lỗi liên tiếp — nên nếu bản tin biến mất vài ngày,
   chỗ đầu tiên phải xem là job còn `enabled` không.
 - Đừng xoá cron GitHub. Nó trễ nhưng vẫn là lớp thứ hai miễn phí, và khoá idempotent lo phần
