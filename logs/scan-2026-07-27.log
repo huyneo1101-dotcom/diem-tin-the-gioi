@@ -256,3 +256,8 @@ CHUA COMMIT (viec do cua phien khac dan xen): CLAUDE.md (phien kia them muc "Tha
   (index.html, scripts/add_analyses.py, docs/routine-event-scan.md) + log. Phan "24 vien"
   tao sua trong CLAUDE.md se di theo commit cua phien kia.
 
+=== 12:30 event-scan CI (05:30Z) — SKIP ===
+git pull --rebase origin main: Already up to date, working tree sach.
+state.py claim event-scan -> exit 10: "ngay 2026-07-27 DA XONG (lan chay cuoi 2026-07-27T09:41:33+07:00)".
+state.py show xac nhan event-scan phien sang = 2026-07-27 DONE. Khong lam lai, khong goi them agent.
+Ket thuc em theo dung quy trinh (buoc 1, truong hop exit 10).
