@@ -318,28 +318,29 @@ def main():
         print(f"[docx] không thấy file {docx} — gửi tin nhắn không kèm file", file=sys.stderr)
         docx = ""
 
-    if total == 0:
-        if not docx:
-            print("Không có tin mới và cũng không có file .docx — không gửi Telegram.",
-                  file=sys.stderr)
-            return 0
-        # Vẫn gửi FILE tổng hợp cả ngày, chỉ thay phần liệt kê bằng một dòng giải thích.
-        print("Không có tin mới so với bản trước — vẫn gửi file .docx tổng hợp cả ngày.",
+    if not docx:
+        print("Không có file .docx — không gửi Telegram (bản tin CHỈ gửi bằng file).",
               file=sys.stderr)
-        msgs = [f"{tag}📎 Điểm Tin {generated_at} — không có tin nào mới so với bản tin trước.\n"
-                f"File tổng hợp cả ngày vẫn gửi kèm dưới đây."]
-    else:
-        gaps = read_gaps(generated_at)
-        msgs = build_messages(sections, generated_at, total, gaps, tag)
-
-    if dry:
-        print(f"=== DRY_RUN — {len(msgs)} message, {total} tin, docx={docx or '(không có)'} ===")
-        for i, m in enumerate(msgs, 1):
-            print(f"\n----- message {i}/{len(msgs)} ({len(m)} ký tự) -----")
-            print(m)
         return 0
 
-    return send_all(token, chats, msgs, docx, f"Bản tin đầy đủ {generated_at}")
+    # CHỈ GỬI FILE .docx, KHÔNG liệt kê tin trong tin nhắn (chỉ thị Huy 27/07/2026:
+    # *"không gửi full tin như ở trên, chỉ gửi file word thôi"*). Trước đây `build_messages`
+    # dựng 2 tin nhắn dài liệt kê từng tin + khối "sản lượng 5 chủ đề / lý do thiếu" — đọc
+    # trên điện thoại rất nặng, mà toàn bộ nội dung đó đã có sẵn trong file rồi.
+    # ⚠️ `build_messages` và `read_gaps` từ đây KHÔNG CÒN ĐƯỢC GỌI (bản `--morning` dùng hàm
+    # khác — `build_morning_messages`). Cố ý giữ lại để bật lại trong một dòng nếu Huy đổi ý;
+    # đừng tưởng chúng đang chạy mà đi sửa, và cũng đừng xoá `logs/scan-gaps.json` vì tưởng
+    # hết chỗ dùng — email/web vẫn đọc file đó.
+    msgs = []
+    caption = (f"{tag}📰 Điểm Tin {generated_at}"
+               + (f" — {total} tin mới" if total else " — không có tin mới so với bản trước"))
+
+    if dry:
+        print(f"=== DRY_RUN — {len(msgs)} message, {total} tin, docx={docx} ===")
+        print(f"caption: {caption}")
+        return 0
+
+    return send_all(token, chats, msgs, docx, caption)
 
 
 if __name__ == "__main__":
