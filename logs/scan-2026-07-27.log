@@ -81,3 +81,49 @@ claim exit 10: "ngay 2026-07-27 DA XONG (lan chay cuoi 2026-07-27T05:35:30+07:00
 quet bu 05:19-05:35 o tren (+5 tin, da push, email + .docx tu gui qua notify-email.yml). Cach day 3
 phut, khong con gi de chay bu. Dung han, khong gan Monitor, khong dieu tra them.
 
+[2026-07-27 09:26-10:0x +07] event-scan (LOCAL du phong 09:15 — CI 08:45 khong quet) — DONE
+claim exit 0 ("ngay 2026-07-27 chua xong"). CI claude-event-scan.yml khong chay/khong xong -> local ganh.
+CHAN DAU: `git pull --rebase` bao "cannot pull with rebase: You have unstaged changes" (index.html +
+scripts/add_news.py). Fetch ra 0 commit moi -> pull la no-op, khong phai xung dot that. Ton du la viec
+DANG LAM cua mot phien khac (cong nhac Bao Moi + _baomoiUrl); trong luc dang soi thi phien do tu commit
+0f5c340 + push. => Khong commit ho, khong stash. BAI HOC: ton du chua commit trong repo lam NGHEN buoc 1
+cua moi phien routine sau; phien nao dung dang thi phai commit truoc khi roi may.
+QUET (2 vong agent Sonnet):
+- Vong 1 (su kien + tap tran, huong bao quoc phong): 1 ket qua = RIMPAC 2026, item "chuyen tu bien len
+  bo, My-Han-Peru dien tap do bo tai Bellows" (Hawaii News Now). 0 su kien ngoai giao. Predator's Run /
+  Pitch Black / Han Kuang / Lion Protector / Yudh Abhyas / UNITAS: khong co dien bien moi trong 48h.
+  Agent co thay "Predator's Walk 26" tren DVIDS nhung do la cuoc KHAC (My-Uc song phuong) -> khong nhet.
+- Vong 2 (chi su kien ngoai giao, huong NGUOC LAI: doc thang trang thong cao chinh thuc): RONG THAT.
+  Da thu ~15 nguon: state.gov (chi co dien mung quoc khanh Liberia/Maldives 26/7), defense.gov 403,
+  whitehouse.gov (moi nhat 21/7), nato.int (render dong), consilium 403, eeas 404, mea.gov.in, mofa.go.jp
+  (moi nhat AMM 21-24/7), gov.uk (moi nhat 24-25/7), defence.gov.au timeout, mnd.go.kr, press.un.org,
+  baochinhphu/baoquocte/mofa.gov.vn + 6 cum WebSearch. Ket luan: 26-27/07 that su khong co ky ket moi.
+GUARDRAIL: item RIMPAC ban dau ghi date=2026-07-25 -> BI CHAN dung ("cu hon 1 ngay so voi batch"). KHONG
+lui ngay batch (dung lo hong da bi bit 27/07). Tu WebFetch lai bai goc: "Published: Jul. 25, 2026 at
+2:37 PM HST" = 26/07 07:37 gio VN, va dien tap dien ra thu Bay 25/7 gio Hawaii. => Ghi date=2026-07-26
+(ngay dang theo gio VN, trong khung) va NOI RO ca hai moc trong summary. Nap OK: +1 tin tap tran.
+BUOC 2b (Boi canh/Khai niem): khong co cuoc MOI, va ca 10 cuoc trong DATA deu DA co background +
+concepts (4-5 khai niem/cuoc) -> khong phai sinh gi.
+BUOC 3 (bao cao tuan): BO — hom nay Thu Hai (date +%u = 1), khong phai Chu Nhat.
+DAU MOI CHO PHIEN MAI: Chu tich Quoc hoi Campuchia Khuon Sudary tham chinh thuc VN 27-29/07/2026 (moi
+cua Chu tich QH Tran Thanh Man). Tu kiem lai bang WebSearch: den sang 27/7 CHUA co van kien/tuyen bo
+chung nao duoc ky (hoi dam moi la "du kien") -> KHONG du chuan "co ket qua cu the" de tao dipEvent.
+Phien 28-29/7 phai kiem lai baochinhphu.vn / TTXVN / qdnd.vn: neu co ky ket thi tao newDipEvents.
+BUOC BI CAT (bat buoc neu ro theo quy tac 87f3c10): vong BAO MOI. Cong Bao Moi in ra 2 ung vien chua nap
+(B-21 Raider + My mua lai Patriot doi cu, ca hai chu de "CNQS My", ngay 26/07, nguon An Ninh Thu Do).
+KHONG xu trong phien nay vi Bao Moi + 5 chu de la viec phien TOI (web-scan), phien sang chi lo su kien
+ngoai giao/tap tran/bao cao tuan. Da de nguyen trong kho cho phien toi 27/07 truy nguon goc va nap.
+VIEC THEM (chi thi Huy giua phien, KHONG phai pham vi routine):
+1) Email sang them 2 muc: "🆕 Moi tren web" (doc whats-new.json, chi in feature trong 7 ngay, toi da 3)
+   + "💡 Co the ban chua biet" (xoay 1 meo/ngay theo so ngay, deterministic). Gate gui email KHONG doi
+   (van phai co su kien/tap tran hoac bao cao tuan) de khong sinh email rac. Thieu file/JSON loi -> bo
+   ca muc, khong lam vo email. Da kiem bang jsc (may khong co node): 5 feature/9 meo doc OK, feature cu
+   hon 7 ngay tu rung, meo xoay dung, thieu file -> 0/0 khong nem loi.
+2) whats-new.json: 5 tinh nang + 9 meo, TOAN BO da doi chieu that voi index.html (tab bar, renderTopic,
+   nhan UI, luyen-so-thich.html, cau iPhone cua muc thong bao) — khong ghi tinh nang chua co.
+3) docs/mockup-newsletter-sang-v1.html: 5 mau newsletter (Intel Brief · bao in co dien · the hien dai ·
+   digest toi gian · bang dieu khien), dung table+inline style 600px de chon xong bo thang vao script.
+PHAT HIEN KEM (chua sua, ngoai pham vi): link "Doc bao cao tuan day du" trong email sang tro tai
+WEB_URL + "#analysis" nhung index.html KHONG he doc location.hash -> bam vao chi mo trang chu, khong
+nhay sang tab Phan tich. Da tao chip viec nen de sua rieng.
+

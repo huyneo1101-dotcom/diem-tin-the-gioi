@@ -85,6 +85,28 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
   **email này gọi theo NỘI DUNG (sự kiện/tập trận), email bản tin gọi theo BUỔI** — đừng đặt tên hai cái
   cùng chứa chữ "sáng", và giữ emoji khác nhau (🎖️ vs 📰) để liếc là ra.
 
+### 🆕 Mới trên web + 💡 Có thể bạn chưa biết — trong email SÁNG (chỉ thị Huy 27/07/2026)
+Email sáng có thêm 2 mục cuối, nguồn dữ liệu là **`whats-new.json` ở gốc repo** (`send-morning-email.js`:
+`readWhatsNew` · `freshFeatures` · `tipOfDay` · `featuresHtml` · `tipHtml`):
+| Mục | Lấy gì | Quy tắc |
+|---|---|---|
+| 🆕 Mới trên web | `features[]` có `date` trong **7 ngày** gần nhất so với `DATA.generatedAt`, tối đa **3** mục, mới nhất trước | Chỉ ghi tính năng **NGƯỜI ĐỌC nhìn thấy**. KHÔNG ghi việc sửa routine/CI/quy tắc quét — người đọc không quan tâm và cũng không kiểm được |
+| 💡 Có thể bạn chưa biết | 1 mẹo trong `tips[]`, chọn bằng `số ngày kể từ epoch % số mẹo` | **Xoay theo NGÀY, không random**: chạy lại cùng ngày (retry/`workflow_dispatch`) ra cùng mẹo; mẹo thêm vào cuối mảng chắc chắn tới lượt |
+
+**Gate gửi email KHÔNG đổi** — vẫn phải có sự kiện/tập trận mới hoặc báo cáo tuần mới. Hai mục này ăn
+theo email đã chắc chắn gửi; một mẹo dùng web KHÔNG đáng một lá mail. **Chốt an toàn** giống mục "Chủ đề
+thiếu" của `send-email.js`: thiếu file · JSON lỗi · mảng rỗng → **bỏ cả mục, chỉ log**, không làm vỡ email.
+
+⚠️ **Ra tính năng mới trên web thì PHẢI thêm một mục vào `whats-new.json`** — không thêm thì người đọc
+không bao giờ biết web có gì mới (chính là lý do Huy yêu cầu mục này). Mọi câu chữ trong file **phải đối
+chiếu thật với `index.html`** trước khi ghi (nhãn tab, tên nút, đường dẫn trang) — hứa tính năng chưa có
+là lỗi nặng hơn không giới thiệu gì. Xem `_doc` trong chính file đó.
+**Máy Huy KHÔNG có `node`** → kiểm script email bằng `/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc`
+với stub `require`/`process`/`console` (đã dùng thật 27/07, bắt được cả nhánh thiếu file).
+**5 mẫu newsletter để chọn:** `docs/mockup-newsletter-sang-v1.html` (Intel Brief · báo in cổ điển · thẻ
+hiện đại · digest tối giản · bảng điều khiển) — đều là table + style inline khổ 600px nên chọn xong bê
+thẳng vào `buildHtml` được. Huy chưa chốt mẫu nào.
+
 ## Tab "Cà phê" (ngoài chủ đề tin — thêm 24-25/07/2026)
 Tab **☕ Cà phê**: tìm quán cà phê làm việc HN, xếp theo khoảng cách từ điểm xuất phát (Giảng Võ/Trường Chinh/GPS). Dữ liệu `DATA.workCafes` (embed index.html); code `renderCafes`/`cf*`/CSS `.cf-*`. Scheduled task local **`cafe-rating-retry`** (`15 9 * * 2,5`) vét dần rating Google còn thiếu qua `scripts/cafe_ratings.py` (--missing/--apply), commit **`Cap nhat rating quan ca phe: ...`** — tiền tố này KHÔNG khớp gate email nên không gửi mail. Chi tiết: memory `diem-tin-tab-cafe`.
 

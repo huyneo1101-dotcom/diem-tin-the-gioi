@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5 mẫu newsletter sáng — Điểm Tin Thế Giới (v1)</title>
+<style>
+  body{margin:0;background:#e9edf2;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1d2733}
+  .page{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+  h1{font-size:22px;margin:0 0 6px}
+  .lead{font-size:14px;color:#5a6a7d;line-height:1.6;margin:0 0 22px}
+  .nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px}
+  .nav a{font-size:13px;text-decoration:none;color:#0e4d4d;background:#fff;border:1px solid #cfdae4;border-radius:99px;padding:6px 13px}
+  .card{background:#fff;border:1px solid #d6dfe8;border-radius:14px;margin:0 0 30px;overflow:hidden}
+  .card>header{padding:16px 18px;border-bottom:1px solid #e6ecf2;background:#f7f9fb}
+  .card h2{font-size:17px;margin:0 0 4px}
+  .card .meta{font-size:12.5px;color:#64748b;line-height:1.6}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:4px;padding:2px 7px;margin-right:6px}
+  .t-ok{background:#e6f6ee;color:#116e42}
+  .t-warn{background:#fdf1dc;color:#8a5b06}
+  .stage{padding:22px 14px;background:#eef2f6}
+  .note{font-size:12.5px;color:#64748b;padding:12px 18px;border-top:1px solid #e6ecf2;background:#fbfcfd;line-height:1.6}
+  .sample{font-size:11px;color:#94a3b8}
+  @media (prefers-color-scheme:dark){
+    body{background:#141a21;color:#e6edf3}
+    .card{background:#1b232c;border-color:#2c3846}
+    .card>header{background:#202a35;border-color:#2c3846}
+    .note{background:#1b232c;border-color:#2c3846;color:#9fb0c0}
+    .stage{background:#0f141a}
+    .nav a{background:#1b232c;border-color:#2c3846;color:#7fd1d1}
+    .lead,.card .meta{color:#9fb0c0}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>5 mẫu newsletter sáng — “🎖️ Sự kiện &amp; Tập trận”</h1>
+  <p class="lead">
+    Nội dung trong cả 5 mẫu là <b>dữ liệu thật của phiên sáng 27/07/2026</b> (1 cập nhật RIMPAC 2026 + 3 tính năng mới + mẹo của ngày),
+    trừ khối “Báo cáo tuần” — khối đó chỉ xuất hiện Chủ Nhật nên ở đây là nội dung MẪU, đã đánh dấu.
+    Cả 5 mẫu dựng bằng <b>table + style inline</b>, khổ 600px, không webfont, không flex/grid — tức là chọn mẫu nào thì
+    bê thẳng vào <code>send-morning-email.js</code> được, không phải làm lại. Chốt mẫu nào thì nói số, tao thay luôn.
+  </p>
+
+  <div class="nav">
+    <a href="#m1">1 · Intel Brief</a>
+    <a href="#m2">2 · Báo in cổ điển</a>
+    <a href="#m3">3 · Thẻ hiện đại</a>
+    <a href="#m4">4 · Digest tối giản</a>
+    <a href="#m5">5 · Bảng điều khiển</a>
+  </div>
+
+  <!-- ============================ MẪU 1 — INTEL BRIEF ============================ -->
+  <section class="card" id="m1">
+    <header>
+      <h2>Mẫu 1 — Intel Brief (bản tin tình báo)</h2>
+      <div class="meta"><span class="tag t-ok">an toàn email</span> Nền xanh đen, dải phân loại, số hiệu bản tin, chữ đều tăm tắp. Giống một bản INTREP hơn là newsletter — hợp nếu mày muốn nó “ra dáng nghiệp vụ”.</div>
+    </header>
+    <div class="stage">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;background:#0d1b2a;border-radius:6px;overflow:hidden;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+        <tr><td style="background:#c8a34a;height:4px;line-height:4px;font-size:0;">&nbsp;</td></tr>
+        <tr><td style="padding:20px 26px 16px;">
+          <div style="font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#c8a34a;font-weight:700;">Điểm tin thế giới &nbsp;//&nbsp; bản tin nội bộ</div>
+          <div style="font-size:23px;font-weight:700;color:#ffffff;margin-top:10px;line-height:1.25;">Sự kiện &amp; Tập trận</div>
+          <div style="font-size:12.5px;color:#8fa8bd;margin-top:8px;">27/07/2026 &nbsp;·&nbsp; Số 27-07 &nbsp;·&nbsp; 1 cập nhật tập trận</div>
+        </td></tr>
+        <tr><td style="padding:0 26px;"><table role="presentation" width="100%"><tr><td style="height:1px;background:#1f3348;line-height:1px;font-size:0;">&nbsp;</td></tr></table></td></tr>
+
+        <tr><td style="padding:18px 26px 4px;">
+          <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#c8a34a;font-weight:700;margin-bottom:12px;">01 &nbsp;|&nbsp; Tập trận</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#132639;border-left:3px solid #c8a34a;">
+            <tr><td style="padding:14px 16px;">
+              <div style="font-size:15px;font-weight:700;color:#ffffff;line-height:1.4;">RIMPAC 2026 (Rim of the Pacific)</div>
+              <div style="font-size:11.5px;color:#8fa8bd;margin-top:5px;">ĐANG DIỄN RA &nbsp;·&nbsp; 24/6 – 31/7/2026 &nbsp;·&nbsp; Hawaii</div>
+              <div style="height:1px;background:#1f3348;margin:12px 0;line-height:1px;font-size:0;">&nbsp;</div>
+              <div style="font-size:14px;color:#e4edf5;line-height:1.5;font-weight:600;">RIMPAC 2026 chuyển từ biển lên bờ, Mỹ – Hàn Quốc – Peru diễn tập đổ bộ tại Bellows</div>
+              <div style="font-size:13px;color:#a9bfd2;line-height:1.6;margin-top:7px;">Trọng tâm chuyển từ hoạt động trên biển sang tiến công trên bộ tại khu huấn luyện Bellows. Tiểu đoàn 2 Trung đoàn 7 TQLC — lực lượng mặt đất của Đơn vị Viễn chinh số 15 — làm nòng cốt.</div>
+              <div style="margin-top:9px;"><a href="#" style="font-size:12px;color:#c8a34a;text-decoration:none;font-weight:600;">Hawaii News Now →</a></div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:20px 26px 4px;">
+          <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#c8a34a;font-weight:700;margin-bottom:12px;">02 &nbsp;|&nbsp; Báo cáo tuần <span style="color:#5c7displaced;"></span><span style="color:#6b8299;font-weight:400;letter-spacing:0;text-transform:none;">(chỉ Chủ Nhật — nội dung mẫu)</span></div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="padding:0 0 10px;">
+              <div style="font-size:13.5px;color:#ffffff;font-weight:700;">🇺🇸 Mỹ</div>
+              <div style="font-size:12.5px;color:#a9bfd2;line-height:1.6;margin-top:3px;" class="sample">Luận điểm mẫu — tuần này Washington đẩy nhanh… <i>(báo cáo tuần thật do agent Opus viết Chủ Nhật)</i></div>
+            </td></tr>
+            <tr><td style="padding:0 0 10px;">
+              <div style="font-size:13.5px;color:#ffffff;font-weight:700;">🇨🇳 Trung Quốc</div>
+              <div style="font-size:12.5px;color:#a9bfd2;line-height:1.6;margin-top:3px;" class="sample">Luận điểm mẫu…</div>
+            </td></tr>
+            <tr><td>
+              <div style="font-size:13.5px;color:#ffffff;font-weight:700;">🇷🇺 Nga</div>
+              <div style="font-size:12.5px;color:#a9bfd2;line-height:1.6;margin-top:3px;" class="sample">Luận điểm mẫu…</div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:20px 26px 4px;">
+          <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#c8a34a;font-weight:700;margin-bottom:10px;">03 &nbsp;|&nbsp; Mới trên web</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="padding:0 0 9px;"><span style="color:#c8a34a;">▸</span> <span style="font-size:13.5px;color:#ffffff;font-weight:600;">Đọc lại báo cáo tuần của những tuần trước</span><div style="font-size:12.5px;color:#a9bfd2;line-height:1.6;margin:2px 0 0 14px;">Tab 🧠 Phân tích có bộ chọn để mở lại báo cáo các tuần đã qua.</div></td></tr>
+            <tr><td style="padding:0 0 9px;"><span style="color:#c8a34a;">▸</span> <span style="font-size:13.5px;color:#ffffff;font-weight:600;">Tab ☕ Cà phê — quán làm việc ở Hà Nội</span><div style="font-size:12.5px;color:#a9bfd2;line-height:1.6;margin:2px 0 0 14px;">Hơn 70 quán, xếp theo khoảng cách từ mốc của mày, lọc theo tiêu chí, đánh ⭐ ưa thích.</div></td></tr>
+            <tr><td><span style="color:#c8a34a;">▸</span> <span style="font-size:13.5px;color:#ffffff;font-weight:600;">Tab 📚 Khái niệm + ôn tập hộp Leitner</span><div style="font-size:12.5px;color:#a9bfd2;line-height:1.6;margin:2px 0 0 14px;">Khái niệm gặp trong bản tin gom một chỗ, ôn theo hộp Leitner, đồng bộ theo tài khoản.</div></td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:20px 26px 0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#1a2f16;border:1px solid #2f5227;border-radius:4px;">
+            <tr><td style="padding:14px 16px;">
+              <div style="font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#9ecf87;font-weight:700;">Có thể bạn chưa biết</div>
+              <div style="font-size:14px;color:#ffffff;font-weight:700;margin-top:7px;">Bật 🔔 thông báo khi có bản tin mới</div>
+              <div style="font-size:12.5px;color:#c3ddb8;line-height:1.6;margin-top:4px;">Cho phép quyền thông báo là được báo ngay khi bản tin mới lên. Trên iPhone phải “Thêm vào Màn hình chính” trước rồi mở web từ icon đó.</div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td align="center" style="padding:22px 26px 26px;">
+          <a href="#" style="display:inline-block;background:#c8a34a;color:#0d1b2a;font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:13px 30px;border-radius:3px;">Mở trang tin</a>
+        </td></tr>
+        <tr><td style="background:#c8a34a;height:4px;line-height:4px;font-size:0;">&nbsp;</td></tr>
+      </table>
+    </div>
+    <div class="note">Điểm mạnh: nhìn là biết bản nghiệp vụ, phân mục 01/02/03 dễ quét mắt. Điểm yếu: nền tối nên in ra giấy tốn mực, và Outlook cũ đôi khi bỏ màu nền ô → chữ trắng trên trắng. Nếu chọn mẫu này tao sẽ thêm màu chữ dự phòng.</div>
+  </section>
+
+  <!-- ============================ MẪU 2 — BÁO IN CỔ ĐIỂN ============================ -->
+  <section class="card" id="m2">
+    <header>
+      <h2>Mẫu 2 — Báo in cổ điển (editorial)</h2>
+      <div class="meta"><span class="tag t-ok">an toàn email</span> Chữ serif, kẻ ngang mảnh, tít lớn, không nền màu. Kiểu bản briefing của báo lớn — đọc dài không mỏi mắt.</div>
+    </header>
+    <div class="stage">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;background:#fffdf8;font-family:Georgia,'Times New Roman',serif;border:1px solid #ddd5c7;">
+        <tr><td style="padding:26px 32px 0;" align="center">
+          <div style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8c7b5f;font-family:-apple-system,Segoe UI,Arial,sans-serif;">Điểm Tin Thế Giới</div>
+          <div style="font-size:30px;color:#171310;margin-top:10px;line-height:1.15;">Sự kiện &amp; Tập trận</div>
+          <div style="height:1px;background:#171310;margin:14px 0 8px;line-height:1px;font-size:0;">&nbsp;</div>
+          <div style="font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#6f6350;font-family:-apple-system,Segoe UI,Arial,sans-serif;">Thứ Hai, 27 tháng 7, 2026 &nbsp;·&nbsp; 1 cập nhật tập trận</div>
+          <div style="height:3px;border-top:1px solid #171310;border-bottom:1px solid #171310;margin:8px 0 0;line-height:3px;font-size:0;">&nbsp;</div>
+        </td></tr>
+
+        <tr><td style="padding:24px 32px 0;">
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9c2b2b;font-weight:700;font-family:-apple-system,Segoe UI,Arial,sans-serif;">Tập trận · đang diễn ra</div>
+          <div style="font-size:21px;color:#171310;line-height:1.3;margin-top:8px;">RIMPAC 2026 chuyển từ biển lên bờ, Mỹ – Hàn Quốc – Peru diễn tập đổ bộ tại Bellows</div>
+          <div style="font-size:12px;color:#7a6d59;margin-top:7px;font-family:-apple-system,Segoe UI,Arial,sans-serif;">RIMPAC 2026 &nbsp;·&nbsp; 24/6 – 31/7/2026 &nbsp;·&nbsp; Hawaii</div>
+          <div style="font-size:15px;color:#332b22;line-height:1.68;margin-top:11px;">Trọng tâm cuộc tập trận chuyển từ các hoạt động trên biển sang diễn tập tiến công trên bộ tại khu huấn luyện Thủy quân lục chiến Bellows. Tiểu đoàn 2 Trung đoàn 7 Thủy quân lục chiến — lực lượng tác chiến mặt đất của Đơn vị Viễn chinh số 15 — làm nòng cốt, rèn khả năng chiếu sức mạnh từ vùng biển lên đất liền.</div>
+          <div style="margin-top:9px;"><a href="#" style="font-size:13px;color:#9c2b2b;font-family:-apple-system,Segoe UI,Arial,sans-serif;">Hawaii News Now →</a></div>
+        </td></tr>
+
+        <tr><td style="padding:22px 32px 0;">
+          <div style="height:1px;background:#ddd5c7;line-height:1px;font-size:0;">&nbsp;</div>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6f6350;font-weight:700;font-family:-apple-system,Segoe UI,Arial,sans-serif;margin-top:18px;">Báo cáo tuần <span style="font-weight:400;letter-spacing:0;text-transform:none;">(chỉ Chủ Nhật — nội dung mẫu)</span></div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+            <tr>
+              <td width="33%" valign="top" style="padding-right:10px;"><div style="font-size:14px;color:#171310;font-weight:bold;">🇺🇸 Mỹ</div><div class="sample" style="font-size:13px;line-height:1.6;margin-top:3px;">Luận điểm mẫu…</div></td>
+              <td width="33%" valign="top" style="padding-right:10px;"><div style="font-size:14px;color:#171310;font-weight:bold;">🇨🇳 Trung Quốc</div><div class="sample" style="font-size:13px;line-height:1.6;margin-top:3px;">Luận điểm mẫu…</div></td>
+              <td width="33%" valign="top"><div style="font-size:14px;color:#171310;font-weight:bold;">🇷🇺 Nga</div><div class="sample" style="font-size:13px;line-height:1.6;margin-top:3px;">Luận điểm mẫu…</div></td>
+            </tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:22px 32px 0;">
+          <div style="height:1px;background:#ddd5c7;line-height:1px;font-size:0;">&nbsp;</div>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6f6350;font-weight:700;font-family:-apple-system,Segoe UI,Arial,sans-serif;margin:18px 0 10px;">Mới trên web</div>
+          <div style="font-size:15px;color:#171310;">Đọc lại báo cáo tuần của những tuần trước</div>
+          <div style="font-size:13.5px;color:#4a4137;line-height:1.6;margin:2px 0 10px;">Tab 🧠 Phân tích có bộ chọn để mở lại báo cáo các tuần đã qua.</div>
+          <div style="font-size:15px;color:#171310;">Tab ☕ Cà phê — quán làm việc ở Hà Nội</div>
+          <div style="font-size:13.5px;color:#4a4137;line-height:1.6;margin:2px 0 10px;">Hơn 70 quán, xếp theo khoảng cách từ mốc của mày, lọc theo tiêu chí, đánh ⭐ ưa thích.</div>
+          <div style="font-size:15px;color:#171310;">Tab 📚 Khái niệm + ôn tập hộp Leitner</div>
+          <div style="font-size:13.5px;color:#4a4137;line-height:1.6;margin:2px 0 0;">Khái niệm gặp trong bản tin gom một chỗ, ôn theo hộp Leitner, đồng bộ theo tài khoản.</div>
+        </td></tr>
+
+        <tr><td style="padding:22px 32px 0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:2px solid #171310;border-bottom:1px solid #ddd5c7;">
+            <tr><td style="padding:14px 0;">
+              <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9c2b2b;font-weight:700;font-family:-apple-system,Segoe UI,Arial,sans-serif;">Có thể bạn chưa biết</div>
+              <div style="font-size:16px;color:#171310;margin-top:6px;">Bật 🔔 thông báo khi có bản tin mới</div>
+              <div style="font-size:14px;color:#4a4137;line-height:1.65;margin-top:4px;">Cho phép quyền thông báo là được báo ngay khi bản tin mới lên. Trên iPhone phải “Thêm vào Màn hình chính” trước rồi mở web từ icon đó.</div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td align="center" style="padding:24px 32px 30px;">
+          <a href="#" style="font-size:14px;color:#171310;text-decoration:none;border:1px solid #171310;padding:12px 28px;font-family:-apple-system,Segoe UI,Arial,sans-serif;letter-spacing:.06em;">MỞ TRANG TIN</a>
+        </td></tr>
+      </table>
+    </div>
+    <div class="note">Điểm mạnh: chững chạc, đọc đoạn dài dễ nhất trong 5 mẫu, in ra giấy đẹp. Điểm yếu: serif trên Android/Gmail app hay bị thay font; cột 3 nước trong báo cáo tuần sẽ tự xếp dọc trên điện thoại (chấp nhận được).</div>
+  </section>
+
+  <!-- ============================ MẪU 3 — THẺ HIỆN ĐẠI ============================ -->
+  <section class="card" id="m3">
+    <header>
+      <h2>Mẫu 3 — Thẻ hiện đại (gần bản đang chạy nhưng gọn hơn)</h2>
+      <div class="meta"><span class="tag t-ok">an toàn email</span> Nền xám nhạt, thẻ trắng bo tròn, nhãn màu theo loại. Đây là hướng cải tiến “ít rủi ro nhất” so với email hiện tại.</div>
+    </header>
+    <div class="stage">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+        <tr><td style="background:#ffffff;border:1px solid #e3e9f0;border-radius:16px 16px 0 0;padding:22px 24px;">
+          <table role="presentation" width="100%"><tr>
+            <td><div style="font-size:19px;font-weight:800;color:#0f2e3d;">Sự kiện &amp; Tập trận</div>
+                <div style="font-size:13px;color:#6b7f92;margin-top:3px;">Thứ Hai 27/07/2026</div></td>
+            <td align="right"><span style="display:inline-block;background:#e8f4f1;color:#0d7a63;font-size:12px;font-weight:700;padding:6px 12px;border-radius:99px;">1 cập nhật</span></td>
+          </tr></table>
+        </td></tr>
+
+        <tr><td style="background:#f5f8fb;padding:16px 16px 4px;border-left:1px solid #e3e9f0;border-right:1px solid #e3e9f0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e3e9f0;border-radius:12px;">
+            <tr><td style="padding:16px 18px;">
+              <span style="display:inline-block;background:#fdf0e6;color:#a1521a;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:5px;">🎯 Tập trận</span>
+              <span style="display:inline-block;background:#e9f2fd;color:#1a56db;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:5px;margin-left:5px;">Đang diễn ra</span>
+              <div style="font-size:16px;font-weight:800;color:#0f2e3d;margin-top:11px;">RIMPAC 2026 (Rim of the Pacific)</div>
+              <div style="font-size:12.5px;color:#7d8fa1;margin-top:3px;">24/6 – 31/7/2026 · Hawaii · 29 nước</div>
+              <div style="height:1px;background:#eef2f7;margin:13px 0;line-height:1px;font-size:0;">&nbsp;</div>
+              <div style="font-size:14.5px;font-weight:700;color:#16303e;line-height:1.45;">RIMPAC 2026 chuyển từ biển lên bờ, Mỹ – Hàn Quốc – Peru diễn tập đổ bộ tại Bellows</div>
+              <div style="font-size:13.5px;color:#54687c;line-height:1.62;margin-top:6px;">Trọng tâm chuyển từ hoạt động trên biển sang tiến công trên bộ tại khu huấn luyện Bellows. Tiểu đoàn 2 Trung đoàn 7 TQLC làm nòng cốt, rèn khả năng chiếu sức mạnh từ biển lên đất liền.</div>
+              <div style="margin-top:10px;"><a href="#" style="font-size:12.5px;color:#0d7a63;font-weight:700;text-decoration:none;">Hawaii News Now →</a></div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="background:#f5f8fb;padding:12px 16px 4px;border-left:1px solid #e3e9f0;border-right:1px solid #e3e9f0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e3e9f0;border-radius:12px;">
+            <tr><td style="padding:16px 18px;">
+              <span style="display:inline-block;background:#f0ecfd;color:#5b3fc4;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:5px;">📊 Báo cáo tuần</span>
+              <span style="font-size:11.5px;color:#94a3b8;margin-left:6px;">chỉ Chủ Nhật — nội dung mẫu</span>
+              <table role="presentation" width="100%" style="margin-top:12px;">
+                <tr><td style="padding:0 0 8px;"><span style="font-size:14px;">🇺🇸</span> <b style="font-size:13.5px;color:#16303e;">Mỹ</b><div class="sample" style="font-size:13px;line-height:1.6;margin-top:2px;">Luận điểm mẫu…</div></td></tr>
+                <tr><td style="padding:0 0 8px;"><span style="font-size:14px;">🇨🇳</span> <b style="font-size:13.5px;color:#16303e;">Trung Quốc</b><div class="sample" style="font-size:13px;line-height:1.6;margin-top:2px;">Luận điểm mẫu…</div></td></tr>
+                <tr><td><span style="font-size:14px;">🇷🇺</span> <b style="font-size:13.5px;color:#16303e;">Nga</b><div class="sample" style="font-size:13px;line-height:1.6;margin-top:2px;">Luận điểm mẫu…</div></td></tr>
+              </table>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="background:#f5f8fb;padding:12px 16px 4px;border-left:1px solid #e3e9f0;border-right:1px solid #e3e9f0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f0f7f7;border:1px solid #cfe4e4;border-radius:12px;">
+            <tr><td style="padding:15px 18px;">
+              <div style="font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0e8a8a;margin-bottom:9px;">🆕 Mới trên web</div>
+              <div style="font-size:14px;font-weight:700;color:#0e4d4d;">Đọc lại báo cáo tuần của những tuần trước</div>
+              <div style="font-size:13px;color:#48566b;line-height:1.55;margin:2px 0 9px;">Tab 🧠 Phân tích có bộ chọn để mở lại báo cáo các tuần đã qua.</div>
+              <div style="font-size:14px;font-weight:700;color:#0e4d4d;">Tab ☕ Cà phê — quán làm việc ở Hà Nội</div>
+              <div style="font-size:13px;color:#48566b;line-height:1.55;margin:2px 0 9px;">Hơn 70 quán, xếp theo khoảng cách từ mốc của mày, lọc theo tiêu chí, đánh ⭐ ưa thích.</div>
+              <div style="font-size:14px;font-weight:700;color:#0e4d4d;">Tab 📚 Khái niệm + ôn tập hộp Leitner</div>
+              <div style="font-size:13px;color:#48566b;line-height:1.55;margin-top:2px;">Khái niệm gặp trong bản tin gom một chỗ, ôn theo hộp Leitner, đồng bộ theo tài khoản.</div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="background:#f5f8fb;padding:12px 16px 16px;border-left:1px solid #e3e9f0;border-right:1px solid #e3e9f0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff9ec;border:1px solid #f0e0bd;border-radius:12px;">
+            <tr><td style="padding:15px 18px;">
+              <div style="font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#a5791b;margin-bottom:8px;">💡 Có thể bạn chưa biết</div>
+              <div style="font-size:14px;font-weight:700;color:#5b4410;">Bật 🔔 thông báo khi có bản tin mới</div>
+              <div style="font-size:13px;color:#6b5a33;line-height:1.55;margin-top:3px;">Cho phép quyền thông báo là được báo ngay khi bản tin mới lên. Trên iPhone phải “Thêm vào Màn hình chính” trước rồi mở web từ icon đó.</div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td align="center" style="background:#ffffff;border:1px solid #e3e9f0;border-top:0;border-radius:0 0 16px 16px;padding:20px 24px 24px;">
+          <a href="#" style="display:inline-block;background:#0d7a63;color:#ffffff;font-size:15px;font-weight:700;text-decoration:none;padding:13px 30px;border-radius:10px;">Mở trang tin →</a>
+        </td></tr>
+      </table>
+    </div>
+    <div class="note">Điểm mạnh: rủi ro thấp nhất (mọi client render đúng), nhãn màu giúp phân biệt loại nội dung ngay, mobile đẹp. Điểm yếu: “an toàn” nên ít cá tính — dễ giống newsletter sản phẩm.</div>
+  </section>
+
+  <!-- ============================ MẪU 4 — DIGEST TỐI GIẢN ============================ -->
+  <section class="card" id="m4">
+    <header>
+      <h2>Mẫu 4 — Digest tối giản (chỉ chữ + kẻ)</h2>
+      <div class="meta"><span class="tag t-ok">an toàn email</span> Không nền màu, không thẻ. Chỉ typography, số mục và đường kẻ. Nhẹ nhất, tải nhanh nhất, không bao giờ vỡ.</div>
+    </header>
+    <div class="stage">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;background:#ffffff;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+        <tr><td style="padding:30px 30px 0;">
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8a94a0;">Điểm Tin Thế Giới · 27.07.2026</div>
+          <div style="font-size:24px;font-weight:800;color:#111827;margin-top:8px;letter-spacing:-.01em;">Sự kiện &amp; Tập trận</div>
+          <div style="height:2px;background:#111827;width:44px;margin-top:14px;line-height:2px;font-size:0;">&nbsp;</div>
+        </td></tr>
+
+        <tr><td style="padding:26px 30px 0;">
+          <table role="presentation" width="100%"><tr>
+            <td width="34" valign="top"><div style="font-size:19px;font-weight:800;color:#d1d5db;">01</div></td>
+            <td valign="top">
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#b45309;">Tập trận · đang diễn ra</div>
+              <div style="font-size:17px;font-weight:700;color:#111827;line-height:1.4;margin-top:6px;">RIMPAC 2026 chuyển từ biển lên bờ, Mỹ – Hàn Quốc – Peru diễn tập đổ bộ tại Bellows</div>
+              <div style="font-size:14px;color:#4b5563;line-height:1.68;margin-top:8px;">Trọng tâm chuyển từ hoạt động trên biển sang tiến công trên bộ tại khu huấn luyện Bellows. Tiểu đoàn 2 Trung đoàn 7 TQLC — lực lượng mặt đất của Đơn vị Viễn chinh số 15 — làm nòng cốt.</div>
+              <div style="font-size:12.5px;color:#9ca3af;margin-top:8px;">RIMPAC 2026 · 24/6 – 31/7/2026 · <a href="#" style="color:#111827;font-weight:600;">Hawaii News Now</a></div>
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <tr><td style="padding:22px 30px 0;"><div style="height:1px;background:#eceff3;line-height:1px;font-size:0;">&nbsp;</div></td></tr>
+
+        <tr><td style="padding:22px 30px 0;">
+          <table role="presentation" width="100%"><tr>
+            <td width="34" valign="top"><div style="font-size:19px;font-weight:800;color:#d1d5db;">02</div></td>
+            <td valign="top">
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6d28d9;">Báo cáo tuần <span style="font-weight:400;letter-spacing:0;text-transform:none;color:#9ca3af;">(chỉ Chủ Nhật — mẫu)</span></div>
+              <div style="font-size:14px;color:#111827;font-weight:700;margin-top:8px;">🇺🇸 Mỹ</div><div class="sample" style="font-size:13.5px;line-height:1.62;">Luận điểm mẫu…</div>
+              <div style="font-size:14px;color:#111827;font-weight:700;margin-top:7px;">🇨🇳 Trung Quốc</div><div class="sample" style="font-size:13.5px;line-height:1.62;">Luận điểm mẫu…</div>
+              <div style="font-size:14px;color:#111827;font-weight:700;margin-top:7px;">🇷🇺 Nga</div><div class="sample" style="font-size:13.5px;line-height:1.62;">Luận điểm mẫu…</div>
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <tr><td style="padding:22px 30px 0;"><div style="height:1px;background:#eceff3;line-height:1px;font-size:0;">&nbsp;</div></td></tr>
+
+        <tr><td style="padding:22px 30px 0;">
+          <table role="presentation" width="100%"><tr>
+            <td width="34" valign="top"><div style="font-size:19px;font-weight:800;color:#d1d5db;">03</div></td>
+            <td valign="top">
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0f766e;">Mới trên web</div>
+              <div style="font-size:14.5px;font-weight:700;color:#111827;margin-top:8px;">Đọc lại báo cáo tuần của những tuần trước</div>
+              <div style="font-size:13.5px;color:#4b5563;line-height:1.6;">Tab 🧠 Phân tích có bộ chọn để mở lại báo cáo các tuần đã qua.</div>
+              <div style="font-size:14.5px;font-weight:700;color:#111827;margin-top:9px;">Tab ☕ Cà phê — quán làm việc ở Hà Nội</div>
+              <div style="font-size:13.5px;color:#4b5563;line-height:1.6;">Hơn 70 quán, xếp theo khoảng cách từ mốc của mày, lọc theo tiêu chí, đánh ⭐ ưa thích.</div>
+              <div style="font-size:14.5px;font-weight:700;color:#111827;margin-top:9px;">Tab 📚 Khái niệm + ôn tập hộp Leitner</div>
+              <div style="font-size:13.5px;color:#4b5563;line-height:1.6;">Khái niệm gặp trong bản tin gom một chỗ, ôn theo hộp Leitner, đồng bộ theo tài khoản.</div>
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <tr><td style="padding:22px 30px 0;"><div style="height:1px;background:#eceff3;line-height:1px;font-size:0;">&nbsp;</div></td></tr>
+
+        <tr><td style="padding:22px 30px 0;">
+          <table role="presentation" width="100%"><tr>
+            <td width="34" valign="top"><div style="font-size:17px;">💡</div></td>
+            <td valign="top">
+              <div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a16207;">Có thể bạn chưa biết</div>
+              <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px;">Bật 🔔 thông báo khi có bản tin mới</div>
+              <div style="font-size:13.5px;color:#4b5563;line-height:1.65;margin-top:3px;">Cho phép quyền thông báo là được báo ngay khi bản tin mới lên. Trên iPhone phải “Thêm vào Màn hình chính” trước rồi mở web từ icon đó.</div>
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <tr><td style="padding:26px 30px 32px;">
+          <a href="#" style="font-size:15px;font-weight:700;color:#111827;text-decoration:none;border-bottom:2px solid #111827;padding-bottom:2px;">Mở trang tin →</a>
+        </td></tr>
+      </table>
+    </div>
+    <div class="note">Điểm mạnh: không thể vỡ ở bất kỳ client nào, đọc trên điện thoại rất thoáng, dung lượng nhỏ. Điểm yếu: khi có nhiều sự kiện (5–6 mục) thì nhìn đơn điệu, khó phân biệt loại nội dung bằng mắt.</div>
+  </section>
+
+  <!-- ============================ MẪU 5 — BẢNG ĐIỀU KHIỂN ============================ -->
+  <section class="card" id="m5">
+    <header>
+      <h2>Mẫu 5 — Bảng điều khiển (có dải số liệu + tiến độ tập trận)</h2>
+      <div class="meta"><span class="tag t-warn">cần thêm dữ liệu</span> Mẫu duy nhất hiện SỐ ĐO: mấy sự kiện mới, mấy cuộc đang diễn ra, cuộc đang chạy tới đâu. Các số này lấy được từ <code>DATA</code> nhưng tao phải viết thêm phần tính — không sẵn như 4 mẫu kia.</div>
+    </header>
+    <div class="stage">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" align="center" style="max-width:600px;width:100%;background:#ffffff;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;border-radius:14px;overflow:hidden;border:1px solid #dbe3ec;">
+        <tr><td style="background:#132a3f;padding:20px 24px;">
+          <div style="font-size:18px;font-weight:800;color:#ffffff;">🎖️ Sự kiện &amp; Tập trận</div>
+          <div style="font-size:12.5px;color:#8fa8bd;margin-top:3px;">Thứ Hai 27/07/2026 · phiên quét sáng</div>
+        </td></tr>
+
+        <tr><td style="padding:0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f7fafc;">
+            <tr>
+              <td width="33%" align="center" style="padding:16px 6px;border-right:1px solid #e6ecf2;">
+                <div style="font-size:26px;font-weight:800;color:#0d7a63;line-height:1;">1</div>
+                <div style="font-size:11px;color:#6b7f92;margin-top:5px;letter-spacing:.03em;">cập nhật mới</div>
+              </td>
+              <td width="33%" align="center" style="padding:16px 6px;border-right:1px solid #e6ecf2;">
+                <div style="font-size:26px;font-weight:800;color:#b45309;line-height:1;">3</div>
+                <div style="font-size:11px;color:#6b7f92;margin-top:5px;letter-spacing:.03em;">tập trận đang chạy</div>
+              </td>
+              <td width="33%" align="center" style="padding:16px 6px;">
+                <div style="font-size:26px;font-weight:800;color:#1a56db;line-height:1;">12</div>
+                <div style="font-size:11px;color:#6b7f92;margin-top:5px;letter-spacing:.03em;">hồ sơ ngoại giao</div>
+              </td>
+            </tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:18px 24px 0;">
+          <div style="font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#8a97a5;margin-bottom:10px;">Cập nhật hôm nay</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e6ecf2;border-radius:10px;">
+            <tr><td style="padding:15px 16px;">
+              <table role="presentation" width="100%"><tr>
+                <td><span style="font-size:13.5px;font-weight:800;color:#132a3f;">RIMPAC 2026</span></td>
+                <td align="right"><span style="display:inline-block;background:#e8f4f1;color:#0d7a63;font-size:11px;font-weight:700;padding:3px 9px;border-radius:99px;">đang diễn ra</span></td>
+              </tr></table>
+              <div style="font-size:11.5px;color:#8a97a5;margin-top:6px;">24/6 → 31/7/2026 · còn 4 ngày</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:7px;background:#eef2f7;border-radius:99px;">
+                <tr><td width="89%" style="background:#0d7a63;height:6px;line-height:6px;font-size:0;border-radius:99px;">&nbsp;</td><td width="11%" style="height:6px;line-height:6px;font-size:0;">&nbsp;</td></tr>
+              </table>
+              <div style="height:1px;background:#eef2f7;margin:13px 0;line-height:1px;font-size:0;">&nbsp;</div>
+              <div style="font-size:14.5px;font-weight:700;color:#16303e;line-height:1.45;">RIMPAC 2026 chuyển từ biển lên bờ, Mỹ – Hàn Quốc – Peru diễn tập đổ bộ tại Bellows</div>
+              <div style="font-size:13.5px;color:#54687c;line-height:1.6;margin-top:6px;">Trọng tâm chuyển từ hoạt động trên biển sang tiến công trên bộ tại khu huấn luyện Bellows. Tiểu đoàn 2 Trung đoàn 7 TQLC làm nòng cốt.</div>
+              <div style="margin-top:9px;"><a href="#" style="font-size:12.5px;color:#0d7a63;font-weight:700;text-decoration:none;">Hawaii News Now →</a></div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:16px 24px 0;">
+          <div style="font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#8a97a5;margin-bottom:10px;">Báo cáo tuần <span style="font-weight:400;letter-spacing:0;text-transform:none;color:#a8b4c0;">(chỉ Chủ Nhật — mẫu)</span></div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="33%" valign="top" style="padding-right:6px;"><table role="presentation" width="100%" style="background:#f7fafc;border:1px solid #e6ecf2;border-radius:9px;"><tr><td style="padding:11px;"><div style="font-size:16px;">🇺🇸</div><div style="font-size:12.5px;font-weight:700;color:#132a3f;margin-top:3px;">Mỹ</div><div class="sample" style="font-size:12px;line-height:1.5;margin-top:3px;">mẫu…</div></td></tr></table></td>
+              <td width="33%" valign="top" style="padding-right:6px;"><table role="presentation" width="100%" style="background:#f7fafc;border:1px solid #e6ecf2;border-radius:9px;"><tr><td style="padding:11px;"><div style="font-size:16px;">🇨🇳</div><div style="font-size:12.5px;font-weight:700;color:#132a3f;margin-top:3px;">Trung Quốc</div><div class="sample" style="font-size:12px;line-height:1.5;margin-top:3px;">mẫu…</div></td></tr></table></td>
+              <td width="33%" valign="top"><table role="presentation" width="100%" style="background:#f7fafc;border:1px solid #e6ecf2;border-radius:9px;"><tr><td style="padding:11px;"><div style="font-size:16px;">🇷🇺</div><div style="font-size:12.5px;font-weight:700;color:#132a3f;margin-top:3px;">Nga</div><div class="sample" style="font-size:12px;line-height:1.5;margin-top:3px;">mẫu…</div></td></tr></table></td>
+            </tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:16px 24px 0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f0f7f7;border-left:4px solid #0e8a8a;border-radius:0 8px 8px 0;">
+            <tr><td style="padding:13px 15px;">
+              <div style="font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0e8a8a;margin-bottom:7px;">🆕 Mới trên web · 3</div>
+              <div style="font-size:13.5px;color:#0e4d4d;line-height:1.65;"><b>Đọc lại báo cáo tuần</b> các tuần trước · <b>Tab ☕ Cà phê</b> 70+ quán làm việc HN · <b>Tab 📚 Khái niệm</b> ôn tập hộp Leitner</div>
+              <div style="margin-top:7px;"><a href="#" style="font-size:12.5px;color:#0e8a8a;font-weight:700;text-decoration:none;">Xem chi tiết →</a></div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td style="padding:12px 24px 0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff9ec;border-left:4px solid #d9a825;border-radius:0 8px 8px 0;">
+            <tr><td style="padding:13px 15px;">
+              <div style="font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#a5791b;margin-bottom:6px;">💡 Có thể bạn chưa biết</div>
+              <div style="font-size:14px;font-weight:700;color:#5b4410;">Bật 🔔 thông báo khi có bản tin mới</div>
+              <div style="font-size:13px;color:#6b5a33;line-height:1.55;margin-top:3px;">Trên iPhone phải “Thêm vào Màn hình chính” trước rồi mở web từ icon đó, iOS mới cho phép thông báo.</div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <tr><td align="center" style="padding:20px 24px 24px;">
+          <a href="#" style="display:inline-block;background:#132a3f;color:#ffffff;font-size:15px;font-weight:700;text-decoration:none;padding:13px 32px;border-radius:9px;">Mở trang tin →</a>
+        </td></tr>
+      </table>
+    </div>
+    <div class="note">Điểm mạnh: liếc 3 giây là biết hôm nay có gì, thanh tiến độ cho thấy cuộc tập trận còn mấy ngày — thứ 4 mẫu kia không có. Điểm yếu: <b>3 số ở dải trên và thanh tiến độ tao phải viết code tính thêm</b> (đếm sự kiện, parse dải ngày <code>dates</code>); ngày nào rỗng số liệu thì dải này trông trống trải.</div>
+  </section>
+
+  <div class="note" style="border:1px solid #d6dfe8;border-radius:12px;background:#fff;">
+    <b>Tao khuyến nghị:</b> lấy <b>mẫu 3</b> nếu muốn thay ngay hôm nay mà chắc chắn không vỡ ở client nào —
+    nó là bản nâng cấp trực tiếp của email đang chạy. Lấy <b>mẫu 1</b> nếu muốn email nhìn “ra dáng bản nghiệp vụ”
+    khớp với tính chất nội dung (sự kiện quân sự/ngoại giao) — đây là mẫu tao thấy hợp gu mày nhất.
+    Lấy <b>mẫu 5</b> nếu muốn thấy số đo mỗi sáng, nhưng phải cho tao thêm một lượt để viết phần tính số liệu.
+    Mẫu 2 và 4 là hai cực an toàn về đọc — chọn khi mày ưu tiên đọc dài hơn là nhìn.
+  </div>
+
+</div>
+</body>
+</html>

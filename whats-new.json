@@ -1,0 +1,69 @@
+{
+  "_doc": "Nguồn dữ liệu cho HAI mục trong email sáng (.github/scripts/send-morning-email.js): '🆕 Mới trên web' và '💡 Có thể bạn chưa biết'. features = tính năng NGƯỜI ĐỌC nhìn thấy (không ghi việc sửa routine/CI/quy tắc quét); email chỉ in feature có date trong 7 ngày gần nhất, tối đa 3 mục. tips = mẹo dùng web, email xoay 1 mẹo/ngày theo số ngày (deterministic, không random) nên cứ thêm mẹo vào cuối mảng là nó tự tới lượt. MỌI mục phải là chức năng THẬT đã kiểm trên index.html — không hứa tính năng chưa có.",
+  "features": [
+    {
+      "date": "2026-07-27",
+      "title": "Đọc lại báo cáo tuần của những tuần trước",
+      "desc": "Báo cáo tuần Mỹ · Trung · Nga (ra Chủ Nhật) giờ được lưu lại. Vào tab 🧠 Phân tích, mục Báo cáo tuần có bộ chọn để mở lại báo cáo các tuần đã qua thay vì chỉ thấy tuần mới nhất."
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Tab ☕ Cà phê — quán làm việc ở Hà Nội",
+      "desc": "Hơn 70 quán, xếp theo khoảng cách từ mốc xuất phát của bạn (tự thêm mốc riêng), lọc theo 🧑‍💻 Làm việc 1 mình · 🪑 Ngồi bàn công việc · 🌅 View đẹp · 🎉 Thú vị · Mở 24h · Yên tĩnh, đánh ⭐ ưa thích hoặc tự thêm quán mới."
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Tab 📚 Khái niệm + ôn tập kiểu hộp Leitner",
+      "desc": "Khái niệm quân sự – ngoại giao gặp trong bản tin gom về một tab riêng. Ôn theo hộp Leitner (tự chấm 1–5, 5 = nhớ chắc), số khái niệm tới hạn hiện ngay trên tên tab; tiến độ đồng bộ theo tài khoản."
+    },
+    {
+      "date": "2026-07-25",
+      "title": "📔 Bối cảnh + 📚 Khái niệm dưới mỗi cuộc tập trận",
+      "desc": "Mỗi cuộc tập trận nay có hai thẻ nền: Bối cảnh (vì sao cuộc đó diễn ra, ai tham gia, ý nghĩa) và Khái niệm (các thuật ngữ chính của cuộc đó) — đọc diễn biến mà không phải tự tra."
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Link nội dòng trong báo cáo tuần",
+      "desc": "Trong báo cáo tuần, cụm chữ màu đỏ là link bấm được, dẫn thẳng tới bài gốc của dữ kiện đang nhắc tới."
+    }
+  ],
+  "tips": [
+    {
+      "title": "Chấm 👍 / 👎 để bản tin bám gu bạn hơn",
+      "desc": "Vote trên từng tin được tổng hợp lại; phiên quét hôm sau ưu tiên chuyên mục · khu vực · nguồn bạn thích và giảm thứ bạn bỏ qua. Đây là định hướng mềm — không mục nào bị bỏ hẳn."
+    },
+    {
+      "title": "Có một trang 🎯 Luyện sở thích không nằm trên thanh tab",
+      "desc": "Mở thêm /luyen-so-thich.html để chấm 👍 / 👎 liên tiếp nhiều tin một lượt cho nhanh. Vote lưu vào cùng tài khoản với trang bản tin.",
+      "path": "/luyen-so-thich.html"
+    },
+    {
+      "title": "Mục 🚫 Bị loại giữ lại tin đã bị gạt",
+      "desc": "Tin bị loại vì sai khung ngày, nghi trùng hoặc ngoài gu vẫn nằm ở mục Bị loại cuối tab 📰 Điểm Tin. Thấy tin bị loại oan thì bấm 👍 là kéo nó lên bản tin chính."
+    },
+    {
+      "title": "Bấm ★ để lưu tin đọc sau",
+      "desc": "Tin đã lưu nằm trên máy này và theo tài khoản nếu đã đăng nhập, giữ được cả khi tin gốc đã rời khỏi bản tin. Bấm ★ lần nữa để bỏ lưu."
+    },
+    {
+      "title": "Ô “Tìm trong bản tin…” tìm theo chữ",
+      "desc": "Gõ tên khí tài, tên nước hay một cụm bất kỳ để lọc nhanh trong bản tin — dùng được cả trong danh sách tin đã lưu."
+    },
+    {
+      "title": "Ba giao diện: ☀️ Sáng · 🌙 Tối · 🛰️ Intel",
+      "desc": "Đổi ở đầu trang. Web nhớ lựa chọn cho lần mở sau — Intel là bảng màu tối kiểu phòng tình huống."
+    },
+    {
+      "title": "Bật 🔔 thông báo khi có bản tin mới",
+      "desc": "Cho phép quyền thông báo là được báo ngay khi bản tin mới lên. Trên iPhone phải “Thêm vào Màn hình chính” trước rồi mở web từ icon đó, iOS mới cho phép thông báo."
+    },
+    {
+      "title": "Tự thêm khái niệm muốn ôn",
+      "desc": "Tab 📚 Khái niệm có ô “Gõ một khái niệm để lưu…” — gặp thuật ngữ lạ ở đâu cũng gõ vào đó, nó vào luôn vòng ôn tập."
+    },
+    {
+      "title": "Tab 🗂️ Chuyên đề chia làm ba mảng",
+      "desc": "Bên trong tab Chuyên đề có 🎯 Tập trận · 🕊️ Ngoại giao · 🧵 Hồ sơ. Mục Hồ sơ gom các tin cùng một chuyện dài (vd Mỹ – Mali) lại một chỗ để thấy mạch diễn biến thay vì đọc trôi theo ngày."
+    }
+  ]
+}

@@ -36,6 +36,76 @@ function esc(s) {
 function trim(s, n) { s = String(s == null ? '' : s).trim(); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; }
 const STLABEL = { ongoing: 'Đang diễn ra', upcoming: 'Sắp diễn ra', recent: 'Đã kết thúc' };
 
+// ==== 🆕 Mới trên web + 💡 Có thể bạn chưa biết (chỉ thị Huy 27/07/2026) ====
+// Nguồn: whats-new.json ở gốc repo (xem "_doc" trong file đó). Hai mục này KHÔNG bao giờ tự
+// mở email: gate gửi vẫn là "có sự kiện/tập trận mới hoặc báo cáo tuần mới" — nếu không thì
+// một mẹo dùng web không đáng một lá mail. Chúng ăn theo email đã chắc chắn gửi.
+// Chốt an toàn giống mục "Chủ đề thiếu" của send-email.js: thiếu file / JSON lỗi / mảng rỗng
+// thì BỎ CẢ MỤC (chỉ log), KHÔNG làm vỡ email.
+const FEATURE_DAYS = 7;   // feature cũ hơn số ngày này thì thôi, coi như đã giới thiệu rồi
+const FEATURE_MAX = 3;    // in tối đa 3 mục, tránh email dài hơn phần tin
+
+function readWhatsNew() {
+  try {
+    const j = JSON.parse(fs.readFileSync('whats-new.json', 'utf8'));
+    return {
+      features: Array.isArray(j.features) ? j.features : [],
+      tips: Array.isArray(j.tips) ? j.tips : [],
+    };
+  } catch (e) {
+    console.log('whats-new.json: không đọc được (' + (e && e.message) + ') — bỏ mục Mới trên web + Có thể bạn chưa biết.');
+    return { features: [], tips: [] };
+  }
+}
+
+// generatedAt dạng YYYY-MM-DD -> số ngày kể từ epoch (UTC, khỏi lệ thuộc giờ máy chạy Action).
+function dayNum(ymd) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(ymd || ''));
+  const t = m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : Date.now();
+  return Math.floor(t / 86400000);
+}
+
+function freshFeatures(wn, ymd) {
+  const today = dayNum(ymd);
+  return wn.features
+    .filter(f => f && f.title && /^\d{4}-\d{2}-\d{2}$/.test(f.date || ''))
+    .filter(f => { const d = today - dayNum(f.date); return d >= 0 && d < FEATURE_DAYS; })
+    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+    .slice(0, FEATURE_MAX);
+}
+
+// Mẹo xoay theo NGÀY, không random: cùng một ngày chạy lại (retry/dispatch) ra cùng mẹo, và
+// mẹo mới thêm vào cuối mảng chắc chắn có lượt. Thêm/bớt mẹo chỉ làm lệch pha, không hỏng gì.
+function tipOfDay(wn, ymd) {
+  const t = wn.tips.filter(x => x && x.title);
+  return t.length ? t[((dayNum(ymd) % t.length) + t.length) % t.length] : null;
+}
+
+function featuresHtml(fs_) {
+  const rows = fs_.map(f => `<div style="margin:0 0 10px;">
+        <div style="font-size:14px;font-weight:700;color:#0e4d4d;">${esc(f.title)}</div>
+        <div style="font-size:13px;color:#48566b;line-height:1.55;margin-top:2px;">${esc(trim(f.desc, 340))}</div>
+      </div>`).join('');
+  return `<tr><td style="padding:14px 0 0;">
+    <table role="presentation" width="100%" style="background:#f0f7f7;border:1px solid #cfe4e4;border-radius:10px;"><tr><td style="padding:14px 16px;">
+      <div style="font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0e8a8a;margin-bottom:8px;">🆕 Mới trên web</div>
+      ${rows}
+    </td></tr></table></td></tr>`;
+}
+
+function tipHtml(tip) {
+  const link = tip.path
+    ? `<div style="margin-top:6px;"><a href="${WEB_URL}${esc(tip.path)}" style="color:#1a56db;font-weight:600;text-decoration:none;">Mở thử →</a></div>`
+    : '';
+  return `<tr><td style="padding:14px 0 0;">
+    <table role="presentation" width="100%" style="background:#fff9ec;border:1px solid #f0e0bd;border-radius:10px;"><tr><td style="padding:14px 16px;">
+      <div style="font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#a5791b;margin-bottom:8px;">💡 Có thể bạn chưa biết</div>
+      <div style="font-size:14px;font-weight:700;color:#5b4410;">${esc(tip.title)}</div>
+      <div style="font-size:13px;color:#6b5a33;line-height:1.55;margin-top:2px;">${esc(trim(tip.desc, 340))}</div>
+      ${link}
+    </td></tr></table></td></tr>`;
+}
+
 // Gom dipEvents + exercises của một DATA thành map name -> {ev, itemUrls:Set}
 function eventMap(DATA) {
   const m = new Map();
@@ -102,10 +172,12 @@ function weeklyHtml(w) {
     </td></tr>`;
 }
 
-function buildHtml(evs, weekly, ddmm) {
+function buildHtml(evs, weekly, ddmm, feats, tip) {
   let sections = '';
   if (evs.length) sections += `<tr><td style="padding:6px 28px 0;"><table role="presentation" width="100%">${evs.map(evBlockHtml).join('')}</table></td></tr>`;
   if (weekly) sections += `<tr><td style="padding:0 28px;"><table role="presentation" width="100%">${weeklyHtml(weekly)}</table></td></tr>`;
+  if (feats && feats.length) sections += `<tr><td style="padding:0 28px;"><table role="presentation" width="100%">${featuresHtml(feats)}</table></td></tr>`;
+  if (tip) sections += `<tr><td style="padding:0 28px;"><table role="presentation" width="100%">${tipHtml(tip)}</table></td></tr>`;
   const sub = [evs.length ? `${evs.length} sự kiện/tập trận cập nhật` : '', weekly ? 'báo cáo tuần mới' : ''].filter(Boolean).join(' · ');
   return `<!doctype html><html><body style="margin:0;background:#f4f6f9;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:24px 12px;">
@@ -151,6 +223,16 @@ async function main() {
     textLines.push('', `📊 Báo cáo tuần ${weekly.weekStart || ''}–${weekly.weekEnd || ''}:`);
     (weekly.countries || []).forEach(c => textLines.push(`   ${c.flag || ''} ${c.name}: ${(c.points || []).map(x => x.title).slice(0, 4).join(' · ')}`));
   }
+  const wn = readWhatsNew();
+  const feats = freshFeatures(wn, cur.generatedAt);
+  const tip = tipOfDay(wn, cur.generatedAt);
+  if (feats.length) {
+    textLines.push('', '🆕 Mới trên web:');
+    feats.forEach(f => textLines.push(`   - ${f.title}: ${f.desc || ''}`));
+  }
+  if (tip) {
+    textLines.push('', `💡 Có thể bạn chưa biết — ${tip.title}`, `   ${tip.desc || ''}${tip.path ? ' → ' + WEB_URL + tip.path : ''}`);
+  }
   const info = await transporter.sendMail({
     from: `"Điểm Tin Thế Giới" <${EMAIL_USER}>`,
     to: EMAIL_TO,
@@ -161,9 +243,9 @@ async function main() {
     // dùng emoji khác hẳn (🎖️ vs 📰) để liếc là ra.
     subject: `🎖️ Sự kiện & Tập trận ${ddmm} — ${subjBits.join(' + ')}`,
     text: `Sự kiện & Tập trận ${ddmm}.\n\n` + textLines.join('\n') + `\n\nMở trang: ${WEB_URL}`,
-    html: buildHtml(evs, weekly, ddmm),
+    html: buildHtml(evs, weekly, ddmm, feats, tip),
   });
-  console.log(`Đã gửi email sáng tới ${EMAIL_TO}: ${info.messageId} (${evs.length} sự kiện, báo cáo tuần: ${weekly ? 'có' : 'không'})`);
+  console.log(`Đã gửi email sáng tới ${EMAIL_TO}: ${info.messageId} (${evs.length} sự kiện, báo cáo tuần: ${weekly ? 'có' : 'không'}, tính năng mới: ${feats.length}, mẹo: ${tip ? tip.title : 'không'})`);
 }
 
 main().catch(e => { console.error('LỖI gửi email sáng:', (e && e.stack) || e); process.exit(1); });
