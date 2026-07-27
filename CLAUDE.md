@@ -92,6 +92,28 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
 `/tmp/email-preview.html`. (Máy Huy chưa cài `node`; kiểm cú pháp/logic không cần node được bằng
 `/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc` với stub `require`/`console`.)
 
+## 📵 ĐÃ TẮT EMAIL — TELEGRAM LÀ KÊNH DUY NHẤT (chỉ thị Huy 27/07/2026)
+
+> Nguyên văn: *"từ giờ không cần gửi email cho ai nữa, gửi telegram thôi."*
+
+Cơ chế: biến **`GUI_EMAIL: '0'`** đặt trong cả `notify-email.yml` lẫn `notify-morning.yml`; hai script
+JS đọc biến này và bỏ khâu `sendMail`. **Bật lại = đổi thành `'1'`**, không phải dựng lại gì.
+
+⚠️ **Chỗ đặt lệnh bỏ qua KHÁC NHAU ở hai script — cố ý, đừng "cho gọn":**
+| Script | Thoát ở đâu | Vì sao |
+|---|---|---|
+| `send-email.js` | **ngay đầu `main()`** | không có tác dụng phụ nào Telegram cần |
+| `send-morning-email.js` | **ngay TRƯỚC `sendMail`** | payload Telegram sáng được ghi ngay phía trên, và đây là chỗ DUY NHẤT biết "hôm nay có gì mới" — thoát sớm là **Telegram sáng chết theo** |
+
+Kèm: `send-morning-email.js` chỉ bắt buộc secret `EMAIL_USER/PASS` khi `GUI_EMAIL != '0'`, để sau này
+gỡ hẳn secret email khỏi repo thì Telegram sáng vẫn chạy.
+
+⚠️ **Đã BỎ `continue-on-error` ở CẢ HAI bước gửi Telegram.** Trước đây nuốt lỗi vì email gánh chính;
+nay Telegram là kênh duy nhất nên hỏng phải làm job **ĐỎ** — không để Huy mất bản tin trong im lặng.
+
+Nghiệm thu thật trên CI 27/07 (run 30250819712): `GUI_EMAIL=0 — BỎ QUA gửi email` + `Đã gửi 2 message
++ file .docx` tới cả 2 chat.
+
 ## ⚠️ HAI PHIÊN QUÉT + HAI EMAIL (chốt 24/07/2026)
 - **Bản tin (TỐI 21:00 + SÁNG SỚM 04:00)** — CI `claude-web-scan.yml` là mốc chính (tối 21:00 + vét 22:00, sáng sớm 04:00/05:00 VN), local dự phòng CẢ HAI phiên bằng **2 task tách riêng**: `web-scan-diem-tin` (sáng 04:30/05:30) và `web-scan-diem-tin-toi` (tối 21:15): 5 chủ đề (xem banner trên). Commit
   `Cap nhat ban tin ...` → `notify-email.yml` gửi **email tối** (tiêu đề điểm tin + .docx đính kèm).
