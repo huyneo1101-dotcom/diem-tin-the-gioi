@@ -293,15 +293,12 @@ def main():
     sections = md.build_sections(us, world, events)
     total = sum(len(items) for _, items in sections)
 
-    if total == 0:
-        print("Không có tin mới trong lần publish này — không gửi Telegram.", file=sys.stderr)
-        return 0
-
     generated_at = cur.get("generatedAt", "")
-    gaps = read_gaps(generated_at)
-    msgs = build_messages(sections, generated_at, total, gaps, tag)
 
     # File .docx: workflow đã dựng thì dùng lại, chưa có thì tự dựng (chạy tay ở local).
+    # DỰNG TRƯỚC khi xét `total == 0` — chỉ thị Huy 27/07: *"file word của telegram cũng phải
+    # có 11 tin này"*. `total` đã bị lọc sổ, nên nó về 0 ngay khi mọi tin trong lô đã báo ở
+    # bản trước; thoát sớm lúc đó thì Huy MẤT LUÔN file tổng hợp cả ngày, dù file vẫn đầy đủ.
     docx = os.environ.get("DOCX_PATH", "").strip()
     if not docx:
         try:
@@ -316,6 +313,20 @@ def main():
     if docx and not pathlib.Path(docx).is_file():
         print(f"[docx] không thấy file {docx} — gửi tin nhắn không kèm file", file=sys.stderr)
         docx = ""
+
+    if total == 0:
+        if not docx:
+            print("Không có tin mới và cũng không có file .docx — không gửi Telegram.",
+                  file=sys.stderr)
+            return 0
+        # Vẫn gửi FILE tổng hợp cả ngày, chỉ thay phần liệt kê bằng một dòng giải thích.
+        print("Không có tin mới so với bản trước — vẫn gửi file .docx tổng hợp cả ngày.",
+              file=sys.stderr)
+        msgs = [f"{tag}📎 Điểm Tin {generated_at} — không có tin nào mới so với bản tin trước.\n"
+                f"File tổng hợp cả ngày vẫn gửi kèm dưới đây."]
+    else:
+        gaps = read_gaps(generated_at)
+        msgs = build_messages(sections, generated_at, total, gaps, tag)
 
     if dry:
         print(f"=== DRY_RUN — {len(msgs)} message, {total} tin, docx={docx or '(không có)'} ===")
