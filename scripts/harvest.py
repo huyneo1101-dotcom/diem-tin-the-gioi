@@ -38,6 +38,7 @@ import argparse
 import datetime
 import email.utils
 import json
+import os
 import pathlib
 import re
 import subprocess
@@ -243,14 +244,21 @@ def items_of(xml_bytes: bytes):
 
 
 def html_pages_from_claude_md():
-    """Lấy (tên trang, url) từ bảng '🕸️ TRANG HTML QUÉT TRỰC TIẾP' trong CLAUDE.md."""
+    """Lấy (tên trang, url) từ bảng '🕸️ TRANG HTML QUÉT TRỰC TIẾP' trong CLAUDE.md.
+
+    Bảng có cột "Chạy ở": `cả hai` hoặc `CI`. Trang đánh dấu **CI** chỉ GitHub runner đọc được
+    (máy Mac bị 403) — đo thật 27/07/2026 bằng `scripts/probe_sources.py` chạy ở cả hai nơi:
+    TOÀN BỘ uỷ ban THƯỢNG VIỆN thuộc nhóm này. Chạy ở local thì bỏ qua chúng, khỏi tốn 15 lượt
+    curl chỉ để nhận 403.
+    """
     text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     key = "TRANG HTML QUÉT TRỰC TIẾP"
     if key not in text:
         return []
     block = text[text.index(key):]
     block = block[: block.index("\n### ", 1)] if "\n### " in block[1:] else block
-    out, seen = [], set()
+    la_ci = bool(os.environ.get("GITHUB_ACTIONS"))
+    out, seen, bo_qua = [], set(), 0
     for line in block.split("\n"):
         if not line.startswith("|"):
             continue
@@ -258,11 +266,18 @@ def html_pages_from_claude_md():
         if not m:
             continue
         url = m.group(0).rstrip("|").strip()
-        name = line.split("|")[1].strip()
+        cols = [c.strip() for c in line.split("|")]
+        name = cols[1] if len(cols) > 1 else url
+        ci_only = any(re.fullmatch(r"\*{0,2}CI\*{0,2}", c) for c in cols[2:])
         if url in seen:
             continue
         seen.add(url)
+        if ci_only and not la_ci:
+            bo_qua += 1
+            continue
         out.append((name, url))
+    if bo_qua:
+        print(f"[HTML] bỏ qua {bo_qua} trang chỉ CI đọc được (đang chạy ở local)", file=sys.stderr)
     return out
 
 

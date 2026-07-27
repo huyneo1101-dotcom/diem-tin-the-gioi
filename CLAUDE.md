@@ -520,21 +520,65 @@ sách thông cáo — lấy link + tiêu đề + ngày (tìm trong khối HTML q
 phiếu) — nhóm luôn thiếu tin nhất. Thực tế lần chạy đầu bắt được "Chairman Rogers Applauds House Passage
 of FY27 NDAA", "House Passes H.R. 9770", "Opening Statement at the FY27 NDAA Markup".
 
-| Trang | URL | Kiểm 27/07 | Nhóm/chủ đề |
+**Cột "Chạy ở"** — `cả hai` = local + CI đều đọc được · **`CI`** = CHỈ GitHub runner đọc được, máy Mac
+bị 403 (harvest local tự bỏ qua, xem `html_pages_from_claude_md`). Đo bằng `scripts/probe_sources.py`
+chạy ở cả hai nơi (27/07/2026).
+
+| Trang | URL | Chạy ở | Nhóm/chủ đề |
 |---|---|---|---|
-| Uỷ ban Quân vụ Hạ viện | https://armedservices.house.gov/news/press-releases | 15 link, có ngày | **Nội bộ Mỹ nhóm 1** |
-| Uỷ ban Chuẩn chi Hạ viện | https://appropriations.house.gov/news/press-releases | 10 link, có ngày | **Nội bộ Mỹ nhóm 1** |
-| Uỷ ban Tình báo Hạ viện | https://intelligence.house.gov/news/ | mở được | Nội bộ Mỹ nhóm 1 |
-| Uỷ ban Tư pháp Hạ viện | https://judiciary.house.gov/news/documentquery.aspx?DocumentTypeID=2 | mở được | Nội bộ Mỹ nhóm 1 |
-| Uỷ ban An ninh Nội địa Hạ viện | https://homeland.house.gov/news/ | mở được | Nội bộ Mỹ nhóm 1 |
-| Uỷ ban Giám sát Hạ viện | https://oversight.house.gov/news/ | mở được | Nội bộ Mỹ nhóm 1 |
-| Uỷ ban Tài chính Hạ viện | https://financialservices.house.gov/news/ | mở được | nhóm 1 + 4 |
-| Uỷ ban Thuế vụ Hạ viện | https://waysandmeans.house.gov/news/ | mở được | nhóm 1 + 4 |
+| Uỷ ban Quân vụ Hạ viện | https://armedservices.house.gov/news/press-releases | cả hai | **Nội bộ Mỹ nhóm 1** |
+| Uỷ ban Chuẩn chi Hạ viện | https://appropriations.house.gov/news/press-releases | cả hai | **Nội bộ Mỹ nhóm 1** |
+| Uỷ ban Tình báo Hạ viện | https://intelligence.house.gov/news/ | cả hai | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Tư pháp Hạ viện | https://judiciary.house.gov/news/documentquery.aspx?DocumentTypeID=2 | cả hai | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban An ninh Nội địa Hạ viện | https://homeland.house.gov/news/ | cả hai | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Giám sát Hạ viện | https://oversight.house.gov/news/ | cả hai | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Tài chính Hạ viện | https://financialservices.house.gov/news/ | cả hai | nhóm 1 + 4 |
+| Uỷ ban Thuế vụ Hạ viện | https://waysandmeans.house.gov/news/ | cả hai | nhóm 1 + 4 |
+| Uỷ ban Ngân sách Hạ viện | https://budget.house.gov/news | cả hai | nhóm 1 + 4 |
+| Uỷ ban Khoa học Hạ viện | https://science.house.gov/news | cả hai | nhóm 1 |
+| **Uỷ ban Quân vụ THƯỢNG VIỆN** | https://www.armed-services.senate.gov/press-releases | **CI** | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Đối ngoại Thượng viện** | https://www.foreign.senate.gov/press | **CI** | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Chuẩn chi Thượng viện** | https://www.appropriations.senate.gov/news/majority | **CI** | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Tình báo Thượng viện** | https://www.intelligence.senate.gov/reports-publications/press-releases/ | **CI** | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Tư pháp Thượng viện** | https://www.judiciary.senate.gov/press/ | **CI** | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Ngân hàng Thượng viện | https://www.banking.senate.gov/newsroom | **CI** | nhóm 1 + 4 |
+| Uỷ ban Tài chính Thượng viện | https://www.finance.senate.gov/chairmans-news | **CI** | nhóm 1 + 4 |
+| Uỷ ban Ngân sách Thượng viện | https://www.budget.senate.gov/chairman/newsroom | **CI** | nhóm 1 + 4 |
+| Uỷ ban Thương mại Thượng viện | https://www.commerce.senate.gov/press/ | **CI** | nhóm 1 + 4 |
+| Uỷ ban Năng lượng Thượng viện | https://www.energy.senate.gov/newsroom | **CI** | nhóm 1 |
+| Uỷ ban An ninh Nội địa Thượng viện (HSGAC) | https://www.hsgac.senate.gov/media/majority-news/ | **CI** | nhóm 1 |
+| Uỷ ban Quy tắc Thượng viện | https://www.rules.senate.gov/news/press-releases | **CI** | nhóm 1 |
+| Thông cáo chung Thượng viện | https://www.pressphotographers.senate.gov/senate/senate-press-releases/ | **CI** | nhóm 1 |
+| Census Bureau | https://www.census.gov/newsroom/press-releases.html | **CI** | nhóm 4 (số liệu) |
+| OCC (Kiểm soát Tiền tệ) | https://www.occ.treas.gov/news-events/newsroom/news-issuances-by-year/news-releases/index-news-releases.html | **CI** | nhóm 4 |
 
 ⚠️ Đây là **quét HTML thô**, nhiễu cao hơn RSS: có thể lẫn link điều hướng, và **ngày lấy từ khối HTML
 quanh link nên có thể sai** — agent PHẢI mở bài kiểm ngày sự kiện như với lớp `[GNEWS]`.
-⚠️ Trang **uỷ ban THƯỢNG VIỆN đều 403** (armed-services, foreign, appropriations, intelligence,
-banking, finance, judiciary…) — không scrape được, dùng WebSearch `site:`.
+
+#### 📊 Kết quả dò TOÀN BỘ nguồn ở CẢ HAI môi trường (27/07/2026, `scripts/probe_sources.py`)
+288 URL / 154 domain, dò từ máy Mac và từ GitHub runner (Mỹ), rồi so:
+| | local (máy Huy) | CI (Mỹ) |
+|---|---|---|
+| RSS đọc được | 78 domain | 77 |
+| HTML đọc được | 39 | **58** |
+| 403 | 31 | **16** |
+
+- **114 domain cả hai đọc được** — phần lớn bảng nguồn.
+- **21 domain CHỈ CI đọc được** → local mất hẳn. Gồm **TOÀN BỘ uỷ ban THƯỢNG VIỆN** (armed-services,
+  foreign, appropriations, intelligence, judiciary, banking, finance, budget, commerce, energy, hsgac,
+  rules, agriculture, indian, jec, sbc + trang thông cáo chung) và census.gov, occ.treas.gov. Đây **đảo
+  lại** ghi chú cũ "uỷ ban Thượng viện 403, chỉ WebSearch được" — sai vì chỉ đo ở local.
+- **3 domain CHỈ local đọc được** (CI bị 403): `axios.com`, `flightglobal.com`, `rappler.com` → phiên CI
+  sẽ hụt 3 nguồn này, bù bằng Google News/local.
+- **16 domain cả hai chịu**: bls.gov, commerce.gov, defense.gov, dhs.gov, eda.gov, nsa.gov, ntia.gov,
+  transportation.gov, usda.gov, senate.gov, và 6 trang quân chủng navy/marines/centcom/pacom/jcs/uscg
+  → chỉ còn WebSearch/Google News, hoặc DVIDS thay thế cho nhóm quân chủng.
+
+⚠️ **Đọc số liệu dò cẩn thận:** dò 288 URL bằng nhiều luồng dễ bị **rate-limit tạm** — lần này
+`thehill.com` trả 429 và `thediplomat.com` trả 000 ở local dù bình thường vẫn chạy tốt. Thấy một nguồn
+đang dùng được bỗng báo hỏng thì **kiểm lại lẻ một lần** trước khi kết luận, đừng gạch tên ngay.
+Dò lại về sau: `python3 scripts/probe_sources.py --json /tmp/probe-local.json` (local) và workflow
+`probe-sources.yml` (CI, ghi `docs/probe-ci.json`).
 
 ### RealClear — verify fetch thật 27/07/2026 (Huy chỉ định thêm)
 | Nguồn | RSS URL | Kiểm 27/07 | Hợp chủ đề |

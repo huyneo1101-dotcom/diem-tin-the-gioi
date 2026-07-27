@@ -161,11 +161,15 @@ Feud` và `The Hill — GOP senator ahead of Fauci testimony`, đều từ ngu�
 **Cách dùng kết quả — ĐỌC KỸ, đây là chỗ dễ sai:**
 - `[RSS]` có link bài GỐC thật → kiểm nội dung rồi dùng luôn được.
 - `[HTML]` — quét thẳng trang thông cáo của các trang KHÔNG có RSS (thêm 27/07/2026 sau khi Huy nhắc
-  *"không có RSS thì mày vẫn xem được mà"*; kiểm lại: 42/85 domain nguồn chính thức Mỹ mở được HTML).
-  **Chủ lực là uỷ ban HẠ VIỆN — tức đúng nhóm 1** (điều trần + bỏ phiếu), nhóm luôn thiếu tin nhất:
-  thực tế bắt được "Chairman Rogers Applauds House Passage of FY27 NDAA", "House Passes H.R. 9770",
-  "Cole Testifies at Rules Committee". Link là link gốc thật, NHƯNG **ngày lấy từ khối HTML quanh link
-  nên có thể sai** → phải mở bài kiểm ngày sự kiện như với `[GNEWS]`. Uỷ ban THƯỢNG VIỆN đều 403.
+  *"không có RSS thì mày vẫn xem được mà"*). **Chủ lực là uỷ ban Quốc hội — tức đúng nhóm 1** (điều
+  trần + bỏ phiếu), nhóm luôn thiếu tin nhất: thực tế bắt được "Chairman Rogers Applauds House Passage
+  of FY27 NDAA", "House Passes H.R. 9770", "Cole Testifies at Rules Committee". Link là link gốc thật,
+  NHƯNG **ngày lấy từ khối HTML quanh link nên có thể sai** → phải mở bài kiểm ngày sự kiện như `[GNEWS]`.
+  ⚠️ **PHIÊN CI QUÉT ĐƯỢC NHIỀU HƠN PHIÊN LOCAL** (đo thật 27/07 bằng `scripts/probe_sources.py` chạy ở
+  cả hai nơi): local đọc được **10** trang, CI đọc được **25** — vì **toàn bộ uỷ ban THƯỢNG VIỆN chỉ CI
+  mới vào được** (local 403), cộng census.gov và occ.treas.gov. `harvest.py` tự nhận biết môi trường qua
+  biến `GITHUB_ACTIONS` và bỏ qua nhóm CI-only khi chạy local, nên **số trang in ra khác nhau là ĐÚNG,
+  đừng đi truy bug**. Ngược lại CI hụt 3 nguồn local có (`axios.com`, `flightglobal.com`, `rappler.com`).
 - `[GNEWS]` chỉ là **RADAR phát hiện đề tài**: link là redirect `news.google.com` (không resolve bằng
   HEAD được, nó redirect bằng JS) và tiêu đề bị rút gọn. **Agent PHẢI tự tìm bài gốc** (WebSearch theo
   tiêu đề + tên nguồn) rồi mới nạp. TUYỆT ĐỐI không nạp link `news.google.com` vào DATA.
