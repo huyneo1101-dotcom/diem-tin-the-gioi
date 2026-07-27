@@ -1,0 +1,17 @@
+START 21:21 (gio VN) — phien toi, moc LOCAL 21:15, task web-scan-diem-tin-toi
+21:21 pull --rebase: Already up to date
+21:22 state.py claim web-scan -> RUN (CI 21:00 chua xong / khong chay) — da push khoa ngay
+21:23 harvest.py --gop-ci -> 370 ung vien (Noi bo My 165, Uc-Bien Dong 75, Mali 66, CNQS 63, Predator 1)
+     BO QUA telegram_harvest.py: lop BO SUNG, cat de giu bien cho han chot email 22:00
+21:29 add_news.py --recent-titles 20 -> lay danh sach chong trung, cong Bao Moi bao 4 ung vien
+21:31 giao 4 agent Sonnet song song (Noi bo My / Uc-Bien Dong / CNQS My / Mali+Predator), han 8 phut moi agent
+21:33 agent tra ket qua: Noi bo My 3 tin, Uc-Bien Dong 2 tin, CNQS My 2 tin, Mali 0, Predator 0
+21:34 tu kiem lai chu de Mali (agent tra rong) bang WebSearch: xac nhan "Trump can nhac danh JNIM"
+     la su kien 22/7 (WaPo/The Hill), "phuc kich doan xe linh Nga" la 09-10/7 (France 24/Meduza/Arab News)
+     -> dung la ngoai khung, chu de Mali ve 0 hop le
+21:35 kiem link: asiatimes 200, war.gov 403 (WAF chan curl, nguon tang 1 tu RSS chinh thuc -> nhan)
+21:36 add_news.py -> OK: +2 tin The gioi, +5 tin My, +10 tin vao muc Bi loai. generatedAt=2026-07-27
+     Cong Bao Moi: xu ly HET 4 ung vien, LOAI ca 4 (2 khi tai Nga/ngoai chu de, 2 trung su kien da nap)
+21:36 ghi logs/loai-tin.md + logs/scan-gaps.json (du 5 chu de + Bao Moi)
+21:36 state.py done web-scan
+DONE — +7 tin, trong han chot email 22:00
