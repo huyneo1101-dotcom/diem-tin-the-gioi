@@ -76,6 +76,36 @@ COMMIT tien to "Bo sung tin" (KHONG phai "Cap nhat ban tin") de notify-email.yml
 trong buoi sang; tin van len web ngay va se nam trong file Word cua email TOI nay (vi _addedDate =
 2026-07-27 = generatedAt).
 
+[2026-07-27 ~11:2x +07] QUET THU BO QUY TAC MOI (Huy: "quet thu luon va gui email") — +4 tin
+Muc dich: chay thu 3 thay doi Huy vua chot (Noi bo My 4 nhom uu tien · CNQS noi khung ngay 3 ngay ·
+Bien Dong mo rong cac nuoc khac) + harvest.py, TRUOC phien toi 21:00.
+BASELINE: harvest.py quet 69 feed RSS + 13 truy van Google News -> 276 ung vien
+(Noi bo My 120 · CNQS 54 · Uc-BienDong 53 · Mali 49 · Predator 0). Nhung ung vien nay dan
+nguyen khoi vao prompt 4 agent Sonnet.
+KET QUA 4 AGENT:
+  A Noi bo My: 2 tin (deu NHOM 3). Nhom 1 TRONG THAT — Ha vien hop phien hinh thuc 27/7 roi nghi
+    toi 31/8; Thuong vien chi co 1 bo phieu thu tuc chua dien ra. Agent kiem tung ung vien nhom 1:
+    du luat co phieu + du luat ngan sach = su kien 21-22/7; NDAA 216-212 = 22/7; dieu tran Fauci =
+    29/7 chua xay ra -> loai het. Con bat duoc bay SAI NAM: bieu tinh "Families First" la 7/2025.
+  B Uc & Bien Dong: 0 tin. Nhanh mo rong (Malaysia/Indonesia/Brunei/Dai Loan/COC/Natuna/Bai Tu Chinh)
+    quet ky nhung moi su kien deu ngoai khung. Tin TQ dien tap ban dan that (Epoch Times, dang 27/7)
+    -> TAO loai: xac minh cheo Rappler/TaiwanPlus/chinaglobalsouth deu ghi drill 23-24/7, thong bao
+    hang hai Chuong Chau ra 22/7 -> NGOAI KHUNG. Dung bay "ngay dang khac ngay su kien".
+  C CNQS My: 2 tin -> tao giu 1. **MO TIN MOI CHAY THAT**: agent mo duoc feed hop dong Lau Nam Goc
+    (war.gov ContentType=400) va lay tin hop dong Trident II D5 ngay 24/07 — DUNG khung noi 3 ngay,
+    guardrail cho qua vi category "Cong nghe quan su". Tin thu 2 (Space Force 400,4 trieu USD cho
+    General Dynamics) TAO LOAI: agent lay qua Investing.com dan lai, WebSearch tren SpaceNews/
+    DefenseScoop/Breaking Defense/Air&Space Forces khong xac nhan duoc -> khong xac minh cheo duoc.
+  D Mali + Predator: Mali 1 tin (phan tich Al Jazeera 27/7 ve lien minh JNIM - Azawad). Predator 0
+    (khong co dien bien moi sau khai mac 21/7; giai doan ban dan that sat ngay ket thuc ~29/7).
+NAP: lo date=2026-07-27, 4 tin usNews. add_news.py OK. generatedAt=2026-07-27.
+Canh bao "nguon la": Bo Chien tranh My / CBS News / The Hill — deu la nguon that, chi chua nam trong
+danh sach cung cua script.
+DANH GIA BO MOI: harvest chay dung (bat duoc nguon truoc gio 0 tin: war.gov contracts, The Hill,
+gCaptain); khung noi CNQS hoat dong; 4 nhom Noi bo My hoat dong (nhom 1 trong that -> tu dong xuong
+nhom 3, dung thiet ke). Diem yeu lo ra: RAT NHIEU ung vien la tin CU DANG LAI voi ngay moi — 3/4 agent
+deu phai loai vi ly do nay, ke ca ung vien co ve chac an nhat. Da ghi tat ca vao logs/loai-tin.md.
+
 [2026-07-27 05:38 +07] web-scan (LOCAL du phong 05:30 — moc luoi cuoi phien SANG SOM) — SKIP
 claim exit 10: "ngay 2026-07-27 DA XONG (lan chay cuoi 2026-07-27T05:35:30+07:00)" — chinh la phien
 quet bu 05:19-05:35 o tren (+5 tin, da push, email + .docx tu gui qua notify-email.yml). Cach day 3

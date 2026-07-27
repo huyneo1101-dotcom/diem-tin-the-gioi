@@ -1,38 +1,38 @@
 {
   "date": "2026-07-27",
-  "session": "sang som (local quet bu — CI 04:30 khong no)",
+  "session": "quet thu bo quy tac moi (Huy yeu cau) — bo sung cho phien sang som",
   "topics": [
     {
-      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "name": "Nội bộ Mỹ (4 nhóm ưu tiên)",
+      "count": 2,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nhóm 1 (điều trần + bỏ phiếu thông qua dự luật) THỰC SỰ TRỐNG: Hạ viện chỉ họp phiên hình thức ngày 27/7 rồi nghỉ tới 31/8, Thượng viện chỉ có một cuộc bỏ phiếu thủ tục chưa diễn ra tại thời điểm quét. Các ứng viên tưởng hợp đều là tin cũ đăng lại: dự luật cấm nghị sĩ giao dịch cổ phiếu và dự luật ngân sách (sự kiện 21-22/7), bỏ phiếu NDAA 216-212 (22/7), điều trần Fauci (dự kiến 29/7, chưa xảy ra). Lấy được 2 bài nhóm 3 (biểu tình + bầu cử) đúng chuẩn mới. Cũng loại một loạt tin sai năm: biểu tình 'Families First' hoá ra tháng 7/2025."
+    },
+    {
+      "name": "Úc & Biển Đông (đã mở rộng sang các nước khác)",
       "count": 0,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Hạ viện nghỉ họp (recess) từ 24/7 tới 31/8, Thượng viện gần như đóng cửa, cộng thêm hôm nay là Chủ Nhật ở Mỹ nên không có phiên điều trần hay bỏ phiếu nào. Đã soi congress.gov, lịch uỷ ban Thượng viện (armed-services, foreign, judiciary), The Hill, Roll Call, Government Executive. Ứng viên gần nhất đều ngoài khung: bỏ phiếu war powers Iran ở Hạ viện 23/7, điều trần dự kiến 29/7. Không hạ chuẩn để lấp."
+      "reason": "Toàn bộ diễn biến Biển Đông của 26-27/7 đã nạp ở các lô trước trong ngày (tàu Khôi Nguyên 18 chìm, tàu 015-Trần Hưng Đạo thăm Manila, Trung Quốc tuần tra đáp trả diễn tập ba bên). Nhánh mở rộng (Malaysia, Indonesia, Brunei, Đài Loan, COC, Natuna, Bãi Tư Chính) quét kỹ nhưng mọi sự kiện tìm được đều ngoài khung: phát biểu Anwar 2/7, sự cố Natuna gần nhất 2024, tiến triển COC công bố 22-24/7. Riêng tin Trung Quốc diễn tập bắn đạn thật eo biển Đài Loan bị loại vì sự kiện thật là 23-24/7 (thông báo hàng hải ngày 22/7), tuy nhiều trang đăng lại ngày 27/7."
     },
     {
-      "name": "Úc & Biển Đông",
+      "name": "Công nghệ quân sự Mỹ",
       "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Cuối tuần nên tin thưa, và phần lớn diễn biến Biển Đông đang chạy đã nạp ở phiên tối 26/7 (Trung Quốc tuần tra đáp trả diễn tập Nhật-Phi-Mỹ, vòi rồng Scarborough, Bãi Cỏ Mây, Marcos - Tập). Tin Úc rót thêm 4,6 tỷ AUD cho xưởng tàu ngầm AUKUS Osborne hụt khung đúng 1 ngày (24/7). Bài SONA của Marcos 27/7 chưa xác minh được nội dung đã phát biểu nên không đưa."
-    },
-    {
-      "name": "Công nghệ quân sự Mỹ",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Thiếu 1 bài so với sàn tối thiểu: cuối tuần Mỹ nên các trang quốc phòng đăng ít. Loạt tin nổi bật tìm được (Dark Eagle tới Guam, vệ tinh Golden Dome, laser JLWS, CCA bắn thử tên lửa, tàu drone Marauder) đều đăng 09-22/7, ngoài khung 48h."
+      "reason": "Đã dùng khung ngày nới riêng (24-27/7) nhưng cuối tuần Mỹ không có trang hợp đồng mới (bản gần nhất là 'Contracts for July 24'), và loạt tin khí tài nổi bật tuần này đều rơi vào 17-23/7, phần lớn quanh triển lãm Farnborough — ngoài khung kể cả sau khi nới. Lấy được 1 hợp đồng Trident II D5 từ feed hợp đồng chính thức của Lầu Năm Góc (nguồn mới khai thác lần đầu). Đã loại tin hợp đồng Space Force 400 triệu USD cho General Dynamics vì không xác minh chéo được bằng nguồn thứ hai."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 0,
+      "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Chỉ tìm được 1 ứng viên trong khung (đoàn xe Africa Corps của Nga đi vòng qua cảng Lomé, Togo để né trừng phạt, đưa xe bọc thép tới Bamako) nhưng nguồn duy nhất là The Africa Report — WebFetch trả HTTP 403 nên không xác minh được nội dung và loạt số liệu chi tiết trong bài, đã bỏ theo quy tắc không chắc link thì bỏ. Long War Journal, AllAfrica, Al Jazeera, France 24 không có bài Mali/JNIM mới trong khung 25-27/7."
+      "reason": "Chỉ 1 bài đúng khung (phân tích Al Jazeera 27/7 về liên minh JNIM - lực lượng Azawad). Các ứng viên còn lại đều là tin cũ đăng lại trên trang tổng hợp: 'Trump cân nhắc không kích JNIM' (gốc The Hill/WaPo 22/7), 'Mali bác bỏ can dự Mỹ' (24/7), 'Mali chờ lập trường Mỹ' (Bloomberg 25/7), phóng sự drone Shahed (sự kiện 12-17/7)."
     },
     {
       "name": "Tập trận Predator's Run 2026",
@@ -40,7 +40,7 @@
       "target": "1-3",
       "min": 1,
       "thieu": true,
-      "reason": "Không có diễn biến mới sau 2 item đã có (khai mạc Townsville + Carabaroo 2026). DVIDS, pacom.mil, army.gov.au, defence.gov.au chưa đăng bài mới về bắn đạn thật hay giai đoạn kế tiếp. Tập trận kết thúc khoảng 29/7."
+      "reason": "Không có diễn biến mới sau 2 item đã có (khai mạc Townsville 21/7 + Carabaroo 2026). DVIDS, PACOM, army.gov.au, defence.gov.au chưa đăng bài mới; giai đoạn bắn đạn thật hợp đồng dự kiến sát ngày kết thúc ~29/7."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": "0-6",
       "min": 0,
       "thieu": false,
-      "reason": "Phiên sáng sớm quét bù nhanh theo yêu cầu, không chạy vòng chọn lọc Báo Mới; kho ứng viên chuyên mục vẫn được add_news.py đẩy vào mục Bị loại (+10 mục) để người đọc tự cứu bằng 👍."
+      "reason": "Kho ứng viên đã xử lý ở lô trước trong ngày: 1 bài hợp chủ đề (tàu 015-Trần Hưng Đạo) đã truy về nguồn gốc QĐND và nạp; 2 bài CNQS bị loại có lý do (B-21 trùng sự kiện đã có, Patriot PAC-2 sự kiện 23/7 ngoài khung)."
     }
   ],
-  "note": "Phiên SÁNG SỚM 27/07 do bản local quét bù: cron CI 04:30 không nổ (gh run list không có run nào sau 26/07 15:54Z). Từ hôm nay lịch đổi thành CI 04:00 -> local 04:30 -> CI 05:00 -> local 05:30. Tổng 5 tin (Biển Đông 1, CNQS Mỹ 4)."
+  "note": "Lô quét THỬ bộ quy tắc mới (Huy yêu cầu chạy thử trước phiên tối): Nội bộ Mỹ 4 nhóm ưu tiên, CNQS nới khung ngày 3 ngày, Biển Đông mở rộng sang các nước khác, dùng harvest.py gom ứng viên từ 69 RSS + 13 truy vấn Google News. Tổng 4 tin; cộng cả ngày 27/07 là 10 tin."
 }

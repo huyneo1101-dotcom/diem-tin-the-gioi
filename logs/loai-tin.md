@@ -157,6 +157,18 @@ Loại trong quá trình review (trùng/nguồn yếu, KHÔNG đưa vào mục B
 - [Mali] Các bài về scoop WaPo (Gorka/nội bộ chia rẽ) và họp báo Ngoại trưởng Diop — cùng 2 sự kiện đã nạp, chỉ khác góc đưa tin
 - [Predator's Run 2026] Bắn thử Apache tại Townsville 17/7 — thuộc "Exercise Possum Guns", không liên quan Predator's Run; không có diễn biến mới nào trong khung 23-25/7 trên DVIDS/PACOM/defence.gov.au
 
+## 2026-07-27 (lô QUÉT THỬ bộ quy tắc mới — Huy yêu cầu chạy thử trước phiên tối)
+- [Nội bộ Mỹ · nhóm 1] "House passes bill to limit stock purchases by members of Congress" + "House passes budget bill to keep government open until December" — ngày ĐĂNG 26-27/7 nhưng SỰ KIỆN thật là 21-22/7, ngoài khung. Đúng bẫy "ngày đăng ≠ ngày sự kiện" mà harvest.py cảnh báo.
+- [Nội bộ Mỹ · nhóm 1] "US House passes record $1.15 trillion defence bill" — bỏ phiếu 216-212 diễn ra 22/7, đã ghi ở phiên tối 26/7. Nhiều trang đăng lại ngày 26/7.
+- [Nội bộ Mỹ · nhóm 1] Điều trần Fauci — lịch ngày 29/7, CHƯA diễn ra. Không đưa tin sự kiện tương lai.
+- [Nội bộ Mỹ · nhóm 3] Biểu tình "Families First" — kiểm ra là sự kiện tháng 7/**2025**, lọt vào kết quả tìm kiếm 2026. Bẫy SAI NĂM, không chỉ sai ngày.
+- [Nội bộ Mỹ · nhóm 3] Troy Jackson thắng đề cử đấu Susan Collins tại Maine (25/7) · Trump doạ thuế EU vụ phạt Google (24/7) — hụt khung 1-2 ngày.
+- [Úc & Biển Đông] "Trung Quốc diễn tập bắn đạn thật eo biển Đài Loan và Biển Đông" (The Epoch Times, đăng 27/7) — SỰ KIỆN thật là 23-24/7, thông báo hàng hải Chương Châu ra ngày 22/7. Xác minh chéo qua Rappler/TaiwanPlus/chinaglobalsouth đều ghi drill bắt đầu 23/7 → ngoài khung, loại. (Nguồn Epoch Times cũng thuộc diện cần đối chứng.)
+- [CNQS Mỹ] Hợp đồng Space Force 400,4 triệu USD cho General Dynamics (phân hệ mặt đất Tranche 3) — agent lấy qua Investing.com dẫn lại; WebSearch trên SpaceNews/DefenseScoop/Breaking Defense/Air & Space Forces KHÔNG xác nhận được hợp đồng này. Bỏ theo quy tắc không xác minh chéo được thì bỏ, dù nguồn gốc được ghi là trang hợp đồng Lầu Năm Góc.
+- [CNQS Mỹ] PAC-3 ACE · RAACM-ER/CHAOS · vệ tinh Golden Dome (Sierra Space/L3Harris) · Blackbeard hypersonic · MQ-25 bay thử · JAGM-Saildrone tại RIMPAC · RTX bán Blue Canyon — sự kiện 17-23/7, phần lớn quanh triển lãm Farnborough; ngoài khung KỂ CẢ sau khi nới 3 ngày.
+- [Mỹ – Mali] "Trump cân nhắc không kích JNIM" (gốc The Hill/WaPo 22/7) · "Mali bác bỏ can dự Mỹ" (24/7) · "Mali chờ lập trường Mỹ" (Bloomberg 25/7) · phóng sự drone Shahed (sự kiện 12-17/7) — đều ngoài khung dù aggregator đăng lại ngày 27/7.
+- [Mỹ – Mali] Tin có chữ "Mali" nhưng ngoài chủ đề: bóng đá (cựu cầu thủ Mali qua đời, giải Denarau Open), thương nhân kim cương Ấn Độ bị bắt cóc đòi tiền chuộc, dự án đường dây truyền tải điện.
+
 ## 2026-07-27 (phiên sáng sớm + vòng bù Báo Mới)
 - [Mỹ – Mali] "Nga mở tuyến hậu cần mới qua Togo, đưa khí tài Africa Corps tới Bamako" (The Africa Report, 25/7) — WebFetch trả HTTP 403, nguồn DUY NHẤT, không xác minh được nội dung lẫn loạt số liệu rất cụ thể trong bài (1.400km, cửa khẩu Doulai Diassa, ngày 23/7). Bỏ theo quy tắc "không chắc link thì bỏ". Đây là lý do chủ đề Mali về 0.
 - [CNQS Mỹ · ứng viên Báo Mới] "Phi đội oanh tạc cơ tàng hình đáng sợ nhất thế giới B-21 Raider sắp xuất hiện" (An Ninh Thủ Đô, 26/7) — TRÙNG SỰ KIỆN với tin đã có "Thỏa thuận tăng sản lượng B-21 Raider mở đường cho phi đội lớn hơn 100 chiếc" (24/7): cùng thoả thuận Không quân Mỹ – Northrop tăng 25% sản lượng, cùng mốc >100 chiếc.
