@@ -315,9 +315,14 @@ def main():
         cur = extract_data(f.read())
     prev = prev_data()
 
-    us = loc_chua_gui(pick_items(cur, prev, "usNews"))
-    world = loc_chua_gui(pick_items(cur, prev, "worldNews"))
-    events = loc_chua_gui(pick_items(cur, prev, "events"))
+    # ⚠️ KHÔNG lọc sổ đã gửi ở đây. Chỉ thị Huy 27/07/2026: *"gửi file word tối nay sau khi
+    # quét lúc 9h thì gộp cả 11 tin hôm nay đó vào"*. FILE WORD là BẢN TỔNG HỢP CẢ NGÀY —
+    # thứ Huy lưu lại — nên phải đủ mọi tin nạp trong ngày, kể cả tin đã báo qua email sáng.
+    # Chỉ THÂN EMAIL và TIN NHẮN TELEGRAM mới lọc sổ, vì chúng là thông báo, lặp lại thì thừa.
+    # Đừng "cho nhất quán" bằng cách bọc loc_chua_gui vào đây — đó là đúng con lỗi vừa sửa.
+    us = pick_items(cur, prev, "usNews")
+    world = pick_items(cur, prev, "worldNews")
+    events = pick_items(cur, prev, "events")
 
     sections = build_sections(us, world, events)
     total = sum(len(items) for _, items in sections)

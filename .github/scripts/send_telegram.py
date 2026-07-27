@@ -284,9 +284,12 @@ def main():
     md = _load_make_docx()
     cur = md.extract_data((ROOT / "index.html").read_text(encoding="utf-8"))
     prev = md.prev_data()
-    us = md.pick_items(cur, prev, "usNews")
-    world = md.pick_items(cur, prev, "worldNews")
-    events = md.pick_items(cur, prev, "events")
+    # TIN NHẮN Telegram lọc sổ đã gửi (giống THÂN EMAIL): đây là thông báo, lặp lại tin đã
+    # báo buổi sáng thì thừa. Ngược lại FILE .docx đính kèm KHÔNG lọc — nó là bản tổng hợp
+    # cả ngày Huy lưu lại (chỉ thị Huy 27/07). Hai thứ lệch nhau là CỐ Ý, không phải bug.
+    us = md.loc_chua_gui(md.pick_items(cur, prev, "usNews"))
+    world = md.loc_chua_gui(md.pick_items(cur, prev, "worldNews"))
+    events = md.loc_chua_gui(md.pick_items(cur, prev, "events"))
     sections = md.build_sections(us, world, events)
     total = sum(len(items) for _, items in sections)
 

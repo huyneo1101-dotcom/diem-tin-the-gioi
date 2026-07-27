@@ -87,8 +87,12 @@ jobs:
       # `make_docx`/`send_telegram` đọc sổ thấy chính lô tin vừa gửi và lọc sạch -> Telegram rỗng.
       # Nhờ sổ này bản tin TỐI không liệt kê lại tin đã gửi trong bản tin SÁNG (chỉ thị Huy 27/07).
       # Commit chỉ đụng logs/ nên KHÔNG khớp `paths: ['index.html']` -> không tự kích lại workflow.
+      # CHỈ ghi khi là lần gửi THẬT do phiên quét push. Chạy tay (workflow_dispatch) là để
+      # TEST — sự cố 27/07: hai lần chạy tay lúc 14:24/14:36 ghi 11 tin của cả ngày vào sổ,
+      # suýt làm bản tin tối bỏ sạch chúng dù chúng được quét rải rác 09:13-14:17 chứ không
+      # phải phiên sáng. Test không được để lại dấu vết lên bản tin thật.
       - name: Ghi sổ đã gửi
-        if: steps.chk.outputs.go == '1'
+        if: steps.chk.outputs.go == '1' && github.event_name == 'push'
         continue-on-error: true
         run: |
           buoi=$(TZ=Asia/Ho_Chi_Minh date +%H)

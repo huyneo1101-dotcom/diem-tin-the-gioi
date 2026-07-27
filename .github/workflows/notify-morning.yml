@@ -74,8 +74,10 @@ jobs:
       # usNews/worldNews ở đây là XOÁ SỔ tin thường trước khi chúng kịp lên bản tin tối
       # (mất tin, chứ không phải trùng tin). Nhờ bước này bản tối không lặp lại sự kiện đã
       # gửi sáng — chỉ thị Huy 27/07. Chỉ đụng logs/ nên không tự kích lại workflow.
+      # Chỉ ghi khi là lần gửi THẬT do phiên quét push — chạy tay là để test, xem lý do ở
+      # bước cùng tên trong notify-email.yml (sự cố 27/07).
       - name: Ghi sổ đã gửi (chỉ sự kiện)
-        if: steps.chk.outputs.go == '1'
+        if: steps.chk.outputs.go == '1' && github.event_name == 'push'
         continue-on-error: true
         run: |
           pip install --quiet python-docx
