@@ -32,12 +32,37 @@ jobs:
         id: chk
         run: |
           msg=$(git log -1 --format=%s)
-          echo "commit: $msg ; event: ${{ github.event_name }}"
-          # Chạy tay (workflow_dispatch) luôn gửi để test; tự động thì chỉ khi commit là bản tin.
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
+          # 10# ép cơ số 10: `date +%H%M` cho "0845", mà bash coi số 0 đầu là BÁT PHÂN nên
+          # `[ 0845 -ge 330 ]` vỡ với "value too great for base" — cổng giờ sẽ hỏng đúng
+          # những giờ có số 0 đầu, tức toàn bộ ca sáng.
+          gio=$((10#$(TZ=Asia/Ho_Chi_Minh date +%H%M)))
+          echo "commit: $msg ; event: ${{ github.event_name }} ; gio VN: $gio"
+
+          # CỔNG 1 — commit phải là bản tin.
+          la_ban_tin=0
+          echo "$msg" | grep -qiE '^Cap nhat ban tin' && la_ban_tin=1
+
+          # CỔNG 2 — phải rơi vào KHUNG GIỜ của một CA CHÍNH THỨC (chỉ thị Huy 27/07/2026).
+          # Ngày chỉ có 2 ca bắn email bản tin: SÁNG SỚM (CI 04:00 · local 04:33 · CI 05:00 ·
+          # local 05:33, xong ~05:40) và TỐI (CI 21:00 · local 21:21 · vét CI 22:00).
+          # VÌ SAO CẦN CỔNG NÀY: trước đây chỉ xét commit message, nên MỌI lần quét TAY giữa
+          # ngày cũng bắn một email riêng — đo thật 27/07: quét tay 11:12 đã gửi email kèm
+          # .docx. Tệ hơn, tin đó vào sổ đã gửi nên bản tin TỐI lại LOẠI chúng. Huy muốn ngược
+          # lại: quét tay giữa ngày KHÔNG gửi email, tin nằm chờ và dồn hết vào bản tin TỐI.
+          trong_ca=0
+          if [ "$gio" -ge 330 ] && [ "$gio" -le 700 ]; then trong_ca=1; fi
+          if [ "$gio" -ge 2030 ]; then trong_ca=1; fi
+
+          # Chạy tay (workflow_dispatch) luôn gửi — dùng để test hoặc gửi bù khi lỡ ca.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "go=1" >> "$GITHUB_OUTPUT"
+          elif [ "$la_ban_tin" = 1 ] && [ "$trong_ca" = 1 ]; then
             echo "go=1" >> "$GITHUB_OUTPUT"
           else
             echo "go=0" >> "$GITHUB_OUTPUT"
+            if [ "$la_ban_tin" = 1 ]; then
+              echo "::notice::Bản tin ngoài khung ca chính thức ($gio) — KHÔNG gửi email. Tin sẽ dồn vào bản tin TỐI."
+            fi
           fi
 
       - name: Setup Node

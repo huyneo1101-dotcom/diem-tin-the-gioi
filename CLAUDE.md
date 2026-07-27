@@ -116,6 +116,24 @@ CUỐI. `thieu` là cờ tường minh, không có thì suy từ `count < min`.
 > 1. tin đã quét ở **phiên sáng sớm 04:00/05:00** (chúng đã đi trong email `📰 … BUỔI SÁNG`);
 > 2. tin **tập trận / sự kiện ngoại giao** (đã đi trong email `🎖️ Sự kiện & Tập trận`);
 > 3. bài **think-tank** (`DATA.analyses` — cũng thuộc email sáng).
+>
+> **⇒ Tin quét TAY giữa ngày KHÔNG gửi email riêng — nó nằm chờ và dồn hết vào bản tin TỐI.**
+> Nguyên văn Huy: *"tao quét tin 4h, rồi quét tin 8h45, rồi quét tay thêm hai lần trong ngày,
+> thì tin buổi tối chỉ quét bình thường + các tin lấy được từ 2 lần quét tay đó thôi."*
+
+**CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY** — `notify-email.yml` có **hai cổng**, phải qua CẢ HAI:
+| Cổng | Điều kiện |
+|---|---|
+| 1. commit | message bắt đầu `Cap nhat ban tin` |
+| 2. **khung giờ VN** | **03:30–07:00** (ca sáng sớm) hoặc **≥ 20:30** (ca tối) |
+
+Ngoài hai khung đó → **không gửi**, chỉ in `::notice::` và tin nằm chờ ca tối. `workflow_dispatch`
+(chạy tay) vẫn luôn gửi — dùng để test hoặc gửi bù khi lỡ ca.
+⚠️ Cổng 2 thêm 27/07/2026 vì trước đó chỉ xét commit message: **mọi lần quét TAY giữa ngày đều bắn
+một email riêng** — đo thật, lần quét tay 11:12 ngày 27/07 đã gửi email kèm .docx. Tệ hơn, tin đó vào
+sổ đã gửi nên bản tin TỐI lại LOẠI chúng — đúng ngược ý Huy.
+⚠️ Trong script phải viết `gio=$((10#$(… date +%H%M)))`: `date +%H%M` cho `0845`, bash coi số 0 đầu là
+**bát phân** nên `[ 0845 -ge 330 ]` vỡ với *"value too great for base"* — hỏng đúng toàn bộ ca sáng.
 
 **Vì sao cần quy tắc này:** `notify-email.yml` kích theo **PUSH** chứ không theo cron, nên phiên sáng
 sớm và phiên tối đều bắn email — mà cả ba kênh (thân email, `.docx`, tin nhắn Telegram) đều từng chọn
