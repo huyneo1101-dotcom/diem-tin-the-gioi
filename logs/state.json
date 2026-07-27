@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-27T21:36:41+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "phien toi local: +7 tin (Noi bo My 3, Uc-Bien Dong 2, CNQS My 2, Mali 0, Predator 0)",
+    "lastRunAt": "2026-07-28T04:01:01+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-27",
       "sang": "2026-07-27"
-    }
+    },
+    "heartbeat": "2026-07-28T04:01:01+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-07-27T09:41:33+07:00",
