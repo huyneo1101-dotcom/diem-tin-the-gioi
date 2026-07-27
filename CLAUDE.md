@@ -130,6 +130,15 @@ Gửi bằng `workflow_dispatch` (chạy tay) thì **KHÔNG ghi sổ** → tin k
 tối vẫn liệt kê. Nói cách khác **chỉ lần gửi TỰ ĐỘNG của một ca chính thức mới để lại dấu trong sổ**;
 mọi lần gửi tay đều là "gửi thêm", không trừ đi thứ gì của bản tối.
 
+**📱 TELEGRAM ÁP Y HỆT EMAIL** (Huy chốt 27/07: *"và với telegram thì cũng vậy"*). Không phải nhờ
+chép lại luật mà nhờ **dùng chung hạ tầng** — giữ nguyên thế này, đừng tách ra:
+- bước `Gửi Telegram` nằm trong CHÍNH `notify-email.yml` và dùng CHUNG `steps.chk.outputs.go`, nên nó
+  qua đúng hai cổng (commit + khung giờ) — quét tay giữa ngày thì Telegram cũng im, y như email;
+- `send_telegram.py` gọi `md.loc_chua_gui(...)`, tức đọc CHUNG `logs/da-gui-email.json` — nên gửi tay
+  không ghi sổ thì bản Telegram buổi tối cũng vẫn có tin của lần quét tay đó.
+⚠️ Đừng cho Telegram một cổng riêng hay một sổ riêng: hai bộ luật song song chắc chắn sẽ lệch nhau, và
+lệch âm thầm — email đúng còn Telegram sai thì rất lâu mới phát hiện.
+
 **CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY** — `notify-email.yml` có **hai cổng**, phải qua CẢ HAI:
 | Cổng | Điều kiện |
 |---|---|
