@@ -6,9 +6,12 @@ Cách xác định "tin mới của lần quét": diff DATA trong index.html (HE
 (git show HEAD~1:index.html) — URL nào chưa có ở bản trước là tin của lần quét này.
 
 BÁM CHẶT format bản tin mẫu buổi tối (Diem-tin-ngay-2026-07-23.docx — 5 chủ đề):
-  1. Nội bộ Mỹ        -> usNews category "Chính trị", region "Bắc Mỹ" (điều trần + bỏ phiếu)
-  2. Úc và Biển Đông  -> worldNews
-  3. QS-KHCN          -> mọi usNews còn lại (CNQS Mỹ + Mỹ–Mali) + item tập trận/sự kiện mới
+  1. Nội bộ Mỹ        -> usNews category "Chính trị", KHÔNG phải chuyện Mali (điều trần + bỏ phiếu)
+  2. Úc và Biển Đông  -> worldNews, trừ tin Mali
+  3. QS-KHCN          -> usNews còn lại (CNQS Mỹ) + item tập trận/sự kiện mới (gồm Predator's Run)
+                         — mục DUY NHẤT ghi kèm ngày tin, vì chỉ nó được nới khung 3 ngày
+  4. Mỹ – Mali        -> tin Mali/Sahel gom từ CẢ usNews lẫn worldNews (tách riêng 27/07/2026
+                         sau khi Huy bắt lỗi tin Mali lòi ra giữa mục QS-KHCN)
 (Đã BỎ mục Mạng xã hội (X) — ngoài phạm vi.)
 
 Định dạng khớp mẫu:
@@ -164,20 +167,37 @@ def la_tin_mali(it):
     return any(k in kho for k in MALI_KEYS)
 
 
+# Category của tin thuộc mục QS-KHCN. Đây là danh sách DƯƠNG — xem chú thích is_noibo_my.
+CATEGORY_QSKHCN = ("Công nghệ quân sự",)
+
+
+def la_qs_khcn(it):
+    return (it.get("category") or "") in CATEGORY_QSKHCN
+
+
 def is_noibo_my(it):
-    """Nội bộ Mỹ = tin `usNews` category "Chính trị" KHÔNG phải chuyện Mali/Sahel.
+    """Nội bộ Mỹ = tin `usNews` KHÔNG phải khí tài, KHÔNG phải chuyện Mali/Sahel.
 
-    ⚠️ ĐÃ VÁ 27/07/2026 — trước đây điều kiện là `region == "Bắc Mỹ"`, và mục 1 của file
-    .docx vì thế LUÔN RỖNG: mọi tin `usNews` nạp gần đây đều không có `region` (đếm thật
-    hôm phát hiện: 9/9 tin đều `region: None`), nên toàn bộ tin điều trần/bỏ phiếu bị dồn
-    xuống mục "QS-KHCN" nằm lẫn với tin khí tài và tin Mali. Người đọc mất hẳn mục 1.
+    ⚠️ VÁ LẦN 1 (27/07/2026) — trước đây điều kiện là `region == "Bắc Mỹ"`, và mục 1 của
+    file .docx vì thế LUÔN RỖNG: mọi tin `usNews` nạp gần đây đều không có `region` (đếm
+    thật: 9/9 tin đều `region: None`). Vì vậy region RỖNG vẫn được tính là nội bộ Mỹ — đó
+    là trạng thái bình thường của dữ liệu. Đừng "siết cho chặt" bằng cách bắt buộc có
+    region: làm vậy là tái lập đúng con bug đó.
 
-    Vì vậy region RỖNG vẫn được tính là nội bộ Mỹ — đây là trạng thái bình thường của dữ
-    liệu, không phải thiếu sót. Chỉ loại khi region nói rõ là vùng khác (vd "Châu Phi").
-    Đừng "siết lại cho chặt" bằng cách bắt buộc phải có region: làm vậy là tái lập đúng
-    con bug này.
+    ⚠️ VÁ LẦN 2 (27/07/2026, sau khi Huy bắt lỗi tin Mali lòi ra mục QS-KHCN) — điều kiện
+    cũ `category == "Chính trị"` cũng sai, chỉ theo hướng ngược lại: nó BỎ SÓT tin **Kinh
+    tế** và **Ngoại giao**, mà theo 5 nhóm Nội bộ Mỹ Huy chốt thì nhóm 4 chính là *"hoạt
+    động kinh tế Mỹ + hoạt động khác của các bộ và Nhà Trắng"*. Đếm thật trên DATA: 30 tin
+    `Kinh tế` + 21 tin `Ngoại giao` đang bị dồn xuống mục khí tài — thực tế lọt vào bản
+    27/07: "Mỹ áp gói thuế quan mới 10-12,5% lên khoảng 60 đối tác thương mại".
+
+    GỐC của cả hai lần vá là cùng một thứ: **QS-KHCN từng được định nghĩa là "mọi usNews
+    còn lại" — một cái thùng rác**, nên mọi phân loại thiếu sót đều đổ vào đó. Nay CẢ HAI
+    mục đều định nghĩa DƯƠNG: QS-KHCN = category "Công nghệ quân sự"; Nội bộ Mỹ = phần còn
+    lại KHÔNG phải khí tài và KHÔNG phải Mali. Thêm category mới thì cân nhắc nó thuộc mục
+    nào, đừng để rơi tự do.
     """
-    if it.get("category") != "Chính trị":
+    if la_qs_khcn(it):
         return False
     if la_tin_mali(it):
         return False
@@ -190,13 +210,53 @@ MUC_GHI_NGAY = "QS-KHCN"
 
 
 def build_sections(us, world, events):
-    """Chia theo 5 chủ đề, gộp thành 3 mục của bản tin mẫu."""
-    sec1 = [it for it in us if is_noibo_my(it)]            # 1. Nội bộ Mỹ
-    sec3_us = [it for it in us if not is_noibo_my(it)]     # CNQS Mỹ + Mỹ–Mali
+    """Chia thành 4 mục của bản tin.
+
+    ⚠️ ĐÃ VÁ 27/07/2026 — Huy bắt lỗi: *"đang tin khcn-qs tự nhiên thấy lòi ra tin Mali, và
+    chẳng thấy mục mali đâu"*. Trước đây hàm này chỉ dựng 3 mục và mục QS-KHCN được định
+    nghĩa là "MỌI usNews còn lại", nên tin Mỹ–Mali (một trong 5 chủ đề, có mục riêng trên
+    web) bị dồn vào đó nằm lẫn giữa tin khí tài — người đọc vừa thấy lạc lõng vừa mất hẳn
+    một chủ đề. Thực tế lọt vào bản 27/07: "Al Jazeera phân tích liên minh JNIM", "Niger
+    Abdourahamane Tiani… Mali, Burkina".
+
+    Nay Mali có MỤC RIÊNG. Hai điểm phải giữ:
+    - Lọc Mali từ CẢ `us` LẪN `world`: tin Sahel nằm ở mảng nào cũng có thể, và trước đây
+      `world` được đổ nguyên vào "Úc và Biển Đông" nên tin Mali trong `world` sẽ lọt vào mục
+      Biển Đông — đúng cùng một con lỗi, chỉ khác chỗ.
+    - Ba nhánh phải LOẠI TRỪ NHAU, nếu không một tin sẽ in hai lần ở hai mục.
+    - Và phải PHỦ HẾT: từ khi QS-KHCN thôi làm "thùng rác hứng phần còn lại", một tin không
+      khớp nhánh nào sẽ BIẾN MẤT khỏi file mà không báo gì. Lưới cuối bên dưới gom phần rơi
+      về mục 1 và in cảnh báo — mất tin tệ hơn nhiều so với xếp nhầm mục.
+
+    Predator's Run vẫn nằm trong QS-KHCN qua `events` (bản tin mẫu để vậy, Huy không đụng).
+    """
+    mali = [it for it in us + world if la_tin_mali(it)]
+    mali_urls = urls_of(mali)
+
+    def khong_phai_mali(it):
+        return it.get("sourceUrl") not in mali_urls
+
+    sec1 = [it for it in us if is_noibo_my(it)]                       # 1. Nội bộ Mỹ
+    sec2 = [it for it in world if khong_phai_mali(it)]                # 2. Úc & Biển Đông
+    sec3 = [it for it in us                                           # 3. CNQS Mỹ (+ Predator)
+            if la_qs_khcn(it) and khong_phai_mali(it)]
+
+    # LƯỚI AN TOÀN — không được để tin nào rơi ra ngoài mọi mục.
+    da_xep = urls_of(sec1) | urls_of(sec2) | urls_of(sec3) | mali_urls
+    roi = [it for it in us + world
+           if it.get("sourceUrl") and it.get("sourceUrl") not in da_xep]
+    if roi:
+        print(f"⚠️  {len(roi)} tin không khớp mục nào -> dồn vào 'Nội bộ Mỹ'. "
+              f"Xem lại phân loại: "
+              + " | ".join(f"[{it.get('category')}] {(it.get('title') or '')[:45]}"
+                           for it in roi[:5]), file=sys.stderr)
+        sec1 = sec1 + roi
+
     return [
         ("Nội bộ Mỹ", sec1),
-        ("Úc và Biển Đông", list(world)),
-        (MUC_GHI_NGAY, sec3_us + list(events)),
+        ("Úc và Biển Đông", sec2),
+        (MUC_GHI_NGAY, sec3 + list(events)),
+        ("Mỹ – Mali", mali),
     ]
 
 
