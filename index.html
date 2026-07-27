@@ -175,6 +175,7 @@ a{color:inherit}
 .wk-pt{margin:0 0 12px;padding-left:12px;border-left:3px solid var(--line)}
 .wk-pt-t{font-weight:800;font-size:calc(14.5px*var(--fs));color:var(--title);margin-bottom:3px}
 .wk-pt-b{font-size:calc(13.5px*var(--fs));color:var(--ink);line-height:1.55}
+.wk-cnt{font-size:calc(11.5px*var(--fs));color:var(--muted)}
 .wk-src{font-size:calc(11.5px*var(--fs));color:var(--muted);margin-top:4px}
 .wk-src a{color:var(--accent);text-decoration:none}
 /* Link nội dòng trong body báo cáo tuần — màu đỏ như link "Nguồn", gạch chân, KHÔNG đậm */
@@ -382,7 +383,7 @@ var DIPEVENTS=[
   {name:'Thượng đỉnh ASEAN 2026 (Philippines)',status:'upcoming',dates:'2026 · Philippines làm Chủ tịch',location:'Philippines',scale:'Philippines tiếp nhận ghế Chủ tịch ASEAN từ Malaysia · trọng tâm Biển Đông, kết nối khu vực',summary:'Philippines làm Chủ tịch luân phiên ASEAN 2026 và đăng cai các hội nghị cấp cao — đáng chú ý với Việt Nam do liên quan trực tiếp vấn đề Biển Đông và hợp tác khu vực.',items:[]}
 ];
 function dipItems(){var arr=(DATA.dipEvents&&DATA.dipEvents.length)?DATA.dipEvents:DIPEVENTS;var out=[];arr.forEach(function(e){(e.items||[]).forEach(function(it){out.push(it);});});return out;}
-var state={tab:'home',fresh:'Tất cả',freshDate:'',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',savedSeg:'news',newsSeg:'fresh',anaSeg:'weekly',cafeStart:null,cafeLm:'',cafeSort:'dist',cafeDistrict:'',cafeF:{h24:false,quiet:false,solo:false,worktable:false,fav:false,view:false,fun:false,checkin:false},cafeHideBusy:true,cafeAdding:false,cafeTagEdit:null,conceptRev:null,q:''};
+var state={tab:'home',fresh:'Tất cả',freshDate:'',wcat:'Tất cả',areg:'Tất cả',wdate:'Tất cả',adate:'Tất cả',xhandle:'Tất cả',xdate:'Tất cả',drill:'Tất cả',dip:'Tất cả',wregion:'Tất cả',dossier:'Tất cả',topicSeg:'drills',savedSeg:'news',newsSeg:'fresh',anaSeg:'weekly',cafeStart:null,cafeLm:'',cafeSort:'dist',cafeDistrict:'',cafeF:{h24:false,quiet:false,solo:false,worktable:false,fav:false,view:false,fun:false,checkin:false},cafeHideBusy:true,cafeAdding:false,cafeTagEdit:null,conceptRev:null,weeklyWk:'',q:''};
 var USFLAG='<svg viewBox="0 0 19 10" width="18" height="10" style="vertical-align:-1px;margin-right:4px;border-radius:1px;box-shadow:0 0 0 .5px rgba(0,0,0,.15)"><rect width="19" height="10" fill="#fff"/><g fill="#b22234"><rect width="19" height=".77"/><rect y="1.54" width="19" height=".77"/><rect y="3.08" width="19" height=".77"/><rect y="4.62" width="19" height=".77"/><rect y="6.15" width="19" height=".77"/><rect y="7.69" width="19" height=".77"/><rect y="9.23" width="19" height=".77"/></g><rect width="7.6" height="5.38" fill="#3c3b6e"/></svg>';
 
 /* ==== Người đọc tự chọn phông + cỡ chữ (ưu tiên phông đẹp tiếng Việt) ==== */
@@ -1060,13 +1061,29 @@ function renderThinktank(){
   var cards=items.length?items.map(function(a){return card(analysisCardInner(a),idOf(a));}).join(''):'<div class="empty">'+(state.q?'Không có bài khớp tìm kiếm.':'Không có bài khớp bộ lọc.')+'</div>';
   return '<div class="note">Phân tích, báo cáo chiến lược từ các viện nghiên cứu (think tank) uy tín.</div>'+searchInfo(items.length)+chips+dateBar(arr,state.adate,'data-adate')+'<div class="list">'+cards+'</div>';
 }
-/* Báo cáo tổng hợp tuần về 3 cường quốc — dữ liệu: DATA.weeklyReport (agent Opus ghi mỗi CN). */
+/* Gộp báo cáo tuần hiện tại + kho lưu (DATA.weeklyArchive) → mảng, mới nhất trước, khử trùng theo weekEnd. */
+function weeklyAll(){
+  var arr=[];
+  if(DATA.weeklyReport&&(DATA.weeklyReport.countries||[]).length)arr.push(DATA.weeklyReport);
+  (DATA.weeklyArchive||[]).forEach(function(w){if(w&&(w.countries||[]).length)arr.push(w);});
+  arr.sort(function(a,b){return String(b.weekEnd||b.weekStart||'').localeCompare(String(a.weekEnd||a.weekStart||''));});
+  var seen={},out=[];
+  arr.forEach(function(w){var k=w.weekEnd||w.weekStart||'';if(seen[k])return;seen[k]=1;out.push(w);});
+  return out;
+}
+/* Báo cáo tổng hợp tuần về 3 cường quốc — dữ liệu: DATA.weeklyReport (mới nhất) + DATA.weeklyArchive (các tuần trước). */
 function renderWeekly(){
-  var wr=DATA.weeklyReport;
-  if(!wr||!(wr.countries||[]).length)
+  var all=weeklyAll();
+  if(!all.length)
     return '<div class="empty">Chưa có báo cáo tuần. Bản mới được đăng <b>sáng Chủ nhật</b> hằng tuần — tổng hợp diễn biến Mỹ · Trung Quốc · Nga trong tuần.</div>';
+  var wr=state.weeklyWk?(all.filter(function(w){return String(w.weekEnd||'')===state.weeklyWk;})[0]||all[0]):all[0];
   var range=(wr.weekStart?fmtVN(wr.weekStart)+' – ':'')+(wr.weekEnd?fmtVN(wr.weekEnd):'');
-  var h='<div class="note">📊 <b>Báo cáo tuần — Mỹ · Trung Quốc · Nga</b>'+(range?' · tuần '+range:'')+'. Tổng hợp & nhận định do biên tập tự thực hiện từ nguồn mở.</div>';
+  var sel='';
+  if(all.length>1){
+    var opts=all.map(function(w){var lab='Tuần '+((w.weekStart?fmtVN(w.weekStart)+' – ':'')+(w.weekEnd?fmtVN(w.weekEnd):''));return '<option value="'+esc(w.weekEnd||'')+'"'+(w===wr?' selected':'')+'>'+esc(lab)+'</option>';}).join('');
+    sel='<div class="filterbar"><span>📅 Chọn tuần</span><select class="dsel" data-weeklywk>'+opts+'</select> <span class="wk-cnt">'+all.length+' tuần đã lưu</span></div>';
+  }
+  var h=sel+'<div class="note">📊 <b>Báo cáo tuần — Mỹ · Trung Quốc · Nga</b>'+(range?' · tuần '+range:'')+'. Tổng hợp & nhận định do biên tập tự thực hiện từ nguồn mở.</div>';
   (wr.countries||[]).forEach(function(c){
     if(state.q&&!matchWeekly(c))return;
     h+='<section class="wk"><div class="wk-h">'+esc(c.flag||'')+' '+esc(c.name||'')+'</div>';
@@ -1660,6 +1677,7 @@ document.addEventListener('change',function(e){
   else if(s.getAttribute('data-freshdate')!=null){state.freshDate=s.value;render();}
   else if(s.getAttribute('data-cafelm')!=null){state.cafeLm=s.value;if(s.value===''){state.cafeStart=null;}else{var m=cfAllLm()[+s.value];if(m)state.cafeStart={lat:m.lat,lng:m.lng,label:m.label,src:'landmark'};}render();}
   else if(s.getAttribute('data-cafedistrict')!=null){state.cafeDistrict=s.value;render();}
+  else if(s.getAttribute('data-weeklywk')!=null){state.weeklyWk=s.value;render();}
 });
 refreshRead();
 var _firstRun=false;try{_firstRun=localStorage.getItem('dt.seen')==null;}catch(e){}

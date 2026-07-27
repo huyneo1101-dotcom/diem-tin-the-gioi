@@ -2,8 +2,9 @@
 """Ghi BÁO CÁO TUẦN (Mỹ · Trung Quốc · Nga) vào DATA.weeklyReport trong index.html.
 
 Báo cáo tuần là bài TỔNG HỢP & NHẬN ĐỊNH do agent Opus viết mỗi sáng Chủ nhật (giờ VN),
-hiển thị ở tab Phân tích → mục con "Báo cáo tuần". KHÁC với tin chạy hằng ngày: đây là 1
-object DUY NHẤT trong DATA (ghi đè bản tuần trước), không phải mảng cộng dồn.
+hiển thị ở tab Phân tích → mục con "Báo cáo tuần". KHÁC với tin chạy hằng ngày: bản MỚI NHẤT
+nằm ở DATA.weeklyReport; bản tuần trước KHÔNG mất mà được đẩy sang DATA.weeklyArchive (giữ ~26
+tuần) để web cho xem lại qua bộ chọn tuần.
 
 Dùng: python3 scripts/add_weekly.py weekly.json
 
@@ -128,6 +129,24 @@ def main() -> None:
     start, end = find_data_span(html)
     data = json.loads(html[start:end])
 
+    # Lưu báo cáo tuần CŨ vào kho (weeklyArchive) trước khi ghi đè — để web cho xem lại các tuần trước.
+    ARCHIVE_CAP = 26  # giữ ~6 tháng gần nhất
+    old = data.get("weeklyReport")
+    archive = data.get("weeklyArchive") or []
+    if old and (old.get("countries") or []) and old.get("weekEnd") != report.get("weekEnd"):
+        archive = [old] + archive
+    # khử trùng theo weekEnd (bản đứng trước — mới hơn — thắng), bỏ bản trùng tuần đang ghi
+    seen = {report.get("weekEnd")}
+    deduped = []
+    for w in archive:
+        k = w.get("weekEnd") or w.get("weekStart")
+        if k in seen:
+            continue
+        seen.add(k)
+        deduped.append(w)
+    deduped.sort(key=lambda w: str(w.get("weekEnd") or w.get("weekStart") or ""), reverse=True)
+    data["weeklyArchive"] = deduped[:ARCHIVE_CAP]
+
     data["weeklyReport"] = report
     new_data = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     html_path.write_text(html[:start] + new_data + html[end:], encoding="utf-8")
@@ -135,7 +154,8 @@ def main() -> None:
     npts = sum(len(c.get("points") or []) for c in report["countries"])
     print(
         f"OK: đã ghi báo cáo tuần {report['weekStart']}→{report['weekEnd']} "
-        f"({len(report['countries'])} nước, {npts} luận điểm). generatedAt={report['generatedAt']} {report['generatedTime']}"
+        f"({len(report['countries'])} nước, {npts} luận điểm). generatedAt={report['generatedAt']} {report['generatedTime']} "
+        f"· kho lưu {len(data['weeklyArchive'])} tuần trước"
     )
 
 
