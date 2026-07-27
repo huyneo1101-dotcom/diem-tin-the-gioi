@@ -266,3 +266,12 @@ Ket thuc em theo dung quy trinh (buoc 1, truong hop exit 10).
 git pull --rebase origin main: Already up to date, working tree sach.
 state.py claim event-scan -> exit 10: "ngay 2026-07-27 DA XONG (lan chay cuoi 2026-07-27T09:41:33+07:00)".
 Khong lam lai, khong goi them agent. Ket thuc em theo dung quy trinh (buoc 1, truong hop exit 10).
+
+=== 22:00 web-scan CI (15:00Z) — SKIP ===
+git pull --rebase origin main: Already up to date.
+state.py claim web-scan -> exit 10: "web-scan [phien toi] ngay 2026-07-27 DA XONG (lan chay cuoi
+2026-07-27T21:36:41+07:00)". state.py show xac nhan: phien toi local da DONE luc 21:36:41,
++7 tin (Noi bo My 3, Uc-Bien Dong 2, CNQS My 2, Mali 0, Predator 0). Day la mot trong 3 lop cua
+phien toi (CI 21:00 -> local 21:15 -> CI 22:00 vet); lop local 21:15 da chay xong va ra ban tin,
+nen lop vet CI 22:00 nay khong con gi de lam. Khong quet lai, khong goi them agent. Ket thuc em
+theo dung quy trinh (buoc 1, truong hop exit 10).
