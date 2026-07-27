@@ -115,10 +115,38 @@ vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc
 RỘNG theo 5 chủ đề"** ở cuối skill này (danh sách nguồn cụ thể cho từng chủ đề — chọn vài nguồn hợp rồi
 nhúng vào prompt agent). Ưu tiên nguồn quốc phòng/chính thức Mỹ + Úc + AFRICOM cho 5 chủ đề này. Lấy dữ liệu nền:
 ```
+python3 scripts/harvest.py --json /tmp/ung-vien.json                    # ⭐ GOM ỨNG VIÊN — chạy TRƯỚC
 grep -oE '"sourceName":"[^"]+"' index.html | sort | uniq -c | sort -rn   # nguồn đã dùng nhiều → né
 python3 scripts/add_news.py --recent-titles 20                          # tiêu đề gần đây → chống trùng
 python3 scripts/add_news.py --baomoi-pending                            # 2 nhóm Báo Mới
 ```
+
+### ⭐ `harvest.py` — MÁY ĐI LẤY, AGENT ĐI THẨM ĐỊNH (bắt buộc từ 27/07/2026)
+Quét **67 feed RSS trong bảng CLAUDE.md + 8 truy vấn Google News**, lọc theo khung hôm nay + hôm qua và
+theo từ khoá 5 chủ đề (`scripts/topics.py`), bỏ rác + gộp các bản trùng của cùng một sự kiện, in ứng
+viên theo từng chủ đề (kèm `--json` để nhúng vào prompt agent).
+
+**Vì sao bắt buộc:** đo thật trên DATA — 161 nguồn từng đóng góp tin, nhưng nguồn chuyên đúng chủ đề
+lại **0 tin**: Long War Journal (Mali), AllAfrica (Sahel), Philstar + Inquirer (Biển Đông), Lowy +
+ABC News AU (Úc), gCaptain, Shephard. Không phải nguồn chết — curl từ máy trả 200 hết. Nguyên nhân là
+**WebFetch của subagent bị chặn 403**, nên agent rơi về WebSearch và quét tuỳ duyên. Hậu quả đo được:
+sáng 27/07 agent Mali kết luận "không có bài mới" trong khi Google News có 88 item Mali/Sahel trong
+48h, gồm tin Bloomberg 26/07 (Liên minh Sahel tăng quân lên 18.000) — bỏ sót thật, phải nạp bù sau.
+Ngay lần chạy đầu, harvest bắt được `gCaptain — Three Clashes in a Week Escalate China-Philippines Sea
+Feud` và `The Hill — GOP senator ahead of Fauci testimony`, đều từ nguồn agent chưa từng chạm tới.
+
+**Cách dùng kết quả — ĐỌC KỸ, đây là chỗ dễ sai:**
+- `[RSS]` có link bài GỐC thật → kiểm nội dung rồi dùng luôn được.
+- `[GNEWS]` chỉ là **RADAR phát hiện đề tài**: link là redirect `news.google.com` (không resolve bằng
+  HEAD được, nó redirect bằng JS) và tiêu đề bị rút gọn. **Agent PHẢI tự tìm bài gốc** (WebSearch theo
+  tiêu đề + tên nguồn) rồi mới nạp. TUYỆT ĐỐI không nạp link `news.google.com` vào DATA.
+- ⚠️ **Ngày in ra là NGÀY ĐĂNG BÀI, KHÔNG phải ngày sự kiện.** Nhiều trang đăng lại tin cũ với pubDate
+  mới: 27/07 harvest hiện "US House passes $1.15 trillion defence bill" ngày 26/07, nhưng cuộc bỏ phiếu
+  216-212 diễn ra **22/07** — ngoài khung, phải bỏ. Luôn mở bài, neo `date` theo NGÀY SỰ KIỆN.
+- Harvest **không thay thế** agent: nó lo độ PHỦ (không sót nguồn), agent lo độ ĐÚNG (thẩm định, chống
+  trùng sự kiện, viết tiếng Việt). Vẫn giao đủ 5 luồng agent như Bước 2 — nhưng nhúng ứng viên của
+  chủ đề tương ứng vào prompt để agent khỏi mò lại từ đầu.
+
 Nhúng nguyên khối `--recent-titles` vào prompt MỌI agent để né trùng (gồm cả tin Drive vừa nạp 20:00).
 `preferences.json` (👍/👎) chỉ là điều hướng mềm — với phạm vi tập trung này, 5 chủ đề là ưu tiên số 1.
 

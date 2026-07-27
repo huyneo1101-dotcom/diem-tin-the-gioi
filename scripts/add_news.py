@@ -508,38 +508,17 @@ def print_baomoi_pending(html_path: pathlib.Path, repo_root: pathlib.Path) -> No
         print("  (không có ứng viên — bỏ qua)")
 
 
-# Từ khoá nhận diện ứng viên Báo Mới HỢP 5 chủ đề đang quét. Cố tình để RỘNG: mục đích là
-# NHẮC cho phiên quét nhìn thấy, không phải tự quyết thay — thà nhắc thừa vài bài còn hơn
-# im lặng bỏ sót. Phiên quét vẫn là bên đọc và loại.
-BAOMOI_TOPIC_KEYWORDS = {
-    "Úc & Biển Đông": [
-        "biển đông", "trường sa", "hoàng sa", "scarborough", "cỏ mây", "bãi cạn",
-        "philippines", "manila", "aukus", "australia", "úc", "canberra", "tàu ngầm hạt nhân",
-    ],
-    "CNQS Mỹ": [
-        "lầu năm góc", "không quân mỹ", "hải quân mỹ", "lục quân mỹ", "thủy quân lục chiến",
-        "space force", "quân đội mỹ", "f-35", "f-22", "b-21", "patriot", "thaad", "himars",
-        "tên lửa mỹ", "drone mỹ", "uav mỹ", "hạm đội",
-    ],
-    "Mỹ – Mali": ["mali", "sahel", "jnim", "bamako", "africom", "burkina faso", "niger"],
-    "Predator's Run": ["predator's run", "predator run", "townsville", "carabaroo"],
-    "Nội bộ Mỹ": [
-        "hạ viện mỹ", "thượng viện mỹ", "quốc hội mỹ", "điều trần", "ủy ban quân vụ",
-        "thông qua dự luật", "ndaa",
-    ],
-}
-
-
-# Khớp theo RANH GIỚI TỪ, không phải substring thô: bản đầu dùng `k in hay` nên từ khoá "úc"
-# khớp luôn chữ "thúc" trong "lực kéo thúc đẩy tăng trưởng" → lôi cả bài kinh tế vào cổng.
-_BAOMOI_KW_RE = {
-    topic: [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in kws]
-    for topic, kws in BAOMOI_TOPIC_KEYWORDS.items()
-}
-
-
 def baomoi_topic_hits(repo_root: pathlib.Path, existing: set) -> list:
-    """Ứng viên Báo Mới CHƯA NẠP mà khớp từ khoá 5 chủ đề — [(chủ đề, item)]."""
+    """Ứng viên Báo Mới CHƯA NẠP mà khớp từ khoá 5 chủ đề — [(chủ đề, item)].
+
+    Bộ từ khoá nằm ở `scripts/topics.py` (dùng chung với `harvest.py`) — MỘT nguồn sự
+    thật, vì hai bộ để rời ở hai file thì sớm muộn cũng lệch, và chỗ lệch chính là chỗ
+    tin lọt lưới. Khớp theo ranh giới từ, không phải substring (bản đầu dùng `k in hay`
+    nên "úc" khớp luôn chữ "thúc" trong "thúc đẩy tăng trưởng").
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    from topics import match_topic
+
     hits = []
     for fname in ("baomoi-saved.json", "baomoi-topics.json"):
         items, _ = _load_baomoi(repo_root / fname)
@@ -548,10 +527,9 @@ def baomoi_topic_hits(repo_root: pathlib.Path, existing: set) -> list:
             if not url or url in existing:
                 continue
             hay = (it.get("title") or "") + " " + (it.get("summary") or "")
-            for topic, pats in _BAOMOI_KW_RE.items():
-                if any(p.search(hay) for p in pats):
-                    hits.append((topic, it))
-                    break
+            topic = match_topic(hay, "vi")
+            if topic:
+                hits.append((topic, it))
     return hits
 
 

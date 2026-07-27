@@ -11,6 +11,8 @@ Bản tin chạy **2 phiên/ngày, CÙNG playbook 5 chủ đề**: phiên **TỐ
 - 🔁 LỖI MẠNG/SERVER — TỰ RETRY: WebSearch/WebFetch lỗi → thử lại tới 3 lần (đổi nguồn/từ khoá); `git push`/`pull` lỗi → `sleep 30` rồi thử lại, tối đa 3 vòng; agent con chết → giao lại 1 lần. Sau 3 lần vẫn hỏng: `state.py fail` + ghi log + cố push — mốc cron sau tự quét lại.
 
 ## VIỆC
+⭐ **Chạy `python3 scripts/harvest.py --json /tmp/ung-vien.json` TRƯỚC khi giao agent** (bắt buộc từ 27/07/2026): script quét 67 feed RSS + 8 truy vấn Google News rồi lọc theo 5 chủ đề + khung hôm nay/hôm qua. Lý do: WebFetch của subagent hay bị 403 nên agent tự quét là sót nguồn — đo thật, nhiều nguồn chuyên chủ đề chưa đóng góp bài nào. Nhúng ứng viên của từng chủ đề vào prompt agent tương ứng. Lưu ý `[GNEWS]` chỉ là radar (link redirect, phải tự tìm bài gốc, không nạp link news.google.com) và ngày in ra là ngày ĐĂNG BÀI chứ không phải ngày SỰ KIỆN.
+
 Đọc file `.claude/skills/quet-tin/SKILL.md` (có sẵn trong repo) và làm ĐÚNG playbook trong đó: bản tin tối 5 CHỦ ĐỀ (Nội bộ Mỹ siết · Úc & Biển Đông · CNQS Mỹ · Mỹ–Mali · Predator's Run 2026), mỗi chủ đề 5–10 bài, khung 24h (nới 48h nếu thiếu <5 bài — **"48h" nghĩa là HÔM NAY + HÔM QUA, KHÔNG phải lùi 2 ngày lịch**: quét ngày 27 thì tin cũ nhất được lấy là 26, tin 25 trở về trước BỎ. Ghi thẳng 2 ngày cụ thể vào prompt agent thay vì viết chữ "48h"; `add_news.py` chặn cứng biên này ở 2 lớp nên nhận về cũng không nạp được); kiến trúc agent Sonnet; chống trùng bằng `--recent-titles`; chèn tin qua `scripts/add_news.py`; nguồn 3 tầng + bảng RSS theo `CLAUDE.md` gốc repo (tự nạp). Mọi đường dẫn tuyệt đối `/Users/Huy/...` ghi trong SKILL/CLAUDE.md là cho máy local — trong CI thay bằng relative tương ứng.
 
 ## QUY TRÌNH BẮT BUỘC (khung, chi tiết theo SKILL)
