@@ -15,7 +15,7 @@ BÁM CHẶT format bản tin mẫu buổi tối (Diem-tin-ngay-2026-07-23.docx �
   - Chữ: Times New Roman 14pt toàn bộ.
   - Tiêu đề "ĐIỂM TIN NGÀY d.M.yyyy": căn giữa, đậm, 14pt.
   - Đầu mục "N. <tên>": căn đều (justify), đậm, 14pt.
-  - Mỗi tin: MỘT đoạn "- <nội dung>" (summary + significance), căn đều, 14pt, chữ thường
+  - Mỗi tin: MỘT đoạn "- <nội dung>" (CHỈ summary — đã bỏ significance từ 27/07/2026), căn đều, 14pt, chữ thường
     (không đậm/nghiêng); dòng dưới là link nguồn (hyperlink xanh gạch chân).
   - Lề: trái/phải 1.25 inch, trên/dưới 1.0 inch.
 Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (không có tin) -> in "DOCX=".
@@ -197,15 +197,20 @@ def add_hyperlink(paragraph, url, text):
 
 
 def item_body(it):
-    """Nội dung tin: summary + significance (fallback title nếu thiếu summary)."""
-    parts = []
+    """Nội dung tin trong .docx: CHỈ `summary` (fallback `title` nếu thiếu summary).
+
+    ⚠️ ĐÃ BỎ `significance` khỏi đây (chỉ thị Huy 27/07/2026: "ở nội dung tóm tắt tin trong
+    file docx thì bỏ những câu đánh giá ở cuối"). Trước đây ghép `summary + significance`
+    thành một đoạn, nên mỗi tin đều kết bằng một câu bình luận kiểu "cho thấy...", "phản
+    ánh..." — đọc rất sáo và không phải thứ Huy cần trong bản tin.
+    `significance` VẪN được giữ trong `DATA` và vẫn hiển thị trên web — chỉ không đưa vào
+    file Word gửi kèm email. Đừng "dọn cho gọn" bằng cách xoá field này khỏi guardrail.
+    """
     if it.get("summary"):
-        parts.append(it["summary"].strip())
-    if it.get("significance"):
-        parts.append(it["significance"].strip())
-    if not parts and it.get("title"):
-        parts.append(it["title"].strip())
-    return " ".join(parts)
+        return it["summary"].strip()
+    if it.get("title"):
+        return it["title"].strip()
+    return ""
 
 
 def add_item(doc, it):
