@@ -168,7 +168,7 @@ function weeklyHtml(w) {
   return `<tr><td style="padding:16px 0 6px;">
       <div style="font-size:13px;color:#8a94a6;text-transform:uppercase;letter-spacing:.4px;">📊 Báo cáo tuần · ${esc(range)}</div>
       ${blocks}
-      <div style="margin-top:8px;"><a href="${WEB_URL}/#analysis" style="color:#1a56db;font-weight:600;text-decoration:none;">Đọc báo cáo tuần đầy đủ →</a></div>
+      <div style="margin-top:8px;"><a href="${WEB_URL}/#analysis/weekly" style="color:#1a56db;font-weight:600;text-decoration:none;">Đọc báo cáo tuần đầy đủ →</a></div>
     </td></tr>`;
 }
 

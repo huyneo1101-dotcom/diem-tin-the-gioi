@@ -3,6 +3,11 @@
   "features": [
     {
       "date": "2026-07-27",
+      "title": "Gửi link vào đúng tab đang xem",
+      "desc": "Địa chỉ trang giờ ghi kèm tab bạn đang mở (ví dụ .../#analysis/weekly). Sao chép rồi gửi cho người khác, họ mở ra là vào thẳng tab đó — không phải dò lại từ trang chủ. Link 'Đọc báo cáo tuần đầy đủ' trong email sáng cũng nhảy thẳng vào Báo cáo tuần."
+    },
+    {
+      "date": "2026-07-27",
       "title": "Đọc lại báo cáo tuần của những tuần trước",
       "desc": "Báo cáo tuần Mỹ · Trung · Nga (ra Chủ Nhật) giờ được lưu lại. Vào tab 🧠 Phân tích, mục Báo cáo tuần có bộ chọn để mở lại báo cáo các tuần đã qua thay vì chỉ thấy tuần mới nhất."
     },

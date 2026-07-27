@@ -1593,9 +1593,37 @@ function render(){
   h+='<div class="pgfoot">'+esc(DATA.brand)+' — bản tin tham khảo, tổng hợp từ nguồn mở, cập nhật tự động hằng ngày.<br>Mỗi tin đều dẫn liên kết nguồn gốc. Không đại diện quan điểm của bất kỳ tổ chức nào.</div>';
   h+='</div>';
   document.getElementById('app').innerHTML=h;
+  syncHash();
   if(window.scrollTo)window.scrollTo(0,0);
 }
 function reContent(){var c=document.getElementById('content');if(c)c.innerHTML=content();}
+/* ==== Deep link bằng hash: #<tab> hoặc #<tab>/<mục con> ====
+   Dùng cho link trong email sáng (#analysis/weekly → thẳng Báo cáo tuần). Tên tab hợp lệ lấy đúng
+   theo content(): 6 tab thật + các tên CŨ (fresh/world/us/x/rejected/saved) mà content() vẫn nhận
+   và tự quy về tab mới — nhận luôn ở đây để link cũ không chết, syncHash sẽ ghi lại tên đã chuẩn hoá. */
+var HASH_TABS={home:1,news:1,topic:1,analysis:1,cafe:1,concepts:1,saved:1,fresh:1,world:1,us:1,x:1,rejected:1};
+var HASH_SEG={topic:['topicSeg',{drills:1,dip:1,dossier:1}],
+              analysis:['anaSeg',{weekly:1,thinktank:1}],
+              news:['newsSeg',{fresh:1,rejected:1}],
+              saved:['savedSeg',{news:1,concepts:1}]};
+function hashApply(){
+  var raw=(location.hash||'').replace(/^#/,'');
+  try{raw=decodeURIComponent(raw);}catch(e){}
+  if(!raw)return false;
+  var p=raw.split('/'),tab=(p[0]||'').toLowerCase(),sub=(p[1]||'').toLowerCase();
+  if(!HASH_TABS[tab])return false;            /* hash lạ → bỏ qua, giữ nguyên tab mặc định */
+  state.tab=tab;
+  var m=HASH_SEG[tab];
+  if(m&&sub&&m[1][sub])state[m[0]]=sub;
+  return true;
+}
+function hashStr(){var m=HASH_SEG[state.tab];return '#'+state.tab+(m&&state[m[0]]?'/'+state[m[0]]:'');}
+/* replaceState: KHÔNG tạo entry lịch sử (nút Back vẫn thoát trang như cũ), KHÔNG bắn hashchange
+   nên KHÔNG gây re-render → không mất vị trí cuộn. Gọi SAU content() vì content() còn tự quy
+   tên tab cũ về tab mới. file:// ở vài trình duyệt chặn replaceState → nuốt lỗi, hash không đổi. */
+function syncHash(){var h=hashStr();try{if(location.hash!==h)history.replaceState(null,'',h);}catch(e){}}
+/* Chỉ nổ khi hash đổi từ ngoài (người dùng sửa URL, Back/Forward) — replaceState ở trên không bắn. */
+window.addEventListener('hashchange',function(){if(hashApply())render();});
 document.addEventListener('click',function(e){
   var t=e.target.closest?e.target.closest('[data-tab],[data-fresh],[data-wcat],[data-areg],[data-xhandle],[data-drill],[data-dip],[data-dossier],[data-topicseg],[data-savedseg],[data-newsseg],[data-anaseg],[data-cafesort],[data-cafef],[data-cafebusy],[data-cafegeo],[data-cafeaddloc],[data-cafefav],[data-cafedel],[data-cafeaddcafe],[data-cafeformgps],[data-cafesave],[data-cafecancel],[data-cftagedit],[data-cftagset],[data-caddbtn],[data-crm],[data-fav],[data-vote],[data-rescue],[data-rejlike],[data-rejdislike],[data-share],[data-copy],[data-sx],[data-mark],[data-signin],[data-signup],[data-signout],[data-pushon],[data-pushoff],[data-pushtest],[data-export-picked],[data-clear-pick],[data-pick],[data-export-home],[data-pick-home],[data-home-goto],[data-crevstart],[data-crevflip],[data-crevok],[data-crevno],[data-crevexit]'):null;if(!t)return;
   if(t.getAttribute('data-home-goto')!=null){var _p=t.getAttribute('data-home-goto').split('|');state.tab=_p[0]||'home';if(_p[1])state.topicSeg=_p[1];if(_p[2])state.dossier=_p[2];if(_p[3])state.drill=_p[3];render();return;}
@@ -1686,6 +1714,7 @@ initSupabase();
 applyTheme(curTheme());
 ensureReaderUI();
 importDrillConcepts();
+hashApply();   /* mở bằng link có #... thì vào thẳng tab/mục con đó, phải chạy TRƯỚC render đầu tiên */
 render();
 loadBaomoi();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
