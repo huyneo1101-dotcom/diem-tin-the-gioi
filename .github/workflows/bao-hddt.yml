@@ -1,0 +1,78 @@
+name: Báo HĐĐT qua Telegram
+
+# Đường gửi Telegram cho routine PHÁT HÀNH HOÁ ĐƠN ĐIỆN TỬ (KiotViet, 2 hộ 114 + ĐQ) —
+# chạy 21:30 giờ VN trên máy Huy, KHÔNG chạy ở đây. Workflow này chỉ làm một việc: nhận
+# nội dung rồi bắn sang Telegram.
+#
+# VÌ SAO PHẢI ĐI VÒNG QUA GITHUB thay vì gửi thẳng từ máy: token bot chỉ tồn tại dưới dạng
+# GitHub Secret (cắm 27/07/2026), không có bản local và GitHub không cho đọc ngược ra.
+# Cho máy gọi `gh workflow run` là cách dùng lại đúng token đó mà không phải bắt Huy cắm
+# token lần hai vào một chỗ nữa — càng nhiều bản sao của secret càng nhiều chỗ rò.
+#
+# Gọi từ máy:
+#   gh workflow run bao-hddt.yml -R huyneo1101-dotcom/diem-tin-the-gioi -f noi_dung="..."
+#
+# CHỈ workflow_dispatch — không cron. Nó là cái loa, không phải cái đồng hồ.
+
+on:
+  workflow_dispatch:
+    inputs:
+      noi_dung:
+        description: 'Nội dung tin nhắn (hỗ trợ thẻ HTML: <b> <i> <code>)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bao-hddt
+  cancel-in-progress: false
+
+jobs:
+  bao:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gửi Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NOI_DUNG: ${{ inputs.noi_dung }}
+        run: |
+          set -uo pipefail
+
+          # KHÔNG "thiếu secret thì thoát êm". Repo này ĐÃ cắm secret, nên thiếu = HỎNG chứ
+          # không phải "chưa cấu hình" — thoát êm ở đây đẻ ra workflow xanh trong khi Huy
+          # không nhận được gì. Bài học đã vấp ở Rèn 27/07/2026.
+          if [ -z "${TELEGRAM_BOT_TOKEN}" ] || [ -z "${TELEGRAM_CHAT_ID}" ]; then
+            echo "::error::Thiếu TELEGRAM_BOT_TOKEN hoặc TELEGRAM_CHAT_ID — không gửi được."
+            exit 1
+          fi
+
+          gui_duoc=0
+          that_bai=""
+          for chat in $(echo "${TELEGRAM_CHAT_ID}" | tr ',' ' '); do
+            ma=$(curl -sS -o /tmp/tg-resp.json -w '%{http_code}' \
+                   "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+                   --data-urlencode "chat_id=${chat}" \
+                   --data-urlencode "text=${NOI_DUNG}" \
+                   -d "parse_mode=HTML" \
+                   -d "disable_web_page_preview=true" || echo "000")
+            echo "chat ${chat} -> HTTP ${ma}"
+            if [ "${ma}" = "200" ]; then
+              gui_duoc=1
+            else
+              # In nguyên văn lỗi Telegram trả về (description) để lần sau khỏi mò.
+              echo "  phản hồi: $(cat /tmp/tg-resp.json 2>/dev/null | head -c 500)"
+              that_bai="${that_bai} ${chat}"
+            fi
+          done
+
+          if [ "${gui_duoc}" != "1" ]; then
+            echo "::error::Không gửi được tới BẤT KỲ chat nào —${that_bai}"
+            exit 1
+          fi
+          if [ -n "${that_bai}" ]; then
+            echo "::warning::Có chat gửi hỏng:${that_bai} (nhưng ít nhất một chat đã nhận)"
+          fi
+          echo "Đã gửi xong."
