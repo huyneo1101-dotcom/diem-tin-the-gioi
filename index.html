@@ -182,15 +182,19 @@ a{color:inherit}
 .wk-link{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
 .wk-link:hover{opacity:.78}
 /* Thẻ Bối cảnh + Khái niệm dưới mỗi tập trận */
-/* 2 nút Bối cảnh / Khái niệm dưới mỗi tập trận (mở trang riêng) */
-.drill-doc-row{display:flex;gap:8px;flex-wrap:wrap;margin:2px 0 12px}
-.drill-doc-btn{flex:1;min-width:150px;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;
-  border:1px solid var(--line);border-radius:8px;padding:11px 13px;background:var(--paper2);
-  font-size:.95rem;font-weight:800;color:var(--title);text-align:left;transition:border-color .12s,background .12s}
-.drill-doc-btn:first-child{border-left:3px solid var(--blue,#2b5f9e)}
-.drill-doc-btn:last-child{border-left:3px solid var(--green,#1f8a54)}
-.drill-doc-btn:hover{background:var(--paper);border-color:var(--muted)}
-.ddb-go{font-size:.72rem;font-weight:700;color:var(--muted);white-space:nowrap}
+/* 2 nút Bối cảnh / Khái niệm dưới mỗi tập trận (P2 — thẻ lớn icon tròn + phụ đề → mở trang riêng) */
+.drill-doc-row{display:flex;gap:12px;flex-wrap:wrap;margin:2px 0 12px}
+.drill-doc-btn{flex:1;min-width:210px;display:flex;align-items:center;gap:13px;cursor:pointer;text-align:left;
+  border:1px solid var(--line);border-radius:12px;padding:13px 15px;background:var(--paper);
+  font-family:inherit;transition:border-color .12s,background .12s}
+.drill-doc-btn:hover{border-color:var(--muted);background:var(--paper2)}
+.ddb-ico{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+.ddb-bg .ddb-ico{background:rgba(43,95,158,.14)}
+.ddb-con .ddb-ico{background:rgba(31,138,84,.16)}
+.ddb-tx{flex:1;min-width:0}
+.ddb-t{display:block;font-size:1rem;font-weight:800;color:var(--title);line-height:1.2}
+.ddb-s{display:block;font-size:.76rem;color:var(--muted);margin-top:2px;line-height:1.35}
+.ddb-chev{color:var(--muted);font-size:1.15rem;flex-shrink:0}
 /* Trang riêng đọc toàn văn */
 .dd-top{margin:0 0 14px}
 .drill-back{cursor:pointer;border:1px solid var(--line);background:var(--paper2);color:var(--title);
@@ -1401,8 +1405,12 @@ function drillHeader(ex){
 function drillHasBg(ex){return !!((ex.backgroundDoc&&ex.backgroundDoc.length)||ex.background);}
 function drillBriefing(ex){
   var b='',cc=ex.concepts||[];
-  if(drillHasBg(ex))b+='<button class="drill-doc-btn" data-drillbg="'+esc(ex.name)+'">📔 Bối cảnh<span class="ddb-go">Xem toàn văn ›</span></button>';
-  if(cc.length)b+='<button class="drill-doc-btn" data-drillcon="'+esc(ex.name)+'">📚 Khái niệm<span class="ddb-go">'+cc.length+' mục ›</span></button>';
+  if(drillHasBg(ex))b+='<button class="drill-doc-btn ddb-bg" data-drillbg="'+esc(ex.name)+'">'+
+    '<span class="ddb-ico">📔</span><span class="ddb-tx"><span class="ddb-t">Bối cảnh</span>'+
+    '<span class="ddb-s">Vì sao diễn ra · ai tham gia · ý nghĩa</span></span><span class="ddb-chev">›</span></button>';
+  if(cc.length)b+='<button class="drill-doc-btn ddb-con" data-drillcon="'+esc(ex.name)+'">'+
+    '<span class="ddb-ico">📚</span><span class="ddb-tx"><span class="ddb-t">Khái niệm</span>'+
+    '<span class="ddb-s">'+cc.length+' thuật ngữ chính của cuộc tập trận</span></span><span class="ddb-chev">›</span></button>';
   return b?'<div class="drill-doc-row">'+b+'</div>':'';
 }
 function exByName(n){var a=(DATA.exercises&&DATA.exercises.length)?DATA.exercises:EXERCISES;for(var i=0;i<a.length;i++)if(a[i].name===n)return a[i];return null;}
