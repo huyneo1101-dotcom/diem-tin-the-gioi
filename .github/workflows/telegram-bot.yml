@@ -30,6 +30,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # ⚠️ NGOẠI LỆ CÓ CHỦ Ý: đây là chỗ DUY NHẤT còn "thiếu secret -> thoát êm" sau đợt siết
+      # 27/07/2026 (send_telegram.py và canary.py nay ĐỎ khi mất secret). Ba lý do:
+      #   1. cron 5 phút = ~288 run/ngày -> mất secret là 288 job ĐỎ mỗi ngày. Cảnh báo kêu
+      #      liên tục thì Huy tắt thông báo, và lúc đó mất luôn cả cảnh báo THẬT của bản tin.
+      #   2. bot hỏi-đáp là tiện ích, không phải bản tin: mất nó KHÔNG mất dữ liệu nào.
+      #   3. nó có phản hồi tự nhiên — nhắn bot mà không thấy trả lời là biết ngay, khác hẳn
+      #      bản tin (im lặng không phân biệt được với "hôm nay không có tin").
+      # Nhưng KHÔNG để câm hẳn: in `::warning::` để trang run vẫn hiện dấu vết.
       - name: Kiểm tra secret
         id: gate
         env:
@@ -38,7 +46,7 @@ jobs:
         run: |
           if [ -z "$TOK" ] || [ -z "$TG" ]; then
             echo "run=false" >> "$GITHUB_OUTPUT"
-            echo "Thiếu CLAUDE_CODE_OAUTH_TOKEN hoặc TELEGRAM_BOT_TOKEN — bỏ qua êm."
+            echo "::warning::Bot hỏi-đáp KHÔNG chạy — thiếu CLAUDE_CODE_OAUTH_TOKEN hoặc TELEGRAM_BOT_TOKEN. Job để XANH có chủ ý (cron 5 phút), nhưng nếu bản tin cũng câm thì xem lại secret ngay."
           else
             echo "run=true" >> "$GITHUB_OUTPUT"
           fi

@@ -65,7 +65,7 @@ VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 # Đi bằng curl chứ không urllib — máy Huy có thiết bị chèn cert nên urllib trượt
 # CERTIFICATE_VERIFY_FAILED. Chi tiết trong scripts/tg_api.py.
 sys.path.insert(0, str(ROOT / "scripts"))
-from tg_api import call  # noqa: E402
+from tg_api import call, kiem_cau_hinh  # noqa: E402
 
 # Ca -> (nhãn người đọc, pipeline trong state.json, ô sang/toi của pipeline đó)
 CA = {
@@ -125,10 +125,15 @@ def gui(text: str) -> int:
         return 0
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     chats = [c.strip() for c in os.environ.get("TELEGRAM_CHAT_ID", "").split(",") if c.strip()]
-    if not token or not chats:
-        # "Chưa cấu hình" khác "hỏng" — đừng làm đỏ workflow vì secret chưa cắm.
-        print("THIẾU TELEGRAM_BOT_TOKEN hoặc TELEGRAM_CHAT_ID — bỏ qua, KHÔNG coi là lỗi.")
-        return 0
+    # Thiếu secret ở ĐÂY là ca tệ nhất trong cả repo: canary chỉ chạy tới dòng này khi bản tin
+    # ĐÃ hụt, nên "thoát êm" nghĩa là nuốt luôn tiếng kêu cuối cùng — hỏng chồng hỏng, tuyệt
+    # đối im lặng. Vì thế nó đi chung một cổng với send_telegram: mất secret là ĐỎ.
+    rc = kiem_cau_hinh(token, chats, "canary")
+    if rc is not None:
+        # Kênh tắt có chủ ý (rc=0) thì vẫn phải để lại dấu vết: bản tin đang hụt thật.
+        if rc == 0:
+            print(f"::warning::canary có cảnh báo nhưng kênh Telegram đang tắt:\n{text}")
+        return rc
     loi = 0
     for chat in chats:
         r = call(token, "sendMessage",

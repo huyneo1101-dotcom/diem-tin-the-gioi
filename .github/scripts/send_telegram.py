@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Gửi bản tin vừa quét qua Telegram Bot API — song song với email, KHÔNG thay email.
+"""Gửi bản tin vừa quét qua Telegram Bot API — KÊNH GỬI DUY NHẤT (email đã tắt 27/07/2026).
 
 Chạy:
     TELEGRAM_BOT_TOKEN=... TELEGRAM_CHAT_ID=... python3 .github/scripts/send_telegram.py
@@ -10,10 +10,17 @@ Biến môi trường:
     TELEGRAM_BOT_TOKEN  bắt buộc (trừ DRY_RUN)  — token @BotFather cấp
     TELEGRAM_CHAT_ID    bắt buộc (trừ DRY_RUN)  — id người/nhóm/kênh nhận; nhiều nơi thì
                         ngăn bằng dấu phẩy ("123456789,-1001234567890")
+    TELEGRAM_BAT_BUOC   tuỳ chọn — ='0' thì thiếu secret sẽ thoát êm (kênh tắt có chủ ý).
+                        Mặc định BẮT BUỘC: thiếu secret là job ĐỎ. Xem `tg_api.kiem_cau_hinh`
     DOCX_PATH           tuỳ chọn — đường dẫn .docx đính kèm (workflow truyền vào; rỗng thì
                         script tự gọi make_docx.py để dựng)
     SUBJECT_TAG         tuỳ chọn — tiền tố gắn trước tiêu đề (vd "[TEST] ")
     DRY_RUN             =1 thì chỉ in, không gọi API
+
+⚠️ KHÔNG CÒN CHỐT "thiếu secret thì thoát êm cả nắm" (bỏ 27/07/2026). Nó chỉ đúng khi CHƯA
+cấu hình; repo này đã cắm secret nên chốt đó chỉ còn tác dụng che ca mất secret. Lý do đầy đủ
+trong docstring của `scripts/tg_api.py:kiem_cau_hinh`. Cùng tinh thần: mọi ca "không gửi được"
+dưới đây phải phân biệt KHÔNG CÓ GÌ ĐỂ GỬI (êm) với HỎNG (đỏ).
 
 VÌ SAO KHÔNG COPY LOGIC CHỌN TIN: script này `import` thẳng `make_docx.py` để dùng lại
 `extract_data` / `pick_items` / `build_sections`. Bản tin trong Telegram vì thế LUÔN gồm
@@ -41,7 +48,7 @@ VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 # Gọi API qua curl, KHÔNG qua urllib: máy Huy có cert chèn giữa nên urllib trượt
 # CERTIFICATE_VERIFY_FAILED (gặp thật 27/07/2026). Chi tiết trong scripts/tg_api.py.
 sys.path.insert(0, str(ROOT / "scripts"))
-from tg_api import call, send_document  # noqa: E402
+from tg_api import call, kiem_cau_hinh, send_document  # noqa: E402
 
 # Telegram chặn message > 4096 ký tự. Chừa biên cho thẻ HTML bị đếm nguyên văn.
 MAX_LEN = 3800
@@ -273,10 +280,10 @@ def main():
     chats = [c.strip() for c in os.environ.get("TELEGRAM_CHAT_ID", "").split(",") if c.strip()]
     tag = os.environ.get("SUBJECT_TAG", "")
 
-    if not dry and (not token or not chats):
-        print("THIẾU TELEGRAM_BOT_TOKEN hoặc TELEGRAM_CHAT_ID — bỏ qua, KHÔNG coi là lỗi.",
-              file=sys.stderr)
-        return 0
+    if not dry:
+        rc = kiem_cau_hinh(token, chats, "bản tin sáng" if morning else "bản tin")
+        if rc is not None:
+            return rc
 
     if morning:
         return run_morning(token, chats, tag, dry)
@@ -303,25 +310,39 @@ def main():
     # DỰNG TRƯỚC khi xét `total == 0` — chỉ thị Huy 27/07: *"file word của telegram cũng phải
     # có 11 tin này"*. `total` đã bị lọc sổ, nên nó về 0 ngay khi mọi tin trong lô đã báo ở
     # bản trước; thoát sớm lúc đó thì Huy MẤT LUÔN file tổng hợp cả ngày, dù file vẫn đầy đủ.
+    # KHÔNG CÓ TIN ĐỂ GỬI ≠ DỰNG FILE HỎNG — hai ca này trước đây cùng `return 0`, nên nếu
+    # make_docx chết (thiếu python-docx, index.html vỡ, timeout) thì bản tin biến mất mà job
+    # vẫn XANH. Đúng lớp lỗi với chốt secret vừa siết ở trên, nên siết luôn một thể:
+    #   make_docx chạy xong, in "DOCX=" rỗng  -> hôm nay 0 tin, im lặng đúng   -> exit 0
+    #   make_docx lỗi / không in DOCX= / file không tồn tại -> SỰ CỐ           -> exit 1
     docx = os.environ.get("DOCX_PATH", "").strip()
+    tu_workflow = bool(docx)
     if not docx:
         try:
             out = subprocess.run(
                 [sys.executable, str(pathlib.Path(__file__).resolve().parent / "make_docx.py")],
                 capture_output=True, text=True, cwd=str(ROOT), timeout=120)
-            for line in out.stdout.splitlines():
-                if line.startswith("DOCX="):
-                    docx = line[len("DOCX="):].strip()
         except Exception as e:
-            print(f"[docx] không dựng được file đính kèm: {e}", file=sys.stderr)
-    if docx and not pathlib.Path(docx).is_file():
-        print(f"[docx] không thấy file {docx} — gửi tin nhắn không kèm file", file=sys.stderr)
-        docx = ""
+            print(f"❌ [docx] không chạy được make_docx.py: {e}", file=sys.stderr)
+            return 1
+        dong = [l for l in out.stdout.splitlines() if l.startswith("DOCX=")]
+        if out.returncode != 0 or not dong:
+            print(f"❌ [docx] make_docx.py hỏng (rc={out.returncode}) — bản tin KHÔNG gửi được.\n"
+                  f"   stdout: {out.stdout.strip()[-500:]}\n"
+                  f"   stderr: {out.stderr.strip()[-500:]}", file=sys.stderr)
+            return 1
+        docx = dong[-1][len("DOCX="):].strip()
+        if not docx:
+            print("Hôm nay không có tin nào để dựng .docx — không gửi, KHÔNG coi là lỗi.",
+                  file=sys.stderr)
+            return 0
 
-    if not docx:
-        print("Không có file .docx — không gửi Telegram (bản tin CHỈ gửi bằng file).",
-              file=sys.stderr)
-        return 0
+    if not pathlib.Path(docx).is_file():
+        # Workflow đã bảo có file mà không thấy => bước dựng ở trên đã hỏng, không phải "0 tin".
+        print(f"❌ [docx] không thấy file {docx}"
+              + (" (DOCX_PATH do workflow truyền vào)" if tu_workflow else "")
+              + " — bản tin CHỈ gửi bằng file nên đây là SỰ CỐ.", file=sys.stderr)
+        return 1
 
     # CHỈ GỬI FILE .docx, KHÔNG liệt kê tin trong tin nhắn (chỉ thị Huy 27/07/2026:
     # *"không gửi full tin như ở trên, chỉ gửi file word thôi"*). Trước đây `build_messages`

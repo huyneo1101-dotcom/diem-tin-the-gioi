@@ -114,6 +114,57 @@ nay Telegram là kênh duy nhất nên hỏng phải làm job **ĐỎ** — khô
 Nghiệm thu thật trên CI 27/07 (run 30250819712): `GUI_EMAIL=0 — BỎ QUA gửi email` + `Đã gửi 2 message
 + file .docx` tới cả 2 chat.
 
+### ⛔ "THIẾU SECRET → THOÁT ÊM" ĐÃ BỎ (siết 27/07/2026) — thiếu secret nay là job ĐỎ
+
+**Cơ chế gây vấn đề:** chốt `thiếu TELEGRAM_BOT_TOKEN/CHAT_ID → in cảnh báo rồi exit 0` chỉ bảo vệ
+đúng MỘT ca: **CHƯA CẤU HÌNH** (repo mới, chưa ai cắm secret — không có gì để hỏng). Cả hai secret
+đã cắm lúc **07:13 ngày 27/07/2026**, nên từ giờ chốt đó không bảo vệ gì nữa mà chỉ **CHE** ca secret
+bị xoá · bot bị `/revoke` · gõ nhầm tên secret. Khi đó phiên 21:00/22:00 chạy **XANH** mà kênh câm —
+và Telegram nay là **kênh DUY NHẤT**, tức mất trắng bản tin không một dấu hiệu. Cùng lớp lỗi bắt được
+ở app Rèn cùng ngày: `TELEGRAM_BOT_TOKEN` chưa từng đặt mà run 30250807802 vẫn *success* 10 giây suốt.
+
+**Luật nằm ở MỘT chỗ:** `scripts/tg_api.py:kiem_cau_hinh()` — `send_telegram.py` và `canary.py` gọi
+chung. Đừng để mỗi script tự viết luật: hai bộ luật song song chắc chắn lệch, mà lệch âm thầm.
+
+| Tình huống | Kết quả |
+|---|---|
+| Đủ secret | chạy bình thường |
+| Thiếu 1 hoặc CẢ HAI secret | **exit 1 → job ĐỎ**, in rõ secret nào thiếu + cách cắm lại |
+| `TELEGRAM_BAT_BUOC='0'` | thoát êm exit 0 — kênh tắt CÓ CHỦ Ý |
+| `DRY_RUN=1` | không cần secret |
+
+⚠️ **KHÔNG chép nguyên logic của Rèn sang.** Rèn có BA secret nên còn suy được ý định từ những cái
+còn lại ("có cái này mà thiếu cái kia → gãy"). Ở đây chỉ có HAI, và ca đáng sợ nhất là **mất sạch cả
+hai** — đúng cái ca mà luật của Rèn lại đọc thành "chưa cấu hình" rồi thoát êm. Vì thế ý định phải
+**khai bằng lời** (`TELEGRAM_BAT_BUOC`), không suy từ secret.
+⚠️ **Mặc định là BẮT BUỘC**, không phải "tuỳ": quên đặt biến thì kêu (sửa được), chứ không tạo vùng
+câm mới. Muốn tắt kênh thì đặt `TELEGRAM_BAT_BUOC: '0'` cạnh `GUI_EMAIL: '0'` trong workflow.
+⚠️ **Thêm secret Telegram mới thì phải thêm vào `kiem_cau_hinh()`**, không thì nó lọt vào vùng câm.
+
+**Ngoại lệ DUY NHẤT — `telegram-bot.yml` (bot hỏi-đáp) vẫn thoát êm**, có chủ ý: cron 5 phút nên mất
+secret là **~288 job đỏ/ngày**, mà cảnh báo kêu liên tục thì Huy tắt thông báo và mất luôn cảnh báo
+THẬT của bản tin; ngoài ra bot có phản hồi tự nhiên (nhắn mà không thấy trả lời là biết ngay), khác
+hẳn bản tin — im lặng ở bản tin không phân biệt được với "hôm nay không có tin". Bù lại nó in
+`::warning::` để trang run vẫn có dấu vết.
+
+**Vá kèm cùng lớp lỗi — nhánh `.docx` của `send_telegram.py`.** Trước đây *"không có file .docx →
+return 0"* gộp chung hai ca khác hẳn nhau; nay tách:
+| Ca | Kết quả |
+|---|---|
+| `make_docx.py` chạy xong, in `DOCX=` **rỗng** = hôm nay 0 tin | exit 0 — im lặng đúng |
+| `make_docx.py` rc≠0 · không in dòng `DOCX=` · không spawn được | **exit 1** (in kèm stdout/stderr) |
+| `DOCX_PATH` workflow truyền vào mà **file không tồn tại** | **exit 1** — bước dựng đã hỏng |
+
+Nghiệm thu 27/07 — chạy thật **13/13 ca đúng**: mất cả hai secret → 1 · mất một secret → 1 ·
+`TELEGRAM_BAT_BUOC=0` → 0 · `DRY_RUN` → 0 · `--morning` mất secret → 1 · canary mất secret khi bản tin
+đang hụt → 1 (ca tệ nhất: canary câm là hỏng chồng hỏng) · canary tắt chủ ý → 0 + `::warning::` ·
+4 nhánh docx → 1/1/0/1.
+
+📌 **`DISCORD_WEBHOOK` vẫn nằm trên repo** (đặt 24/07) dù đã bỏ Discord — **không script/workflow nào
+đọc nó**, nên nó KHÔNG rơi vào chốt nào và không tạo vùng câm. Là secret rác, xoá được bằng
+`gh secret delete DISCORD_WEBHOOK -R huyneo1101-dotcom/diem-tin-the-gioi` — nhưng xoá là mất URL
+webhook (khó đảo ngược) nên **chờ Huy quyết**, đừng tự xoá.
+
 ## ⚠️ HAI PHIÊN QUÉT + HAI EMAIL (chốt 24/07/2026)
 - **Bản tin (TỐI 21:00 + SÁNG SỚM 04:00)** — CI `claude-web-scan.yml` là mốc chính (tối 21:00 + vét 22:00, sáng sớm 04:00/05:00 VN), local dự phòng CẢ HAI phiên bằng **2 task tách riêng**: `web-scan-diem-tin` (sáng 04:30/05:30) và `web-scan-diem-tin-toi` (tối 21:15): 5 chủ đề (xem banner trên). Commit
   `Cap nhat ban tin ...` → `notify-email.yml` gửi **email tối** (tiêu đề điểm tin + .docx đính kèm).
@@ -250,9 +301,12 @@ Tab **☕ Cà phê**: tìm quán cà phê làm việc HN, xếp theo khoảng c�
 ## 📨 TELEGRAM — kênh gửi thứ hai + lớp nguồn thứ ba (thêm 27/07/2026, chỉ thị Huy)
 
 ### Gửi bản tin qua Telegram
-`.github/scripts/send_telegram.py` — chạy **song song, KHÔNG thay** email. Cả hai workflow đều
-đặt step Telegram SAU step email và `continue-on-error: true`: email là kênh chính, Telegram
-hỏng không được phép làm đỏ workflow. Thiếu secret thì script thoát êm (exit 0), không lỗi.
+`.github/scripts/send_telegram.py` — step Telegram nằm SAU step email trong cả hai workflow.
+⚠️ **Hai câu mô tả cũ ở đây đã BỊ ĐẢO, đừng đọc theo trí nhớ:** (a) *"Telegram chạy song song,
+KHÔNG thay email"* → sai từ 27/07, **email đã tắt, Telegram là kênh DUY NHẤT** (`GUI_EMAIL='0'`);
+(b) *"`continue-on-error: true`, Telegram hỏng không được làm đỏ"* và *"thiếu secret thì thoát êm
+exit 0"* → **cả hai đã bỏ**: `continue-on-error` gỡ khỏi hai bước gửi, và thiếu secret nay là job
+ĐỎ (xem mục "⛔ THIẾU SECRET → THOÁT ÊM ĐÃ BỎ" ở trên).
 
 | Bản tin | Workflow | Lệnh | Nội dung |
 |---|---|---|---|
@@ -333,8 +387,10 @@ hôm nào gửi bù bằng tay thì canary vẫn kêu, và như thế là đúng
 trống → kêu oan, ca này hiếm và đã có `::warning::` riêng; (c) ca `sukien` KHÔNG kiểm sổ vì
 `notify-morning.yml` cố ý không gửi khi không có gì mới — "im lặng" ở đó là hành vi ĐÚNG.
 
-Thiếu secret Telegram → thoát êm exit 0 ("chưa cấu hình" ≠ "hỏng"); gửi được → exit 0; gửi hỏng
-→ exit 1 làm job ĐỎ. Xem trước không gửi thật:
+⚠️ **Thiếu secret Telegram → exit 1 job ĐỎ** (siết 27/07/2026, câu cũ ghi "thoát êm exit 0" đã BỎ):
+canary chỉ chạy tới khâu gửi khi bản tin ĐÃ hụt, nên nuốt lỗi ở đây là nuốt luôn tiếng kêu cuối cùng.
+Kênh tắt có chủ ý (`TELEGRAM_BAT_BUOC='0'`) thì exit 0 nhưng vẫn in `::warning::` kèm nội dung cảnh
+báo. Gửi được → exit 0; gửi hỏng → exit 1. Xem trước không gửi thật:
 ```
 DRY_RUN=1 python3 .github/scripts/canary.py --ca toi
 ```
