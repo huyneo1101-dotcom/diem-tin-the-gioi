@@ -10,13 +10,19 @@ on:
     paths: ['index.html']
   workflow_dispatch:
 
+# Cần `write` để bước cuối commit sổ đã gửi (logs/da-gui-email.json).
+permissions:
+  contents: write
+
 jobs:
   morning:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 2
+          # 0 chứ không phải 2: bước ghi sổ phải `git pull --rebase` được, mà rebase trên bản
+          # checkout nông thì hỏng. Bước so diff vẫn cần ít nhất HEAD~1.
+          fetch-depth: 0
 
       - name: Xác định có phải commit quét sáng / báo cáo tuần không
         id: chk
@@ -63,3 +69,25 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_PAYLOAD: /tmp/morning-telegram.json
         run: python3 .github/scripts/send_telegram.py --morning
+
+      # GHI SỔ ĐÃ GỬI — CHỈ `events`, vì email này chỉ gửi sự kiện + tập trận. Ghi thêm
+      # usNews/worldNews ở đây là XOÁ SỔ tin thường trước khi chúng kịp lên bản tin tối
+      # (mất tin, chứ không phải trùng tin). Nhờ bước này bản tối không lặp lại sự kiện đã
+      # gửi sáng — chỉ thị Huy 27/07. Chỉ đụng logs/ nên không tự kích lại workflow.
+      - name: Ghi sổ đã gửi (chỉ sự kiện)
+        if: steps.chk.outputs.go == '1'
+        continue-on-error: true
+        run: |
+          pip install --quiet python-docx
+          python3 .github/scripts/so_da_gui.py --ghi --buoi sukien --chi events
+          git config user.name "claude-scan-ci"
+          git config user.email "noreply@anthropic.com"
+          git add logs/da-gui-email.json
+          git diff --cached --quiet && { echo "so khong doi"; exit 0; }
+          git commit -m "so: ghi su kien da gui email sang"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin main && exit 0
+            echo "push lan $i that bai, thu lai sau 10s"
+            sleep 10
+          done
+          echo "::warning::khong push duoc so da gui"

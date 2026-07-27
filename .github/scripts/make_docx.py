@@ -22,7 +22,7 @@ Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (kh
 
 Chạy: python3 .github/scripts/make_docx.py
 """
-import json, subprocess
+import json, os, subprocess, sys
 
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
@@ -142,9 +142,46 @@ def pick_items(cur, prev, kind):
     return out
 
 
+# Từ khoá nhận tin chủ đề 4 (Mỹ–Mali/Sahel) — cũng nằm trong `usNews` với category
+# "Chính trị", nên phải tách ra khỏi mục "Nội bộ Mỹ". Viết KHÔNG DẤU vì so sau khi bỏ dấu.
+MALI_KEYS = ("mali", "jnim", "bamako", "sahel", "azawad", "niger", "burkina",
+             "africa corps", "chau phi", "sahen")
+# Region được coi là "trong nước Mỹ". Rỗng cũng tính — xem chú thích trong is_noibo_my.
+REGION_NOI_BO = ("", "Bắc Mỹ", "Châu Mỹ")
+
+
+def _khong_dau(s):
+    """Bỏ dấu tiếng Việt để so từ khoá. Cố ý viết tại chỗ thay vì import từ
+    `scripts/tra_cuu_tin.py`: file này nằm trên đường đi của email hằng ngày, một lỗi
+    import chéo thư mục là mất file .docx của cả bản tin."""
+    s = unicodedata.normalize("NFD", str(s or "").lower())
+    return "".join(c for c in s if unicodedata.category(c) != "Mn").replace("đ", "d")
+
+
+def la_tin_mali(it):
+    kho = _khong_dau(" ".join(str(it.get(k, "")) for k in
+                              ("title", "summary", "region", "significance")))
+    return any(k in kho for k in MALI_KEYS)
+
+
 def is_noibo_my(it):
-    """Nội bộ Mỹ = usNews chính trị trong nước (điều trần/bỏ phiếu). Mali (Châu Phi) KHÔNG tính."""
-    return it.get("category") == "Chính trị" and it.get("region") == "Bắc Mỹ"
+    """Nội bộ Mỹ = tin `usNews` category "Chính trị" KHÔNG phải chuyện Mali/Sahel.
+
+    ⚠️ ĐÃ VÁ 27/07/2026 — trước đây điều kiện là `region == "Bắc Mỹ"`, và mục 1 của file
+    .docx vì thế LUÔN RỖNG: mọi tin `usNews` nạp gần đây đều không có `region` (đếm thật
+    hôm phát hiện: 9/9 tin đều `region: None`), nên toàn bộ tin điều trần/bỏ phiếu bị dồn
+    xuống mục "QS-KHCN" nằm lẫn với tin khí tài và tin Mali. Người đọc mất hẳn mục 1.
+
+    Vì vậy region RỖNG vẫn được tính là nội bộ Mỹ — đây là trạng thái bình thường của dữ
+    liệu, không phải thiếu sót. Chỉ loại khi region nói rõ là vùng khác (vd "Châu Phi").
+    Đừng "siết lại cho chặt" bằng cách bắt buộc phải có region: làm vậy là tái lập đúng
+    con bug này.
+    """
+    if it.get("category") != "Chính trị":
+        return False
+    if la_tin_mali(it):
+        return False
+    return (it.get("region") or "") in REGION_NOI_BO
 
 
 def build_sections(us, world, events):
@@ -228,14 +265,37 @@ def add_item(doc, it):
         add_hyperlink(pu, url, url)
 
 
+def loc_chua_gui(items):
+    """Bỏ tin ĐÃ nằm trong một bản tin đã gửi trước đó (sổ logs/da-gui-email.json).
+
+    Chỉ thị Huy 27/07/2026: bản tin TỐI phải "loại cả những tin đã quét lúc 4h 5h sáng" —
+    tức chỉ gồm tin thu được SAU lần gửi trước. Không có sổ (chạy lần đầu, file lỗi) thì
+    trả nguyên danh sách: thà gửi trùng còn hơn gửi rỗng.
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from so_da_gui import url_da_gui
+        da_gui = url_da_gui()
+    except Exception as e:                  # noqa: BLE001
+        print(f"Không đọc được sổ đã gửi ({e}) — giữ nguyên toàn bộ tin.", file=sys.stderr)
+        return items
+    if not da_gui:
+        return items
+    out = [it for it in items if it.get("sourceUrl") not in da_gui]
+    if len(out) != len(items):
+        print(f"Sổ đã gửi: bỏ {len(items) - len(out)} tin đã có trong bản tin trước.",
+              file=sys.stderr)
+    return out
+
+
 def main():
     with open("index.html", "r", encoding="utf-8") as f:
         cur = extract_data(f.read())
     prev = prev_data()
 
-    us = pick_items(cur, prev, "usNews")
-    world = pick_items(cur, prev, "worldNews")
-    events = pick_items(cur, prev, "events")
+    us = loc_chua_gui(pick_items(cur, prev, "usNews"))
+    world = loc_chua_gui(pick_items(cur, prev, "worldNews"))
+    events = loc_chua_gui(pick_items(cur, prev, "events"))
 
     sections = build_sections(us, world, events)
     total = sum(len(items) for _, items in sections)

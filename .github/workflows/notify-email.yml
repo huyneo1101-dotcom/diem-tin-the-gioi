@@ -14,13 +14,19 @@ on:
         required: false
         default: ''
 
+# Cần `write` để bước cuối commit sổ đã gửi (logs/da-gui-email.json).
+permissions:
+  contents: write
+
 jobs:
   email:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
         with:
-          fetch-depth: 2
+          # 0 chứ không phải 2: bước ghi sổ phải `git pull --rebase` được, mà rebase trên bản
+          # checkout nông thì hỏng. make_docx vẫn cần ít nhất HEAD~1 cho `prev_data()`.
+          fetch-depth: 0
 
       - name: Kiểm tra commit có phải bản tin mới không
         id: chk
@@ -76,3 +82,26 @@ jobs:
           DOCX_PATH: ${{ env.DOCX_PATH }}
           SUBJECT_TAG: ${{ inputs.subject_tag || '' }}
         run: python3 .github/scripts/send_telegram.py
+
+      # GHI SỔ ĐÃ GỬI — phải là bước CUỐI, sau CẢ email lẫn Telegram. Ghi sớm hơn thì
+      # `make_docx`/`send_telegram` đọc sổ thấy chính lô tin vừa gửi và lọc sạch -> Telegram rỗng.
+      # Nhờ sổ này bản tin TỐI không liệt kê lại tin đã gửi trong bản tin SÁNG (chỉ thị Huy 27/07).
+      # Commit chỉ đụng logs/ nên KHÔNG khớp `paths: ['index.html']` -> không tự kích lại workflow.
+      - name: Ghi sổ đã gửi
+        if: steps.chk.outputs.go == '1'
+        continue-on-error: true
+        run: |
+          buoi=$(TZ=Asia/Ho_Chi_Minh date +%H)
+          if [ "$buoi" -lt 14 ]; then b=sang; else b=toi; fi
+          python3 .github/scripts/so_da_gui.py --ghi --buoi "$b"
+          git config user.name "claude-scan-ci"
+          git config user.email "noreply@anthropic.com"
+          git add logs/da-gui-email.json
+          git diff --cached --quiet && { echo "so khong doi"; exit 0; }
+          git commit -m "so: ghi lo tin da gui email/telegram ($b)"
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin main && exit 0
+            echo "push lan $i that bai, thu lai sau 10s"
+            sleep 10
+          done
+          echo "::warning::khong push duoc so da gui — ban tin sau co the gui trung tin"

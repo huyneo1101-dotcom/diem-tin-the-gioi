@@ -2,16 +2,21 @@
 // Chạy trong GitHub Action notify-email.yml. Trích vài tin đáng chú ý vừa quét được
 // từ index.html rồi gửi qua Gmail SMTP. Cần secret EMAIL_USER + EMAIL_APP_PASSWORD.
 const fs = require('fs');
+const path = require('path');
 const nodemailer = require('nodemailer');
 
 const WEB_URL = 'https://huyneo1101-dotcom.github.io/diem-tin-the-gioi';
 const EMAIL_USER = process.env.EMAIL_USER;                 // gmail dùng để gửi
 const EMAIL_PASS = process.env.EMAIL_APP_PASSWORD;         // App Password 16 ký tự
 const EMAIL_TO = process.env.EMAIL_TO || 'lamgiaphat1603@gmail.com,huyneo1101@gmail.com';
-// Trần số tin liệt kê trong THÂN email. Để 30 (chỉ thị Huy 25/07/2026: email tối liệt kê ĐỦ
-// tiêu đề điểm tin, không tóm tắt) — bản tin 5 chủ đề thường 12–20 tin nên 30 là dư, không cắt.
-// Trước để 6 nên body chỉ hiện 6/15 tiêu đề, phần còn lại chỉ nằm trong .docx đính kèm.
-const MAX_ITEMS = parseInt(process.env.EMAIL_MAX_ITEMS || '30', 10);
+// Trần số tin liệt kê trong THÂN email. Nâng 30 -> 80 (chỉ thị Huy 27/07/2026: "gộp tất cả
+// những tin đã tiếp tục quét được tính từ sau email phiên buổi sáng").
+// VÌ SAO 30 KHÔNG ĐỦ: email TỐI phải gánh CẢ NGÀY tin thường, vì email SÁNG
+// (send-morning-email.js) chỉ gửi `dipEvents` + `exercises` — nó KHÔNG hề gửi worldNews/usNews.
+// Nên tin thường phiên sáng (04:00-05:33) + Drive 20:00 + Báo Mới 20:05 + phiên tối 21:00 dồn
+// hết vào đây; sàn ngày đã là 15 world + 15 us = 30, cộng Báo Mới/Drive là chạm trần ngay.
+// 80 để không bao giờ cắt trong thực tế, nhưng vẫn là trần phòng lỗi nạp trùng hàng loạt.
+const MAX_ITEMS = parseInt(process.env.EMAIL_MAX_ITEMS || '80', 10);
 // Sàn: hôm nay ít hơn ngần này tin thì mới bù bằng tin cũ cho email khỏi trống.
 const MIN_ITEMS = parseInt(process.env.EMAIL_MIN_ITEMS || '3', 10);
 // Bản kê sản lượng + lý do thiếu chủ đề, do PHIÊN QUÉT ghi ra (xem CLAUDE.md mục
@@ -43,14 +48,33 @@ function trim(s, n) {
   return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
 }
 
-// Chọn tin đáng chú ý: ưu tiên tin mới đưa hôm nay (_addedDate == generatedAt), mới nhất trước;
+// SỔ ĐÃ GỬI (logs/da-gui-email.json) — chống bản tin TỐI liệt kê lại tin đã gửi lúc SÁNG.
+// Chỉ thị Huy 27/07/2026: "loại cả những tin đã quét lúc 4h 5h sáng". Cùng một sổ với
+// make_docx.py (nuôi .docx + Telegram) để ba kênh không lệch nhau.
+// Đọc lỗi/chưa có sổ -> trả tập rỗng, tức không lọc gì: thà gửi trùng còn hơn gửi rỗng.
+function urlDaGui() {
+  try {
+    const p = path.join(__dirname, '..', '..', 'logs', 'da-gui-email.json');
+    if (!fs.existsSync(p)) return new Set();
+    const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+    const out = new Set();
+    for (const lan of (d.lan_gui || [])) for (const u of (lan.urls || [])) if (u) out.add(u);
+    return out;
+  } catch (e) {
+    console.log(`Không đọc được sổ đã gửi (${e.message}) — giữ nguyên toàn bộ tin.`);
+    return new Set();
+  }
+}
+
+// Chọn tin đáng chú ý: tin đưa lên hôm nay (_addedDate == generatedAt) và CHƯA từng gửi;
 // trộn xen kẽ world/us để cân 2 mảng; thiếu thì bù bằng tin mới nhất bất kể ngày.
 function pickHighlights(DATA) {
   const today = DATA.generatedAt;
+  const daGui = urlDaGui();
   const tag = (arr, kind) => (Array.isArray(arr) ? arr : []).map((it, idx) => ({ ...it, _kind: kind, _idx: idx }));
   const world = tag(DATA.worldNews, 'Thế giới');
   const us = tag(DATA.usNews, 'Mỹ');
-  const isToday = (it) => it._addedDate === today || it.date === today;
+  const isToday = (it) => (it._addedDate === today || it.date === today) && !daGui.has(it.sourceUrl);
 
   const interleave = (a, b) => {
     const out = []; let i = 0, j = 0;
@@ -61,9 +85,20 @@ function pickHighlights(DATA) {
   // Bù bằng tin cũ CHỈ khi hôm nay gần như không có tin (email trống thì vô nghĩa) — bù tới
   // MIN_ITEMS, KHÔNG bù tới MAX_ITEMS. Trước đây bù tới MAX_ITEMS: hồi trần còn 6 thì vô hại,
   // nhưng khi nâng trần lên 30 (25/07/2026) nó sẽ nhồi ~15 tin CŨ của hôm trước vào email.
+  // Nhánh bù cũng phải né sổ đã gửi, nếu không nó lôi thẳng lại tin của bản tin sáng —
+  // đúng thứ vừa lọc ra ở trên.
   if (pool.length < MIN_ITEMS) {
     const seen = new Set(pool.map(it => it.sourceUrl));
-    for (const it of interleave(world, us)) { if (pool.length >= MIN_ITEMS) break; if (!seen.has(it.sourceUrl)) { pool.push(it); seen.add(it.sourceUrl); } }
+    for (const it of interleave(world, us)) {
+      if (pool.length >= MIN_ITEMS) break;
+      if (!seen.has(it.sourceUrl) && !daGui.has(it.sourceUrl)) { pool.push(it); seen.add(it.sourceUrl); }
+    }
+  }
+  // CẤM CẮT ÂM THẦM: bị cắt mà không nói thì email trông như "hôm nay chỉ có ngần này tin".
+  if (pool.length > MAX_ITEMS) {
+    console.log(`⚠️  CẮT BỚT: hôm nay có ${pool.length} tin nhưng trần MAX_ITEMS=${MAX_ITEMS} ` +
+      `-> ${pool.length - MAX_ITEMS} tin KHÔNG vào thân email (vẫn còn trong .docx đính kèm ` +
+      `và trên web). Nâng bằng biến EMAIL_MAX_ITEMS nếu muốn liệt kê hết.`);
   }
   return pool.slice(0, MAX_ITEMS);
 }
