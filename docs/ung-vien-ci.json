@@ -1,9 +1,9 @@
 {
-  "tao_luc": "2026-07-27T23:40:26+07:00",
+  "tao_luc": "2026-07-28T03:46:18+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
-    "2026-07-26",
-    "2026-07-27"
+    "2026-07-27",
+    "2026-07-28"
   ],
   "ung_vien": [
     {
@@ -25,10 +25,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-26",
-      "tieu_de": "Taiwan Navy Commissions First Batch 2 Tuo Chiang-Class Corvette",
+      "ngay": "2026-07-28",
+      "tieu_de": "The Cairncross Dockyard Brisbane Project And Prospects For Australian Naval Infrastructure",
       "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/07/taiwan-navy-commissions-first-batch-2-tuo-chiang-class-corvette/"
+      "url": "https://www.navalnews.com/naval-news/2026/07/the-cairncross-dockyard-brisbane-project-and-prospects-for-australian-naval-infrastructure/"
     },
     {
       "lop": "RSS",
@@ -42,25 +42,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-27",
-      "tieu_de": "Pentagon’s special ops office hosts first Shark Tank-style Accelerator Event",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/pentagons-special-ops-office-hosts-first-shark-tank-style-accelerator-event/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Oracle inks $7 billion deal to consolidate Pentagon software purchases",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/oracle-inks-7-billion-deal-to-consolidate-pentagon-software-purchases/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Pentagon willing to work with industry over critical mineral EO concerns",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/pentagon-willing-to-work-with-industry-over-critical-mineral-eo-concerns/"
+      "tieu_de": "Navy reinstates some flu vaccine rules months after Pentagon ended mandate",
+      "nguon": "Task & Purpose",
+      "url": "https://taskandpurpose.com/news/navy-flu-vaccine-policy-updates/"
     },
     {
       "lop": "RSS",
@@ -74,9 +58,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-27",
-      "tieu_de": "Australian court rejects racial discrimination appeal by Pauline Hanson",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/27/australian-court-rejects-racial-discrimination-appeal-by-pauline-hanson?traffic_source=rss"
+      "tieu_de": "Australian court upholds racial discrimination ruling against Pauline Hanson",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cx2k5v9202wo?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -90,11 +74,20 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "Brazil denies entry to senior Trump officials ahead of elections",
-      "nguon": "Deutsche Welle",
-      "url": "https://www.dw.com/en/brazil-denies-entry-to-senior-trump-officials-ahead-of-elections/a-78117458?maca=en-rss-en-world-4025-rdf",
-      "nhom": 5
+      "ngay": "2026-07-28",
+      "tieu_de": "US Treasury trims 84 people, firms from its sanctions list as review continues",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/us-treasury-trims-84-people-firms-from-its-sanctions-list-as-review-continues",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "US envoy quits UN Security Council meeting to protest France comments",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/us-envoy-quits-un-security-council-meeting-to-protest-france-comments",
+      "nhom": 3
     },
     {
       "lop": "RSS",
@@ -123,37 +116,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "100 days to US midterms, Trump faces defeat amid voter anger over inflation, Iran war",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3361874/100-days-us-midterms-trump-faces-defeat-amid-voter-anger-over-inflation-iran-war?utm_source=rss_feed",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "Maine Democrats pick Troy Jackson to replace scandal-plagued candidate in key Senate race",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3361855/maine-democrats-pick-troy-jackson-replace-scandal-plagued-candidate-key-senate-race?utm_source=rss_feed",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-25",
       "tieu_de": "Ukraine insists Japan’s pacifist rules permit Patriot missile help",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/europe/article/3361829/ukraine-insists-japans-pacifist-rules-permit-patriot-missile-help?utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Russian attack kills 10 after Zelensky hosts US firm making Patriot air defence systems",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/russia-central-asia/article/3361798/russian-attack-kills-10-ukraine-defence-event-almost-100-injured?utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -185,6 +152,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-27",
+      "tieu_de": "Why Australia Struggles to Foster Asia Experts",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/07/why-australia-struggles-to-foster-asia-experts/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-27",
       "tieu_de": "Philippines Holds Joint Exercises With US, Japan in South China Sea Amid Tensions With China",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/07/philippines-holds-joint-exercises-with-us-japan-in-south-china-sea-amid-tensions-with-china/"
@@ -199,37 +174,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-26",
-      "tieu_de": "Tàu Việt Nam chìm ở Biển Đông, 45 người được cứu sống",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/tau-viet-nam-chim-o-bien-dong-45-nguoi-duoc-cuu-song-5101772.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "Chuỗi ngày làm việc không rời điện thoại của Chủ tịch Hạ viện Mỹ",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/chuoi-ngay-lam-viec-khong-roi-dien-thoai-cua-chu-tich-ha-vien-my-5097738.html",
-      "nhom": 9
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-25",
       "tieu_de": "Khoảnh khắc 'tên lửa Patriot' quay đầu, bổ nhào xuống đất",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/khoanh-khac-ten-lua-patriot-quay-dau-bo-nhao-xuong-dat-5101474.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "&Ocirc;ng Trump n&oacute;i về khả năng tranh cử nhiệm kỳ 3 tại tiệc b&aacute;o ch&iacute; Nh&agrave; Trắng",
-      "nguon": "Thanh Niên",
-      "url": "https://thanhnien.vn/ong-trump-noi-ve-kha-nang-tranh-cu-nhiem-ky-3-tai-tiec-bao-chi-nha-trang-185260726070744154.htm",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -272,6 +221,14 @@
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/the-gioi-tiep-tuc-phan-ung-voi-cac-muc-thue-quan-moi-cua-my-100260726110931291.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Taiwan's pivot away from China offers a lesson for democracies",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/opinion/taiwan-s-pivot-away-from-china-offers-a-lesson-for-democracies"
     },
     {
       "lop": "RSS",
@@ -342,19 +299,30 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Vì sao tham vọng tự sản xuất tên lửa Patriot của Ukraine vẫn xa vời?",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/vi-sao-tham-vong-tu-san-xuat-ten-lua-patriot-cua-ukraine-van-xa-voi-20260724161257698.htm"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "House map roughly as favorable to GOP as 2018’s, despite redistricting: Analysis",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/5992787-gop-redistricting-map-comparison/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Hé lộ vị trí các tàu sân bay Hải quân Mỹ: Chúng đang ở đâu với nhiệm vụ gì?",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/he-lo-vi-tri-cac-tau-san-bay-hai-quan-my-chung-dang-o-dau-voi-nhiem-vu-gi-20260723163759499.htm"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "DOJ asks Supreme Court to restore Trump’s mail-in voting executive order",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/5992732-supreme-court-mail-in-voting-trump-justice-department/",
+      "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "All senators invited to Zelensky meeting as Congress weighs Russia sanctions bill",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/5992588-all-senators-to-meet-with-zelensky-as-congress-weighs-russia-sanctions-bill/",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -376,38 +344,27 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "Appeals court upholds injunction on Trump’s mail-in voting order",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/5990609-appeals-court-upholds-injunction-on-president-trumps-mail-in-voting-order/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "Trump tariffs come back to haunt GOP as elections near",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/5989368-canada-tariff-impact-republicans/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "New US sanctions target billionaire Iranian financier Babak Zanjani",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/policy/international/5990297-us-sanctions-babak-zanjani-businesses-iran/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
       "tieu_de": "DCCC targets Republican-held seats with digital ad to mark 100 days till midterms",
       "nguon": "Roll Call",
       "url": "https://rollcall.com/2026/07/24/dccc-targets-republican-held-seats-with-digital-ad-to-mark-100-days-till-midterms/",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Australia should brace for war impact to get worse, Treasury warns",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-07-28/middle-east-war-economic-impact-to-worsen-treasury-warns/106963778"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "'Massive growth' of second-hand fashion apps in Australia",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-07-28/hack-depop-vinted-secondhand-clothing-resale-apps/106937688"
     },
     {
       "lop": "RSS",
@@ -427,35 +384,20 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "New US tariff worries PH firms",
+      "nguon": "Inquirer",
+      "url": "https://business.inquirer.net/602631/new-us-tariff-worries-ph-firms",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Australia's most disaster-hit state to opt out of AusAlert as government hails national test a success",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-07-27/ausalert-test-a-success-declares-minister/106963350"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "U.S. Army Is Buying Older PAC-2 Patriot Missiles For The First Time In Decades",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/land/u-s-army-is-buying-older-pac-2-patriot-missiles-for-the-first-time-in-decades"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Pentagon announces Trump nominee to lead U.S. Army Europe and Africa",
+      "ngay": "2026-07-28",
+      "tieu_de": "After Valiant Shield exercise, PACAF commander says he’s ‘impressed’ with Australia’s Ghost Bat drone program",
       "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/07/24/lt-gen-kevin-admiral-nomination-commander-us-army-europe-africa/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Pentagon awards Oracle $7B agreement for consolidated software tools, licenses",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/07/23/pentagon-awards-oracle-7b-dollar-software-licenses/"
+      "url": "https://defensescoop.com/2026/07/27/ghost-bat-drone-cca-valiant-shield-pacific-air-forces/"
     },
     {
       "lop": "RSS",
@@ -469,18 +411,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Military police bring a piece of the U.S. Army to Kaunas",
+      "ngay": "2026-07-28",
+      "tieu_de": "Buckley Space Force Base and Aurora Leaders Strengthen Ties with Community Day",
       "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/570777/military-police-bring-piece-us-army-kaunas"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "U.S. Army Signal School Change of Responsibility Ceremony Program",
-      "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/570775/us-army-signal-school-change-responsibility-ceremony-program"
+      "url": "https://www.dvidshub.net/news/570822/buckley-space-force-base-and-aurora-leaders-strengthen-ties-with-community-day"
     },
     {
       "lop": "RSS",
@@ -501,7 +435,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
+      "ngay": "2026-07-28",
       "tieu_de": "U.S. Navy Orders Low-cost Missiles to Expand Fleet",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/27/us_navy_orders_low-cost_missiles_to_expand_fleet_1196796.html"
@@ -509,7 +443,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
+      "ngay": "2026-07-28",
       "tieu_de": "U.S. Navy Research Office Unveils New Science and Technology Strategy",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/27/us_navy_research_office_unveils_new_science_and_technology_strategy_1196786.html"
@@ -517,7 +451,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
+      "ngay": "2026-07-28",
       "tieu_de": "Gen Zinni: Where Does the Marine Corps Go From Here?",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/27/gen_zinni_where_does_the_marine_corps_go_from_here_1196674.html"
@@ -525,7 +459,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
+      "ngay": "2026-07-28",
       "tieu_de": "Beware the Pentagon's 'Right to Repair' Crusade",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/27/beware_the_pentagons_right_to_repair_crusade_1196690.html"
@@ -548,6 +482,15 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Stop Gaslighting Us Over the 2020 Election",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/2026/07/27/stop_gaslighting_us_over_the_2020_election_706256.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-26",
       "tieu_de": "DOW Identifies Army Casualty",
@@ -557,18 +500,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "DOW Awards a Nearly $7 Billion Oracle Agreement to Accelerate the Arsenal of Freedom",
-      "nguon": "DoD News Releases",
-      "url": "https://www.war.gov/News/Releases/Release/Article/4554042/dow-awards-a-nearly-7-billion-oracle-agreement-to-accelerate-the-arsenal-of-fre/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Secretary of War General Officer Announcement for July 23, 2026",
-      "nguon": "DoD News Releases",
-      "url": "https://www.war.gov/News/Releases/Release/Article/4554459/secretary-of-war-general-officer-announcement-for-july-23-2026/"
+      "ngay": "2026-07-28",
+      "tieu_de": "Space Force Awards ESS Mission Planning App To Sphinx Defense",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/space-force-awards-ess-mission-planning-app-to-sphinx-defense/space/"
     },
     {
       "lop": "RSS",
@@ -581,10 +516,50 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Meet the 48-year-old Space Force guardian setting Hawaii state powerlifting records",
+      "ngay": "2026-07-28",
+      "tieu_de": "Space Force Picks Rocket Lab for Suborbital Launches from Alaska",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/space-force-rocket-lab-suborbital-launches-alaska-spaceport/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Pentagon calls for cheaper long-range strike weapons, with testing in just 3 months",
       "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/07/24/meet-the-48-year-old-space-force-guardian-setting-hawaii-state-powerlifting-records/"
+      "url": "https://www.militarytimes.com/news/2026/07/27/pentagon-calls-for-cheaper-long-range-strike-weapons-with-testing-in-just-3-months/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Roaches descend on US Army dining facility, viral video appears to show",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/07/27/roaches-descend-on-us-army-dining-facility-viral-video-appears-to-show/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "Pentagon moves recent KIA numbers from Iran war into ‘Overseas Operations’ category",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/07/27/pentagon-moves-recent-kia-numbers-from-iran-war-into-overseas-operations-category/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "U.S. Army fast tracks new software functionality",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/570797/us-army-fast-tracks-new-software-functionality"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "Military police bring a piece of the U.S. Army to Kaunas",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1016368/military-police-bring-piece-us-army-kaunas"
     },
     {
       "lop": "RSS",
@@ -612,35 +587,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "U.S. Navy, Japan Maritime Self-Defense Force complete Mine Warfare Exercise 2JA",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/570628/us-navy-japan-maritime-self-defense-force-complete-mine-warfare-exercise-2ja"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "B-Roll: U.S. Navy launches F/A-18F Super Hornets for sinking exercise during RIMPAC 2026",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/video/1015995/b-roll-us-navy-launches-f-18f-super-hornets-sinking-exercise-during-rimpac-2026"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-27",
       "tieu_de": "Australia’s SM-2 land trial could reshape ADF medium-range air defence plans",
       "nguon": "Shephard Media",
       "url": "https://www.shephardmedia.com/news/landwarfareintl/australia-fires-land-based-sm-2-air-defence-missile/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "US Marine Corps aims to make drones as commonplace as rifles on the battlefield",
-      "nguon": "Shephard Media",
-      "url": "https://www.shephardmedia.com/news/air-warfare/us-marine-corps-aims-to-make-drones-as-commonplace-as-rifles/"
     },
     {
       "lop": "RSS",
@@ -676,6 +627,23 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "What the latest US sanctions bill means for Russia—and for China, India, and Iran",
+      "nguon": "Atlantic Council",
+      "url": "https://www.atlanticcouncil.org/dispatches/what-the-latest-us-sanctions-bill-means-for-russia-and-for-china-india-and-iran/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Australia news live: Anthony Albanese praises Sally McManus and Michele O’Neil as ‘giants’ as they step down from ACTU",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/jul/28/jacinta-allan-victoria-labor-leadership-spill-ben-carroll-challenge-antisemitism-royal-commission-nsw-icac-inquiry-queensland-estimates-ntwnfb"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-27",
       "tieu_de": "Baby missing after mother and toddler found dead off coast of South Australia",
@@ -689,14 +657,6 @@
       "tieu_de": "Potential for first Australian oil refinery in 60 years as treasurer braces for inflation from Middle East war",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/2026/jul/27/potential-for-first-australian-oil-refinery-in-60-years-as-treasurer-braces-for-inflation-from-middle-east-war"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "British YouTuber Yung Filly describes night he met fan in Australian nightclub before allegedly raping her",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/jul/27/british-youtuber-yung-filly-describes-night-he-met-fan-in-perth-nightclub-before-allegedly-raping-her-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -757,14 +717,6 @@
       "tieu_de": "Lầu Năm Góc bất ngờ nâng số thương vong trong chiến sự Iran",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/lau-nam-goc-bat-ngo-nang-so-thuong-vong-trong-chien-su-iran-2539563.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-24",
-      "tieu_de": "Trụ sở của IRGC trúng tên lửa Mỹ, xung đột sang tháng thứ 5",
-      "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/tru-so-cua-irgc-trung-ten-lua-my-xung-dot-sang-thang-thu-5-2538793.html"
     },
     {
       "lop": "HTML",
