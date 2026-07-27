@@ -22,7 +22,7 @@ Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (kh
 
 Chạy: python3 .github/scripts/make_docx.py
 """
-import json, os, subprocess, sys, unicodedata
+import json, os, re, subprocess, sys, unicodedata
 
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
@@ -184,6 +184,11 @@ def is_noibo_my(it):
     return (it.get("region") or "") in REGION_NOI_BO
 
 
+# Mục DUY NHẤT ghi kèm ngày tin trong .docx. Phải khớp ĐÚNG tên mục ở build_sections —
+# đổi tên mục mà quên sửa đây thì ngày lặng lẽ biến mất, không có lỗi nào bật lên.
+MUC_GHI_NGAY = "QS-KHCN"
+
+
 def build_sections(us, world, events):
     """Chia theo 5 chủ đề, gộp thành 3 mục của bản tin mẫu."""
     sec1 = [it for it in us if is_noibo_my(it)]            # 1. Nội bộ Mỹ
@@ -191,7 +196,7 @@ def build_sections(us, world, events):
     return [
         ("Nội bộ Mỹ", sec1),
         ("Úc và Biển Đông", list(world)),
-        ("QS-KHCN", sec3_us + list(events)),
+        (MUC_GHI_NGAY, sec3_us + list(events)),
     ]
 
 
@@ -250,12 +255,29 @@ def item_body(it):
     return ""
 
 
-def add_item(doc, it):
+def ngay_ngan(s):
+    """'2026-07-24' -> '24/07'. Không parse được thì trả nguyên chuỗi (còn hơn nuốt mất)."""
+    s = str(s or "").strip()
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", s)
+    return f"{m.group(3)}/{m.group(2)}" if m else s
+
+
+def add_item(doc, it, ghi_ngay=False):
+    """Một tin trong .docx: đoạn '- <tóm tắt>' rồi dòng link nguồn.
+
+    `ghi_ngay=True` chèn '(dd/mm) ' vào ĐẦU đoạn — bật cho mục QS-KHCN (chỉ thị Huy
+    27/07/2026). Chỉ mục này cần vì nó là mục DUY NHẤT được nới khung ngày: CNQS Mỹ lấy
+    lùi tới 3 ngày (`MAX_AGE_DAYS_CNQS` trong add_news.py, `CNQS_LOOKBACK_DAYS` trong
+    harvest.py), nên bản tin ngày 27 có thể chứa tin ngày 24 — không ghi ngày thì người
+    đọc mặc định hiểu là tin hôm nay. Bốn mục còn lại chỉ có hôm nay + hôm qua nên ghi
+    ngày vào đó chỉ làm rối.
+    """
     body = item_body(it)
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     p.paragraph_format.space_after = Pt(2)
-    set_font(p.add_run("- " + body), size=SIZE)
+    d = ngay_ngan(it.get("date")) if ghi_ngay else ""
+    set_font(p.add_run(f"- ({d}) {body}" if d else "- " + body), size=SIZE)
 
     url = it.get("sourceUrl")
     if url:
@@ -334,8 +356,10 @@ def main():
         ph.paragraph_format.space_before = Pt(8)
         ph.paragraph_format.space_after = Pt(4)
         set_font(ph.add_run(f"{idx}. {name}"), size=SIZE, bold=True)
+        # QS-KHCN là mục duy nhất được nới khung ngày (tới 3 ngày) -> phải ghi rõ ngày tin.
+        ghi_ngay = name == MUC_GHI_NGAY
         for it in items:
-            add_item(doc, it)
+            add_item(doc, it, ghi_ngay=ghi_ngay)
 
     safe = (gen or "diem-tin").replace("/", "-")
     out = f"/tmp/Diem-tin-ngay-{safe}.docx"
