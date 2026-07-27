@@ -81,29 +81,23 @@ function tipOfDay(wn, ymd) {
   return t.length ? t[((dayNum(ymd) % t.length) + t.length) % t.length] : null;
 }
 
-function featuresHtml(fs_) {
-  const rows = fs_.map(f => `<div style="margin:0 0 10px;">
-        <div style="font-size:14px;font-weight:700;color:#0e4d4d;">${esc(f.title)}</div>
-        <div style="font-size:13px;color:#48566b;line-height:1.55;margin-top:2px;">${esc(trim(f.desc, 340))}</div>
+function featuresHtml(fs_, i) {
+  const rows = fs_.map((f, k) => `<div style="margin-top:${k ? 9 : 8}px;">
+        <div style="font-size:14.5px;font-weight:700;color:${INK};">${esc(f.title)}</div>
+        <div style="font-size:13.5px;color:${BODY};line-height:1.6;">${esc(trim(f.desc, 340))}</div>
       </div>`).join('');
-  return `<tr><td style="padding:14px 0 0;">
-    <table role="presentation" width="100%" style="background:#f0f7f7;border:1px solid #cfe4e4;border-radius:10px;"><tr><td style="padding:14px 16px;">
-      <div style="font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#0e8a8a;margin-bottom:8px;">🆕 Mới trên web</div>
-      ${rows}
-    </td></tr></table></td></tr>`;
+  return rowHtml(String(i + 1).padStart(2, '0'), labelHtml('Mới trên web', '#0f766e') + rows);
 }
 
 function tipHtml(tip) {
   const link = tip.path
-    ? `<div style="margin-top:6px;"><a href="${WEB_URL}${esc(tip.path)}" style="color:#1a56db;font-weight:600;text-decoration:none;">Mở thử →</a></div>`
+    ? `<div style="margin-top:7px;"><a href="${WEB_URL}${esc(tip.path)}" style="font-size:13px;color:${INK};font-weight:600;">Mở thử →</a></div>`
     : '';
-  return `<tr><td style="padding:14px 0 0;">
-    <table role="presentation" width="100%" style="background:#fff9ec;border:1px solid #f0e0bd;border-radius:10px;"><tr><td style="padding:14px 16px;">
-      <div style="font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#a5791b;margin-bottom:8px;">💡 Có thể bạn chưa biết</div>
-      <div style="font-size:14px;font-weight:700;color:#5b4410;">${esc(tip.title)}</div>
-      <div style="font-size:13px;color:#6b5a33;line-height:1.55;margin-top:2px;">${esc(trim(tip.desc, 340))}</div>
-      ${link}
-    </td></tr></table></td></tr>`;
+  const inner = labelHtml('Có thể bạn chưa biết', '#a16207')
+    + `<div style="font-size:15px;font-weight:700;color:${INK};margin-top:6px;">${esc(tip.title)}</div>`
+    + `<div style="font-size:13.5px;color:${BODY};line-height:1.65;margin-top:3px;">${esc(trim(tip.desc, 340))}</div>`
+    + link;
+  return rowHtml('💡', inner, '17px');
 }
 
 // Gom dipEvents + exercises của một DATA thành map name -> {ev, itemUrls:Set}
@@ -142,54 +136,101 @@ function weeklyIsNew(cur, prev) {
   return w;
 }
 
-function evBlockHtml(d) {
-  const st = STLABEL[d.ev.status] || '';
-  const tag = d.kind === 'ex' ? '🎯 Tập trận' : '🕊️ Ngoại giao';
-  const items = d.newItems.slice(0, 5).map(it => `
-    <li style="margin:4px 0;"><a href="${esc(it.sourceUrl || WEB_URL)}" style="color:#12233b;text-decoration:none;font-weight:600;">${esc(trim(it.title, 140))}</a>
-      <span style="color:#9aa4b2;font-size:12px;">${it.sourceName ? ' · ' + esc(it.sourceName) : ''}</span></li>`).join('');
-  return `<tr><td style="padding:14px 0;border-bottom:1px solid #eceff3;">
-      <div style="font-size:12px;color:#8a94a6;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;">${tag}${st ? ' · ' + esc(st) : ''}${d.isNewEvent ? ' · MỚI' : ''}</div>
-      <div style="font-size:16px;font-weight:700;color:#12233b;line-height:1.4;">${esc(d.ev.name || '')}</div>
-      ${d.ev.dates ? `<div style="font-size:12px;color:#9aa4b2;margin-top:2px;">${esc(d.ev.dates)}</div>` : ''}
-      <ul style="margin:8px 0 0;padding-left:18px;">${items}</ul>
+// ==== GIAO DIỆN: mẫu 4 "Digest tối giản" (Huy chốt 27/07/2026) ====
+// Chọn từ 5 mẫu trong docs/mockup-newsletter-sang-v1.html. Nguyên tắc của mẫu này: KHÔNG nền màu,
+// KHÔNG thẻ bo tròn — chỉ typography, số mục đánh dấu bên lề và đường kẻ mảnh. Đổi màu/nền trong
+// đây là làm mất chính thứ Huy chọn; muốn đổi phong cách thì lấy mẫu khác trong file mockup.
+// Vì sao mẫu này an toàn nhất: không ô nào dựa vào background-color, nên Outlook/Gmail dark mode
+// không thể tạo ra cảnh chữ trắng trên nền trắng như các mẫu nền tối.
+const ACCENT = { ex: '#b45309', dip: '#0f766e' };   // tập trận = hổ phách · ngoại giao = xanh mòng
+const INK = '#111827', BODY = '#4b5563', MUTED = '#9ca3af', RULE = '#eceff3';
+
+// Số mục in ở lề trái: 01, 02, 03… Mục mẹo dùng 💡 thay số (xem tipHtml).
+function rowHtml(mark, inner, markSize) {
+  return `<tr><td style="padding:22px 30px 0;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+        <td width="34" valign="top"><div style="font-size:${markSize || '19px'};font-weight:800;color:#d1d5db;line-height:1.2;">${mark}</div></td>
+        <td valign="top">${inner}</td>
+      </tr></table>
     </td></tr>`;
 }
+function ruleHtml() {
+  return `<tr><td style="padding:22px 30px 0;"><div style="height:1px;background:${RULE};line-height:1px;font-size:0;">&nbsp;</div></td></tr>`;
+}
+function labelHtml(text, color) {
+  return `<div style="font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:${color};">${text}</div>`;
+}
 
-function weeklyHtml(w) {
+function evBlockHtml(d, i) {
+  const st = STLABEL[d.ev.status] || '';
+  const accent = ACCENT[d.kind] || ACCENT.dip;
+  const label = [d.kind === 'ex' ? 'Tập trận' : 'Ngoại giao', st, d.isNewEvent ? 'MỚI' : '']
+    .filter(Boolean).map(esc).join(' · ');
+  const items = d.newItems.slice(0, 5);
+  const meta = bits => `<div style="font-size:12.5px;color:${MUTED};margin-top:8px;">${bits.filter(Boolean).join(' · ')}</div>`;
+  const src = it => (it.sourceUrl
+    ? `<a href="${esc(it.sourceUrl)}" style="color:${INK};font-weight:600;text-decoration:none;">${esc(it.sourceName || 'Nguồn')}</a>`
+    : esc(it.sourceName || ''));
+
+  let inner;
+  if (items.length === 1) {
+    // Một tin mới: cho chính tiêu đề tin làm tít, tên sự kiện lùi xuống dòng meta — đọc thẳng vào việc.
+    const it = items[0];
+    inner = labelHtml(label, accent)
+      + `<div style="font-size:17px;font-weight:700;color:${INK};line-height:1.4;margin-top:6px;">${esc(trim(it.title, 150))}</div>`
+      + (it.summary ? `<div style="font-size:14px;color:${BODY};line-height:1.68;margin-top:8px;">${esc(trim(it.summary, 360))}</div>` : '')
+      + meta([esc(d.ev.name || ''), d.ev.dates ? esc(d.ev.dates) : '', src(it)]);
+  } else {
+    // Nhiều tin mới: tít là tên sự kiện, các tin liệt kê bên dưới, mỗi tin một dòng đậm + nguồn.
+    inner = labelHtml(label, accent)
+      + `<div style="font-size:17px;font-weight:700;color:${INK};line-height:1.4;margin-top:6px;">${esc(d.ev.name || '')}</div>`
+      + (d.ev.dates ? `<div style="font-size:12.5px;color:${MUTED};margin-top:3px;">${esc(d.ev.dates)}</div>` : '')
+      + items.map(it => `<div style="margin-top:11px;">
+          <a href="${esc(it.sourceUrl || WEB_URL)}" style="font-size:14.5px;font-weight:700;color:${INK};text-decoration:none;line-height:1.45;">${esc(trim(it.title, 150))}</a>
+          ${it.sourceName ? `<div style="font-size:12.5px;color:${MUTED};margin-top:2px;">${esc(it.sourceName)}</div>` : ''}
+        </div>`).join('');
+  }
+  return rowHtml(String(i + 1).padStart(2, '0'), inner);
+}
+
+function weeklyHtml(w, i) {
   const range = (w.weekStart ? w.weekStart : '') + (w.weekEnd ? ' – ' + w.weekEnd : '');
   const blocks = (w.countries || []).map(c => {
-    const pts = (c.points || []).slice(0, 4).map(p => `<li style="margin:3px 0;color:#48566b;">${esc(trim(p.title, 120))}</li>`).join('');
-    return `<div style="margin:10px 0;">
-      <div style="font-size:15px;font-weight:700;color:#12233b;">${esc(c.flag || '')} ${esc(c.name || '')}</div>
-      ${c.lede ? `<div style="font-size:13px;color:#48566b;font-style:italic;margin:3px 0;">${esc(trim(c.lede, 220))}</div>` : ''}
-      <ul style="margin:4px 0 0;padding-left:18px;">${pts}</ul></div>`;
+    const pts = (c.points || []).slice(0, 4)
+      .map(p => `<div style="font-size:13.5px;color:${BODY};line-height:1.62;margin-top:2px;">— ${esc(trim(p.title, 130))}</div>`).join('');
+    return `<div style="margin-top:10px;">
+      <div style="font-size:14px;font-weight:700;color:${INK};">${esc(c.flag || '')} ${esc(c.name || '')}</div>
+      ${c.lede ? `<div style="font-size:13.5px;color:${BODY};line-height:1.62;font-style:italic;margin-top:2px;">${esc(trim(c.lede, 220))}</div>` : ''}
+      ${pts}</div>`;
   }).join('');
-  return `<tr><td style="padding:16px 0 6px;">
-      <div style="font-size:13px;color:#8a94a6;text-transform:uppercase;letter-spacing:.4px;">📊 Báo cáo tuần · ${esc(range)}</div>
-      ${blocks}
-      <div style="margin-top:8px;"><a href="${WEB_URL}/#analysis" style="color:#1a56db;font-weight:600;text-decoration:none;">Đọc báo cáo tuần đầy đủ →</a></div>
-    </td></tr>`;
+  const inner = labelHtml('Báo cáo tuần' + (range ? ` <span style="font-weight:400;letter-spacing:0;text-transform:none;color:${MUTED};">${esc(range)}</span>` : ''), '#6d28d9')
+    + blocks
+    + `<div style="margin-top:10px;"><a href="${WEB_URL}" style="font-size:13px;color:${INK};font-weight:600;">Đọc báo cáo tuần đầy đủ →</a></div>`;
+  return rowHtml(String(i + 1).padStart(2, '0'), inner);
 }
 
 function buildHtml(evs, weekly, ddmm, feats, tip) {
-  let sections = '';
-  if (evs.length) sections += `<tr><td style="padding:6px 28px 0;"><table role="presentation" width="100%">${evs.map(evBlockHtml).join('')}</table></td></tr>`;
-  if (weekly) sections += `<tr><td style="padding:0 28px;"><table role="presentation" width="100%">${weeklyHtml(weekly)}</table></td></tr>`;
-  if (feats && feats.length) sections += `<tr><td style="padding:0 28px;"><table role="presentation" width="100%">${featuresHtml(feats)}</table></td></tr>`;
-  if (tip) sections += `<tr><td style="padding:0 28px;"><table role="presentation" width="100%">${tipHtml(tip)}</table></td></tr>`;
-  const sub = [evs.length ? `${evs.length} sự kiện/tập trận cập nhật` : '', weekly ? 'báo cáo tuần mới' : ''].filter(Boolean).join(' · ');
-  return `<!doctype html><html><body style="margin:0;background:#f4f6f9;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:24px 12px;">
+  // Số mục chạy LIÊN TỤC qua mọi khối có nội dung: mỗi sự kiện một số, rồi báo cáo tuần, rồi
+  // Mới trên web. Ngày rỗng khối nào thì số tự dồn lên, không để lỗ 01 → 03.
+  let n = 0, sections = '';
+  evs.forEach(d => { if (n) sections += ruleHtml(); sections += evBlockHtml(d, n++); });
+  if (weekly) { if (n) sections += ruleHtml(); sections += weeklyHtml(weekly, n++); }
+  if (feats && feats.length) { if (n) sections += ruleHtml(); sections += featuresHtml(feats, n++); }
+  if (tip) { if (n) sections += ruleHtml(); sections += tipHtml(tip); }
+  const sub = [evs.length ? `${evs.length} cập nhật` : '', weekly ? 'báo cáo tuần' : ''].filter(Boolean).join(' · ');
+  return `<!doctype html><html><body style="margin:0;background:#f2f4f7;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f4f7;padding:24px 12px;">
     <tr><td align="center">
-      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #e6eaf0;">
-        <tr><td style="background:#0e4d4d;padding:22px 28px;">
-          <div style="font-size:20px;font-weight:700;color:#ffffff;">🎖️ Sự kiện &amp; Tập trận</div>
-          <div style="font-size:13px;color:#a9cccc;margin-top:4px;">${esc(ddmm)}${sub ? ' — ' + esc(sub) : ''}</div>
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border:1px solid #e8ecf1;border-radius:4px;">
+        <tr><td style="padding:30px 30px 0;">
+          <div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8a94a0;">Điểm Tin Thế Giới · ${esc(ddmm)}</div>
+          <div style="font-size:24px;font-weight:800;color:${INK};margin-top:8px;letter-spacing:-.01em;">Sự kiện &amp; Tập trận</div>
+          ${sub ? `<div style="font-size:13px;color:${MUTED};margin-top:5px;">${esc(sub)}</div>` : ''}
+          <div style="height:2px;background:${INK};width:44px;margin-top:14px;line-height:2px;font-size:0;">&nbsp;</div>
         </td></tr>
         ${sections}
-        <tr><td align="center" style="padding:20px 28px 24px;">
-          <a href="${WEB_URL}" style="display:inline-block;background:#0e8a8a;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;padding:12px 26px;border-radius:9px;">Mở trang tin →</a>
+        <tr><td style="padding:26px 30px 32px;">
+          <a href="${WEB_URL}" style="font-size:15px;font-weight:700;color:${INK};text-decoration:none;border-bottom:2px solid ${INK};padding-bottom:2px;">Mở trang tin →</a>
         </td></tr>
       </table>
     </td></tr>

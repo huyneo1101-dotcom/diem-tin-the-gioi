@@ -103,9 +103,29 @@ chiếu thật với `index.html`** trước khi ghi (nhãn tab, tên nút, đư
 là lỗi nặng hơn không giới thiệu gì. Xem `_doc` trong chính file đó.
 **Máy Huy KHÔNG có `node`** → kiểm script email bằng `/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc`
 với stub `require`/`process`/`console` (đã dùng thật 27/07, bắt được cả nhánh thiếu file).
-**5 mẫu newsletter để chọn:** `docs/mockup-newsletter-sang-v1.html` (Intel Brief · báo in cổ điển · thẻ
-hiện đại · digest tối giản · bảng điều khiển) — đều là table + style inline khổ 600px nên chọn xong bê
-thẳng vào `buildHtml` được. Huy chưa chốt mẫu nào.
+
+#### GIAO DIỆN email sáng = mẫu 4 "Digest tối giản" (Huy chốt 27/07/2026)
+Chọn từ 5 mẫu trong `docs/mockup-newsletter-sang-v1.html` (Intel Brief · báo in cổ điển · thẻ hiện đại ·
+**digest tối giản ← đang dùng** · bảng điều khiển). Đặc trưng phải GIỮ khi sửa về sau:
+- **KHÔNG nền màu, KHÔNG thẻ bo tròn** — chỉ typography + số mục ở lề + đường kẻ mảnh `#eceff3`.
+  Đây cũng là lý do mẫu này an toàn nhất: không ô nào dựa vào `background-color` nên dark mode của
+  Gmail/Outlook không thể tạo ra cảnh chữ trắng trên nền trắng.
+- **Số mục chạy LIÊN TỤC** qua mọi khối có nội dung (mỗi sự kiện một số → báo cáo tuần → Mới trên web),
+  khối rỗng thì số dồn lên, không để lỗ `01 → 03`. Mục mẹo dùng 💡 thay số.
+- Hằng số màu ở đầu phần giao diện: `ACCENT` (tập trận `#b45309` hổ phách · ngoại giao `#0f766e` xanh
+  mòng) · `INK`/`BODY`/`MUTED`/`RULE`. Sửa màu thì sửa ở đó, đừng rải hex trong từng hàm.
+- `evBlockHtml` có **2 nhánh**: 1 tin mới → tít là TIÊU ĐỀ TIN, tên sự kiện lùi xuống dòng meta; nhiều
+  tin mới → tít là TÊN SỰ KIỆN rồi liệt kê từng tin. Sửa một nhánh thì kiểm luôn nhánh kia.
+
+**Xem trước KHÔNG gửi thật:** `.github/scripts/preview-morning-email.jsc.js` — nó `load()` nguyên
+`send-morning-email.js` (không copy code, khỏi lệch) rồi dựng HTML từ dữ liệu thật trong `index.html`:
+```
+/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc /Users/Huy/Claude/diem-tin-the-gioi/.github/scripts/preview-morning-email.jsc.js > /Users/Huy/Claude/diem-tin-the-gioi/docs/preview-email-sang-mau4.html
+```
+Mở file HTML đó trong trình duyệt để soi. Bản xem trước gần nhất đã commit sẵn ở đường dẫn trên.
+⚠️ Link "Đọc báo cáo tuần đầy đủ" đã **bỏ `#analysis`** (trỏ thẳng `WEB_URL`): index.html không đọc
+`location.hash` nên hash cũ chỉ mở trang chủ — hứa sai chỗ nhảy tới. Nếu sau này web có hash routing
+thì mới trỏ lại `#analysis`.
 
 ## Tab "Cà phê" (ngoài chủ đề tin — thêm 24-25/07/2026)
 Tab **☕ Cà phê**: tìm quán cà phê làm việc HN, xếp theo khoảng cách từ điểm xuất phát (Giảng Võ/Trường Chinh/GPS). Dữ liệu `DATA.workCafes` (embed index.html); code `renderCafes`/`cf*`/CSS `.cf-*`. Scheduled task local **`cafe-rating-retry`** (`15 9 * * 2,5`) vét dần rating Google còn thiếu qua `scripts/cafe_ratings.py` (--missing/--apply), commit **`Cap nhat rating quan ca phe: ...`** — tiền tố này KHÔNG khớp gate email nên không gửi mail. Chi tiết: memory `diem-tin-tab-cafe`.
