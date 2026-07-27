@@ -565,10 +565,15 @@ Agent 7 và 8 phải **tìm bài gốc** (nguồn chính thức → wire → bá
   **Agent 8 BỎ bài đó**, chọn ứng viên khác (kho 50–90 bài, không cần hạ chuẩn nguồn).
 - Số liệu lấy theo bài gốc: bản dẫn lại hay làm tròn/rút gọn sai (thực tế 22/07 — "87 tỷ" thay vì
   87,6 tỷ; "tính tới 21/7" thay vì "hết năm tài khóa 30/9").
-- **Agent 7 khi đã đổi nguồn phải thêm `"_baomoiUrl": "<link Báo Mới gốc>"`.** Thiếu nó thì:
-  (a) `loadBaomoi` dedupe theo url + tiêu đề, đổi cả hai là bài trong `baomoi-saved.json` bị trộn
-  lại thành tin THỨ HAI trên web; (b) `collect_existing_urls` mất dấu link cũ nên `--baomoi-pending`
-  coi bài đó "chưa nạp" và phiên sau nạp lại y hệt. Agent 8 KHÔNG cần field này.
+- **MỌI tin truy ngược từ Báo Mới — Agent 7 VÀ Agent 8 — phải thêm `"_baomoiUrl": "<link Báo Mới gốc>"`.**
+  Thiếu nó thì: (a) `loadBaomoi` dedupe theo url + tiêu đề, đổi cả hai là bài trong `baomoi-saved.json`
+  bị trộn lại thành tin THỨ HAI trên web; (b) `collect_existing_urls` mất dấu link cũ nên
+  `--baomoi-pending` và **cổng Báo Mới** coi bài đó "chưa nạp" và phiên sau nạp lại y hệt — guardrail
+  trùng URL không bắt được vì URL đã đổi sang nguồn gốc.
+  ⚠️ **Sửa 27/07/2026:** trước đây mục này ghi "Agent 8 KHÔNG cần field này" — SAI, và đã gây lỗi thật:
+  tin "Tàu 015-Trần Hưng Đạo thăm Manila" (ứng viên chuyên mục, đổi link sang qdnd.vn) nạp xong vẫn
+  hiện trong danh sách chưa nạp, tối cùng ngày sẽ bị nạp lại. Lý do (b) vốn đã áp cho cả hai agent —
+  câu miễn trừ cho Agent 8 mâu thuẫn với chính lý do đó.
 - Đổi nguồn cho tin ĐÃ nằm trong `DATA` thì dùng `scripts/replace_source.py` (giữ nguyên vị trí
   trong mảng; xoá rồi chèn lại sẽ làm tin nhảy lên đầu, mất thứ tự thời gian).
 

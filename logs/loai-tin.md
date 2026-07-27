@@ -157,6 +157,12 @@ Loại trong quá trình review (trùng/nguồn yếu, KHÔNG đưa vào mục B
 - [Mali] Các bài về scoop WaPo (Gorka/nội bộ chia rẽ) và họp báo Ngoại trưởng Diop — cùng 2 sự kiện đã nạp, chỉ khác góc đưa tin
 - [Predator's Run 2026] Bắn thử Apache tại Townsville 17/7 — thuộc "Exercise Possum Guns", không liên quan Predator's Run; không có diễn biến mới nào trong khung 23-25/7 trên DVIDS/PACOM/defence.gov.au
 
+## 2026-07-27 (phiên sáng sớm + vòng bù Báo Mới)
+- [Mỹ – Mali] "Nga mở tuyến hậu cần mới qua Togo, đưa khí tài Africa Corps tới Bamako" (The Africa Report, 25/7) — WebFetch trả HTTP 403, nguồn DUY NHẤT, không xác minh được nội dung lẫn loạt số liệu rất cụ thể trong bài (1.400km, cửa khẩu Doulai Diassa, ngày 23/7). Bỏ theo quy tắc "không chắc link thì bỏ". Đây là lý do chủ đề Mali về 0.
+- [CNQS Mỹ · ứng viên Báo Mới] "Phi đội oanh tạc cơ tàng hình đáng sợ nhất thế giới B-21 Raider sắp xuất hiện" (An Ninh Thủ Đô, 26/7) — TRÙNG SỰ KIỆN với tin đã có "Thỏa thuận tăng sản lượng B-21 Raider mở đường cho phi đội lớn hơn 100 chiếc" (24/7): cùng thoả thuận Không quân Mỹ – Northrop tăng 25% sản lượng, cùng mốc >100 chiếc.
+- [CNQS Mỹ · ứng viên Báo Mới] "Đằng sau quyết định của Mỹ khi bất ngờ mua lại tên lửa Patriot đời cũ sau hơn 30 năm" (An Ninh Thủ Đô, 26/7) — bài dẫn lại đăng 26/7 nhưng SỰ KIỆN GỐC là 23/7 (lãnh đạo Raytheon xác nhận hợp đồng PAC-2 GEM-T, hợp đồng ký từ tháng 4). Truy về gốc thì ngoài khung hôm nay + hôm qua → loại. Không lấy ngày bản dẫn lại làm ngày tin.
+- Ghi chú: 2 bài Báo Mới trên do CỔNG BÁO MỚI mới dựng (27/7) tự nhắc, không phải tự nhớ ra. Bài thứ 3 cổng nhắc — "Tàu 015-Trần Hưng Đạo thăm Manila" — đã truy về nguồn gốc QĐND và NẠP.
+
 ## 2026-07-26 (phiên tối 22:00 — ô `toi`, phiên đầy đủ 5 chủ đề)
 - [Nội bộ Mỹ] KHÔNG có ứng viên nào để loại — Hạ viện nghỉ họp từ 24/7 tới 31/8, Thượng viện gần như đóng cửa; các phiên điều trần/bỏ phiếu tìm được (war powers vote, NDAA vote, Senate Finance/Banking hearing) đều rơi vào 21-23/7, ngoài khung 48h hoặc đã ghi log phiên trước.
 - [Úc & Biển Đông] AUKUS Osborne 4,6 tỷ AUD — lại xuất hiện, vẫn trùng sự kiện "Australia đầu tư 3,2 tỷ USD tàu ngầm AUKUS" đã có trong DATA (xem cảnh báo BẪY 2 CLAUDE.md)

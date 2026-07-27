@@ -508,11 +508,83 @@ def print_baomoi_pending(html_path: pathlib.Path, repo_root: pathlib.Path) -> No
         print("  (không có ứng viên — bỏ qua)")
 
 
+# Từ khoá nhận diện ứng viên Báo Mới HỢP 5 chủ đề đang quét. Cố tình để RỘNG: mục đích là
+# NHẮC cho phiên quét nhìn thấy, không phải tự quyết thay — thà nhắc thừa vài bài còn hơn
+# im lặng bỏ sót. Phiên quét vẫn là bên đọc và loại.
+BAOMOI_TOPIC_KEYWORDS = {
+    "Úc & Biển Đông": [
+        "biển đông", "trường sa", "hoàng sa", "scarborough", "cỏ mây", "bãi cạn",
+        "philippines", "manila", "aukus", "australia", "úc", "canberra", "tàu ngầm hạt nhân",
+    ],
+    "CNQS Mỹ": [
+        "lầu năm góc", "không quân mỹ", "hải quân mỹ", "lục quân mỹ", "thủy quân lục chiến",
+        "space force", "quân đội mỹ", "f-35", "f-22", "b-21", "patriot", "thaad", "himars",
+        "tên lửa mỹ", "drone mỹ", "uav mỹ", "hạm đội",
+    ],
+    "Mỹ – Mali": ["mali", "sahel", "jnim", "bamako", "africom", "burkina faso", "niger"],
+    "Predator's Run": ["predator's run", "predator run", "townsville", "carabaroo"],
+    "Nội bộ Mỹ": [
+        "hạ viện mỹ", "thượng viện mỹ", "quốc hội mỹ", "điều trần", "ủy ban quân vụ",
+        "thông qua dự luật", "ndaa",
+    ],
+}
+
+
+# Khớp theo RANH GIỚI TỪ, không phải substring thô: bản đầu dùng `k in hay` nên từ khoá "úc"
+# khớp luôn chữ "thúc" trong "lực kéo thúc đẩy tăng trưởng" → lôi cả bài kinh tế vào cổng.
+_BAOMOI_KW_RE = {
+    topic: [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in kws]
+    for topic, kws in BAOMOI_TOPIC_KEYWORDS.items()
+}
+
+
+def baomoi_topic_hits(repo_root: pathlib.Path, existing: set) -> list:
+    """Ứng viên Báo Mới CHƯA NẠP mà khớp từ khoá 5 chủ đề — [(chủ đề, item)]."""
+    hits = []
+    for fname in ("baomoi-saved.json", "baomoi-topics.json"):
+        items, _ = _load_baomoi(repo_root / fname)
+        for it in items:
+            url = it.get("sourceUrl")
+            if not url or url in existing:
+                continue
+            hay = (it.get("title") or "") + " " + (it.get("summary") or "")
+            for topic, pats in _BAOMOI_KW_RE.items():
+                if any(p.search(hay) for p in pats):
+                    hits.append((topic, it))
+                    break
+    return hits
+
+
+def print_baomoi_gate(repo_root: pathlib.Path, existing: set) -> None:
+    """CỔNG NHẮC BÁO MỚI — in ở MỌI lệnh phiên quét chạy, để không thể bỏ sót trong im lặng.
+
+    Vì sao có cổng này (27/07/2026): phiên sáng 27/07 bỏ hẳn vòng Báo Mới (Huy giục quét nhanh),
+    chỉ ghi lại trong scan-gaps.json nên Huy phải tự hỏi "mày còn quét Báo Mới không?". Trong
+    kho lúc đó có 1 bài hợp chủ đề Biển Đông (tàu 015 thăm Manila) suýt mất. Lời hứa "lần sau
+    nhớ" không chặn được việc này — chỉ có việc ĐẬP VÀO MẮT mỗi lần chạy script mới chặn được.
+    """
+    hits = baomoi_topic_hits(repo_root, existing)
+    print()
+    if not hits:
+        print("✅ CỔNG BÁO MỚI: không còn ứng viên nào khớp 5 chủ đề (kho rỗng hoặc đã nạp hết).")
+        return
+    print(f"⚠️  CỔNG BÁO MỚI: CÒN {len(hits)} ỨNG VIÊN KHỚP 5 CHỦ ĐỀ, CHƯA NẠP — PHẢI XỬ LÝ, ĐỪNG BỎ QUA:")
+    for topic, it in hits:
+        print(f"   [{topic}] {it.get('date','?')} — {it.get('title','')}")
+        print(f"      {it.get('sourceName','')} — {it['sourceUrl']}")
+    print("   → Với mỗi bài: TRUY VỀ BÀI GỐC (không giữ link Báo Mới với ứng viên chuyên mục) rồi nạp,")
+    print("     HOẶC loại và ghi lý do vào logs/loai-tin.md + mục 'Báo Mới' trong logs/scan-gaps.json.")
+    print("     Cắt vòng Báo Mới vì bất kỳ lý do gì (giục nhanh, sát hạn) thì PHẢI nói rõ trong tóm tắt cuối.")
+
+
 def main() -> None:
     if len(sys.argv) >= 2 and sys.argv[1] == "--recent-titles":
         n = int(sys.argv[2]) if len(sys.argv) > 2 else 20
         repo_root = pathlib.Path(__file__).resolve().parent.parent
         print_recent_titles(repo_root / "index.html", n)
+        html = (repo_root / "index.html").read_text(encoding="utf-8")
+        s, e = find_data_span(html)
+        print_baomoi_gate(repo_root, collect_existing_urls(json.loads(html[s:e])))
         return
 
     if len(sys.argv) >= 2 and sys.argv[1] == "--baomoi-pending":
@@ -749,6 +821,10 @@ def main() -> None:
         print("  exercises: 0 tin cập nhật  <-- THIẾU (mục tiêu 1-2)")
     if dip_items_added < 1:
         print("  dipEvents: 0 tin cập nhật  <-- THIẾU (mục tiêu 1-2)")
+
+    # CỔNG BÁO MỚI in SAU CÙNG (dòng cuối màn hình, ngay trước lúc phiên đi commit) — chốt chặn
+    # thứ hai sau lần in ở --recent-titles. Xem docstring print_baomoi_gate để biết vì sao có nó.
+    print_baomoi_gate(repo_root, collect_existing_urls(data))
 
 
 if __name__ == "__main__":

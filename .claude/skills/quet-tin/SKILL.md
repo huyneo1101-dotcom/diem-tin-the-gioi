@@ -136,8 +136,22 @@ Chỉ **5 luồng** cho 5 chủ đề (gộp Mali+Predator vào 1 agent; Báo M�
 **Agent Báo Mới — TRUY NGƯỢC VỀ NGUỒN GỐC** (giữ nguyên quy tắc cũ): Báo Mới là trang tổng hợp. Với mỗi
 bài: mở `sourceUrl` (WebFetch) đọc nội dung, **tìm bài gốc nước ngoài** đúng sự kiện (đăng ≤48h), **mở
 WebFetch xác nhận có thật + đúng ngày**, lấy `sourceName`+`sourceUrl`+`title`+`summary`+`significance`
-theo bài GỐC (đổi cả tiêu đề lẫn URL). Không tìm được: bài ĐÃ LƯU → giữ link Báo Mới + thêm
-`"_baomoiUrl":"<link Báo Mới>"`; ứng viên chuyên mục → bỏ, chọn bài khác. Cả hai chỉ giữ bài hợp 5 chủ đề.
+theo bài GỐC (đổi cả tiêu đề lẫn URL). Không tìm được: bài ĐÃ LƯU → giữ link Báo Mới; ứng viên chuyên
+mục → bỏ, chọn bài khác. Cả hai chỉ giữ bài hợp 5 chủ đề.
+
+⚠️ **HỄ ĐÃ ĐỔI URL SANG NGUỒN GỐC LÀ PHẢI KÈM `"_baomoiUrl":"<link Báo Mới>"` — CẢ bài đã lưu LẪN ứng
+viên chuyên mục** (sửa 27/07/2026; trước đây ghi nhầm là ứng viên chuyên mục không cần). Thiếu field
+này, `collect_existing_urls` mất dấu link Báo Mới cũ → cổng Báo Mới + `--baomoi-pending` vẫn coi bài
+"chưa nạp" và phiên sau nạp lại y hệt, mà guardrail trùng URL KHÔNG bắt được vì URL đã đổi. Gặp thật
+với tin "Tàu 015-Trần Hưng Đạo thăm Manila" ngày 27/07.
+
+🚪 **CỔNG BÁO MỚI (dựng 27/07/2026 — cưỡng bức, không dựa vào trí nhớ).** `add_news.py` tự lọc kho Báo
+Mới theo bộ từ khoá 5 chủ đề rồi in danh sách ứng viên KHỚP mà chưa nạp, ở **cả hai** lệnh phiên quét
+bắt buộc chạy: `--recent-titles` (đầu phiên) và lúc nạp lô (dòng CUỐI, ngay trước khi commit). Thấy
+cổng báo còn ứng viên thì **phải xử lý từng bài**: truy về gốc rồi nạp, HOẶC loại và ghi lý do vào
+`logs/loai-tin.md` + mục "Báo Mới" trong `scan-gaps.json`. **Không được im lặng bỏ qua.** Vì sao có
+cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhanh, suýt mất 1 tin Biển Đông hợp chủ
+đề; lời hứa "lần sau nhớ" không chặn được, chỉ có thứ đập vào mắt mỗi lần chạy script mới chặn được.
 
 **Nhúng vào MỌI prompt agent** (agent KHÔNG thấy hội thoại chính — viết prompt độc lập, đủ ngữ cảnh):
 - **Chủ đề + tiêu chí lọc riêng** của agent đó (copy đúng đoạn PHẠM VI MỚI tương ứng).
