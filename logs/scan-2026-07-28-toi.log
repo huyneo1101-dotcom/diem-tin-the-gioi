@@ -1,1 +1,6 @@
 [14:00Z] START (CI) - phien toi 28/07, fire 21:00 VN, 5 chu de. claim OK, khoa da giu.
+[14:03Z] Xong harvest.py --json (402 ung vien, khong dung --gop-ci vi CI tu quet du) + add_news.py --recent-titles 20 (co 5 ung vien Bao Moi kem theo).
+[14:04Z] Bo qua telegram_harvest.py de giu bien thoi gian cho han chot email 22:00 (giong phien toi 27/07).
+[14:31Z] Xong 4 agent Sonnet song song: Noi bo My 6 tin tho, Uc & Bien Dong 4 tin, CNQS My 5 tin tho, Mali+Predator 0/0 (hop le - da kiem ky, khong co tin dat chuan trong khung ngay).
+[14:32Z] Review + loc lai: Noi bo My bo 1 tin (Fed FOMC, sourceName/sourceUrl khong khop, noi dung mong) con 5; CNQS My bo 2 tin (GAO Zumwalt hypersonic - su kien that 17/7 qua cu ngoai khung; F-35 spare parts contract - agent tu nhan "xac nhan 23/7" ngoai khung 3 ngay CNQS) con 3, keo theo 1 ung vien Bao Moi (sieu vuot am tau chien) bi loai vi nguon goc qua cu.
+[14:33Z] Kiem grep index.html: khong URL nao trung DATA cu. Chuan bi nap 12 tin (4 The gioi, 8 My).
