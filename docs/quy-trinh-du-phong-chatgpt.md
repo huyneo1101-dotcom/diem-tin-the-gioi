@@ -23,6 +23,11 @@ python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/prompt_chatgpt.py --chu-de c
 ```
 
 Năm giá trị: `my` (Nội bộ Mỹ) · `uc` (Úc & Biển Đông) · `cnqs` (CNQS Mỹ) · `mali` · `predator`.
+
+📂 **File ra nằm ở `~/Claude/prompt-chatgpt/` và script TỰ MỞ FINDER sẵn tại file đó.** Trước đây
+ghi vào `/tmp` — sai, vì `/tmp` là thư mục ẩn trên macOS, Finder không vào được bằng cách thường,
+mà đây đúng là loại file phải mở ra copy bằng tay. Thư mục này nằm NGOÀI repo (prompt sinh lại mỗi
+phiên, commit vào repo public chỉ là rác).
 Lần đầu chạy sẽ mất ~3 phút vì nó tự gọi `harvest.py --gop-ci`; các lần sau dùng lại lô đó nên
 gần như tức thì. Nó tự điền **ngày cụ thể của hôm nay**, tự nhúng khối chống trùng
 (`--recent-titles 20`), tự lọc ứng viên ngoài khung, và chỉ nhúng luật của đúng chủ đề đó.
@@ -44,10 +49,11 @@ lệnh rồi trả về hướng dẫn thay vì JSON.
 ## Bước 2 — Lấy JSON về (làm lần lượt cho từng chủ đề)
 
 Mỗi đoạn chat trả một khối JSON + một khối liệt kê chủ đề thiếu. Lưu **khối JSON** vào
-`/tmp/tu-chatgpt-<chủ đề>.json` (dán cả ```json fence và lời dẫn cũng được, script tự bóc), rồi:
+`~/Claude/prompt-chatgpt/tu-chatgpt-<chủ đề>.json` — **cùng thư mục Finder vừa mở**, khỏi đi tìm
+(dán cả ```json fence và lời dẫn cũng được, script tự bóc), rồi gõ **tên file trần**:
 
 ```bash
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/prompt_chatgpt.py --nap /tmp/tu-chatgpt-cnqs.json
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/prompt_chatgpt.py --nap tu-chatgpt-cnqs.json
 ```
 
 Nó bóc fence → validate → bỏ khoá lạ ChatGPT tự thêm → ghi `/tmp/new_items.json` → gọi

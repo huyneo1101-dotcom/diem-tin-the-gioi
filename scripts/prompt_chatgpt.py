@@ -10,11 +10,14 @@ chạy trên máy Huy bằng terminal — KHÔNG tốn hạn mức Claude.
 Hai chiều dùng:
 
   1) Sinh prompt (tự chạy harvest + --recent-titles rồi nhúng thẳng vào prompt):
-       python3 scripts/prompt_chatgpt.py
-     -> ghi /tmp/prompt-chatgpt.md . Mở file, copy TẤT CẢ, dán vào ChatGPT.
+       python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|predator
+     -> ghi vào ~/Claude/prompt-chatgpt/ và MỞ FINDER sẵn tại file đó. Copy TẤT CẢ, dán vào
+     ChatGPT. Chạy KHÔNG có --chu-de thì ra prompt gộp 5 chủ đề — chỉ để xem, đừng dùng thật
+     (quá dài, ChatGPT không mở hết link).
 
   2) Nạp JSON ChatGPT trả về (tự bóc ```json fence, validate rồi gọi add_news.py):
-       python3 scripts/prompt_chatgpt.py --nap /tmp/tu-chatgpt.json
+       python3 scripts/prompt_chatgpt.py --nap tu-chatgpt-cnqs.json
+     Tên file trần là đủ — tự tìm trong ~/Claude/prompt-chatgpt/.
 
 Quy tắc nhúng trong prompt lấy từ .claude/skills/quet-tin/SKILL.md + CLAUDE.md. Sửa luật quét
 thì sửa hai file đó TRƯỚC, rồi mới đối chiếu lại file này — đừng để hai bộ luật lệch nhau.
@@ -30,7 +33,12 @@ import zoneinfo
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
-OUT = "/tmp/prompt-chatgpt.md"
+
+# Ghi ra thư mục Huy MỞ ĐƯỢC BẰNG FINDER, không phải /tmp (chỉ thị Huy 28/07/2026).
+# /tmp là thư mục ẩn trên macOS — Finder không vào được bằng cách thường, mà đây là file Huy
+# phải mở ra copy bằng tay nên để ở đó là giao sản phẩm vào chỗ không lấy được.
+# NGOÀI repo: prompt là file tạm sinh lại mỗi phiên, commit vào repo public chỉ là rác.
+OUT_DIR = pathlib.Path.home() / "Claude" / "prompt-chatgpt"
 
 CATEGORY = "Kinh tế · Chính trị · Công nghệ quân sự · Ngoại giao"
 REGION = ("Châu Âu/NATO · Trung Đông · Đông Á · Toàn cầu · Châu Mỹ · "
@@ -164,8 +172,9 @@ def sinh(key=None):
              "harvest lại (2-4 phút)")
     da_co = chay([sys.executable, "scripts/add_news.py", "--recent-titles", "20"], "recent-titles")
 
-    p = f"/tmp/prompt-chatgpt-{key}.md" if key else OUT
-    pathlib.Path(p).write_text(f"""Mày là biên tập viên bản tin "Điểm Tin Thế Giới" (tiếng Việt, chuyên quốc phòng — an ninh — quan hệ quốc tế). Việc của mày: từ danh sách ứng viên dưới đây, CHỌN và VIẾT ra JSON tin để nạp vào web. Máy đã đi lấy tin sẵn — mày chỉ thẩm định, viết, và loại tin sai.
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    p = OUT_DIR / (f"prompt-chatgpt-{key}.md" if key else "prompt-chatgpt.md")
+    p.write_text(f"""Mày là biên tập viên bản tin "Điểm Tin Thế Giới" (tiếng Việt, chuyên quốc phòng — an ninh — quan hệ quốc tế). Việc của mày: từ danh sách ứng viên dưới đây, CHỌN và VIẾT ra JSON tin để nạp vào web. Máy đã đi lấy tin sẵn — mày chỉ thẩm định, viết, và loại tin sai.
 
 ## KHUNG NGÀY — TUYỆT ĐỐI KHÔNG VƯỢT
 - Chỉ nhận tin có SỰ KIỆN xảy ra ngày **{hom_nay:%d/%m/%Y}** hoặc **{hom_qua:%d/%m/%Y}**. Tin từ {(hom_qua - datetime.timedelta(days=1)):%d/%m/%Y} trở về trước: **BỎ**.
@@ -232,13 +241,16 @@ Sau khối JSON, thêm một khối riêng: {'chủ đề này' if ten_cd else '
 ## ỨNG VIÊN (máy đã gom sẵn, đã lọc theo khung ngày{' và chủ đề này' if ten_cd else ' + 5 chủ đề'})
 {khoi_ung_vien(ung_vien(), hom_nay, hom_qua, cnqs_som_nhat, chi=ten_cd)}
 """, encoding="utf-8")
-    n = len(pathlib.Path(p).read_text(encoding="utf-8"))
-    print(f"\n✅ Đã ghi prompt ra {p}  ({n:,} ký tự)")
+    n = len(p.read_text(encoding="utf-8"))
+    # Mở Finder ngay tại file (chỉ thị Huy 28/07/2026: file giao cho Huy phải mở được bằng Finder,
+    # đừng bắt Huy đi tìm). `open -R` = reveal, chọn sẵn file trong thư mục.
+    subprocess.run(["open", "-R", str(p)], capture_output=True)
+    print(f"\n✅ Đã ghi prompt ra {p}  ({n:,} ký tự) — đã mở Finder sẵn tại file này.")
     print("   DÁN THẲNG nội dung vào khung chat ChatGPT (đừng upload file — upload thì nó đọc")
     print("   lướt như tài liệu tham khảo chứ không coi là chỉ thị). Bật chế độ duyệt web.")
-    print(f"   JSON nó trả về -> lưu /tmp/tu-chatgpt{('-' + key) if key else ''}.json -> chạy:")
-    print(f"   python3 {ROOT}/scripts/prompt_chatgpt.py "
-          f"--nap /tmp/tu-chatgpt{('-' + key) if key else ''}.json")
+    ten_json = f"tu-chatgpt{('-' + key) if key else ''}.json"
+    print(f"   JSON nó trả về -> lưu vào CHÍNH thư mục đó, tên {ten_json} -> chạy:")
+    print(f"   python3 {ROOT}/scripts/prompt_chatgpt.py --nap {ten_json}")
     if not key:
         print(f"\n⚠️  Prompt gộp cả 5 chủ đề ({n:,} ký tự) — ChatGPT sẽ KHÔNG mở hết link, dễ bịa")
         print("   summary. Nên chạy TỪNG chủ đề, mỗi cái một đoạn chat riêng:")
@@ -246,8 +258,18 @@ Sau khối JSON, thêm một khối riêng: {'chủ đề này' if ten_cd else '
 
 
 def nap(path):
-    """Bóc ```json fence + lời dẫn, validate, rồi gọi add_news.py."""
-    raw = pathlib.Path(path).read_text(encoding="utf-8")
+    """Bóc ```json fence + lời dẫn, validate, rồi gọi add_news.py.
+
+    Nhận cả tên file trần (`--nap tu-chatgpt-cnqs.json`): tự tìm trong OUT_DIR, để Huy khỏi
+    phải gõ đường dẫn dài — file vốn nằm sẵn ở đó vì Finder mở tới đó.
+    """
+    p = pathlib.Path(path)
+    if not p.is_file() and not p.is_absolute():
+        if (OUT_DIR / path).is_file():
+            p = OUT_DIR / path
+    if not p.is_file():
+        sys.exit(f"❌ không thấy file {path}\n   Đã tìm cả trong {OUT_DIR}")
+    raw = p.read_text(encoding="utf-8")
     m = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", raw, re.S)
     txt = m.group(1) if m else raw[raw.find("{"): raw.rfind("}") + 1]
     try:
