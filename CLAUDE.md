@@ -464,6 +464,25 @@ nào gần 5 phút. **Không ép được** (cùng bản chất với cron canar
 `--doc` xác nhận offset ngay khi đọc nên câu đó **mất hẳn**, người hỏi không có dấu hiệu gì. Nay
 bỏ câu quá cũ thì **nhắn cho người hỏi biết** thay vì chỉ in stderr.
 Đánh đổi cũ vẫn đúng về bản chất (miễn phí, đổi lấy độ trễ), chỉ là con số lớn hơn nhiều.
+
+**Vì sao GitHub bỏ mốc — đo chứ không đoán (28/07/2026, Huy hỏi "sao lại trễ vậy"):**
+`startedAt − createdAt = 0 giây` ở **mọi** run schedule của repo ⇒ **không phải xếp hàng chờ
+runner**, mà là GitHub *không tạo run*. `schedule` là dịch vụ best-effort trên hàng đợi dùng
+chung: tải cao thì hoãn, hoãn đủ lâu thì **bỏ hẳn, không chạy bù**; repo public dùng runner
+miễn phí nên ưu tiên thấp nhất — chính mặt trái của thứ khiến cron 5 phút không tốn tiền.
+⚠️ **Độ trễ BẤT ĐỊNH, đừng tìm quy luật theo phút hay tần suất** — cùng dòng `cron: '47 21'`
+của web-scan có lần trễ **2 phút**, lần trễ **122 phút**; canary `45 15` trễ 98', `15 23` trễ
+56'. Suy "đặt phút lẻ thì thoáng" là kết luận từ mẫu 1 lần, đã thử và sai.
+
+🖥️ **LaunchAgent `com.huy.diemtin-bot-telegram` (dựng 28/07/2026, Huy chọn)** — máy Mac gọi
+`kich_ci.py --wf telegram-bot.yml` mỗi **300 giây**, đúng cách đã dùng cho bản tin: dispatch
+qua API chạy NGAY (đo: lệnh phát 21:00:00 → run tạo 21:00:20Z), chỉ cron mới bị bỏ. Nghiệm thu
+lần đầu: kích lúc 10:10 trong khi cron gần nhất là 07:09 — **3 tiếng GitHub không gọi phát nào**.
+`StartInterval` chứ không phải `StartCalendarInterval`: máy vừa ngủ dậy thì launchd chạy bù
+ngay một lần rồi mới vào chu kỳ — đúng thứ cần cho "Huy vừa mở máy và đang hỏi bot".
+Đánh đổi: **chỉ chạy khi máy thức**; máy ngủ thì rơi về cron như cũ. Không mất câu hỏi (ngưỡng
+360 phút đã lo), chỉ chậm. Cố tình KHÔNG dựng caffeinate cho việc này — bot hỏi-đáp không có
+hạn chót như bản tin. Log: `tail -30 /tmp/diemtin-bot-kich.log`.
 Muốn tức thì thì phải chuyển sang Claude API + API key riêng (~78–170k đ/tháng với Haiku
 4.5 ở mức ~20 câu/ngày, ~340k đ với Sonnet 5) — Huy đã cân nhắc và chọn miễn phí.
 
