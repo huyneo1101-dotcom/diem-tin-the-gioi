@@ -115,7 +115,16 @@ TOPIC_KEYWORDS_EN = {
         "unclos", "nine-dash",
         "china coast guard", "maritime militia", "philippine coast guard", "philippines",
         "manila", "balikatan", "kamandag", "aukus", "australia", "australian",
-        "canberra", "adf", "royal australian navy", "nuclear submarine", "collins-class",
+        # ⛔ BỎ "nuclear submarine" (28/07/2026) — TRỐNG NGỮ CẢNH y hệt bẫy "scarborough" ở trên.
+        # Nó vốn thêm để bắt tàu ngầm AUKUS, nhưng khớp MỌI nước có chương trình tàu ngầm hạt
+        # nhân. Lọt thật: "South Korea legislates non-nuclear weapons pledge for nuclear
+        # submarine program" (Korea Herald 28/07) — tin thuần nội bộ Hàn Quốc + NPT, không một
+        # chữ Biển Đông, vẫn được xếp vào "Úc & Biển Đông" và lên bản tin tối.
+        # Bỏ được vì THỪA: tin tàu ngầm AUKUS luôn có "aukus"/"australia"/"australian" (đã có
+        # trong danh sách này), còn tàu ngầm hạt nhân TQ/Mỹ ở vùng biển này thì khớp qua
+        # "south china sea". Từ khoá tự đủ phải neo được QUỐC GIA hoặc VÙNG BIỂN, không phải
+        # neo vào loại khí tài.
+        "canberra", "adf", "royal australian navy", "collins-class",
         # các nước khác quanh Biển Đông (mở rộng 27/07/2026)
         "malaysia", "indonesia", "brunei", "taiwan", "natuna", "vanguard bank",
         "luconia shoals", "reed bank", "code of conduct", "asean maritime",
