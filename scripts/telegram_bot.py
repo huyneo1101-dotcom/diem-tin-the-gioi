@@ -72,6 +72,66 @@ def chat_chu():
     return ds[0] if ds else ""
 
 
+XOA_TOI_DA = 20
+
+
+def xu_ly_xoa(token, m, chat) -> None:
+    """Lệnh `/xoa [n]` — xoá tin rác KHỎI CẢ HAI PHÍA của cuộc trò chuyện.
+
+    Vì sao phải reply chứ không có lệnh kiểu "/xoa 5 tin cuối": Bot API **không cho đọc lịch
+    sử chat**. Không có phương thức nào liệt kê tin đã gửi, và `getUpdates` chỉ trả tin ĐẾN
+    bot. Bot cũng không lưu `message_id` của tin nó gửi. Nhưng khi người dùng REPLY, update
+    mang theo `reply_to_message.message_id` — đó là đường duy nhất để bot biết chính xác phải
+    xoá tin nào.
+
+    `n > 1` xoá n tin LIÊN TIẾP tính từ tin được reply. `message_id` trong một chat là số
+    tăng dần qua MỌI tin (cả bot lẫn người), nên n tin liên tiếp = `id, id+1, … id+n-1` —
+    đúng những gì Huy đang nhìn thấy trên màn hình. Trần `XOA_TOI_DA` để một lần gõ nhầm
+    không quét sạch cả bản tin.
+
+    GIỚI HẠN CỨNG CỦA TELEGRAM, không lách được: **chỉ xoá được tin gửi trong 48 giờ**. Cũ
+    hơn thì API trả lỗi và tin nằm lại — phải xoá tay trong app.
+    """
+    rep = m.get("reply_to_message") or {}
+    goc = rep.get("message_id")
+    phan = (m.get("text") or "").split()
+    try:
+        so = max(1, min(XOA_TOI_DA, int(phan[1]))) if len(phan) > 1 else 1
+    except ValueError:
+        so = 1
+
+    if not goc:
+        call(token, "sendMessage", {
+            "chat_id": chat,
+            "text": ("Cách dùng: REPLY vào tin rác rồi gõ /xoa\n"
+                     f"Xoá nhiều tin liên tiếp: /xoa 5 (tối đa {XOA_TOI_DA}), tính từ tin mày reply.\n\n"
+                     "Telegram chỉ cho bot xoá tin trong 48 giờ gần nhất."),
+            "disable_web_page_preview": True})
+        return
+
+    xong, hong = 0, []
+    for i in range(so):
+        r = call(token, "deleteMessage", {"chat_id": chat, "message_id": goc + i})
+        if r.get("ok"):
+            xong += 1
+        else:
+            hong.append(r.get("description") or "?")
+    # Xoá luôn chính lệnh /xoa: để lại thì chat vẫn còn rác, chỉ là rác khác.
+    call(token, "deleteMessage", {"chat_id": chat, "message_id": m.get("message_id")})
+
+    print(f"[xoa] chat …{chat[-4:]}: xoá {xong}/{so} tin", file=sys.stderr)
+    if not hong:
+        return          # xoá sạch thì im — tin biến mất đã là phản hồi rõ nhất
+    # Hỏng thì PHẢI nói, kèm lý do thật của Telegram: im lặng ở đây làm Huy tưởng đã xoá.
+    ly_do = hong[0]
+    them = ("\n(Tin quá 48 giờ thì bot không xoá được — phải xoá tay trong app.)"
+            if "too old" in ly_do.lower() or "can't be deleted" in ly_do.lower() else "")
+    call(token, "sendMessage", {
+        "chat_id": chat,
+        "text": f"Xoá được {xong}/{so} tin. Lỗi: {ly_do}{them}",
+        "disable_web_page_preview": True})
+
+
 def doc(token):
     cho_phep = chats_cho_phep()
     if not cho_phep:
@@ -106,6 +166,12 @@ def doc(token):
             bo_cu += 1
             continue
         if text.startswith("/start"):
+            continue
+        # Xử lý NGAY trong bước --doc (rẻ, ~15 giây) chứ không đẩy sang `claude -p`: xoá tin
+        # là việc cơ học, không cần suy nghĩ, và bắt Huy chờ 1-3 phút cài Claude Code chỉ để
+        # xoá một tin rác thì vô lý.
+        if text.startswith("/xoa"):
+            xu_ly_xoa(token, m, chat)
             continue
         hoi.append({"chat": chat, "text": text,
                     "ten": (m.get("from") or {}).get("first_name", "")})

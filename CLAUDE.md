@@ -493,6 +493,29 @@ Muốn tức thì thì phải chuyển sang Claude API + API key riêng (~78–1
 4. **Bước đọc chạy TRƯỚC bước cài Claude Code.** Không có câu hỏi thì job dừng sau ~15 giây
    và không cài gì — đó là lý do cron 5 phút không tốn gì đáng kể.
 
+#### 🗑️ Lệnh `/xoa` — dọn tin rác khỏi cả hai phía (thêm 28/07/2026, chỉ thị Huy)
+**REPLY vào tin rác rồi gõ `/xoa`** → bot xoá tin đó *và* xoá luôn dòng lệnh. `/xoa 5` xoá 5
+tin LIÊN TIẾP tính từ tin được reply (trần `XOA_TOI_DA = 20`). Xử lý ngay trong bước `--doc`,
+KHÔNG đẩy sang `claude -p`: xoá là việc cơ học, bắt chờ 1–3 phút cài Claude Code thì vô lý.
+
+⚠️ **Vì sao bắt buộc phải REPLY, không làm được "/xoa 5 tin cuối":** Bot API **không cho đọc
+lịch sử chat** — không có phương thức liệt kê tin đã gửi, `getUpdates` chỉ trả tin ĐẾN bot, và
+bot không lưu `message_id` của tin nó gửi. Reply là đường DUY NHẤT để bot biết id cần xoá
+(`reply_to_message.message_id`). `/xoa n` chạy được vì `message_id` tăng dần qua mọi tin trong
+chat, nên n tin liên tiếp = `id … id+n-1`.
+⚠️ **Trần cứng 48 GIỜ của Telegram** — cũ hơn thì API từ chối, phải xoá tay trong app. Bot báo
+rõ lỗi thật thay vì im (im ở đây làm Huy tưởng đã xoá).
+⚠️ Bot xoá được **cả tin đến lẫn tin đi** trong private chat — nên nó dọn được cả câu hỏi lỡ gõ.
+
+#### Canary CHỈ nhắn cho Huy, không nhắn cho người đọc (sửa 28/07/2026)
+`canary.py:gui()` trước đây gửi tới **mọi** chat trong `TELEGRAM_CHAT_ID`. Sai đối tượng: nội
+dung là *"hỏng ở khâu QUÉT · lastRun … · Chạy tay: gh workflow run …"* — người đọc bản tin không
+làm gì được với nó, không kiểm chứng được, **và cũng không xoá đi được** (bot chỉ xoá trong 48h,
+mà Huy không có mặt trong đoạn chat đó để `/xoa`). Nay chỉ gửi chat CHỦ (phần tử đầu trong
+`TELEGRAM_CHAT_ID`, ghi đè bằng `TELEGRAM_OWNER_CHAT`) — cùng quy ước với `telegram_bot.py`.
+Kiểm cấu hình vẫn soi cả danh sách nên mất secret vẫn ĐỎ. **Quy tắc chung: cảnh báo hạ tầng gửi
+cho người vận hành, không gửi cho người đọc.** Thêm kênh cảnh báo mới thì áp đúng luật này.
+
 ⚠️ **Cron 5 phút miễn phí VÌ REPO ĐANG PUBLIC** (GitHub Actions không giới hạn phút cho repo
 public). Chuyển repo sang private là lịch này ngốn hạn mức 2.000 phút/tháng → phải giãn cron
 hoặc đổi sang webhook.

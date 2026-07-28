@@ -152,7 +152,16 @@ def trang_thai_quet(pipeline: str, o: str, ngay: str) -> tuple[bool, str]:
 
 
 def gui(text: str) -> int:
-    """Gửi cảnh báo tới mọi chat trong danh sách trắng. 0 = xong, 1 = gửi hỏng."""
+    """Gửi cảnh báo — CHỈ tới chat của Huy. 0 = xong, 1 = gửi hỏng.
+
+    ⚠️ TRƯỚC 28/07/2026 GỬI TỚI MỌI CHAT TRONG DANH SÁCH TRẮNG — sai đối tượng. Nội dung
+    cảnh báo là *"hỏng ở khâu QUÉT · lastRun … · Chạy tay: gh workflow run claude-web-scan.yml"*:
+    người đọc bản tin không làm gì được với nó, không kiểm chứng được, và cũng không xoá đi
+    được. Với họ đó thuần tuý là rác — mà rác gửi cho người khác thì chính Huy cũng không dọn
+    hộ được, vì bot chỉ xoá được tin trong 48h và Huy không có mặt trong đoạn chat đó.
+    Cảnh báo hạ tầng là việc của người vận hành. Bản tin hụt thì người đọc tự thấy bằng việc
+    không có bản tin — không cần thông báo kỹ thuật.
+    """
     if os.environ.get("DRY_RUN") == "1":
         print("--- DRY_RUN, không gửi ---")
         print(text)
@@ -168,8 +177,11 @@ def gui(text: str) -> int:
         if rc == 0:
             print(f"::warning::canary có cảnh báo nhưng kênh Telegram đang tắt:\n{text}")
         return rc
+    # Chỉ chat CHỦ. Quy ước giống telegram_bot.py: phần tử ĐẦU trong TELEGRAM_CHAT_ID, ghi đè
+    # bằng TELEGRAM_OWNER_CHAT. Kiểm cấu hình vẫn soi cả danh sách (ở trên) để mất secret là đỏ.
+    chu = os.environ.get("TELEGRAM_OWNER_CHAT", "").strip() or chats[0]
     loi = 0
-    for chat in chats:
+    for chat in [chu]:
         r = call(token, "sendMessage",
                  {"chat_id": chat, "text": text, "disable_web_page_preview": True})
         if r.get("ok"):
