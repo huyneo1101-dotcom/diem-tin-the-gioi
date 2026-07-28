@@ -1,9 +1,9 @@
 {
-  "tao_luc": "2026-07-28T23:20:15+07:00",
+  "tao_luc": "2026-07-29T03:46:10+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
-    "2026-07-27",
-    "2026-07-28"
+    "2026-07-28",
+    "2026-07-29"
   ],
   "ung_vien": [
     {
@@ -16,27 +16,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "US Congress approves money for Taiwan defense. Does it mean Trump is done hesitating?",
-      "nguon": "Defense News",
-      "url": "https://www.defensenews.com/global/asia-pacific/2026/07/27/us-congress-approves-money-for-taiwan-defense-does-it-mean-trump-is-done-hesitating/"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Pentagon nominates Lt. Gen. Admiral to command US Army Europe and Africa",
-      "nguon": "Defense News",
-      "url": "https://www.defensenews.com/news/your-military/2026/07/24/pentagon-nominates-lt-gen-admiral-to-command-us-army-europe-and-africa/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "U.S. Navy Deploys Ukraine-Style Kamikaze Sea Drones During Pacific SINKEX",
+      "ngay": "2026-07-28",
+      "tieu_de": "US Navy Directed by Congress to Overhaul Torpedo Inventories for Two-War Strategy",
       "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/07/u-s-navy-deploys-ukraine-style-kamikaze-sea-drones-during-pacific-sinkex/"
+      "url": "https://www.navalnews.com/naval-news/2026/07/us-navy-torpedo-inventory-fy27-ndaa/"
     },
     {
       "lop": "RSS",
@@ -56,6 +40,15 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Protests in DC against Netanyahu’s meeting with Trump",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/7/28/protests-in-dc-against-netanyahus-meeting-with-trump?traffic_source=rss",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-07-28",
       "tieu_de": "Could US airstrikes stop insurgency in Mali?",
@@ -65,11 +58,19 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Brazil seeks WTO consultation over US tariffs",
+      "ngay": "2026-07-29",
+      "tieu_de": "US Senate to vote on Russia sanctions bill in tribute to Graham",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/brazil-seeks-wto-consultation-over-us-tariffs",
+      "url": "https://www.straitstimes.com/world/united-states/us-senate-to-vote-on-russia-sanctions-bill-in-tribute-to-graham",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Ukraine’s Zelensky hails ‘good’ Trump talks on Patriot air defences",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/ukraines-zelensky-hails-good-trump-talks-on-patriot-air-defences"
     },
     {
       "lop": "RSS",
@@ -79,14 +80,6 @@
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3362052/trump-administration-urges-supreme-court-allow-order-targeting-mail-voting?utm_source=rss_feed",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Apple leak in India, China eyes Indonesia for mineral access: 5 weekend reads you missed",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/article/3361935/apple-leak-india-china-eyes-indonesia-mineral-access-5-weekend-reads-you-missed?utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -124,38 +117,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "China opposes U.S. ‘forced labour’ tariffs, calls for them to cancelled",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/china-opposes-us-forced-labour-tariffs-calls-for-them-to-cancelled/article71273031.ece",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Search for 17 missing crew after Vietnamese cargo ship sinks in South China Sea",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/vietnamese-cargo-ship-sinks-in-south-china-sea/article71270513.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "U.S. appeals court upholds injunction that blocks Trump's order to create federal voter list",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/us-appeals-court-upholds-injunction-that-blocks-trumps-order-to-create-federal-voter-list/article71270630.ece",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Trump: New tariffs 'doing the same thing' as the ones struck down by Supreme Court",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/28/trump-usmca-canada-mexico-trade-deal.html",
-      "nhom": 4
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-07-29",
+      "tieu_de": "Mali: Senegalese president arrives for talks with junta leader",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/07/28/mali-senegalese-president-arrives-for-talks-with-junta-leader/"
     },
     {
       "lop": "RSS",
@@ -175,19 +141,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Why Australia Struggles to Foster Asia Experts",
-      "nguon": "The Diplomat",
-      "url": "https://thediplomat.com/2026/07/why-australia-struggles-to-foster-asia-experts/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Philippines Holds Joint Exercises With US, Japan in South China Sea Amid Tensions With China",
-      "nguon": "The Diplomat",
-      "url": "https://thediplomat.com/2026/07/philippines-holds-joint-exercises-with-us-japan-in-south-china-sea-amid-tensions-with-china/"
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Quân đội Mỹ tranh luận về ứng dụng AI trong quân sự",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/quan-doi-my-tranh-luan-ve-ung-dung-ai-trong-quan-su-5080660.html"
     },
     {
       "lop": "RSS",
@@ -200,10 +158,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Việt Nam đưa 48 người trên tàu chìm ở Biển Đông về đất liền",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/viet-nam-dua-48-nguoi-tren-tau-chim-o-bien-dong-ve-dat-lien-5102263.html"
+      "ngay": "?",
+      "tieu_de": "Bê bối dầu ăn bẩn ở Đài Loan gây ảnh hưởng nghiêm trọng cho cả ngàn doanh nghiệp",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/be-boi-dau-an-ban-o-dai-loan-gay-anh-huong-nghiem-trong-cho-ca-ngan-doanh-nghiep-100260728211628119.htm"
     },
     {
       "lop": "RSS",
@@ -246,6 +204,14 @@
       "tieu_de": "Lầu Năm Góc lại thay đổi cách thống kê thương vong trong chiến sự Iran",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/lau-nam-goc-lai-thay-doi-cach-thong-ke-thuong-vong-trong-chien-su-iran-10026072710235582.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Panasonic to end TV production in Malaysia, cutting jobs",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/companies/panasonic-to-end-tv-production-in-malaysia-cutting-jobs"
     },
     {
       "lop": "RSS",
@@ -315,18 +281,27 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Bí mật phía sau 7 hạm đội giúp Mỹ triển khai sức mạnh quân sự toàn cầu",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/bi-mat-phia-sau-7-ham-doi-giup-my-trien-khai-suc-manh-quan-su-toan-cau-20260725081828330.htm"
+      "ngay": "2026-07-29",
+      "tieu_de": "Pentagon to rename Charleston base for Graham: Report",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/5994966-pentagon-renames-base-charleston-lindsey-graham/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Iran và Ukraine hút cạn tên lửa phòng không Patriot, Mỹ hành động bất ngờ",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/iran-va-ukraine-hut-can-ten-lua-phong-khong-patriot-my-hanh-dong-bat-ngo-20260724141932573.htm"
+      "ngay": "2026-07-29",
+      "tieu_de": "Pentagon removes ex-DNI Clapper’s name from auditorium at DIA headquarters",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/5994834-dia-renames-leadership-hall/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "CNN stunned at shock poll: voters trust GOP more on Iran War",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/opinion/robbys-radar/5994489-voters-distrust-democrats/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -358,25 +333,49 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-27",
-      "tieu_de": "Pentagon’s Iran war casualty count tops 600 amid transparency questions",
-      "nguon": "The Hill",
+      "tieu_de": "Pentagon's Iran war casualty count tops 600 amid transparency questions",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/5992132-pentagon-iran-war-casualties-top-600/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Australia must do more for Afghanistan",
-      "nguon": "Lowy Interpreter",
-      "url": "https://www.lowyinstitute.org/the-interpreter/australia-must-do-more-for-afghanistan"
+      "ngay": "2026-07-29",
+      "tieu_de": "Woman who accused 'Australia's Banksy' of rape wants the courts to hear this",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-07-29/nsw-lister-violet-speaks-out-after-failed-court-case/106949450"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Endometriosis saliva test lacks real-world evidence, Australian experts say",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/health/2026-07-29/ziwig-endotest-endometriosis-australia-france-uk-health/106910202"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-28",
-      "tieu_de": "Manila Water’s Kaysakat Water Treatment Plant nears completion",
+      "tieu_de": "DENR pushes declaration of protected areas in West Philippine Sea",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/07/29/2545515/denr-pushes-declaration-protected-areas-west-philippine-sea"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Metro Manila reopens door to new ecozones",
       "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2273027/manila-waters-kaysakat-water-treatment-plant-nears-completion"
+      "url": "https://business.inquirer.net/602836/metro-manila-reopens-door-to-new-ecozones"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Iranian Oil Hoard Swells Off Malaysia on Weak Chinese Demand",
+      "nguon": "gCaptain",
+      "url": "https://gcaptain.com/iranian-oil-hoard-swells-off-malaysia-on-weak-chinese-demand/"
     },
     {
       "lop": "RSS",
@@ -388,20 +387,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Analysis: US Treasury sanctions Turkish Hamas financiers as Erdogan presses for F-35s",
-      "nguon": "Long War Journal (Mali/JNIM)",
-      "url": "https://www.longwarjournal.org/archives/2026/07/analysis-us-treasury-sanctions-turkish-hamas-financiers-as-erdogan-presses-for-f-35s.php",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "‘Vigilance is our strongest shield:’ U.S. Army Antiterrorism Awareness Month 2026",
-      "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/570863/vigilance-our-strongest-shield-us-army-antiterrorism-awareness-month-2026"
+      "tieu_de": "Air Force tests collaborative combat aircraft at Creech AFB",
+      "nguon": "Không quân Mỹ — Air Force Link News",
+      "url": "https://www.af.mil/News/Article-Display/Article/4557390/air-force-tests-collaborative-combat-aircraft-at-creech-afb/"
     },
     {
       "lop": "RSS",
@@ -422,7 +412,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
+      "ngay": "2026-07-29",
       "tieu_de": "U.S. Air Force Begins First In-Field Construction of New Sentinel ICBM",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/28/us_air_force_begins_first_in-field_construction_of_new_sentinel_icbm_1197011.html"
@@ -430,7 +420,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
+      "ngay": "2026-07-29",
       "tieu_de": "The U.S. Navy Is Officially Stretched Beyond Its Limits",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/28/the_us_navy_is_officially_stretched_beyond_its_limits_1196901.html"
@@ -438,7 +428,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
+      "ngay": "2026-07-29",
       "tieu_de": "U.S. Army Adds $347M to Its New Containerized Patriot Launcher",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/28/us_army_adds_347m_to_its_new_containerized_patriot_launcher_1197014.html"
@@ -446,7 +436,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
+      "ngay": "2026-07-29",
       "tieu_de": "Ford Motor Joins Race to Build Next U.S. Army Truck",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/28/ford_motor_joins_race_to_build_next_us_army_truck_1197025.html"
@@ -454,7 +444,7 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
+      "ngay": "2026-07-29",
       "tieu_de": "House NDAA Further Limits U.S. Troop Reductions in South Korea",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/28/house_ndaa_further_limits_us_troop_reductions_in_south_korea_1197026.html",
@@ -463,7 +453,7 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
+      "ngay": "2026-07-29",
       "tieu_de": "House NDAA Proposes Major Acquisition Workforce Reforms",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/28/house_ndaa_proposes_major_acquisition_workforce_reforms_1197010.html",
@@ -472,18 +462,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-26",
-      "tieu_de": "Pentagon Lowers Official Iran War Death Toll, Omitting Four",
+      "ngay": "2026-07-29",
+      "tieu_de": "Pentagon, DEA say Boat Strikes Failed to Curb Cocaine Supply",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/07/24/pentagon_lowers_official_iran_war_death_toll_omitting_four_1196464.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "U.S. Deploys Hypersonic Missiles in Range of China During Exercise",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/07/24/us_deploys_hypersonic_missiles_in_range_of_china_during_exercise_1196470.html"
+      "url": "https://www.realcleardefense.com/2026/07/28/pentagon_dea_say_boat_strikes_failed_to_curb_cocaine_supply_1197063.html"
     },
     {
       "lop": "RSS",
@@ -496,7 +478,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
+      "ngay": "2026-07-29",
       "tieu_de": "What the Pentagon's Top Brain Thinks About Iran",
       "nguon": "RealClearWorld",
       "url": "https://www.realclearworld.com/2026/07/28/what_the_pentagons_top_brain_thinks_about_iran_1196595.html"
@@ -520,6 +502,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "NNSA Delivers New Nuclear Detonation Sensors To Space Force",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/nnsa-delivers-new-nuclear-detonation-sensors-to-space-force/nuclear-modernization/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
       "tieu_de": "Pentagon Signs Frameworks With L3Harris To Boost PAC-3 MSE, THAAD Propulsion Production",
       "nguon": "Defense Daily",
@@ -536,18 +526,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Defense Watch: F-35 Spares, SPEAR Integration, C-UAS and UAS News, $5B for AI",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/defense-watch-f-35-spares-spear-integration-c-uas-and-uas-news-5b-for-ai/defense-watch/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
       "tieu_de": "Space Force Picks Rocket Lab for Suborbital Launches from Alaska",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/space-force-rocket-lab-suborbital-launches-alaska-spaceport/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Space Force Awards Key Software Contract for Strategic SATCOM",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/space-force-key-software-contract-strategic-satcom/"
     },
     {
       "lop": "RSS",
@@ -580,6 +570,22 @@
       "tieu_de": "Pentagon moves recent KIA numbers from Iran war into ‘Overseas Operations’ category",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/07/27/pentagon-moves-recent-kia-numbers-from-iran-war-into-overseas-operations-category/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "“Marine Corps Doctrinal Publication 1” offers great lessons to both servicemembers and civilians",
+      "nguon": "Sandboxx News",
+      "url": "https://www.sandboxx.us/news/the-marine-corps-doctrinal-publication-1-offers-great-lessons-to-both-servicemembers-and-civilians/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "'On Course Through History: The. U.S. Navy at 250' Book Ceremony",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/image/9835973/course-through-history-us-navy-250-book-ceremony"
     },
     {
       "lop": "RSS",
@@ -631,60 +637,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Pacific Partnership 2026 Spotlight: U.S. Navy Lt. MacSwayne Muralt",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/video/1016250/pacific-partnership-2026-spotlight-us-navy-lt-macswayne-muralt"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Australia’s SM-2 land trial could reshape ADF medium-range air defence plans",
-      "nguon": "Shephard Media",
-      "url": "https://www.shephardmedia.com/news/landwarfareintl/australia-fires-land-based-sm-2-air-defence-missile/"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-28",
       "tieu_de": "U.S. removes 84 targets from sanctions list, consolidates duplicate entries including N.K. firm",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260728001400315",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-07-28",
-      "tieu_de": "West Africa: Fragmented Security Allows Terrorists' Cross-Mobility Across Lake Chad and Sahel",
-      "nguon": "AllAfrica",
-      "url": "https://allafrica.com/stories/202607280062.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-07-28",
-      "tieu_de": "Niger: Niger's Junta Marks Three Years Amid Rising Violence and Lost Freedoms",
-      "nguon": "AllAfrica",
-      "url": "https://allafrica.com/stories/202607280061.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Congress ramps up scrutiny of Pentagon AI data center plans",
-      "nguon": "Federal News Network — Defense",
-      "url": "https://federalnewsnetwork.com/congress/2026/07/congress-ramps-up-scrutiny-of-pentagon-ai-data-center-plans/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "What the latest US sanctions bill means for Russia—and for China, India, and Iran",
-      "nguon": "Atlantic Council",
-      "url": "https://www.atlanticcouncil.org/dispatches/what-the-latest-us-sanctions-bill-means-for-russia-and-for-china-india-and-iran/",
       "nhom": 4
     },
     {
@@ -706,11 +663,36 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Việt Nam-Australia mở rộng hợp tác phát triển nguồn nhân lực chất lượng cao",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/viet-nam-australia-mo-rong-hop-tac-phat-trien-nguon-nhan-luc-chat-luong-cao-post1126846.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Đưa quan hệ Việt Nam-Australia phát triển thực chất, hiệu quả và bền vững",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/dua-quan-he-viet-nam-australia-phat-trien-thuc-chat-hieu-qua-va-ben-vung-post1126831.vnp"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "US importers say new tariffs spark ‘exponential’ uncertainty",
-      "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/07/27/2026/us-importers-say-new-tariffs-spark-exponential-uncertainty",
+      "ngay": "2026-07-29",
+      "tieu_de": "Làn sóng thuế quan mới tác động thế nào đến nền kinh tế Mỹ?",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/lan-song-thue-quan-moi-tac-dong-the-nao-den-nen-kinh-te-my-post1126829.vnp",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Brazil đề nghị giải quyết thuế quan với Mỹ thông qua WTO",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/brazil-de-nghi-giai-quyet-thue-quan-voi-my-thong-qua-wto-post1126828.vnp",
       "nhom": 4
     },
     {
@@ -729,6 +711,14 @@
       "tieu_de": "Chuyên gia Indonesia đánh giá cao đóng góp của Việt Nam trong ASEAN",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/chuyen-gia-indonesia-danh-gia-cao-dong-gop-cua-viet-nam-trong-asean-post1126699.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Hợp tác Việt Nam-Australia góp phần củng cố hòa bình, ổn định, an ninh và thịnh vượng của khu vực",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/hop-tac-viet-nam-australia-gop-phan-cung-co-hoa-binh-on-dinh-an-ninh-va-thinh-vuong-cua-khu-vuc-post978406.html"
     },
     {
       "lop": "RSS",
@@ -780,14 +770,6 @@
       "tieu_de": "Lầu Năm Góc bất ngờ nâng số thương vong trong chiến sự Iran",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/lau-nam-goc-bat-ngo-nang-so-thuong-vong-trong-chien-su-iran-2539563.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-28",
-      "tieu_de": "Bộ trưởng Australia Mô hình phát triển mới của Việt Nam là cơ sở quan trọng để xác định lĩnh vực hợp tác trọng điểm",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/bo-truong-australia-mo-hinh-phat-trien-moi-cua-viet-nam-la-co-so-quan-trong-de-xac-dinh-linh-vuc-hop-tac-trong-diem-424577.html"
     },
     {
       "lop": "HTML",
