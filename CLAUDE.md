@@ -475,6 +475,34 @@ nguồn 3 tầng + tối đa 3 tin — tình cờ tìm thấy đúng loại đó
 đưa, không phải mọi thứ tìm được lúc trả lời đều tự động thành đề xuất.
 ⚠️ **Tốn thời gian hơn**, không phải chỉ tốn cron: bump `--max-turns` 60 → **90** vì giờ mỗi
 lượt hỏi cộng dồn HAI vòng WebSearch (trả lời + đề xuất tin), thay vì một.
+
+### 🧠 Bot nhớ lịch sử chat gần đây (thêm 28/07/2026, Huy hỏi)
+
+Mỗi lần bot chạy là một tiến trình GitHub Actions **hoàn toàn mới** — không tự nhớ gì giữa
+hai lượt hỏi. Câu ellipsis kiểu *"còn trong tháng 8?"* không có nghĩa nếu đọc riêng lẻ. Vá
+bằng cách ĐỌC LẠI dữ liệu đã ghi sẵn, không phải thêm bộ nhớ mới: bảng `dt_bot_hoi` đã lưu
+mọi lượt hỏi-đáp từ 27/07 (`bot_luu.py` ghi ở cuối mỗi lượt), chỉ thiếu đường đọc lại nó
+TRƯỚC khi trả lời.
+
+`telegram_bot.py:lich_su_gan_day(chat)` — chạy trong bước `--doc` (rẻ, không cần `claude
+-p`), gắn thêm field `lich_su: [{cau_hoi, tra_loi}]` vào mỗi lượt hỏi trong
+`/tmp/tg-questions.json`. Ba giới hạn cố ý:
+- **Lọc đúng `chat_id`** — lịch sử của Jay không bao giờ lẫn vào ngữ cảnh của Huy.
+- **Tối đa 5 lượt, trong 1 tiếng gần đây** (`LICH_SU_GIOI_HAN`/`LICH_SU_PHUT`) — không lấy
+  "toàn bộ lịch sử": câu hỏi hôm qua không cùng mạch chuyện với câu hỏi hôm nay, nạp vào
+  chỉ gây nhiễu, nguy hơn nữa nếu bot coi nhầm đó là ngữ cảnh còn hiệu lực.
+- **Cắt mỗi `tra_loi` cũ ở 500 ký tự** — một câu trả lời dài không được nuốt hết chỗ.
+
+⚠️ **Chỉ để HIỂU Ý, không phải để CHÉP LẠI câu trả lời cũ** — nhắc thẳng trong
+`telegram-bot.md`: đọc `lich_su` để biết đang hỏi tiếp cái gì, nhưng vẫn phải chạy đủ 2
+bước (DATA + nghiên cứu thêm) ở mục trên, vì dữ liệu có thể đã đổi từ lượt trước tới giờ.
+
+Đi qua đúng mã riêng `x-dt-key` đã dùng cho `ho_so_doc_gia.py` (đọc quyền hạn chế 2 bảng
+`dt_*`, không phải service key mở toàn bộ database). Secret **`DT_BOT_KEY` mới cắm cho CI**
+28/07/2026 (trước đó mã này chỉ có trên máy Huy, dùng cho routine local); thiếu secret thì
+`lich_su_gan_day()` tự trả `[]` và `--doc` vẫn chạy bình thường — lịch sử là phần LÀM GIÀU
+câu trả lời, không phải điều kiện cần.
+
 ⚠️ **ĐỘ TRỄ THẬT KHÔNG PHẢI 1–3 PHÚT — đo lại 28/07/2026: 66–148 PHÚT.** Câu "trễ 1–3 phút"
 ở đây suy từ `cron: */5` chứ chưa ai đo. Thực tế 12 vòng gần nhất cách nhau 66 · 67 · 68 · 87 ·
 90 · 110 · **148** phút — GitHub hạ ưu tiên mạnh cron tần suất cao trên repo public, không lần

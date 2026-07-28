@@ -68,6 +68,10 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Đọc lịch sử chat gần đây làm ngữ cảnh (thêm 28/07/2026) — mã chỉ mở quyền đọc
+          # 2 bảng dt_*, KHÔNG phải service key. Thiếu secret này thì lich_su_gan_day() tự
+          # trả [] (xem docstring telegram_bot.py), --doc vẫn chạy bình thường.
+          DT_BOT_KEY: ${{ secrets.DT_BOT_KEY }}
         run: |
           set +e
           python3 scripts/telegram_bot.py --doc

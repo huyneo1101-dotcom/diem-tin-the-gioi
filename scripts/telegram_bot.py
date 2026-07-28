@@ -38,6 +38,8 @@ import html
 import json
 import os
 import pathlib
+import re
+import subprocess
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -140,6 +142,88 @@ def xu_ly_xoa(token, m, chat) -> None:
         "disable_web_page_preview": True})
 
 
+# --- Lịch sử chat làm ngữ cảnh (thêm 28/07/2026, Huy hỏi "cho bot lưu lại lịch sử chat
+# làm ngữ cảnh được không") ---
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+SUPABASE_URL = "https://ltmlueqkajqmduoqghdf.supabase.co"
+# Mã cấp quyền ĐỌC 2 bảng dt_* — cùng file/env với ho_so_doc_gia.py, KHÔNG phải service key
+# (thứ mở toàn bộ database gồm ViNha/bi-a/Hương Diện). Xem CLAUDE.md mục "Bot hỏi–đáp".
+DT_KEY_FILE = pathlib.Path(os.environ.get("DT_KEY_FILE", "/Users/Huy/Claude/.dt-bot-key"))
+LICH_SU_PHUT = 60          # chỉ tính là "cùng hội thoại" nếu hỏi trong 1 tiếng gần đây
+LICH_SU_GIOI_HAN = 5       # tối đa 5 lượt gần nhất — đừng nhồi cả tháng vào ngữ cảnh
+LICH_SU_TRA_LOI_MAX = 500  # cắt câu trả lời cũ dài, đừng để 1 câu nuốt hết chỗ ngữ cảnh
+
+
+def _anon_key():
+    k = os.environ.get("SUPABASE_ANON_KEY", "").strip()
+    if k:
+        return k
+    try:
+        src = (ROOT / "index.html").read_text(encoding="utf-8")
+    except OSError:
+        return ""
+    m = re.search(r"sb_publishable_[A-Za-z0-9_-]{10,}", src)
+    return m.group(0) if m else ""
+
+
+def _dt_bot_key():
+    k = os.environ.get("DT_BOT_KEY", "").strip()
+    if k:
+        return k
+    try:
+        return DT_KEY_FILE.read_text(encoding="utf-8").strip()
+    except OSError:
+        return ""
+
+
+def lich_su_gan_day(chat):
+    """Lượt hỏi-đáp gần đây CỦA CÙNG chat này — làm ngữ cảnh cho câu hỏi tiếp theo.
+
+    VÌ SAO CẦN: mỗi lần bot chạy là một tiến trình GitHub Actions MỚI, không tự nhớ gì giữa
+    hai lượt hỏi — "còn trong tháng 8?" mà không biết câu trước hỏi về tập trận NATO thì
+    không trả lời được. Bảng `dt_bot_hoi` đã ghi MỌI lượt hỏi-đáp từ 27/07 (`bot_luu.py`),
+    chỉ thiếu đường ĐỌC LẠI nó trước khi trả lời — hàm này là đường đó.
+
+    Đi qua mã riêng `x-dt-key` (giống `ho_so_doc_gia.py`), KHÔNG dùng service key: mã này
+    chỉ mở quyền đọc 2 bảng `dt_*`, không mở toàn bộ database.
+
+    ⚠️ Giới hạn CẢ THỜI GIAN lẫn SỐ LƯỢNG — không lấy "toàn bộ lịch sử": câu hỏi hôm qua
+    không cùng mạch chuyện với câu hỏi hôm nay, nạp vào chỉ gây nhiễu — nguy hơn nữa nếu bot
+    coi nhầm đó là ngữ cảnh còn hiệu lực rồi trả lời theo thông tin đã cũ.
+
+    Hỏng/thiếu mã (secret chưa cắm, mạng lỗi) → trả `[]`, ĐỪNG làm cả `--doc` hỏng theo:
+    lịch sử là phần LÀM GIÀU câu trả lời, không phải điều kiện cần để trả lời được.
+    """
+    key, ma = _anon_key(), _dt_bot_key()
+    if not key or not ma:
+        return []
+    han = (datetime.datetime.now(datetime.timezone.utc)
+           - datetime.timedelta(minutes=LICH_SU_PHUT)).isoformat()
+    try:
+        p = subprocess.run(
+            ["curl", "-sS", "--max-time", "20",
+             f"{SUPABASE_URL}/rest/v1/dt_bot_hoi"
+             f"?select=cau_hoi,tra_loi,created_at&chat_id=eq.{chat}"
+             f"&created_at=gte.{han}&order=created_at.desc&limit={LICH_SU_GIOI_HAN}",
+             "-H", f"apikey: {key}", "-H", f"Authorization: Bearer {key}",
+             "-H", f"x-dt-key: {ma}"],
+            capture_output=True, text=True, timeout=25)
+        rows = json.loads(p.stdout)
+        if not isinstance(rows, list):
+            return []
+    except Exception as e:                      # noqa: BLE001 - best-effort, xem docstring
+        print(f"   ⚠️  không lấy được lịch sử chat: {e}", file=sys.stderr)
+        return []
+    rows.reverse()   # Supabase trả mới→cũ; đọc như hội thoại thì phải cũ→mới.
+    ra = []
+    for r in rows:
+        tl = r.get("tra_loi") or ""
+        if len(tl) > LICH_SU_TRA_LOI_MAX:
+            tl = tl[:LICH_SU_TRA_LOI_MAX] + "…"
+        ra.append({"cau_hoi": r.get("cau_hoi") or "", "tra_loi": tl})
+    return ra
+
+
 def doc(token):
     cho_phep = chats_cho_phep()
     if not cho_phep:
@@ -206,7 +290,8 @@ def doc(token):
         gop.setdefault(h["chat"], []).append(h["text"])
         if h.get("ten"):
             ten_theo_chat[h["chat"]] = h["ten"]
-    ket = [{"chat": c, "ten": ten_theo_chat.get(c, ""), "text": "\n".join(t)}
+    ket = [{"chat": c, "ten": ten_theo_chat.get(c, ""), "text": "\n".join(t),
+            "lich_su": lich_su_gan_day(c)}
            for c, t in gop.items()]
 
     pathlib.Path(QUESTIONS).write_text(

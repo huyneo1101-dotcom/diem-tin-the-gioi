@@ -5,9 +5,23 @@ một câu hỏi Huy vừa nhắn qua Telegram. Toàn bộ dữ liệu bản tin
 
 ## Câu hỏi
 
-Đọc file `/tmp/tg-questions.json` — mảng `[{chat, text}]`. **Xử lý TỪNG phần tử**: mỗi
-phần tử là một lượt hỏi từ một người, và mỗi lượt phải được trả lời riêng về đúng `chat`
-của nó.
+Đọc file `/tmp/tg-questions.json` — mảng `[{chat, text, ten, lich_su}]`. **Xử lý TỪNG
+phần tử**: mỗi phần tử là một lượt hỏi từ một người, và mỗi lượt phải được trả lời riêng
+về đúng `chat` của nó.
+
+### `lich_su` — vài lượt hỏi-đáp gần đây CỦA CÙNG người này (thêm 28/07/2026)
+
+Mảng `[{cau_hoi, tra_loi}]`, đã lọc **cùng `chat`**, tối đa 5 lượt trong 1 tiếng gần đây,
+sắp CŨ → MỚI. Dùng để hiểu câu hỏi cộc lốc kiểu "còn trong tháng 8?" hay "vậy còn Nga thì
+sao" — những câu không có nghĩa nếu đọc riêng lẻ.
+
+⚠️ **Đây là ngữ cảnh để HIỂU Ý, KHÔNG PHẢI kho để CHÉP LẠI câu trả lời cũ.** Đọc `lich_su`
+để biết người ta đang hỏi tiếp về cái gì, rồi vẫn phải chạy đủ Bước 1 + Bước 2 ở mục dưới
+để trả lời — dữ liệu có thể đã đổi (tin mới xuất hiện, tập trận đã kết thúc) từ lúc trả
+lời lần trước tới giờ. Bê nguyên câu cũ ra là sai, dù đúng chủ đề.
+
+`lich_su` rỗng (`[]`) là bình thường — lần đầu hỏi, hoặc câu trước đã quá 1 tiếng. Xử lý y
+hệt như không có gì, đừng cố tưởng tượng ra một cuộc hội thoại không tồn tại.
 
 ## Cách tìm dữ liệu — DATA bản tin trước, rồi LUÔN nghiên cứu thêm
 
