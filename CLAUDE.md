@@ -464,10 +464,15 @@ cho việc trả lời (chỉ được dùng ở việc RIÊNG — đề xuất 
 nói thẳng "không có", dù thật ra tìm thêm là ra. Nay `.github/prompts/telegram-bot.md` bắt
 buộc 2 bước cho MỌI câu hỏi thời sự: (1) DATA bản tin trước — rẻ, đã qua guardrail + chuẩn
 nguồn 3 tầng; (2) LUÔN WebSearch/WebFetch thêm dù bước 1 đủ hay thiếu, vì bản tin quét theo
-chu kỳ nên có thể trễ hàng giờ so với lúc Huy hỏi. Trả lời phải **ghi rõ nguồn nào từ đâu**:
-tin trong DATA nói bình thường, tin tự tìm thêm phải gắn `"(ngoài bản tin)"` — đây là khác
-biệt về ĐỘ TIN CẬY thật (DATA đã qua kiểm chứng nhiều lớp, tin tìm nhanh lúc trả lời thì
-chưa), không phải thủ tục hình thức.
+chu kỳ nên có thể trễ hàng giờ so với lúc Huy hỏi.
+
+⚠️ **ĐẢO LẠI 28/07/2026 — bỏ nhãn tách "trong DATA" / "(ngoài bản tin)".** Bản đầu bắt trả
+lời phải gắn `"(ngoài bản tin)"` cho tin tự tìm thêm; thực tế agent viết thành **hai đoạn
+tách rời** ("Tra DATA bản tin: …" rồi xuống dòng "(Ngoài bản tin) …"), Huy bác vì đọc rời
+rạc như hai câu trả lời dán lại. Nay **MỘT câu trả lời hợp nhất** — trộn DATA + nghiên cứu
+thêm thành một mạch văn, không thuật lại "tao tra ở đâu". Độ tin cậy vẫn thấy được qua
+**tên nguồn + link** trích kèm mỗi khẳng định (Reuters khác một blog vô danh) — không cần
+nhãn riêng nữa.
 ⚠️ **KHÔNG lẫn với việc "đề xuất tin"** (mục dưới) — hai việc CÙNG dùng WebSearch nhưng
 tiêu chuẩn khác hẳn: nghiên cứu-để-trả-lời thì tìm gì cũng được miễn có nguồn; còn đưa vào
 `tin_de_xuat` là đề nghị lên bản tin CÔNG KHAI nên vẫn phải qua đúng khung hôm nay/hôm qua +
@@ -475,6 +480,12 @@ nguồn 3 tầng + tối đa 3 tin — tình cờ tìm thấy đúng loại đó
 đưa, không phải mọi thứ tìm được lúc trả lời đều tự động thành đề xuất.
 ⚠️ **Tốn thời gian hơn**, không phải chỉ tốn cron: bump `--max-turns` 60 → **90** vì giờ mỗi
 lượt hỏi cộng dồn HAI vòng WebSearch (trả lời + đề xuất tin), thay vì một.
+
+⛔ **Bắt được thật 28/07/2026: bot trả lời bằng tiếng Việt KHÔNG DẤU** ("Hien khong co tap
+tran NATO..."). Không phải lỗi code — đã kiểm không script nào strip dấu (`grep unidecode/
+normalize` ra rỗng), là agent tự viết vậy. Vá bằng chỉ dẫn tường minh trong
+`telegram-bot.md` kèm ví dụ ĐÚNG/SAI cụ thể, vì câu cũ "Tiếng Việt, xưng tao" không đủ rõ
+để chặn — mô tả gián tiếp qua CLAUDE.md không ăn chắc bằng ví dụ dán thẳng vào prompt.
 
 ### 🧠 Bot nhớ lịch sử chat gần đây (thêm 28/07/2026, Huy hỏi)
 
