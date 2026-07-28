@@ -340,6 +340,25 @@ exit 0"* → **cả hai đã bỏ**: `continue-on-error` gỡ khỏi hai bước
 | 5 chủ đề (tối + sáng sớm) | `notify-email.yml` | `send_telegram.py` | Tiêu đề tin theo 3 mục + "Chủ đề thiếu và lý do" + **file .docx đính kèm** |
 | Sự kiện & Tập trận (sáng) | `notify-morning.yml` | `send_telegram.py --morning` | Sự kiện/tập trận mới + báo cáo tuần + think-tank + Mới trên web + mẹo |
 
+**📐 GIÃN DÒNG — mỗi ý một khối, các khối cách nhau MỘT DÒNG TRỐNG (chỉ thị Huy 28/07/2026):**
+nguyên văn *"giữa các tin và giữa các ý thì xuống dòng rồi cách 1 dòng nữa cho dễ đọc"*. Trước đó
+mọi dòng dính liền nhau nên khối Think-tank và "Mới trên web" đọc thành một mảng chữ đặc.
+Luật nằm ở **ĐÚNG MỘT chỗ: `send_telegram.py:chunk()`** — nó vừa nối khối bằng `\n\n` vừa cắt
+message ≤ `MAX_LEN`; **cả bản tối lẫn bản sáng đều gọi hàm này**, đừng tách ra thành hai vòng nối
+riêng như bản cũ (hai bộ luật song song chắc chắn lệch).
+| Là MỘT khối (dính nhau bằng `\n` đơn) | Là HAI khối (cách nhau dòng trống) |
+|---|---|
+| Tên sự kiện + dòng `<i>ngày · địa điểm</i>` | Sự kiện này với sự kiện kia |
+| Tít bài think-tank + câu *điều rút ra* | Bài think-tank này với bài kia |
+| Mẹo: tiêu đề + mô tả + đường dẫn | Từng tin, từng mục "Mới trên web", từng luận điểm báo cáo tuần |
+
+⚠️ **Đừng thêm `"\n"` vào đầu chuỗi tiêu đề mục nữa** — cách cũ tự chèn khoảng cách bằng tay; nay
+`chunk()` lo hết, thêm nữa là ra **hai** dòng trống.
+⚠️ **Luận điểm báo cáo tuần trước gộp bằng `" · "`** thành một đoạn chạy dài — nay mỗi luận điểm một
+dòng `– …` riêng. Đây chính là chỗ Huy gọi là "giữa các ý".
+⚠️ Giãn dòng làm message DÀI THÊM ~15% ký tự → có thể tăng số message Telegram. Đó là đánh đổi đã
+chấp nhận; `MAX_LEN` vẫn cắt đúng ranh giới khối nên không có tin nào bị xé đôi.
+
 **KHÔNG viết lại logic chọn tin ở phía Python.** Nhánh tối `import` thẳng `make_docx.py`
 (`pick_items`/`build_sections`) nên Telegram luôn đúng bằng bộ tin trong .docx. Nhánh sáng đọc
 `/tmp/morning-telegram.json` do **`send-morning-email.js` tự ghi ra trước khi gửi mail** — nhờ

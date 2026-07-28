@@ -97,6 +97,33 @@ def esc(s):
     return html.escape(str(s or ""), quote=False)
 
 
+def chunk(blocks):
+    """Nối các khối bằng DÒNG TRỐNG rồi cắt thành message ≤ MAX_LEN, không cắt giữa khối.
+
+    Chỉ thị Huy 28/07/2026: *"giữa các tin và giữa các ý thì xuống dòng rồi cách 1 dòng nữa
+    cho dễ đọc"*. Vì vậy **mỗi đơn vị đọc được là MỘT khối** (một tin, một bài think-tank kèm
+    câu 'điều rút ra', một luận điểm báo cáo tuần, một mục 'Mới trên web') và các khối cách
+    nhau đúng một dòng trống. Dòng nào thuộc CÙNG một ý (tên sự kiện + dòng ngày/địa điểm,
+    tít bài + takeaway) thì nằm CHUNG một khối, ngăn bằng `\\n` đơn — đừng tách ra, tách là
+    ý bị xé đôi bởi khoảng trắng.
+
+    ⚠️ Đừng thêm `"\\n"` vào đầu tiêu đề mục nữa (cách cũ): giờ khoảng cách do hàm này lo,
+    thêm nữa là thành hai dòng trống. Dùng CHUNG cho cả bản tối lẫn bản sáng — hai bộ luật
+    song song chắc chắn lệch nhau.
+    """
+    msgs, cur = [], ""
+    for b in blocks:
+        piece = (b if not cur else "\n\n" + b)
+        if len(cur) + len(piece) > MAX_LEN:
+            msgs.append(cur)
+            cur = b
+        else:
+            cur += piece
+    if cur:
+        msgs.append(cur)
+    return msgs
+
+
 def build_messages(sections, generated_at, total, gaps, tag=""):
     """Dựng danh sách message HTML, mỗi cái ≤ MAX_LEN. Cắt theo TIN, không cắt giữa tin."""
     try:
@@ -114,7 +141,7 @@ def build_messages(sections, generated_at, total, gaps, tag=""):
         if not items:
             continue
         idx += 1
-        blocks.append(f"\n<b>{idx}. {esc(name)}</b>")
+        blocks.append(f"<b>{idx}. {esc(name)}</b>")
         for it in items:
             title = esc(it.get("title") or it.get("summary") or "")
             url = it.get("sourceUrl") or ""
@@ -132,7 +159,7 @@ def build_messages(sections, generated_at, total, gaps, tag=""):
         thieu = [t for t in gaps
                  if (t["thieu"] if t.get("thieu") is not None
                      else (t.get("count", 0) < t.get("min", 0)))]
-        blocks.append("\n<b>⚠️ Chủ đề thiếu và lý do</b>")
+        blocks.append("<b>⚠️ Chủ đề thiếu và lý do</b>")
         if not thieu:
             blocks.append("• Không chủ đề nào thiếu.")
         for t in thieu:
@@ -140,18 +167,7 @@ def build_messages(sections, generated_at, total, gaps, tag=""):
                           f"({t.get('count', '?')}/{t.get('target', '?')}): "
                           f"{esc(t.get('reason') or 'không ghi lý do')}")
 
-    # Gộp block thành message ≤ MAX_LEN, không cắt giữa một dòng tin.
-    msgs, cur = [], ""
-    for b in blocks:
-        piece = (b if not cur else "\n" + b)
-        if len(cur) + len(piece) > MAX_LEN:
-            msgs.append(cur)
-            cur = b
-        else:
-            cur += piece
-    if cur:
-        msgs.append(cur)
-    return msgs
+    return chunk(blocks)
 
 
 def build_morning_messages(pl, tag=""):
@@ -173,7 +189,8 @@ def build_morning_messages(pl, tag=""):
         nhan = "Tập trận" if ev.get("kind") == "ex" else "Ngoại giao"
         moi = " · <b>MỚI</b>" if ev.get("isNewEvent") else ""
         meta = " · ".join(x for x in (ev.get("dates"), ev.get("location")) if x)
-        blocks.append(f"\n<b>[{nhan}]</b>{moi} {esc(ev.get('name'))}"
+        # Tên sự kiện + dòng ngày/địa điểm là CÙNG một ý → chung khối, ngăn bằng \n đơn.
+        blocks.append(f"<b>[{nhan}]</b>{moi} {esc(ev.get('name'))}"
                       + (f"\n<i>{esc(meta)}</i>" if meta else ""))
         for it in ev.get("items") or []:
             url = it.get("sourceUrl") or ""
@@ -182,56 +199,50 @@ def build_morning_messages(pl, tag=""):
 
     if len(all_events) > len(events):
         con = len(all_events) - len(events)
-        blocks.append(f"\n<i>… và {con} sự kiện/tập trận nữa — xem đầy đủ trên trang.</i>")
+        blocks.append(f"<i>… và {con} sự kiện/tập trận nữa — xem đầy đủ trên trang.</i>")
         print(f"[morning] cắt bớt {con}/{len(all_events)} sự kiện cho vừa Telegram",
               file=sys.stderr)
 
     w = pl.get("weekly")
     if w:
-        blocks.append(f"\n📊 <b>Báo cáo tuần {esc(w.get('weekStart'))}–{esc(w.get('weekEnd'))}</b>")
+        blocks.append(f"📊 <b>Báo cáo tuần {esc(w.get('weekStart'))}–{esc(w.get('weekEnd'))}</b>")
         for c in w.get("countries") or []:
-            pts = " · ".join(esc(p) for p in (c.get("points") or []))
-            blocks.append(f"• {esc(c.get('flag'))} <b>{esc(c.get('name'))}</b>: {pts}")
+            # MỖI LUẬN ĐIỂM MỘT KHỐI. Trước đây gộp bằng " · " thành một đoạn chạy dài —
+            # đúng chỗ Huy gọi là "giữa các ý" cần giãn ra.
+            blocks.append(f"• {esc(c.get('flag'))} <b>{esc(c.get('name'))}</b>")
+            for p in c.get("points") or []:
+                blocks.append(f"– {esc(p)}")
 
     anas = pl.get("analyses") or []
     if anas:
-        blocks.append("\n🏛️ <b>Think-tank</b>")
+        blocks.append("🏛️ <b>Think-tank</b>")
         for a in anas:
             t = esc(a.get("title"))
             url = a.get("url") or ""
             line = f"• <a href=\"{esc(url)}\">{t}</a>" if url else f"• {t}"
             if a.get("outlet"):
                 line += f" <i>— {esc(a['outlet'])}</i>"
-            blocks.append(line)
+            # Tít + câu 'điều rút ra' là một ý → chung khối.
             if a.get("takeaway"):
-                blocks.append(f"  <i>{esc(a['takeaway'])}</i>")
+                line += f"\n<i>{esc(a['takeaway'])}</i>"
+            blocks.append(line)
 
     feats = pl.get("features") or []
     if feats:
-        blocks.append("\n🆕 <b>Mới trên web</b>")
+        blocks.append("🆕 <b>Mới trên web</b>")
         for f in feats:
             blocks.append(f"• <b>{esc(f.get('title'))}</b>: {esc(f.get('desc'))}")
 
     tip = pl.get("tip")
     if tip:
         duong = (pl.get("webUrl", "") + tip.get("path", "")) if tip.get("path") else ""
-        blocks.append(f"\n💡 <b>{esc(tip.get('title'))}</b>\n{esc(tip.get('desc'))}"
+        blocks.append(f"💡 <b>{esc(tip.get('title'))}</b>\n{esc(tip.get('desc'))}"
                       + (f"\n{esc(duong)}" if duong else ""))
 
     if pl.get("webUrl"):
-        blocks.append(f"\n<a href=\"{esc(pl['webUrl'])}\">Mở trang Điểm Tin</a>")
+        blocks.append(f"<a href=\"{esc(pl['webUrl'])}\">Mở trang Điểm Tin</a>")
 
-    msgs, cur = [], ""
-    for b in blocks:
-        piece = (b if not cur else "\n" + b)
-        if len(cur) + len(piece) > MAX_LEN:
-            msgs.append(cur)
-            cur = b
-        else:
-            cur += piece
-    if cur:
-        msgs.append(cur)
-    return msgs
+    return chunk(blocks)
 
 
 def send_all(token, chats, msgs, docx="", caption=""):
