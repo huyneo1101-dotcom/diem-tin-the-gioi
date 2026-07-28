@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-28T21:00:54+07:00",
+    "lastRunAt": "2026-07-28T21:29:00+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+12 tin (4 The gioi, 8 My; 5 chu de: Noi bo My 5, Uc-Bien Dong 4, CNQS My 3, Mali 0, Predator 0)",
     "lastSuccess": {
-      "toi": "2026-07-27",
+      "toi": "2026-07-28",
       "sang": "2026-07-28"
-    },
-    "heartbeat": "2026-07-28T21:26:18+07:00"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-07-28T08:52:59+07:00",

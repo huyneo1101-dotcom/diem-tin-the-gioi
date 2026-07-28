@@ -1,6 +1,6 @@
 {
   "date": "2026-07-28",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
@@ -8,7 +8,7 @@
       "target": "5-10",
       "min": 5,
       "thieu": false,
-      "reason": "Nhóm 1 (điều trần + bỏ phiếu) chỉ vét được 1 tin chắc chắn (Thượng viện bỏ phiếu cloture đề cử Jay Clayton làm DNI, 27/7) — Quốc hội phần lớn đang trong kỳ nghỉ hè nên phiên điều trần/bỏ phiếu thưa; 4 tin còn lại lấy từ nhóm 2-5 ngang hàng (bầu cử, kinh tế/Nhà Trắng) để đủ chỉ tiêu tối thiểu."
+      "reason": ""
     },
     {
       "name": "Úc & Biển Đông",
@@ -16,15 +16,15 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Thiếu 1 tin để đạt sàn tối thiểu 5 — phần lớn ứng viên gom được (AUKUS Osborne, SM-2 Woomera, vòi rồng Scarborough lần 3, diễn tập Nhật-Phi-Mỹ) đã trùng sự kiện nạp trong các phiên trước; mảng mở rộng Malaysia/Indonesia/Brunei/Đài Loan/COC ASEAN-TQ chưa tìm được ứng viên mới trong khung 27-28/7."
+      "reason": "Nhiều ứng viên (Ghost Bat, SM-2 Woomera, Cairncross, USS George Washington, AUKUS Marles) trùng tin đã có trong DATA từ 24-27/7 hoặc sự kiện thật ngoài khung 27-28/7 dù báo đăng lại gần đây. Chỉ 4 tin sạch đạt chuẩn (Đài Loan Hán Quang 42, Hàn Quốc luật hoá phi hạt nhân, VN-Australia hợp tác, Australia vượt TQ cho vay Thái Bình Dương)."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 0,
+      "count": 3,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Chạy 2 vòng agent (vòng chính + vòng bổ sung góc khác: war.gov Contracts RSS, Patriot/Golden Dome/Navy/Space Force qua WebSearch) — mọi ứng viên đều TRÙNG sự kiện đã nạp các phiên trước (L3Harris/PAC-3/THAAD 27/7, Rocket Lab Alaska 27/7, CoAspire/CHAOS 24/7) hoặc sự kiện thật ngoài khung 3 ngày dù bài đăng lại gần đây. Về 0 tin sau khi khử trùng — xem logs/loai-tin.md."
+      "reason": "Loại 2 ứng viên nghi neo sai ngày sự kiện thật (báo cáo GAO Zumwalt hypersonic gốc 17/7, hợp đồng phụ tùng F-35 gốc 23/7) — cả hai ngoài khung nới 3 ngày (25-28/7) dù bài báo đăng gần đây. war.gov/Contracts bị 403 nên không khai thác được. Còn 3 tin sạch: laser phòng không Lockheed, chương trình GBAM (DIU), hợp đồng Sphinx Defense (Space Force)."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "Tin 'Trump cân nhắc không kích Mali' đang lan truyền rộng trên Google News (27-28/7) nhưng truy gốc ra là bài Washington Post đăng từ 22/7 — ngoài khung 1 ngày, chỉ là aggregator đăng lại. Tin 'Goïta siết an ninh nội bộ Mali' cũng ngoài khung 1 ngày. Không có diễn biến thật sự mới trong 27-28/7."
+      "reason": "Toàn bộ 40 ứng viên bị loại sau khi tự kiểm bằng WebSearch: câu chuyện 'Trump cân nhắc không kích JNIM' lan truyền 27-28/7 nhưng gốc thật là WaPo/The Hill 22/7 (đã ghi log các phiên trước, aggregator đăng lại); drone Shahed-136 là recap sự kiện Bellingcat 24/7. Không có diễn biến MỚI HẲN trong khung 27-28/7."
     },
     {
       "name": "Predator's Run 2026",
@@ -40,16 +40,16 @@
       "target": "1-2",
       "min": 1,
       "thieu": true,
-      "reason": "Không xác nhận được ứng viên duy nhất tìm thấy (Marines dùng drone chuyển máu trong diễn tập Úc, stripes.com) có thực sự là bài mới 2026 hay không — WebSearch chỉ ra bài tương tự từ 2022. Không tìm thêm được diễn biến khác qua DVIDS/PACOM trong khung 27-28/7."
+      "reason": "Không tìm được diễn biến mới trong khung 27-28/7 — drone tiếp máu và khởi động Carabaroo đã có trong DATA từ trước; link Carabaroo mới nhất (Daily Tribune) trả 404."
     },
     {
       "name": "Báo Mới",
-      "count": 0,
-      "target": "0-6",
+      "count": 3,
+      "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "Cổng Báo Mới nhắc 4 ứng viên, đã xử lý HẾT và loại cả 4 có lý do: tàu săn ngầm không người lái của Nga (khí tài Nga, chủ đề chỉ nhận CNQS Mỹ), EU bán dầu Nga bị tịch thu (không thuộc CNQS Mỹ, trùng tin đã có 25/7), Trump doạ áp thêm thuế lên hàng châu Âu (trùng nội dung thuế quan đã nạp cùng phiên này), Australia phản đối thuế quan Mỹ (tin thương mại, không thuộc AUKUS/quốc phòng Úc/chủ quyền Biển Đông)."
+      "reason": "5 ứng viên cổng báo: 3 nạp được (Hàn Quốc phi hạt nhân tàu ngầm, SAVE America Act, laser phòng không), 2 loại (siêu vượt âm Zumwalt trùng nguồn gốc quá cũ; phân tích thuế quan trùng chủ đề tin đã nạp)."
     }
   ],
-  "note": "Vòng bổ sung CNQS Mỹ đã chạy 1 lần với góc tìm khác (war.gov Contracts, Patriot, Golden Dome) nhưng vẫn 0 — chấp nhận thiếu thay vì lặp vô hạn. Chi tiết từng tin bị loại + lý do: logs/loai-tin.md mục '2026-07-28 (phiên sáng sớm)'. Tổng nạp: 4 tin worldNews + 5 tin usNews = 9 tin."
+  "note": "Bỏ qua vòng telegram_harvest.py để giữ biên thời gian cho hạn chót email 22:00. Chi tiết đầy đủ: logs/loai-tin.md mục '2026-07-28 (phiên TỐI — CI 21:00)'. Tổng nạp: 4 tin worldNews + 8 tin usNews = 12 tin."
 }

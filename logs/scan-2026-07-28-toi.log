@@ -4,3 +4,5 @@
 [14:31Z] Xong 4 agent Sonnet song song: Noi bo My 6 tin tho, Uc & Bien Dong 4 tin, CNQS My 5 tin tho, Mali+Predator 0/0 (hop le - da kiem ky, khong co tin dat chuan trong khung ngay).
 [14:32Z] Review + loc lai: Noi bo My bo 1 tin (Fed FOMC, sourceName/sourceUrl khong khop, noi dung mong) con 5; CNQS My bo 2 tin (GAO Zumwalt hypersonic - su kien that 17/7 qua cu ngoai khung; F-35 spare parts contract - agent tu nhan "xac nhan 23/7" ngoai khung 3 ngay CNQS) con 3, keo theo 1 ung vien Bao Moi (sieu vuot am tau chien) bi loai vi nguon goc qua cu.
 [14:33Z] Kiem grep index.html: khong URL nao trung DATA cu. Chuan bi nap 12 tin (4 The gioi, 8 My).
+[14:38Z] add_news.py OK: +4 The gioi, +8 My, +10 tin Bi loai. Ghi logs/loai-tin.md + logs/scan-gaps.json (du 5 chu de + Bao Moi, 2 ung vien Bao Moi con lai da xu ly - loai ca 2 co ly do).
+[14:39Z] state.py done web-scan: +12 tin. Chuan bi commit index.html + logs, push.
