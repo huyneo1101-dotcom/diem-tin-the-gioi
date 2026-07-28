@@ -6,3 +6,4 @@
 [14:33Z] Kiem grep index.html: khong URL nao trung DATA cu. Chuan bi nap 12 tin (4 The gioi, 8 My).
 [14:38Z] add_news.py OK: +4 The gioi, +8 My, +10 tin Bi loai. Ghi logs/loai-tin.md + logs/scan-gaps.json (du 5 chu de + Bao Moi, 2 ung vien Bao Moi con lai da xu ly - loai ca 2 co ly do).
 [14:39Z] state.py done web-scan: +12 tin. Chuan bi commit index.html + logs, push.
+[14:30Z lan chay CI thu 2] SKIP - state.py claim web-scan tra exit 10 (phien toi 28/07 DA XONG, lan chay cuoi 21:29+07:00). Khong quet lai, khong commit index.html. Ket thuc em.
