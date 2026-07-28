@@ -46,7 +46,15 @@ from tg_api import call  # noqa: E402
 QUESTIONS = "/tmp/tg-questions.json"
 # Bỏ câu hỏi cũ hơn ngần này — tránh trả lời một câu Huy hỏi từ hôm qua khi bot vừa hồi sinh
 # sau sự cố (Telegram giữ hàng đợi tới 24h).
-MAX_AGE_PHUT = 60
+#
+# ⚠️ 60 → 360 PHÚT (28/07/2026). Ngưỡng 60' được đặt khi tin rằng cron `*/5` chạy mỗi 5 phút.
+# ĐO THẬT 12 vòng gần nhất: khoảng cách giữa hai lần chạy là **66–148 phút**, không lần nào
+# gần 5 phút — GitHub hạ ưu tiên mạnh cron tần suất cao trên repo public. Hệ quả: câu hỏi rơi
+# vào khoảng cách >60' bị vứt với lý do "quá cũ", mà `--doc` đã xác nhận offset ngay khi đọc
+# nên câu đó MẤT HẲN — Huy hỏi và không bao giờ nhận được trả lời, cũng không có dấu hiệu gì.
+# 360' nuốt được nhịp tệ nhất đo được (148') với biên rộng, mà vẫn chặn đúng ca nó sinh ra để
+# chặn: bot chết qua đêm rồi hồi sinh, moi câu hỏi 20 tiếng tuổi ra trả lời.
+MAX_AGE_PHUT = 360
 MAX_LEN = 3800
 
 
@@ -164,6 +172,14 @@ def doc(token):
             continue
         if bay_gio - float(m.get("date", 0)) > MAX_AGE_PHUT * 60:
             bo_cu += 1
+            # Bỏ thì phải NÓI. Trước đây chỉ in stderr vào log Actions — người hỏi ngồi chờ
+            # một câu trả lời không bao giờ tới, y hệt kiểu hỏng mà cả repo này chống lại.
+            gio = int((bay_gio - float(m.get("date", 0))) / 3600)
+            call(token, "sendMessage", {
+                "chat_id": chat,
+                "text": (f"Câu này gửi {gio} tiếng trước, quá cũ nên tao bỏ qua — hỏi lại giúp tao.\n"
+                         "(Bot chạy theo lịch GitHub, có lúc bị dồn tới 2 tiếng mới tới lượt.)"),
+                "disable_web_page_preview": True})
             continue
         if text.startswith("/start"):
             continue

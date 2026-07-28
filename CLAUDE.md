@@ -456,7 +456,14 @@ DRY_RUN=1 python3 .github/scripts/canary.py --ca toi
 Huy nhắn câu hỏi cho **@diemtin24h_bot**; workflow `telegram-bot.yml` (cron **mỗi 5 phút**)
 đọc hàng đợi Telegram và chạy `claude -p` để trả lời, dùng **CHUNG secret
 `CLAUDE_CODE_OAUTH_TOKEN`** với routine quét → **không phát sinh hoá đơn Claude API**.
-Đánh đổi đã biết và đã chấp nhận: **trễ 1–3 phút** (vòng cron + ~1 phút cài Claude Code).
+⚠️ **ĐỘ TRỄ THẬT KHÔNG PHẢI 1–3 PHÚT — đo lại 28/07/2026: 66–148 PHÚT.** Câu "trễ 1–3 phút"
+ở đây suy từ `cron: */5` chứ chưa ai đo. Thực tế 12 vòng gần nhất cách nhau 66 · 67 · 68 · 87 ·
+90 · 110 · **148** phút — GitHub hạ ưu tiên mạnh cron tần suất cao trên repo public, không lần
+nào gần 5 phút. **Không ép được** (cùng bản chất với cron canary trễ 1h38). Hệ quả đã vá:
+`MAX_AGE_PHUT` 60 → **360**, vì câu hỏi rơi vào khoảng cách >60' bị vứt với lý do "quá cũ" — mà
+`--doc` xác nhận offset ngay khi đọc nên câu đó **mất hẳn**, người hỏi không có dấu hiệu gì. Nay
+bỏ câu quá cũ thì **nhắn cho người hỏi biết** thay vì chỉ in stderr.
+Đánh đổi cũ vẫn đúng về bản chất (miễn phí, đổi lấy độ trễ), chỉ là con số lớn hơn nhiều.
 Muốn tức thì thì phải chuyển sang Claude API + API key riêng (~78–170k đ/tháng với Haiku
 4.5 ở mức ~20 câu/ngày, ~340k đ với Sonnet 5) — Huy đã cân nhắc và chọn miễn phí.
 
