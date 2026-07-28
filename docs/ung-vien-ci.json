@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-28T22:43:30+07:00",
+  "tao_luc": "2026-07-28T23:20:15+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-27",
@@ -70,14 +70,6 @@
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/brazil-seeks-wto-consultation-over-us-tariffs",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Pentagon says it will not finish spending Ukraine funds until year Trump leaves office: Source",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/pentagon-says-it-will-not-finish-spending-ukraine-funds-until-year-trump-leaves-office-source-says"
     },
     {
       "lop": "RSS",
@@ -167,15 +159,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "CNBC's The China Connection newsletter: A U.S.-China debate that's becoming bigger than tariffs",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/27/cnbcs-the-china-connection-newsletter-a-us-china-debate-thats-becoming-bigger-than-tariffs.html",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-28",
       "tieu_de": "Indonesia’s Whoosh Feels the Squeeze in 2025",
@@ -221,6 +204,14 @@
       "tieu_de": "Việt Nam đưa 48 người trên tàu chìm ở Biển Đông về đất liền",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/viet-nam-dua-48-nguoi-tren-tau-chim-o-bien-dong-ve-dat-lien-5102263.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Airbus thử nghiệm thành công chuyến bay thẳng hơn 24 giờ từ Úc đến Pháp",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/airbus-thu-nghiem-thanh-cong-chuyen-bay-thang-hon-24-gio-tu-uc-den-phap-100260728203337673.htm"
     },
     {
       "lop": "RSS",
@@ -386,14 +377,6 @@
       "tieu_de": "Manila Water’s Kaysakat Water Treatment Plant nears completion",
       "nguon": "Inquirer",
       "url": "https://newsinfo.inquirer.net/2273027/manila-waters-kaysakat-water-treatment-plant-nears-completion"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-28",
-      "tieu_de": "Philippines stumbles vs Myanmar in Asean Hyundai Cup opener",
-      "nguon": "Inquirer",
-      "url": "https://sports.inquirer.net/687838/philippines-stumbles-vs-myanmar-in-asean-hyundai-cup-opener"
     },
     {
       "lop": "RSS",
@@ -813,6 +796,24 @@
       "tieu_de": "Chairman Babin Issues Statement on New Glenn Incident at Cape Canaveral Space Force Station",
       "nguon": "Uỷ ban Khoa học Hạ viện",
       "url": "https://science.house.gov/press-releases?ID=52612EE3-D235-4B86-9426-482AD63D5606"
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "July 28, 2026 Bipartisan Group of Senators Announce Agreement to Move Forward on Major Sanctions Legislation",
+      "nguon": "Uỷ ban Đối ngoại Thượng viện",
+      "url": "https://www.foreign.senate.gov/press/rep/release/bipartisan-group-of-senators-announce-agreement-to-move-forward-on-major-sanctions-legislation",
+      "nhom": 4
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "July 21, 2026 Ranking Member Shaheen, Senator Scott Statement on Daniel Ortega’s Announcement to End Elections in Nicaragua",
+      "nguon": "Uỷ ban Đối ngoại Thượng viện",
+      "url": "https://www.foreign.senate.gov/press/dem/release/ranking-member-shaheen-senator-scott-statement-on-daniel-ortegas-announcement-to-end-elections-in-nicaragua",
+      "nhom": 5
     },
     {
       "lop": "HTML",
