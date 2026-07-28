@@ -13,3 +13,17 @@
 [21:35Z] state.py claim event-scan -> RUN (lan cuoi 28/07, hom nay chua chay). Lam tiep Buoc 4.
 [21:35Z] Hom nay thu 3 -> BO QUA Buoc 4.5 (bao cao tuan chi Chu nhat).
 [21:48Z] SKIP (CI) phien sang som - lan goi lai: web-scan da DONE luc 04:22:10+07 (+16 tin, 5 chu de). state.py claim tra exit 10. Ket thuc em, khong quet lai.
+[21:42Z] Buoc 4.2: agent Sonnet su kien/tap tran tra 3 exerciseUpdates. REVIEW LOAI 2/3:
+         - Predator's Run "tam dung dien tap du le tinh than" = TRUNG HAN item da co "tam dung du le cau nguyen quan doi".
+         - Han Quang 42 "4 giai doan" = nghi trung 2 tin da dang 28-29/07 (Han Quang 41 pha vay phong toa/chong do bo + Han Quang 42 drone); ngoai ra agent ghi dates 4-14/8 trong khi DATA co 5-14/8 -> rui ro cao, bo.
+         - GIU: RIMPAC 2026 bao Fausto huy do bo duong bien -> khong van. Da VERIFY bang WebFetch: link that, dang 28/07, khop noi dung (Bellows, RAdm Brent DeVore, RAdm Andres Howard).
+[21:45Z] Buoc 4.2 vong bo sung (agent rieng cho su kien ngoai giao): tra 3 newDipEvents. REVIEW LOAI 2/3:
+         - Turkmenistan-EBRD 5 MoU: nguon newscentralasia.net la trang tong hop ngoai thang xac minh, chi 1 nguon, gia tri chien luoc thap -> bo (thang nguon doi 2 nguon doc lap).
+         - Syria-Han Quoc (vien tro hoc cu + phat song phim Han long tieng): nguon SANA la truyen thong nha nuoc, noi dung gan nhu khong co gia tri chien luoc -> bo.
+         - GIU: Thuong dinh Han Quoc-Brazil 28/07 (Korea Herald). Da VERIFY bang WebFetch: uy ban cong nghiep quoc phong chung, GSOMIA, MoU khong gian, noi lai dam phan FTA Mercosur.
+[21:46Z] Tim tin BE MAC Predator's Run 2026 (du kien ket thuc ~29/07): WebSearch KHONG ra tin be mac 2026, ket qua lan sang Predator's Run 24 (2024). Khong nap, giu status ongoing.
+[21:48Z] add_news.py OK: +1 item tap tran (RIMPAC), +1 SU KIEN ngoai giao MOI (Han Quoc-Brazil). generatedAt=2026-07-29
+         Canh bao "nguon la: Honolulu Star-Advertiser" = bao dia phuong Hawaii dua tin RIMPAC tai cho, da verify link that -> chap nhan.
+[21:49Z] Buoc 4.4: add_analyses.py OK +5 bai think-tank (War on the Rocks, Modern War Institute, Lowy, CEPA, Atlantic Council). Phu 4 khu vuc: Dong A, IPAC, Chau Au/NATO, Trung Dong. Tong muc Phan tich: 39 bai.
+[21:50Z] Buoc 4.3: kiem 10 cuoc tap tran trong DATA - TAT CA da co background + concepts, khong co newExercises -> khong co viec, bo qua.
+[21:51Z] state.py done event-scan + commit RIENG (tien to "Cap nhat su kien") de kich notify-morning.
