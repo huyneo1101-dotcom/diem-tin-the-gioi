@@ -6,3 +6,4 @@
 [21:22Z] add_news.py OK: +5 worldNews, +11 usNews, +1 exercise item. generatedAt=2026-07-29
 [21:22Z] ghi logs/loai-tin.md + logs/scan-gaps.json
 [21:22Z] state.py done web-scan
+[21:30Z] SKIP (CI) phien sang som - lan goi thu 2 trong ngay: web-scan da DONE luc 04:22:10+07 (chay truoc do). state.py claim tra SKIP, khong quet lai.
