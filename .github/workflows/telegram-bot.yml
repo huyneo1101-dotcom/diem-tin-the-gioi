@@ -110,10 +110,13 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          # --max-turns 60 (trước 40): từ 27/07 mỗi lượt hỏi còn phải phân loại chủ đề,
-          # WebSearch tìm tin đáng đề xuất, ghi Supabase và nhắn đề xuất cho Huy.
+          # --max-turns 90 (trước 60, trước nữa 40): từ 28/07 MỌI câu hỏi đều bắt buộc một
+          # vòng WebSearch/WebFetch để trả lời (chỉ thị Huy — "tự nghiên cứu để đưa ra câu
+          # trả lời hoàn thiện và bao quát nhất"), CỘNG THÊM vòng WebSearch riêng (từ 27/07)
+          # để phân loại chủ đề + tìm tin đáng đề xuất + ghi Supabase. Hai việc CỘNG DỒN, nên
+          # tăng thêm biên chứ không chỉ giữ nguyên.
           TOOLS="Bash(python3 *),Bash(ls *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(cat /tmp/*),Read,Write,Glob,Grep,WebSearch,WebFetch"
-          claude -p "$(cat .github/prompts/telegram-bot.md)" --allowedTools "$TOOLS" --max-turns 60
+          claude -p "$(cat .github/prompts/telegram-bot.md)" --allowedTools "$TOOLS" --max-turns 90
 
       # Không im lặng khi hỏng: Huy đã nhận tin "đang tra" nên phải nhận được kết cục.
       - name: Báo lỗi nếu trả lời hỏng

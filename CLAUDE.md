@@ -456,6 +456,25 @@ DRY_RUN=1 python3 .github/scripts/canary.py --ca toi
 Huy nhắn câu hỏi cho **@diemtin24h_bot**; workflow `telegram-bot.yml` (cron **mỗi 5 phút**)
 đọc hàng đợi Telegram và chạy `claude -p` để trả lời, dùng **CHUNG secret
 `CLAUDE_CODE_OAUTH_TOKEN`** với routine quét → **không phát sinh hoá đơn Claude API**.
+
+🔎 **MỌI câu hỏi PHẢI được nghiên cứu, không chỉ lọc DATA (chỉ thị Huy 28/07/2026):**
+*"yêu cầu với mọi câu hỏi phải tự nghiên cứu để đưa ra câu trả lời hoàn thiện và bao quát
+nhất."* Trước đó bot CHỈ dùng `tra_cuu_tin.py` lọc từ DATA bản tin, WebSearch bị cấm dùng
+cho việc trả lời (chỉ được dùng ở việc RIÊNG — đề xuất tin mới). Hệ quả: DATA thiếu là bot
+nói thẳng "không có", dù thật ra tìm thêm là ra. Nay `.github/prompts/telegram-bot.md` bắt
+buộc 2 bước cho MỌI câu hỏi thời sự: (1) DATA bản tin trước — rẻ, đã qua guardrail + chuẩn
+nguồn 3 tầng; (2) LUÔN WebSearch/WebFetch thêm dù bước 1 đủ hay thiếu, vì bản tin quét theo
+chu kỳ nên có thể trễ hàng giờ so với lúc Huy hỏi. Trả lời phải **ghi rõ nguồn nào từ đâu**:
+tin trong DATA nói bình thường, tin tự tìm thêm phải gắn `"(ngoài bản tin)"` — đây là khác
+biệt về ĐỘ TIN CẬY thật (DATA đã qua kiểm chứng nhiều lớp, tin tìm nhanh lúc trả lời thì
+chưa), không phải thủ tục hình thức.
+⚠️ **KHÔNG lẫn với việc "đề xuất tin"** (mục dưới) — hai việc CÙNG dùng WebSearch nhưng
+tiêu chuẩn khác hẳn: nghiên cứu-để-trả-lời thì tìm gì cũng được miễn có nguồn; còn đưa vào
+`tin_de_xuat` là đề nghị lên bản tin CÔNG KHAI nên vẫn phải qua đúng khung hôm nay/hôm qua +
+nguồn 3 tầng + tối đa 3 tin — tình cờ tìm thấy đúng loại đó thì lọc qua điều kiện rồi mới
+đưa, không phải mọi thứ tìm được lúc trả lời đều tự động thành đề xuất.
+⚠️ **Tốn thời gian hơn**, không phải chỉ tốn cron: bump `--max-turns` 60 → **90** vì giờ mỗi
+lượt hỏi cộng dồn HAI vòng WebSearch (trả lời + đề xuất tin), thay vì một.
 ⚠️ **ĐỘ TRỄ THẬT KHÔNG PHẢI 1–3 PHÚT — đo lại 28/07/2026: 66–148 PHÚT.** Câu "trễ 1–3 phút"
 ở đây suy từ `cron: */5` chứ chưa ai đo. Thực tế 12 vòng gần nhất cách nhau 66 · 67 · 68 · 87 ·
 90 · 110 · **148** phút — GitHub hạ ưu tiên mạnh cron tần suất cao trên repo public, không lần
