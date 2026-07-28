@@ -245,13 +245,7 @@ def build_morning_messages(pl, tag=""):
     return chunk(blocks)
 
 
-def send_all(token, chats, msgs, docx="", caption="", files=None):
-    """`files` = [(path, caption), ...] gửi SAU file chính.
-
-    Dùng cho file Word thứ hai — TIN BỊ LOẠI (chỉ thị Huy 28/07/2026). Gửi sau `docx`
-    chứ không gộp chung: bản tin chính phải tới tay trước, file phụ trợ hỏng thì cũng
-    không được kéo theo bản tin chính.
-    """
+def send_all(token, chats, msgs, docx="", caption=""):
     for chat in chats:
         for m in msgs:
             r = call(token, "sendMessage", {
@@ -266,54 +260,8 @@ def send_all(token, chats, msgs, docx="", caption="", files=None):
             if not r.get("ok"):
                 print(f"LỖI sendDocument tới {chat}: {r}", file=sys.stderr)
                 return 1
-        n_phu = 0
-        for path, cap in (files or []):
-            r = send_document(token, chat, path, cap)
-            if not r.get("ok"):
-                # KHÔNG return 1: bản tin chính đã gửi xong ở trên. Xem ghi chú "vì sao file
-                # phụ không làm đỏ job" ở `dung_file_loai()`.
-                print(f"::warning::Không gửi được file phụ {path} tới {chat}: {r}",
-                      file=sys.stderr)
-                continue
-            n_phu += 1
-        print(f"Đã gửi {len(msgs)} message{' + file .docx' if docx else ''}"
-              f"{f' + {n_phu} file phụ' if n_phu else ''} tới {chat}")
+        print(f"Đã gửi {len(msgs)} message{' + file .docx' if docx else ''} tới {chat}")
     return 0
-
-
-def dung_file_loai():
-    """File Word THỨ HAI — tin bị loại dù đúng 5 chủ đề (chỉ thị Huy 28/07/2026).
-
-    Trả (path, caption) hoặc None. Workflow dựng sẵn thì dùng lại qua `DOCX_LOAI_PATH`,
-    chưa có thì tự gọi `make_docx_loai.py` (chạy tay ở local).
-
-    ⚠️ HỎNG Ở ĐÂY **KHÔNG** LÀM ĐỎ JOB — cố ý, ngược với nhánh .docx chính. Lý do: bước
-    `Ghi sổ đã gửi` chạy SAU bước Telegram, nên bước Telegram đỏ là sổ KHÔNG được ghi →
-    canary kêu oan *và* bản tin TỐI hôm sau liệt kê lại nguyên lô tin đã gửi (đúng lỗi
-    Huy bắt hôm 27/07). Đánh đổi một file phụ lấy nguyên cơ chế chống lặp tin là lỗ vốn.
-    ⚠️ Nhưng KHÔNG im lặng: in `::warning::` để trang run có dấu vết, và caller nhắn
-    một dòng về CHAT CHỦ để Huy thấy ngay trên điện thoại — cùng quy ước với `canary.py`
-    (cảnh báo hạ tầng gửi cho người vận hành, không gửi cho người đọc).
-    """
-    path = os.environ.get("DOCX_LOAI_PATH", "").strip()
-    if not path:
-        try:
-            out = subprocess.run(
-                [sys.executable,
-                 str(pathlib.Path(__file__).resolve().parent / "make_docx_loai.py")],
-                capture_output=True, text=True, cwd=str(ROOT), timeout=120)
-        except Exception as e:  # noqa: BLE001
-            return None, f"không chạy được make_docx_loai.py: {e}"
-        dong = [l for l in out.stdout.splitlines() if l.startswith("DOCX_LOAI=")]
-        if out.returncode != 0 or not dong:
-            return None, (f"make_docx_loai.py hỏng (rc={out.returncode}): "
-                          f"{out.stderr.strip()[-300:]}")
-        path = dong[-1][len("DOCX_LOAI="):].strip()
-        if not path:
-            return None, ""      # hôm nay không loại tin nào — im lặng ĐÚNG
-    if not pathlib.Path(path).is_file():
-        return None, f"không thấy file {path}"
-    return path, ""
 
 
 def run_morning(token, chats, tag, dry):
@@ -419,32 +367,12 @@ def main():
     caption = (f"{tag}📰 Điểm Tin {generated_at}"
                + (f" — {total} tin mới" if total else " — không có tin mới so với bản trước"))
 
-    # FILE THỨ HAI — tin bị loại dù đúng 5 chủ đề (chỉ thị Huy 28/07/2026).
-    loai_path, loai_loi = dung_file_loai()
-    files = []
-    if loai_path:
-        files.append((loai_path, f"{tag}🚫 Tin bị loại {generated_at} — kèm lý do"))
-    elif loai_loi:
-        print(f"::warning::[loai] {loai_loi}", file=sys.stderr)
-
     if dry:
         print(f"=== DRY_RUN — {len(msgs)} message, {total} tin, docx={docx} ===")
         print(f"caption: {caption}")
-        print(f"file tin bị loại: {loai_path or '(không có)'}"
-              + (f" — lỗi: {loai_loi}" if loai_loi else ""))
         return 0
 
-    rc = send_all(token, chats, msgs, docx, caption, files)
-
-    # Dựng file phụ hỏng thì báo CHAT CHỦ một dòng — Huy thấy ngay trên điện thoại thay vì
-    # phải vào tab Actions đọc `::warning::`. Chỉ chat chủ, không gửi người đọc bản tin.
-    if loai_loi and chats:
-        call(token, "sendMessage", {
-            "chat_id": os.environ.get("TELEGRAM_OWNER_CHAT", "").strip() or chats[0],
-            "text": f"⚠️ Không dựng được file Word TIN BỊ LOẠI cho {generated_at}: {loai_loi}",
-            "disable_web_page_preview": True,
-        })
-    return rc
+    return send_all(token, chats, msgs, docx, caption)
 
 
 if __name__ == "__main__":

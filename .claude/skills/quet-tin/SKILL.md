@@ -254,29 +254,6 @@ link rác/không khớp, trùng, không đúng 5 chủ đề, nội bộ Mỹ ng
 `rejectedNews` trong JSON là TUỲ CHỌN với phạm vi mới (không bắt buộc gom tin loại như trước) — chỉ thêm
 nếu có tin đúng chủ đề nhưng lệch khung giờ, đáng để người dùng cứu.
 
-### 📄 VÀ ghi `logs/loai-tin.json` — BẮT BUỘC (chỉ thị Huy 28/07/2026)
-> Nguyên văn: *"từ giờ mỗi khi gửi hãy gửi thêm 1 file word nữa, trong đó gồm các tin đã bị loại dù
-> thuộc đúng 5 chủ đề. ghi rõ lý do bị loại."*
-
-Mỗi lần gửi bản tin nay kèm **file Word thứ hai** `Diem-tin-BI-LOAI-<buổi>-<ngày>.docx`, dựng bởi
-`.github/scripts/make_docx_loai.py`. Nguồn CHÍNH của nó là file JSON này — ghi bằng tool Write, **cùng
-lúc với `scan-gaps.json`, trước khi commit**:
-```json
-{ "date": "<PHẢI khớp DATA.generatedAt>", "session": "toi|sang",
-  "items": [ {"chu_de": "CNQS Mỹ", "title": "...", "sourceName": "...", "sourceUrl": "...",
-              "date": "<ngày SỰ KIỆN thật>", "reason": "<vì sao loại>"} ],
-  "note": "<tuỳ chọn>" }
-```
-- `chu_de` dùng ĐÚNG 1 trong 5 tên: `Nội bộ Mỹ` · `Úc & Biển Đông` · `CNQS Mỹ` · `Mỹ – Mali` ·
-  `Predator's Run 2026` (script có bảng đồng nghĩa cho vài cách viết tắt, nhưng đừng dựa vào nó).
-- `reason` phải đủ để Huy **tự phán được có loại nhầm không**: nêu ngày SỰ KIỆN THẬT, trùng với tin nào,
-  nguồn hỏng ra sao. Viết cụt kiểu "ngoài khung" là vô dụng — đó chính là thứ file này sinh ra để tránh.
-- `date` lệch `generatedAt` → script BỎ cả file (chống gửi lý do hôm trước) và rơi xuống fallback đọc
-  `loai-tin.md`. Fallback chỉ trích được nguyên văn gạch đầu dòng, không tách được chủ đề/link — nên
-  **đừng ỷ vào nó**, nó là lưới an toàn chứ không phải đường chính.
-- Không loại tin nào thì ghi `items: []` — script im lặng không dựng file, đó là hành vi ĐÚNG.
-- `git add logs/` phải gồm file này (cùng `state.json` + `scan-gaps.json`).
-
 Gộp vào `/tmp/new_items.json`:
 > ⚠️ **`date` batch = NGÀY TIN MỚI NHẤT trong lô** (thường là hôm qua nếu quét sau nửa đêm / máy chạy
 > trễ), KHÔNG phải ngày hệ thống. Script chặn tin cũ hơn 1 ngày so với `date` này — neo sai (theo hôm
