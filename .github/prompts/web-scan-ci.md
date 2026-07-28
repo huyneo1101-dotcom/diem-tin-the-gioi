@@ -8,6 +8,7 @@ Bản tin chạy **2 phiên/ngày, CÙNG playbook 5 chủ đề**: phiên **TỐ
 - Git identity + quyền push đã cấu hình sẵn. Push thẳng `origin main`.
 - MỌI lệnh Bash phải PHẲNG: một lệnh đơn / pipe / chuỗi `&&` của lệnh đơn, đối số là giá trị thật gõ đầy đủ. KHÔNG `for`/`while`, KHÔNG biến shell `$x` hay `$(...)`, KHÔNG heredoc, KHÔNG định nghĩa hàm. Lệnh ngoài allowlist bị TỪ CHỐI TỰ ĐỘNG (không có ai bấm Allow) — cần lặp thì viết N lệnh rời hoặc gói vào `python3 -c '...'`.
 - Ghi log bằng tool Write/Edit vào `logs/scan-<ngày VN>.log` (không `cat >>`).
+- 🕐 **GIỜ TRONG LOG PHẢI LẤY BẰNG `date -u +%H:%MZ` NGAY TRƯỚC KHI GHI — CẤM tự ước** (vá 28/07/2026). Đo thật phiên tối 28/07: log tự khai `[14:38Z] add_news OK` và `[14:39Z] done` trong khi job **kết thúc lúc 14:29:35Z** — giờ tự ghi chạy nhanh hơn thực tế tới **10 phút**, và sai luỹ tiến (dòng đầu lệch 0', dòng cuối lệch 10'). Nguyên nhân: phiên cộng dồn ước lượng thay vì gọi `date`. Hậu quả không phải chỉ xấu log — mọi chẩn đoán "phiên chậm ở chặng nào" đều dựng trên các mốc này, sai giờ là **chẩn đoán sai nguyên nhân**. Muốn biết mốc thật thì đọc timestamp `git log`, đừng tin giờ trong log.
 - 🔁 LỖI MẠNG/SERVER — TỰ RETRY: WebSearch/WebFetch lỗi → thử lại tới 3 lần (đổi nguồn/từ khoá); `git push`/`pull` lỗi → `sleep 30` rồi thử lại, tối đa 3 vòng; agent con chết → giao lại 1 lần. Sau 3 lần vẫn hỏng: `state.py fail` + ghi log + cố push — mốc cron sau tự quét lại.
 
 ## VIỆC

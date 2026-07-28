@@ -6,6 +6,7 @@ Mày là phiên quét SÁNG (event-scan) của "Điểm Tin Thế Giới", chạ
 - Git identity + quyền push đã cấu hình sẵn. Push thẳng `origin main`.
 - MỌI lệnh Bash phải PHẲNG: lệnh đơn / pipe / chuỗi `&&`, đối số là giá trị thật. KHÔNG `for`/`while`, KHÔNG biến shell `$x`/`$(...)`, KHÔNG heredoc, KHÔNG hàm. Lệnh ngoài allowlist bị TỪ CHỐI TỰ ĐỘNG — cần lặp thì viết N lệnh rời hoặc `python3 -c '...'`.
 - Ghi log bằng tool Write/Edit vào `logs/scan-<ngày VN>.log` (không `cat >>`).
+- 🕐 **Giờ trong log lấy bằng `date -u +%H:%MZ` NGAY TRƯỚC KHI GHI — cấm tự ước** (vá 28/07/2026): phiên web-scan CI tối 28/07 tự khai giờ nhanh hơn thực tế tới 10 phút và sai luỹ tiến, làm lệch mọi chẩn đoán "chậm ở chặng nào". Mốc thật nằm ở timestamp `git log`.
 - 🔁 LỖI MẠNG/SERVER — TỰ RETRY: WebSearch/WebFetch lỗi → thử lại tới 3 lần (đổi nguồn/từ khoá); `git push`/`pull` lỗi → `sleep 30` rồi thử lại, tối đa 3 vòng; agent con chết → giao lại 1 lần. Sau 3 lần vẫn hỏng: `state.py fail` + ghi log + cố push — mốc cron sau tự quét lại.
 
 ## PHẠM VI
