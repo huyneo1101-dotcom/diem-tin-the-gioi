@@ -1,10 +1,10 @@
 {
-  "date": "2026-07-28",
-  "session": "toi",
+  "date": "2026-07-29",
+  "session": "sang",
   "topics": [
     {
-      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
-      "count": 5,
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
+      "count": 6,
       "target": "5-10",
       "min": 5,
       "thieu": false,
@@ -12,44 +12,44 @@
     },
     {
       "name": "Úc & Biển Đông",
+      "count": 5,
+      "target": "5-10",
+      "min": 5,
+      "thieu": false,
+      "reason": ""
+    },
+    {
+      "name": "Công nghệ quân sự Mỹ (CNQS)",
       "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Nhiều ứng viên (Ghost Bat, SM-2 Woomera, Cairncross, USS George Washington, AUKUS Marles) trùng tin đã có trong DATA từ 24-27/7 hoặc sự kiện thật ngoài khung 27-28/7 dù báo đăng lại gần đây. Chỉ 4 tin sạch đạt chuẩn (Đài Loan Hán Quang 42, Hàn Quốc luật hoá phi hạt nhân, VN-Australia hợp tác, Australia vượt TQ cho vay Thái Bình Dương)."
-    },
-    {
-      "name": "CNQS Mỹ",
-      "count": 3,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Loại 2 ứng viên nghi neo sai ngày sự kiện thật (báo cáo GAO Zumwalt hypersonic gốc 17/7, hợp đồng phụ tùng F-35 gốc 23/7) — cả hai ngoài khung nới 3 ngày (25-28/7) dù bài báo đăng gần đây. war.gov/Contracts bị 403 nên không khai thác được. Còn 3 tin sạch: laser phòng không Lockheed, chương trình GBAM (DIU), hợp đồng Sphinx Defense (Space Force)."
+      "reason": "Sau 2 vòng agent (chính + bổ sung), mọi ứng viên còn lại hoặc trùng tin đã có trong DATA (Rocket Lab $266M Alaska đã nạp 27/7) hoặc ngày sự kiện thật ngoài khung 3 ngày (siêu vượt âm GAO 17/7, laser JLWS ký 9/7, B-21 Raider, AeroVironment 1/7, DARPA X-68A tháng 2). Trang war.gov/Contracts bị 403 không mở đọc được chi tiết. Chấp nhận thiếu 1 tin so với sàn tối thiểu."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 0,
+      "count": 1,
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "Toàn bộ 40 ứng viên bị loại sau khi tự kiểm bằng WebSearch: câu chuyện 'Trump cân nhắc không kích JNIM' lan truyền 27-28/7 nhưng gốc thật là WaPo/The Hill 22/7 (đã ghi log các phiên trước, aggregator đăng lại); drone Shahed-136 là recap sự kiện Bellingcat 24/7. Không có diễn biến MỚI HẲN trong khung 27-28/7."
+      "reason": "Sau 2 vòng agent, chỉ có 1 sự kiện thật mới trong khung 28-29/7 (TT Senegal thăm Bamako). Các tin khác đang lan truyền (Trump cân nhắc không kích JNIM) có gốc thật từ 22/7, đã ghi log các phiên trước — không phải diễn biến mới. Thiếu SỰ KIỆN MỚI thật, không phải thiếu nguồn."
     },
     {
       "name": "Predator's Run 2026",
-      "count": 0,
+      "count": 1,
       "target": "1-2",
       "min": 1,
-      "thieu": true,
-      "reason": "Không tìm được diễn biến mới trong khung 27-28/7 — drone tiếp máu và khởi động Carabaroo đã có trong DATA từ trước; link Carabaroo mới nhất (Daily Tribune) trả 404."
+      "thieu": false,
+      "reason": "Đạt tối thiểu. Xác nhận tập trận CHƯA kết thúc (chạy tới hết 31/7), nên chưa có tin bế mạc/tổng kết — sẽ tìm ở phiên sau."
     },
     {
-      "name": "Báo Mới",
-      "count": 3,
+      "name": "Báo Mới (ứng viên khớp 5 chủ đề)",
+      "count": 1,
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "5 ứng viên cổng báo: 3 nạp được (Hàn Quốc phi hạt nhân tàu ngầm, SAVE America Act, laser phòng không), 2 loại (siêu vượt âm Zumwalt trùng nguồn gốc quá cũ; phân tích thuế quan trùng chủ đề tin đã nạp)."
+      "reason": "4 ứng viên được cổng nhắc, xử lý hết: nạp 1 (Lầu Năm Góc rà soát lực lượng châu Âu), loại 3 vì không hợp chủ đề (xem logs/loai-tin.md)."
     }
   ],
-  "note": "Bỏ qua vòng telegram_harvest.py để giữ biên thời gian cho hạn chót email 22:00. Chi tiết đầy đủ: logs/loai-tin.md mục '2026-07-28 (phiên TỐI — CI 21:00)'. Tổng nạp: 4 tin worldNews + 8 tin usNews = 12 tin."
+  "note": "Phiên sáng sớm CI 04:00 VN, ô khoá 'sang'. Đã chạy harvest.py (322 ứng viên, 67 RSS + Google News) và telegram_harvest.py (4 ứng viên, giá trị thấp, không có tin đạt chuẩn). Tổng nạp: +5 worldNews, +11 usNews, +1 exercise (Predator's Run). Chi tiết tin loại: logs/loai-tin.md mục 2026-07-29 (phiên SÁNG SỚM)."
 }
