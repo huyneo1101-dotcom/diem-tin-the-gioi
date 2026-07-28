@@ -16,30 +16,46 @@ chạy trên máy Mac bằng terminal, và **không khâu nào tốn hạn mức
 
 ---
 
-## Bước 1 — Sinh prompt (một lệnh, ~3 phút)
+## Bước 1 — Sinh prompt, MỖI CHỦ ĐỀ MỘT ĐOẠN CHAT RIÊNG
 
 ```bash
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/prompt_chatgpt.py
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/prompt_chatgpt.py --chu-de cnqs
 ```
 
-Nó tự làm hết: chạy `harvest.py --gop-ci`, chạy `add_news.py --recent-titles 20`, điền **ngày cụ
-thể của hôm nay**, lọc ứng viên ngoài khung, rồi ghi ra `/tmp/prompt-chatgpt.md`.
+Năm giá trị: `my` (Nội bộ Mỹ) · `uc` (Úc & Biển Đông) · `cnqs` (CNQS Mỹ) · `mali` · `predator`.
+Lần đầu chạy sẽ mất ~3 phút vì nó tự gọi `harvest.py --gop-ci`; các lần sau dùng lại lô đó nên
+gần như tức thì. Nó tự điền **ngày cụ thể của hôm nay**, tự nhúng khối chống trùng
+(`--recent-titles 20`), tự lọc ứng viên ngoài khung, và chỉ nhúng luật của đúng chủ đề đó.
 
-Mở file đó, **copy TẤT CẢ**, dán vào ChatGPT. Nhớ **bật chế độ duyệt web** — không có nó thì
-ChatGPT không mở được bài để đọc, và luật số 1 trong prompt sẽ bắt nó bỏ gần hết tin.
+⛔ **Chạy không có `--chu-de` cũng được nhưng ĐỪNG dùng cho bản tin thật.** Prompt gộp cả 5 chủ đề
+là ~41.000 ký tự với ~87 link — ChatGPT sẽ mở vài cái rồi viết `summary` từ tiêu đề cho phần còn
+lại, tức vi phạm luật số 1 mà không nói gì. Đây đúng là lý do playbook gốc chia **5 agent nhỏ**
+thay vì một agent to (`.claude/skills/quet-tin/SKILL.md` bước 2) — đường ChatGPT cũng phải chia y
+như vậy. Tách ra thì mỗi prompt còn ~20–25k ký tự, ≤20 ứng viên.
 
-## Bước 2 — Lấy JSON về
+**DÁN THẲNG nội dung vào khung chat — đừng upload file .md.** Upload thì ChatGPT coi là tài liệu
+tham khảo và đọc lướt; dán thẳng thì nó coi là chỉ thị. **Bật chế độ duyệt web**, không có thì nó
+không mở được bài và luật số 1 sẽ bắt nó bỏ gần hết tin.
 
-ChatGPT trả một khối JSON + một khối liệt kê chủ đề thiếu. Lưu **khối JSON** vào
-`/tmp/tu-chatgpt.json` (dán cả ```json fence cũng được, script tự bóc), rồi:
+📌 File `docs/quy-trinh-du-phong-chatgpt.md` (chính file mày đang đọc) **KHÔNG dán vào ChatGPT** —
+nó là hướng dẫn cho mày, đầy lệnh terminal và `git push`. Dán vào chỉ làm ChatGPT tưởng phải chạy
+lệnh rồi trả về hướng dẫn thay vì JSON.
+
+## Bước 2 — Lấy JSON về (làm lần lượt cho từng chủ đề)
+
+Mỗi đoạn chat trả một khối JSON + một khối liệt kê chủ đề thiếu. Lưu **khối JSON** vào
+`/tmp/tu-chatgpt-<chủ đề>.json` (dán cả ```json fence và lời dẫn cũng được, script tự bóc), rồi:
 
 ```bash
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/prompt_chatgpt.py --nap /tmp/tu-chatgpt.json
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/prompt_chatgpt.py --nap /tmp/tu-chatgpt-cnqs.json
 ```
 
 Nó bóc fence → validate → bỏ khoá lạ ChatGPT tự thêm → ghi `/tmp/new_items.json` → gọi
 `add_news.py`. Guardrail chặn thì nó in rõ tin nào lỗi: sửa/bỏ tin đó trong
 `/tmp/new_items.json` rồi chạy lại `python3 scripts/add_news.py /tmp/new_items.json`.
+
+Nạp **từng chủ đề một, nhiều lần** là an toàn — `add_news.py` cộng dồn, và lần chạy CUỐI quyết định
+`DATA.generatedAt` (nhớ để `date` của bản kê ở bước 3 khớp giá trị đó).
 
 ## Bước 3 — Bản kê chủ đề thiếu (BẮT BUỘC, đừng bỏ)
 

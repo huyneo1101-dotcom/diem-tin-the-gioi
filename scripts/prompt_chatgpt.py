@@ -36,6 +36,36 @@ CATEGORY = "Kinh tế · Chính trị · Công nghệ quân sự · Ngoại giao
 REGION = ("Châu Âu/NATO · Trung Đông · Đông Á · Toàn cầu · Châu Mỹ · "
           "Ấn Độ Dương - Thái Bình Dương")
 
+# Trần ứng viên mỗi prompt. VÌ SAO CÓ TRẦN (28/07/2026): bản đầu nhồi cả 87 ứng viên vào một
+# prompt 40.778 ký tự — đúng cái mà playbook gốc đã tránh ("không dùng 1 agent lớn ôm hết việc
+# quét, dễ quá tải"). ChatGPT gặp 87 link sẽ mở vài cái rồi viết summary từ tiêu đề cho phần còn
+# lại, tức vi phạm LUẬT SỐ 1 một cách âm thầm. Cắt thì PHẢI in rõ cắt bao nhiêu, không im lặng.
+MAX_UNG_VIEN = 20
+
+# key gõ tắt -> (tên chủ đề trong lô harvest, khối luật riêng nhúng vào prompt)
+CHU_DE = {
+    "my": ("Nội bộ Mỹ", """**Nội bộ Mỹ** → `usNews`, category `Chính trị` (hoặc `Kinh tế` nếu đúng nội dung), KHÔNG có `region`.
+Ưu tiên theo HAI HẠNG — vét cạn hạng 1 trước:
+- **Hạng 1, nhóm (1):** TOÀN BỘ phiên điều trần trong ngày + TOÀN BỘ kết quả bỏ phiếu thông qua dự luật (uỷ ban hoặc hai viện).
+- **Hạng 2 — bốn nhóm NGANG HÀNG nhau, chỉ lấy khi nhóm (1) đã cạn:** (2) sáng kiến/chiến lược chính quyền công bố trên kênh chính thống các bộ (sắc lệnh, memorandum, chiến lược quốc gia, fact sheet, thông cáo bộ) · (3) biểu tình/tuần hành/đình công · (4) kinh tế Mỹ (Fed, thuế quan, trừng phạt, số liệu) + động thái khác của Nhà Trắng/nội các · (5) bầu cử (giữa kỳ, sơ bộ, tranh cử, thăm dò, quy định cử tri, kiểm phiếu, redistricting, đua ghế Thượng viện/Hạ viện/thống đốc).
+⚠️ Phải là chuyện NỘI BỘ MỸ. Tin protest/tariff/election của nước khác thì BỎ.
+Báo lại: đã cạn nhóm (1) chưa, và mỗi nhóm được mấy bài."""),
+    "uc": ("Úc & Biển Đông", """**Úc & Biển Đông** → `worldNews`, BẮT BUỘC có `region`.
+- Úc: AUKUS, quốc phòng/khí tài Úc, ADF, quan hệ an ninh Úc–Mỹ/Nhật/Anh, chính sách Thái Bình Dương → `region: "Ấn Độ Dương - Thái Bình Dương"`.
+- Biển Đông: chủ quyền, đụng độ/tuần tra, phán quyết, tập trận; gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, Philippines, hoạt động của Nhật/Ấn/Hàn tại vùng biển này, đàm phán COC ASEAN–Trung Quốc, các thực thể Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong → `region: "Đông Á"`."""),
+    "cnqs": ("CNQS Mỹ", """**Công nghệ quân sự Mỹ** → `usNews`, category `Công nghệ quân sự`, KHÔNG có `region`.
+Khí tài/hệ thống CỤ THỂ của Mỹ: tên lửa, phòng không, hải quân, không gian/Space Force, laser, drone, AI quân sự, tàu ngầm, hợp đồng quốc phòng.
+⚠️ Khí tài của nước KHÁC (Nga, Trung Quốc, Úc…) KHÔNG thuộc mục này — bỏ hoặc để chủ đề khác.
+⚠️ Một trang "Contracts for July DD" gộp nhiều hợp đồng: chọn hợp đồng đáng đưa (khí tài cụ thể, giá trị lớn), đừng nạp cả trang; nhiều hợp đồng cùng trang thì gộp thành MỘT tin."""),
+    "mali": ("Mỹ – Mali", """**Mỹ – Mali** → `usNews` (đa số là chính sách/hành động của Mỹ), KHÔNG có `region`.
+Việc Mỹ cân nhắc/triển khai phương án quân sự ở Sahel nhắm JNIM (al-Qaeda): quyết định không kích drone, phản ứng của Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin phải gắn Mali/JNIM/Bamako/Sahel.
+⚠️ Bỏ tin Mali không liên quan an ninh (kinh tế thường, thể thao, giáo dục)."""),
+    "predator": ("Predator's Run", """**Tập trận Predator's Run 2026** (Mỹ–Úc–Philippines, Townsville, tới ~29/7) → CHỈ dùng `exerciseUpdates`.
+`name` phải khớp ĐÚNG chuỗi này, sao y không sửa một ký tự: `Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)`
+Mỗi item chỉ có: `date`, `title`, `summary`, `sourceName`, `sourceUrl` (KHÔNG có category/region/significance).
+Tìm diễn biến mới: bài bắn đạn thật, tình huống huấn luyện, tuyên bố chỉ huy. Nguồn: dvidshub.net, defence.gov.au, marines.mil, pacom.mil."""),
+}
+
 
 def chay(cmd, mo_ta):
     print(f"[{mo_ta}] {' '.join(cmd[:3])} ...", file=sys.stderr)
@@ -77,7 +107,7 @@ def lo_con_tuoi(path="/tmp/ung-vien.json", hom_nay=None):
     return True, f"lô mới {tuoi:.1f} tiếng"
 
 
-def khoi_ung_vien(items, hom_nay, hom_qua, cnqs_som_nhat):
+def khoi_ung_vien(items, hom_nay, hom_qua, cnqs_som_nhat, chi=None):
     """Nhóm ứng viên theo chủ đề, LỌC LẠI theo khung ngày.
 
     Hai lý do phải lọc ở đây dù harvest đã lọc: (a) lô có thể được gom ở phiên trước, khung
@@ -91,6 +121,8 @@ def khoi_ung_vien(items, hom_nay, hom_qua, cnqs_som_nhat):
         if h.get("lop") in ("GNEWS", "TG"):
             continue
         chu_de = h.get("chu_de", "(không rõ)")
+        if chi and chu_de != chi:
+            continue
         som_nhat = cnqs_som_nhat if "CNQS" in chu_de else hom_qua
         ngay = h.get("ngay") or ""
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", ngay) or not (str(som_nhat) <= ngay <= str(hom_nay)):
@@ -100,17 +132,26 @@ def khoi_ung_vien(items, hom_nay, hom_qua, cnqs_som_nhat):
     if bo_ngay:
         print(f"   (đã bỏ {bo_ngay} ứng viên ngoài khung ngày / không rõ ngày)", file=sys.stderr)
     if not theo:
-        return ("(KHÔNG có lô ứng viên — chạy `python3 scripts/harvest.py --gop-ci "
-                "--json /tmp/ung-vien.json` trước, hoặc để ChatGPT tự tìm bằng nguồn gợi ý.)")
+        return ("(KHÔNG có ứng viên nào trong khung ngày cho phần này — chạy lại "
+                "`python3 scripts/harvest.py --gop-ci --json /tmp/ung-vien.json`, hoặc để ChatGPT "
+                "tự tìm theo nguồn gợi ý của chủ đề.)")
     ra = []
     for chu_de, hs in theo.items():
-        ra.append(f"\n### {chu_de} ({len(hs)} ứng viên)")
-        for h in hs:
+        hs.sort(key=lambda x: x.get("ngay", ""), reverse=True)   # mới nhất trước
+        cat = len(hs) - MAX_UNG_VIEN
+        ra.append(f"\n### {chu_de} ({min(len(hs), MAX_UNG_VIEN)} ứng viên"
+                  + (f", đã cắt {cat} bài cũ hơn — còn trong lô harvest nếu cần" if cat > 0 else "")
+                  + ")")
+        for h in hs[:MAX_UNG_VIEN]:
             ra.append(f"- [{h.get('ngay','?')}] {h.get('tieu_de','')} — {h.get('nguon','')}\n  {h.get('url','')}")
+        if cat > 0:
+            print(f"   (chủ đề {chu_de}: cắt {cat} ứng viên cũ hơn, giữ {MAX_UNG_VIEN} mới nhất)",
+                  file=sys.stderr)
     return "\n".join(ra)
 
 
-def sinh():
+def sinh(key=None):
+    ten_cd, luat_cd = CHU_DE[key] if key else (None, None)
     now = datetime.datetime.now(VN)
     hom_nay = now.date()
     hom_qua = hom_nay - datetime.timedelta(days=1)
@@ -123,7 +164,7 @@ def sinh():
              "harvest lại (2-4 phút)")
     da_co = chay([sys.executable, "scripts/add_news.py", "--recent-titles", "20"], "recent-titles")
 
-    p = OUT
+    p = f"/tmp/prompt-chatgpt-{key}.md" if key else OUT
     pathlib.Path(p).write_text(f"""Mày là biên tập viên bản tin "Điểm Tin Thế Giới" (tiếng Việt, chuyên quốc phòng — an ninh — quan hệ quốc tế). Việc của mày: từ danh sách ứng viên dưới đây, CHỌN và VIẾT ra JSON tin để nạp vào web. Máy đã đi lấy tin sẵn — mày chỉ thẩm định, viết, và loại tin sai.
 
 ## KHUNG NGÀY — TUYỆT ĐỐI KHÔNG VƯỢT
@@ -135,14 +176,14 @@ def sinh():
 Phải mở từng URL và đọc nội dung thật trước khi viết. **Cấm viết `summary`/`significance` suy từ tiêu đề.** Không mở được (403/paywall/không truy cập được) và không xác nhận được nội dung bằng nguồn thứ hai → **BỎ tin đó**, đừng đoán.
 Thà trả về 3 tin sạch còn hơn 8 tin có 1 tin bịa. Được phép trả mảng rỗng cho một chủ đề.
 
-## 5 CHỦ ĐỀ (ngoài 5 cái này thì BỎ, kể cả tin hay)
-1. **Nội bộ Mỹ** → `usNews`, category `Chính trị` (hoặc `Kinh tế` nếu đúng nội dung). Ưu tiên theo HAI HẠNG: vét cạn hạng 1 trước — (1) **toàn bộ phiên điều trần + toàn bộ kết quả bỏ phiếu thông qua dự luật**. Thiếu chỉ tiêu mới lấy sang 4 nhóm NGANG HÀNG nhau: (2) sáng kiến/chiến lược chính quyền công bố trên kênh chính thống các bộ (sắc lệnh, memorandum, fact sheet) · (3) biểu tình/tuần hành/đình công · (4) kinh tế Mỹ (Fed, thuế quan, trừng phạt, số liệu) + động thái Nhà Trắng/nội các · (5) bầu cử (giữa kỳ, sơ bộ, thăm dò, quy định cử tri, redistricting). Phải là chuyện NỘI BỘ MỸ — tin protest/tariff/election của nước khác thì bỏ.
-2. **Úc & Biển Đông** → `worldNews`. AUKUS/quốc phòng Úc (`region: "Ấn Độ Dương - Thái Bình Dương"`) + chủ quyền/tuần tra/tập trận Biển Đông (`region: "Đông Á"`), gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, đàm phán COC ASEAN–Trung Quốc, các thực thể Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong.
-3. **CNQS Mỹ** → `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống CỤ THỂ của Mỹ (tên lửa, phòng không, hải quân, không gian, laser, drone, AI quân sự, hợp đồng quốc phòng). Khí tài nước khác KHÔNG thuộc mục này.
-4. **Mỹ – Mali** → `usNews`. Việc Mỹ cân nhắc/triển khai quân sự ở Sahel nhắm JNIM; phản ứng của Mali/Nga/JNIM. Gắn từ Mali/JNIM/Bamako/Sahel.
-5. **Tập trận Predator's Run 2026** → `exerciseUpdates`, `name` phải khớp ĐÚNG chuỗi: `Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)`.
+## PHẠM VI — {('CHỈ chủ đề "' + ten_cd + '"') if ten_cd else '5 CHỦ ĐỀ'} (ngoài phạm vi này thì BỎ, kể cả tin hay)
+{luat_cd if luat_cd else '''1. **Nội bộ Mỹ** → `usNews`, category `Chính trị` (hoặc `Kinh tế` nếu đúng nội dung). Vét cạn hạng 1 trước — (1) **toàn bộ phiên điều trần + toàn bộ kết quả bỏ phiếu thông qua dự luật**. Thiếu mới lấy sang 4 nhóm NGANG HÀNG: (2) sáng kiến/chiến lược chính quyền trên kênh chính thống các bộ · (3) biểu tình/tuần hành/đình công · (4) kinh tế Mỹ (Fed, thuế quan, trừng phạt, số liệu) + động thái Nhà Trắng/nội các · (5) bầu cử (giữa kỳ, sơ bộ, thăm dò, quy định cử tri, redistricting). Phải là chuyện NỘI BỘ MỸ.
+2. **Úc & Biển Đông** → `worldNews`. AUKUS/quốc phòng Úc (`region: "Ấn Độ Dương - Thái Bình Dương"`) + chủ quyền/tuần tra/tập trận Biển Đông (`region: "Đông Á"`), gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, COC ASEAN–Trung Quốc, Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong.
+3. **CNQS Mỹ** → `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống CỤ THỂ của Mỹ. Khí tài nước khác KHÔNG thuộc mục này.
+4. **Mỹ – Mali** → `usNews`. Mỹ cân nhắc/triển khai quân sự ở Sahel nhắm JNIM; phản ứng của Mali/Nga/JNIM.
+5. **Tập trận Predator's Run 2026** → `exerciseUpdates`, `name` khớp ĐÚNG: `Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)`.'''}
 
-Mỗi chủ đề nhắm **5–10 tin**; thiếu thì để ít, KHÔNG nhồi.
+Nhắm **{ {'mali': '2–5 tin', 'predator': '1–2 tin cập nhật'}.get(key, '5–10 tin') }**{' cho chủ đề này' if ten_cd else ' mỗi chủ đề (Mali 2–5, Predator 1–2)'}; thiếu thì để ít, KHÔNG nhồi.
 
 ## LUẬT NGUỒN
 | Nguồn | Cần xác nhận thêm? |
@@ -177,7 +218,7 @@ Mỗi chủ đề nhắm **5–10 tin**; thiếu thì để ít, KHÔNG nhồi.
 ```
 Quy tắc field: `date` của MỖI tin là ngày sự kiện (trong khung trên). `date` ngoài cùng = ngày TIN MỚI NHẤT trong lô. `category` chỉ 4 giá trị đã nêu. `region` CHỈ dùng cho `worldNews`. Mảng nào không có tin thì để `[]`. Tiếng Việt tự nhiên, không dịch máy, không sáo rỗng ("đánh dấu bước ngoặt", "cho thấy tầm quan trọng" — cấm).
 
-Sau khối JSON, thêm một khối riêng liệt kê ngắn: chủ đề nào không đủ 5 tin và LÝ DO THẬT (nguồn cạn / tin ngoài khung ngày / trùng sự kiện đã có / không mở được bài). Ghi rõ để tao dán vào bản kê "chủ đề thiếu".
+Sau khối JSON, thêm một khối riêng: {'chủ đề này' if ten_cd else 'chủ đề nào'} có đủ tin không, và nếu thiếu thì LÝ DO THẬT (nguồn cạn / tin ngoài khung ngày / trùng sự kiện đã có / không mở được bài). Ghi cụ thể, đừng viết "không tìm được tin" — tao phải dán lý do đó vào bản kê gửi kèm bản tin.
 
 ---
 
@@ -188,13 +229,20 @@ Sau khối JSON, thêm một khối riêng liệt kê ngắn: chủ đề nào k
 
 ---
 
-## ỨNG VIÊN (máy đã gom, đã lọc theo khung ngày + 5 chủ đề)
-{khoi_ung_vien(ung_vien(), hom_nay, hom_qua, cnqs_som_nhat)}
+## ỨNG VIÊN (máy đã gom sẵn, đã lọc theo khung ngày{' và chủ đề này' if ten_cd else ' + 5 chủ đề'})
+{khoi_ung_vien(ung_vien(), hom_nay, hom_qua, cnqs_som_nhat, chi=ten_cd)}
 """, encoding="utf-8")
-    print(f"\n✅ Đã ghi prompt ra {p}")
-    print("   Mở file, copy TẤT CẢ, dán vào ChatGPT (bật chế độ duyệt web).")
-    print("   ChatGPT trả JSON -> lưu vào /tmp/tu-chatgpt.json -> chạy:")
-    print(f"   python3 {ROOT}/scripts/prompt_chatgpt.py --nap /tmp/tu-chatgpt.json")
+    n = len(pathlib.Path(p).read_text(encoding="utf-8"))
+    print(f"\n✅ Đã ghi prompt ra {p}  ({n:,} ký tự)")
+    print("   DÁN THẲNG nội dung vào khung chat ChatGPT (đừng upload file — upload thì nó đọc")
+    print("   lướt như tài liệu tham khảo chứ không coi là chỉ thị). Bật chế độ duyệt web.")
+    print(f"   JSON nó trả về -> lưu /tmp/tu-chatgpt{('-' + key) if key else ''}.json -> chạy:")
+    print(f"   python3 {ROOT}/scripts/prompt_chatgpt.py "
+          f"--nap /tmp/tu-chatgpt{('-' + key) if key else ''}.json")
+    if not key:
+        print(f"\n⚠️  Prompt gộp cả 5 chủ đề ({n:,} ký tự) — ChatGPT sẽ KHÔNG mở hết link, dễ bịa")
+        print("   summary. Nên chạy TỪNG chủ đề, mỗi cái một đoạn chat riêng:")
+        print("   python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|predator")
 
 
 def nap(path):
@@ -233,5 +281,7 @@ def nap(path):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--nap", metavar="FILE", help="nạp JSON ChatGPT trả về")
+    ap.add_argument("--chu-de", dest="chu_de", choices=sorted(CHU_DE),
+                    help="sinh prompt cho MỘT chủ đề (khuyến nghị — prompt ngắn, ChatGPT làm kỹ hơn)")
     a = ap.parse_args()
-    nap(a.nap) if a.nap else sinh()
+    nap(a.nap) if a.nap else sinh(a.chu_de)
