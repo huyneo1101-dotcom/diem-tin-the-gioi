@@ -41,8 +41,10 @@ BA CA CHẨN ĐOÁN — canary phải nói được HỎNG Ở KHÂU NÀO, khôn
                                          để biết chết ở đâu mà không phải mở Actions
 
 GIỚI HẠN ĐÃ BIẾT, ghi ra để sau này khỏi tưởng là bug:
- · Gửi TAY (`workflow_dispatch`) KHÔNG ghi sổ (cố ý — xem notify-email.yml). Nên hôm nào phải
-   gửi bù bằng tay thì canary vẫn kêu. Đúng hơn là sai: nó nhắc rằng ca tự động đã hỏng.
+ · Gửi TAY (bấm nút, không kèm `tu_dong=1`) KHÔNG ghi sổ (cố ý — xem notify-email.yml). Nên hôm
+   nào phải gửi bù bằng tay thì canary vẫn kêu. Đúng hơn là sai: nó nhắc rằng ca tự động đã hỏng.
+   Phiên quét CI kích notify thì CÓ ghi sổ (nó truyền `-f tu_dong=1`) — trước 28/07/2026 điều
+   kiện chỉ là `event_name == 'push'` nên mọi bản tin do CI ra đều lọt sổ và canary kêu oan.
  · Bước ghi sổ có `continue-on-error` + retry push 5 lần. Push hỏng cả 5 lần thì bản tin đã
    tới tay mà sổ không có dòng nào -> canary kêu oan. Ca này hiếm và đã có `::warning::` riêng.
  · Ca `sukien` KHÔNG kiểm sổ mà kiểm `state.json`, vì `notify-morning.yml` cố ý không gửi khi
@@ -79,6 +81,36 @@ def hom_nay() -> str:
     return datetime.datetime.now(VN).strftime("%Y-%m-%d")
 
 
+def ngay_cua_ca(ca: str, luc: datetime.datetime) -> str:
+    """Ngày mà một lần chạy/lần gửi THUỘC VỀ — không phải ngày trên đồng hồ.
+
+    VẤP THẬT 28/07/2026: canary ca `toi` đặt cron 22:45 VN nhưng GitHub chạy lúc **00:23**
+    (trễ 1h38 — hồ sơ repo vốn đã ghi cron trễ 5–20', hôm đó ăn hết biên 1h15 từ 22:45 tới
+    nửa đêm). Qua nửa đêm thì `hom_nay()` nhảy sang ngày mới, nên canary đi hỏi "bản tin tối
+    NGÀY MAI đâu" — bản đó còn 21 tiếng nữa mới tới, tất nhiên chưa có. Nó nhắn báo động
+    trong khi bản tin tối 27/07 đã gửi lúc 21:37 và nằm trong sổ đàng hoàng. Tin nhắn tự mâu
+    thuẫn ngay trên mặt chữ: tiêu đề "CHƯA có" mà dòng dưới in `lastRun … DONE`.
+
+    Quy ước: **ca `toi` fire 21:00–22:30, nên mốc trước 12:00 thuộc về NGÀY HÔM TRƯỚC.**
+    Ca `sang` (fire 04:00–05:30) và `sukien` (08:45–10:15) cách nửa đêm hơn 13 tiếng nên
+    không cần quy đổi — trễ tới mức đó thì hệ thống đã hỏng theo kiểu khác rồi.
+
+    Dời cron sớm hơn KHÔNG chữa được gốc: độ trễ cron GitHub là thứ không ép được, chỉ mua
+    thêm biên. Phải sửa cách tính ngày.
+    """
+    if ca == "toi" and luc.hour < 12:
+        return (luc - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    return luc.strftime("%Y-%m-%d")
+
+
+def ngay_ca_tu_iso(ca: str, luc: str) -> str:
+    """`ngay_cua_ca` cho một mốc ISO đọc từ sổ. Hỏng/thiếu giờ thì lùi về so ngày thô."""
+    try:
+        return ngay_cua_ca(ca, datetime.datetime.fromisoformat(luc))
+    except (TypeError, ValueError):
+        return luc[:10]
+
+
 def doc_json(p: pathlib.Path):
     """Đọc file JSON, hỏng/thiếu thì trả None — canary không được chết vì file rác."""
     if not p.exists():
@@ -93,14 +125,16 @@ def doc_json(p: pathlib.Path):
 def da_gui(buoi: str, ngay: str) -> dict | None:
     """Lần gửi của ca `buoi` trong ngày `ngay`, hoặc None nếu chưa có.
 
-    So sánh trên phần NGÀY của `luc` (đã là ISO giờ VN do so_da_gui.py ghi), không parse
-    datetime — nhanh và không vỡ khi bản ghi thiếu trường.
+    So bằng NGÀY CỦA CA (`ngay_ca_tu_iso`) chứ không phải ngày trên đồng hồ của `luc` — nhờ
+    vậy một bản tin tối trôi qua nửa đêm (gửi 00:30 ngày 28) vẫn được tính cho ca tối ngày
+    27, đúng như canary đang hỏi. Hai bên dùng CHUNG một hàm quy đổi; đừng để mỗi bên tự
+    tính, lệch nhau là canary kêu oan mà không ai hiểu vì sao.
     """
     so = doc_json(SO)
     if not so or not isinstance(so.get("lan_gui"), list):
         return None
     for lan in so["lan_gui"]:
-        if lan.get("buoi") == buoi and str(lan.get("luc", "")).startswith(ngay):
+        if lan.get("buoi") == buoi and ngay_ca_tu_iso(buoi, str(lan.get("luc", ""))) == ngay:
             return lan
     return None
 
@@ -153,9 +187,13 @@ def main() -> int:
     args = ap.parse_args()
 
     nhan, pipeline, o = CA[args.ca]
-    ngay = hom_nay()
-    ngay_vn = datetime.datetime.now(VN).strftime("%d/%m")
-    gio_vn = datetime.datetime.now(VN).strftime("%H:%M")
+    bay_gio = datetime.datetime.now(VN)
+    # NGÀY CỦA CA, không phải ngày đồng hồ — xem `ngay_cua_ca`. Tin nhắn cũng hiện ngày này
+    # chứ không hiện ngày hôm nay: canary chạy 00:23 mà báo "28/07 chưa có bản tin tối" thì
+    # đọc vào tưởng đang nói về tối nay, trong khi nó đang nói về tối HÔM QUA.
+    ngay = ngay_cua_ca(args.ca, bay_gio)
+    ngay_vn = datetime.datetime.strptime(ngay, "%Y-%m-%d").strftime("%d/%m")
+    gio_vn = bay_gio.strftime("%H:%M")
 
     # --- Ca sukien: kiểm PHIÊN QUÉT, không kiểm sổ gửi (xem docstring) ---
     if args.ca == "sukien":

@@ -213,10 +213,22 @@ webhook (khó đảo ngược) nên **chờ Huy quyết**, đừng tự xoá.
 > *"ví dụ mà tao quét tay 2 lần giữa ngày xong có gửi email đi thì email tối vẫn phải có các
 > tin đó."* Chỉ tin của **ca SÁNG SỚM** mới bị loại khỏi bản tối, không phải mọi tin đã gửi.
 
-**Cơ chế bảo đảm điều đó:** bước `Ghi sổ đã gửi` có thêm điều kiện `github.event_name == 'push'`.
-Gửi bằng `workflow_dispatch` (chạy tay) thì **KHÔNG ghi sổ** → tin không bị đánh dấu "đã gửi" → bản
-tối vẫn liệt kê. Nói cách khác **chỉ lần gửi TỰ ĐỘNG của một ca chính thức mới để lại dấu trong sổ**;
-mọi lần gửi tay đều là "gửi thêm", không trừ đi thứ gì của bản tối.
+**Cơ chế bảo đảm điều đó:** bước `Ghi sổ đã gửi` chỉ chạy khi `push` **HOẶC** có input
+`tu_dong == '1'`. Người bấm tay thì không truyền cờ → **KHÔNG ghi sổ** → tin không bị đánh dấu
+"đã gửi" → bản tối vẫn liệt kê. Nói cách khác **chỉ lần gửi của một ca chính thức mới để lại dấu
+trong sổ**; mọi lần gửi tay đều là "gửi thêm", không trừ đi thứ gì của bản tối.
+
+⚠️ **ĐIỀU KIỆN CŨ CHỈ CÓ `event_name == 'push'` — SAI TỪ KHI CÓ CI, vá 28/07/2026.** GitHub cố ý
+KHÔNG cho push bằng `GITHUB_TOKEN` kích workflow khác (chống đệ quy), nên `claude-web-scan.yml` /
+`claude-event-scan.yml` buộc phải tự gọi `gh workflow run` — tức **mọi bản tin do CI ra đều là
+`workflow_dispatch` và rơi hết khỏi sổ**. Hai quy tắc đúng riêng lẻ, ghép lại thì thủng.
+Đo thật sáng 28/07: bản tin sáng tới tay Huy lúc 04:18 (9 tin, kèm .docx) mà sổ trống trơn ⇒
+(a) canary ca `sang` kêu oan "hỏng ở khâu GỬI"; (b) nặng hơn — sổ chính là thứ lọc "tin đã gửi",
+nên bản tin TỐI cùng ngày sẽ liệt kê lại đúng 9 tin đó, **lặp lại lỗi Huy đã bắt hôm 27/07**.
+Nay CI kích kèm `-f tu_dong=1`; nhánh `MODE=test` cố tình KHÔNG truyền (test không để dấu vết).
+**Bài học:** phân biệt bằng **Ý ĐỊNH khai bằng lời**, đừng suy từ **KIỂU SỰ KIỆN** — cùng một lỗi
+với `TELEGRAM_BAT_BUOC` ở mục "thiếu secret" phía trên. Thêm đường kích notify mới thì phải
+truyền cờ này, không thì nó lọt vào vùng câm y hệt.
 
 **📱 TELEGRAM ÁP Y HỆT EMAIL** (Huy chốt 27/07: *"và với telegram thì cũng vậy"*). Không phải nhờ
 chép lại luật mà nhờ **dùng chung hạ tầng** — giữ nguyên thế này, đừng tách ra:
@@ -396,8 +408,19 @@ lần là hết ai đọc, lúc đó canary chết thật. Đánh đổi có ch�
 im lặng · sổ trống mà state DONE → *hỏng khâu GỬI, hoặc phiên 0 tin nên không có commit kích
 notify* · sổ trống và state chưa DONE → *hỏng khâu QUÉT*, in kèm `lastRunAt/lastStatus/note`.
 
-**Ba giới hạn đã biết, đừng tưởng là bug:** (a) gửi TAY `workflow_dispatch` cố ý KHÔNG ghi sổ →
-hôm nào gửi bù bằng tay thì canary vẫn kêu, và như thế là đúng (ca tự động đã hỏng thật);
+📅 **NGÀY CỦA CA ≠ NGÀY TRÊN ĐỒNG HỒ (vá 28/07/2026).** Canary ca `toi` cron 22:45 VN nhưng
+GitHub chạy lúc **00:23** — trễ 1h38, ăn hết biên 1h15 tới nửa đêm. Qua nửa đêm thì "hôm nay"
+nhảy sang ngày mới, canary đi hỏi *"bản tin tối NGÀY MAI đâu"* rồi kêu oan, trong khi bản tối
+27/07 đã gửi 21:37 và nằm trong sổ. Tin nhắn tự mâu thuẫn: tiêu đề "CHƯA có" mà dòng dưới in
+`lastRun … DONE`. Nay `canary.py:ngay_cua_ca()` quy đổi: **ca `toi`, mốc trước 12:00 thuộc về
+NGÀY HÔM TRƯỚC** — áp cho CẢ lúc canary chạy LẪN mốc `luc` đọc từ sổ (dùng chung một hàm, đừng
+để mỗi bên tự tính), nhờ vậy bản tối trôi qua nửa đêm vẫn được tính đúng ca. Ca `sang` và
+`sukien` cách nửa đêm >13 tiếng nên không quy đổi. **Dời cron sớm hơn KHÔNG chữa gốc** — độ trễ
+cron GitHub không ép được, chỉ mua thêm biên.
+
+**Ba giới hạn đã biết, đừng tưởng là bug:** (a) gửi TAY (bấm nút, không có `tu_dong=1`) cố ý
+KHÔNG ghi sổ → hôm nào gửi bù bằng tay thì canary vẫn kêu, và như thế là đúng (ca tự động đã
+hỏng thật);
 (b) bước ghi sổ có `continue-on-error` + retry push 5 lần — hỏng cả 5 thì bản tin tới tay mà sổ
 trống → kêu oan, ca này hiếm và đã có `::warning::` riêng; (c) ca `sukien` KHÔNG kiểm sổ vì
 `notify-morning.yml` cố ý không gửi khi không có gì mới — "im lặng" ở đó là hành vi ĐÚNG.

@@ -9,6 +9,11 @@ on:
     branches: [main]
     paths: ['index.html']
   workflow_dispatch:
+    inputs:
+      tu_dong:
+        description: '1 = do phiên event-scan CI tự kích (được ghi sổ). Bấm tay thì để trống.'
+        required: false
+        default: ''
 
 # Cần `write` để bước cuối commit sổ đã gửi (logs/da-gui-email.json).
 permissions:
@@ -80,8 +85,11 @@ jobs:
       # gửi sáng — chỉ thị Huy 27/07. Chỉ đụng logs/ nên không tự kích lại workflow.
       # Chỉ ghi khi là lần gửi THẬT do phiên quét push — chạy tay là để test, xem lý do ở
       # bước cùng tên trong notify-email.yml (sự cố 27/07).
+      # Cùng lớp lỗi với notify-email (vá 28/07/2026): phiên event-scan CI kích bằng
+      # `gh workflow run` nên là `workflow_dispatch`, điều kiện cũ `event_name == 'push'`
+      # loại sạch. Phân biệt bằng Ý ĐỊNH `tu_dong`, không bằng kiểu sự kiện.
       - name: Ghi sổ đã gửi (chỉ sự kiện)
-        if: steps.chk.outputs.go == '1' && github.event_name == 'push'
+        if: steps.chk.outputs.go == '1' && (github.event_name == 'push' || inputs.tu_dong == '1')
         continue-on-error: true
         run: |
           pip install --quiet python-docx

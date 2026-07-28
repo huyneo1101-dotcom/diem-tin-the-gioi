@@ -86,7 +86,7 @@ jobs:
           msg=$(git log -1 --format=%s)
           echo "HEAD: $msg"
           if echo "$msg" | grep -qiE '^(Cap nhat su kien|Dang bao cao tuan)'; then
-            gh workflow run notify-morning.yml
+            gh workflow run notify-morning.yml -f tu_dong=1
           else
             echo "Không có commit sự kiện/báo cáo tuần mới — không kích email."
           fi

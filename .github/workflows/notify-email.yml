@@ -13,6 +13,10 @@ on:
         description: 'Tiền tố gắn trước subject email (vd "[QUET TEST] ")'
         required: false
         default: ''
+      tu_dong:
+        description: '1 = do phiên quét CI tự kích (được ghi sổ). Người bấm tay thì để trống.'
+        required: false
+        default: ''
 
 # Cần `write` để bước cuối commit sổ đã gửi (logs/da-gui-email.json).
 permissions:
@@ -115,12 +119,23 @@ jobs:
       # `make_docx`/`send_telegram` đọc sổ thấy chính lô tin vừa gửi và lọc sạch -> Telegram rỗng.
       # Nhờ sổ này bản tin TỐI không liệt kê lại tin đã gửi trong bản tin SÁNG (chỉ thị Huy 27/07).
       # Commit chỉ đụng logs/ nên KHÔNG khớp `paths: ['index.html']` -> không tự kích lại workflow.
-      # CHỈ ghi khi là lần gửi THẬT do phiên quét push. Chạy tay (workflow_dispatch) là để
-      # TEST — sự cố 27/07: hai lần chạy tay lúc 14:24/14:36 ghi 11 tin của cả ngày vào sổ,
-      # suýt làm bản tin tối bỏ sạch chúng dù chúng được quét rải rác 09:13-14:17 chứ không
-      # phải phiên sáng. Test không được để lại dấu vết lên bản tin thật.
+      # CHỈ ghi khi là lần gửi THẬT. Người bấm tay là để TEST — sự cố 27/07: hai lần chạy tay
+      # lúc 14:24/14:36 ghi 11 tin của cả ngày vào sổ, suýt làm bản tin tối bỏ sạch chúng dù
+      # chúng được quét rải rác 09:13-14:17 chứ không phải phiên sáng.
+      #
+      # ⚠️ ĐIỀU KIỆN CŨ `event_name == 'push'` ĐÃ SAI TỪ KHI CÓ CI (vá 28/07/2026). GitHub cố
+      # ý KHÔNG cho push bằng `GITHUB_TOKEN` kích workflow khác (chống đệ quy), nên phiên quét
+      # CI buộc phải tự gọi `gh workflow run` — tức mọi bản tin do CI ra đều là
+      # `workflow_dispatch` và **rơi hết khỏi sổ**. Hậu quả đo được sáng 28/07: bản tin sáng
+      # tới tay Huy lúc 04:18 (9 tin, có .docx) mà sổ trống trơn ⇒ (a) canary ca `sang` kêu
+      # oan "hỏng ở khâu GỬI"; (b) nặng hơn — sổ chính là thứ lọc "tin đã gửi", nên bản tin
+      # TỐI cùng ngày sẽ liệt kê lại đúng 9 tin đó, lặp lại lỗi Huy đã bắt hôm 27/07.
+      #
+      # Vì vậy phân biệt bằng Ý ĐỊNH (`tu_dong`) chứ không bằng KIỂU SỰ KIỆN: CI kích thì
+      # truyền `-f tu_dong=1`, người bấm tay thì để trống. Nhánh MODE=test của claude-web-scan
+      # cố tình KHÔNG truyền cờ này — test vẫn không được để dấu vết.
       - name: Ghi sổ đã gửi
-        if: steps.chk.outputs.go == '1' && github.event_name == 'push'
+        if: steps.chk.outputs.go == '1' && (github.event_name == 'push' || inputs.tu_dong == '1')
         continue-on-error: true
         run: |
           buoi=$(TZ=Asia/Ho_Chi_Minh date +%H)

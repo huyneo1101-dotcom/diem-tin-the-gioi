@@ -119,9 +119,13 @@ jobs:
           echo "HEAD: $msg"
           if echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
             if [ "$MODE" = "test" ]; then
+              # KHÔNG truyền tu_dong: chạy test không được ghi sổ, y như người bấm tay.
               gh workflow run notify-email.yml -f subject_tag='[QUET TEST TU DONG] '
             else
-              gh workflow run notify-email.yml
+              # tu_dong=1 -> notify-email ghi sổ đã gửi. Thiếu cờ này thì bản tin do CI ra
+              # không vào sổ, và bản tin TỐI cùng ngày sẽ liệt kê lại tin đã gửi buổi sáng
+              # (đo thật sáng 28/07/2026 — xem chú thích ở bước "Ghi sổ đã gửi").
+              gh workflow run notify-email.yml -f tu_dong=1
               gh workflow run notify-push.yml || true
             fi
           else
