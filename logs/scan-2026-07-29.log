@@ -6,4 +6,9 @@
 [21:22Z] add_news.py OK: +5 worldNews, +11 usNews, +1 exercise item. generatedAt=2026-07-29
 [21:22Z] ghi logs/loai-tin.md + logs/scan-gaps.json
 [21:22Z] state.py done web-scan
-[21:30Z] SKIP (CI) phien sang som - lan goi thu 2 trong ngay: web-scan da DONE luc 04:22:10+07 (chay truoc do). state.py claim tra SKIP, khong quet lai.
+[21:30Z] SKIP (CI) phien sang som - lan goi thu 2 trong ngay: web-scan da DONE luc 04:22:10+07 (chay truoc do). State.py claim tra SKIP, khong quet lai.
+[21:34Z] START (local 04:34 VN) phien sang som - task web-scan-diem-tin
+[21:35Z] pull --rebase BI CHAN: 12 file sua do chua commit cua phien khac (viec gop event-scan 28/07: .github/prompts, .github/workflows, CLAUDE.md, docs/routine-*.md, scripts/ai_dang_quet.py, scripts/kich_ci.py). git fetch cho thay CO commit moi that (fefc135..cf40eb6) nhung KHONG giao voi 12 file do -> dong bo bang 'git merge --ff-only origin/main'. KHONG stash, KHONG commit ho file la (quy tac muc 14 + ghi chu van hanh CLAUDE.md).
+[21:35Z] state.py claim web-scan -> SKIP exit 10 (da DONE 04:22:10+07, +16 tin). Buoc 1-3 ket thuc.
+[21:35Z] state.py claim event-scan -> RUN (lan cuoi 28/07, hom nay chua chay). Lam tiep Buoc 4.
+[21:35Z] Hom nay thu 3 -> BO QUA Buoc 4.5 (bao cao tuan chi Chu nhat).
