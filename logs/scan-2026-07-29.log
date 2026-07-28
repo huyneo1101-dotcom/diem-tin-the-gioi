@@ -27,3 +27,5 @@
 [21:49Z] Buoc 4.4: add_analyses.py OK +5 bai think-tank (War on the Rocks, Modern War Institute, Lowy, CEPA, Atlantic Council). Phu 4 khu vuc: Dong A, IPAC, Chau Au/NATO, Trung Dong. Tong muc Phan tich: 39 bai.
 [21:50Z] Buoc 4.3: kiem 10 cuoc tap tran trong DATA - TAT CA da co background + concepts, khong co newExercises -> khong co viec, bo qua.
 [21:51Z] state.py done event-scan + commit RIENG (tien to "Cap nhat su kien") de kich notify-morning.
+[22:35Z] SKIP (local 05:35 VN) phien sang som - task web-scan-diem-tin, moc 05:30 (lop cuoi). pull --rebase lai BI CHAN boi 12 file sua do cua phien khac; git fetch co 1 commit moi that (34db255 "so: ghi su kien da gui email sang", chi dung logs/da-gui-email.json, KHONG giao voi 12 file do) -> dong bo bang 'git merge --ff-only origin/main'. KHONG stash, KHONG commit ho file la.
+[22:35Z] state.py claim web-scan -> SKIP exit 10 (DONE 04:22:10+07, +16 tin). Kiem them state.py show: event-scan cung DONE 04:51:45+07 (+1 tap tran, +1 su kien, +5 think-tank) -> CA HAI pipeline da xong, khong con viec cho Buoc 4. Ket thuc em, khong quet lai, khong gan Monitor.
