@@ -10,3 +10,7 @@
 [22:34Z] SKIP (local 05:30 phien sang som) - claim exit 10: phien sang som 28/07 DA XONG luc 2026-07-28T04:17:42+07:00 (+9 tin). Khong quet chong. Ket thuc.
 [22:41Z] SKIP (CI, phien sang som 28/07) - claim exit 10: phien sang som 28/07 DA XONG luc 2026-07-28T04:17:42+07:00 (+9 tin, lan chay cuoi). Khong quet lai. Ket thuc em.
 [01:45Z] START (CI) event-scan phien sang - su kien ngoai giao + tap tran + think-tank. claim OK, khoa da giu.
+[01:49Z] Xong 2 agent Sonnet: dip-events +0 (khong tim duoc su kien dat chuan trong 48h), exercises +1 (Predator's Run - drone tiep te mau TRUAS). add_news.py OK.
+[01:50Z] Tat ca 10 tap tran da co background/concepts san - khong can agent bo sung.
+[01:52Z] add_analyses.py --candidates: 171 ung vien. Giao 1 agent chon+viet 5 bai phu 5 khu vuc (Uc/AUKUS, Bien Dong/VN, Nga-Ukraine, My-Nhat/TQ, Trung Dong/hat nhan). add_analyses.py OK +5 bai.
+[01:53Z] Khong phai Chu nhat (thu 3) - bo qua bao cao tuan. DONE event-scan: +1 tap tran, 0 su kien ngoai giao, +5 think-tank.
