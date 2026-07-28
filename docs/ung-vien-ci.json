@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-07-28T05:36:20+07:00",
+  "tao_luc": "2026-07-28T20:46:19+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-27",
     "2026-07-28"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "French wildfires threaten nuclear deterrence industry, Rafale assembly",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/global/europe/2026/07/28/french-wildfires-threaten-nuclear-deterrence-industry-rafale-assembly/"
+    },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
@@ -50,44 +58,27 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Trump asks US Supreme Court to allow mail-in voting restrictions",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/27/trump-asks-us-supreme-court-to-allow-mail-in-voting-restrictions?traffic_source=rss",
-      "nhom": 5
+      "tieu_de": "Brazil seeks WTO consultation over US tariffs",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/brazil-seeks-wto-consultation-over-us-tariffs",
+      "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Hakeem Jeffries puts affordability at centre of Democrats’ midterm campaign",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/economy/2026/7/27/hakeem-jeffries-puts-affordability-at-centre-of-democrats-midterm-campaign?traffic_source=rss",
+      "tieu_de": "Trump uses stage at General Motors to launch midterms attack on Democrats",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/trump-uses-stage-at-general-motors-to-launch-midterms-attack-on-democrats",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Australian court upholds racial discrimination ruling against Pauline Hanson",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cx2k5v9202wo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Shein swings to $99m loss as Trump tariffs hit sales",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/clyj8v0rek8o?at_medium=RSS&at_campaign=rss",
-      "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Pentagon says it will not finish spending Ukraine funds until year Trump leaves office, source says",
+      "tieu_de": "Pentagon says it will not finish spending Ukraine funds until year Trump leaves office: Source",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/pentagon-says-it-will-not-finish-spending-ukraine-funds-until-year-trump-leaves-office-source-says"
+      "url": "https://www.straitstimes.com/world/united-states/pentagon-says-it-will-not-finish-spending-ukraine-funds-until-year-trump-leaves-office-source-says"
     },
     {
       "lop": "RSS",
@@ -102,28 +93,10 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "US Treasury trims 84 people, firms from its sanctions list as review continues",
+      "tieu_de": "US Justice Dept asks Supreme Court to restore Trump mail-in voting order",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-treasury-trims-84-people-firms-from-its-sanctions-list-as-review-continues",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "US envoy quits UN Security Council meeting to protest France comments",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-envoy-quits-un-security-council-meeting-to-protest-france-comments",
-      "nhom": 3
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "China opposes US ‘forced labour’ tariffs, calls for them to be scrapped",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/china-opposes-us-forced-labour-tariffs-calls-for-them-to-be-cancelled",
-      "nhom": 4
+      "url": "https://www.straitstimes.com/world/united-states/us-justice-dept-asks-supreme-court-to-restore-trump-mail-in-voting-order",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -143,11 +116,38 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Ukraine insists Japan’s pacifist rules permit Patriot missile help",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/europe/article/3361829/ukraine-insists-japans-pacifist-rules-permit-patriot-missile-help?utm_source=rss_feed"
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Vietnam boat disaster: Death toll rises to 48 after tourist vessel sinks in South China Sea",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/vietnam-boat-disaster-death-toll-rises-to-48-after-tourist-vessel-sinks-in-south-china-sea/article71276181.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "U.S. House passes record $1.15 trillion defence bill",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-house-passes-record-115-trillion-defence-bill/article71255476.ece",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Brazil requests WTO consultations over U.S. tariffs",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/brazil-requests-wto-consultations-over-us-tariffs/article71275304.ece",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "China opposes U.S. ‘forced labour’ tariffs, calls for them to cancelled",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/china-opposes-us-forced-labour-tariffs-calls-for-them-to-cancelled/article71273031.ece",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -169,11 +169,27 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Trump administration promotes program to check voter eligibility; critics fear a midterm purge",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/trump-administration-promote-program-to-check-voter-eligibility-critics-fear-a-midterm-purge/article70990206.ece",
-      "nhom": 5
+      "ngay": "2026-07-28",
+      "tieu_de": "CNBC's The China Connection newsletter: A U.S.-China debate that's becoming bigger than tariffs",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/07/27/cnbcs-the-china-connection-newsletter-a-us-china-debate-thats-becoming-bigger-than-tariffs.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Indonesia’s Whoosh Feels the Squeeze in 2025",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/07/indonesias-whoosh-feels-the-squeeze-in-2025/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Resignation of Bank Indonesia Governor Shocks Markets, Raises Independence Questions",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/07/resignation-of-bank-indonesia-governor-shocks-markets-raises-independence-questions/"
     },
     {
       "lop": "RSS",
@@ -193,6 +209,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Quân đội Mỹ muốn phát triển tên lửa tầm xa giá rẻ",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/quan-doi-my-muon-phat-trien-ten-lua-tam-xa-gia-re-5102331.html"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-27",
       "tieu_de": "Việt Nam đưa 48 người trên tàu chìm ở Biển Đông về đất liền",
@@ -201,11 +225,12 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-25",
-      "tieu_de": "Khoảnh khắc 'tên lửa Patriot' quay đầu, bổ nhào xuống đất",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/khoanh-khac-ten-lua-patriot-quay-dau-bo-nhao-xuong-dat-5101474.html"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Ông Trump khoe với cử tri: 'Nước Mỹ chưa bao giờ chiến thắng như hiện nay'",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/ong-trump-khoe-voi-cu-tri-nuoc-my-chua-bao-gio-chien-thang-nhu-hien-nay-100260728094713811.htm",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -234,20 +259,36 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
-      "tieu_de": "Ông Trump lo cạn tên lửa Patriot nên Mỹ tạm dừng tấn công Iran?",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/ong-trump-lo-can-ten-lua-patriot-nen-my-tam-dung-tan-cong-iran-100260726121456329.htm"
+      "tieu_de": "Labubu takes Manhattan: Chinese brands target inflation-hit US",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/consumer/labubu-takes-manhattan-chinese-brands-target-inflation-hit-us",
+      "nhom": 4
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
-      "tieu_de": "Thế giới tiếp tục phản ứng với các mức thuế quan mới của Mỹ",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/the-gioi-tiep-tuc-phan-ung-voi-cac-muc-thue-quan-moi-cua-my-100260726110931291.htm",
-      "nhom": 4
+      "tieu_de": "Australia explores new refinery as miners grapple with diesel volatility",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/spotlight/iran-tensions/australia-explores-new-refinery-as-miners-grapple-with-diesel-volatility"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Taiwan's space industry prepares for lift-off",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/spotlight/podcasts/podcast-tech-latest/taiwan-s-space-industry-prepares-for-lift-off"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "For Philippine women in Taiwan's tech factories, motherhood is 'impossible'",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/spotlight/society/for-philippine-women-in-taiwan-s-tech-factories-motherhood-is-impossible"
     },
     {
       "lop": "RSS",
@@ -256,15 +297,6 @@
       "tieu_de": "Taiwan's pivot away from China offers a lesson for democracies",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/opinion/taiwan-s-pivot-away-from-china-offers-a-lesson-for-democracies"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Labubu takes Manhattan: Chinese brands target inflation-hit US",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/consumer/labubu-takes-manhattan-chinese-brands-target-inflation-hit-us",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -292,24 +324,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Những điều cần biết về chính sách thuế quan mới của Tổng thống Trump",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/nhung-dieu-can-biet-ve-chinh-sach-thue-quan-moi-cua-tong-thong-trump.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Tổng thống Trump dọa áp thêm thuế quan lên hàng hóa châu Âu",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/tong-thong-trump-doa-ap-them-thue-quan-len-hang-hoa-chau-au.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-25",
       "tieu_de": "Bí mật phía sau 7 hạm đội giúp Mỹ triển khai sức mạnh quân sự toàn cầu",
@@ -323,6 +337,15 @@
       "tieu_de": "Iran và Ukraine hút cạn tên lửa phòng không Patriot, Mỹ hành động bất ngờ",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/iran-va-ukraine-hut-can-ten-lua-phong-khong-patriot-my-hanh-dong-bat-ngo-20260724141932573.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "House Democrats add 5 candidates to ‘Red to Blue’ list after primaries, redistricting",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/5992984-dccc-adds-five-red-blue-candidates/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -343,36 +366,35 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Australia supplants China as Pacific's biggest lender",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-07-28/new-lowy-pacific-aid-map-australia-lending-investor/106967764"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Meta tells Indigenous inquiry it has no content moderators in Australia",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-07-28/meta-indigenous-content-moderators/106966688"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-27",
-      "tieu_de": "Sanders dismisses Rahm Emanuel’s warning that ‘Bernie bros’ could ‘spoil’ Democrats in the midterms",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/5991023-sanders-dismisses-rahm-emanuels-warning-that-bernie-bros-could-spoil-democrats-in-the-midterms/",
-      "nhom": 5
+      "tieu_de": "Australia must do more for Afghanistan",
+      "nguon": "Lowy Interpreter",
+      "url": "https://www.lowyinstitute.org/the-interpreter/australia-must-do-more-for-afghanistan"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-28",
-      "tieu_de": "Australia should brace for war impact to get worse, Treasury warns",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-07-28/middle-east-war-economic-impact-to-worsen-treasury-warns/106963778"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-28",
-      "tieu_de": "'Massive growth' of second-hand fashion apps in Australia",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-07-28/hack-depop-vinted-secondhand-clothing-resale-apps/106937688"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-28",
-      "tieu_de": "Four Manila-bound acts, four stories of growth",
-      "nguon": "Inquirer",
-      "url": "https://lifestyle.inquirer.net/577339/four-manila-bound-acts-four-stories-of-growth/"
+      "tieu_de": "Australian MQ-28 Ghost Bat Fighter Drones Could Be Commanded By U.S. Pilots",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/air/australian-mq-28-ghost-bat-fighter-drones-could-be-commanded-by-u-s-pilots"
     },
     {
       "lop": "RSS",
@@ -403,33 +425,51 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "U.S. Navy Orders Low-cost Missiles to Expand Fleet",
+      "tieu_de": "U.S. Air Force Begins First In-Field Construction of New Sentinel ICBM",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/07/27/us_navy_orders_low-cost_missiles_to_expand_fleet_1196796.html"
+      "url": "https://www.realcleardefense.com/2026/07/28/us_air_force_begins_first_in-field_construction_of_new_sentinel_icbm_1197011.html"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "U.S. Navy Research Office Unveils New Science and Technology Strategy",
+      "tieu_de": "The U.S. Navy Is Officially Stretched Beyond Its Limits",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/07/27/us_navy_research_office_unveils_new_science_and_technology_strategy_1196786.html"
+      "url": "https://www.realcleardefense.com/2026/07/28/the_us_navy_is_officially_stretched_beyond_its_limits_1196901.html"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Gen Zinni: Where Does the Marine Corps Go From Here?",
+      "tieu_de": "U.S. Army Adds $347M to Its New Containerized Patriot Launcher",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/07/27/gen_zinni_where_does_the_marine_corps_go_from_here_1196674.html"
+      "url": "https://www.realcleardefense.com/2026/07/28/us_army_adds_347m_to_its_new_containerized_patriot_launcher_1197014.html"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Beware the Pentagon's 'Right to Repair' Crusade",
+      "tieu_de": "Ford Motor Joins Race to Build Next U.S. Army Truck",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/07/27/beware_the_pentagons_right_to_repair_crusade_1196690.html"
+      "url": "https://www.realcleardefense.com/2026/07/28/ford_motor_joins_race_to_build_next_us_army_truck_1197025.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "House NDAA Further Limits U.S. Troop Reductions in South Korea",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/07/28/house_ndaa_further_limits_us_troop_reductions_in_south_korea_1197026.html",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "House NDAA Proposes Major Acquisition Workforce Reforms",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/07/28/house_ndaa_proposes_major_acquisition_workforce_reforms_1197010.html",
+      "nhom": 1
     },
     {
       "lop": "RSS",
@@ -449,12 +489,27 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Stop Gaslighting Us Over the 2020 Election",
+      "tieu_de": "The Pentagon's Testosterone Wake-Up Call",
       "nguon": "RealClearPolitics",
-      "url": "https://www.realclearpolitics.com/2026/07/27/stop_gaslighting_us_over_the_2020_election_706256.html",
-      "nhom": 5
+      "url": "https://www.realclearpolitics.com/articles/2026/07/27/the_pentagons_testosterone_wake-up_call_154372.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "What the Pentagon's Top Brain Thinks About Iran",
+      "nguon": "RealClearWorld",
+      "url": "https://www.realclearworld.com/2026/07/28/what_the_pentagons_top_brain_thinks_about_iran_1196595.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Contracts for July 27, 2026",
+      "nguon": "DoD Contracts",
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4556787/contracts-for-july-27-2026/"
     },
     {
       "lop": "RSS",
@@ -530,6 +585,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Mission Minute: Exercise Southern Jackaroo 2026, Queensland, Australia",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1016316/mission-minute-exercise-southern-jackaroo-2026-queensland-australia"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
       "tieu_de": "Buckley Space Force Base and Aurora Leaders Strengthen Ties with Community Day",
@@ -586,27 +649,28 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Malaysia steps in to host rescheduled Bahrain Grand Prix",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/sports/2026/07/27/more-sports/malaysia-host-bahrain-grand-prix/"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "U.S. removes sanctions on 84 targets, including N.K. firm, in 'modernization' effort",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260728001400315",
+      "nhom": 4
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Malaysia’s resource anxiety tests Asia’s fastest data center build-out",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/business/2026/07/27/tech/malaysia-asia-data-center/"
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-07-28",
+      "tieu_de": "West Africa: Fragmented Security Allows Terrorists' Cross-Mobility Across Lake Chad and Sahel",
+      "nguon": "AllAfrica",
+      "url": "https://allafrica.com/stories/202607280062.html"
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Rohingya schools in Malaysia face closures amid online surge in hate speech",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/07/27/asia-pacific/malaysia-rohingya-schools-hate-speech/"
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-07-28",
+      "tieu_de": "Niger: Niger's Junta Marks Three Years Amid Rising Violence and Lost Freedoms",
+      "nguon": "AllAfrica",
+      "url": "https://allafrica.com/stories/202607280061.html"
     },
     {
       "lop": "RSS",
@@ -627,19 +691,20 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "Australia news live: Labor MPs gather before Victorian leadership challenge; PM praises outgoing ACTU ‘giants’",
+      "tieu_de": "First Thing: Pentagon accused of disrespecting war dead as Trump threatens to resume Iran war",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/live/2026/jul/28/jacinta-allan-victoria-labor-leadership-spill-ben-carroll-challenge-antisemitism-royal-commission-nsw-icac-inquiry-queensland-estimates-ntwnfb"
+      "url": "https://www.theguardian.com/us-news/2026/jul/28/first-thing-pentagon-accused-of-disrespecting-war-dead-as-trump-threatens-to-resume-iran-war"
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Baby missing after mother and toddler found dead off coast of South Australia",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/jul/27/baby-missing-after-mother-and-toddler-found-dead-off-coast-of-south-australia-ntwnfb"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "China warns US against AI sanctions",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/07/27/2026/china-warns-us-against-ai-sanctions",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -652,28 +717,45 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Thống đốc Ngân hàng Trung ương Indonesia bất ngờ từ chức",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Quốc hội Mỹ chia rẽ về đề xuất yêu cầu Canada bồi thường do khói cháy rừng",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/thong-doc-ngan-hang-trung-uong-indonesia-bat-ngo-tu-chuc-post1126556.vnp"
+      "url": "https://www.vietnamplus.vn/quoc-hoi-my-chia-re-ve-de-xuat-yeu-cau-canada-boi-thuong-do-khoi-chay-rung-post1126741.vnp",
+      "nhom": 9
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-27",
-      "tieu_de": "Nổ bom gần lối vào Bộ Tư pháp Philippines, không có thương vong",
+      "ngay": "2026-07-28",
+      "tieu_de": "Chuyên gia Indonesia đánh giá cao đóng góp của Việt Nam trong ASEAN",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/no-bom-gan-loi-vao-bo-tu-phap-philippines-khong-co-thuong-vong-post1126553.vnp"
+      "url": "https://www.vietnamplus.vn/chuyen-gia-indonesia-danh-gia-cao-dong-gop-cua-viet-nam-trong-asean-post1126699.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Quân đội Mỹ có thể triển khai hệ thống phòng không laser trước năm 2030",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/quan-doi-my-co-the-trien-khai-he-thong-phong-khong-laser-truoc-nam-2030-post1126695.vnp"
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Thuế quan Mỹ gây áp lực lên mục tiêu tăng trưởng kinh tế 3% của Hàn Quốc",
+      "ngay": "2026-07-28",
+      "tieu_de": "Tổng thống Mỹ hối thúc Thượng viện thông qua dự luật cải cách bầu cử",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/thue-quan-my-gay-ap-luc-len-muc-tieu-tang-truong-kinh-te-3-cua-han-quoc-post1126471.vnp",
-      "nhom": 4
+      "url": "https://www.vietnamplus.vn/tong-thong-my-hoi-thuc-thuong-vien-thong-qua-du-luat-cai-cach-bau-cu-post1126675.vnp",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "900.000 dữ liệu khách hàng bị xâm phạm tại Australia",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/900000-du-lieu-khach-hang-bi-xam-pham-tai-australia-post978327.html"
     },
     {
       "lop": "RSS",
@@ -696,10 +778,34 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Ông Trump nói về việc Israel phản đối Mỹ bán F-35 cho Thổ Nhĩ Kỳ",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/ong-trump-noi-ve-viec-israel-phan-doi-my-ban-f-35-cho-tho-nhi-ky-2539746.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-27",
       "tieu_de": "Lầu Năm Góc bất ngờ nâng số thương vong trong chiến sự Iran",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/lau-nam-goc-bat-ngo-nang-so-thuong-vong-trong-chien-su-iran-2539563.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Foreign Minister Le Hoai Trung receives Australian Minister for International Development Small Business and Multicultural Affairs Anne Aly",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://en.baoquocte.vn/foreign-minister-le-hoai-trung-receives-australian-minister-for-international-development-small-business-and-multicultural-affairs-anne-aly-424609.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-28",
+      "tieu_de": "Bộ trưởng Australia Mô hình phát triển mới của Việt Nam là cơ sở quan trọng để xác định lĩnh vực hợp tác trọng điểm",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/bo-truong-australia-mo-hinh-phat-trien-moi-cua-viet-nam-la-co-so-quan-trong-de-xac-dinh-linh-vuc-hop-tac-trong-diem-424577.html"
     },
     {
       "lop": "HTML",
