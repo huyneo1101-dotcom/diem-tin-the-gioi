@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-29T03:46:10+07:00",
+  "tao_luc": "2026-07-29T04:31:10+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-28",
@@ -17,10 +17,42 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Marine Corps accepts last Osprey aircraft",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/marine-corps-accepts-last-osprey-aircraft/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
-      "tieu_de": "US Navy Directed by Congress to Overhaul Torpedo Inventories for Two-War Strategy",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/07/us-navy-torpedo-inventory-fy27-ndaa/"
+      "tieu_de": "Time to decide: A critical moment in Japan-US missile defense cooperation",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/time-to-decide-a-critical-moment-in-japan-us-missile-defense-cooperation/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Pentagon inks deal with L3Harris to ramp rocket motor production",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/pentagon-inks-deal-with-l3harris-to-ramp-rocket-motor-production/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "Pentagon’s special ops office hosts first Shark Tank-style Accelerator Event",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/pentagons-special-ops-office-hosts-first-shark-tank-style-accelerator-event/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Marine Corps takes delivery of final MV-22B Osprey",
+      "nguon": "Task & Purpose",
+      "url": "https://taskandpurpose.com/news/marines-last-osprey/"
     },
     {
       "lop": "RSS",
@@ -54,15 +86,6 @@
       "tieu_de": "Could US airstrikes stop insurgency in Mali?",
       "nguon": "Deutsche Welle",
       "url": "https://www.dw.com/en/could-us-airstrikes-stop-insurgency-in-mali/a-78141641?maca=en-rss-en-world-4025-rdf"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "US Senate to vote on Russia sanctions bill in tribute to Graham",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-senate-to-vote-on-russia-sanctions-bill-in-tribute-to-graham",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -272,14 +295,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Bank Indonesia governor resigns for 'personal reasons'",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/bank-indonesia-governor-resigns-for-personal-reasons"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-29",
       "tieu_de": "Pentagon to rename Charleston base for Graham: Report",
@@ -322,15 +337,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "DOJ asks Supreme Court to restore Trump’s mail-in voting executive order",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/5992732-supreme-court-mail-in-voting-trump-justice-department/",
-      "nhom": 2
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-27",
       "tieu_de": "Pentagon's Iran war casualty count tops 600 amid transparency questions",
@@ -348,30 +354,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-29",
-      "tieu_de": "Endometriosis saliva test lacks real-world evidence, Australian experts say",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/health/2026-07-29/ziwig-endotest-endometriosis-australia-france-uk-health/106910202"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-28",
-      "tieu_de": "DENR pushes declaration of protected areas in West Philippine Sea",
-      "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/07/29/2545515/denr-pushes-declaration-protected-areas-west-philippine-sea"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-29",
-      "tieu_de": "Metro Manila reopens door to new ecozones",
-      "nguon": "Inquirer",
-      "url": "https://business.inquirer.net/602836/metro-manila-reopens-door-to-new-ecozones"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-28",
       "tieu_de": "Iranian Oil Hoard Swells Off Malaysia on Weak Chinese Demand",
       "nguon": "gCaptain",
@@ -384,6 +366,14 @@
       "tieu_de": "Australian MQ-28 Ghost Bat Fighter Drones Could Be Commanded By U.S. Pilots",
       "nguon": "The War Zone (TWZ)",
       "url": "https://www.twz.com/air/australian-mq-28-ghost-bat-fighter-drones-could-be-commanded-by-u-s-pilots"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "After 20 years of deployment, Marine Corps receives final Osprey amid upgrades and some flight-hour restrictions",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/07/28/marine-corps-receives-final-mv-22b-osprey/"
     },
     {
       "lop": "RSS",
@@ -501,11 +491,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-29",
-      "tieu_de": "NNSA Delivers New Nuclear Detonation Sensors To Space Force",
+      "tieu_de": "HII Adds Outsourcing To Amphib Construction; Australian Official Visits",
       "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/nnsa-delivers-new-nuclear-detonation-sensors-to-space-force/nuclear-modernization/"
+      "url": "https://www.defensedaily.com/hii-adds-outsourcing-to-amphib-construction-australian-official-visits/navy-usmc/"
     },
     {
       "lop": "RSS",
@@ -541,14 +531,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "F-35 Engine Core Upgrade to Face Critical Review in August, Flight Testing in 2030",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/f-35-engine-core-upgrade-critical-design-review-august/"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-28",
       "tieu_de": "USS George Washington operating in South China Sea as China-Philippines tension escalates",
@@ -578,6 +560,14 @@
       "tieu_de": "“Marine Corps Doctrinal Publication 1” offers great lessons to both servicemembers and civilians",
       "nguon": "Sandboxx News",
       "url": "https://www.sandboxx.us/news/the-marine-corps-doctrinal-publication-1-offers-great-lessons-to-both-servicemembers-and-civilians/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Strengthening Global Reach for Decades to Come, U.S. Marine Corps Receives Final MV-22B Osprey",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/570861/strengthening-global-reach-decades-come-us-marine-corps-receives-final-mv-22b-osprey"
     },
     {
       "lop": "RSS",
@@ -643,6 +633,22 @@
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260728001400315",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Accenture wins $821M Pentagon AI data platform contract",
+      "nguon": "Federal News Network — Defense",
+      "url": "https://federalnewsnetwork.com/defense-news/2026/07/accenture-wins-821m-pentagon-ai-data-platform-contract/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Australia news live: Jacinta Allan was subjected to ‘vile sexism’ as premier, Julia Gillard says",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/jul/29/ben-carroll-victoria-premier-jacinta-allan-labor-abs-inflation-data-nsw-icac-inquiry-antisemitism-royal-commission-ntwnfb"
     },
     {
       "lop": "RSS",
