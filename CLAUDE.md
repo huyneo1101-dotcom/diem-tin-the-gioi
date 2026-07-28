@@ -71,9 +71,24 @@ tin mẫu) + gửi **lamgiaphat1603@gmail.com** khi có commit `Cap nhat ban tin
 **⚠️ SUBJECT PHẢI GHI RÕ BUỔI (chỉ thị Huy 27/07/2026):** `📰 Điểm Tin Thế Giới BUỔI SÁNG 27/07 (5 tin)`
 / `… BUỔI TỐI …` — nhìn tiêu đề là biết ngay bản nào, không phải mở ra đoán. `send-email.js` suy buổi
 từ **giờ VN lúc Action chạy** (`Intl.DateTimeFormat` timeZone `Asia/Ho_Chi_Minh`, <14h = SÁNG, ≥14h =
-TỐI — cùng quy ước ô khoá của `state.py`), áp cho cả subject, tiêu đề trong thân email, và **tên file
-.docx** (`Diem-tin-<ngày>-sang.docx` / `-toi.docx`, để hai bản cùng ngày không trùng tên khi lưu máy).
-Đổi lịch quét thì phải xem lại ngưỡng 14h này. **Email tối (24/07/2026):
+TỐI — cùng quy ước ô khoá của `state.py`), áp cho cả subject và tiêu đề trong thân email.
+Đổi lịch quét thì phải xem lại ngưỡng 14h này.
+
+**📄 TÊN FILE .docx GỌI THEO MỐC GIỜ (chỉ thị Huy 28/07/2026 — GHI ĐÈ tên cũ
+`Diem-tin-<ngày>-sang.docx` / `-toi.docx`):**
+| Buổi | Tên file |
+|---|---|
+| Sáng sớm (fire 04:00–05:30) | `Diem-tin-sang-som-5h-<YYYY-MM-DD>.docx` |
+| Tối (fire 21:00–22:30) | `Diem-tin-toi-21h-<YYYY-MM-DD>.docx` |
+
+⚠️ **Luật đặt tên nằm ở ĐÚNG MỘT chỗ: `make_docx.py:ten_file()`** — nó là nơi sinh file, và
+Telegram (kênh gửi DUY NHẤT hiện nay) hiển thị đúng basename của file trên đĩa. `send-email.js`
+lấy lại bằng `path.basename(docxPath)` chứ **KHÔNG tự ghép tên**. Trước 28/07/2026 hai nơi ghép
+riêng: file trên Telegram tên `Diem-tin-ngay-<ngày>.docx` **không phân biệt buổi** (hai bản cùng
+ngày trùng tên nhau), còn email lại gắn `-sang`/`-toi` — cùng một file mà hai kênh gọi hai tên.
+Đừng tách ra lại: hai bộ luật song song chắc chắn lệch, mà lệch âm thầm.
+⚠️ Ngưỡng buổi 14h giờ VN nay nằm ở **BỐN** nơi — `make_docx.py:ten_file` · `send_telegram.py:slot_label`
+· `send-email.js` · `scripts/state.py`. Đổi lịch quét thì xem lại cả bốn. **Email tối (24/07/2026):
 chỉ liệt kê TIÊU ĐỀ điểm tin, KHÔNG tóm tắt** — chi tiết nằm trong file .docx đính kèm. **(Đã BỎ Discord.)**
 
 **⚠️ Email BẮT BUỘC có mục "Chủ đề thiếu và lý do" (chỉ thị Huy 25/07/2026) — `logs/scan-gaps.json`.**

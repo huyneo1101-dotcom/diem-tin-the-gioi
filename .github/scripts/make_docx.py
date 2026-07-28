@@ -5,7 +5,8 @@ Tạo file .docx "ĐIỂM TIN NGÀY d.M.yyyy" chứa các tin VỪA QUÉT ĐƯ�
 Cách xác định "tin mới của lần quét": diff DATA trong index.html (HEAD) với bản trước
 (git show HEAD~1:index.html) — URL nào chưa có ở bản trước là tin của lần quét này.
 
-BÁM CHẶT format bản tin mẫu buổi tối (Diem-tin-ngay-2026-07-23.docx — 5 chủ đề):
+BÁM CHẶT format FILE MẪU buổi tối Huy gửi (Diem-tin-ngay-2026-07-23.docx — 5 chủ đề). Đó là
+tên file MẪU, KHÔNG phải tên file script này xuất ra — tên xuất ra do `ten_file()` đặt:
   1. Nội bộ Mỹ        -> usNews category "Chính trị", KHÔNG phải chuyện Mali (điều trần + bỏ phiếu)
   2. Úc và Biển Đông  -> worldNews, trừ tin Mali
   3. QS-KHCN          -> usNews còn lại (CNQS Mỹ) + item tập trận/sự kiện mới (gồm Predator's Run)
@@ -22,10 +23,12 @@ BÁM CHẶT format bản tin mẫu buổi tối (Diem-tin-ngay-2026-07-23.docx �
     (không đậm/nghiêng); dòng dưới là link nguồn (hyperlink xanh gạch chân).
   - Lề: trái/phải 1.25 inch, trên/dưới 1.0 inch.
 Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (không có tin) -> in "DOCX=".
+Tên file GỌI THEO BUỔI (chỉ thị Huy 28/07/2026): /tmp/Diem-tin-sang-som-5h-<ngày>.docx hoặc
+/tmp/Diem-tin-toi-21h-<ngày>.docx — xem hàm `ten_file()`.
 
 Chạy: python3 .github/scripts/make_docx.py
 """
-import json, os, re, subprocess, sys, unicodedata
+import datetime, json, os, re, subprocess, sys, unicodedata, zoneinfo
 
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
@@ -36,6 +39,25 @@ from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 FONT = "Times New Roman"
 SIZE = 14  # pt — khớp mẫu
+
+VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
+
+
+def ten_file(gen, now=None):
+    """Tên file .docx GỌI THEO BUỔI (chỉ thị Huy 28/07/2026): nhìn tên là biết bản nào.
+
+      Diem-tin-sang-som-5h-<ngày>.docx  ·  Diem-tin-toi-21h-<ngày>.docx
+
+    Ngưỡng buổi 14h giờ VN — CÙNG quy ước với `send_telegram.py:slot_label`,
+    `send-email.js` và ô khoá `scripts/state.py`. Đổi lịch quét thì xem lại cả bốn nơi.
+
+    ⚠️ ĐÂY LÀ NƠI DUY NHẤT ĐẶT TÊN FILE. Telegram (kênh gửi duy nhất hiện nay) hiện
+    đúng basename của file trên đĩa, còn `send-email.js` lấy lại bằng `path.basename`
+    thay vì tự ghép tên — hai bộ luật song song chắc chắn sẽ lệch, mà lệch âm thầm.
+    """
+    now = now or datetime.datetime.now(VN)
+    buoi = "sang-som-5h" if now.hour < 14 else "toi-21h"
+    return f"Diem-tin-{buoi}-{(gen or 'khong-ro-ngay').replace('/', '-')}.docx"
 
 
 def extract_data(html):
@@ -426,8 +448,7 @@ def main():
         for it in items:
             add_item(doc, it, ghi_ngay=ghi_ngay)
 
-    safe = (gen or "diem-tin").replace("/", "-")
-    out = f"/tmp/Diem-tin-ngay-{safe}.docx"
+    out = f"/tmp/{ten_file(gen)}"
     doc.save(out)
     print(f"DOCX={out}")
 

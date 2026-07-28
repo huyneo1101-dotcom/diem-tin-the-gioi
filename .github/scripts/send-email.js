@@ -266,9 +266,10 @@ async function main() {
   const attachments = [];
   const docxPath = process.env.DOCX_PATH;
   if (docxPath && fs.existsSync(docxPath)) {
-    // Tên file kèm buổi: hai bản tin cùng ngày (sáng + tối) không còn trùng tên khi lưu máy.
-    const buoiFile = hourVN < 14 ? 'sang' : 'toi';
-    attachments.push({ filename: `Diem-tin-${(DATA.generatedAt || '').replace(/\//g, '-')}-${buoiFile}.docx`, path: docxPath });
+    // Tên đính kèm = ĐÚNG tên file make_docx.py đã đặt (Diem-tin-sang-som-5h-<ngày>.docx /
+    // Diem-tin-toi-21h-<ngày>.docx — hàm `ten_file`). KHÔNG tự ghép lại tên ở đây: trước
+    // 28/07/2026 chỗ này ghép riêng nên email và Telegram gọi cùng một file bằng hai tên khác nhau.
+    attachments.push({ filename: path.basename(docxPath), path: docxPath });
     console.log('Đính kèm docx:', docxPath);
   } else {
     console.log('Không có file docx để đính kèm (DOCX_PATH rỗng hoặc file không tồn tại).');
