@@ -474,8 +474,8 @@ miễn phí nên ưu tiên thấp nhất — chính mặt trái của thứ khi�
 của web-scan có lần trễ **2 phút**, lần trễ **122 phút**; canary `45 15` trễ 98', `15 23` trễ
 56'. Suy "đặt phút lẻ thì thoáng" là kết luận từ mẫu 1 lần, đã thử và sai.
 
-🖥️ **LaunchAgent `com.huy.diemtin-bot-telegram` (dựng 28/07/2026, Huy chọn)** — máy Mac gọi
-`kich_ci.py --wf telegram-bot.yml` mỗi **300 giây**, đúng cách đã dùng cho bản tin: dispatch
+🖥️ **LaunchAgent `com.huy.diemtin-bot-telegram` (dựng 28/07/2026, Huy chọn)** — máy Mac chạy
+`nhin_truoc_kich_bot.py` mỗi **60 giây**, đúng cách đã dùng cho bản tin: dispatch
 qua API chạy NGAY (đo: lệnh phát 21:00:00 → run tạo 21:00:20Z), chỉ cron mới bị bỏ. Nghiệm thu
 lần đầu: kích lúc 10:10 trong khi cron gần nhất là 07:09 — **3 tiếng GitHub không gọi phát nào**.
 `StartInterval` chứ không phải `StartCalendarInterval`: máy vừa ngủ dậy thì launchd chạy bù
@@ -483,6 +483,29 @@ ngay một lần rồi mới vào chu kỳ — đúng thứ cần cho "Huy vừa
 Đánh đổi: **chỉ chạy khi máy thức**; máy ngủ thì rơi về cron như cũ. Không mất câu hỏi (ngưỡng
 360 phút đã lo), chỉ chậm. Cố tình KHÔNG dựng caffeinate cho việc này — bot hỏi-đáp không có
 hạn chót như bản tin. Log: `tail -30 /tmp/diemtin-bot-kich.log`.
+
+👁️ **NHÌN TRƯỚC RỒI MỚI KÍCH** (`scripts/nhin_truoc_kich_bot.py`, Huy chốt 28/07 sau khi hỏi
+*"kích mỗi 1 phút có nhiều quá không"*). Kích mù mỗi phút = **1.440 run/ngày**: rate limit chỉ
+tốn 3,6% (180/5000 call một giờ) và không mất tiền vì repo public — nhưng nó **chôn lấp tab
+Actions**, đúng công cụ dùng để chẩn đoán khi bản tin hỏng, và đẻ hàng loạt run `cancelled` do
+`concurrency`. Nay máy gọi `getUpdates` trước, chỉ kích khi thật sự có tin ⇒ độ trễ vẫn ~1 phút
+mà **số run/ngày bằng số lượt hỏi thật**.
+
+| | Kích mù 1 phút | Nhìn trước |
+|---|---|---|
+| Độ trễ | ~1 phút | ~1 phút |
+| Run/ngày | 1.440 | = số lượt hỏi |
+
+⚠️ **`getUpdates` ở đây TUYỆT ĐỐI KHÔNG được kèm `offset`** — không có offset thì chỉ NHÌN;
+Telegram chỉ coi là đã nhận khi ai đó gọi lại với `offset = id + 1`, và việc đó là của workflow.
+Script này lỡ xác nhận thì workflow thấy hàng đợi rỗng và **câu hỏi mất hẳn**.
+⚠️ **Chống dội theo CẢ id LẪN thời gian:** update chưa được workflow xác nhận thì phút sau nhìn
+vẫn thấy — kích lại là thừa. Nhưng chỉ nhớ id thôi thì workflow chết giữa chừng sẽ làm câu hỏi
+nằm lại vĩnh viễn. Nên id mới → kích ngay; id cũ → kích lại sau `KICH_LAI_SAU_PHUT = 10`.
+⚠️ Token + danh sách chat ở **`/Users/Huy/Claude/.tg-bot.json`** (chmod 600, NGOÀI repo vì repo
+public), dán bằng `--luu-token` (getpass, Huy tự chạy). **Chưa có token thì script tự lùi về
+kích mù mỗi 5 phút** — bot kém tối ưu chứ không chết, đó là lý do đổi LaunchAgent được ngay mà
+không cần chờ dán token.
 Muốn tức thì thì phải chuyển sang Claude API + API key riêng (~78–170k đ/tháng với Haiku
 4.5 ở mức ~20 câu/ngày, ~340k đ với Sonnet 5) — Huy đã cân nhắc và chọn miễn phí.
 
