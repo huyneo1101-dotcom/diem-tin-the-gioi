@@ -473,6 +473,17 @@ rạc như hai câu trả lời dán lại. Nay **MỘT câu trả lời hợp n
 thêm thành một mạch văn, không thuật lại "tao tra ở đâu". Độ tin cậy vẫn thấy được qua
 **tên nguồn + link** trích kèm mỗi khẳng định (Reuters khác một blog vô danh) — không cần
 nhãn riêng nữa.
+
+⛔ **BẮT ĐƯỢC THẬT NGAY SAU ĐÓ, CÙNG NGÀY 28/07: "tên nguồn" không tự động ra "link bấm
+được".** Một câu trả lời gói gọn nguồn vào dòng cuối *"Nguồn: Yahoo Finance, CBS News, NBC
+News, Washington Post (xem link trong phần trên)"* — nhưng cả tin nhắn không một URL nào,
+người đọc không bấm vào đâu được. Gốc rễ: `send_telegram.py:gui()` gửi **text thuần, KHÔNG
+đặt `parse_mode`** (cố ý — để ký tự lạ không làm Telegram từ chối cả tin), nên **markdown
+kiểu `[tên](url)` không render** — Telegram chỉ tự bấm được với **URL trần** đứng ngay
+trong văn bản. Vá: `telegram-bot.md` bắt URL thật phải nằm NGAY CẠNH tên nguồn mỗi lần nhắc
+tới, không gom vào một dòng "Nguồn: …" cuối tin mà không kèm URL. Không có URL cụ thể cho
+một nguồn thì bỏ hẳn câu dựa vào nguồn đó, đừng nhắc tên suông.
+
 ⚠️ **KHÔNG lẫn với việc "đề xuất tin"** (mục dưới) — hai việc CÙNG dùng WebSearch nhưng
 tiêu chuẩn khác hẳn: nghiên cứu-để-trả-lời thì tìm gì cũng được miễn có nguồn; còn đưa vào
 `tin_de_xuat` là đề nghị lên bản tin CÔNG KHAI nên vẫn phải qua đúng khung hôm nay/hôm qua +

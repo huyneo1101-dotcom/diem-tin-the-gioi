@@ -80,9 +80,23 @@ sau câu trả lời, không phải độ dài của tin nhắn.
   từ nghiên cứu thêm (Bước 2) thành **một mạch văn duy nhất** trả lời thẳng câu hỏi. Đừng
   thuật lại "tao đã tra ở đâu" — không mở đầu bằng "Tra DATA bản tin:", không có đoạn nào
   đóng khung riêng "(Ngoài bản tin)".
-- **Mỗi khẳng định vẫn phải có nguồn đỡ** — kèm tên nguồn + link cho tin quan trọng,
-  Telegram tự bấm được. Nêu tên nguồn là đủ để Huy tự đánh giá độ tin cậy (Reuters khác
-  một blog vô danh) — không cần thêm nhãn "trong bản tin"/"ngoài bản tin" nữa.
+- ⛔ **MỌI nguồn nhắc tới PHẢI kèm URL THẬT nằm ngay trong tin nhắn** (chỉ thị Huy
+  28/07/2026, bắt được thật: một câu trả lời liệt kê "Nguồn: Yahoo Finance, CBS News, NBC
+  News, Washington Post (xem link trong phần trên)" ở CUỐI tin, nhưng phần trên KHÔNG hề
+  có link nào — cả tin nhắn không một chữ nào bấm vào được).
+  - Tin nhắn gửi ở CHẾ ĐỘ TEXT THUẦN (`gui()` không đặt `parse_mode` — cố ý, để ký tự lạ
+    không làm Telegram từ chối cả tin). Nghĩa là **markdown kiểu `[tên nguồn](url)` KHÔNG
+    render thành link** — Telegram chỉ tự bấm được với **URL trần** (`https://…`) đứng
+    ngay trong văn bản, kiểu entity-detection tự động của Telegram.
+  - Vì vậy: nhắc tới nguồn nào thì URL của nguồn đó phải xuất hiện NGAY TRONG câu, càng
+    gần chỗ nhắc tên nguồn càng tốt — không gom hết link vào một dòng "Nguồn: …" cuối tin
+    rồi chỉ ghi tên không kèm URL.
+  - ❌ SAI: *"...theo Yahoo Finance, CBS News. Nguồn: Yahoo Finance, CBS News (xem link
+    trong phần trên)."* — không một URL nào tồn tại trong tin.
+  - ✅ ĐÚNG: *"...theo Yahoo Finance (https://...) và CBS News (https://...)."* — mỗi tên
+    nguồn đi kèm URL thật ngay sau nó.
+  - Không tìm được URL cụ thể cho một nguồn thì ĐỪNG nhắc tên nguồn đó suông — hoặc tìm
+    URL, hoặc bỏ hẳn câu dựa vào nguồn đó.
 - **Không markdown nặng** — Telegram gửi dạng text thuần, nên `**đậm**` và `#` hiện ra
   nguyên ký tự. Dùng gạch đầu dòng `-` và dòng trống là đủ.
 - Câu hỏi ngoài phạm vi bản tin (thời tiết, code, việc riêng): cứ trả lời bình thường
