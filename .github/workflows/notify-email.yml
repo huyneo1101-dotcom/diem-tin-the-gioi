@@ -89,6 +89,20 @@ jobs:
           echo "$out"
           echo "DOCX_PATH=${out#DOCX=}" >> "$GITHUB_ENV"
 
+      # FILE WORD THỨ HAI — tin bị loại dù đúng 5 chủ đề, kèm lý do (chỉ thị Huy 28/07/2026).
+      # `continue-on-error` CÓ CHỦ Ý ở riêng bước này (khác hẳn 2 bước gửi bên dưới): bước
+      # "Ghi sổ đã gửi" chạy sau cùng, nên bất kỳ bước nào đỏ trước đó cũng làm sổ KHÔNG được
+      # ghi -> canary kêu oan + bản tin TỐI hôm sau liệt kê lại nguyên lô đã gửi. Đổi một file
+      # phụ lấy nguyên cơ chế chống lặp tin là lỗ vốn. Hỏng thì send_telegram.py vẫn tự dựng
+      # lại, và nếu vẫn hỏng thì nó nhắn một dòng về chat chủ — không im lặng.
+      - name: Tạo file docx TIN BỊ LOẠI
+        if: steps.chk.outputs.go == '1'
+        continue-on-error: true
+        run: |
+          out=$(python3 .github/scripts/make_docx_loai.py)
+          echo "$out"
+          echo "DOCX_LOAI_PATH=${out#DOCX_LOAI=}" >> "$GITHUB_ENV"
+
       - name: Gửi email
         if: steps.chk.outputs.go == '1'
         env:
@@ -112,6 +126,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           DOCX_PATH: ${{ env.DOCX_PATH }}
+          DOCX_LOAI_PATH: ${{ env.DOCX_LOAI_PATH }}
           SUBJECT_TAG: ${{ inputs.subject_tag || '' }}
         run: python3 .github/scripts/send_telegram.py
 

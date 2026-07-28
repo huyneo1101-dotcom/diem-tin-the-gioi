@@ -43,21 +43,31 @@ SIZE = 14  # pt — khớp mẫu
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 
 
-def ten_file(gen, now=None):
+def ten_file(gen, now=None, loai=False):
     """Tên file .docx GỌI THEO BUỔI (chỉ thị Huy 28/07/2026): nhìn tên là biết bản nào.
 
       Diem-tin-sang-som-5h-<ngày>.docx  ·  Diem-tin-toi-21h-<ngày>.docx
 
+    `loai=True` -> file TIN BỊ LOẠI đi kèm (chỉ thị Huy 28/07/2026: mỗi lần gửi kèm thêm
+    một file Word gồm các tin bị loại dù đúng 5 chủ đề, ghi rõ lý do):
+
+      Diem-tin-BI-LOAI-sang-som-5h-<ngày>.docx  ·  Diem-tin-BI-LOAI-toi-21h-<ngày>.docx
+
+    Chữ BI-LOAI viết HOA giữa tên để trên Telegram liếc là phân biệt được ngay với bản
+    tin chính — hai file gửi liền nhau trong cùng một đoạn chat.
+
     Ngưỡng buổi 14h giờ VN — CÙNG quy ước với `send_telegram.py:slot_label`,
     `send-email.js` và ô khoá `scripts/state.py`. Đổi lịch quét thì xem lại cả bốn nơi.
 
-    ⚠️ ĐÂY LÀ NƠI DUY NHẤT ĐẶT TÊN FILE. Telegram (kênh gửi duy nhất hiện nay) hiện
-    đúng basename của file trên đĩa, còn `send-email.js` lấy lại bằng `path.basename`
-    thay vì tự ghép tên — hai bộ luật song song chắc chắn sẽ lệch, mà lệch âm thầm.
+    ⚠️ ĐÂY LÀ NƠI DUY NHẤT ĐẶT TÊN FILE — kể cả file tin bị loại (`make_docx_loai.py`
+    gọi chính hàm này với `loai=True`, KHÔNG tự ghép tên). Telegram hiện đúng basename
+    của file trên đĩa, còn `send-email.js` lấy lại bằng `path.basename` thay vì tự ghép —
+    hai bộ luật song song chắc chắn sẽ lệch, mà lệch âm thầm.
     """
     now = now or datetime.datetime.now(VN)
     buoi = "sang-som-5h" if now.hour < 14 else "toi-21h"
-    return f"Diem-tin-{buoi}-{(gen or 'khong-ro-ngay').replace('/', '-')}.docx"
+    phan = "BI-LOAI-" if loai else ""
+    return f"Diem-tin-{phan}{buoi}-{(gen or 'khong-ro-ngay').replace('/', '-')}.docx"
 
 
 def extract_data(html):

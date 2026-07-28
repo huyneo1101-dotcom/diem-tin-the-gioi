@@ -81,7 +81,32 @@ TỐI — cùng quy ước ô khoá của `state.py`), áp cho cả subject và 
 | Sáng sớm (fire 04:00–05:30) | `Diem-tin-sang-som-5h-<YYYY-MM-DD>.docx` |
 | Tối (fire 21:00–22:30) | `Diem-tin-toi-21h-<YYYY-MM-DD>.docx` |
 
-⚠️ **Luật đặt tên nằm ở ĐÚNG MỘT chỗ: `make_docx.py:ten_file()`** — nó là nơi sinh file, và
+**🚫 FILE WORD THỨ HAI — TIN BỊ LOẠI (chỉ thị Huy 28/07/2026):** *"từ giờ mỗi khi gửi hãy gửi thêm 1
+file word nữa, trong đó gồm các tin đã bị loại dù thuộc đúng 5 chủ đề. ghi rõ lý do bị loại."*
+Mỗi lần gửi bản tin nay kèm **hai** file: bản tin chính + `Diem-tin-BI-LOAI-<buổi>-<ngày>.docx`.
+| Mảnh | Việc |
+|---|---|
+| `logs/loai-tin.json` | **Nguồn CHÍNH**, phiên quét ghi cùng lúc `scan-gaps.json`: `{date, session, items:[{chu_de, title, sourceName, sourceUrl, date, reason}]}` |
+| `.github/scripts/make_docx_loai.py` | Dựng file, gom theo đúng 5 chủ đề, in `DOCX_LOAI=<path>` |
+| `notify-email.yml` bước *Tạo file docx TIN BỊ LOẠI* | Dựng trên CI, truyền `DOCX_LOAI_PATH` |
+| `send_telegram.py:dung_file_loai()` | Gửi file phụ SAU file chính |
+
+⚠️ **`date` phải khớp `DATA.generatedAt`** — lệch thì script BỎ cả file và rơi xuống **fallback** trích
+nguyên văn gạch đầu dòng dưới mục ngày trong `logs/loai-tin.md`. Fallback là lưới an toàn (agent nào
+cũng ghi `loai-tin.md`, nhưng có thể quên JSON), KHÔNG phải đường chính — nó không tách được chủ đề
+và không có link. **Đừng "dọn cho gọn" bỏ fallback:** chỉ đọc JSON thì hôm nào agent quên là Huy nhận
+file RỖNG, mà rỗng trông y hệt "hôm nay không loại tin nào" — lỗi câm.
+⚠️ **Bước dựng file này là nơi DUY NHẤT trong `notify-email.yml` còn `continue-on-error: true`** — cố
+ý, ngược với hai bước gửi. Lý do: bước *Ghi sổ đã gửi* chạy sau cùng, nên bất kỳ bước nào đỏ trước đó
+cũng làm sổ KHÔNG được ghi → canary kêu oan **và** bản tin TỐI hôm sau liệt kê lại nguyên lô đã gửi
+(đúng lỗi Huy bắt 27/07). Đổi một file phụ lấy nguyên cơ chế chống lặp tin là lỗ vốn. Bù lại KHÔNG im
+lặng: `send_telegram.py` tự dựng lại, vẫn hỏng thì nhắn một dòng về **chat CHỦ** (cùng quy ước
+`canary.py`) + in `::warning::`.
+⚠️ `reason` phải đủ để Huy tự phán được có loại nhầm không — nêu ngày SỰ KIỆN THẬT, trùng tin nào,
+nguồn hỏng ra sao. Viết cụt kiểu "ngoài khung" là vô dụng, đúng thứ file này sinh ra để tránh.
+
+⚠️ **Luật đặt tên nằm ở ĐÚNG MỘT chỗ: `make_docx.py:ten_file()`** (file tin bị loại gọi chính hàm đó
+với `loai=True`, KHÔNG tự ghép tên) — nó là nơi sinh file, và
 Telegram (kênh gửi DUY NHẤT hiện nay) hiển thị đúng basename của file trên đĩa. `send-email.js`
 lấy lại bằng `path.basename(docxPath)` chứ **KHÔNG tự ghép tên**. Trước 28/07/2026 hai nơi ghép
 riêng: file trên Telegram tên `Diem-tin-ngay-<ngày>.docx` **không phân biệt buổi** (hai bản cùng
