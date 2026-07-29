@@ -1,21 +1,37 @@
 ---
 name: quet-tin
 description: >-
-  Quét và cập nhật bản tin cho dự án "Điểm Tin Thế Giới". Dùng khi người dùng yêu cầu "quét tin",
-  "cập nhật bản tin", "scan tin", hoặc khi Routine tự động chạy. Bản tin CHỈ chạy buổi TỐI 22:00,
-  TẬP TRUNG 5 chủ đề: Nội bộ Mỹ (siết) · Úc & Biển Đông · CNQS Mỹ · Mỹ–Mali · tập trận Predator's
-  Run 2026. Đóng gói kiến trúc agent Sonnet, mô hình nguồn 3 tầng, guardrail add_news.py, log +
-  khoá idempotent. Chi tiết nguồn/RSS xem CLAUDE.md ở gốc repo.
+  Playbook NỘI DUNG quét bản tin "Điểm Tin Thế Giới" — 5 chủ đề, kiến trúc agent Sonnet, nguồn 3
+  tầng, guardrail add_news.py. Dùng khi người dùng yêu cầu "quét tin", "cập nhật bản tin", "scan
+  tin", hoặc khi routine tự động chạy. Bản tin chạy 2 PHIÊN/NGÀY cùng playbook này: TỐI 21:00 +
+  SÁNG SỚM 04:00 (giờ VN). 5 chủ đề: Nội bộ Mỹ (5 nhóm, 2 hạng ưu tiên) · Úc & Biển Đông · CNQS Mỹ ·
+  Mỹ–Mali · tập trận Predator's Run 2026. LỊCH/khoá/commit/push KHÔNG nằm ở file này — nguồn sự thật
+  là docs/routine-web-scan.md; bảng nguồn/RSS xem CLAUDE.md gốc repo.
 ---
 
 # Skill: Quét tin "Điểm Tin Thế Giới" (bản TẬP TRUNG 5 chủ đề — chỉ thị Huy 2026-07-23)
 
-Playbook vận hành để cập nhật bản tin. `CLAUDE.md` ở gốc repo là tài liệu tham chiếu ĐẦY ĐỦ
-(bảng nguồn 3 tầng, URL RSS, cấu trúc `DATA`). Skill này là quy trình CHẠY từng bước.
+## 🧭 PHÂN VAI — file này là gì, KHÔNG phải gì (chốt 29/07/2026)
+> Ba tài liệu, **mỗi luật chỉ được viết ở ĐÚNG MỘT chỗ**. Sửa nhầm chỗ là đẻ ra hai bộ luật song
+> song, và hai bộ luật song song chắc chắn lệch — đúng bệnh đã bắt được ngày 29/07 (file này còn
+> ghi "chỉ chạy 1 lần/ngày, TỐI 22:00" trong khi lịch thật đã là 2 phiên/ngày từ 26/07).
+
+| Tài liệu | Giữ luật gì | Ai đọc |
+|---|---|---|
+| **File này** (`.claude/skills/quet-tin/SKILL.md`) | **NỘI DUNG quét**: 5 chủ đề + tiêu chí lọc · kiến trúc agent · thang xác minh · guardrail `add_news.py` · `scan-gaps.json` · phụ lục nguồn | Phiên local (qua `docs/routine-web-scan.md` Bước 2) **và** phiên CI (qua `.github/prompts/web-scan-ci.md`) |
+| `docs/routine-web-scan.md` | **QUY TRÌNH CHẠY**: lịch/mốc giờ · `state.py` claim/beat/done · pull-rebase · commit/push · pipeline `event-scan` phiên sáng | Task local `web-scan-diem-tin` (sáng sớm) + `web-scan-diem-tin-toi` (tối) |
+| `CLAUDE.md` gốc repo | **PHẠM VI + NGUỒN**: bảng nguồn 3 tầng, URL RSS, cấu trúc `DATA`, cơ chế email/Telegram | Tự nạp mọi phiên |
+
+⛔ **ĐỪNG rút file này thành stub trỏ sang `routine-web-scan.md`** — file đó **trỏ VÀO đây** ở Bước 2,
+và `.github/prompts/web-scan-ci.md` cũng vậy. Trỏ ngược lại là vòng tròn, cả CI lẫn local mất sạch
+playbook nội dung.
+⛔ **ĐỪNG chép lịch/mốc giờ vào đây.** Cần biết mốc nào, hạn chót nào → đọc `docs/routine-web-scan.md`.
+📌 Câu *"SKILL.md của các task giờ chỉ là stub"* trong CLAUDE.md nói về **stub của scheduled task**
+(`~/.claude/scheduled-tasks/*/SKILL.md`, 5 dòng, Read file repo) — **KHÔNG phải file này**.
 
 ## ⭐ PHẠM VI MỚI (2026-07-23 — GHI ĐÈ mọi mô tả 4-chuyên-mục / sàn 15+15 cũ)
-Bản tin **CHỈ chạy MỘT lần/ngày, buổi TỐI 22:00** (dự phòng 23:00). Mỗi phiên **CHỈ quét 5 chủ đề**,
-**mỗi chủ đề 5–10 bài** (best-effort — thiếu thì thôi, KHÔNG bịa):
+Bản tin chạy **2 phiên/ngày, CÙNG playbook 5 chủ đề này** (mốc giờ cụ thể: `docs/routine-web-scan.md`).
+Mỗi phiên **CHỈ quét 5 chủ đề**, **mỗi chủ đề 5–10 bài** (best-effort — thiếu thì thôi, KHÔNG bịa):
 
 1. **Nội bộ Mỹ — 5 NHÓM, HAI HẠNG ƯU TIÊN** (chỉ thị Huy 27/07/2026, GHI ĐÈ mức "SIẾT" cũ) — `usNews`,
    category `Chính trị` (nhóm 4 có thể `Kinh tế`). **BẮT BUỘC vét cạn nhóm (1) TRƯỚC; chỉ khi chưa đủ
@@ -90,6 +106,10 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 - **KHÔNG tự sửa `index.html` bằng tay** — chèn tin qua script.
 
 ## Bước 0 — Log SỚM + idempotent (QUAN TRỌNG — push log NGAY để luôn có dấu vết)
+> ⚠️ **Mốc giờ, hạn chót, thứ tự CI/local: đọc `docs/routine-web-scan.md`, KHÔNG đọc ở đây.**
+> Bước 0 chỉ giữ mấy luật **gắn với nội dung quét** mà nơi khác không có: lệnh phẳng, checkpoint
+> chỉ `git add logs/`, và cách dùng cờ `state.py`. Trước 29/07/2026 bước này còn chép cả lịch
+> ("chạy 22:00, dự phòng 23:00") và đã lệch 3 ngày so với lịch thật — đừng chép lại lần nữa.
 ⚠️ **MỌI LỆNH BASH PHẢI PHẲNG — không wrapper, không biến, không vòng lặp** (25–26/07/2026 treo 3 lần:
 prefix `cd() { echo "cd disabled"; };` → flag "expansion obfuscation"; biến `$f` trong
 `for f in ...; do grep .../$f.jsonl; done` → flag "simple_expansion" — harness gặp các cú pháp đó là
@@ -100,13 +120,15 @@ TRỊ THẬT vào các lệnh sau (không dùng `$NGAY`/`$T`). Cần lặp nhi�
 vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc.
 - Ghi `[<giờ>Z] START` vào `logs/scan-<ngày VN>.log` (tool Write/Edit) rồi **commit + push NGAY LẬP TỨC**:
   `git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/ && git -C /Users/Huy/Claude/diem-tin-the-gioi commit -q -m "log: start <ngày> <giờ>Z phien toi" && git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main -q`
+  (Chữ trong log ghi theo phiên mình đang chạy: **"phien toi"** hoặc **"phien sang som"** — biết mình
+  là phiên nào bằng `TZ='Asia/Ho_Chi_Minh' date +%H:%M`, trước 14:00 = sáng sớm, từ 14:00 = tối.)
   (Session tự động là ephemeral — chết giữa lúc quét mà chưa push thì mất sạch dấu vết.)
 - **Checkpoint sau MỖI mốc lớn** (xong baseline · xong các agent · xong script · trước khi push tin):
   ghi thêm dòng `[<giờ>] <mốc>: <tóm tắt>` vào log, chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat web-scan` rồi
   push ngay → biết chết ở đâu + gia hạn khoá. **Nhịp tim bắt buộc**: khoá tự hết hạn sau 30' không có nhịp.
 - ⚠️ **Checkpoint CHỈ `git add logs/` — TUYỆT ĐỐI KHÔNG kèm `index.html`** (sự cố 25/07/2026).
   `index.html` chỉ được commit ĐÚNG MỘT LẦN, ở commit cuối `Cap nhat ban tin ...`. Lý do: commit
-  checkpoint mang tên `log: ...` KHÔNG khớp gate `^Cap nhat ban tin` nên không gửi email, nhưng nó
+  checkpoint mang tên `log: ...` KHÔNG khớp gate `^Cap nhat ban tin` nên không kích khâu gửi, nhưng nó
   vẫn nằm ở `HEAD~1` của commit bản tin — mà `make_docx.py` dựng file Word bằng diff với `HEAD~1`.
   Hôm 25/07 checkpoint 22:23 đã ôm sẵn 12 tin, tới commit bản tin 22:41 diff chỉ còn 3 → **file Word
   gửi Huy mất 12/15 tin** dù web hiện đủ. (`make_docx.py` đã được vá lấy HỢP `diff` ∪ `today_items`
@@ -126,10 +148,14 @@ vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc
   origin/main` rồi commit riêng dòng log.
   `SKIP` (exit 10) → buổi này đã quét xong · `SKIP` (exit 11) → **có phiên khác đang chạy**, không quét
   chồng. Cả hai: ghi log `SKIP`, push log, KẾT THÚC. `RUN` (exit 0) → đã giữ khoá, quét tiếp.
-  Cờ theo BUỔI: giờ chỉ còn buổi TỐI (`toi`, từ 14:00 VN) — mốc chính 22:00, dự phòng 23:00 tự no-op
-  nếu 22:00 đã DONE.
-- **Chạy 22:00 VN** (dự phòng 23:00). Trước đó Action đã nạp sẵn: `import-news-from-drive` (20:00) +
-  `sync-baomoi` (20:05). **Kéo bản mới nhất về trước khi làm gì**: `git pull --rebase origin main`.
+  Cờ theo BUỔI: `state.py` TỰ suy ô từ giờ VN lúc chạy (trước 14:00 = `sang`, từ 14:00 = `toi`) —
+  routine KHÔNG phải truyền gì thêm. Mốc nào của phiên nào, mốc nào là dự phòng: **`docs/routine-web-scan.md`**
+  (bảng đầu file). Mốc sau thấy mốc trước đã DONE thì `claim` tự trả SKIP, không quét chồng.
+- **Kéo bản mới nhất về trước khi làm gì**: `git pull --rebase origin main`.
+  ⛔ Báo `cannot pull with rebase: You have unstaged changes` → **ĐỪNG DỪNG PHIÊN**: `git fetch origin main`
+  rồi `git rev-list --count HEAD..origin/main`; ra **0** thì pull vốn là lệnh rỗng → đi tiếp bình thường,
+  ra **>0** thì mới FAIL. TUYỆT ĐỐI không `git stash`, không commit hộ file lạ. Chi tiết + bảng đo:
+  `docs/routine-web-scan.md` Bước 1.
 - Lỗi ở bất kỳ bước: ghi `[<giờ>] FAIL tại <bước>: <lý do>`, chạy `python3 scripts/state.py fail
   web-scan "<lý do>"` (nhả khoá + KHÔNG chặn lần fire sau), push log, dừng.
 
@@ -248,7 +274,7 @@ cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhan
 
 ## Bước 3 — Review + gộp
 Session điều phối **tự review từng tin** theo ràng buộc chất lượng, loại tin không đạt (sai khung giờ,
-link rác/không khớp, trùng, không đúng 5 chủ đề, nội bộ Mỹ ngoài phạm vi siết…).
+link rác/không khớp, trùng, không đúng 5 chủ đề, tin "nội bộ Mỹ" nhưng không neo được vào nước Mỹ…).
 
 **Ghi tin bị loại** vào `logs/loai-tin.md` (dạng chữ: `[chủ đề] tiêu đề (nguồn, ngày) — lý do`). Field
 `rejectedNews` trong JSON là TUỲ CHỌN với phạm vi mới (không bắt buộc gom tin loại như trước) — chỉ thêm
@@ -291,10 +317,13 @@ tiêu đề nghi trùng.
 - Chủ đề nào **<5 bài trong 24h** → giao thêm agent cho riêng chủ đề đó với khung **48h**; vẫn thiếu thì
   CHẤP NHẬN (ghi rõ trong tóm tắt), KHÔNG bịa/nhồi. Không lặp vô hạn — 1–2 vòng bổ sung là đủ.
 
-## Bước 4b — Ghi `logs/scan-gaps.json` (BẮT BUỘC — email của Huy lấy mục "Chủ đề thiếu và lý do" từ đây)
-Chỉ thị Huy 25/07/2026: **email gửi lamgiaphat1603 phải ghi cả chủ đề thiếu VÀ lý do**. Lý do là kiến
-thức của phiên quét, GitHub Action không tự suy ra được → phiên quét phải ghi ra file, `send-email.js`
-đọc file đó và dựng mục trong email. **Không ghi file = email thiếu mục này.**
+## Bước 4b — Ghi `logs/scan-gaps.json` (BẮT BUỘC — bản tin gửi đi lấy mục "Chủ đề thiếu và lý do" từ đây)
+Chỉ thị Huy 25/07/2026: **bản tin gửi đi phải ghi cả chủ đề thiếu VÀ lý do**. Lý do là kiến thức của
+phiên quét, GitHub Action không tự suy ra được → phiên quét phải ghi ra file, khâu gửi đọc file đó và
+dựng mục. **Không ghi file = bản tin thiếu mục này.**
+> 📵 **Kênh gửi hiện nay là TELEGRAM, không phải email** (chỉ thị Huy 27/07/2026 — `GUI_EMAIL='0'`
+> trong `notify-email.yml`/`notify-morning.yml`). `send_telegram.py` cũng đọc `scan-gaps.json` nên
+> yêu cầu ghi file KHÔNG đổi. Bật lại email = đổi biến đó thành `'1'`.
 
 Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5 chủ đề (+ Báo Mới nếu có nạp):
 ```json
@@ -315,9 +344,12 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
   email in được dòng sản lượng cả 5 chủ đề; khi đó `reason` để rỗng.
 - `reason` viết cho NGƯỜI ĐỌC, nêu nguyên nhân thật (Quốc hội nghỉ họp, nguồn 403/timeout, tin trùng sự
   kiện, ngoài khung 48h…), KHÔNG viết chung chung kiểu "không tìm được tin".
-- Kiểm mắt trước khi push (máy Huy KHÔNG có `node`; chạy được ở đâu có node):
-  `DRY_RUN=1 node .github/scripts/send-email.js` → in mục "Chủ đề thiếu và lý do" + ghi
-  `/tmp/email-preview.html`, KHÔNG gửi email.
+- Kiểm mắt trước khi push — **kênh đang chạy là Telegram, dùng lệnh này** (chạy được trên máy Huy):
+  `DRY_RUN=1 python3 .github/scripts/send_telegram.py` → in nguyên tin nhắn sẽ gửi, gồm mục
+  "Chủ đề thiếu và lý do", KHÔNG gửi thật.
+  Bản email (đang tắt, `GUI_EMAIL='0'`): `DRY_RUN=1 node .github/scripts/send-email.js` → ghi
+  `/tmp/email-preview.html`. ⚠️ **Máy Huy KHÔNG có `node`** — chỉ chạy được ở nơi có node, hoặc kiểm
+  cú pháp/logic bằng `jsc` với stub `require` (xem CLAUDE.md).
 
 ## Bước 5 — Xuất bản + log
 - `git add index.html logs/` phải gồm **`logs/scan-gaps.json`** (cùng `logs/state.json`).
@@ -326,9 +358,12 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
 - Commit: `Cap nhat ban tin DD/MM: +N tin (5 chu de)`; `git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html logs/`
   (phải có `logs/state.json`). Push `main` (deploy → GitHub Pages): `git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main`.
   Push bị từ chối → `git -C /Users/Huy/Claude/diem-tin-the-gioi pull --rebase origin main` rồi push lại.
-- **Email + file Word tự động**: GitHub Action `notify-email.yml` bắt commit `Cap nhat ban tin` → xuất
-  .docx toàn bộ tin vừa quét (đúng format bản tin mẫu) + gửi lamgiaphat1603@gmail.com. KHÔNG cần làm gì
-  thêm trong skill — chỉ cần commit đúng mẫu `Cap nhat ban tin ...`.
+- **Gửi bản tin + file Word tự động**: GitHub Action `notify-email.yml` bắt commit `Cap nhat ban tin`
+  → xuất .docx toàn bộ tin vừa quét (đúng format bản tin mẫu) + gửi **Telegram** (`send_telegram.py`).
+  KHÔNG cần làm gì thêm trong skill — chỉ cần commit đúng mẫu `Cap nhat ban tin ...`.
+  ⚠️ Action còn có **cổng khung giờ**: chỉ bắn ở 03:30–07:00 hoặc ≥20:30 giờ VN. Quét TAY giữa ngày thì
+  Action im, tin nằm chờ ca tối — đó là hành vi ĐÚNG, đừng đi truy bug (chi tiết: CLAUDE.md mục
+  "CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY").
 - Ghi log `[$T] DONE: ...`. FAIL ở bước nào cũng VẪN push log.
 
 ## Bước 6 — Tóm tắt cuối
