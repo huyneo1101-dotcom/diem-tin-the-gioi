@@ -11,3 +11,4 @@
 [21:26Z] Khong phai Chu nhat -> bo qua bao cao tuan.
 [21:26Z] Commit "Cap nhat su kien 30/07: +2 tap tran, +1 su kien ngoai giao moi, +6 bai think-tank" - push OK. state.py done event-scan.
 [21:27Z] DONE - ca hai pipeline (web-scan + event-scan) hoan tat, da push.
+[21:31Z] Fire moi (CI 04:30 VN?) - claim web-scan tra exit 10 (DA XONG luc 04:16:25). Kiem ngoai le: so_da_gui --xem KHONG co dong [sang] ngay 30/07 (chi co [sukien] 0 tin), nhung lastRunAt cach hien tai ~14 phut (< 20 phut). Ket luan: phien anh em vua xong, notify-email.yml co the con dang chay, so chua kip ghi dong [sang]. SKIP em theo dung ngoai le da dinh nghia - KHONG quet lai. Push log, KET THUC.
