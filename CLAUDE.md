@@ -774,13 +774,15 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `tests/test-cong-baomoi.py` | Cổng Báo Mới chống bỏ sót (`scripts/add_news.py`) | 8 — 3 PHẢI NHẮC, 4 chống nhắc oan, 1 kiểm cổng còn nằm trên đường đi của `--recent-titles` |
 | `tests/test-so-da-gui.py` | Sổ đã gửi (`so_da_gui.py` + `make_docx.loc_chua_gui`) | 9 — 5 PHẢI LOẠI/PHẢI ĐÚNG PHẠM VI, 3 chống lọc oan, 1 kiểm còn người đọc sổ |
 | `tests/test-canary-ban-tin.py` | Canary bản tin (`.github/scripts/canary.py`) | 10 — 7 PHẢI KÊU, 3 PHẢI IM (gồm ca hồi quy kêu oan 00:23 ngày 28/07) |
+| `tests/test-cong-phien-test.py` | Cổng "phiên TEST không đụng cờ thật" (`scripts/state.py` + `claude-web-scan.yml`) | 11 — 5 PHẢI CHẶN, 4 chống chặn oan + đối chứng, 1 kiểm cổng còn nằm trên đường đi (đọc chính file yml), 1 kiểm banner |
 | `scripts/sua_nhan_analyses.py --tu-kiem` | Chính `--kiem` của nó (nhãn `outlet` mục Think-tank) | 5 — 3 PHẢI CHẶN, 2 PHẢI CHO QUA + 1 đối chứng. **Test nằm TRONG script** chứ không ở `tests/` vì cổng và bộ ca dùng chung dữ liệu giả |
 
-Chạy cả ba sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `make_docx.py` · `canary.py`:
+Chạy cả bốn sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `make_docx.py` · `canary.py` · `state.py` · `claude-web-scan.yml`:
 ```
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-baomoi.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-so-da-gui.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-canary-ban-tin.py
+python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-phien-test.py
 ```
 
 ⚠️ **TEST XANH CHƯA ĐỦ — phải chứng minh test BẮT ĐƯỢC lỗi.** Mỗi file có cờ `--tu-kiem`: nó tự
@@ -1484,6 +1486,36 @@ python3 scripts/state.py fail  web-scan "session limit"    # FAIL/SKIP nhả kho
 python3 scripts/state.py show                              # xem cả 2 pipeline, cả 2 buổi, trạng thái khoá
 ```
 Chỉ `done` mới đẩy `lastSuccess[buổi]` → chỉ khi thật sự nạp được tin mới chặn lần fire kế tiếp; `fail`/`skip` để lần sau quét lại.
+
+### 🔒 PHIÊN TEST HẠ TẦNG KHÔNG ĐƯỢC ĐỤNG CỜ THẬT — `DIEMTIN_PHIEN_TEST=1` (vá 29/07/2026)
+**Sự cố thật tối 29/07:** nhánh `MODE=test` của `claude-web-scan.yml` (phiên "PHIEN TEST HA TANG CI",
+quét nhẹ 1 agent) gọi `state.py done web-scan` lúc **17:34** và chiếm ô khoá `toi` của cả ngày. Commit
+của nó rơi **ngoài khung giờ gửi** (cổng 2 của `notify-email.yml` đòi ≥20:30) nên không kích
+email/Telegram. Hậu quả dây chuyền: CI 21:00 · local 21:15 · CI 22:00 đều nhận **exit 10** rồi SKIP —
+**cả ba lớp im lặng, không lớp nào báo hỏng, mà bản tin tối suýt mất trắng.** Chỉ cứu được vì phiên
+local 21:15 quét đè lên cờ (gửi 21:34); canary 22:45 có kêu nhưng đã quá hạn 22:00.
+
+**Cơ chế vá:** workflow đặt `DIEMTIN_PHIEN_TEST: ${{ inputs.mode == 'test' && '1' || '0' }}` ở tầng
+`env:` của step quét → `claude -p` và mọi lệnh Bash con thừa hưởng → `state.py` chuyển toàn bộ đường
+ghi sang `logs/state-test.json` (đã `.gitignore`).
+| | |
+|---|---|
+| Phiên test vẫn làm được | trọn pipeline `claim → beat → done`, ghi vào sổ riêng — nghiệm thu hạ tầng không mất giá trị |
+| Phiên test KHÔNG làm được | chiếm ô khoá thật · ghi `RUNNING`/khoá lên `logs/state.json` |
+| Phiên test VẪN đọc cờ thật | để nhường phiên THẬT đang chạy (**exit 11**) — bỏ chốt này là mở đường quét chồng |
+| Phiên test KHÔNG bao giờ | **exit 10** vì bản tin thật đã xong — test phải chạy lại được bất kể giờ nào |
+
+⚠️ **Ý ĐỊNH KHAI BẰNG LỜI, không suy từ `MODE`/tên workflow/giờ chạy** — cùng lỗi đã vấp với `tu_dong=1`
+(suy từ `event_name == 'push'`) và `TELEGRAM_BAT_BUOC` (suy từ số secret còn lại). **Mặc định là phiên
+THẬT**: quên đặt biến thì hành vi y như cũ, không tạo vùng câm mới.
+⚠️ `STATE_LOGS_DIR` là seam **CHỈ dành cho bộ test** (ghim thư mục logs vào chỗ tạm) — vận hành thật
+tuyệt đối không đặt.
+⚠️ **Vá gốc này KHÔNG bịt hết** — đường **bấm tay `workflow_dispatch` mode=normal giữa ngày** vẫn `done`
+và chiếm ô khoá y như cũ, mà commit của nó cũng rơi ngoài khung giờ gửi. Thứ bắt được ca đó là **phép
+kiểm sổ đã gửi khi gặp exit 10**: `docs/routine-web-scan.md` mục "PHIÊN TỐI" điều 3 (bản local) và
+`.github/prompts/web-scan-ci.md` BƯỚC 1 (bản CI, có thêm chốt "lastRunAt < 20 phút thì SKIP êm" để khỏi
+kêu oan lúc `notify-email.yml` còn đang chạy). Đừng gỡ phép kiểm đó vì "đã vá gốc rồi".
+Bộ test canh: `tests/test-cong-phien-test.py` (11 ca · `--tu-kiem` bắt được 5/5 bản hỏng).
 
 **Khoá chống chạy chồng (thêm 22/07/2026).** Mốc chính và mốc dự phòng cách nhau đúng 60 phút mà một
 phiên quét mất ~60 phút → `check` (chỉ biết ĐÃ XONG hay chưa) để lần fire dự phòng khởi động phiên THỨ

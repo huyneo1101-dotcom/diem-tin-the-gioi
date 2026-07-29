@@ -108,6 +108,16 @@ jobs:
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           MODE: ${{ inputs.mode || 'normal' }}
+          # 🔒 PHIÊN TEST KHÔNG ĐƯỢC ĐỤNG CỜ THẬT (vá gốc sự cố tối 29/07/2026).
+          # Nhánh test đã cố tình KHÔNG truyền `tu_dong=1` để khỏi để dấu trong sổ đã gửi;
+          # biến này là vế còn lại — khỏi để dấu trong cờ `logs/state.json`. Chiều 29/07 một
+          # phiên MODE=test chạy 17:34 đã gọi `state.py done web-scan`, chiếm ô `toi` cả ngày,
+          # mà commit của nó rơi ngoài khung giờ gửi nên không có email — CI 21:00, local 21:15
+          # và CI 22:00 lần lượt exit 10 rồi SKIP, bản tin tối suýt mất trắng trong im lặng.
+          # Đặt ở tầng `env:` của step chứ không nhét trong prompt: `claude -p` và mọi lệnh Bash
+          # con đều thừa hưởng biến này -> cơ chế, không phải lời hứa (prompt có thể quên).
+          # Bộ test canh: tests/test-cong-phien-test.py (có ca đọc chính file yml này).
+          DIEMTIN_PHIEN_TEST: ${{ inputs.mode == 'test' && '1' || '0' }}
         run: |
           PROMPT_FILE=.github/prompts/web-scan-ci.md
           if [ "$MODE" = "test" ]; then PROMPT_FILE=.github/prompts/web-scan-test.md; fi
