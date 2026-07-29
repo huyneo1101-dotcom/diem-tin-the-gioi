@@ -55,3 +55,4 @@
 [14:33Z] add_news.py OK: +2 worldNews, +9 usNews. generatedAt=2026-07-29, khop date cua scan-gaps.json.
 [14:36Z] CAT VONG BAO MOI (9 ung vien) vi han chot email 22:00 - da khai ro trong scan-gaps.json muc "Bao Moi" kem ly do ra nhanh tung bai. Predator's Run 0 tin (khong co dien bien moi 28-29/07).
 [15:01Z] SKIP (CI 22:00 - lop vet) phien toi - state.py claim web-scan tra exit 10 (da DONE luc 21:33:54+07 hom nay, "+11 tin phien toi that (2 TG, 9 My) - quet lai vi o toi bi phien TEST CI chiem"). git pull --rebase khong co gi moi. Khong quet lai. Ket thuc em.
+[15:34Z] SKIP (CI) phien toi - lan goi lai: state.py claim web-scan tra exit 10 (van la DONE luc 21:33:54+07 hom nay, "+11 tin phien toi that"). git pull --rebase khong co gi moi (Already up to date). Khong quet lai. Ket thuc em.
