@@ -54,7 +54,10 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # 130' chứ không phải 90': từ 28/07/2026 phiên SÁNG SỚM còn gộp thêm pipeline event-scan
+    # (sự kiện/tập trận/think-tank, Chủ nhật +báo cáo tuần Opus) trong CÙNG job — xem BƯỚC 6
+    # của .github/prompts/web-scan-ci.md. Phiên tối không đổi phạm vi nên vẫn dư thời gian.
+    timeout-minutes: 130
     steps:
       - name: Kiểm tra secret
         id: gate
@@ -72,6 +75,11 @@ jobs:
         if: steps.gate.outputs.run == 'true'
         with:
           fetch-depth: 0
+
+      - name: Ghi lại HEAD trước khi quét
+        id: base
+        if: steps.gate.outputs.run == 'true'
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - name: Git identity
         if: steps.gate.outputs.run == 'true'
@@ -105,19 +113,25 @@ jobs:
           if [ "$MODE" = "test" ]; then PROMPT_FILE=.github/prompts/web-scan-test.md; fi
           echo "MODE=$MODE PROMPT=$PROMPT_FILE"
           TOOLS="Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(sleep *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite"
-          claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 500 \
-            || { echo "claude -p lỗi (mạng/server?) — retry sau 60s"; sleep 60; claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 500; }
+          # --max-turns 700 (trước 500): phiên SÁNG SỚM từ 28/07/2026 gộp thêm pipeline
+          # event-scan (BƯỚC 6 trong $PROMPT_FILE) ngay trong job này, cần thêm lượt.
+          claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 700 \
+            || { echo "claude -p lỗi (mạng/server?) — retry sau 60s"; sleep 60; claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 700; }
 
-      - name: Kích email + push notification nếu có bản tin mới
+      - name: Kích email/push/morning nếu có bản tin hoặc sự kiện mới
         if: steps.gate.outputs.run == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           MODE: ${{ inputs.mode || 'normal' }}
         run: |
           git pull --rebase origin main || true
-          msg=$(git log -1 --format=%s)
-          echo "HEAD: $msg"
-          if echo "$msg" | grep -qiE '^Cap nhat ban tin'; then
+          # So với HEAD lúc bắt đầu job (không phải "commit cuối cùng") — từ 28/07/2026 phiên
+          # SÁNG SỚM có thể tạo HAI commit riêng (bản tin + sự kiện, xem BƯỚC 6 của prompt);
+          # `git log -1` chỉ thấy commit sau cùng và sẽ bỏ lọt commit bản tin phía trước.
+          new_msgs=$(git log ${{ steps.base.outputs.sha }}..HEAD --format=%s)
+          echo "Commit mới trong job này:"
+          echo "$new_msgs"
+          if echo "$new_msgs" | grep -qiE '^Cap nhat ban tin'; then
             if [ "$MODE" = "test" ]; then
               # KHÔNG truyền tu_dong: chạy test không được ghi sổ, y như người bấm tay.
               gh workflow run notify-email.yml -f subject_tag='[QUET TEST TU DONG] '
@@ -129,5 +143,10 @@ jobs:
               gh workflow run notify-push.yml || true
             fi
           else
-            echo "Không có commit bản tin mới — không kích email."
+            echo "Không có commit bản tin mới trong job này — không kích email bản tin."
+          fi
+          if [ "$MODE" != "test" ] && echo "$new_msgs" | grep -qiE '^(Cap nhat su kien|Dang bao cao tuan)'; then
+            # Kích notify-morning.yml (email 🎖️ riêng) — trước 28/07/2026 việc này nằm ở
+            # claude-event-scan.yml (đã xoá, gộp việc quét vào job này, xem BƯỚC 6 prompt).
+            gh workflow run notify-morning.yml -f tu_dong=1
           fi

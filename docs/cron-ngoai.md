@@ -43,12 +43,18 @@ Bấm **Generate token**, copy chuỗi `github_pat_...` — **nó chỉ hiện M
 > | vét TỐI | 8170056 | `claude-web-scan.yml` | 22:00 |
 > | gom nguồn SÁNG | 8170069 | `harvest-ci.yml` | 03:45 |
 > | quét SÁNG | 8170018 | `claude-web-scan.yml` | 04:00 |
-> | sự kiện SÁNG | 8170086 | `claude-event-scan.yml` | 08:45 |
+> | ~~sự kiện SÁNG~~ | ~~8170086~~ | ~~`claude-event-scan.yml`~~ | ~~08:45~~ |
+>
+> ⚠️ **Job "sự kiện SÁNG" (8170086) CHẾT từ 28/07/2026** — workflow `claude-event-scan.yml` đã bị
+> xoá khỏi repo (pipeline `event-scan` gộp vào job `claude-web-scan.yml` của phiên sáng sớm, xem
+> `docs/routine-web-scan.md` Bước 4). Job này giờ gọi vào một file không còn tồn tại → mỗi lần chạy
+> sẽ trả lỗi 404 trong lịch sử cron-job.org. **Zim không có quyền vào trang cron-job.org — Huy cần
+> tự đăng nhập console.cron-job.org và XOÁ hoặc TẮT job này**, không thì nó cứ báo lỗi mỗi ngày
+> trong "History" mà không ai đọc.
 >
 > Nghiệm thu THẬT (không phải nhìn màn hình): TEST RUN `claude-web-scan` trả **204** → GitHub run
 > `15:30:21Z` `workflow_dispatch` **success**; TEST RUN `harvest-ci` trả **204** → run `15:50:24Z`
-> "Gom ứng viên tin từ CI (Mỹ)". Job `claude-event-scan` **chưa chạy thử** (không muốn kích phiên
-> quét sự kiện lúc nửa đêm) — URL đã đối chiếu đúng tên file, nó tự kiểm ở mốc 08:45 sáng mai.
+> "Gom ứng viên tin từ CI (Mỹ)".
 
 **Làm NGAY sau khi đăng nhập: Settings → Default timezone → `Asia/Ho_Chi_Minh` → SAVE.**
 Mặc định là UTC, và ô này *"only applies to new jobs"* — đặt trước khi tạo job thì khỏi quy đổi giờ,
@@ -102,7 +108,7 @@ cron-job.org có nút **Clone** — nhân bản job vừa tạo rồi chỉ sử
 | Điểm Tin — vét TỐI | `claude-web-scan.yml/dispatches` | 22:00 |
 | Điểm Tin — gom nguồn SÁNG | `harvest-ci.yml/dispatches` | 03:45 |
 | Điểm Tin — quét SÁNG | `claude-web-scan.yml/dispatches` | **04:00** |
-| Điểm Tin — sự kiện SÁNG | `claude-event-scan.yml/dispatches` | 08:45 |
+| ~~Điểm Tin — sự kiện SÁNG~~ | ~~`claude-event-scan.yml/dispatches`~~ | ~~08:45~~ — **XOÁ, xem cảnh báo ở Bước 2** |
 
 Phần URL trước tên file luôn giống nhau:
 `https://api.github.com/repos/huyneo1101-dotcom/diem-tin-the-gioi/actions/workflows/`

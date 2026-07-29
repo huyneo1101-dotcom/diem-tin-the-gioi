@@ -25,9 +25,10 @@ VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 REPO = "huyneo1101-dotcom/diem-tin-the-gioi"
 
 # Mốc CI theo lịch (giờ VN) — để đối chiếu "đáng lẽ đã chạy mấy lần rồi".
+# claude-event-scan.yml đã xoá 28/07/2026 — pipeline event-scan nay chạy gộp trong
+# CHÍNH job claude-web-scan.yml của phiên sáng sớm, không còn workflow riêng để đếm run.
 MOC_CI = {
     "claude-web-scan.yml": [(21, 0), (22, 0), (4, 0), (5, 0)],
-    "claude-event-scan.yml": [(8, 45), (9, 45)],
 }
 
 

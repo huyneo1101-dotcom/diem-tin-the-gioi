@@ -214,9 +214,10 @@ def main() -> int:
             print(f"[canary] {nhan} {ngay}: phiên event-scan DONE — im lặng.")
             return 0
         text = (f"⚠️ {gio_vn} {ngay_vn} — phiên SỰ KIỆN & TẬP TRẬN chưa chạy xong.\n\n"
-                f"Cả 4 mốc (CI 08:45 · local 09:15 · CI 09:45 · local 10:15) đều không "
-                f"hoàn tất.\n{mota}\n\n"
-                f"Chạy tay: gh workflow run claude-event-scan.yml")
+                f"Pipeline này gộp vào phiên sáng sớm từ 28/07/2026 — cả 4 mốc của phiên đó "
+                f"(CI 04:00 · local 04:30 · CI 05:00 · local 05:30) đều không hoàn tất.\n"
+                f"{mota}\n\n"
+                f"Chạy tay: gh workflow run claude-web-scan.yml")
         print(f"::warning::canary {args.ca}: {mota}")
         return gui(text)
 

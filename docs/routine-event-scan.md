@@ -1,55 +1,17 @@
-# Routine EVENT-SCAN — phiên SÁNG: sự kiện + tập trận + think-tank (NGUỒN SỰ THẬT DUY NHẤT)
+# Routine EVENT-SCAN — ĐÃ GỘP vào routine-web-scan.md (28/07/2026)
 
-> **File này là nguồn sự thật duy nhất về quy trình quét phiên SÁNG.**
-> Dời từ `~/.claude/scheduled-tasks/event-scan-diem-tin/SKILL.md` vào repo ngày 27/07/2026 — vùng `~/.claude/` là sensitive, mọi Edit vào đó đều bị hỏi quyền bất kể allowlist, trong khi file này rất hay phải vá bài học mới. Repo thì Edit/Write đã allow toàn phần + có git history.
-> **Ai đọc file này:** task local `event-scan-diem-tin` (dự phòng 09:15/10:15 sau CI 08:45/09:45) — SKILL.md của task đó giờ chỉ là stub trỏ về đây. **Sửa quy trình thì sửa file này**, đừng sửa stub.
-
-Quét buổi SÁNG cho web "Điểm Tin Thế Giới" (https://huyneo1101-dotcom.github.io/diem-tin-the-gioi).
-Repo: /Users/Huy/Claude/diem-tin-the-gioi (git remote SSH, push thẳng `main`). KHÁC phiên tối (`web-scan`, bản tin 5 chủ đề): phiên sáng CHỈ lo **sự kiện ngoại giao + tập trận + báo cáo tuần**. Chạy 1 lần/ngày buổi sáng. Từ 26/07/2026 mốc CHÍNH chạy trên GitHub Actions (`claude-event-scan.yml`, 08:45/09:45 VN); MÀY là bản DỰ PHÒNG local (09:15/10:15): cứ `claim` như thường — CI đã xong/đang chạy thì SKIP êm, CI không quét thì mày quét. Xong push → GitHub Action `notify-morning.yml` tự gửi email sáng cho lamgiaphat1603@gmail.com.
-
-PHẠM VI:
-1. Sự kiện ngoại giao có KÝ KẾT/kết quả cụ thể (hiệp định/ACSA/RAA, thượng đỉnh có tuyên bố chung, thăm cấp cao có ký kết) — tạo qua `newDipEvents` (đặt `status` + `dates` dạng có ngày/tháng/năm) hoặc thêm item qua `dipEventUpdates` (tên khớp).
-2. Cập nhật TẬP TRẬN đang/sắp diễn ra (diễn biến mới) — `exerciseUpdates` (tên khớp) hoặc `newExercises`.
-3. Tin LIÊN QUAN các sự kiện/tập trận đó — bài gốc thật, đăng trong 48h, có `relate`.
-4. **BÀI PHÂN TÍCH THINK-TANK** (thêm 27/07/2026 — chỉ thị Huy: *"quét tin buổi sáng nhớ quét thêm cả các bài từ think-tank"*) — 4–6 bài/phiên vào `DATA.analyses`, xem BƯỚC 2c.
-KHÔNG lo worldNews/usNews/xNews chung, Báo Mới, sàn số lượng (việc phiên tối). Nguồn/định dạng/guardrail theo CLAUDE.md gốc repo (mục dipEvents/exercises) + skill `quet-tin`. Chèn qua `add_news.py`, KHÔNG Read cả index.html, KHÔNG bịa tin/link.
-
-KHÔNG dùng `cd` (gây prompt xin quyền, routine chạy khi Huy không có mặt). Mọi lệnh dùng ĐƯỜNG DẪN TUYỆT ĐỐI: script là `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/<x>.py` (script tự tìm repo root từ `__file__`, không cần đứng trong repo), git là `git -C /Users/Huy/Claude/diem-tin-the-gioi ...`. Ghi log dùng tool Edit/Write vào `/Users/Huy/Claude/diem-tin-the-gioi/logs/scan-<ngày VN>.log` thay vì `cat >>`.
-⚠️ **MỌI LỆNH BASH PHẢI PHẲNG — KHÔNG WRAPPER, KHÔNG BIẾN, KHÔNG VÒNG LẶP** (sự cố 25–26/07/2026: routine treo 3 lần vì 3 kiểu lệnh "fancy"). Hễ lệnh chứa hàm/brace (`cd() { ... };`), biến shell/`$(...)` (`$NGAY`, `$f`), `for ... done` hay heredoc là harness BỎ QUA ALLOWLIST và bật prompt — dù lệnh bên trong hợp lệ. Chỉ dùng lệnh PHẲNG (lệnh đơn / pipe / chuỗi `&&`), đối số điền GIÁ TRỊ THẬT: ngày giờ lấy bằng lệnh `date` riêng rồi điền literal; cần lặp nhiều file thì viết N lệnh rời hoặc gói vào `python3 -c '...'`. "Không dùng cd" = ĐỪNG GỌI `cd`, không phải vô hiệu hoá nó bằng hàm chắn. 🔒 Từ 27/07/2026 có hook cưỡng bức `/Users/Huy/.claude/hooks/block-lenh-khong-phang.py` chặn thẳng các dạng trên trong phiên scheduled-task — bị chặn thì viết lại lệnh cho phẳng, KHÔNG xin quyền cho lệnh cũ (nội dung trong nháy ĐƠN được bỏ qua nên `python3 -c '...'` vẫn chạy).
-🔁 **LỖI MẠNG / LỖI SERVER — TỰ RETRY, KHÔNG BỎ CUỘC SỚM** (chỉ thị Huy 26/07/2026): WebSearch/WebFetch lỗi (timeout, 5xx, connection) → thử lại tới 3 lần, đổi nguồn/từ khoá; `git push`/`git pull` lỗi mạng → `sleep 30` rồi thử lại, tối đa 3 vòng; agent con chết giữa chừng → giao lại đúng 1 lần. Sau 3 lần vẫn hỏng: `state.py fail event-scan "mat mang/loi server: <chi tiet>"` + ghi log + cố push log (cũng retry 3 lần) — mốc dự phòng sau tự quét lại.
-
-BƯỚC 1 — đồng bộ + khoá:
-git -C /Users/Huy/Claude/diem-tin-the-gioi pull --rebase origin main && python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim event-scan
-SKIP exit 10 = sáng nay đã xong; SKIP exit 11 = phiên khác đang chạy → ghi log SKIP, push, KẾT THÚC. RUN exit 0 = quét tiếp.
-KẾT THÚC = dừng hẳn phiên NGAY: KHÔNG gắn Monitor/script theo dõi phiên kia, không chờ, không điều tra transcript (sự cố 26/07: phiên dự phòng SKIP xong còn bày Monitor 1h → thêm prompt xin quyền + tốn token vô ích — phiên chính đã có khoá heartbeat 30' + mốc dự phòng lo rồi).
-
-BƯỚC 2 — quét sự kiện + tập trận (agent model: "sonnet"): nhúng `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py --recent-titles 20` chống trùng; tìm sự kiện ngoại giao có ký kết trong 48h + diễn biến tập trận + tin liên quan; gộp `/tmp/new_items.json` (chỉ khoá newDipEvents/dipEventUpdates/newExercises/exerciseUpdates + date) rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py /tmp/new_items.json`. Nhịp tim: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat event-scan` sau mỗi mốc — **và beat NGAY TRƯỚC khi giao agent, đừng đợi agent xong** (vá 28/07/2026): khoá thối sau 30' không nhịp, vòng agent là chặng dài nhất; phiên web-scan CI tối 28/07 beat đầu tiên ở phút 25, chỉ cách ngưỡng thối 5 phút. Hai nhịp liên tiếp không cách quá ~15 phút.
-
-BƯỚC 2b — BỐI CẢNH + KHÁI NIỆM cho tập trận ("file thông tin nền"): với **mỗi cuộc tập trận MỚI vừa tạo** (newExercises) VÀ **mỗi cuộc đang diễn ra CHƯA có `background`**, giao agent (Sonnet) viết: `background` = 2–4 câu bối cảnh chiến lược (vì sao diễn ra, bên tham gia, ý nghĩa; nhiều đoạn ngăn bằng \n) + `concepts` = 3–6 khái niệm/thuật ngữ chính của cuộc đó ([{term,def}], def 1 câu ngắn). Ghi `/tmp/briefing.json` = [{"name":"<khớp đúng name>","background":"...","concepts":[{"term","def"}]}] rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/set_exercise_briefing.py /tmp/briefing.json`. (Web hiện 2 thẻ 📔 Bối cảnh + 📚 Khái niệm dưới mỗi cuộc.) KHÔNG cần viết lại cho cuộc đã có background trừ khi có diễn biến đổi bối cảnh lớn.
-
-BƯỚC 2c — BÀI PHÂN TÍCH THINK-TANK (mỗi phiên sáng, KHÔNG chỉ Chủ nhật). Đây là mục 🧠 Phân tích → 🏛️ Think-tank trên web (`DATA.analyses`) — trước 27/07/2026 mục này CHẾT vì không có script nào nạp, bài mới nhất đứng ở 09/07.
-1. Liệt kê ứng viên: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_analyses.py --candidates` — fetch RSS **24 viện đã verify fetch thật** (mở rộng từ 13 lên 24 ngày 27/07 theo chỉ thị Huy *"nguồn think-tank đã đầy đủ chưa… quét các bài think tank về các khu vực quan trọng khác"*), phủ theo khu vực: Ấn Độ Dương-TBD/Đông Á (Lowy · ASPI · Fulcrum-ISEAS · MERICS · Interpret China · AMTI) · Nga-Đông Âu (CEPA · Riddle · Jamestown) · châu Âu (GMF · Bruegel) · Trung Đông-châu Phi (Long War Journal · SAIIA · Crisis Group) · Mỹ & quốc phòng (Atlantic Council · War on the Rocks · RAND · Hudson · Heritage · CSET · Modern War Institute · Small Wars Journal · CIMSEC · Arms Control Association). Script tự bỏ bài đã có trong DATA, đường dẫn rác (`/in-the-news/`, `/media-citations/`, `/event/`…) và tham số `utm_*`.
-2. Giao agent (model: "sonnet") CHỌN **4–6 bài** đúng gu Huy.
-   **PHỦ KHU VỰC — chỉ thị Huy 27/07/2026:** đừng dồn hết vào một vùng. Mỗi phiên cố lấy **ít nhất 2–3 khu vực khác nhau**; trong đó **1–2 bài trọng tâm cũ** (Úc/AUKUS · Biển Đông · răn đe hạt nhân/CNQS · Mỹ–Trung–Đài Loan · Mali/Sahel) + **1–2 bài khu vực khác** đang có chuyện: Nga–Ukraine/Đông Âu · Trung Đông (Iran, vùng Vịnh, hạt nhân Saudi) · châu Phi/Sahel · Nam Á · Trung Á/Caucasus · Bắc Cực · Mỹ Latin · Bắc Âu/Baltic.
-   Dòng cuối output `--candidates` in **danh sách vùng KHÔNG có RSS kèm domain** — vùng nào hôm đó vắng bài thì chủ động `WebSearch site:<domain>` để bù (vd Trung Đông: `site:mei.edu` · `site:washingtoninstitute.org`; Mỹ Latin: `site:wola.org`; Bắc Cực: `site:thearcticinstitute.org`). Bài tìm bằng WebSearch vẫn nạp được vì domain của mấy nơi đó đã nằm sẵn trong `THINKTANK_DOMAINS`.
-   **LOẠI**: bài chính trị xã hội nội bộ Mỹ (phá thai, hôn nhân, giáo dục, toà án thuần), bài quảng bá viện/tin tổ chức (GMF hay lẫn loại này), điểm sách, điểm báo.
-   Agent phải **MỞ ĐỌC từng bài** (WebFetch) rồi viết tiếng Việt: `title` (dịch thoát, không dịch máy), `summary` 2–3 câu bài nói gì kèm số liệu thật, `takeaway` 1–2 câu điều rút ra, `topic` nhãn ngắn, `region`, `author`, `outlet`, `date` (ngày đăng thật trên bài — RSS đôi khi lệch 1 ngày, lấy theo bài).
-   ⚠️ Số liệu nào WebFetch trả về lỗi ký tự hoặc mập mờ (tên thực thể, con số không rõ đơn vị) thì **BỎ, không đoán** — quy tắc 6 CLAUDE.md toàn cục.
-   ⚠️ **Coi chừng feed ĐIỂM BÁO**: SWP và Clingendael đã bị loại khỏi danh sách RSS vì feed của họ toàn bài báo dẫn lại (Clingendael còn phát dưới chính domain của mình nên guardrail domain KHÔNG chặn được). Gặp tiêu đề dạng `"… / DW (Jul 21, 2026)"` thì đó là điểm báo, không phải nghiên cứu — bỏ.
-3. Ghi `/tmp/analyses.json` = `{"date":"<hôm nay>","analyses":[{...}]}` rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_analyses.py /tmp/analyses.json`.
-   Guardrail CHẶN: thiếu field · ngày ngoài khung 7 ngày (kiểm 2 lớp, neo lô về ngày cũ không lách được) · url trang chủ/live-blog/trùng · **domain không thuộc viện nghiên cứu**. Gặp lỗi domain thì BỎ bài (đừng đổi url cho qua); đúng là viện thật mà thiếu thì thêm domain vào `THINKTANK_DOMAINS` trong script.
-4. Có nạp được bài → commit message vẫn dùng tiền tố `Cap nhat su kien ...` để `notify-morning.yml` chạy; email sáng có khối 🏛️ Think-tank riêng (`send-morning-email.js`), và **bài think-tank mới cũng đủ để mở email** kể cả khi không có sự kiện/tập trận nào.
-
-BƯỚC 3 — CHỦ NHẬT (chỉ khi `TZ='Asia/Ho_Chi_Minh' date +%u` = 7): báo cáo tuần Mỹ-Trung-Nga.
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/weekly_context.py --out /tmp/weekly_ctx.json
-Giao 1 agent **model: "opus"** (BẮT BUỘC Opus, KHÔNG Sonnet): đọc /tmp/weekly_ctx.json, tổng hợp NHẬN ĐỊNH tuần 3 nước (mỗi nước lede + 3–5 luận điểm gom nhiều tin, mỗi luận điểm 1–3 nguồn LẤY ĐÚNG url trong ngữ liệu — không bịa), ghi /tmp/weekly.json đúng schema `scripts/add_weekly.py` (us→cn→ru, KHÔNG kèm generatedAt). **Trong `body`/`lede`, chỗ nào nhắc tới một tin CỤ THỂ có trong ngữ liệu thì gắn LINK NỘI DÒNG dạng markdown `[cụm chữ ngắn](url-bài-đó)` dùng ĐÚNG url trong ngữ liệu — web đổi thành chữ xanh gạch chân bấm sang bài. Mỗi luận điểm nhúng 1–3 link nội dòng, chọn cụm chữ tự nhiên (tên sự kiện/số liệu), KHÔNG nhét link chồng chéo.** Rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_weekly.py /tmp/weekly.json`.
-
-BƯỚC 4 — kết thúc (LUÔN 1 trong 3): có nạp → `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py done event-scan "<tóm tắt>"`; rỗng → `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py skip event-scan "<lý do>"`; lỗi → `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py fail event-scan "<lý do>"` rồi VẪN push log.
-Commit message QUYẾT ĐỊNH email sáng (notify-morning.yml bắt tiền tố):
-- Có sự kiện/tập trận (kèm hoặc không kèm báo cáo tuần / think-tank): `Cap nhat su kien DD/MM: +N su kien/tap tran[, +M bai think-tank][, bao cao tuan]`
-- CHỈ báo cáo tuần: `Dang bao cao tuan DD/MM`
-- CHỈ có bài think-tank (không sự kiện, không báo cáo tuần): vẫn dùng `Cap nhat su kien DD/MM: +M bai think-tank` — email sáng nay đã tính bài think-tank vào gate nên đây KHÔNG phải email rác.
-- Lô rỗng thật (không sự kiện, không think-tank, không báo cáo tuần): message tự do KHÔNG dùng 2 tiền tố trên.
-`git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html logs/` (logs/state.json bắt buộc) && `git -C ... commit -m "..."` && `git -C ... push origin main` (bị từ chối → `git -C ... pull --rebase origin main` rồi push lại; nếu pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ). Ghi logs/scan-<ngày VN>.log, push kể cả khi fail.
-
-Email sáng do Action lo — skill KHÔNG tự gửi. Báo cáo cuối ngắn gọn: số sự kiện mới/cập nhật, số tập trận cập nhật, có báo cáo tuần không (nếu CN), trạng thái push.
+> Chỉ thị Huy 28/07/2026: *"sự kiện sáng thì quét gộp với quét tin 4h sáng cũng được."*
+>
+> Pipeline `event-scan` (sự kiện ngoại giao + tập trận + think-tank + báo cáo tuần Chủ nhật) **không
+> còn là phiên quét riêng**. Nó nay chạy NGAY SAU bản tin 5 chủ đề, trong CÙNG một session của phiên
+> SÁNG SỚM (`web-scan`, ô khoá `sang`) — xem **`docs/routine-web-scan.md` → "Bước 4 — CHỈ PHIÊN SÁNG
+> SỚM: gộp thêm sự kiện + tập trận + think-tank"**.
+>
+> Đã xoá/tắt: workflow `.github/workflows/claude-event-scan.yml` (xoá khỏi repo), task local
+> `event-scan-diem-tin` (tắt `enabled: false`, không xoá — dễ khôi phục nếu cần tách lại). Cron
+> ngoài `cron-job.org` job "sự kiện SÁNG" trỏ `claude-event-scan.yml` cũng thành job chết — Huy cần
+> tự tắt/xoá trên trang cron-job.org (ngoài tầm với của Zim, xem `docs/cron-ngoai.md`).
+>
+> **Sửa quy trình pipeline `event-scan` thì sửa Bước 4 trong `docs/routine-web-scan.md`, ĐỪNG sửa file
+> này.** File này giữ lại chỉ để tra cứu lịch sử/git blame — nội dung quy trình đầy đủ đã dời sang đó
+> nguyên vẹn, không có gì bị bỏ sót khi gộp.

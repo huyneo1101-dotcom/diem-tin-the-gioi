@@ -49,7 +49,9 @@ LICH = {
     (21, 0): ["claude-web-scan.yml"],
     (22, 0): ["claude-web-scan.yml"],          # lớp vét
     (4, 30): ["harvest-ci.yml", "claude-web-scan.yml"],
-    (8, 45): ["claude-event-scan.yml"],
+    # (8, 45) claude-event-scan.yml đã BỎ 28/07/2026: pipeline event-scan nay chạy gộp
+    # trong CHÍNH job claude-web-scan.yml của phiên sáng sớm (04:00/05:00), không còn
+    # mốc riêng để kích.
 }
 DUNG_SAI_PHUT = 20
 SO_LAN_THU = 3

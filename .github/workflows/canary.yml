@@ -15,7 +15,11 @@ on:
   schedule:
     - cron: '45 15 * * *'   # 22:45 VN — sau lớp vét TỐI (CI 21:00 · local 21:15 · vét CI 22:00)
     - cron: '15 23 * * *'   # 06:15 VN hôm sau — sau lớp cuối SÁNG SỚM (… CI 05:00 · local 05:30)
-    - cron: '45 3 * * *'    # 10:45 VN — sau lớp cuối EVENT-SCAN (… CI 09:45 · local 10:15)
+    # 06:20 VN (trước 28/07: 10:45) — pipeline event-scan gộp vào phiên SÁNG SỚM cùng ngày
+    # (xem BƯỚC 6 của web-scan-ci.md), nên lớp cuối của nó giờ TRÙNG lớp cuối web-scan sáng
+    # sớm (local 05:30), không còn mốc 09:45/10:15 riêng. Đặt lệch 5' sau ca `sang` để không
+    # đụng cron cùng phút.
+    - cron: '20 23 * * *'   # 06:20 VN hôm sau — sau lớp cuối EVENT-SCAN (gộp, cùng mốc sáng sớm)
   workflow_dispatch:
     inputs:
       ca:
@@ -45,7 +49,7 @@ jobs:
           case "${{ github.event.schedule }}" in
             "45 15 * * *") ca=toi    ;;
             "15 23 * * *") ca=sang   ;;
-            "45 3 * * *")  ca=sukien ;;
+            "20 23 * * *") ca=sukien ;;
             *)             ca="${{ inputs.ca }}" ;;   # chạy tay
           esac
           echo "ca=$ca" >> "$GITHUB_OUTPUT"

@@ -1,6 +1,6 @@
 Mày là phiên quét bản tin (web-scan) của "Điểm Tin Thế Giới", chạy trong GITHUB ACTIONS — KHÔNG phải máy Mac của Huy.
 
-Bản tin chạy **2 phiên/ngày, CÙNG playbook 5 chủ đề**: phiên **TỐI** (fire 21:00 giờ VN, ô khoá `toi` — email bản tin tối có **hạn chót 22:00**: sau mày chỉ còn local 21:15 là lớp cuối còn kịp hạn, mốc CI 22:00 là lưới vét đã trễ. Vì vậy quét gọn, đừng vòng bổ sung vô hạn) và phiên **SÁNG SỚM** (fire 04:00/05:00 giờ VN — đổi 27/07/2026 từ 04:30/05:30 để chừa chỗ cho mốc dự phòng local 04:30/05:30, ô khoá `sang` — đêm VN là ngày làm việc Mỹ nên nhiều tin mới; nhãn state.py có thể in "CHAY BU (sang som)", kệ nhãn cũ, đây là phiên chủ động hợp lệ). Xác định mình là phiên nào bằng `TZ='Asia/Ho_Chi_Minh' date +%H:%M`: trước 14:00 = sáng sớm, từ 14:00 = tối — `state.py claim` tự chọn ô theo giờ, cứ chạy như thường. Ghi log dùng chữ "phien toi" / "phien sang som" tương ứng. Cả hai phiên đều commit mẫu `Cap nhat ban tin ...` → email tự gửi.
+Bản tin chạy **2 phiên/ngày, CÙNG playbook 5 chủ đề**: phiên **TỐI** (fire 21:00 giờ VN, ô khoá `toi` — email bản tin tối có **hạn chót 22:00**: sau mày chỉ còn local 21:15 là lớp cuối còn kịp hạn, mốc CI 22:00 là lưới vét đã trễ. Vì vậy quét gọn, đừng vòng bổ sung vô hạn) và phiên **SÁNG SỚM** (fire 04:00/05:00 giờ VN — đổi 27/07/2026 từ 04:30/05:30 để chừa chỗ cho mốc dự phòng local 04:30/05:30, ô khoá `sang` — đêm VN là ngày làm việc Mỹ nên nhiều tin mới; nhãn state.py có thể in "CHAY BU (sang som)", kệ nhãn cũ, đây là phiên chủ động hợp lệ). Xác định mình là phiên nào bằng `TZ='Asia/Ho_Chi_Minh' date +%H:%M`: trước 14:00 = sáng sớm, từ 14:00 = tối — `state.py claim` tự chọn ô theo giờ, cứ chạy như thường. Ghi log dùng chữ "phien toi" / "phien sang som" tương ứng. Cả hai phiên đều commit mẫu `Cap nhat ban tin ...` → email tự gửi. **Từ 28/07/2026: phiên SÁNG SỚM sau khi xong bản tin còn làm TIẾP pipeline `event-scan` (sự kiện/tập trận/think-tank, trước là workflow riêng) trong CÙNG phiên này — xem BƯỚC 6 cuối file.**
 
 ## MÔI TRƯỜNG CI (khác máy local — GHI NHỚ TRƯỚC KHI GÕ LỆNH)
 - cwd = repo root diem-tin-the-gioi (đã checkout sẵn). Mọi đường dẫn dùng RELATIVE: `python3 scripts/x.py`, `git add index.html logs/` — KHÔNG dùng `/Users/Huy/...`, KHÔNG cần `git -C`.
@@ -34,3 +34,53 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
 - KHÔNG đọc cả `index.html` bằng tool Read (170KB) — grep + `scripts/add_news.py`.
 - KHÔNG bịa tin/link; không chắc `sourceUrl` thì bỏ tin. Được phép trả ít tin nếu ngày khan — ghi rõ trong tóm tắt.
 - Email + file Word do GitHub Action `notify-email.yml` tự lo khi thấy commit `Cap nhat ban tin` — mày không cần gửi gì.
+
+## BƯỚC 6 — CHỈ PHIÊN SÁNG SỚM: gộp thêm sự kiện + tập trận + think-tank (gộp 28/07/2026)
+
+> Chỉ thị Huy 28/07/2026: *"sự kiện sáng thì quét gộp với quét tin 4h sáng cũng được."* Pipeline
+> `event-scan` (trước đây là workflow riêng `claude-event-scan.yml`, ĐÃ XOÁ) nay chạy NGAY TRONG
+> phiên này khi mày là ca sáng sớm — không phải một session khác.
+
+**CHỈ làm bước này nếu mày xác định ở Bước 1 mình là phiên SÁNG SỚM** (`TZ='Asia/Ho_Chi_Minh' date +%H:%M` < 14:00). Phiên TỐI dừng ở Bước 5, không đọc tiếp phần này.
+
+Đây là pipeline THỨ HAI, khoá RIÊNG (`event-scan`, khác `web-scan` ở trên) và **commit RIÊNG** — không
+gộp vào commit bản tin, vì `notify-morning.yml` chỉ bắt tiền tố commit của pipeline này (email 🎖️ Sự
+kiện & Tập trận khác hẳn email 📰 bản tin). Chỉ nơi kích là gộp lại (1 session), cơ chế khoá/gửi vẫn
+tách như cũ.
+
+1. `git pull --rebase origin main` rồi `python3 scripts/state.py claim event-scan`.
+   - exit 10 (sáng nay đã xong) / exit 11 (phiên khác đang chạy): ghi 1 dòng SKIP vào log, commit +
+     push log, DỪNG bước này (phiên vẫn coi là hoàn tất — bản tin 5 chủ đề ở Bước 5 đã xong).
+   - exit 0: giữ khoá, làm tiếp. Ghi `[<giờ UTC>Z] START event-scan (CI, gop vao sang som)` vào log.
+2. Quét sự kiện + tập trận bằng agent (tool Agent, model "sonnet"): nhúng nguyên output
+   `python3 scripts/add_news.py --recent-titles 20`; tìm sự kiện ngoại giao có ký kết trong 48h +
+   diễn biến tập trận + tin liên quan; gộp `/tmp/new_items_event.json` (chỉ khoá newDipEvents/
+   dipEventUpdates/newExercises/exerciseUpdates + date) rồi
+   `python3 scripts/add_news.py /tmp/new_items_event.json`. Beat: `python3 scripts/state.py beat event-scan`
+   NGAY TRƯỚC khi giao agent, hai nhịp không cách quá ~15 phút.
+3. BỐI CẢNH + KHÁI NIỆM: mỗi cuộc tập trận MỚI hoặc đang diễn ra CHƯA có `background` → agent Sonnet
+   viết `background` (2–4 câu, `\n` ngăn đoạn) + `concepts` ([{term,def}]). Ghi `/tmp/briefing.json`
+   rồi `python3 scripts/set_exercise_briefing.py /tmp/briefing.json`.
+   ⚠️ Bước NẠP file Word "thông tin nền" (`import_background_docx.py`) CHỈ chạy được ở máy local
+   (file nằm trên Desktop Huy) — CI bỏ qua phần đó, chỉ làm phần agent sinh `background` ngắn.
+3b. BÀI THINK-TANK (mỗi phiên sáng sớm, KHÔNG chỉ Chủ nhật):
+   - `python3 scripts/add_analyses.py --candidates` → ứng viên RSS 24 viện đã verify.
+   - Giao agent Sonnet chọn 4–6 bài, phủ ít nhất 2–3 khu vực (1–2 bài trọng tâm cũ: Úc/AUKUS · Biển
+     Đông · CNQS · Mỹ-Trung-Đài Loan · Mali/Sahel; 1–2 bài vùng khác đang có chuyện). LOẠI: chính trị
+     xã hội nội bộ Mỹ, quảng bá viện, điểm sách/điểm báo. Agent MỞ ĐỌC (WebFetch) rồi viết tiếng Việt
+     đủ field. Số liệu mập mờ → BỎ, không đoán.
+   - Ghi `/tmp/analyses.json` rồi `python3 scripts/add_analyses.py /tmp/analyses.json`.
+4. CHỦ NHẬT (`TZ='Asia/Ho_Chi_Minh' date +%u` = 7): báo cáo tuần.
+   `python3 scripts/weekly_context.py --out /tmp/weekly_ctx.json` → giao 1 agent model "opus" (BẮT
+   BUỘC Opus) đọc file, viết nhận định tuần 3 nước kèm link nội dòng markdown dùng đúng url ngữ liệu
+   → ghi `/tmp/weekly.json` (us→cn→ru, không kèm generatedAt) → `python3 scripts/add_weekly.py /tmp/weekly.json`.
+5. Kết thúc — LUÔN một trong ba: `state.py done event-scan "<tóm tắt>"` / `skip` / `fail` (vẫn push log).
+   Commit tiền tố (QUYẾT ĐỊNH email sáng, KHÁC tiền tố `Cap nhat ban tin`):
+   - Có sự kiện/tập trận: `Cap nhat su kien DD/MM: +N su kien/tap tran[, +M bai think-tank][, bao cao tuan]`
+   - CHỈ báo cáo tuần: `Dang bao cao tuan DD/MM`
+   - CHỈ think-tank: vẫn `Cap nhat su kien DD/MM: +M bai think-tank`
+   - Rỗng thật: message tự do, không dùng 2 tiền tố trên.
+   `git add index.html logs/` (phải có `logs/state.json`) → commit RIÊNG với commit bản tin → push
+   (bị từ chối → `pull --rebase` rồi push lại).
+6. Báo cáo cuối (gộp chung với báo cáo Bước 5): số sự kiện/tập trận, có báo cáo tuần không, trạng thái
+   push của CẢ HAI commit.
