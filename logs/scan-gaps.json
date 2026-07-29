@@ -1,55 +1,55 @@
 {
   "date": "2026-07-29",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
-      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 11,
-      "target": "5-10",
+      "name": "Nội bộ Mỹ",
+      "count": 3,
+      "target": 7,
       "min": 5,
-      "thieu": false,
-      "reason": ""
+      "thieu": true,
+      "reason": "Hạng 1 (điều trần + bỏ phiếu thông qua dự luật) gần như cạn trong khung 28-29/07: phiên điều trần Fauci đã đưa ở bản tin sáng, dự luật cấm nghị sĩ giao dịch cổ phiếu và phiếu xác nhận Jay Clayton đều đã đưa hôm 28/07. Ba tin còn lại lấy từ nhóm bầu cử. Đã loại một số ứng viên vì ngày ĐĂNG khác ngày SỰ KIỆN: Hạ viện thông qua NDAA thật ra bỏ phiếu 22/07, phán quyết Tối cao Pháp viện vụ Lisa Cook ra ngày 29/06, đơn kiện thuế quan của doanh nghiệp nhỏ nộp 24-25/07. Tin họp Fed ngày 29/07 phải bỏ vì nguồn duy nhất tìm được là trang live-updates, guardrail chặn."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 9,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Công nghệ quân sự Mỹ (CNQS)",
-      "count": 9,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": "Phiên sáng chỉ được 4 (thiếu 1); lô bổ sung từ file Word ĐTN của Huy nạp thêm 5 tin CNQS nên chủ đề này đã đạt."
-    },
-    {
-      "name": "Mỹ – Mali",
-      "count": 1,
-      "target": "2-5",
-      "min": 2,
-      "thieu": true,
-      "reason": "Sau 2 vòng agent, chỉ có 1 sự kiện thật mới trong khung 28-29/7 (TT Senegal thăm Bamako). Các tin khác đang lan truyền (Trump cân nhắc không kích JNIM) có gốc thật từ 22/7, đã ghi log các phiên trước — không phải diễn biến mới. File Word ĐTN Huy gửi cũng KHÔNG có tin Mali/Sahel nào. Thiếu SỰ KIỆN MỚI thật, không phải thiếu nguồn."
-    },
-    {
-      "name": "Predator's Run 2026",
-      "count": 1,
-      "target": "1-2",
-      "min": 1,
-      "thieu": false,
-      "reason": "Đạt tối thiểu. Xác nhận tập trận CHƯA kết thúc (chạy tới hết 31/7), nên chưa có tin bế mạc/tổng kết — sẽ tìm ở phiên sau."
-    },
-    {
-      "name": "Báo Mới (ứng viên khớp 5 chủ đề)",
       "count": 2,
-      "target": "best-effort",
-      "min": 0,
+      "target": 7,
+      "min": 5,
+      "thieu": true,
+      "reason": "Khung 28-29/07 mỏng vì phần lớn diễn biến lớn đã vào bản tin sáng cùng ngày (ụ tàu khô AUKUS Tây Úc, khu bảo tồn biển Trường Sa, 26 tàu Trung Quốc tại Biển Tây Philippines). Đã loại 7 ứng viên sau khi xác minh: Rex Patrick FOI là bài từ 02/07 đăng lại, Tuần duyên Mỹ tài trợ Philippines dựa trên fact sheet 22/07, tàu Type 055 chống ngầm là tin tháng 1/2026, Pacific Partnership Indonesia thiên về nhân đạo, drone Ghost Bat và nhóm tác chiến USS George Washington trùng tin đã có. Riêng diễn tập Lanternfish của Hải quân Anh cùng đồng minh AUKUS bị loại vì DATA đã có tin cùng sự kiện (Ultra Maritime và Anduril trình diễn phát hiện UUV tại chính diễn tập này)."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 4,
+      "target": 7,
+      "min": 5,
+      "thieu": true,
+      "reason": "Chủ đề được nới khung tới 3 ngày nhưng phần lớn ứng viên có ngày đăng trong khung lại là sự kiện cũ: hợp đồng radar SPY-6 ký 21/07, Sentinel ICBM công bố 22/07, hợp đồng Oracle ký khoảng 23/07, diễn tập CCA tại Creech AFB 20-24/07, thử nghiệm Hammer of the Gods giữa tháng 7, tàu Expeditionary Sea Base chạy thử xong 17/07, hợp đồng tàu ngầm Virginia Block VI gửi Quốc hội từ 29/06. RealClearDefense có nhiều bài trong ngày nhưng là trang tổng hợp, các mục đáng lấy đều dẫn lại tin đã nạp (PAC-3 MSE/THAAD, phần mềm SATCOM chiến lược)."
+    },
+    {
+      "name": "Mỹ - Mali",
+      "count": 2,
+      "target": 4,
+      "min": 2,
       "thieu": false,
-      "reason": "Tổng 13 ứng viên được cổng nhắc trong ngày, xử lý hết: nạp 2 (Lầu Năm Góc rà soát lực lượng châu Âu; Trump-Zelensky bàn cấp phép sản xuất Patriot — truy gốc về Al Jazeera). Loại 11: 4 bài trùng nhau về cùng cuộc gặp Trump-Zelensky (đã nạp 1 bản gốc), PAC-2 GEM-T (hợp đồng RTX ~24/7, ngoài cả khung nới 3 ngày của CNQS), 'HIMARS của Nga' (chiến sự Nga-Ukraine lặp, ngoài 5 chủ đề), UAV 4.000km bay cùng F-35/Typhoon (khí tài châu Âu, không phải CNQS Mỹ), 2 bài thuế quan + 1 bài cải cách bầu cử (đã có tin gốc trong DATA từ 27/7), 1 bài không hợp chủ đề. Chi tiết: logs/loai-tin.md."
+      "reason": "Đủ mức tối thiểu. Đã loại các bản đăng lại trên AOL của cùng một tin Mỹ cân nhắc phương án quân sự, giữ hai bài có diễn biến mới thật: phản ứng của Ngoại trưởng Mali Abdoulaye Diop, và báo cáo mới về Africa Corps. Bài Bloomberg về Sahel chỉ có link Google News chuyển hướng, không kịp truy bài gốc trong hạn chót nên bỏ."
+    },
+    {
+      "name": "Tập trận Predator's Run 2026",
+      "count": 0,
+      "target": 2,
+      "min": 1,
+      "thieu": true,
+      "reason": "Không có diễn biến mới trong 28-29/07. Kho ứng viên chỉ còn hai mục: bản tin lễ khai mạc đã nạp từ trước, và Exercise Carabaroo 2026 là một cuộc tập trận song phương Philippines - Úc KHÁC, không thuộc Predator's Run. Tìm thêm trên DVIDS, defence.gov.au và marines.mil không ra bài về khoa mục bắn đạn thật hay lễ bế mạc. Cuộc tập trận dự kiến kết thúc quanh 29/07 nên khả năng chỉ còn tin tổng kết ở các phiên sau."
+    },
+    {
+      "name": "Báo Mới",
+      "count": 0,
+      "target": 6,
+      "min": 3,
+      "thieu": true,
+      "reason": "CẮT VÒNG BÁO MỚI VÌ HẠN CHÓT EMAIL 22:00. Phiên tối này khởi động muộn do phải xử lý sự cố khoá (ô buổi tối đã bị một phiên test hạ tầng CI chiếm lúc 17:34), nên không còn thời gian truy bài gốc cho 9 ứng viên. Rà nhanh thì phần lớn cũng sẽ bị loại: 4 bài về Patriot và đàm phán Trump - Zelensky trùng tin đã nạp ngày 28/07; bài PAC-2 GEM-T có sự kiện gốc ngoài khung (đã ghi nhận cùng lỗi này hôm 26/07); bài pháo phản lực Nga và UAV phối hợp F-35 thuộc chiến sự Nga - Ukraine và châu Âu, ngoài 5 chủ đề; hai bài thuế quan trùng góc tin thuế quan đã có. Các phiên sau xử lý tiếp, ứng viên vẫn nằm nguyên trong hàng đợi."
     }
   ],
-  "note": "HAI LÔ trong ngày. Lô 1 — phiên sáng sớm CI 04:00 VN (ô khoá 'sang'): harvest.py 322 ứng viên + telegram_harvest.py, nạp +5 worldNews, +11 usNews, +1 exercise. Lô 2 — bổ sung TAY 05:50 VN từ file Word 'ĐTN 29.7 hướng M' Huy gửi: đối chiếu 95 tin trong file với DATA, phần lớn đã trùng tin phiên sáng; nạp thêm +4 worldNews, +10 usNews. Lô 2 CỐ Ý commit với tiền tố KHÔNG khớp gate notify-email nên không gửi Telegram ngay — tin nằm chờ dồn vào bản tin TỐI theo đúng quy tắc 'tin quét tay giữa ngày dồn vào bản tối'. Chi tiết tin loại: logs/loai-tin.md."
+  "note": "Phiên tối 29/07 chạy ở mốc local 21:15. Ô khoá buổi tối trong logs/state.json đã bị một phiên TEST hạ tầng CI chiếm lúc 17:34 (chỉ nạp 1 tin, commit ngoài khung giờ gửi nên không kích email/Telegram), khiến cả CI 21:00 lẫn local 21:15 đều nhận exit 10 và SKIP. Sổ logs/da-gui-email.json xác nhận không có dòng buoi toi ngày 29/07, tức bản tin tối chưa từng được gửi. Phiên này vì vậy quét thật và commit theo tiền tố Cap nhat ban tin de kich notify-email, khong sua state.json cua phien khac."
 }
