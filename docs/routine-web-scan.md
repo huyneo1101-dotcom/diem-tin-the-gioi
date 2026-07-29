@@ -264,4 +264,20 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
 
 3. **`claim` trả SKIP thì dừng hẳn ngay** (exit 10 = CI 21:00 đã xong, exit 11 = CI đang chạy): ghi 1 dòng SKIP vào `logs/scan-<ngày VN>.log`, commit + push log, KẾT THÚC. Không gắn Monitor, không chờ, không điều tra thêm.
 
+   ⛔ **NGOẠI LỆ DUY NHẤT của điều 3 — exit 10 mà SỔ ĐÃ GỬI CHƯA CÓ DÒNG CỦA CA NÀY** (đúc 29/07/2026, sự cố thật). Trước khi SKIP êm ở **mốc LOCAL 21:15** (lớp cuối còn kịp hạn), đọc `logs/da-gui-email.json` và soi dòng cuối cùng có `buoi == "toi"`:
+   | Sổ có dòng `toi` ngày hôm nay | Làm gì |
+   |---|---|
+   | **CÓ** | SKIP êm theo đúng điều 3. Bản tin đã tới tay, không quét lại |
+   | **KHÔNG** | Cờ `lastSuccess` đang NÓI DỐI → **QUÉT THẬT**, commit tiền tố `Cap nhat ban tin` như thường |
+
+   **Cơ chế gây vấp:** `state.py` chỉ ghi nhận *"pipeline đã chạy xong"*, nó **không biết bản tin có được GỬI hay không** — hai chuyện khác nhau. Tối 29/07 một **phiên TEST hạ tầng CI** (`MODE=test`, quét nhẹ 1 agent, nạp đúng +1 tin) chạy lúc **17:34** và gọi `state.py done web-scan`, chiếm luôn ô `toi` của ngày. Commit của nó rơi **ngoài khung giờ gửi** (cổng 2 của `notify-email.yml` đòi ≥20:30) nên không kích email/Telegram. Hậu quả dây chuyền: CI 21:00 → exit 10 SKIP · local 21:15 → exit 10 SKIP · CI 22:00 → cũng sẽ SKIP. **Cả bốn lớp im lặng, không lớp nào hỏng, mà bản tin tối mất trắng.** Canary 22:45 có kêu nhưng lúc đó đã quá hạn 22:00.
+
+   Vì sao phải kiểm bằng SỔ chứ không bằng `state.json`: sổ đã gửi được ghi ở **bước CUỐI sau khi đã gửi xong mọi kênh**, nên nó là dấu vết việc-đã-làm; còn `lastSuccess` chỉ là lời tự khai của một phiên. Đây đúng nguyên tắc số 1 của canary — **kiểm ĐẦU RA, không kiểm quy trình** — nay áp luôn cho chính phiên quét.
+
+   ⛔ **KHÔNG sửa `logs/state.json` để lách.** `--force` chỉ cướp khoá `RUNNING`, không bỏ qua cờ đã-xong, và đó là **đúng thiết kế** — đừng thêm cờ mới. Không cần sửa gì cả: cổng gửi của `notify-email.yml` xét **commit message + khung giờ VN**, hoàn toàn không xét khoá, nên cứ quét rồi commit là email/Telegram vẫn đi. Mốc CI 22:00 sau đó vẫn thấy exit 10 và SKIP nên **không có nguy cơ quét chồng** (exit 10 khác exit 11: 10 = đã xong, 11 = đang chạy — chỉ 11 mới là dấu hiệu có phiên sống).
+
+   ⚠️ **Ghi rõ vào `scan-gaps.json` (mục `note`) và vào log** rằng phiên này quét đè lên cờ đã-xong, kèm lý do — để người đọc sau không tưởng có hai phiên tranh nhau.
+
+   🔧 **Vá gốc (việc của phía CI, không phải của phiên quét):** nhánh `MODE=test` trong `claude-web-scan.yml` **KHÔNG được gọi `state.py done`** — nó đã cố tình không truyền `tu_dong=1` để khỏi để dấu trong sổ, thì cũng phải không để dấu trong cờ. Cùng một bài học đã ghi ở CLAUDE.md: *chạy tay/chạy test là để TEST, không được để dấu vết lên bản thật.*
+
 4. Ghi log dùng chữ **"phien toi"**. Giờ VN lúc chạy là 21:15 nên `state.py` tự chọn ô `toi`, không cần truyền gì thêm.
