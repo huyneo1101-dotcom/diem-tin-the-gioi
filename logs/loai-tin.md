@@ -233,3 +233,32 @@ KHÔNG xoá trong đợt này, ghi lại để khỏi kiểm lại lần sau:
 - Bài ISW "Đánh giá chiến dịch tấn công của Nga, ngày 6/7/2026" (understandingwar.org) bị `--kiem` báo cùng lúc nhưng ISW LÀ viện nghiên cứu thật — nguyên nhân là `understandingwar.org` thiếu trong `THINKTANK_DOMAINS`, tức guardrail đang CHẶN OAN mọi bài ISW mới. Đã thêm domain, giữ nguyên bài.
 - Hai bài War on the Rocks 08/07 "Hải tặc/Cướp biển Somalia trở lại" là CÙNG MỘT BÀI (bản `/2026/07/…` redirect 301 về bản không có ngày trong path). Huy chốt GIỮ CẢ HAI; đã ghi vào `TRUNG_DA_DUYET` của `sua_nhan_analyses.py` để cổng không kêu lại.
 
+## 2026-07-29 (LÔ BỔ SUNG TAY — file Word "ĐTN 29.7 hướng M" Huy gửi)
+
+Huy gửi `/Users/Huy/Downloads/29.7 ĐTN huong M.docx` (103 đoạn, ~95 tin, 4 mảng: Đối ngoại Mỹ · Nội bộ Mỹ · Anh–Úc–Biển Đông · KHCN-QS + tập trận) và yêu cầu gộp vào bản tin TỐI nay. Đối chiếu từng tin với DATA: **nạp 14**, loại phần còn lại theo các nhóm dưới.
+
+### ⭐ Tin CHỦ ĐỀ THÍCH bị loại (rà kỹ mục này)
+- ⭐ [CNQS/US] Thuỷ quân lục chiến Mỹ (MRF-SEA Philippines ↔ MRF-D Darwin) thiết lập liên lạc cao tần tầm xa ~2.000 dặm — DVIDS/pacom.mil, bài đăng 27/07 — **loại vì NGÀY SỰ KIỆN là 23/07**, ngoài cả khung nới 3 ngày của CNQS (sớm nhất 26/07). Đã WebSearch xác minh sự kiện có thật (TRC-209, AN/PRC-160, ngày 23/7). *Tin đúng gu, chỉ rớt do ngày sự kiện — link dùng được nếu sau này muốn lấy: https://www.dvidshub.net/news/570752/*
+- ⭐ [CNQS/US] Không quân Mỹ thử nghiệm máy bay chiến đấu hợp tác (CCA) trong diễn tập ACE tại Creech AFB — af.mil, bài đăng 28/07 — **loại vì diễn tập diễn ra 20–24/07**, ngoài khung. Đã WebSearch xác minh (CCA Experimental Operations Unit, YFQ-42 và YFQ-44, có quan sát viên Không quân Hoàng gia Hà Lan). *Tin rất đúng gu, chỉ rớt do ngày.*
+- ⭐ [CNQS/US] Mỹ đặt mua tên lửa PAC-2 GEM-T lần đầu sau hơn 30 năm (RTX, 441,6 triệu USD) — ứng viên Báo Mới — **loại vì hợp đồng ký ~24/07**, ngoài cả khung nới 3 ngày. Đã WebSearch xác minh số liệu.
+
+### Loại vì TRÙNG tin phiên sáng đã nạp (không ghi lại từng link)
+Dự luật trừng phạt Nga–Iran mang tên Graham · Jay Clayton (2 tin) · Stop Insider Trading Act · Fauci điều trần HSGAC · DCCC Red to Blue · OFAC xoá 84 mục · phân tích bản đồ redistricting · Lầu Năm Góc rà soát thế trận châu Âu · Việt Nam–Australia (Anne Aly) · Lowy Pacific Aid Map · xưởng tàu Cairncross · USS George Washington vào Biển Đông · DENR khu bảo tồn Trường Sa · AFP đếm 26 tàu Trung Quốc · diễn tập hàng hải Mỹ–Phil–Nhật · Hán Quang 42 · Ghost Bat · laser Lockheed · GBAM · Sphinx Defense · ụ tàu khô AUKUS · Ford xe tải chiến thuật · động cơ F135 · NNSA GBD · NDAA ngư lôi · L3Harris · Rocket Lab.
+
+### Loại vì NGOÀI 5 chủ đề đang quét
+- [NG] Toàn bộ mảng "Đối ngoại Mỹ" phần Trung Đông (~20 tin: hội đàm các nước Ả Rập, Netanyahu thăm Nhà Trắng, tiền đồn Bờ Tây, EU lên án Iran, Nhật kêu gọi Iran, Hormuz, Guterres–Syria, đàm phán Israel–Liban tại Rome…) — ngoài phạm vi 5 chủ đề. Cấu trúc `worldNews` vẫn chứa được, nhưng phạm vi QUÉT đã siết từ 23/07.
+- [CT] Toàn bộ mục "Anh" (~8 tin: thăm dò Burnham, bổ nhiệm Bridget Phillipson, thuế ngân hàng Barclays, Gibraltar, huấn luyện quân sự tại Kenya, phát biểu HĐBA, học bổng nghề, UKDI Cycle 8, trạm drone Tiểu đoàn 1 Irish Guards) — Anh không thuộc 5 chủ đề.
+- [CT] Chính trị nội bộ Úc không gắn quốc phòng: Thủ hiến Victoria Jacinta Allan từ chức · Pauline Hanson thua kháng cáo · lãnh đạo ACTU từ chức · nhà máy lọc dầu Karratha (an ninh nhiên liệu nhưng là kinh tế bang).
+- [CT/US] Phối hợp ICE–cơ quan trẻ em di trú (Reuters 28/07) — nhập cư/tư pháp thuần, không thuộc nhóm nào trong 5 nhóm Nội bộ Mỹ.
+- [KT/US] Dừng trợ giá thuốc Medicare Part D (WSJ) · Trump thúc RFK Jr. cắt vắc-xin (Guardian) — y tế nội bộ, ngoài 5 nhóm.
+- [CT/US] Tưởng niệm Thượng nghị sĩ Lindsey Graham (Reuters) — **cáo phó/tưởng niệm**, thuộc nhóm LOẠI BỎ của bộ lọc sở thích. *(Lưu ý: tin Không quân khởi động thủ tục ĐỔI TÊN căn cứ Charleston thì ĐÃ NẠP — đó là động thái hành chính của một quân chủng, không phải bài tưởng niệm.)*
+- [CT/US] Thống đốc Beshear yêu cầu McConnell công khai sức khoẻ — drama nhân vật, ranh giới với nhóm 5; loại cho sạch.
+- [CNQS] Úc–Anh tham gia sáng kiến 6G do Mỹ dẫn đầu (The Australian) — link paywall, không xác nhận được nội dung bằng đường khác.
+- Tập trận CARAT Sri Lanka (27–31/7) · FPCON Keesler (22–24/7) · Garuda Canti Dharma III (20/7–2/8) · Citadel Rumble 2026 (3–7/8): **KHÔNG nạp trong lô này** vì tập trận thuộc pipeline `event-scan` — pipeline đó đã DONE lúc 04:51 sáng nay và commit riêng để kích `notify-morning`; nạp thêm bây giờ sẽ lệch cơ chế hai commit. Bốn cuộc này cũng không vào file .docx tối (docx chỉ lấy `worldNews`/`usNews`). Để phiên `event-scan` sáng mai xử lý.
+
+### Loại vì NGÀY SỰ KIỆN ngoài khung (không phải CNQS nên không được nới 3 ngày)
+- [TG] Cứu hộ tàu Khôi Nguyên 18: 48 người được cứu — nguồn Việt (baoquocte, VietnamPlus) xác nhận mốc 48 người là **chiều 27/07**, trong khi bản Washington Post ghi "tính đến thứ Ba". Tin gốc vụ chìm tàu ĐÃ có trong DATA từ 26/07; diễn biến này không đủ mới trong khung 28–29/07.
+- [TG] Phái đoàn USCC (Uỷ ban Đánh giá Kinh tế và An ninh Mỹ–Trung) thăm Bắc Kinh/Thượng Hải/Hàng Châu (SCMP 28/07) — đúng khung ngày nhưng là quan hệ Mỹ–Trung chung, không neo được vào 5 chủ đề; giữ lại làm ứng viên nếu phạm vi mở rộng.
+- [US] Chi hàng trăm triệu USD đối phó ảnh hưởng Trung Quốc (AP/ABC, 27/07) — ngoài khung 2 ngày, và link trong file (`abcnews.com/...`) sai tên miền thật (`abcnews.go.com`), không xác minh được.
+- [US] Trump nói đã thu hơn 13 tỷ USD từ bán dầu Venezuela (CNBC 27/07) · rời USMCA (CNBC 28/07) · Mỹ rút khỏi phòng họp HĐBA khi Pháp phát biểu (27/07) · Tổng lãnh sự Mỹ thăm Epirus · phái đoàn nghị sĩ Mỹ gặp Ishaq Dar tại Pakistan — ngoài 5 chủ đề và/hoặc ngoài khung.
+

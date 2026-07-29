@@ -4,7 +4,7 @@
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 6,
+      "count": 11,
       "target": "5-10",
       "min": 5,
       "thieu": false,
@@ -12,7 +12,7 @@
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 5,
+      "count": 9,
       "target": "5-10",
       "min": 5,
       "thieu": false,
@@ -20,11 +20,11 @@
     },
     {
       "name": "Công nghệ quân sự Mỹ (CNQS)",
-      "count": 4,
+      "count": 9,
       "target": "5-10",
       "min": 5,
-      "thieu": true,
-      "reason": "Sau 2 vòng agent (chính + bổ sung), mọi ứng viên còn lại hoặc trùng tin đã có trong DATA (Rocket Lab $266M Alaska đã nạp 27/7) hoặc ngày sự kiện thật ngoài khung 3 ngày (siêu vượt âm GAO 17/7, laser JLWS ký 9/7, B-21 Raider, AeroVironment 1/7, DARPA X-68A tháng 2). Trang war.gov/Contracts bị 403 không mở đọc được chi tiết. Chấp nhận thiếu 1 tin so với sàn tối thiểu."
+      "thieu": false,
+      "reason": "Phiên sáng chỉ được 4 (thiếu 1); lô bổ sung từ file Word ĐTN của Huy nạp thêm 5 tin CNQS nên chủ đề này đã đạt."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "Sau 2 vòng agent, chỉ có 1 sự kiện thật mới trong khung 28-29/7 (TT Senegal thăm Bamako). Các tin khác đang lan truyền (Trump cân nhắc không kích JNIM) có gốc thật từ 22/7, đã ghi log các phiên trước — không phải diễn biến mới. Thiếu SỰ KIỆN MỚI thật, không phải thiếu nguồn."
+      "reason": "Sau 2 vòng agent, chỉ có 1 sự kiện thật mới trong khung 28-29/7 (TT Senegal thăm Bamako). Các tin khác đang lan truyền (Trump cân nhắc không kích JNIM) có gốc thật từ 22/7, đã ghi log các phiên trước — không phải diễn biến mới. File Word ĐTN Huy gửi cũng KHÔNG có tin Mali/Sahel nào. Thiếu SỰ KIỆN MỚI thật, không phải thiếu nguồn."
     },
     {
       "name": "Predator's Run 2026",
@@ -44,12 +44,12 @@
     },
     {
       "name": "Báo Mới (ứng viên khớp 5 chủ đề)",
-      "count": 1,
+      "count": 2,
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "4 ứng viên được cổng nhắc, xử lý hết: nạp 1 (Lầu Năm Góc rà soát lực lượng châu Âu), loại 3 vì không hợp chủ đề (xem logs/loai-tin.md)."
+      "reason": "Tổng 13 ứng viên được cổng nhắc trong ngày, xử lý hết: nạp 2 (Lầu Năm Góc rà soát lực lượng châu Âu; Trump-Zelensky bàn cấp phép sản xuất Patriot — truy gốc về Al Jazeera). Loại 11: 4 bài trùng nhau về cùng cuộc gặp Trump-Zelensky (đã nạp 1 bản gốc), PAC-2 GEM-T (hợp đồng RTX ~24/7, ngoài cả khung nới 3 ngày của CNQS), 'HIMARS của Nga' (chiến sự Nga-Ukraine lặp, ngoài 5 chủ đề), UAV 4.000km bay cùng F-35/Typhoon (khí tài châu Âu, không phải CNQS Mỹ), 2 bài thuế quan + 1 bài cải cách bầu cử (đã có tin gốc trong DATA từ 27/7), 1 bài không hợp chủ đề. Chi tiết: logs/loai-tin.md."
     }
   ],
-  "note": "Phiên sáng sớm CI 04:00 VN, ô khoá 'sang'. Đã chạy harvest.py (322 ứng viên, 67 RSS + Google News) và telegram_harvest.py (4 ứng viên, giá trị thấp, không có tin đạt chuẩn). Tổng nạp: +5 worldNews, +11 usNews, +1 exercise (Predator's Run). Chi tiết tin loại: logs/loai-tin.md mục 2026-07-29 (phiên SÁNG SỚM)."
+  "note": "HAI LÔ trong ngày. Lô 1 — phiên sáng sớm CI 04:00 VN (ô khoá 'sang'): harvest.py 322 ứng viên + telegram_harvest.py, nạp +5 worldNews, +11 usNews, +1 exercise. Lô 2 — bổ sung TAY 05:50 VN từ file Word 'ĐTN 29.7 hướng M' Huy gửi: đối chiếu 95 tin trong file với DATA, phần lớn đã trùng tin phiên sáng; nạp thêm +4 worldNews, +10 usNews. Lô 2 CỐ Ý commit với tiền tố KHÔNG khớp gate notify-email nên không gửi Telegram ngay — tin nằm chờ dồn vào bản tin TỐI theo đúng quy tắc 'tin quét tay giữa ngày dồn vào bản tối'. Chi tiết tin loại: logs/loai-tin.md."
 }
