@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-30T04:31:04+07:00",
+  "tao_luc": "2026-07-30T05:31:04+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-29",
@@ -37,70 +37,6 @@
       "tieu_de": "Australia Selects Leidos Gibbs & Cox for AUKUS Dry Dock Design",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/07/australia-selects-leidos-gibbs-cox-for-aukus-dry-dock-design/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "SpaceX wins $1.6B to launch Space Force ‘sensing and targeting’ sats",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/spacex-wins-1-6b-to-launch-space-force-sensing-and-targeting-sats/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-29",
-      "tieu_de": "Leidos subsidiary selected to design Australian nuclear submarine dry dock",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/leidos-subsidiary-selected-to-design-australian-nuclear-submarine-dry-dock/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "Pentagon weighing options to license Patriot production to Ukraine: DoD official",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/pentagon-weighing-options-to-license-patriot-production-to-ukraine-dod-official/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "How DARPA plans to get nuclear power in the size of a ‘AA battery’",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/how-darpa-plans-to-get-nuclear-power-in-the-size-of-aa-battery/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "Marine Corps accepts last Osprey aircraft",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/marine-corps-accepts-last-osprey-aircraft/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Time to decide: A critical moment in Japan-US missile defense cooperation",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/time-to-decide-a-critical-moment-in-japan-us-missile-defense-cooperation/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Pentagon inks deal with L3Harris to ramp rocket motor production",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/pentagon-inks-deal-with-l3harris-to-ramp-rocket-motor-production/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-27",
-      "tieu_de": "Pentagon’s special ops office hosts first Shark Tank-style Accelerator Event",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/pentagons-special-ops-office-hosts-first-shark-tank-style-accelerator-event/"
     },
     {
       "lop": "RSS",
@@ -142,6 +78,15 @@
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/7/29/us-fed-holds-interest-rates-steady-citing-elevated-inflation?traffic_source=rss",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Trump tries to take action in the Middle East ahead of midterm elections",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/video/20260729-trump-tries-to-take-action-in-the-middle-east-ahead-of-midterm-elections-1",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -362,14 +307,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Taiwan's space industry prepares for lift-off",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/spotlight/podcasts/podcast-tech-latest/taiwan-s-space-industry-prepares-for-lift-off"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-29",
       "tieu_de": "Dòng tiền rút ròng mạnh khỏi Đài Loan, rục rịch đổ vào Việt Nam",
       "nguon": "VnEconomy",
@@ -470,24 +407,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Australians fork out $4 million for failing to vote in federal election",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-07-30/voters-fined-failure-to-vote-federal-election-/106971244",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "4 cash-filled bags: Bank exec’s testimony supports Madriaga’s story on confi funds",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/philippines/madriaga-violeta-constantino-say-millions-pesos-cash-put-inside-four-bags-sara-duterte-ovp/",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-29",
       "tieu_de": "Philippines presents to UN claim on extended continental shelf",
@@ -518,6 +437,14 @@
       "tieu_de": "After 20 years of deployment, Marine Corps receives final Osprey amid upgrades and some flight-hour restrictions",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/07/28/marine-corps-receives-final-mv-22b-osprey/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "U.S. Army Awards replacing a 1-Year Undefinitized Contract Action with a 7-Year Undefinitized Contract Action",
+      "nguon": "DVIDS news (Predator)",
+      "url": "https://www.dvidshub.net/news/571051/us-army-awards-replacing-1-year-undefinitized-contract-action-with-7-year-undefinitized-contract-action"
     },
     {
       "lop": "RSS",
@@ -602,10 +529,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "Contracts for July 28, 2026",
+      "ngay": "2026-07-30",
+      "tieu_de": "Contracts for July 29, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4557600/contracts-for-july-28-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4559059/contracts-for-july-29-2026/"
     },
     {
       "lop": "RSS",
@@ -622,6 +549,14 @@
       "tieu_de": "Space Force Awards ESS Mission Planning App To Sphinx Defense",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/space-force-awards-ess-mission-planning-app-to-sphinx-defense/space/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Space Force to Launch 18 Comms and Targeting Missions by End of 2027",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/space-force-to-launch-18-comms-targeting-missions-by-end-of-2027/"
     },
     {
       "lop": "RSS",
@@ -654,6 +589,14 @@
       "tieu_de": "“Marine Corps Doctrinal Publication 1” offers great lessons to both servicemembers and civilians",
       "nguon": "Sandboxx News",
       "url": "https://www.sandboxx.us/news/the-marine-corps-doctrinal-publication-1-offers-great-lessons-to-both-servicemembers-and-civilians/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Marine Corps Mounted Color Guard participates in Cheyenne Frontier Days 2026",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/image/9839055/marine-corps-mounted-color-guard-participates-cheyenne-frontier-days-2026"
     },
     {
       "lop": "RSS",
@@ -774,6 +717,14 @@
       "tieu_de": "The population of an endangered Australian bat suddenly dropped by up to 16%. No one knows why",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/environment/2026/jul/30/southern-bent-wing-bat-population-decline"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Bird flu is spreading locally and Australia faces more wildlife deaths. How bad could it get?",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/2026/jul/30/bird-flu-australia-h5n1-how-will-it-affect-wildlife"
     },
     {
       "lop": "RSS",
