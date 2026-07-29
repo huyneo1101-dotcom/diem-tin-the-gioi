@@ -759,6 +759,47 @@ FloodWait). Thiếu biến thì tự lùi về đường web, không lỗi. Sau 
 1, MTProto **chỉ còn cần cho `@militarylandnet` và `@DefenceU`** — giá trị nhỏ hơn nhiều so với
 ước tính ban đầu.
 
+## 🧪 TEST CỔNG KIỂM — `tests/` (dựng 29/07/2026, áp luật mục 17 CLAUDE.md toàn cục)
+
+**Luật:** mọi cổng/hook/checker trong repo này **phải có ít nhất MỘT ca PHẢI CHẶN** — dựng đúng
+điều kiện xấu rồi khẳng định nó thật sự chặn/kêu. Test chỉ có ca "phải cho qua" là **chưa test**.
+
+**Vì sao (bài học QuanSu 29/07/2026):** cổng dàn ý người duyệt ở `App/QuanSu/intrep-to-docx.py`
+đã **CÂM từ ngày dựng** (bug NFD tên file macOS) mà không ai biết, vì nó thuộc loại *"hỏng thì im
+lặng cho qua"* — không có gì để chặn thì cổng im, và cổng chết cũng im y hệt. Chạy trăm lần "thấy
+nó không kêu" không chứng minh được gì. Mọi cổng của repo này đều cùng loại đó.
+
+| Bộ test | Cổng nó canh | Ca |
+|---|---|---|
+| `tests/test-cong-baomoi.py` | Cổng Báo Mới chống bỏ sót (`scripts/add_news.py`) | 8 — 3 PHẢI NHẮC, 4 chống nhắc oan, 1 kiểm cổng còn nằm trên đường đi của `--recent-titles` |
+| `tests/test-so-da-gui.py` | Sổ đã gửi (`so_da_gui.py` + `make_docx.loc_chua_gui`) | 9 — 5 PHẢI LOẠI/PHẢI ĐÚNG PHẠM VI, 3 chống lọc oan, 1 kiểm còn người đọc sổ |
+| `tests/test-canary-ban-tin.py` | Canary bản tin (`.github/scripts/canary.py`) | 10 — 7 PHẢI KÊU, 3 PHẢI IM (gồm ca hồi quy kêu oan 00:23 ngày 28/07) |
+| `scripts/sua_nhan_analyses.py --tu-kiem` | Chính `--kiem` của nó (nhãn `outlet` mục Think-tank) | 5 — 3 PHẢI CHẶN, 2 PHẢI CHO QUA + 1 đối chứng. **Test nằm TRONG script** chứ không ở `tests/` vì cổng và bộ ca dùng chung dữ liệu giả |
+
+Chạy cả ba sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `make_docx.py` · `canary.py`:
+```
+python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-baomoi.py
+python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-so-da-gui.py
+python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-canary-ban-tin.py
+```
+
+⚠️ **TEST XANH CHƯA ĐỦ — phải chứng minh test BẮT ĐƯỢC lỗi.** Mỗi file có cờ `--tu-kiem`: nó tự
+dựng các bản mã nguồn **đã gỡ đúng dòng bảo vệ** rồi chạy lại chính bộ ca đó với biến môi trường
+(`ADDNEWS_MOD` / `SODAGUI_DIR` / `CANARY_TIN_MOD`), và **các ca đã khai phải ĐỎ**. Xanh trên cả bản
+đúng lẫn bản hỏng thì test đó vô dụng. Kết quả 29/07: 5/5 · 4/4 · 6/6 bản hỏng đều bị bắt.
+Huy hỏi *"cổng đó chặn được chưa"* → câu trả lời **không bao giờ là lời hứa**, mà là chạy `--tu-kiem`
+rồi đưa kết quả.
+
+⚠️ **Bản hỏng phải nằm TRONG thư mục thật của script**, không phải `/tmp`: `add_news.py` và
+`canary.py` tự suy repo root từ vị trí của chính mình (`import topics`, `from tg_api import …`,
+đọc `index.html`). Để ở `/tmp` thì mọi ca đỏ vì `ImportError`/thiếu file — **đỏ vì lý do sai thì
+không chứng minh được gì**. Cả hai file test đã ghi bản hỏng vào đúng thư mục rồi `unlink` trong
+`finally`.
+
+⚠️ **Ca thử phải ĐỌC bảng ánh xạ từ chính mã nguồn, đừng chép tay.** Đã bẫy một lần: ca `sukien`
+của canary soi ô **`sang`** của pipeline `event-scan`, không phải ô `sukien` — chép tay là test đỏ
+oan và tưởng cổng hỏng.
+
 ## Nơi lưu dữ liệu
 Toàn bộ dữ liệu nằm trong `index.html`, biến `var DATA = {...}` (~170KB, xem mục "Quy trình" bên dưới — KHÔNG đọc trực tiếp file này). Các phần liên quan tới quét tin:
 
@@ -817,6 +858,29 @@ nhưng vẫn kiểm HAI LỚP như add_news nên neo lô về ngày cũ không l
 **DOMAIN** (`THINKTANK_DOMAINS`) — mục tên là Think-tank mà lọt bài Al Jazeera/Naval News thì hỏng chính
 danh nghĩa của mục (18 bài đời cũ trong DATA có lẫn như vậy). Gặp lỗi domain → **BỎ bài**, đừng đổi url
 cho lọt; đúng là viện thật mà thiếu thì thêm domain vào danh sách trong script.
+
+### 🏷️ Nhãn `outlet` — bảo trì bằng `scripts/sua_nhan_analyses.py` (dựng 29/07/2026)
+Guardrail của `add_analyses.py` kiểm theo **DOMAIN**, **không kiểm nhãn `outlet`** — cố ý, vì tên viện
+viết mỗi lúc một kiểu. Cái giá: cùng một domain vẫn nạp được dưới hai tên khác nhau, và web thì hiện
+`outlet` ra thẳng dòng `.foot` **đồng thời dùng nó làm khoá `voteMeta.src`** của hồ sơ độc giả — nhãn
+tách đôi là tín hiệu bình chọn cũng chia đôi, học sai mà không có dấu hiệu gì. Bắt được thật 29/07:
+`'ASPI'` và `'ASPI Strategist'` cùng `aspistrategist.org.au`.
+```
+python3 scripts/sua_nhan_analyses.py --kiem       # liệt kê nhãn+domain, soi 3 loại lỗi (mã 2/3/4)
+python3 scripts/sua_nhan_analyses.py --gop-nhan   # áp OUTLET_CANON (domain → nhãn chuẩn)
+python3 scripts/sua_nhan_analyses.py --tu-kiem    # chứng minh --kiem bắt được lỗi
+```
+| `--kiem` bắt | Xử lý |
+|---|---|
+| Một domain nhiều nhãn | thêm dòng vào `OUTLET_CANON` rồi `--gop-nhan` |
+| Domain ngoài `THINKTANK_DOMAINS` | **đúng là viện thật → thêm domain**, đừng xoá bài (ca ISW `understandingwar.org` 29/07: guardrail đang chặn oan cả bài mới). Là báo chí → **HỎI Huy** rồi mới `--xoa-url` |
+| Hai bản cùng một bài gốc | trùng **slug cuối url** — `warontherocks.com/<slug>` và `.../2026/07/<slug>` là hai chuỗi khác nhau nên guardrail trùng-url cho lọt cả hai. Huy chốt giữ → ghi vào `TRUNG_DA_DUYET` |
+
+⚠️ **Script KHÔNG tự xoá bài** — `--xoa-url` phải gõ đủ url, và xoá là quyết định của Huy. Ghi url +
+tiêu đề vào `logs/loai-tin.md` TRƯỚC khi xoá.
+⚠️ Chạy `--kiem` sau mỗi đợt nạp think-tank lớn. Con số "18 bài đời cũ lẫn báo chí" ở đoạn trên là số
+**tại thời điểm 27/07**; `prune_news.py` đã dọn bớt, tới 29/07 chỉ còn 4 (3 báo chí đã xoá + 1 ISW giữ
+lại) — đừng lấy số 18 làm mốc kiểm.
 
 **Email sáng** (`send-morning-email.js`): có khối 🏛️ Think-tank riêng, và **bài think-tank mới cũng đủ
 để mở email** kể cả khi không có sự kiện/tập trận nào (hàm `diffAnalyses`; không có bản HEAD~1 để so thì
