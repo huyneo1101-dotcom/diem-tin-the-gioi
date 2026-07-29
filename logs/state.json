@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-30T04:01:00+07:00",
+    "lastRunAt": "2026-07-30T04:16:25+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+16 tin (TG+3, My+13); Uc&BD+3, CNQS+8, Noibo My+5, Mali+1, Predator+0",
     "lastSuccess": {
       "toi": "2026-07-29",
-      "sang": "2026-07-29"
-    },
-    "heartbeat": "2026-07-30T04:16:16+07:00"
+      "sang": "2026-07-30"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-07-29T04:51:45+07:00",
