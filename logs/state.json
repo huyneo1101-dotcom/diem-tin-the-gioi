@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-29T21:33:54+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+11 tin phien toi that (2 TG, 9 My) - quet lai vi o toi bi phien TEST CI chiem",
+    "lastRunAt": "2026-07-30T04:01:00+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-29",
       "sang": "2026-07-29"
-    }
+    },
+    "heartbeat": "2026-07-30T04:01:00+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-07-29T04:51:45+07:00",
