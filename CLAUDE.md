@@ -841,6 +841,24 @@ Mỗi bài: `{date, outlet, author, title, summary, takeaway, topic, region, url
 script đóng dấu). `takeaway` = 1–2 câu ĐIỀU RÚT RA — đây là thứ web và email hiển thị nổi nhất, không
 được bỏ trống.
 
+**➕ `concepts` — khái niệm rút từ bài, chảy thẳng vào tab 📚 Khái niệm (thêm 29/07/2026, chỉ thị Huy).**
+Mỗi bài có thể mang `concepts: [{term, def}]`; `importAnalysisConcepts()` trong index.html nạp chúng vào
+sổ tay khái niệm, dùng CHUNG kho `dt.concepts` với khái niệm của tập trận nên không nhân đôi. Nguồn hiển
+thị dưới mỗi thẻ là `outlet — tiêu đề bài`, khác với tập trận (ghi tên cuộc), để lần ngược được.
+| Việc | Lệnh |
+|---|---|
+| Nạp khái niệm | `python3 scripts/set_analysis_concepts.py kn.json` — `[{url, concepts:[{term,def}]}]` |
+| Soi bài nào chưa có | `python3 scripts/set_analysis_concepts.py --kiem` |
+| Chứng minh guardrail còn sống | `python3 scripts/set_analysis_concepts.py --tu-kiem` (9 ca: 7 PHẢI CHẶN + 2 phải cho qua) |
+
+Guardrail CHẶN: `url` không có trong DATA · thiếu `term`/`def` · `def` dưới 40 ký tự (giải thích cụt thì
+thà không có) · `term` quá 90 ký tự (web cắt ở đó) · hai `term` trùng nhau trong CÙNG một bài · quá 6
+khái niệm một bài. **KHÔNG chặn** khái niệm trùng giữa các bài hoặc trùng với tập trận — web tự khử
+trùng theo tên đã bỏ dấu, chặn ở đây là chặn oan.
+⚠️ **Bài không có thuật ngữ nào đáng lưu thì BỎ QUA bài đó**, đừng nhồi cho đủ số: sổ tay khái niệm là
+công cụ LỌC, nhồi vào là hỏng đúng công dụng của nó. Quy trình phiên sáng: `docs/routine-web-scan.md`
+Bước 4.4 mục 4.
+
 | Bước | Lệnh | Ghi chú |
 |---|---|---|
 | Liệt kê ứng viên | `python3 scripts/add_analyses.py --candidates` | Fetch RSS **24 viện đã verify fetch thật 27/07**, xếp theo KHU VỰC (xem `THINKTANK_FEEDS`). Tự bỏ bài đã có trong DATA, đường dẫn rác (`/in-the-news/`, `/media-citations/`, `/event/`…) và tham số `utm_*`. Dòng cuối in **vùng không có RSS + domain** để bù bằng WebSearch |

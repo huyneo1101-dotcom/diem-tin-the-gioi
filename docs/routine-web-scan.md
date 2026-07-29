@@ -204,6 +204,23 @@ Mục 🧠 Phân tích → 🏛️ Think-tank (`DATA.analyses`).
    `region`/`author`/`outlet`/`date`). Số liệu mập mờ/lỗi ký tự → BỎ, không đoán.
 3. Ghi `/tmp/analyses.json` = `{"date":"<hôm nay VN>","analyses":[...]}` rồi
    `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_analyses.py /tmp/analyses.json`.
+4. **SINH KHÁI NIỆM cho đúng những bài vừa nạp** (thêm 29/07/2026, chỉ thị Huy) — mục 📚 Khái niệm
+   gom khái niệm từ CẢ tập trận lẫn think-tank, mà bài viện nghiên cứu mới là chỗ thuật ngữ lạ dày
+   nhất. Với mỗi bài vừa nạp, rút **1–3 thuật ngữ** người đọc phổ thông không hiểu ngay (học thuyết,
+   cơ chế, hiệp định, khí tài, chiến thuật), viết định nghĩa **tiếng Việt 1–3 câu tự nó đứng được**
+   — đọc riêng dòng đó vẫn hiểu, không cần mở bài. Ghi `/tmp/kn-analyses.json`:
+   ```
+   [{"url":"<url ĐÚNG như vừa nạp>","concepts":[{"term":"...","def":"..."}]}]
+   ```
+   rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/set_analysis_concepts.py /tmp/kn-analyses.json`.
+   - **Bài không có thuật ngữ nào đáng lưu thì BỎ QUA bài đó** — sổ tay là để lọc, nhồi cho đủ số là
+     làm hỏng chính tác dụng của nó. Guardrail chặn lô rỗng nên đừng khai `"concepts":[]`, cứ bỏ hẳn
+     mục đó ra khỏi mảng.
+   - Guardrail CHẶN: url không có trong DATA · thiếu `term`/`def` · `def` dưới 40 ký tự · `term` quá
+     90 ký tự · hai `term` trùng nhau trong cùng bài · quá 6 khái niệm/bài. Đọc lỗi rồi sửa JSON.
+   - Trùng khái niệm với bài khác hoặc với tập trận thì **KHÔNG sao** — web dùng chung kho
+     `dt.concepts` và tự khử trùng theo tên đã bỏ dấu.
+   - Kiểm còn bài nào chưa có: `python3 .../set_analysis_concepts.py --kiem`.
 
 ### 4.5 — Chủ nhật: báo cáo tuần Mỹ-Trung-Nga
 Chỉ khi `TZ='Asia/Ho_Chi_Minh' date +%u` in ra `7`:

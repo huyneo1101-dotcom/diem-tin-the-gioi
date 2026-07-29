@@ -70,6 +70,13 @@ tách như cũ.
      xã hội nội bộ Mỹ, quảng bá viện, điểm sách/điểm báo. Agent MỞ ĐỌC (WebFetch) rồi viết tiếng Việt
      đủ field. Số liệu mập mờ → BỎ, không đoán.
    - Ghi `/tmp/analyses.json` rồi `python3 scripts/add_analyses.py /tmp/analyses.json`.
+   - **SINH KHÁI NIỆM cho chính những bài vừa nạp** (29/07/2026): mỗi bài rút 1–3 thuật ngữ người
+     đọc phổ thông không hiểu ngay, định nghĩa tiếng Việt 1–3 câu ĐỌC RIÊNG VẪN HIỂU. Ghi
+     `/tmp/kn-analyses.json` = `[{"url":"...","concepts":[{"term":"...","def":"..."}]}]` rồi
+     `python3 scripts/set_analysis_concepts.py /tmp/kn-analyses.json`. Bài không có thuật ngữ đáng
+     lưu thì BỎ HẲN khỏi mảng (đừng khai mảng concepts rỗng — guardrail chặn). Guardrail còn chặn:
+     url lạ · thiếu term/def · def dưới 40 ký tự · term quá 90 ký tự · trùng term trong cùng bài ·
+     quá 6 khái niệm/bài. Trùng với khái niệm bài khác thì không sao, web tự khử trùng.
 4. CHỦ NHẬT (`TZ='Asia/Ho_Chi_Minh' date +%u` = 7): báo cáo tuần.
    `python3 scripts/weekly_context.py --out /tmp/weekly_ctx.json` → giao 1 agent model "opus" (BẮT
    BUỘC Opus) đọc file, viết nhận định tuần 3 nước kèm link nội dòng markdown dùng đúng url ngữ liệu
