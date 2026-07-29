@@ -128,7 +128,10 @@ sửa tay `index.html`.**
 `generatedTime` mỗi lần chạy, nên một lần chạy thử cũng để lại `M index.html`. Muốn thử nghiệm thì
 xong việc nhớ `git -C /Users/Huy/Claude/diem-tin-the-gioi checkout -- index.html`, đừng để tồn dư —
 tồn dư chưa commit làm **nghẽn `git pull --rebase` ở bước 1 của mọi phiên routine sau** (gặp thật
-sáng 27/07).
+sáng 27/07, và lần thứ hai 29/07). Chính xác hơn: chỉ file **tracked bị sửa** mới nghẽn — file
+untracked (thư mục mới chưa `git add`) thì không, đo rồi. Phiên routine gặp lỗi này KHÔNG được dừng:
+xử theo bảng ở đầu **Bước 1 của `docs/routine-web-scan.md`** (fetch + `rev-list --count
+HEAD..origin/main`; ra 0 thì đi tiếp). Vẫn cấm `git stash` và cấm commit hộ file lạ.
 
 **3. ChatGPT bịa `summary` từ tiêu đề khi không mở được bài.** Prompt có luật "không mở được thì
 BỎ", nhưng đây là loại lỗi guardrail không thấy được: tin trông sạch, link mở được, mà nội dung

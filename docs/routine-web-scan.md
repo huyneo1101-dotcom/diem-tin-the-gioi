@@ -52,13 +52,52 @@ git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/
 git -C /Users/Huy/Claude/diem-tin-the-gioi commit -q -m "log: claim web-scan phien toi (local)"
 git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main -q
 ```
+⛔ **DÒNG 1 BÁO `cannot pull with rebase: You have unstaged changes` → ĐỪNG DỪNG PHIÊN, ĐI TIẾP.**
+Vá 29/07/2026 sau khi lỗi này chặn thật lần thứ hai (lần đầu sáng 27/07; lần 29/07 do một phiên khác
+dựng `tests/` + sửa `CLAUDE.md` rồi ngừng giữa chừng không commit).
+
+**Cơ chế — đo bằng repo thử, không phải suy đoán:** `pull --rebase` phải TUA LẠI cây thư mục (gỡ commit
+local ra, đặt commit remote vào, phát lại commit local lên trên), nên nó ghi đè file trong thư mục làm
+việc nhiều lượt. Thay đổi chưa commit thì không nằm trong commit nào cũng không nằm trong index — ghi đè
+là mất trắng, không lôi lại được. Vì vậy git **từ chối ngay từ đầu, TRƯỚC cả khi xét có gì để rebase hay
+không**. Kết quả đo:
+
+| Trạng thái repo | `pull --rebase` |
+|---|---|
+| Chỉ có file **untracked** (thư mục lạ, file mới chưa `git add`) | **rc 0** — chạy bình thường, untracked KHÔNG chặn |
+| Có file **tracked bị sửa** | rc 128 |
+| Tracked bị sửa **+ remote 0 commit mới** | **vẫn rc 128** — chặn dù pull vốn là lệnh rỗng |
+
+⇒ Bị chặn KHÔNG có nghĩa là có xung đột. Phải phân biệt bằng 2 lệnh phẳng:
+```
+git -C /Users/Huy/Claude/diem-tin-the-gioi fetch origin main
+git -C /Users/Huy/Claude/diem-tin-the-gioi rev-list --count HEAD..origin/main
+```
+⚠️ **PHẢI fetch TRƯỚC rồi mới `rev-list`** — `rev-list` đọc ref `origin/main` trong repo, không đi
+mạng. Chạy `rev-list` mà quên `fetch` thì nó đọc ref CŨ và **luôn ra 0**, tức routine luôn kết luận
+"không có gì mới" rồi quét ra bản tin cũ — hỏng câm, số in ra vẫn đẹp. Đã đo trên `git 2.39.5` của
+máy Huy: trước fetch ra `0`, sau fetch ra `2` (đúng số commit remote đang có thêm).
+Nghi bản git khác không tự cập nhật ref thì đổi vế phải thành `FETCH_HEAD` — `git fetch` LUÔN ghi
+ref này, đo cũng ra `2`.
+
+| Số in ra | Làm gì |
+|---|---|
+| **0** | pull vốn là lệnh rỗng, việc dở của phiên khác không liên quan → **ĐI TIẾP từ dòng 2 (`state.py claim`)**, quét bình thường |
+| **> 0** | có commit mới thật, không đồng bộ được thì quét ra bản tin cũ → chạy `git -C /Users/Huy/Claude/diem-tin-the-gioi status --short` để biết file lạ là gì, ghi log FAIL + `state.py fail web-scan "repo co viec do chua commit: <ten file>"`, push log, KẾT THÚC |
+
+⛔ **TUYỆT ĐỐI KHÔNG `git stash` và KHÔNG commit hộ file lạ** (mục 14 quy tắc toàn cục) — đó là việc đang
+làm dở của phiên khác, stash là giấu mất, commit hộ là ký tên vào việc chưa xong. Luật này vốn đã có ở
+**Bước 3 (khâu push cuối phiên)**; **nó thiếu ở Bước 1 chính là lý do phiên chết ngay dòng đầu.**
+⚠️ Áp y hệt cho MỌI chỗ khác trong file này gọi `pull --rebase` (trước `add_news.py`, lúc push bị từ chối).
+
 ⚠️ **PUSH `logs/state.json` NGAY SAU KHI CLAIM — TRƯỚC khi làm baseline** (sự cố 26/07/2026, phiên local
 21:30): khoá `state.py` đồng bộ QUA GIT, nên phiên nào chưa push khoá thì phiên kia pull về vẫn thấy
 "không ai giữ khoá" và claim tiếp. Local claim 21:41 nhưng để dành push tới cuối bước log → CI pull lúc
 22:09 không thấy khoá → **hai phiên cùng quét**, local phải bỏ hết công baseline để nhường. Push khoá
 ngay là cách duy nhất để phiên kia nhìn thấy.
 ⚠️ **Trước khi chạy `add_news.py`, `pull --rebase` rồi ĐỌC LẠI `logs/state.json` xem mình còn giữ khoá
-không.** Thấy `lastRunAt`/`heartbeat` của phiên khác mới hơn mình → phiên kia đã cướp khoá: DỪNG, ghi
+không.** (Pull bị chặn vì unstaged changes → xử theo bảng ở đầu Bước 1, đừng dừng phiên.)
+Thấy `lastRunAt`/`heartbeat` của phiên khác mới hơn mình → phiên kia đã cướp khoá: DỪNG, ghi
 log SKIP, KHÔNG gọi `state.py skip/fail` (gọi là ghi đè trạng thái RUNNING và nhả khoá của phiên đang
 chạy), `rebase --abort` + `reset --hard origin/main` rồi commit riêng dòng log.
 BẮT BUỘC pull --rebase trước (2 GitHub Action nạp tin chạy 20:00/20:05 trước đó). claim in ra: SKIP exit 10 = tối nay đã có bản tin; SKIP exit 11 = phiên khác đang chạy (KHÔNG quét chồng); RUN exit 0 = đã giữ khoá, quét tiếp. Cả 2 SKIP: ghi 1 dòng SKIP vào logs/scan-<ngày VN>.log, commit + push log, KẾT THÚC. KẾT THÚC = dừng hẳn phiên ngay — KHÔNG gắn Monitor/script theo dõi phiên kia, không chờ, không điều tra thêm (khoá heartbeat + mốc dự phòng đã lo việc đó).
@@ -99,7 +138,7 @@ Ràng buộc cứng: KHÔNG dùng Read đọc cả index.html; mọi thao tác c
 - Lỗi giữa chừng: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py fail web-scan "<lý do>"` rồi VẪN ghi log + push
 **TRƯỚC KHI COMMIT — BẮT BUỘC ghi `logs/scan-gaps.json`** (chỉ thị Huy 25/07/2026: email phải ghi cả **chủ đề thiếu VÀ lý do**). Lý do thiếu là kiến thức của phiên quét, Action không tự suy ra được → không ghi file thì email MẤT mục này. Dùng tool Write, liệt kê đủ 5 chủ đề (+ Báo Mới), mỗi chủ đề `{name, count, target, min, thieu, reason}`; `date` của file **PHẢI khớp `DATA.generatedAt`** (nạp nhiều lô thì lấy ngày lô chạy CUỐI) — lệch là `send-email.js` bỏ cả mục để không gửi lý do hôm trước. Mẫu JSON đầy đủ + quy tắc viết `reason`: xem **Bước 4b** trong `.claude/skills/quet-tin/SKILL.md`.
 
-`git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html logs/` (phải có logs/state.json VÀ logs/scan-gaps.json), commit mẫu `Cap nhat ban tin DD/MM: +N tin (5 chu de)`, push `main` — đều qua `git -C /Users/Huy/Claude/diem-tin-the-gioi ...`. Push bị từ chối → `git -C ... pull --rebase origin main` rồi push lại; nếu pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ.
+`git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html logs/` (phải có logs/state.json VÀ logs/scan-gaps.json), commit mẫu `Cap nhat ban tin DD/MM: +N tin (5 chu de)`, push `main` — đều qua `git -C /Users/Huy/Claude/diem-tin-the-gioi ...`. Push bị từ chối → `git -C ... pull --rebase origin main` rồi push lại; nếu pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ (luật này nay áp cho CẢ Bước 1 — xem bảng ở đó; thiếu nó ở Bước 1 chính là chỗ phiên chết ngay dòng đầu 27/07 và 29/07).
 Email + file Word tự gửi lamgiaphat1603@gmail.com qua GitHub Action notify-email khi có commit `Cap nhat ban tin` — skill không cần làm gì thêm NGOÀI việc ghi `logs/scan-gaps.json` ở trên.
 
 Báo cáo cuối ngắn gọn: số tin mỗi chủ đề (Nội bộ Mỹ / Úc-Biển Đông / CNQS Mỹ / Mali / Predator), chủ đề nào thiếu (đã nới 48h chưa), trạng thái push.
@@ -127,6 +166,8 @@ sự kiện riêng (🎖️ khác 📰). Chỉ có **nơi kích** là gộp lạ
 git -C /Users/Huy/Claude/diem-tin-the-gioi pull --rebase origin main
 python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim event-scan
 ```
+⛔ `cannot pull with rebase: You have unstaged changes` → xử theo đúng bảng ở **Bước 1** (fetch +
+`rev-list --count HEAD..origin/main`; ra 0 thì ĐI TIẾP). Đừng dừng phiên, đừng stash, đừng commit hộ.
 SKIP exit 10 = sáng nay đã xong (có thể do CI/local khác vừa chạy) — ghi 1 dòng SKIP vào log, commit +
 push log, DỪNG bước này (phiên vẫn coi là hoàn tất bình thường, vì bản tin 5 chủ đề ở Bước 1-3 đã xong).
 SKIP exit 11 = phiên khác đang giữ khoá `event-scan` — cũng SKIP êm, không chờ, không Monitor.
