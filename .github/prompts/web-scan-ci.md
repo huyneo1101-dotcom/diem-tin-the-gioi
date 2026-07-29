@@ -3,7 +3,7 @@ Mày là phiên quét bản tin (web-scan) của "Điểm Tin Thế Giới", ch�
 Bản tin chạy **2 phiên/ngày, CÙNG playbook 5 chủ đề**: phiên **TỐI** (fire 21:00 giờ VN, ô khoá `toi` — email bản tin tối có **hạn chót 22:00**: sau mày chỉ còn local 21:15 là lớp cuối còn kịp hạn, mốc CI 22:00 là lưới vét đã trễ. Vì vậy quét gọn, đừng vòng bổ sung vô hạn) và phiên **SÁNG SỚM** (fire 04:00/05:00 giờ VN — đổi 27/07/2026 từ 04:30/05:30 để chừa chỗ cho mốc dự phòng local 04:30/05:30, ô khoá `sang` — đêm VN là ngày làm việc Mỹ nên nhiều tin mới; nhãn state.py có thể in "CHAY BU (sang som)", kệ nhãn cũ, đây là phiên chủ động hợp lệ). Xác định mình là phiên nào bằng `TZ='Asia/Ho_Chi_Minh' date +%H:%M`: trước 14:00 = sáng sớm, từ 14:00 = tối — `state.py claim` tự chọn ô theo giờ, cứ chạy như thường. Ghi log dùng chữ "phien toi" / "phien sang som" tương ứng. Cả hai phiên đều commit mẫu `Cap nhat ban tin ...` → email tự gửi. **Từ 28/07/2026: phiên SÁNG SỚM sau khi xong bản tin còn làm TIẾP pipeline `event-scan` (sự kiện/tập trận/think-tank, trước là workflow riêng) trong CÙNG phiên này — xem BƯỚC 6 cuối file.**
 
 ## MÔI TRƯỜNG CI (khác máy local — GHI NHỚ TRƯỚC KHI GÕ LỆNH)
-- cwd = repo root diem-tin-the-gioi (đã checkout sẵn). Mọi đường dẫn dùng RELATIVE: `python3 scripts/x.py`, `git add index.html logs/` — KHÔNG dùng `/Users/Huy/...`, KHÔNG cần `git -C`.
+- cwd = repo root diem-tin-the-gioi (đã checkout sẵn). Mọi đường dẫn dùng RELATIVE: `python3 scripts/x.py`, `git add index.html data/ logs/` — KHÔNG dùng `/Users/Huy/...`, KHÔNG cần `git -C`.
 - Giờ hệ thống là UTC. Mọi ngày/giờ VN lấy bằng `TZ='Asia/Ho_Chi_Minh' date +%F` (ngày) và `TZ='Asia/Ho_Chi_Minh' date +%H:%M` (giờ) — đừng dùng `date` trần rồi nhầm ngày.
 - Git identity + quyền push đã cấu hình sẵn. Push thẳng `origin main`.
 - MỌI lệnh Bash phải PHẲNG: một lệnh đơn / pipe / chuỗi `&&` của lệnh đơn, đối số là giá trị thật gõ đầy đủ. KHÔNG `for`/`while`, KHÔNG biến shell `$x` hay `$(...)`, KHÔNG heredoc, KHÔNG định nghĩa hàm. Lệnh ngoài allowlist bị TỪ CHỐI TỰ ĐỘNG (không có ai bấm Allow) — cần lặp thì viết N lệnh rời hoặc gói vào `python3 -c '...'`.
@@ -43,7 +43,7 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
    ⏱️ **BEAT NGAY TRƯỚC KHI GIAO AGENT, đừng đợi agent xong mới beat** (vá 28/07/2026). Khoá thối sau **30 phút không nhịp** (`LOCK_STALE_MIN`), mà vòng agent là chặng DÀI NHẤT của phiên — beat "sau mỗi mốc lớn" nghĩa là nhịp đầu tiên chỉ tới khi agent xong. Đo thật phiên tối 28/07: start 21:00 → beat đầu tiên **21:26**, tức 25 phút không nhịp, chỉ cách ngưỡng thối **5 phút**. Vòng agent chậm thêm 5 phút nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét → mốc kế (local 21:15 hoặc CI 22:00) cướp khoá và **quét chồng**, đúng sự cố hai phiên cùng quét hôm 26/07.
    Vì vậy beat ở CẢ BA chỗ này, không chỉ ở mốc lớn: **(a) ngay sau `harvest.py` + `telegram_harvest.py`** · **(b) ngay TRƯỚC khi giao lô agent** · **(c) sau khi gom xong kết quả agent**. Nguyên tắc: **hai nhịp liên tiếp không được cách quá ~15 phút**; sắp làm việc gì dự kiến lâu thì beat trước khi bắt đầu, không phải sau khi xong.
 4. Kết thúc — LUÔN một trong ba: `python3 scripts/state.py done web-scan "<tóm tắt>"` (nạp được tin) / `skip` (lô rỗng) / `fail` (lỗi giữa chừng, VẪN push log).
-   Commit bản tin đúng mẫu `Cap nhat ban tin DD/MM: +N tin (5 chu de)` — `git add index.html logs/` (phải có logs/state.json) rồi push. Push bị từ chối → `git pull --rebase origin main` rồi push lại; pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ.
+   Commit bản tin đúng mẫu `Cap nhat ban tin DD/MM: +N tin (5 chu de)` — `git add index.html data/ logs/` (phải có logs/state.json) rồi push. Push bị từ chối → `git pull --rebase origin main` rồi push lại; pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ.
 5. Báo cáo cuối NGẮN GỌN: số tin mỗi chủ đề, chủ đề nào thiếu (đã nới 48h chưa), trạng thái push.
 
 ## RÀNG BUỘC CỨNG
@@ -103,7 +103,9 @@ tách như cũ.
    - CHỈ báo cáo tuần: `Dang bao cao tuan DD/MM`
    - CHỈ think-tank: vẫn `Cap nhat su kien DD/MM: +M bai think-tank`
    - Rỗng thật: message tự do, không dùng 2 tiền tố trên.
-   `git add index.html logs/` (phải có `logs/state.json`) → commit RIÊNG với commit bản tin → push
+   `git add index.html data/ logs/` (phải có `logs/state.json`; **`data/` là BẮT BUỘC** — bài
+   think-tank nằm ở `data/analyses.json` từ 30/07/2026, bỏ sót thì bài nạp xong KHÔNG lên web
+   mà cũng không có lỗi nào) → commit RIÊNG với commit bản tin → push
    (bị từ chối → `pull --rebase` rồi push lại).
 6. Báo cáo cuối (gộp chung với báo cáo Bước 5): số sự kiện/tập trận, có báo cáo tuần không, trạng thái
    push của CẢ HAI commit.

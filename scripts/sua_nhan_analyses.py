@@ -32,11 +32,14 @@ import re
 import sys
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from add_analyses import THINKTANK_DOMAINS, domain_of, find_data_span  # noqa: E402
+import analyses_store  # noqa: E402
+from add_analyses import THINKTANK_DOMAINS, domain_of  # noqa: E402
 
-# Seam để `--tu-kiem` trỏ vào file index.html giả trong thư mục tạm.
-INDEX_PATH = pathlib.Path(
-    os.environ.get("ANALYSES_INDEX") or (pathlib.Path(__file__).resolve().parent.parent / "index.html")
+# Seam để bộ test trỏ vào một repo giả trong thư mục tạm.
+# ⚠️ Đổi 30/07/2026: trước là ANALYSES_INDEX (trỏ file index.html giả) — bài think-tank nay
+# nằm ở data/analyses.json nên seam phải là THƯ MỤC REPO, không phải file index.html.
+REPO_ROOT = pathlib.Path(
+    os.environ.get("ANALYSES_REPO") or (pathlib.Path(__file__).resolve().parent.parent)
 )
 
 # Nhãn CHUẨN theo domain. Chốt theo tên tự xưng của nơi xuất bản, không theo tên viện mẹ:
@@ -59,16 +62,13 @@ TRUNG_DA_DUYET = {
 }
 
 
-def doc_data(path: pathlib.Path) -> tuple[str, int, int, dict]:
-    html = path.read_text(encoding="utf-8")
-    start, end = find_data_span(html)
-    return html, start, end, json.loads(html[start:end])
+def doc_data(repo: pathlib.Path) -> dict:
+    """Trả về dict bọc {"analyses": [...]} để `kiem()` và `_fixture()` dùng chung một hình dạng."""
+    return {"analyses": analyses_store.doc(repo)}
 
 
-def ghi_data(path: pathlib.Path, html: str, start: int, end: int, data: dict) -> None:
-    # Giữ nguyên cách nén của add_analyses.py, nếu không mỗi lần chạy là một diff khổng lồ.
-    new = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    path.write_text(html[:start] + new + html[end:], encoding="utf-8")
+def ghi_data(repo: pathlib.Path, data: dict) -> None:
+    analyses_store.ghi(repo, data.get("analyses") or [])
 
 
 def slug_cuoi(url: str) -> str:
@@ -141,8 +141,8 @@ def kiem(data: dict) -> int:
     return MA_LOI[loi[0]]
 
 
-def gop_nhan(path: pathlib.Path) -> int:
-    html, start, end, data = doc_data(path)
+def gop_nhan(repo: pathlib.Path) -> int:
+    data = doc_data(repo)
     doi = []
     for a in data.get("analyses") or []:
         chuan = OUTLET_CANON.get(domain_of(a.get("url", "")))
@@ -154,13 +154,13 @@ def gop_nhan(path: pathlib.Path) -> int:
         return 0
     for cu, moi, t in doi:
         print(f"  '{cu}' → '{moi}'  |  {t}")
-    ghi_data(path, html, start, end, data)
-    print(f"OK: đã gộp nhãn cho {len(doi)} bài, ghi lại {path.name}.")
+    ghi_data(repo, data)
+    print(f"OK: đã gộp nhãn cho {len(doi)} bài, ghi lại {analyses_store.TEN_FILE}.")
     return 0
 
 
-def xoa_url(path: pathlib.Path, urls: list) -> int:
-    html, start, end, data = doc_data(path)
+def xoa_url(repo: pathlib.Path, urls: list) -> int:
+    data = doc_data(repo)
     an = data.get("analyses") or []
     can = {u.strip().rstrip("/") for u in urls}
     giu, bo = [], []
@@ -177,7 +177,7 @@ def xoa_url(path: pathlib.Path, urls: list) -> int:
         print(f"  XOÁ [{a.get('date')}] {a.get('outlet')} — {a.get('title','')[:70]}")
         print(f"       {a.get('url')}")
     data["analyses"] = giu
-    ghi_data(path, html, start, end, data)
+    ghi_data(repo, data)
     print(f"OK: đã xoá {len(bo)} bài. Còn lại {len(giu)} bài.")
     return 0
 
@@ -247,14 +247,14 @@ def main() -> int:
     if "--tu-kiem" in argv:
         return tu_kiem()
     if "--gop-nhan" in argv:
-        return gop_nhan(INDEX_PATH)
+        return gop_nhan(REPO_ROOT)
     if "--xoa-url" in argv:
         urls = argv[argv.index("--xoa-url") + 1:]
         if not urls:
             print("LỖI: --xoa-url cần ít nhất một url.")
             return 1
-        return xoa_url(INDEX_PATH, urls)
-    return kiem(doc_data(INDEX_PATH)[3])
+        return xoa_url(REPO_ROOT, urls)
+    return kiem(doc_data(REPO_ROOT))
 
 
 if __name__ == "__main__":

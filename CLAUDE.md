@@ -776,6 +776,8 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `tests/test-canary-ban-tin.py` | Canary bản tin (`.github/scripts/canary.py`) | 10 — 7 PHẢI KÊU, 3 PHẢI IM (gồm ca hồi quy kêu oan 00:23 ngày 28/07) |
 | `tests/test-cong-phien-test.py` | Cổng "phiên TEST không đụng cờ thật" (`scripts/state.py` + `claude-web-scan.yml`) | 11 — 5 PHẢI CHẶN, 4 chống chặn oan + đối chứng, 1 kiểm cổng còn nằm trên đường đi (đọc chính file yml), 1 kiểm banner |
 | `scripts/sua_nhan_analyses.py --tu-kiem` | Chính `--kiem` của nó (nhãn `outlet` mục Think-tank) | 5 — 3 PHẢI CHẶN, 2 PHẢI CHO QUA + 1 đối chứng. **Test nằm TRONG script** chứ không ở `tests/` vì cổng và bộ ca dùng chung dữ liệu giả |
+| `tests/test-tach-analyses.py` | Việc tách kho think-tank ra `data/analyses.json` (30/07/2026) | 9 ca — mọi mắt xích đều hỏng-thì-im-lặng: mục Think-tank trống · 442 nhãn MỚI · guardrail trùng-url tê liệt · offline mất kho. `--tu-kiem` dựng 4 bản hỏng |
+| `scripts/analyses_store.py --tu-kiem` | Chính lớp đọc/ghi kho | 3 PHẢI CHẶN (thiếu file · JSON hỏng · không phải mảng) + cổng hồi quy "index.html phải rỗng" |
 
 Chạy cả bốn sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `make_docx.py` · `canary.py` · `state.py` · `claude-web-scan.yml`:
 ```
@@ -803,7 +805,14 @@ của canary soi ô **`sang`** của pipeline `event-scan`, không phải ô `su
 oan và tưởng cổng hỏng.
 
 ## Nơi lưu dữ liệu
-Toàn bộ dữ liệu nằm trong `index.html`, biến `var DATA = {...}` (~170KB, xem mục "Quy trình" bên dưới — KHÔNG đọc trực tiếp file này). Các phần liên quan tới quét tin:
+Dữ liệu nằm trong `index.html`, biến `var DATA = {...}` (xem mục "Quy trình" bên dưới — KHÔNG đọc trực tiếp file này).
+
+> ⚠️ **NGOẠI LỆ DUY NHẤT: bài think-tank nằm ở `data/analyses.json`** (tách 30/07/2026 — xem mục 4).
+> `DATA.analyses` trong `index.html` LUÔN RỖNG; web nạp kho bằng `loadAnalyses()` sau khi trang đã hiện.
+> Script Python phải đi qua `scripts/analyses_store.py`, và **mọi commit có nạp think-tank phải
+> `git add data/`** — bỏ sót thì bài nạp xong không lên web mà không có lỗi nào.
+
+Các phần liên quan tới quét tin:
 
 ### 1. `worldNews` / `usNews` — tin theo chuyên mục
 Mảng phẳng, tin mới nhất ở đầu. Mỗi tin:
@@ -834,6 +843,47 @@ Với **`exercises` (tập trận)**: cập nhật `items` con vào cuộc **đ�
 Với **`dipEvents` (sự kiện ngoại giao)** — áp dụng từ 11/07/2026 — được phép **tự động TẠO sự kiện mới** cho các sự kiện ngoại giao đáng đưa (dùng field `newDipEvents`), gồm: **ký kết/hiệp định song phương hoặc đa phương** (vd Nhật–New Zealand ký ACSA), **thượng đỉnh / hội nghị cấp cao**, **thăm cấp nguyên thủ/bộ trưởng có kết quả cụ thể**, **sáng kiến/khuôn khổ ngoại giao lớn mới**. KHÔNG tạo sự kiện cho: điện đàm/cuộc gọi thường lệ, phát ngôn đơn lẻ, tin đồn. **TĂNG số sự kiện ngoại giao mỗi ngày** (chủ động tạo 1–2 sự kiện mới + cập nhật item cho sự kiện đang chạy). Mỗi sự kiện mới phải có đủ `name`, `status`, `dates`, `location`, `scale`, `summary`, và ≥1 `items`. **`status` PHÂN LOẠI đúng 3 mức** (giao diện hiển thị theo nhóm này): `upcoming` = **Sắp diễn ra** (thượng đỉnh/hội nghị chưa họp) · `ongoing` = **Đang diễn ra** (đang họp/đàm phán nhiều ngày) · `recent` = **Đã kết thúc** (đã ký/đã họp xong). Khi một sự kiện `ongoing`/`upcoming` kết thúc, dùng `dipEventUpdates` KÈM đổi trạng thái (nêu trong tóm tắt để cập nhật status sang `recent`) (nguồn chứng minh — ưu tiên nguồn chính thức tầng 1). **LƯU Ý (24/07/2026): giao diện giờ tự SUY trạng thái hiển thị từ dải ngày `dates` so với hôm nay** (hàm `effStatus` trong `index.html`: parse "19-24/07/2026", "20/7 – 7/8/2026", "24/7/2026"… → trong khoảng = Đang diễn ra, trước = Sắp, sau = Đã kết thúc). Vì vậy KHÔNG cần sửa tay `status` mỗi ngày cho các mốc có `dates` rõ; `status` lưu trong DATA chỉ còn là **fallback** khi `dates` không parse được ngày (vd "Tháng 9/2026", "Cuối năm 2026"). Vẫn nên đặt `status` hợp lý lúc tạo, và ưu tiên ghi `dates` dạng có ngày/tháng/năm để auto hoạt động. Script tự CHẶN nếu tên trùng/giống sự kiện đã có (Jaccard ≥ 0.6) → khi đó dùng `dipEventUpdates` để thêm item vào sự kiện cũ thay vì tạo trùng. Nếu một tin đã đưa ở `worldNews`/`usNews` được nâng thành sự kiện, bỏ bản ở mảng tin phẳng để URL không trùng 2 chỗ.
 
 ### 4. `analyses` — bài phân tích THINK-TANK (mục 🧠 Phân tích → 🏛️ Think-tank)
+
+#### 📦 TÁCH RA FILE RIÊNG `data/analyses.json` (30/07/2026, chỉ thị Huy)
+`index.html` chạm **1,54 MB**, riêng 442 bài think-tank chiếm **520 KB thô / 147 KB sau nén = 34%**
+dung lượng lần tải đầu — cho một mục nằm ở TAB CON mà người đọc bản tin ít khi mở. Tách xong
+`index.html` còn **881 KB** (giảm 33%), web nạp kho sau khi trang đã hiện.
+⚠️ **Đo trước khi kỳ vọng:** GitHub Pages vốn trả bản đã nén và tải hết trong **0,70 giây** — tách
+chỉ tiết kiệm ~0,2 giây trên đường truyền tốt. Chỗ đáng giá thật là 3G/4G yếu và máy vào lần đầu.
+
+| Mắt xích | Ở đâu |
+|---|---|
+| Nguồn sự thật | `data/analyses.json` — mảng bài, KHÔNG bọc object |
+| Lớp đọc/ghi cho Python | `scripts/analyses_store.py` (`doc` · `ghi` · `kiem_index_rong`) |
+| Web nạp | `loadAnalyses()` trong index.html, gọi ngay sau `render()` ở luồng boot |
+| Offline | `data/analyses.json` nằm trong `SHELL` của `sw.js` (bump `diemtin-v49`) |
+| Bộ test canh | `tests/test-tach-analyses.py` (9 ca + `--tu-kiem` 4 bản hỏng), đã nạp vào `khoe.py` |
+| Script tách/kiểm | `scripts/tach_analyses.py` (idempotent, `--kiem` chỉ soi) |
+
+⛔ **`DATA.analyses` trong index.html PHẢI LUÔN RỖNG.** Nó chỉ còn để `DATA.analyses||[]` không vỡ
+trong lúc chờ fetch. Script nào đọc `data["analyses"]` từ index.html sẽ thấy **mảng rỗng** và:
+(a) guardrail *"url ĐÃ CÓ trong DATA"* của `add_analyses.py` tê liệt → nạp trùng cả kho;
+(b) ghi vào đó là ghi vào chỗ không ai đọc → mất bài. **Cả hai đều không phát ra lỗi nào.**
+Vì vậy `analyses_store.doc()` **CHẶN CỨNG** khi file thiếu/hỏng thay vì trả rỗng cho êm.
+
+⚠️ **Ba chỗ đã vá kèm, đừng gỡ:**
+- `loadAnalyses()` nạp xong phải chạy lại **`importAnalysisConcepts()` · `commitSeen()` · `render()`**,
+  và **`if(_firstRun)initSeen()`** — luồng boot chụp sổ đã-thấy TRƯỚC khi kho về, thiếu dòng này thì
+  người mở web lần đầu thấy **442 nhãn MỚI**. Đã đo thật: bản đúng 0 nhãn, bản gỡ dòng vá đúng 442.
+- `send-morning-email.js` đọc kho hiện tại từ `data/analyses.json` và bản trước từ `PREV_ANALYSES`
+  (workflow `notify-morning.yml` ghi bằng `git show HEAD~1:data/analyses.json`). Cờ **`analysesKnown`
+  khai bằng lời** — KHÔNG suy "prev.analyses rỗng nghĩa là trước đây chưa có bài": quên truyền biến
+  thì email liệt kê nguyên kho như vừa nạp sáng nay. Cùng lớp lỗi với `TELEGRAM_BAT_BUOC`/`tu_dong=1`.
+- `tra_cuu_tin.py` (bot Telegram) gắn kho vào `data["analyses"]` ngay trong `load_data()`, để phần
+  còn lại của script không phải biết chuyện tách.
+
+⚠️ **Bộ từ khoá khớp bài think-tank với tập trận (`drillTkConf`) có 2 lỗi đã đo, chưa sửa** (30/07):
+(i) trần cứng `.slice(0,6)` mới là thứ giới hạn hiển thị — Pitch Black có **28 bài** qua cổng, Yudh
+Abhyas 229, RIMPAC 149, đều bị cắt còn 6; (ii) từ khoá ngắn khớp CHUỖI CON sau khi `norm()` bỏ dấu —
+`úc`→`uc` trúng **397/442 bài** (lực, mục, sức, thực, vực, chức), `nga` trúng 277 (ngày, ngăn, ngành).
+Cổng `strong` không lọt bài sai, nhưng điểm nhiễu làm **xếp hạng 6 bài lọt vào bị sai**. Riêng Pitch
+Black còn hẹp: `f-35` và `pitch black` trúng **0 bài** (kho viết về chính sách/liên minh, gần như
+không gọi tên khí tài), chỉ `aukus` (16) + `không quân` (10) đang gánh. Sửa khi bắt tay viết bài.
 Thêm đường nạp 27/07/2026 (chỉ thị Huy: *"quét tin buổi sáng nhớ quét thêm cả các bài từ think-tank"*).
 **Vì sao mục này từng chết:** web đã có sẵn tab và mảng `DATA.analyses` từ lâu, nhưng KHÔNG script nào
 ghi vào đó — chỉ `prune_news.py` xoá. Kết quả: bài mới nhất đứng ở 09/07 suốt 18 ngày. Đây là bài học

@@ -45,6 +45,18 @@ jobs:
         run: |
           git show HEAD~1:index.html > /tmp/prev-index.html 2>/dev/null || echo "" > /tmp/prev-index.html
           echo "PREV_HTML=/tmp/prev-index.html" >> "$GITHUB_ENV"
+          # Bài think-tank tách ra file riêng 30/07/2026 — thiếu dòng này thì diffAnalyses
+          # so với mảng rỗng và coi CẢ KHO 442 bài là "vừa nạp sáng nay".
+          # ⚠️ KHÔNG fallback về "[]": commit HEAD~1 có thể chưa có file (đúng ca commit tách
+          # đầu tiên, hoặc lịch sử bị cắt nông). Mảng rỗng đọc thành "trước đây chưa có bài nào"
+          # → email liệt kê nguyên kho. Lấy được thì khai PREV_ANALYSES, không thì BỎ HẲN biến
+          # để send-morning-email.js tự lùi về dấu `_addedDate` — thà bỏ sót một email còn hơn
+          # gửi 442 bài như thể vừa nạp sáng nay.
+          if git show HEAD~1:data/analyses.json > /tmp/prev-analyses.json 2>/dev/null; then
+            echo "PREV_ANALYSES=/tmp/prev-analyses.json" >> "$GITHUB_ENV"
+          else
+            echo "::notice::HEAD~1 chưa có data/analyses.json — diffAnalyses lùi về dấu _addedDate."
+          fi
 
       - name: Setup Node
         if: steps.chk.outputs.go == '1'

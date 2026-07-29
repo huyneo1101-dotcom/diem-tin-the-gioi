@@ -30,6 +30,9 @@ import pathlib
 import sys
 import unicodedata
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import analyses_store  # noqa: E402
+
 MIN_DEF = 40
 MAX_TERM = 90
 MAX_CONCEPTS = 6
@@ -45,41 +48,6 @@ def norm(s: str) -> str:
     s = unicodedata.normalize("NFD", (s or "").strip().lower())
     s = "".join(c for c in s if not unicodedata.combining(c))
     return " ".join(s.replace("đ", "d").split())
-
-
-def find_data_span(html: str):
-    marker = "var DATA = "
-    start = html.index(marker) + len(marker)
-    depth = 0
-    in_str = esc = False
-    i = start
-    while i < len(html):
-        c = html[i]
-        if in_str:
-            if esc:
-                esc = False
-            elif c == "\\":
-                esc = True
-            elif c == '"':
-                in_str = False
-        else:
-            if c == '"':
-                in_str = True
-            elif c == "{":
-                depth += 1
-            elif c == "}":
-                depth -= 1
-                if depth == 0:
-                    return start, i + 1
-        i += 1
-    raise ValueError("Không tìm thấy điểm kết thúc var DATA")
-
-
-def doc_data(repo: pathlib.Path):
-    html_path = repo / "index.html"
-    html = html_path.read_text(encoding="utf-8")
-    s, e = find_data_span(html)
-    return html_path, html, s, e, json.loads(html[s:e])
 
 
 def kiem_lo(lo, analyses):
@@ -119,8 +87,7 @@ def nap(duong_dan_json: str, repo: pathlib.Path):
     lo = json.loads(pathlib.Path(duong_dan_json).read_text(encoding="utf-8"))
     if not isinstance(lo, list):
         die("JSON phải là một MẢNG [{url, concepts:[...]}]")
-    html_path, html, s, e, data = doc_data(repo)
-    analyses = data.get("analyses") or []
+    analyses = analyses_store.doc(repo)
     sach = kiem_lo(lo, analyses)
 
     hit = them = 0
@@ -131,15 +98,13 @@ def nap(duong_dan_json: str, repo: pathlib.Path):
         a["concepts"] = ks
         hit += 1
         them += len(ks)
-    new = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    html_path.write_text(html[:s] + new + html[e:], encoding="utf-8")
+    analyses_store.ghi(repo, analyses)
     con = sum(1 for a in analyses if not a.get("concepts"))
     print(f"OK: gắn {them} khái niệm cho {hit} bài think-tank. Còn {con}/{len(analyses)} bài chưa có.")
 
 
 def kiem(repo: pathlib.Path):
-    _, _, _, _, data = doc_data(repo)
-    analyses = data.get("analyses") or []
+    analyses = analyses_store.doc(repo)
     co = [a for a in analyses if a.get("concepts")]
     thieu = [a for a in analyses if not a.get("concepts")]
     tong = sum(len(a["concepts"]) for a in co)
@@ -158,10 +123,9 @@ def tu_kiem(repo: pathlib.Path):
     """Dựng các lô XẤU rồi khẳng định guardrail thật sự chặn (quy tắc 17: phải có ca PHẢI CHẶN).
 
     Ca 'phải cho qua' cũng có, để biết guardrail không chặn oan — nhưng chạy trên bản SAO của
-    DATA trong bộ nhớ, không đụng index.html.
+    kho trong bộ nhớ, không đụng data/analyses.json.
     """
-    _, _, _, _, data = doc_data(repo)
-    analyses = data.get("analyses") or []
+    analyses = analyses_store.doc(repo)
     if not analyses:
         print("✗ Không có bài think-tank nào để dựng ca thử", file=sys.stderr)
         return 1

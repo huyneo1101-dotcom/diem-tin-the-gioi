@@ -244,7 +244,7 @@ Commit message QUYẾT ĐỊNH email sáng riêng (`notify-morning.yml` bắt ti
 - CHỈ think-tank: vẫn `Cap nhat su kien DD/MM: +M bai think-tank` — đã tính vào gate email sáng.
 - Rỗng thật: message tự do, KHÔNG dùng 2 tiền tố trên.
 
-`git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html logs/` (phải có `logs/state.json`) → commit
+`git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html data/ logs/` (phải có `logs/state.json`; **`data/` là BẮT BUỘC** — bài think-tank nằm ở `data/analyses.json` từ 30/07/2026, bỏ sót thì bài nạp xong KHÔNG lên web mà cũng không có lỗi nào) → commit
 **RIÊNG với commit bản tin của Bước 3** → push. Bị từ chối → `pull --rebase` rồi push lại.
 
 Báo cáo cuối (gộp vào báo cáo cuối chung của phiên): số sự kiện mới/cập nhật, số tập trận cập nhật, có

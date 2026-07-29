@@ -65,6 +65,9 @@ import sys
 import xml.etree.ElementTree as ET
 import zoneinfo
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import analyses_store  # noqa: E402
+
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 
 # Khung LIỆT KÊ ứng viên của `--candidates` (luồng routine sáng nhặt bài mới trong tuần).
@@ -316,8 +319,17 @@ def jaccard(a: str, b: str) -> float:
 
 
 def collect_existing_urls(data: dict) -> set:
-    """Mọi URL đã có trong DATA — để một bài không nằm 2 chỗ (analyses + worldNews)."""
+    """Mọi URL đã có trong DATA — để một bài không nằm 2 chỗ (analyses + worldNews).
+
+    ⚠️ Bài think-tank KHÔNG còn nằm trong `data` (tách ra data/analyses.json 30/07/2026),
+    nên phải đọc thêm từ store. Bỏ bước này thì guardrail trùng-url thấy mảng rỗng và
+    cho nạp lại nguyên kho — kiểu hỏng câm, không có thông báo nào.
+    """
     urls = set()
+    for it in analyses_store.doc(pathlib.Path(__file__).resolve().parent.parent):
+        for f in ("url", "sourceUrl", "_baomoiUrl"):
+            if it.get(f):
+                urls.add(it[f].strip())
     for key in ("analyses", "worldNews", "usNews", "xNews", "rejectedNews"):
         for it in data.get(key) or []:
             for f in ("url", "sourceUrl", "_baomoiUrl"):
@@ -510,7 +522,8 @@ def main() -> None:
     data = json.loads(html[start:end])
 
     existing_urls = collect_existing_urls(data)
-    existing_titles = [a.get("title", "") for a in data.get("analyses") or []]
+    kho = analyses_store.doc(repo_root)          # nguồn sự thật: data/analyses.json
+    existing_titles = [a.get("title", "") for a in kho]
 
     seen_batch = set()
     warnings = []
@@ -568,12 +581,13 @@ def main() -> None:
         })
 
     # Bài mới lên đầu, rồi sắp toàn mảng theo ngày đăng giảm dần cho khớp cách web hiển thị.
-    merged = clean + (data.get("analyses") or [])
+    merged = clean + kho
     merged.sort(key=lambda a: str(a.get("date") or ""), reverse=True)
-    data["analyses"] = merged
-
-    new_data = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    html_path.write_text(html[:start] + new_data + html[end:], encoding="utf-8")
+    # Ghi vào data/analyses.json, KHÔNG ghi vào index.html: từ 30/07/2026 `DATA.analyses`
+    # trong index.html luôn rỗng, web nạp bài qua loadAnalyses(). Xem scripts/analyses_store.py.
+    analyses_store.ghi(repo_root, merged)
+    for e in analyses_store.kiem_index_rong(repo_root):
+        die(e)
 
     for w in warnings:
         print(f"⚠️  CẢNH BÁO: {w}")

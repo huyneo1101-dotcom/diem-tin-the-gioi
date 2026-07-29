@@ -30,6 +30,16 @@ function extractDATA(html) {
 function readDATA(path) {
   try { return extractDATA(fs.readFileSync(path, 'utf8')); } catch (e) { return null; }
 }
+// Bài think-tank tách khỏi index.html 30/07/2026 (xem scripts/analyses_store.py) — phải nạp
+// riêng, cho CẢ bản hiện tại lẫn bản HEAD~1, nếu không diffAnalyses luôn thấy mảng rỗng và
+// khối 🏛️ Think-tank biến mất khỏi email mà không có lỗi nào.
+function readAnalyses(path) {
+  if (!path) return [];
+  try {
+    const a = JSON.parse(fs.readFileSync(path, 'utf8'));
+    return Array.isArray(a) ? a : [];
+  } catch (e) { return []; }
+}
 function esc(s) {
   return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
@@ -133,7 +143,12 @@ function diffEvents(cur, prev) {
 // "quét tin buổi sáng nhớ quét thêm cả các bài từ think-tank".
 function diffAnalyses(cur, prev) {
   const arr = Array.isArray(cur.analyses) ? cur.analyses : [];
-  if (prev) {
+  // `analysesKnown` là Ý ĐỊNH KHAI BẰNG LỜI: "bản trước của kho think-tank đã được nạp thật".
+  // KHÔNG suy từ việc prev.analyses có phần tử hay không — kho tách ra file riêng 30/07/2026,
+  // nên quên truyền PREV_ANALYSES sẽ cho mảng rỗng, và "rỗng" đọc thành "trước đây chưa có bài
+  // nào" → email liệt kê nguyên kho 442 bài như vừa nạp sáng nay. Cùng lớp lỗi với
+  // TELEGRAM_BAT_BUOC và tu_dong=1 (xem CLAUDE.md).
+  if (prev && prev.analysesKnown) {
     const seen = new Set((prev.analyses || []).map(a => a && a.url).filter(Boolean));
     return arr.filter(a => a && a.url && !seen.has(a.url));
   }
@@ -277,7 +292,13 @@ async function main() {
   }
   const cur = readDATA('index.html');
   if (!cur) { console.error('LỖI: không đọc được DATA hiện tại (index.html).'); process.exit(1); }
+  cur.analyses = readAnalyses('data/analyses.json');
   const prev = process.env.PREV_HTML ? readDATA(process.env.PREV_HTML) : null;
+  // prev có thể null (không có HEAD~1) — khi đó diffAnalyses tự lùi về dấu _addedDate.
+  if (prev && process.env.PREV_ANALYSES) {
+    prev.analyses = readAnalyses(process.env.PREV_ANALYSES);
+    prev.analysesKnown = true;
+  }
 
   const evs = diffEvents(cur, prev);
   const weekly = weeklyIsNew(cur, prev);

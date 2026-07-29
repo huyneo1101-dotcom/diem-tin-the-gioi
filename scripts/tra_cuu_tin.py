@@ -42,7 +42,13 @@ def load_data():
             if d == 0:
                 break
         j += 1
-    return json.loads(html[i:j + 1])
+    data = json.loads(html[i:j + 1])
+    # Bài think-tank tách khỏi index.html 30/07/2026 (scripts/analyses_store.py). Gắn lại vào
+    # đây để phần còn lại của script không phải biết chuyện đó — bot vẫn tra được mục Think-tank.
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import analyses_store
+    data["analyses"] = analyses_store.doc(ROOT)
+    return data
 
 
 def bo_dau(s: str) -> str:
