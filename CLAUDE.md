@@ -420,7 +420,13 @@ không có push là không có gì hết. Cả ba đều **im lặng tuyệt đ�
 |---|---|---|
 | **22:45** | `toi` | sổ `logs/da-gui-email.json` có dòng `buoi: toi` ngày hôm nay chưa |
 | **06:15** | `sang` | như trên, `buoi: sang` |
-| **10:45** | `sukien` | `logs/state.json` → `event-scan.lastSuccess.sang == hôm nay` |
+| **07:00** | `sukien` | `logs/state.json` → `event-scan.lastSuccess.sang == hôm nay` |
+
+⏰ **Mốc ca `sukien` đã dời HAI lần, đừng đọc theo trí nhớ:** 10:45 → **06:20** (28/07, khi
+`event-scan` gộp vào phiên sáng sớm nên lớp cuối của nó trùng lớp cuối web-scan) → **07:00**
+(29/07). Lần dời thứ hai vì 06:20 vẫn sát: local 05:30 + jitter ~3'30, quét bản tin 16–21',
+rồi event-scan chạy TIẾP trong cùng session ~15–25' ⇒ xong đúng quanh 06:20 — canary kêu ngay
+lúc phiên còn đang làm đúng việc. Cùng lỗi với ca `toi` từng kêu khi lớp vét 22:00 chưa gửi xong.
 
 **Hai nguyên tắc, đừng "dọn cho gọn" mất:**
 1. **Kiểm ĐẦU RA, không kiểm quy trình.** Không hỏi "job có chạy không" (job xanh mà gửi rỗng
@@ -814,8 +820,9 @@ cho lọt; đúng là viện thật mà thiếu thì thêm domain vào danh sác
 
 **Email sáng** (`send-morning-email.js`): có khối 🏛️ Think-tank riêng, và **bài think-tank mới cũng đủ
 để mở email** kể cả khi không có sự kiện/tập trận nào (hàm `diffAnalyses`; không có bản HEAD~1 để so thì
-dựa vào `_addedDate == generatedAt`). Quy trình phiên sáng: `docs/routine-event-scan.md` **Bước 2c** /
-`.github/prompts/event-scan-ci.md` **bước 3b**.
+dựa vào `_addedDate == generatedAt`). Quy trình phiên sáng: `docs/routine-web-scan.md` **Bước 4.4** /
+`.github/prompts/web-scan-ci.md` **BƯỚC 6** (địa chỉ cũ `routine-event-scan.md` Bước 2c /
+`event-scan-ci.md` bước 3b đã chết từ 28/07/2026: file prompt bị xoá, file docs còn lại là stub).
 
 ## ✅ THANG XÁC MINH — bao nhiêu nguồn là ĐỦ để nạp một tin (chốt 27/07/2026)
 Trước đây chỉ có luật cụt "không chắc link thì bỏ", nên thực tế xử lý lệch nhau: cùng ngày 27/07 tao

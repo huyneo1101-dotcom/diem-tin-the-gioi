@@ -9,8 +9,11 @@ trên web — không phải cờ chạy việc. Tách ra đây, mỗi pipeline m
 
 Pipeline đang dùng:
   drive-import  — GitHub Action import-news-from-drive.yml (08:00 & 20:00 VN) — THẬT SỰ 2 buổi/ngày
-  web-scan      — routine Claude quét bản tin 5 chủ đề (22:00 VN, dự phòng 23:00) — 1 phiên/ngày, buổi TỐI
-  event-scan    — routine Claude quét sự kiện/tập trận + báo cáo tuần CN (08:45, dự phòng 09:45) — 1 phiên/ngày, buổi SÁNG
+  web-scan      — routine Claude quét bản tin 5 chủ đề — 2 phiên/ngày: TỐI (CI 21:00 · local 21:15 ·
+                  vét CI 22:00) và SÁNG SỚM (CI 04:00 · local 04:30 · CI 05:00 · local 05:30)
+  event-scan    — sự kiện/tập trận + think-tank + báo cáo tuần CN — 1 phiên/ngày, buổi SÁNG. Từ
+                  28/07/2026 KHÔNG còn mốc riêng (cũ: 08:45, dự phòng 09:45): nó chạy NGAY SAU bản
+                  tin trong CÙNG session của phiên sáng sớm, chỉ khoá/commit là vẫn tách riêng
 
 CỜ TÁCH THEO BUỔI, không phải theo ngày. Với drive-import (2 buổi/ngày) đây đúng nghĩa "buổi":
 nếu chỉ so theo ngày thì lô sáng xong sẽ làm lô tối cùng ngày SKIP oan.

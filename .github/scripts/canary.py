@@ -92,8 +92,9 @@ def ngay_cua_ca(ca: str, luc: datetime.datetime) -> str:
     thuẫn ngay trên mặt chữ: tiêu đề "CHƯA có" mà dòng dưới in `lastRun … DONE`.
 
     Quy ước: **ca `toi` fire 21:00–22:30, nên mốc trước 12:00 thuộc về NGÀY HÔM TRƯỚC.**
-    Ca `sang` (fire 04:00–05:30) và `sukien` (08:45–10:15) cách nửa đêm hơn 13 tiếng nên
-    không cần quy đổi — trễ tới mức đó thì hệ thống đã hỏng theo kiểu khác rồi.
+    Ca `sang` và `sukien` cùng theo phiên sáng sớm (fire 04:00–05:30; từ 28/07/2026 event-scan
+    chạy gộp trong chính phiên đó nên hai ca soi cùng một dải giờ) — cách nửa đêm hơn 13 tiếng
+    nên không cần quy đổi; trễ tới mức đó thì hệ thống đã hỏng theo kiểu khác rồi.
 
     Dời cron sớm hơn KHÔNG chữa được gốc: độ trễ cron GitHub là thứ không ép được, chỉ mua
     thêm biên. Phải sửa cách tính ngày.
