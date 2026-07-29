@@ -39,3 +39,4 @@
 [09:51Z] VERIFY bang chung that: chay make_docx.py -> /tmp/Diem-tin-toi-21h-2026-07-29.docx co 31 tin (16 phien sang + 14 lo Word + 1), du 4 muc. So da-gui-email.json da ghi ban sang luc 04:23 voi 17 url -> tin nhan Telegram toi se TU LOAI 17 tin do, con file .docx KHONG loc so nen gom ca ngay. Dung y Huy.
 [22:41Z] SKIP (CI) phien sang som - lan goi lai: web-scan da DONE luc 04:22:10+07 (+16 tin, 5 chu de). state.py claim tra exit 10. Ket thuc em, khong quet lai.
 [01:45Z] SKIP (CI) event-scan - lan goi lai: state.py claim event-scan tra exit 10 (da DONE luc 04:51:45+07, +1 tap tran RIMPAC, +1 su kien ngoai giao Han Quoc-Brazil, +5 bai think-tank). Ket thuc em, khong quet lai.
+[10:26Z] START (CI TEST) phien toi - PHIEN TEST HA TANG CI (mode=test), quet NHE 1 agent Sonnet, muc tieu chung minh pipeline claim->quet->add_news->commit->push voi chi phi nho nhat.
