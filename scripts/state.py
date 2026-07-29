@@ -26,6 +26,24 @@ Vì vậy giữ nguyên cách suy ô theo giờ VN (trước 14:00 = "sang", t�
 với pipeline 1 phiên/ngày, ô không phải giờ chạy chuẩn của nó được gọi thẳng là "chay bu" (xem
 SLOT_LABELS) — trước đây in "web-scan buoi sang" nghe như web có phiên sáng, mà phiên sáng đã bỏ từ 23/07.
 
+PHIÊN TEST KHÔNG ĐƯỢC ĐỤNG CỜ THẬT (thêm 29/07/2026 — vá gốc sự cố tối 29/07). Nhánh
+`MODE=test` của `claude-web-scan.yml` (quét nhẹ 1 agent, chứng minh hạ tầng CI) đã gọi
+`state.py done web-scan` lúc 17:34 và CHIẾM ô khoá `toi` của cả ngày. Commit của nó rơi
+ngoài khung giờ gửi (cổng 2 của notify-email.yml đòi >= 20:30) nên không kích email/Telegram.
+Hậu quả: CI 21:00, local 21:15, CI 22:00 đều nhận exit 10 rồi SKIP — bản tin tối suýt mất
+trắng mà KHÔNG LỚP NÀO BÁO HỎNG. Cùng bài học đã ghi cho sổ đã gửi: chạy tay/chạy test là
+để TEST, không được để dấu vết lên bản thật.
+
+Cơ chế: biến môi trường `DIEMTIN_PHIEN_TEST=1` (workflow đặt ở nhánh test) chuyển TOÀN BỘ
+đường ghi sang `logs/state-test.json`. Phiên test vẫn nghiệm thu được trọn pipeline
+claim -> beat -> done, chỉ là ghi vào sổ riêng của nó.
+  · Ý ĐỊNH PHẢI KHAI BẰNG LỜI, không suy từ kiểu sự kiện — cùng lỗi đã vấp với `tu_dong=1`
+    (suy từ `event_name == 'push'`) và `TELEGRAM_BAT_BUOC` (suy từ số secret còn lại).
+  · MẶC ĐỊNH LÀ PHIÊN THẬT: quên đặt biến thì hành vi y như cũ, không tạo vùng câm mới.
+  · Phiên test KHÔNG xét cờ `lastSuccess` thật -> không bao giờ exit 10 vì bản tin thật đã
+    xong (test phải chạy lại được bất kể giờ nào), NHƯNG VẪN đọc `logs/state.json` để nhường
+    phiên THẬT đang chạy (exit 11) — bỏ chốt này là mở đường cho hai phiên quét chồng.
+
 KHOÁ CHỐNG CHẠY CHỒNG (thêm 22/07/2026): mốc chính và mốc dự phòng chỉ cách nhau 60 phút
 mà một phiên quét mất ~60 phút, nên `check` (chỉ biết ĐÃ XONG hay chưa) sẽ để lần fire dự
 phòng khởi động phiên THỨ HAI song song — hai phiên cùng quét, cùng push, tốn token đôi và
@@ -44,6 +62,9 @@ Dùng:
   python3 scripts/state.py fail web-scan "session limit"  # lỗi -> nhả khoá, KHÔNG chặn, lần sau quét lại
   ... thêm --slot sang|toi để ép buổi (chạy tay ngoài giờ); mặc định tự suy từ giờ VN.
   ... thêm --force cho `claim` để cướp khoá của phiên đang chạy (chỉ khi biết chắc nó đã chết).
+  DIEMTIN_PHIEN_TEST=1 python3 scripts/state.py claim web-scan   # phiên TEST: ghi state-test.json
+
+Bộ test canh cổng này: tests/test-cong-phien-test.py (kèm --tu-kiem).
 """
 import json
 import os
@@ -58,7 +79,15 @@ try:
 except AttributeError:  # Windows
     pass
 
-STATE_PATH = Path(__file__).resolve().parent.parent / "logs" / "state.json"
+# STATE_LOGS_DIR: seam CHỈ dùng cho bộ test (tests/test-cong-phien-test.py) — ghim thư mục logs
+# vào chỗ tạm để ca thử không đụng cờ thật của repo. Vận hành thật KHÔNG đặt biến này.
+LOGS_DIR = Path(os.environ.get("STATE_LOGS_DIR") or Path(__file__).resolve().parent.parent / "logs")
+STATE_PATH = LOGS_DIR / "state.json"
+# Sổ RIÊNG của phiên test — không commit (đã .gitignore), mất cũng không sao.
+STATE_TEST_PATH = LOGS_DIR / "state-test.json"
+# Khai ý định bằng lời: chỉ biến này mới bật chế độ test. Không suy từ MODE/tên workflow/giờ chạy.
+TEST_ENV = "DIEMTIN_PHIEN_TEST"
+TEST_ON = ("1", "true", "yes", "on", "co")
 PIPELINES = ("drive-import", "web-scan", "event-scan")
 SLOTS = ("sang", "toi")
 SLOT_SPLIT_HOUR = 14  # < 14:00 VN = ô "sang"; >= 14:00 = ô "toi"
@@ -86,16 +115,31 @@ def current_slot() -> str:
     return "sang" if datetime.now().hour < SLOT_SPLIT_HOUR else "toi"
 
 
-def load() -> dict:
+def la_phien_test() -> bool:
+    """Phiên TEST hạ tầng? Chỉ đọc biến môi trường — ý định phải khai bằng lời."""
+    return (os.environ.get(TEST_ENV) or "").strip().lower() in TEST_ON
+
+
+def state_path() -> Path:
+    """Nơi GHI cờ. Phiên test đi sổ riêng nên không bao giờ chiếm được ô khoá thật."""
+    return STATE_TEST_PATH if la_phien_test() else STATE_PATH
+
+
+def load_path(p: Path) -> dict:
     try:
-        return json.loads(STATE_PATH.read_text(encoding="utf-8"))
+        return json.loads(p.read_text(encoding="utf-8"))
     except (FileNotFoundError, json.JSONDecodeError):
         return {}
 
 
+def load() -> dict:
+    return load_path(state_path())
+
+
 def save(state: dict) -> None:
-    STATE_PATH.parent.mkdir(exist_ok=True)
-    STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    p = state_path()
+    p.parent.mkdir(exist_ok=True)
+    p.write_text(json.dumps(state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def now_iso() -> str:
@@ -192,10 +236,15 @@ def main() -> None:
         args.remove("--force")
     cmd = args[0] if args else "show"
 
+    if la_phien_test():
+        # In LOUD ở mọi lệnh: đọc log CI phải thấy ngay phiên này không đụng cờ thật.
+        print(f"⚠️  PHIEN TEST ({TEST_ENV}=1) — ghi vao {state_path().name}, KHONG dung "
+              f"cham co that ({STATE_PATH.name}).")
+
     if cmd == "show":
         state = load()
         if not state:
-            print(f"(chua co {STATE_PATH.name})")
+            print(f"(chua co {state_path().name})")
             return
         now_slot = slot or current_slot()
         print(f"Hom nay {today()}, o hien tai: {now_slot}\n")
@@ -227,7 +276,20 @@ def main() -> None:
 
     if cmd in ("check", "claim"):
         entry = load().get(pipeline, {})
-        if not should_run(pipeline, use_slot):
+        if la_phien_test():
+            # (a) KHÔNG xét lastSuccess thật -> phiên test không bao giờ exit 10 vì bản tin thật
+            #     đã xong. Test phải chạy lại được bất kể giờ nào, đó là công dụng của nó.
+            # (b) NHƯNG vẫn đọc cờ THẬT để nhường phiên thật đang chạy: bỏ chốt này là mở đường
+            #     cho test quét chồng lên bản tin thật (trước đây khoá chung nên không xảy ra).
+            that = load_path(STATE_PATH).get(pipeline, {})
+            if is_running(that) and not force:
+                age = minutes_since(that.get("heartbeat", "")) or 0
+                print(
+                    f"SKIP — PHIEN TEST khong chay chong len PHIEN THAT dang chay "
+                    f"(nhip tim {age:.0f}' truoc, bat dau {that.get('lastRunAt')})."
+                )
+                sys.exit(11)
+        elif not should_run(pipeline, use_slot):
             print(
                 f"SKIP — {pipeline} [{slot_label(pipeline, use_slot)}] ngay {today()} DA XONG "
                 f"(lan chay cuoi {entry.get('lastRunAt')}). Khong lam lai."

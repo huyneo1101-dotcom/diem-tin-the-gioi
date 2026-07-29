@@ -22,6 +22,22 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
 1. `git pull --rebase origin main` rồi `python3 scripts/state.py claim web-scan`.
    - exit 10 (tối nay đã có bản tin) hoặc exit 11 (phiên khác đang chạy — có thể là bản local trên máy Huy): ghi 1 dòng SKIP + lý do vào log, commit + push log, KẾT THÚC ÊM. Đây là kết quả HỢP LỆ, không phải lỗi.
    - exit 0: đã giữ khoá, quét tiếp.
+   - ⛔ **NGOẠI LỆ DUY NHẤT của exit 10 — CỜ ĐÃ XONG NHƯNG SỔ ĐÃ GỬI CHƯA CÓ DÒNG CỦA CA NÀY** (đúc 29/07/2026, sự cố thật; luật song sinh với `docs/routine-web-scan.md` mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" điều 3 — bản local đã áp từ trước, nay áp cho CI vì mốc **CI 22:00 là lớp CUỐI** và khi máy Mac ngủ thì không còn ai đứng sau nó). Gặp exit 10 thì làm ĐỦ 3 lệnh phẳng này trước khi SKIP:
+     ```
+     python3 scripts/state.py show
+     TZ='Asia/Ho_Chi_Minh' date +%F
+     python3 .github/scripts/so_da_gui.py --xem
+     ```
+     | Điều kiện | Làm gì |
+     |---|---|
+     | `--xem` CÓ dòng ngày hôm nay kèm `[toi]` (ca sáng sớm thì `[sang]`) | SKIP êm như trên. Bản tin đã tới tay |
+     | Sổ KHÔNG có dòng đó **và** `lastRunAt` cách hiện tại **< 20 phút** | SKIP êm — phiên anh em vừa xong, `notify-email.yml` còn đang chạy, sổ ghi ở bước CUỐI nên chưa kịp hiện |
+     | Sổ KHÔNG có dòng đó **và** `lastRunAt` cách hiện tại **≥ 20 phút** | Cờ đang NÓI DỐI → **QUÉT THẬT**, commit tiền tố `Cap nhat ban tin` như thường |
+
+     **Cơ chế:** `state.py` chỉ ghi nhận *"pipeline đã chạy xong"* — nó KHÔNG biết bản tin có được GỬI hay không, hai chuyện khác nhau. Cổng gửi của `notify-email.yml` xét **commit message + khung giờ VN (≥20:30 hoặc 03:30–07:00)**, hoàn toàn không xét khoá. Nên một phiên chạy GIỮA NGÀY (ví dụ Huy bấm tay `workflow_dispatch` mode=normal lúc 15:00) vẫn `done` và chiếm ô khoá, trong khi commit của nó rơi ngoài khung giờ nên không kích email/Telegram — mọi lớp buổi tối sau đó exit 10 rồi SKIP, **cả chuỗi im lặng mà bản tin mất trắng**. Đúng chuyện đã xảy ra tối 29/07 (thủ phạm hôm đó là nhánh `MODE=test`, nay đã vá bằng `DIEMTIN_PHIEN_TEST`; nhưng đường bấm tay giữa ngày thì vẫn còn nên phép kiểm này vẫn cần).
+     Vì sao kiểm bằng SỔ chứ không bằng `state.json`: sổ được ghi ở **bước CUỐI sau khi đã gửi xong mọi kênh** nên là dấu vết việc-đã-làm, còn `lastSuccess` chỉ là lời tự khai của một phiên. Đúng nguyên tắc số 1 của canary — **kiểm ĐẦU RA, không kiểm quy trình**.
+     ⛔ **KHÔNG sửa tay `logs/state.json` để lách**, KHÔNG dùng `--force` (nó chỉ cướp khoá `RUNNING`, không bỏ qua cờ đã-xong — đúng thiết kế). Cứ quét rồi commit là email/Telegram vẫn đi. Lớp sau vẫn thấy exit 10 và SKIP nên không có nguy cơ quét chồng.
+     ⚠️ Ghi rõ vào `logs/scan-gaps.json` (mục `note`) và vào log rằng phiên này **quét đè lên cờ đã-xong** kèm lý do, để người đọc sau không tưởng có hai phiên tranh nhau.
 2. Ghi `[<giờ UTC>Z] START (CI)` vào log, commit + push NGAY (mẫu: `git add logs/ && git commit -q -m "log: start <ngày> <giờ>Z phien toi (CI)" && git push origin main -q`).
 3. Quét theo SKILL. Sau mỗi mốc lớn: ghi checkpoint log + `python3 scripts/state.py beat web-scan` + push log.
    ⏱️ **BEAT NGAY TRƯỚC KHI GIAO AGENT, đừng đợi agent xong mới beat** (vá 28/07/2026). Khoá thối sau **30 phút không nhịp** (`LOCK_STALE_MIN`), mà vòng agent là chặng DÀI NHẤT của phiên — beat "sau mỗi mốc lớn" nghĩa là nhịp đầu tiên chỉ tới khi agent xong. Đo thật phiên tối 28/07: start 21:00 → beat đầu tiên **21:26**, tức 25 phút không nhịp, chỉ cách ngưỡng thối **5 phút**. Vòng agent chậm thêm 5 phút nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét → mốc kế (local 21:15 hoặc CI 22:00) cướp khoá và **quét chồng**, đúng sự cố hai phiên cùng quét hôm 26/07.
