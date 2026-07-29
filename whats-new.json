@@ -2,6 +2,11 @@
   "_doc": "Nguồn dữ liệu cho HAI mục trong email sáng (.github/scripts/send-morning-email.js): '🆕 Mới trên web' và '💡 Có thể bạn chưa biết'. features = tính năng NGƯỜI ĐỌC nhìn thấy (không ghi việc sửa routine/CI/quy tắc quét); email chỉ in feature có date trong 7 ngày gần nhất, tối đa 3 mục. tips = mẹo dùng web, email xoay 1 mẹo/ngày theo số ngày (deterministic, không random) nên cứ thêm mẹo vào cuối mảng là nó tự tới lượt. MỌI mục phải là chức năng THẬT đã kiểm trên index.html — không hứa tính năng chưa có.",
   "features": [
     {
+      "date": "2026-07-29",
+      "title": "Sổ tay khái niệm chia thành mục nhỏ",
+      "desc": "Tab 📚 Khái niệm trước đây là một danh sách dài liền mạch, nay tự xếp thành 8 mục theo chủ đề — Biển & hàng hải, Không quân · tên lửa · vũ trụ, Răn đe · hạt nhân, Hậu cần · công nghiệp quốc phòng, Mạng · AI · không người lái, Liên minh · hiệp định, Tác chiến · chỉ huy. Mỗi mục gập/mở được và hiện số thẻ, nên nhìn là biết mảng nào đang nhiều khái niệm chưa thuộc."
+    },
+    {
       "date": "2026-07-27",
       "title": "Bối cảnh & Khái niệm tập trận — đọc toàn văn trên trang riêng",
       "desc": "Dưới mỗi cuộc tập trận (tab 🗂️ Chuyên đề) nay có 2 nút 📔 Bối cảnh và 📚 Khái niệm, bấm vào mở trang riêng đọc trọn bài nền — đầy đủ như tài liệu phân tích, không còn gói gọn trong ô tóm tắt nhỏ."

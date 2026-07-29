@@ -111,6 +111,13 @@ a{color:inherit}
 .pickb input{margin:0;cursor:pointer;accent-color:var(--accent)}
 .pickb.on{color:var(--accent);border-color:var(--accent);font-weight:700}
 .clist{display:flex;flex-direction:column;gap:10px}
+.cgroup{border:1px solid var(--line);border-radius:10px;margin-bottom:10px;overflow:hidden}
+.cghead{cursor:pointer;padding:9px 12px;font-weight:800;font-size:calc(14px*var(--fs));color:var(--title);display:flex;align-items:center;gap:8px;list-style:none;user-select:none;background:var(--paper2)}
+.cghead::-webkit-details-marker{display:none}
+.cghead:before{content:'▸';display:inline-block;transition:transform .15s;color:var(--muted)}
+.cgroup[open]>.cghead:before{transform:rotate(90deg)}
+.cgnum{margin-left:auto;font-weight:600;font-size:11.5px;color:var(--muted)}
+.cgroup>.clist{padding:10px}
 .citem{border:1px solid var(--line2);border-radius:8px;padding:11px 13px;background:var(--drill-bg)}
 .cterm{font-weight:800;font-size:calc(15px*var(--fs));color:var(--title);display:flex;align-items:center;gap:8px}
 .cx{margin-left:auto;background:none;border:none;color:var(--muted2);cursor:pointer;font-size:15px;font-family:inherit;line-height:1;padding:0 2px}
@@ -913,6 +920,58 @@ function setConceptSrs(o){try{localStorage.setItem('dt.conceptSrs',JSON.stringif
 function addDaysISO(iso,n){var p=iso.split('-');var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
 function dueConcepts(){var srs=conceptSrs(),t=todayISO();return conceptList().filter(function(x){var r=srs[norm(x)];return !r||!r.due||r.due<=t;});}
 function gradeConcept(t,ok){var srs=conceptSrs(),n=norm(t);var r=srs[n]||{box:0};var box=ok?Math.min(5,(r.box||0)+1):1;srs[n]={box:box,due:addDaysISO(todayISO(),SRS_GAP[box])};setConceptSrs(srs);touchConcept(t);sbSaveConcept(t);}
+/* ===== Gom khái niệm thành MỤC NHỎ theo chủ đề (chỉ thị Huy 29/07/2026) =====
+   Sổ tay trước đây là MỘT danh sách phẳng: tới vài chục thẻ là đọc thành một mảng chữ, không
+   thấy mình đang yếu mảng nào. Nay xếp theo chủ đề, mỗi mục gập/mở được.
+   Xếp bằng từ khoá dò trên TÊN + GIẢI THÍCH, chuỗi đã qua norm() nên bỏ dấu — gõ "hậu cần"
+   hay "hau can" đều khớp, và không dính bug NFD của tên tiếng Việt.
+   Khái niệm không khớp mục nào rơi về "📌 Chưa xếp mục" — cố ý giữ một mục hứng, hơn là nhét
+   bừa vào mục gần đúng rồi người đọc mất tin vào cách phân loại. */
+var CONCEPT_NHOM=[
+ {ten:'⚓ Biển & hàng hải',tu:[' hai quan',' hai chien','tau ngam','tau chien','tau san bay','ham doi',
+   'bien dong','hang hai','eo bien','phong toa','thuy loi','quan cang',' cang ','chuoi dao','hai canh',
+   'dan quan bien','do bo','luong quan','ssn','ssbn','khuoc tu tren bien','sea denial']},
+ {ten:'✈️ Không quân · tên lửa · vũ trụ',tu:['khong quan','may bay','tiem kich','nem bom','ten lua',
+   'dan dao','hanh trinh','phong khong','danh chan','ve tinh','vu tru','khong gian','radar',
+   'sieu vuot am','b-21','b-2','patriot','thaad','tomahawk','drone tam','khong kich',
+   'phi vu','xuat kich','phi doi','tiep dau','khong van','f-35','f/a-18','su-','mig-']},
+ {ten:'☢️ Răn đe · hạt nhân · leo thang',tu:['ran de','hat nhan','leo thang','dau dan','o hat nhan',
+   'mo ho chien luoc','su da roi','fait accompli','dieu 5','article 5','tra dua','deterrence',
+   'chong tiep can','a2/ad','khuoc tu']},
+ {ten:'🚚 Hậu cần · công nghiệp quốc phòng',tu:['hau can','tiep te','bao dam','du tru','kho dan',
+   'dan duoc','san xuat','cong nghiep','chuoi cung ung','dat hiem','khoang san','nhien lieu',
+   'sua chua','van tai','dong vien','bao tri','logistics','sustainment','ton kho']},
+ {ten:'💻 Mạng · AI · không người lái',tu:['khong gian mang','cyber','tin tac','tri tue nhan tao',
+   'drone','khong nguoi lai','tu hanh','robot','thuat toan','tac chien dien tu','gay nhieu',
+   'nhan thuc','vung xam','uav','usv','uuv','chien tranh thong tin']},
+ {ten:'🤝 Liên minh · hiệp định · pháp lý',tu:['lien minh','dong minh','hiep dinh','hiep uoc',
+   'nghi dinh thu','cong uoc','aukus','nato','quad','edca','acsa','unclos','coc','asean','tham van',
+   'doi tac chien luoc','quyen tiep can','luat bien']},
+ {ten:'🎯 Tác chiến · chỉ huy',tu:['tac chien','chi huy','kiem soat','chien dich','chien thuat',
+   'hoc thuyet','doi hinh','trinh sat','muc tieu','hoa luc','co dong','phong ngu','tan cong',
+   'dien tap','tap tran','san sang chien dau','the tran','da mien','c2','kill chain']},
+];
+var CONCEPT_NHOM_KHAC='📌 Chưa xếp mục';
+function nhomCuaKhaiNiem(t,ex){
+  /* CHẤM ĐIỂM, không lấy nhóm khớp đầu tiên. Hai lý do, cả hai đều đo được trên dữ liệu thật:
+     — TÊN nặng hơn ĐỊNH NGHĨA (×3): định nghĩa dài nào cũng vô tình nhắc tới biển/căn cứ, nên
+       dò đều tay thì "Tiêm kích F/A-18F Super Hornet" rơi vào mục Biển chỉ vì phần giải thích
+       có chữ "tàu sân bay" — đo lần đầu: mục Biển nuốt 111/246 khái niệm;
+     — cộng dồn nhiều từ khoá: khái niệm chạm 3 từ của một mục thì thuộc mục đó chắc hơn là
+       chạm đúng 1 từ của mục đứng trước trong mảng.
+     Đệm khoảng trắng hai đầu để từ khoá ngắn (' cang ') không khớp vào giữa một từ khác. */
+  var vt=' '+norm(t||'')+' ',vd=' '+norm(ex||'')+' ';
+  var nhat=null,diemNhat=0;
+  for(var i=0;i<CONCEPT_NHOM.length;i++){
+    var g=CONCEPT_NHOM[i],diem=0;
+    for(var j=0;j<g.tu.length;j++){
+      if(vt.indexOf(g.tu[j])>=0)diem+=3;
+      else if(vd.indexOf(g.tu[j])>=0)diem+=1;
+    }
+    if(diem>diemNhat){diemNhat=diem;nhat=g.ten;}   // hoà điểm -> giữ mục đứng trước trong mảng
+  }
+  return nhat||CONCEPT_NHOM_KHAC;
+}
 function renderConcepts(){
   if(state.conceptRev)return renderConceptReview();
   var cs=conceptList(),due=dueConcepts().length;
@@ -921,13 +980,27 @@ function renderConcepts(){
   h+='<div class="crevbar"><button class="crevstart" data-crevstart="1"'+(due?'':' disabled')+'>🎯 Ôn tập'+(due?' — '+due+' thẻ đến hạn':' — hôm nay hết thẻ đến hạn')+'</button></div>';
   if(!cs.length)return h+'<div class="empty">Chưa có khái niệm nào. Mở tab Chuyên đề → Tập trận để hệ thống tự gom, hoặc tự thêm ở trên.</div>';
   var srs=conceptSrs();
-  h+='<div class="clist">'+cs.map(function(t){
-    var d=defOf(t),ex=d?d.def:explainTerm(t),src=d&&d.src?d.src:'';
+  function theKhaiNiem(t,d,ex){
+    var src=d&&d.src?d.src:'';
     var r=srs[norm(t)],box=r&&r.box?r.box:0;
     return '<div class="citem"><div class="cterm">'+esc(t)+(box?'<span class="cbox" title="Hộp ôn tập (5 = nhớ chắc)">📦 '+box+'/5</span>':'')+'<button class="cx" data-crm="'+esc(t)+'" title="Bỏ khái niệm">✕</button></div>'+
       (src?'<div class="csrc">🎖️ Từ: '+esc(src)+'</div>':'')+
       (ex?'<div class="cexp">'+esc(ex)+'</div>':'<div class="cexp cpend">Chưa có giải thích — sẽ được bổ sung trong bản cập nhật hằng ngày.</div>')+'</div>';
-  }).join('')+'</div>';
+  }
+  var theo={};
+  cs.forEach(function(t){
+    var d=defOf(t),ex=d?d.def:explainTerm(t);
+    var g=nhomCuaKhaiNiem(t,ex);
+    (theo[g]=theo[g]||[]).push(theKhaiNiem(t,d,ex));
+  });
+  /* Thứ tự mục CỐ ĐỊNH theo CONCEPT_NHOM (mục hứng luôn xuống cuối), không xếp theo số lượng —
+     xếp theo số lượng thì mỗi lần thêm một thẻ là cả trang nhảy chỗ, rất khó tìm lại. */
+  var thuTu=CONCEPT_NHOM.map(function(g){return g.ten;}).concat([CONCEPT_NHOM_KHAC]);
+  h+=thuTu.filter(function(g){return theo[g]&&theo[g].length;}).map(function(g){
+    return '<details class="cgroup" open><summary class="cghead">'+esc(g)+
+      '<span class="cgnum">'+theo[g].length+'</span></summary>'+
+      '<div class="clist">'+theo[g].join('')+'</div></details>';
+  }).join('');
   return h;
 }
 function renderConceptReview(){
