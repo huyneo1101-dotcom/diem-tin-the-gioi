@@ -97,6 +97,11 @@ THINKTANK_DOMAINS = {
     "heritage.org", "aei.org", "cato.org", "piie.com", "fpri.org", "gmfus.org",
     "defensepriorities.org", "longwarjournal.org", "fdd.org", "38north.org",
     "warontherocks.com", "nbr.org", "jamestown.org",
+    # Institute for the Study of War — thêm 29/07/2026 khi rà nhãn `outlet` của DATA.analyses.
+    # Viện thật (CLAUDE.md xếp @TheStudyofWar vào nhóm phân tích/OSINT tầng 3), nhưng domain là
+    # `understandingwar.org` chứ không phải "isw.*" nên trước giờ lọt khỏi danh sách — guardrail
+    # domain đang CHẶN OAN mọi bài ISW mới. Bài ISW cũ trong DATA vì thế được GIỮ, không phải xoá.
+    "understandingwar.org",
     # Anh / châu Âu
     "rusi.org", "chathamhouse.org", "iiss.org", "ecfr.eu", "swp-berlin.org",
     "ifri.org", "clingendael.org", "egmontinstitute.be", "realinstitutoelcano.org",
@@ -129,6 +134,10 @@ THINKTANK_DOMAINS = {
     "idsa.in", "takshashila.org.in", "cacianalyst.org", "sipa.columbia.edu",
     # Đông Bắc Á · Đông Nam Á
     "jiia.or.jp", "spf.org", "tokyofoundation.org", "sejong.org", "fulcrum.sg",
+    # Sasakawa Peace Foundation USA (Washington DC) — thêm 29/07/2026. Danh sách đã có `spf.org`
+    # (quỹ mẹ ở Nhật) nhưng nhánh Mỹ xuất bản dưới domain RIÊNG `spfusa.org`, nên bài của họ
+    # bị chặn oan. Cùng một quỹ, hai domain — đừng gộp bằng cách sửa `spf.org` thành hậu tố.
+    "spfusa.org",
     "interpret.csis.org",
     # Bắc Cực
     "thearcticinstitute.org", "highnorthnews.com",
