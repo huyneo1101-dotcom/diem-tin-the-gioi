@@ -1,1 +1,13 @@
 [21:00Z] START (CI) - phien sang som 04:00 VN 30/07/2026
+[21:03Z] harvest.py: 346 ung vien tu 83 RSS + 25 HTML + Google News. telegram_harvest.py: 6 ung vien tu 14 kenh.
+[21:12Z] Giao 5 agent Sonnet song song cho 5 chu de (Noi bo My, Uc&BD, CNQS My, My-Mali, Predator's Run). Da nhan ket qua, review + loai trung/ngoai khung.
+[21:14Z] add_news.py OK: +3 worldNews, +13 usNews (16 tin). 1 tin bi guardrail chan vi trung URL (Sphinx Defense).
+[21:16Z] Ghi logs/loai-tin.md + logs/scan-gaps.json (xu ly du 11 ung vien Bao Moi, deu loai co ly do). Commit "Cap nhat ban tin 30/07: +16 tin (5 chu de)" - push OK.
+[21:16Z] state.py done web-scan.
+[21:17Z] Phien sang som -> chuyen sang Buoc 6 (event-scan). Claim event-scan lock OK.
+[21:22Z] Giao 1 agent quet su kien ngoai giao + tap tran. Ket qua: 2 cap nhat tap tran (Pitch Black, RIMPAC), 1 su kien moi (Solomon-My Shiprider Agreement).
+[21:24Z] Kiem tra background/concepts tap trian - tat ca da co, bo qua buoc 3.
+[21:25Z] add_analyses.py --candidates + giao 1 agent viet 6 bai think-tank (ASPI x2, Fulcrum, Jamestown, MERICS, Riddle Russia). Nap thanh cong + gan 7 khai niem.
+[21:26Z] Khong phai Chu nhat -> bo qua bao cao tuan.
+[21:26Z] Commit "Cap nhat su kien 30/07: +2 tap tran, +1 su kien ngoai giao moi, +6 bai think-tank" - push OK. state.py done event-scan.
+[21:27Z] DONE - ca hai pipeline (web-scan + event-scan) hoan tat, da push.
