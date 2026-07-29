@@ -38,9 +38,11 @@ Dùng:
 
 Guardrail CHẶN (raise, phải sửa JSON rồi chạy lại):
 - thiếu field bắt buộc (date/outlet/title/summary/takeaway/url);
-- `date` sai định dạng, ở TƯƠNG LAI, hoặc cũ hơn MAX_AGE_DAYS ngày — kiểm HAI LỚP như
-  add_news.py: so với `date` của lô VÀ so với hôm nay theo giờ VN thật (bịt đường neo lô
-  về ngày cũ để nhét bài cổ);
+- `date` sai định dạng hoặc ở TƯƠNG LAI (xét cả so với ngày lô lẫn so với hôm nay giờ VN).
+  ⛔ **KHÔNG còn chặn bài CŨ** — bỏ 29/07/2026 theo chỉ thị Huy, vì mục này nay kiêm KHO
+  NỀN cho việc viết phân tích tập trận: bài viện ra 6 tháng trước vẫn dùng làm nền tốt.
+  `MAX_AGE_DAYS` giờ CHỈ còn áp cho `--candidates` (khung liệt kê ứng viên hằng ngày),
+  không áp cho khâu nạp. Guardrail tuổi của `add_news.py` (tin thời sự) giữ nguyên;
 - `url` không http(s), là trang chủ, hoặc trỏ live-blog;
 - `url` trùng nhau trong lô, hoặc đã có trong DATA (bất kỳ mảng nào — kể cả đã nạp làm tin
   thường ở worldNews/usNews, tránh một bài nằm 2 chỗ);
@@ -65,9 +67,9 @@ import zoneinfo
 
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 
-# Bài viện nghiên cứu đăng thưa và giữ giá trị lâu hơn tin thời sự -> khung rộng hơn
-# MAX_AGE_DAYS=1 của add_news.py. 7 ngày = vừa đủ để phiên sáng nhặt được bài ra cuối
-# tuần trước mà không biến mục thành kho lưu trữ bài cũ.
+# Khung LIỆT KÊ ứng viên của `--candidates` (luồng routine sáng nhặt bài mới trong tuần).
+# ⛔ KHÔNG còn là guardrail nạp: khâu nạp đã BỎ chặn tuổi bài 29/07/2026 (xem `check_date`)
+# để mục này kiêm kho nền cho bài phân tích tập trận. Đổi số ở đây chỉ đổi phạm vi liệt kê.
 MAX_AGE_DAYS = 7
 
 # Trần số bài in ra MỖI VIỆN. 26 viện × 12 bài thì danh sách ứng viên dài hơn cả bài phân
@@ -103,6 +105,10 @@ THINKTANK_DOMAINS = {
     # Ấn Độ Dương - Thái Bình Dương
     "lowyinstitute.org", "aspi.org.au", "aspistrategist.org.au", "iseas.edu.sg",
     "rsis.edu.sg", "orfonline.org", "merics.org", "eastasiaforum.org",
+    # United States Studies Centre (ĐH Sydney) — thêm 29/07/2026 khi nạp bài nền tập trận.
+    # Viện thật, chuyên chính sách Mỹ ở Ấn Độ Dương - TBD; không có RSS dùng được nên chỉ
+    # tới qua WebSearch/bảng chọn, vì vậy trước giờ chưa lọt vào danh sách.
+    "ussc.edu.au",
     # Trung Đông / châu Phi
     "inss.org.il", "issafrica.org", "crisisgroup.org",
     # Dữ liệu (tầng 2) nhưng xuất bản phân tích
@@ -317,10 +323,20 @@ def collect_existing_urls(data: dict) -> set:
 
 
 def check_date(item_date: str, batch_date: datetime.date, today_vn: datetime.date) -> None:
-    """Khung ngày kiểm HAI LỚP: so với ngày lô VÀ so với hôm nay thật (giờ VN).
+    """Kiểm ngày bài think-tank.
 
-    Lớp thứ hai bịt đường "neo lô về ngày cũ để nhét bài cổ" — đúng lỗ hổng đã cho 3 tin
-    ngày 24/07 lọt vào bản tin 26/07 bên add_news.py.
+    ⛔ **BỎ CHẶN TUỔI BÀI 29/07/2026 — chỉ thị Huy: *"bỏ chặn bài cũ hơn 7 ngày chỉ riêng
+    trong mục think-tank"*.** Mục này nay kiêm KHO NỀN cho việc viết phân tích tập trận:
+    một bài RAND/CSBA ra tháng 2 vẫn dùng làm nền tốt như bài ra tuần này — khác hẳn tin
+    thời sự, thứ mà "cũ 2 ngày" là hỏng thật. Khung 7 ngày cũ được đặt cho luồng routine
+    sáng nhặt bài mới; nó chưa bao giờ đúng với vai kho nền.
+
+    Cái KHÔNG bỏ: bài ở **TƯƠNG LAI** vẫn chặn — đó là lỗi dữ liệu (ngày gõ nhầm, meta sai
+    của trang nguồn), không phải bài cũ hợp lệ. Chặn tương lai xét theo CẢ ngày lô LẪN hôm
+    nay thật (giờ VN) để neo lô về tương lai cũng không lách được.
+
+    ⚠️ Guardrail tuổi bài của `add_news.py` (tin thời sự) KHÔNG đổi — đừng chép luật này
+    sang đó: hai mục khác hẳn nhau về bản chất, gộp luật là mở lại đúng lỗ hổng 26/07.
     """
     try:
         d = datetime.date.fromisoformat(item_date)
@@ -328,13 +344,8 @@ def check_date(item_date: str, batch_date: datetime.date, today_vn: datetime.dat
         die(f"date='{item_date}' không đúng định dạng YYYY-MM-DD")
     if d > batch_date:
         die(f"date='{item_date}' ở TƯƠNG LAI so với ngày lô {batch_date.isoformat()}")
-    if (batch_date - d).days > MAX_AGE_DAYS:
-        die(f"date='{item_date}' cũ hơn {MAX_AGE_DAYS} ngày so với ngày lô {batch_date.isoformat()} — BỎ bài này")
-    if (today_vn - d).days > MAX_AGE_DAYS:
-        die(
-            f"date='{item_date}' cũ hơn {MAX_AGE_DAYS} ngày so với HÔM NAY ({today_vn.isoformat()}, giờ VN) "
-            f"— BỎ bài, ĐỪNG lùi ngày lô để lách"
-        )
+    if d > today_vn:
+        die(f"date='{item_date}' ở TƯƠNG LAI so với HÔM NAY ({today_vn.isoformat()}, giờ VN)")
 
 
 def curl(url: str) -> bytes:
