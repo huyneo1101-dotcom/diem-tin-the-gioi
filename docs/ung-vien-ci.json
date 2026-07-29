@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-30T03:46:19+07:00",
+  "tao_luc": "2026-07-30T04:27:44+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-29",
@@ -42,9 +42,65 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-30",
-      "tieu_de": "Space Force awards All Points $250 million to expand satellite processing at Vandenberg",
-      "nguon": "SpaceNews",
-      "url": "https://spacenews.com/space-force-awards-all-points-250-million-to-expand-satellite-processing-at-vandenberg/"
+      "tieu_de": "SpaceX wins $1.6B to launch Space Force ‘sensing and targeting’ sats",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/spacex-wins-1-6b-to-launch-space-force-sensing-and-targeting-sats/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-29",
+      "tieu_de": "Leidos subsidiary selected to design Australian nuclear submarine dry dock",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/leidos-subsidiary-selected-to-design-australian-nuclear-submarine-dry-dock/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Pentagon weighing options to license Patriot production to Ukraine: DoD official",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/pentagon-weighing-options-to-license-patriot-production-to-ukraine-dod-official/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "How DARPA plans to get nuclear power in the size of a ‘AA battery’",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/how-darpa-plans-to-get-nuclear-power-in-the-size-of-aa-battery/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Marine Corps accepts last Osprey aircraft",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/marine-corps-accepts-last-osprey-aircraft/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Time to decide: A critical moment in Japan-US missile defense cooperation",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/time-to-decide-a-critical-moment-in-japan-us-missile-defense-cooperation/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-28",
+      "tieu_de": "Pentagon inks deal with L3Harris to ramp rocket motor production",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/pentagon-inks-deal-with-l3harris-to-ramp-rocket-motor-production/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-27",
+      "tieu_de": "Pentagon’s special ops office hosts first Shark Tank-style Accelerator Event",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/pentagons-special-ops-office-hosts-first-shark-tank-style-accelerator-event/"
     },
     {
       "lop": "RSS",
@@ -82,10 +138,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-30",
-      "tieu_de": "US Fed holds interest rates steady citing ‘elevated’ inflation",
+      "tieu_de": "US Fed holds interest rates steady, citing ‘elevated’ inflation",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/7/29/us-fed-holds-interest-rates-steady-citing-elevated-inflation?traffic_source=rss",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-29",
+      "tieu_de": "Trump tries to take action in the Middle East ahead of midterm elections",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/video/20260729-trump-tries-to-take-action-in-the-middle-east-ahead-of-midterm-elections-1",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -348,15 +413,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-29",
-      "tieu_de": "Cornyn meeting with Blanche canceled ahead of key Judiciary Committee vote",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/5996798-cornyn-blanche-meeting-attorney-general-vote/",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-29",
       "tieu_de": "Trump blasts Fauci ahead of Senate testimony: ‘His ideas were CRAZY!’",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/administration/5996052-donald-trump-anthony-fauci-senate-hearing-covid-19-criticism/",
@@ -474,15 +530,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Federal Reserve issues FOMC statement",
-      "nguon": "Cục Dự trữ Liên bang",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-28",
       "tieu_de": "Air Force tests collaborative combat aircraft at Creech AFB",
@@ -571,27 +618,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "Navy to Decommission Littoral Combat Ship Fort Worth",
-      "nguon": "DoD News Releases",
-      "url": "https://www.war.gov/News/Releases/Release/Article/4558782/navy-to-decommission-littoral-combat-ship-fort-worth/"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-29",
       "tieu_de": "HII Adds Outsourcing To Amphib Construction; Australian Official Visits",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/hii-adds-outsourcing-to-amphib-construction-australian-official-visits/navy-usmc/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Pentagon Signs Frameworks With L3Harris To Boost PAC-3 MSE, THAAD Propulsion Production",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/pentagon-signs-frameworks-with-l3harris-to-boost-pac-3-mse-thaad-propulsion-production/missile-defense/"
     },
     {
       "lop": "RSS",
@@ -608,14 +639,6 @@
       "tieu_de": "Space Force Picks Rocket Lab for Suborbital Launches from Alaska",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/space-force-rocket-lab-suborbital-launches-alaska-spaceport/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Pentagon puts out call for robot boats that launch attack drones",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/industry/techwatch/2026/07/29/pentagon-puts-out-call-for-robot-boats-that-launch-attack-drones/"
     },
     {
       "lop": "RSS",
@@ -715,6 +738,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "U.S. Navy official calls S. Korea's role in RIMPAC 'historic leadership milestone'",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260730000600315"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-29",
       "tieu_de": "POSCO signs MOU with Australian firm on rare earth supply chain",
@@ -741,7 +772,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-30",
-      "tieu_de": "Australia news live: Jillian Segal returns to antisemitism royal commission; three dead in Sydney house fire",
+      "tieu_de": "Australia news live: McCarthy welcomes ‘milestone’ as one Closing the Gap target reached; three dead in Sydney house fire",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/jul/30/antisemitism-royal-commission-nsw-icac-inquiry-closing-the-gap-data-torres-strait-climate-appeal-anthony-albanese-labor-angus-taylor-coalition-ntwnfb"
     },
@@ -755,11 +786,12 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-29",
-      "tieu_de": "Bird flu is spreading locally and Australia faces more wildlife deaths. How bad could it get?",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Fed holds interest rates steady despite Trump’s renewed calls to lower them",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/jul/30/bird-flu-australia-h5n1-how-will-it-affect-wildlife"
+      "url": "https://www.theguardian.com/business/2026/jul/29/federal-reserve-interest-rates",
+      "nhom": 4
     },
     {
       "lop": "RSS",
