@@ -47,3 +47,4 @@
 [10:34Z] add_news.py OK: +1 worldNews (AUKUS Osborne), +0 usNews. generatedAt=2026-07-29. Canh bao sàn cứng/Bao Moi cua script la playbook day du, PHIEN TEST nay co chu dinh KHONG lam Bao Moi/xNews/su kien (theo pham vi giao viec).
 [10:34Z] state.py done web-scan "+1 tin (QUET TEST CI)".
 [14:01Z] SKIP (CI) phien toi - state.py claim web-scan tra exit 10 (da DONE luc 10:34Z hom nay qua "PHIEN TEST HA TANG CI", +1 tin). Khong quet lai. Ket thuc em.
+[14:08Z] SKIP (CI) phien toi - lan goi lai: state.py claim web-scan tra exit 10 (van la DONE luc 10:34Z hom nay qua "PHIEN TEST HA TANG CI", +1 tin). git pull --rebase khong co gi moi (Already up to date). Khong quet lai. Ket thuc em.
