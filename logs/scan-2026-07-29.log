@@ -46,3 +46,4 @@
 [10:36Z] Het 3 vong, moi lan "tin thu 2" deu la tin da co san trong DATA duoi tieu de khac (agent khong thay vi chi kiem tieu de/URL rieng, khong grep tu khoa dac trung nhu dieu phoi da lam). CHOT: chi 1 tin sach (AUKUS Osborne), duoi muc toi thieu 2 nhung dung nguyen tac "tha it con hon au" - khong ha chuan de nhoi tin trung.
 [10:34Z] add_news.py OK: +1 worldNews (AUKUS Osborne), +0 usNews. generatedAt=2026-07-29. Canh bao sàn cứng/Bao Moi cua script la playbook day du, PHIEN TEST nay co chu dinh KHONG lam Bao Moi/xNews/su kien (theo pham vi giao viec).
 [10:34Z] state.py done web-scan "+1 tin (QUET TEST CI)".
+[14:01Z] SKIP (CI) phien toi - state.py claim web-scan tra exit 10 (da DONE luc 10:34Z hom nay qua "PHIEN TEST HA TANG CI", +1 tin). Khong quet lai. Ket thuc em.
