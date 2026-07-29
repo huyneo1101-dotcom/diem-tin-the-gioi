@@ -40,3 +40,9 @@
 [22:41Z] SKIP (CI) phien sang som - lan goi lai: web-scan da DONE luc 04:22:10+07 (+16 tin, 5 chu de). state.py claim tra exit 10. Ket thuc em, khong quet lai.
 [01:45Z] SKIP (CI) event-scan - lan goi lai: state.py claim event-scan tra exit 10 (da DONE luc 04:51:45+07, +1 tap tran RIMPAC, +1 su kien ngoai giao Han Quoc-Brazil, +5 bai think-tank). Ket thuc em, khong quet lai.
 [10:26Z] START (CI TEST) phien toi - PHIEN TEST HA TANG CI (mode=test), quet NHE 1 agent Sonnet, muc tieu chung minh pipeline claim->quet->add_news->commit->push voi chi phi nho nhat.
+[10:33Z] Agent Sonnet vong 1 tra 3 ung vien. Kiem cheo grep index.html: 2/3 TRUNG (drone tiep te mau Predator's Run da co san lam item tap tran; PAC-3 MSE/THAAD L3Harris da co tin y het). GIU 1: AUKUS Osborne 4,6 ty AUD (Naval Today 28/07) - da VERIFY that bang WebFetch, noi dung khac vu Osborne 3,2 ty USD tung bi bay hom 25/07 (bai nay noi tiep khoan 3,9 ty AUD thang 2, khac han).
+[10:34Z] Vong 2 (thay 2 tin trung): agent tra tin tau Khoi Nguyen 18 chim gan Da Chu Thap - KIEM TRA cung TRUNG, DATA da co san tin y het su kien (tieu de khac, cung vu).
+[10:35Z] Vong 3 (cuoi, theo dung han muc "toi da 3 vong" trong huong dan): agent tra tin Rocket Lab $266M Space Force Kodiak Alaska - KIEM TRA cung TRUNG, DATA da co tin y het (cung so tien, cung su kien).
+[10:36Z] Het 3 vong, moi lan "tin thu 2" deu la tin da co san trong DATA duoi tieu de khac (agent khong thay vi chi kiem tieu de/URL rieng, khong grep tu khoa dac trung nhu dieu phoi da lam). CHOT: chi 1 tin sach (AUKUS Osborne), duoi muc toi thieu 2 nhung dung nguyen tac "tha it con hon au" - khong ha chuan de nhoi tin trung.
+[10:34Z] add_news.py OK: +1 worldNews (AUKUS Osborne), +0 usNews. generatedAt=2026-07-29. Canh bao sàn cứng/Bao Moi cua script la playbook day du, PHIEN TEST nay co chu dinh KHONG lam Bao Moi/xNews/su kien (theo pham vi giao viec).
+[10:34Z] state.py done web-scan "+1 tin (QUET TEST CI)".

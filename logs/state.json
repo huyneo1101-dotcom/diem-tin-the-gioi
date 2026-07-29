@@ -9,12 +9,12 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-29T04:22:10+07:00",
-    "lastSlot": "sang",
+    "lastRunAt": "2026-07-29T17:34:02+07:00",
+    "lastSlot": "toi",
     "lastStatus": "DONE",
-    "note": "+16 tin (5 chu de): Noi bo My 6, Uc-Bien Dong 5, CNQS My 4, Mali 1, Predator 1 (exercise)",
+    "note": "+1 tin (QUET TEST CI)",
     "lastSuccess": {
-      "toi": "2026-07-28",
+      "toi": "2026-07-29",
       "sang": "2026-07-29"
     }
   },
