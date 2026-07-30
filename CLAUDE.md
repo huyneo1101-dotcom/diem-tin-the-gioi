@@ -88,6 +88,16 @@ TỐI — cùng quy ước ô khoá của `state.py`), áp cho cả subject và 
 |---|---|
 | Sáng sớm (fire 03:47–05:30) | `Diem-tin-sang-som-5h-<YYYY-MM-DD>.docx` |
 | Tối (fire 20:47–22:30) | `Diem-tin-toi-21h-<YYYY-MM-DD>.docx` |
+| Bản dựng lại trong ngày | tên trên **cộng thêm đúng `-bo-sung`** |
+
+⛔ **CẤM ĐƯA TÊN NGƯỜI VÀO TÊN FILE .docx — tên Jay Lâm, tên Huy, hay tên bất cứ ai** (chỉ thị Huy
+30/07/2026, nguyên văn: *"đừng bao giờ cho tên Jay Lâm hay tên con vào tên file word. ghi thêm chữ
+bổ sung được rồi"*). **Cơ chế gây vấp:** tối 30/07 một bản dựng lại được đặt tay là
+`…-BO-SUNG-tin-JayLam.docx` để tự phân biệt với bản gốc, rồi gửi qua Telegram — mà Telegram hiển
+thị **đúng basename**, nên tên người đi thẳng vào đoạn chat CÓ NGƯỜI NGOÀI, và chính người bị nêu
+tên nhận được file mang tên mình. Tên file là thứ đi ra ngoài cùng file, không phải ghi chú nội bộ.
+Cần phân biệt bản nào thì thêm hậu tố mô tả **VIỆC** (`-bo-sung`), không bao giờ mô tả **NGƯỜI**.
+Áp cho cả file do `make_docx.py` sinh lẫn file đặt tay khi dựng lại.
 
 ⚠️ **Luật đặt tên nằm ở ĐÚNG MỘT chỗ: `make_docx.py:ten_file()`** — nó là nơi sinh file, và
 Telegram (kênh gửi DUY NHẤT hiện nay) hiển thị đúng basename của file trên đĩa. `send-email.js`
@@ -975,9 +985,42 @@ báo không đạt. Nghiệm thu 30/07: đổi thử một con số ⇒ cổng k
 ⚠️ **Dòng CHƯA được xử lý cũng hưởng khung RỘNG (3 ngày)** — lúc đó không ai biết nó thuộc chủ
 đề gì, mà siết hẹp thì một phiên quét chết giữa chừng kéo theo việc loại oan tin CNQS. Hướng
 lệch phải là GIỮ tin, không phải mất tin.
-⚠️ **Dòng chưa xử lý lùi về nguyên văn CẮT ở `JAYLAM_FALLBACK_CHARS` (1.200 ký tự) kèm cảnh báo
-stderr** — fail-open CÓ TIẾNG. Phiên quét chết thì tin vẫn tới tay Huy (chỉ thô hơn), nhưng im
-lặng ở đây là dựng lại đúng cảnh mất cân đối mà bản vá này xoá đi.
+⚠️ **Dòng chưa xử lý lùi về nguyên văn CẮT ở `JAYLAM_FALLBACK_CHARS` kèm cảnh báo stderr** —
+fail-open CÓ TIẾNG. Phiên quét chết thì tin vẫn tới tay Huy (chỉ thô hơn), nhưng im lặng ở đây
+là dựng lại đúng cảnh mất cân đối mà bản vá này xoá đi.
+
+⛔ **NHÁNH DỰ PHÒNG LÀ NHÁNH THƯỜNG TRỰC, KHÔNG PHẢI NHÁNH HIẾM — và bản đầu của nó ĐÓNG SỔ tin
+ngay sau khi in thô, tức mất 96% nội dung vĩnh viễn** (đo thật tối 30/07/2026, vá cùng ngày,
+commit `b55bd87`).
+
+**Cơ chế gây vấp:** phiên quét tối chạy 20:47–21:26, còn Jay Lâm gửi file lúc **21:06** và
+**21:34** — tức file luôn tới **SAU** khi bước `tin_jaylam.py --liet-ke` đã chạy xong trên hàng
+chờ rỗng. Nên tối nhận file thì `da_xu_ly` LUÔN false và mọi tin đi qua nhánh dự phòng. Hai
+tầng hỏng chồng lên nhau, cả hai đều không phát ra lỗi:
+- trần cũ **1.200 ký tự** cắt file 34.525 ký tự còn 3,5% — hai mục Huy hỏi (Pat Conroy thăm Mỹ
+  thúc đẩy AUKUS ở **offset 20.173**, viện trợ **98,3 triệu AUD** cho Việt Nam ở 20.609) nằm
+  ngoài xa;
+- `make_docx` đánh dấu `da_gop=true` cho **cả** dòng vừa in thô ⇒ bản `.docx` 21:29 có mục 5
+  cụt, còn bản 21:33 — **bản CUỐI CÙNG Huy nhận** — không còn mục 5 nào.
+
+| Nhóm | Đóng sổ `da_gop`? |
+|---|---|
+| đã tóm tắt (`da_xu_ly=true` + có `tom_tat`) | **CÓ** |
+| bị `loc_trung_jaylam` lọc trùng | **CÓ** — nội dung đã có mặt qua bản còn lại |
+| quá khung ngày (`jaylam_qh`) | **CÓ** — không thì tối nào cũng đọc ra rồi loại lại |
+| **vừa in dạng nguyên văn mà chưa tóm tắt** | **KHÔNG** — để bản tối sau gộp lại dạng tin chuẩn |
+
+⚠️ Không có đường kẹt vĩnh viễn: dòng được tha mà tới lúc nào đó vẫn chưa ai tóm tắt thì khung
+ngày đẩy nó sang `jaylam_qh` rồi đóng sổ ở đó.
+⚠️ **Trần dự phòng nay 50.000** (trần NHẬN vẫn là `telegram_bot.JAYLAM_MAX_CHARS` = 200.000).
+Ca `[49]` ghim thẳng con số 34.525 — độ dài lô thật đầu tiên; ca `[14]` neo động theo hằng số
+nên nó chỉ đo *phép cắt*, **không** đo trần đặt ở đâu, hạ trần về 1.200 mà chỉ có ca 14 thì bộ
+test xanh y nguyên.
+⚠️ Cảnh báo stderr phải nói ĐÚNG có cắt hay không kèm số ký tự — bản cũ luôn ghi "đã cắt" kể cả
+khi in đủ, nên đọc log không phân biệt được tin ra đủ với tin mất 96%.
+Bộ test `tests/test-tin-jaylam-trong-docx.py` nay **47 ca · `--tu-kiem` bắt 15/15 bản hỏng**,
+trong đó 03 bản mới dựng lại đúng hành vi cũ (đóng sổ dòng chưa tóm tắt · tha cả dòng đã tóm
+tắt · hạ trần về 1.200).
 ⚠️ **Không truy được bài gốc thì VẪN GIỮ tin** — `nguon_ten: "Jay Lâm gửi"`, `nguon_url` rỗng,
 mục 5 in "(không truy được bài gốc)". Cùng luật Agent 7 của Báo Mới: bài người dùng tự đưa thì
 không được bỏ. Guardrail chặn `nguon_url` là trang chủ/live-blog nên đừng nhét link bừa cho có.
