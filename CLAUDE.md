@@ -749,6 +749,34 @@ hoặc đổi sang webhook.
 Mỗi lượt hỏi bot được phân loại, lưu lại, và nếu gợi ra tin đáng đưa thì **đề xuất cho Huy
 qua Telegram**. Huy đã chốt: **bot CHỈ đề xuất, không tự nạp web** · hồ sơ lưu **Supabase**.
 
+#### 📌 CHỈ THỊ GỐC CỦA CẢ MỤC NÀY — chat của Jay Lâm (Huy 27/07/2026 14:52)
+> Nguyên văn: *"từ giờ, từ những đoạn chat của Jay Lâm, tự động thêm những tin tức mày thấy
+> hợp lý vào web tin tức, đồng thời nghiên cứu sở thích/tư duy của người này liên quan đến
+> vấn đề tin tức."*
+
+Ghi lại 30/07/2026 sau khi rà quy tắc chưa ghi: hai vế của chỉ thị **đều đang chạy**, nhưng
+tên "Jay Lâm" chỉ còn nằm trong `scripts/bot_luu.py` (docstring mẫu) và một dòng log — tức
+**đường đi thì có, mệnh lệnh sinh ra nó thì không ai ghi**. Phiên sau đọc từng mảnh rời sẽ
+tưởng đó là tính năng tự phát sinh và gỡ đi mà không biết đang gỡ một chỉ thị của Huy.
+
+| Vế của chỉ thị | Chạy ở đâu | Trạng thái đo 30/07 |
+|---|---|---|
+| **"tự động thêm tin từ chat vào web"** | `.github/prompts/telegram-bot.md` mục *"Sau khi trả lời"* → trường `tin_de_xuat` → `scripts/bot_luu.py` ghi `dt_bot_hoi` + nhắn Huy | Chạy — **nhưng ở dạng ĐỀ XUẤT, không phải tự nạp** |
+| **"nghiên cứu sở thích/tư duy"** | routine `ho-so-doc-gia` (cron `0 10 */3 * *`) → `scripts/ho_so_doc_gia.py` → bảng `dt_ho_so_doc_gia`; quy trình ở `docs/routine-ho-so-doc-gia.md` | Chạy thật lần đầu 10:04 ngày 30/07 — Jay 12 lượt hỏi, 2 tin đã đề xuất từ đó |
+
+⚠️ **Vế 1 đã bị chính Huy hạ cấp trong CÙNG ngày 27/07** từ *"tự động thêm"* xuống *"chỉ đề
+xuất, người duyệt là Huy"* (dòng ngay trên + `telegram-bot.md` dòng cuối mục 3). **Đây không
+phải việc bỏ dở, đừng đi "hoàn thiện" nó bằng cách cho bot gọi `add_news.py`** — nạp thẳng
+tin lên bản tin công khai từ một đoạn chat riêng là đúng thứ Huy chốt không làm.
+
+⛔ **Ràng buộc kênh — Jay Lâm là NGƯỜI NGOÀI, không phải người vận hành.** Mọi thứ RÚT RA từ
+chat của người này (hồ sơ sở thích, tin đề xuất, nguyên văn câu hỏi) là **báo cáo cho Huy**,
+chỉ được đi tới **một** người: `tin_de_xuat` gửi chat **đầu tiên** trong `TELEGRAM_CHAT_ID`
+(`telegram_bot.py:chat_chu()`), hồ sơ độc giả gửi qua **`@huyclaude_bot`** bằng
+`viec_bot.py --bao`. Cơ chế gây vấp: `TELEGRAM_CHAT_ID` của repo này có **cả Jay Lâm**, nên
+mọi script lặp qua cả danh sách sẽ gửi hồ sơ về chính người bị lập hồ sơ. Cùng luật với
+canary: *cảnh báo/báo cáo vận hành gửi cho người vận hành, không gửi cho người đọc.*
+
 ### ⛔ TIN MỚI PHẢI XẾP VÀO MỤC CÓ SẴN — TẠO MỤC MỚI PHẢI HỎI HUY TRƯỚC
 Chỉ thị Huy 27/07/2026, áp cho **mọi** đề xuất tin, không riêng bot Telegram.
 
