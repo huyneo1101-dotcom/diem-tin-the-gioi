@@ -1,30 +1,30 @@
 {
-  "date": "2026-07-30",
-  "session": "toi",
+  "date": "2026-07-31",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
-      "count": 5,
-      "target": 7,
-      "min": 5,
-      "thieu": false,
-      "reason": "Đạt mức tối thiểu 5 tin (1 nhóm 1 - hoãn bỏ phiếu đề cử Blanche, 1 nhóm 4 kinh tế/thuế quan, 1 nhóm 5 bầu cử, 2 nhóm 4 kinh tế). Nhóm 1 (điều trần/bỏ phiếu) gần như đã cạn trong khung 29-30/07 sau phiên sáng cùng ngày. Loại toàn bộ nhóm tin 'Mỹ không kích/trừng phạt Iran' vì là hành động đối ngoại/quân sự, không thuộc 5 nhóm nội bộ."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 4,
+      "count": 2,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Thiếu 1 tin để đạt sàn 5. Ứng viên Báo Mới 'BAE Systems 5,9 tỷ bảng tàu ngầm Anh' bị loại vì là chương trình Dreadnought (răn đe hạt nhân riêng của Anh), không liên quan AUKUS/Úc. Ứng viên Telegram 'Nga-Indonesia diễn tập Orruda-2026' bị loại vì sai vùng biển (Biển Nhật Bản) và nguồn không đáng tin."
+      "reason": "Agent tìm được 3 tin (hearing HELP Committee, hearing AI viễn thông, Cook Political Report redistricting) nhưng 1 tin (Cook Political Report) bị xoá sau khi phát hiện trùng phân tích PVI đã có trong DATA 28/07. Còn 2 tin. Nhóm 1 (điều trần/bỏ phiếu) gần cạn sau 2 phiên liên tiếp 30/07."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 2,
+      "target": 7,
+      "min": 5,
+      "thieu": true,
+      "reason": "Thiếu 3 tin. Phần lớn ứng viên harvest trùng tin đã nạp ở 2 phiên trước (28-30/07): Leidos dry dock, Conroy phát biểu, Bisalloy steel, Philippines UN filing. Chỉ còn 2 tin thật sự mới: sonar Nhật cho Mogami Úc, USS George Washington thăm Đà Nẵng."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 6,
+      "count": 2,
       "target": 7,
       "min": 5,
-      "thieu": false,
-      "reason": ""
+      "thieu": true,
+      "reason": "Thiếu 3 tin. Phần lớn ứng viên hot (Patriot 58,6 tỷ, SpaceX 1,6 tỷ, tàu ngầm 76,6 tỷ, DARPA pin hạt nhân) đã nạp ở phiên tối 30/07. Chỉ còn 2 tin mới thật: CCA test Creech AFB, Sentinel ICBM utility corridor."
     },
     {
       "name": "Mỹ - Mali",
@@ -32,7 +32,7 @@
       "target": 4,
       "min": 2,
       "thieu": true,
-      "reason": "Chỉ tìm được 1 ứng viên nội dung tốt (PassBlue — cái chết Bộ trưởng QP Mali Sadio Camara dọn đường cho quyết định không kích JNIM của Mỹ) nhưng ngày sự kiện là 28/07, vượt khung 2 ngày cho phép (Mali không được nới 3 ngày như CNQS) — bị guardrail chặn cứng. Các ứng viên khác đều ngoài khung hoặc trùng tin Amnesty đã có trong DATA từ 29/07."
+      "reason": "Agent chỉ tìm được 1 ứng viên (Amnesty International, 19 binh sĩ Mali) nhưng đây là tin TRÙNG với bài đã có trong DATA 29/07 (cùng sự kiện, cùng số liệu, chỉ khác nguồn thứ cấp Africanews vs nguồn gốc amnesty.org) — đã xoá bằng prune_news.py sau khi phát hiện qua cảnh báo Jaccard. Các ứng viên khác (Trump cân nhắc không kích Mali) ngoài khung ngày xa (sự kiện 22/07)."
     },
     {
       "name": "Tập trận Predator's Run 2026",
@@ -40,16 +40,16 @@
       "target": 2,
       "min": 1,
       "thieu": true,
-      "reason": "Agent xác nhận qua Stars and Stripes tập trận vẫn đang diễn ra (kéo dài tới hết 31/07, không phải ~29/07 như ước tính cũ), nhưng không tìm được diễn biến mới nào trong khung 29-30/07 — mọi tin tìm thấy đã có trong DATA hoặc ngoài khung ngày."
+      "reason": "Agent WebSearch kỹ (closing ceremony, concludes, wraps up) không tìm được tin bế mạc hay diễn biến mới trong khung 30-31/07. Không đủ căn cứ xác nhận tập trận đã kết thúc — status giữ nguyên 'ongoing'."
     },
     {
       "name": "Báo Mới",
-      "count": 3,
+      "count": 0,
       "target": 6,
       "min": 3,
-      "thieu": false,
-      "reason": "3/10 ứng viên chuyên mục truy về được nguồn gốc và nạp thành công (Fed/chứng khoán lao dốc qua TheStreet, hợp đồng Lockheed Patriot 58,6 tỷ qua Reuters/Yahoo Finance, USS Enterprise rã xác qua VnExpress — cả 3 gắn _baomoiUrl). 7 ứng viên còn lại bị loại: 4 tin về không kích/trừng phạt Iran (ngoài phạm vi 5 chủ đề), 1 tin BAE Systems Dreadnought (không liên quan AUKUS), 1 tin Zelensky yêu cầu Patriot (không phải khí tài Mỹ), 1 tin MV-22B gần trùng tin đã có. Chi tiết trong logs/loai-tin.md."
+      "thieu": true,
+      "reason": "6 ứng viên cổng nhắc (Iran/F-35, Hàn Quốc tàu ngầm hạt nhân, TQ phản đối trừng phạt, siêu tàu ngầm Tomahawk, UAV liên Triều, Mỹ không kích Iran/Mali) đều trùng lặp với các quyết định loại đã có (tuyên bố một chiều chưa kiểm chứng, trùng DATA cũ, hoặc ngoài phạm vi 5 chủ đề) — không có ứng viên nào đạt chuẩn truy bài gốc riêng trong phiên này."
     }
   ],
-  "note": "Phiên tối 30/07 (CI, claim lúc 21:00 VN). worldNews +4, usNews +11 = 15 tin. Bỏ 1 tin usNews Mali (PassBlue, ngày sự kiện 28/07) vì vượt khung ngày — add_news.py chặn cứng ở lớp kiểm ngày, không lách bằng cách đổi ngày batch. Đã xác minh qua WebFetch/WebSearch độc lập 2 tin lớn trước khi nạp: hợp đồng tàu ngầm Hải quân Mỹ 76,6 tỷ USD (Naval News — xác nhận đúng) và phát biểu Bộ trưởng Conroy về SRF-West (xác nhận đúng qua WebSearch, sửa lại sourceName cho khớp nguồn chính thức defence.gov.au)."
+  "note": "Phiên sáng sớm 31/07 (CI, claim lúc 04:00 VN). worldNews +2, usNews +4 (sau khi xoá 2 tin trùng qua guardrail Jaccard) = 6 tin thật sự mới trong lô này. Đây là tín hiệu khan tin thật: phần lớn ứng viên harvest hôm nay là tin đã nạp ở 2 phiên liên tiếp trước đó (28/07 và 30/07 tối), không phải do agent lười tìm — cả 5 agent đều báo cáo đã kiểm tra kỹ qua WebFetch/WebSearch và loại đúng lý do. Đã dùng prune_news.py xoá 2 tin phát hiện trùng sau khi add_news.py cảnh báo Jaccard (Cook Political Report redistricting, Amnesty Mali)."
 }
