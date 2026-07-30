@@ -72,13 +72,26 @@ python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/ho_so_doc_gia.py --luu /tmp/
 
 Upsert theo `chat_id` — chạy lại là ghi đè hồ sơ cũ, đúng ý (hồ sơ phản ánh trạng thái mới nhất).
 
-## Bước 4 — Gửi Huy
+## Bước 4 — Gửi Huy: qua `@huyclaude_bot`, KHÔNG qua bot Điểm Tin (Huy chốt 30/07/2026)
 
-Một tin Telegram gọn cho chat của Huy (chat id **đầu tiên** trong `TELEGRAM_CHAT_ID`):
+Nguyên văn: *"gửi kết quả cho tao thì gửi qua huyclaude_bot"*.
 
 ```
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/telegram_bot.py --bao "<nội dung>" --chat <id>
+python3 /Users/Huy/Claude/App/ViecBot/viec_bot.py --bao - < /tmp/tin-ho-so.txt
 ```
+
+`--bao` đọc `-` từ stdin (nội dung dài, có `"` và emoji thì đừng nhồi vào tham số dòng lệnh),
+gửi cho chat đầu tiên trong `/Users/Huy/Claude/.viecbot`, `parse_mode` là **HTML** — nên chỉ
+dùng `<b>`/`<i>`, và mọi `<`, `>`, `&` khác phải escape. Xem trước không gửi thật: `DRY_RUN=1`.
+**Fail-closed**: chưa cấu hình bot · nội dung rỗng · Telegram từ chối → **mã 1**. Một routine
+tưởng đã báo mà thật ra chưa gửi được là kiểu hỏng câm tệ nhất.
+
+⚠️ **Cơ chế gây vấp — vì sao KHÔNG dùng `scripts/telegram_bot.py` như bản cũ:** script đó đi qua
+`@diemtin24h_bot`, mà bot ấy là **kênh của người ĐỌC bản tin** (`TELEGRAM_CHAT_ID` có cả Jay
+Lâm). Hồ sơ độc giả là **báo cáo vận hành**, lại chứa nguyên văn câu hỏi mà người khác nhắn
+riêng cho bot — nó thuộc kênh làm việc riêng của Huy, không thuộc kênh bản tin. Cùng luật với
+canary: *cảnh báo hạ tầng gửi cho người vận hành, không gửi cho người đọc*.
+Bot: `@huyclaude_bot` (id `8816429528`), chat `…8550`; hồ sơ đầy đủ ở `App/ViecBot/CLAUDE.md`.
 
 Nội dung: mỗi người 2–4 dòng — hỏi bao nhiêu lần trong kỳ, quan tâm gì, **và một dòng
 gợi ý cho bản tin** ("người này hỏi Nga–Ukraine 4/6 lần, mà đó là chủ đề đã cắt khỏi phạm vi

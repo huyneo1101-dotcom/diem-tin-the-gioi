@@ -1,0 +1,38 @@
+START 2026-07-30 10:04 (giờ VN) — routine ho-so-doc-gia, lần chạy ĐẦU TIÊN (chưa có log kỳ trước)
+
+Bước 1 — số liệu: đọc dt_bot_hoi qua mã riêng x-dt-key, OK.
+  · 22 lượt hỏi, 2 người.
+  · Jay (6777454309): 12 lượt — trong 5 chủ đề 7 / ngoài 5 · 2 tin đã đề xuất từ các câu hỏi này.
+  · Huy (6643748550): 10 lượt — trong 5 chủ đề 3 / ngoài 7.
+
+Bước 2 — viết hồ sơ: 2 hồ sơ, mỗi bản 7-8 câu. Chỉ viết điều đọc ra được từ câu hỏi thật; nêu rõ
+  cái CHƯA biết (Huy: 10 lượt dồn 1 ngày 1 khung giờ nên chưa nói được xu hướng). Không suy diễn
+  nghề nghiệp/tính cách/quan điểm của ai.
+
+Bước 3 — lưu: upsert dt_ho_so_doc_gia OK cho cả 2 chat_id ("Đã lưu hồ sơ cho 6777454309." /
+  "... 6643748550.").
+
+Bước 4 — gửi Huy: ĐỔI KÊNH giữa phiên theo chỉ thị Huy ("gửi kết quả cho tao thì gửi qua
+  huyclaude_bot"). Gửi qua @huyclaude_bot bằng viec_bot.py --bao, mã thoát 0.
+  · KHÔNG dùng scripts/telegram_bot.py (bot Điểm Tin) như bản quy trình cũ.
+  · Nội dung: mỗi người 3-4 dòng + 1 dòng gợi ý cho bản tin.
+  · Gợi ý 1 (từ Jay): tin Fed/FOMC nên ghi kèm MỐC GIỜ công bố theo giờ VN — 4/12 lượt hỏi xoay
+    quanh đúng cuộc họp Fed 28-29/07 và hỏi "mấy giờ ra thông báo", "mấy giờ việt nam có".
+    Kèm việc soi lại phân loại: bot xếp 5/12 lượt của Jay là "ngoài 5 chủ đề" trong khi Fed, lãi
+    suất, thuế quan vốn thuộc nhóm 4 của chủ đề Nội bộ Mỹ.
+  · Gợi ý 2 (từ Huy): mục Tập trận gần như chỉ có cuộc đang/vừa diễn ra, trong khi câu hỏi thuộc
+    dạng LỊCH ("NATO tháng 8", "từ giờ đến cuối năm"). Phiên sáng đã được phép tạo newExercises
+    status upcoming — nạp chủ động cuộc SẮP diễn ra thì trả lời được mà không phải tra web.
+
+Bước 5 — thay đổi quy trình đã ghi trong lượt này (mục 13 quy tắc toàn cục):
+  · docs/routine-ho-so-doc-gia.md Bước 4 — viết lại: gửi qua @huyclaude_bot, kèm cơ chế gây vấp
+    (bot Điểm Tin là kênh của người ĐỌC, TELEGRAM_CHAT_ID có cả Jay Lâm; hồ sơ độc giả là báo cáo
+    vận hành chứa nguyên văn câu hỏi người khác).
+  · App/ViecBot/viec_bot.py — thêm cờ `--bao TEXT|-` (stdin, HTML, DRY_RUN, FAIL-CLOSED mã 1) làm
+    đường DUY NHẤT để routine báo kết quả cho Huy. Bộ test test-bao-cao-xong.py: 14/14 xanh sau
+    khi sửa. Thử tay: DRY_RUN → mã 0 · nội dung rỗng → mã 1.
+  · App/ViecBot/CLAUDE.md — thêm mục "Báo kết quả cho Huy — --bao là đường DUY NHẤT".
+  · memory telegram-bot-nao-cho-viec-nao — thêm dòng bot thứ tư cho việc báo kết quả.
+
+DONE 2026-07-30 10:0x — 22 lượt hỏi đã đọc, 2 hồ sơ đã viết + lưu, đã gửi Telegram qua
+@huyclaude_bot. Không có bước nào hỏng.
