@@ -1170,10 +1170,18 @@ python3 scripts/sua_nhan_analyses.py --tu-kiem    # chứng minh --kiem bắt đ
 ```
 | `--kiem` bắt | Xử lý |
 |---|---|
-| Một domain nhiều nhãn | thêm dòng vào `OUTLET_CANON` rồi `--gop-nhan` |
+| Một domain nhiều nhãn | thêm dòng vào `OUTLET_CANON` rồi `--gop-nhan` — **chọn nhãn chuẩn theo `add_analyses.py::THINKTANK_FEEDS`, đừng chỉ đếm số bài** (xem ⚠️ dưới bảng) |
 | Domain ngoài `THINKTANK_DOMAINS` | **đúng là viện thật → thêm domain**, đừng xoá bài (ca ISW `understandingwar.org` 29/07: guardrail đang chặn oan cả bài mới). Là báo chí → **HỎI Huy** rồi mới `--xoa-url` |
 | Hai bản cùng một bài gốc | trùng **slug cuối url** — `warontherocks.com/<slug>` và `.../2026/07/<slug>` là hai chuỗi khác nhau nên guardrail trùng-url cho lọt cả hai. Huy chốt giữ → ghi vào `TRUNG_DA_DUYET` |
 
+⚠️ **CHỌN NHÃN CHUẨN THÌ SOI `add_analyses.py::THINKTANK_FEEDS` TRƯỚC, ĐỪNG CHỈ ĐẾM SỐ BÀI** (đúc
+30/07/2026). Bảng feed đó là **nơi sinh nhãn cho mọi lô nạp về sau**, nên chọn khác nó là cổng sạch
+hôm nay rồi tách nhãn lại ở bài kế tiếp của chính domain ấy — sửa mà không đóng được nguồn sinh lỗi.
+Ca thật: `fulcrum.sg` mang `'Fulcrum'` (1 bài) | `'Fulcrum (ISEAS)'` (1 bài) — **1-1 nên số lượng
+không phân xử được**, bảng feed khai `("Fulcrum (ISEAS)", …)` nên lấy theo bảng feed. Đừng đọc chú
+thích "chốt theo tên tự xưng, không theo tên viện mẹ" ở đầu `OUTLET_CANON` một mình rồi suy ra
+`'Fulcrum'`: câu đó viết cho ca **hai domain khác nhau của cùng một viện** (`aspistrategist.org.au`
+là blog The Strategist, `aspi.org.au` mới là báo cáo viện), không phải cho ca một domain hai nhãn.
 ⚠️ **Script KHÔNG tự xoá bài** — `--xoa-url` phải gõ đủ url, và xoá là quyết định của Huy. Ghi url +
 tiêu đề vào `logs/loai-tin.md` TRƯỚC khi xoá.
 ⚠️ Chạy `--kiem` sau mỗi đợt nạp think-tank lớn. Con số "18 bài đời cũ lẫn báo chí" ở đoạn trên là số
