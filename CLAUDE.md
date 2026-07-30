@@ -279,6 +279,46 @@ lại tay, hoặc mốc dự phòng chạy bù. Sổ URL thì đúng trong mọi
 | **Tin nhắn Telegram** (`send_telegram.py`) | **CÓ** | cùng vai với thân email |
 | **File `.docx` đính kèm** (`make_docx.py`) | **KHÔNG** | là **bản tổng hợp CẢ NGÀY** Huy lưu lại — chỉ thị Huy: *"gửi file word tối nay… thì gộp cả 11 tin hôm nay đó vào"* |
 
+### 🔀 HAI WORKFLOW GHI CÙNG SỔ CÁCH 07 GIÂY — luật hợp nhất ở `ghi_so_push.py` (vá 30/07/2026)
+
+**Sự cố thật sáng 30/07:** `notify-morning.yml` ghi `logs/da-gui-email.json` lúc 21:28:01Z,
+`notify-email.yml` ghi lúc **21:28:08Z** — cùng một file, cách nhau **07 giây**. Khối lệnh cũ (chép y
+nhau ở hai workflow) commit local rồi `git pull --rebase origin main`: rebase phải phát lại commit của
+mình lên trên commit của workflow kia, hai bên sửa đúng cùng chỗ trong JSON nên **xung đột**
+(`error: could not apply 7209062… (sang)`). Rebase hỏng để repo ở trạng thái rebase dở nên **cả 5 vòng
+retry chết tiếp**, chỉ còn `::warning::khong push duoc so da gui`.
+Hậu quả: bản tin sáng ĐÃ tới tay lúc 04:28 mà sổ trống ⇒ (a) canary ca `sang` **kêu oan** + nhắn
+Telegram cho Huy; (b) hai phiên CI dự phòng (05:00 · 05:37) kết luận "mất bản tin" rồi chạy lại vòng
+quét bổ sung tốn token. **Đây là hệ quả dây chuyền của việc gộp `event-scan` vào cùng session sáng
+(28/07)** — trước đó hai bên cách nhau ~4 tiếng nên lỗi này ngủ yên.
+
+**Cách vá — ĐỪNG REBASE, SỔ LÀ DỮ LIỆU APPEND-ONLY.** Hai lần gửi là hai DÒNG khác nhau trong
+`lan_gui`, không phải hai phiên bản tranh nhau của một dòng; nên hợp nhất đúng là *lấy sổ mới nhất của
+remote rồi ghi lại dòng của mình*. Luật nằm ở **ĐÚNG MỘT chỗ: `.github/scripts/ghi_so_push.py`**, cả
+hai workflow gọi chung — đừng chép logic git trở lại file yml.
+
+| Pha | Làm gì | Vì sao thứ tự này |
+|---|---|---|
+| **0** | chạy `so_da_gui.py --ghi` **một lần duy nhất**, giữ lại *dòng vừa thêm* | `so_da_gui` chọn URL bằng `make_docx.pick_items`, tức **diff `index.html` với `HEAD~1`**. Tính sau khi đã `reset` sang đỉnh remote là diff với lô của PHIÊN KHÁC ⇒ sổ ăn URL không phải của mình, mà **URL vào sổ nghĩa là bản tin sau BỎ tin đó** — mất tin, không phải trùng tin |
+| **1** | mỗi vòng: `fetch` → `reset --mixed FETCH_HEAD` → `checkout FETCH_HEAD -- <sổ>` → append dòng của pha 0 → commit **chỉ file sổ** → `push HEAD:main`; bị từ chối thì ngủ rồi vòng lại | không bao giờ gọi `pull --rebase` ⇒ không bao giờ có xung đột để mà hỏng |
+
+⚠️ **`--mixed` chứ KHÔNG `--hard`**: `--hard` kéo cả `index.html` của lô khác về, và commit của mình
+khi đó không còn chỉ chứa file sổ.
+⚠️ **Bước `checkout FETCH_HEAD -- <sổ>` là chỗ giữ dòng của workflow kia** — bỏ nó là ghi đè mất dòng
+đó, đúng bệnh cũ nhưng theo đường khác. Append là **idempotent** (đã có thì không thêm), nên retry bao
+nhiêu vòng cũng không nhân đôi dòng.
+⚠️ **Pha 1 KHÔNG cắt bản ghi quá `GIU_NGAY`** — việc cắt là của `so_da_gui.ghi_lan_gui`. Cùng lắm sổ
+giữ thêm vài dòng cũ tới lần ghi kế, mà giữ dư URL cũ chỉ khiến bản tin sau bỏ qua tin cũ: hướng lệch
+an toàn. Đừng thêm luật cắt thứ hai.
+⚠️ **Hết vòng mà chưa push được thì trả mã ≠ 0 + in `::error::`**, không trả 0 cho êm — sổ trống chính
+là thứ làm canary kêu oan và làm phiên dự phòng quét lại. Bước vẫn giữ `continue-on-error: true` nên
+job không đỏ, nhưng phải để lại dấu vết lần được.
+
+**Bộ test canh: `tests/test-ghi-so-push.py`** — 10 ca, dựng repo git THẬT (remote bare + 2 clone = hai
+workflow). Nghiệm thu 30/07: 10/10 ca đạt · `--tu-kiem` bắt **6/6** bản hỏng, trong đó bản hỏng "dùng
+lại `pull --rebase`" (chính bản CŨ) làm **6/10 ca đỏ**. Nghiệm thu thêm bằng đường THẬT (`so_da_gui.py`
+thật, clone của repo thật, remote bare local): sổ giữ đủ hai dòng, commit chỉ đụng file sổ.
+
 Ba cái bẫy đã vấp thật, đừng lặp lại:
 - **Ghi sổ phải là bước CUỐI**, sau CẢ email lẫn Telegram. Ghi sớm hơn thì Telegram đọc sổ thấy chính lô
   vừa gửi và lọc sạch → **Telegram rỗng**.
@@ -778,13 +818,15 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `scripts/sua_nhan_analyses.py --tu-kiem` | Chính `--kiem` của nó (nhãn `outlet` mục Think-tank) | 5 — 3 PHẢI CHẶN, 2 PHẢI CHO QUA + 1 đối chứng. **Test nằm TRONG script** chứ không ở `tests/` vì cổng và bộ ca dùng chung dữ liệu giả |
 | `tests/test-tach-analyses.py` | Việc tách kho think-tank ra `data/analyses.json` (30/07/2026) | 9 ca — mọi mắt xích đều hỏng-thì-im-lặng: mục Think-tank trống · 442 nhãn MỚI · guardrail trùng-url tê liệt · offline mất kho. `--tu-kiem` dựng 4 bản hỏng |
 | `scripts/analyses_store.py --tu-kiem` | Chính lớp đọc/ghi kho | 3 PHẢI CHẶN (thiếu file · JSON hỏng · không phải mảng) + cổng hồi quy "index.html phải rỗng" |
+| `tests/test-ghi-so-push.py` | Sổ đã gửi chịu được HAI workflow ghi cùng lúc (`.github/scripts/ghi_so_push.py`) | 10 ca — 2 CA CHÍNH (giữ đủ hai dòng · URL tính đúng một lần) · 2 PHẢI CHẶN (nhân dòng · `--hard` đè index.html) · 1 PHẢI KÊU · 4 đối chứng · 1 kiểm cổng còn nằm trên đường đi (soi 2 file yml). `--tu-kiem` bắt 6/6 bản hỏng |
 
-Chạy cả bốn sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `make_docx.py` · `canary.py` · `state.py` · `claude-web-scan.yml`:
+Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:
 ```
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-baomoi.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-so-da-gui.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-canary-ban-tin.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-phien-test.py
+python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-ghi-so-push.py
 ```
 
 ⚠️ **TEST XANH CHƯA ĐỦ — phải chứng minh test BẮT ĐƯỢC lỗi.** Mỗi file có cờ `--tu-kiem`: nó tự

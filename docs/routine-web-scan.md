@@ -279,6 +279,17 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
    | Bản tin **thật sự chưa gửi** | không có run `notify-email.yml` nào, hoặc run ĐỎ | QUÉT THẬT theo bảng trên |
    | **Khâu GHI SỔ hỏng**, bản tin ĐÃ tới tay | run `notify-email.yml` XANH + log có dòng `Đã gửi … file .docx tới <chat>` | **KHÔNG quét lại.** Ghi bù sổ bằng `python3 .github/scripts/so_da_gui.py --ghi --buoi sang\|toi` rồi commit |
 
+   ✅ **VÁ GỐC — ĐÃ LÀM 30/07/2026.** Luật hợp nhất sổ dời vào **`.github/scripts/ghi_so_push.py`**
+   (dùng chung cho cả hai workflow): sổ là dữ liệu **append-only** nên không `pull --rebase` nữa mà
+   *lấy sổ mới nhất của remote rồi ghi lại dòng của mình*, thử lại trên đỉnh mới nếu bị chen ⇒ không
+   còn xung đột để mà hỏng. Chi tiết + 04 cái bẫy kèm theo: mục "🔀 HAI WORKFLOW GHI CÙNG SỔ" trong
+   `CLAUDE.md`. Bộ test canh `tests/test-ghi-so-push.py` (10 ca · `--tu-kiem` bắt 6/6 bản hỏng, riêng
+   bản hỏng "dùng lại `pull --rebase`" làm 6/10 ca đỏ), đã nạp vào `khoe.py`.
+   ⚠️ **NHƯNG BẢNG KIỂM Ở TRÊN VẪN CẦN, ĐỪNG GỠ** — cùng lý do với cổng phiên test: vá gốc chỉ bịt
+   đường *race giữa hai workflow*, còn các ca khác làm sổ trống (workflow bị huỷ giữa bước ghi, mất
+   mạng cả 5 vòng, người bấm tay gửi bù) thì phép đọc `gh run list` vẫn là thứ duy nhất phân biệt được
+   "chưa gửi thật" với "khâu ghi sổ hỏng".
+
    **Cơ chế gây vấp:** sáng 30/07 bước *"Ghi sổ đã gửi"* của `notify-email.yml` rebase hỏng
    (`could not apply … (sang)`) vì `notify-morning.yml` ghi cùng file `logs/da-gui-email.json`
    **trước đó 7 giây** — hệ quả dây chuyền của việc gộp `event-scan` vào cùng session sáng

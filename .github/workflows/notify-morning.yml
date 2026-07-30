@@ -100,20 +100,17 @@ jobs:
       # Cùng lớp lỗi với notify-email (vá 28/07/2026): phiên event-scan CI kích bằng
       # `gh workflow run` nên là `workflow_dispatch`, điều kiện cũ `event_name == 'push'`
       # loại sạch. Phân biệt bằng Ý ĐỊNH `tu_dong`, không bằng kiểu sự kiện.
+      # ⚠️ KHỐI `git pull --rebase` CŨ ĐÃ BỎ (vá 30/07/2026). Workflow này và
+      # `notify-email.yml` ghi CÙNG file `logs/da-gui-email.json` cách nhau 07 GIÂY trong
+      # phiên sáng (21:28:01Z vs 21:28:08Z — hệ quả của việc gộp event-scan vào cùng session
+      # ngày 28/07, trước đó hai bên cách ~4 tiếng). Rebase xung đột rồi 5 vòng retry chết
+      # tiếp ⇒ sổ trống dù bản tin đã gửi. Luật hợp nhất sổ nay ở ĐÚNG MỘT chỗ:
+      # `ghi_so_push.py` (append-only: lấy sổ mới nhất của remote rồi ghi lại dòng của
+      # mình, KHÔNG rebase). Bộ test canh: `tests/test-ghi-so-push.py`.
       - name: Ghi sổ đã gửi (chỉ sự kiện)
         if: steps.chk.outputs.go == '1' && (github.event_name == 'push' || inputs.tu_dong == '1')
         continue-on-error: true
         run: |
           pip install --quiet python-docx
-          python3 .github/scripts/so_da_gui.py --ghi --buoi sukien --chi events
-          git config user.name "claude-scan-ci"
-          git config user.email "noreply@anthropic.com"
-          git add logs/da-gui-email.json
-          git diff --cached --quiet && { echo "so khong doi"; exit 0; }
-          git commit -m "so: ghi su kien da gui email sang"
-          for i in 1 2 3 4 5; do
-            git pull --rebase origin main && git push origin main && exit 0
-            echo "push lan $i that bai, thu lai sau 10s"
-            sleep 10
-          done
-          echo "::warning::khong push duoc so da gui"
+          python3 .github/scripts/ghi_so_push.py --buoi sukien --chi events \
+            --nhan "so: ghi su kien da gui email sang"

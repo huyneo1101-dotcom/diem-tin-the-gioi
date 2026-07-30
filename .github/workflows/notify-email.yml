@@ -134,21 +134,21 @@ jobs:
       # Vì vậy phân biệt bằng Ý ĐỊNH (`tu_dong`) chứ không bằng KIỂU SỰ KIỆN: CI kích thì
       # truyền `-f tu_dong=1`, người bấm tay thì để trống. Nhánh MODE=test của claude-web-scan
       # cố tình KHÔNG truyền cờ này — test vẫn không được để dấu vết.
+      #
+      # ⚠️ KHỐI `git pull --rebase` CŨ ĐÃ BỎ (vá 30/07/2026) — nó là nguyên nhân sổ trống
+      # sáng 30/07: `notify-morning.yml` ghi cùng file này lúc 21:28:01Z, workflow này ghi
+      # lúc 21:28:08Z (cách 07 GIÂY, hệ quả của việc gộp event-scan vào cùng session sáng
+      # ngày 28/07), rebase xung đột `could not apply … (sang)` rồi cả 5 vòng retry chết
+      # tiếp trong trạng thái rebase dở. Bản tin ĐÃ gửi 04:28 mà sổ trống ⇒ canary ca
+      # `sang` kêu oan + hai phiên CI dự phòng quét lại tốn token.
+      # Luật hợp nhất sổ nay nằm ở ĐÚNG MỘT chỗ — `ghi_so_push.py`, dùng chung với
+      # notify-morning.yml. Đừng chép logic git trở lại đây: hai bộ luật song song chắc
+      # chắn lệch, mà lệch âm thầm. Bộ test canh: `tests/test-ghi-so-push.py`.
       - name: Ghi sổ đã gửi
         if: steps.chk.outputs.go == '1' && (github.event_name == 'push' || inputs.tu_dong == '1')
         continue-on-error: true
         run: |
-          buoi=$(TZ=Asia/Ho_Chi_Minh date +%H)
-          if [ "$buoi" -lt 14 ]; then b=sang; else b=toi; fi
-          python3 .github/scripts/so_da_gui.py --ghi --buoi "$b"
-          git config user.name "claude-scan-ci"
-          git config user.email "noreply@anthropic.com"
-          git add logs/da-gui-email.json
-          git diff --cached --quiet && { echo "so khong doi"; exit 0; }
-          git commit -m "so: ghi lo tin da gui email/telegram ($b)"
-          for i in 1 2 3 4 5; do
-            git pull --rebase origin main && git push origin main && exit 0
-            echo "push lan $i that bai, thu lai sau 10s"
-            sleep 10
-          done
-          echo "::warning::khong push duoc so da gui — ban tin sau co the gui trung tin"
+          gio=$(TZ=Asia/Ho_Chi_Minh date +%H)
+          if [ "$gio" -lt 14 ]; then b=sang; else b=toi; fi
+          python3 .github/scripts/ghi_so_push.py --buoi "$b" \
+            --nhan "so: ghi lo tin da gui email/telegram ($b)"
