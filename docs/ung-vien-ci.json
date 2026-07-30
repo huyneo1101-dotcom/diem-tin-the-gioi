@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-31T04:45:10+07:00",
+  "tao_luc": "2026-07-31T05:38:33+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-30",
@@ -101,15 +101,6 @@
       "tieu_de": "Marine Corps takes delivery of final MV-22B Osprey",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/news/marines-last-osprey/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "US GDP growth dips as inflation and trade deficits pressure economy",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/economy/2026/7/30/us-gdp-growth-dips-as-inflation-and-trade-deficits-pressure-economy?traffic_source=rss",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -339,15 +330,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "AI boom seen bringing short-term inflation pain, little GDP gain in US",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/economy/ai-boom-seen-bringing-short-term-inflation-pain-little-gdp-gain-in-us",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-30",
       "tieu_de": "Thuế quan mới của Tổng thống Trump khiến một số doanh nghiệp Mỹ quay lại Trung Quốc",
       "nguon": "VnEconomy",
@@ -369,6 +351,15 @@
       "tieu_de": "Ra mắt Không gian Australia, mở ra nhiều hợp tác mới cho ĐBSCL",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/ra-mat-khong-gian-australia-mo-ra-nhieu-hop-tac-moi-cho-dbscl-20260730153433490.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Senate ‘YOLO Caucus’ bucks Trump on Blanche: What to know",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/6000726-gop-blanche-nomination-cornyn-tillis/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -476,33 +467,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-31",
-      "tieu_de": "Record-smashing El Niño points to Australian spring of drought and fire",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-07-31/nsw-el-nino-weather-extreme-heat-australia/106973840"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-31",
       "tieu_de": "Australia's Pacific climate meeting headed for 'disaster', officials warn",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-07-31/australia-risks-diplomatic-embarrassment-over-precop-leader-call/106979498"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-31",
-      "tieu_de": "Chinese e-commerce site selling Australian police gear",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-07-31/chinese-online-shops-selling-australian-police-clothing/106831492"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-31",
-      "tieu_de": "Not the First Time the Philippines has been treated with contempt",
-      "nguon": "Inquirer",
-      "url": "https://opinion.inquirer.net/193448/not-the-first-time-the-philippines-has-been-treated-with-contempt"
     },
     {
       "lop": "RSS",
@@ -567,6 +534,14 @@
       "tieu_de": "After 20 years of deployment, Marine Corps receives final Osprey amid upgrades and some flight-hour restrictions",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/07/28/marine-corps-receives-final-mv-22b-osprey/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Fort Rucker Teen Selected to Represent Alabama in the 2026 Patriot Games",
+      "nguon": "DVIDS news (Predator)",
+      "url": "https://www.dvidshub.net/news/571180/fort-rucker-teen-selected-represent-alabama-2026-patriot-games"
     },
     {
       "lop": "RSS",
@@ -677,10 +652,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Contracts for July 29, 2026",
+      "ngay": "2026-07-31",
+      "tieu_de": "Contracts for July 30, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4559059/contracts-for-july-29-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4560267/contracts-for-july-30-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "TOTE Sees New Marine Corps Landing Ship As A Three Yard Solution, Sure Bollinger and Fincantieri Will Get More Orders",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/tote-sees-new-marine-corps-landing-ship-as-a-three-yard-solution-sure-bollinger-and-fincantieri-will-get-more-orders/navy-usmc/"
     },
     {
       "lop": "RSS",
@@ -821,14 +804,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "'On Course Through History: The. U.S. Navy at 250' Book Ceremony",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9835973/course-through-history-us-navy-250-book-ceremony"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-30",
       "tieu_de": "Hitachi and Toshiba mark new high-speed train shipment to Taiwan",
@@ -929,6 +904,14 @@
       "tieu_de": "Australia news live: attorneys general meet to reform working with children checks; leaders gather for Garma festival",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/jul/31/australia-news-live-working-with-children-check-garma-festival-anthony-albanese-labor-angus-taylor-coalition-one-nation-pauline-hanson-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-07-31",
+      "tieu_de": "Australian Rose Davies wins gold in 5,000m in second Commonwealth Games triumph",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/sport/2026/jul/31/australian-rose-davies-wins-gold-in-5000m-in-second-commonwealth-games-triumph"
     },
     {
       "lop": "RSS",
