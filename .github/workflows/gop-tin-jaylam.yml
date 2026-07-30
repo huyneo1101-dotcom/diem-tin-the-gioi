@@ -34,4 +34,14 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           DT_BOT_KEY: ${{ secrets.DT_BOT_KEY }}
-        run: python3 scripts/gop_tin_jaylam.py
+        # Mã 10 = "không có tin nào hôm nay", KHÔNG phải lỗi — giống cách telegram-bot.yml
+        # đọc mã thoát của --doc. Chỉ mã khác 0 VÀ khác 10 mới làm job ĐỎ.
+        run: |
+          set +e
+          python3 scripts/gop_tin_jaylam.py
+          code=$?
+          set -e
+          if [ "$code" != "0" ] && [ "$code" != "10" ]; then
+            echo "::error::gop_tin_jaylam.py lỗi (mã $code)"
+            exit 1
+          fi
