@@ -46,8 +46,13 @@ REPO_ROOT = pathlib.Path(
 # aspistrategist.org.au là blog The Strategist của ASPI, còn aspi.org.au mới là báo cáo của
 # viện — để chung một nhãn 'ASPI' thì sau này không phân biệt được hai loại.
 # Thêm dòng vào đây mỗi khi phát hiện một domain bị gọi bằng hai tên.
+# ⚠️ CHỌN NHÃN CHUẨN THÌ SOI `add_analyses.py::THINKTANK_FEEDS` TRƯỚC, đừng chỉ đếm số bài:
+# bảng feed đó là nơi sinh nhãn cho mọi lô nạp về sau, nên chọn khác nó là lỗi tách nhãn tái
+# diễn ở mỗi bài mới (30/07/2026: fulcrum.sg đang 1-1 bài nên số lượng không phân xử được,
+# bảng feed khai 'Fulcrum (ISEAS)' → lấy theo bảng feed).
 OUTLET_CANON = {
     "aspistrategist.org.au": "ASPI Strategist",
+    "fulcrum.sg": "Fulcrum (ISEAS)",
 }
 
 MA_LOI = {"nhan_doi": 2, "ngoai_vien": 3, "trung_bai": 4}
