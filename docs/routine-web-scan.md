@@ -200,9 +200,15 @@ Không viết lại cho cuộc đã có background trừ khi diễn biến đổ
 
 ### 4.4 — Bài phân tích think-tank (mỗi phiên sáng sớm, không chỉ Chủ nhật)
 Mục 🧠 Phân tích → 🏛️ Think-tank (`DATA.analyses`).
-1. `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_analyses.py --candidates` — ứng viên từ
-   RSS 24 viện đã verify, xếp theo khu vực. Dòng cuối in vùng không có RSS + domain để bù bằng
-   WebSearch.
+1. `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_analyses.py --candidates` — ứng viên
+   **hai lớp**, xếp theo khu vực: `[RSS]` 27 viện có feed, rồi `[HTML]` 10 viện không có feed nhưng
+   quét được trang danh sách (thêm 30/07/2026 — đo lần đầu: 159 + 44 ứng viên). Dòng cuối in vùng
+   **vẫn** phải bù bằng `WebSearch site:<domain>`, đã trừ sẵn nguồn hai lớp trên đã phủ.
+   - Thấy dòng ⚠️ *"Trang HTML KHÔNG ra link bài nào"* → viện đó đổi giao diện, biểu thức đường dẫn
+     đã chết. Chạy `add_analyses.py --kiem-html` để soi rồi sửa `THINKTANK_HTML`; **đừng đọc thành
+     "hôm nay viện không ra bài"**, hai ca đó khác nhau và script đã tách riêng thông điệp.
+   - Ứng viên `[HTML]` có ngày lấy từ trang danh sách hoặc từ meta trang bài. Vẫn phải MỞ ĐỌC như
+     mọi ứng viên khác ở bước 2 — bước đó tự xác nhận lại ngày.
 2. Giao agent Sonnet chọn **4–6 bài**, phủ **ít nhất 2–3 khu vực khác nhau** (1–2 bài trọng tâm cũ:
    Úc/AUKUS · Biển Đông · răn đe hạt nhân/CNQS · Mỹ–Trung–Đài Loan · Mali/Sahel; 1–2 bài vùng khác
    đang có chuyện). LOẠI: chính trị xã hội nội bộ Mỹ, quảng bá viện, điểm sách, điểm báo. Agent phải

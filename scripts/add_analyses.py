@@ -55,13 +55,16 @@ Gặp lỗi "domain không phải think-tank": đây KHÔNG phải lỗi để l
 Bài không phải của viện nghiên cứu thì BỎ (đưa vào bản tin thường nếu là tin). Nếu đúng là
 viện nghiên cứu thật mà chưa có trong danh sách → thêm domain vào THINKTANK_DOMAINS.
 """
+import concurrent.futures
 import datetime
 import email.utils
+import html as html_mod
 import json
 import pathlib
 import re
 import subprocess
 import sys
+import urllib.parse
 import xml.etree.ElementTree as ET
 import zoneinfo
 
@@ -184,6 +187,16 @@ THINKTANK_FEEDS = [
     # (thiếu --compressed) và War on the Rocks (thiếu -A): đừng gạch một nguồn khi chưa dò hết
     # đường vào.
     ("RUSI", "https://www.rusi.org/rss/latest-commentary.xml", "Anh · chiến lược"),
+    # CACI Analyst + USIP — hai feed ẩn tìm được 30/07/2026 bằng cách đọc thẻ
+    # `<link rel="alternate">` trên trang chủ, cùng đường đã tìm ra feed RUSI. Cả hai vùng này
+    # trước đó KHÔNG có nguồn tự động nào: Trung Á - Caucasus trắng hoàn toàn.
+    # ⚠️ CACI: phải là `/publications/analytical-articles.feed` (10 item, bài mới 13/07). Feed ở
+    # trang chủ (`/?format=feed`) CÓ trả 200 nhưng đứng từ 2012 — nhìn giống nhau, khác hẳn nhau.
+    ("CACI Analyst", "https://www.cacianalyst.org/publications/analytical-articles.feed",
+     "Trung Á · Caucasus"),
+    # ⚠️ USIP đăng THƯA (bài mới nhất lúc thêm đã 35 ngày tuổi) nên thường xuyên nằm trong dòng
+    # "feed không ra bài" — đó là bình thường, không phải feed hỏng.
+    ("USIP", "https://www.usip.org/feed/", "Xung đột · hoà giải"),
     # — Mỹ · quốc phòng · xuyên suốt
     ("Atlantic Council", "https://www.atlanticcouncil.org/feed/", "Toàn cầu"),
     ("War on the Rocks", "https://warontherocks.com/feed/", "Chiến lược quân sự"),
@@ -233,7 +246,9 @@ WEBSEARCH_ONLY = {
     "Mỹ Latin": ["wola.org", "dialogo-americas.com"],
     "Nam Á": ["orfonline.org", "idsa.in", "takshashila.org.in"],
     "Đông Bắc Á": ["38north.org", "jiia.or.jp", "spf.org", "eastasiaforum.org"],
-    "Trung Á · Caucasus": ["cacianalyst.org"],
+    # cacianalyst.org đã RỜI danh sách này 30/07/2026 — có feed thật ở
+    # `/publications/analytical-articles.feed`, xem THINKTANK_FEEDS.
+    "Trung Á · Caucasus": [],
     "Bắc Cực": ["thearcticinstitute.org"],
     "Hạt nhân · khủng bố": ["thebulletin.org", "nti.org", "fas.org", "ctc.westpoint.edu", "thesoufancenter.org"],
     # SWP + Clingendael CÓ feed chạy được nhưng là feed ĐIỂM BÁO, không phải nghiên cứu:
@@ -245,10 +260,105 @@ WEBSEARCH_ONLY = {
     # xem THINKTANK_FEEDS ở trên.
     "Châu Âu": ["ecfr.eu", "chathamhouse.org", "globsec.org", "ifri.org",
                 "swp-berlin.org", "clingendael.org"],
+    # usip.org đã RỜI danh sách này 30/07/2026 — feed `/feed/` chạy thật (10 item), xem
+    # THINKTANK_FEEDS. Số còn lại vẫn không có feed; phần nào quét được HTML thì dòng in ra ở
+    # cuối `--candidates` tự trừ đi.
     "Viện lớn của Mỹ": ["csis.org", "brookings.edu", "cnas.org", "stimson.org",
                         "carnegieendowment.org", "fpri.org", "belfercenter.org",
-                        "wilsoncenter.org", "usip.org", "iiss.org"],
+                        "wilsoncenter.org", "iiss.org"],
 }
+
+# ─────────────────────────── LỚP [HTML] — viện KHÔNG có RSS ───────────────────────────
+# Vì sao có lớp này (30/07/2026): đo lại 40 domain trong WEBSEARCH_ONLY thì 29 cái trả 200
+# và render sẵn HTML. **"Không có RSS" ≠ "không đọc được"** — phần lớn danh sách trên chỉ
+# thiếu FEED, mà thiếu feed thì trước giờ vùng đó phụ thuộc hoàn toàn vào việc agent có nhớ
+# `WebSearch site:<domain>` hay không. Cơ chế mượn từ lớp [HTML] của `harvest.py` (quét trang
+# danh sách thông cáo uỷ ban Quốc hội Mỹ).
+#
+# ⚠️ KHÁC harvest.py ở khâu NGÀY — chỗ này là điểm yếu nhất của mọi phép quét HTML thô.
+# harvest.py đoán ngày từ khối HTML quanh link nên có thể sai, và phải dặn agent mở bài kiểm
+# lại. Ở đây làm được tốt hơn vì trang BÀI của viện phơi ngày chuẩn trong `ld+json
+# datePublished` / `article:published_time` / `<time datetime>` (đo thật 30/07: 5/5 nơi thử
+# đều có). Thứ tự dò, dừng ở cái đầu tiên ra kết quả:
+#   (1) ngày nhúng trong chính đường dẫn (`/2026/07/28/…`) — miễn phí, chính xác tuyệt đối;
+#   (2) ngày trong khối HTML quanh link — miễn phí, có thể dính ngày của bài hàng xóm;
+#   (3) MỞ trang bài đọc meta — tốn 1 lượt curl (đo: 0,2–1,3 giây/bài) nhưng là ngày THẬT.
+# Vì (3) chỉ chạy cho link mà (1)(2) trượt, và bị chặn trần `HTML_LINK_CAP`, chi phí cả lớp
+# đo được là ~15–25 giây cho toàn bộ bảng.
+#
+# ⛔ KHÔNG đưa domain sau vào đây dù trình duyệt mở được: 38north · ecfr.eu · chathamhouse ·
+# clingendael · inss.org.il · mei.edu · nti.org · thearcticinstitute · thebulletin. Chúng
+# chặn theo dấu vân tay TLS (Cloudflare challenge), chỉ TRÌNH DUYỆT THẬT vào được — mà
+# trình duyệt chỉ có ở phiên local, CI thì không. Cắm vào đây là lớp này ra kết quả KHÁC
+# NHAU giữa local và CI, đúng kiểu hỏng câm khó truy nhất. Cần bài của họ thì WebSearch.
+#
+# Cột: (tên viện, trang danh sách, biểu thức đường dẫn BÀI, khu vực).
+# Biểu thức path là thứ giữ cho lớp này không nuốt link điều hướng: trang danh sách nào cũng
+# đầy link `/topics/…`, `/programs/…`, `/author/…` có tiêu đề dài y như bài thật.
+THINKTANK_HTML = [
+    ("AGSI (Gulf States)", "https://agsi.org/analysis/",
+     r"^/analysis/[^/]{15,}/?$", "Vùng Vịnh · Trung Đông"),
+    ("East Asia Forum", "https://eastasiaforum.org/",
+     r"^/20\d\d/\d\d/\d\d/[^/]{10,}", "Đông Á · Đông Nam Á"),
+    ("Belfer Center", "https://www.belfercenter.org/research-analysis",
+     r"^/research-analysis/[^/]{15,}", "Mỹ · an ninh quốc tế"),
+    ("FPRI", "https://www.fpri.org/",
+     r"^/article/20\d\d/\d\d/[^/]{10,}", "Mỹ · địa chiến lược"),
+    ("CSIS", "https://www.csis.org/analysis",
+     r"^/analysis/[^/]{15,}", "Toàn cầu · viện lớn"),
+    ("ORF", "https://www.orfonline.org/expert-speak",
+     r"^/expert-speak/[^/]{15,}", "Nam Á"),
+    ("CNAS", "https://www.cnas.org/publications",
+     r"^/publications/[^/]+/[^/]{10,}", "Mỹ · quốc phòng"),
+    # Wilson: phải là `/insight-analysis`, KHÔNG phải `/publications`. Trang `/publications`
+    # trả 200 và có link `/article/…` nên nhìn như đang chạy, nhưng đó là trang giới thiệu
+    # với bài nổi bật ĐỜI 2025 — đo 30/07: 8 link, 0 bài trong khung 7 ngày. `/insight-analysis`
+    # mới là danh sách xếp theo thời gian (bài mới nhất cùng ngày).
+    ("Wilson Center", "https://www.wilsoncenter.org/insight-analysis",
+     r"^/article/[^/]{15,}", "Mỹ · toàn cầu"),
+    ("FAS", "https://fas.org/publications/",
+     r"^/publication/[^/]{10,}", "Hạt nhân · khoa học"),
+    ("SPF (IINA)", "https://www.spf.org/iina/en/articles/",
+     r"^/iina/en/articles/[^/]+\.html$", "Nhật Bản"),
+]
+
+# ĐÃ THỬ VÀ BỎ (30/07/2026) — ghi lại để phiên sau đừng dựng lại rồi mới biết:
+# · `stimson.org` — CHỈ trang chủ đọc được (`/research/`, `/commentary/`, `/2026/` đều 403).
+#   Trang chủ là khối bài nổi bật, đo được 0/16 bài trong khung 7 ngày, mà mỗi trang bài nặng
+#   573KB/5,4 giây — tức chiếm quá nửa thời lượng cả bảng để đổi lấy không gì. Muốn bài Stimson
+#   thì WebSearch.
+# · `issafrica.org` — danh sách bài dựng bằng JS, HTML thô chỉ có link điều hướng (`/research/
+#   books-and-other-publications`…). Không có biểu thức path nào cứu được.
+# · `washingtoninstitute.org`, `carnegieendowment.org`, `iiss.org`, `brookings.edu` — cùng lý do
+#   JS-only: trang trả 200, 100-800KB, mà 0 link bài trong HTML thô.
+
+# Trần số link BÀI lấy từ mỗi trang danh sách. Trang danh sách xếp bài mới trước, nên cắt ở
+# đây gần như không mất bài trong khung 7 ngày; đổi lại chặn được ca trang lưu trữ trả về
+# hàng trăm link rồi kéo theo hàng trăm lượt curl dò ngày.
+HTML_LINK_CAP = 16
+HTML_WORKERS = 8
+
+# Ngày trong khối HTML quanh link. Ba dạng viện hay dùng; dạng "28 July 2026" (Anh) phải có
+# vì nếu thiếu thì các viện châu Âu rơi hết xuống bước (3) tốn curl.
+_HTML_DATE_PATTERNS = [
+    re.compile(r"(20\d\d-\d\d-\d\d)"),
+    # Dạng gạch chéo — SPF/IINA in `2026/07/07` ngay cạnh tiêu đề. Thiếu mẫu này thì cả 16 bài
+    # của họ rơi xuống bước (3), mà trang bài SPF KHÔNG có meta ngày nào ⇒ mất trắng nguồn Nhật.
+    re.compile(r"(20\d\d/\d{1,2}/\d{1,2})"),
+    re.compile(r"((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+20\d\d)"),
+    re.compile(r"(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?,?\s+20\d\d)"),
+]
+_MONTHS = {m: i + 1 for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"])}
+
+# Meta ngày trên trang bài, xếp theo độ tin cậy giảm dần. `<time datetime>` để CUỐI vì trang
+# danh sách/bài hay có thêm khối "bài liên quan" cũng dùng thẻ đó.
+_META_DATE_PATTERNS = [
+    re.compile(r'property="article:published_time"[^>]*content="([^"]+)"'),
+    re.compile(r'content="([^"]+)"[^>]*property="article:published_time"'),
+    re.compile(r'"datePublished"\s*:\s*"([^"]+)"'),
+    re.compile(r"<time[^>]+datetime=\"([^\"]+)\""),
+]
 
 
 def die(msg: str) -> None:
@@ -468,6 +578,200 @@ def parse_feed_date(raw):
     return None
 
 
+def parse_html_date(raw: str):
+    """'2026-07-28T15:02:05+00:00' / 'Jul 29, 2026' / '28 July 2026' / '2026-07-28' -> date.
+
+    Chuỗi có múi giờ được quy về giờ VN trước khi lấy phần ngày — bài đăng 23h giờ Mỹ là
+    ngày HÔM SAU ở VN, lệch một ngày là đủ để rơi ra/vào khung MAX_AGE_DAYS.
+    """
+    if not raw:
+        return None
+    s = raw.strip()
+    try:
+        d = datetime.datetime.fromisoformat(s.replace("Z", "+00:00"))
+        return d.astimezone(VN).date() if d.tzinfo else d.date()
+    except ValueError:
+        pass
+    try:
+        return datetime.date.fromisoformat(s[:10])
+    except ValueError:
+        pass
+    m = re.match(r"(20\d\d)/(\d{1,2})/(\d{1,2})", s)
+    if m:
+        try:
+            return datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+        except ValueError:
+            return None
+    m = re.match(r"([A-Za-z]+)\.?\s+(\d{1,2}),?\s+(20\d\d)", s)
+    if m and m.group(1)[:3].lower() in _MONTHS:
+        return datetime.date(int(m.group(3)), _MONTHS[m.group(1)[:3].lower()], int(m.group(2)))
+    m = re.match(r"(\d{1,2})\s+([A-Za-z]+)\.?,?\s+(20\d\d)", s)
+    if m and m.group(2)[:3].lower() in _MONTHS:
+        return datetime.date(int(m.group(3)), _MONTHS[m.group(2)[:3].lower()], int(m.group(1)))
+    return None
+
+
+def html_article_links(page_url: str, path_re: str, body: str):
+    """[(tiêu đề, url tuyệt đối, ngày|None)] — bài trên một trang danh sách, giữ thứ tự trang.
+
+    Ngày ở đây mới là ngày RẺ: lấy từ đường dẫn hoặc từ khối HTML quanh link. Link nào chưa
+    có ngày sẽ được `resolve_dates` mở bài đọc meta.
+    """
+    rx = re.compile(path_re)
+    host = urllib.parse.urlparse(page_url).netloc.replace("www.", "")
+
+    # Mọi ngày xuất hiện trên trang, kèm vị trí. Gán ngày cho link theo NGƯỜI GẦN NHẤT: một
+    # ngày chỉ thuộc về link nào gần nó hơn cả. Cách cũ (quét ±800 ký tự quanh link rồi lấy
+    # ngày ĐẦU TIÊN gặp) sai câm hai kiểu, cả hai đã dựng thành ca test: (a) link không có ngày
+    # riêng thì ăn ngày của bài BÊN TRÊN — bài hôm nay bị gán ngày hôm kia; (b) bài cũ nằm ngay
+    # dưới bài mới thì ăn ngày của bài mới, tức bài tháng Một lọt vào danh sách "bài trong tuần".
+    moc_ngay = []
+    for pat in _HTML_DATE_PATTERNS:
+        for mm in pat.finditer(body):
+            d = parse_html_date(mm.group(1))
+            if d:
+                moc_ngay.append((mm.start(), d))
+    moc_ngay.sort()
+
+    out, seen = [], set()
+    neo = [a.start() for a in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', body, re.S | re.I)
+           if rx.search(urllib.parse.urlparse(urllib.parse.urljoin(page_url, a.group(1))).path)]
+
+    def ngay_gan_nhat(vi_tri: int):
+        """Ngày gần link nhất, với điều kiện chính link này cũng là link gần ngày đó nhất."""
+        tot, kc_tot = None, 10 ** 9
+        for vt, d in moc_ngay:
+            kc = abs(vt - vi_tri)
+            if kc > 800 or kc >= kc_tot:
+                continue
+            if any(abs(vt - n) < kc for n in neo if n != vi_tri):
+                continue          # ngày này thuộc về link khác, không được mượn
+            tot, kc_tot = d, kc
+        return tot
+
+    for a in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', body, re.S | re.I):
+        href, raw = a.group(1), a.group(2)
+        title = html_mod.unescape(re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", raw))).strip()
+        # Thẻ <a> có thuộc tính chứa dấu `>` (SPF nhét cả tiêu đề vào `title="…"`) làm phép
+        # cắt thẻ ở trên bắt đầu giữa chừng thuộc tính, ra tiêu đề dính đuôi `…War">China's…`.
+        # Cắt ở lần `">` cuối cùng là lấy lại đúng phần văn bản.
+        if '">' in title:
+            title = title.rsplit('">', 1)[-1].strip()
+        # Thẻ <a> bọc CẢ thẻ bài (FAS) nên tiêu đề dính đuôi máy móc: "… 07.29.26 | 4 min
+        # read read more". Cắt ở dấu hiệu đầu tiên của đuôi đó.
+        title = re.sub(r"\s*\d\d\.\d\d\.\d\d\s*\|.*$", "", title)
+        title = re.sub(r"\s*(?:\d+\s*min read|read more|Read More)\s*$", "", title).strip(" |·–—")
+        if len(title) < 25 or len(title) > 200:
+            continue
+        full = urllib.parse.urljoin(page_url, href)
+        pr = urllib.parse.urlparse(full)
+        if pr.scheme not in ("http", "https") or pr.netloc.replace("www.", "") != host:
+            continue
+        if not rx.search(pr.path):
+            continue
+        link = clean_url(full)
+        if link in seen:
+            continue
+        if any(p in link.lower() for p in NOISE_PATHS):
+            continue
+        seen.add(link)
+        d = None
+        mu = re.search(r"/(20\d\d)/(\d{1,2})/(\d{1,2})/", pr.path)
+        if mu:                                    # (1) ngày nằm ngay trong đường dẫn
+            try:
+                d = datetime.date(int(mu.group(1)), int(mu.group(2)), int(mu.group(3)))
+            except ValueError:
+                d = None
+        if d is None:                             # (2) ngày gần link nhất trên trang
+            d = ngay_gan_nhat(a.start())
+        out.append((title, link, d))
+        if len(out) >= HTML_LINK_CAP:
+            break
+    return out
+
+
+def fetch_article_date(url: str):
+    """(3) Mở trang bài, đọc meta ngày. Trả None nếu bài không phơi ngày nào."""
+    body = curl(url).decode("utf-8", "replace")
+    for pat in _META_DATE_PATTERNS:
+        m = pat.search(body)
+        if m:
+            d = parse_html_date(m.group(1))
+            if d:
+                return d
+    return None
+
+
+def harvest_html_site(site, existing: set, today_vn: datetime.date):
+    """Quét MỘT trang danh sách -> (rows trong khung ngày, thống kê).
+
+    Thống kê được trả về để `--candidates` in ra chỗ hụt thay vì im lặng: một viện đổi giao
+    diện là biểu thức path hết khớp và lớp này trả 0 bài — nhìn danh sách thì không phân biệt
+    được với "hôm nay viện đó không ra bài".
+    """
+    name, page_url, path_re, _area = site
+    body = curl(page_url).decode("utf-8", "replace")
+    st = {"trang_byte": len(body), "link": 0, "da_co": 0, "khong_ngay": 0, "ngoai_khung": 0}
+    if len(body) < 2000:                 # 403/challenge trả trang lỗi vài KB
+        return [], st
+    links = html_article_links(page_url, path_re, body)
+    st["link"] = len(links)
+    can_mo = [(t, u) for t, u, d in links if d is None and u not in existing]
+    ngay_mo = {}
+    if can_mo:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=HTML_WORKERS) as ex:
+            for (t, u), d in zip(can_mo, ex.map(fetch_article_date, [u for _, u in can_mo])):
+                ngay_mo[u] = d
+    rows = []
+    for title, link, d in links:
+        if link in existing or link.split("?")[0] in existing:
+            st["da_co"] += 1
+            continue
+        if d is None:
+            d = ngay_mo.get(link)
+        if d is None:
+            st["khong_ngay"] += 1
+            continue
+        if d > today_vn or (today_vn - d).days > MAX_AGE_DAYS:
+            st["ngoai_khung"] += 1
+            continue
+        rows.append((d, title, link))
+    rows.sort(reverse=True)
+    return rows, st
+
+
+def harvest_thinktank_html(existing: set, today_vn: datetime.date):
+    """Quét CẢ bảng THINKTANK_HTML -> [(tên, khu vực, rows, thống kê)]."""
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
+        kq = list(ex.map(lambda s: harvest_html_site(s, existing, today_vn), THINKTANK_HTML))
+    return [(s[0], s[3], rows, st) for s, (rows, st) in zip(THINKTANK_HTML, kq)]
+
+
+def kiem_html() -> None:
+    """Soi sức khoẻ bảng THINKTANK_HTML — dùng khi nghi một viện đổi giao diện.
+
+    In cho từng trang: kích thước, số link bài khớp biểu thức path, ngày dò được. Trang nào
+    ra **0 link** là biểu thức path đã chết (hoặc trang bị chặn), phải sửa — chứ không phải
+    hôm đó viện không ra bài. Đây là phép đo phân biệt hai ca đó, vì trong `--candidates`
+    chúng nhìn y hệt nhau.
+    """
+    today_vn = datetime.datetime.now(VN).date()
+    print(f"=== SOI BẢNG THINKTANK_HTML ({len(THINKTANK_HTML)} trang · {today_vn.isoformat()}) ===")
+    chet = []
+    for name, area, rows, st in harvest_thinktank_html(set(), today_vn):
+        co = "OK " if st["link"] else "CHẾT"
+        print(f"[{co}] {name:22s} trang={st['trang_byte']//1024:4d}KB link={st['link']:3d} "
+              f"trong-khung={len(rows):2d} không-ngày={st['khong_ngay']:2d} "
+              f"ngoài-khung={st['ngoai_khung']:2d}  ({area})")
+        if not st["link"]:
+            chet.append(name)
+    if chet:
+        print("\n⚠️ Trang KHÔNG ra link bài nào — sửa biểu thức path hoặc bỏ khỏi bảng: "
+              + " · ".join(chet))
+        raise SystemExit(3)
+    print("\nMọi trang đều ra link bài.")
+
+
 def list_candidates() -> None:
     """In ứng viên think-tank trong khung MAX_AGE_DAYS, đã bỏ bài đã có trong DATA.
 
@@ -507,22 +811,58 @@ def list_candidates() -> None:
         if len(rows) > PER_FEED_CAP:
             print(f"  … còn {len(rows) - PER_FEED_CAP} bài nữa (cắt bớt cho gọn context)")
         total += len(rows)
-    print(f"\n=== TỔNG {total} ứng viên ===")
+
+    # ─── Lớp [HTML]: viện không có RSS, quét thẳng trang danh sách ───
+    print(f"\n=== ỨNG VIÊN [HTML] — {len(THINKTANK_HTML)} viện KHÔNG có RSS ===")
+    html_total, html_empty, html_chet = 0, [], []
+    for name, area, rows, st in harvest_thinktank_html(existing, today_vn):
+        if not st["link"]:
+            # Trang không ra LINK NÀO khác hẳn "hôm nay không có bài mới": biểu thức path đã
+            # chết hoặc trang bị chặn. Phải kêu, không thì lớp này mục ruỗng trong im lặng.
+            html_chet.append(name)
+            continue
+        if not rows:
+            html_empty.append(f"{name} ({area})")
+            continue
+        print(f"\n## {name} [HTML] — {area} ({len(rows)} bài)")
+        for d, title, link in rows[:PER_FEED_CAP]:
+            print(f"  [{d.isoformat()}] {title}\n      {link}")
+        if len(rows) > PER_FEED_CAP:
+            print(f"  … còn {len(rows) - PER_FEED_CAP} bài nữa (cắt bớt cho gọn context)")
+        html_total += len(rows)
+
+    print(f"\n=== TỔNG {total + html_total} ứng viên ({total} từ RSS · {html_total} từ HTML) ===")
     if empty:
         # In ra để phiên sáng BIẾT vùng nào đang trống mà bù bằng WebSearch, thay vì tưởng
         # là hôm nay không có gì đáng đọc.
         print("Feed không ra bài nào trong khung ngày: " + " · ".join(empty))
-    print("\nVùng KHÔNG có RSS — chủ động bù bằng `WebSearch site:<domain>` khi vùng đó vắng:")
+    if html_empty:
+        print("Trang HTML không ra bài nào trong khung ngày: " + " · ".join(html_empty))
+    if html_chet:
+        print("⚠️ Trang HTML KHÔNG ra link bài nào — biểu thức path có thể đã chết, chạy "
+              "`--kiem-html` để soi: " + " · ".join(html_chet))
+    print("\nVùng vẫn phải bù bằng `WebSearch site:<domain>` (không RSS, không quét HTML được):")
+    # Trừ đi những domain nay ĐÃ có đường tự động — kể cả qua feed lẫn qua lớp HTML. Không trừ
+    # thì danh sách này giục agent đi WebSearch chính nguồn vừa quét xong, tốn lượt tìm kiếm mà
+    # ra đúng bài đã nằm ngay bên trên.
+    da_phu = {urllib.parse.urlparse(u).netloc.replace("www.", "") for _, u, _, _ in THINKTANK_HTML}
+    da_phu |= {urllib.parse.urlparse(u).netloc.replace("www.", "") for _, u, _ in THINKTANK_FEEDS}
     for area, doms in WEBSEARCH_ONLY.items():
-        print(f"  {area}: " + " · ".join(doms))
+        con = [d for d in doms if d not in da_phu]
+        if con:
+            print(f"  {area}: " + " · ".join(con))
 
 
 def main() -> None:
     if len(sys.argv) == 2 and sys.argv[1] == "--candidates":
         list_candidates()
         return
+    if len(sys.argv) == 2 and sys.argv[1] == "--kiem-html":
+        kiem_html()
+        return
     if len(sys.argv) != 2:
-        print("Dùng: add_analyses.py /tmp/analyses.json  |  add_analyses.py --candidates", file=sys.stderr)
+        print("Dùng: add_analyses.py /tmp/analyses.json  |  --candidates  |  --kiem-html",
+              file=sys.stderr)
         sys.exit(1)
 
     payload = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))

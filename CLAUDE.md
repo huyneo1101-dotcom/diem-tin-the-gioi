@@ -1023,6 +1023,13 @@ không**, rồi mở bằng trình duyệt những cái curl chịu. Kết quả
 | Cloudflare 403 nhưng **trình duyệt mở được** | 08 | 38north · ecfr.eu · chathamhouse · clingendael · inss.org.il · mei.edu · nti.org · thearcticinstitute · thebulletin |
 | **chặn hẳn ở mọi đường** | 03 | globsec.org (kẹt challenge) · thesoufancenter.org (403 cứng) · idsa.in (DNS hỏng từ máy Huy) |
 
+- ✅ **Thêm 30/07 chiều — dò `<link rel=alternate>` trên CẢ 40 domain, ra thêm 02 feed ẩn:**
+  **CACI Analyst** `https://www.cacianalyst.org/publications/analytical-articles.feed` (10 item, bài mới
+  13/07) mở lại vùng **Trung Á · Caucasus** vốn trắng hoàn toàn; **USIP** `https://www.usip.org/feed/`
+  (10 item, nhưng đăng thưa — bài mới nhất đã 35 ngày lúc thêm, nên thường nằm trong dòng "feed không
+  ra bài", đó là bình thường). Cả hai đã RỜI `WEBSEARCH_ONLY`.
+  ⚠️ CACI có **hai** feed cùng trả 200: cái ở trang chủ (`/?format=feed`) đứng từ **2012**. Đọc
+  `pubDate` item đầu trước khi tin, đừng dừng ở mã 200.
 - ✅ **RUSI đã có RSS trở lại** → đưa vào `THINKTANK_FEEDS`: `https://www.rusi.org/rss/latest-commentary.xml`
   (**8 bài/khung ngày** ngay lần chạy đầu). Feed nằm ở path lạ, tìm ra bằng cách đọc thẻ
   `<link rel="alternate">` trong HTML trang chủ — **đó là bước phải làm trước khi gạch một nguồn**, cùng
@@ -1044,6 +1051,83 @@ nhưng vẫn kiểm HAI LỚP như add_news nên neo lô về ngày cũ không l
 **DOMAIN** (`THINKTANK_DOMAINS`) — mục tên là Think-tank mà lọt bài Al Jazeera/Naval News thì hỏng chính
 danh nghĩa của mục (18 bài đời cũ trong DATA có lẫn như vậy). Gặp lỗi domain → **BỎ bài**, đừng đổi url
 cho lọt; đúng là viện thật mà thiếu thì thêm domain vào danh sách trong script.
+
+### 🚪 BẢNG ĐƯỜNG VÀO TỪNG NGUỒN — trang nào phải xem bằng cách gì (chỉ thị Huy 30/07/2026)
+
+> Nguyên văn: *"thêm vào quy tắc hoặc ghi nhớ lại là trang nào phải xem bằng cách gì."*
+
+**Cơ chế gây vấp:** mỗi phiên lại tự đi dò lại từ đầu, và dò bằng ĐÚNG MỘT công cụ rồi kết luận
+"nguồn chết" — 30/07 đo được 31/40 domain bị xếp nhầm vào diện chặn chỉ vì thử mỗi `curl`. Kết quả
+dò không được ghi lại thì phiên sau vừa tốn công dò lại, vừa dễ ra kết luận ngược nhau. Bảng dưới
+là **nguồn sự thật về ĐƯỜNG VÀO**; bảng RSS phía trên là nguồn sự thật về URL feed.
+
+| # | Đường vào | Dùng cho | Cắm ở đâu | Chạy được ở |
+|---|---|---|---|---|
+| 1 | **RSS** | nguồn có feed sống | `THINKTANK_FEEDS` (viện) · bảng RSS đầu file (báo) | local + CI |
+| 2 | **Quét HTML trang danh sách** (`curl` có UA) | không feed nhưng render sẵn HTML | `THINKTANK_HTML` (viện) · bảng 🕸️ TRANG HTML (uỷ ban Mỹ) | local + CI |
+| 3 | **Chỉ CI đọc được** | trang chặn IP nhà nhưng mở cho runner Mỹ | cột "Chạy ở = CI" trong bảng 🕸️ | **CI thôi** |
+| 4 | **Trình duyệt thật** (Browser pane) | Cloudflare challenge — chặn theo vân tay TLS | KHÔNG cắm vào script nào | **local thôi** |
+| 5 | **WebSearch `site:<domain>`** | JS-only, 404, DNS hỏng | `WEBSEARCH_ONLY` | local + CI |
+
+**Thứ tự phải đi khi gặp một nguồn mới hoặc nghi một nguồn chết** — dừng ở bước đầu tiên ra kết quả,
+và **chỉ được kết luận "chết" sau khi đi hết 5 bước**:
+1. thử `curl -sL --compressed -A '<UA trình duyệt>'` — thiếu `-A` thì War on the Rocks 403, thiếu
+   `--compressed` thì UN News ra nhị phân; hai lần gạch nhầm nguồn đều từ đây;
+2. thử **cả `www.` lẫn không** — `spf.org` và `usip.org` trả 000 ở dạng trần, 200 với `www.`;
+3. đọc thẻ `<link rel="alternate" type="application/rss+xml">` trên trang chủ — feed hay nấp ở path
+   lạ: RUSI ở `/rss/latest-commentary.xml`, CACI ở `/publications/analytical-articles.feed`, USIP ở
+   `/feed/`. Cả ba đều từng bị xếp "không có RSS";
+4. mở bằng **trình duyệt trong app** — Cloudflare challenge cần chờ 6–8 giây rồi mới ra nội dung;
+5. hết cả bốn thì mới `WebSearch site:<domain>`, và ghi vào `WEBSEARCH_ONLY` kèm lý do.
+
+⚠️ **Ba cái bẫy khi đọc kết quả dò:**
+- **`403`/`307` không đồng nghĩa với chặn** — Cloudflare "Just a moment…" trả 403 cho máy quét mà
+  trình duyệt vào bình thường (usni · pna.gov.ph · rsis · japantimes).
+- **Hỏng trong dưới 1 giây không bao giờ là mạng chậm** — đó là chữ ký tường lửa ứng dụng. HTTP/2
+  trả `INTERNAL_ERROR` sau 0,12–0,28 giây; timeout thật thì đủ 25 giây.
+- **Feed trả 200 chưa chắc là feed sống** — CACI có hai feed cùng trả 200, cái ở trang chủ đứng từ
+  **2012**, cái ở trang chuyên mục thì mới hôm kia. Luôn đọc `pubDate` của item đầu.
+
+⚠️ **Đường 4 KHÔNG được cắm vào script.** Trình duyệt chỉ có ở phiên local; cắm vào là lớp quét ra
+kết quả khác nhau giữa local và CI — hỏng câm khó truy nhất. Hiện thuộc diện này: 38north · ecfr.eu ·
+chathamhouse · clingendael · inss.org.il · mei.edu · nti.org · thearcticinstitute · thebulletin.
+⚠️ **Chặn hẳn ở mọi đường** (đo 30/07, đừng thử lại): globsec.org (kẹt challenge vĩnh viễn) ·
+thesoufancenter.org (403 cứng) · idsa.in (DNS hỏng từ máy Huy, cùng kiểu zone `.mil`).
+⚠️ **Trang `.mil`**: máy Mac KHÔNG phân giải nổi DNS zone `.mil` (DNSSEC lỗi) — đường 3 trong bảng,
+xem mục "🪖 Trang .mil" phía trên. Đây là giới hạn tầng DNS, không vá được bằng cờ curl.
+
+### 🕸️ LỚP [HTML] QUÉT THINK-TANK — viện không có RSS (dựng 30/07/2026)
+`add_analyses.py` nay có lớp thứ hai bên cạnh RSS: quét thẳng trang danh sách publications của **10
+viện** không có feed. Trước đó những viện này phụ thuộc hoàn toàn vào việc agent có nhớ `WebSearch
+site:<domain>` hay không — tức một mục có tồn tại hay không tuỳ trí nhớ của phiên.
+
+| | |
+|---|---|
+| Bảng cấu hình | `THINKTANK_HTML` trong `scripts/add_analyses.py` — (tên viện, trang danh sách, biểu thức đường dẫn BÀI, khu vực) |
+| Soi sức khoẻ | `python3 scripts/add_analyses.py --kiem-html` — ~3 giây, chạm mạng thật |
+| Bộ test canh | `tests/test-html-thinktank.py` (16 ca · `--tu-kiem` bắt 11/11 bản hỏng), đã nạp `khoe.py` |
+| Sản lượng đo 30/07 | **44 ứng viên** trong khung 7 ngày, cộng với 159 từ RSS |
+
+**Ngày lấy theo 3 bước, dừng ở bước đầu tiên ra kết quả** — đây là chỗ khác lớp `[HTML]` của
+`harvest.py` (bên đó đoán ngày quanh link nên phải dặn agent mở bài kiểm lại):
+(i) ngày nhúng trong đường dẫn (`/2026/07/28/…`); (ii) ngày **gần link nhất** trên trang; (iii) mở
+trang bài đọc `ld+json datePublished` / `article:published_time` / `<time datetime>`.
+
+⚠️ **Bước (ii) phải là "gần nhất", KHÔNG phải "đầu tiên trong ±800 ký tự"** — bản đầu viết kiểu quét
+cửa sổ và sai câm hai chiều, cả hai đã dựng thành ca test: bài không có ngày riêng thì **ăn ngày của
+bài bên trên**, còn bài cũ nằm dưới bài mới thì **ăn ngày của bài mới** ⇒ bài tháng Một lọt vào danh
+sách "bài trong tuần". Luật đúng: một ngày chỉ thuộc về link nào gần nó hơn cả.
+⚠️ **Trang trả dưới 2000 byte bị coi là trang chặn** — trang challenge vài KB vẫn có link điều hướng,
+không chốt là nạp rác.
+⚠️ **Đổi bảng `THINKTANK_HTML` thì domain phải có trong `THINKTANK_DOMAINS`**, nếu không quét ra bài
+rồi tới lúc NẠP mới bị guardrail chặn. Đã có ca test canh đúng chỗ này.
+⚠️ **Trang ra 0 link ≠ hôm nay viện không ra bài.** `--kiem-html` phân biệt hai ca đó (thoát mã 3 kèm
+tên trang), còn `--candidates` in dòng cảnh báo riêng. Đừng gộp hai thông điệp lại.
+
+**Đã thử và BỎ, đừng dựng lại:** `stimson.org` (chỉ trang chủ đọc được, 0/16 bài trong khung, trang
+bài 573KB/5,4 giây — chiếm quá nửa thời lượng cả bảng để đổi lấy không gì) · `issafrica.org`,
+`washingtoninstitute.org`, `carnegieendowment.org`, `iiss.org`, `brookings.edu` (danh sách dựng bằng
+JS, HTML thô chỉ có link điều hướng).
 
 ### 🏷️ Nhãn `outlet` — bảo trì bằng `scripts/sua_nhan_analyses.py` (dựng 29/07/2026)
 Guardrail của `add_analyses.py` kiểm theo **DOMAIN**, **không kiểm nhãn `outlet`** — cố ý, vì tên viện

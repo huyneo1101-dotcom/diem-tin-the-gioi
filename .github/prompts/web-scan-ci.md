@@ -80,7 +80,10 @@ tách như cũ.
    ⚠️ Bước NẠP file Word "thông tin nền" (`import_background_docx.py`) CHỈ chạy được ở máy local
    (file nằm trên Desktop Huy) — CI bỏ qua phần đó, chỉ làm phần agent sinh `background` ngắn.
 3b. BÀI THINK-TANK (mỗi phiên sáng sớm, KHÔNG chỉ Chủ nhật):
-   - `python3 scripts/add_analyses.py --candidates` → ứng viên RSS 24 viện đã verify.
+   - `python3 scripts/add_analyses.py --candidates` → ứng viên HAI LỚP: `[RSS]` 27 viện có feed +
+     `[HTML]` 10 viện quét thẳng trang danh sách (thêm 30/07/2026). Dòng ⚠️ "Trang HTML KHÔNG ra
+     link bài nào" nghĩa là viện đó đổi giao diện, KHÔNG phải hôm nay không có bài — ghi vào tóm
+     tắt cuối phiên để phiên local sửa `THINKTANK_HTML`, đừng bỏ qua.
    - Giao agent Sonnet chọn 4–6 bài, phủ ít nhất 2–3 khu vực (1–2 bài trọng tâm cũ: Úc/AUKUS · Biển
      Đông · CNQS · Mỹ-Trung-Đài Loan · Mali/Sahel; 1–2 bài vùng khác đang có chuyện). LOẠI: chính trị
      xã hội nội bộ Mỹ, quảng bá viện, điểm sách/điểm báo. Agent MỞ ĐỌC (WebFetch) rồi viết tiếng Việt
