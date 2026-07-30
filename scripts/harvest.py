@@ -20,6 +20,13 @@ Sahel tăng quân lên 18.000) — bỏ sót thật.
 
 => Máy đi lấy, agent đi thẩm định. Script không "quên" nguồn như agent.
 
+ĐO LẠI 30/07/2026 — 05 nguồn nêu trên KHÔNG bị chặn, và nay đã đóng góp thật:
+AllAfrica 2 ứng viên · Philstar 2 · Lowy 2 · gCaptain 1 · Long War Journal 0
+(feed vẫn trả 30 item, chỉ là hôm đó không bài nào hợp chủ đề Mali — khác hẳn
+"bị chặn"). Tức chính script này đã sửa được vấn đề nó sinh ra để sửa. Nhưng
+đợt đo cùng ngày lại lòi ra một lớp lỗi KHÁC hẳn, ở ngay bên dưới: 16 nguồn bị
+chặn theo VÂN TAY TLS — xem chú thích hàm `curl` và bảng tra trong CLAUDE.md.
+
 HAI LỚP, KHÁC NHAU VỀ ĐỘ TIN CẬY — output ghi rõ:
   [RSS]   có link bài GỐC thật -> agent kiểm nội dung rồi dùng luôn được.
   [GNEWS] Google News RSS chỉ là RADAR phát hiện đề tài: link của nó là link
