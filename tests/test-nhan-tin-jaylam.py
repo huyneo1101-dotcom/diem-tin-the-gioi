@@ -141,6 +141,43 @@ _txt7 = call7.call_args.args[2]["text"] if call7.called else ""
 kiem("file dưới trần -> KHÔNG nhắc chuyện cắt (chống kêu oan)",
      luu7.called and "cắt" not in _txt7 and "vượt trần" not in _txt7)
 
+# --- CHUYỂN TIẾP BẢN SAO VỀ CHAT CHỦ (chỉ thị Huy 30/07/2026) --------------
+def _chay_bat_send(chat_gui, chat_chu_gia="999", tai_ok=True, luu_ok=True):
+    """Chạy xu_ly_tin_jaylam, trả danh sách lời gọi sendDocument."""
+    f = docx_mau(["Tin thật"])
+    with mock.patch.object(tb, "call", return_value={"ok": True}) as call_m, \
+            mock.patch.object(tb, "chat_chu", return_value=chat_chu_gia), \
+            mock.patch.object(tb, "tai_file",
+                              side_effect=lambda tok, fid, dich: (
+                                  pathlib.Path(f).replace(dich) or True) if tai_ok
+                              else False), \
+            mock.patch.object(tb, "luu_tin_jaylam", return_value=luu_ok):
+        tb.xu_ly_tin_jaylam("111", chat_gui, {"from": {"first_name": "Jay Lâm"}},
+                            {"file_name": "tin.docx", "file_id": "FID-abc"})
+    return [c for c in call_m.call_args_list if c.args[1] == "sendDocument"]
+
+
+# Ca 9 — PHẢI GỬI: Jay gửi file thì Huy phải nhận được bản sao, đúng file_id, có tên người gửi.
+_g9 = _chay_bat_send("6777454309")
+kiem("Jay gửi file -> chuyển tiếp bản sao về chat chủ (đúng file_id, caption có tên người gửi)",
+     len(_g9) == 1 and _g9[0].args[2]["chat_id"] == "999"
+     and _g9[0].args[2]["document"] == "FID-abc"
+     and "Jay Lâm" in _g9[0].args[2]["caption"])
+
+# Ca 10 — PHẢI GỬI kể cả khi các bước sau hỏng: lỗi phía bot không được làm Huy mất file.
+kiem("tải file hỏng -> VẪN chuyển tiếp bản sao (lỗi bot không làm mất file của Huy)",
+     len(_chay_bat_send("6777454309", tai_ok=False)) == 1)
+kiem("lưu Supabase hỏng -> VẪN chuyển tiếp bản sao",
+     len(_chay_bat_send("6777454309", luu_ok=False)) == 1)
+
+# Ca 11 — ĐỐI CHỨNG: Huy tự gửi file thì đừng gửi ngược lại cho chính Huy.
+kiem("chat chủ tự gửi file -> KHÔNG chuyển tiếp ngược lại cho chính mình",
+     len(_chay_bat_send("999")) == 0)
+
+# Ca 12 — không có chat chủ thì im lặng bỏ qua, KHÔNG được crash cả luồng nhận.
+kiem("TELEGRAM_CHAT_ID rỗng -> không chuyển tiếp, không crash",
+     len(_chay_bat_send("6777454309", chat_chu_gia="")) == 0)
+
 so_dat = sum(1 for _, ok in CA if ok)
 print(f"\n{so_dat}/{len(CA)} ca đạt")
 
@@ -157,6 +194,35 @@ BAN_HONG = [
      '            them = ""\n            if bi_cat:',
      '            them = ""\n            if False:',
      ["PHẢI báo bị cắt"]),
+    ("gỡ hẳn bước chuyển tiếp bản sao về chat chủ",
+     "    gui_ban_sao_cho_chu(token, chat, ten_nguoi, ten_file, doc_att.get(\"file_id\"))",
+     "    pass",
+     ["chuyển tiếp bản sao về chat chủ", "VẪN chuyển tiếp"]),
+    # DỜI lời gọi xuống sau bước tải (không xoá) — bản sao chỉ mất đúng ở nhánh tải hỏng,
+    # hai ca còn lại vẫn xanh. Đây mới là bản hỏng chứng minh ca "tải hỏng" có răng RIÊNG;
+    # phép thay kiểu xoá hẳn thì trùng với bản hỏng ngay trên và không đo được thứ tự.
+    ("chuyển tiếp SAU khi tải (mất bản sao đúng lúc bot hỏng)",
+     '    gui_ban_sao_cho_chu(token, chat, ten_nguoi, ten_file, doc_att.get("file_id"))\n'
+     '    fd, tmp = tempfile.mkstemp(suffix=".docx")\n'
+     '    os.close(fd)\n'
+     '    try:\n'
+     '        if not tai_file(token, doc_att.get("file_id"), tmp):\n'
+     '            call(token, "sendMessage", {\n'
+     '                "chat_id": chat, "text": f"Tải file \'{ten_file}\' hỏng, gửi lại giúp tao."})\n'
+     '            return\n',
+     '    fd, tmp = tempfile.mkstemp(suffix=".docx")\n'
+     '    os.close(fd)\n'
+     '    try:\n'
+     '        if not tai_file(token, doc_att.get("file_id"), tmp):\n'
+     '            call(token, "sendMessage", {\n'
+     '                "chat_id": chat, "text": f"Tải file \'{ten_file}\' hỏng, gửi lại giúp tao."})\n'
+     '            return\n'
+     '        gui_ban_sao_cho_chu(token, chat, ten_nguoi, ten_file, doc_att.get("file_id"))\n',
+     ["tải file hỏng -> VẪN chuyển tiếp"]),
+    ("gỡ chốt chống gửi ngược cho chính chat chủ",
+     "    if str(chu) == str(chat):\n        return False",
+     "    if False:\n        return False",
+     ["KHÔNG chuyển tiếp ngược lại"]),
 ]
 
 

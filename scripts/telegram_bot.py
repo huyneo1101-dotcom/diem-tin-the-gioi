@@ -270,6 +270,39 @@ def luu_tin_jaylam(chat, ten, ten_file, noi_dung):
     return ma.startswith("2")
 
 
+def gui_ban_sao_cho_chu(token, chat, ten_nguoi, ten_file, file_id):
+    """Chuyển tiếp bản sao file .docx người khác gửi về chat của Huy (chỉ thị Huy 30/07/2026).
+
+    Đi bằng `sendDocument` với chính `file_id` — Telegram dùng lại file đã có trên máy chủ
+    nên KHÔNG phải tải lên lần nữa (file_id chỉ dùng lại được bởi CÙNG bot, ở đây đúng vậy).
+
+    Ba chốt, đều có ca test canh:
+    - **Người gửi CHÍNH LÀ chat chủ thì thôi** — Huy tự gửi file thì không việc gì gửi ngược
+      lại cho Huy.
+    - **Gửi hỏng KHÔNG được làm hỏng luồng nhận** (file vẫn phải vào Supabase), nhưng phải
+      KÊU ra stderr — im lặng ở đây là Huy tưởng hôm nay Jay không gửi gì.
+    - **Không in nội dung file vào log** (luật 3b: log Actions của repo PUBLIC).
+    """
+    chu = chat_chu()
+    if not chu:
+        print("[jaylam] KHÔNG có chat chủ (TELEGRAM_CHAT_ID rỗng) — không chuyển tiếp được",
+              file=sys.stderr)
+        return False
+    if str(chu) == str(chat):
+        return False
+    cap = f"📎 {ten_nguoi or 'Người gửi'} vừa gửi vào bot tin tức: {ten_file}"
+    try:
+        ok = bool(call(token, "sendDocument", {
+            "chat_id": chu, "document": file_id, "caption": cap}).get("ok"))
+    except Exception as e:                                   # noqa: BLE001
+        print(f"[jaylam] chuyển tiếp file HỎNG: {type(e).__name__}", file=sys.stderr)
+        return False
+    if not ok:
+        print(f"[jaylam] chuyển tiếp '{ten_file}' về chat chủ KHÔNG thành công",
+              file=sys.stderr)
+    return ok
+
+
 def xu_ly_tin_jaylam(token, chat, m, doc_att):
     """Nhận file .docx đính kèm — tải, trích text, lưu Supabase, xác nhận với người gửi.
 
@@ -283,6 +316,10 @@ def xu_ly_tin_jaylam(token, chat, m, doc_att):
             "chat_id": chat,
             "text": f"Chỉ nhận file .docx tin tức — '{ten_file}' không phải .docx, bỏ qua."})
         return
+    # Chuyển tiếp NGAY, TRƯỚC khi tải/trích/lưu — cố ý. Ba nhánh phía dưới đều có thể hỏng
+    # (tải hỏng · file rỗng · Supabase từ chối), mà lỗi phía bot không phải lý do để Huy mất
+    # file người ta đã gửi. Đặt sau bước này thì hỏng ở đâu là mất bản sao ở đó.
+    gui_ban_sao_cho_chu(token, chat, ten_nguoi, ten_file, doc_att.get("file_id"))
     fd, tmp = tempfile.mkstemp(suffix=".docx")
     os.close(fd)
     try:
