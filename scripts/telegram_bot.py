@@ -303,6 +303,18 @@ def gui_ban_sao_cho_chu(token, chat, ten_nguoi, ten_file, file_id):
     return ok
 
 
+def _la_chat_chu(chat) -> bool:
+    """Chat gửi có ĐÚNG là chat chủ (Huy) không.
+
+    So BẰNG chuỗi, không so chuỗi con: id Telegram của hai người có thể là tiền tố/hậu tố
+    của nhau, mà nhận nhầm người ngoài thành chat chủ nghĩa là **MẤT TIN** của họ khỏi bản
+    tin — hướng lệch tệ nhất. Không xác định được chat chủ (`TELEGRAM_CHAT_ID` rỗng) thì trả
+    False, tức xử lý y như trước bản vá: thà nhận thừa một file còn hơn nuốt mất tin.
+    """
+    chu = chat_chu()
+    return bool(chu) and str(chu) == str(chat)
+
+
 def xu_ly_tin_jaylam(token, chat, m, doc_att):
     """Nhận file .docx đính kèm — tải, trích text, lưu Supabase, xác nhận với người gửi.
 
@@ -311,6 +323,22 @@ def xu_ly_tin_jaylam(token, chat, m, doc_att):
     """
     ten_file = doc_att.get("file_name") or "(không tên)"
     ten_nguoi = (m.get("from") or {}).get("first_name", "")
+    # ⛔ FILE CỦA CHÍNH HUY KHÔNG PHẢI TIN ĐỂ GỘP VÀO BẢN TIN (chỉ thị Huy 30/07/2026,
+    # nguyên văn: *"tao gửi file word lên thì không phải tổng hợp tin"*).
+    # Cơ chế gây vấp: nhánh `document` trong `doc()` nhận file của MỌI chat trong danh sách
+    # cho phép, mà danh sách đó có cả Huy — nên file Huy tự gửi (bản tin đã dựng, tài liệu
+    # đang đọc, file gửi nhầm) đều lặng lẽ vào `dt_jaylam_inbox` rồi hiện lại ở mục 5 của
+    # chính bản tin tối hôm đó. Không lỗi, không cảnh báo, và tin xác nhận còn hứa hẹn
+    # "sẽ vào bản tin TỐI hôm nay" nên đọc vào là tưởng đúng ý.
+    # Đặt TRƯỚC cả phép kiểm `.docx`: với chat chủ thì loại file không quan trọng, file nào
+    # cũng không phải tin — dạy Huy về đuôi file ở đây là lạc đề.
+    if _la_chat_chu(chat):
+        call(token, "sendMessage", {
+            "chat_id": chat,
+            "text": (f"Đã nhận '{ten_file}' — nhưng file mày tự gửi KHÔNG vào hàng chờ tin: "
+                     "nó sẽ không được tóm tắt và không lên bản tin. Tin để đưa vào bản tin "
+                     "thì để người khác gửi qua bot, hoặc nạp bằng add_news.py.")})
+        return
     if not ten_file.lower().endswith(".docx"):
         call(token, "sendMessage", {
             "chat_id": chat,

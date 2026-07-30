@@ -103,6 +103,12 @@ def chay(now, doc_fn, danhdau_fn, data=None):
     return full, err
 
 
+# Neo tham chiếu bản THẬT ngay lúc nạp module. `chay()` thay `MD.doc_tin_jaylam_chua_gop`
+# bằng hàm giả, nên ca nào gọi `doc_that` TỪ BÊN TRONG hàm giả đó mà đọc qua `MD.` sẽ tự gọi
+# lại chính mình -> RecursionError. Đã vấp thật khi thêm ca [44].
+_DOC_GOC = MD.doc_tin_jaylam_chua_gop
+
+
 def doc_that(rows, now):
     """Gọi HÀM THẬT `doc_tin_jaylam_chua_gop` với thân trả về giả — nhờ vậy phép lọc khung
     ngày và câu select đều là mã production, không phải bản mô phỏng trong test."""
@@ -119,7 +125,7 @@ def doc_that(rows, now):
     buf = io.StringIO()
     try:
         with contextlib.redirect_stderr(buf):
-            kq = MD.doc_tin_jaylam_chua_gop(now)
+            kq = _DOC_GOC(now)
     finally:
         MD.subprocess.run = goc
         for k, v in goc_env.items():
@@ -145,8 +151,15 @@ kiem("[02] la_buoi_toi() đúng ngưỡng 14h -> True",
 kiem("[03] la_buoi_toi() tối -> True",
      MD.la_buoi_toi(datetime.datetime(2026, 7, 30, 21, 0, tzinfo=VN)) is True)
 
-# ------------------------------------------------- ca PHẢI CHẶN: buổi SÁNG
+# --------------------------------------- buổi SÁNG cũng gộp (mở 30/07/2026)
+# ⚠️ ĐẢO LẠI hành vi cũ. Ca 04/05 trước đây khẳng định "buổi sáng KHÔNG đụng Supabase Jay
+# Lâm" — đúng với thiết kế cũ, nhưng chính thiết kế đó là lỗ: phiên quét tối chạy
+# 20:47-21:26 mà Jay Lâm gửi file lúc 21:34, muộn hơn cả bản .docx cuối cùng, nên tin phải
+# chờ tới 20:47 HÔM SAU — lúc đó khung ngày đã đẩy nó sang nhóm quá hạn rồi đóng sổ. Huy
+# chốt 30/07/2026: "Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động gộp tin vào bản
+# tin sáng". Hai ca này nay canh chiều NGƯỢC LẠI — sửa theo hành vi mới, KHÔNG gỡ ca.
 goi = {"doc": 0}
+danhdau_sang = []
 
 
 def doc_co_tin(now=None):
@@ -154,13 +167,45 @@ def doc_co_tin(now=None):
     return [dong_jaylam(1, "Một tin lạ Jay Lâm gửi", "2026-07-30T02:00:00Z")], []
 
 
-def danhdau_khong_goi(ids):
-    raise AssertionError("KHÔNG được đánh dấu gộp ở buổi sáng")
+full, _ = chay(SANG, doc_co_tin, danhdau_sang.extend)
+kiem("[04] buổi sáng: VẪN gọi doc_tin_jaylam_chua_gop()", goi["doc"] == 1)
+kiem("[05] buổi sáng: file CÓ mục 'Tin Jay Lâm gửi'", "Tin Jay Lâm gửi" in full)
+
+# [44] HỒI QUY đúng kịch bản Huy nêu: file gửi 21:34 tối qua (sau khi phiên tối đã dựng xong
+# bản .docx cuối) phải lên bản tin SÁNG hôm sau, không nằm chờ tới tối hôm sau rồi quá hạn.
+SANG_31 = datetime.datetime(2026, 7, 31, 3, 47, tzinfo=VN)
+DATA_31 = dict(DATA_GIA, generatedAt="2026-07-31",
+               worldNews=[dict(DATA_GIA["worldNews"][0], date="2026-07-31",
+                               _addedDate="2026-07-31")])
 
 
-full, _ = chay(SANG, doc_co_tin, danhdau_khong_goi)
-kiem("[04] buổi sáng: KHÔNG gọi doc_tin_jaylam_chua_gop()", goi["doc"] == 0)
-kiem("[05] buổi sáng: file không có mục 'Tin Jay Lâm gửi'", "Tin Jay Lâm gửi" not in full)
+def doc_gui_muon(now=None):
+    # 21:34 giờ VN ngày 30/07 = 14:34Z cùng ngày.
+    return doc_that([dong_jaylam(9, "Tin Jay gửi lúc 21:34", "2026-07-30T14:34:00Z",
+                                 da_xu_ly=True, tieu_de="Tin gửi muộn",
+                                 tom_tat="Tóm tắt tin gửi muộn tối qua.",
+                                 nguon_ten="Reuters",
+                                 nguon_url="https://reuters.com/tin-gui-muon")], now)[0]
+
+
+full44, _ = chay(SANG_31, doc_gui_muon, [].extend, data=DATA_31)
+kiem("[44] tin gửi 21:34 tối qua -> lên bản tin SÁNG hôm sau (không nằm chờ tới quá hạn)",
+     "Tin Jay Lâm gửi" in full44 and "Tóm tắt tin gửi muộn tối qua." in full44)
+
+# [45] ĐỐI CHỨNG chống nới tay: mở cho bản sáng KHÔNG được kéo theo việc nới khung ngày —
+# tin quá khung ở bản sáng vẫn phải bị loại y như ở bản tối.
+def doc_qua_han_sang(now=None):
+    return doc_that([dong_jaylam(10, "Tin quá cũ", "2026-07-27T02:00:00Z",
+                                 da_xu_ly=True, tieu_de="Tin quá cũ",
+                                 tom_tat="Tóm tắt tin đã quá khung ngày rồi.",
+                                 nguon_ten="Reuters",
+                                 nguon_url="https://reuters.com/qua-cu")], now)[0]
+
+
+qh_sang = []
+full45, err45 = chay(SANG_31, doc_qua_han_sang, qh_sang.extend, data=DATA_31)
+kiem("[45] buổi sáng: tin quá khung ngày VẪN bị loại + vẫn đánh dấu đã gộp",
+     "Tóm tắt tin đã quá khung ngày rồi." not in full45 and qh_sang == [10])
 
 # --------------------------------- luồng bình thường: tin ĐÃ được xử lý
 danhdau_goi = []
@@ -466,6 +511,12 @@ BAN_HONG = [
      "        if jaylam_qh:\n"
      '            danh_dau_da_gop_jaylam([r["id"] for r in jaylam_qh])',
      "        pass"),
+    # Dựng lại ĐÚNG hành vi trước 30/07/2026: khoá mục 5 vào riêng bản tối. Ngưỡng cũ không
+    # còn dấu vết nào trong mã nên ca 04/05/44 mất neo nếu thiếu bản hỏng này.
+    ("khoá lại mục 5 vào riêng bản TỐI (bug tin gửi muộn không bao giờ tới tay)",
+     "    jaylam_goc, jaylam_qh = doc_tin_jaylam_chua_gop(now)",
+     "    jaylam_goc, jaylam_qh = (doc_tin_jaylam_chua_gop(now) if la_buoi_toi(now)\n"
+     "                             else ([], []))"),
     # Bản hỏng dựng lại ĐÚNG hành vi cũ đã gây mất mục 5 tối 30/07/2026.
     ("đóng sổ cả dòng CHƯA tóm tắt -> tin chỉ ra được dạng thô rồi mất hẳn",
      '    chua_tom_tat = {r.get("id") for r in jaylam_hien if not r.get("da_xu_ly")}',
@@ -495,6 +546,10 @@ KHAI_DO = {
     "chỉ đánh dấu jaylam_goc, bỏ nhóm quá hạn": ["37"],
     "_jaylam_tieu_de bỏ ưu tiên `tieu_de` đã xử lý": ["19"],
     "nhánh 0 tin bỏ việc đánh dấu nhóm quá hạn": ["39"],
+    # 45 đỏ theo là ĐÚNG: khoá lại bản sáng thì tin quá hạn cũng không được đọc ra để đóng
+    # sổ, tức nó nằm lại hàng chờ — chính vế thứ hai của cùng một bug.
+    "khoá lại mục 5 vào riêng bản TỐI (bug tin gửi muộn không bao giờ tới tay)":
+        ["04", "05", "44", "45"],
     "đóng sổ cả dòng CHƯA tóm tắt -> tin chỉ ra được dạng thô rồi mất hẳn": ["46"],
     "tha cả dòng đã tóm tắt -> hàng chờ không bao giờ đóng sổ": ["13"],
     "hạ trần nguyên văn dự phòng về 1.200 như trước khi đo lô thật": ["49"],

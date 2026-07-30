@@ -13,16 +13,24 @@ tên file MẪU, KHÔNG phải tên file script này xuất ra — tên xuất r
                          — mục DUY NHẤT ghi kèm ngày tin, vì chỉ nó được nới khung 3 ngày
   4. Mỹ – Mali        -> tin Mali/Sahel gom từ CẢ usNews lẫn worldNews (tách riêng 27/07/2026
                          sau khi Huy bắt lỗi tin Mali lòi ra giữa mục QS-KHCN)
-  5. Tin Jay Lâm gửi  -> CHỈ ở bản BUỔI TỐI (thêm 30/07/2026, Huy chốt: "tổng hợp file Jay
-                         Lâm gửi cùng với kết quả quét tin buổi tối thành 1 file — như hàng
-                         ngày vẫn làm"). Đọc Supabase `dt_jaylam_inbox` (bảng
+  5. Tin Jay Lâm gửi  -> CẢ HAI BUỔI (mở cho bản SÁNG 30/07/2026 — trước đó CHỈ bản tối).
+                         Huy chốt: "Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động
+                         gộp tin vào bản tin sáng". Cơ chế gây vấp của bản cũ: phiên quét tối
+                         chạy 20:47-21:26 còn file Jay Lâm gửi lúc 21:34 — muộn hơn cả bản
+                         .docx cuối cùng — nên tin nằm chờ tới 20:47 HÔM SAU, mà khung ngày
+                         khi đó đã đẩy nó sang nhóm quá hạn rồi đóng sổ. Tức tin gửi trong
+                         khoảng 21:30-23:59 gần như KHÔNG BAO GIỜ tới tay, và không dấu hiệu
+                         nào: file .docx vẫn ra đời bình thường, chỉ thiếu mục 5.
+                         Đọc Supabase `dt_jaylam_inbox` (bảng
                          `telegram_bot.py::xu_ly_tin_jaylam()` ghi khi Jay Lâm gửi file .docx
                          vào bot) rồi đánh dấu đã gộp sau khi lưu file thành công.
                          In theo ĐÚNG khuôn 4 mục trên — tóm tắt 1-2 câu + link nguồn — vì
                          Huy chốt 30/07/2026: "tin Jay Lâm gửi cũng là tin kèm url và tóm tắt
                          gần giống định dạng mẫu". Phần tóm tắt + truy URL gốc do PHIÊN QUÉT
-                         TỐI làm (`scripts/tin_jaylam.py`, cần agent nên không làm được ở
-                         đây); dòng chưa xử lý thì lùi về nguyên văn đã cắt kèm cảnh báo.
+                         làm (`scripts/tin_jaylam.py`, cần agent nên không làm được ở đây) —
+                         CẢ phiên sáng LẪN phiên tối đều phải chạy bước đó, kẻo bản sáng chỉ
+                         in được nguyên văn dự phòng; dòng chưa xử lý lùi về nguyên văn đã
+                         cắt kèm cảnh báo.
                          Khung ngày: y như tin quét thường — mặc định 2 ngày, tin CNQS Mỹ
                          (cờ `la_cnqs`) được nới 3 ngày lùi; quá hạn thì bỏ + đánh dấu đã
                          gộp + cảnh báo. KHÔNG có trần số lượng.
@@ -691,10 +699,17 @@ def main(now=None):
 
     sections = build_sections(us, world, events)
 
-    # Mục 5 — CHỈ ở bản buổi TỐI (xem docstring đầu file + `la_buoi_toi()`).
-    # `jaylam_qh` = tin quá khung 2 ngày: KHÔNG vào file nhưng VẪN đánh dấu đã gộp (xem
+    # Mục 5 — CẢ HAI BUỔI (mở cho bản SÁNG 30/07/2026, xem docstring đầu file).
+    # ⚠️ KHÔNG khoá theo `la_buoi_toi(now)` nữa: file gửi sau 21:30 tới muộn hơn cả bản .docx
+    # cuối cùng của phiên tối, nên bản cũ để nó chờ tới 20:47 hôm sau — lúc đó khung ngày đã
+    # đẩy sang nhóm quá hạn rồi đóng sổ. Hàng chờ tự lọc theo `da_gop`, nên bản nào dựng
+    # trước thì bản đó gộp; không có đường một tin vào cả hai bản.
+    # Khung ngày GIỮ NGUYÊN 2 ngày (CNQS 3) — đã xét: tin gửi muộn nhất 23:59 tới bản sáng
+    # 03:47 hôm sau chỉ cách 1 ngày lịch, vẫn trong khung. Nới thêm là nhận tin cũ hơn chuẩn
+    # tin quét thường, tức hạ chuẩn chứ không phải vá lỗ.
+    # `jaylam_qh` = tin quá khung: KHÔNG vào file nhưng VẪN đánh dấu đã gộp (xem
     # `doc_tin_jaylam_chua_gop`). Không trần số lượng — Huy chốt 30/07/2026.
-    jaylam_goc, jaylam_qh = doc_tin_jaylam_chua_gop(now) if la_buoi_toi(now) else ([], [])
+    jaylam_goc, jaylam_qh = doc_tin_jaylam_chua_gop(now)
     jaylam_hien = []
     if jaylam_goc:
         tieu_de_da_co = [it.get("title") or "" for it in us + world + list(events)]

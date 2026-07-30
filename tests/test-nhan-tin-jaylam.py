@@ -66,7 +66,13 @@ pathlib.Path(f3).write_text("không phải file zip/docx thật", encoding="utf-
 kiem("trich() file .docx giả (không phải zip) -> rỗng", docx_text.trich(f3) == "")
 
 # --- telegram_bot.xu_ly_tin_jaylam() — CA PHẢI CHẶN ------------------------
-with mock.patch.object(tb, "call") as call_m, \
+# ⚠️ MỌI ca dưới đây PHẢI mock `chat_chu` — từ 30/07/2026 hàm dừng sớm khi người gửi CHÍNH LÀ
+# chat chủ, nên nếu để nó đọc `TELEGRAM_CHAT_ID` thật thì máy nào có biến đó trỏ vào "111" sẽ
+# làm cả loạt ca đỏ oan. Ca canh phải tất định, không phụ thuộc môi trường máy chạy.
+CHU_GIA = "999"
+
+with mock.patch.object(tb, "chat_chu", return_value=CHU_GIA), \
+        mock.patch.object(tb, "call") as call_m, \
         mock.patch.object(tb, "tai_file") as tai_m, \
         mock.patch.object(tb, "luu_tin_jaylam") as luu_m:
     tb.xu_ly_tin_jaylam("111", "111", {"from": {"first_name": "Jay Lâm"}},
@@ -75,7 +81,8 @@ kiem("xu_ly_tin_jaylam() từ chối file không phải .docx -> KHÔNG tải, K
      not tai_m.called and not luu_m.called and call_m.called
      and ".docx" in call_m.call_args.args[2]["text"])
 
-with mock.patch.object(tb, "call") as call_m, \
+with mock.patch.object(tb, "chat_chu", return_value=CHU_GIA), \
+        mock.patch.object(tb, "call") as call_m, \
         mock.patch.object(tb, "tai_file", return_value=False) as tai_m, \
         mock.patch.object(tb, "luu_tin_jaylam") as luu_m:
     tb.xu_ly_tin_jaylam("111", "111", {"from": {"first_name": "Jay Lâm"}},
@@ -84,7 +91,8 @@ kiem("xu_ly_tin_jaylam() tải file hỏng -> KHÔNG lưu, có báo lỗi",
      tai_m.called and not luu_m.called and "hỏng" in call_m.call_args.args[2]["text"])
 
 f4 = docx_mau(["Tin thật từ Jay Lâm"])
-with mock.patch.object(tb, "call") as call_m, \
+with mock.patch.object(tb, "chat_chu", return_value=CHU_GIA), \
+        mock.patch.object(tb, "call") as call_m, \
         mock.patch.object(tb, "tai_file",
                            side_effect=lambda tok, fid, dich: pathlib.Path(f4).rename(dich)
                            or True) as tai_m, \
@@ -96,7 +104,8 @@ kiem("xu_ly_tin_jaylam() luồng bình thường -> lưu đúng nội dung, báo
      and "Tin thật" in luu_m.call_args.args[3]
      and "Đã nhận" in call_m.call_args.args[2]["text"])
 
-with mock.patch.object(tb, "call") as call_m, \
+with mock.patch.object(tb, "chat_chu", return_value=CHU_GIA), \
+        mock.patch.object(tb, "call") as call_m, \
         mock.patch.object(tb, "tai_file", return_value=True) as tai_m, \
         mock.patch.object(tb, "luu_tin_jaylam", return_value=False) as luu_m:
     tb.xu_ly_tin_jaylam("111", "111", {"from": {"first_name": "Jay Lâm"}},
@@ -109,7 +118,8 @@ kiem("xu_ly_tin_jaylam() file rỗng/không đọc được -> không gọi lưu
 # tự và 20 URL, mà tin xác nhận vẫn báo "Đã nhận" — không dấu hiệu nào ở cả hai đầu.
 def _chay_voi_file(f, ten_file="tin.docx"):
     """Chạy xu_ly_tin_jaylam với file .docx có sẵn, trả (mock call, mock luu)."""
-    with mock.patch.object(tb, "call") as call_m, \
+    with mock.patch.object(tb, "chat_chu", return_value=CHU_GIA), \
+            mock.patch.object(tb, "call") as call_m, \
             mock.patch.object(tb, "tai_file",
                               side_effect=lambda tok, fid, dich:
                               pathlib.Path(f).replace(dich) or True), \
@@ -171,12 +181,70 @@ kiem("lưu Supabase hỏng -> VẪN chuyển tiếp bản sao",
      len(_chay_bat_send("6777454309", luu_ok=False)) == 1)
 
 # Ca 11 — ĐỐI CHỨNG: Huy tự gửi file thì đừng gửi ngược lại cho chính Huy.
+# ⚠️ Ca này nay được HAI lớp bảo vệ nên KHÔNG khai vào `BAN_HONG` nào: từ 30/07/2026
+# `xu_ly_tin_jaylam` dừng sớm ở `_la_chat_chu()` nên `gui_ban_sao_cho_chu` không còn được
+# gọi tới, tức gỡ chốt bên trong nó cũng không làm ca này đỏ. Lớp trong được canh riêng
+# bằng ca gọi THẲNG hàm ngay dưới — đó mới là ca có răng cho chốt đó.
 kiem("chat chủ tự gửi file -> KHÔNG chuyển tiếp ngược lại cho chính mình",
      len(_chay_bat_send("999")) == 0)
+
+with mock.patch.object(tb, "chat_chu", return_value="999"), \
+        mock.patch.object(tb, "call", return_value={"ok": True}) as _cg:
+    _ket = tb.gui_ban_sao_cho_chu("111", "999", "Huy", "tin.docx", "FID-x")
+kiem("gui_ban_sao_cho_chu() gọi thẳng với chat == chủ -> trả False, KHÔNG sendDocument",
+     _ket is False and not [c for c in _cg.call_args_list if c.args[1] == "sendDocument"])
 
 # Ca 12 — không có chat chủ thì im lặng bỏ qua, KHÔNG được crash cả luồng nhận.
 kiem("TELEGRAM_CHAT_ID rỗng -> không chuyển tiếp, không crash",
      len(_chay_bat_send("6777454309", chat_chu_gia="")) == 0)
+
+
+# --- FILE CỦA CHÍNH HUY KHÔNG VÀO HÀNG CHỜ TIN (chỉ thị Huy 30/07/2026) ----
+# Nguyên văn: "tao gửi file word lên thì không phải tổng hợp tin".
+# Hỏng câm nếu không có chốt: file Huy tự gửi lặng lẽ vào `dt_jaylam_inbox` rồi hiện lại ở
+# mục 5 của chính bản tin tối hôm đó, mà tin xác nhận còn hứa "sẽ vào bản tin TỐI hôm nay".
+def _chay_theo_chu(chat_gui, chu, ten_file="tin.docx"):
+    """Trả (mock call, mock tai_file, mock luu) — dựng chat chủ tường minh."""
+    f = docx_mau(["Tin thật"])
+    with mock.patch.object(tb, "chat_chu", return_value=chu), \
+            mock.patch.object(tb, "call", return_value={"ok": True}) as call_m, \
+            mock.patch.object(tb, "tai_file",
+                              side_effect=lambda tok, fid, dich:
+                              pathlib.Path(f).replace(dich) or True) as tai_m, \
+            mock.patch.object(tb, "luu_tin_jaylam", return_value=True) as luu_m:
+        tb.xu_ly_tin_jaylam("111", chat_gui, {"from": {"first_name": "Huy"}},
+                            {"file_name": ten_file, "file_id": "FID-chu"})
+    return call_m, tai_m, luu_m
+
+
+# Ca 13 — PHẢI CHẶN: Huy tự gửi .docx thì KHÔNG tải, KHÔNG lưu vào hàng chờ tin.
+_c13, _t13, _l13 = _chay_theo_chu("999", "999")
+kiem("chat chủ gửi .docx -> KHÔNG tải, KHÔNG lưu vào hàng chờ tin",
+     not _t13.called and not _l13.called)
+
+# Ca 14 — PHẢI NÓI RÕ: xác nhận đã nhận, nhưng nêu thẳng là không lên bản tin.
+_txt13 = _c13.call_args.args[2]["text"] if _c13.called else ""
+kiem("chat chủ gửi .docx -> tin xác nhận NÓI RÕ không vào bản tin",
+     "Đã nhận" in _txt13 and "KHÔNG vào hàng chờ tin" in _txt13
+     and "vào bản tin TỐI hôm nay" not in _txt13)
+
+# Ca 15 — ĐỐI CHỨNG BẮT BUỘC: Jay Lâm gửi thì mọi thứ chạy y như cũ.
+_c15, _t15, _l15 = _chay_theo_chu("6777454309", "999")
+kiem("người NGOÀI gửi .docx -> VẪN tải và VẪN lưu vào hàng chờ như cũ",
+     _t15.called and _l15.called
+     and "bản tin TỐI hôm nay" in _c15.call_args.args[2]["text"])
+
+# Ca 16 — CHỐNG NỚI TAY: id người gửi là CHUỖI CON của id chat chủ vẫn phải xử lý bình
+# thường. So chuỗi con thay vì so bằng là nuốt mất tin của người ngoài — hướng lệch tệ nhất.
+_c16, _t16, _l16 = _chay_theo_chu("777454309", "6777454309")
+kiem("id người gửi là chuỗi con của id chat chủ -> VẪN lưu (chống nới tay)",
+     _t16.called and _l16.called)
+
+# Ca 17 — fail-open đúng hướng: không xác định được chat chủ thì xử lý như tin bình thường,
+# thà nhận thừa một file còn hơn nuốt mất tin của người ngoài.
+_c17, _t17, _l17 = _chay_theo_chu("6777454309", "")
+kiem("không xác định được chat chủ -> KHÔNG chặn ai, vẫn lưu bình thường",
+     _t17.called and _l17.called)
 
 so_dat = sum(1 for _, ok in CA if ok)
 print(f"\n{so_dat}/{len(CA)} ca đạt")
@@ -222,7 +290,16 @@ BAN_HONG = [
     ("gỡ chốt chống gửi ngược cho chính chat chủ",
      "    if str(chu) == str(chat):\n        return False",
      "    if False:\n        return False",
-     ["KHÔNG chuyển tiếp ngược lại"]),
+     ["gọi thẳng với chat == chủ"]),
+    # Gỡ hẳn chốt "file của chính Huy không phải tin" -> quay lại hành vi câm trước 30/07.
+    ("gỡ chốt file chat chủ không vào hàng chờ tin",
+     "    if _la_chat_chu(chat):", "    if False:",
+     ["chat chủ gửi .docx -> KHÔNG tải", "NÓI RÕ không vào bản tin"]),
+    # Chiều NỚI: so chuỗi con thay vì so bằng -> nuốt mất tin của người có id là chuỗi con.
+    ("nhận diện chat chủ bằng chuỗi con thay vì so bằng",
+     "    return bool(chu) and str(chu) == str(chat)",
+     "    return bool(chu) and str(chat) in str(chu)",
+     ["chuỗi con của id chat chủ"]),
 ]
 
 
