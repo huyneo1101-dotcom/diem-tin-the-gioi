@@ -16,6 +16,13 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
+      # BẮT BUỘC: thiếu thư viện này thì probe chỉ đo bằng curl TRẦN, và curl trần bị Akamai/
+      # Cloudflare cắt theo dấu vân tay TLS -> mọi nguồn loại đó bị chấm 403 rồi ghi vào bảng
+      # thành "nguồn chết". Chính bằng cách đó `pacom.mil`/`navy.mil`/`marines.mil` bị xếp vào
+      # nhóm "cả hai chịu" và harvest bỏ chúng. Script vẫn chạy khi thiếu, nhưng nó KÊU và số đo
+      # của những domain đó không kết luận được.
+      - name: Cài curl_cffi (giả vân tay TLS Chrome)
+        run: python3 -m pip install --quiet curl_cffi || true
       - name: Dò nguồn
         run: python3 scripts/probe_sources.py --json docs/probe-ci.json --workers 12
       - name: Commit kết quả
