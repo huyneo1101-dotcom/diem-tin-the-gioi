@@ -701,6 +701,28 @@ mà **số run/ngày bằng số lượt hỏi thật**.
 | Độ trễ | ~1 phút | ~1 phút |
 | Run/ngày | 1.440 | = số lượt hỏi |
 
+⛔ **PHẢI ĐẾM CẢ FILE, KHÔNG CHỈ TEXT — lỗ này CÂM từ ngày dựng 28/07, vá 30/07/2026.**
+Bản đầu lọc `if not (m.get("text") or "").strip(): continue`, tức **mù hoàn toàn với update
+dạng `document`**, trong khi `telegram_bot.py:388` xử lý `.docx` đầy đủ. Đúng lớp lỗi đã ghi ở
+mục "hai bộ luật song song chắc chắn lệch": hai nơi cùng quyết định *update này có đáng xử lý
+không* mà mỗi nơi một luật, nên **mọi file Jay Lâm gửi đều phải nằm chờ cron GitHub** — cron
+mà chính mục này đo được là 66-148 phút một lần.
+**Cơ chế gây vấp:** không có dấu hiệu nào để nghi. Script vẫn mã 0, log vẫn đều đặn dòng
+*"Có 1 tin đang chờ → kích"*, chỉ là **mọi dòng đó đều do TEXT gây ra**. Số đo tối 30/07: file
+tới trước bản tin ~20 phút và lỡ mất bản tin; hai file vào được hôm đó đều nhờ nguyên nhân
+khác — id=1 (Supabase ghi 21:06:44) **ăn ké** lượt kích 21:06:24 do Huy nhắn text (đối chiếu
+`dt_bot_hoi`: ba câu trả lời 21:08:10 · 21:10:07 · 21:11:33 khớp ba lượt kích 21:06/21:07/21:09),
+id=2 (21:34:46) do phiên sau **kích tay**. Tức lớp kích-từ-máy **chưa từng tự kích vì một file**.
+⚠️ **File KHÔNG xét `MAX_AGE_PHUT`** — khớp đúng nhánh `document` của workflow, nhánh đó cũng
+không xét tuổi. Siết ở đây là dựng lại chính cảnh lệch luật vừa vá: file gửi đêm lúc máy ngủ,
+sáng mở máy đã quá 360 phút ⇒ script lặng lẽ bỏ trong khi workflow vẫn nhận. Hướng lệch phải là
+**kích thừa một run, không phải mất một file**. Text quá cũ thì vẫn bỏ như cũ.
+⚠️ **File không phải `.docx` cũng kích** — workflow vẫn tốn một lượt để nhắn *"chỉ nhận .docx"*
+cho người gửi; bỏ qua ở đây là người gửi ngồi chờ một phản hồi không bao giờ tới.
+Bộ test canh: `tests/test-nhin-truoc-kich-bot.py` — **13 ca (05 ca PHẢI KÍCH) · `--tu-kiem` bắt
+5/5 bản hỏng**, đã nạp `khoe.py`. Hai bản hỏng canh hai chiều ngược nhau của cùng phép miễn tuổi
+(áp `MAX_AGE` cho cả file ⇒ đỏ ca 2 · miễn tuổi cho cả text ⇒ đỏ ca 7), vì siết và nới đều hỏng.
+
 ⚠️ **`getUpdates` ở đây TUYỆT ĐỐI KHÔNG được kèm `offset`** — không có offset thì chỉ NHÌN;
 Telegram chỉ coi là đã nhận khi ai đó gọi lại với `offset = id + 1`, và việc đó là của workflow.
 Script này lỡ xác nhận thì workflow thấy hàng đợi rỗng và **câu hỏi mất hẳn**.
