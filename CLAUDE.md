@@ -258,6 +258,22 @@ chép lại luật mà nhờ **dùng chung hạ tầng** — giữ nguyên thế
 ⚠️ Đừng cho Telegram một cổng riêng hay một sổ riêng: hai bộ luật song song chắc chắn sẽ lệch nhau, và
 lệch âm thầm — email đúng còn Telegram sai thì rất lâu mới phát hiện.
 
+⚠️ **ĐÍNH CHÍNH 30/07/2026 — hai gạch đầu dòng trên nói về CƠ CHẾ, nhưng cơ chế bảo đảm "bản tối vẫn
+có tin quét tay" nay KHÔNG còn là `loc_chua_gui`.** Đo thật trong `send_telegram.py`: nhánh tối đặt
+`msgs = []` (dòng 366) theo chỉ thị Huy 27/07 *"chỉ gửi file word thôi"*, nên tin nhắn **không liệt kê
+tin nào**; hai lời gọi `loc_chua_gui` ở dòng 308–309 chỉ còn chảy vào `total`, tức **con số trong
+caption** *"— N tin mới"*. Thứ thật sự giữ đủ tin cho bản tối là **`.docx` cố ý KHÔNG lọc sổ** (dòng
+cuối bảng dưới). Cộng thêm `GUI_EMAIL='0'` từ 27/07 nên thân email cũng không còn tồn tại.
+**Hệ quả phải biết, đừng đọc bảng dưới theo nghĩa cũ:** sổ đã gửi hiện còn đúng **hai** người đọc có
+tác dụng — (i) `canary.py` đọc để biết bản tin đã tới tay chưa (đây mới là công dụng chính hiện nay,
+được `tests/test-canary-ban-tin.py` canh); (ii) con số caption Telegram. **Bật lại email
+(`GUI_EMAIL='1'`) hoặc bật lại `build_messages` thì bảng dưới trở lại đúng nguyên văn** — vì thế giữ
+nguyên lời gọi `loc_chua_gui`, đừng "dọn cho gọn" bằng cách gỡ nó.
+⚠️ Kèm theo: ca 9 của `tests/test-so-da-gui.py` (*"sổ PHẢI còn người đọc"*) đếm lời gọi `loc_chua_gui`
+trong `send_telegram.py` — nó **vẫn xanh và vẫn đúng về chữ**, nhưng thứ nó canh nay chỉ là con số
+caption chứ không phải bộ tin gửi đi. Người đọc sổ mạnh nhất (`canary.py`) do bộ test khác canh. Đừng
+đọc ca 9 thành *"sổ đang lọc tin khỏi bản tối"*.
+
 **CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY** — `notify-email.yml` có **hai cổng**, phải qua CẢ HAI:
 | Cổng | Điều kiện |
 |---|---|
@@ -281,11 +297,12 @@ sáng. Huy bắt lỗi 27/07.
 giờ: `_addedDate` chỉ có độ phân giải NGÀY, và mốc giờ vỡ ngay khi bản tin gửi trễ qua nửa đêm, phải gửi
 lại tay, hoặc mốc dự phòng chạy bù. Sổ URL thì đúng trong mọi trường hợp đó.
 
-| Thứ | Lọc sổ? | Vì sao |
-|---|---|---|
-| **Thân email tối** (`send-email.js`) | **CÓ** | là thông báo — lặp tin đã báo thì thừa |
-| **Tin nhắn Telegram** (`send_telegram.py`) | **CÓ** | cùng vai với thân email |
-| **File `.docx` đính kèm** (`make_docx.py`) | **KHÔNG** | là **bản tổng hợp CẢ NGÀY** Huy lưu lại — chỉ thị Huy: *"gửi file word tối nay… thì gộp cả 11 tin hôm nay đó vào"* |
+| Thứ | Lọc sổ? | Đang chạy? (đo 30/07) | Vì sao |
+|---|---|---|---|
+| **Thân email tối** (`send-email.js`) | **CÓ** | **KHÔNG** — `GUI_EMAIL='0'` từ 27/07 | là thông báo — lặp tin đã báo thì thừa |
+| **Tin nhắn Telegram** (`send_telegram.py`) | **CÓ** | **chỉ còn con số caption** — `msgs=[]`, không liệt kê tin | cùng vai với thân email; bật lại `build_messages` thì đúng nguyên văn |
+| **File `.docx` đính kèm** (`make_docx.py`) | **KHÔNG** | **CÓ** — đây là kênh duy nhất mang nội dung | là **bản tổng hợp CẢ NGÀY** Huy lưu lại — chỉ thị Huy: *"gửi file word tối nay… thì gộp cả 11 tin hôm nay đó vào"* |
+| **Canary** (`canary.py`) | — chỉ ĐỌC sổ | **CÓ** | công dụng chính của sổ hiện nay: bằng chứng bản tin đã tới tay |
 
 ### 🔀 HAI WORKFLOW GHI CÙNG SỔ CÁCH 07 GIÂY — luật hợp nhất ở `ghi_so_push.py` (vá 30/07/2026)
 
@@ -374,6 +391,11 @@ Ba cái bẫy đã vấp thật, đừng lặp lại:
 - **`notify-morning.yml` ghi sổ với `--chi events`**, tuyệt đối không ghi `usNews`/`worldNews`: email đó
   CHỈ gửi sự kiện, ghi thừa là **xoá sổ tin thường trước khi chúng kịp lên bản tin tối** — mất tin, chứ
   không phải trùng tin.
+  ⚠️ **Đo 30/07: loại `events` trong sổ hiện KHÔNG có ai đọc** — `loc_chua_gui` chỉ áp `usNews`/`worldNews`,
+  còn sự kiện/tập trận đi bằng payload riêng `/tmp/morning-telegram.json`. Tức đây là ghi một chiều, vô
+  hại. **Nhưng chốt `--chi events` vẫn phải giữ nguyên**: giá trị của nó là chặn đường ghi THỪA hai loại
+  kia, không phải để có ai đọc `events`. Ca 3 của `tests/test-so-da-gui.py` canh đúng chỗ này, và bản
+  hỏng *"`--chi` bị bỏ qua, luôn ghi cả 3 loại"* làm ca đó không đạt — đừng gỡ vì tưởng nó vô dụng.
 - `send_telegram.py` dựng `.docx` **TRƯỚC** khi xét `total == 0`, và `total == 0` vẫn gửi file kèm — nếu
   không, hôm nào mọi tin đều đã báo là Huy mất luôn file tổng hợp.
 
