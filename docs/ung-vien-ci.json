@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-30T20:46:22+07:00",
+  "tao_luc": "2026-07-30T22:33:12+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-29",
@@ -34,14 +34,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-30",
-      "tieu_de": "US Navy Awards Historic $76.6B Contract for 9 Block VI Virginia SSNs and 5 Columbia SSBNs",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/07/us-navy-awards-historic-76-6b-contract-for-9-block-vi-virginia-ssns-and-5-columbia-ssbns/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
       "tieu_de": "Japan Conducts First Tomahawk Live-Fire Aboard JS Chokai",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/07/japan-conducts-first-tomahawk-live-fire-aboard-js-chokai/"
@@ -53,14 +45,6 @@
       "tieu_de": "Australia Selects Leidos Gibbs & Cox for AUKUS Dry Dock Design",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/07/australia-selects-leidos-gibbs-cox-for-aukus-dry-dock-design/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "SpaceX wins $1.6B to launch Space Force ‘sensing and targeting’ sats",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/spacex-wins-1-6b-to-launch-space-force-sensing-and-targeting-sats/"
     },
     {
       "lop": "RSS",
@@ -77,14 +61,6 @@
       "tieu_de": "Pentagon weighing options to license Patriot production to Ukraine: DoD official",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/07/pentagon-weighing-options-to-license-patriot-production-to-ukraine-dod-official/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "How DARPA plans to get nuclear power in the size of a ‘AA battery’",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/how-darpa-plans-to-get-nuclear-power-in-the-size-of-aa-battery/"
     },
     {
       "lop": "RSS",
@@ -154,6 +130,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-30",
+      "tieu_de": "Multi-billionaire Musk plans major US Republican midterm spending push: Report",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/multi-billionaire-musk-plans-major-us-republican-midterm-spending-push-report",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-30",
       "tieu_de": "Lula says Brazil denied visas to US officials over election meddling concerns",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/lula-says-brazil-denied-visas-to-us-officials-over-election-meddling-concerns",
@@ -166,14 +151,6 @@
       "tieu_de": "Israel aims to make pilotless warplane with F-35 capabilities",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/middle-east/israel-aims-to-make-pilotless-warplane-with-f-35-capabilities"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "US seals $75 billion Patriot missile deal amid rising stockpile concerns",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-strikes-58-6-billion-patriot-missile-deal-amid-rising-stockpile-concerns"
     },
     {
       "lop": "RSS",
@@ -247,15 +224,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Exclusive: Musk plans massive push for GOP in midterms",
-      "nguon": "Axios",
-      "url": "https://www.axios.com/2026/07/29/musk-pac-midterm-election",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-29",
       "tieu_de": "Scoop: Inside the White House pitch for pre-election MAGA megabill",
       "nguon": "Axios",
@@ -269,15 +237,6 @@
       "tieu_de": "86 senators vote to move forward with Graham Russia sanctions bill",
       "nguon": "Axios",
       "url": "https://www.axios.com/2026/07/29/senate-russia-sanctions-lindsey-graham",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "U.S. economy slowed to 1.5% growth rate in Q2; June core inflation at 3.3%",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/07/30/us-economy-slowed-to-1point5percent-growth-rate-in-q2-june-core-inflation-at-3point3percent.html",
       "nhom": 4
     },
     {
@@ -340,17 +299,18 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-29",
-      "tieu_de": "Mỹ tốn 1,4 tỷ USD rã xác tàu sân bay hạt nhân đầu tiên trên thế giới",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/my-ton-1-4-ty-usd-ra-xac-tau-san-bay-hat-nhan-dau-tien-tren-the-gioi-5103012.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
       "tieu_de": "Quân đội Mỹ tranh luận về ứng dụng AI trong quân sự",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/quan-doi-my-tranh-luan-ve-ung-dung-ai-trong-quan-su-5080660.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Bản đồ của Bộ Ngoại giao Mỹ đảo lộn h&agrave;ng loạt nước ch&acirc;u Phi",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/ban-do-cua-bo-ngoai-giao-my-dao-lon-hang-loat-nuoc-chau-phi-185260730201605233.htm",
+      "nhom": 9
     },
     {
       "lop": "RSS",
@@ -497,18 +457,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-30",
-      "tieu_de": "Trump: Supreme Court tariff, birthright citizenship rulings costing country ‘trillions and trillions of dollars’",
+      "tieu_de": "2 in 3 MAGA voters say they’d support GOP candidate accused of sexual assault: Poll",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/5998515-trump-supreme-court-tariffs/",
-      "nhom": 4
+      "url": "https://thehill.com/homenews/campaign/5999320-poll-trump-voters-sexual-assault/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-30",
-      "tieu_de": "Trump makes new demands for Russia, Iran sanctions bill named for Graham",
+      "tieu_de": "Trump: Supreme Court tariff, birthright citizenship rulings costing country ‘trillions and trillions of dollars’",
       "nguon": "The Hill",
-      "url": "https://thehill.com/policy/international/5997977-trump-demands-iran-tariff-power/",
+      "url": "https://thehill.com/homenews/administration/5998515-trump-supreme-court-tariffs/",
       "nhom": 4
     },
     {
@@ -526,24 +486,6 @@
       "tieu_de": "Pentagon: New casualty category for renewed Iran fighting tied to end of Operation Epic Fury",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/defense/5997872-pentagon-iran-casualties-category/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "Trump blasts Fauci ahead of Senate testimony: ‘His ideas were CRAZY!’",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/5996052-donald-trump-anthony-fauci-senate-hearing-covid-19-criticism/",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "Trump’s delusional tariff rally should terrify Republicans",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/opinion/campaign/5994299-trump-detroit-auto-tariffs/",
-      "nhom": 3
     },
     {
       "lop": "RSS",
@@ -620,12 +562,28 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-07-30",
+      "tieu_de": "GAO Warns Gaps in TWIC Program Could Leave U.S. Ports Exposed to Security Risks",
+      "nguon": "gCaptain",
+      "url": "https://gcaptain.com/gao-warns-gaps-in-twic-program-could-leave-u-s-ports-exposed-to-security-risks/"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-29",
       "tieu_de": "New U.S. Sanctions Target Iran’s Emerging Strait of Hormuz Maritime Services Network",
       "nguon": "gCaptain",
       "url": "https://gcaptain.com/new-u-s-sanctions-target-irans-emerging-strait-of-hormuz-maritime-services-network/",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "US Navy awards huge $76.6bn in deals for future submarines",
+      "nguon": "Naval Technology",
+      "url": "https://www.naval-technology.com/news/us-navy-submarines-hii-gdeb/"
     },
     {
       "lop": "RSS",
@@ -650,6 +608,32 @@
       "tieu_de": "After 20 years of deployment, Marine Corps receives final Osprey amid upgrades and some flight-hour restrictions",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/07/28/marine-corps-receives-final-mv-22b-osprey/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of First Interstate Bank",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730a.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Federal Reserve Board issues enforcement action with Iuka Bancshares, Inc. and The Iuka State Bank",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730b.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Space Force outlines acquisition wins amid ongoing Department wide transformation at Air and Space Summit",
+      "nguon": "Lực lượng Không gian Mỹ",
+      "url": "https://www.spaceforce.mil/News/Article-Display/Article/4559692/space-force-outlines-acquisition-wins-amid-ongoing-department-wide-transformati/"
     },
     {
       "lop": "RSS",
@@ -706,6 +690,14 @@
       "tieu_de": "U.S. Air Force Expands $500M Counter-Drone Shield",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/30/us_air_force_expands_500m_counter-drone_shield_1197488.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "SpaceX Wins $1.6B To Launch Space Force 'Sensing and Targeting' Sats",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/07/30/spacex_wins_16b_to_launch_space_force_sensing_and_targeting_sats_1197437.html"
     },
     {
       "lop": "RSS",
@@ -773,11 +765,28 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "US Navy deploys GARC uncrewed surface vessel in first live-fire training exercise",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Space food for soldiers: Advanced military rations promoted in NDAA",
       "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/07/29/us-navy-deploys-garc-uncrewed-surface-vessel-in-first-live-fire-training-exercise/"
+      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/07/30/space-food-for-soldiers-advanced-military-rations-promoted-in-ndaa/",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "US strikes $58.6 billion Patriot missile deal amid rising stockpile concerns",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/industry/techwatch/2026/07/30/us-strikes-586-billion-patriot-missile-deal-amid-rising-stockpile-concerns/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "DARPA challenge pushes limits of heavy-lift drone technology",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/07/30/darpa-challenge-pushes-limits-of-heavy-lift-drone-technology/"
     },
     {
       "lop": "RSS",
@@ -937,11 +946,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
+      "chu_de": "Mỹ – Mali",
       "ngay": "2026-07-30",
-      "tieu_de": "U.S. Navy official calls S. Korea's role in RIMPAC 'historic leadership milestone'",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260730000600315"
+      "tieu_de": "Africa: Sahel Security Crisis Demands Action Beyond Assurances of Solidarity",
+      "nguon": "AllAfrica",
+      "url": "https://allafrica.com/stories/202607300400.html"
     },
     {
       "lop": "RSS",
@@ -965,18 +974,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-30",
-      "tieu_de": "Book returned to Australian library – 150 years overdue",
+      "tieu_de": "Governor general warns of ‘growing catastrophe’ that threatens to undermine democracy in Australia",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/jul/30/book-returned-to-australian-library-150-years-overdue"
+      "url": "https://www.theguardian.com/australia-news/2026/jul/31/governor-general-warns-of-growing-catastrophe-that-threatens-to-undermine-democracy-in-australia-ntwnfb"
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-30",
-      "tieu_de": "US economy grows sluggish 1.5% in second quarter as inflation tops Fed target",
+      "tieu_de": "Book returned to Australian library – 150 years overdue",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/2026/jul/30/us-economy-growth-inflation-second-quarter",
-      "nhom": 4
+      "url": "https://www.theguardian.com/australia-news/2026/jul/30/book-returned-to-australian-library-150-years-overdue"
     },
     {
       "lop": "RSS",
@@ -1111,23 +1119,6 @@
       "tieu_de": "Lầu Năm Góc bất ngờ nâng số thương vong trong chiến sự Iran",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/lau-nam-goc-bat-ngo-nang-so-thuong-vong-trong-chien-su-iran-2539563.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Giá nông sản hôm nay 30 7 20206 Giá cà phê giảm mạnh áp lực bán từ Brazil Thuế quan Mỹ tạo kết quả trái kỳ vọng doanh nghiệp quay lại Trung Quốc",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/gia-nong-san-hom-nay-30-7-20206-gia-ca-phe-giam-manh-ap-luc-ban-tu-brazil-thue-quan-my-tao-ket-qua-trai-ky-vong-doanh-nghiep-quay-lai-trung-quoc-425329.html",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Một UAV của quân đội Mỹ xuất hiện gần biên giới liên Triều",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/mot-uav-cua-quan-doi-my-xuat-hien-gan-bien-gioi-lien-trieu-425293.html"
     },
     {
       "lop": "HTML",
