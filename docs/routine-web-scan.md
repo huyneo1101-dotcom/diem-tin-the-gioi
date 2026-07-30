@@ -272,6 +272,31 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
 
    **Cơ chế gây vấp:** `state.py` chỉ ghi nhận *"pipeline đã chạy xong"*, nó **không biết bản tin có được GỬI hay không** — hai chuyện khác nhau. Tối 29/07 một **phiên TEST hạ tầng CI** (`MODE=test`, quét nhẹ 1 agent, nạp đúng +1 tin) chạy lúc **17:34** và gọi `state.py done web-scan`, chiếm luôn ô `toi` của ngày. Commit của nó rơi **ngoài khung giờ gửi** (cổng 2 của `notify-email.yml` đòi ≥20:30) nên không kích email/Telegram. Hậu quả dây chuyền: CI 21:00 → exit 10 SKIP · local 21:15 → exit 10 SKIP · CI 22:00 → cũng sẽ SKIP. **Cả bốn lớp im lặng, không lớp nào hỏng, mà bản tin tối mất trắng.** Canary 22:45 có kêu nhưng lúc đó đã quá hạn 22:00.
 
+   ⛔ **NHƯNG SỔ TRỐNG CÓ HAI NGHĨA — phiên LOCAL phải đọc log run CI trước khi kết luận** (đúc
+   30/07/2026, sự cố thật ở phiên SÁNG SỚM; **áp cho CẢ hai phiên**, không riêng phiên tối):
+   | Sổ trống vì | Dấu hiệu | Làm gì |
+   |---|---|---|
+   | Bản tin **thật sự chưa gửi** | không có run `notify-email.yml` nào, hoặc run ĐỎ | QUÉT THẬT theo bảng trên |
+   | **Khâu GHI SỔ hỏng**, bản tin ĐÃ tới tay | run `notify-email.yml` XANH + log có dòng `Đã gửi … file .docx tới <chat>` | **KHÔNG quét lại.** Ghi bù sổ bằng `python3 .github/scripts/so_da_gui.py --ghi --buoi sang\|toi` rồi commit |
+
+   **Cơ chế gây vấp:** sáng 30/07 bước *"Ghi sổ đã gửi"* của `notify-email.yml` rebase hỏng
+   (`could not apply … (sang)`) vì `notify-morning.yml` ghi cùng file `logs/da-gui-email.json`
+   **trước đó 7 giây** — hệ quả dây chuyền của việc gộp `event-scan` vào cùng session sáng
+   (28/07). Bản tin đã gửi lúc 04:28 mà sổ trống, nên: canary ca `sang` kêu oan và nhắn Telegram,
+   còn hai phiên CI dự phòng (05:00 · 05:37) kết luận "mất bản tin" rồi chạy lại vòng quét bổ sung
+   tốn token. Chúng không sai về lập luận — chúng **không đọc được `gh run list`** (bị chặn
+   *requires approval* trong CI) nên thiếu đúng mảnh bằng chứng quyết định.
+
+   ⇒ **Phiên LOCAL chạy trên máy Huy GỌI ĐƯỢC `gh`, đó là lợi thế phải dùng**, đừng bỏ qua rồi
+   suy đoán như phiên CI:
+   ```
+   gh run list -R huyneo1101-dotcom/diem-tin-the-gioi --workflow notify-email.yml --limit 2 --json databaseId,createdAt,conclusion --jq '.[] | [.databaseId, .createdAt, .conclusion] | @tsv'
+   gh run view <id> -R huyneo1101-dotcom/diem-tin-the-gioi --log | grep -iE 'Da gui|GUI_EMAIL|khong push duoc so'
+   ```
+   ⚠️ **`Đã gửi 0 message + file .docx` là BÌNH THƯỜNG, không phải hỏng** — `msgs=[]` trong
+   `send_telegram.py` là cố ý (chỉ thị Huy 27/07: *"chỉ gửi file word thôi"*). Thấy `0 message`
+   rồi kết luận kênh câm là đọc nhầm; bằng chứng gửi được nằm ở cụm `+ file .docx tới <chat>`.
+
    Vì sao phải kiểm bằng SỔ chứ không bằng `state.json`: sổ đã gửi được ghi ở **bước CUỐI sau khi đã gửi xong mọi kênh**, nên nó là dấu vết việc-đã-làm; còn `lastSuccess` chỉ là lời tự khai của một phiên. Đây đúng nguyên tắc số 1 của canary — **kiểm ĐẦU RA, không kiểm quy trình** — nay áp luôn cho chính phiên quét.
 
    ⛔ **KHÔNG sửa `logs/state.json` để lách.** `--force` chỉ cướp khoá `RUNNING`, không bỏ qua cờ đã-xong, và đó là **đúng thiết kế** — đừng thêm cờ mới. Không cần sửa gì cả: cổng gửi của `notify-email.yml` xét **commit message + khung giờ VN**, hoàn toàn không xét khoá, nên cứ quét rồi commit là email/Telegram vẫn đi. Mốc CI 22:00 sau đó vẫn thấy exit 10 và SKIP nên **không có nguy cơ quét chồng** (exit 10 khác exit 11: 10 = đã xong, 11 = đang chạy — chỉ 11 mới là dấu hiệu có phiên sống).
