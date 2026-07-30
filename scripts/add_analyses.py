@@ -127,7 +127,9 @@ THINKTANK_DOMAINS = {
     # Nga · Đông Âu · châu Âu
     "cepa.org", "ridl.io", "globsec.org", "bruegel.org", "ceps.eu", "iss.europa.eu",
     # Trung Đông
-    "mei.edu", "washingtoninstitute.org", "agsiw.org", "carnegie-mec.org",
+    # `agsi.org` là tên miền MỚI của AGSIW (đổi tên viện, agsiw.org redirect sang đó) — giữ CẢ
+    # HAI: bài cũ trong kho còn mang url agsiw.org, gỡ đi là guardrail chặn oan chính chúng.
+    "mei.edu", "washingtoninstitute.org", "agsiw.org", "agsi.org", "carnegie-mec.org",
     "epc.ae", "gulfif.org",
     # Châu Phi · Sahel
     "africacenter.org", "saiia.org.za", "timbuktu-institute.org",
@@ -176,6 +178,12 @@ THINKTANK_FEEDS = [
     ("Long War Journal", "https://www.longwarjournal.org/feed", "Sahel · khủng bố"),
     ("SAIIA", "https://saiia.org.za/research/feed/", "Châu Phi"),
     ("Crisis Group", "https://www.crisisgroup.org/rss.xml", "Xung đột toàn cầu"),
+    # RUSI — CÓ RSS, đo lại 30/07/2026 (20 item, bài mới 1 ngày). Trước đó bị xếp nhầm vào
+    # WEBSEARCH_ONLY vì chỉ thử `/feed/` + `/rss.xml`; feed thật nằm ở `/rss/latest-commentary.xml`,
+    # tìm ra bằng cách đọc thẻ <link rel=alternate> trong HTML trang chủ. Cùng bài học với UN News
+    # (thiếu --compressed) và War on the Rocks (thiếu -A): đừng gạch một nguồn khi chưa dò hết
+    # đường vào.
+    ("RUSI", "https://www.rusi.org/rss/latest-commentary.xml", "Anh · chiến lược"),
     # — Mỹ · quốc phòng · xuyên suốt
     ("Atlantic Council", "https://www.atlanticcouncil.org/feed/", "Toàn cầu"),
     ("War on the Rocks", "https://warontherocks.com/feed/", "Chiến lược quân sự"),
@@ -204,8 +212,23 @@ NOISE_PATHS = (
 # Xếp theo KHU VỰC để phiên sáng biết vùng nào đang trống RSS mà chủ động `WebSearch
 # site:<domain>`. Lý do hỏng: phần lớn Cloudflare 403 · vài nơi 404 · Africa Center và AGSIW
 # trả RSS hợp lệ nhưng feed RỖNG (0 item) · IFRI feed đứng từ 2023.
+#
+# ⚠️ ĐO LẠI 30/07/2026 — "KHÔNG CÓ RSS" ≠ "KHÔNG ĐỌC ĐƯỢC". Dò cả 40 domain bằng curl có UA
+# trình duyệt, thử CẢ dạng `www.` lẫn không: **29/40 trả 200 và đọc được HTML bình thường**;
+# chỉ 11 domain thật sự chặn (10 Cloudflare 403 + idsa.in hỏng DNS từ máy Huy, cùng kiểu với
+# zone `.mil`). Nghĩa là phần lớn danh sách này chỉ THIẾU FEED, không phải mất nguồn — quét
+# HTML trang danh sách vẫn lấy được bài (đúng cách lớp `[HTML]` của harvest.py đang làm).
+# Ba cái bẫy đã vấp khi đo, đừng lặp lại:
+#   (a) chỉ thử `https://<domain>/` là hụt — `spf.org` và `usip.org` trả 000/hỏng ở dạng trần
+#       nhưng 200 với `www.`; kết luận "site chết" khi đó là SAI;
+#   (b) `agsiw.org` nay redirect sang **agsi.org** (viện đổi tên) — đó mới là lý do feed cũ
+#       trả 0 item, không phải feed hỏng. Domain mới đã thêm vào THINKTANK_DOMAINS;
+#   (c) trong 10 domain Cloudflare 403, **08 mở được bằng TRÌNH DUYỆT THẬT** (38north, ecfr,
+#       chathamhouse, clingendael, inss.org.il, mei, nti, thearcticinstitute, thebulletin) —
+#       challenge chỉ chặn client không chạy JS. Còn chặn hẳn ở mọi đường: globsec.org (kẹt
+#       challenge vĩnh viễn) · thesoufancenter.org (403 cứng) · idsa.in (DNS).
 WEBSEARCH_ONLY = {
-    "Trung Đông": ["mei.edu", "washingtoninstitute.org", "inss.org.il", "agsiw.org", "carnegie-mec.org"],
+    "Trung Đông": ["mei.edu", "washingtoninstitute.org", "inss.org.il", "agsi.org", "carnegie-mec.org"],
     "Châu Phi · Sahel": ["africacenter.org", "issafrica.org"],
     "Mỹ Latin": ["wola.org", "dialogo-americas.com"],
     "Nam Á": ["orfonline.org", "idsa.in", "takshashila.org.in"],
@@ -218,7 +241,9 @@ WEBSEARCH_ONLY = {
     # Clingendael phát dưới chính domain của nó (`/node/NNNNN`, tiêu đề dạng "… / DW (Jul 21)")
     # nên guardrail KHÔNG chặn được — đó mới là loại nguy hiểm, bài báo lọt vào mục Think-tank
     # mà trông như bài viện. Đã BỎ khỏi THINKTANK_FEEDS, muốn bài của họ thì WebSearch.
-    "Châu Âu": ["ecfr.eu", "chathamhouse.org", "rusi.org", "globsec.org", "ifri.org",
+    # RUSI đã RỜI danh sách này 30/07/2026 — feed thật `/rss/latest-commentary.xml` chạy tốt,
+    # xem THINKTANK_FEEDS ở trên.
+    "Châu Âu": ["ecfr.eu", "chathamhouse.org", "globsec.org", "ifri.org",
                 "swp-berlin.org", "clingendael.org"],
     "Viện lớn của Mỹ": ["csis.org", "brookings.edu", "cnas.org", "stimson.org",
                         "carnegieendowment.org", "fpri.org", "belfercenter.org",

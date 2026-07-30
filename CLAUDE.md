@@ -1000,9 +1000,35 @@ Bước 4.4 mục 4.
 ⚠️ **War on the Rocks KHÔNG chết** — bảng "BỎ HẲN" phía trên ghi 403 là do curl trần; thêm `-A <UA>`
 và `--compressed` thì feed trả 100 item bình thường. Cùng bài học với UN News hồi 22/07: đừng gạch một
 nguồn khi chưa loại trừ lỗi header/giải nén.
-**KHÔNG có RSS dùng được** (đã thử 2 biến thể URL mỗi nơi 27/07, đừng thử lại): CSIS · Brookings · RUSI ·
-Chatham House · ORF · CNAS · FPRI (trả HTML) · 38 North · Stimson (Cloudflare) · USIP (404) · Carnegie ·
-Belfer · Wilson Center (XML hợp lệ nhưng 0 item) → `WebSearch site:<domain>`.
+**KHÔNG có RSS dùng được** (đã thử 2 biến thể URL mỗi nơi 27/07, đừng thử lại): CSIS · Brookings ·
+~~RUSI~~ · Chatham House · ORF · CNAS · FPRI (trả HTML) · 38 North · Stimson (Cloudflare) · USIP (404) ·
+Carnegie · Belfer · Wilson Center (XML hợp lệ nhưng 0 item) → `WebSearch site:<domain>`.
+
+### 🔍 ĐO LẠI TOÀN BỘ NGUỒN THINK-TANK BỊ CHẶN — 30/07/2026 (chỉ thị Huy: kiểm bằng trình duyệt thật)
+Dò lại cả **40 domain** trong `WEBSEARCH_ONLY` bằng curl có UA trình duyệt, thử **CẢ dạng `www.` lẫn
+không**, rồi mở bằng trình duyệt những cái curl chịu. Kết quả đảo lại phần lớn đánh giá cũ:
+
+| Nhóm | Số | Ý nghĩa |
+|---|---|---|
+| curl **đọc được HTML** (200) | **29/40** | chỉ THIẾU FEED, không mất nguồn — quét HTML trang danh sách vẫn lấy được bài |
+| Cloudflare 403 nhưng **trình duyệt mở được** | 08 | 38north · ecfr.eu · chathamhouse · clingendael · inss.org.il · mei.edu · nti.org · thearcticinstitute · thebulletin |
+| **chặn hẳn ở mọi đường** | 03 | globsec.org (kẹt challenge) · thesoufancenter.org (403 cứng) · idsa.in (DNS hỏng từ máy Huy) |
+
+- ✅ **RUSI đã có RSS trở lại** → đưa vào `THINKTANK_FEEDS`: `https://www.rusi.org/rss/latest-commentary.xml`
+  (**8 bài/khung ngày** ngay lần chạy đầu). Feed nằm ở path lạ, tìm ra bằng cách đọc thẻ
+  `<link rel="alternate">` trong HTML trang chủ — **đó là bước phải làm trước khi gạch một nguồn**, cùng
+  bài học UN News (thiếu `--compressed`) và War on the Rocks (thiếu `-A`).
+- ⚠️ **`agsiw.org` đã đổi tên miền thành `agsi.org`** (viện đổi tên) — đó mới là lý do feed cũ trả 0 item,
+  không phải feed hỏng. Đã thêm `agsi.org` vào `THINKTANK_DOMAINS` và **giữ cả `agsiw.org`**, vì bài cũ
+  trong kho còn mang url cũ, gỡ đi là guardrail chặn oan chính chúng.
+- ⚠️ **Chỉ thử `https://<domain>/` là hụt**: `spf.org` và `usip.org` trả 000/hỏng ở dạng trần nhưng **200**
+  với `www.` — vòng đo đầu của chính phiên này đã chấm sai hai cái đó. Luôn thử cả hai dạng.
+- ⚠️ **Cloudflare challenge cần vài giây**: trang trả "Just a moment..." rồi mới ra nội dung; đọc một lần
+  thấy challenge mà kết luận "chặn" là sai. Đọc lại 2–3 lượt (có lượt ném lỗi `innerText` của null giữa
+  chừng — bình thường, đọc tiếp).
+- 📌 Trình duyệt **trong app** đủ để vượt Cloudflare, KHÔNG cần Chrome thật (`list_connected_browsers`
+  trả rỗng khi tiện ích chưa mở). Nhưng đường này **chỉ có ở phiên local** — CI không dùng được, nên
+  đừng đưa 08 domain kia vào `THINKTANK_FEEDS`.
 
 **Guardrail riêng, khác `add_news.py`:** khung ngày **7 ngày** (bài viện đăng thưa, không "ôi" sau 24h)
 nhưng vẫn kiểm HAI LỚP như add_news nên neo lô về ngày cũ không lách được; và `outlet` bị SIẾT theo
