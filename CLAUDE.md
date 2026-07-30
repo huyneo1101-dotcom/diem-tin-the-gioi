@@ -917,7 +917,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `scripts/analyses_store.py --tu-kiem` | Chính lớp đọc/ghi kho | 3 PHẢI CHẶN (thiếu file · JSON hỏng · không phải mảng) + cổng hồi quy "index.html phải rỗng" |
 | `tests/test-cong-luat-push.py` | Cổng "workflow có LỊCH thì cấm rebase file DÙNG CHUNG" (`.github/scripts/kiem_luat_push.py`) | 11 ca — 4 PHẢI CHẶN (bật lại lịch drive-import · `git add logs/` · `git add -A` · dạng `"on":` có nháy), 4 đối chứng chống chặn oan, 2 fail-closed (yml hỏng · thư mục rỗng đều phải trả mã 2), 1 soi thư mục workflow THẬT. `--tu-kiem` bắt 8/8 bản hỏng |
 | `tests/test-ghi-so-push.py` | Sổ đã gửi chịu được HAI workflow ghi cùng lúc (`.github/scripts/ghi_so_push.py`) | 10 ca — 2 CA CHÍNH (giữ đủ hai dòng · URL tính đúng một lần) · 2 PHẢI CHẶN (nhân dòng · `--hard` đè index.html) · 1 PHẢI KÊU · 4 đối chứng · 1 kiểm cổng còn nằm trên đường đi (soi 2 file yml). `--tu-kiem` bắt 6/6 bản hỏng |
-| `tests/test-bang-nguon-claude-md.py` | Đường ĐỌC BẢNG NGUỒN từ CLAUDE.md (`harvest.py` lấy feed và trang HTML ở đâu) | 10 ca — 4 PHẢI CHẶN (nhắc tên bảng trong văn xuôi ×1/×3 · bảng HTML lọt vào lớp RSS · feed giao với trang HTML), 6 đối chứng (cột `CI` bị bỏ ở local · đủ 06 trang quân chủng · Navy+Marines có ở local · tên không mang dấu `**` · không có bảng thì trả rỗng êm · tiêu đề đổi chữ vẫn đọc được). `--tu-kiem` bắt 4/4 bản hỏng |
+| `tests/test-bang-nguon-claude-md.py` | Đường ĐỌC BẢNG NGUỒN từ CLAUDE.md + phép lấy TIÊU ĐỀ của lớp `[HTML]` | 13 ca — 6 PHẢI CHẶN (nhắc tên bảng trong văn xuôi ×1/×3 · bảng HTML lọt vào lớp RSS · feed giao với trang HTML · thẻ `<a>` gộp tóm tắt vẫn phải ra tiêu đề qua `aria-label` · và qua `<h4 class=title>` kèm tiêu đề phải sạch), 7 đối chứng (cột `CI` bị bỏ ở local · đủ 06 trang quân chủng · Navy+Marines có ở local · tên không mang dấu `**` · không có bảng thì trả rỗng êm · tiêu đề đổi chữ vẫn đọc được · **chống nới tay**: không có nguồn tiêu đề sạch thì BỎ chứ không nạp tiêu đề rác). `--tu-kiem` bắt 5/5 bản hỏng |
 
 Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:
 ```
@@ -1591,6 +1591,21 @@ còn CI thì luôn lấy được. DNS zone `.mil` khoẻ lại thì nâng lên 
 
 ⚠️ Đây là **quét HTML thô**, nhiễu cao hơn RSS: có thể lẫn link điều hướng, và **ngày lấy từ khối HTML
 quanh link nên có thể sai** — agent PHẢI mở bài kiểm ngày sự kiện như với lớp `[GNEWS]`.
+
+⚠️ **THÊM TRANG VÀO BẢNG CHƯA CHẮC LÀ RA TIN — phải đếm LINK, không chỉ xem trang trả 200**
+(đúc 30/07/2026, bắt được ngay trong lượt thêm 06 trang quân chủng). `marines.mil` trả 200 và
+65.170 byte, nhưng lớp `[HTML]` lấy ra **0 link bài trên 10 link có thật**: thẻ `<a>` của CMS
+**ArticleCS** (DoD dùng cho mọi trang quân chủng) bọc cả ngày + tiêu đề + **đoạn tóm tắt**, nên text
+gộp dài **268–418 ký tự** và bị trần `len(title) > 200` loại sạch. Hỏng câm kiểu tệ nhất: nguồn nằm
+trong bảng, trang trả 200, mà nó không bao giờ đóng góp một ứng viên nào — nhìn đâu cũng tưởng đang chạy.
+- **Đã vá:** khi text thẻ `<a>` không đạt khuôn 25–200 ký tự, `harvest_html` lấy tiêu đề từ
+  **`aria-label`**, rồi tới **`<h4 class="title">`**. Một bản vá phủ cả 06 trang quân chủng vì chúng
+  dùng chung CMS. Đo sau vá: Marines **0 → 10 link, 8 khớp chủ đề** (MV-22B Osprey · Counter Drone ·
+  ODIN Reporting System); nhóm uỷ ban Hạ viện **không đổi** (15/11/1 link trước và sau).
+- **Hướng lệch có chủ ý:** không có nguồn tiêu đề sạch nào thì **BỎ bài**, tuyệt đối không nạp cả cục
+  text lẫn tóm tắt làm `title` — ca 13 của bộ test canh đúng chiều nới tay này.
+- **Nghiệm thu một trang mới thì đếm 3 con số**, đừng dừng ở mã 200: số link qua bộ lọc đường dẫn ·
+  số khớp `match_topic` · và độ dài tiêu đề lấy ra. Trang 200 mà 0 link là dòng bảng vô dụng.
 
 #### 📊 Kết quả dò TOÀN BỘ nguồn ở CẢ HAI môi trường (27/07/2026, `scripts/probe_sources.py`)
 288 URL / 154 domain, dò từ máy Mac và từ GitHub runner (Mỹ), rồi so:

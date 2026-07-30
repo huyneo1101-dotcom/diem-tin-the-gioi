@@ -208,6 +208,91 @@ def _c10():
     return f"{n} trang"
 
 
+# Trang danh sách kiểu CMS ArticleCS của DoD: thẻ <a> bọc CẢ ngày + tiêu đề + đoạn tóm tắt, nên
+# text gộp dài quá trần 200 và bị loại sạch. Dữ liệu lấy từ HTML thật của marines.mil 30/07/2026.
+TRANG_ARTICLECS = '''<html><body>
+<a href="https://www.marines.mil/News/Press-Releases/Press-Release-Display/Article/4557459/us-marine-corps-receives-final-mv-22b-osprey/" aria-label="U.S. Marine Corps receives final MV-22B Osprey, completing program of record" >
+  <div class="info">
+    <span class="badge"> 07/28/2026</span><br />
+    <h4 class="title">U.S. Marine Corps receives final MV-22B Osprey,
+        completing program of record </h4>
+    <span class="caption">The U.S. Marine Corps and its industry partners marked the completion of
+    the MV-22B Osprey Program of Record on July 28, 2026, with the delivery of the 359th aircraft.
+    This milestone shifts the focus from fielding the aircraft to sustaining and modernizing the
+    fleet for decades to come, according to the program office statement released this week.</span>
+  </div>
+</a>
+</body></html>'''
+
+# Cùng khuôn nhưng KHÔNG có aria-label — phải lấy được tiêu đề từ <h4 class="title">.
+TRANG_ARTICLECS_KHONG_ARIA = TRANG_ARTICLECS.replace(
+    ' aria-label="U.S. Marine Corps receives final MV-22B Osprey, completing program of record"', '')
+
+
+def _lay_tieu_de(html):
+    """Chạy đúng đoạn lọc tiêu đề của `harvest_html` trên một trang cho trước."""
+    d = _dung_kho(CLAUDE_THAT)
+    try:
+        h = _nap_harvest(d)
+        ra = []
+        for m in re.finditer(r'<a([^>]+href="([^"]+)"[^>]*)>(.*?)</a>', html, re.S | re.I):
+            tt, href, raw = m.group(1), m.group(2), m.group(3)
+            title = h._lam_sach(re.sub(r"<[^>]+>", " ", raw))
+            if not 25 <= len(title) <= 200:
+                thay = ""
+                al = re.search(r'aria-label="([^"]{25,200})"', tt, re.I)
+                if al:
+                    thay = h._lam_sach(al.group(1))
+                else:
+                    hh = re.search(
+                        r'<h[1-6][^>]*class="[^"]*title[^"]*"[^>]*>(.*?)</h[1-6]>',
+                        raw, re.S | re.I)
+                    if hh:
+                        thay = h._lam_sach(re.sub(r"<[^>]+>", " ", hh.group(1)))
+                if not 25 <= len(thay) <= 200:
+                    continue
+                title = thay
+            if not re.search(r"/(news|press|media|hearing|markup|document)", href, re.I):
+                continue
+            ra.append(title)
+        return ra
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
+@ca(11, "PHẢI CHẶN: thẻ <a> gộp cả tóm tắt -> vẫn phải lấy được tiêu đề (qua aria-label)")
+def _c11():
+    ra = _lay_tieu_de(TRANG_ARTICLECS)
+    assert ra, "mất sạch link bài (đúng bug 30/07: marines.mil 10 link -> 0)"
+    assert ra[0].startswith("U.S. Marine Corps receives final MV-22B Osprey"), ra[0]
+    assert "359th aircraft" not in ra[0], f"tiêu đề dính đoạn tóm tắt: {ra[0][:80]}"
+    return f"{len(ra)} bài, tiêu đề sạch {len(ra[0])} ký tự"
+
+
+@ca(12, "PHẢI CHẶN: không có aria-label thì lấy từ <h4 class=title>, và tiêu đề phải SẠCH")
+def _c12():
+    ra = _lay_tieu_de(TRANG_ARTICLECS_KHONG_ARIA)
+    assert ra, "mất link bài khi trang không có aria-label"
+    assert "MV-22B Osprey" in ra[0], ra[0]
+    assert "359th aircraft" not in ra[0], f"dính tóm tắt: {ra[0][:80]}"
+    # Tiêu đề trong HTML thật trải nhiều dòng kèm thụt lề. Không gộp khoảng trắng thì nó vào
+    # thẳng `title` của tin rồi lên bản tin — đo được ngay ở đây, chứ tới lúc đọc .docx mới thấy
+    # thì đã muộn. Đây cũng là điều `_lam_sach` sinh ra để bảo đảm.
+    assert "\n" not in ra[0], f"tiêu đề còn xuống dòng: {ra[0]!r}"
+    assert "  " not in ra[0], f"tiêu đề còn khoảng trắng kép: {ra[0]!r}"
+    return f"{len(ra)} bài từ <h4 class=title>, tiêu đề sạch"
+
+
+@ca(13, "đối chứng chống nới tay: tiêu đề dài quá 200 mà KHÔNG có nguồn sạch nào -> vẫn bỏ")
+def _c13():
+    # Gỡ cả aria-label lẫn class="title": không còn đường nào lấy tiêu đề sạch, phải BỎ chứ
+    # không được nạp cả cục text lẫn tóm tắt vào làm tiêu đề.
+    t = TRANG_ARTICLECS_KHONG_ARIA.replace('<h4 class="title">', "<h4>")
+    ra = _lay_tieu_de(t)
+    assert not ra, f"nới tay: nạp {len(ra)} tiêu đề rác, vd {ra[0][:70] if ra else ''}"
+    return "bỏ đúng, không nạp tiêu đề rác"
+
+
 BAN_HONG = [
     (
         # Phải gỡ CẢ HAI lớp cùng bảo vệ một hành vi (neo tiêu đề + nhánh chọn khối có nhiều
@@ -237,6 +322,13 @@ BAN_HONG = [
         [('        name = re.sub(r"\\*+", "", cols[1]).strip() if len(cols) > 1 else url',
           "        name = cols[1].strip() if len(cols) > 1 else url")],
         [8],
+    ),
+    (
+        # `_lam_sach` là luật dùng chung cho mọi đường lấy tiêu đề. Gỡ phép gộp khoảng trắng thì
+        # tiêu đề lấy từ <h4> còn nguyên xuống dòng + thụt lề của HTML, dài quá trần 200.
+        "gỡ phép gộp khoảng trắng trong _lam_sach (tiêu đề <h4> còn nguyên xuống dòng)",
+        [('    s = re.sub(r"\\s+", " ", s).strip()\n', "    s = s.strip()\n")],
+        [12],
     ),
 ]
 

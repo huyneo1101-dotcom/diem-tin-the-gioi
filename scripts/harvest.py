@@ -417,6 +417,17 @@ def parse_date_loose(s: str):
     return None
 
 
+def _lam_sach(s: str) -> str:
+    """Gộp khoảng trắng + giải mã vài thực thể HTML hay gặp. Dùng CHUNG cho mọi đường lấy tiêu đề.
+
+    Viết một chỗ để tiêu đề lấy từ text thẻ <a>, từ `aria-label` và từ `<h4 class="title">` không
+    thể khác nhau về cách làm sạch — lệch nhau thì cùng một bài ra hai tiêu đề tuỳ đường đi.
+    """
+    s = re.sub(r"\s+", " ", s).strip()
+    return (s.replace("&amp;", "&").replace("&#39;", "'").replace("&quot;", '"')
+             .replace("&nbsp;", " ").replace("&rsquo;", "'").strip())
+
+
 def harvest_html(window):
     """Quét thẳng trang danh sách thông cáo (không có RSS).
 
@@ -434,12 +445,28 @@ def harvest_html(window):
     for name, page_url in pages:
         body = curl(page_url).decode("utf-8", "replace")
         base = "{0.scheme}://{0.netloc}".format(urllib.parse.urlparse(page_url))
-        for m in re.finditer(r'<a[^>]+href="([^"]+)"[^>]*>(.*?)</a>', body, re.S | re.I):
-            href, raw = m.group(1), m.group(2)
-            title = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", raw)).strip()
-            title = title.replace("&amp;", "&").replace("&#39;", "'").replace("&quot;", '"')
-            if len(title) < 25 or len(title) > 200:
-                continue
+        for m in re.finditer(r'<a([^>]+href="([^"]+)"[^>]*)>(.*?)</a>', body, re.S | re.I):
+            thuoc_tinh, href, raw = m.group(1), m.group(2), m.group(3)
+            title = _lam_sach(re.sub(r"<[^>]+>", " ", raw))
+            if not 25 <= len(title) <= 200:
+                # Thẻ <a> bọc cả ngày + tiêu đề + đoạn tóm tắt thì text gộp dài 268-418 ký tự và
+                # bị trần 200 loại sạch. Đo thật 30/07: marines.mil có 10 link bài, MẤT CẢ 10 —
+                # trang trả 200 nên nhìn đâu cũng tưởng nguồn đang chạy, chỉ là nó không bao giờ
+                # đóng góp ứng viên nào. Đúng loại hỏng câm: "nguồn vào bảng mà không ra tin".
+                # Lấy tiêu đề sạch theo 2 nguồn của CMS ArticleCS (DoD dùng cho MỌI trang quân
+                # chủng: marines · navy · pacom · centcom · jcs · uscg) — một bản vá phủ cả 06.
+                thay = ""
+                al = re.search(r'aria-label="([^"]{25,200})"', thuoc_tinh, re.I)
+                if al:
+                    thay = _lam_sach(al.group(1))
+                else:
+                    h = re.search(r'<h[1-6][^>]*class="[^"]*title[^"]*"[^>]*>(.*?)</h[1-6]>',
+                                  raw, re.S | re.I)
+                    if h:
+                        thay = _lam_sach(re.sub(r"<[^>]+>", " ", h.group(1)))
+                if not 25 <= len(thay) <= 200:
+                    continue
+                title = thay
             if not re.search(r"/(news|press|media|hearing|markup|document)", href, re.I):
                 continue
             topic = match_topic(title, "both")
