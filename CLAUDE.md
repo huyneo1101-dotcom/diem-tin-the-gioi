@@ -870,8 +870,13 @@ ngày (tới cả Huy lẫn Jay Lâm — họ tự gửi tin của mình nên kh
 | `tests/test-tin-jaylam-xu-ly.py` | **30 ca (14 ca PHẢI CHẶN) · `--tu-kiem` bắt 12/12 bản hỏng** — guardrail của `tin_jaylam.py`: id bịa/trùng · `tieu_de`/`tom_tat` không đạt · thiếu `nguon_ten` · URL trang chủ/live-blog · `la_cnqs` sai kiểu · ghi mù khi hàng chờ rỗng · PATCH hỏng phải KÊU · một mục sai chặn cả lô · khung ngày ở bước liệt kê dùng khung RỘNG NHẤT |
 
 ⚠️ **BỘ LỌC CHỐNG TRÙNG — "vẫn phải có như mọi khi" (Huy chốt)**, viết TẠI CHỖ trong
-`make_docx.py` (không import chéo thư mục, cùng lý do `_khong_dau` đã giải thích), CÙNG NGƯỠNG
-Jaccard ≥ 0.6 mà `add_news.py:warn_similar_titles()` dùng cho tin quét thường. Tiêu đề đại diện
+`make_docx.py` (không import chéo thư mục, cùng lý do `_khong_dau` đã giải thích), ngưỡng
+Jaccard ≥ 0.6. ⚠️ **TÁCH KHỎI ngưỡng của `add_news.py` từ 30/07/2026 — đừng "đồng bộ cho
+gọn".** Trước đó hai nơi dùng chung 0.6 và dòng này ghi "CÙNG NGƯỠNG"; nay lớp cảnh báo bên
+`add_news` hạ xuống **0.4** (`JACCARD_CANH_BAO_TIEU_DE`) để bắt tin NỐI TIẾP. Hai vai khác
+hẳn: bên kia chỉ IN CẢNH BÁO (kêu thừa thì tốn một dòng đọc), hàm này LỌC THẬT — hạ ngưỡng ở
+đây là lọc oan, tức **MẤT TIN** khỏi mục 5 mà không ai thấy. Ca 10 của
+`tests/test-canh-bao-tin-noi-tiep.py` canh đúng chỗ này. Tiêu đề đại diện
 của một dòng Jay Lâm = **dòng đầu không rỗng** của `noi_dung` (`_jaylam_tieu_de()`) — Jay Lâm
 gửi nguyên văn một bài tin nên dòng đầu gần như luôn là tiêu đề. Hai chiều:
   (a) trùng tin quét thường **ĐÃ chọn** vào `us`/`world`/`events` của đúng bản tin đang dựng;
@@ -1044,6 +1049,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 |---|---|---|
 | `tests/test-cong-baomoi.py` | Cổng Báo Mới chống bỏ sót (`scripts/add_news.py`) | 8 — 3 PHẢI NHẮC, 4 chống nhắc oan, 1 kiểm cổng còn nằm trên đường đi của `--recent-titles` |
 | `tests/test-so-da-gui.py` | Sổ đã gửi (`so_da_gui.py` + `make_docx.loc_chua_gui`) | 9 — 5 PHẢI LOẠI/PHẢI ĐÚNG PHẠM VI, 3 chống lọc oan, 1 kiểm còn người đọc sổ |
+| `tests/test-canh-bao-tin-noi-tiep.py` | Lớp cảnh báo TIN NỐI TIẾP (`add_news.warn_similar_titles`, ngưỡng `JACCARD_CANH_BAO_TIEU_DE`) | **10 ca · `--tu-kiem` bắt 5/5 bản hỏng** — 3 PHẢI KÊU (gồm ca đòi ĐÚNG lời nhắc, không chỉ đòi có kêu), 3 chống kêu oan + 1 ca biên, 1 hồi quy con số ngưỡng, 1 kiểm còn nằm trên đường đi, 1 kiểm ngưỡng lọc THẬT của mục Jay Lâm KHÔNG bị hạ theo. Bản hỏng canh **cả hai chiều**: nâng lại 0.6 (câm trở lại) và hạ về 0 (kêu mọi cặp) |
 | `tests/test-canary-ban-tin.py` | Canary bản tin (`.github/scripts/canary.py`) | 10 — 7 PHẢI KÊU, 3 PHẢI IM (gồm ca hồi quy kêu oan 00:23 ngày 28/07) |
 | `tests/test-cong-phien-test.py` | Cổng "phiên TEST không đụng cờ thật" (`scripts/state.py` + `claude-web-scan.yml`) | 11 — 5 PHẢI CHẶN, 4 chống chặn oan + đối chứng, 1 kiểm cổng còn nằm trên đường đi (đọc chính file yml), 1 kiểm banner |
 | `scripts/sua_nhan_analyses.py --tu-kiem` | Chính `--kiem` của nó (nhãn `outlet` mục Think-tank) | 5 — 3 PHẢI CHẶN, 2 PHẢI CHO QUA + 1 đối chứng. **Test nằm TRONG script** chứ không ở `tests/` vì cổng và bộ ca dùng chung dữ liệu giả |

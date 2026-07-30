@@ -269,6 +269,26 @@ cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhan
 - **Ưu tiên nguồn chính phủ/chính thức** (link thẳng nguồn gốc) + **nguồn tiếng Anh có RSS** trước
   (URL RSS: xem bảng trong CLAUDE.md, đưa thẳng URL cho agent).
 - **Chống trùng**: dán NGUYÊN khối `--recent-titles` (bước 1) vào prompt; dặn không report lại tin đã có.
+- **⛔ TIN NỐI TIẾP — GIỮ TIN, NHƯNG CÂU MỞ PHẢI VÀO THẲNG PHẦN MỚI** (luật 30/07/2026, sau khi người
+  đọc bản tin tối nhắn *"tin trên bị trùng á"*). **Đây KHÔNG phải luật chống trùng** — tin nối tiếp là
+  tin thật, sự kiện mới, phải giữ. Chỗ hỏng nằm ở CÁCH VIẾT tóm tắt.
+  **Cơ chế gây vấp:** tin The Hill *"Trump đòi bổ sung quyền áp thuế Iran vào dự luật trừng phạt Nga
+  mang tên Graham"* (30/07) mở đầu tóm tắt bằng *"Sau khi Thượng viện thông qua dự luật trừng phạt
+  Nga-Iran mang tên cố Thượng nghị sĩ Lindsey Graham với tỷ lệ 86-12, …"* — mà đó đúng là **nguyên
+  sự kiện đã gửi hôm trước** (tin Straits Times, bản tin 29/07). Người đọc lướt tiêu đề + dòng đầu
+  thấy y hệt hôm qua nên kêu trùng; phần MỚI (Trump đòi thêm quyền) nằm ở vế sau, phải đọc hết mới thấy.
+  | | |
+  |---|---|
+  | ❌ SAI | *"Sau khi Thượng viện thông qua dự luật … với tỷ lệ 86-12, Tổng thống Trump yêu cầu bổ sung quyền áp thuế quan nhắm vào Iran."* |
+  | ✅ ĐÚNG | *"Tổng thống Trump yêu cầu bổ sung quyền áp thuế quan nhắm vào Iran vào dự luật trừng phạt Nga đã được Thượng viện thông qua hôm 28/7."* |
+  Ba việc bắt buộc: (i) **câu đầu nêu diễn biến MỚI**, chủ ngữ là chủ thể của diễn biến mới; (ii) phần
+  đã gửi hôm trước rút còn **một vế phụ ngắn** làm mốc, đặt sau, không kể lại số liệu chi tiết của nó
+  (tỷ lệ bỏ phiếu, danh sách nghị sĩ bảo trợ…); (iii) **tiêu đề đừng lặp nguyên cụm định danh** của tin
+  cũ nếu diễn ra được cách khác.
+  **Máy nhắc ở đâu:** `add_news.py` in `[CẢNH BÁO] tiêu đề nghi trùng (Jaccard …)` kèm hướng dẫn trên
+  khi tiêu đề mới gần tiêu đề cũ (ngưỡng `JACCARD_CANH_BAO_TIEU_DE = 0.4`). **Đây là CẢNH BÁO, không
+  chặn** — thấy nó thì sửa câu mở rồi nạp lại, đừng bỏ tin. Bộ test canh:
+  `tests/test-canh-bao-tin-noi-tiep.py`.
 - **Đa dạng sự kiện**: mỗi tin 1 sự kiện KHÁC NHAU.
 - Yêu cầu agent CHỈ trả JSON kết quả (mảng tin của chủ đề đó), không giải thích dài.
 

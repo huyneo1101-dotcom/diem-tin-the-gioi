@@ -64,6 +64,24 @@ MAX_AGE_DAYS = 1
 # xuống tận ngày 24"). Tin khí tài/hợp đồng đăng thưa, cuối tuần Mỹ gần như trắng.
 MAX_AGE_DAYS_CNQS = 3
 
+# Ngưỡng Jaccard cho lớp CẢNH BÁO tiêu đề nghi trùng (`warn_similar_titles`).
+# HẠ 0.6 -> 0.4 ngày 30/07/2026 sau khi người đọc bản tin tối kêu "tin trên bị trùng":
+# tin The Hill "Trump đòi bổ sung quyền áp thuế Iran vào dự luật trừng phạt Nga mang tên
+# Graham" (30/07) là tin NỐI TIẾP của tin Straits Times "Thượng viện Mỹ bỏ phiếu dự luật
+# trừng phạt Nga-Iran mang tên cố Thượng nghị sĩ Lindsey Graham" đã gửi hôm trước — hai sự
+# kiện khác nhau, nhưng câu mở đầu tóm tắt kể lại nguyên sự kiện cũ nên đọc lướt thấy y hệt.
+# Đo cặp đó: Jaccard = 0.40, dưới ngưỡng cũ nên KHÔNG có một dòng cảnh báo nào.
+# Đo trên lô 31 tin ngày 30/07 so với 436 tin đã có: ngưỡng 0.6 kêu 0 tin (lớp này chưa nổ
+# lần nào), 0.5 kêu 1, 0.4 kêu 3 — và CẢ 3 đều là tin nối tiếp thật, KHÔNG có nhiễu:
+#   0.52 Philippines thềm lục địa · 0.42 "Hammer of the Gods" · 0.40 chính cặp Graham.
+# Xuống 0.35 thì kêu 4 mà cái thứ 4 không phải tin nối tiếp -> giữ 0.4.
+# ⚠️ Đây là ngưỡng của lớp CHỈ CẢNH BÁO. Bộ lọc THẬT của mục Jay Lâm
+# (`make_docx.py::loc_trung_jaylam`) vẫn giữ 0.6 — hạ ngưỡng ở đó là LỌC OAN, tức mất tin,
+# nặng hơn hẳn một dòng cảnh báo thừa. Trước 30/07 hai nơi dùng chung một con số 0.6, nên
+# nếu sau này cần đổi thì đổi RIÊNG từng bên và sửa cả CLAUDE.md (mục Jay Lâm còn ghi
+# "CÙNG NGƯỠNG", nay đã sửa lại cho khớp).
+JACCARD_CANH_BAO_TIEU_DE = 0.4
+
 # Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
 # ứng viên Báo Mới (~80 bài/lần) không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent
 # phải loại vì ngày/nghi trùng — đó mới là thứ người dùng cần rà để 👍 cứu.
@@ -340,10 +358,14 @@ def warn_similar_titles(new_items: dict, data: dict) -> None:
             if not ots:
                 continue
             jaccard = len(nts & ots) / len(nts | ots)
-            if jaccard >= 0.6:
+            if jaccard >= JACCARD_CANH_BAO_TIEU_DE:
                 print(f"  [CẢNH BÁO] tiêu đề nghi trùng (Jaccard {jaccard:.2f}):")
                 print(f"      mới: {nt}")
                 print(f"      cũ : {old}")
+                print("      -> Nếu đây là tin NỐI TIẾP (sự kiện mới của cùng một câu chuyện):")
+                print("         GIỮ tin, nhưng câu ĐẦU của summary phải vào thẳng phần MỚI.")
+                print("         Phần đã gửi hôm trước dồn về sau, rút còn một vế ngắn.")
+                print("         Đọc lướt hai dòng đầu mà thấy y hệt hôm qua là người đọc kêu trùng.")
                 break
 
 
