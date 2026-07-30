@@ -1262,21 +1262,26 @@ sách tra cứu**, không nằm trong đường quét: **0/85 domain có trong b
 ⚠️ **KHÔNG có RSS dùng được — đừng thử lại, dùng WebSearch `site:domain`** (kiểm 27/07): các uỷ ban
 Thượng viện (armed-services, foreign, appropriations, intelligence — đều 403) · armedservices.house.gov
 · state.gov · commerce.gov · justice.gov · dhs.gov · home.treasury.gov · bls.gov · dni.gov · stripes.com.
-### 🪖 Trang .mil — CHỈ ĐỌC ĐƯỢC TỪ CI, KHÔNG đọc được từ máy Mac (chẩn đoán 27/07/2026)
-Huy hỏi "8 trang quân chủng có cách nào đọc được không" → đào ra nguyên nhân thật, KHÔNG phải bị chặn IP
-hay sai user-agent: **máy Mac không phân giải nổi DNS zone `.mil`**. Cloudflare DoH trả đúng lý do:
-`EDE(9): DNSKEY Missing no SEP matching the DS found for mil` + `EDE(22): No Reachable Authority` — tức
-**DNSSEC của zone `.mil` lỗi/không tới được authority từ đây**. Thử `dig @8.8.8.8` và `@1.1.1.1` đều
-SERVFAIL, `+cd` cũng không cứu. Đây là giới hạn tầng DNS, không vá được bằng cờ curl.
-**Nhưng GitHub runner (Mỹ) phân giải được hết** → chạy test thật trên CI và thu được 2 feed dùng được:
-| Nguồn | RSS URL | Kiểm 27/07 (từ CI) |
+### 🪖 Trang .mil — chẩn đoán 27/07 SAI MỘT NỬA, đo lại 30/07/2026
+| Nguồn | RSS URL | Kiểm 30/07 từ LOCAL |
 |---|---|---|
-| Không quân Mỹ — Air Force Link News | https://www.af.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=20 | 10 item, mới 25/07 |
-| Lục quân Mỹ | https://www.army.mil/rss/static/1.xml | 2 item, mới 27/07 |
+| Lục quân Mỹ | https://www.army.mil/rss/static/1.xml | **43–45 item** — lấy được, phải đi bằng vân tay TLS |
+| Không quân Mỹ — Air Force Link News | https://www.af.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=20 | chập chờn: có lượt 20 item, phần lớn không phân giải nổi tên miền |
 
-⚠️ **Hai feed này CHỈ chạy trong CI.** Trên máy local, `harvest.py` sẽ fail êm (curl không phân giải được
-→ trả rỗng → bỏ qua), nên **kết quả harvest local ÍT HƠN CI vài ứng viên** — đó là bình thường, đừng đi
-truy bug. CI mới là mốc chính nên chỗ này không mất tin.
+⛔ **Câu cũ "máy Mac không phân giải nổi DNS zone `.mil`" ĐÚNG VỚI `af.mil`, SAI VỚI `army.mil`.**
+Đo lại 30/07: `socket.getaddrinfo('www.army.mil')` trả **118.69.17.187** (node Akamai đặt trong hạ tầng
+FPT), TLS bắt tay xong xuôi, rồi server trả **403 Access Denied** — tức bị chặn **vân tay TLS**, không
+phải DNS. Đi bằng `impersonate="chrome"` thì ra 200 và 45 item nội dung THẬT (đã đọc tận nơi: bài
+"21st Theater Signal Brigade holds change of command ceremony", pubDate 29/07/2026).
+- **`dig` NÓI DỐI ở đây, `getaddrinfo` mới là thứ ứng dụng dùng.** `dig www.army.mil` trả *"connection
+  timed out; no servers could be reached"* (nó hỏi thẳng authority của zone `.mil`, vướng DNSSEC) trong
+  khi resolver hệ thống trả IP bình thường. Chẩn đoán DNS bằng `dig` rồi kết luận "không phân giải được"
+  là cách sinh ra ghi chú sai này. Kiểm bằng `python3 -c "import socket;print(socket.getaddrinfo(h,443))"`.
+- **Đo đa luồng cho ra kết quả SAI ở đây.** Vòng dò 8 luồng chấm cả `af.mil` lẫn `army.mil` là `000`;
+  đo lẻ tuần tự thì `af.mil` ra **200/20 item** còn `army.mil` ra **403**. Cùng bẫy đã ghi ở mục "Kết quả
+  dò TOÀN BỘ nguồn": thấy nguồn đang dùng bỗng báo hỏng thì **kiểm lại lẻ** trước khi gạch tên.
+- `af.mil` vẫn thuộc nhóm chập chờn (getaddrinfo lúc được lúc không) → cứ để trong bảng, `kiem_nguon.py`
+  xếp nó vào nhóm VÀNG "chỉ CI lấy được ổn định", không kêu ĐỎ mỗi sáng.
 ⚠️ **BẪY `Site=1`:** tham số này trả **feed của Air Force bất kể domain** — thử `marines.mil` và
 `news.uscg.mil` với `Site=1` đều ra y hệt "Air Force Link News". Thêm cả ba vào bảng là nạp trùng nội
 dung ba lần. Phải kiểm tiêu đề thật trước khi tin một feed `DesktopModules`.
@@ -1284,6 +1289,49 @@ dung ba lần. Phải kiểm tiêu đề thật trước khi tin một feed `Des
 `marines.mil`, `centcom.mil`, `pacom.mil`, `jcs.mil`, `news.uscg.mil`. Trang HTML của chúng **403 với cả
 CI lẫn local** (WAF chặn IP datacenter). **Thay thế: DVIDS** (`dvidshub.net/rss/all` — đã có trong bảng,
 gom tin của mọi quân chủng) và feed hợp đồng/thông cáo `war.gov`.
+
+### 🔑 TRANG NÀO PHẢI LẤY BẰNG CÁCH NÀO — bảng tra (Huy chốt 30/07/2026)
+
+> Nguyên văn Huy: *"thêm vào quy tắc hoặc ghi nhớ lại là trang nào phải xem bằng cách gì."*
+
+**Cơ chế gây vấp:** curl trần là phản xạ mặc định, và khi nó trượt thì kết luận mặc định là "nguồn
+chết". Cả hai đều sai — Akamai/Cloudflare nhận dạng **dấu vân tay TLS (JA3/JA4)** của curl · urllib ·
+WebFetch rồi cắt kết nối, trong khi Chrome **cùng máy, cùng IP** (đo thật: 113.23.43.99, FPT Hà Nội)
+vào bình thường. **Không phải chặn địa lý, nên VPN Mỹ không giải quyết gì.**
+
+| Bậc | Cách lấy | Dùng khi | Ai gọi được |
+|---|---|---|---|
+| 1 | `curl -sL --compressed -A <UA Chrome>` | mặc định, ~85% nguồn | mọi phiên + CI |
+| 2 | **`curl_cffi` `impersonate="chrome"`** (giả vân tay TLS) | bậc 1 trả 403 / thân mang dấu hiệu chặn | mọi phiên + CI, cần `pip install --user curl_cffi` |
+| 3 | **Browser pane** (`preview_start` → `javascript_tool` `fetch()` same-origin) | bậc 2 vẫn trượt, cần xác minh bằng mắt | CHỈ phiên local có Claude — **CI không dùng được** |
+| 4 | `WebSearch site:<domain>` | không có feed, hoặc cả 3 bậc trên đều trượt | mọi phiên |
+
+`harvest.py` **tự đi bậc 1 → bậc 2**: `curl()` dò thân trả về, thấy dấu hiệu chặn thì thử lại bằng vân
+tay TLS. Không phải sửa gì khi thêm nguồn mới.
+
+**Đo thật 30/07/2026 — 108 nguồn, 3 cấu hình curl, rồi mở lại từng cái bằng trình duyệt:**
+
+| Nhóm | Số | Nguồn | Lấy bằng |
+|---|---|---|---|
+| Bậc 1 đủ | 87/108 | phần lớn bảng RSS | curl |
+| **Chặn vân tay TLS — bậc 2 cứu được** | **16** | Breaking Defense (30 item) · Naval Technology (10) · army.mil (45) · **13 trang Thượng viện** (12 uỷ ban + thông cáo chung) | `curl_cffi` |
+| Chặn theo IP — chỉ CI | 3 | thediplomat.com (local 1/6 lượt) · census.gov (Cloudflare chặn cả Chrome) · occ.treas.gov (drop im lặng) | lô CI `ung-vien-ci.json` |
+| **URL chết, nguồn còn sống** | 1 | Uỷ ban Tư pháp Hạ viện | đổi sang URL mới, curl trần chạy lại được |
+| Chập chờn | 1 | af.mil | thử lại, đừng gạch tên |
+
+⚠️ **Thêm header đầy đủ hay ép HTTP/1.1 KHÔNG cứu được nguồn nào** — đã đo cả 3 cấu hình × 108 nguồn,
+số nguồn hỏng y hệt (21/108). Đừng mất công đi đường đó nữa: reset xảy ra ở **bước bắt tay TLS**, tức
+TRƯỚC khi header kịp gửi (`thediplomat.com`: TCP nối được rồi `Connection reset by peer` sau **0,043
+giây**). Hỏng trong dưới 1 giây không bao giờ là mạng chậm — đó là chữ ký của tường lửa ứng dụng.
+⚠️ **403 KHÔNG phải lúc nào cũng lộ ra là rỗng hay ngắn.** Trang lỗi của Naval Technology dài **19.357
+byte và mở đầu bằng `<?xml`** nên `items_of` parse ra 0 item mà không ném lỗi gì. Vì vậy `harvest.py`
+dò theo **DẤU HIỆU trong thân** (`403 forbidden` · `access denied` · `attention required` · `just a
+moment` · `request forbidden`), không dò theo cỡ.
+⚠️ **Thiếu `curl_cffi` thì harvest vẫn chạy nhưng KÊU** (`⚠️ N nguồn bị chặn mà máy KHÔNG có curl_cffi`).
+Fail-open có tiếng — im lặng ở đây là tạo đúng vùng câm mà bản vá này sinh ra để bịt.
+
+**Đo lại về sau:** `python3 scripts/kiem_nguon.py` (nhóm trọng yếu, ~20 nguồn, mã thoát 1 khi có nguồn
+hỏng) hoặc `--tat-ca`. Bộ test canh: `tests/test-kiem-nguon.py` (20 ca · `--tu-kiem` bắt 7/7 bản hỏng).
 
 ### 🕸️ TRANG HTML QUÉT TRỰC TIẾP — không có RSS nhưng vẫn đọc được (thêm 27/07/2026)
 Huy nhắc đúng: *"không có RSS thì mày vẫn xem được mà"*. Kiểm lại 85 domain trong file nguồn chính thức
@@ -1294,34 +1342,43 @@ phiếu) — nhóm luôn thiếu tin nhất. Thực tế lần chạy đầu b�
 of FY27 NDAA", "House Passes H.R. 9770", "Opening Statement at the FY27 NDAA Markup".
 
 **Cột "Chạy ở"** — `cả hai` = local + CI đều đọc được · **`CI`** = CHỈ GitHub runner đọc được, máy Mac
-bị 403 (harvest local tự bỏ qua, xem `html_pages_from_claude_md`). Đo bằng `scripts/probe_sources.py`
-chạy ở cả hai nơi (27/07/2026).
+bị chặn (harvest local tự bỏ qua, xem `html_pages_from_claude_md`). Đo bằng `scripts/probe_sources.py`
+chạy ở cả hai nơi (27/07/2026), **đo lại 30/07/2026 bằng `kiem_nguon.py` + trình duyệt**.
+
+🔄 **ĐẢO LẠI 30/07/2026 — 13 trang THƯỢNG VIỆN chuyển từ `CI` sang `cả hai`.** Nhãn `CI` cũ dựa
+trên phép đo bằng curl trần, mà curl trần thì bị chặn theo **vân tay TLS** chứ không phải theo IP: đã mở
+đủ **13/13** trang bằng trình duyệt tại chính máy này, và `curl_cffi impersonate="chrome"` cũng trả 200
+cho cả 13. Nay `harvest.py` tự đi bậc 2 nên local quét được luôn — đây là **nhóm 1 (điều trần + bỏ
+phiếu)**, nhóm luôn thiếu tin nhất, nên phần chênh này đáng kể.
+⚠️ Giữ `CI` cho `census.gov` và `occ.treas.gov`: hai trang này chặn **cả trình duyệt** tại máy local
+(census trả trang Cloudflare *"Sorry, you have been blocked"*, occ drop im lặng hết 25 giây) — đó mới
+đúng là chặn theo IP, và CI vẫn lấy được.
 
 | Trang | URL | Chạy ở | Nhóm/chủ đề |
 |---|---|---|---|
 | Uỷ ban Quân vụ Hạ viện | https://armedservices.house.gov/news/press-releases | cả hai | **Nội bộ Mỹ nhóm 1** |
 | Uỷ ban Chuẩn chi Hạ viện | https://appropriations.house.gov/news/press-releases | cả hai | **Nội bộ Mỹ nhóm 1** |
 | Uỷ ban Tình báo Hạ viện | https://intelligence.house.gov/news/ | cả hai | Nội bộ Mỹ nhóm 1 |
-| Uỷ ban Tư pháp Hạ viện | https://judiciary.house.gov/news/documentquery.aspx?DocumentTypeID=2 | cả hai | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Tư pháp Hạ viện | https://judiciary.house.gov/media/press-releases | cả hai | Nội bộ Mỹ nhóm 1 |
 | Uỷ ban An ninh Nội địa Hạ viện | https://homeland.house.gov/news/ | cả hai | Nội bộ Mỹ nhóm 1 |
 | Uỷ ban Giám sát Hạ viện | https://oversight.house.gov/news/ | cả hai | Nội bộ Mỹ nhóm 1 |
 | Uỷ ban Tài chính Hạ viện | https://financialservices.house.gov/news/ | cả hai | nhóm 1 + 4 |
 | Uỷ ban Thuế vụ Hạ viện | https://waysandmeans.house.gov/news/ | cả hai | nhóm 1 + 4 |
 | Uỷ ban Ngân sách Hạ viện | https://budget.house.gov/news | cả hai | nhóm 1 + 4 |
 | Uỷ ban Khoa học Hạ viện | https://science.house.gov/news | cả hai | nhóm 1 |
-| **Uỷ ban Quân vụ THƯỢNG VIỆN** | https://www.armed-services.senate.gov/press-releases | **CI** | **Nội bộ Mỹ nhóm 1** |
-| **Uỷ ban Đối ngoại Thượng viện** | https://www.foreign.senate.gov/press | **CI** | **Nội bộ Mỹ nhóm 1** |
-| **Uỷ ban Chuẩn chi Thượng viện** | https://www.appropriations.senate.gov/news/majority | **CI** | **Nội bộ Mỹ nhóm 1** |
-| **Uỷ ban Tình báo Thượng viện** | https://www.intelligence.senate.gov/reports-publications/press-releases/ | **CI** | **Nội bộ Mỹ nhóm 1** |
-| **Uỷ ban Tư pháp Thượng viện** | https://www.judiciary.senate.gov/press/ | **CI** | Nội bộ Mỹ nhóm 1 |
-| Uỷ ban Ngân hàng Thượng viện | https://www.banking.senate.gov/newsroom | **CI** | nhóm 1 + 4 |
-| Uỷ ban Tài chính Thượng viện | https://www.finance.senate.gov/chairmans-news | **CI** | nhóm 1 + 4 |
-| Uỷ ban Ngân sách Thượng viện | https://www.budget.senate.gov/chairman/newsroom | **CI** | nhóm 1 + 4 |
-| Uỷ ban Thương mại Thượng viện | https://www.commerce.senate.gov/press/ | **CI** | nhóm 1 + 4 |
-| Uỷ ban Năng lượng Thượng viện | https://www.energy.senate.gov/newsroom | **CI** | nhóm 1 |
-| Uỷ ban An ninh Nội địa Thượng viện (HSGAC) | https://www.hsgac.senate.gov/media/majority-news/ | **CI** | nhóm 1 |
-| Uỷ ban Quy tắc Thượng viện | https://www.rules.senate.gov/news/press-releases | **CI** | nhóm 1 |
-| Thông cáo chung Thượng viện | https://www.pressphotographers.senate.gov/senate/senate-press-releases/ | **CI** | nhóm 1 |
+| **Uỷ ban Quân vụ THƯỢNG VIỆN** | https://www.armed-services.senate.gov/press-releases | cả hai | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Đối ngoại Thượng viện** | https://www.foreign.senate.gov/press | cả hai | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Chuẩn chi Thượng viện** | https://www.appropriations.senate.gov/news/majority | cả hai | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Tình báo Thượng viện** | https://www.intelligence.senate.gov/reports-publications/press-releases/ | cả hai | **Nội bộ Mỹ nhóm 1** |
+| **Uỷ ban Tư pháp Thượng viện** | https://www.judiciary.senate.gov/press/ | cả hai | Nội bộ Mỹ nhóm 1 |
+| Uỷ ban Ngân hàng Thượng viện | https://www.banking.senate.gov/newsroom | cả hai | nhóm 1 + 4 |
+| Uỷ ban Tài chính Thượng viện | https://www.finance.senate.gov/chairmans-news | cả hai | nhóm 1 + 4 |
+| Uỷ ban Ngân sách Thượng viện | https://www.budget.senate.gov/chairman/newsroom | cả hai | nhóm 1 + 4 |
+| Uỷ ban Thương mại Thượng viện | https://www.commerce.senate.gov/press/ | cả hai | nhóm 1 + 4 |
+| Uỷ ban Năng lượng Thượng viện | https://www.energy.senate.gov/newsroom | cả hai | nhóm 1 |
+| Uỷ ban An ninh Nội địa Thượng viện (HSGAC) | https://www.hsgac.senate.gov/media/majority-news/ | cả hai | nhóm 1 |
+| Uỷ ban Quy tắc Thượng viện | https://www.rules.senate.gov/news/press-releases | cả hai | nhóm 1 |
+| Thông cáo chung Thượng viện | https://www.pressphotographers.senate.gov/senate/senate-press-releases/ | cả hai | nhóm 1 |
 | Census Bureau | https://www.census.gov/newsroom/press-releases.html | **CI** | nhóm 4 (số liệu) |
 | OCC (Kiểm soát Tiền tệ) | https://www.occ.treas.gov/news-events/newsroom/news-issuances-by-year/news-releases/index-news-releases.html | **CI** | nhóm 4 |
 

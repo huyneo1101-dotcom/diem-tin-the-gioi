@@ -152,12 +152,80 @@ def same_story(a: str, b: str) -> bool:
     return len(sa & sb) / len(sa | sb) >= 0.5
 
 
+# ── LẤY NỘI DUNG: curl thường, bị chặn thì thử lại bằng vân tay TLS của Chrome ──
+# VÌ SAO (đo thật 30/07/2026): Akamai và Cloudflare nhận dạng dấu vân tay TLS (JA3/JA4)
+# của curl/urllib rồi cắt kết nối, trong khi Chrome CÙNG MÁY CÙNG IP vào bình thường
+# (đo: Browser pane đi ra bằng đúng 113.23.43.99 như curl). KHÔNG phải chặn địa lý.
+# Đo lẻ tuần tự 21 nguồn hỏng: 16 nguồn curl 403 mà `impersonate="chrome"` trả 200 —
+# gồm Breaking Defense (30 item), Naval Technology (10), army.mil (45) và 13 trang
+# Thượng viện. Thêm header đầy đủ hay ép HTTP/1.1 KHÔNG cứu được cái nào: đã đo
+# cả 3 cấu hình × 108 nguồn, số nguồn hỏng y hệt nhau (21/108).
+#
+# ⚠️ 403 KHÔNG phải lúc nào cũng lộ ra là rỗng hay ngắn: trang lỗi của Naval Technology
+# dài 19.357 byte và MỞ ĐẦU BẰNG `<?xml`, nên `items_of` parse ra 0 item mà không ném
+# lỗi — hỏng câm hoàn hảo. Vì vậy phải dò theo DẤU HIỆU trong thân, không dò theo cỡ.
+DAU_HIEU_CHAN = (b"403 forbidden", b"error 403", b"access denied",
+                 b"attention required", b"just a moment", b"request forbidden")
+
+# Sổ ghi vết trong RAM: nguồn nào phải nhờ vân tay TLS, nguồn nào chịu chết.
+# `main()` in ra cuối — nguồn chết mà không ai kêu thì sống mãi (bài học cổng câm NFD).
+VET_NGUON = {"cffi_va_duoc": [], "chan_ca_hai": [], "cffi_vang_mat": set()}
+
+_CFFI = None  # None = chưa thử import · False = máy không có curl_cffi
+
+
+def _nghi_bi_chan(body: bytes) -> bool:
+    if not body:
+        return True
+    dau = body[:3000].lower()
+    return any(d in dau for d in DAU_HIEU_CHAN)
+
+
+def _lay_bang_van_tay_chrome(url: str, timeout: int) -> bytes:
+    """Thử lại bằng curl_cffi (giả vân tay TLS Chrome). Thiếu thư viện thì trả rỗng.
+
+    Fail-open CÓ TIẾNG: thiếu `curl_cffi` thì harvest vẫn chạy (CI không cần nó — runner
+    Mỹ curl thẳng được), nhưng ghi vào VET_NGUON để cuối phiên còn in ra. Im lặng ở đây
+    là tạo đúng vùng câm mà cả hàm này sinh ra để bịt.
+    Cài ở máy local:  python3 -m pip install --user curl_cffi
+    """
+    global _CFFI
+    if _CFFI is False:
+        return b""
+    if _CFFI is None:
+        try:
+            from curl_cffi import requests as _r  # noqa: PLC0415
+            _CFFI = _r
+        except ImportError:
+            _CFFI = False
+            return b""
+    try:
+        r = _CFFI.get(url, impersonate="chrome", timeout=timeout)
+        return r.content if r.status_code == 200 else b""
+    except Exception:
+        return b""
+
+
 def curl(url: str, timeout: int = 25) -> bytes:
     p = subprocess.run(
         ["curl", "-sL", "--compressed", "--max-time", str(timeout), "-A", UA, url],
         capture_output=True,
     )
-    return p.stdout or b""
+    body = p.stdout or b""
+    if not _nghi_bi_chan(body):
+        return body
+    if _CFFI is False:
+        VET_NGUON["cffi_vang_mat"].add(url)
+        return body
+    body2 = _lay_bang_van_tay_chrome(url, timeout)
+    if _CFFI is False:          # vừa phát hiện thiếu thư viện ngay trong lượt này
+        VET_NGUON["cffi_vang_mat"].add(url)
+        return body
+    if body2 and not _nghi_bi_chan(body2):
+        VET_NGUON["cffi_va_duoc"].append(url)
+        return body2
+    VET_NGUON["chan_ca_hai"].append(url)
+    return body
 
 
 def feeds_from_claude_md():
@@ -371,7 +439,15 @@ def harvest_rss(window):
     print(f"[RSS] quét {len(feeds)} feed từ bảng trong CLAUDE.md...", file=sys.stderr)
     for name, url in feeds:
         forced = FORCE_TOPIC.get(name)
-        for title, link, pub, _ in items_of(curl(url)):
+        raw = items_of(curl(url))
+        # Đếm item THÔ, trước mọi bộ lọc. Phân biệt hai chuyện khác hẳn nhau mà nhìn kết
+        # quả cuối thì giống hệt: feed CHẾT (0 item) khác feed sống mà hôm nay không có
+        # bài khớp chủ đề. Không tách ra thì một feed chết nằm im hàng tháng — đúng bệnh
+        # đã bắt được 30/07: Breaking Defense 403 từ lúc nào không ai biết, bảng CLAUDE.md
+        # vẫn ghi "25 item, mới 2h".
+        if not raw:
+            VET_NGUON.setdefault("feed_rong", []).append((name, url))
+        for title, link, pub, _ in raw:
             d = parse_date(pub)
             topic = forced or match_topic(title, "both")
             if not topic:
@@ -520,6 +596,42 @@ def doc_ung_vien_ci(window):
     return hits
 
 
+def bao_nguon_hong():
+    """In tình trạng nguồn ở CUỐI mỗi lần chạy — nguồn chết mà không ai kêu thì sống mãi.
+
+    VÌ SAO PHẢI IN (bài học 30/07/2026): trước bản vá này, feed bị chặn chỉ đơn giản là
+    không đóng góp ứng viên nào, y hệt một feed sống mà hôm nay không có bài hợp chủ đề.
+    Không có gì phân biệt hai ca đó, nên Breaking Defense · Naval Technology · army.mil
+    nằm chết trong bảng nguồn suốt nhiều ngày trong khi tài liệu vẫn ghi chúng "dùng tốt".
+    Cùng họ với cổng dàn ý câm vì NFD ở QuanSu: hỏng thì im lặng, mà sạch cũng im lặng.
+    """
+    rong = VET_NGUON.get("feed_rong", [])
+    cffi_va = VET_NGUON["cffi_va_duoc"]
+    chan = VET_NGUON["chan_ca_hai"]
+    thieu_cffi = VET_NGUON["cffi_vang_mat"]
+
+    if cffi_va:
+        print(f"\n🔓 {len(cffi_va)} nguồn phải lấy bằng VÂN TAY TLS Chrome (curl trần bị chặn):")
+        for u in cffi_va:
+            print(f"     {u[:130]}")
+    if thieu_cffi:
+        print(f"\n⚠️  {len(thieu_cffi)} nguồn bị chặn mà máy KHÔNG có `curl_cffi` để thử lại — "
+              f"đang mất tin. Cài:  python3 -m pip install --user curl_cffi")
+        for u in sorted(thieu_cffi)[:10]:
+            print(f"     {u[:130]}")
+    if chan:
+        print(f"\n⛔ {len(chan)} nguồn chặn CẢ HAI đường (curl trần + vân tay Chrome):")
+        for u in chan:
+            print(f"     {u[:130]}")
+    if rong:
+        print(f"\n⛔ {len(rong)} FEED RSS TRẢ 0 ITEM — nghi chết hoặc đổi URL, "
+              f"kiểm bằng `python3 scripts/kiem_nguon.py`:")
+        for ten, u in rong:
+            print(f"     {ten} — {u[:120]}")
+    if not (rong or chan or thieu_cffi):
+        print("\n✅ Mọi feed đều trả item; không nguồn nào bị chặn cả hai đường.")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rss", action="store_true", help="chỉ quét RSS trong bảng CLAUDE.md")
@@ -604,6 +716,8 @@ def main():
             nhom = f"[nhóm {h['nhom']}]" if h.get("nhom") and h["nhom"] != 9 else ""
             print(f"   [{h['lop']}][{h['ngay']}]{nhom} {h['tieu_de'][:100]}")
             print(f"        {h['nguon']} — {h['url'][:120]}")
+
+    bao_nguon_hong()
 
     print("\n⚠️  [GNEWS] = RADAR, link là redirect news.google.com: PHẢI tự tìm bài gốc "
           "(WebSearch theo tiêu đề + tên nguồn) rồi mới nạp. KHÔNG nạp link news.google.com.")
