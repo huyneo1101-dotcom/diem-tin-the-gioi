@@ -103,3 +103,26 @@ def send_document(token: str, chat_id: str, path: str, caption: str = "") -> dic
     return _run(f'url = "{url}"\n',
                 ["-F", f"chat_id={chat_id}", "-F", f"caption={caption}",
                  "-F", f"document=@{path}"])
+
+
+def tai_file(token: str, file_id: str, dich: str) -> bool:
+    """Tải file người dùng gửi cho bot (theo `file_id`) về đường dẫn `dich`.
+
+    Hai bước — `getFile` trả `file_path` tạm thời, rồi tải qua endpoint file/ riêng — cả hai
+    đi qua `curl -K -` (stdin) như `call()`, TOKEN KHÔNG NẰM TRONG ARGV (xem docstring đầu file).
+    Bot API giới hạn 20MB cho `getFile`; tin tức .docx bình thường không chạm ngưỡng đó.
+    """
+    r = call(token, "getFile", {"file_id": file_id})
+    file_path = (r.get("result") or {}).get("file_path") if r.get("ok") else None
+    if not file_path:
+        return False
+    url = f"https://api.telegram.org/file/bot{token}/{file_path}"
+    p = subprocess.run(
+        ["curl", "-sS", "--max-time", "60", "-K", "-", "-o", dich],
+        input=f'url = "{url}"\n', capture_output=True, text=True)
+    if p.returncode != 0:
+        return False
+    try:
+        return pathlib.Path(dich).stat().st_size > 0
+    except OSError:
+        return False

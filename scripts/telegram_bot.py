@@ -41,9 +41,14 @@ import pathlib
 import re
 import subprocess
 import sys
+import tempfile
+import zoneinfo
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from tg_api import call  # noqa: E402
+from tg_api import call, tai_file  # noqa: E402
+import docx_text  # noqa: E402
+
+VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 
 QUESTIONS = "/tmp/tg-questions.json"
 # Bỏ câu hỏi cũ hơn ngần này — tránh trả lời một câu Huy hỏi từ hôm qua khi bot vừa hồi sinh
@@ -224,6 +229,78 @@ def lich_su_gan_day(chat):
     return ra
 
 
+# --- Tin Jay Lâm gửi file .docx — gộp thành tổng hợp cuối ngày (thêm 30/07/2026, Huy hỏi) ---
+# Huy chốt: file cuối ngày là TÀI LIỆU RIÊNG cho Huy đọc, KHÔNG tự động nạp lên bản tin công
+# khai (xem mục "Ràng buộc kênh — Jay Lâm là NGƯỜI NGOÀI" trong CLAUDE.md — cùng nguyên tắc).
+# Lưu vào Supabase (KHÔNG lưu file/text vào repo — repo PUBLIC, xem docstring `bot_luu.py`),
+# gộp mỗi tối bằng `scripts/gop_tin_jaylam.py`, gửi CHỈ tới chat_chu() (chat riêng của Huy).
+JAYLAM_BANG = "dt_jaylam_inbox"
+JAYLAM_MAX_CHARS = 20000
+
+
+def luu_tin_jaylam(chat, ten, ten_file, noi_dung):
+    """Ghi một tin Jay Lâm gửi vào bảng `dt_jaylam_inbox`. Trả True/False.
+
+    RLS insert mở cho anon (giống `dt_bot_hoi`, xem `bot_luu.py`) — không cần mã riêng để ghi,
+    chỉ cần mã riêng (`x-dt-key`) để ĐỌC LẠI lúc gộp cuối ngày (`gop_tin_jaylam.py`).
+    """
+    key = _anon_key()
+    if not key:
+        return False
+    ngay_vn = datetime.datetime.now(VN).date().isoformat()
+    ban_ghi = {"chat_id": chat, "ten": ten, "ten_file": ten_file,
+               "noi_dung": noi_dung, "ngay_vn": ngay_vn}
+    p = subprocess.run(
+        ["curl", "-sS", "--max-time", "30", "-X", "POST",
+         f"{SUPABASE_URL}/rest/v1/{JAYLAM_BANG}",
+         "-H", f"apikey: {key}", "-H", f"Authorization: Bearer {key}",
+         "-H", "Content-Type: application/json", "-H", "Prefer: return=minimal",
+         "-w", "\n@@%{http_code}", "-d", json.dumps(ban_ghi, ensure_ascii=False)],
+        capture_output=True, text=True)
+    out = (p.stdout or "").strip()
+    ma = out.rsplit("@@", 1)[-1] if "@@" in out else "?"
+    return ma.startswith("2")
+
+
+def xu_ly_tin_jaylam(token, chat, m, doc_att):
+    """Nhận file .docx đính kèm — tải, trích text, lưu Supabase, xác nhận với người gửi.
+
+    Xử lý NGAY trong `--doc` (rẻ, không cần `claude -p`) — giống lệnh `/xoa`: đây là việc cơ
+    học (tải + bóc XML + ghi DB), không cần suy nghĩ, bắt chờ cài Claude Code là vô lý.
+    """
+    ten_file = doc_att.get("file_name") or "(không tên)"
+    ten_nguoi = (m.get("from") or {}).get("first_name", "")
+    if not ten_file.lower().endswith(".docx"):
+        call(token, "sendMessage", {
+            "chat_id": chat,
+            "text": f"Chỉ nhận file .docx tin tức — '{ten_file}' không phải .docx, bỏ qua."})
+        return
+    fd, tmp = tempfile.mkstemp(suffix=".docx")
+    os.close(fd)
+    try:
+        if not tai_file(token, doc_att.get("file_id"), tmp):
+            call(token, "sendMessage", {
+                "chat_id": chat, "text": f"Tải file '{ten_file}' hỏng, gửi lại giúp tao."})
+            return
+        noi_dung = docx_text.trich(tmp, max_chars=JAYLAM_MAX_CHARS)
+        if not noi_dung:
+            call(token, "sendMessage", {
+                "chat_id": chat,
+                "text": f"Không đọc được nội dung '{ten_file}' (file rỗng hoặc hỏng)."})
+            return
+        if luu_tin_jaylam(chat, ten_nguoi, ten_file, noi_dung):
+            call(token, "sendMessage", {
+                "chat_id": chat,
+                "text": (f"Đã nhận: {ten_file} ({len(noi_dung)} ký tự) — "
+                         "sẽ gộp vào bản tổng hợp cuối ngày.")})
+        else:
+            call(token, "sendMessage", {
+                "chat_id": chat,
+                "text": f"Đã đọc '{ten_file}' nhưng lưu hỏng — báo lại cho Huy giúp tao."})
+    finally:
+        pathlib.Path(tmp).unlink(missing_ok=True)
+
+
 def doc(token):
     cho_phep = chats_cho_phep()
     if not cho_phep:
@@ -247,8 +324,15 @@ def doc(token):
     hoi, bo_la, bo_cu = [], 0, 0
     for u in updates:
         m = u.get("message") or {}
-        text = (m.get("text") or "").strip()
         chat = str((m.get("chat") or {}).get("id", ""))
+        doc_att = m.get("document")
+        if doc_att and chat:
+            if chat not in cho_phep:
+                bo_la += 1
+                continue
+            xu_ly_tin_jaylam(token, chat, m, doc_att)
+            continue
+        text = (m.get("text") or "").strip()
         if not text or not chat:
             continue
         if chat not in cho_phep:

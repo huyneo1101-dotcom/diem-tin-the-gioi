@@ -1,0 +1,37 @@
+name: Gộp tin Jay Lâm gửi — bản tổng hợp cuối ngày cho Huy
+
+# Jay Lâm gửi file .docx tin tức vào @diemtin24h_bot suốt cả ngày; `telegram_bot.py --doc`
+# (workflow telegram-bot.yml, cron mỗi 5') đã lưu từng tin vào Supabase `dt_jaylam_inbox` ngay
+# lúc nhận. Workflow NÀY chỉ làm một việc: cuối ngày gộp các tin CHƯA GỘP của hôm đó thành một
+# file .docx, gửi RIÊNG cho Huy (KHÔNG gửi cho Jay Lâm — xem CLAUDE.md mục "Ràng buộc kênh").
+#
+# 22:00 VN = 15:00 UTC — sau khi bản tin tối (hạn 22:00) và mọi tin Jay Lâm trong ngày đã tới.
+
+on:
+  schedule:
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  gop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Cài python-docx
+        run: pip install --quiet python-docx
+
+      - name: Gộp và gửi
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DT_BOT_KEY: ${{ secrets.DT_BOT_KEY }}
+        run: python3 scripts/gop_tin_jaylam.py
