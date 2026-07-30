@@ -371,12 +371,21 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
   `/tmp/email-preview.html`. ⚠️ **Máy Huy KHÔNG có `node`** — chỉ chạy được ở nơi có node, hoặc kiểm
   cú pháp/logic bằng `jsc` với stub `require` (xem CLAUDE.md).
 
-## Bước 4c — CHỈ PHIÊN TỐI: tin Jay Lâm gửi thành TIN CHUẨN (thêm 30/07/2026)
+## Bước 4c — CẢ HAI PHIÊN: tin Jay Lâm gửi thành TIN CHUẨN (thêm 30/07/2026)
 
 Chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*. Mục 5 của
-file .docx bản tin tối là tin Jay Lâm gửi vào bot; trước 30/07 nó dán nguyên văn tới 20.000 ký tự,
+file .docx bản tin là tin Jay Lâm gửi vào bot; trước 30/07 nó dán nguyên văn tới 20.000 ký tự,
 lệch hẳn khuôn 4 mục kia. Việc truy nguồn + viết tóm tắt cần suy nghĩ nên `make_docx.py` không làm
-được — đây là việc của phiên quét TỐI.
+được — đây là việc của phiên quét.
+
+✅ **PHIÊN SÁNG SỚM CŨNG LÀM BƯỚC NÀY — đảo lại "CHỈ PHIÊN TỐI" của bản đầu, cùng ngày 30/07/2026.**
+Huy chốt: *"Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động gộp tin vào bản tin sáng"*, và
+`make_docx.py` nay dựng mục 5 ở CẢ HAI buổi. **Cơ chế gây vấp của bản đầu:** phiên tối chạy
+20:47-21:26 mà file Jay Lâm gửi lúc 21:34 — muộn hơn cả bản .docx cuối cùng — nên tin phải chờ tới
+20:47 hôm sau, lúc đó khung ngày đã đẩy nó sang nhóm quá hạn rồi đóng sổ. Tức file gửi trong khoảng
+21:30-23:59 gần như **không bao giờ tới tay**, mà file .docx vẫn ra đời bình thường nên không dấu
+hiệu nào. Bỏ bước này ở phiên sáng thì mục 5 vẫn có nhưng in **nguyên văn dự phòng**, không phải tin
+chuẩn. Hạn chót 21:45 nhắc ở dưới là của RIÊNG phiên tối.
 
 ⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC, RỒI MỚI ĐỌC HÀNG CHỜ** (thêm 30/07/2026 sau khi vấp thật). File Jay
 Lâm gửi chỉ vào bảng khi `telegram-bot.yml` chạy, mà GitHub chạy workflow đó **cách nhau 01-02 giờ**

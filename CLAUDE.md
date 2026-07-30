@@ -894,11 +894,11 @@ ngày (tới cả Huy lẫn Jay Lâm — họ tự gửi tin của mình nên kh
 | Bảng Supabase `dt_jaylam_inbox` | `chat_id, ten, ten_file, noi_dung, ngay_vn, da_gop, created_at` + (thêm 30/07) `tieu_de, tom_tat, nguon_ten, nguon_url, da_xu_ly, la_cnqs` do phiên quét tối ghi. RLS: INSERT mở cho anon (giống `dt_bot_hoi`) · SELECT/UPDATE chỉ qua `dt_ma_hop_le()` (mã `x-dt-key`) |
 | `scripts/tin_jaylam.py` | **Bước của PHIÊN QUÉT TỐI** (thêm 30/07): `--liet-ke` in hàng chờ cho agent (mã 10 = rỗng) · `--ghi FILE.json` ghi tóm tắt + nguồn + `la_cnqs`, đặt `da_xu_ly=true`. Guardrail: id không thuộc hàng chờ · id trùng · `tieu_de` ngoài 10-200 ký tự · `tom_tat` dưới 40 · thiếu `nguon_ten` · URL trang chủ/live-blog (dùng CHUNG `add_news.check_url_quality`) · `la_cnqs` sai kiểu |
 | `scripts/docx_text.py` | Bóc chữ từ `.docx` Jay Lâm gửi bằng `zipfile` + regex trên `word/document.xml` — KHÔNG cần `python-docx` chỉ để ĐỌC |
-| `scripts/telegram_bot.py::xu_ly_tin_jaylam()` | Chạy NGAY trong `--doc` (rẻ, không cần `claude -p`, giống lệnh `/xoa`): nhận file, từ chối nếu không phải `.docx`, tải bằng `tg_api.tai_file()`, trích chữ, ghi Supabase (`da_gop=false`), xác nhận NGẮN cho người gửi |
-| `.github/scripts/make_docx.py` mục 5 "Tin Jay Lâm gửi" | **CHỈ ở bản buổi TỐI** (`la_buoi_toi(now)`, ngưỡng 14h giờ VN — cùng ngưỡng `ten_file()`). Đọc dòng `da_gop=false`, tách trong-khung / quá-hạn theo `jaylam_gioi_han_ngay()`, qua bộ lọc chống trùng `loc_trung_jaylam()`, in theo khuôn tin chuẩn (`add_jaylam_item`) kèm dòng nhãn xác minh, rồi đánh dấu `da_gop=true` SAU khi `doc.save()` thành công — **cho cả nhóm quá hạn** |
+| `scripts/telegram_bot.py::xu_ly_tin_jaylam()` | Chạy NGAY trong `--doc` (rẻ, không cần `claude -p`, giống lệnh `/xoa`): **bỏ qua file của CHAT CHỦ** (xem `_la_chat_chu`), từ chối nếu không phải `.docx`, tải bằng `tg_api.tai_file()`, trích chữ, ghi Supabase (`da_gop=false`), xác nhận NGẮN cho người gửi |
+| `.github/scripts/make_docx.py` mục 5 "Tin Jay Lâm gửi" | **CẢ HAI BUỔI** (mở cho bản sáng 30/07/2026 — trước đó khoá vào `la_buoi_toi(now)`). Đọc dòng `da_gop=false`, tách trong-khung / quá-hạn theo `jaylam_gioi_han_ngay()`, qua bộ lọc chống trùng `loc_trung_jaylam()`, in theo khuôn tin chuẩn (`add_jaylam_item`) kèm dòng nhãn xác minh, rồi đánh dấu `da_gop=true` SAU khi `doc.save()` thành công — **cho cả nhóm quá hạn** |
 | `.github/workflows/notify-email.yml` | Bước "Tạo file docx" nay có thêm `DT_BOT_KEY` — thiếu secret thì mục 5 tự bỏ qua, KHÔNG làm hỏng phần còn lại của file |
-| `tests/test-nhan-tin-jaylam.py` | **17 ca · `--tu-kiem` bắt 5/5 bản hỏng** — phần NHẬN (bóc chữ + `xu_ly_tin_jaylam`): 4 ca PHẢI CHẶN (từ chối không phải `.docx` · tải hỏng · file rỗng → KHÔNG lưu) · 3 ca TRẦN ĐỘ DÀI (hồi quy 34.525 ký tự · vượt trần PHẢI báo · dưới trần không kêu oan) · 5 ca CHUYỂN TIẾP bản sao về chat chủ |
-| `tests/test-tin-jaylam-trong-docx.py` | **43 ca · `--tu-kiem` bắt 12/12 bản hỏng** — phần GỘP: buổi sáng KHÔNG đụng Jay Lâm · trùng tin quét thường thì bị lọc NHƯNG vẫn đánh dấu đã gộp · trùng NỘI BỘ chỉ giữ dòng đầu · khung ngày 2 ngày mà CNQS được nới 3 ngày (ca 27-31, gồm đúng ví dụ "hôm nay 27 giữ tin ngày 24") · dòng chưa xử lý hưởng khung RỘNG · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
+| `tests/test-nhan-tin-jaylam.py` | **23 ca · `--tu-kiem` bắt 7/7 bản hỏng** — phần NHẬN (bóc chữ + `xu_ly_tin_jaylam`): 4 ca PHẢI CHẶN (từ chối không phải `.docx` · tải hỏng · file rỗng → KHÔNG lưu) · 3 ca TRẦN ĐỘ DÀI (hồi quy 34.525 ký tự · vượt trần PHẢI báo · dưới trần không kêu oan) · 6 ca CHUYỂN TIẾP bản sao về chat chủ · **5 ca CHAT CHỦ** (file của Huy KHÔNG vào hàng chờ, tin xác nhận nói rõ; người ngoài vẫn lưu; id chuỗi con vẫn lưu; thiếu chat chủ thì không chặn ai) |
+| `tests/test-tin-jaylam-trong-docx.py` | **49 ca · `--tu-kiem` bắt 16/16 bản hỏng** — phần GỘP: **buổi sáng CŨNG gộp** (ca 04/05/44/45) · trùng tin quét thường thì bị lọc NHƯNG vẫn đánh dấu đã gộp · trùng NỘI BỘ chỉ giữ dòng đầu · khung ngày 2 ngày mà CNQS được nới 3 ngày (ca 27-31, gồm đúng ví dụ "hôm nay 27 giữ tin ngày 24") · dòng chưa xử lý hưởng khung RỘNG · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
 | `tests/test-tin-jaylam-xu-ly.py` | **30 ca (14 ca PHẢI CHẶN) · `--tu-kiem` bắt 12/12 bản hỏng** — guardrail của `tin_jaylam.py`: id bịa/trùng · `tieu_de`/`tom_tat` không đạt · thiếu `nguon_ten` · URL trang chủ/live-blog · `la_cnqs` sai kiểu · ghi mù khi hàng chờ rỗng · PATCH hỏng phải KÊU · một mục sai chặn cả lô · khung ngày ở bước liệt kê dùng khung RỘNG NHẤT |
 
 ⚠️ **BỘ LỌC CHỐNG TRÙNG — "vẫn phải có như mọi khi" (Huy chốt)**, viết TẠI CHỖ trong
@@ -953,6 +953,32 @@ lại vẫn xanh, nên phép thay kiểu **xoá hẳn** lời gọi không đo �
 Ngược lại, im lặng khi hỏng là Huy tưởng hôm đó Jay không gửi gì.
 ⚠️ **Caption không mang nội dung file** (luật 3b: log Actions của repo PUBLIC), chỉ có tên người
 gửi + tên file.
+
+### ⛔ FILE DO CHÍNH HUY GỬI KHÔNG PHẢI TIN — không vào hàng chờ (30/07/2026)
+
+> Nguyên văn Huy: *"tao gửi file word lên thì không phải tổng hợp tin"*.
+
+**Cơ chế gây vấp:** nhánh `document` trong `telegram_bot.py::doc()` nhận file của **MỌI chat
+trong danh sách cho phép**, mà `TELEGRAM_CHAT_ID` có cả Huy — nên file Huy tự gửi (bản tin vừa
+dựng, tài liệu đang đọc, file gửi nhầm) đều lặng lẽ vào `dt_jaylam_inbox` rồi quay lại ở mục 5
+của chính bản tin hôm đó. Không lỗi, không cảnh báo, và tin xác nhận còn hứa *"sẽ vào bản tin
+TỐI hôm nay"* nên đọc vào là tưởng đúng ý.
+
+`telegram_bot.py::_la_chat_chu(chat)` — so BẰNG chuỗi với `chat_chu()`, chặn ngay đầu
+`xu_ly_tin_jaylam()`. Bốn chốt, đều có ca test:
+- **Đặt TRƯỚC cả phép kiểm `.docx`** — với chat chủ thì loại file không quan trọng, file nào
+  cũng không phải tin; dạy Huy về đuôi file ở đó là lạc đề.
+- **Vẫn xác nhận, và NÓI RÕ là không lên bản tin** (chỉ thị Huy) — im lặng thì Huy tưởng nó đã
+  vào hàng chờ như file của người ngoài.
+- ⚠️ **So BẰNG, tuyệt đối không so chuỗi con**: id Telegram của hai người có thể là tiền tố của
+  nhau, mà nhận nhầm người ngoài thành chat chủ nghĩa là **MẤT TIN** của họ — hướng lệch tệ
+  nhất. Ca 16 dựng đúng cặp id chuỗi con để canh chiều nới này.
+- ⚠️ **Không xác định được chat chủ (`TELEGRAM_CHAT_ID` rỗng) → KHÔNG chặn ai**, xử lý y như
+  trước bản vá: thà nhận thừa một file còn hơn nuốt mất tin.
+- ⚠️ **Bản vá này che mất chốt trong `gui_ban_sao_cho_chu`** (hàm đó không còn được gọi tới khi
+  chat == chủ), làm ca cũ *"chat chủ tự gửi file → KHÔNG chuyển tiếp ngược"* mất răng. Đã neo
+  lại bằng một ca **gọi THẲNG `gui_ban_sao_cho_chu`**; ca cũ nay là ca hành vi tổng thể được
+  hai lớp bảo vệ nên cố ý KHÔNG khai vào `BAN_HONG` nào.
 
 ⚠️ **TRẦN ĐỘ DÀI TỪNG CẮT MẤT 42% NỘI DUNG TRONG IM LẶNG — vá 30/07/2026, ngay lô đầu tiên.**
 File thật đầu tiên Jay Lâm gửi (`29.7 ĐTN huong M.docx`, 21:06 ngày 30/07) dài **34.525 ký tự /
@@ -1040,9 +1066,40 @@ nên nó chỉ đo *phép cắt*, **không** đo trần đặt ở đâu, hạ t
 test xanh y nguyên.
 ⚠️ Cảnh báo stderr phải nói ĐÚNG có cắt hay không kèm số ký tự — bản cũ luôn ghi "đã cắt" kể cả
 khi in đủ, nên đọc log không phân biệt được tin ra đủ với tin mất 96%.
-Bộ test `tests/test-tin-jaylam-trong-docx.py` nay **47 ca · `--tu-kiem` bắt 15/15 bản hỏng**,
-trong đó 03 bản mới dựng lại đúng hành vi cũ (đóng sổ dòng chưa tóm tắt · tha cả dòng đã tóm
-tắt · hạ trần về 1.200).
+Bộ test `tests/test-tin-jaylam-trong-docx.py` nay **49 ca · `--tu-kiem` bắt 16/16 bản hỏng**,
+trong đó 03 bản dựng lại đúng hành vi cũ (đóng sổ dòng chưa tóm tắt · tha cả dòng đã tóm
+tắt · hạ trần về 1.200) và 01 bản khoá lại mục 5 vào riêng bản tối.
+
+### 🌅 MỤC 5 MỞ CHO CẢ BẢN SÁNG — tin gửi muộn không còn kẹt tới lúc quá hạn (30/07/2026)
+
+> Nguyên văn Huy: *"Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động gộp tin vào bản
+> tin sáng"*.
+
+**Cơ chế gây vấp:** `make_docx.py` khoá mục 5 vào `la_buoi_toi(now)`, tức chỉ bản tối mới đọc
+hàng chờ. Nhưng phiên quét tối chạy **20:47-21:26** còn file thật Jay Lâm gửi lúc **21:06 và
+21:34** — cái sau muộn hơn cả bản `.docx` cuối cùng. Tin đó phải nằm chờ tới **20:47 hôm sau**,
+mà tới lúc đó `jaylam_qua_han` đã tính ra 1-2 ngày và đẩy nó sang nhóm quá hạn rồi **đóng sổ**.
+Tức mọi file gửi trong khoảng **21:30-23:59 gần như không bao giờ tới tay**, trong khi file
+`.docx` vẫn ra đời bình thường và không log nào kêu — chỉ thiếu mục 5.
+
+- **Bỏ hẳn điều kiện buổi**: `doc_tin_jaylam_chua_gop(now)` gọi ở CẢ hai bản. Hàng chờ tự lọc
+  bằng `da_gop` nên bản nào dựng trước thì bản đó gộp; **không có đường một tin vào cả hai bản**.
+- ⚠️ **KHUNG NGÀY GIỮ NGUYÊN 2 ngày (CNQS 3) — đã xét và cố ý không nới.** Tin gửi muộn nhất
+  23:59 tới bản sáng 03:47 hôm sau chỉ cách **1 ngày lịch**, vẫn trong khung. Nới thêm là nhận
+  tin cũ hơn chuẩn tin quét thường, tức hạ chuẩn chứ không phải vá lỗ. Ca 45 canh đúng chiều
+  này: mở cho bản sáng KHÔNG được kéo theo việc nới khung.
+- ⚠️ **`la_buoi_toi()` VẪN CÒN DÙNG** cho `ten_file()` (đặt tên `Diem-tin-sang-som-5h` /
+  `-toi-21h`) — đừng thấy mục 5 hết dùng mà xoá hàm.
+- ⚠️ **Bước tóm tắt `tin_jaylam.py` phải chạy ở CẢ HAI phiên**, không thì bản sáng in nguyên
+  văn dự phòng thay vì tin chuẩn. Đã sửa 03 nơi: `docs/routine-web-scan.md` (thêm **Bước 2b**
+  ở phần CHUNG — điều 5 nằm trong mục riêng của phiên tối nên phiên sáng không đọc tới),
+  `.claude/skills/quet-tin/SKILL.md` Bước 4c, `.github/prompts/web-scan-ci.md` bước 3b.
+- ⚠️ **Bản vá này rút mất chỗ neo của 02 ca cũ** ([04] [05] khẳng định *"buổi sáng KHÔNG đụng
+  Supabase Jay Lâm"*) — đã **sửa ca theo hành vi mới, KHÔNG gỡ ca**, và thêm bản hỏng *"khoá
+  lại mục 5 vào riêng bản TỐI"* để chúng có neo trở lại.
+- ⚠️ **Bẫy khi thêm ca:** `chay()` thay `MD.doc_tin_jaylam_chua_gop` bằng hàm giả, nên ca nào
+  gọi `doc_that` TỪ BÊN TRONG hàm giả mà đọc qua `MD.` sẽ tự gọi lại chính mình →
+  `RecursionError`. Đã neo tham chiếu bản thật vào `_DOC_GOC` lúc nạp module.
 ⚠️ **Không truy được bài gốc thì VẪN GIỮ tin** — `nguon_ten: "Jay Lâm gửi"`, `nguon_url` rỗng,
 mục 5 in "(không truy được bài gốc)". Cùng luật Agent 7 của Báo Mới: bài người dùng tự đưa thì
 không được bỏ. Guardrail chặn `nguon_url` là trang chủ/live-blog nên đừng nhét link bừa cho có.
@@ -1123,8 +1180,8 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `tests/test-cong-luat-push.py` | Cổng "workflow có LỊCH thì cấm rebase file DÙNG CHUNG" (`.github/scripts/kiem_luat_push.py`) | 11 ca — 4 PHẢI CHẶN (bật lại lịch drive-import · `git add logs/` · `git add -A` · dạng `"on":` có nháy), 4 đối chứng chống chặn oan, 2 fail-closed (yml hỏng · thư mục rỗng đều phải trả mã 2), 1 soi thư mục workflow THẬT. `--tu-kiem` bắt 8/8 bản hỏng |
 | `tests/test-ghi-so-push.py` | Sổ đã gửi chịu được HAI workflow ghi cùng lúc (`.github/scripts/ghi_so_push.py`) | 10 ca — 2 CA CHÍNH (giữ đủ hai dòng · URL tính đúng một lần) · 2 PHẢI CHẶN (nhân dòng · `--hard` đè index.html) · 1 PHẢI KÊU · 4 đối chứng · 1 kiểm cổng còn nằm trên đường đi (soi 2 file yml). `--tu-kiem` bắt 6/6 bản hỏng |
 | `tests/test-bang-nguon-claude-md.py` | Đường ĐỌC BẢNG NGUỒN từ CLAUDE.md + phép lấy TIÊU ĐỀ của lớp `[HTML]` | 13 ca — 6 PHẢI CHẶN (nhắc tên bảng trong văn xuôi ×1/×3 · bảng HTML lọt vào lớp RSS · feed giao với trang HTML · thẻ `<a>` gộp tóm tắt vẫn phải ra tiêu đề qua `aria-label` · và qua `<h4 class=title>` kèm tiêu đề phải sạch), 7 đối chứng (cột `CI` bị bỏ ở local · đủ 06 trang quân chủng · Navy+Marines có ở local · tên không mang dấu `**` · không có bảng thì trả rỗng êm · tiêu đề đổi chữ vẫn đọc được · **chống nới tay**: không có nguồn tiêu đề sạch thì BỎ chứ không nạp tiêu đề rác). `--tu-kiem` bắt 5/5 bản hỏng |
-| `tests/test-nhan-tin-jaylam.py` | Nhận file `.docx` Jay Lâm gửi qua bot (`docx_text.py` · `telegram_bot.py::xu_ly_tin_jaylam` · `gui_ban_sao_cho_chu`) | **17 ca · `--tu-kiem` bắt 5/5 bản hỏng** — 4 PHẢI CHẶN (không phải `.docx` · tải hỏng · file rỗng → KHÔNG gọi `luu_tin_jaylam`), 4 ca trích chữ, 1 ca luồng bình thường, **3 ca trần độ dài** (hồi quy file thật 34.525 ký tự · vượt trần PHẢI báo · dưới trần không kêu oan), **5 ca chuyển tiếp bản sao** (đúng `file_id` + caption · VẪN gửi khi tải hỏng · VẪN gửi khi Supabase hỏng · KHÔNG gửi ngược cho chính chat chủ · thiếu chat chủ không crash) |
-| `tests/test-tin-jaylam-trong-docx.py` | Gộp tin Jay Lâm vào mục 5 của `.docx` bản tin TỐI (`make_docx.py`) | **43 ca · `--tu-kiem` bắt 12/12 bản hỏng** — buổi sáng KHÔNG gọi Supabase Jay Lâm · trùng tin quét thường thì ẩn khỏi mục riêng nhưng VẪN đánh dấu `da_gop` · trùng nội bộ chỉ hiện 1 lần nhưng đánh dấu cả 2 · **khung ngày 2 ngày mà CNQS Mỹ nới 3 ngày** · dòng chưa xử lý hưởng khung RỘNG · in tóm tắt thay nguyên văn · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
+| `tests/test-nhan-tin-jaylam.py` | Nhận file `.docx` Jay Lâm gửi qua bot (`docx_text.py` · `telegram_bot.py::xu_ly_tin_jaylam` · `gui_ban_sao_cho_chu` · `_la_chat_chu`) | **23 ca · `--tu-kiem` bắt 7/7 bản hỏng** — 4 PHẢI CHẶN (không phải `.docx` · tải hỏng · file rỗng → KHÔNG gọi `luu_tin_jaylam`), 4 ca trích chữ, 1 ca luồng bình thường, **3 ca trần độ dài** (hồi quy file thật 34.525 ký tự · vượt trần PHẢI báo · dưới trần không kêu oan), **6 ca chuyển tiếp bản sao** (đúng `file_id` + caption · VẪN gửi khi tải hỏng · VẪN gửi khi Supabase hỏng · KHÔNG gửi ngược cho chính chat chủ · thiếu chat chủ không crash · gọi THẲNG hàm để canh chốt bên trong), **5 ca chat chủ** |
+| `tests/test-tin-jaylam-trong-docx.py` | Gộp tin Jay Lâm vào mục 5 của `.docx` bản tin (CẢ HAI buổi — `make_docx.py`) | **49 ca · `--tu-kiem` bắt 16/16 bản hỏng** — **buổi sáng CŨNG gọi Supabase Jay Lâm** · tin gửi 21:34 tối qua lên bản SÁNG hôm sau · trùng tin quét thường thì ẩn khỏi mục riêng nhưng VẪN đánh dấu `da_gop` · trùng nội bộ chỉ hiện 1 lần nhưng đánh dấu cả 2 · **khung ngày 2 ngày mà CNQS Mỹ nới 3 ngày** · dòng chưa xử lý hưởng khung RỘNG · in tóm tắt thay nguyên văn · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
 | `tests/test-tin-jaylam-xu-ly.py` | Guardrail bước phiên quét tối biến tin Jay Lâm thành tin chuẩn (`scripts/tin_jaylam.py`) | **30 ca (14 PHẢI CHẶN) · `--tu-kiem` bắt 12/12 bản hỏng** — id bịa/trùng · `tieu_de` ngoài 10-200 · `tom_tat` cụt · thiếu `nguon_ten` · URL trang chủ/live-blog · `la_cnqs` sai kiểu · ghi mù khi hàng chờ rỗng · PATCH hỏng phải KÊU chứ không báo xong oan · một mục sai chặn cả lô · bước liệt kê dùng khung RỘNG NHẤT để không bỏ mất ứng viên CNQS |
 
 Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `telegram_bot.py` · `docx_text.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:

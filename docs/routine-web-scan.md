@@ -139,6 +139,11 @@ GIỮ NHỊP TIM: sau mỗi mốc lớn (xong baseline · xong agent · xong scr
 ⏱️ **BEAT TRƯỚC KHI LÀM VIỆC LÂU, KHÔNG PHẢI SAU KHI XONG** (vá 28/07/2026, đo thật trên CI): "sau mỗi mốc lớn" nghe thì đủ nhưng thực tế nhịp ĐẦU TIÊN chỉ tới khi vòng agent xong — mà đó là chặng dài nhất phiên. Phiên tối CI 28/07: start 21:00 → beat đầu **21:26**, tức 25' không nhịp, cách ngưỡng thối 30' đúng **5 phút**. Agent chậm thêm 5' nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét, mốc kế cướp khoá → **hai phiên cùng quét**, đúng sự cố 26/07. Vì vậy beat thêm ở **(a) ngay sau `harvest.py` + `telegram_harvest.py`** và **(b) ngay TRƯỚC khi giao lô agent**; nguyên tắc chung: **hai nhịp liên tiếp không cách quá ~15 phút**.
 Ràng buộc cứng: KHÔNG dùng Read đọc cả index.html; mọi thao tác chèn tin qua `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py /tmp/new_items.json`; khung 24h (nới 48h nếu thiếu); được trả mảng rỗng, KHÔNG bịa tin/link.
 
+## Bước 2b — CẢ HAI PHIÊN: xử lý tin Jay Lâm gửi thành TIN CHUẨN (mở cho phiên sáng 30/07/2026)
+Làm SAU khi đã nạp tin quét, TRƯỚC khi commit. **Nội dung đầy đủ: điều 5 mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" cuối file này** — đọc thẳng điều đó, cả hai phiên đều làm y hệt (chỉ khác: hạn chót 21:45 là của riêng phiên tối).
+
+⚠️ **Bước này TRƯỚC đây chỉ phiên tối làm, và vì thế nó bị viết trong mục riêng của phiên tối.** Huy chốt 30/07/2026: *"Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động gộp tin vào bản tin sáng"* — `make_docx.py` nay dựng mục 5 ở CẢ HAI buổi, nên phiên sáng bỏ bước này thì mục 5 in **nguyên văn dự phòng** thay vì tin chuẩn có tiêu đề + link nguồn. Không lỗi, không cảnh báo, chỉ là mục 5 xấu hẳn đi.
+
 ## Bước 3 — Kết thúc (LUÔN gọi 1 trong 3)
 - Nạp được tin: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py done web-scan "<tóm tắt số tin mỗi chủ đề>"`
 - Lô rỗng: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py skip web-scan "<lý do>"`
@@ -361,7 +366,9 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
 
    ⚠️ **Không truy được bài gốc thì VẪN GIỮ tin** — ghi `nguon_ten: "Jay Lâm gửi"` và bỏ trống `nguon_url` (cùng luật Agent 7 của Báo Mới: bài người dùng tự đưa thì không được bỏ). Mục 5 sẽ in "(không truy được bài gốc)". Guardrail chặn `nguon_url` là trang chủ hoặc live-blog, nên đừng nhét link bừa cho có.
    ⚠️ **Một mục sai làm CHẶN CẢ LÔ** (mã 1, không ghi gì) — đọc thông báo, sửa mục lỗi rồi chạy lại. Đừng bỏ mục lỗi đi rồi ghi phần còn lại: nửa vời thì không ai biết phần nào đã vào.
-   ⚠️ **Bước này KHÔNG có hạn chót riêng nhưng nằm SAU hạn 21:45** của điều 2 — quá 21:45 thì chốt bản tin trước, bỏ bước này. Tin Jay Lâm không xử lý kịp **không mất**: nó nằm lại hàng chờ và mục 5 tự lùi về nguyên văn đã cắt (kèm cảnh báo trong log workflow), hoặc vào bản tối hôm sau nếu còn trong khung ngày.
-   ⚠️ **Phiên SÁNG SỚM KHÔNG làm bước này** — mục 5 chỉ có ở bản buổi TỐI (`make_docx.py::la_buoi_toi`).
+   ⚠️ **Bước này KHÔNG có hạn chót riêng nhưng nằm SAU hạn 21:45** của điều 2 — quá 21:45 thì chốt bản tin trước, bỏ bước này. Tin Jay Lâm không xử lý kịp **không mất**: nó nằm lại hàng chờ và mục 5 tự lùi về nguyên văn đã cắt (kèm cảnh báo trong log workflow), hoặc vào **bản SÁNG hôm sau** nếu còn trong khung ngày.
 
-   Bộ test canh: `tests/test-tin-jaylam-xu-ly.py` (30 ca · 12 bản hỏng) và `tests/test-tin-jaylam-trong-docx.py` (43 ca · 12 bản hỏng).
+   ✅ **PHIÊN SÁNG SỚM CŨNG LÀM BƯỚC NÀY — đảo lại chỉ dẫn cũ, 30/07/2026.** Huy chốt: *"Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động gộp tin vào bản tin sáng"*, và `make_docx.py` nay dựng mục 5 ở CẢ HAI buổi. **Cơ chế gây vấp của bản cũ:** phiên tối chạy 20:47-21:26 mà file Jay Lâm gửi lúc 21:34 — muộn hơn cả bản .docx cuối cùng — nên tin phải chờ tới 20:47 hôm sau, lúc đó khung ngày đã đẩy nó sang nhóm quá hạn rồi đóng sổ. Tức file gửi trong khoảng 21:30-23:59 gần như **không bao giờ tới tay**, mà file .docx vẫn ra đời bình thường nên không dấu hiệu nào.
+   ⚠️ Bỏ bước này ở phiên sáng thì mục 5 vẫn có, nhưng in **nguyên văn dự phòng** thay vì tin chuẩn — hỏng nhẹ hơn nhưng vẫn là hỏng. Ở phiên sáng bước này KHÔNG có hạn chót 21:45 (hạn đó của riêng phiên tối), nhưng vẫn làm SAU khi nạp tin quét và TRƯỚC khi commit.
+
+   Bộ test canh: `tests/test-tin-jaylam-xu-ly.py` (30 ca · 12 bản hỏng) và `tests/test-tin-jaylam-trong-docx.py` (49 ca · 16 bản hỏng).
