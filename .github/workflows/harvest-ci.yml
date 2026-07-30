@@ -40,6 +40,15 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # Vân tay TLS Chrome — `harvest.curl` tự dùng khi curl trần bị chặn (xem chú thích
+      # hàm đó). Runner Mỹ curl thẳng được phần lớn nguồn, NHƯNG probe 27/07 cho thấy CI
+      # vẫn bị 403 ở FlightGlobal · Axios · The Aviationist — đúng chữ ký vân tay TLS, vì
+      # cùng ba nguồn đó máy local curl lại lấy được. ~10 giây cài, đổi lấy 3 nguồn ở MỐC
+      # CHÍNH. Thiếu gói thì harvest vẫn chạy và tự kêu tên nguồn đang mất, nên `|| true`
+      # ở đây là fail-open CÓ TIẾNG chứ không phải nuốt lỗi.
+      - name: Cài curl_cffi (giả vân tay TLS Chrome)
+        run: python3 -m pip install --quiet curl_cffi || true
+
       - name: Gom ứng viên (RSS + HTML + Google News)
         run: python3 scripts/harvest.py --ci-out docs/ung-vien-ci.json
 
