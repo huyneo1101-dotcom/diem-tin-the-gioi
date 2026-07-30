@@ -917,6 +917,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `scripts/analyses_store.py --tu-kiem` | Chính lớp đọc/ghi kho | 3 PHẢI CHẶN (thiếu file · JSON hỏng · không phải mảng) + cổng hồi quy "index.html phải rỗng" |
 | `tests/test-cong-luat-push.py` | Cổng "workflow có LỊCH thì cấm rebase file DÙNG CHUNG" (`.github/scripts/kiem_luat_push.py`) | 11 ca — 4 PHẢI CHẶN (bật lại lịch drive-import · `git add logs/` · `git add -A` · dạng `"on":` có nháy), 4 đối chứng chống chặn oan, 2 fail-closed (yml hỏng · thư mục rỗng đều phải trả mã 2), 1 soi thư mục workflow THẬT. `--tu-kiem` bắt 8/8 bản hỏng |
 | `tests/test-ghi-so-push.py` | Sổ đã gửi chịu được HAI workflow ghi cùng lúc (`.github/scripts/ghi_so_push.py`) | 10 ca — 2 CA CHÍNH (giữ đủ hai dòng · URL tính đúng một lần) · 2 PHẢI CHẶN (nhân dòng · `--hard` đè index.html) · 1 PHẢI KÊU · 4 đối chứng · 1 kiểm cổng còn nằm trên đường đi (soi 2 file yml). `--tu-kiem` bắt 6/6 bản hỏng |
+| `tests/test-bang-nguon-claude-md.py` | Đường ĐỌC BẢNG NGUỒN từ CLAUDE.md (`harvest.py` lấy feed và trang HTML ở đâu) | 10 ca — 4 PHẢI CHẶN (nhắc tên bảng trong văn xuôi ×1/×3 · bảng HTML lọt vào lớp RSS · feed giao với trang HTML), 6 đối chứng (cột `CI` bị bỏ ở local · đủ 06 trang quân chủng · Navy+Marines có ở local · tên không mang dấu `**` · không có bảng thì trả rỗng êm · tiêu đề đổi chữ vẫn đọc được). `--tu-kiem` bắt 4/4 bản hỏng |
 
 Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:
 ```
@@ -926,6 +927,23 @@ python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-canary-ban-tin.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-phien-test.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-ghi-so-push.py
 ```
+
+⚠️ **SỬA CHÍNH `CLAUDE.md` CŨNG PHẢI CHẠY TEST — tài liệu này LÀ CẤU HÌNH, không phải chỉ là chữ**
+(đúc 30/07/2026, vấp thật ngay trong lượt thêm 06 trang quân chủng vào bảng). `harvest.py` đọc bảng
+nguồn thẳng từ file này, nên **một câu văn xuôi cũng làm chết một lớp quét**: chỉ vì viết
+*"nay cả 06 nằm trong bảng «🕸️ TRANG HTML QUÉT TRỰC TIẾP»"* ở một mục đứng TRƯỚC bảng thật, hàm
+`text.index(<tên bảng>)` cắt lấy đoạn văn ấy và trả về **0 trang** — lớp `[HTML]` mất sạch 25 trang
+(gồm toàn bộ uỷ ban Hạ viện, tức nhóm 1), đồng thời lớp RSS ăn thêm 31 request vô ích (83 → 114 feed).
+Không lỗi, không cảnh báo, và bảng trong tài liệu vẫn còn nguyên nên soi bằng mắt thì thấy đủ.
+- **Sau mỗi lần sửa bảng nguồn trong CLAUDE.md, chạy `tests/test-bang-nguon-claude-md.py`** — nó
+  ĐẾM số trang và số feed đọc ra được, tức đo đúng thứ mắt không thấy.
+- **Đã vá gốc bằng cơ chế:** `harvest._vi_tri_tieu_de()` neo vào dòng tiêu đề `### …`, và nhánh dự
+  phòng chọn khối có nhiều dòng bảng nhất thay vì lùi về `text.index` (lùi về đó là mở lại đúng lỗ
+  vừa bịt — ca 10 của bộ test bắt được chỗ này ngay lúc dựng). Nay tài liệu nhắc tên bảng bao nhiêu
+  lần cũng được.
+- **Luật chung:** mọi file mà script đọc để lấy cấu hình đều phải coi là mã nguồn. `CLAUDE.md` của
+  repo này đang cấp dữ liệu cho `harvest.py` (bảng RSS + bảng HTML), `probe_sources.py`,
+  `rss_check.py`, `kiem_lich.py` — sửa nó là sửa cấu hình của bốn script.
 
 ⚠️ **TEST XANH CHƯA ĐỦ — phải chứng minh test BẮT ĐƯỢC lỗi.** Mỗi file có cờ `--tu-kiem`: nó tự
 dựng các bản mã nguồn **đã gỡ đúng dòng bảo vệ** rồi chạy lại chính bộ ca đó với biến môi trường
@@ -1427,10 +1445,29 @@ phải DNS. Đi bằng `impersonate="chrome"` thì ra 200 và 45 item nội dung
 ⚠️ **BẪY `Site=1`:** tham số này trả **feed của Air Force bất kể domain** — thử `marines.mil` và
 `news.uscg.mil` với `Site=1` đều ra y hệt "Air Force Link News". Thêm cả ba vào bảng là nạp trùng nội
 dung ba lần. Phải kiểm tiêu đề thật trước khi tin một feed `DesktopModules`.
-⛔ **Chưa tìm được feed riêng** (mọi biến thể ContentType/Site đã thử đều 0 item): `navy.mil`,
-`marines.mil`, `centcom.mil`, `pacom.mil`, `jcs.mil`, `news.uscg.mil`. Trang HTML của chúng **403 với cả
-CI lẫn local** (WAF chặn IP datacenter). **Thay thế: DVIDS** (`dvidshub.net/rss/all` — đã có trong bảng,
-gom tin của mọi quân chủng) và feed hợp đồng/thông cáo `war.gov`.
+⛔ **Chưa tìm được feed RSS riêng** (mọi biến thể ContentType/Site đã thử đều 0 item): `navy.mil`,
+`marines.mil`, `centcom.mil`, `pacom.mil`, `jcs.mil`, `news.uscg.mil`. Phần này vẫn đúng — **nhưng câu
+kế tiếp thì SAI và đã bỏ.**
+
+🔄 **ĐẢO LẠI 30/07/2026 — câu cũ *"trang HTML của chúng 403 với cả CI lẫn local (WAF chặn IP
+datacenter)"* là kết luận của một CÔNG CỤ ĐO SAI, không phải của các trang đó.** Cả 06 tên miền đều
+trả **200 và thân sạch** khi đi bằng vân tay TLS Chrome, nên cả 06 nay nằm trong bảng
+**"🕸️ TRANG HTML QUÉT TRỰC TIẾP"** và `harvest.py` quét chúng qua lớp `[HTML]`. Số đo CI 30/07
+(run 30516868251): PACOM **228.361B** · Navy 114.720B · JCS 74.037B · USCG 68.712B · Marines 65.170B ·
+CENTCOM 46.728B. Ở local, Navy (114.451B) và Marines (65.170B) cũng lấy được; 04 cái còn lại vướng
+**DNS**, không vướng WAF — chi tiết và cách phân nhãn `cả hai`/`CI` ghi ở chính bảng đó.
+- **Cơ chế gây vấp:** `probe_sources.py` chỉ gọi **curl trần**, mà curl trần bị Akamai cắt theo dấu
+  vân tay TLS ⇒ nó chấm `403` ⇒ bảng ghi "403 cả hai nơi" ⇒ `harvest.py` bỏ nguồn. Không lỗi, không
+  cảnh báo, và bảng trông như có căn cứ vì đúng là có số đo — số đo của công cụ sai. Cùng lớp với
+  luật *"đừng chẩn đoán từ output do chính mình cắt"*: ở đây là output do chính công cụ của mình bóp.
+- **Kèm theo, `probe_sources.py` còn có một nhãn CÂM TỪ NGÀY DỰNG:** nhãn `DNS` chỉ khớp khi stderr
+  chứa `Could not resolve host`, nhưng script chạy `curl -s` — cờ đó triệt tiêu luôn thông báo lỗi.
+  Bằng chứng: bản local 27/07 và bản CI 30/07 đều có **đúng 0 mục `DNS`** trên 287 URL, trong khi zone
+  `.mil` thật sự không phân giải được ở local. Tên miền chết bị dồn vào nhãn `LỖI` chung với timeout —
+  hai nguyên nhân khác hẳn nhau và chữa theo hai hướng khác nhau. Đã vá thành `-sS`.
+- **DVIDS vẫn giữ** (`dvidshub.net/rss/all`) và feed `war.gov` vẫn giữ: chúng gom tin mọi quân chủng
+  nên là lớp phủ rộng, còn 06 trang trên là nguồn tầng 1 theo từng bộ chỉ huy. Hai thứ bổ sung nhau,
+  không thay nhau.
 
 ### 🔑 TRANG NÀO PHẢI LẤY BẰNG CÁCH NÀO — bảng tra (Huy chốt 30/07/2026)
 
@@ -1496,6 +1533,28 @@ phiếu)**, nhóm luôn thiếu tin nhất, nên phần chênh này đáng kể.
 (census trả trang Cloudflare *"Sorry, you have been blocked"*, occ drop im lặng hết 25 giây) — đó mới
 đúng là chặn theo IP, và CI vẫn lấy được.
 
+🔄 **ĐẢO LẠI LẦN HAI, 30/07/2026 — 06 TRANG QUÂN CHỦNG VÀO BẢNG. Trước đó chúng bị xếp "cả hai
+chịu" và bị bỏ hoàn toàn.** Nguyên nhân gốc không nằm ở các trang đó mà ở **công cụ đo**:
+`scripts/probe_sources.py` chỉ gọi **curl trần**, nên mọi trang chặn theo vân tay TLS đều bị nó chấm
+`403` rồi ghi vào bảng thành nguồn chết. Vá công cụ (thêm bậc 2 `curl_cffi`) rồi đo lại từ CI, số
+`403` tụt từ **31 xuống 6** và **27 nguồn** đọc được nhờ vân tay TLS — trong đó có cả 06 trang này.
+Số đo CI 30/07 (run 30516868251): PACOM **228.361B** · JCS 74.037B · USCG 68.712B · CENTCOM 46.728B ·
+Navy 114.720B · Marines 65.170B, tất cả 200 và thân không mang dấu hiệu chặn.
+Giá trị: PACOM và Marines là nguồn **tầng 1** cho chủ đề 2 (Úc & Biển Đông) và chủ đề 5 (Predator's
+Run) — hai chủ đề vẫn hay thiếu bài; CENTCOM là tầng 1 cho chủ đề 4 (Mỹ–Mali).
+
+⚠️ **Vì sao Navy/Marines là `cả hai` mà PACOM/CENTCOM/JCS/USCG chỉ `CI`** — khác biệt nằm ở **DNS,
+không phải ở WAF**: zone `.mil` đang lỗi DNSSEC nên `getaddrinfo` ở local trả `gaierror` cho
+`pacom/centcom/jcs/news.uscg` (0/4 lượt), trong khi `navy.mil`/`marines.mil` vẫn phân giải được 4/4
+(184.85.126.103 và 184.85.124.244, node Akamai trong hạ tầng FPT). Local đo được Navy **114.451B** và
+Marines **65.170B** — riêng Marines khít từng byte với số đo CI, tức cùng một nội dung.
+⚠️ **Nhánh DNS này CHẬP CHỜN theo thời điểm, đừng đọc nhãn `CI` thành "local vĩnh viễn không lấy
+được".** Cùng lượt đo 30/07, `www.army.mil` cũng **0/4** dù bảng RSS ghi nó lấy được 43–45 item cùng
+ngày; và một số đo trước đó trong ngày lấy được `pacom.mil` **228.363B** ngay tại local. Nhãn `CI` ở
+đây là **hướng lệch an toàn**: harvest local bỏ qua chúng nên không tốn lượt curl để nhận `gaierror`,
+còn CI thì luôn lấy được. DNS zone `.mil` khoẻ lại thì nâng lên `cả hai`, và phép đo để quyết là
+`getaddrinfo`, không phải `dig`.
+
 | Trang | URL | Chạy ở | Nhóm/chủ đề |
 |---|---|---|---|
 | Uỷ ban Quân vụ Hạ viện | https://armedservices.house.gov/news/press-releases | cả hai | **Nội bộ Mỹ nhóm 1** |
@@ -1521,6 +1580,12 @@ phiếu)**, nhóm luôn thiếu tin nhất, nên phần chênh này đáng kể.
 | Uỷ ban An ninh Nội địa Thượng viện (HSGAC) | https://www.hsgac.senate.gov/media/majority-news/ | cả hai | nhóm 1 |
 | Uỷ ban Quy tắc Thượng viện | https://www.rules.senate.gov/news/press-releases | cả hai | nhóm 1 |
 | Thông cáo chung Thượng viện | https://www.pressphotographers.senate.gov/senate/senate-press-releases/ | cả hai | nhóm 1 |
+| **Hải quân Mỹ** | https://www.navy.mil/Press-Office/Press-Releases/ | cả hai | **Úc & Biển Đông** · CNQS Mỹ |
+| **Thuỷ quân lục chiến Mỹ** | https://www.marines.mil/News/Press-Releases/ | cả hai | **Úc & Biển Đông** · **Predator's Run** |
+| **PACOM (Bộ Chỉ huy Ấn Độ Dương-TBD)** | https://www.pacom.mil/Media/News/News-Articles/ | **CI** | **Úc & Biển Đông** · **Predator's Run** |
+| **CENTCOM** | https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/ | **CI** | **Mỹ–Mali** · CNQS Mỹ |
+| **JCS (Hội đồng Tham mưu trưởng Liên quân)** | https://www.jcs.mil/Media/News/ | **CI** | CNQS Mỹ · Úc & Biển Đông |
+| **Tuần duyên Mỹ (USCG)** | https://www.news.uscg.mil/Press-Releases/ | **CI** | Úc & Biển Đông |
 | Census Bureau | https://www.census.gov/newsroom/press-releases.html | **CI** | nhóm 4 (số liệu) |
 | OCC (Kiểm soát Tiền tệ) | https://www.occ.treas.gov/news-events/newsroom/news-issuances-by-year/news-releases/index-news-releases.html | **CI** | nhóm 4 |
 
@@ -1542,15 +1607,36 @@ quanh link nên có thể sai** — agent PHẢI mở bài kiểm ngày sự ki�
   lại** ghi chú cũ "uỷ ban Thượng viện 403, chỉ WebSearch được" — sai vì chỉ đo ở local.
 - **3 domain CHỈ local đọc được** (CI bị 403): `axios.com`, `flightglobal.com`, `rappler.com` → phiên CI
   sẽ hụt 3 nguồn này, bù bằng Google News/local.
-- **16 domain cả hai chịu**: bls.gov, commerce.gov, defense.gov, dhs.gov, eda.gov, nsa.gov, ntia.gov,
-  transportation.gov, usda.gov, senate.gov, và 6 trang quân chủng navy/marines/centcom/pacom/jcs/uscg
-  → chỉ còn WebSearch/Google News, hoặc DVIDS thay thế cho nhóm quân chủng.
+- ~~**16 domain cả hai chịu**~~ → **CON SỐ NÀY SAI, xem mục đo lại ngay dưới.** Danh sách cũ:
+  bls.gov, commerce.gov, defense.gov, dhs.gov, eda.gov, nsa.gov, ntia.gov, transportation.gov,
+  usda.gov, senate.gov, và 6 trang quân chủng navy/marines/centcom/pacom/jcs/uscg.
+
+#### 🔄 ĐO LẠI 30/07/2026 BẰNG CÔNG CỤ ĐÃ VÁ — bảng số trên dựng bằng curl TRẦN nên phóng đại "403"
+Toàn bộ ảnh chụp 27/07 ở trên đo bằng `curl` trần, tức nó **không phân biệt được nguồn bị chặn THẬT
+với nguồn chỉ bị chặn vì công cụ đo** (Akamai/Cloudflare cắt theo dấu vân tay TLS). Sau khi
+`probe_sources.py` được vá để đi bậc 2 bằng `curl_cffi`, đo lại từ CI (run 30516868251, 287 URL):
+
+| | CI 30/07 — curl trần | CI 30/07 — có bậc 2 |
+|---|---|---|
+| RSS | 77 | **82** |
+| HTML | 173 | **195** |
+| **403** | **31** | **6** |
+| LỖI | 6 | 4 |
+
+**27 URL chỉ đọc được nhờ vân tay TLS**, trong đó có cả 06 trang quân chủng ở dòng gạch trên. `403`
+còn lại chỉ 03 domain: `commerce.gov`, `eda.gov`, `flightglobal.com`.
+⛔ **Nhóm "cả hai chịu" nay chỉ còn phần `.gov` chưa đo lại từ local** — 06 trang quân chủng đã RỜI
+nhóm này và vào bảng "🕸️ TRANG HTML QUÉT TRỰC TIẾP". Đừng đọc lại danh sách gạch ngang ở trên như
+danh sách còn hiệu lực.
 
 ⚠️ **Đọc số liệu dò cẩn thận:** dò 288 URL bằng nhiều luồng dễ bị **rate-limit tạm** — lần này
 `thehill.com` trả 429 và `thediplomat.com` trả 000 ở local dù bình thường vẫn chạy tốt. Thấy một nguồn
 đang dùng được bỗng báo hỏng thì **kiểm lại lẻ một lần** trước khi kết luận, đừng gạch tên ngay.
+Từ 30/07 script **tự làm việc này**: sau vòng đa luồng nó đo LẠI LẺ, TUẦN TỰ mọi nguồn bị chấm hỏng và
+đánh dấu `da_thu_2_lan` — vòng lẻ ở CI 30/07 cứu được 0/10, tức 10 nguồn đó hỏng thật.
 Dò lại về sau: `python3 scripts/probe_sources.py --json /tmp/probe-local.json` (local) và workflow
-`probe-sources.yml` (CI, ghi `docs/probe-ci.json`).
+`probe-sources.yml` (CI, ghi `docs/probe-ci.json`). **Cả hai nơi đều cần `curl_cffi`** — thiếu thì
+script vẫn chạy nhưng KÊU ra danh sách domain chưa kết luận được, đừng bỏ qua dòng đó.
 
 ### RealClear — verify fetch thật 27/07/2026 (Huy chỉ định thêm)
 | Nguồn | RSS URL | Kiểm 27/07 | Hợp chủ đề |

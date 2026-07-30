@@ -235,6 +235,38 @@ def curl(url: str, timeout: int = 25) -> bytes:
     return body
 
 
+KEY_BANG_HTML = "TRANG HTML QUÉT TRỰC TIẾP"
+
+
+def _vi_tri_tieu_de(text: str, key: str) -> int:
+    """Vị trí dòng TIÊU ĐỀ `### … <key>`, KHÔNG phải lần xuất hiện đầu tiên của chuỗi `key`.
+
+    ⚠️ Vá 30/07/2026 — bug đã xảy ra thật và là hỏng CÂM hoàn hảo. Bản cũ dùng `text.index(key)`,
+    nên chỉ cần một chỗ trong VĂN XUÔI nhắc tên bảng (`nay cả 06 nằm trong bảng "🕸️ TRANG HTML
+    QUÉT TRỰC TIẾP"`) mà chỗ đó đứng TRƯỚC bảng thật, là hàm cắt lấy đoạn văn ấy rồi trả về
+    **0 trang** — lớp [HTML] chết sạch, không lỗi, không cảnh báo, và bảng trong CLAUDE.md vẫn
+    còn nguyên 25 dòng nên soi bằng mắt thì thấy đủ. Đo thật lúc bắt được: 25 trang -> 0.
+    Neo vào tiêu đề thì tài liệu tự do nhắc tên bảng bao nhiêu lần cũng được.
+
+    ⚠️ Nhánh dự phòng KHÔNG được lùi về `text.index(key)` — đó chính là bug đang vá, nên lùi về
+    nó là mở lại đúng cái lỗ vừa bịt (ca 10 của bộ test bắt được chỗ này ngay lúc dựng). Thay vào
+    đó, xét MỌI lần chuỗi xuất hiện rồi lấy lần nào mở ra khối có nhiều dòng bảng nhất: định dạng
+    tiêu đề có thể đổi, còn "khối nào thật sự chứa bảng" thì đo được.
+    """
+    for m in re.finditer(r"^#{2,4} .*$", text, re.M):
+        if key in m.group(0):
+            return m.start()
+
+    def dem_dong_bang(i):
+        rest = text[i:]
+        j = rest.index("\n### ", 1) if "\n### " in rest[1:] else len(rest)
+        return sum(1 for ln in rest[:j].split("\n")
+                   if ln.startswith("|") and re.search(r"https?://\S+", ln))
+
+    vi_tri = [m.start() for m in re.finditer(re.escape(key), text)]
+    return max(vi_tri, key=dem_dong_bang)
+
+
 def feeds_from_claude_md():
     """Lấy (tên nguồn, url) từ các bảng RSS trong CLAUDE.md — dùng lại cách của rss_check.py.
 
@@ -250,8 +282,8 @@ def feeds_from_claude_md():
         return []
     # Bảng "TRANG HTML QUÉT TRỰC TIẾP" nằm cùng mục ## URL RSS nhưng KHÔNG phải feed —
     # cắt ra, nếu không lớp RSS sẽ tốn 8 request vô ích và số feed in ra bị sai (81 -> 89).
-    if "TRANG HTML QUÉT TRỰC TIẾP" in block:
-        i = block.index("TRANG HTML QUÉT TRỰC TIẾP")
+    if KEY_BANG_HTML in block:
+        i = _vi_tri_tieu_de(block, KEY_BANG_HTML)
         rest = block[i:]
         j = rest.index("\n### ", 1) if "\n### " in rest[1:] else len(rest)
         block = block[:i] + rest[j:]
@@ -329,10 +361,10 @@ def html_pages_from_claude_md():
     curl chỉ để nhận 403.
     """
     text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
-    key = "TRANG HTML QUÉT TRỰC TIẾP"
+    key = KEY_BANG_HTML
     if key not in text:
         return []
-    block = text[text.index(key):]
+    block = text[_vi_tri_tieu_de(text, key):]
     block = block[: block.index("\n### ", 1)] if "\n### " in block[1:] else block
     la_ci = bool(os.environ.get("GITHUB_ACTIONS"))
     out, seen, bo_qua = [], set(), 0
