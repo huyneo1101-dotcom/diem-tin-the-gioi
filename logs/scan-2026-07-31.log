@@ -5,4 +5,6 @@
 [21:10Z] add_news.py: +2 worldNews, +6 usNews. Canh bao Jaccard 2 tin trung (Cook Political Report, Amnesty Mali)
 [21:11Z] prune_news.py: xoa 2 tin trung phat hien qua canh bao -> con +2 worldNews, +4 usNews
 [21:12Z] gh workflow run telegram-bot.yml BI CHAN (khong co quyen) - hang cho tin Jay Lam co the thieu tin gui sat gio, bo qua buoc 3b
+[21:14Z] DONE web-scan, commit + push OK: "Cap nhat ban tin 31/07: +6 tin (5 chu de)"
+[21:14Z] claim event-scan OK, bat dau BUOC 6 (su kien/tap tran/think-tank)
 [21:14Z] tin_jaylam.py --liet-ke: co 1 dong (id=29), nguoi gui=Huy, ten file "Word test.docx", la 1 DIGEST lon ~20 tin da chu de (UK/Uc/Somalia/Bien Dong/noi bo My). Quyet dinh: BO QUA, khong --ghi. Ly do: (1) nguoi gui la Huy - theo luat "FILE DO CHINH HUY GUI KHONG PHAI TIN" khong nen coi la noi dung; (2) ten file "test" nghi la du lieu thu nghiem; (3) phan lon noi dung da trung/ngoai pham vi 5 chu de (VD AUKUS 4.6ty AUD, Conroy tham My, Philippines UN filing, USS George Washington Da Nang - da duoc agent xu ly rieng trong phien nay); (4) tach 1 digest thanh ~20 dong can WebFetch xac minh tung tin, vuot pham vi thoi gian phien sang som. Dong nay van da_gop=false, cho phien sau xu ly neu can.
