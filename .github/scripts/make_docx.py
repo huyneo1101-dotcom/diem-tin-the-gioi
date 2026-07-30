@@ -17,9 +17,16 @@ tên file MẪU, KHÔNG phải tên file script này xuất ra — tên xuất r
                          Lâm gửi cùng với kết quả quét tin buổi tối thành 1 file — như hàng
                          ngày vẫn làm"). Đọc Supabase `dt_jaylam_inbox` (bảng
                          `telegram_bot.py::xu_ly_tin_jaylam()` ghi khi Jay Lâm gửi file .docx
-                         vào bot), lấy MỌI dòng CHƯA gộp — không giới hạn theo ngày, để một
-                         bản tối bị trễ/skip không làm mất tin của ngày trước — rồi đánh dấu
-                         đã gộp sau khi lưu file .docx thành công. Xem `doc_tin_jaylam_chua_gop()`.
+                         vào bot) rồi đánh dấu đã gộp sau khi lưu file thành công.
+                         In theo ĐÚNG khuôn 4 mục trên — tóm tắt 1-2 câu + link nguồn — vì
+                         Huy chốt 30/07/2026: "tin Jay Lâm gửi cũng là tin kèm url và tóm tắt
+                         gần giống định dạng mẫu". Phần tóm tắt + truy URL gốc do PHIÊN QUÉT
+                         TỐI làm (`scripts/tin_jaylam.py`, cần agent nên không làm được ở
+                         đây); dòng chưa xử lý thì lùi về nguyên văn đã cắt kèm cảnh báo.
+                         Khung ngày: y như tin quét thường — mặc định 2 ngày, tin CNQS Mỹ
+                         (cờ `la_cnqs`) được nới 3 ngày lùi; quá hạn thì bỏ + đánh dấu đã
+                         gộp + cảnh báo. KHÔNG có trần số lượng.
+                         Xem `doc_tin_jaylam_chua_gop()` và `add_jaylam_item()`.
 (Đã BỎ mục Mạng xã hội (X) — ngoài phạm vi.)
 
 Định dạng khớp mẫu:
@@ -403,6 +410,28 @@ def loc_chua_gui(items):
 JAYLAM_SUPABASE_URL = "https://ltmlueqkajqmduoqghdf.supabase.co"
 JAYLAM_BANG = "dt_jaylam_inbox"
 
+# Khung ngày — Huy chốt 30/07/2026: áp ĐÚNG khung tin quét thường, tức KHÔNG phải một con số
+# duy nhất. Mặc định hôm nay + hôm qua; riêng CNQS Mỹ nới tới 3 ngày lùi.
+# Huy nêu thẳng: *"tao cần tin cnqs Mỹ thì tin cũ 3 ngày vẫn để lại (ví dụ hôm nay 27 thì có
+# thể giữ lại tin tận ngày 24)"* — áp trần 2 ngày cho mọi tin Jay Lâm là loại oan đúng nhóm
+# khí tài/hợp đồng quốc phòng, nhóm mà tin đăng thưa và cuối tuần Mỹ gần như trắng.
+# Cờ `la_cnqs` do phiên quét tối khai (`scripts/tin_jaylam.py`).
+# ⚠️ Hai con số này khớp `add_news.py::MAX_AGE_DAYS`/`MAX_AGE_DAYS_CNQS`,
+# `harvest.py::CNQS_LOOKBACK_DAYS` và `scripts/tin_jaylam.py`. Đã đăng ký
+# `HeThong/dong-bo-luat.py` để các nơi lệch nhau là báo không đạt.
+JAYLAM_MAX_AGE_DAYS = 1
+JAYLAM_MAX_AGE_DAYS_CNQS = 3
+
+# Dòng chưa được phiên quét tối xử lý thì lùi về NGUYÊN VĂN, cắt ở đây. Fail-open CÓ TIẾNG:
+# phiên quét chết giữa chừng thì tin của Jay Lâm vẫn tới tay Huy (chỉ thô hơn), nhưng phải
+# kèm cảnh báo — im lặng ở đây là dựng lại đúng cảnh mất cân đối mà bản vá này xoá đi.
+JAYLAM_FALLBACK_CHARS = 1200
+
+# Chỉ thị Huy 30/07/2026: mục này KHÔNG đi qua thang nguồn 3 tầng như 4 mục quét, nên phải
+# nói thẳng ra để người đọc không tin ngang nhau.
+JAYLAM_NHAN_XAC_MINH = ("Nội dung do Jay Lâm gửi qua bot, chưa qua thang xác minh nguồn "
+                        "của bản tin.")
+
 
 def la_buoi_toi(now):
     """True nếu `now` (giờ VN) rơi vào buổi TỐI — cùng ngưỡng 14h với `ten_file()`.
@@ -440,15 +469,41 @@ def _jaylam_anon_key():
     return m.group(0) if m else ""
 
 
-def doc_tin_jaylam_chua_gop():
-    """Tin Jay Lâm gửi qua bot, CHƯA nằm trong bản tin nào — đọc qua mã riêng `x-dt-key`
-    (giống `telegram_bot.py:lich_su_gan_day()`), KHÔNG phải service key.
+def jaylam_gioi_han_ngay(row):
+    """Khung ngày áp cho MỘT dòng: 3 ngày nếu là tin CNQS Mỹ, 1 ngày nếu không.
 
-    Không giới hạn theo ngày — lấy MỌI dòng `da_gop = false`: nếu bản tối hôm qua bị
-    trễ/skip thì tin của Jay Lâm không mất, nó dồn sang bản tối kế tiếp thay vì rơi khỏi
-    khung ngày như tin quét thường (khác `pick_items`, cố ý).
+    Dòng CHƯA được phiên quét xử lý cũng hưởng khung RỘNG — lúc đó không ai biết nó thuộc chủ
+    đề gì, mà siết hẹp thì một phiên quét chết giữa chừng sẽ kéo theo việc LOẠI OAN tin CNQS
+    (hướng lệch phải là giữ tin, không phải mất tin).
+    """
+    if not row.get("da_xu_ly"):
+        return JAYLAM_MAX_AGE_DAYS_CNQS
+    return JAYLAM_MAX_AGE_DAYS_CNQS if row.get("la_cnqs") else JAYLAM_MAX_AGE_DAYS
 
-    Thiếu mã / đọc hỏng -> [] và IN CẢNH BÁO — đây là phần LÀM GIÀU bản tin, không phải
+
+def jaylam_qua_han(row, now):
+    """True nếu tin gửi cũ hơn khung ngày của chính dòng đó (xem `jaylam_gioi_han_ngay`).
+
+    Đọc `created_at` hỏng -> True (phía KÊU): dòng không đo được tuổi thì đừng lặng lẽ vào
+    bản tin như tin mới. Nó vẫn được đánh dấu đã gộp + in cảnh báo nên không nằm lại mãi.
+    """
+    try:
+        t = datetime.datetime.fromisoformat(
+            (row.get("created_at") or "").replace("Z", "+00:00")).astimezone(VN)
+    except (ValueError, AttributeError, TypeError):
+        return True
+    return (now.date() - t.date()).days > jaylam_gioi_han_ngay(row)
+
+
+def doc_tin_jaylam_chua_gop(now):
+    """(trong_khung, qua_han) — tin Jay Lâm gửi CHƯA nằm trong bản tin nào, đọc qua mã riêng
+    `x-dt-key` (giống `telegram_bot.py:lich_su_gan_day()`), KHÔNG phải service key.
+
+    Huy chốt 30/07/2026 qua bảng chọn: áp khung 2 ngày như tin quét thường. Nhóm `qua_han`
+    KHÔNG vào file nhưng VẪN được đánh dấu đã gộp ở nơi gọi kèm cảnh báo — không đánh dấu
+    thì tối nào chúng cũng bị đọc ra rồi loại lại, tức nằm lại vĩnh viễn.
+
+    Thiếu mã / đọc hỏng -> ([], []) và IN CẢNH BÁO — đây là phần LÀM GIÀU bản tin, không phải
     điều kiện cần để dựng file; hỏng ở đây không được làm cả file .docx biến mất.
     """
     key = _jaylam_anon_key()
@@ -456,12 +511,13 @@ def doc_tin_jaylam_chua_gop():
     if not key or not dt_key:
         print("Thiếu SUPABASE_ANON_KEY/DT_BOT_KEY — bỏ qua mục Tin Jay Lâm gửi.",
               file=sys.stderr)
-        return []
+        return [], []
     try:
         p = subprocess.run(
             ["curl", "-sS", "--max-time", "30",
              f"{JAYLAM_SUPABASE_URL}/rest/v1/{JAYLAM_BANG}"
              "?select=id,ten,ten_file,noi_dung,created_at"
+             ",tieu_de,tom_tat,nguon_ten,nguon_url,da_xu_ly,la_cnqs"
              "&da_gop=eq.false&order=created_at.asc",
              "-H", f"apikey: {key}", "-H", f"Authorization: Bearer {key}",
              "-H", f"x-dt-key: {dt_key}"],
@@ -469,12 +525,21 @@ def doc_tin_jaylam_chua_gop():
         rows = json.loads(p.stdout)
     except Exception as e:                              # noqa: BLE001
         print(f"Đọc tin Jay Lâm gửi hỏng ({e}) — bỏ qua mục này.", file=sys.stderr)
-        return []
+        return [], []
     if not isinstance(rows, list):
         print(f"Đọc tin Jay Lâm gửi trả về dạng lạ: {str(rows)[:200]} — bỏ qua mục này.",
               file=sys.stderr)
-        return []
-    return rows
+        return [], []
+    trong, ngoai = [], []
+    for r in rows:
+        (ngoai if jaylam_qua_han(r, now) else trong).append(r)
+    if ngoai:
+        print(f"Tin Jay Lâm gửi: BỎ {len(ngoai)} tin quá khung ngày "
+              "(vẫn đánh dấu đã gộp): "
+              + "; ".join(f"id={r.get('id')} {r.get('created_at')} {r.get('ten_file')} "
+                          f"[khung {jaylam_gioi_han_ngay(r) + 1} ngày]" for r in ngoai),
+              file=sys.stderr)
+    return trong, ngoai
 
 
 def danh_dau_da_gop_jaylam(ids):
@@ -496,9 +561,16 @@ def danh_dau_da_gop_jaylam(ids):
 
 
 def _jaylam_tieu_de(row):
-    """Dòng đầu KHÔNG rỗng của `noi_dung` làm tiêu đề đại diện — Jay Lâm gửi nguyên văn
-    một file tin tức nên dòng đầu gần như luôn là tiêu đề bài, giống cách tin quét thường
-    có sẵn `title`. Không có dòng nào -> lùi về tên file."""
+    """Tiêu đề đại diện, dùng cho bộ lọc chống trùng.
+
+    Ưu tiên `tieu_de` do phiên quét tối viết (`scripts/tin_jaylam.py`) — nó đã truy về bài
+    gốc nên khớp tiêu đề tin quét thường tốt hơn hẳn. Chưa xử lý thì lùi về dòng đầu KHÔNG
+    rỗng của `noi_dung` (Jay Lâm gửi nguyên văn một file tin tức nên dòng đầu gần như luôn
+    là tiêu đề bài), cuối cùng lùi về tên file.
+    """
+    td = (row.get("tieu_de") or "").strip()
+    if td:
+        return td[:200]
     for dong in (row.get("noi_dung") or "").splitlines():
         d = dong.strip()
         if d:
@@ -539,29 +611,55 @@ def loc_trung_jaylam(rows, tieu_de_da_co):
     return giu
 
 
-def _jaylam_gio(created_at):
+def _jaylam_ngay_gio(created_at):
+    """'30/07 09:15' giờ VN. Huy chốt 30/07/2026: ghi cả NGÀY, không chỉ giờ — mục này áp
+    khung 2 ngày nên tin hôm qua vẫn vào được, chỉ ghi giờ thì nhìn như tin hôm nay."""
     try:
         return (datetime.datetime.fromisoformat((created_at or "").replace("Z", "+00:00"))
-                .astimezone(VN).strftime("%H:%M"))
+                .astimezone(VN).strftime("%d/%m %H:%M"))
     except (ValueError, AttributeError):
-        return "--:--"
+        return "--/-- --:--"
 
 
 def add_jaylam_item(doc, row):
-    """Một tin Jay Lâm gửi: dòng đậm 'HH:MM — tên_file (tên người)' rồi đoạn nội dung —
-    khác `add_item` vì đây là nguyên văn Jay Lâm gửi, không có `sourceUrl`/`summary`."""
-    nhan = doc.add_paragraph()
-    nhan.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    nhan.paragraph_format.space_after = Pt(2)
-    set_font(nhan.add_run(f"{_jaylam_gio(row.get('created_at'))} — "
-                           f"{row.get('ten_file') or '(không tên)'} "
-                           f"({row.get('ten') or 'Jay Lâm'})"),
-             size=SIZE, bold=True)
-    than = doc.add_paragraph((row.get("noi_dung") or "(rỗng)").strip())
-    than.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    than.paragraph_format.space_after = Pt(8)
-    for run in than.runs:
-        set_font(run, size=SIZE)
+    """Một tin Jay Lâm gửi, in theo ĐÚNG khuôn 4 mục quét thường (`add_item`): đoạn
+    '- (dd/mm hh:mm) <tóm tắt>' rồi dòng link nguồn.
+
+    Chỉ thị Huy 30/07/2026: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định
+    dạng mẫu"*. `tieu_de`/`tom_tat`/`nguon_*` do phiên quét TỐI viết
+    (`scripts/tin_jaylam.py`); dòng CHƯA được xử lý thì lùi về nguyên văn cắt ở
+    `JAYLAM_FALLBACK_CHARS` kèm cảnh báo — thà thô còn hơn mất tin, nhưng không được im lặng.
+    """
+    dau = f"- ({_jaylam_ngay_gio(row.get('created_at'))}) "
+    if row.get("da_xu_ly") and (row.get("tom_tat") or "").strip():
+        than_txt = dau + (row.get("tom_tat") or "").strip()
+        url = (row.get("nguon_url") or "").strip()
+        nguon_ten = (row.get("nguon_ten") or "").strip()
+    else:
+        raw = (row.get("noi_dung") or "").strip()
+        if len(raw) > JAYLAM_FALLBACK_CHARS:
+            raw = raw[:JAYLAM_FALLBACK_CHARS].rstrip() + " […]"
+        than_txt = dau + (raw or "(rỗng)")
+        url, nguon_ten = "", ""
+        print(f"Tin Jay Lâm id={row.get('id')} ({row.get('ten_file')}) CHƯA được phiên quét "
+              "tối tóm tắt -> in nguyên văn đã cắt. Kiểm bước `tin_jaylam.py` trong playbook "
+              "quét tin.", file=sys.stderr)
+
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    p.paragraph_format.space_after = Pt(2)
+    set_font(p.add_run(than_txt), size=SIZE)
+
+    pu = doc.add_paragraph()
+    pu.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    pu.paragraph_format.space_after = Pt(8)
+    if url:
+        add_hyperlink(pu, url, url)
+    else:
+        # Không truy được bài gốc thì vẫn GIỮ tin (cùng luật Agent 7 của Báo Mới) nhưng phải
+        # nói rõ, kẻo người đọc tưởng tin thiếu link do lỗi dựng file.
+        set_font(pu.add_run(f"Nguồn: {nguon_ten or 'Jay Lâm gửi'} "
+                            "(không truy được bài gốc)"), size=SIZE, italic=True)
 
 
 def main(now=None):
@@ -582,7 +680,9 @@ def main(now=None):
     sections = build_sections(us, world, events)
 
     # Mục 5 — CHỈ ở bản buổi TỐI (xem docstring đầu file + `la_buoi_toi()`).
-    jaylam_goc = doc_tin_jaylam_chua_gop() if la_buoi_toi(now) else []
+    # `jaylam_qh` = tin quá khung 2 ngày: KHÔNG vào file nhưng VẪN đánh dấu đã gộp (xem
+    # `doc_tin_jaylam_chua_gop`). Không trần số lượng — Huy chốt 30/07/2026.
+    jaylam_goc, jaylam_qh = doc_tin_jaylam_chua_gop(now) if la_buoi_toi(now) else ([], [])
     jaylam_hien = []
     if jaylam_goc:
         tieu_de_da_co = [it.get("title") or "" for it in us + world + list(events)]
@@ -590,6 +690,11 @@ def main(now=None):
 
     total = sum(len(items) for _, items in sections) + len(jaylam_hien)
     if total == 0:
+        # Hôm nay 0 tin -> không có file. Nhóm QUÁ HẠN vẫn phải đánh dấu: nó bị bỏ hẳn, không
+        # phụ thuộc việc file có ra đời hay không, và để lại thì tối nào cũng loại lại.
+        # Nhóm `jaylam_goc` thì KHÔNG đánh dấu ở đây — chúng chưa vào bản tin nào.
+        if jaylam_qh:
+            danh_dau_da_gop_jaylam([r["id"] for r in jaylam_qh])
         print("DOCX=")
         return
 
@@ -636,15 +741,22 @@ def main(now=None):
         ph.paragraph_format.space_before = Pt(8)
         ph.paragraph_format.space_after = Pt(4)
         set_font(ph.add_run(f"{idx}. Tin Jay Lâm gửi"), size=SIZE, bold=True)
+        # Nhãn xác minh — Huy chốt 30/07/2026: mục này không đi qua thang nguồn 3 tầng nên
+        # phải nói thẳng, kẻo người đọc lướt qua tin ngang với 4 mục đã xác minh.
+        pn = doc.add_paragraph()
+        pn.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        pn.paragraph_format.space_after = Pt(4)
+        set_font(pn.add_run(JAYLAM_NHAN_XAC_MINH), size=SIZE - 1, italic=True)
         for row in jaylam_hien:
             add_jaylam_item(doc, row)
 
     out = f"/tmp/{ten_file(gen, now)}"
     doc.save(out)
-    # Đánh dấu SAU khi save thành công — và đánh dấu HẾT (kể cả dòng bị lọc trùng, xem
-    # docstring `loc_trung_jaylam`), không chỉ những dòng thực sự hiện trong file.
-    if jaylam_goc:
-        danh_dau_da_gop_jaylam([r["id"] for r in jaylam_goc])
+    # Đánh dấu SAU khi save thành công — và đánh dấu HẾT: cả dòng bị lọc trùng (xem docstring
+    # `loc_trung_jaylam`) lẫn dòng QUÁ KHUNG NGÀY. Bỏ sót nhóm quá hạn thì tối nào chúng cũng
+    # được đọc ra rồi loại lại, tức nằm lại vĩnh viễn trong hàng chờ.
+    if jaylam_goc or jaylam_qh:
+        danh_dau_da_gop_jaylam([r["id"] for r in jaylam_goc + jaylam_qh])
     print(f"DOCX={out}")
 
 

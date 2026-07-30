@@ -333,3 +333,30 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
    🔁 **Từ 29/07/2026 phép kiểm này áp cho CẢ PHIÊN CI** (`.github/prompts/web-scan-ci.md` BƯỚC 1) — vì mốc **CI vét 21:47 là lớp CUỐI**, máy Mac ngủ thì không còn ai đứng sau nó. Bản CI có thêm một chốt chống kêu oan mà bản local không cần: **`lastRunAt` cách hiện tại < 20 phút thì cứ SKIP êm** — phiên anh em vừa xong, `notify-email.yml` còn đang chạy, mà sổ chỉ được ghi ở bước CUỐI nên chưa kịp hiện. Bản local 21:15 không dính ca này vì lúc đó CI 20:47 còn `RUNNING` (exit 11, không phải 10).
 
 4. Ghi log dùng chữ **"phien toi"**. Giờ VN lúc chạy là 21:15 nên `state.py` tự chọn ô `toi`, không cần truyền gì thêm.
+
+5. **XỬ LÝ TIN JAY LÂM GỬI THÀNH TIN CHUẨN — làm SAU khi đã nạp tin quét, TRƯỚC khi commit** (thêm 30/07/2026, chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*).
+
+   Mục 5 của file .docx bản tin tối là tin Jay Lâm gửi qua bot. Trước 30/07 nó dán NGUYÊN VĂN tới 20.000 ký tự, lệch hẳn khuôn 4 mục còn lại. Nay nó phải là tin chuẩn — mà việc truy URL gốc + viết tóm tắt cần suy nghĩ nên `make_docx.py` (chạy trong workflow, không có agent) không làm được: **đây là việc của phiên quét tối.**
+
+   ```
+   python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/tin_jaylam.py --liet-ke
+   ```
+   | Mã thoát | Nghĩa |
+   |---|---|
+   | **10** | không có tin nào chờ — BỎ QUA bước này, đi tiếp |
+   | **0** | có tin chờ, in ra kèm `id` + nội dung |
+
+   Với MỖI tin in ra, làm đúng luật **TRUY NGƯỢC VỀ NGUỒN GỐC** của Báo Mới (xem `CLAUDE.md`): tìm bài gốc (nguồn chính thức → wire → báo chuyên ngành/uy tín), mở bằng WebFetch để xác nhận có thật, rồi viết `tieu_de` + `tom_tat` 1-2 câu theo bài gốc. Ghi kết quả:
+   ```
+   python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/tin_jaylam.py --ghi /tmp/jaylam.json
+   ```
+   `/tmp/jaylam.json` = `[{"id": <id>, "tieu_de": "...", "tom_tat": "...", "nguon_ten": "Reuters", "nguon_url": "https://...", "la_cnqs": false}]`
+
+   ⛔ **`la_cnqs: true` cho tin CNQS Mỹ** (khí tài · hệ thống · hợp đồng quốc phòng Mỹ) — nhóm DUY NHẤT được nới khung ngày tới **3 ngày lùi**, y như tin quét thường (`add_news.py::MAX_AGE_DAYS_CNQS`). Huy nêu thẳng 30/07/2026: *"tao cần tin cnqs Mỹ thì tin cũ 3 ngày vẫn để lại (ví dụ hôm nay 27 thì có thể giữ lại tin tận ngày 24)"*. Khai hụt cờ này là **loại oan** đúng nhóm tin Huy cần nhất; tin thường thì khung vẫn là hôm nay + hôm qua.
+
+   ⚠️ **Không truy được bài gốc thì VẪN GIỮ tin** — ghi `nguon_ten: "Jay Lâm gửi"` và bỏ trống `nguon_url` (cùng luật Agent 7 của Báo Mới: bài người dùng tự đưa thì không được bỏ). Mục 5 sẽ in "(không truy được bài gốc)". Guardrail chặn `nguon_url` là trang chủ hoặc live-blog, nên đừng nhét link bừa cho có.
+   ⚠️ **Một mục sai làm CHẶN CẢ LÔ** (mã 1, không ghi gì) — đọc thông báo, sửa mục lỗi rồi chạy lại. Đừng bỏ mục lỗi đi rồi ghi phần còn lại: nửa vời thì không ai biết phần nào đã vào.
+   ⚠️ **Bước này KHÔNG có hạn chót riêng nhưng nằm SAU hạn 21:45** của điều 2 — quá 21:45 thì chốt bản tin trước, bỏ bước này. Tin Jay Lâm không xử lý kịp **không mất**: nó nằm lại hàng chờ và mục 5 tự lùi về nguyên văn đã cắt (kèm cảnh báo trong log workflow), hoặc vào bản tối hôm sau nếu còn trong khung ngày.
+   ⚠️ **Phiên SÁNG SỚM KHÔNG làm bước này** — mục 5 chỉ có ở bản buổi TỐI (`make_docx.py::la_buoi_toi`).
+
+   Bộ test canh: `tests/test-tin-jaylam-xu-ly.py` (30 ca · 12 bản hỏng) và `tests/test-tin-jaylam-trong-docx.py` (43 ca · 12 bản hỏng).

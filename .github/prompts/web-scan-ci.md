@@ -42,6 +42,20 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
 3. Quét theo SKILL. Sau mỗi mốc lớn: ghi checkpoint log + `python3 scripts/state.py beat web-scan` + push log.
    ⏱️ **BEAT NGAY TRƯỚC KHI GIAO AGENT, đừng đợi agent xong mới beat** (vá 28/07/2026). Khoá thối sau **30 phút không nhịp** (`LOCK_STALE_MIN`), mà vòng agent là chặng DÀI NHẤT của phiên — beat "sau mỗi mốc lớn" nghĩa là nhịp đầu tiên chỉ tới khi agent xong. Đo thật phiên tối 28/07: start 21:00 → beat đầu tiên **21:26**, tức 25 phút không nhịp, chỉ cách ngưỡng thối **5 phút**. Vòng agent chậm thêm 5 phút nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét → mốc kế (local 21:15 hoặc CI 22:00) cướp khoá và **quét chồng**, đúng sự cố hai phiên cùng quét hôm 26/07.
    Vì vậy beat ở CẢ BA chỗ này, không chỉ ở mốc lớn: **(a) ngay sau `harvest.py` + `telegram_harvest.py`** · **(b) ngay TRƯỚC khi giao lô agent** · **(c) sau khi gom xong kết quả agent**. Nguyên tắc: **hai nhịp liên tiếp không được cách quá ~15 phút**; sắp làm việc gì dự kiến lâu thì beat trước khi bắt đầu, không phải sau khi xong.
+3b. **CHỈ PHIÊN TỐI — xử lý tin Jay Lâm gửi thành TIN CHUẨN, sau khi nạp tin quét, TRƯỚC khi commit** (thêm 30/07/2026, chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*).
+   ```
+   python3 scripts/tin_jaylam.py --liet-ke
+   ```
+   Mã **10** = không có tin chờ, bỏ qua bước này. Mã **0** = có tin: với mỗi tin, truy về bài gốc theo đúng luật TRUY NGƯỢC của Báo Mới (nguồn chính thức → wire → báo chuyên ngành; WebFetch xác nhận bài có thật), viết `tieu_de` + `tom_tat` 1-2 câu, rồi:
+   ```
+   python3 scripts/tin_jaylam.py --ghi /tmp/jaylam.json
+   ```
+   `[{"id": <id>, "tieu_de": "...", "tom_tat": "...", "nguon_ten": "Reuters", "nguon_url": "https://...", "la_cnqs": false}]`
+   - ⛔ **`la_cnqs: true` cho tin CNQS Mỹ** (khí tài · hệ thống · hợp đồng quốc phòng) — nhóm DUY NHẤT được nới khung **3 ngày lùi**, y như tin quét thường. Khai hụt là loại oan đúng nhóm Huy cần nhất.
+   - Không truy được bài gốc thì VẪN GIỮ tin: `nguon_ten: "Jay Lâm gửi"`, bỏ trống `nguon_url`. Đừng nhét link bừa — guardrail chặn trang chủ và live-blog.
+   - Một mục sai là CHẶN CẢ LÔ (mã 1, không ghi gì): sửa mục lỗi rồi chạy lại.
+   - **Quá hạn 21:45 thì BỎ bước này**, chốt bản tin trước. Tin không xử lý kịp không mất — mục 5 tự lùi về nguyên văn đã cắt, hoặc vào bản tối hôm sau.
+   - Phiên SÁNG SỚM **không làm** bước này (mục 5 chỉ có ở bản buổi tối).
 4. Kết thúc — LUÔN một trong ba: `python3 scripts/state.py done web-scan "<tóm tắt>"` (nạp được tin) / `skip` (lô rỗng) / `fail` (lỗi giữa chừng, VẪN push log).
    Commit bản tin đúng mẫu `Cap nhat ban tin DD/MM: +N tin (5 chu de)` — `git add index.html data/ logs/` (phải có logs/state.json) rồi push. Push bị từ chối → `git pull --rebase origin main` rồi push lại; pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ.
 5. Báo cáo cuối NGẮN GỌN: số tin mỗi chủ đề, chủ đề nào thiếu (đã nới 48h chưa), trạng thái push.

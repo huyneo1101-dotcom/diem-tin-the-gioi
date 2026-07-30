@@ -291,8 +291,9 @@ def xu_ly_tin_jaylam(token, chat, m, doc_att):
         if luu_tin_jaylam(chat, ten_nguoi, ten_file, noi_dung):
             call(token, "sendMessage", {
                 "chat_id": chat,
-                "text": (f"Đã nhận: {ten_file} ({len(noi_dung)} ký tự) — "
-                         "sẽ vào bản tin TỐI hôm nay (nếu không trùng tin đã có).")})
+                "text": (f"Đã nhận: {ten_file} ({len(noi_dung)} ký tự) — sẽ được tóm tắt "
+                         "kèm link nguồn rồi vào bản tin TỐI hôm nay (nếu không trùng tin "
+                         "đã có).")})
         else:
             call(token, "sendMessage", {
                 "chat_id": chat,

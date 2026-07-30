@@ -351,6 +351,44 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
   `/tmp/email-preview.html`. ⚠️ **Máy Huy KHÔNG có `node`** — chỉ chạy được ở nơi có node, hoặc kiểm
   cú pháp/logic bằng `jsc` với stub `require` (xem CLAUDE.md).
 
+## Bước 4c — CHỈ PHIÊN TỐI: tin Jay Lâm gửi thành TIN CHUẨN (thêm 30/07/2026)
+
+Chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*. Mục 5 của
+file .docx bản tin tối là tin Jay Lâm gửi vào bot; trước 30/07 nó dán nguyên văn tới 20.000 ký tự,
+lệch hẳn khuôn 4 mục kia. Việc truy nguồn + viết tóm tắt cần suy nghĩ nên `make_docx.py` không làm
+được — đây là việc của phiên quét TỐI.
+
+```
+python3 scripts/tin_jaylam.py --liet-ke        # mã 10 = không có tin chờ -> bỏ qua bước này
+python3 scripts/tin_jaylam.py --ghi /tmp/jaylam.json
+```
+`[{"id": <id>, "tieu_de": "...", "tom_tat": "...", "nguon_ten": "Reuters", "nguon_url": "https://...", "la_cnqs": false}]`
+
+**Chuẩn nội dung — ĐÚNG bằng chuẩn tin quét thường, không hạ thấp:**
+- **Truy về bài gốc** theo luật TRUY NGƯỢC của Báo Mới: nguồn chính thức → wire (Reuters/AP/AFP) →
+  báo chuyên ngành/uy tín. Mở bằng WebFetch xác nhận bài có thật và khớp nội dung, rồi lấy
+  `nguon_ten` + `nguon_url` + viết `tom_tat` **theo bài gốc**, không theo cách diễn đạt trong file
+  Jay Lâm gửi (bản dẫn lại hay làm tròn/rút gọn sai số liệu).
+- `tom_tat` 1-2 câu như `summary` của tin thường — **không** kèm câu đánh giá kiểu "cho thấy…",
+  "phản ánh…" (đúng luật đã bỏ `significance` khỏi .docx từ 27/07/2026).
+- ⛔ **`la_cnqs: true` cho tin CNQS Mỹ** (khí tài · hệ thống · hợp đồng quốc phòng Mỹ) — nhóm DUY
+  NHẤT được nới khung ngày tới **3 ngày lùi**, y như `MAX_AGE_DAYS_CNQS` của tin quét. Huy nêu thẳng
+  30/07/2026: *"tao cần tin cnqs Mỹ thì tin cũ 3 ngày vẫn để lại (ví dụ hôm nay 27 thì có thể giữ
+  lại tin tận ngày 24)"*. Khai hụt cờ này là **loại oan** đúng nhóm tin Huy cần nhất.
+- **Không truy được bài gốc thì VẪN GIỮ tin**: `nguon_ten: "Jay Lâm gửi"`, bỏ trống `nguon_url`
+  (cùng luật Agent 7 của Báo Mới — bài người dùng tự đưa thì không được bỏ). Đừng nhét link bừa cho
+  có: guardrail chặn trang chủ và live-blog, và link sai còn tệ hơn không link.
+
+**Guardrail của `--ghi`** (chặn = mã 1, không ghi gì, sửa rồi chạy lại): `id` không nằm trong hàng
+chờ · `id` trùng trong cùng file · `tieu_de` ngoài 10-200 ký tự · `tom_tat` dưới 40 ký tự ·
+thiếu `nguon_ten` · `nguon_url` là trang chủ/live-blog · `la_cnqs` không phải true/false. **Một mục
+sai là chặn CẢ LÔ** — cố ý, để không ghi nửa vời rồi không ai biết phần nào đã vào.
+
+⚠️ Bước này nằm SAU hạn 21:45 của phiên tối: quá hạn thì **chốt bản tin trước, bỏ bước này**. Tin
+không xử lý kịp KHÔNG mất — mục 5 tự lùi về nguyên văn đã cắt (kèm cảnh báo trong log workflow),
+hoặc vào bản tối hôm sau nếu còn trong khung ngày.
+⚠️ Phiên SÁNG SỚM không làm bước này — mục 5 chỉ có ở bản buổi TỐI.
+
 ## Bước 5 — Xuất bản + log
 - `git add index.html logs/` phải gồm **`logs/scan-gaps.json`** (cùng `logs/state.json`).
 - `python3 scripts/state.py done web-scan "+N tin (5 chủ đề)"` — CHỈ khi thật sự nạp được tin; lô rỗng
