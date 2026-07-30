@@ -1,0 +1,99 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Test cho phần NHẬN tin Jay Lâm gửi qua bot (thêm 30/07/2026): bóc chữ từ `.docx`
+(`scripts/docx_text.py`) và nhánh xử lý trong `telegram_bot.py::xu_ly_tin_jaylam()`.
+
+    python3 tests/test-nhan-tin-jaylam.py
+
+Phần GỘP vào bản tin tối (`make_docx.py`) có bộ test riêng: `tests/test-tin-jaylam-trong-docx.py`.
+Không chạm mạng thật: `call`/`tai_file`/`luu_tin_jaylam` đều bị monkeypatch trong telegram_bot.
+"""
+import pathlib
+import sys
+import tempfile
+import unittest.mock as mock
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import docx_text  # noqa: E402
+import telegram_bot as tb  # noqa: E402
+from docx import Document  # noqa: E402
+
+CA = []
+
+
+def kiem(ten, dat):
+    dat = bool(dat)
+    CA.append((ten, dat))
+    print(("✓" if dat else "✗") + " " + ten)
+
+
+def docx_mau(doan):
+    d = Document()
+    for p in doan:
+        d.add_paragraph(p)
+    tmp = tempfile.mktemp(suffix=".docx")
+    d.save(tmp)
+    return tmp
+
+
+# --- docx_text.trich() ----------------------------------------------------
+kiem("trich() file không tồn tại -> rỗng, không crash",
+     docx_text.trich("/khong/co/that.docx") == "")
+
+f1 = docx_mau(["Dòng một có dấu: Đà Nẵng", "Dòng hai"])
+t1 = docx_text.trich(f1)
+kiem("trich() giữ dấu tiếng Việt", "Đà Nẵng" in t1)
+kiem("trich() giữ đủ các dòng", "Dòng một" in t1 and "Dòng hai" in t1)
+
+f2 = docx_mau(["a" * 100])
+t2 = docx_text.trich(f2, max_chars=10)
+kiem("trich() cắt đúng độ dài + có dấu …", len(t2) == 11 and t2.endswith("…"))
+
+f3 = tempfile.mktemp(suffix=".docx")
+pathlib.Path(f3).write_text("không phải file zip/docx thật", encoding="utf-8")
+kiem("trich() file .docx giả (không phải zip) -> rỗng", docx_text.trich(f3) == "")
+
+# --- telegram_bot.xu_ly_tin_jaylam() — CA PHẢI CHẶN ------------------------
+with mock.patch.object(tb, "call") as call_m, \
+        mock.patch.object(tb, "tai_file") as tai_m, \
+        mock.patch.object(tb, "luu_tin_jaylam") as luu_m:
+    tb.xu_ly_tin_jaylam("111", "111", {"from": {"first_name": "Jay Lâm"}},
+                         {"file_name": "anh.jpg", "file_id": "abc"})
+kiem("xu_ly_tin_jaylam() từ chối file không phải .docx -> KHÔNG tải, KHÔNG lưu",
+     not tai_m.called and not luu_m.called and call_m.called
+     and ".docx" in call_m.call_args.args[2]["text"])
+
+with mock.patch.object(tb, "call") as call_m, \
+        mock.patch.object(tb, "tai_file", return_value=False) as tai_m, \
+        mock.patch.object(tb, "luu_tin_jaylam") as luu_m:
+    tb.xu_ly_tin_jaylam("111", "111", {"from": {"first_name": "Jay Lâm"}},
+                         {"file_name": "tin.docx", "file_id": "abc"})
+kiem("xu_ly_tin_jaylam() tải file hỏng -> KHÔNG lưu, có báo lỗi",
+     tai_m.called and not luu_m.called and "hỏng" in call_m.call_args.args[2]["text"])
+
+f4 = docx_mau(["Tin thật từ Jay Lâm"])
+with mock.patch.object(tb, "call") as call_m, \
+        mock.patch.object(tb, "tai_file",
+                           side_effect=lambda tok, fid, dich: pathlib.Path(f4).rename(dich)
+                           or True) as tai_m, \
+        mock.patch.object(tb, "luu_tin_jaylam", return_value=True) as luu_m:
+    tb.xu_ly_tin_jaylam("111", "111", {"from": {"first_name": "Jay Lâm"}},
+                         {"file_name": "tin.docx", "file_id": "abc"})
+kiem("xu_ly_tin_jaylam() luồng bình thường -> lưu đúng nội dung, báo đã nhận",
+     luu_m.called and "Jay Lâm" in luu_m.call_args.args[1]
+     and "Tin thật" in luu_m.call_args.args[3]
+     and "Đã nhận" in call_m.call_args.args[2]["text"])
+
+with mock.patch.object(tb, "call") as call_m, \
+        mock.patch.object(tb, "tai_file", return_value=True) as tai_m, \
+        mock.patch.object(tb, "luu_tin_jaylam", return_value=False) as luu_m:
+    tb.xu_ly_tin_jaylam("111", "111", {"from": {"first_name": "Jay Lâm"}},
+                         {"file_name": "rong.docx", "file_id": "abc"})
+kiem("xu_ly_tin_jaylam() file rỗng/không đọc được -> không gọi lưu, báo lỗi",
+     not luu_m.called and ("rỗng hoặc hỏng" in call_m.call_args.args[2]["text"]))
+
+so_dat = sum(1 for _, ok in CA if ok)
+print(f"\n{so_dat}/{len(CA)} ca đạt")
+sys.exit(0 if so_dat == len(CA) else 1)

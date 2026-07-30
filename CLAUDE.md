@@ -848,30 +848,45 @@ mã. Thiếu nó thì lần lưu thứ hai trở đi im lặng không ghi đè �
 **vắng mặt trong phiên headless/cron** — đó là lý do routine đi bằng mã riêng + `curl` chứ
 không gọi MCP.
 
-### 📎 Jay Lâm gửi file .docx tin tức qua bot → gộp thành tài liệu cuối ngày cho Huy (dựng 30/07/2026)
+### 📎 Jay Lâm gửi file .docx tin tức qua bot → GỘP THẲNG vào .docx bản tin TỐI (dựng 30/07/2026)
 
 Huy hỏi: *"Jay Lâm gửi vào bot tin tức trên tele 1 file docx thì mày có đọc được và tự tổng hợp
-vào file docx cuối ngày không?"* Huy chốt: file cuối ngày là **TÀI LIỆU RIÊNG cho Huy đọc**
-(KHÔNG tự động nạp lên bản tin công khai — cùng nguyên tắc với mục "Ràng buộc kênh — Jay Lâm là
-NGƯỜI NGOÀI" ở trên: nội dung rút ra từ chat của Jay Lâm chỉ được đi tới MỘT người).
+vào file docx cuối ngày không?"* Bản đầu dựng theo hướng gửi RIÊNG cho Huy lúc 22:00 — Huy sửa
+lại ngay trong ngày: *"tổng hợp file Jay Lâm gửi CÙNG VỚI kết quả quét tin buổi tối thành 1
+file gửi vào Bot tin tức — như hàng ngày vẫn làm."* Tức KHÔNG tách kênh riêng: nội dung Jay Lâm
+gửi trở thành **mục 5** của chính file `.docx` bản tin tối, gửi qua `@diemtin24h_bot` như mọi
+ngày (tới cả Huy lẫn Jay Lâm — họ tự gửi tin của mình nên không phải rò rỉ gì).
 
 | Mảnh | Việc |
 |---|---|
-| Bảng Supabase `dt_jaylam_inbox` | `chat_id, ten, ten_file, noi_dung, ngay_vn, da_gop, created_at`. RLS: INSERT mở cho anon (giống `dt_bot_hoi`) · SELECT/UPDATE chỉ qua `dt_ma_hop_le()` (mã `x-dt-key`, dùng lại mã đã cắm cho `ho_so_doc_gia`/lịch sử chat — KHÔNG phải service key) |
-| `scripts/docx_text.py` | Bóc chữ từ `.docx` bằng `zipfile` + regex trên `word/document.xml` — KHÔNG cần `python-docx`, chỉ dùng lúc ĐỌC |
-| `scripts/telegram_bot.py::xu_ly_tin_jaylam()` | Chạy NGAY trong `--doc` (rẻ, không cần `claude -p`, giống lệnh `/xoa`): nhận file, từ chối nếu không phải `.docx`, tải bằng `tg_api.tai_file()`, trích chữ, ghi Supabase, xác nhận NGẮN cho người gửi (không nêu nội dung, chỉ số ký tự) |
-| `scripts/gop_tin_jaylam.py` | Cron cuối ngày: đọc các dòng `ngay_vn = hôm nay` + `da_gop = false`, dựng MỘT file `.docx` (python-docx, cùng font Times New Roman như `make_docx.py`), gửi qua `send_document` **CHỈ tới `chat_chu()`** (chat riêng của Huy — KHÔNG lặp qua `TELEGRAM_CHAT_ID`, danh sách đó có cả Jay Lâm), rồi đánh dấu `da_gop = true` |
-| `.github/workflows/gop-tin-jaylam.yml` | Cron `0 15 * * *` UTC = **22:00 VN** (sau hạn email/Telegram bản tin tối), `workflow_dispatch` để chạy tay |
-| `tests/test-gop-tin-jaylam.py` | 16 ca — bao gồm ca PHẢI CHẶN: không có tin trong ngày / đọc Supabase hỏng / thiếu `chat_chu()` / thiếu secret → **KHÔNG được gọi `send_document`** |
+| Bảng Supabase `dt_jaylam_inbox` | `chat_id, ten, ten_file, noi_dung, ngay_vn, da_gop, created_at`. RLS: INSERT mở cho anon (giống `dt_bot_hoi`) · SELECT/UPDATE chỉ qua `dt_ma_hop_le()` (mã `x-dt-key`) |
+| `scripts/docx_text.py` | Bóc chữ từ `.docx` Jay Lâm gửi bằng `zipfile` + regex trên `word/document.xml` — KHÔNG cần `python-docx` chỉ để ĐỌC |
+| `scripts/telegram_bot.py::xu_ly_tin_jaylam()` | Chạy NGAY trong `--doc` (rẻ, không cần `claude -p`, giống lệnh `/xoa`): nhận file, từ chối nếu không phải `.docx`, tải bằng `tg_api.tai_file()`, trích chữ, ghi Supabase (`da_gop=false`), xác nhận NGẮN cho người gửi |
+| `.github/scripts/make_docx.py` mục 5 "Tin Jay Lâm gửi" | **CHỈ ở bản buổi TỐI** (`la_buoi_toi(now)`, ngưỡng 14h giờ VN — cùng ngưỡng `ten_file()`). Đọc MỌI dòng `da_gop=false` (không giới hạn theo ngày — bản tối trễ/skip không làm mất tin), qua bộ lọc chống trùng `loc_trung_jaylam()`, rồi đánh dấu `da_gop=true` SAU khi `doc.save()` thành công |
+| `.github/workflows/notify-email.yml` | Bước "Tạo file docx" nay có thêm `DT_BOT_KEY` — thiếu secret thì mục 5 tự bỏ qua, KHÔNG làm hỏng phần còn lại của file |
+| `tests/test-nhan-tin-jaylam.py` | 9 ca — phần NHẬN (bóc chữ + `xu_ly_tin_jaylam`), 4 ca PHẢI CHẶN (từ chối không phải `.docx` · tải hỏng · file rỗng → KHÔNG lưu) |
+| `tests/test-tin-jaylam-trong-docx.py` | 16 ca — phần GỘP, 5 ca PHẢI CHẶN: buổi sáng KHÔNG đụng Jay Lâm · trùng tin quét thường thì bị lọc khỏi mục riêng NHƯNG vẫn đánh dấu đã gộp · trùng NỘI BỘ giữa các dòng Jay Lâm chỉ giữ dòng đầu · thiếu secret thì im lặng đúng, không vỡ file |
 
-⚠️ **KHÔNG lưu file gốc hay nội dung vào repo** — repo này **PUBLIC** (cùng lý do `bot_luu.py`
-không ghi câu hỏi vào file trong repo). Mọi thứ đi qua Supabase, và bảng chỉ SELECT được bằng mã
+⚠️ **BỘ LỌC CHỐNG TRÙNG — "vẫn phải có như mọi khi" (Huy chốt)**, viết TẠI CHỖ trong
+`make_docx.py` (không import chéo thư mục, cùng lý do `_khong_dau` đã giải thích), CÙNG NGƯỠNG
+Jaccard ≥ 0.6 mà `add_news.py:warn_similar_titles()` dùng cho tin quét thường. Tiêu đề đại diện
+của một dòng Jay Lâm = **dòng đầu không rỗng** của `noi_dung` (`_jaylam_tieu_de()`) — Jay Lâm
+gửi nguyên văn một bài tin nên dòng đầu gần như luôn là tiêu đề. Hai chiều:
+  (a) trùng tin quét thường **ĐÃ chọn** vào `us`/`world`/`events` của đúng bản tin đang dựng;
+  (b) trùng **giữa các dòng Jay Lâm** với nhau (gửi lại/gửi trùng cùng một bài).
+Dòng bị lọc **VẪN được đánh dấu `da_gop=true`** — nội dung của nó coi như đã có mặt trong bản
+tin qua bản còn lại, không đánh dấu thì nó nằm lại vĩnh viễn và tối nào cũng bị lọc lại.
+
+⚠️ **KHÔNG lưu file gốc hay toàn văn vào repo** — repo này **PUBLIC** (cùng lý do `bot_luu.py`
+không ghi câu hỏi vào file trong repo). Mọi thứ đi qua Supabase, bảng chỉ SELECT được bằng mã
 riêng.
 ⚠️ **`tai_file()` (trong `tg_api.py`) giữ token ngoài `argv`** — đi qua `curl -K -` (stdin) như
 `call()`, không phải để token lộ trong `ps aux`.
-⚠️ **Xác nhận với người gửi KHÔNG lộ nội dung sang Huy ngay lập tức và ngược lại** — Jay Lâm chỉ
-nhận được dòng "Đã nhận: <tên file> (N ký tự)", còn Huy chỉ nhận bản tổng hợp vào cuối ngày qua
-kênh riêng. Hai chiều tách biệt, đúng luật "báo cáo rút ra từ người ngoài chỉ đi tới một người".
+⚠️ **Đánh dấu `da_gop` PHẢI đứng SAU `doc.save()`**, không phải trước — nếu ghi hỏng giữa
+chừng thì tin bị đánh dấu "đã gộp" mà chưa thực sự nằm trong file nào là mất tin âm thầm.
+⚠️ **Mã `x-dt-key` đọc theo CÙNG quy ước với `telegram_bot.py:_dt_bot_key()`** — env
+`DT_BOT_KEY` trước, lùi về file `/Users/Huy/Claude/.dt-bot-key` (chỉ có ở máy Huy, dùng khi
+routine local `web-scan-diem-tin-toi` tự dựng docx mà không đi qua workflow CI).
 ⚠️ **Chưa quét được ảnh/PDF/text dán thẳng** — Huy xác nhận Jay Lâm gửi dưới dạng `.docx`; file
 khác định dạng bị `xu_ly_tin_jaylam()` từ chối kèm lời nhắc gửi lại đúng `.docx`.
 
@@ -945,16 +960,18 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `tests/test-cong-luat-push.py` | Cổng "workflow có LỊCH thì cấm rebase file DÙNG CHUNG" (`.github/scripts/kiem_luat_push.py`) | 11 ca — 4 PHẢI CHẶN (bật lại lịch drive-import · `git add logs/` · `git add -A` · dạng `"on":` có nháy), 4 đối chứng chống chặn oan, 2 fail-closed (yml hỏng · thư mục rỗng đều phải trả mã 2), 1 soi thư mục workflow THẬT. `--tu-kiem` bắt 8/8 bản hỏng |
 | `tests/test-ghi-so-push.py` | Sổ đã gửi chịu được HAI workflow ghi cùng lúc (`.github/scripts/ghi_so_push.py`) | 10 ca — 2 CA CHÍNH (giữ đủ hai dòng · URL tính đúng một lần) · 2 PHẢI CHẶN (nhân dòng · `--hard` đè index.html) · 1 PHẢI KÊU · 4 đối chứng · 1 kiểm cổng còn nằm trên đường đi (soi 2 file yml). `--tu-kiem` bắt 6/6 bản hỏng |
 | `tests/test-bang-nguon-claude-md.py` | Đường ĐỌC BẢNG NGUỒN từ CLAUDE.md + phép lấy TIÊU ĐỀ của lớp `[HTML]` | 13 ca — 6 PHẢI CHẶN (nhắc tên bảng trong văn xuôi ×1/×3 · bảng HTML lọt vào lớp RSS · feed giao với trang HTML · thẻ `<a>` gộp tóm tắt vẫn phải ra tiêu đề qua `aria-label` · và qua `<h4 class=title>` kèm tiêu đề phải sạch), 7 đối chứng (cột `CI` bị bỏ ở local · đủ 06 trang quân chủng · Navy+Marines có ở local · tên không mang dấu `**` · không có bảng thì trả rỗng êm · tiêu đề đổi chữ vẫn đọc được · **chống nới tay**: không có nguồn tiêu đề sạch thì BỎ chứ không nạp tiêu đề rác). `--tu-kiem` bắt 5/5 bản hỏng |
-| `tests/test-gop-tin-jaylam.py` | Tin Jay Lâm gửi `.docx` qua bot → gộp cuối ngày (`docx_text.py` · `gop_tin_jaylam.py` · `telegram_bot.py::xu_ly_tin_jaylam`) | 16 ca — 4 PHẢI CHẶN (không có tin trong ngày · đọc Supabase hỏng · thiếu `chat_chu()` · thiếu secret Telegram — cả 4 phải KHÔNG gọi `send_document`), 3 ca trích chữ (giữ dấu · cắt đúng độ dài · file giả trả rỗng), còn lại là luồng bình thường của từng mảnh |
+| `tests/test-nhan-tin-jaylam.py` | Nhận file `.docx` Jay Lâm gửi qua bot (`docx_text.py` · `telegram_bot.py::xu_ly_tin_jaylam`) | 9 ca — 4 PHẢI CHẶN (từ chối file không phải `.docx` · tải hỏng · file rỗng/không đọc được → cả ba KHÔNG được gọi `luu_tin_jaylam`), 4 ca trích chữ (giữ dấu · giữ đủ dòng · cắt đúng độ dài · file giả trả rỗng), 1 ca luồng bình thường |
+| `tests/test-tin-jaylam-trong-docx.py` | Gộp tin Jay Lâm vào mục 5 của `.docx` bản tin TỐI (`make_docx.py`) | 16 ca — 5 PHẢI CHẶN (buổi sáng KHÔNG gọi Supabase Jay Lâm · trùng tin quét thường thì ẩn khỏi mục riêng nhưng VẪN đánh dấu `da_gop` · trùng nội bộ giữa 2 dòng Jay Lâm chỉ hiện 1 lần nhưng đánh dấu cả 2 · thiếu secret thì im lặng đúng), còn lại là ngưỡng `la_buoi_toi()` + luồng bình thường |
 
-Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `telegram_bot.py` · `docx_text.py` · `gop_tin_jaylam.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:
+Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `telegram_bot.py` · `docx_text.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:
 ```
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-baomoi.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-so-da-gui.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-canary-ban-tin.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-cong-phien-test.py
 python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-ghi-so-push.py
-python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-gop-tin-jaylam.py
+python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-nhan-tin-jaylam.py
+python3 /Users/Huy/Claude/diem-tin-the-gioi/tests/test-tin-jaylam-trong-docx.py
 ```
 
 ⚠️ **SỬA CHÍNH `CLAUDE.md` CŨNG PHẢI CHẠY TEST — tài liệu này LÀ CẤU HÌNH, không phải chỉ là chữ**

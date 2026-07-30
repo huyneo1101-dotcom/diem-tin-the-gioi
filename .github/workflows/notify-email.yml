@@ -85,6 +85,11 @@ jobs:
 
       - name: Tạo file docx toàn bộ tin vừa quét
         if: steps.chk.outputs.go == '1'
+        env:
+          # Đọc tin Jay Lâm gửi qua bot (dt_jaylam_inbox) để gộp vào mục 5 — CHỈ có tác dụng
+          # ở bản buổi TỐI (make_docx.py:la_buoi_toi()). Thiếu secret này -> make_docx tự bỏ
+          # qua mục 5, KHÔNG làm hỏng phần còn lại của file (xem docstring doc_tin_jaylam_chua_gop).
+          DT_BOT_KEY: ${{ secrets.DT_BOT_KEY }}
         run: |
           pip install --quiet python-docx
           out=$(python3 .github/scripts/make_docx.py)
