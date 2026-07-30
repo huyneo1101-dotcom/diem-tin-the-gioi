@@ -134,11 +134,23 @@ def main() -> int:
     moi = []
     for u in r.get("result") or []:
         m = u.get("message") or {}
-        if not (m.get("text") or "").strip():
+        # PHẢI ĐẾM CẢ FILE, KHÔNG CHỈ TEXT (vá 30/07/2026). Bản đầu chỉ xét `text` nên script
+        # MÙ HOÀN TOÀN với `.docx` Jay Lâm gửi — mà `telegram_bot.py:388` thì xử lý `document`
+        # đầy đủ. Hai nơi cùng quyết định "update này có đáng xử lý không" mà mỗi nơi một luật:
+        # bên workflow nhận, bên nhìn-trước bỏ qua ⇒ file phải nằm chờ cron GitHub (đo thật:
+        # các lần chạy cách nhau 66-148 phút). Tối 30/07 file tới trước bản tin ~20 phút mà
+        # không lớp tự động nào kích, nên nó lỡ mất bản tin tối — hai file vào được hôm đó đều
+        # do nguyên nhân khác: một cái ăn ké lượt kích do Huy nhắn text, một cái do kích tay.
+        la_file = bool(m.get("document"))
+        if not la_file and not (m.get("text") or "").strip():
             continue
         if chats and str((m.get("chat") or {}).get("id", "")) not in chats:
             continue        # người lạ nhắn -> workflow cũng bỏ, kích là phí một run
-        if bay_gio - float(m.get("date", 0)) > MAX_AGE_PHUT * 60:
+        # File KHÔNG xét tuổi — khớp đúng nhánh `document` của workflow, nhánh đó cũng không
+        # xét `MAX_AGE_PHUT`. Siết ở đây là dựng lại đúng cảnh lệch luật vừa vá: file gửi đêm
+        # lúc máy ngủ, sáng mở máy đã quá 360 phút ⇒ script lặng lẽ bỏ, trong khi workflow vẫn
+        # nhận được. Hướng lệch phải là KÍCH THỪA một run, không phải mất một file.
+        if not la_file and bay_gio - float(m.get("date", 0)) > MAX_AGE_PHUT * 60:
             continue
         moi.append(u["update_id"])
 
