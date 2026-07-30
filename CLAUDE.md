@@ -1482,11 +1482,36 @@ vào bình thường. **Không phải chặn địa lý, nên VPN Mỹ không gi
 |---|---|---|---|
 | 1 | `curl -sL --compressed -A <UA Chrome>` | mặc định, ~85% nguồn | mọi phiên + CI |
 | 2 | **`curl_cffi` `impersonate="chrome"`** (giả vân tay TLS) | bậc 1 trả 403 / thân mang dấu hiệu chặn | mọi phiên + CI, cần `pip install --user curl_cffi` |
-| 3 | **Browser pane** (`preview_start` → `javascript_tool` `fetch()` same-origin) | bậc 2 vẫn trượt, cần xác minh bằng mắt | CHỈ phiên local có Claude — **CI không dùng được** |
-| 4 | `WebSearch site:<domain>` | không có feed, hoặc cả 3 bậc trên đều trượt | mọi phiên |
+| 2b | **THANG `congcu/lay_trang.py`** (thu_lai/thử lại thưa nhịp → wayback → pdf → api_rieng → relay_my, theo `bang-tra-web.json` từng tên miền) | bậc 2 vẫn trượt — CHỈ khi máy có `~/Claude/congcu` | **CHỈ local** — CI không có thư mục dùng chung này |
+| 3 | **Browser pane** (`preview_start` → `javascript_tool` `fetch()` same-origin) | bậc 2b vẫn trượt, cần xác minh bằng mắt | CHỈ phiên local có Claude — **CI không dùng được** |
+| 4 | `WebSearch site:<domain>` | không có feed, hoặc mọi bậc trên đều trượt | mọi phiên |
 
-`harvest.py` **tự đi bậc 1 → bậc 2**: `curl()` dò thân trả về, thấy dấu hiệu chặn thì thử lại bằng vân
-tay TLS. Không phải sửa gì khi thêm nguồn mới.
+`harvest.py` **tự đi bậc 1 → bậc 2 → bậc 2b**: `curl()` dò thân trả về, thấy dấu hiệu chặn thì gọi
+`lay_trang.lay()` (thang đầy đủ). Không phải sửa gì khi thêm nguồn mới.
+
+**🪜 CẮM THANG 06 ĐƯỜNG VÀO `curl()` — 30/07/2026 (chỉ thị Huy), thay cho "chỉ thử ĐÚNG một lượt
+curl_cffi" trước đó.** Dùng CHUNG một hàm với `App/QuanSu/kho-nen/kiem-url.py` (import
+`congcu/lay_trang.py` bằng đường tuyệt đối, đừng dựng lại logic riêng ở từng repo — mục 14 CLAUDE.md
+toàn cục cấm hai bản của cùng một thứ).
+- **Đo thật lúc cắm** (đợt quét 108 nguồn RSS+HTML hôm đó, 6 nguồn hoàn toàn hỏng với "1 lượt
+  curl_cffi"): thang cứu thêm **`spaceforce.mil`** (RSS, qua `wayback` — bản lưu còn trong khung nới
+  CNQS 3 ngày) và **`navy.mil`** (HTML, qua `wayback` — 4 candidate mới, trước đó 0). Chạy lại đầy đủ
+  cùng ngày còn cứu thêm `thediplomat.com` và `af.mil` (RSS, cả hai qua `wayback`). Vẫn KHÔNG cứu được
+  `army.mil`/`marines.mil` hôm đó vì DNS zone `.mil` sập thật trong phiên đo (đúng bệnh "chập chờn") và
+  bản lưu Wayback của chúng quá cũ (vài tháng, ngoài mọi khung ngày) — thang không phải phép màu, chỉ
+  là thêm một lượt thử theo đúng cấu hình đã đo cho từng tên miền.
+- **Nhân đợt đo này bắt được một lỗi thật trong CHÍNH `congcu/lay_trang.py`:** `duong_wayback()` thiếu
+  modifier `id_` nên nội dung RSS/XML có lúc trả về đúng trang phát lại của Wayback (giao diện JS, 0
+  mục) thay vì byte gốc đã lưu — đã vá tại nguồn (thêm `id_` vào URL), nghiệm thu chéo trên 8 domain
+  khác đang dùng wayback trong `bang-tra-web.json`: không domain nào mất rescue, chỉ nhẹ hơn (không
+  dính banner Wayback). Ca test `ca_26` trong `congcu/test-lay-trang.py` canh đúng chỗ này.
+- **CHỈ CẮM ĐƯỢC KHI MÁY CÓ `~/Claude/congcu`.** CI (GitHub Actions) checkout đúng repo này, không có
+  thư mục dùng chung đó, nên `curl()` TỰ LÙI VỀ đúng logic cũ (1 lượt curl_cffi, hàm
+  `_lay_bang_van_tay_chrome` giữ nguyên) — fail-open CÓ TIẾNG, in ra ở cuối `bao_nguon_hong()`
+  (`🪜 Thang lấy trang bị chặn: KHÔNG có — máy thiếu …`). Không phải lỗ hổng: CI vốn đã đủ dùng plain
+  curl_cffi cho hầu hết nguồn (chạy từ IP Mỹ).
+- Sổ ghi vết `VET_NGUON["thang_cuu"]` (dict `{đường: [url,...]}`) tách riêng khỏi `cffi_va_duoc` — bậc
+  nào KHÁC `curl_cffi` (wayback/thu_lai/pdf/api_rieng/relay_my) mới vào đây, in kèm tên bậc đã cứu.
 
 **Đo thật 30/07/2026 — 108 nguồn, 3 cấu hình curl, rồi mở lại từng cái bằng trình duyệt:**
 
@@ -1510,7 +1535,8 @@ moment` · `request forbidden`), không dò theo cỡ.
 Fail-open có tiếng — im lặng ở đây là tạo đúng vùng câm mà bản vá này sinh ra để bịt.
 
 **Đo lại về sau:** `python3 scripts/kiem_nguon.py` (nhóm trọng yếu, ~20 nguồn, mã thoát 1 khi có nguồn
-hỏng) hoặc `--tat-ca`. Bộ test canh: `tests/test-kiem-nguon.py` (20 ca · `--tu-kiem` bắt 7/7 bản hỏng).
+hỏng) hoặc `--tat-ca`. Bộ test canh: `tests/test-kiem-nguon.py` (25 ca · `--tu-kiem` bắt 10/10 bản
+hỏng — nhóm A-E đo bậc 2 cũ, nhóm F ca 21-25 đo nhánh CÓ thang qua `GiaLapThang`).
 
 ### 🕸️ TRANG HTML QUÉT TRỰC TIẾP — không có RSS nhưng vẫn đọc được (thêm 27/07/2026)
 Huy nhắc đúng: *"không có RSS thì mày vẫn xem được mà"*. Kiểm lại 85 domain trong file nguồn chính thức

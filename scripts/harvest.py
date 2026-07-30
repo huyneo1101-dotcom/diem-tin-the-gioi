@@ -159,7 +159,7 @@ def same_story(a: str, b: str) -> bool:
     return len(sa & sb) / len(sa | sb) >= 0.5
 
 
-# ── LẤY NỘI DUNG: curl thường, bị chặn thì thử lại bằng vân tay TLS của Chrome ──
+# ── LẤY NỘI DUNG: curl thường, bị chặn thì đi hết THANG của `congcu/lay_trang.py` ──
 # VÌ SAO (đo thật 30/07/2026): Akamai và Cloudflare nhận dạng dấu vân tay TLS (JA3/JA4)
 # của curl/urllib rồi cắt kết nối, trong khi Chrome CÙNG MÁY CÙNG IP vào bình thường
 # (đo: Browser pane đi ra bằng đúng 113.23.43.99 như curl). KHÔNG phải chặn địa lý.
@@ -171,14 +171,38 @@ def same_story(a: str, b: str) -> bool:
 # ⚠️ 403 KHÔNG phải lúc nào cũng lộ ra là rỗng hay ngắn: trang lỗi của Naval Technology
 # dài 19.357 byte và MỞ ĐẦU BẰNG `<?xml`, nên `items_of` parse ra 0 item mà không ném
 # lỗi — hỏng câm hoàn hảo. Vì vậy phải dò theo DẤU HIỆU trong thân, không dò theo cỡ.
+#
+# 🪜 CẮM THANG 06 ĐƯỜNG 30/07/2026 (chỉ thị Huy) — trước bản này chỉ thử ĐÚNG một lượt
+# curl_cffi khi bị chặn; nay bị chặn thì đi hết thang đã dựng ở `congcu/lay_trang.py`
+# (curl_cffi → thử lại thưa nhịp → wayback → …, theo đúng cấu hình từng tên miền trong
+# `bang-tra-web.json`). Đo thật khi cắm (đợt quét RSS+HTML 108 nguồn hôm đó, 6 nguồn
+# hoàn toàn hỏng với "1 lượt curl_cffi"): thang cứu thêm `spaceforce.mil` (RSS, qua
+# wayback — bản lưu còn nằm trong khung nới CNQS 3 ngày) và `navy.mil` (HTML, qua
+# wayback — trang tươi). Còn `army.mil` / `af.mil` / `marines.mil` không cứu được hôm
+# đó vì DNS zone `.mil` sập thật trong phiên đo (đúng bệnh "chập chờn" đã ghi ở
+# CLAUDE.md) và bản lưu Wayback của chúng đã quá cũ (vài tháng, ngoài mọi khung ngày).
+# Nhân đợt đo này bắt được một lỗi thật trong CHÍNH `lay_trang.py`: `duong_wayback()`
+# thiếu modifier `id_` nên RSS/XML có lúc về đúng trang phát lại rỗng — đã vá tại nguồn
+# (congcu/lay_trang.py), không vá riêng ở đây, vì mọi nơi dùng thang đều hưởng lợi.
+#
+# CHỈ CẮM ĐƯỢC Ở MÁY CÓ `~/Claude/congcu` (local) — CI (GitHub Actions) checkout đúng
+# repo này, không có thư mục dùng chung đó, nên TỰ LÙI VỀ đúng logic cũ (1 lượt
+# curl_cffi, hàm `_lay_bang_van_tay_chrome` giữ nguyên bên dưới). Đây là fail-open CÓ
+# TIẾNG (in ra cuối phiên qua `bao_nguon_hong()`), không phải lỗ hổng: CI vốn đã đủ
+# dùng plain curl_cffi cho hầu hết nguồn (chạy từ IP Mỹ), còn nguồn nào CI cần đường
+# khác thì đã có cơ chế "Chạy ở = CI" riêng trong bảng CLAUDE.md.
+CONGCU_DIR = "/Users/Huy/Claude/congcu"
+
 DAU_HIEU_CHAN = (b"403 forbidden", b"error 403", b"access denied",
                  b"attention required", b"just a moment", b"request forbidden")
 
-# Sổ ghi vết trong RAM: nguồn nào phải nhờ vân tay TLS, nguồn nào chịu chết.
+# Sổ ghi vết trong RAM: nguồn nào phải nhờ đường nào, nguồn nào chịu chết.
 # `main()` in ra cuối — nguồn chết mà không ai kêu thì sống mãi (bài học cổng câm NFD).
-VET_NGUON = {"cffi_va_duoc": [], "chan_ca_hai": [], "cffi_vang_mat": set()}
+VET_NGUON = {"cffi_va_duoc": [], "chan_ca_hai": [], "cffi_vang_mat": set(),
+             "thang_cuu": {}}
 
-_CFFI = None  # None = chưa thử import · False = máy không có curl_cffi
+_CFFI = None       # None = chưa thử import trực tiếp · False = máy không có curl_cffi
+_LAY_TRANG = None  # None = chưa thử nạp thang · False = máy KHÔNG có `~/Claude/congcu`
 
 
 def _nghi_bi_chan(body: bytes) -> bool:
@@ -188,8 +212,30 @@ def _nghi_bi_chan(body: bytes) -> bool:
     return any(d in dau for d in DAU_HIEU_CHAN)
 
 
+def _lay_trang_module():
+    """Nạp `congcu/lay_trang.py` một lần. Thiếu (đường không tồn tại, thường là CI) -> False.
+
+    KHÔNG vendor một bản chép vào repo này — mục 14 CLAUDE.md toàn cục cấm hai bản của
+    cùng một thứ (chắc chắn lệch, mà lệch âm thầm). Máy nào không có thư mục dùng chung
+    này thì tự lùi về bản dự phòng `_lay_bang_van_tay_chrome` ngay bên dưới.
+    """
+    global _LAY_TRANG
+    if _LAY_TRANG is None:
+        try:
+            if CONGCU_DIR not in sys.path:
+                sys.path.insert(0, CONGCU_DIR)
+            import lay_trang as _lt  # noqa: PLC0415
+            _LAY_TRANG = _lt
+        except ImportError:
+            _LAY_TRANG = False
+    return _LAY_TRANG
+
+
 def _lay_bang_van_tay_chrome(url: str, timeout: int) -> bytes:
-    """Thử lại bằng curl_cffi (giả vân tay TLS Chrome). Thiếu thư viện thì trả rỗng.
+    """Một lượt curl_cffi thẳng — CHỈ dùng khi máy KHÔNG có thang (không có `congcu`, vd CI).
+
+    Đây là bản dự phòng, không phải bản chính: máy có `congcu` đi qua thang đầy đủ trong
+    `curl()` thay vì hàm này. Giữ lại để CI vẫn có đúng mức bảo vệ như trước khi cắm thang.
 
     Fail-open CÓ TIẾNG: thiếu `curl_cffi` thì harvest vẫn chạy (CI không cần nó — runner
     Mỹ curl thẳng được), nhưng ghi vào VET_NGUON để cuối phiên còn in ra. Im lặng ở đây
@@ -221,16 +267,38 @@ def curl(url: str, timeout: int = 25) -> bytes:
     body = p.stdout or b""
     if not _nghi_bi_chan(body):
         return body
-    if _CFFI is False:
+
+    lt = _lay_trang_module()
+    if lt is False:
+        # Không có `~/Claude/congcu` (CI, hoặc máy khác) -> lùi về đúng cách cũ.
+        if _CFFI is False:
+            VET_NGUON["cffi_vang_mat"].add(url)
+            return body
+        body2 = _lay_bang_van_tay_chrome(url, timeout)
+        if _CFFI is False:      # vừa phát hiện thiếu thư viện ngay trong lượt này
+            VET_NGUON["cffi_vang_mat"].add(url)
+            return body
+        if body2 and not _nghi_bi_chan(body2):
+            VET_NGUON["cffi_va_duoc"].append(url)
+            return body2
+        VET_NGUON["chan_ca_hai"].append(url)
+        return body
+
+    # Có thang đầy đủ: curl_cffi -> thu_lai -> wayback -> … theo bang-tra-web.json.
+    try:
+        kq = lt.lay(url)
+    except Exception:
+        VET_NGUON["chan_ca_hai"].append(url)
+        return body
+    if kq["duong"] and kq["raw"] and not _nghi_bi_chan(kq["raw"]):
+        if kq["duong"] == "curl_cffi":
+            VET_NGUON["cffi_va_duoc"].append(url)
+        else:
+            VET_NGUON["thang_cuu"].setdefault(kq["duong"], []).append(url)
+        return kq["raw"]
+    if "curl_cffi" in (kq.get("vi_sao") or ""):   # thư viện vắng mặt ở MỌI bậc của thang
         VET_NGUON["cffi_vang_mat"].add(url)
         return body
-    body2 = _lay_bang_van_tay_chrome(url, timeout)
-    if _CFFI is False:          # vừa phát hiện thiếu thư viện ngay trong lượt này
-        VET_NGUON["cffi_vang_mat"].add(url)
-        return body
-    if body2 and not _nghi_bi_chan(body2):
-        VET_NGUON["cffi_va_duoc"].append(url)
-        return body2
     VET_NGUON["chan_ca_hai"].append(url)
     return body
 
@@ -675,10 +743,17 @@ def bao_nguon_hong():
     cffi_va = VET_NGUON["cffi_va_duoc"]
     chan = VET_NGUON["chan_ca_hai"]
     thieu_cffi = VET_NGUON["cffi_vang_mat"]
+    thang_cuu = VET_NGUON.get("thang_cuu", {})
 
+    lt = _lay_trang_module()
+    print(f"\n🪜 Thang lấy trang bị chặn: {'ĐANG DÙNG (' + CONGCU_DIR + ')' if lt else ('KHÔNG có — máy thiếu `' + CONGCU_DIR + '`, đã lùi về 1 lượt curl_cffi (CI là ca bình thường)' if lt is False else 'chưa nguồn nào cần tới')}")
     if cffi_va:
         print(f"\n🔓 {len(cffi_va)} nguồn phải lấy bằng VÂN TAY TLS Chrome (curl trần bị chặn):")
         for u in cffi_va:
+            print(f"     {u[:130]}")
+    for duong, ds in thang_cuu.items():
+        print(f"\n🪜 {len(ds)} nguồn CỨU ĐƯỢC nhờ bậc `{duong}` của thang (curl_cffi trần cũng chặn):")
+        for u in ds:
             print(f"     {u[:130]}")
     if thieu_cffi:
         print(f"\n⚠️  {len(thieu_cffi)} nguồn bị chặn mà máy KHÔNG có `curl_cffi` để thử lại — "
@@ -686,7 +761,7 @@ def bao_nguon_hong():
         for u in sorted(thieu_cffi)[:10]:
             print(f"     {u[:130]}")
     if chan:
-        print(f"\n⛔ {len(chan)} nguồn chặn CẢ HAI đường (curl trần + vân tay Chrome):")
+        print(f"\n⛔ {len(chan)} nguồn chặn HẾT MỌI ĐƯỜNG đã thử:")
         for u in chan:
             print(f"     {u[:130]}")
     if rong:
@@ -695,7 +770,7 @@ def bao_nguon_hong():
         for ten, u in rong:
             print(f"     {ten} — {u[:120]}")
     if not (rong or chan or thieu_cffi):
-        print("\n✅ Mọi feed đều trả item; không nguồn nào bị chặn cả hai đường.")
+        print("\n✅ Mọi feed đều trả item; không nguồn nào bị chặn hết mọi đường.")
 
 
 def main():

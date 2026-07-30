@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """Bộ test canh lớp lấy nguồn của harvest.py + phép đo kiem_nguon.py.
 
-    python3 tests/test-kiem-nguon.py            # chạy 14 ca
+    python3 tests/test-kiem-nguon.py            # chạy 25 ca
     python3 tests/test-kiem-nguon.py --tu-kiem  # chứng minh test BẮT ĐƯỢC lỗi
+
+Cập nhật 30/07/2026 khi cắm thang `congcu/lay_trang.py` vào `harvest.curl()`: nhóm A-E
+(ca 1-20) đo bậc 2 CŨ (`GiaLap` ép `_LAY_TRANG = False`, dùng khi máy KHÔNG có
+`~/Claude/congcu`); nhóm F (ca 21-25, `GiaLapThang`) đo nhánh THẬT máy Huy đi hằng ngày.
 
 VÌ SAO PHẢI CÓ (luật mục 17 CLAUDE.md toàn cục): cổng này thuộc loại "hỏng thì im lặng".
 Nguồn bị chặn không kêu — nó chỉ không đóng góp ứng viên, y hệt feed sống mà hôm nay
@@ -67,7 +71,14 @@ KIEMNGUON_PATH = pathlib.Path(os.environ.get("KIEMNGUON_MOD", SCRIPTS / "kiem_ng
 
 
 class GiaLap:
-    """Thay subprocess.run của harvest + đường vân tay TLS bằng thân giả."""
+    """Thay subprocess.run của harvest + đường vân tay TLS bằng thân giả.
+
+    ⚠️ Ép `hv._LAY_TRANG = False` (máy KHÔNG có `~/Claude/congcu`) — mọi ca trong nhóm
+    này được dựng TRƯỚC khi cắm thang 30/07/2026 và đo đúng bậc 2 cũ
+    (`_lay_bang_van_tay_chrome`). Máy thật của Huy CÓ `congcu`; không ép thì `curl()` đi
+    qua `lt.lay()` thật (không mock được ở đây) và toàn bộ GiaLap thành vô dụng dù bảng
+    vẫn xanh. Nhóm THANG bên dưới dùng `GiaLapThang` để đo đúng nhánh máy Huy đi hằng ngày.
+    """
 
     def __init__(self, hv, than_curl, than_cffi=None, co_cffi=True):
         self.hv, self.than_curl, self.than_cffi, self.co_cffi = hv, than_curl, than_cffi, co_cffi
@@ -77,7 +88,10 @@ class GiaLap:
         self._run_cu = self.hv.subprocess.run
         self._cffi_cu = self.hv._lay_bang_van_tay_chrome
         self._CFFI_cu = self.hv._CFFI
-        self.hv.VET_NGUON = {"cffi_va_duoc": [], "chan_ca_hai": [], "cffi_vang_mat": set()}
+        self._lt_cu = self.hv._LAY_TRANG
+        self.hv._LAY_TRANG = False
+        self.hv.VET_NGUON = {"cffi_va_duoc": [], "chan_ca_hai": [], "cffi_vang_mat": set(),
+                              "thang_cuu": {}}
 
         class KQ:
             pass
@@ -103,6 +117,57 @@ class GiaLap:
         self.hv.subprocess.run = self._run_cu
         self.hv._lay_bang_van_tay_chrome = self._cffi_cu
         self.hv._CFFI = self._CFFI_cu
+        self.hv._LAY_TRANG = self._lt_cu
+
+
+class GiaLapThang:
+    """Tráo `_LAY_TRANG` bằng module GIẢ có `.lay(url)` — canh nhánh CÓ thang của `curl()`.
+
+    `ham_lay(url)` trả dict như `lay_trang.lay()` thật (`duong`/`raw`/`ma`/`byte`/`vi_sao`).
+    `than_curl` là thân bậc 1 (raw curl qua subprocess), thường cố tình chặn để rơi xuống thang.
+    """
+
+    def __init__(self, hv, than_curl, ham_lay):
+        self.hv, self.than_curl, self.ham_lay = hv, than_curl, ham_lay
+        self.goi = []
+
+    def __enter__(self):
+        self._run_cu = self.hv.subprocess.run
+        self._lt_cu = self.hv._LAY_TRANG
+        self._cffi_cu = self.hv._lay_bang_van_tay_chrome
+        self._CFFI_cu = self.hv._CFFI
+        self.hv._CFFI = None
+        self.hv.VET_NGUON = {"cffi_va_duoc": [], "chan_ca_hai": [], "cffi_vang_mat": set(),
+                              "thang_cuu": {}}
+
+        class KQ:
+            pass
+
+        def run_gia(cmd, **kw):
+            k = KQ()
+            k.stdout, k.stderr, k.returncode = self.than_curl, b"", 0
+            return k
+
+        def cffi_khong_duoc_goi(url, timeout):
+            # KHÔNG ra mạng: nếu bản hỏng lỡ rơi về nhánh bậc-2-cũ, thân RỖNG bị `_nghi_bi_chan`
+            # tính là chặn nên luôn rơi vào chan_ca_hai — tất định, không phụ thuộc mạng thật.
+            return b""
+
+        class _ThangGia:
+            def lay(_self, url, **kw):
+                self.goi.append(url)
+                return self.ham_lay(url)
+
+        self.hv.subprocess.run = run_gia
+        self.hv._lay_bang_van_tay_chrome = cffi_khong_duoc_goi
+        self.hv._LAY_TRANG = _ThangGia()
+        return self
+
+    def __exit__(self, *a):
+        self.hv.subprocess.run = self._run_cu
+        self.hv._lay_bang_van_tay_chrome = self._cffi_cu
+        self.hv._CFFI = self._CFFI_cu
+        self.hv._LAY_TRANG = self._lt_cu
 
 
 def chay_cac_ca():
@@ -222,6 +287,43 @@ def chay_cac_ca():
     ghi(20, "chống kêu oan: mọi nguồn ổn thì harvest báo ✅", "✅" in buf.getvalue(),
         buf.getvalue()[:120])
 
+    # ── Nhóm F: THANG lấy trang bị chặn (congcu/lay_trang.py), cắm 30/07/2026 ───────
+    # Máy Huy CÓ ~/Claude/congcu, nên đây là nhánh curl() thật sự đi qua hằng ngày —
+    # nhóm A-E ở trên chỉ đo bậc 2 CŨ (fail-open khi máy KHÁC không có congcu).
+    def kq_thang(duong, ma=200, byte=1000, vi_sao=""):
+        return {"duong": duong, "raw": FEED_THAT if duong else b"", "ma": ma, "byte": byte,
+                "vi_sao": vi_sao}
+
+    with GiaLapThang(hv, THAN_403_NGINX, lambda u: kq_thang("wayback")) as g:
+        body = hv.curl("https://x/feed")
+        ghi(21, "PHẢI CỨU: bậc 1 chặn, thang cứu bằng bậc `wayback` (không phải curl_cffi)",
+            body == FEED_THAT and hv.VET_NGUON["thang_cuu"].get("wayback") == ["https://x/feed"],
+            f"body={body[:60]} vet={hv.VET_NGUON}")
+
+    with GiaLapThang(hv, FEED_THAT, lambda u: kq_thang("", vi_sao="KHONG duoc goi")) as g:
+        body = hv.curl("https://ok/feed")
+        ghi(22, "chống gọi thừa: bậc 1 sạch thì KHÔNG đụng tới thang",
+            body == FEED_THAT and g.goi == [], f"goi={g.goi}")
+
+    with GiaLapThang(hv, THAN_403_NGINX, lambda u: kq_thang("", vi_sao="waf")) as g:
+        hv.curl("https://chan-het/feed")
+        ghi(23, "PHẢI KÊU: thang trượt hết mọi bậc thì vào chan_ca_hai",
+            hv.VET_NGUON["chan_ca_hai"] == ["https://chan-het/feed"], str(hv.VET_NGUON))
+
+    with GiaLapThang(hv, THAN_403_NGINX,
+                      lambda u: kq_thang("", vi_sao="THIẾU curl_cffi — mọi trang mất")) as g:
+        hv.curl("https://x/feed2")
+        ghi(24, "PHẢI KÊU: thang báo thiếu curl_cffi thì ghi cffi_vang_mat, KHÔNG chan_ca_hai",
+            hv.VET_NGUON["cffi_vang_mat"] == {"https://x/feed2"}
+            and hv.VET_NGUON["chan_ca_hai"] == [], str(hv.VET_NGUON))
+
+    with GiaLapThang(hv, THAN_403_NGINX, lambda u: kq_thang("curl_cffi")) as g:
+        hv.curl("https://x/feed3")
+        ghi(25, "PHẢI GHI ĐÚNG SỔ: thang cứu bằng CHÍNH curl_cffi thì vào cffi_va_duoc, "
+                "không vào thang_cuu",
+            hv.VET_NGUON["cffi_va_duoc"] == ["https://x/feed3"] and hv.VET_NGUON["thang_cuu"] == {},
+            str(hv.VET_NGUON))
+
     return ca
 
 
@@ -243,14 +345,17 @@ BAN_HONG = [
     # (biết trước là thiếu thư viện · vừa phát hiện thiếu ngay trong lượt này); gỡ một chỗ
     # thì chỗ kia gánh, ca vẫn XANH và mình tưởng ca đó vô dụng. Đã vấp thật khi dựng bộ
     # này 30/07 — cùng lỗi với luật "bảo vệ nhiều lớp" ở mục 17 CLAUDE.md toàn cục.
+    # ⚠️ 30/07/2026: nhánh này lồng thêm một cấp bên trong `if lt is False:` khi cắm thang
+    # (mục 17 CLAUDE.md toàn cục — thêm cổng mới thì soi lại chuỗi neo, dễ hết duy nhất).
     ("quên ghi sổ khi máy thiếu curl_cffi (fail-open CÂM) — gỡ CẢ HAI nhánh", "harvest.py",
-     ('    if _CFFI is False:\n        VET_NGUON["cffi_vang_mat"].add(url)\n        return body\n'
-      "    body2 = _lay_bang_van_tay_chrome(url, timeout)\n"
-      "    if _CFFI is False:          # vừa phát hiện thiếu thư viện ngay trong lượt này\n"
-      '        VET_NGUON["cffi_vang_mat"].add(url)\n        return body',
-      "    if _CFFI is False:\n        return body\n"
-      "    body2 = _lay_bang_van_tay_chrome(url, timeout)\n"
-      "    if _CFFI is False:\n        return body"),
+     ('        if _CFFI is False:\n            VET_NGUON["cffi_vang_mat"].add(url)\n'
+      "            return body\n"
+      "        body2 = _lay_bang_van_tay_chrome(url, timeout)\n"
+      "        if _CFFI is False:      # vừa phát hiện thiếu thư viện ngay trong lượt này\n"
+      '            VET_NGUON["cffi_vang_mat"].add(url)\n            return body',
+      "        if _CFFI is False:\n            return body\n"
+      "        body2 = _lay_bang_van_tay_chrome(url, timeout)\n"
+      "        if _CFFI is False:\n            return body"),
      [11]),
     ("harvest im lặng khi feed trả 0 item", "harvest.py",
      ('        print(f"\\n⛔ {len(rong)} FEED RSS TRẢ 0 ITEM',
@@ -266,6 +371,20 @@ BAN_HONG = [
     ("main luôn trả mã 0 (nuốt tiếng kêu)", "kiem_nguon.py",
      ("    return 1 if do_ else 0", "    return 0"),
      [16]),
+    ("gỡ nhánh CÓ thang, luôn lùi về bậc 2 cũ dù máy có congcu", "harvest.py",
+     ("    lt = _lay_trang_module()\n    if lt is False:",
+      "    lt = _lay_trang_module()\n    if True:"),
+     [21, 24, 25]),
+    ("gỡ phân biệt curl_cffi/thang_cuu (mọi bậc thang đều ghi thang_cuu)", "harvest.py",
+     ('        if kq["duong"] == "curl_cffi":\n            VET_NGUON["cffi_va_duoc"].append(url)\n'
+      '        else:\n            VET_NGUON["thang_cuu"].setdefault(kq["duong"], []).append(url)',
+      '        VET_NGUON["thang_cuu"].setdefault(kq["duong"], []).append(url)'),
+     [25]),
+    ("gỡ nhánh khai thiếu curl_cffi ở thang (mọi lượt trượt đều vào chan_ca_hai)", "harvest.py",
+     ('    if "curl_cffi" in (kq.get("vi_sao") or ""):   # thư viện vắng mặt ở MỌI bậc của thang\n'
+      '        VET_NGUON["cffi_vang_mat"].add(url)\n        return body\n',
+      ""),
+     [24]),
 ]
 
 
