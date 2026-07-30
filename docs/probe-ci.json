@@ -2,2090 +2,2132 @@
   "moi_truong": "CI",
   "ket_qua": [
     {
+      "kind": "RSS",
+      "items": 29,
       "url": "http://feeds.bbci.co.uk/news/world/rss.xml",
       "name": "BBC World",
-      "kind": "RSS",
       "code": "200",
-      "size": 22267,
-      "items": 29
+      "size": 22277
     },
     {
+      "kind": "HTML",
       "url": "https://agriculture.house.gov/news/documentquery.aspx",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 33724
+      "size": 33752
     },
     {
+      "kind": "HTML",
       "url": "https://agriculture.house.gov/news/documentquery.aspx?documenttypeid=27",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 34416
+      "size": 34488
     },
     {
+      "kind": "HTML",
       "url": "https://agriculture.house.gov/subcommittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 17615
     },
     {
+      "kind": "RSS",
+      "items": 30,
       "url": "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf",
       "name": "AllAfrica",
-      "kind": "RSS",
       "code": "200",
-      "size": 26088,
-      "items": 30
+      "size": 26088
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://amti.csis.org/feed/",
       "name": "AMTI/CSIS (Biển Đông)",
-      "kind": "RSS",
       "code": "200",
-      "size": 109591,
-      "items": 10
+      "size": 110152
     },
     {
+      "kind": "HTML",
       "url": "https://appropriations.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 172029
+      "size": 172055
     },
     {
+      "kind": "HTML",
       "url": "https://appropriations.house.gov/news/press-releases",
       "name": "Uỷ ban Chuẩn chi Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 117217
+      "size": 117256
     },
     {
+      "kind": "HTML",
       "url": "https://appropriations.house.gov/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 118211
+      "size": 118213
     },
     {
+      "kind": "HTML",
       "url": "https://armedservices.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 48868
     },
     {
+      "kind": "HTML",
       "url": "https://armedservices.house.gov/news/documentquery.aspx",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 50363
+      "size": 50384
     },
     {
+      "kind": "HTML",
       "url": "https://armedservices.house.gov/news/press-releases",
       "name": "Uỷ ban Quân vụ Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 52032
+      "size": 52063
     },
     {
+      "kind": "HTML",
       "url": "https://armedservices.house.gov/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 29913
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://asia.nikkei.com/rss/feed/nar",
       "name": "Nikkei Asia",
-      "kind": "RSS",
       "code": "200",
-      "size": 26023,
-      "items": 50
+      "size": 26049
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://aviationweek.com/rss.xml",
       "name": "Aviation Week",
-      "kind": "RSS",
       "code": "200",
-      "size": 77915,
-      "items": 10
+      "size": 78054
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://baochinhphu.vn/quoc-te.rss",
       "name": "Báo Chính phủ",
-      "kind": "RSS",
       "code": "200",
-      "size": 38992,
-      "items": 50
+      "size": 43882
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://baoquocte.vn/rss_feed/",
       "name": "Báo Thế giới & Việt Nam",
-      "kind": "RSS",
       "code": "200",
-      "size": 31178,
-      "items": 25
+      "size": 33151
     },
     {
+      "kind": "RSS",
+      "items": 30,
       "url": "https://breakingdefense.com/full-rss-feed/",
       "name": "Breaking Defense",
-      "kind": "RSS",
       "code": "200",
-      "size": 259221,
-      "items": 30
+      "size": 260570
     },
     {
+      "kind": "HTML",
       "url": "https://budget.house.gov/news",
       "name": "Uỷ ban Ngân sách Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 69599
+      "size": 69659
     },
     {
+      "kind": "HTML",
       "url": "https://budget.house.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 93891
+      "size": 93952
     },
     {
+      "kind": "HTML",
       "url": "https://cha.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 31286
+      "size": 31302
     },
     {
+      "kind": "HTML",
       "url": "https://cha.house.gov/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 44791
+      "size": 44793
     },
     {
+      "kind": "HTML",
       "url": "https://clerk.house.gov/Committees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 297212
+      "size": 297216
     },
     {
+      "kind": "RSS",
+      "items": 100,
       "url": "https://dantri.com.vn/rss/the-gioi.rss",
       "name": "Dân Trí",
-      "kind": "RSS",
       "code": "200",
-      "size": 102042,
-      "items": 100
+      "size": 108877
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://defensescoop.com/feed/",
       "name": "DefenseScoop",
-      "kind": "RSS",
       "code": "200",
-      "size": 80350,
-      "items": 10
+      "size": 81095
     },
     {
+      "kind": "HTML",
       "url": "https://democrats-appropriations.house.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 56660
+      "size": 56689
     },
     {
+      "kind": "HTML",
       "url": "https://democrats-foreignaffairs.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 53985
+      "size": 53990
     },
     {
+      "kind": "RSS",
+      "items": 84,
       "url": "https://en.yna.co.kr/RSS/news.xml",
       "name": "Yonhap (Hàn Quốc)",
-      "kind": "RSS",
       "code": "200",
-      "size": 51835,
-      "items": 83
+      "size": 52701
     },
     {
+      "kind": "HTML",
       "url": "https://energycommerce.house.gov/committees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 213575
+      "size": 213612
     },
     {
+      "kind": "HTML",
       "url": "https://energycommerce.house.gov/news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 393904
+      "size": 394042
     },
     {
+      "kind": "HTML",
       "url": "https://energycommerce.house.gov/news/oversight-investigations",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 403436
+      "size": 404303
     },
     {
+      "kind": "HTML",
       "url": "https://energycommerce.house.gov/news/press-release",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 395783
+      "size": 395921
     },
     {
+      "kind": "RSS",
+      "items": 15,
       "url": "https://federalnewsnetwork.com/category/defense-main/feed/",
       "name": "Federal News Network — Defense",
-      "kind": "RSS",
       "code": "200",
-      "size": 35366,
-      "items": 15
+      "size": 35384
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://feeds.npr.org/1004/rss.xml",
       "name": "NPR — World",
-      "kind": "RSS",
       "code": "200",
-      "size": 13827,
-      "items": 10
+      "size": 13938
     },
     {
+      "kind": "HTML",
       "url": "https://financialservices.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 69126
+      "size": 69132
     },
     {
+      "kind": "HTML",
       "url": "https://financialservices.house.gov/default.aspx",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 69124
+      "size": 69134
     },
     {
+      "kind": "HTML",
       "url": "https://financialservices.house.gov/news/",
       "name": "Uỷ ban Tài chính Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 44875
+      "size": 44919
     },
     {
+      "kind": "HTML",
       "url": "https://financialservices.house.gov/news/documentquery.aspx?year=2026",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 40221
+      "size": 40256
     },
     {
+      "kind": "HTML",
       "url": "https://financialservices.house.gov/subcommittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 22992
     },
     {
+      "kind": "HTML",
       "url": "https://foreignaffairs.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 93758
     },
     {
+      "kind": "HTML",
       "url": "https://foreignaffairs.house.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 58249
+      "size": 58261
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://foreignaffairs.house.gov/rss.xml",
       "name": "Uỷ ban Đối ngoại Hạ viện",
-      "kind": "RSS",
       "code": "200",
-      "size": 14906,
-      "items": 10
+      "size": 14940
     },
     {
+      "kind": "HTML",
       "url": "https://foreignaffairs.house.gov/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 45957
+      "size": 45528
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://foreignpolicy.com/feed/",
       "name": "Foreign Policy",
-      "kind": "RSS",
       "code": "200",
-      "size": 40257,
-      "items": 25
+      "size": 40324
     },
     {
+      "kind": "RSS",
+      "items": 12,
       "url": "https://gcaptain.com/feed/",
       "name": "gCaptain",
-      "kind": "RSS",
       "code": "200",
-      "size": 12350,
-      "items": 12
+      "size": 12360
     },
     {
+      "kind": "HTML",
       "url": "https://home.treasury.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 109555
+      "size": 109580
     },
     {
+      "kind": "HTML",
       "url": "https://home.treasury.gov/news/press-releases/readouts",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 108981
+      "size": 109023
     },
     {
+      "kind": "HTML",
       "url": "https://home.treasury.gov/news/press-releases/statements-remarks",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 110513
+      "size": 110539
     },
     {
+      "kind": "HTML",
       "url": "https://homeland.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 224608
+      "size": 224575
     },
     {
+      "kind": "HTML",
       "url": "https://homeland.house.gov/news/",
       "name": "Uỷ ban An ninh Nội địa Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 83533
+      "size": 83461
     },
     {
+      "kind": "HTML",
       "url": "https://homeland.house.gov/press/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 64987
+      "size": 63991
     },
     {
+      "kind": "HTML",
       "url": "https://homeland.house.gov/subcommittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 59932
+      "size": 58802
     },
     {
+      "kind": "HTML",
       "url": "https://intelligence.house.gov/category/press-releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 68207
+      "size": 69169
     },
     {
+      "kind": "HTML",
       "url": "https://intelligence.house.gov/news/",
       "name": "Uỷ ban Tình báo Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 68280
+      "size": 67103
     },
     {
+      "kind": "LỖI",
       "url": "https://judiciary.house.gov/committee-activity/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "LỖI",
       "code": "404",
-      "size": 25493
+      "size": 25493,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "HTML",
       "url": "https://judiciary.house.gov/media/press-releases",
       "name": "Uỷ ban Tư pháp Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 45056
+      "size": 45088
     },
     {
+      "kind": "HTML",
       "url": "https://naturalresources.house.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 47453
+      "size": 47489
     },
     {
+      "kind": "HTML",
       "url": "https://naturalresources.house.gov/about/subcommittees.htm",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 53598
+      "size": 53636
     },
     {
+      "kind": "HTML",
       "url": "https://naturalresources.house.gov/news/documentquery.aspx",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 37572
+      "size": 37613
     },
     {
+      "kind": "RSS",
+      "items": 30,
       "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
       "name": "UN News",
-      "kind": "RSS",
       "code": "200",
-      "size": 33569,
-      "items": 30
+      "size": 33645
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://nhandan.vn/rss/thegioi-1231.rss",
       "name": "Nhân Dân",
-      "kind": "RSS",
       "code": "200",
-      "size": 135138,
-      "items": 50
+      "size": 144553
     },
     {
+      "kind": "HTML",
       "url": "https://oversight.house.gov/all/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 69922
+      "size": 69985
     },
     {
+      "kind": "HTML",
       "url": "https://oversight.house.gov/news/",
       "name": "Uỷ ban Giám sát Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 68154
+      "size": 68294
     },
     {
+      "kind": "HTML",
       "url": "https://oversight.house.gov/release/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 69200
+      "size": 69282
     },
     {
+      "kind": "HTML",
       "url": "https://oversight.house.gov/subcomittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 57931
+      "size": 57937
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://rollcall.com/feed/",
       "name": "Roll Call",
-      "kind": "RSS",
       "code": "200",
-      "size": 91474,
-      "items": 10
+      "size": 92325
     },
     {
+      "kind": "RSS",
+      "items": 13,
       "url": "https://rss.dw.com/rdf/rss-en-world",
       "name": "Deutsche Welle",
-      "kind": "RSS",
       "code": "200",
-      "size": 12735,
-      "items": 13
+      "size": 12737
     },
     {
+      "kind": "HTML",
       "url": "https://rules.house.gov/media",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 58339
+      "size": 58808
     },
     {
+      "kind": "HTML",
       "url": "https://rules.house.gov/media/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 41428
+      "size": 41440
     },
     {
+      "kind": "HTML",
       "url": "https://rules.house.gov/news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 56963
+      "size": 56989
     },
     {
+      "kind": "HTML",
       "url": "https://science.house.gov/news",
       "name": "Uỷ ban Khoa học Hạ viện",
-      "kind": "HTML",
       "code": "200",
       "size": 49084
     },
     {
+      "kind": "HTML",
       "url": "https://science.house.gov/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 49084
     },
     {
+      "kind": "HTML",
       "url": "https://science.house.gov/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 22730
     },
     {
+      "kind": "HTML",
       "url": "https://smallbusiness.house.gov/news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 39821
+      "size": 39963
     },
     {
+      "kind": "HTML",
       "url": "https://smallbusiness.house.gov/news/documentquery.aspx",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 33382
+      "size": 33483
     },
     {
+      "kind": "HTML",
       "url": "https://smallbusiness.house.gov/news/documentquery.aspx?DocumentTypeID=1684",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 33614
+      "size": 33689
     },
     {
+      "kind": "RSS",
+      "items": 6,
       "url": "https://soldiersystems.net/feed/",
       "name": "Soldier Systems Daily",
-      "kind": "RSS",
       "code": "200",
-      "size": 9263,
-      "items": 6
+      "size": 9269
     },
     {
+      "kind": "RSS",
+      "items": 24,
       "url": "https://spacenews.com/feed/",
       "name": "SpaceNews",
-      "kind": "RSS",
       "code": "200",
-      "size": 83594,
-      "items": 24
+      "size": 83625
     },
     {
+      "kind": "RSS",
+      "items": 27,
       "url": "https://taskandpurpose.com/feed",
       "name": "Task & Purpose",
-      "kind": "RSS",
       "code": "200",
-      "size": 268347,
-      "items": 27
+      "size": 269298
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://thanhnien.vn/rss/the-gioi.rss",
       "name": "Thanh Niên",
-      "kind": "RSS",
       "code": "200",
-      "size": 56081,
-      "items": 50
+      "size": 59070
     },
     {
+      "kind": "RSS",
+      "items": 15,
       "url": "https://theaviationist.com/feed/",
       "name": "The Aviationist",
-      "kind": "403",
-      "code": "403",
-      "size": 5487
+      "code": "200",
+      "size": 195179,
+      "qua_van_tay": true
     },
     {
+      "kind": "RSS",
+      "items": 96,
       "url": "https://thediplomat.com/feed/",
       "name": "The Diplomat",
-      "kind": "RSS",
       "code": "200",
-      "size": 74182,
-      "items": 96
+      "size": 74454
     },
     {
+      "kind": "RSS",
+      "items": 100,
       "url": "https://thehill.com/feed/",
       "name": "The Hill",
-      "kind": "LỖI",
-      "code": "429",
-      "size": 17
+      "code": "200",
+      "size": 128325,
+      "qua_van_tay": true
     },
     {
+      "kind": "RSS",
+      "items": 15,
       "url": "https://thehill.com/policy/defense/feed/",
       "name": "The Hill — Defense",
-      "kind": "LỖI",
-      "code": "429",
-      "size": 17
+      "code": "200",
+      "size": 20526,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://transportation.house.gov/news/documentquery.aspx",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 27375
+      "size": 27381
     },
     {
+      "kind": "HTML",
       "url": "https://transportation.house.gov/subcommittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 21354
+      "size": 21360
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://tuoitre.vn/rss/the-gioi.rss",
       "name": "Tuổi Trẻ",
-      "kind": "RSS",
       "code": "200",
-      "size": 35287,
-      "items": 50
+      "size": 38519
     },
     {
+      "kind": "HTML",
       "url": "https://ustr.gov/about-us/policy-offices/press-office",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 29822
     },
     {
+      "kind": "HTML",
       "url": "https://ustr.gov/about-us/policy-offices/press-office/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 272142
+      "size": 272472
     },
     {
+      "kind": "HTML",
       "url": "https://ustr.gov/about-us/policy-offices/press-office/reports-and-publications",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 28202
     },
     {
+      "kind": "HTML",
       "url": "https://ustr.gov/about/policy-offices/press-office/news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 41586
+      "size": 41605
     },
     {
+      "kind": "RSS",
+      "items": 1000,
       "url": "https://vietnamnet.vn/rss/the-gioi.rss",
       "name": "VietnamNet",
-      "kind": "RSS",
       "code": "200",
-      "size": 1024058,
-      "items": 1000
+      "size": 1112721
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://vneconomy.vn/tin-moi.rss",
       "name": "VnEconomy",
-      "kind": "RSS",
       "code": "200",
-      "size": 68448,
-      "items": 50
+      "size": 73470
     },
     {
+      "kind": "RSS",
+      "items": 60,
       "url": "https://vnexpress.net/rss/the-gioi.rss",
       "name": "VnExpress",
-      "kind": "RSS",
       "code": "200",
-      "size": 63929,
-      "items": 60
+      "size": 67366
     },
     {
+      "kind": "HTML",
       "url": "https://waysandmeans.house.gov/category/press-releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 147797
+      "size": 148263
     },
     {
+      "kind": "HTML",
       "url": "https://waysandmeans.house.gov/news/",
       "name": "Uỷ ban Thuế vụ Hạ viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 55836
+      "size": 55513
     },
     {
+      "kind": "HTML",
       "url": "https://waysandmeans.house.gov/subcommittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 65565
+      "size": 65499
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
       "name": "ABC News AU (world)",
-      "kind": "RSS",
       "code": "200",
-      "size": 86614,
-      "items": 25
+      "size": 86574
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.af.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1&max=20",
       "name": "Không quân Mỹ — Air Force Link News",
-      "kind": "RSS",
       "code": "200",
-      "size": 27896,
-      "items": 20
+      "size": 27906
     },
     {
+      "kind": "HTML",
       "url": "https://www.af.mil/News/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 373
+      "code": "200",
+      "size": 224236,
+      "qua_van_tay": true
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://www.africanews.com/feed/rss",
       "name": "Africanews",
-      "kind": "RSS",
       "code": "200",
-      "size": 46847,
-      "items": 50
+      "size": 46928
     },
     {
+      "kind": "HTML",
       "url": "https://www.agriculture.senate.gov/about/subcommittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 164012
+      "size": 164015
     },
     {
+      "kind": "HTML",
       "url": "https://www.agriculture.senate.gov/newsroom/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 138920
+      "size": 138923
     },
     {
+      "kind": "HTML",
       "url": "https://www.agriculture.senate.gov/newsroom/majority-news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 166323
+      "size": 166406
     },
     {
+      "kind": "HTML",
       "url": "https://www.agriculture.senate.gov/newsroom/minority-news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 163033
+      "size": 163109
     },
     {
+      "kind": "RSS",
+      "items": 9,
       "url": "https://www.airandspaceforces.com/feed/",
       "name": "Air & Space Forces Magazine",
-      "kind": "RSS",
       "code": "200",
-      "size": 135127,
-      "items": 9
+      "size": 135916
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://www.aljazeera.com/xml/rss/all.xml",
       "name": "Al Jazeera",
-      "kind": "RSS",
       "code": "200",
-      "size": 17154,
-      "items": 25
+      "size": 17194
     },
     {
+      "kind": "HTML",
       "url": "https://www.appropriations.senate.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 37968
+      "size": 37976
     },
     {
+      "kind": "HTML",
       "url": "https://www.appropriations.senate.gov/news/majority",
       "name": "**Uỷ ban Chuẩn chi Thượng viện**",
-      "kind": "HTML",
       "code": "200",
-      "size": 70664
+      "size": 70742
     },
     {
+      "kind": "HTML",
       "url": "https://www.appropriations.senate.gov/news/minority",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 76670
+      "size": 76944
     },
     {
+      "kind": "HTML",
       "url": "https://www.appropriations.senate.gov/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 35217
     },
     {
+      "kind": "HTML",
       "url": "https://www.armed-services.senate.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 113229
+      "size": 113233
     },
     {
+      "kind": "HTML",
       "url": "https://www.armed-services.senate.gov/press-releases",
       "name": "**Uỷ ban Quân vụ THƯỢNG VIỆN**",
-      "kind": "HTML",
       "code": "200",
-      "size": 118499
+      "size": 118527
     },
     {
+      "kind": "HTML",
       "url": "https://www.armed-services.senate.gov/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 128986
     },
     {
+      "kind": "HTML",
       "url": "https://www.army.mil/news/newsreleases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 18872
+      "size": 18884
     },
     {
+      "kind": "HTML",
       "url": "https://www.army.mil/newsroom/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 5731
     },
     {
+      "kind": "RSS",
+      "items": 41,
       "url": "https://www.army.mil/rss/static/1.xml",
       "name": "Lục quân Mỹ",
-      "kind": "RSS",
       "code": "200",
-      "size": 24966,
-      "items": 36
+      "size": 28582
     },
     {
+      "kind": "RSS",
+      "items": 100,
       "url": "https://www.atlanticcouncil.org/feed/",
       "name": "Atlantic Council",
-      "kind": "RSS",
       "code": "200",
-      "size": 171921,
-      "items": 100
+      "size": 172475
     },
     {
+      "kind": "RSS",
+      "items": 100,
       "url": "https://www.axios.com/feeds/feed.rss",
       "name": "Axios",
-      "kind": "403",
-      "code": "403",
-      "size": 4545
+      "code": "200",
+      "size": 1029844,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.banking.senate.gov/about/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 142070
     },
     {
+      "kind": "HTML",
       "url": "https://www.banking.senate.gov/newsroom",
       "name": "Uỷ ban Ngân hàng Thượng viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 77122
+      "size": 77149
     },
     {
+      "kind": "HTML",
       "url": "https://www.bea.gov/news/archive",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 64850
+      "size": 64852
     },
     {
+      "kind": "HTML",
       "url": "https://www.bea.gov/news/current-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 60246
+      "size": 60248
     },
     {
+      "kind": "RSS",
+      "items": 12,
       "url": "https://www.bea.gov/news/rss",
       "name": "BEA",
-      "kind": "RSS",
       "code": "200",
-      "size": 12272,
-      "items": 12
+      "size": 12288
     },
     {
+      "kind": "HTML",
       "url": "https://www.bea.gov/news/schedule",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 80250
+      "size": 80254
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.bellingcat.com/feed/",
       "name": "Bellingcat",
-      "kind": "RSS",
       "code": "200",
-      "size": 361227,
-      "items": 10
+      "size": 362891
     },
     {
+      "kind": "HTML",
       "url": "https://www.bis.gov/forms/email-notifications",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 51919
+      "size": 51921
     },
     {
+      "kind": "HTML",
       "url": "https://www.bis.gov/news-updates",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 3607009
+      "size": 3628264
     },
     {
+      "kind": "HTML",
       "url": "https://www.bls.gov/bls/newsrels.htm",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 1325
+      "code": "200",
+      "size": 73151,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.bls.gov/newsroom/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 1325
+      "code": "200",
+      "size": 75389,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.bls.gov/schedule/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 1325
+      "code": "200",
+      "size": 57001,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.budget.senate.gov/chairman/newsroom",
       "name": "Uỷ ban Ngân sách Thượng viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 47919
+      "size": 47941
     },
     {
+      "kind": "HTML",
       "url": "https://www.budget.senate.gov/newsroom/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 39928
+      "size": 39946
     },
     {
+      "kind": "HTML",
       "url": "https://www.budget.senate.gov/ranking-member/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 39321
+      "size": 39323
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://www.c4isrnet.com/arc/outboundfeeds/rss/?outputType=xml",
       "name": "C4ISRNet",
-      "kind": "RSS",
       "code": "200",
-      "size": 167753,
-      "items": 25
+      "size": 168961
     },
     {
+      "kind": "HTML",
       "url": "https://www.census.gov/newsroom.html",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 359533
+      "size": 359556
     },
     {
+      "kind": "HTML",
       "url": "https://www.census.gov/newsroom/press-releases.html",
       "name": "Census Bureau",
-      "kind": "HTML",
       "code": "200",
-      "size": 480111
+      "size": 480130
     },
     {
+      "kind": "HTML",
       "url": "https://www.census.gov/newsroom/press-releases/by-year.html",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 399078
+      "size": 399174
     },
     {
+      "kind": "HTML",
       "url": "https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 401
+      "code": "200",
+      "size": 46728,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.cftc.gov/PressRoom/PressReleases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 65122
+      "size": 65128
     },
     {
+      "kind": "RSS",
+      "items": 30,
       "url": "https://www.cnbc.com/id/100727362/device/rss/rss.html",
       "name": "CNBC",
-      "kind": "RSS",
       "code": "200",
-      "size": 20479,
-      "items": 30
+      "size": 20504
     },
     {
+      "kind": "403",
       "url": "https://www.commerce.gov/news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
       "code": "403",
-      "size": 5568
+      "size": 5546,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "403",
       "url": "https://www.commerce.gov/news/fact-sheets",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
       "code": "403",
-      "size": 5604
+      "size": 5604,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "403",
       "url": "https://www.commerce.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
       "code": "403",
-      "size": 5634
+      "size": 5613,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.commerce.senate.gov/press/",
       "name": "Uỷ ban Thương mại Thượng viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 156336
+      "size": 156867
     },
     {
+      "kind": "HTML",
       "url": "https://www.commerce.senate.gov/press/democratic-news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 183172
+      "size": 183708
     },
     {
+      "kind": "HTML",
       "url": "https://www.commerce.senate.gov/press/republican-news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 183230
+      "size": 183805
     },
     {
+      "kind": "HTML",
       "url": "https://www.consumerfinance.gov/about-us/newsroom/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 213581
+      "size": 213694
     },
     {
+      "kind": "HTML",
       "url": "https://www.defense.gov/News/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 376
+      "code": "200",
+      "size": 193298,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.defense.gov/News/Press-Products/News-Releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 421
+      "code": "200",
+      "size": 199049,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.defense.gov/News/Releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 389
+      "code": "200",
+      "size": 199326,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.defense.gov/News/Releases/News-Release/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 410
+      "code": "200",
+      "size": 199352,
+      "qua_van_tay": true
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://www.defensedaily.com/feed/",
       "name": "Defense Daily",
-      "kind": "RSS",
       "code": "200",
-      "size": 76546,
-      "items": 50
+      "size": 76624
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://www.defensenews.com/arc/outboundfeeds/rss/category/global/?outputType=xml",
       "name": "Defense News",
-      "kind": "RSS",
       "code": "200",
-      "size": 146058,
-      "items": 25
+      "size": 147413
     },
     {
+      "kind": "RSS",
+      "items": 22,
       "url": "https://www.defenseone.com/rss/all/",
       "name": "Defense One",
-      "kind": "RSS",
       "code": "200",
-      "size": 187769,
-      "items": 22
+      "size": 187819
     },
     {
+      "kind": "HTML",
       "url": "https://www.dfc.gov/media/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 42190
+      "size": 42201
     },
     {
+      "kind": "HTML",
       "url": "https://www.dhs.gov/news-releases/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 403
+      "code": "200",
+      "size": 160891,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.dni.gov/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 185807
+      "size": 185823
     },
     {
+      "kind": "HTML",
       "url": "https://www.dni.gov/index.php/348-newsroom/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 64156
+      "size": 64174
     },
     {
+      "kind": "HTML",
       "url": "https://www.dni.gov/index.php/newsroom/press-releases/press-releases-2026",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 195589
+      "size": 195601
     },
     {
+      "kind": "HTML",
       "url": "https://www.dni.gov/index.php/newsroom/reports-publications",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 195589
+      "size": 195601
     },
     {
+      "kind": "HTML",
       "url": "https://www.doi.gov/news/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 51212
+      "size": 51214
     },
     {
+      "kind": "HTML",
       "url": "https://www.doi.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 66896
+      "size": 66917
     },
     {
+      "kind": "HTML",
       "url": "https://www.dol.gov/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 67545
+      "size": 67568
     },
     {
+      "kind": "HTML",
       "url": "https://www.dol.gov/newsroom/releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 97912
+      "size": 97983
     },
     {
+      "kind": "RSS",
+      "items": 443,
       "url": "https://www.dvidshub.net/rss/all",
       "name": "DVIDS (toàn bộ)",
-      "kind": "RSS",
       "code": "200",
-      "size": 446523,
-      "items": 443
+      "size": 448232
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.dvidshub.net/rss/news",
       "name": "DVIDS news (Predator)",
-      "kind": "RSS",
       "code": "200",
-      "size": 25549,
-      "items": 20
+      "size": 25881
     },
     {
+      "kind": "403",
       "url": "https://www.eda.gov/news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
       "code": "403",
-      "size": 5541
+      "size": 5541,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "403",
       "url": "https://www.eda.gov/news?f%5B0%5D=type%3APress+Release",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
       "code": "403",
-      "size": 5689
+      "size": 5689,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.energy.gov/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 143288
+      "size": 143316
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.energy.gov/rss.xml",
       "name": "Bộ Năng lượng",
-      "kind": "RSS",
       "code": "200",
-      "size": 23454,
-      "items": 10
+      "size": 23476
     },
     {
+      "kind": "HTML",
       "url": "https://www.energy.senate.gov/democratic-news-post",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 29964
+      "size": 29974
     },
     {
+      "kind": "HTML",
       "url": "https://www.energy.senate.gov/newsroom",
       "name": "Uỷ ban Năng lượng Thượng viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 44249
+      "size": 44253
     },
     {
+      "kind": "HTML",
       "url": "https://www.energy.senate.gov/republican-news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 44249
+      "size": 44253
     },
     {
+      "kind": "HTML",
       "url": "https://www.energy.senate.gov/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 18512
     },
     {
+      "kind": "HTML",
       "url": "https://www.epa.gov/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 62413
+      "size": 62431
     },
     {
+      "kind": "HTML",
       "url": "https://www.epa.gov/newsroom/browse-news-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 69680
+      "size": 69782
     },
     {
+      "kind": "HTML",
       "url": "https://www.exim.gov/news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 548942
+      "size": 548958
     },
     {
+      "kind": "HTML",
       "url": "https://www.exim.gov/news/media-advisories",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 546555
+      "size": 546568
     },
     {
+      "kind": "HTML",
       "url": "https://www.fdic.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 81474
+      "size": 81334
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.federalreserve.gov/feeds/press_all.xml",
       "name": "Cục Dự trữ Liên bang",
-      "kind": "RSS",
       "code": "200",
-      "size": 14246,
-      "items": 20
+      "size": 14248
     },
     {
+      "kind": "HTML",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases.htm",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 85261
+      "size": 85267
     },
     {
+      "kind": "HTML",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/2026-press-fomc.htm",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 81840
+      "size": 81844
     },
     {
+      "kind": "HTML",
       "url": "https://www.finance.senate.gov/about/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 52088
+      "size": 52091
     },
     {
+      "kind": "HTML",
       "url": "https://www.finance.senate.gov/chairmans-news",
       "name": "Uỷ ban Tài chính Thượng viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 149539
+      "size": 149555
     },
     {
+      "kind": "HTML",
       "url": "https://www.finance.senate.gov/ranking-members-news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 148804
+      "size": 148818
     },
     {
+      "kind": "403",
       "url": "https://www.flightglobal.com/rss/",
       "name": "FlightGlobal",
-      "kind": "403",
       "code": "403",
-      "size": 5465
+      "size": 5444,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.foreign.senate.gov/about/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 336149
+      "size": 335976
     },
     {
+      "kind": "HTML",
       "url": "https://www.foreign.senate.gov/press",
       "name": "**Uỷ ban Đối ngoại Thượng viện**",
-      "kind": "HTML",
       "code": "200",
-      "size": 261109
+      "size": 261111
     },
     {
+      "kind": "RSS",
+      "items": 24,
       "url": "https://www.france24.com/en/rss",
       "name": "France 24",
-      "kind": "HTML",
       "code": "200",
-      "size": 300351
+      "size": 28322
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.ftc.gov/feeds/press-release.xml",
       "name": "FTC",
-      "kind": "RSS",
       "code": "200",
-      "size": 11517,
-      "items": 10
+      "size": 11553
     },
     {
+      "kind": "HTML",
       "url": "https://www.ftc.gov/news-events/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 1037193
+      "size": 1037258
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.govexec.com/rss/all/",
       "name": "Government Executive",
-      "kind": "RSS",
       "code": "200",
-      "size": 150907,
-      "items": 20
+      "size": 150945
     },
     {
+      "kind": "HTML",
       "url": "https://www.hsgac.senate.gov/media/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 172013
+      "size": 172033
     },
     {
+      "kind": "HTML",
       "url": "https://www.hsgac.senate.gov/media/majority-news/",
       "name": "Uỷ ban An ninh Nội địa Thượng viện (HSGAC)",
-      "kind": "HTML",
       "code": "200",
-      "size": 228199
+      "size": 228220
     },
     {
+      "kind": "HTML",
       "url": "https://www.hsgac.senate.gov/media/minority-news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 235910
+      "size": 235940
     },
     {
+      "kind": "HTML",
       "url": "https://www.hsgac.senate.gov/subcommittees/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 136732
+      "size": 136748
     },
     {
+      "kind": "HTML",
       "url": "https://www.indian.senate.gov/newsroom/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 113827
+      "size": 113834
     },
     {
+      "kind": "HTML",
       "url": "https://www.indian.senate.gov/newsroom/democratic-news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 131549
+      "size": 131556
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.inquirer.net/fullfeed/",
       "name": "Inquirer",
-      "kind": "RSS",
       "code": "200",
-      "size": 29409,
-      "items": 20
+      "size": 29517
     },
     {
+      "kind": "HTML",
       "url": "https://www.intelligence.senate.gov/category/hearings/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 404707
+      "size": 404726
     },
     {
+      "kind": "HTML",
       "url": "https://www.intelligence.senate.gov/reports-publications/press-releases/",
       "name": "**Uỷ ban Tình báo Thượng viện**",
-      "kind": "HTML",
       "code": "200",
-      "size": 429701
+      "size": 429771
     },
     {
+      "kind": "RSS",
+      "items": 30,
       "url": "https://www.japantimes.co.jp/feed/",
       "name": "The Japan Times",
-      "kind": "RSS",
       "code": "200",
-      "size": 39741,
-      "items": 30
+      "size": 39780
     },
     {
+      "kind": "HTML",
       "url": "https://www.jcs.mil/Media/News/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 382
+      "code": "200",
+      "size": 74037,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.jec.senate.gov/public/index.cfm/democrats/media",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 76070
+      "size": 76114
     },
     {
+      "kind": "HTML",
       "url": "https://www.jec.senate.gov/public/index.cfm/democrats/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 68493
+      "size": 68527
     },
     {
+      "kind": "HTML",
       "url": "https://www.jec.senate.gov/public/index.cfm/news-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 43333
     },
     {
+      "kind": "HTML",
       "url": "https://www.jec.senate.gov/public/index.cfm/republicans/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 45345
     },
     {
+      "kind": "HTML",
       "url": "https://www.judiciary.senate.gov/about/subcommittees",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 193407
     },
     {
+      "kind": "HTML",
       "url": "https://www.judiciary.senate.gov/press/",
       "name": "**Uỷ ban Tư pháp Thượng viện**",
-      "kind": "HTML",
       "code": "200",
-      "size": 129334
+      "size": 129356
     },
     {
+      "kind": "HTML",
       "url": "https://www.judiciary.senate.gov/press/majority",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 150330
+      "size": 150413
     },
     {
+      "kind": "HTML",
       "url": "https://www.judiciary.senate.gov/press/minority",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 152663
+      "size": 152733
     },
     {
+      "kind": "LỖI",
       "url": "https://www.justice.gov/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "LỖI",
       "code": "200-rỗng",
-      "size": 2256
+      "size": 2249,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.justice.gov/opa",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 84364
+      "size": 84366
     },
     {
+      "kind": "RSS",
+      "items": 30,
       "url": "https://www.longwarjournal.org/feed",
       "name": "Long War Journal (Mali/JNIM)",
-      "kind": "RSS",
       "code": "200",
-      "size": 44010,
-      "items": 30
+      "size": 44109
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://www.lowyinstitute.org/the-interpreter/rss.xml",
       "name": "Lowy Interpreter",
-      "kind": "RSS",
       "code": "200",
-      "size": 65344,
-      "items": 50
+      "size": 65526
     },
     {
+      "kind": "HTML",
       "url": "https://www.marines.mil/News/Press-Releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 401
+      "code": "200",
+      "size": 65170,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.mcc.gov/news-and-events/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 49814
+      "size": 49846
     },
     {
+      "kind": "HTML",
       "url": "https://www.mcc.gov/news-and-events/releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 491504
+      "size": 492301
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://www.militarytimes.com/arc/outboundfeeds/rss/",
       "name": "Military Times",
-      "kind": "RSS",
       "code": "200",
-      "size": 148236,
-      "items": 25
+      "size": 149194
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.naval-technology.com/feed/",
       "name": "Naval Technology",
-      "kind": "RSS",
       "code": "200",
-      "size": 19340,
-      "items": 10
+      "size": 19357
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.navalnews.com/feed/",
       "name": "Naval News",
-      "kind": "RSS",
       "code": "200",
-      "size": 116677,
-      "items": 10
+      "size": 117051
     },
     {
+      "kind": "HTML",
       "url": "https://www.navy.mil/Press-Office/Press-Releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 410
+      "code": "200",
+      "size": 114720,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.news.uscg.mil/Press-Releases/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 396
+      "code": "200",
+      "size": 68712,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.nsa.gov/Press-Room/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 384
+      "code": "200",
+      "size": 78417,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.nsa.gov/Press-Room/Press-Releases-Statements/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 422
+      "code": "200",
+      "size": 112075,
+      "qua_van_tay": true
     },
     {
       "url": "https://www.ntia.gov/newsroom",
       "name": "nguon-chinh-thuc-my",
       "kind": "LỖI",
       "code": "000",
-      "size": 0
+      "size": 0,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.occ.treas.gov/news-events/newsroom/news-issuances-by-year/news-releases/index-news-releases.html",
       "name": "OCC (Kiểm soát Tiền tệ)",
-      "kind": "HTML",
       "code": "200",
-      "size": 60899
+      "size": 60901
     },
     {
+      "kind": "HTML",
       "url": "https://www.pacom.mil/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 365
+      "code": "200",
+      "size": 228361,
+      "qua_van_tay": true
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.philstar.com/rss/headlines",
       "name": "Philstar (headlines)",
-      "kind": "RSS",
       "code": "200",
-      "size": 7469,
-      "items": 10
+      "size": 7396
     },
     {
+      "kind": "HTML",
       "url": "https://www.pressphotographers.senate.gov/senate/senate-press-releases/",
       "name": "Thông cáo chung Thượng viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 78245
+      "size": 78276
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.rappler.com/feed/",
       "name": "Rappler",
-      "kind": "RSS",
       "code": "200",
-      "size": 93242,
-      "items": 10
+      "size": 94614
     },
     {
+      "kind": "RSS",
+      "items": 126,
       "url": "https://www.realcleardefense.com/index.xml",
       "name": "RealClearDefense",
-      "kind": "RSS",
       "code": "200",
-      "size": 214339,
-      "items": 126
+      "size": 214398
     },
     {
+      "kind": "RSS",
+      "items": 41,
       "url": "https://www.realclearpolitics.com/index.xml",
       "name": "RealClearPolitics",
-      "kind": "RSS",
       "code": "200",
-      "size": 43615,
-      "items": 41
+      "size": 43617
     },
     {
+      "kind": "RSS",
+      "items": 68,
       "url": "https://www.realclearworld.com/index.xml",
       "name": "RealClearWorld",
-      "kind": "RSS",
       "code": "200",
-      "size": 98970,
-      "items": 68
+      "size": 98986
     },
     {
+      "kind": "HTML",
       "url": "https://www.rules.senate.gov/hearings/list",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
       "size": 138609
     },
     {
+      "kind": "HTML",
       "url": "https://www.rules.senate.gov/news/majority-news",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 139692
+      "size": 139732
     },
     {
+      "kind": "HTML",
       "url": "https://www.rules.senate.gov/news/press-releases",
       "name": "Uỷ ban Quy tắc Thượng viện",
-      "kind": "HTML",
       "code": "200",
-      "size": 142368
+      "size": 142451
     },
     {
+      "kind": "RSS",
+      "items": 15,
       "url": "https://www.sandboxx.us/news/feed/",
       "name": "Sandboxx News",
-      "kind": "RSS",
       "code": "200",
-      "size": 215521,
-      "items": 15
+      "size": 216166
     },
     {
+      "kind": "HTML",
       "url": "https://www.sba.gov/about-sba/sba-newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 185116
+      "size": 185101
     },
     {
+      "kind": "HTML",
       "url": "https://www.sba.gov/articles?article_type=137&keyword=&langcode=en",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 56465
+      "size": 56481
     },
     {
+      "kind": "HTML",
       "url": "https://www.sbc.senate.gov/public/index.cfm/democraticpressreleases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 44018
+      "size": 44075
     },
     {
+      "kind": "HTML",
       "url": "https://www.sbc.senate.gov/public/index.cfm/pressreleases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 50588
+      "size": 50601
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://www.scmp.com/rss/5/feed/",
       "name": "South China Morning Post",
-      "kind": "RSS",
       "code": "200",
-      "size": 82774,
-      "items": 50
+      "size": 83145
     },
     {
+      "kind": "RSS",
+      "items": 25,
       "url": "https://www.sec.gov/news/pressreleases.rss",
       "name": "SEC",
-      "kind": "RSS",
       "code": "200",
-      "size": 17892,
-      "items": 25
+      "size": 17970
     },
     {
+      "kind": "HTML",
       "url": "https://www.sec.gov/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 1924
+      "code": "200",
+      "size": 152600,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.sec.gov/newsroom/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 1924
+      "code": "200",
+      "size": 95470,
+      "qua_van_tay": true
     },
     {
+      "kind": "RSS",
+      "items": 268,
       "url": "https://www.semafor.com/rss.xml",
       "name": "Semafor",
-      "kind": "RSS",
       "code": "200",
-      "size": 839012,
-      "items": 268
+      "size": 847641
     },
     {
+      "kind": "LỖI",
       "url": "https://www.senate.gov/committees/committees_home.htm",
       "name": "nguon-chinh-thuc-my",
-      "kind": "LỖI",
       "code": "200-rỗng",
-      "size": 91
+      "size": 91,
+      "da_thu_2_lan": true
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.shephardmedia.com/news/feed/",
       "name": "Shephard Media",
-      "kind": "RSS",
       "code": "200",
-      "size": 7357,
-      "items": 10
+      "size": 7377
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.spaceforce.mil/DesktopModules/ArticleCS/RSS.ashx?ContentType=1&Site=1060&max=20",
       "name": "Lực lượng Không gian Mỹ",
-      "kind": "RSS",
       "code": "200",
-      "size": 23595,
-      "items": 20
+      "size": 23613
     },
     {
+      "kind": "HTML",
       "url": "https://www.spaceforce.mil/News/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 381
+      "code": "200",
+      "size": 72579,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/briefings-foreign-press-centers",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/briefings/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/remarks-and-releases-bureau-of-democracy-human-rights-and-labor",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/remarks-and-releases-bureau-of-economic-energy-and-business-affairs",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/remarks-and-releases-deputy-secretary-of-state",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/remarks-and-releases-north-atlantic-treaty-organization",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/remarks-and-releases-under-secretary-for-economic-affairs",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "HTML",
       "url": "https://www.state.gov/remarks-secretary-rubio",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 659506
+      "size": 659508
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://www.straitstimes.com/news/world/rss.xml",
       "name": "The Straits Times",
-      "kind": "RSS",
       "code": "200",
-      "size": 37625,
-      "items": 50
+      "size": 37668
     },
     {
+      "kind": "HTML",
       "url": "https://www.stripes.com/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 153563
+      "size": 153704
     },
     {
+      "kind": "RSS",
+      "items": 45,
       "url": "https://www.theguardian.com/world/rss",
       "name": "The Guardian — World",
-      "kind": "RSS",
       "code": "200",
-      "size": 152729,
-      "items": 45
+      "size": 152087
     },
     {
+      "kind": "RSS",
+      "items": 60,
       "url": "https://www.thehindu.com/news/international/feeder/default.rss",
       "name": "The Hindu",
-      "kind": "RSS",
       "code": "200",
-      "size": 51027,
-      "items": 60
+      "size": 51204
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://www.themoscowtimes.com/rss/news",
       "name": "The Moscow Times",
-      "kind": "RSS",
       "code": "200",
-      "size": 31578,
-      "items": 50
+      "size": 31644
     },
     {
+      "kind": "HTML",
       "url": "https://www.trade.gov/press",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 251032
+      "size": 251056
     },
     {
+      "kind": "HTML",
       "url": "https://www.trade.gov/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 327556
+      "size": 327644
     },
     {
+      "kind": "HTML",
       "url": "https://www.trade.gov/selectusa",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 282394
+      "size": 282484
     },
     {
+      "kind": "HTML",
       "url": "https://www.trade.gov/selectusa-reports-and-publications",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 271675
+      "size": 271703
     },
     {
+      "kind": "HTML",
       "url": "https://www.trade.gov/trade-news-and-events",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 269393
+      "size": 269457
     },
     {
+      "kind": "HTML",
       "url": "https://www.transportation.gov/newsroom",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 382
+      "code": "200",
+      "size": 59623,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.transportation.gov/newsroom/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 405
+      "code": "200",
+      "size": 74162,
+      "qua_van_tay": true
     },
     {
+      "kind": "RSS",
+      "items": 40,
       "url": "https://www.twz.com/feed",
       "name": "The War Zone (TWZ)",
-      "kind": "RSS",
       "code": "200",
-      "size": 881038,
-      "items": 40
+      "size": 885278
     },
     {
+      "kind": "HTML",
       "url": "https://www.usa.gov/agency-index",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 101205
+      "size": 101211
     },
     {
+      "kind": "HTML",
       "url": "https://www.usda.gov/about-usda/news/press-releases",
       "name": "nguon-chinh-thuc-my",
-      "kind": "403",
-      "code": "403",
-      "size": 412
+      "code": "200",
+      "size": 172084,
+      "qua_van_tay": true
     },
     {
+      "kind": "HTML",
       "url": "https://www.ustda.gov/news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 89530
+      "size": 89564
     },
     {
+      "kind": "RSS",
+      "items": 10,
       "url": "https://www.ustr.gov/rss.xml",
       "name": "USTR",
-      "kind": "RSS",
       "code": "200",
-      "size": 357424,
-      "items": 10
+      "size": 357498
     },
     {
+      "kind": "RSS",
+      "items": 50,
       "url": "https://www.vietnamplus.vn/rss/thegioi.rss",
       "name": "VietnamPlus (TTXVN)",
-      "kind": "RSS",
       "code": "200",
-      "size": 119359,
-      "items": 50
+      "size": 126353
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=400&Site=945&max=20",
       "name": "DoD Contracts",
-      "kind": "RSS",
       "code": "200",
-      "size": 11679,
-      "items": 20
+      "size": 11679
     },
     {
+      "kind": "RSS",
+      "items": 20,
       "url": "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=20",
       "name": "DoD News Releases",
-      "kind": "RSS",
       "code": "200",
-      "size": 15805,
-      "items": 20
+      "size": 15806
     },
     {
+      "kind": "HTML",
       "url": "https://www.whitehouse.gov/briefings-statements/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 253283
+      "size": 253287
     },
     {
+      "kind": "HTML",
       "url": "https://www.whitehouse.gov/cea/news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 250511
+      "size": 250515
     },
     {
+      "kind": "HTML",
       "url": "https://www.whitehouse.gov/ceq/news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 247550
+      "size": 247560
     },
     {
+      "kind": "HTML",
       "url": "https://www.whitehouse.gov/news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 253945
+      "size": 281325
     },
     {
+      "kind": "HTML",
       "url": "https://www.whitehouse.gov/omb/news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 248741
+      "size": 248749
     },
     {
+      "kind": "HTML",
       "url": "https://www.whitehouse.gov/ostp/news/",
       "name": "nguon-chinh-thuc-my",
-      "kind": "HTML",
       "code": "200",
-      "size": 247952
+      "size": 247958
     },
     {
+      "kind": "RSS",
+      "items": 30,
       "url": "https://www.whitehouse.gov/presidential-actions/feed/",
       "name": "Nhà Trắng — Presidential Actions",
-      "kind": "RSS",
       "code": "200",
-      "size": 598394,
-      "items": 30
+      "size": 599109
     }
   ]
 }
