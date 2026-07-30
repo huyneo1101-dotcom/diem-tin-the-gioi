@@ -235,7 +235,15 @@ def lich_su_gan_day(chat):
 # Lưu vào Supabase (KHÔNG lưu file/text vào repo — repo PUBLIC, xem docstring `bot_luu.py`),
 # gộp mỗi tối bằng `scripts/gop_tin_jaylam.py`, gửi CHỈ tới chat_chu() (chat riêng của Huy).
 JAYLAM_BANG = "dt_jaylam_inbox"
-JAYLAM_MAX_CHARS = 20000
+# ⚠️ TRẦN NÀY TỪNG CẮT MẤT 42% NỘI DUNG TRONG IM LẶNG (vá 30/07/2026).
+# Cơ chế gây vấp: trần cũ 20.000 ký tự được đặt theo phỏng đoán, chưa ai đo file thật. Bản
+# tin ngày Jay Lâm gửi (`29.7 ĐTN huong M.docx`) dài **34.525 ký tự / 76 URL**; `trich()` cắt
+# còn 20.000 rồi thêm dấu "…", nên **14.525 ký tự và 20 URL biến mất** — cắt ngang giữa một
+# URL, mất trọn mục AUKUS và mục Việt Nam–Úc. Không có lỗi, không có cảnh báo, và tin xác
+# nhận gửi lại cho người gửi vẫn báo "Đã nhận" nên cả hai đầu đều tưởng đủ.
+# Trần vẫn giữ (chặn file khổng lồ làm vỡ payload Supabase) nhưng rộng gấp 10 và khi cắt
+# thật thì PHẢI KÊU — xem `xu_ly_tin_jaylam()`.
+JAYLAM_MAX_CHARS = 200000
 
 
 def luu_tin_jaylam(chat, ten, ten_file, noi_dung):
@@ -282,18 +290,32 @@ def xu_ly_tin_jaylam(token, chat, m, doc_att):
             call(token, "sendMessage", {
                 "chat_id": chat, "text": f"Tải file '{ten_file}' hỏng, gửi lại giúp tao."})
             return
-        noi_dung = docx_text.trich(tmp, max_chars=JAYLAM_MAX_CHARS)
+        # Trích ĐỦ trước, cắt sau — có đo được độ dài thật mới KÊU được lúc phải cắt.
+        # Trích rồi cắt luôn (như bản cũ) thì không đường nào phân biệt "file vừa đúng trần"
+        # với "file bị xén mất một nửa": cả hai đều trả về đúng `JAYLAM_MAX_CHARS` ký tự.
+        noi_dung = docx_text.trich(tmp, max_chars=0)
         if not noi_dung:
             call(token, "sendMessage", {
                 "chat_id": chat,
                 "text": f"Không đọc được nội dung '{ten_file}' (file rỗng hoặc hỏng)."})
             return
+        do_dai_that = len(noi_dung)
+        bi_cat = do_dai_that > JAYLAM_MAX_CHARS
+        if bi_cat:
+            noi_dung = noi_dung[:JAYLAM_MAX_CHARS].rstrip() + "…"
+            print(f"[jaylam] CẮT: '{ten_file}' dài {do_dai_that} ký tự, trần "
+                  f"{JAYLAM_MAX_CHARS} — mất {do_dai_that - JAYLAM_MAX_CHARS} ký tự",
+                  file=sys.stderr)
         if luu_tin_jaylam(chat, ten_nguoi, ten_file, noi_dung):
+            them = ""
+            if bi_cat:
+                them = (f" ⚠️ File dài {do_dai_that} ký tự, vượt trần {JAYLAM_MAX_CHARS} nên "
+                        f"phần cuối bị cắt — gửi lại phần còn thiếu thành file riêng giúp tao.")
             call(token, "sendMessage", {
                 "chat_id": chat,
                 "text": (f"Đã nhận: {ten_file} ({len(noi_dung)} ký tự) — sẽ được tóm tắt "
                          "kèm link nguồn rồi vào bản tin TỐI hôm nay (nếu không trùng tin "
-                         "đã có).")})
+                         "đã có)." + them)})
         else:
             call(token, "sendMessage", {
                 "chat_id": chat,

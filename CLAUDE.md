@@ -892,6 +892,26 @@ routine local `web-scan-diem-tin-toi` tự dựng docx mà không đi qua workfl
 ⚠️ **Chưa quét được ảnh/PDF/text dán thẳng** — Huy xác nhận Jay Lâm gửi dưới dạng `.docx`; file
 khác định dạng bị `xu_ly_tin_jaylam()` từ chối kèm lời nhắc gửi lại đúng `.docx`.
 
+⚠️ **TRẦN ĐỘ DÀI TỪNG CẮT MẤT 42% NỘI DUNG TRONG IM LẶNG — vá 30/07/2026, ngay lô đầu tiên.**
+File thật đầu tiên Jay Lâm gửi (`29.7 ĐTN huong M.docx`, 21:06 ngày 30/07) dài **34.525 ký tự /
+76 URL**; `JAYLAM_MAX_CHARS = 20000` xén còn 20.001, **mất 14.524 ký tự và 20 URL** — cắt ngang
+giữa một URL, mất trọn mục AUKUS (chuyến thăm Mỹ của Bộ trưởng Công nghiệp Quốc phòng Úc) và mục
+viện trợ Australia–Việt Nam. **Cơ chế gây vấp:** trần đặt theo phỏng đoán lúc dựng, chưa ai đo
+file thật; `docx_text.trich()` cắt xong chỉ thêm dấu `…` rồi trả về, nên bên gọi **không còn
+đường nào biết độ dài gốc** — file vừa đúng trần và file bị xén một nửa cho ra cùng một con số.
+Tin xác nhận vẫn báo *"Đã nhận: … (20001 ký tự)"*, tức cả người gửi lẫn Huy đều tưởng đủ.
+- Trần nâng lên **200.000** (vẫn giữ để chặn file khổng lồ làm vỡ payload Supabase).
+- `xu_ly_tin_jaylam()` nay **trích ĐỦ trước** (`max_chars=0`), đo `do_dai_that`, rồi mới cắt —
+  và khi cắt thật thì **báo thẳng trong tin xác nhận** cho người gửi + in stderr. Fail-open CÓ
+  TIẾNG; im lặng ở đây là dựng lại đúng vùng câm vừa bịt.
+- **Đừng gộp hai bước lại "cho gọn"** (`trich(tmp, max_chars=JAYLAM_MAX_CHARS)`): cắt trước khi
+  đo là mất luôn đại lượng dùng để so ngưỡng.
+- Bộ test `tests/test-nhan-tin-jaylam.py` nay **12 ca · `--tu-kiem` bắt 2/2 bản hỏng** (trả trần
+  về 20.000 ⇒ đỏ ca hồi quy 34.525 ký tự · cắt mà nuốt lời cảnh báo ⇒ đỏ ca PHẢI KÊU), kèm 01 ca
+  đối chứng chống kêu oan (file dưới trần không được nhắc chuyện cắt). Bộ này trước đó **không
+  có `--tu-kiem`** — đã bổ sung cùng lượt, nạp module qua seam `TGBOT_MOD`, tên bản hỏng mang
+  **PID + sha1 nội dung** (nạp bằng `importlib` nên không có sha1 là dính lại `.pyc` bản trước).
+
 ### ✅ BỐN ĐIỂM ĐÃ CHỐT 30/07/2026 — mục 5 nay là TIN CHUẨN, không còn dán nguyên văn
 
 Bốn điểm để ngỏ hôm dựng đã được Huy quyết qua bảng chọn. Quyết định gốc, nguyên văn:
