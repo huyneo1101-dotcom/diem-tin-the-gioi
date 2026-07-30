@@ -28,8 +28,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          # 0 chứ không phải 2: bước ghi sổ phải `git pull --rebase` được, mà rebase trên bản
-          # checkout nông thì hỏng. make_docx vẫn cần ít nhất HEAD~1 cho `prev_data()`.
+          # 0 chứ không phải 2. Lý do CŨ ("bước ghi sổ phải `pull --rebase` được") đã hết
+          # hiệu lực từ 30/07/2026 — `ghi_so_push.py` không rebase nữa. Nhưng vẫn phải là 0:
+          # `make_docx.prev_data()` cần `HEAD~1`, và `ghi_so_push.py` còn `reset --mixed
+          # FETCH_HEAD` nên lịch sử phải đủ để giải được ref đó trên bản checkout.
           fetch-depth: 0
 
       - name: Kiểm tra commit có phải bản tin mới không

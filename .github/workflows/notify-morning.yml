@@ -25,8 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          # 0 chứ không phải 2: bước ghi sổ phải `git pull --rebase` được, mà rebase trên bản
-          # checkout nông thì hỏng. Bước so diff vẫn cần ít nhất HEAD~1.
+          # 0 chứ không phải 2. Lý do CŨ ("bước ghi sổ phải `pull --rebase` được") đã hết
+          # hiệu lực từ 30/07/2026 — `ghi_so_push.py` không rebase nữa. Nhưng vẫn phải là 0:
+          # bước so diff cần `HEAD~1`, và `ghi_so_push.py` còn `reset --mixed FETCH_HEAD`.
           fetch-depth: 0
 
       - name: Xác định có phải commit quét sáng / báo cáo tuần không
