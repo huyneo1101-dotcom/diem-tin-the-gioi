@@ -1,15 +1,42 @@
 name: Import news from Google Drive
 
 # Tìm và nạp file ban-tin-chien-luoc-YYYY-MM-DD-HHNN-ICT.json từ Drive
-# Chạy lúc 08:00 & 20:00 VN mỗi ngày (01:00 & 13:00 UTC)
 # Cần secret GOOGLE_DRIVE_FOLDER_ID (folder chứa file tin) & GDRIVE_API_KEY (hoặc service account JSON)
-
+#
+# ╔══════════════════════════════════════════════════════════════════════════════════════╗
+# ║ ĐÃ TẮT LỊCH 30/07/2026 (Huy chốt) — workflow giữ nguyên, chỉ bỏ cron.                 ║
+# ╚══════════════════════════════════════════════════════════════════════════════════════╝
+# Cron cũ: '23 0,12 * * *' (07:23 & 19:23 VN). Bỏ vì HAI lý do đo được, không phải vì gọn:
+#
+# 01. NGUỒN ĐÃ KHÔ. `logs/state.json` → `drive-import.lastSuccess.sang = 2026-07-21`; mọi
+#     phiên từ 22/07 tới 29/07 đều ghi note "khong tim thay file ban-tin-chien-luoc nao",
+#     log ngày đều đúng 261 byte cùng một khuôn. Tức 09 ngày liền chạy không ra tin, trong
+#     khi workflow vẫn báo `success` — đúng kiểu chết câm mà bảng CI vẫn xanh.
+# 02. NÓ LÀ WORKFLOW TỰ ĐỘNG DUY NHẤT CÒN HỢP NHẤT `index.html` + `logs/` BẰNG REBASE.
+#     Bước "Commit if changed" bên dưới `git add index.html logs/` rồi `git pull --rebase`
+#     — CÙNG LỚP LỖI đã gây sự cố sổ đã gửi sáng 30/07 (xem `.github/scripts/ghi_so_push.py`).
+#     Đo bằng `git log --format='%an'`: `index.html` có 05 nguồn ghi, `logs/state.json` có
+#     03 nguồn; còn `docs/ung-vien-ci.json`, `baomoi-saved.json`, `docs/probe-ci.json` mỗi
+#     file chỉ 01 nguồn — nên harvest-ci / sync-baomoi / probe-sources rebase vẫn an toàn,
+#     riêng file này thì không. Phiên quét local sáng 30/07 chạy bù lúc 07:41 và 07:48, cách
+#     mốc 07:23 đúng 18 phút: hai bên commit sát nhau là rebase xung đột và mất lô Drive
+#     trong im lặng (khối dưới có retry, nhưng retry không chữa được xung đột — nó thử lại
+#     đúng phép toán vừa hỏng trên đúng trạng thái đã bẩn).
+#
+# ⛔ MUỐN BẬT LẠI LỊCH THÌ PHẢI VÁ KHỐI COMMIT TRƯỚC — cổng `.github/scripts/kiem_luat_push.py`
+#    CHẶN CỨNG việc thêm `schedule` vào đây chừng nào khối dưới còn `pull --rebase`.
+#    Và ĐỪNG bê nguyên `ghi_so_push.py` sang: sổ là dữ liệu append-only nên hợp nhất được
+#    bằng git, còn `index.html` thì KHÔNG — hai lô tin khác nhau cùng chèn vào đầu mảng
+#    `DATA.news` là xung đột văn bản gần như chắc chắn. Đường đúng cho file này là: push bị
+#    từ chối → `fetch` → bỏ lô của mình → chạy lại `add_news.py` với chính
+#    `/tmp/new_items.json` trên đỉnh mới (add_news dedupe theo URL nên chạy lại là an toàn)
+#    → commit → push.
+#
+# Chạy tay vẫn được bất cứ lúc nào bằng nút "Run workflow", hoặc:
+#   gh workflow run import-news-from-drive.yml
+# Chạy tay thì có người ngồi canh, thấy đỏ là xử được — đó là lý do khối rebase dưới được
+# để nguyên thay vì vá: rủi ro chỉ tồn tại ở chế độ tự động, mà chế độ đó nay đã tắt.
 on:
-  schedule:
-    # Dời khỏi giờ TRÒN (27/07/2026): mốc `:00` là lúc cron GitHub xếp hàng đông nhất — đo
-    # thật 08:00 → chạy 11:30 (trễ 3h30), 20:00 → 21:22 (trễ 1h22). Phải xong TRƯỚC
-    # sync-baomoi (:28) và trước phiên quét tối (20:47), nên lùi sớm hẳn về :23.
-    - cron: '23 0,12 * * *'   # 07:23 & 19:23 VN
   workflow_dispatch:
 
 permissions:

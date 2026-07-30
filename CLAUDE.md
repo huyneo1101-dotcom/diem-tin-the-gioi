@@ -319,6 +319,44 @@ workflow). Nghiệm thu 30/07: 10/10 ca đạt · `--tu-kiem` bắt **6/6** bả
 lại `pull --rebase`" (chính bản CŨ) làm **6/10 ca đỏ**. Nghiệm thu thêm bằng đường THẬT (`so_da_gui.py`
 thật, clone của repo thật, remote bare local): sổ giữ đủ hai dòng, commit chỉ đụng file sổ.
 
+#### Cổng phủ CẢ LỚP LỖI: `.github/scripts/kiem_luat_push.py` (dựng 30/07/2026)
+Bản vá trên chỉ bịt **đúng hai** workflow ghi sổ. Lớp lỗi rộng hơn thế: workflow nào hội đủ **03 điều
+kiện** — (i) chạy theo **LỊCH**, tức không ai ngồi canh; (ii) commit một file **NHIỀU nguồn cùng ghi**;
+(iii) hợp nhất bằng **`pull --rebase`** — đều tái diễn được đúng sự cố ấy. Cổng quét mọi
+`.github/workflows/*.yml` và chặn đúng tổ hợp đó, để phiên sau không chép khối lệnh cũ vào workflow mới.
+
+Phải đủ **cả ba** điều kiện, vì đo thật (`git log --format='%an' -- <file>`, từ 01/07/2026) cho thấy
+chúng không cùng mức rủi ro:
+
+| File | Số nguồn ghi | |
+|---|---|---|
+| `index.html` | **05** | DÙNG CHUNG |
+| `logs/state.json` | **03** | DÙNG CHUNG |
+| `logs/da-gui-email.json` | **02** | DÙNG CHUNG |
+| `docs/ung-vien-ci.json` · `baomoi-saved.json` · `docs/probe-ci.json` | 01 | riêng — rebase không có gì để xung đột |
+
+Bỏ bớt điều kiện nào cũng thành **cổng chết** (mục 17 CLAUDE.md toàn cục — cổng luôn phải mở cờ mới qua
+được thì bị mở quen tay, rồi mọi cổng còn lại mất giá trị theo): bỏ (i) thì chạy tay cũng bị chặn dù có
+người canh; bỏ (ii) thì `harvest-ci` · `sync-baomoi` · `sync-preferences` · `probe-sources` đỏ oan cả
+loạt; bỏ (iii) thì mọi workflow commit `index.html` đều đỏ, kể cả cái hợp nhất đúng cách. Sau khi
+`import-news-from-drive.yml` bỏ cron, **không workflow nào vi phạm** — cổng xanh ở luồng bình thường.
+
+⚠️ **Fail-CLOSED**: yml hỏng cú pháp → mã **2**; thư mục không có workflow nào → mã **2**. Không bao giờ
+trả 0 — *"không thấy vi phạm"* và *"không nhìn được"* là hai chuyện khác nhau, lẫn chúng vào nhau đúng
+là kiểu chết câm cổng này sinh ra để chặn.
+⚠️ **Bẫy YAML 1.1**: khoá `on:` không nháy bị `yaml.safe_load` parse thành **boolean `True`**, không phải
+chuỗi `"on"`. Đọc thiếu nhánh đó là cổng coi mọi workflow đều không có lịch ⇒ **câm hoàn toàn**. Cổng đọc
+cả hai dạng, và có ca test riêng cho dạng `"on":` có nháy.
+⚠️ **Giới hạn đã biết**: cổng chỉ đọc lệnh git viết thẳng trong `run:` của yml. Lệnh git do phiên
+`claude -p` tự gõ bên trong `claude-web-scan.yml` nằm ngoài tầm — chỗ đó do playbook quét canh.
+
+**Bộ test canh: `tests/test-cong-luat-push.py`** — 11 ca (04 PHẢI CHẶN · 04 đối chứng chống chặn oan ·
+02 fail-closed · 01 soi thư mục workflow THẬT của repo). Nghiệm thu 30/07: 11/11 đạt · `--tu-kiem` bắt
+**8/8** bản hỏng. Gọi thẳng `main()` trong tiến trình (`redirect_stdout`) chứ **không** `subprocess` —
+subprocess nạp lại bản thật trên đĩa nên `--tu-kiem` không tráo được bản hỏng, ca sẽ xanh trên cả bản
+đúng lẫn bản hỏng. `--tu-kiem` còn tự bắt lỗi của chính nó: bản hỏng làm đỏ **toàn bộ** ca là phép thay
+phá hỏng nền chứ không gỡ đúng một lớp vá, báo TRƯỢT.
+
 Ba cái bẫy đã vấp thật, đừng lặp lại:
 - **Ghi sổ phải là bước CUỐI**, sau CẢ email lẫn Telegram. Ghi sớm hơn thì Telegram đọc sổ thấy chính lô
   vừa gửi và lọc sạch → **Telegram rỗng**.
@@ -818,6 +856,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `scripts/sua_nhan_analyses.py --tu-kiem` | Chính `--kiem` của nó (nhãn `outlet` mục Think-tank) | 5 — 3 PHẢI CHẶN, 2 PHẢI CHO QUA + 1 đối chứng. **Test nằm TRONG script** chứ không ở `tests/` vì cổng và bộ ca dùng chung dữ liệu giả |
 | `tests/test-tach-analyses.py` | Việc tách kho think-tank ra `data/analyses.json` (30/07/2026) | 9 ca — mọi mắt xích đều hỏng-thì-im-lặng: mục Think-tank trống · 442 nhãn MỚI · guardrail trùng-url tê liệt · offline mất kho. `--tu-kiem` dựng 4 bản hỏng |
 | `scripts/analyses_store.py --tu-kiem` | Chính lớp đọc/ghi kho | 3 PHẢI CHẶN (thiếu file · JSON hỏng · không phải mảng) + cổng hồi quy "index.html phải rỗng" |
+| `tests/test-cong-luat-push.py` | Cổng "workflow có LỊCH thì cấm rebase file DÙNG CHUNG" (`.github/scripts/kiem_luat_push.py`) | 11 ca — 4 PHẢI CHẶN (bật lại lịch drive-import · `git add logs/` · `git add -A` · dạng `"on":` có nháy), 4 đối chứng chống chặn oan, 2 fail-closed (yml hỏng · thư mục rỗng đều phải trả mã 2), 1 soi thư mục workflow THẬT. `--tu-kiem` bắt 8/8 bản hỏng |
 | `tests/test-ghi-so-push.py` | Sổ đã gửi chịu được HAI workflow ghi cùng lúc (`.github/scripts/ghi_so_push.py`) | 10 ca — 2 CA CHÍNH (giữ đủ hai dòng · URL tính đúng một lần) · 2 PHẢI CHẶN (nhân dòng · `--hard` đè index.html) · 1 PHẢI KÊU · 4 đối chứng · 1 kiểm cổng còn nằm trên đường đi (soi 2 file yml). `--tu-kiem` bắt 6/6 bản hỏng |
 
 Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:
@@ -1698,8 +1737,24 @@ Khi Action fail vì cookie hết hạn (err -801) → làm mới cookie theo `do
 Endpoint chỉ cần cookie, KHÔNG kiểm tra `sig` (đã kiểm chứng 18/07/2026). Bộ lọc chủ đề:
 `CAT4` ở đầu `scripts/baomoi_sync.py`.
 
-## Nhập tin từ Google Drive (pipeline `drive-import` — CHỈ chạy bằng GitHub Action)
-Action `import-news-from-drive.yml` (08:00 & 20:00 VN) tìm **mọi** file `ban-tin-chien-luoc-YYYY-MM-DD-HHMM-ICT.json`
+## Nhập tin từ Google Drive (pipeline `drive-import`)
+
+> ### ⛔ ĐÃ TẮT LỊCH 30/07/2026 (Huy chốt) — chỉ còn chạy tay
+> Workflow **giữ nguyên, không xoá**; chỉ bỏ `schedule`, còn `workflow_dispatch`. Chạy lại bằng
+> `gh workflow run import-news-from-drive.yml`. Hai lý do, đều đo được:
+> **01. Nguồn đã khô.** `logs/state.json` → `drive-import.lastSuccess.sang = 2026-07-21`; mọi phiên từ
+> 22/07 tới 29/07 ghi note *"khong tim thay file ban-tin-chien-luoc nao"*, log ngày đều đúng 261 byte
+> cùng một khuôn. 09 ngày chạy không ra tin mà workflow vẫn báo `success` — chết câm, bảng CI vẫn xanh.
+> **02. Nó là workflow tự động CUỐI CÙNG hợp nhất file dùng chung bằng rebase.** Bước "Commit if
+> changed" `git add index.html logs/` rồi `git pull --rebase` — cùng lớp lỗi đã gây sự cố sổ đã gửi
+> sáng 30/07. Phiên quét local sáng 30/07 chạy bù lúc 07:41 và 07:48, cách mốc 07:23 đúng **18 phút**.
+> **Bật lại lịch thì phải vá khối commit trước** — cổng `.github/scripts/kiem_luat_push.py` chặn cứng
+> (mục dưới). Và **đừng bê nguyên `ghi_so_push.py` sang**: sổ là append-only nên git hợp nhất được, còn
+> `index.html` thì không — hai lô tin cùng chèn vào đầu mảng `DATA.news` là xung đột văn bản gần như
+> chắc chắn. Đường đúng cho file này: push bị từ chối → `fetch` → bỏ lô của mình → **chạy lại
+> `add_news.py`** với chính `/tmp/new_items.json` trên đỉnh mới (nó dedupe theo URL) → commit → push.
+
+Action `import-news-from-drive.yml` (trước đây 08:00 & 20:00 VN) tìm **mọi** file `ban-tin-chien-luoc-YYYY-MM-DD-HHMM-ICT.json`
 trong khung 2 ngày trên Drive, **gộp tất cả thành 1 batch** (dedupe theo URL — ấn bản mới thắng; item ngoài
 khung 2 ngày bị đẩy sang `rejectedNews` thay vì làm hỏng cả lô), rồi chạy `add_news.py`. Cần secret
 `GOOGLE_DRIVE_FOLDER_ID` + `GDRIVE_API_KEY`. Log: `logs/gdrive-<ngày>.log` + `logs/state.json`.
