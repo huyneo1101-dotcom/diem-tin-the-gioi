@@ -3,21 +3,29 @@
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)
-Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 21:00** và **SÁNG SỚM 04:00**
+Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 20:47** và **SÁNG SỚM 03:47**
 (đêm VN = ngày làm việc Mỹ nên nhiều tin mới; cả 2 phiên đều gửi email). Mốc CHÍNH chạy trên **GitHub
-Actions** `claude-web-scan.yml` (giờ VN: tối **21:00** + vét 22:00, sáng sớm **04:00/05:00** — máy Mac tắt vẫn ra bản
+Actions** `claude-web-scan.yml` (giờ VN: tối **20:47** + vét 21:47, sáng sớm **03:47/04:47** — máy Mac tắt vẫn ra bản
 tin); scheduled task local `web-scan` là DỰ PHÒNG cho **CẢ HAI** phiên (cron `30 4,5,21 * * *` giờ VN):
-CI không quét thì 30 phút sau local nhảy vào, CI đã xong/đang chạy thì local SKIP êm qua khoá `state.py`.
+CI không quét thì ~30 phút sau local nhảy vào, CI đã xong/đang chạy thì local SKIP êm qua khoá `state.py`.
+
+📅 **MỌI SỐ GIỜ TRONG FILE NÀY LÀ BẢN CHÉP LẠI — NGUỒN SỰ THẬT LÀ [`docs/LICH.md`](docs/LICH.md)**
+(sinh từ chính dòng `cron:`). Lệch nhau thì `LICH.md` thắng. Canh bằng
+`python3 scripts/kiem_lich.py --kiem`, dựng 30/07/2026 sau khi bắt được **47 chỗ** trong tài liệu còn
+ghi lịch CI cũ (21:00 · 22:00 · 04:00 · 05:00) — cả 04 mốc đã dời sớm 13 phút mà không chỗ chép lại nào
+được sửa. **Sửa cron thì chạy `--sinh` rồi soi lại các chỗ chép.**
+
 **Đổi 27/07/2026 (chỉ thị Huy):** mốc CI sáng dời 04:30 → **04:00** và phiên sáng sớm **CÓ dự phòng local
 04:30/05:30** — vì sáng 27/07 cron CI 04:30 không nổ (GitHub hay trễ/bỏ cron lúc tải cao) mà phiên sáng
-khi đó không có lưới local nên suýt mất trắng bản tin. Xen kẽ đầy đủ: **CI 04:00 → local 04:30 → CI 05:00
-→ local 05:30**. Local chỉ chạy khi máy đã thức: cần lịch `pmset repeat wakeorpoweron … 04:25`.
+khi đó không có lưới local nên suýt mất trắng bản tin. **Dời tiếp: cả 04 mốc CI sớm 13 phút** để
+`harvest-ci.yml` (chạy trước 15') kịp xong trước phiên quét. Xen kẽ đầy đủ nay là: **CI 03:47 → local
+04:30 → CI 04:47 → local 05:30**. Local chỉ chạy khi máy đã thức: cần lịch `pmset repeat wakeorpoweron … 04:25`.
 **⏰ HẠN CHÓT EMAIL TỐI 22:00 (chỉ thị Huy 27/07/2026):** email bản tin tối phải tới hộp thư **muộn nhất
 22:00**, nên phiên tối tính NGƯỢC từ mốc cuối chứ không phải mốc đầu — quét ~20' (đo thật 16–21') +
 email ~20 giây ⇒ lớp cuối phải fire chậm nhất **21:15**, và lớp cuối phải là LOCAL vì cron GitHub trễ
-5–20', còn task local đúng giờ hơn. Phiên tối vì thế là **2 lớp TRONG HẠN: CI 21:00 → local 21:15**,
-cộng **1 lớp VÉT ngoài hạn: CI 22:00** (chỉ chạy khi cả hai lớp trên đều chết — GitHub bỏ cron *và* máy
-Mac ngủ; email hôm đó ~22:22, quá hạn nhưng thà muộn còn hơn mất bản tin). **KHÔNG dời 2 lớp đầu trễ
+5–20', còn task local đúng giờ hơn. Phiên tối vì thế là **2 lớp TRONG HẠN: CI 20:47 → local 21:15**,
+cộng **1 lớp VÉT ngoài hạn: CI 21:47** (chỉ chạy khi cả hai lớp trên đều chết — GitHub bỏ cron *và* máy
+Mac ngủ; email hôm đó ~22:10, quá hạn nhưng thà muộn còn hơn mất bản tin). **KHÔNG dời 2 lớp đầu trễ
 hơn, KHÔNG biến lớp vét thành mốc chính.** Phiên chạy ở mốc 21:15 phải ưu tiên GỬI ĐÚNG GIỜ hơn là gom
 đủ tin: quá 21:45 chưa xong thì chốt lô đang có, commit ngay, phần thiếu ghi `scan-gaps.json`.
 **Vì sao 21:15 chứ không phải 21:30:** tối 26/07 mốc local 21:30 mãi **21:41** mới `claim` xong (jitter +
@@ -78,8 +86,8 @@ TỐI — cùng quy ước ô khoá của `state.py`), áp cho cả subject và 
 `Diem-tin-<ngày>-sang.docx` / `-toi.docx`):**
 | Buổi | Tên file |
 |---|---|
-| Sáng sớm (fire 04:00–05:30) | `Diem-tin-sang-som-5h-<YYYY-MM-DD>.docx` |
-| Tối (fire 21:00–22:30) | `Diem-tin-toi-21h-<YYYY-MM-DD>.docx` |
+| Sáng sớm (fire 03:47–05:30) | `Diem-tin-sang-som-5h-<YYYY-MM-DD>.docx` |
+| Tối (fire 20:47–22:30) | `Diem-tin-toi-21h-<YYYY-MM-DD>.docx` |
 
 ⚠️ **Luật đặt tên nằm ở ĐÚNG MỘT chỗ: `make_docx.py:ten_file()`** — nó là nơi sinh file, và
 Telegram (kênh gửi DUY NHẤT hiện nay) hiển thị đúng basename của file trên đĩa. `send-email.js`
@@ -187,10 +195,10 @@ webhook (khó đảo ngược) nên **chờ Huy quyết**, đừng tự xoá.
 > `claude-event-scan.yml` đã XOÁ; task local `event-scan-diem-tin` đã TẮT. Nhưng **khoá/commit/
 > email của hai pipeline vẫn TÁCH RIÊNG như cũ** — chỉ nơi kích (session nào gọi) là gộp lại, xem
 > `docs/routine-web-scan.md` Bước 4 + `.github/prompts/web-scan-ci.md` BƯỚC 6.
-- **Bản tin (TỐI 21:00 + SÁNG SỚM 04:00)** — CI `claude-web-scan.yml` là mốc chính (tối 21:00 + vét 22:00, sáng sớm 04:00/05:00 VN), local dự phòng CẢ HAI phiên bằng **2 task tách riêng**: `web-scan-diem-tin` (sáng 04:30/05:30) và `web-scan-diem-tin-toi` (tối 21:15): 5 chủ đề (xem banner trên). Commit
+- **Bản tin (TỐI 20:47 + SÁNG SỚM 03:47)** — CI `claude-web-scan.yml` là mốc chính (tối 20:47 + vét 21:47, sáng sớm 03:47/04:47 VN), local dự phòng CẢ HAI phiên bằng **2 task tách riêng**: `web-scan-diem-tin` (sáng 04:30/05:30) và `web-scan-diem-tin-toi` (tối 21:15): 5 chủ đề (xem banner trên). Commit
   `Cap nhat ban tin ...` → `notify-email.yml` gửi **email tối** (tiêu đề điểm tin + .docx đính kèm).
 - **Phiên SÁNG (event-scan)** — chạy NGAY SAU bản tin 5 chủ đề, trong CÙNG job/session của phiên
-  SÁNG SỚM ở trên (CI `claude-web-scan.yml` 04:00/05:00 + local `web-scan-diem-tin` 04:30/05:30 —
+  SÁNG SỚM ở trên (CI `claude-web-scan.yml` 03:47/04:47 + local `web-scan-diem-tin` 04:30/05:30 —
   không còn mốc CI/local riêng). Quy trình: **`docs/routine-web-scan.md` Bước 4** (nguồn sự thật
   duy nhất — `docs/routine-event-scan.md` chỉ còn là stub trỏ sang đó). CHỈ quét **sự kiện ngoại
   giao có ký kết + cập nhật tập trận + tin liên quan + 4–6 BÀI THINK-TANK** (mục 4 phần "Nơi lưu
@@ -212,7 +220,7 @@ webhook (khó đảo ngược) nên **chờ Huy quyết**, đừng tự xoá.
 ### 📩 EMAIL TỐI GỒM NHỮNG GÌ (chỉ thị Huy 27/07/2026 — quy tắc chốt)
 
 > **Email tối = TOÀN BỘ tin đã quét được trong ngày, TRỪ ba loại:**
-> 1. tin đã quét ở **phiên sáng sớm 04:00/05:00** (chúng đã đi trong email `📰 … BUỔI SÁNG`);
+> 1. tin đã quét ở **phiên sáng sớm 03:47/04:47** (chúng đã đi trong email `📰 … BUỔI SÁNG`);
 > 2. tin **tập trận / sự kiện ngoại giao** (đã đi trong email `🎖️ Sự kiện & Tập trận`);
 > 3. bài **think-tank** (`DATA.analyses` — cũng thuộc email sáng).
 >
@@ -412,7 +420,7 @@ Mở file HTML đó trong trình duyệt để soi. Bản xem trước gần nh�
 thì mới trỏ lại `#analysis`.
 
 ## Tab "Cà phê" (ngoài chủ đề tin — thêm 24-25/07/2026)
-Tab **☕ Cà phê**: tìm quán cà phê làm việc HN, xếp theo khoảng cách từ điểm xuất phát (Giảng Võ/Trường Chinh/GPS). Dữ liệu `DATA.workCafes` (embed index.html); code `renderCafes`/`cf*`/CSS `.cf-*`. Scheduled task local **`cafe-rating-retry`** (`15 9 * * 2,5`) vét dần rating Google còn thiếu qua `scripts/cafe_ratings.py` (--missing/--apply), commit **`Cap nhat rating quan ca phe: ...`** — tiền tố này KHÔNG khớp gate email nên không gửi mail. Chi tiết: memory `diem-tin-tab-cafe`.
+Tab **☕ Cà phê**: tìm quán cà phê làm việc HN, xếp theo khoảng cách từ điểm xuất phát. **Mốc xuất phát THEO USER** (Huy chốt 25/07/2026: *"với ngừoi dùng huyneo thì chỉ để 2 điểm xuất phát mặc định… với ngừoi dùng lamgiaphat thì chỉ để điểm mặc định là Trường chinh (ẩn điểm mặc định … với người dùng này)"*) — `huyneo` → **Núi Trúc + Nguyễn Khuyến**; `lamgiaphat` → **Trường Chinh** (ẩn 2 mốc kia); user khác → không có mốc mặc định, tự lưu mốc riêng vào `localStorage dt.cafeLocs`. ⚠ Dòng này từng ghi gộp *"(Giảng Võ/Trường Chinh/GPS)"* — **sai cả cấu trúc lẫn địa danh** (mốc Giảng Võ đã đổi sang Núi Trúc), phát hiện 30/07 khi rà quy tắc chưa ghi. Nguồn sự thật là chú thích ngay trên `renderCafes` trong `index.html`, đừng sửa dòng này rời khỏi code. Dữ liệu `DATA.workCafes` (embed index.html); code `renderCafes`/`cf*`/CSS `.cf-*`. Scheduled task local **`cafe-rating-retry`** (`15 9 * * 2,5`) vét dần rating Google còn thiếu qua `scripts/cafe_ratings.py` (--missing/--apply), commit **`Cap nhat rating quan ca phe: ...`** — tiền tố này KHÔNG khớp gate email nên không gửi mail. Chi tiết: memory `diem-tin-tab-cafe`.
 
 ## 📨 TELEGRAM — kênh gửi thứ hai + lớp nguồn thứ ba (thêm 27/07/2026, chỉ thị Huy)
 
@@ -504,7 +512,8 @@ không có push là không có gì hết. Cả ba đều **im lặng tuyệt đ�
 `event-scan` gộp vào phiên sáng sớm nên lớp cuối của nó trùng lớp cuối web-scan) → **07:00**
 (29/07). Lần dời thứ hai vì 06:20 vẫn sát: local 05:30 + jitter ~3'30, quét bản tin 16–21',
 rồi event-scan chạy TIẾP trong cùng session ~15–25' ⇒ xong đúng quanh 06:20 — canary kêu ngay
-lúc phiên còn đang làm đúng việc. Cùng lỗi với ca `toi` từng kêu khi lớp vét 22:00 chưa gửi xong.
+lúc phiên còn đang làm đúng việc. Cùng lỗi với ca `toi` từng kêu khi lớp vét (khi đó 22:00, nay
+21:47) chưa gửi xong.
 
 **Hai nguyên tắc, đừng "dọn cho gọn" mất:**
 1. **Kiểm ĐẦU RA, không kiểm quy trình.** Không hỏi "job có chạy không" (job xanh mà gửi rỗng
@@ -514,8 +523,8 @@ lúc phiên còn đang làm đúng việc. Cùng lỗi với ca `toi` từng kê
 2. **Người báo phải KHÁC người làm.** Workflow riêng, cron riêng, `permissions: contents: read`,
    không import gì của đường quét. Chết cùng lúc với routine thì nó vô nghĩa.
 
-⏰ **Chạy sau LỚP CUỐI, không phải sau HẠN CHÓT.** Hạn email tối là 22:00 nhưng lớp vét CI 22:00
-gửi tới ~22:22 — đó là thiết kế bình thường. Kêu lúc 22:05 là kêu oan, mà cảnh báo kêu oan vài
+⏰ **Chạy sau LỚP CUỐI, không phải sau HẠN CHÓT.** Hạn email tối là 22:00 nhưng lớp vét CI 21:47
+gửi tới ~22:10 — đó là thiết kế bình thường. Kêu lúc 22:05 là kêu oan, mà cảnh báo kêu oan vài
 lần là hết ai đọc, lúc đó canary chết thật. Đánh đổi có chủ ý: báo trễ hạn ~45' nhưng không nhiễu.
 
 **Ba ca chẩn đoán** — canary phải nói HỎNG Ở KHÂU NÀO, không chỉ "có gì đó sai": sổ có dòng →
@@ -1686,7 +1695,7 @@ coi phiên đã chết, phiên mới giành được khoá. Biết chắc phiên
 Routine chạy trong session mới (ephemeral) nên phải để lại dấu vết để chẩn đoán khi lỗi:
 - **Log bắt buộc mỗi lần chạy**: ghi vào `logs/scan-<NGÀY-VN>.log` (ngày theo `TZ='Asia/Ho_Chi_Minh' date +%F`) các mốc: START, kết quả từng agent/phần, chạy script, và DONE/SKIP/FAIL kèm lý do. **Luôn commit + push file log** kể cả khi quét thất bại (git không cần mạng ngoài nên push được ngay cả khi WebSearch/WebFetch bị chặn) — đây là cách duy nhất biết Routine fail ở đâu.
 - **Idempotent (chống chạy trùng)**: đầu mỗi lần chạy, `python3 scripts/state.py claim <pipeline>` (dùng `claim` để GIÀNH KHOÁ, không phải `check` — `check` chỉ hỏi, không chặn được phiên chạy chồng). exit 10 = buổi đó ĐÃ XONG · exit 11 = phiên khác đang chạy → cả hai: ghi log `SKIP`, push log, KẾT THÚC. exit 0 = quét bình thường, xong thì `state.py done <pipeline> "<tóm tắt>"` và commit `logs/state.json` kèm bản tin. **KHÔNG dùng `generatedAt` làm cờ** (xem mục trên).
-- **Retry cho tới khi xong (xen kẽ CI/local từ 26/07/2026)**: bản tin TỐI (hạn chót email 22:00): CI 21:00 → local 21:15 (2 lớp trong hạn, local là task RIÊNG `web-scan-diem-tin-toi`) → CI 22:00 (lớp VÉT, chỉ khi 2 lớp trước chết); bỏ hẳn mốc 21:30/22:30; bản tin SÁNG SỚM (từ 27/07/2026 CÓ local dự phòng): CI 04:00 → local 04:30 → CI 05:00 → local 05:30. **event-scan sáng — GỘP 28/07/2026: dùng CHUNG 4 mốc trên**, chạy NGAY SAU bản tin trong cùng session (không còn mốc 08:45/09:15/09:45/10:15 riêng). Nhờ khoá idempotent `state.py`, mốc nào thấy DONE/RUNNING thì tự SKIP; phiên chết giữa chừng thì 30' sau heartbeat thối, mốc kế cướp khoá quét lại. Cron local là giờ LOCAL (Asia/Ho_Chi_Minh), **KHÔNG phải UTC**; cron CI là UTC.
+- **Retry cho tới khi xong (xen kẽ CI/local từ 26/07/2026)**: bản tin TỐI (hạn chót email 22:00): CI 20:47 → local 21:15 (2 lớp trong hạn, local là task RIÊNG `web-scan-diem-tin-toi`) → CI 21:47 (lớp VÉT, chỉ khi 2 lớp trước chết); bỏ hẳn mốc 21:30/22:30; bản tin SÁNG SỚM (từ 27/07/2026 CÓ local dự phòng): CI 03:47 → local 04:30 → CI 04:47 → local 05:30. **event-scan sáng — GỘP 28/07/2026: dùng CHUNG 4 mốc trên**, chạy NGAY SAU bản tin trong cùng session (không còn mốc 08:45/09:15/09:45/10:15 riêng). Nhờ khoá idempotent `state.py`, mốc nào thấy DONE/RUNNING thì tự SKIP; phiên chết giữa chừng thì 30' sau heartbeat thối, mốc kế cướp khoá quét lại. Cron local là giờ LOCAL (Asia/Ho_Chi_Minh), **KHÔNG phải UTC**; cron CI là UTC.
 - **Cờ tách theo Ô `sang`/`toi`, không chỉ theo ngày.** Ô tự suy từ giờ VN lúc chạy (trước 14:00 = `sang`, từ 14:00 = `toi`), routine KHÔNG cần truyền gì thêm; chạy tay ngoài giờ thì ép bằng `--slot sang|toi`. Ý nghĩa của ô KHÁC nhau theo pipeline:
   - `drive-import` (Action 08:00 & 20:00) — đúng nghĩa 2 buổi/ngày: nếu so thuần theo ngày thì lô sáng DONE sẽ làm lô tối cùng ngày SKIP oan.
   - `web-scan` (1 phiên/ngày buổi tối) và `event-scan` (1 phiên/ngày buổi sáng) — ô còn lại KHÔNG phải "phiên thứ hai", nó là ô **CHẠY BÙ** khi máy ngủ. Ví dụ bản tin tối 24/07 không chạy được, mở máy 03:46 ngày 25 mới chạy bù → lần đó rơi vào ô `sang` nên KHÔNG chiếm ô `toi` của ngày 25, và bản tin tối 25 vẫn quét bình thường. **ĐỪNG "dọn cho gọn" thành mỗi pipeline một ô cố định** — làm vậy lần chạy bù sẽ ăn luôn suất của ngày mới, mất 1 bản tin.
@@ -1795,8 +1804,8 @@ khung 2 ngày bị đẩy sang `rejectedNews` thay vì làm hỏng cả lô), r�
 
   | taskId | cron | Nguồn sự thật quy trình | Việc |
   |---|---|---|---|
-  | `web-scan-diem-tin` | `30 4,5 * * *` (DỰ PHÒNG phiên SÁNG SỚM, sau CI 04:00/05:00) | `docs/routine-web-scan.md` (Bước 1-3 = bản tin, **Bước 4 = event-scan gộp**) | Bản tin 5 chủ đề **+ sự kiện/tập trận/think-tank** — phiên sáng sớm |
-  | `web-scan-diem-tin-toi` | `15 21 * * *` (DỰ PHÒNG phiên TỐI, sau CI 21:00 — lớp CUỐI còn kịp hạn email 22:00) | `docs/routine-web-scan.md` (chung file với phiên sáng sớm để hai phiên không lệch nhau; mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" cuối file) | Bản tin 5 chủ đề — phiên tối |
+  | `web-scan-diem-tin` | `30 4,5 * * *` (DỰ PHÒNG phiên SÁNG SỚM, sau CI 03:47/04:47) | `docs/routine-web-scan.md` (Bước 1-3 = bản tin, **Bước 4 = event-scan gộp**) | Bản tin 5 chủ đề **+ sự kiện/tập trận/think-tank** — phiên sáng sớm |
+  | `web-scan-diem-tin-toi` | `15 21 * * *` (DỰ PHÒNG phiên TỐI, sau CI 20:47 — lớp CUỐI còn kịp hạn email 22:00) | `docs/routine-web-scan.md` (chung file với phiên sáng sớm để hai phiên không lệch nhau; mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" cuối file) | Bản tin 5 chủ đề — phiên tối |
   | ~~`event-scan-diem-tin`~~ | **TẮT 28/07/2026** (`enabled: false`, không xoá) | ~~`docs/routine-event-scan.md`~~ | Việc gộp vào `web-scan-diem-tin` (dòng trên), xem banner `docs/routine-event-scan.md` |
 
   Mốc CHÍNH là workflow GitHub Actions `claude-web-scan.yml` (chạy `claude -p` với prompt

@@ -8,20 +8,25 @@ name: Canary — báo khi bản tin KHÔNG tới nơi
 # vốn kích theo PUSH — không có gì để kích). Canary cố tình không dùng chung cron, không dùng
 # chung job, không import gì của đường quét: nó chết cùng lúc với routine thì nó vô nghĩa.
 #
-# GIỜ CHẠY = SAU LỚP CUỐI, KHÔNG PHẢI SAU HẠN CHÓT. Lớp vét CI 22:00 gửi tới ~22:22 là hành vi
+# GIỜ CHẠY = SAU LỚP CUỐI, KHÔNG PHẢI SAU HẠN CHÓT. Lớp vét CI 21:47 gửi tới ~22:10 là hành vi
 # ĐÚNG; kêu lúc 22:05 là kêu oan, mà cảnh báo kêu oan vài lần là hết ai đọc. Xem docstring
 # canary.py, mục "CHẠY SAU LỚP VÉT".
+# ⚠️ Số giờ ở đây đã một lần mục: tới 30/07/2026 vẫn ghi lịch CI cũ (21:00 · 22:00 · 05:00)
+# trong khi `claude-web-scan.yml` dời sớm 13' từ trước đó. Nay có cổng canh —
+# `python3 scripts/kiem_lich.py --kiem` đối chiếu mọi cụm "CI HH:MM" với cron thật. Bảng lịch
+# đầy đủ: `docs/LICH.md` (sinh từ cron, đừng sửa tay).
 on:
   schedule:
-    - cron: '45 15 * * *'   # 22:45 VN — sau lớp vét TỐI (CI 21:00 · local 21:15 · vét CI 22:00)
-    - cron: '15 23 * * *'   # 06:15 VN hôm sau — sau lớp cuối SÁNG SỚM (… CI 05:00 · local 05:30)
+    - cron: '45 15 * * *'   # 22:45 VN — sau lớp vét TỐI (CI 20:47 · local 21:15 · vét CI 21:47)
+    - cron: '15 23 * * *'   # 06:15 VN hôm sau — sau lớp cuối SÁNG SỚM (… CI 04:47 · local 05:30)
     # 07:00 VN (28/07 gộp pipeline: 10:45 -> 06:20; 29/07 nới tiếp: 06:20 -> 07:00) — event-scan
     # gộp vào phiên SÁNG SỚM cùng ngày (xem BƯỚC 6 của web-scan-ci.md) nên lớp cuối của nó TRÙNG
     # lớp cuối web-scan sáng sớm (local 05:30), không còn mốc 09:45/10:15 riêng.
     # VÌ SAO KHÔNG PHẢI 06:20: lớp local 05:30 + jitter ~3'30 = 05:33, quét bản tin 16–21' (đo
     # thật) = ~05:54, rồi event-scan chạy TIẾP trong cùng session mất thêm ~15–25' = ~06:20 —
     # tức mốc cũ rơi ĐÚNG lúc phiên còn đang làm đúng việc của nó, và canary kêu oan. Cùng lỗi
-    # với ca `toi` từng kêu lúc lớp vét 22:00 chưa gửi xong. 07:00 chừa thêm ~40' biên.
+    # với ca `toi` từng kêu lúc lớp vét (khi đó 22:00, nay 21:47) chưa gửi xong. 07:00 chừa
+    # thêm ~40' biên.
     - cron: '0 0 * * *'     # 07:00 VN hôm sau — sau lớp cuối EVENT-SCAN (gộp, cùng mốc sáng sớm)
   workflow_dispatch:
     inputs:

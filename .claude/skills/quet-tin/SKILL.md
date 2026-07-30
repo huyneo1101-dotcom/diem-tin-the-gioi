@@ -3,8 +3,8 @@ name: quet-tin
 description: >-
   Playbook NỘI DUNG quét bản tin "Điểm Tin Thế Giới" — 5 chủ đề, kiến trúc agent Sonnet, nguồn 3
   tầng, guardrail add_news.py. Dùng khi người dùng yêu cầu "quét tin", "cập nhật bản tin", "scan
-  tin", hoặc khi routine tự động chạy. Bản tin chạy 2 PHIÊN/NGÀY cùng playbook này: TỐI 21:00 +
-  SÁNG SỚM 04:00 (giờ VN). 5 chủ đề: Nội bộ Mỹ (5 nhóm, 2 hạng ưu tiên) · Úc & Biển Đông · CNQS Mỹ ·
+  tin", hoặc khi routine tự động chạy. Bản tin chạy 2 PHIÊN/NGÀY cùng playbook này: TỐI 20:47 +
+  SÁNG SỚM 03:47 (giờ VN — bảng lịch thật: docs/LICH.md). 5 chủ đề: Nội bộ Mỹ (5 nhóm, 2 hạng ưu tiên) · Úc & Biển Đông · CNQS Mỹ ·
   Mỹ–Mali · tập trận Predator's Run 2026. LỊCH/khoá/commit/push KHÔNG nằm ở file này — nguồn sự thật
   là docs/routine-web-scan.md; bảng nguồn/RSS xem CLAUDE.md gốc repo.
 ---

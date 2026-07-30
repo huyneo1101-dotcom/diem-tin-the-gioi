@@ -13,15 +13,21 @@ Bản tin 2 phiên/ngày cùng playbook 5 chủ đề: TỐI (ô khoá `toi`) + 
 
 | Phiên | CI chính | local | CI dự phòng | local lưới cuối | Ai chạy phần local |
 |---|---|---|---|---|---|
-| SÁNG SỚM | **04:00** VN | **04:30** | 05:00 | 05:30 | task `web-scan-diem-tin` |
-| TỐI | 21:00 VN | 21:15 ← lớp cuối trong hạn | 22:00 = lớp VÉT đã trễ | — | task `web-scan-diem-tin-toi` |
+| SÁNG SỚM | **03:47** VN | **04:30** | 04:47 | 05:30 | task `web-scan-diem-tin` |
+| TỐI | 20:47 VN | 21:15 ← lớp cuối trong hạn | 21:47 = lớp VÉT đã trễ | — | task `web-scan-diem-tin-toi` |
 
-Nguyên nhân dời CI sáng: mốc CI 04:30 cũ **không nổ** sáng 27/07 (GitHub hay trễ/bỏ cron lúc tải cao) mà phiên sáng khi đó không có lưới local → mất trắng bản tin sáng. Giờ CI lên 04:00 để local 04:30 kịp gánh.
+📅 **BẢNG LỊCH ĐẦY ĐỦ + NGUỒN SỰ THẬT: [`docs/LICH.md`](LICH.md)** — sinh từ chính dòng `cron:`
+của workflow bằng `python3 scripts/kiem_lich.py --sinh`. Số giờ ở bảng trên là bản rút gọn cho
+tiện đọc; **lệch nhau thì `LICH.md` thắng**. Cổng `kiem_lich.py --kiem` canh việc này (dựng
+30/07/2026 sau khi bắt được **47 chỗ** trong tài liệu còn ghi lịch CI cũ 21:00/22:00/04:00/05:00,
+tức lịch đã dời sớm 13 phút mà không ai sửa những chỗ chép lại).
+
+Nguyên nhân dời CI sáng: mốc CI 04:30 cũ **không nổ** sáng 27/07 (GitHub hay trễ/bỏ cron lúc tải cao) mà phiên sáng khi đó không có lưới local → mất trắng bản tin sáng. CI vì thế lên 04:00 để local 04:30 kịp gánh, rồi **dời tiếp về 03:47** (và cả 04 mốc sớm 13 phút) để `harvest-ci.yml` xong trước khi phiên quét bắt đầu.
 
 ⏰ **PHIÊN TỐI CÓ HẠN CHÓT CỨNG: email muộn nhất 22:00** (chỉ thị Huy 27/07/2026): phiên chạy ở mốc tối **quá 21:45 chưa nạp xong thì chốt lô đang có**, `add_news.py` + commit ngay, phần thiếu ghi `scan-gaps.json`; không vòng bổ sung lần 3-4 để gom cho đủ chỉ tiêu. **Phiên SÁNG SỚM KHÔNG có hạn chót này** — cứ quét đủ 5 chủ đề bình thường. Chi tiết phiên tối: mục cuối file.
 
 Cách làm ở MỌI mốc là như nhau: cứ `claim` như thường — CI đã xong/đang chạy thì SKIP êm, CI không quét (trễ/chết/hết quota) thì mày quét đủ 5 chủ đề rồi commit `Cap nhat ban tin ...` (email + .docx do Action `notify-email.yml` tự gửi khi thấy push `index.html` với tiền tố commit đó — local push cũng kích như CI, không phải làm gì thêm). Phiên sáng 10:15 kiểu cũ vẫn bỏ.
-⚠️ Local chỉ chạy khi app Claude đang mở và máy đã thức — mốc 04:30 phụ thuộc lịch wake của máy (`pmset repeat wakeorpoweron`); máy ngủ thì mốc này im, đó là lý do vẫn giữ CI 04:00/05:00 làm mốc chính.
+⚠️ Local chỉ chạy khi app Claude đang mở và máy đã thức — mốc 04:30 phụ thuộc lịch wake của máy (`pmset repeat wakeorpoweron`); máy ngủ thì mốc này im, đó là lý do vẫn giữ CI 03:47/04:47 làm mốc chính.
 
 PHẠM VI (chỉ thị Huy 2026-07-23): mỗi phiên CHỈ quét 5 CHỦ ĐỀ, mỗi chủ đề 5–10 bài, khung 24 GIỜ gần nhất (nới 48h nếu chủ đề đó thiếu <5 bài):
 ⛔ **"Nới 48h" = HÔM NAY + HÔM QUA, KHÔNG phải lùi 2 ngày lịch** (chỉ thị Huy 27/07/2026: *"quét tin ngày 26 thì chỉ được lấy tin tối đa là ngày 25, không được phép lấy tin ngày 24"*). Giao prompt agent thì **ghi thẳng 2 ngày cụ thể** thay vì chữ "48h" — agent hay hiểu thành lùi 2 ngày. Tin cũ hơn: BỎ, ghi `logs/loai-tin.md` + lý do vào `scan-gaps.json`, thà chủ đề về 0. `add_news.py` cũng chặn cứng (kiểm ngày 2 lớp: so batch VÀ so hôm nay giờ VN) nên nhận về cũng không nạp được; gặp lỗi "cũ hơn 1 ngày so với HÔM NAY" thì bỏ tin, ĐỪNG lùi ngày batch để lách.
@@ -33,7 +39,7 @@ PHẠM VI (chỉ thị Huy 2026-07-23): mỗi phiên CHỈ quét 5 CHỦ ĐỀ, 
 5. Tập trận Predator's Run 2026 (Mỹ–Úc–Philippines, tới ~29/7) → cập nhật qua exerciseUpdates (tên khớp "Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)").
 BỎ khỏi phạm vi: Kinh tế, Ngoại giao chung, xNews, các vùng thế giới khác, tạo mới dipEvents, và sàn 15+15. Báo Mới: vẫn quét nhưng CHỈ giữ bài hợp 5 chủ đề.
 
-KHÔNG dùng `cd` (gây prompt xin quyền, routine chạy lúc 22:00 khi Huy không có mặt). Mọi lệnh dùng ĐƯỜNG DẪN TUYỆT ĐỐI: script là `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/<x>.py` (script tự tìm repo root từ `__file__`, không cần đứng trong repo), git là `git -C /Users/Huy/Claude/diem-tin-the-gioi ...`. Ghi log dùng tool Edit/Write vào `/Users/Huy/Claude/diem-tin-the-gioi/logs/scan-<ngày VN>.log` thay vì `cat >>`.
+KHÔNG dùng `cd` (gây prompt xin quyền, routine chạy lúc khuya/sáng sớm khi Huy không có mặt). Mọi lệnh dùng ĐƯỜNG DẪN TUYỆT ĐỐI: script là `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/<x>.py` (script tự tìm repo root từ `__file__`, không cần đứng trong repo), git là `git -C /Users/Huy/Claude/diem-tin-the-gioi ...`. Ghi log dùng tool Edit/Write vào `/Users/Huy/Claude/diem-tin-the-gioi/logs/scan-<ngày VN>.log` thay vì `cat >>`.
 ⚠️ **MỌI LỆNH BASH PHẢI PHẲNG — KHÔNG WRAPPER, KHÔNG BIẾN, KHÔNG VÒNG LẶP** (sự cố 25–26/07/2026: routine treo chờ bấm nút 3 lần vì 3 kiểu lệnh "fancy"). Harness soi CÚ PHÁP lệnh: hễ chứa hàm/brace (`cd() { ... };` — flag "expansion obfuscation"), biến shell hay `$(...)` (`$NGAY`, `$f` — flag "simple_expansion"), hay `for ... do ... done`/heredoc, là nó BỎ QUA ALLOWLIST và bật prompt xin quyền — DÙ lệnh bên trong hợp lệ. Quy tắc áp cho MỌI lệnh trong phiên, kể cả lệnh chẩn đoán tuỳ hứng (ps, grep transcript...):
 - Chỉ dùng lệnh PHẲNG: một lệnh đơn, pipe (`|`), hoặc chuỗi `&&` của lệnh đơn — đối số là GIÁ TRỊ THẬT, gõ đầy đủ.
 - Cần ngày/giờ: chạy riêng `TZ='Asia/Ho_Chi_Minh' date +%F` / `date -u +%H:%MZ` rồi điền literal vào lệnh sau.
@@ -254,15 +260,15 @@ báo cáo tuần không (nếu CN), trạng thái push của CẢ HAI commit (b�
 
 Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ stub task `web-scan-diem-tin-toi` ngày 27/07/2026):
 
-1. **Task tối là mốc LOCAL 21:15 của phiên TỐI.** Chuỗi phiên tối: CI GitHub 21:00 → **local 21:15** → CI 22:00 (lưới vét đã trễ hạn). Task `web-scan-diem-tin` lo phiên SÁNG SỚM (04:30/05:30), không đụng tới phiên tối.
+1. **Task tối là mốc LOCAL 21:15 của phiên TỐI.** Chuỗi phiên tối: CI GitHub 20:47 → **local 21:15** → CI 21:47 (lưới vét đã trễ hạn). Task `web-scan-diem-tin` lo phiên SÁNG SỚM (04:30/05:30), không đụng tới phiên tối.
 
-2. **HẠN CHÓT CỨNG: email bản tin tối phải tới hộp thư MUỘN NHẤT 22:00** (chỉ thị Huy 27/07/2026). Mốc local 21:15 là **lớp cuối cùng còn kịp hạn** — mốc CI 22:00 sau đó chạy xong thì email đã ~22:22, tức đã trễ. Đừng ỷ vào nó.
+2. **HẠN CHÓT CỨNG: email bản tin tối phải tới hộp thư MUỘN NHẤT 22:00** (chỉ thị Huy 27/07/2026). Mốc local 21:15 là **lớp cuối cùng còn kịp hạn** — mốc CI 21:47 sau đó chạy xong thì email đã ~22:10, tức đã trễ. Đừng ỷ vào nó.
    - Quét mất ~20 phút (đo thật: CI 26/07 hết 20m45s, local 27/07 hết 16'), email gửi ~20 giây sau commit.
    - Mốc 21:15 cho biên ~15 phút phòng lúc fire trễ. Lý do có biên này: tối 26/07 mốc local 21:30 mãi 21:41 mới `claim` xong (jitter + khởi động session + `git pull --rebase` timeout 2 phút) — trễ 11 phút chứ không phải 3,5 phút jitter.
    - **Quá 21:45 mà chưa nạp xong thì CHỐT lô đang có**: chạy `add_news.py` với những tin đã gom được, ghi phần thiếu vào `logs/scan-gaps.json`, commit + push NGAY. Thà 3 tin sạch gửi lúc 21:50 còn hơn 8 tin gửi lúc 22:20.
    - Vì vậy: quét gọn, KHÔNG vòng bổ sung lần 3-4 để gom cho đủ chỉ tiêu, KHÔNG đi tìm thêm khi đã có tin dùng được.
 
-3. **`claim` trả SKIP thì dừng hẳn ngay** (exit 10 = CI 21:00 đã xong, exit 11 = CI đang chạy): ghi 1 dòng SKIP vào `logs/scan-<ngày VN>.log`, commit + push log, KẾT THÚC. Không gắn Monitor, không chờ, không điều tra thêm.
+3. **`claim` trả SKIP thì dừng hẳn ngay** (exit 10 = CI 20:47 đã xong, exit 11 = CI đang chạy): ghi 1 dòng SKIP vào `logs/scan-<ngày VN>.log`, commit + push log, KẾT THÚC. Không gắn Monitor, không chờ, không điều tra thêm.
 
    ⛔ **NGOẠI LỆ DUY NHẤT của điều 3 — exit 10 mà SỔ ĐÃ GỬI CHƯA CÓ DÒNG CỦA CA NÀY** (đúc 29/07/2026, sự cố thật). Trước khi SKIP êm ở **mốc LOCAL 21:15** (lớp cuối còn kịp hạn), đọc `logs/da-gui-email.json` và soi dòng cuối cùng có `buoi == "toi"`:
    | Sổ có dòng `toi` ngày hôm nay | Làm gì |
@@ -270,7 +276,7 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
    | **CÓ** | SKIP êm theo đúng điều 3. Bản tin đã tới tay, không quét lại |
    | **KHÔNG** | Cờ `lastSuccess` đang NÓI DỐI → **QUÉT THẬT**, commit tiền tố `Cap nhat ban tin` như thường |
 
-   **Cơ chế gây vấp:** `state.py` chỉ ghi nhận *"pipeline đã chạy xong"*, nó **không biết bản tin có được GỬI hay không** — hai chuyện khác nhau. Tối 29/07 một **phiên TEST hạ tầng CI** (`MODE=test`, quét nhẹ 1 agent, nạp đúng +1 tin) chạy lúc **17:34** và gọi `state.py done web-scan`, chiếm luôn ô `toi` của ngày. Commit của nó rơi **ngoài khung giờ gửi** (cổng 2 của `notify-email.yml` đòi ≥20:30) nên không kích email/Telegram. Hậu quả dây chuyền: CI 21:00 → exit 10 SKIP · local 21:15 → exit 10 SKIP · CI 22:00 → cũng sẽ SKIP. **Cả bốn lớp im lặng, không lớp nào hỏng, mà bản tin tối mất trắng.** Canary 22:45 có kêu nhưng lúc đó đã quá hạn 22:00.
+   **Cơ chế gây vấp:** `state.py` chỉ ghi nhận *"pipeline đã chạy xong"*, nó **không biết bản tin có được GỬI hay không** — hai chuyện khác nhau. Tối 29/07 một **phiên TEST hạ tầng CI** (`MODE=test`, quét nhẹ 1 agent, nạp đúng +1 tin) chạy lúc **17:34** và gọi `state.py done web-scan`, chiếm luôn ô `toi` của ngày. Commit của nó rơi **ngoài khung giờ gửi** (cổng 2 của `notify-email.yml` đòi ≥20:30) nên không kích email/Telegram. Hậu quả dây chuyền: CI (khi đó 21:00, nay 20:47) → exit 10 SKIP · local 21:15 → exit 10 SKIP · CI vét → cũng sẽ SKIP. **Cả bốn lớp im lặng, không lớp nào hỏng, mà bản tin tối mất trắng.** Canary 22:45 có kêu nhưng lúc đó đã quá hạn 22:00.
 
    ⛔ **NHƯNG SỔ TRỐNG CÓ HAI NGHĨA — phiên LOCAL phải đọc log run CI trước khi kết luận** (đúc
    30/07/2026, sự cố thật ở phiên SÁNG SỚM; **áp cho CẢ hai phiên**, không riêng phiên tối):
@@ -310,7 +316,7 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
 
    Vì sao phải kiểm bằng SỔ chứ không bằng `state.json`: sổ đã gửi được ghi ở **bước CUỐI sau khi đã gửi xong mọi kênh**, nên nó là dấu vết việc-đã-làm; còn `lastSuccess` chỉ là lời tự khai của một phiên. Đây đúng nguyên tắc số 1 của canary — **kiểm ĐẦU RA, không kiểm quy trình** — nay áp luôn cho chính phiên quét.
 
-   ⛔ **KHÔNG sửa `logs/state.json` để lách.** `--force` chỉ cướp khoá `RUNNING`, không bỏ qua cờ đã-xong, và đó là **đúng thiết kế** — đừng thêm cờ mới. Không cần sửa gì cả: cổng gửi của `notify-email.yml` xét **commit message + khung giờ VN**, hoàn toàn không xét khoá, nên cứ quét rồi commit là email/Telegram vẫn đi. Mốc CI 22:00 sau đó vẫn thấy exit 10 và SKIP nên **không có nguy cơ quét chồng** (exit 10 khác exit 11: 10 = đã xong, 11 = đang chạy — chỉ 11 mới là dấu hiệu có phiên sống).
+   ⛔ **KHÔNG sửa `logs/state.json` để lách.** `--force` chỉ cướp khoá `RUNNING`, không bỏ qua cờ đã-xong, và đó là **đúng thiết kế** — đừng thêm cờ mới. Không cần sửa gì cả: cổng gửi của `notify-email.yml` xét **commit message + khung giờ VN**, hoàn toàn không xét khoá, nên cứ quét rồi commit là email/Telegram vẫn đi. Mốc CI vét (21:47) sau đó vẫn thấy exit 10 và SKIP nên **không có nguy cơ quét chồng** (exit 10 khác exit 11: 10 = đã xong, 11 = đang chạy — chỉ 11 mới là dấu hiệu có phiên sống).
 
    ⚠️ **Ghi rõ vào `scan-gaps.json` (mục `note`) và vào log** rằng phiên này quét đè lên cờ đã-xong, kèm lý do — để người đọc sau không tưởng có hai phiên tranh nhau.
 
@@ -318,6 +324,6 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
 
    ⚠️ **Nhưng ngoại lệ ở trên VẪN CẦN, đừng gỡ.** Vá gốc chỉ bịt đường `MODE=test`; đường **bấm tay `workflow_dispatch` mode=normal giữa ngày** thì vẫn `done` và chiếm ô khoá đúng như cũ, trong khi commit của nó rơi ngoài khung giờ gửi nên không kích email. Phép kiểm sổ là thứ duy nhất bắt được ca đó.
 
-   🔁 **Từ 29/07/2026 phép kiểm này áp cho CẢ PHIÊN CI** (`.github/prompts/web-scan-ci.md` BƯỚC 1) — vì mốc **CI 22:00 là lớp CUỐI**, máy Mac ngủ thì không còn ai đứng sau nó. Bản CI có thêm một chốt chống kêu oan mà bản local không cần: **`lastRunAt` cách hiện tại < 20 phút thì cứ SKIP êm** — phiên anh em vừa xong, `notify-email.yml` còn đang chạy, mà sổ chỉ được ghi ở bước CUỐI nên chưa kịp hiện. Bản local 21:15 không dính ca này vì lúc đó CI 21:00 còn `RUNNING` (exit 11, không phải 10).
+   🔁 **Từ 29/07/2026 phép kiểm này áp cho CẢ PHIÊN CI** (`.github/prompts/web-scan-ci.md` BƯỚC 1) — vì mốc **CI vét 21:47 là lớp CUỐI**, máy Mac ngủ thì không còn ai đứng sau nó. Bản CI có thêm một chốt chống kêu oan mà bản local không cần: **`lastRunAt` cách hiện tại < 20 phút thì cứ SKIP êm** — phiên anh em vừa xong, `notify-email.yml` còn đang chạy, mà sổ chỉ được ghi ở bước CUỐI nên chưa kịp hiện. Bản local 21:15 không dính ca này vì lúc đó CI 20:47 còn `RUNNING` (exit 11, không phải 10).
 
 4. Ghi log dùng chữ **"phien toi"**. Giờ VN lúc chạy là 21:15 nên `state.py` tự chọn ô `toi`, không cần truyền gì thêm.
