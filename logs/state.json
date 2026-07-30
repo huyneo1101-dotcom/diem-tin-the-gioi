@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-30T21:00:52+07:00",
+    "lastRunAt": "2026-07-30T21:25:52+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+15 tin (5 chu de: Noi bo My 5, Uc&BD 4, CNQS 6, Mali 0, Predator 0)",
     "lastSuccess": {
-      "toi": "2026-07-29",
+      "toi": "2026-07-30",
       "sang": "2026-07-30"
-    },
-    "heartbeat": "2026-07-30T21:00:52+07:00"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-07-30T04:26:26+07:00",

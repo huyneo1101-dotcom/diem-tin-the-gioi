@@ -1,6 +1,6 @@
 {
   "date": "2026-07-30",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
@@ -8,31 +8,31 @@
       "target": 7,
       "min": 5,
       "thieu": false,
-      "reason": "Đạt mức tối thiểu 5 tin (2 điều trần/hội đồng nhóm 1, 2 tin kinh tế nhóm 4, 1 biểu tình nhóm 3), toàn bộ ngày sự kiện 29/07. Đã loại 2 ứng viên nghi trùng tin đã có trong DATA (dự luật trừng phạt Nga-Iran, sắc lệnh bầu cử qua thư) và 1 ứng viên ngoài khung 48h (biểu tình bưu điện 28/07)."
+      "reason": "Đạt mức tối thiểu 5 tin (1 nhóm 1 - hoãn bỏ phiếu đề cử Blanche, 1 nhóm 4 kinh tế/thuế quan, 1 nhóm 5 bầu cử, 2 nhóm 4 kinh tế). Nhóm 1 (điều trần/bỏ phiếu) gần như đã cạn trong khung 29-30/07 sau phiên sáng cùng ngày. Loại toàn bộ nhóm tin 'Mỹ không kích/trừng phạt Iran' vì là hành động đối ngoại/quân sự, không thuộc 5 nhóm nội bộ."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 3,
+      "count": 4,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Chỉ 3/5-10 tin đạt chuẩn trong khung 29-30/07. Nhiều ứng viên trùng tin đã có trong DATA 29/07 (AUKUS dry dock Leidos, Philippines thềm lục địa Tây Palawan — cùng sự kiện, khác cách viết) hoặc ngoài khung (tài trợ căn cứ Cảnh sát biển Philippines 28/07, đàm phán COC ASEAN-TQ thực chất là tin 24/07)."
+      "reason": "Thiếu 1 tin để đạt sàn 5. Ứng viên Báo Mới 'BAE Systems 5,9 tỷ bảng tàu ngầm Anh' bị loại vì là chương trình Dreadnought (răn đe hạt nhân riêng của Anh), không liên quan AUKUS/Úc. Ứng viên Telegram 'Nga-Indonesia diễn tập Orruda-2026' bị loại vì sai vùng biển (Biển Nhật Bản) và nguồn không đáng tin."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 8,
+      "count": 6,
       "target": 7,
       "min": 5,
       "thieu": false,
-      "reason": "Đạt và vượt mục tiêu (8 tin), tận dụng khung nới 3 ngày (27-30/07) và nhiều nguồn chính thức (war.gov, SpaceNews, GPS World). 1 ứng viên bị guardrail chặn vì trùng URL đã nạp phiên trước (Sphinx Defense GRIFFON)."
+      "reason": ""
     },
     {
       "name": "Mỹ - Mali",
-      "count": 1,
+      "count": 0,
       "target": 4,
       "min": 2,
       "thieu": true,
-      "reason": "Chỉ 1 tin đạt chuẩn (Amnesty International — 19 binh sĩ Mali bị hành quyết, 29/07). Phần lớn diễn biến thu thập được (thăm Bamako của TT Senegal, chiến dịch FAMa tại Dagabory, phân tích động cơ khoáng sản của Mỹ) có ngày sự kiện 28/07 — ngoài khung 48h của phiên sáng 30/07 (chỉ nhận 29-30/07, chủ đề này không được nới như CNQS). Thà thiếu còn hơn lấy tin ngoài khung."
+      "reason": "Chỉ tìm được 1 ứng viên nội dung tốt (PassBlue — cái chết Bộ trưởng QP Mali Sadio Camara dọn đường cho quyết định không kích JNIM của Mỹ) nhưng ngày sự kiện là 28/07, vượt khung 2 ngày cho phép (Mali không được nới 3 ngày như CNQS) — bị guardrail chặn cứng. Các ứng viên khác đều ngoài khung hoặc trùng tin Amnesty đã có trong DATA từ 29/07."
     },
     {
       "name": "Tập trận Predator's Run 2026",
@@ -40,16 +40,16 @@
       "target": 2,
       "min": 1,
       "thieu": true,
-      "reason": "Agent quét kỹ nhiều nguồn chính thức (pacom.mil, marines.mil, dvidshub.net, defence.gov.au, báo Philippines) nhưng không tìm được diễn biến mới hay tin bế mạc trong khung 29-30/07 — mọi bài tìm được đã có trong DATA hoặc ngoài khung. Về 0 tin, không phải lỗi tìm kiếm."
+      "reason": "Agent xác nhận qua Stars and Stripes tập trận vẫn đang diễn ra (kéo dài tới hết 31/07, không phải ~29/07 như ước tính cũ), nhưng không tìm được diễn biến mới nào trong khung 29-30/07 — mọi tin tìm thấy đã có trong DATA hoặc ngoài khung ngày."
     },
     {
       "name": "Báo Mới",
-      "count": 0,
+      "count": 3,
       "target": 6,
       "min": 3,
-      "thieu": true,
-      "reason": "11 ứng viên chuyên mục đều bị loại: 3 trùng tin đã có trong DATA (Zelensky Patriot, Hàn Quốc luật hoá hạt nhân, dự luật trừng phạt Nga-Iran x2), 1 tin dự đoán bị thay thế bởi tin kết quả chính thức (Fed), 5 ngoài phạm vi 5 chủ đề (Nga hạ thuỷ tàu ngầm, thương mại VN-Indonesia, startup AI Đài Loan, phân tích thuế quan chung, video tổng hợp hạm đội). Chi tiết đầy đủ trong logs/loai-tin.md."
+      "thieu": false,
+      "reason": "3/10 ứng viên chuyên mục truy về được nguồn gốc và nạp thành công (Fed/chứng khoán lao dốc qua TheStreet, hợp đồng Lockheed Patriot 58,6 tỷ qua Reuters/Yahoo Finance, USS Enterprise rã xác qua VnExpress — cả 3 gắn _baomoiUrl). 7 ứng viên còn lại bị loại: 4 tin về không kích/trừng phạt Iran (ngoài phạm vi 5 chủ đề), 1 tin BAE Systems Dreadnought (không liên quan AUKUS), 1 tin Zelensky yêu cầu Patriot (không phải khí tài Mỹ), 1 tin MV-22B gần trùng tin đã có. Chi tiết trong logs/loai-tin.md."
     }
   ],
-  "note": "Phiên sáng sớm 30/07 (CI 04:00). worldNews +3, usNews +13 = 16 tin batch chính. Đã xử lý đủ 11 ứng viên Báo Mới theo yêu cầu cổng (đều loại, xem logs/loai-tin.md). Chưa chạy pipeline event-scan (Bước 6) — sẽ chạy tiếp ngay sau khi commit bản tin này. [CAP NHAT 05:08 VN] Vong bo sung (do nghi ngo notify-email.yml chua gui): 3 agent rieng cho Uc&BD/My-Mali/Predator deu tra ve 0 tin moi hop chuan sau WebSearch/WebFetch ky - xac nhan lai danh gia ban dau. Khong tao them commit ban tin vi khong co noi dung that. Da kiem so_da_gui: den 05:02 VN (46 phut sau commit 04:16) van chua co dong [sang] - nghi notify-email.yml chua hoan tat, dua vao canary ca sang (06:15 VN) de bao dong neu that su mat ban tin."
+  "note": "Phiên tối 30/07 (CI, claim lúc 21:00 VN). worldNews +4, usNews +11 = 15 tin. Bỏ 1 tin usNews Mali (PassBlue, ngày sự kiện 28/07) vì vượt khung ngày — add_news.py chặn cứng ở lớp kiểm ngày, không lách bằng cách đổi ngày batch. Đã xác minh qua WebFetch/WebSearch độc lập 2 tin lớn trước khi nạp: hợp đồng tàu ngầm Hải quân Mỹ 76,6 tỷ USD (Naval News — xác nhận đúng) và phát biểu Bộ trưởng Conroy về SRF-West (xác nhận đúng qua WebSearch, sửa lại sourceName cho khớp nguồn chính thức defence.gov.au)."
 }
