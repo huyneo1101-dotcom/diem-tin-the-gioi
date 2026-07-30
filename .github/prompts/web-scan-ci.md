@@ -43,10 +43,12 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
    ⏱️ **BEAT NGAY TRƯỚC KHI GIAO AGENT, đừng đợi agent xong mới beat** (vá 28/07/2026). Khoá thối sau **30 phút không nhịp** (`LOCK_STALE_MIN`), mà vòng agent là chặng DÀI NHẤT của phiên — beat "sau mỗi mốc lớn" nghĩa là nhịp đầu tiên chỉ tới khi agent xong. Đo thật phiên tối 28/07: start 21:00 → beat đầu tiên **21:26**, tức 25 phút không nhịp, chỉ cách ngưỡng thối **5 phút**. Vòng agent chậm thêm 5 phút nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét → mốc kế (local 21:15 hoặc CI 22:00) cướp khoá và **quét chồng**, đúng sự cố hai phiên cùng quét hôm 26/07.
    Vì vậy beat ở CẢ BA chỗ này, không chỉ ở mốc lớn: **(a) ngay sau `harvest.py` + `telegram_harvest.py`** · **(b) ngay TRƯỚC khi giao lô agent** · **(c) sau khi gom xong kết quả agent**. Nguyên tắc: **hai nhịp liên tiếp không được cách quá ~15 phút**; sắp làm việc gì dự kiến lâu thì beat trước khi bắt đầu, không phải sau khi xong.
 3b. **CHỈ PHIÊN TỐI — xử lý tin Jay Lâm gửi thành TIN CHUẨN, sau khi nạp tin quét, TRƯỚC khi commit** (thêm 30/07/2026, chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*).
+   ⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC** (thêm 30/07/2026): `gh workflow run telegram-bot.yml` rồi chờ run xong (~2 phút) TRƯỚC khi đọc hàng chờ. File Jay Lâm gửi chỉ vào bảng khi workflow bot chạy, mà GitHub chạy nó cách nhau **01-02 giờ** dù cron khai `*/5` — tối 30/07 file gửi 21:20 VN mà hàng chờ đọc lúc 21:25 chỉ thấy file hôm trước, mất trọn một file vào bản tin. Gọi `gh` bị chặn *requires approval* thì ghi một dòng vào log rằng **chưa kích được bot, hàng chờ có thể thiếu file gửi sát giờ** rồi đi tiếp.
    ```
    python3 scripts/tin_jaylam.py --liet-ke
    ```
-   Mã **10** = không có tin chờ, bỏ qua bước này. Mã **0** = có tin: với mỗi tin, truy về bài gốc theo đúng luật TRUY NGƯỢC của Báo Mới (nguồn chính thức → wire → báo chuyên ngành; WebFetch xác nhận bài có thật), viết `tieu_de` + `tom_tat` 1-2 câu, rồi:
+   Mã **10** = không có tin chờ, bỏ qua bước này.
+   ⚠️ **Dòng hàng chờ là DIGEST gộp hàng chục tin thì `--ghi` không dùng được** (một tóm tắt/id). Tách thành nhiều dòng trong `dt_jaylam_inbox` (INSERT mở cho anon, mỗi tin một dòng đủ `tieu_de`/`tom_tat`/`nguon_*`/`da_xu_ly=true`), rồi PATCH dòng gốc `da_gop=true` — xem Bước 4c của SKILL. Bỏ qua bước này là mục 5 in nguyên văn cắt cụt giữa câu. Mã **0** = có tin: với mỗi tin, truy về bài gốc theo đúng luật TRUY NGƯỢC của Báo Mới (nguồn chính thức → wire → báo chuyên ngành; WebFetch xác nhận bài có thật), viết `tieu_de` + `tom_tat` 1-2 câu, rồi:
    ```
    python3 scripts/tin_jaylam.py --ghi /tmp/jaylam.json
    ```

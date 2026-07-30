@@ -338,6 +338,11 @@ Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ
 
    Mục 5 của file .docx bản tin tối là tin Jay Lâm gửi qua bot. Trước 30/07 nó dán NGUYÊN VĂN tới 20.000 ký tự, lệch hẳn khuôn 4 mục còn lại. Nay nó phải là tin chuẩn — mà việc truy URL gốc + viết tóm tắt cần suy nghĩ nên `make_docx.py` (chạy trong workflow, không có agent) không làm được: **đây là việc của phiên quét tối.**
 
+   ⏰ **KÍCH BOT HÚT TELEGRAM NGAY TRƯỚC KHI ĐỌC HÀNG CHỜ — bỏ bước này là bỏ sót file gửi sát giờ** (thêm 30/07/2026 sau khi vấp thật). **Cơ chế gây vấp:** file Jay Lâm gửi chỉ vào bảng `dt_jaylam_inbox` khi `telegram-bot.yml` chạy, mà workflow đó khai cron `*/5` nhưng GitHub thực tế chạy nó **cách nhau 01 tới 02 giờ** (đo 30/07: 00:15 · 02:29 · 03:37 · 06:12 · 09:05 · 11:19 · 12:59 UTC). Tối 30/07 Jay Lâm gửi file lúc 21:20 VN, phiên quét đọc hàng chờ lúc 21:25 và **chỉ thấy file của HÔM TRƯỚC**; bản tin xuất 21:29 nên toàn bộ file 30.7 nằm ngoài. Không lỗi, không cảnh báo — hàng chờ có dữ liệu nên nhìn như đang chạy đúng.
+   ```
+   gh workflow run telegram-bot.yml --repo huyneo1101-dotcom/diem-tin-the-gioi
+   ```
+   Chờ run đó xong (`gh run watch <id> --exit-status --interval 15`, ~2 phút) rồi mới đọc hàng chờ. **Fail-open CÓ TIẾNG:** gọi `gh` không được (phiên CI hay bị chặn *requires approval*) thì ghi một dòng vào log rằng **chưa kích được bot, hàng chờ có thể thiếu file gửi sát giờ** rồi đi tiếp — im lặng ở đây là dựng lại đúng vùng câm vừa bịt.
    ```
    python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/tin_jaylam.py --liet-ke
    ```

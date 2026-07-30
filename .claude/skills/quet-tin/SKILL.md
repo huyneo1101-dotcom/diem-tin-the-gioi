@@ -358,10 +358,29 @@ file .docx bản tin tối là tin Jay Lâm gửi vào bot; trước 30/07 nó d
 lệch hẳn khuôn 4 mục kia. Việc truy nguồn + viết tóm tắt cần suy nghĩ nên `make_docx.py` không làm
 được — đây là việc của phiên quét TỐI.
 
+⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC, RỒI MỚI ĐỌC HÀNG CHỜ** (thêm 30/07/2026 sau khi vấp thật). File Jay
+Lâm gửi chỉ vào bảng khi `telegram-bot.yml` chạy, mà GitHub chạy workflow đó **cách nhau 01-02 giờ**
+dù cron khai `*/5`. Tối 30/07: file gửi 21:20 VN, hàng chờ đọc lúc 21:25 chỉ thấy file HÔM TRƯỚC, bản
+tin xuất 21:29 ⇒ mất trọn một file. Hàng chờ có dữ liệu nên nhìn như đang chạy đúng — không lỗi,
+không cảnh báo.
 ```
+gh workflow run telegram-bot.yml --repo huyneo1101-dotcom/diem-tin-the-gioi
+gh run watch <id> --exit-status --interval 15    # ~2 phút
 python3 scripts/tin_jaylam.py --liet-ke        # mã 10 = không có tin chờ -> bỏ qua bước này
 python3 scripts/tin_jaylam.py --ghi /tmp/jaylam.json
 ```
+Không gọi được `gh` (phiên CI hay bị chặn *requires approval*) thì **ghi một dòng vào log rằng chưa
+kích được bot, hàng chờ có thể thiếu file gửi sát giờ** rồi đi tiếp — fail-open CÓ TIẾNG.
+
+⚠️ **MỘT DÒNG HÀNG CHỜ CÓ THỂ LÀ DIGEST GỘP HÀNG CHỤC TIN — lúc đó `--ghi` KHÔNG dùng được.** Schema
+`--ghi` là một `tieu_de` + một `tom_tat` cho mỗi `id`; ép một tóm tắt cho cả file thì mất gần hết nội
+dung. Phiên tối 30/07 gặp đúng ca này và **bỏ qua luôn bước `--ghi`**, để `make_docx.py` lùi về nguyên
+văn cắt ở 1.200 ký tự — người đọc nhận một mục 5 cụt giữa câu. **Đường đúng: tách digest thành NHIỀU
+DÒNG trong `dt_jaylam_inbox`**, mỗi tin một dòng (`INSERT` mở cho anon) mang đủ
+`tieu_de`/`tom_tat`/`nguon_ten`/`nguon_url`/`da_xu_ly=true`, rồi `PATCH` dòng gốc `da_gop=true`.
+`make_docx.py` in ra đúng khuôn tin chuẩn, không phải sửa gì bên đó. Đã làm thật 30/07: 02 file digest
+ra **22 dòng tin**, mục 5 in đủ 21 tin sau bộ lọc chống trùng. Khung ngày vẫn áp như tin quét — bỏ tin
+quá 2 ngày, trừ CNQS Mỹ (`la_cnqs: true`, nới 3 ngày).
 `[{"id": <id>, "tieu_de": "...", "tom_tat": "...", "nguon_ten": "Reuters", "nguon_url": "https://...", "la_cnqs": false}]`
 
 **Chuẩn nội dung — ĐÚNG bằng chuẩn tin quét thường, không hạ thấp:**
