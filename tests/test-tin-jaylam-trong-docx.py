@@ -195,7 +195,11 @@ kiem("[13] tối: đánh dấu đã gộp đúng id", danhdau_goi == [2])
 
 # ------------------- PHẢI CHẶN: dòng CHƯA xử lý -> nguyên văn ĐÃ CẮT + cảnh báo
 danhdau_goi.clear()
-DAI = "Câu văn dài lặp lại để thử phép cắt nguyên văn. " * 80    # ~3.760 ký tự
+# Độ dài neo theo CHÍNH hằng số của cổng, không ghi cứng: trần đã nới 1.200 -> 50.000 ngày
+# 30/07/2026, và một chuỗi ghi cứng sẽ lặng lẽ tụt xuống dưới ngưỡng ở lần nới sau, làm ca
+# [14] xanh trên cả bản đúng lẫn bản gỡ phép cắt.
+DAI = "Câu văn dài lặp lại để thử phép cắt nguyên văn. " * (
+    MD.JAYLAM_FALLBACK_CHARS // 47 + 80)
 
 
 def doc_chua_xu_ly(now=None):
@@ -208,6 +212,39 @@ kiem("[14] chưa xử lý: nguyên văn bị CẮT (file ngắn hơn bản gốc
      and len(full6) < len(DAI))
 kiem("[15] chưa xử lý: CÓ cảnh báo để không hỏng câm",
      "CHƯA được phiên quét" in err6)
+# Ca chính của bản vá 30/07/2026 (số lấy dải cao hơn max cũ 43, chừa chỗ trống — mục 9b
+# CLAUDE.md toàn cục). Đóng sổ một dòng mới ra được dạng nguyên văn thô là làm nó không bao
+# giờ trở lại dạng tin chuẩn: đo thật, bản .docx 21:29 in nguyên văn rồi đánh dấu, nên bản
+# 21:33 — bản CUỐI Huy nhận — mất sạch mục 5.
+kiem("[46] chưa xử lý mà VÀO file: KHÔNG đánh dấu đã gộp (để tối sau gộp lại đủ)",
+     danhdau_goi == [])
+
+# --- đối chứng chống NỚI TAY: chỉ dòng CHƯA xử lý mới được tha, dòng đã xử lý vẫn đóng sổ
+danhdau_goi.clear()
+
+
+def doc_hon_hop(now=None):
+    return [dong_jaylam(20, "Nguyên văn dòng chưa ai tóm tắt", "2026-07-30T09:00:00Z"),
+            dong_jaylam(
+                21, "Nguyên văn dòng đã tóm tắt", "2026-07-30T09:30:00Z", da_xu_ly=True,
+                tieu_de="Philippines nộp hồ sơ thềm lục địa mở rộng lên Liên Hợp Quốc",
+                tom_tat="Philippines nộp lên Ủy ban Ranh giới Thềm lục địa hồ sơ một phần "
+                        "về khu vực Tây Palawan, theo UNCLOS.",
+                nguon_ten="Rappler", nguon_url="https://rappler.com/bai-cu-the-777")], []
+
+
+full20, _ = chay(TOI, doc_hon_hop, danhdau_ghi)
+kiem("[47] hỗn hợp: chỉ đóng sổ dòng ĐÃ tóm tắt, tha dòng chưa",
+     danhdau_goi == [21])
+kiem("[48] hỗn hợp: cả hai dòng đều có mặt trong file",
+     "Nguyên văn dòng chưa ai tóm tắt" in full20 and "Tây Palawan" in full20)
+
+# Ngưỡng GHIM theo dữ liệu THẬT, không neo động: ca [14] tính chuỗi thử từ chính hằng số nên
+# nó xanh ở mọi mức trần, tức nó đo phép cắt chứ KHÔNG đo trần đặt ở đâu. Con số 34.525 là độ
+# dài file đầu tiên Jay Lâm gửi (`29.7 ĐTN huong M.docx`); trần thấp hơn nó là dựng lại đúng
+# lỗ đã mất 96% nội dung. Chặn trên là trần NHẬN của `telegram_bot.JAYLAM_MAX_CHARS`.
+kiem("[49] trần nguyên văn dự phòng đủ chứa lô thật đã đo (34.525 ký tự)",
+     34525 <= MD.JAYLAM_FALLBACK_CHARS <= 200000)
 
 # --------------------------- PHẢI CHẶN: chống trùng với tin quét thường ĐÃ CÓ
 danhdau_goi.clear()
@@ -254,8 +291,11 @@ def doc_hai_dong_trung_nhau(now=None):
 full4, _ = chay(TOI, doc_hai_dong_trung_nhau, danhdau_ghi)
 kiem("[20] trùng nội bộ: chỉ hiện MỘT lần trong file",
      full4.count("Sự kiện đặc biệt hôm nay tại Hà Nội") == 1)
-kiem("[21] trùng nội bộ: cả 2 id đều được đánh dấu đã gộp",
-     sorted(danhdau_goi) == [4, 5])
+# Dòng 5 bị lọc trùng nên nội dung của nó ĐÃ có mặt qua dòng 4 -> đóng sổ. Dòng 4 thì hiện
+# dưới dạng nguyên văn chưa tóm tắt nên được tha (ca [46]); tha nó cũng chính là giữ đường
+# cho cả cặp trở lại dạng tin chuẩn ở bản tối sau.
+kiem("[21] trùng nội bộ: đóng sổ dòng BỊ LỌC, tha dòng được giữ",
+     danhdau_goi == [5])
 
 # --------- KHUNG NGÀY THEO CHỦ ĐỀ (Huy chỉ ra 30/07: CNQS Mỹ nới 3 ngày lùi)
 # `da_xu_ly=True` + không phải CNQS -> khung hẹp 2 ngày
@@ -313,8 +353,10 @@ def doc_co_qua_han(now=None):
 full8, _ = chay(TOI, doc_co_qua_han, danhdau_ghi)
 kiem("[35] quá hạn: KHÔNG có trong file", "Tin quá hạn ba ngày" not in full8)
 kiem("[36] quá hạn: tin trong khung vẫn vào file", "Tin trong khung ngày" in full8)
+# Dòng 20 trong khung nhưng CHƯA tóm tắt nên được tha (xem ca [46]); dòng 21 quá hạn thì bị
+# bỏ hẳn khỏi file nên phải đóng sổ, không thì tối nào cũng đọc ra rồi loại lại.
 kiem("[37] quá hạn: VẪN đánh dấu đã gộp (không nằm lại vĩnh viễn)",
-     sorted(danhdau_goi) == [20, 21])
+     sorted(danhdau_goi) == [21])
 
 # PHẢI CHẶN: 0 tin quét + 0 tin hiển thị mà CÓ tin quá hạn -> vẫn đánh dấu
 danhdau_goi.clear()
@@ -360,7 +402,9 @@ def doc_muoi_hai_tin(now=None):
 full10, _ = chay(TOI, doc_muoi_hai_tin, danhdau_ghi)
 thieu = [t[:30] for t in NOI_DUNG_12 if t[:40] not in full10]
 kiem(f"[40] KHÔNG trần: cả 12 tin đều vào file (thiếu: {thieu})", not thieu)
-kiem("[41] KHÔNG trần: cả 12 id đều được đánh dấu", len(danhdau_goi) == 12)
+# Vế "không trần" do ca [40] gánh (đo phía FILE). Vế đóng sổ ở đây đo phía HÀNG CHỜ: cả 12
+# dòng đều chưa qua bước tóm tắt nên phải được tha nguyên lô, không sót một id nào.
+kiem("[41] 12 dòng chưa tóm tắt: tha CẢ LÔ, không đóng sổ id nào", danhdau_goi == [])
 
 # ------------- PHẢI CHẶN: thiếu Supabase key -> ([], []) êm, KHÔNG vỡ file
 os.environ.pop("SUPABASE_ANON_KEY", None)
@@ -409,8 +453,10 @@ BAN_HONG = [
      '                .astimezone(VN).strftime("%d/%m %H:%M"))',
      '                .astimezone(VN).strftime("%H:%M"))'),
     ("chỉ đánh dấu jaylam_goc, bỏ nhóm quá hạn",
-     "        danh_dau_da_gop_jaylam([r[\"id\"] for r in jaylam_goc + jaylam_qh])",
-     "        danh_dau_da_gop_jaylam([r[\"id\"] for r in jaylam_goc])"),
+     '    can_danh_dau = [r["id"] for r in jaylam_goc + jaylam_qh\n'
+     '                    if r.get("id") not in chua_tom_tat]',
+     '    can_danh_dau = [r["id"] for r in jaylam_goc\n'
+     '                    if r.get("id") not in chua_tom_tat]'),
     ("_jaylam_tieu_de bỏ ưu tiên `tieu_de` đã xử lý",
      '    td = (row.get("tieu_de") or "").strip()\n'
      "    if td:\n"
@@ -420,6 +466,18 @@ BAN_HONG = [
      "        if jaylam_qh:\n"
      '            danh_dau_da_gop_jaylam([r["id"] for r in jaylam_qh])',
      "        pass"),
+    # Bản hỏng dựng lại ĐÚNG hành vi cũ đã gây mất mục 5 tối 30/07/2026.
+    ("đóng sổ cả dòng CHƯA tóm tắt -> tin chỉ ra được dạng thô rồi mất hẳn",
+     '    chua_tom_tat = {r.get("id") for r in jaylam_hien if not r.get("da_xu_ly")}',
+     "    chua_tom_tat = set()"),
+    # Chiều ngược: tha hết thì dòng bị lọc trùng và dòng quá hạn nằm lại vĩnh viễn.
+    ("tha cả dòng đã tóm tắt -> hàng chờ không bao giờ đóng sổ",
+     '    chua_tom_tat = {r.get("id") for r in jaylam_hien if not r.get("da_xu_ly")}',
+     '    chua_tom_tat = {r.get("id") for r in jaylam_goc + jaylam_qh}'),
+    # Trần dự phòng tụt về mức cũ: file thật 34.525 ký tự lại mất 96% nội dung.
+    ("hạ trần nguyên văn dự phòng về 1.200 như trước khi đo lô thật",
+     "JAYLAM_FALLBACK_CHARS = 50000",
+     "JAYLAM_FALLBACK_CHARS = 1200"),
 ]
 
 KHAI_DO = {
@@ -437,6 +495,9 @@ KHAI_DO = {
     "chỉ đánh dấu jaylam_goc, bỏ nhóm quá hạn": ["37"],
     "_jaylam_tieu_de bỏ ưu tiên `tieu_de` đã xử lý": ["19"],
     "nhánh 0 tin bỏ việc đánh dấu nhóm quá hạn": ["39"],
+    "đóng sổ cả dòng CHƯA tóm tắt -> tin chỉ ra được dạng thô rồi mất hẳn": ["46"],
+    "tha cả dòng đã tóm tắt -> hàng chờ không bao giờ đóng sổ": ["13"],
+    "hạ trần nguyên văn dự phòng về 1.200 như trước khi đo lô thật": ["49"],
 }
 
 
