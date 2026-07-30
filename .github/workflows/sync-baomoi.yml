@@ -7,11 +7,20 @@ name: Sync Baomoi (bai da luu + quet chuyen muc)
 on:
   schedule:
     # Dời khỏi đầu giờ (27/07/2026) — đo thật 08:05 → chạy 11:47 (trễ 3h42), 20:05 → 21:42.
-    # Vẫn phải chạy SAU import-news-from-drive (nay :23) và TRƯỚC phiên quét tối (20:47).
-    - cron: '28 0,12 * * *'   # 07:28 & 19:28 gio VN — chay SAU import-news-from-drive (07:23/19:23)
-                             # va TRUOC routine quet web (09:15/20:15), de phien quet thay du
-                             # ca tin Drive lan tin Bao Moi ma ne trung. Push race da co
-                             # pull --rebase + retry o buoc commit ben duoi.
+    # ⚠️ Cập nhật 30/07/2026: ràng buộc "phải chạy SAU import-news-from-drive (:23)" ĐÃ HẾT
+    #    HIỆU LỰC — workflow đó bỏ cron ngày 30/07 (nguồn Drive khô từ 21/07). Giữ mốc :28 vì
+    #    ràng buộc CÒN LẠI vẫn đúng: phải xong TRƯỚC phiên quét, để phiên quét thấy đủ tin Báo
+    #    Mới mà né trùng (chống trùng chỉ chạy một chiều). Đừng đọc chú thích cũ rồi tưởng
+    #    còn phải né một mốc không còn tồn tại.
+    - cron: '28 0,12 * * *'   # 07:28 & 19:28 gio VN — TRUOC routine quet web (09:15/20:15),
+                             # de phien quet thay du tin Bao Moi ma ne trung.
+                             # Push race: buoc commit ben duoi con dung pull --rebase + retry.
+                             # An toan vi baomoi-*.json chi CO MOT nguon ghi (chinh workflow
+                             # nay) — khong co ai de ma xung dot. Do bang:
+                             #   git log --format='%an' -- baomoi-saved.json | sort -u
+                             # Neu file nay co nguon ghi thu hai thi PHAI bo rebase o duoi,
+                             # va cong .github/scripts/kiem_luat_push.py se chan (them file
+                             # vao FILE_DUNG_CHUNG cua cong).
   workflow_dispatch:
 permissions:
   contents: write
