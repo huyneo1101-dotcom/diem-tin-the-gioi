@@ -606,6 +606,13 @@ def loc_trung_jaylam(rows, tieu_de_da_co):
       (b) trùng GIỮA các dòng Jay Lâm với nhau -> gửi trùng/gửi lại cùng một bài.
     Trả về DANH SÁCH HIỂN THỊ (đã loại trùng) — ids bị loại vẫn được đánh dấu đã gộp ở nơi
     gọi, vì nội dung của chúng coi như đã có mặt trong bản tin qua bản còn lại.
+
+    ⚠️ NGƯỠNG 0.6 Ở ĐÂY LÀ RIÊNG, ĐỪNG "ĐỒNG BỘ" VỚI `add_news.py` (tách 30/07/2026). Trước
+    đó hai nơi dùng chung con số 0.6 và docstring này ghi "CÙNG NGƯỠNG"; ngày 30/07 lớp cảnh
+    báo bên `add_news` hạ xuống 0.4 (`JACCARD_CANH_BAO_TIEU_DE`) để bắt tin NỐI TIẾP. Hai vai
+    khác hẳn nhau: bên kia chỉ IN CẢNH BÁO cho người soạn (kêu thừa thì tốn một dòng đọc),
+    còn hàm này LỌC THẬT — hạ ngưỡng ở đây là lọc oan, tức MẤT TIN của Jay Lâm khỏi mục 5 mà
+    không ai thấy. Ca 10 của `tests/test-canh-bao-tin-noi-tiep.py` canh đúng chỗ này.
     """
     da_co = [t for t in (_jaylam_tokens(t) for t in tieu_de_da_co) if t]
     giu, da_dua = [], []
