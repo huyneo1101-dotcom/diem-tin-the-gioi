@@ -1,22 +1,22 @@
 {
-  "date": "2026-07-31",
-  "session": "toi",
+  "date": "2026-08-01",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
+      "count": 4,
+      "target": 7,
+      "min": 5,
+      "thieu": true,
+      "reason": "Giữ 4 tin trong khung 31/07-01/08: cổ phần Bộ Thương mại tại 7 công ty bán dẫn/AI, thuế 100% dược phẩm có hiệu lực, biểu tình Madison Wisconsin, điều khoản thuế quan trong dự luật trừng phạt Nga Graham. Loại 2 ứng viên vì sự kiện thật xảy ra 29-30/07 (Uỷ ban Tư pháp hoãn vote Blanche, Amazon hoàn thuế) — ngoài khung 2 ngày cho phép, chủ đề này không được nới như CNQS."
+    },
+    {
+      "name": "Úc & Biển Đông",
       "count": 3,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Vét hạng 1 (điều trần/bỏ phiếu) trước, chỉ giữ 3 tin xác thực chắc trong khung 30-31/07: Thượng viện bác nghị quyết chiến tranh Iran (Gillibrand), xác nhận Hurst làm Pentagon comptroller, điều trần Uỷ ban Đối ngoại về đề cử USAGM/IMF. Nhiều ứng viên khác bị loại vì ngoài khung ngày (Durbin markup 23/07, Cruz markup dự kiến 05/08, Commerce equity stakes 29/07) hoặc thuộc cơ quan lập pháp CẤP BANG (Michigan, NC, Massachusetts — không tính). Không mở sang nhóm 2-5 vì thời gian phiên có hạn (deadline email 22:00)."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 1,
-      "target": 7,
-      "min": 5,
-      "thieu": true,
-      "reason": "Chỉ 1 tin đạt chuẩn (Shield AI/Thunder Tiger AI hải quân Đài Loan). Phần lớn ứng viên harvest trùng tin đã nạp 2 phiên trước (AUKUS dry dock, sub rotation, TQ siết Đài Loan). Ứng viên Báo Mới 'Australia thử nghiệm phòng không mới' xác minh ra là tin CŨ (thử nghiệm SM-2 tháng 6) — loại."
+      "reason": "Giữ 3 tin: Philippines nộp bản đồ Scarborough lên LHQ, hải cảnh TQ luân phiên tuần tra đông Đài Loan, nghị sĩ Mỹ thúc Đài Loan thông qua luật drone 6,5 tỷ USD. Loại 2 ứng viên nghi ngày sai (ASEAN-TQ COC — URL gốc cho thấy bài thật đăng 24/07; Marcos SONA — bài phát biểu gốc 27/07) để tránh neo ngày không trung thực."
     },
     {
       "name": "CNQS Mỹ",
@@ -24,15 +24,15 @@
       "target": 7,
       "min": 5,
       "thieu": false,
-      "reason": "Đạt chỉ tiêu: NITE-STAR $981M (SpaceNews), USS Georgia nghỉ hưu (Army Recognition), thiết giáp hạm Trump-class hạt nhân (TWZ), Osprey cuối cùng (DefenseScoop), B-21 Ellsworth 2027 (Air Force Times), Sphinx Defense $287M (Defense Daily). Loại: tuyên bố Iran phá huỷ 3 F-35 (claim một chiều chưa xác minh độc lập), YJ-20 Trung Quốc x2 (khí tài TQ không thuộc phạm vi CNQS Mỹ)."
+      "reason": "Đạt chỉ tiêu: F-35B rơi Miramar, kho Patriot cạn kiệt, Lầu Năm Góc cân nhắc cấp phép Patriot Ukraine, Osprey cuối cùng, tên lửa phòng không phóng từ tàu ngầm, Trump đảo ngược cam kết Patriot (truy gốc từ Báo Mới). Loại các tin trùng DATA (thiết giáp hạm Trump-class, USS GW Đà Nẵng, Tomahawk Nhật Bản) và khí tài Trung Quốc (YJ-20, ngoài phạm vi)."
     },
     {
       "name": "Mỹ - Mali",
-      "count": 1,
+      "count": 0,
       "target": 4,
       "min": 2,
       "thieu": true,
-      "reason": "Chỉ 1 tin mới thật: HRW tố Africa Corps (Nga) không kích giết 8 dân thường làng Kyrnia, Mopti (15/6). Ứng viên thứ 2 (Amnesty 19 binh sĩ Mali bị hành quyết tại Anefis/Gao) là TIN TRÙNG với bài đã nạp 29/07 (cùng URL amnesty.org/.../mali-war-gao/) — bị guardrail chặn khi add_news.py chạy, đã xoá khỏi batch trước khi commit."
+      "reason": "Ứng viên duy nhất tìm được (HRW: Africa Corps không kích 8 dân thường Mopti) đã được nạp ở phiên trước trong ngày 31/07 — bị add_news.py chặn cứng vì URL trùng, agent không phát hiện vì tin nằm ngoài 20 tiêu đề gần nhất nhúng vào prompt. Không tìm được diễn biến nào khác."
     },
     {
       "name": "Tập trận Predator's Run 2026",
@@ -40,16 +40,16 @@
       "target": 2,
       "min": 1,
       "thieu": true,
-      "reason": "Agent WebSearch kỹ (PACOM, DVIDS, Stars and Stripes, army.mil.ph, Marine Corps) không tìm được thông cáo bế mạc hay diễn biến mới trong khung 30-31/07. Có manh mối tập trận dự kiến kết thúc khoảng 30/07 (\"runs through Thursday\") nhưng chưa có tin tổng kết chính thức đăng — giữ nguyên status ongoing."
+      "reason": "Theo Stars and Stripes, tập trận diễn ra 16-31/7/2026 — 31/07 là ngày cuối nhưng chưa có bài tổng kết/bế mạc đăng trong khung cho phép lúc quét. Gợi ý phiên sau tìm 'Predator's Run concludes/wraps up' để cân nhắc đổi status sang recent."
     },
     {
       "name": "Báo Mới",
-      "count": 0,
+      "count": 1,
       "target": 6,
       "min": 3,
       "thieu": true,
-      "reason": "16 ứng viên cổng nhắc, đối chiếu nhanh: phần lớn trùng tin đã nạp trong batch này qua nguồn gốc (Lockheed Patriot 58.6B, USS George Washington Đà Nẵng đã có từ 30/07, YJ-20 Trung Quốc ngoài phạm vi CNQS Mỹ), hoặc là claim một chiều chưa xác minh (Iran phá huỷ F-35), hoặc thuộc chủ đề Nội bộ Mỹ đã được Roll Call cover kỹ hơn (Thượng viện bác nỗ lực hạn chế Iran — 4 báo VN đưa cùng 1 sự kiện). Do áp lực thời gian (deadline email 22:00, phiên bắt đầu trễ lúc 21:00 VN thay vì 20:47), KHÔNG kịp truy bài gốc riêng cho 2 ứng viên còn khả năng độc lập (Ba Lan Patriot cho Ukraine; Không quân Mỹ muốn oanh tạc cơ VTOL thay B-21) — để lại cho phiên sau."
+      "reason": "10 ứng viên cổng nhắc, agent truy gốc từng bài: giữ 1 (Trump đảo ngược Patriot qua CNBC, đã tính vào CNQS Mỹ). Loại 9: ngoài phạm vi 5 chủ đề (Hàn-Indonesia-Triều Tiên, Iran-Kuwait, YJ-20 Trung Quốc), trùng DATA (Tomahawk Nhật Bản x2, USS GW Đà Nẵng), bài feature không phải tin (USS GW không đoàn hải quân), ngoài khung ngày (Ba Lan viện trợ Patriot)."
     }
   ],
-  "note": "Phiên TỐI 31/07 (CI, claim lúc 21:00 VN — trễ so với mốc 20:47 vì workflow fire muộn). worldNews +1, usNews +10 -2 (sau khi prune 2 tin trùng phát hiện qua cảnh báo Jaccard: Osprey cuối cùng và Sphinx Defense $287M đều đã có trong DATA từ 27-28/07, chỉ khác URL nguồn nên guardrail URL không bắt được, phải prune_news.py thủ công) = 9 tin thật sự mới. Vì bắt đầu trễ 13 phút và cần chừa buffer cho email 22:00, phiên này KHÔNG mở vòng bổ sung cho Nội bộ Mỹ (nhóm 2-5) hay Úc & Biển Đông dù chưa đạt sàn — ưu tiên gửi đúng giờ hơn gom đủ tin, đúng chỉ thị Huy về deadline 22:00. Sàn cứng tổng ngày (gộp sáng+tối): worldNews 3/15, usNews 14/15 (đã tính sau khi prune) — usNews gần đạt sàn 15."
+  "note": "Phiên SÁNG SỚM 01/08 (CI, claim 04:00 VN đúng giờ). worldNews +3, usNews +10 (đã trừ 1 tin HRW Mali bị guardrail chặn vì trùng URL, không tính vào batch cuối). Sàn cứng tổng ngày (gộp các phiên trong ngày 01/08, mới bắt đầu tính lại từ đầu ngày): worldNews 3/15, usNews 10/15 — phiên sáng chỉ nhắm ~10/mục theo quy tắc, để phiên tối bù thêm. Bước tiếp theo trong session: xử lý pipeline event-scan (sự kiện/tập trận/think-tank) theo BƯỚC 6 của prompt CI."
 }
