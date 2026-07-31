@@ -2423,3 +2423,35 @@ khung 2 ngày bị đẩy sang `rejectedNews` thay vì làm hỏng cả lô), r�
 - Việc quét thực tế (WebSearch/WebFetch/RSS) được giao cho các subagent chạy **model Sonnet** theo kiến trúc ở trên — session điều phối review + gộp kết quả, chạy script, commit/push. KHÔNG đọc `index.html` (172KB) trực tiếp — dùng `scripts/add_news.py`.
 - **Bài học lần quét đầu 10/07/2026** (đã xử lý): tỷ lệ loại tin cao do (1) Haiku yếu → đã đổi Sonnet; (2) agent thiếu danh sách chống trùng đầy đủ chéo mục → đã bắt buộc nhúng nguyên khối `--recent-titles` cho mọi agent; (3) không có kiểm tra máy → đã thêm guardrail trong script; (4) WebFetch lỗi 403 hệ thống nên không tự verify link được — nếu sau này WebFetch ổn định, có thể thêm 1 pass verify `sourceUrl` bằng WebFetch trước khi publish (tùy chọn, tốn token).
 - **Đã thử và KHÔNG khả thi**: dùng `curl` thuần trong Bash để tự kiểm tra link chết (`sourceUrl`) trước khi publish — môi trường chặn `curl`/kết nối HTTPS thô tới domain ngoài ở tầng network policy (chỉ tool WebFetch/WebSearch mới có đường truy cập web được duyệt riêng). Đừng thử lại `curl -I` để check link — sẽ luôn bị từ chối (403 ở tầng proxy). Nếu cần verify link, phải dùng WebFetch (tốn token hơn) — hiện KHÔNG bắt buộc làm bước này, dựa vào quy tắc "không chắc link thì bỏ" là chính.
+
+---
+
+## BÀI HỌC GHI SỔ SONG SONG (xẻ từ `~/.claude/CLAUDE.md` mục 17, ngày 31/07/2026)
+
+Nội dung dưới đây nằm nguyên văn ở `~/.claude/CLAUDE.md` mục 17 cho tới 31/07/2026, xẻ về đây theo MẢNG để cắt khối lượng nạp mỗi phiên. **Giữ nguyên cả luật lẫn cơ chế gây vấp** — đừng rút gọn. File gốc còn dòng trỏ nêu tên từng bài học.
+
+**HAI TIẾN TRÌNH GHI CÙNG MỘT FILE APPEND-ONLY → ĐỪNG `pull --rebase`** (đúc 30/07/2026, sự
+cố thật ở Điểm Tin). Hai workflow ghi `logs/da-gui-email.json` cách nhau **07 giây**; khối lệnh
+cũ commit local rồi `git pull --rebase` ⇒ rebase phát lại commit của mình lên trên commit kia,
+hai bên sửa đúng cùng chỗ trong JSON nên **xung đột**, và rebase hỏng để repo ở trạng thái
+rebase dở nên **cả 5 vòng retry chết tiếp**. **Cơ chế gây vấp:** vòng retry nhìn như đã lo
+chuyện tranh chấp, nhưng nó thử lại **đúng cái phép toán vừa hỏng** trên **đúng trạng thái đã
+bẩn** — retry chỉ chữa được lỗi *tạm thời* (mạng), không chữa được lỗi *xác định* (xung đột).
+- **Sổ/log/hàng đợi là dữ liệu append-only**: hai lần ghi là hai DÒNG khác nhau, không phải hai
+  phiên bản tranh nhau của một dòng. Nên hợp nhất đúng là **lấy bản mới nhất của remote rồi ghi
+  lại dòng của mình** (`fetch` → `reset --mixed FETCH_HEAD` → `checkout FETCH_HEAD -- <file>` →
+  append → commit **chỉ file đó** → `push HEAD:main`), thử lại trên đỉnh mới nếu bị chen. Không
+  gọi rebase thì không có xung đột để mà hỏng.
+- **`--mixed` chứ không `--hard`** — `--hard` kéo cả file khác của lô người ta về, commit của
+  mình hết còn sạch.
+- **Tính nội dung dòng TRƯỚC khi đụng git, đúng một lần.** Ở Điểm Tin, danh sách URL được tính
+  bằng diff `index.html` với `HEAD~1`; tính lại sau khi đã `reset` là diff với **lô của phiên
+  khác** ⇒ ghi thừa URL ⇒ bản tin sau BỎ tin đó. Đây là **mất dữ liệu**, không phải trùng.
+- **Retry hết lượt thì trả mã ≠ 0**, đừng fail-open: file không được cập nhật là thứ khiến hệ
+  thống giám sát **kêu oan chỗ khác** (canary Điểm Tin kêu "hỏng khâu GỬI" trong khi bản tin đã
+  tới tay, còn hai phiên dự phòng thì quét lại tốn token).
+- **Lỗi này ngủ yên rất lâu rồi thức dậy vì lịch đổi**: trước 28/07 hai workflow cách nhau ~4
+  tiếng, gộp phiên xong mới còn 7 giây. **Dồn hai việc vào cùng một mốc thì phải soi lại xem
+  chúng có ghi chung file nào không** — đừng chỉ nghĩ về thời lượng.
+
+
