@@ -2,3 +2,4 @@
 [21:01Z] harvest.py + telegram_harvest.py xong, cai curl_cffi cuu them 10 nguon TLS-blocked
 [21:15Z] 5 agent Sonnet xong (Noi bo My, Uc & Bien Dong, CNQS My, My-Mali, Predator's Run) + 1 agent Bao Moi
 [21:15Z] add_news.py: +3 worldNews, +10 usNews (sau khi loc trung/ngoai khung). Ghi loai-tin.md + scan-gaps.json
+[21:16Z] web-scan DONE, da commit + push. Bat dau event-scan (su kien/tap tran/think-tank) - claim OK
