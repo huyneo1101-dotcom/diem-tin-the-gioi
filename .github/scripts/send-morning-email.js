@@ -234,7 +234,7 @@ function weeklyHtml(w, i) {
   }).join('');
   const inner = labelHtml('Báo cáo tuần' + (range ? ` <span style="font-weight:400;letter-spacing:0;text-transform:none;color:${MUTED};">${esc(range)}</span>` : ''), '#6d28d9')
     + blocks
-    + `<div style="margin-top:10px;"><a href="${WEB_URL}" style="font-size:13px;color:${INK};font-weight:600;">Đọc báo cáo tuần đầy đủ →</a></div>`;
+    + `<div style="margin-top:10px;"><a href="${WEB_URL}/#analysis/weekly" style="font-size:13px;color:${INK};font-weight:600;">Đọc báo cáo tuần đầy đủ →</a></div>`;
   return rowHtml(String(i + 1).padStart(2, '0'), inner);
 }
 
