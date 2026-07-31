@@ -1,9 +1,9 @@
 {
-  "tao_luc": "2026-07-31T23:18:44+07:00",
+  "tao_luc": "2026-08-01T03:46:17+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
-    "2026-07-30",
-    "2026-07-31"
+    "2026-07-31",
+    "2026-08-01"
   ],
   "ung_vien": [
     {
@@ -33,18 +33,34 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "French wildfires threaten nuclear deterrence industry, Rafale assembly",
-      "nguon": "Defense News",
-      "url": "https://www.defensenews.com/global/europe/2026/07/28/french-wildfires-threaten-nuclear-deterrence-industry-rafale-assembly/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-30",
       "tieu_de": "Japan Conducts First Tomahawk Live-Fire Aboard JS Chokai",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/07/japan-conducts-first-tomahawk-live-fire-aboard-js-chokai/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Facing a lack of kit, Space Force creates $981M pool to buy training capabilities",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/facing-a-lack-of-kit-space-force-creates-981m-pool-to-buy-training-capabilities/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Marine Corps F-35 suffers crash in California",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/marine-corps-f-35-suffers-crash-in-california/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-01",
+      "tieu_de": "Key B-52 upgrades face cost, schedule risks: GAO",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/07/key-b-52-upgrades-face-cost-schedule-risks-gao/"
     },
     {
       "lop": "RSS",
@@ -81,18 +97,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Marine Corps F-35B goes down in Southern California, pilot safe",
+      "nguon": "Task & Purpose",
+      "url": "https://taskandpurpose.com/news/marine-corps-f-35-mishap-miramar/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-29",
       "tieu_de": "Marine Corps takes delivery of final MV-22B Osprey",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/news/marines-last-osprey/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-07-31",
-      "tieu_de": "Russia’s Africa Corps killed Mali civilians in air strike: HRW",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/7/31/russias-africa-corps-killed-mali-civilians-in-air-strike-hrw?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -104,11 +120,37 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Australia takes Telegram to court over alleged failure to remove 'pro-terror' material",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/crmrv4pnexmo?at_medium=RSS&at_campaign=rss"
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Trump says US has not agreed to Ukraine producing Patriot missiles",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/americas/20260731-trump-says-us-has-not-agreed-to-ukraine-producing-patriot-missiles"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Replay: US President Donald Trump addresses Cabinet meeting",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/replay-us-president-donald-trump-addresses-cabinet-meeting",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Donald Trump trying to 'change the narrative away from the Iran war' ahead of midterms",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/donald-trump-trying-to-change-the-narrative-away-from-the-iran-war-ahead-of-midterms",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Trump says US must be ‘very careful’ on giving Patriot air defence licence to Ukraine",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/trump-says-us-must-be-very-careful-on-giving-patriot-air-defence-licence-to-ukraine"
     },
     {
       "lop": "RSS",
@@ -121,28 +163,19 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-07-31",
-      "tieu_de": "Russia's Africa Corps kills Mali civilians in 'indiscriminate' attack, rights group says",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/russias-africa-corps-kills-mali-civilians-in-indiscriminate-attack-rights-group-says"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "US Federal Reserve holds interest rates steady despite Warsh’s inflation vow",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3362310/us-federal-reserve-holds-interest-rates-steady-despite-warshs-inflation-vow?utm_source=rss_feed",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Zelensky pursues Patriot missile licences in White House meeting with Trump",
+      "ngay": "2026-08-01",
+      "tieu_de": "F-35B stealth fighter crashed in California, US Marine Corps says",
       "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3362179/zelensky-has-good-meeting-trump-he-seeks-more-cooperation-us?utm_source=rss_feed"
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3362610/f-35b-stealth-fighter-crashed-california-us-marine-corps-say?utm_source=rss_feed"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-01",
+      "tieu_de": "U.S. lawmaker urges Taiwan to pass drone Bill, warning 'time is short'",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-lawmaker-urges-taiwan-to-pass-drone-bill-warning-time-is-short/article71291988.ece"
     },
     {
       "lop": "RSS",
@@ -155,28 +188,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Salman Rushdie testifies against man charged with stabbing him",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/salman-rushdie-testifies-against-man-charged-with-stabbing-him/article69207685.ece",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-07-31",
       "tieu_de": "Mali: HRW accuses Russian paramilitaries of killing 8 civilians",
       "nguon": "Africanews",
       "url": "http://www.africanews.com/2026/07/31/mali-hrw-accuses-russian-paramilitaries-of-killing-8-civilians/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-07-30",
-      "tieu_de": "Burkina Faso media regulator fines Canal+ over free access to state TV",
-      "nguon": "Africanews",
-      "url": "http://www.africanews.com/2026/07/30/burkina-faso-media-regulator-fines-canal-over-free-access-to-state-tv/"
     },
     {
       "lop": "RSS",
@@ -194,22 +210,6 @@
       "tieu_de": "US Aircraft Carrier USS George Washington Arrives in Vietnam on Friendship Visit",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/07/us-aircraft-carrier-uss-george-washington-arrives-in-vietnam-on-friendship-visit/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Resilience at the Heart of Australia-Singapore Ties",
-      "nguon": "The Diplomat",
-      "url": "https://thediplomat.com/2026/07/resilience-at-the-heart-of-australia-singapore-ties/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Indonesia’s Chinese Fighter Gamble Will Test ASEAN Trust",
-      "nguon": "The Diplomat",
-      "url": "https://thediplomat.com/2026/07/indonesias-chinese-fighter-gamble-will-test-asean-trust/"
     },
     {
       "lop": "RSS",
@@ -253,45 +253,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Mỹ chi gần 77 tỷ USD để đóng 14 tàu ngầm hạt nhân",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/my-chi-gan-77-ty-usd-de-dong-14-tau-ngam-hat-nhan-5103277.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Mỹ sắp loại biên tàu ngầm hạt nhân mang tên lửa 'sứ giả chiến tranh'",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/my-sap-loai-bien-tau-ngam-hat-nhan-mang-ten-lua-su-gia-chien-tranh-5103213.html"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-31",
       "tieu_de": "Qu&acirc;n đội H&agrave;n Quốc su&yacute;t bắn nhầm UAV Mỹ",
       "nguon": "Thanh Niên",
       "url": "https://thanhnien.vn/quan-doi-han-quoc-suyt-ban-nham-uav-my-185260731150403588.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Bản đồ của Bộ Ngoại giao Mỹ đảo lộn h&agrave;ng loạt nước ch&acirc;u Phi",
-      "nguon": "Thanh Niên",
-      "url": "https://thanhnien.vn/ban-do-cua-bo-ngoai-giao-my-dao-lon-hang-loat-nuoc-chau-phi-185260730201605233.htm",
-      "nhom": 9
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Fed tiếp tục giữ nguy&ecirc;n l&atilde;i suất, chứng kho&aacute;n Mỹ lao dốc mạnh",
-      "nguon": "Thanh Niên",
-      "url": "https://thanhnien.vn/fed-tiep-tuc-giu-nguyen-lai-suat-chung-khoan-my-lao-doc-manh-185260730075816368.htm",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -378,14 +344,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Philippines joins Southeast Asia's EV race with $1bn manufacturing subsidy",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/automobiles/electric-vehicles/philippines-joins-southeast-asia-s-ev-race-with-1bn-manufacturing-subsidy"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-31",
       "tieu_de": "Cộng đồng ở Philippines có cách hay để không bị rác thải nhựa \"nhấn chìm\"",
       "nguon": "Dân Trí",
@@ -401,11 +359,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Ra mắt Không gian Australia, mở ra nhiều hợp tác mới cho ĐBSCL",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/ra-mat-khong-gian-australia-mo-ra-nhieu-hop-tac-moi-cho-dbscl-20260730153433490.htm"
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "F-35 fighter jet crashes near San Diego",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/6002796-marine-corps-jet-crash-san-diego/"
     },
     {
       "lop": "RSS",
@@ -470,15 +428,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "2 in 3 MAGA voters say they’d support GOP candidate accused of sexual assault: Poll",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/5999320-poll-trump-voters-sexual-assault/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-31",
       "tieu_de": "Scouting America drops diversity initiatives from event after pressure from the Pentagon",
@@ -505,6 +454,30 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-01",
+      "tieu_de": "A week of AUKUS double-speak leaves everyone scratching their heads",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-01/us-military-personnel-aukus-deployment-conroy-remarks/106982608"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-01",
+      "tieu_de": "Australian band counts missiles as they gear up to play Kyiv's major music festival",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-01/sydney-band-breathe-take-part-in-kyivs-atlas-music-festival/106966900"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-01",
+      "tieu_de": "To understand how war abroad impacts Australia, look to the price of milk",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-01/coffee-commute-iran-war-morning-routine/106944788"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-31",
       "tieu_de": "It's easy to see why Australia brought a psychiatrist to Glasgow",
       "nguon": "ABC News AU (world)",
@@ -513,42 +486,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "The toll of Australia’s fossil fuels set for international scrutiny",
-      "nguon": "Lowy Interpreter",
-      "url": "https://www.lowyinstitute.org/the-interpreter/the-toll-of-australia-s-fossil-fuels-set-for-international-scrutiny"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "A difference Australia will find critical: minerals are not the same as materials",
-      "nguon": "Lowy Interpreter",
-      "url": "https://www.lowyinstitute.org/the-interpreter/a-difference-australia-will-find-critical-minerals-are-not-the-same-as-materials"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Australia and Tuvalu’s Falepili Union was only half the answer",
-      "nguon": "Lowy Interpreter",
-      "url": "https://www.lowyinstitute.org/the-interpreter/australia-and-tuvalu-s-falepili-union-was-only-half-the-answer"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-31",
-      "tieu_de": "Labor groups decry court order suspending wage hike in Metro Manila",
+      "tieu_de": "Dutertes want Duterte to face death in Philippines",
       "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/07/31/2546053/labor-groups-decry-court-order-suspending-wage-hike-metro-manila"
+      "url": "https://www.philstar.com/headlines/2026/08/01/2546148/dutertes-want-duterte-face-death-philippines"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "Australia picks Leidos Gibbs & Cox for AUKUS submarine dry dock design",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/australia-leidos-gibbs-cox-aukus/"
+      "ngay": "2026-08-01",
+      "tieu_de": "China Coast Guard Patrols Waters East of Taiwan, Angering Taipei",
+      "nguon": "gCaptain",
+      "url": "https://gcaptain.com/china-coast-guard-patrols-waters-east-of-taiwan-angering-taipei/"
     },
     {
       "lop": "RSS",
@@ -565,6 +514,22 @@
       "tieu_de": "Attalon awarded contract for US Navy’s Songbow project",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/attalon-us-navy-songbow/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "U.S. Navy Is Seeking A Submarine Launched Anti-Air Missile",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/sea/u-s-navy-is-seeking-a-submarine-launched-anti-air-missile"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "F-35B Crashes And Burns At Marine Corps Air Station Miramar",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/air/f-35b-crashes-and-burns-at-marine-corps-air-station-miramar"
     },
     {
       "lop": "RSS",
@@ -593,6 +558,22 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Space Force establishes $981M contract vehicle to develop testing, training infrastructure",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/07/31/space-force-contract-vehicle-develop-testing-training-infrastructure/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Pentagon CIO issues department-wide directive on IT category management",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/07/31/dod-cio-directive-itcm-kirsten-davies/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-29",
       "tieu_de": "After 20 years of deployment, Marine Corps receives final Osprey amid upgrades and some flight-hour restrictions",
       "nguon": "DefenseScoop",
@@ -601,18 +582,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Marine Corps logistics commander emphasizes readiness, stewardship at Blount Island",
+      "ngay": "2026-08-01",
+      "tieu_de": "9th Marine Corps District Holds a Change of Command Ceremony",
       "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/571223/marine-corps-logistics-commander-emphasizes-readiness-stewardship-blount-island"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "ANG Instructor Course fosters innovation through Marine Corps participation",
-      "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/571215/ang-instructor-course-fosters-innovation-through-marine-corps-participation"
+      "url": "https://www.dvidshub.net/news/571294/9th-marine-corps-district-holds-change-command-ceremony"
     },
     {
       "lop": "RSS",
@@ -630,24 +603,6 @@
       "tieu_de": "Federal Reserve Board requests comment on a proposal to modernize rules for mutual banking organizations",
       "nguon": "Cục Dự trữ Liên bang",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260731a.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Federal Reserve Board issues enforcement action with Iuka Bancshares, Inc. and The Iuka State Bank",
-      "nguon": "Cục Dự trữ Liên bang",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730b.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of First Interstate Bank",
-      "nguon": "Cục Dự trữ Liên bang",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730a.htm",
       "nhom": 4
     },
     {
@@ -709,7 +664,15 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
+      "ngay": "2026-08-01",
+      "tieu_de": "U.S. Army Advances H-60M Black Hawk Air-Launched Effects Capabilities at Project Convergence Capstone 6",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294304/u_s_army_advances_h_60m_black_hawk_air_launched_effects_capabilities_at_project_convergence_capstone_6"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
       "tieu_de": "U.S. Navy Retires First Ohio-Class Missile Submarine USS Georgia",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/31/us_navy_retires_first_ohio-class_missile_submarine_uss_georgia_1197651.html"
@@ -717,7 +680,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
+      "ngay": "2026-08-01",
       "tieu_de": "U.S. Navy Confirms Nuclear Power for Proposed Trump-Class Battleship",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/31/us_navy_confirms_nuclear_power_for_proposed_trump-class_battleship_1197650.html"
@@ -725,7 +688,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
+      "ngay": "2026-08-01",
       "tieu_de": "What a Destroyer XO Should Demand from Onboard AI in 2027",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/31/what_a_destroyer_xo_should_demand_from_onboard_ai_in_2027_1197615.html"
@@ -733,18 +696,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
+      "ngay": "2026-08-01",
       "tieu_de": "Pentagon Commits Over $120 Billion for Patriot Missiles, Submarines",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/07/31/pentagon_commits_over_120_billion_for_patriot_missiles_submarines_1197674.html"
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-31",
-      "tieu_de": "Beijing's Next Play for the South China Sea",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Judge Says Pentagon's Case Got \"Worse\" in Anthropic Fight",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/07/30/beijings_next_play_for_the_south_china_sea_1197524.html"
+      "url": "https://www.realcleardefense.com/2026/07/31/judge_says_pentagons_case_got_worse_in_anthropic_fight_1197695.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Japanese Destroyer Launches Tomahawk for the First Time",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/07/31/japanese_destroyer_launches_tomahawk_for_the_first_time_1197696.html"
     },
     {
       "lop": "RSS",
@@ -766,18 +737,42 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "TOTE Sees New Marine Corps Landing Ship As A Three Yard Solution, Sure Bollinger and Fincantieri Will Get More Orders",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/tote-sees-new-marine-corps-landing-ship-as-a-three-yard-solution-sure-bollinger-and-fincantieri-will-get-more-orders/navy-usmc/"
+      "ngay": "2026-08-01",
+      "tieu_de": "The Office of Strategic Capital Signs $820 Million Conditional Loan Commitment with Performance Drone Works to Expand Domestic Drone Component Manufacturing",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4561771/the-office-of-strategic-capital-signs-820-million-conditional-loan-commitment-w/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Space Force Awards ESS Mission Planning App To Sphinx Defense",
+      "ngay": "2026-08-01",
+      "tieu_de": "Space Force Awards Contracts Worth Up To $981 Million For Test And Training Technologies",
       "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/space-force-awards-ess-mission-planning-app-to-sphinx-defense/space/"
+      "url": "https://www.defensedaily.com/space-force-awards-contracts-worth-up-to-981-million-to-15-companies-for-advanced-test-and-training-technologies/space/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-01",
+      "tieu_de": "Defense Watch: FF(X) and BBG(X), AUKUS, K2 Raise, Unmanned News, A-LE",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/defense-watch-ffx-and-bbgx-aukus-k2-raise-unmanned-news-a-le/defense-watch/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-01",
+      "tieu_de": "GAO Advises USAF To Delay Production Decision For B-52 CERP Until Service Analyzes Cost Growth, Schedule Delays",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/gao-advises-usaf-to-delay-production-decision-for-b-52-cerp-until-service-analyzes-cost-growth-schedule-delays/air-force/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "TOTE Sees New Marine Corps Landing Ship As A Three Yard Solution, Sure Bollinger and Fincantieri Will Get More Orders",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/tote-sees-new-marine-corps-landing-ship-as-a-three-yard-solution-sure-bollinger-and-fincantieri-will-get-more-orders/navy-usmc/"
     },
     {
       "lop": "RSS",
@@ -789,6 +784,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-01",
+      "tieu_de": "GAO Warns B-52 Modernization Is Falling Behind",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/gao-warns-b-52-modernization-falling-behind/"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-30",
       "tieu_de": "Space Force to Launch 18 Comms and Targeting Missions by End of 2027",
@@ -797,11 +800,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-30",
-      "tieu_de": "USS George Washington arrives in Vietnam amid China-Philippines strain",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Senate Democrats press Pentagon over medical care for troops wounded in Kuwait drone strike",
       "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-navy/2026/07/30/uss-george-washington-arrives-in-vietnam-amid-china-philippines-strain/"
+      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/07/31/senate-democrats-press-pentagon-over-medical-care-for-troops-wounded-in-kuwait-drone-strike/"
     },
     {
       "lop": "RSS",
@@ -810,15 +813,6 @@
       "tieu_de": "B-21 Raiders set to be ‘on the ramp’ at Ellsworth Air Force Base in 2027",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/industry/techwatch/2026/07/30/b-21-raiders-set-to-be-on-the-ramp-at-ellsworth-air-force-base-in-2027/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Space food for soldiers: Advanced military rations promoted in NDAA",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/07/30/space-food-for-soldiers-advanced-military-rations-promoted-in-ndaa/",
-      "nhom": 1
     },
     {
       "lop": "RSS",
@@ -839,6 +833,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Japanese Warship Launches First Ever Tomahawk Missile",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/07/31/japanese-warship-launches-first-ever-tomahawk-missile/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-30",
       "tieu_de": "U.S. Marine Corps Receives its Last MV-22 Osprey",
       "nguon": "The Aviationist",
@@ -855,18 +857,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Red Cat Receives $2.49 Million US Air Force Order for Black Widow Systems",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/07/30/red-cat-receives-2-49-million-us-air-force-order-for-black-widow-systems/?utm_source=rss&utm_medium=rss&utm_campaign=red-cat-receives-2-49-million-us-air-force-order-for-black-widow-systems"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-29",
       "tieu_de": "“Marine Corps Doctrinal Publication 1” offers great lessons to both servicemembers and civilians",
       "nguon": "Sandboxx News",
       "url": "https://www.sandboxx.us/news/the-marine-corps-doctrinal-publication-1-offers-great-lessons-to-both-servicemembers-and-civilians/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Marine Corps logistics commander emphasizes readiness, stewardship at Blount Island",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/571223/marine-corps-logistics-commander-emphasizes-readiness-stewardship-blount-island"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "ANG Instructor Course fosters innovation through Marine Corps participation",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/571215/ang-instructor-course-fosters-innovation-through-marine-corps-participation"
     },
     {
       "lop": "RSS",
@@ -880,25 +890,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-31",
-      "tieu_de": "The Backbone of the Marine Corps, halfway across the globe",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/570956/backbone-marine-corps-halfway-across-globe"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
       "tieu_de": "US Army Sgt. Maj. David E. Rieckmann, Master Sgt. Caleb Flaks discuss Army Body Composition Program updates",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1017013/us-army-sgt-maj-david-e-rieckmann-master-sgt-caleb-flaks-discuss-army-body-composition-program-updates"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "A Journey Back to Life: Marine Corps Veterans Returned to LRMC to Thank the Heroes Who Saved Them",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/571193/journey-back-life-marine-corps-veterans-returned-lrmc-thank-heroes-who-saved-them"
     },
     {
       "lop": "RSS",
@@ -1000,12 +994,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Trump Has Weakened America’s Sanctions Weapon",
-      "nguon": "Foreign Policy",
-      "url": "https://foreignpolicy.com/2026/07/30/trump-sanctions-venezuela-iran-weakened/",
-      "nhom": 4
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Trump backtracks from promise to let Ukraine build Patriot missiles",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/jul/31/trump-cabinet-camp-david-ukraine"
     },
     {
       "lop": "RSS",
@@ -1023,15 +1016,6 @@
       "tieu_de": "Warsh's Fed holds, but Trump stands by his man",
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/07/30/2026/warshs-fed-holds-but-trump-stands-by-his-man",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "US Fed holds interest rates steady",
-      "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/07/29/2026/fed-expected-to-hold-rates-today-but-outlook-remains-unclear",
       "nhom": 4
     },
     {
@@ -1070,15 +1054,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Mỹ nối lại không kích Iran, áp đặt thêm các biện pháp trừng phạt",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/my-noi-lai-khong-kich-iran-ap-dat-them-cac-bien-phap-trung-phat-post1127140.vnp",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
       "tieu_de": "THUẾ QUAN HOA KỲ: Chuẩn bị một gói thuế mới trên diện rộng sau khi mức thuế toàn cầu 10% sắp hết hiệu lực",
       "nguon": "Báo Chính phủ",
@@ -1104,28 +1079,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Ông Trump cảnh báo cứng rắn, áp thêm lệnh trừng phạt Iran",
-      "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/ong-trump-canh-bao-cung-ran-ap-them-lenh-trung-phat-iran-2540368.html",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-29",
       "tieu_de": "Ukraine tung video bắn nổ pháo phản lực mệnh danh &amp;apos;HIMARS của Nga&amp;apos;",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/ukraine-tung-video-ban-no-phao-phan-luc-menh-danh-himars-cua-nga-2539861.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Ông Trump nói về việc Israel phản đối Mỹ bán F-35 cho Thổ Nhĩ Kỳ",
-      "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/ong-trump-noi-ve-viec-israel-phan-doi-my-ban-f-35-cho-tho-nhi-ky-2539746.html"
     },
     {
       "lop": "RSS",
@@ -1187,22 +1145,6 @@
       "tieu_de": "ONR Announces New 2026 Science and Technology Strategy for Navy, Marine Corps Tech Future",
       "nguon": "Hải quân Mỹ",
       "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/4552767/onr-announces-new-2026-science-and-technology-strategy-for-navy-marine-corps-te/"
-    },
-    {
-      "lop": "HTML",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "U.S. Marine Corps receives final MV-22B Osprey, completing program of record",
-      "nguon": "Thuỷ quân lục chiến Mỹ",
-      "url": "https://www.marines.mil/News/Press-Releases/Press-Release-Display/Article/4557459/us-marine-corps-receives-final-mv-22b-osprey-completing-program-of-record/"
-    },
-    {
-      "lop": "HTML",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "TECOM establishes Marine Corps Robotics Integration Group and Counter Drone Team",
-      "nguon": "Thuỷ quân lục chiến Mỹ",
-      "url": "https://www.marines.mil/News/Press-Releases/Press-Release-Display/Article/4538348/tecom-establishes-marine-corps-robotics-integration-group-and-counter-drone-team/"
     }
   ]
 }
