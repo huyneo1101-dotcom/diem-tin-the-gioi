@@ -4,3 +4,4 @@
 [21:15Z] add_news.py: +3 worldNews, +10 usNews (sau khi loc trung/ngoai khung). Ghi loai-tin.md + scan-gaps.json
 [21:16Z] web-scan DONE, da commit + push. Bat dau event-scan (su kien/tap tran/think-tank) - claim OK
 [21:23Z] event-scan DONE: +1 tap tran (RIMPAC 2026 ket thuc), +6 bai think-tank (485 tong). Khong co dip event moi trong khung. Khong phai Chu nhat nen bo qua bao cao tuan.
+[21:30Z] Lot goi ke tiep (phien sang som): state.py claim web-scan -> exit 10 DA XONG (lan chay cuoi 04:15:56+07). Kiem ngoai le: so_da_gui --xem co dong 2026-08-01T04:24:36+07:00 [sang] 14 tin -> ban tin da gui that, KHONG phai co noi doi. SKIP em, khong quet lai.
