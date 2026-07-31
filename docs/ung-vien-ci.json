@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-07-31T20:47:41+07:00",
+  "tao_luc": "2026-07-31T22:39:02+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-30",
@@ -40,14 +40,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-31",
-      "tieu_de": "Shield AI and Thunder Tiger complete maritime teaming demo in Taiwan",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/07/shield-ai-and-thunder-tiger-complete-maritime-teaming-demo-in-taiwan/"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-30",
       "tieu_de": "Japan Conducts First Tomahawk Live-Fire Aboard JS Chokai",
@@ -61,14 +53,6 @@
       "tieu_de": "How the Pentagon plans to help mitigate industry concerns over critical mineral EO",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/07/how-the-pentagon-plans-to-help-mitigate-industry-concerns-over-critical-mineral-eo/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Senate confirms Hurst as Pentagon comptroller after 1.5-year vacancy",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/senate-confirms-hurst-as-pentagon-comptroller-after-1-5-year-vacancy/"
     },
     {
       "lop": "RSS",
@@ -93,22 +77,6 @@
       "tieu_de": "Marine Corps accepts last Osprey aircraft",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/07/marine-corps-accepts-last-osprey-aircraft/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-28",
-      "tieu_de": "Time to decide: A critical moment in Japan-US missile defense cooperation",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/07/time-to-decide-a-critical-moment-in-japan-us-missile-defense-cooperation/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Space Force picks 15 companies for $981 million training range contract",
-      "nguon": "SpaceNews",
-      "url": "https://spacenews.com/space-force-picks-15-companies-for-981-million-training-range-contract/"
     },
     {
       "lop": "RSS",
@@ -197,6 +165,14 @@
     {
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
+      "ngay": "2026-07-31",
+      "tieu_de": "Mali: HRW accuses Russian paramilitaries of killing 8 civilians",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/07/31/mali-hrw-accuses-russian-paramilitaries-of-killing-8-civilians/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
       "ngay": "2026-07-30",
       "tieu_de": "Burkina Faso media regulator fines Canal+ over free access to state TV",
       "nguon": "Africanews",
@@ -206,7 +182,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-07-31",
-      "tieu_de": "Amazon got $600 million in Trump tariff refunds and will pass return along to some customers",
+      "tieu_de": "Amazon says it got $600 million in Trump tariff refunds and will pass return along to some customers",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/07/30/amazon-trump-tariff-refunds.html",
       "nhom": 4
@@ -327,6 +303,15 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Mỹ trừng phạt doanh nghiệp Trung Quốc hỗ trợ Hãng hàng không Iran Mahan Air",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/my-trung-phat-doanh-nghiep-trung-quoc-ho-tro-hang-hang-khong-iran-mahan-air-100260731201048802.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "?",
       "tieu_de": "Hàn Quốc suýt bắn nhầm drone Mỹ gần biên giới Triều Tiên",
@@ -368,14 +353,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "Tàu sân bay mang tên vị Tổng thống Mỹ đầu tiên đến Việt Nam",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/tau-san-bay-mang-ten-vi-tong-thong-my-dau-tien-den-viet-nam-10026072919131991.htm"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "Taiwan GDP grows nearly 13% in Q2, supercharged by AI and US ties",
@@ -401,14 +378,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "BYD, other Chinese brands launch hybrid models in Indonesia",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/automobiles/electric-vehicles/byd-other-chinese-brands-launch-hybrid-models-in-indonesia"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-31",
       "tieu_de": "Cộng đồng ở Philippines có cách hay để không bị rác thải nhựa \"nhấn chìm\"",
       "nguon": "Dân Trí",
@@ -429,6 +398,15 @@
       "tieu_de": "Ra mắt Không gian Australia, mở ra nhiều hợp tác mới cho ĐBSCL",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/ra-mat-khong-gian-australia-mo-ra-nhieu-hop-tac-moi-cho-dbscl-20260730153433490.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Trump, Miller use migrant crisis in Spain as midterm warning",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6002107-trump-miller-ceuta-spain-migrant-crisis/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -559,22 +537,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-31",
-      "tieu_de": "Manila Water installs individual water meters for Mandaluyong households",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2275010/manila-water-installs-individual-water-meters-for-mandaluyong-households"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-07-30",
-      "tieu_de": "GAO Warns Gaps in TWIC Program Could Leave U.S. Ports Exposed to Security Risks",
-      "nguon": "gCaptain",
-      "url": "https://gcaptain.com/gao-warns-gaps-in-twic-program-could-leave-u-s-ports-exposed-to-security-risks/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-07-30",
       "tieu_de": "Australia picks Leidos Gibbs & Cox for AUKUS submarine dry dock design",
       "nguon": "Naval Technology",
@@ -632,17 +594,34 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-31",
-      "tieu_de": "A Journey Back to Life: Marine Corps Veterans Returned to LRMC to Thank the Heroes Who Saved Them",
+      "tieu_de": "Marine Corps logistics commander emphasizes readiness, stewardship at Blount Island",
       "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/571193/journey-back-life-marine-corps-veterans-returned-lrmc-thank-heroes-who-saved-them"
+      "url": "https://www.dvidshub.net/news/571223/marine-corps-logistics-commander-emphasizes-readiness-stewardship-blount-island"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "ANG Instructor Course fosters innovation through Marine Corps participation",
+      "nguon": "DVIDS news (Predator)",
+      "url": "https://www.dvidshub.net/news/571215/ang-instructor-course-fosters-innovation-through-marine-corps-participation"
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of First Interstate Bank",
+      "ngay": "2026-07-31",
+      "tieu_de": "Federal Reserve Board requests comment on a proposal to modernize its rule governing the extension of credit to bank \"insiders\"—bank executives, board members and major shareholders who could potentially influence a bank's lending decisions",
       "nguon": "Cục Dự trữ Liên bang",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730a.htm",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260731b.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Federal Reserve Board requests comment on a proposal to modernize rules for mutual banking organizations",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260731a.htm",
       "nhom": 4
     },
     {
@@ -652,6 +631,15 @@
       "tieu_de": "Federal Reserve Board issues enforcement action with Iuka Bancshares, Inc. and The Iuka State Bank",
       "nguon": "Cục Dự trữ Liên bang",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730b.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-30",
+      "tieu_de": "Federal Reserve Board issues enforcement actions with former employee of Regions Bank and former employee of First Interstate Bank",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260730a.htm",
       "nhom": 4
     },
     {
@@ -677,6 +665,22 @@
       "tieu_de": "Fort Rucker Teen Selected to Represent Alabama in the 2026 Patriot Games",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/294277/fort_rucker_teen_selected_to_represent_alabama_in_the_2026_patriot_games"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "U.S. Army Reserve’s Senior Enlisted Leader Immerses in Training and Modernization at Fort Lee",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294287/u_s_army_reserves_senior_enlisted_leader_immerses_in_training_and_modernization_at_fort_lee"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Dunmyer becomes Commandant of the U.S. Army War College",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294290/dunmyer_becomes_commandant_of_the_u_s_army_war_college"
     },
     {
       "lop": "RSS",
@@ -868,6 +872,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-31",
+      "tieu_de": "A Journey Back to Life: Marine Corps Veterans Returned to LRMC to Thank the Heroes Who Saved Them",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/571193/journey-back-life-marine-corps-veterans-returned-lrmc-thank-heroes-who-saved-them"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
       "tieu_de": "101st Airborne Division (Air Assault) Pfc. Max Huggins Prepares for U.S. Army Best Squad Competition",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1016981/101st-airborne-division-air-assault-pfc-max-huggins-prepares-us-army-best-squad-competition"
@@ -954,11 +966,12 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-07-30",
-      "tieu_de": "Africa: Sahel Security Crisis Demands Action Beyond Assurances of Solidarity",
-      "nguon": "AllAfrica",
-      "url": "https://allafrica.com/stories/202607300400.html"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Nikoladze quoted in Al Jazeera on India’s trade-off between energy security and US tariff risk.",
+      "nguon": "Atlantic Council",
+      "url": "https://www.atlanticcouncil.org/insight-impact/in-the-news/nikoladze-quoted-in-al-jazeera-on-indias-trade-off-between-energy-security-and-us-tariff-risk/",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -977,14 +990,6 @@
       "nguon": "Foreign Policy",
       "url": "https://foreignpolicy.com/2026/07/30/trump-sanctions-venezuela-iran-weakened/",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-07-31",
-      "tieu_de": "Forced out of Australia’s military due to his sexuality, David says an apology is ‘long overdue’ for veterans like him",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/jul/31/forced-out-of-adf-military-due-to-his-sexuality-david-says-an-apology-is-long-overdue-for-veterans-like-him-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -1053,24 +1058,6 @@
       "tieu_de": "Mỹ nối lại không kích Iran, áp đặt thêm các biện pháp trừng phạt",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/my-noi-lai-khong-kich-iran-ap-dat-them-cac-bien-phap-trung-phat-post1127140.vnp",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "THUẾ QUAN HOA KỲ: Chuẩn bị một gói thuế mới trên diện rộng sau khi mức thuế toàn cầu 10% sắp hết hiệu lực",
-      "nguon": "Báo Chính phủ",
-      "url": "https://baochinhphu.vn/thue-quan-hoa-ky-chuan-bi-mot-goi-thue-moi-tren-dien-rong-sau-khi-muc-thue-toan-cau-10-sap-het-hieu-luc-102260722093218724.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "THUẾ QUAN HOA KỲ: Brazil sẵn sàng đáp trả",
-      "nguon": "Báo Chính phủ",
-      "url": "https://baochinhphu.vn/thue-quan-hoa-ky-brazil-san-sang-dap-tra-102260717090702204.htm",
       "nhom": 4
     },
     {
