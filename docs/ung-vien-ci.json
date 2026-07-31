@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-01T04:32:28+07:00",
+  "tao_luc": "2026-08-01T04:39:46+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-31",
@@ -98,27 +98,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-01",
-      "tieu_de": "Trump says US has not agreed to Ukraine producing Patriot missiles",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/americas/20260731-trump-says-us-has-not-agreed-to-ukraine-producing-patriot-missiles"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Replay: US President Donald Trump addresses Cabinet meeting",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/replay-us-president-donald-trump-addresses-cabinet-meeting",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Donald Trump trying to 'change the narrative away from the Iran war' ahead of midterms",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/donald-trump-trying-to-change-the-narrative-away-from-the-iran-war-ahead-of-midterms",
-      "nhom": 5
+      "tieu_de": "Trump says US has not agreed to Ukraine building Patriot missiles",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/trump-says-us-has-not-agreed-to-ukraine-building-patriot-missiles"
     },
     {
       "lop": "RSS",
@@ -655,10 +637,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Contracts for July 30, 2026",
+      "ngay": "2026-08-01",
+      "tieu_de": "Contracts for July 31, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4560267/contracts-for-july-30-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4561887/contracts-for-july-31-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "The Office of Strategic Capital Signs $820 Million Conditional Loan Commitment with Performance Drone Works to Expand Domestic Drone Component Manufacturing",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4561771/the-office-of-strategic-capital-signs-820-million-conditional-loan-commitment-w/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Construction Manager For New Marine Corps LSMs Sees Them As Test Case For VCM Model",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/construction-manager-for-new-marine-corps-lsms-sees-them-as-test-case-for-vcm-model/navy-usmc/"
     },
     {
       "lop": "RSS",
@@ -1087,6 +1085,14 @@
       "nguon": "Uỷ ban Thương mại Thượng viện",
       "url": "https://www.commerce.senate.gov/press/dem/release/cantwell-delivers-opening-remarks-at-july-22-commerce-committee-markup/",
       "nhom": 1
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "?",
+      "tieu_de": "U.S. Navy to Christen Future USS William Charette",
+      "nguon": "Hải quân Mỹ",
+      "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/4561324/us-navy-to-christen-future-uss-william-charette/"
     },
     {
       "lop": "HTML",
