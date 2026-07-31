@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-01T04:16:08+07:00",
+    "lastRunAt": "2026-08-01T04:23:37+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran (RIMPAC ket thuc), +6 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-07-31"
-    },
-    "heartbeat": "2026-08-01T04:16:08+07:00"
+      "sang": "2026-08-01"
+    }
   }
 }
