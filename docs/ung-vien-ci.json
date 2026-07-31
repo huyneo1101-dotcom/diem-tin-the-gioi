@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-01T04:39:46+07:00",
+  "tao_luc": "2026-08-01T05:34:44+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-07-31",
@@ -142,6 +142,15 @@
       "tieu_de": "Mali: HRW accuses Russian paramilitaries of killing 8 civilians",
       "nguon": "Africanews",
       "url": "http://www.africanews.com/2026/07/31/mali-hrw-accuses-russian-paramilitaries-of-killing-8-civilians/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "Trump's AI executive order nears key deadline as regulation debate intensifies",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/07/31/trump-ai-executive-order-nears-key-deadline-regulation-debate-heats-up.html",
+      "nhom": 2
     },
     {
       "lop": "RSS",
@@ -395,6 +404,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-01",
+      "tieu_de": "Chaos vs calm: What to expect when Australia and Ireland go head-to-head",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-01/aflw-australia-vs-ireland-inaugural-clash-preview/106983814"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-01",
       "tieu_de": "A week of AUKUS double-speak leaves everyone scratching their heads",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-08-01/us-military-personnel-aukus-deployment-conroy-remarks/106982608"
@@ -467,6 +484,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-01",
+      "tieu_de": "Pentagon’s counter-drone task force inks $500M contract for SkyValor ‘detect and defeat’ system after border testing",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/07/31/pentagon-counter-drone-task-force-500m-contract-caci-skyvalor/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
       "tieu_de": "Space Force establishes $981M contract vehicle to develop testing, training infrastructure",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/07/31/space-force-contract-vehicle-develop-testing-training-infrastructure/"
@@ -478,14 +503,6 @@
       "tieu_de": "Pentagon CIO issues department-wide directive on IT category management",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/07/31/dod-cio-directive-itcm-kirsten-davies/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-29",
-      "tieu_de": "After 20 years of deployment, Marine Corps receives final Osprey amid upgrades and some flight-hour restrictions",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/07/28/marine-corps-receives-final-mv-22b-osprey/"
     },
     {
       "lop": "RSS",
@@ -646,6 +663,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-01",
+      "tieu_de": "U.S. Navy to Christen Future USS William Charette",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4561603/us-navy-to-christen-future-uss-william-charette/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
       "tieu_de": "The Office of Strategic Capital Signs $820 Million Conditional Loan Commitment with Performance Drone Works to Expand Domestic Drone Component Manufacturing",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4561771/the-office-of-strategic-capital-signs-820-million-conditional-loan-commitment-w/"
@@ -705,14 +730,6 @@
       "tieu_de": "GAO Warns B-52 Modernization Is Falling Behind",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/gao-warns-b-52-modernization-falling-behind/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Space Force to Launch 18 Comms and Targeting Missions by End of 2027",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/space-force-to-launch-18-comms-targeting-missions-by-end-of-2027/"
     },
     {
       "lop": "RSS",
@@ -1085,14 +1102,6 @@
       "nguon": "Uỷ ban Thương mại Thượng viện",
       "url": "https://www.commerce.senate.gov/press/dem/release/cantwell-delivers-opening-remarks-at-july-22-commerce-committee-markup/",
       "nhom": 1
-    },
-    {
-      "lop": "HTML",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "U.S. Navy to Christen Future USS William Charette",
-      "nguon": "Hải quân Mỹ",
-      "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/4561324/us-navy-to-christen-future-uss-william-charette/"
     },
     {
       "lop": "HTML",
