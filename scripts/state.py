@@ -69,6 +69,7 @@ Bộ test canh cổng này: tests/test-cong-phien-test.py (kèm --tu-kiem).
 import json
 import os
 import sys
+import tempfile
 import time
 from datetime import datetime
 from pathlib import Path
@@ -105,6 +106,21 @@ PRIMARY_SLOT = {"web-scan": "toi", "event-scan": "sang"}
 # Không có nhịp tim trong ngần này phút -> coi phiên đang chạy là đã chết, cho giành lại khoá.
 # Đặt 30': phiên khoẻ ghi checkpoint dày hơn thế nhiều (sau baseline, sau agent, sau script).
 LOCK_STALE_MIN = 30
+
+# ── CỜ "PHIÊN NÀY ĐÃ NẠP" — cho bước kích notify của claude-web-scan.yml ─────────────
+# Vì sao cần (sự cố thật tối 31/07/2026, Huy nhận HAI bản tin lúc 21:24 và 21:26): bước kích
+# cũ hỏi `git log <base.sha>..HEAD` SAU KHI đã `git pull --rebase`, nên khoảng đó nuốt cả
+# commit của PHIÊN KHÁC vừa push xen vào. Đo: run vét khởi động 14:11:17Z rồi SKIP (exit 10,
+# không quét gì), phiên chính commit `Cap nhat ban tin 31/07` lúc 14:23:49Z, run vét pull về
+# lúc 14:25:33Z ⇒ grep khớp commit của người ta ⇒ `gh workflow run notify-email.yml` lần THỨ
+# HAI. Không lỗi, không cảnh báo — chỉ có Huy nhận thừa một bản tin rỗng tin mới.
+# Phép đo thuần git KHÔNG phân biệt được, vì phiên SKIP cũng phải rebase để push nổi commit
+# log của nó, tức commit của phiên kia đã nằm trong cây local từ trước bước kích.
+# ⇒ Ý ĐỊNH PHẢI KHAI BẰNG LỜI: chỉ phiên nào TỰ TAY gọi `state.py done` mới ghi cờ này. Phiên
+# SKIP không được gọi `done` (luật routine) nên vĩnh viễn không có cờ ⇒ không kích. Cùng bài
+# học với `tu_dong=1`, `TELEGRAM_BAT_BUOC`, `DIEMTIN_PHIEN_TEST`.
+CO_DIR_ENV = "DIEMTIN_CO_DIR"  # seam CHỈ dùng cho bộ test; vận hành thật không đặt
+CO_TIEN_TO = "diemtin-da-nap-"
 
 
 def today() -> str:
@@ -162,6 +178,20 @@ def is_running(entry: dict) -> bool:
     return age is not None and age < LOCK_STALE_MIN
 
 
+def co_path(pipeline: str) -> Path:
+    """Đường dẫn cờ 'phiên NÀY đã nạp'. Nằm ngoài repo (thư mục tạm) — chỉ sống trong một job."""
+    thu_muc = Path(os.environ.get(CO_DIR_ENV) or tempfile.gettempdir())
+    return thu_muc / f"{CO_TIEN_TO}{pipeline}"
+
+
+def ghi_co_da_nap(pipeline: str) -> None:
+    """Đánh dấu CHÍNH phiên này đã nạp xong pipeline đó. Hỏng thì KÊU, không nuốt."""
+    try:
+        co_path(pipeline).write_text(now_iso() + "\n", encoding="utf-8")
+    except OSError as loi:
+        print(f"⚠️ khong ghi duoc co da-nap cho {pipeline}: {loi}", file=sys.stderr)
+
+
 def record(pipeline: str, status: str, note: str = "", slot: str = None) -> dict:
     """Ghi nhận 1 lần chạy. CHỈ status DONE mới đẩy lastSuccess của buổi (tức mới chặn fire sau).
 
@@ -182,6 +212,10 @@ def record(pipeline: str, status: str, note: str = "", slot: str = None) -> dict
         success = entry.get("lastSuccess") or {}
         success[slot] = today()
         entry["lastSuccess"] = success
+        # Cờ cho bước kích notify — xem chú thích ở CO_DIR_ENV. Ghi cả ở phiên test: nhánh
+        # test của workflow tự kích với `subject_tag` riêng và KHÔNG truyền `tu_dong`, nên nó
+        # không để dấu vết lên sổ đã gửi; chặn cờ ở đây là làm nhánh test hết nghiệm thu được.
+        ghi_co_da_nap(pipeline)
     state[pipeline] = entry
     save(state)
     return entry

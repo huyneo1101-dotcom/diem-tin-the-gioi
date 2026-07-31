@@ -141,13 +141,18 @@ jobs:
           MODE: ${{ inputs.mode || 'normal' }}
         run: |
           git pull --rebase origin main || true
-          # So với HEAD lúc bắt đầu job (không phải "commit cuối cùng") — từ 28/07/2026 phiên
-          # SÁNG SỚM có thể tạo HAI commit riêng (bản tin + sự kiện, xem BƯỚC 6 của prompt);
-          # `git log -1` chỉ thấy commit sau cùng và sẽ bỏ lọt commit bản tin phía trước.
-          new_msgs=$(git log ${{ steps.base.outputs.sha }}..HEAD --format=%s)
-          echo "Commit mới trong job này:"
-          echo "$new_msgs"
-          if echo "$new_msgs" | grep -qiE '^Cap nhat ban tin'; then
+          # ⛔ KHÔNG dò bằng `git log <base>..HEAD` nữa (sự cố tối 31/07/2026 — Huy nhận HAI
+          # bản tin lúc 21:24 và 21:26). Khoảng đó chạy SAU `git pull` nên nuốt cả commit của
+          # PHIÊN KHÁC vừa push xen vào: run vét khởi động 14:11:17Z rồi SKIP không quét gì,
+          # phiên chính commit bản tin 14:23:49Z, run vét pull về 14:25:33Z ⇒ grep khớp commit
+          # của người ta ⇒ kích notify-email lần thứ hai. Đo git sớm hơn cũng không cứu: phiên
+          # SKIP cũng phải rebase để push nổi commit log của chính nó.
+          # Nay hỏi CỜ do chính `state.py done` của phiên NÀY ghi ra (thư mục tạm, chỉ sống
+          # trong một job). Chi tiết: .github/scripts/quyet_dinh_kich.py
+          python3 .github/scripts/quyet_dinh_kich.py > /tmp/quyet-dinh-kich.env
+          cat /tmp/quyet-dinh-kich.env
+          . /tmp/quyet-dinh-kich.env
+          if [ "$ban_tin" = "1" ]; then
             if [ "$MODE" = "test" ]; then
               # KHÔNG truyền tu_dong: chạy test không được ghi sổ, y như người bấm tay.
               gh workflow run notify-email.yml -f subject_tag='[QUET TEST TU DONG] '
@@ -159,9 +164,9 @@ jobs:
               gh workflow run notify-push.yml || true
             fi
           else
-            echo "Không có commit bản tin mới trong job này — không kích email bản tin."
+            echo "Phiên này KHÔNG tự nạp bản tin (không có cờ) — không kích email bản tin."
           fi
-          if [ "$MODE" != "test" ] && echo "$new_msgs" | grep -qiE '^(Cap nhat su kien|Dang bao cao tuan)'; then
+          if [ "$MODE" != "test" ] && [ "$su_kien" = "1" ]; then
             # Kích notify-morning.yml (email 🎖️ riêng) — trước 28/07/2026 việc này nằm ở
             # claude-event-scan.yml (đã xoá, gộp việc quét vào job này, xem BƯỚC 6 prompt).
             gh workflow run notify-morning.yml -f tu_dong=1

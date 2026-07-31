@@ -409,6 +409,47 @@ Ba cái bẫy đã vấp thật, đừng lặp lại:
 - `send_telegram.py` dựng `.docx` **TRƯỚC** khi xét `total == 0`, và `total == 0` vẫn gửi file kèm — nếu
   không, hôm nào mọi tin đều đã báo là Huy mất luôn file tổng hợp.
 
+### ⛔ CHỈ PHIÊN TỰ NẠP MỚI ĐƯỢC KÍCH NOTIFY — cờ tường minh, không dò `git log` (vá 31/07/2026)
+
+**Sự cố thật:** tối 31/07 Huy nhận **HAI** file `.docx` y hệt nhau — 21:24 kèm caption *"9 tin
+mới"*, 21:26 kèm *"không có tin mới so với bản trước"*. Cả hai run `notify-email.yml` đều là
+`workflow_dispatch` (30638444028 · 30638555318), tức có **hai** lời gọi `gh workflow run`.
+
+| Giờ UTC | Việc |
+|---|---|
+| 14:00:19 | run `30636762079` (mốc 20:47) khởi động, giành khoá, **quét thật** |
+| 14:11:17 | run `30637541239` (lớp vét) khởi động → chụp `base.sha` → `claim` trả **exit 10** → SKIP, không quét gì |
+| 14:23:49 | phiên chính commit `4fffa97 Cap nhat ban tin 31/07` → kích → **bản 1** |
+| 14:25:33 | phiên VÉT ghi commit log rồi tới bước kích, `git pull --rebase` **kéo `4fffa97` về** |
+| 14:25:50 | `git log <base>..HEAD | grep '^Cap nhat ban tin'` khớp commit của người ta → kích → **bản 2** |
+
+**Cơ chế gây vấp:** chú thích trong yml khai ý định là *"commit mới TRONG JOB NÀY"*, nhưng phép
+đo chạy **sau** `git pull` nên khoảng `base..HEAD` nuốt cả commit của phiên khác vừa push xen
+vào. Job vét khởi động trước phiên chính commit 12 phút, nên cửa sổ đó chắc chắn nuốt.
+⛔ **Đừng "sửa cho gọn" bằng cách đo git sớm hơn** — phiên SKIP cũng phải `pull --rebase` để
+push nổi commit log của chính nó, nên commit của phiên kia đã nằm trong cây local TRƯỚC bước
+kích. Phép đo thuần git không phân biệt được ca này.
+
+| Mảnh | Việc |
+|---|---|
+| `scripts/state.py::ghi_co_da_nap` | `done <pipeline>` ghi cờ `diemtin-da-nap-<pipeline>` vào **thư mục tạm** (`DIEMTIN_CO_DIR` là seam cho test) — chỉ sống trong đúng một job, đó chính là thứ `git log` không có |
+| `.github/scripts/quyet_dinh_kich.py` | đọc cờ, in `ban_tin=…` / `su_kien=…`; **fail-CLOSED có tiếng** (không đọc được cờ → mã 2 → step ĐỎ) |
+| `claude-web-scan.yml` bước kích | `. /tmp/quyet-dinh-kich.env` rồi xét `$ban_tin` / `$su_kien` — KHÔNG còn `new_msgs` |
+| `tests/test-cong-kich-notify.py` | **10 ca · `--tu-kiem` bắt 3/3 bản hỏng**, đã nạp `khoe.py` |
+
+⚠️ **Ý ĐỊNH KHAI BẰNG LỜI** — cùng bài học với `tu_dong=1` · `TELEGRAM_BAT_BUOC` ·
+`DIEMTIN_PHIEN_TEST`: chỉ phiên nào **tự tay** gọi `state.py done` mới có cờ. Phiên SKIP không
+được gọi `done` (luật routine) nên vĩnh viễn không có cờ.
+⚠️ **`skip`/`fail` KHÔNG ghi cờ** — ca 02/03 của bộ test canh đúng chỗ này, và bản hỏng *"ghi cờ
+cho MỌI status"* làm chúng đỏ.
+⚠️ **Phiên test VẪN ghi cờ** — cố ý: nhánh `MODE=test` tự kích với `subject_tag` riêng và không
+truyền `tu_dong`, nên nó không để dấu lên sổ đã gửi; chặn cờ ở đó là làm nhánh test hết nghiệm
+thu được.
+⚠️ **Hướng lệch của bản vá là MẤT một lần gửi, không phải gửi thừa** — quên khai cờ thì canary
+22:45 bắt được (sổ trống); còn gửi thừa thì không cơ chế nào kêu, chỉ Huy tự thấy. Vì vậy step
+`Ghi lại HEAD trước khi quét` (`steps.base`) nay **không còn ai đọc**, giữ lại chỉ để ghi vết
+chẩn đoán — đừng dựng lại nhánh quyết định dựa vào nó.
+
 ### 🆕 Mới trên web + 💡 Có thể bạn chưa biết — trong email SÁNG (chỉ thị Huy 27/07/2026)
 Email sáng có thêm 2 mục cuối, nguồn dữ liệu là **`whats-new.json` ở gốc repo** (`send-morning-email.js`:
 `readWhatsNew` · `freshFeatures` · `tipOfDay` · `featuresHtml` · `tipHtml`):
@@ -1182,6 +1223,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `tests/test-bang-nguon-claude-md.py` | Đường ĐỌC BẢNG NGUỒN từ CLAUDE.md + phép lấy TIÊU ĐỀ của lớp `[HTML]` | 13 ca — 6 PHẢI CHẶN (nhắc tên bảng trong văn xuôi ×1/×3 · bảng HTML lọt vào lớp RSS · feed giao với trang HTML · thẻ `<a>` gộp tóm tắt vẫn phải ra tiêu đề qua `aria-label` · và qua `<h4 class=title>` kèm tiêu đề phải sạch), 7 đối chứng (cột `CI` bị bỏ ở local · đủ 06 trang quân chủng · Navy+Marines có ở local · tên không mang dấu `**` · không có bảng thì trả rỗng êm · tiêu đề đổi chữ vẫn đọc được · **chống nới tay**: không có nguồn tiêu đề sạch thì BỎ chứ không nạp tiêu đề rác). `--tu-kiem` bắt 5/5 bản hỏng |
 | `tests/test-nhan-tin-jaylam.py` | Nhận file `.docx` Jay Lâm gửi qua bot (`docx_text.py` · `telegram_bot.py::xu_ly_tin_jaylam` · `gui_ban_sao_cho_chu` · `_la_chat_chu`) | **23 ca · `--tu-kiem` bắt 7/7 bản hỏng** — 4 PHẢI CHẶN (không phải `.docx` · tải hỏng · file rỗng → KHÔNG gọi `luu_tin_jaylam`), 4 ca trích chữ, 1 ca luồng bình thường, **3 ca trần độ dài** (hồi quy file thật 34.525 ký tự · vượt trần PHẢI báo · dưới trần không kêu oan), **6 ca chuyển tiếp bản sao** (đúng `file_id` + caption · VẪN gửi khi tải hỏng · VẪN gửi khi Supabase hỏng · KHÔNG gửi ngược cho chính chat chủ · thiếu chat chủ không crash · gọi THẲNG hàm để canh chốt bên trong), **5 ca chat chủ** |
 | `tests/test-tin-jaylam-trong-docx.py` | Gộp tin Jay Lâm vào mục 5 của `.docx` bản tin (CẢ HAI buổi — `make_docx.py`) | **49 ca · `--tu-kiem` bắt 16/16 bản hỏng** — **buổi sáng CŨNG gọi Supabase Jay Lâm** · tin gửi 21:34 tối qua lên bản SÁNG hôm sau · trùng tin quét thường thì ẩn khỏi mục riêng nhưng VẪN đánh dấu `da_gop` · trùng nội bộ chỉ hiện 1 lần nhưng đánh dấu cả 2 · **khung ngày 2 ngày mà CNQS Mỹ nới 3 ngày** · dòng chưa xử lý hưởng khung RỘNG · in tóm tắt thay nguyên văn · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
+| `tests/test-cong-kich-notify.py` | Cổng "chỉ phiên TỰ NẠP mới được kích notify" (`state.py::ghi_co_da_nap` + `.github/scripts/quyet_dinh_kich.py` + `claude-web-scan.yml`) | **10 ca · `--tu-kiem` bắt 3/3 bản hỏng** — 3 PHẢI CHẶN (chưa `done` · sau `skip` · sau `fail` đều KHÔNG kích), 3 chống chặn oan, 1 ca hai pipeline độc lập, **2 ca đọc chính file yml** (phải gọi `quyet_dinh_kich.py`; KHÔNG được quay lại `git log --format=%s`), 1 ca chạy `--tu-kiem` của chính script quyết định |
 | `tests/test-tin-jaylam-xu-ly.py` | Guardrail bước phiên quét tối biến tin Jay Lâm thành tin chuẩn (`scripts/tin_jaylam.py`) | **30 ca (14 PHẢI CHẶN) · `--tu-kiem` bắt 12/12 bản hỏng** — id bịa/trùng · `tieu_de` ngoài 10-200 · `tom_tat` cụt · thiếu `nguon_ten` · URL trang chủ/live-blog · `la_cnqs` sai kiểu · ghi mù khi hàng chờ rỗng · PATCH hỏng phải KÊU chứ không báo xong oan · một mục sai chặn cả lô · bước liệt kê dùng khung RỘNG NHẤT để không bỏ mất ứng viên CNQS |
 
 Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `telegram_bot.py` · `docx_text.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:
