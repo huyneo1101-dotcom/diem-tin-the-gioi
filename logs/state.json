@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-31T21:23:21+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "phien toi 31/07: +1 worldNews +9 usNews (9 tin moi thuc su sau khi prune 2 tin trung)",
+    "lastRunAt": "2026-08-01T04:00:44+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-31",
       "sang": "2026-07-31"
-    }
+    },
+    "heartbeat": "2026-08-01T04:00:44+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-07-31T04:23:08+07:00",
