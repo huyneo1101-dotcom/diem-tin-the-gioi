@@ -9,12 +9,12 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-07-31T04:14:28+07:00",
-    "lastSlot": "sang",
+    "lastRunAt": "2026-07-31T21:23:21+07:00",
+    "lastSlot": "toi",
     "lastStatus": "DONE",
-    "note": "+6 tin (5 chu de, phien sang som)",
+    "note": "phien toi 31/07: +1 worldNews +9 usNews (9 tin moi thuc su sau khi prune 2 tin trung)",
     "lastSuccess": {
-      "toi": "2026-07-30",
+      "toi": "2026-07-31",
       "sang": "2026-07-31"
     }
   },

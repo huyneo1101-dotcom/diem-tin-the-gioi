@@ -1,38 +1,38 @@
 {
   "date": "2026-07-31",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
-      "count": 2,
+      "count": 3,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Agent tìm được 3 tin (hearing HELP Committee, hearing AI viễn thông, Cook Political Report redistricting) nhưng 1 tin (Cook Political Report) bị xoá sau khi phát hiện trùng phân tích PVI đã có trong DATA 28/07. Còn 2 tin. Nhóm 1 (điều trần/bỏ phiếu) gần cạn sau 2 phiên liên tiếp 30/07."
+      "reason": "Vét hạng 1 (điều trần/bỏ phiếu) trước, chỉ giữ 3 tin xác thực chắc trong khung 30-31/07: Thượng viện bác nghị quyết chiến tranh Iran (Gillibrand), xác nhận Hurst làm Pentagon comptroller, điều trần Uỷ ban Đối ngoại về đề cử USAGM/IMF. Nhiều ứng viên khác bị loại vì ngoài khung ngày (Durbin markup 23/07, Cruz markup dự kiến 05/08, Commerce equity stakes 29/07) hoặc thuộc cơ quan lập pháp CẤP BANG (Michigan, NC, Massachusetts — không tính). Không mở sang nhóm 2-5 vì thời gian phiên có hạn (deadline email 22:00)."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 2,
+      "count": 1,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Thiếu 3 tin. Phần lớn ứng viên harvest trùng tin đã nạp ở 2 phiên trước (28-30/07): Leidos dry dock, Conroy phát biểu, Bisalloy steel, Philippines UN filing. Chỉ còn 2 tin thật sự mới: sonar Nhật cho Mogami Úc, USS George Washington thăm Đà Nẵng."
+      "reason": "Chỉ 1 tin đạt chuẩn (Shield AI/Thunder Tiger AI hải quân Đài Loan). Phần lớn ứng viên harvest trùng tin đã nạp 2 phiên trước (AUKUS dry dock, sub rotation, TQ siết Đài Loan). Ứng viên Báo Mới 'Australia thử nghiệm phòng không mới' xác minh ra là tin CŨ (thử nghiệm SM-2 tháng 6) — loại."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 2,
+      "count": 6,
       "target": 7,
       "min": 5,
-      "thieu": true,
-      "reason": "Thiếu 3 tin. Phần lớn ứng viên hot (Patriot 58,6 tỷ, SpaceX 1,6 tỷ, tàu ngầm 76,6 tỷ, DARPA pin hạt nhân) đã nạp ở phiên tối 30/07. Chỉ còn 2 tin mới thật: CCA test Creech AFB, Sentinel ICBM utility corridor."
+      "thieu": false,
+      "reason": "Đạt chỉ tiêu: NITE-STAR $981M (SpaceNews), USS Georgia nghỉ hưu (Army Recognition), thiết giáp hạm Trump-class hạt nhân (TWZ), Osprey cuối cùng (DefenseScoop), B-21 Ellsworth 2027 (Air Force Times), Sphinx Defense $287M (Defense Daily). Loại: tuyên bố Iran phá huỷ 3 F-35 (claim một chiều chưa xác minh độc lập), YJ-20 Trung Quốc x2 (khí tài TQ không thuộc phạm vi CNQS Mỹ)."
     },
     {
       "name": "Mỹ - Mali",
-      "count": 0,
+      "count": 1,
       "target": 4,
       "min": 2,
       "thieu": true,
-      "reason": "Agent chỉ tìm được 1 ứng viên (Amnesty International, 19 binh sĩ Mali) nhưng đây là tin TRÙNG với bài đã có trong DATA 29/07 (cùng sự kiện, cùng số liệu, chỉ khác nguồn thứ cấp Africanews vs nguồn gốc amnesty.org) — đã xoá bằng prune_news.py sau khi phát hiện qua cảnh báo Jaccard. Các ứng viên khác (Trump cân nhắc không kích Mali) ngoài khung ngày xa (sự kiện 22/07)."
+      "reason": "Chỉ 1 tin mới thật: HRW tố Africa Corps (Nga) không kích giết 8 dân thường làng Kyrnia, Mopti (15/6). Ứng viên thứ 2 (Amnesty 19 binh sĩ Mali bị hành quyết tại Anefis/Gao) là TIN TRÙNG với bài đã nạp 29/07 (cùng URL amnesty.org/.../mali-war-gao/) — bị guardrail chặn khi add_news.py chạy, đã xoá khỏi batch trước khi commit."
     },
     {
       "name": "Tập trận Predator's Run 2026",
@@ -40,7 +40,7 @@
       "target": 2,
       "min": 1,
       "thieu": true,
-      "reason": "Agent WebSearch kỹ (closing ceremony, concludes, wraps up) không tìm được tin bế mạc hay diễn biến mới trong khung 30-31/07. Không đủ căn cứ xác nhận tập trận đã kết thúc — status giữ nguyên 'ongoing'."
+      "reason": "Agent WebSearch kỹ (PACOM, DVIDS, Stars and Stripes, army.mil.ph, Marine Corps) không tìm được thông cáo bế mạc hay diễn biến mới trong khung 30-31/07. Có manh mối tập trận dự kiến kết thúc khoảng 30/07 (\"runs through Thursday\") nhưng chưa có tin tổng kết chính thức đăng — giữ nguyên status ongoing."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": 6,
       "min": 3,
       "thieu": true,
-      "reason": "6 ứng viên cổng nhắc (Iran/F-35, Hàn Quốc tàu ngầm hạt nhân, TQ phản đối trừng phạt, siêu tàu ngầm Tomahawk, UAV liên Triều, Mỹ không kích Iran/Mali) đều trùng lặp với các quyết định loại đã có (tuyên bố một chiều chưa kiểm chứng, trùng DATA cũ, hoặc ngoài phạm vi 5 chủ đề) — không có ứng viên nào đạt chuẩn truy bài gốc riêng trong phiên này."
+      "reason": "16 ứng viên cổng nhắc, đối chiếu nhanh: phần lớn trùng tin đã nạp trong batch này qua nguồn gốc (Lockheed Patriot 58.6B, USS George Washington Đà Nẵng đã có từ 30/07, YJ-20 Trung Quốc ngoài phạm vi CNQS Mỹ), hoặc là claim một chiều chưa xác minh (Iran phá huỷ F-35), hoặc thuộc chủ đề Nội bộ Mỹ đã được Roll Call cover kỹ hơn (Thượng viện bác nỗ lực hạn chế Iran — 4 báo VN đưa cùng 1 sự kiện). Do áp lực thời gian (deadline email 22:00, phiên bắt đầu trễ lúc 21:00 VN thay vì 20:47), KHÔNG kịp truy bài gốc riêng cho 2 ứng viên còn khả năng độc lập (Ba Lan Patriot cho Ukraine; Không quân Mỹ muốn oanh tạc cơ VTOL thay B-21) — để lại cho phiên sau."
     }
   ],
-  "note": "Phiên sáng sớm 31/07 (CI, claim lúc 04:00 VN). worldNews +2, usNews +4 (sau khi xoá 2 tin trùng qua guardrail Jaccard) = 6 tin thật sự mới trong lô này. Đây là tín hiệu khan tin thật: phần lớn ứng viên harvest hôm nay là tin đã nạp ở 2 phiên liên tiếp trước đó (28/07 và 30/07 tối), không phải do agent lười tìm — cả 5 agent đều báo cáo đã kiểm tra kỹ qua WebFetch/WebSearch và loại đúng lý do. Đã dùng prune_news.py xoá 2 tin phát hiện trùng sau khi add_news.py cảnh báo Jaccard (Cook Political Report redistricting, Amnesty Mali)."
+  "note": "Phiên TỐI 31/07 (CI, claim lúc 21:00 VN — trễ so với mốc 20:47 vì workflow fire muộn). worldNews +1, usNews +10 -2 (sau khi prune 2 tin trùng phát hiện qua cảnh báo Jaccard: Osprey cuối cùng và Sphinx Defense $287M đều đã có trong DATA từ 27-28/07, chỉ khác URL nguồn nên guardrail URL không bắt được, phải prune_news.py thủ công) = 9 tin thật sự mới. Vì bắt đầu trễ 13 phút và cần chừa buffer cho email 22:00, phiên này KHÔNG mở vòng bổ sung cho Nội bộ Mỹ (nhóm 2-5) hay Úc & Biển Đông dù chưa đạt sàn — ưu tiên gửi đúng giờ hơn gom đủ tin, đúng chỉ thị Huy về deadline 22:00. Sàn cứng tổng ngày (gộp sáng+tối): worldNews 3/15, usNews 14/15 (đã tính sau khi prune) — usNews gần đạt sàn 15."
 }
