@@ -1013,6 +1013,43 @@ mã. Thiếu nó thì lần lưu thứ hai trở đi im lặng không ghi đè �
 **vắng mặt trong phiên headless/cron** — đó là lý do routine đi bằng mã riêng + `curl` chứ
 không gọi MCP.
 
+### 🔄 ĐẢO NGUYÊN TẮC 01/08/2026 — FILE JAY LÂM GỬI LÀ **BỘ LỌC**, KHÔNG PHẢI NGUỒN TIN
+
+> Nguyên văn Huy: *"thay đổi hoàn toàn nguyên tắc. file của Jay Lâm gửi chỉ là để so sánh xem
+> có tin nào mày quét được mà bị trùng với tin trong file đó không thôi"* · *"nếu có tin bị
+> trùng với file Jay Lâm thì tự xoá khỏi tổng hợp tin đã quét đi và gửi file word (trong đó
+> không có tin nào từ Jay Lâm)"*.
+
+**Mục 5 "Tin Jay Lâm gửi" BỎ HẲN.** File Jay gửi không còn đóng góp một dòng nào vào bản tin;
+nó chỉ dùng để **loại bớt tin của chính mình**: tin nào mình quét được mà Jay đã có thì bỏ đi,
+vì anh ta đọc rồi. Bản tin gửi ra vì thế chỉ còn phần Jay CHƯA có.
+
+⚠️ **TOÀN BỘ phần mô tả mục 5 bên dưới (và các mục kế tiếp về `tach_chua_tom_tat`,
+`loc_jaylam_ca_sang`, nhánh dán nguyên văn) NÓI VỀ THIẾT KẾ CŨ.** Chúng vẫn đúng với MÃ đang
+chạy — mã CHƯA đổi theo nguyên tắc mới tính tới 01/08/2026 23:0x. Đừng đọc chúng như luật còn
+hiệu lực; đọc như mô tả thứ sắp bị thay.
+
+**04 quyết định Huy chốt qua bảng chọn, dùng làm spec khi vá:**
+
+| # | Điểm | Chốt |
+|---|---|---|
+| 1 | So trùng bằng gì | **Agent đọc hiểu theo SỰ KIỆN**, có link thì link là chốt chắc |
+| 2 | `scripts/tin_jaylam.py` | **Đổi mục đích**: thôi tóm tắt để đăng, chuyển sang **trích danh sách tin trong file Jay** làm bảng đối chiếu. Giữ nguyên hàng chờ · `da_gop` · guardrail |
+| 3 | Phạm vi lọc | **Mọi bản tin còn trong khung ngày (2-3 ngày)**, không phải chỉ bản kế tiếp |
+| 4 | Bản tối 01/08 đã lỡ gửi | Đã dựng lại bản không có tin Jay và **gửi lại cả hai chat** lúc 22:5x |
+
+⚠️ **SO LINK THUẦN LÀ VÔ DỤNG — đã đo, đừng dựng lại đường đó.** Đối chiếu 12 tin quét tối
+01/08 với 37 URL trong file Jay: **0 tin trùng URL**, trong khi đọc hiểu ra **03 tin trùng
+sự kiện** (Mahan Air · tuần tra Scarborough · NITE-STAR 981 triệu USD). Lý do: Jay viết lại
+bằng tiếng Việt từ nguồn khác hẳn nguồn mình lấy. Link chỉ dùng làm chốt CHẮC khi tình cờ
+trùng, không dùng làm phép lọc chính.
+⚠️ **Đối chiếu phải so với FILE GỐC, không so với danh sách tin đã trích/viết lại.** Vấp thật
+trong chính lượt dựng bản thay thế: danh sách 29 tin viết lại của phiên trước **đã qua lọc
+trùng rồi**, nên đúng những tin trùng lại vắng mặt trong đó — dùng nó làm bảng đối chiếu thì
+kết luận "không có tin nào trùng".
+⚠️ **Tin bị loại phải ghi lại** (`logs/loai-tin.md` hoặc dòng kêu trong log workflow) kèm mảnh
+tương ứng bên file Jay — xoá tin là mất nội dung, phải soi ngược được.
+
 ### 📎 Jay Lâm gửi file .docx tin tức qua bot → GỘP THẲNG vào .docx bản tin TỐI (dựng 30/07/2026)
 
 Huy hỏi: *"Jay Lâm gửi vào bot tin tức trên tele 1 file docx thì mày có đọc được và tự tổng hợp
