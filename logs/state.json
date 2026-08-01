@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-01T21:25:34+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+13 tin (TG+5, My+8) 5 chu de, phien toi",
+    "lastRunAt": "2026-08-02T04:00:56+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-01",
       "sang": "2026-08-01"
-    }
+    },
+    "heartbeat": "2026-08-02T04:00:56+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-01T04:23:37+07:00",
