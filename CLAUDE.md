@@ -1013,6 +1013,32 @@ mã. Thiếu nó thì lần lưu thứ hai trở đi im lặng không ghi đè �
 **vắng mặt trong phiên headless/cron** — đó là lý do routine đi bằng mã riêng + `curl` chứ
 không gọi MCP.
 
+### ⛔ MỤC "ÚC VÀ BIỂN ĐÔNG" ĐANG LÀ THÙNG CHỨA MỌI TIN THẾ GIỚI — tên mục nói dối (Huy bắt 01/08/2026)
+
+> Nguyên văn: *"hàn quốc liên quan đ gì đến biển đông và Úc mà cứ cho vào???"*
+
+**Số đo tối 01/08:** mục đó có 04 tin thì **03 sai** — Nhật phóng thử Tomahawk từ JS Chokai ·
+Trung Quốc phóng thử YJ-20 · Hàn Quốc ký hợp đồng 7,8 nghìn tỷ won với Hanwha Ocean. Cả ba đều
+là tin quốc phòng châu Á **không dính Úc, không dính Biển Đông**. Chỉ tin Bisalloy/AUKUS đúng.
+
+**Cơ chế gây vấp — HAI tầng, và tầng dưới làm tầng trên vô hình:**
+- **Tầng QUÉT:** chủ đề 2 khai *"hoạt động của Nhật/Ấn/Hàn **tại vùng biển này**"*. Mệnh đề
+  "tại vùng biển này" là ĐIỀU KIỆN, nhưng đọc lướt thì thành "tin quốc phòng Nhật/Ấn/Hàn" —
+  và không guardrail nào kiểm chủ đề, `add_news.py` chỉ kiểm ngày · URL · trùng.
+- **Tầng DỰNG FILE:** `make_docx.py::build_sections` đặt `sec2 = MỌI worldNews trừ Mali`. Tên
+  mục là một lời hứa, nội dung là cái thùng — nên tin thế giới nào lọt qua tầng quét cũng tự
+  động được dán nhãn "Úc và Biển Đông". **Đây mới là chỗ che lỗi:** nếu mục có tên trung thực
+  thì lỗi tầng quét đã lộ ra từ nhiều bản tin trước.
+
+⚠️ **Đừng vá bằng cách đổi tên mục thành "Thế giới".** Làm thế là hợp thức hoá tin ngoài phạm
+vi: 5 chủ đề đã chốt 23/07 không có mục "tin quốc phòng châu Á nói chung". Vá đúng là **siết
+tầng quét** (tin Nhật/Hàn/Ấn/TQ chỉ nhận khi gắn Biển Đông hoặc gắn Úc) rồi mới bàn tới việc
+mục 2 có cần lưới an toàn riêng không.
+⚠️ **Nhưng cũng đừng để mất tin trong im lặng.** `build_sections` cố ý có lưới cuối gom tin
+không khớp mục nào về mục 1 kèm cảnh báo, vì *mất tin tệ hơn xếp nhầm mục* — siết sec2 thì
+phải kiểm lại lưới đó còn kêu đúng không, đừng để tin rơi ra ngoài file.
+📌 **TRẠNG THÁI: chưa vá, mới ghi nhận.** Bản tin tối 01/08 đã gửi kèm 03 tin sai mục này.
+
 ### 🔄 ĐẢO NGUYÊN TẮC 01/08/2026 — FILE JAY LÂM GỬI LÀ **BỘ LỌC**, KHÔNG PHẢI NGUỒN TIN
 
 > Nguyên văn Huy: *"thay đổi hoàn toàn nguyên tắc. file của Jay Lâm gửi chỉ là để so sánh xem
