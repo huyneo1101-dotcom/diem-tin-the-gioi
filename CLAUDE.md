@@ -633,9 +633,19 @@ cá nhân là tách nó khỏi cả dòng chảy đó.
 
 - **Bản tin, file `.docx` bản tin, bản dựng lại/bổ sung → `@diemtin24h_bot`.** Bot cá nhân chỉ
   dành cho tài liệu KHÔNG thuộc Điểm Tin.
-- **Gửi cho AI CHAT NÀO:** chat **CHỦ** (Huy) — phần tử ĐẦU trong danh sách chat, đúng quy ước
-  `telegram_bot.py::chat_chu()`. ⛔ Gửi tay thì **không gửi cho Jay Lâm**: bản dựng lại là việc
-  nội bộ, chưa qua cổng giờ giấc của `notify-email.yml`.
+- **Gửi cho AI CHAT NÀO: TOÀN BỘ danh sách chat — Huy VÀ Jay Lâm**, y hệt bản tự động. Huy chốt
+  01/08/2026, nguyên văn: *"bản tin thì gửi cho cả Jay chứ thằng ngu"*.
+  ⚠️ **Cơ chế gây vấp, đã vấp thật ngay lượt đầu:** repo này có sẵn một luật rất mạnh —
+  *"cảnh báo hạ tầng gửi cho người vận hành, không gửi cho người đọc"* (canary) và
+  *"mọi thứ rút ra từ chat của Jay Lâm chỉ đi tới chat chủ"* (tin đề xuất, hồ sơ độc giả). Cả hai
+  đều đúng, và cả hai đều thu hẹp về `chat_chu()`, nên phản xạ khi gửi tay là thu hẹp theo. Nhưng
+  chúng nói về **thứ nội bộ**, còn **bản tin là sản phẩm CHO người đọc** — Jay Lâm là người đọc,
+  và bản dựng lại chính là bản thay cho bản đã hỏng mà anh ta đã nhận. Phân biệt theo **NỘI DUNG
+  gửi đi**, không theo chuyện gửi tay hay tự động.
+  | Gửi gì | Tới đâu |
+  |---|---|
+  | bản tin, `.docx` bản tin, bản dựng lại/bổ sung | **toàn bộ danh sách chat** |
+  | cảnh báo canary, tin đề xuất, hồ sơ độc giả, bản sao file Jay Lâm gửi | chat **CHỦ** |
 - **Chat id nằm NGOÀI repo** (repo này PUBLIC): `/Users/Huy/Claude/.tg-bot.json`, chmod 600,
   `chats[0]` = Huy · `chats[1]` = Jay Lâm. Trước 01/08 mảng đó RỖNG nên phiên local không biết
   gửi đi đâu — nay đã điền, và `nhin_truoc_kich_bot.py` cũng hết kích run cho chat lạ.
