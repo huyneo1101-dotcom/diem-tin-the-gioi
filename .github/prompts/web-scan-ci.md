@@ -42,22 +42,31 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
 3. Quét theo SKILL. Sau mỗi mốc lớn: ghi checkpoint log + `python3 scripts/state.py beat web-scan` + push log.
    ⏱️ **BEAT NGAY TRƯỚC KHI GIAO AGENT, đừng đợi agent xong mới beat** (vá 28/07/2026). Khoá thối sau **30 phút không nhịp** (`LOCK_STALE_MIN`), mà vòng agent là chặng DÀI NHẤT của phiên — beat "sau mỗi mốc lớn" nghĩa là nhịp đầu tiên chỉ tới khi agent xong. Đo thật phiên tối 28/07: start 21:00 → beat đầu tiên **21:26**, tức 25 phút không nhịp, chỉ cách ngưỡng thối **5 phút**. Vòng agent chậm thêm 5 phút nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét → mốc kế (local 21:15 hoặc CI 22:00) cướp khoá và **quét chồng**, đúng sự cố hai phiên cùng quét hôm 26/07.
    Vì vậy beat ở CẢ BA chỗ này, không chỉ ở mốc lớn: **(a) ngay sau `harvest.py` + `telegram_harvest.py`** · **(b) ngay TRƯỚC khi giao lô agent** · **(c) sau khi gom xong kết quả agent**. Nguyên tắc: **hai nhịp liên tiếp không được cách quá ~15 phút**; sắp làm việc gì dự kiến lâu thì beat trước khi bắt đầu, không phải sau khi xong.
-3b. **CẢ HAI PHIÊN — xử lý tin Jay Lâm gửi thành TIN CHUẨN, sau khi nạp tin quét, TRƯỚC khi commit** (thêm 30/07/2026, chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*).
-   ⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC** (thêm 30/07/2026): `gh workflow run telegram-bot.yml` rồi chờ run xong (~2 phút) TRƯỚC khi đọc hàng chờ. File Jay Lâm gửi chỉ vào bảng khi workflow bot chạy, mà GitHub chạy nó cách nhau **01-02 giờ** dù cron khai `*/5` — tối 30/07 file gửi 21:20 VN mà hàng chờ đọc lúc 21:25 chỉ thấy file hôm trước, mất trọn một file vào bản tin. Gọi `gh` bị chặn *requires approval* thì ghi một dòng vào log rằng **chưa kích được bot, hàng chờ có thể thiếu file gửi sát giờ** rồi đi tiếp.
+3b. **CẢ HAI PHIÊN — dùng file Jay Lâm làm BỘ LỌC, sau khi nạp tin quét, TRƯỚC khi commit** (đảo nguyên tắc 01/08/2026, nguyên văn Huy: *"file của Jay Lâm gửi chỉ là để so sánh xem có tin nào mày quét được mà bị trùng với tin trong file đó không thôi"* · *"nếu có tin bị trùng thì tự xoá khỏi tổng hợp tin đã quét đi"*).
+   ⛔ **MỤC 5 "Tin Jay Lâm gửi" ĐÃ BỎ HẲN** — file Jay Lâm không đóng góp dòng nào vào bản tin, chỉ dùng để bớt tin CỦA MÌNH mà anh ta đã đọc. Chỉ dẫn cũ về `tom_tat`/`nguon_ten`/`la_cnqs` hết hiệu lực.
+   ⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC**: `gh workflow run telegram-bot.yml` rồi chờ run xong (~2 phút) TRƯỚC khi đọc. File Jay Lâm chỉ vào bảng khi workflow bot chạy, mà GitHub chạy nó cách nhau **01-02 giờ** dù cron khai `*/5` — tối 30/07 file gửi 21:20 VN mà đọc lúc 21:25 chỉ thấy file hôm trước. Gọi `gh` bị chặn *requires approval* thì ghi một dòng vào log rằng **chưa kích được bot** rồi đi tiếp.
    ```
    python3 scripts/tin_jaylam.py --liet-ke
    ```
-   Mã **10** = không có tin chờ, bỏ qua bước này.
-   ⚠️ **Dòng hàng chờ là DIGEST gộp hàng chục tin thì `--ghi` không dùng được** (một tóm tắt/id). Tách thành nhiều dòng trong `dt_jaylam_inbox` (INSERT mở cho anon, mỗi tin một dòng đủ `tieu_de`/`tom_tat`/`nguon_*`/`da_xu_ly=true`), rồi PATCH dòng gốc `da_gop=true` — xem Bước 4c của SKILL. Bỏ qua bước này là mục 5 in nguyên văn cắt cụt giữa câu. Mã **0** = có tin: với mỗi tin, truy về bài gốc theo đúng luật TRUY NGƯỢC của Báo Mới (nguồn chính thức → wire → báo chuyên ngành; WebFetch xác nhận bài có thật), viết `tieu_de` + `tom_tat` 1-2 câu, rồi:
+   Mã **10** = không có file nào trong khung ngày, bỏ qua bước này. Mã **0** = có file: in TOÀN VĂN với file chưa trích, BẢNG GỌN với file đã trích.
+   **(a)** File chưa trích → trích **ĐỦ MỌI TIN, không lọc, không chọn lọc** (sót một tin là tin đó lọt vào bản tin dù Jay Lâm đã có):
    ```
-   python3 scripts/tin_jaylam.py --ghi /tmp/jaylam.json
+   python3 scripts/tin_jaylam.py --ghi /tmp/bang-jaylam.json
    ```
-   `[{"id": <id>, "tieu_de": "...", "tom_tat": "...", "nguon_ten": "Reuters", "nguon_url": "https://...", "la_cnqs": false}]`
-   - ⛔ **`la_cnqs: true` cho tin CNQS Mỹ** (khí tài · hệ thống · hợp đồng quốc phòng) — nhóm DUY NHẤT được nới khung **3 ngày lùi**, y như tin quét thường. Khai hụt là loại oan đúng nhóm Huy cần nhất.
-   - Không truy được bài gốc thì VẪN GIỮ tin: `nguon_ten: "Jay Lâm gửi"`, bỏ trống `nguon_url`. Đừng nhét link bừa — guardrail chặn trang chủ và live-blog.
+   `[{"id": <id>, "tin": [{"tieu_de": "...", "url": "https://..."}, ...]}]` — `url` được phép rỗng.
+   **(b)** Đối chiếu tin mình vừa quét với tin Jay Lâm đã có, rồi khai tin của mình bị bỏ:
+   ```
+   python3 scripts/tin_jaylam.py --ghi-loai /tmp/loai-jaylam.json
+   ```
+   `[{"url": "<sourceUrl tin của mình>", "tieu_de": "<tiêu đề tin của mình>", "id_jay": <id>, "trung_voi": "<mảnh tương ứng bên file Jay>"}]`
+   - ⚠️ **SO LINK THUẦN LÀ VÔ DỤNG — đã đo.** 12 tin quét tối 01/08 vs 37 URL file Jay Lâm ra **0 trùng URL**, đọc hiểu ra **03 tin trùng sự kiện**. Jay Lâm viết lại bằng tiếng Việt từ nguồn khác. **Phép lọc là ĐỌC HIỂU THEO SỰ KIỆN**; link chỉ là chốt chắc khi tình cờ trùng.
+   - ⚠️ **So với FILE GỐC hoặc bảng trích ĐẦY ĐỦ, KHÔNG so với danh sách tin đã viết lại của mình** — danh sách đó đã qua lọc trùng nên đúng tin trùng lại vắng mặt (vấp thật 01/08).
+   - ⚠️ **Phạm vi: MỌI tin còn trong khung ngày (2-3 ngày), không chỉ lô vừa nạp.**
+   - ⚠️ **`trung_voi` bắt buộc** — xoá tin là mất nội dung, phải soi ngược được. Không chắc thì ĐỪNG khai: sót ⇒ lặp tin (thấy được); khai thừa ⇒ **mất tin của mình, không ai thấy**.
+   - ⚠️ **Sổ ở `logs/trung-jaylam.json` — phải `git add logs/`**, không thì `make_docx.py` không thấy sổ.
    - Một mục sai là CHẶN CẢ LÔ (mã 1, không ghi gì): sửa mục lỗi rồi chạy lại.
-   - ⛔ **BỎ BƯỚC NÀY = BẢN TIN HÔM ĐÓ KHÔNG CÓ MỤC 5** (siết 01/08/2026 — nhánh dán nguyên văn đã bỏ hẳn; dòng chưa tóm tắt không vào file, nó nằm chờ). **Quá hạn 21:45 thì vẫn BỎ bước này**, chốt bản tin trước (hạn này của RIÊNG phiên tối) — tin chờ sang bản SÁNG hôm sau. Nhưng bỏ **ba phiên liên tiếp là mất tin thật**: hết khung 3 ngày thì dòng đó đóng sổ mà chưa từng đăng ở đâu.
-   - ✅ **Phiên SÁNG SỚM CŨNG LÀM bước này — đảo lại chỉ dẫn cũ 30/07/2026.** Huy chốt: *"Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động gộp tin vào bản tin sáng"*; `make_docx.py` nay dựng mục 5 ở CẢ HAI buổi. Cơ chế gây vấp của bản cũ: phiên tối chạy 20:47-21:26 mà file gửi lúc 21:34 thì phải chờ tới 20:47 hôm sau, lúc đó khung ngày đã đẩy sang nhóm quá hạn rồi đóng sổ — file gửi trong khoảng 21:30-23:59 gần như không bao giờ tới tay. Bỏ bước này ở phiên sáng thì mục 5 vắng mặt hẳn.
+   - ⛔ **Bỏ bước này thì bản tin LẶP tin Jay Lâm đã có** — không mất tin. Quá hạn 21:45 (của RIÊNG phiên tối) thì vẫn chốt bản tin trước; file Jay Lâm còn hiệu lực 3 ngày nên bản sau vẫn lọc được phần còn lại.
+   - ✅ **Phiên SÁNG SỚM CŨNG LÀM** — file gửi 21:34 tối qua còn hiệu lực tới bản sáng nay.
 4. Kết thúc — LUÔN một trong ba: `python3 scripts/state.py done web-scan "<tóm tắt>"` (nạp được tin) / `skip` (lô rỗng) / `fail` (lỗi giữa chừng, VẪN push log).
    Commit bản tin đúng mẫu `Cap nhat ban tin DD/MM: +N tin (5 chu de)` — `git add index.html data/ logs/` (phải có logs/state.json) rồi push. Push bị từ chối → `git pull --rebase origin main` rồi push lại; pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ.
 5. Báo cáo cuối NGẮN GỌN: số tin mỗi chủ đề, chủ đề nào thiếu (đã nới 48h chưa), trạng thái push.
