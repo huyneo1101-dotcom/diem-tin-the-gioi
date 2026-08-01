@@ -378,77 +378,72 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
   `/tmp/email-preview.html`. ⚠️ **Máy Huy KHÔNG có `node`** — chỉ chạy được ở nơi có node, hoặc kiểm
   cú pháp/logic bằng `jsc` với stub `require` (xem CLAUDE.md).
 
-## Bước 4c — CẢ HAI PHIÊN: tin Jay Lâm gửi thành TIN CHUẨN (thêm 30/07/2026)
+## Bước 4c — CẢ HAI PHIÊN: dùng file Jay Lâm làm BỘ LỌC (đảo nguyên tắc 01/08/2026)
 
-Chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*. Mục 5 của
-file .docx bản tin là tin Jay Lâm gửi vào bot; trước 30/07 nó dán nguyên văn tới 20.000 ký tự,
-lệch hẳn khuôn 4 mục kia (nhánh dán nguyên văn đã bỏ hẳn 01/08/2026). Việc truy nguồn + viết tóm tắt cần suy nghĩ nên `make_docx.py` không làm
-được — đây là việc của phiên quét.
+> Nguyên văn Huy: *"thay đổi hoàn toàn nguyên tắc. file của Jay Lâm gửi chỉ là để so sánh xem có tin
+> nào mày quét được mà bị trùng với tin trong file đó không thôi"* · *"nếu có tin bị trùng với file
+> Jay Lâm thì tự xoá khỏi tổng hợp tin đã quét đi và gửi file word (trong đó không có tin nào từ
+> Jay Lâm)"*.
 
-✅ **PHIÊN SÁNG SỚM CŨNG LÀM BƯỚC NÀY — đảo lại "CHỈ PHIÊN TỐI" của bản đầu, cùng ngày 30/07/2026.**
-Huy chốt: *"Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự động gộp tin vào bản tin sáng"*, và
-`make_docx.py` nay dựng mục 5 ở CẢ HAI buổi. **Cơ chế gây vấp của bản đầu:** phiên tối chạy
-20:47-21:26 mà file Jay Lâm gửi lúc 21:34 — muộn hơn cả bản .docx cuối cùng — nên tin phải chờ tới
-20:47 hôm sau, lúc đó khung ngày đã đẩy nó sang nhóm quá hạn rồi đóng sổ. Tức file gửi trong khoảng
-21:30-23:59 gần như **không bao giờ tới tay**, mà file .docx vẫn ra đời bình thường nên không dấu
-hiệu nào. Bỏ bước này ở phiên sáng thì **mục 5 vắng mặt hẳn** (từ 01/08/2026 — trước đó nó in nguyên
-văn dự phòng). Hạn chót 21:45 nhắc ở dưới là của RIÊNG phiên tối.
+⛔ **MỤC 5 "Tin Jay Lâm gửi" ĐÃ BỎ HẲN.** File Jay Lâm không còn đóng góp một dòng nào vào bản tin.
+Nó chỉ dùng để **bớt tin CỦA MÌNH**: tin nào mình quét được mà anh ta đã có thì bỏ đi, vì anh ta đọc
+rồi. Bản tin gửi ra chỉ còn phần Jay Lâm CHƯA có. Mọi chỉ dẫn cũ về tóm tắt-để-đăng, `la_cnqs`,
+`nguon_ten`, nhãn xác minh đều hết hiệu lực.
 
-⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC, RỒI MỚI ĐỌC HÀNG CHỜ** (thêm 30/07/2026 sau khi vấp thật). File Jay
-Lâm gửi chỉ vào bảng khi `telegram-bot.yml` chạy, mà GitHub chạy workflow đó **cách nhau 01-02 giờ**
-dù cron khai `*/5`. Tối 30/07: file gửi 21:20 VN, hàng chờ đọc lúc 21:25 chỉ thấy file HÔM TRƯỚC, bản
-tin xuất 21:29 ⇒ mất trọn một file. Hàng chờ có dữ liệu nên nhìn như đang chạy đúng — không lỗi,
-không cảnh báo.
+⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC, RỒI MỚI ĐỌC** (giữ nguyên từ 30/07/2026). File Jay Lâm gửi chỉ vào
+bảng khi `telegram-bot.yml` chạy, mà GitHub chạy workflow đó **cách nhau 01-02 giờ** dù cron khai
+`*/5`. Tối 30/07: file gửi 21:20 VN, đọc lúc 21:25 chỉ thấy file HÔM TRƯỚC. Hàng chờ có dữ liệu nên
+nhìn như đang chạy đúng — không lỗi, không cảnh báo.
+
 ```
 gh workflow run telegram-bot.yml --repo huyneo1101-dotcom/diem-tin-the-gioi
 gh run watch <id> --exit-status --interval 15    # ~2 phút
-python3 scripts/tin_jaylam.py --liet-ke        # mã 10 = không có tin chờ -> bỏ qua bước này
-python3 scripts/tin_jaylam.py --ghi /tmp/jaylam.json
+python3 scripts/tin_jaylam.py --liet-ke          # mã 10 = không có file nào -> bỏ qua bước này
+python3 scripts/tin_jaylam.py --ghi /tmp/bang-jaylam.json      # (2) lưu bảng đối chiếu
+python3 scripts/tin_jaylam.py --ghi-loai /tmp/loai-jaylam.json # (3) khai tin của mình bị bỏ
 ```
 Không gọi được `gh` (phiên CI hay bị chặn *requires approval*) thì **ghi một dòng vào log rằng chưa
-kích được bot, hàng chờ có thể thiếu file gửi sát giờ** rồi đi tiếp — fail-open CÓ TIẾNG.
+kích được bot** rồi đi tiếp — fail-open CÓ TIẾNG.
 
-⚠️ **MỘT DÒNG HÀNG CHỜ CÓ THỂ LÀ DIGEST GỘP HÀNG CHỤC TIN — lúc đó `--ghi` KHÔNG dùng được.** Schema
-`--ghi` là một `tieu_de` + một `tom_tat` cho mỗi `id`; ép một tóm tắt cho cả file thì mất gần hết nội
-dung. Phiên tối 30/07 gặp đúng ca này và **bỏ qua luôn bước `--ghi`**, để `make_docx.py` lùi về nguyên
-văn cắt ở 1.200 ký tự — người đọc nhận một mục 5 cụt giữa câu. **Đường đúng: tách digest thành NHIỀU
-DÒNG trong `dt_jaylam_inbox`**, mỗi tin một dòng (`INSERT` mở cho anon) mang đủ
-`tieu_de`/`tom_tat`/`nguon_ten`/`nguon_url`/`da_xu_ly=true`, rồi `PATCH` dòng gốc `da_gop=true`.
-`make_docx.py` in ra đúng khuôn tin chuẩn, không phải sửa gì bên đó. Đã làm thật 30/07: 02 file digest
-ra **22 dòng tin**, mục 5 in đủ 21 tin sau bộ lọc chống trùng. Khung ngày vẫn áp như tin quét — bỏ tin
-quá 2 ngày, trừ CNQS Mỹ (`la_cnqs: true`, nới 3 ngày).
-`[{"id": <id>, "tieu_de": "...", "tom_tat": "...", "nguon_ten": "Reuters", "nguon_url": "https://...", "la_cnqs": false}]`
+### (2) `--ghi` — trích BẢNG ĐỐI CHIẾU từ file Jay Lâm
+`--liet-ke` in TOÀN VĂN với file chưa trích, in BẢNG GỌN với file đã trích. Đọc toàn văn rồi nộp:
+`[{"id": <id>, "tin": [{"tieu_de": "...", "url": "https://..."}, ...]}]`
 
-**Chuẩn nội dung — ĐÚNG bằng chuẩn tin quét thường, không hạ thấp:**
-- **Truy về bài gốc** theo luật TRUY NGƯỢC của Báo Mới: nguồn chính thức → wire (Reuters/AP/AFP) →
-  báo chuyên ngành/uy tín. Mở bằng WebFetch xác nhận bài có thật và khớp nội dung, rồi lấy
-  `nguon_ten` + `nguon_url` + viết `tom_tat` **theo bài gốc**, không theo cách diễn đạt trong file
-  Jay Lâm gửi (bản dẫn lại hay làm tròn/rút gọn sai số liệu).
-- `tom_tat` 1-2 câu như `summary` của tin thường — **không** kèm câu đánh giá kiểu "cho thấy…",
-  "phản ánh…" (đúng luật đã bỏ `significance` khỏi .docx từ 27/07/2026).
-- ⛔ **`la_cnqs: true` cho tin CNQS Mỹ** (khí tài · hệ thống · hợp đồng quốc phòng Mỹ) — nhóm DUY
-  NHẤT được nới khung ngày tới **3 ngày lùi**, y như `MAX_AGE_DAYS_CNQS` của tin quét. Huy nêu thẳng
-  30/07/2026: *"tao cần tin cnqs Mỹ thì tin cũ 3 ngày vẫn để lại (ví dụ hôm nay 27 thì có thể giữ
-  lại tin tận ngày 24)"*. Khai hụt cờ này là **loại oan** đúng nhóm tin Huy cần nhất.
-- **Không truy được bài gốc thì VẪN GIỮ tin**: `nguon_ten: "Jay Lâm gửi"`, bỏ trống `nguon_url`
-  (cùng luật Agent 7 của Báo Mới — bài người dùng tự đưa thì không được bỏ). Đừng nhét link bừa cho
-  có: guardrail chặn trang chủ và live-blog, và link sai còn tệ hơn không link.
+- **Trích ĐỦ MỌI TIN trong file, không lọc, không chọn lọc.** Đây là bảng đối chiếu — sót một tin là
+  tin đó sẽ lọt vào bản tin dù Jay Lâm đã có. Script cảnh báo `TRÍCH SÓT` khi file nhiều link mà
+  trích quá ít, nhưng cảnh báo đó chỉ bắt được ca lệch nặng.
+- `url` **được phép rỗng** — Jay Lâm viết lại bằng tiếng Việt, nhiều tin không kèm link. URL chỉ là
+  chốt phụ; script không dùng `check_url_quality` nên link trang chủ vẫn nhận.
+- Trích xong thì lần sau khỏi đọc lại toàn văn (34.000 ký tự/file) — bảng lưu trong Supabase và
+  `--liet-ke` in lại nó suốt **3 ngày** file còn hiệu lực.
 
-**Guardrail của `--ghi`** (chặn = mã 1, không ghi gì, sửa rồi chạy lại): `id` không nằm trong hàng
-chờ · `id` trùng trong cùng file · `tieu_de` ngoài 10-200 ký tự · `tom_tat` dưới 40 ký tự ·
-thiếu `nguon_ten` · `nguon_url` là trang chủ/live-blog · `la_cnqs` không phải true/false. **Một mục
-sai là chặn CẢ LÔ** — cố ý, để không ghi nửa vời rồi không ai biết phần nào đã vào.
+### (3) `--ghi-loai` — khai tin CỦA MÌNH bị bỏ
+`[{"url": "<sourceUrl tin của mình>", "tieu_de": "<tiêu đề tin của mình>", "id_jay": <id>,
+"trung_voi": "<mảnh tương ứng bên file Jay>"}]`
 
-⛔ **BỎ BƯỚC NÀY = BẢN TIN HÔM ĐÓ KHÔNG CÓ MỤC 5** (siết 01/08/2026 — nhánh dán nguyên văn đã bỏ
-hẳn, xem CLAUDE.md). Câu cũ ở đây ghi *"tin không xử lý kịp KHÔNG mất, mục 5 tự lùi về nguyên văn
-đã cắt"* — nay sai: dòng chưa tóm tắt **không vào file**, nó nằm chờ. Vẫn không mất tin, nhưng cái
-giá đã đổi từ *"mục 5 xấu hơn"* thành *"mục 5 vắng mặt"*, nên đừng bỏ bước này cho nhẹ việc.
-⚠️ Bước này nằm SAU hạn 21:45 của phiên tối: quá hạn thì vẫn **chốt bản tin trước, bỏ bước này** —
-tin chờ sang bản SÁNG hôm sau (còn trong khung ngày). Nhưng **bỏ ba phiên liên tiếp là mất tin
-thật**: hết khung 3 ngày thì dòng đó bị đóng sổ mà chưa từng đăng ở đâu, chỉ còn một dòng
-`CHƯA TỪNG được tóm tắt` trong log workflow.
-⚠️ Phiên SÁNG SỚM CŨNG LÀM bước này — mục 5 dựng ở CẢ HAI buổi từ 30/07/2026.
+⚠️ **SO LINK THUẦN LÀ VÔ DỤNG — đã đo, đừng dựng lại đường đó.** Đối chiếu 12 tin quét tối 01/08 với
+37 URL trong file Jay Lâm ra **0 tin trùng URL**, trong khi đọc hiểu ra **03 tin trùng sự kiện**
+(Mahan Air · tuần tra Scarborough · NITE-STAR 981 triệu USD). Jay Lâm viết lại bằng tiếng Việt từ
+nguồn khác hẳn nguồn mình lấy. **Phép lọc là ĐỌC HIỂU THEO SỰ KIỆN**; link chỉ là chốt chắc khi tình
+cờ trùng.
 
+⚠️ **Đối chiếu phải so với FILE GỐC hoặc bảng trích ĐẦY ĐỦ, KHÔNG so với danh sách tin đã viết lại
+của mình.** Vấp thật 01/08: danh sách 29 tin viết lại của phiên trước đã qua lọc trùng rồi, nên đúng
+những tin trùng lại vắng mặt trong đó — dùng nó làm bảng đối chiếu thì kết luận "không có tin nào
+trùng".
+
+- **Phạm vi lọc: MỌI tin còn trong khung ngày (2-3 ngày), không chỉ lô vừa nạp.** File Jay Lâm gửi
+  hôm nay vẫn phải lọc tin CNQS Mỹ mình đăng từ 3 ngày trước.
+- `trung_voi` **bắt buộc** — xoá tin là mất nội dung, phải soi ngược được vì sao. Script chặn nếu
+  thiếu.
+- **Không chắc thì ĐỪNG khai.** Hai chiều lệch khác hẳn nhau: sót một tin ⇒ bản tin lặp tin Jay Lâm
+  đã có (Huy thấy được); khai thừa ⇒ **tin của mình biến mất, không ai thấy**.
+- Sổ nằm ở `logs/trung-jaylam.json` — **phải `git add logs/` cùng bản tin**, không thì
+  `make_docx.py` không thấy sổ và bản .docx vẫn lặp tin.
+
+⚠️ **BỎ BƯỚC NÀY THÌ BẢN TIN LẶP TIN JAY LÂM ĐÃ CÓ** — không mất tin, không lỗi, chỉ là anh ta đọc
+lại thứ đã đọc. Quá hạn 21:45 của phiên tối thì vẫn **chốt bản tin trước**, bỏ bước này; file Jay Lâm
+còn hiệu lực 3 ngày nên bản tin sau vẫn lọc được phần còn lại.
 ## Bước 5 — Xuất bản + log
 - `git add index.html logs/` phải gồm **`logs/scan-gaps.json`** (cùng `logs/state.json`).
 - `python3 scripts/state.py done web-scan "+N tin (5 chủ đề)"` — CHỈ khi thật sự nạp được tin; lô rỗng

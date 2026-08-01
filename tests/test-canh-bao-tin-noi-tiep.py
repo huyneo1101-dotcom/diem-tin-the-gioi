@@ -166,13 +166,17 @@ def main() -> int:
     kiem("9. CÒN TRÊN ĐƯỜNG ĐI — `warn_similar_titles` phải được gọi trong luồng nạp",
          len(goi) >= 1)
 
-    # ── 10. Bộ lọc THẬT của mục Jay Lâm KHÔNG được hạ theo ──────────────────
-    # `make_docx.loc_trung_jaylam` LỌC thật (ẩn tin khỏi mục 5), không phải chỉ nhắc. Hạ
-    # ngưỡng ở đó là LỌC OAN = MẤT TIN, nặng hơn hẳn một dòng cảnh báo thừa. Trước 30/07 hai
-    # nơi dùng chung con số 0.6, nên ai đọc lướt rất dễ "đồng bộ" nốt cho gọn.
+    # ── 10. `make_docx.py` KHÔNG được dựng lại phép lọc theo TIÊU ĐỀ ────────
+    # Ca này TRƯỚC 01/08/2026 canh ngưỡng 0.6 của `make_docx.loc_trung_jaylam` — hàm đó lọc
+    # tin Jay Lâm khỏi mục 5 bằng Jaccard tiêu đề. Mục 5 đã bỏ hẳn cùng hàm ấy khi Huy đảo
+    # nguyên tắc: file Jay Lâm nay là BỘ LỌC, và phép lọc chạy theo URL trong sổ
+    # `logs/trung-jaylam.json` do agent khai, KHÔNG theo độ giống tiêu đề.
+    # Giữ ca ở đây (thay vì gỡ) vì nguy cơ vẫn còn nguyên chiều: ai đó thấy hai bên đều "so
+    # tiêu đề" rồi dựng lại một phép lọc Jaccard trong `make_docx.py` sẽ tạo lớp LỌC THẬT
+    # thứ hai, mà lọc oan ở đó là MẤT TIN — nặng hơn hẳn một dòng cảnh báo thừa.
     md = MAKEDOCX_PATH.read_text(encoding="utf-8")
-    kiem("10. KHÔNG LÂY — bộ lọc trùng Jay Lâm (lọc THẬT) vẫn giữ ngưỡng 0.6",
-         md.count("/ len(tk | o) >= 0.6") == 2)
+    kiem("10. KHÔNG LÂY — `make_docx.py` không dựng lại phép lọc Jaccard theo tiêu đề",
+         "len(tk | o)" not in md and "loc_trung_jaylam" not in md)
 
     print("═" * 78)
     do = [t for t, ok in CA if not ok]
@@ -215,13 +219,19 @@ BAN_HONG = [
      "add_news",
      ("    warn_similar_titles(new_items, similar_warnings_data)", "    pass"),
      [9]),
-    # "Đồng bộ cho gọn" hai ngưỡng -> lọc oan mục Jay Lâm, tức MẤT TIN.
-    ("hạ luôn ngưỡng lọc THẬT của mục Jay Lâm theo (lọc oan = mất tin)",
+    # Dựng lại một lớp LỌC THẬT theo tiêu đề trong `make_docx.py` — đúng thứ ca 10 canh.
+    ("dựng lại phép lọc Jaccard theo tiêu đề trong make_docx (lọc oan = mất tin)",
      "make_docx",
-     ("        trung = any(len(tk & o) / len(tk | o) >= 0.6 for o in da_co) or \\\n"
-      "            any(len(tk & o) / len(tk | o) >= 0.6 for o in da_dua)",
-      "        trung = any(len(tk & o) / len(tk | o) >= 0.4 for o in da_co) or \\\n"
-      "            any(len(tk & o) / len(tk | o) >= 0.4 for o in da_dua)"),
+     ("def loc_bo_trung_jaylam(items, urls, ten_muc=\"\"):",
+      "def loc_trung_jaylam(rows, da_co):\n"
+      "    for tk in rows:\n"
+      "        for o in da_co:\n"
+      "            if len(tk & o) / len(tk | o) >= 0.4:\n"
+      "                return []\n"
+      "    return rows\n"
+      "\n"
+      "\n"
+      "def loc_bo_trung_jaylam(items, urls, ten_muc=\"\"):"),
      [10]),
 ]
 

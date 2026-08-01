@@ -75,11 +75,13 @@ MAX_AGE_DAYS_CNQS = 3
 # lần nào), 0.5 kêu 1, 0.4 kêu 3 — và CẢ 3 đều là tin nối tiếp thật, KHÔNG có nhiễu:
 #   0.52 Philippines thềm lục địa · 0.42 "Hammer of the Gods" · 0.40 chính cặp Graham.
 # Xuống 0.35 thì kêu 4 mà cái thứ 4 không phải tin nối tiếp -> giữ 0.4.
-# ⚠️ Đây là ngưỡng của lớp CHỈ CẢNH BÁO. Bộ lọc THẬT của mục Jay Lâm
-# (`make_docx.py::loc_trung_jaylam`) vẫn giữ 0.6 — hạ ngưỡng ở đó là LỌC OAN, tức mất tin,
-# nặng hơn hẳn một dòng cảnh báo thừa. Trước 30/07 hai nơi dùng chung một con số 0.6, nên
-# nếu sau này cần đổi thì đổi RIÊNG từng bên và sửa cả CLAUDE.md (mục Jay Lâm còn ghi
-# "CÙNG NGƯỠNG", nay đã sửa lại cho khớp).
+# ⚠️ Đây là ngưỡng của lớp CHỈ CẢNH BÁO — kêu thừa thì tốn một dòng đọc, không mất gì.
+# Bản trước ở đây đối chiếu với `make_docx.py::loc_trung_jaylam` (ngưỡng 0.6, LỌC THẬT tin
+# Jay Lâm khỏi mục 5). Hàm và mục 5 đều đã bỏ 01/08/2026 khi Huy đảo nguyên tắc: file Jay Lâm
+# nay là BỘ LỌC và phép lọc chạy theo URL trong `logs/trung-jaylam.json`, KHÔNG theo độ giống
+# tiêu đề. Bài học vẫn nguyên: **đừng "đồng bộ cho gọn" một ngưỡng CẢNH BÁO với một ngưỡng
+# LỌC THẬT** — lọc oan là MẤT TIN, không ai thấy. Ca 10 của `tests/test-canh-bao-tin-noi-tiep.py`
+# nay canh chiều đó bằng cách khẳng định `make_docx.py` không dựng lại phép lọc Jaccard nào.
 JACCARD_CANH_BAO_TIEU_DE = 0.4
 
 # Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
