@@ -311,8 +311,44 @@ lại tay, hoặc mốc dự phòng chạy bù. Sổ URL thì đúng trong mọi
 |---|---|---|---|
 | **Thân email tối** (`send-email.js`) | **CÓ** | **KHÔNG** — `GUI_EMAIL='0'` từ 27/07 | là thông báo — lặp tin đã báo thì thừa |
 | **Tin nhắn Telegram** (`send_telegram.py`) | **CÓ** | **chỉ còn con số caption** — `msgs=[]`, không liệt kê tin | cùng vai với thân email; bật lại `build_messages` thì đúng nguyên văn |
-| **File `.docx` đính kèm** (`make_docx.py`) | **KHÔNG** | **CÓ** — đây là kênh duy nhất mang nội dung | là **bản tổng hợp CẢ NGÀY** Huy lưu lại — chỉ thị Huy: *"gửi file word tối nay… thì gộp cả 11 tin hôm nay đó vào"* |
+| **File `.docx` đính kèm** (`make_docx.py`) | **CÓ, nhưng HẸP** — chỉ bỏ tin của ca SÁNG cùng ngày (`loc_bo_tin_ca_sang`), xem mục ngay dưới | **CÓ** — đây là kênh duy nhất mang nội dung | tin quét TAY giữa ngày không ghi sổ nên vẫn được giữ, đúng chỉ thị *"gửi file word tối nay… thì gộp cả 11 tin hôm nay đó vào"* |
 | **Canary** (`canary.py`) | — chỉ ĐỌC sổ | **CÓ** | công dụng chính của sổ hiện nay: bằng chứng bản tin đã tới tay |
+
+### ⛔ BẢN TỐI LẶP NGUYÊN SI TIN CA SÁNG — luật có mà KHÔNG ai thi hành (vá 01/08/2026)
+
+**Huy bắt được:** tin Healio *"Uỷ ban HELP Thượng viện bỏ phiếu thông qua đề cử Giám đốc CDC…"*
+(`healio.com/news/pediatrics/20260730/senators-vote-to-advance-schwartz-cdc-nomination`) nằm trong
+CẢ bản `.docx` sáng lẫn bản tối 31/07. Đo toàn sổ thì đây không phải tin lẻ: **100% tin ca sáng
+lặp lại trong bản tối, cả 4/4 ngày còn trong sổ** — 28/07 **9/9** · 29/07 **17/17** · 30/07
+**16/16** · 31/07 **6/6**.
+
+**Cơ chế gây vấp — luật không hỏng, LỚP THI HÀNH của nó biến mất.** Mục *"📩 EMAIL TỐI GỒM NHỮNG
+GÌ"* ở trên khai rõ từ 27/07: bản tối = tin cả ngày **TRỪ tin đã quét ở phiên sáng sớm**. Lúc đó
+người thi hành là **thân email** (`send-email.js` gọi `loc_chua_gui`), còn `.docx` cố ý KHÔNG lọc
+vì nó chỉ là file đính kèm của lá thư đã lọc. Cùng ngày 27/07, `GUI_EMAIL='0'` tắt email ⇒ `.docx`
+thành **kênh DUY NHẤT mang nội dung**, tức vai trò của nó đổi hẳn mà chú thích *"KHÔNG lọc sổ ở
+đây"* thì đứng nguyên. Từ đó luật sống trong tài liệu, không sống trong mã. Không lỗi, không cảnh
+báo, `.docx` vẫn ra đời đủ mục — chỉ là mỗi tối đọc lại nguyên bộ tin đã đọc sáng.
+
+| Mảnh | Việc |
+|---|---|
+| `so_da_gui.py::url_da_gui_buoi(buoi, ngay)` | URL đã gửi ở ĐÚNG một buổi trong ĐÚNG một ngày VN |
+| `make_docx.py::loc_bo_tin_ca_sang(items, now)` | Bản TỐI bỏ tin trùng dòng `sang` cùng ngày; bản SÁNG không lọc |
+| `make_docx.py::main()` | gọi cho CẢ `usNews` · `worldNews` · `events` |
+| `tests/test-so-da-gui.py` | **14 ca · `--tu-kiem` bắt 8/8 bản hỏng** |
+
+⚠️ **TUYỆT ĐỐI KHÔNG bọc `loc_chua_gui` vào `main()`** — chú thích cũ cảnh báo đúng chỗ này, chỉ
+sai ở chỗ kết luận "vậy thì đừng lọc gì cả". `loc_chua_gui` đọc TOÀN sổ, nên bản dựng lại trong
+ngày (`-bo-sung`, gửi bù bằng tay) sẽ thấy chính lô của mình đã nằm trong sổ và ra file **RỖNG**.
+Ca 11 canh đúng chiều này; bản hỏng *"lọc theo toàn sổ"* làm nó đỏ.
+⚠️ **Chỉ đọc dòng `buoi == "sang"`, và chỉ của NGÀY HÔM NAY.** Tin quét TAY giữa ngày vốn không
+ghi sổ (chỉ ca chính thức mới ghi, xem `tu_dong=1`) nên tự nhiên không bị đụng — giữ đúng chỉ thị
+*"quét tay xong có gửi email thì email tối vẫn phải có các tin đó"*.
+⚠️ **Bản tin trôi qua nửa đêm thì không lọc gì** (ngày mới không khớp dòng `sang` hôm trước). Cố ý:
+hướng lệch là LẶP một bản tin, không phải MẤT tin. Ca 13 canh chiều nới của phép so ngày.
+⚠️ **Bài học chung, rộng hơn ca này:** tắt một kênh gửi là **đổi vai của mọi kênh còn lại**. Trước
+khi đặt một cờ kiểu `GUI_EMAIL='0'`, soi xem kênh sắp tắt có đang MỘT MÌNH thi hành luật nào không
+— cùng họ với *"dời file thì phải dời cả thứ đang đo nó"*.
 
 ### 🔀 HAI WORKFLOW GHI CÙNG SỔ CÁCH 07 GIÂY — luật hợp nhất ở `ghi_so_push.py` (vá 30/07/2026)
 
@@ -1211,7 +1247,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | Bộ test | Cổng nó canh | Ca |
 |---|---|---|
 | `tests/test-cong-baomoi.py` | Cổng Báo Mới chống bỏ sót (`scripts/add_news.py`) | 8 — 3 PHẢI NHẮC, 4 chống nhắc oan, 1 kiểm cổng còn nằm trên đường đi của `--recent-titles` |
-| `tests/test-so-da-gui.py` | Sổ đã gửi (`so_da_gui.py` + `make_docx.loc_chua_gui`) | 9 — 5 PHẢI LOẠI/PHẢI ĐÚNG PHẠM VI, 3 chống lọc oan, 1 kiểm còn người đọc sổ |
+| `tests/test-so-da-gui.py` | Sổ đã gửi (`so_da_gui.py` + `make_docx.loc_chua_gui` + `loc_bo_tin_ca_sang`) | **14 ca · `--tu-kiem` bắt 8/8 bản hỏng** — 5 PHẢI LOẠI/PHẢI ĐÚNG PHẠM VI, 3 chống lọc oan, 1 kiểm còn người đọc sổ, **5 ca mới cho lọc tin ca sáng**: 1 PHẢI LOẠI + 3 chống lọc oan (dòng `toi` · bản SÁNG · ngày khác) + 1 kiểm `main()` còn gọi cho cả 3 loại |
 | `tests/test-canh-bao-tin-noi-tiep.py` | Lớp cảnh báo TIN NỐI TIẾP (`add_news.warn_similar_titles`, ngưỡng `JACCARD_CANH_BAO_TIEU_DE`) | **10 ca · `--tu-kiem` bắt 5/5 bản hỏng** — 3 PHẢI KÊU (gồm ca đòi ĐÚNG lời nhắc, không chỉ đòi có kêu), 3 chống kêu oan + 1 ca biên, 1 hồi quy con số ngưỡng, 1 kiểm còn nằm trên đường đi, 1 kiểm ngưỡng lọc THẬT của mục Jay Lâm KHÔNG bị hạ theo. Bản hỏng canh **cả hai chiều**: nâng lại 0.6 (câm trở lại) và hạ về 0 (kêu mọi cặp) |
 | `tests/test-canary-ban-tin.py` | Canary bản tin (`.github/scripts/canary.py`) | 10 — 7 PHẢI KÊU, 3 PHẢI IM (gồm ca hồi quy kêu oan 00:23 ngày 28/07) |
 | `tests/test-cong-phien-test.py` | Cổng "phiên TEST không đụng cờ thật" (`scripts/state.py` + `claude-web-scan.yml`) | 11 — 5 PHẢI CHẶN, 4 chống chặn oan + đối chứng, 1 kiểm cổng còn nằm trên đường đi (đọc chính file yml), 1 kiểm banner |

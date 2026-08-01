@@ -55,6 +55,34 @@ def url_da_gui() -> set:
     return out
 
 
+def url_da_gui_buoi(buoi: str, ngay: str) -> set:
+    """Tập URL đã gửi ở ĐÚNG một buổi, trong ĐÚNG một ngày VN (`ngay` dạng YYYY-MM-DD).
+
+    Khác `url_da_gui()` (gộp cả sổ, dùng cho kênh THÔNG BÁO — lặp lại tin cũ là thừa).
+    Hàm này hẹp hơn vì `.docx` bản tối chỉ được loại tin của **ca SÁNG cùng ngày**:
+      • dòng `toi` KHÔNG được dùng để lọc — nếu không, bản dựng lại trong ngày (`-bo-sung`,
+        gửi bù bằng tay) sẽ ra file rỗng vì lô của chính nó đã nằm trong sổ;
+      • tin quét TAY giữa ngày vốn không ghi sổ (chỉ ca chính thức mới ghi) nên tự nhiên
+        không bị đụng — đúng chỉ thị Huy 27/07: *"quét tay xong có gửi email thì email tối
+        vẫn phải có các tin đó"*.
+
+    Bản tin trôi qua nửa đêm thì `ngay` là ngày mới, không khớp dòng `sang` hôm trước ⇒ không
+    lọc gì. Cố ý để hướng lệch là LẶP một bản tin chứ không phải MẤT tin.
+    """
+    out = set()
+    for lan in doc_so()["lan_gui"]:
+        if lan.get("buoi") != buoi:
+            continue
+        try:
+            luc = datetime.datetime.fromisoformat(lan["luc"])
+        except (ValueError, KeyError, TypeError):
+            continue          # bản ghi hỏng thì bỏ qua, đừng để nó lọc oan
+        if luc.astimezone(VN).strftime("%Y-%m-%d") != ngay:
+            continue
+        out.update(u for u in (lan.get("urls") or []) if u)
+    return out
+
+
 def ghi_lan_gui(urls, buoi: str) -> int:
     urls = sorted({u for u in urls if u})
     d = doc_so()

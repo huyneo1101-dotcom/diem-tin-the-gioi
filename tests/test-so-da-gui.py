@@ -177,11 +177,61 @@ def _():
     return n >= 2, f"đếm được {n} lời gọi loc_chua_gui( trong send_telegram.py (cần >= 2)"
 
 
+def toi(gio=21):
+    """Mốc giờ VN buổi TỐI của HÔM NAY — `loc_bo_tin_ca_sang` chỉ chạy khi `la_buoi_toi`."""
+    return datetime.datetime.now(SDG.VN).replace(hour=gio, minute=0, second=0, microsecond=0)
+
+
+@ca('10. Bản TỐI: tin đã gửi ở ca SÁNG cùng ngày → PHẢI LOẠI khỏi .docx')
+def _():
+    # Ca thật 31/07/2026: cả 6/6 tin bản sáng lặp nguyên si trong bản tối, 4/4 ngày đo được.
+    with RepoGia({"lan_gui": [lan_gui([U_WORLD], "sang")]}):
+        con = MD.loc_bo_tin_ca_sang([tin(U_WORLD), tin(U_US)], toi())
+    urls = [it["sourceUrl"] for it in con]
+    return urls == [U_US], f"còn lại: {urls}"
+
+
+@ca('11. Dòng `toi` KHÔNG được dùng để lọc (bản dựng lại trong ngày phải còn đủ tin)')
+def _():
+    # Bọc `loc_chua_gui` vào đây thì bản `-bo-sung` / gửi bù bằng tay ra file RỖNG.
+    with RepoGia({"lan_gui": [lan_gui([U_WORLD, U_US], "toi")]}):
+        con = MD.loc_bo_tin_ca_sang([tin(U_WORLD), tin(U_US)], toi())
+    return len(con) == 2, f"còn lại: {len(con)} tin (phải giữ cả 2)"
+
+
+@ca('12. Bản SÁNG (trước 14h) → KHÔNG lọc gì, tin vừa nạp chưa từng gửi')
+def _():
+    with RepoGia({"lan_gui": [lan_gui([U_WORLD], "sang")]}):
+        con = MD.loc_bo_tin_ca_sang([tin(U_WORLD), tin(U_US)], toi(gio=5))
+    return len(con) == 2, f"còn lại: {len(con)} tin (phải giữ cả 2)"
+
+
+@ca('13. Dòng `sang` của NGÀY KHÁC → không lọc (chống lọc oan qua ngày)')
+def _():
+    with RepoGia({"lan_gui": [lan_gui([U_WORLD], "sang", tre_ngay=2)]}):
+        con = MD.loc_bo_tin_ca_sang([tin(U_WORLD), tin(U_US)], toi())
+    return len(con) == 2, f"còn lại: {len(con)} tin (phải giữ cả 2)"
+
+
+@ca('14. Cổng còn nằm trên đường đi: main() lọc CẢ us/world/events (kiểm tĩnh)')
+def _():
+    # Cổng sống mà main() không gọi thì vẫn là cổng câm — đúng cảnh đã xảy ra khi
+    # `GUI_EMAIL='0'` tắt thân email và không ai để ý .docx thành kênh duy nhất.
+    src = (GS_THAT / "make_docx.py").read_text(encoding="utf-8")
+    n = src.count("loc_bo_tin_ca_sang(pick_items(")
+    return n == 3, f"đếm được {n} lời gọi loc_bo_tin_ca_sang(pick_items( (cần đúng 3)"
+
+
 # ═══════════════════════════ tự kiểm: bản hỏng ═══════════════════════════
 # (nhãn · file · phép thay · các ca BẮT BUỘC phải đỏ)
 BAN_HONG = [
+    # ⚠ Neo kèm dòng `for` phía trên: từ 01/08/2026 `url_da_gui_buoi` dùng lại nguyên văn
+    # dòng `out.update(...)` nên neo một dòng trần khớp 2 chỗ.
     ("so_da_gui: đọc sổ về rỗng (cổng câm hoàn toàn)", "so_da_gui.py",
-     ('        out.update(u for u in (lan.get("urls") or []) if u)', '        pass'),
+     ('    for lan in doc_so()["lan_gui"]:\n'
+      '        out.update(u for u in (lan.get("urls") or []) if u)',
+      '    for lan in doc_so()["lan_gui"]:\n'
+      '        pass'),
      [1, 2, 5]),
     ("so_da_gui: bỏ phép cắt bản ghi quá hạn", "so_da_gui.py",
      ('            if datetime.datetime.fromisoformat(lan["luc"]) >= han:',
@@ -190,10 +240,38 @@ BAN_HONG = [
     ("so_da_gui: `--chi` bị bỏ qua, luôn ghi cả 3 loại", "so_da_gui.py",
      ('    for kind in kinds:', '    for kind in KIND_MAC_DINH:'),
      [3]),
+    # ⚠ Neo phải KÈM dòng print phía dưới: từ 01/08/2026 make_docx có HAI hàm cùng dùng
+    # nguyên văn dòng `out = [...]` (loc_chua_gui và loc_bo_tin_ca_sang), neo một dòng trần
+    # sẽ khớp 2 chỗ và phép thay bị từ chối.
     ("make_docx: loc_chua_gui trả nguyên danh sách (không lọc)", "make_docx.py",
-     ('    out = [it for it in items if it.get("sourceUrl") not in da_gui]',
-      '    out = list(items)'),
+     ('    out = [it for it in items if it.get("sourceUrl") not in da_gui]\n'
+      '    if len(out) != len(items):\n'
+      '        print(f"Sổ đã gửi: bỏ',
+      '    out = list(items)\n'
+      '    if len(out) != len(items):\n'
+      '        print(f"Sổ đã gửi: bỏ'),
      [1, 2]),
+    ("make_docx: loc_bo_tin_ca_sang trả nguyên danh sách (bản tối lặp lại tin ca sáng)",
+     "make_docx.py",
+     ('    out = [it for it in items if it.get("sourceUrl") not in da_gui]\n'
+      '    if len(out) != len(items):\n'
+      '        print(f"Ca sáng: bỏ',
+      '    out = list(items)\n'
+      '    if len(out) != len(items):\n'
+      '        print(f"Ca sáng: bỏ'),
+     [10]),
+    ("make_docx: lọc theo TOÀN sổ (bọc loc_chua_gui) — giết cả bản dựng lại", "make_docx.py",
+     ('        da_gui = url_da_gui_buoi("sang", now.strftime("%Y-%m-%d"))',
+      '        da_gui = __import__("so_da_gui").url_da_gui()'),
+     [11, 13]),
+    ("make_docx: bỏ phép kiểm buổi → bản SÁNG cũng bị lọc", "make_docx.py",
+     ('    if not la_buoi_toi(now):\n        return items',
+      '    if False:\n        return items'),
+     [12]),
+    ("so_da_gui: url_da_gui_buoi lờ NGÀY, gom mọi dòng cùng buổi", "so_da_gui.py",
+     ('        if luc.astimezone(VN).strftime("%Y-%m-%d") != ngay:\n            continue',
+      '        if False:\n            continue'),
+     [13]),
 ]
 
 

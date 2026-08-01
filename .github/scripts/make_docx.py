@@ -414,6 +414,41 @@ def loc_chua_gui(items):
     return out
 
 
+def loc_bo_tin_ca_sang(items, now):
+    """Bỏ khỏi bản TỐI những tin đã gửi ở ca SÁNG cùng ngày (Huy chốt 01/08/2026).
+
+    ⚠️ ĐẢO LẠI chú thích cũ trong `main()` (*"KHÔNG lọc sổ ở đây… đừng cho nhất quán bằng
+    cách bọc loc_chua_gui vào"*). Chú thích đó viết 27/07 khi THÂN EMAIL còn sống và chính
+    nó gánh vai thực thi luật *"email tối = tin cả ngày TRỪ tin ca sáng sớm"*. Từ khi
+    `GUI_EMAIL='0'` (27/07) thân email tắt và `.docx` thành kênh DUY NHẤT mang nội dung —
+    tức lớp thực thi luật biến mất trong im lặng, còn luật thì vẫn nằm trong CLAUDE.md.
+    Đo thật 01/08 trên sổ: **100% tin ca sáng lặp lại trong bản tối, cả 4/4 ngày** (28/07
+    9/9 · 29/07 17/17 · 30/07 16/16 · 31/07 6/6).
+
+    Phần chú thích cũ VẪN ĐÚNG ở chỗ nó cảnh báo: đừng bọc `loc_chua_gui` vào đây. Hàm đó
+    lọc theo TOÀN sổ nên sẽ giết cả bản dựng lại của chính ca tối. Ở đây chỉ đọc dòng
+    `buoi == "sang"` của ĐÚNG ngày hôm nay — xem `so_da_gui.url_da_gui_buoi`.
+
+    Bản SÁNG không gọi hàm này: tin của nó vừa nạp, chưa từng gửi.
+    """
+    if not la_buoi_toi(now):
+        return items
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from so_da_gui import url_da_gui_buoi
+        da_gui = url_da_gui_buoi("sang", now.strftime("%Y-%m-%d"))
+    except Exception as e:                  # noqa: BLE001
+        print(f"Không đọc được sổ ca sáng ({e}) — giữ nguyên toàn bộ tin.", file=sys.stderr)
+        return items
+    if not da_gui:
+        return items
+    out = [it for it in items if it.get("sourceUrl") not in da_gui]
+    if len(out) != len(items):
+        print(f"Ca sáng: bỏ {len(items) - len(out)} tin đã gửi trong bản tin sáng nay.",
+              file=sys.stderr)
+    return out
+
+
 # --- Mục 5: Tin Jay Lâm gửi qua bot (thêm 30/07/2026) --------------------
 JAYLAM_SUPABASE_URL = "https://ltmlueqkajqmduoqghdf.supabase.co"
 JAYLAM_BANG = "dt_jaylam_inbox"
@@ -695,14 +730,14 @@ def main(now=None):
         cur = extract_data(f.read())
     prev = prev_data()
 
-    # ⚠️ KHÔNG lọc sổ đã gửi ở đây. Chỉ thị Huy 27/07/2026: *"gửi file word tối nay sau khi
-    # quét lúc 9h thì gộp cả 11 tin hôm nay đó vào"*. FILE WORD là BẢN TỔNG HỢP CẢ NGÀY —
-    # thứ Huy lưu lại — nên phải đủ mọi tin nạp trong ngày, kể cả tin đã báo qua email sáng.
-    # Chỉ THÂN EMAIL và TIN NHẮN TELEGRAM mới lọc sổ, vì chúng là thông báo, lặp lại thì thừa.
-    # Đừng "cho nhất quán" bằng cách bọc loc_chua_gui vào đây — đó là đúng con lỗi vừa sửa.
-    us = pick_items(cur, prev, "usNews")
-    world = pick_items(cur, prev, "worldNews")
-    events = pick_items(cur, prev, "events")
+    # ⚠️ ĐỪNG bọc `loc_chua_gui` vào đây — nó lọc theo TOÀN sổ nên giết cả bản dựng lại của
+    # chính ca tối. Thứ đúng là `loc_bo_tin_ca_sang`: chỉ bỏ tin đã gửi ở ca SÁNG CÙNG NGÀY
+    # (Huy chốt 01/08/2026 sau khi bắt được tin Healio/Schwartz-CDC lặp ở cả hai bản). Chỉ
+    # thị 27/07 *"file word gộp cả 11 tin hôm nay"* nói về tin quét TAY giữa ngày — nhóm đó
+    # không ghi sổ nên vẫn được giữ nguyên. Xem docstring của hàm.
+    us = loc_bo_tin_ca_sang(pick_items(cur, prev, "usNews"), now)
+    world = loc_bo_tin_ca_sang(pick_items(cur, prev, "worldNews"), now)
+    events = loc_bo_tin_ca_sang(pick_items(cur, prev, "events"), now)
 
     sections = build_sections(us, world, events)
 
