@@ -1395,6 +1395,22 @@ rồi đưa kết quả.
 không chứng minh được gì**. Cả hai file test đã ghi bản hỏng vào đúng thư mục rồi `unlink` trong
 `finally`.
 
+⚠️ **BẢN HỎNG ĐẶT Ở THƯ MỤC TẠM THÌ PHẢI DỰNG NGUYÊN CÂY `<tmp>/.github/scripts` +
+`<tmp>/scripts`, KHÔNG copy phẳng** (vá 02/08/2026, hồi quy thật). `make_docx.py` suy đường tới
+`scripts/` từ vị trí **CHÍNH NÓ** (`dirname` ba lần từ `__file__`) để `from topics import
+neo_uc_bien_dong`. Copy phẳng vào một thư mục tạm thì phép suy đó trỏ ra ngoài
+`/var/folders/...` ⇒ `ModuleNotFoundError` **ngay lúc nạp module** ⇒ tiến trình con không in
+được một dòng `✓`/`✗` nào ⇒ `--tu-kiem` đọc thành *"KHÔNG CÓ CA NÀO ĐỎ"* hoặc *"ĐỎ TOÀN BỘ"*.
+- **Đo thật:** `test-so-da-gui.py` **8/8** bản hỏng trượt, `test-tin-jaylam-trong-docx.py`
+  **11/11** trượt — cùng lúc, cùng nguyên nhân.
+- **Cơ chế gây vấp:** commit `8b8a993` (phiên khác) thêm import chéo thư mục vào `make_docx.py`
+  và **không sửa hai bộ test dựng bản hỏng của chính file đó** — đúng luật đã đúc *"thêm cổng
+  mới vào script đang có bộ test canh thì phải sửa bộ test ngay trong lượt đó"*, chỉ khác chỗ
+  áp: ở đây thứ được thêm không phải cổng mà là một `import`.
+- **Bảng kết quả VẪN XANH ở lượt chạy thường** — chỉ `--tu-kiem` mới lộ ra. Tức bộ test mất
+  sạch khả năng chứng minh mà không dấu hiệu nào; đây là hỏng câm của chính công cụ đo hỏng câm.
+- Mẫu đúng có sẵn: `_dung_ban_sao()` trong `tests/test-cong-uc-bien-dong.py`.
+
 ⚠️ **Ca thử phải ĐỌC bảng ánh xạ từ chính mã nguồn, đừng chép tay.** Đã bẫy một lần: ca `sukien`
 của canary soi ô **`sang`** của pipeline `event-scan`, không phải ô `sukien` — chép tay là test đỏ
 oan và tưởng cổng hỏng.
