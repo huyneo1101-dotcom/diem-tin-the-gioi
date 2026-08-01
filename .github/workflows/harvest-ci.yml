@@ -52,17 +52,33 @@ jobs:
       - name: Gom ứng viên (RSS + HTML + Google News)
         run: python3 scripts/harvest.py --ci-out docs/ung-vien-ci.json
 
+      # ⛔ CẤM `git pull --rebase` Ở ĐÂY (vá 01/08/2026 sau sự cố thật).
+      # Bảng "file DÙNG CHUNG" trong CLAUDE.md xếp `docs/ung-vien-ci.json` vào nhóm 01 nguồn
+      # ghi — "rebase không có gì để xung đột". Đo bằng `git log --format='%an'` thì đúng: chỉ
+      # một tác giả. Nhưng phép đo ấy đếm TÁC GIẢ, không đếm LƯỢT CHẠY — và HAI LƯỢT của CHÍNH
+      # workflow này cũng là hai nguồn ghi. Sự cố 01/08: hai `workflow_dispatch` lúc 13:45:08 và
+      # 13:45:11 (hai phiên cùng kích tay); `concurrency` xếp hàng đúng nên lượt 2 chạy SAU, rồi
+      # `pull --rebase` phát lại commit của mình lên commit lượt 1 — cùng sửa một chỗ trong JSON
+      # nên xung đột, và rebase hỏng để repo ở trạng thái dở nên CẢ 5 vòng retry chết tiếp.
+      # `cancel-in-progress: false` KHÔNG cứu được: nó chống chạy chồng, không chống rebase.
       - name: Commit lô ứng viên
         run: |
           git config user.name "claude-scan-ci"
           git config user.email "noreply@anthropic.com"
-          git add docs/ung-vien-ci.json
-          git diff --cached --quiet && { echo "khong co thay doi"; exit 0; }
-          git commit -m "harvest: lo ung vien gom tu CI (My)"
-          # Các workflow quét chạy sát giờ và cũng push vào main -> phải rebase rồi thử lại.
+          git diff --quiet -- docs/ung-vien-ci.json && { echo "khong co thay doi"; exit 0; }
+          # KHONG dung `git pull --rebase` — xem chu thich ngay duoi.
+          # Lo ung vien la file GHI DE (khong phai append), nen hop nhat dung la:
+          # lay dinh remote moi nhat roi ghi de lai lo cua minh len do.
+          cp docs/ung-vien-ci.json /tmp/lo-cua-minh.json
           for i in 1 2 3 4 5; do
-            git pull --rebase origin main && git push origin main && exit 0
-            echo "push lan $i that bai, thu lai sau 10s"
+            git fetch origin main
+            git reset --mixed FETCH_HEAD
+            cp /tmp/lo-cua-minh.json docs/ung-vien-ci.json
+            git add docs/ung-vien-ci.json
+            git diff --cached --quiet && { echo "lo trung voi ban tren remote"; exit 0; }
+            git commit -m "harvest: lo ung vien gom tu CI (My)"
+            git push origin HEAD:main && exit 0
+            echo "push lan $i bi chen, lay lai dinh moi sau 10s"
             sleep 10
           done
           echo "::error::khong push duoc lo ung vien sau 5 lan thu"
