@@ -11,3 +11,9 @@
 [21:15Z] Jay Lam filter: 2 file (id29 Huy 30/07, id31 Jay 01/08) - trich 84 tin qua --ghi. Phat hien 1 trung (Scarborough baseline) - --ghi-loai.
 [21:20Z] state.py done web-scan. Commit "Cap nhat ban tin 02/08: +10 tin (5 chu de)" - push OK.
 [21:22Z] BUOC 6: claim event-scan OK (phien sang). Bat dau quet su kien/tap tran/think-tank.
+[21:24Z] Agent quet su kien/tap tran: chi 1 cap nhat Pitch Black 2026 (Janes, KC-30A tiep dau Rafale An Do) nhung ngay 31/07 ngoai khung 2 ngay - loai. 0 dipEvents moi trong 48h dat chuan. 0 tin nap cho exercises/dipEvents.
+[21:27Z] Think-tank: 5 bai chon (Hudson/Heritage/CIMSEC/SmallWarsJournal/AGSI), Heritage 403 khong doc duoc - loai. Nap 4 bai + 8 khai niem qua add_analyses.py + set_analysis_concepts.py.
+[21:28Z] Hom nay Chu nhat (date +%u = 7) - chay bao cao tuan. weekly_context.py: us=130 cn=35 ru=20 tin (27/07-02/08).
+[21:33Z] Agent Opus viet bao cao tuan 3 nuoc. Kiem tra toan bo URL trich dan khop voi ngu lieu that (1 URL sai - HRW thay vi africanews - da sua). add_weekly.py OK: 3 nuoc, 8 luan diem.
+[21:35Z] state.py done event-scan. Commit "Cap nhat su kien 02/08: +4 bai think-tank, bao cao tuan" - push OK (rebase 1 lan do commit harvest CI xen giua).
+[21:36Z] DONE - Phien sang som hoan tat: bao tin (10 tin, 5 chu de) + event-scan (4 think-tank + bao cao tuan Chu nhat).
