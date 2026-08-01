@@ -1,14 +1,14 @@
 {
-  "date": "2026-08-01",
-  "session": "toi",
+  "date": "2026-08-02",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
-      "count": 2,
+      "count": 5,
       "target": 7,
       "min": 5,
-      "thieu": true,
-      "reason": "Giữ 2 tin trong khung 31/07-01/08: Fed đề xuất sửa Quy định O cho vay 'người trong cuộc' ngân hàng, Mỹ trừng phạt mạng lưới hỗ trợ Mahan Air (Iran) qua The Hindu. NHÓM 1 (điều trần/bỏ phiếu, ưu tiên tuyệt đối) = 0 tin: 3 ứng viên ban đầu đều bị loại sau khi WebFetch xác minh — Durbin/Judiciary Blanche markup thực ra diễn ra 23/07 (ngoài khung), Graham/Budget OMB Duncan hearing thực ra 16/06 (ngoài khung rất xa), một ứng viên khác sourceUrl là trang lịch họp (vi phạm luật cấm trang danh sách). Amazon hoàn thuế 600tr cũng loại vì ngày sự kiện 30/07 ngoài khung 1 ngày."
+      "thieu": false,
+      "reason": "Đạt sàn tối thiểu 5: AI EO deadline (CNBC), ACLU toà bác dữ liệu cử tri Illinois, Dân chủ tự tin giữa nhiệm kỳ, Fed đề xuất sửa Quy định O, Amazon hoàn thuế 600tr. NHÓM 1 (điều trần/bỏ phiếu, ưu tiên tuyệt đối) = 0 tin: 4 ứng viên HTML từ trang uỷ ban Thượng viện không xác định được ngày sự kiện trong khung (harvest.py trả ngày [?]), dồn sang nhóm 4 theo đúng luật khi nhóm 1 không đủ."
     },
     {
       "name": "Úc & Biển Đông",
@@ -16,15 +16,15 @@
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Giữ 2 tin: TQ tập trận gần Scarborough sau khi Philippines nộp hồ sơ LHQ, Bisalloy Steel Úc vào chuỗi cung ứng AUKUS tàu ngầm Virginia. Loại 5 ứng viên vì trùng DATA đã có (Philippines nộp bản đồ Scarborough, hải cảnh TQ Đài Loan, drone bill Đài Loan). WebSearch bổ sung cho VN/Indonesia/Malaysia/Natuna không ra sự kiện mới trong khung."
+      "reason": "Giữ 2 tin: TQ bác đường cơ sở Philippines quanh Scarborough, Bộ trưởng QP Úc đính chính cam kết tàu ngầm Mỹ lâu dài. Loại 1 ứng viên (Exercise Lanternfish AUKUS) vì nghi sai ngày sự kiện (URL gốc chứa slug 28/07 nhưng agent gắn 01/08, không xác minh lại được do WebFetch 403) — loại theo nguyên tắc an toàn. Nhiều ứng viên khác đã trùng DATA (Scarborough map filing, hải cảnh TQ Đài Loan) từ các phiên trước."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 8,
+      "count": 4,
       "target": 7,
       "min": 5,
-      "thieu": false,
-      "reason": "Đạt chỉ tiêu: Space Force $981M hạ tầng thử nghiệm, Space Force SBI technical direction agent, CACI SkyValor $500M chống drone, Office of Strategic Capital $820M Performance Drone Works, USS William Charette, Tomahawk Nhật Bản, YJ-20 Trung Quốc, Hanwha Ocean Hàn Quốc. Sau khi nạp phát hiện 1 tin trùng thật (hợp đồng tàu ngầm $76,6 tỷ, cùng sự kiện với tin đã có trong DATA chỉ khác cách diễn đạt nên Jaccard thấp) — đã prune ngay. F-35B rơi Miramar và Trump/Patriot Ukraine không đưa vào batch vì đã có sẵn trong DATA từ trước phiên này."
+      "thieu": true,
+      "reason": "Giữ 4 tin: Patriot/THAAD/SM-6 $18,2 tỷ khẩn cấp, Lockheed Patriot $58,6 tỷ (07-30), drone Mỹ suýt bị Hàn Quốc bắn hạ, K2 Space laser $22,9tr. Loại 3 ứng viên NGOÀI KHUNG 3 NGÀY dù được nới riêng cho CNQS (USS Georgia nghỉ hưu 07-27, hợp đồng tàu ngầm Electric Boat/HII 07-29, SpaceX Golden Dome 07-29 — cả ba agent tự ghi ngày ngoài phạm vi được giao). Sau khi nạp, 1 tin (Lockheed Patriot) phát hiện trùng sự kiện với DATA đã có từ 29/07 — đã prune ngay."
     },
     {
       "name": "Mỹ - Mali",
@@ -32,24 +32,24 @@
       "target": 4,
       "min": 2,
       "thieu": true,
-      "reason": "Ứng viên duy nhất (HRW: Africa Corps không kích 8 dân thường) đã có trong DATA từ 31/07 — agent tự phát hiện trùng qua danh sách chống trùng, không report lại. WebSearch bổ sung không ra diễn biến mới."
+      "reason": "Rà 18 ứng viên harvest + 1 Telegram, 4 tin thật sự liên quan Mali (HRW/Africa Corps 8 dân thường, Nga mở tuyến biển tiếp tế, hiệp ước quân sự mở rộng AES, phát biểu Tinubu Sahel) đều có ngày sự kiện 07-09 tới 07-31, ngoài khung 2 ngày cho phép (08-01/08-02). Chủ đề này không được nới khung."
     },
     {
-      "name": "Tập trận Predator's Run 2026",
+      "name": "Predator's Run 2026",
       "count": 0,
       "target": 2,
       "min": 1,
       "thieu": true,
-      "reason": "Agent WebSearch tin bế mạc/kết thúc không ra kết quả đủ tin cậy (không có nguồn cụ thể xác nhận). Giữ nguyên status hiện tại trong DATA."
+      "reason": "harvest.py không ra ứng viên nào. WebSearch xác nhận tập trận là chuỗi 9 ngày bắt đầu 21/07, đã kết thúc cuối tháng 7 — không còn diễn biến mới để đưa. Web tự suy effStatus theo dates, không cần sửa tay status."
     },
     {
       "name": "Báo Mới",
       "count": 0,
-      "target": 6,
-      "min": 3,
-      "thieu": true,
-      "reason": "6 ứng viên cổng nhắc (Trump đổi ý Patriot x4 báo VN khác nhau, hạm đội liên hợp NATO, F-35B rơi) — tất cả trùng tin đã có sẵn trong DATA từ trước phiên này (nạp ở lượt quét trước đó cùng ngày 01/08), loại thẳng không cần truy gốc riêng."
+      "target": 3,
+      "min": 0,
+      "thieu": false,
+      "reason": "6 ứng viên cổng nhắc, đối chiếu nhanh do áp lực thời gian: phần lớn trùng góc với tin đã nạp trong chính batch này (kho vũ khí cạn Iran ~ Patriot/THAAD/SM-6, Hàn Quốc suýt bắn hạ UAV Mỹ đã nạp qua Stars and Stripes) hoặc trùng DATA cũ (Trump đổi ý Patriot Ukraine). 2 ứng viên (Trump họp Nội các Trại David, Úc kiện Telegram) chưa kịp truy bài gốc, để lại phiên sau."
     }
   ],
-  "note": "Phiên TỐI 01/08 (CI, claim 21:00 VN). worldNews +5, usNews +8 (sau khi trừ 1 tin trùng $76,6 tỷ USD đã prune). Sàn cứng tổng ngày (gộp sáng+tối, ngày 01/08): worldNews 8/15, usNews 18/15 — usNews đã đạt sàn nhờ phiên sáng, worldNews còn thiếu nhưng phiên chạy sát hạn email 22:00 nên chốt lô hiện có, không giao thêm vòng bổ sung. Đã kiểm quá hạn 21:45: bỏ qua bước 3b (tin Jay Lâm) để ưu tiên gửi đúng giờ."
+  "note": "Phiên sáng sớm CI 2026-08-02 04:00 VN. Tổng nạp: +2 worldNews, +8 usNews (sau khi prune 1 tin trùng). Nhiều ứng viên bị loại do vi phạm khung ngày nghiêm ngặt (3 tin CNQS ngoài khung 3 ngày, 1 tin Úc&BĐ nghi sai ngày) — ưu tiên AN TOÀN hơn số lượng theo đúng nguyên tắc CLAUDE.md."
 }

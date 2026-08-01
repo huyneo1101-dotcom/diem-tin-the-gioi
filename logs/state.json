@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-02T04:00:56+07:00",
+    "lastRunAt": "2026-08-02T04:20:36+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+2 tin TG, +8 tin My (5 chu de: Noi bo My 5, Uc&BD 2, CNQS 4->wait check)",
     "lastSuccess": {
       "toi": "2026-08-01",
-      "sang": "2026-08-01"
-    },
-    "heartbeat": "2026-08-02T04:02:34+07:00"
+      "sang": "2026-08-02"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-01T04:23:37+07:00",
