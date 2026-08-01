@@ -1,30 +1,30 @@
 {
   "date": "2026-08-01",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
-      "count": 4,
+      "count": 2,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Giữ 4 tin trong khung 31/07-01/08: cổ phần Bộ Thương mại tại 7 công ty bán dẫn/AI, thuế 100% dược phẩm có hiệu lực, biểu tình Madison Wisconsin, điều khoản thuế quan trong dự luật trừng phạt Nga Graham. Loại 2 ứng viên vì sự kiện thật xảy ra 29-30/07 (Uỷ ban Tư pháp hoãn vote Blanche, Amazon hoàn thuế) — ngoài khung 2 ngày cho phép, chủ đề này không được nới như CNQS."
+      "reason": "Giữ 2 tin trong khung 31/07-01/08: Fed đề xuất sửa Quy định O cho vay 'người trong cuộc' ngân hàng, Mỹ trừng phạt mạng lưới hỗ trợ Mahan Air (Iran) qua The Hindu. NHÓM 1 (điều trần/bỏ phiếu, ưu tiên tuyệt đối) = 0 tin: 3 ứng viên ban đầu đều bị loại sau khi WebFetch xác minh — Durbin/Judiciary Blanche markup thực ra diễn ra 23/07 (ngoài khung), Graham/Budget OMB Duncan hearing thực ra 16/06 (ngoài khung rất xa), một ứng viên khác sourceUrl là trang lịch họp (vi phạm luật cấm trang danh sách). Amazon hoàn thuế 600tr cũng loại vì ngày sự kiện 30/07 ngoài khung 1 ngày."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 3,
+      "count": 2,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Giữ 3 tin: Philippines nộp bản đồ Scarborough lên LHQ, hải cảnh TQ luân phiên tuần tra đông Đài Loan, nghị sĩ Mỹ thúc Đài Loan thông qua luật drone 6,5 tỷ USD. Loại 2 ứng viên nghi ngày sai (ASEAN-TQ COC — URL gốc cho thấy bài thật đăng 24/07; Marcos SONA — bài phát biểu gốc 27/07) để tránh neo ngày không trung thực."
+      "reason": "Giữ 2 tin: TQ tập trận gần Scarborough sau khi Philippines nộp hồ sơ LHQ, Bisalloy Steel Úc vào chuỗi cung ứng AUKUS tàu ngầm Virginia. Loại 5 ứng viên vì trùng DATA đã có (Philippines nộp bản đồ Scarborough, hải cảnh TQ Đài Loan, drone bill Đài Loan). WebSearch bổ sung cho VN/Indonesia/Malaysia/Natuna không ra sự kiện mới trong khung."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 6,
+      "count": 8,
       "target": 7,
       "min": 5,
       "thieu": false,
-      "reason": "Đạt chỉ tiêu: F-35B rơi Miramar, kho Patriot cạn kiệt, Lầu Năm Góc cân nhắc cấp phép Patriot Ukraine, Osprey cuối cùng, tên lửa phòng không phóng từ tàu ngầm, Trump đảo ngược cam kết Patriot (truy gốc từ Báo Mới). Loại các tin trùng DATA (thiết giáp hạm Trump-class, USS GW Đà Nẵng, Tomahawk Nhật Bản) và khí tài Trung Quốc (YJ-20, ngoài phạm vi)."
+      "reason": "Đạt chỉ tiêu: Space Force $981M hạ tầng thử nghiệm, Space Force SBI technical direction agent, CACI SkyValor $500M chống drone, Office of Strategic Capital $820M Performance Drone Works, USS William Charette, Tomahawk Nhật Bản, YJ-20 Trung Quốc, Hanwha Ocean Hàn Quốc. Sau khi nạp phát hiện 1 tin trùng thật (hợp đồng tàu ngầm $76,6 tỷ, cùng sự kiện với tin đã có trong DATA chỉ khác cách diễn đạt nên Jaccard thấp) — đã prune ngay. F-35B rơi Miramar và Trump/Patriot Ukraine không đưa vào batch vì đã có sẵn trong DATA từ trước phiên này."
     },
     {
       "name": "Mỹ - Mali",
@@ -32,7 +32,7 @@
       "target": 4,
       "min": 2,
       "thieu": true,
-      "reason": "Ứng viên duy nhất tìm được (HRW: Africa Corps không kích 8 dân thường Mopti) đã được nạp ở phiên trước trong ngày 31/07 — bị add_news.py chặn cứng vì URL trùng, agent không phát hiện vì tin nằm ngoài 20 tiêu đề gần nhất nhúng vào prompt. Không tìm được diễn biến nào khác."
+      "reason": "Ứng viên duy nhất (HRW: Africa Corps không kích 8 dân thường) đã có trong DATA từ 31/07 — agent tự phát hiện trùng qua danh sách chống trùng, không report lại. WebSearch bổ sung không ra diễn biến mới."
     },
     {
       "name": "Tập trận Predator's Run 2026",
@@ -40,16 +40,16 @@
       "target": 2,
       "min": 1,
       "thieu": true,
-      "reason": "Theo Stars and Stripes, tập trận diễn ra 16-31/7/2026 — 31/07 là ngày cuối nhưng chưa có bài tổng kết/bế mạc đăng trong khung cho phép lúc quét. Gợi ý phiên sau tìm 'Predator's Run concludes/wraps up' để cân nhắc đổi status sang recent."
+      "reason": "Agent WebSearch tin bế mạc/kết thúc không ra kết quả đủ tin cậy (không có nguồn cụ thể xác nhận). Giữ nguyên status hiện tại trong DATA."
     },
     {
       "name": "Báo Mới",
-      "count": 1,
+      "count": 0,
       "target": 6,
       "min": 3,
       "thieu": true,
-      "reason": "10 ứng viên cổng nhắc, agent truy gốc từng bài: giữ 1 (Trump đảo ngược Patriot qua CNBC, đã tính vào CNQS Mỹ). Loại 9: ngoài phạm vi 5 chủ đề (Hàn-Indonesia-Triều Tiên, Iran-Kuwait, YJ-20 Trung Quốc), trùng DATA (Tomahawk Nhật Bản x2, USS GW Đà Nẵng), bài feature không phải tin (USS GW không đoàn hải quân), ngoài khung ngày (Ba Lan viện trợ Patriot)."
+      "reason": "6 ứng viên cổng nhắc (Trump đổi ý Patriot x4 báo VN khác nhau, hạm đội liên hợp NATO, F-35B rơi) — tất cả trùng tin đã có sẵn trong DATA từ trước phiên này (nạp ở lượt quét trước đó cùng ngày 01/08), loại thẳng không cần truy gốc riêng."
     }
   ],
-  "note": "Phiên SÁNG SỚM 01/08 (CI, claim 04:00 VN đúng giờ). worldNews +3, usNews +10 (đã trừ 1 tin HRW Mali bị guardrail chặn vì trùng URL, không tính vào batch cuối). Sàn cứng tổng ngày (gộp các phiên trong ngày 01/08, mới bắt đầu tính lại từ đầu ngày): worldNews 3/15, usNews 10/15 — phiên sáng chỉ nhắm ~10/mục theo quy tắc, để phiên tối bù thêm. Bước tiếp theo trong session: xử lý pipeline event-scan (sự kiện/tập trận/think-tank) theo BƯỚC 6 của prompt CI."
+  "note": "Phiên TỐI 01/08 (CI, claim 21:00 VN). worldNews +5, usNews +8 (sau khi trừ 1 tin trùng $76,6 tỷ USD đã prune). Sàn cứng tổng ngày (gộp sáng+tối, ngày 01/08): worldNews 8/15, usNews 18/15 — usNews đã đạt sàn nhờ phiên sáng, worldNews còn thiếu nhưng phiên chạy sát hạn email 22:00 nên chốt lô hiện có, không giao thêm vòng bổ sung. Đã kiểm quá hạn 21:45: bỏ qua bước 3b (tin Jay Lâm) để ưu tiên gửi đúng giờ."
 }
