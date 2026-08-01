@@ -619,6 +619,33 @@ không có `node`). Nó KHÔNG set `PREV_HTML` nên coi mọi sự kiện là m�
 số đó đánh giá độ dài tin nhắn hằng ngày. Trần **12 sự kiện/tin nhắn** (`MORNING_MAX_EVENTS`),
 phần cắt được nói rõ bằng dòng "… và N sự kiện nữa", không im lặng.
 
+### 📤 GỬI TAY MỘT BẢN TIN CHO HUY: ĐI BẰNG BOT ĐIỂM TIN, KHÔNG PHẢI BOT CÁ NHÂN (Huy chốt 01/08/2026)
+
+Nguyên văn: *"đmm không gửi qua điểm tin bot gửi qua rèn 66 bot làm cc gì"*.
+
+**Cơ chế gây vấp:** mục 7c của CLAUDE.md toàn cục dạy *"tài liệu cho Huy đọc → gửi Telegram qua
+`congcu/gui_tele.py`"*, và công cụ đó đi bằng **bot cá nhân `@ren66_bot`**. Luật ấy viết cho tài
+liệu chung — báo cáo, bài phân tích, ghi chú — nhưng khi cần gửi tay một bản tin dựng lại thì phản
+xạ vẫn với lấy đúng công cụ đó, vì nó là "công cụ gửi Telegram" duy nhất nhớ được. Sai chỗ dùng:
+bản tin Điểm Tin có kênh riêng của nó (`@diemtin24h_bot`) — đó là nơi Huy đọc bản tin hằng ngày,
+nơi Huy `/xoa` được tin rác, nơi bot trả lời câu hỏi về chính bản tin. Đẩy một bản tin sang bot
+cá nhân là tách nó khỏi cả dòng chảy đó.
+
+- **Bản tin, file `.docx` bản tin, bản dựng lại/bổ sung → `@diemtin24h_bot`.** Bot cá nhân chỉ
+  dành cho tài liệu KHÔNG thuộc Điểm Tin.
+- **Gửi cho AI CHAT NÀO:** chat **CHỦ** (Huy) — phần tử ĐẦU trong danh sách chat, đúng quy ước
+  `telegram_bot.py::chat_chu()`. ⛔ Gửi tay thì **không gửi cho Jay Lâm**: bản dựng lại là việc
+  nội bộ, chưa qua cổng giờ giấc của `notify-email.yml`.
+- **Chat id nằm NGOÀI repo** (repo này PUBLIC): `/Users/Huy/Claude/.tg-bot.json`, chmod 600,
+  `chats[0]` = Huy · `chats[1]` = Jay Lâm. Trước 01/08 mảng đó RỖNG nên phiên local không biết
+  gửi đi đâu — nay đã điền, và `nhin_truoc_kich_bot.py` cũng hết kích run cho chat lạ.
+- **Mất danh sách thì dò lại thế này**, đừng đoán: đọc `chat_id` trong bảng `dt_bot_hoi` (mã
+  `x-dt-key` ở `/Users/Huy/Claude/.dt-bot-key`), rồi gọi `getChat` từng id để lấy TÊN.
+  `getUpdates` **không dùng được** — hàng đợi đã bị workflow xác nhận nên gần như luôn rỗng, và
+  gọi kèm `offset` là nuốt mất câu hỏi đang chờ.
+- **Đường gửi:** `send_telegram.send_document(token, chat, file, caption)` — đừng tự dựng lời gọi
+  multipart mới.
+
 ### 🐤 CANARY — báo khi bản tin KHÔNG tới nơi (thêm 27/07/2026, chỉ thị Huy)
 `.github/scripts/canary.py` + `.github/workflows/canary.yml`. Ngày bình thường nó **im lặng**;
 chỉ nhắn Telegram khi bản tin đã hụt.
