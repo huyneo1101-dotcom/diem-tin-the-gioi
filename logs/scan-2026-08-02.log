@@ -17,3 +17,4 @@
 [21:33Z] Agent Opus viet bao cao tuan 3 nuoc. Kiem tra toan bo URL trich dan khop voi ngu lieu that (1 URL sai - HRW thay vi africanews - da sua). add_weekly.py OK: 3 nuoc, 8 luan diem.
 [21:35Z] state.py done event-scan. Commit "Cap nhat su kien 02/08: +4 bai think-tank, bao cao tuan" - push OK (rebase 1 lan do commit harvest CI xen giua).
 [21:36Z] DONE - Phien sang som hoan tat: bao tin (10 tin, 5 chu de) + event-scan (4 think-tank + bao cao tuan Chu nhat).
+[21:38Z] SKIP (lop vet 04:47) - state.py claim web-scan tra exit 10, phien toi CHAY BU (sang som) 2026-08-02 DA XONG luc 04:20:36+07:00. Kiem chung ngoai le: so_da_gui --xem co dong 2026-08-02T04:37:15+07:00 [sang] 9 tin + [sukien] 0 tin, cach hien tai 1 phut - ban tin da toi tay that. SKIP hop le, khong quet lai.
