@@ -61,6 +61,13 @@ Mỗi phiên **CHỈ quét 5 chủ đề**, **mỗi chủ đề 5–10 bài** (b
    Malaysia, Indonesia, Brunei, Đài Loan; đàm phán **COC** ASEAN–Trung Quốc; các thực thể Natuna, Bãi
    Tư Chính (Vanguard Bank), Luconia, Bãi Cỏ Rong (Reed Bank); hoạt động của Nhật/Ấn/Hàn tại vùng biển
    này. Đây là dư địa lớn khi diễn biến Philippines–Trung Quốc đã nạp hết ở phiên trước.
+   ⛔ **SIẾT 01/08/2026 — "tại vùng biển này" là ĐIỀU KIỆN, không phải lời dẫn** (Huy bắt: *"hàn quốc
+   liên quan đ gì đến biển đông và Úc mà cứ cho vào???"* — bản tối 01/08 mục này 04 tin thì 03 sai).
+   Tin quốc phòng **nội bộ** Nhật/Ấn/Hàn/Trung Quốc (phóng thử tên lửa, ký hợp đồng đóng tàu, luật
+   quốc phòng trong nước) **KHÔNG thuộc chủ đề này**. Câu chữ của tin phải tự neo được vào Úc/AUKUS,
+   vào vùng biển & thực thể Biển Đông, hoặc vào một nước ven biển đó. **`add_news.py` nay CHẶN CỨNG
+   tin `worldNews` không neo được** — nạp vào sẽ báo lỗi, không phải cảnh báo suông. Tin thuộc chủ đề
+   khác thì chuyển sang `usNews`; ngoài 5 chủ đề thì bỏ, ghi `logs/loai-tin.md`.
 3. **CNQS Mỹ** — `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống cụ thể: tên lửa, phòng không,
    hải quân, không gian/Space Force, laser, AI quân sự, tàu ngầm, drone, siêu vượt âm.
    ⏳ **KHUNG NGÀY NỚI RIÊNG CHO CHỦ ĐỀ NÀY: lùi tới 3 ngày** (chỉ thị Huy 27/07/2026 — "quét ngày 27

@@ -60,7 +60,8 @@ CHU_DE = {
 Báo lại: đã cạn nhóm (1) chưa, và mỗi nhóm được mấy bài."""),
     "uc": ("Úc & Biển Đông", """**Úc & Biển Đông** → `worldNews`, BẮT BUỘC có `region`.
 - Úc: AUKUS, quốc phòng/khí tài Úc, ADF, quan hệ an ninh Úc–Mỹ/Nhật/Anh, chính sách Thái Bình Dương → `region: "Ấn Độ Dương - Thái Bình Dương"`.
-- Biển Đông: chủ quyền, đụng độ/tuần tra, phán quyết, tập trận; gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, Philippines, hoạt động của Nhật/Ấn/Hàn tại vùng biển này, đàm phán COC ASEAN–Trung Quốc, các thực thể Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong → `region: "Đông Á"`."""),
+- Biển Đông: chủ quyền, đụng độ/tuần tra, phán quyết, tập trận; gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, Philippines, hoạt động của Nhật/Ấn/Hàn tại vùng biển này, đàm phán COC ASEAN–Trung Quốc, các thực thể Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong → `region: "Đông Á"`.
+⛔ "tại vùng biển này" là ĐIỀU KIỆN: tin quốc phòng NỘI BỘ Nhật/Ấn/Hàn/Trung Quốc (phóng thử tên lửa, ký hợp đồng đóng tàu, luật quốc phòng trong nước) KHÔNG thuộc chủ đề này. Mỗi tin phải tự neo được vào Úc/AUKUS, vào vùng biển & thực thể Biển Đông, hoặc vào một nước ven biển đó — `add_news.py` chặn cứng tin không neo được."""),
     "cnqs": ("CNQS Mỹ", """**Công nghệ quân sự Mỹ** → `usNews`, category `Công nghệ quân sự`, KHÔNG có `region`.
 Khí tài/hệ thống CỤ THỂ của Mỹ: tên lửa, phòng không, hải quân, không gian/Space Force, laser, drone, AI quân sự, tàu ngầm, hợp đồng quốc phòng.
 ⚠️ Khí tài của nước KHÁC (Nga, Trung Quốc, Úc…) KHÔNG thuộc mục này — bỏ hoặc để chủ đề khác.

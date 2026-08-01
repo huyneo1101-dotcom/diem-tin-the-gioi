@@ -212,6 +212,45 @@ def la_tin_mali(it):
     return any(k in kho for k in MALI_KEYS)
 
 
+def _kho_chu(it):
+    return " ".join(str(it.get(k, "")) for k in ("title", "summary", "region", "significance"))
+
+
+# Bảng neo của chủ đề 2 nằm ở `scripts/topics.py` — MỘT hàm kiểm tra duy nhất, dùng chung
+# với cổng nạp `add_news.py`. Chép bảng sang đây thì hai bản tách nhánh ở lần vá sau mà
+# không ai thấy.
+#
+# ⚠️ ĐÁNH ĐỔI CÓ CHỦ Ý, khác hẳn `_khong_dau` ở trên (hàm đó chép tại chỗ vì nó chỉ là
+# 2 dòng, chép không sinh ra nguồn sự thật thứ hai). Ở đây phần chép sẽ là một BẢNG TỪ
+# KHOÁ ~50 mục — thứ chắc chắn được sửa tiếp và chắc chắn lệch. Nên chấp nhận import chéo
+# thư mục, và CỐ Ý ĐỂ NÉM LỖI thay vì `try/except` cho êm: import hỏng thì .docx không
+# sinh ra và CI đỏ ngay, còn `except: lambda _: True` thì mục 2 lặng lẽ trở lại làm cái
+# thùng chứa — đúng thứ đang đi vá. File mất thì có tiếng kêu; file sai nội dung thì không.
+sys.path.insert(0, os.path.join(
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "scripts"))
+from topics import neo_uc_bien_dong  # noqa: E402
+
+
+def la_uc_bien_dong(it):
+    """Tin có tự neo được vào Úc hoặc Biển Đông không? (điều kiện vào mục 2)
+
+    ⚠️ VÁ 01/08/2026 — Huy bắt: *"hàn quốc liên quan đ gì đến biển đông và Úc mà cứ cho
+    vào???"*. Trước đây mục 2 được định nghĩa là **MỌI `worldNews` trừ Mali**, tức một cái
+    thùng: tin thế giới nào lọt qua tầng quét cũng tự động được dán nhãn "Úc và Biển Đông",
+    nên tên mục là một lời hứa còn nội dung là phần dư. Bản tối 01/08 có 04 tin thì 03 sai
+    (Nhật phóng Tomahawk từ JS Chokai · Trung Quốc phóng YJ-20 · Hàn ký 7,8 nghìn tỷ won
+    với Hanwha Ocean) — cả ba không dính Úc, không dính Biển Đông.
+
+    Đây là CÙNG con lỗi đã vá hai lần ở `is_noibo_my`, chỉ khác mảng: mục nào được định
+    nghĩa bằng "phần còn lại" thì mọi phân loại thiếu sót đều đổ vào nó. Nay cả bốn mục
+    đều định nghĩa DƯƠNG.
+
+    Tin rớt KHÔNG biến mất — lưới an toàn ở `build_sections` gom về mục 1 kèm cảnh báo, vì
+    mất tin tệ hơn xếp nhầm mục. Chính cảnh báo đó là tín hiệu cho biết tầng quét đã lọt.
+    """
+    return neo_uc_bien_dong(_kho_chu(it))
+
+
 # Category của tin thuộc mục QS-KHCN. Đây là danh sách DƯƠNG — xem chú thích is_noibo_my.
 CATEGORY_QSKHCN = ("Công nghệ quân sự",)
 
@@ -282,7 +321,8 @@ def build_sections(us, world, events):
         return it.get("sourceUrl") not in mali_urls
 
     sec1 = [it for it in us if is_noibo_my(it)]                       # 1. Nội bộ Mỹ
-    sec2 = [it for it in world if khong_phai_mali(it)]                # 2. Úc & Biển Đông
+    sec2 = [it for it in world                                        # 2. Úc & Biển Đông
+            if khong_phai_mali(it) and la_uc_bien_dong(it)]
     sec3 = [it for it in us                                           # 3. CNQS Mỹ (+ Predator)
             if la_qs_khcn(it) and khong_phai_mali(it)]
 
@@ -291,10 +331,25 @@ def build_sections(us, world, events):
     roi = [it for it in us + world
            if it.get("sourceUrl") and it.get("sourceUrl") not in da_xep]
     if roi:
-        print(f"⚠️  {len(roi)} tin không khớp mục nào -> dồn vào 'Nội bộ Mỹ'. "
-              f"Xem lại phân loại: "
-              + " | ".join(f"[{it.get('category')}] {(it.get('title') or '')[:45]}"
-                           for it in roi[:5]), file=sys.stderr)
+        # Tách riêng nhóm tin THẾ GIỚI rơi vì không neo được vào Úc/Biển Đông (siết
+        # 01/08/2026). Nhóm này khác hẳn nhóm rơi vì thiếu category: nó nói rằng TẦNG QUÉT
+        # đã nạp tin ngoài phạm vi 5 chủ đề, tức phải sửa ở `add_news.py`/phiên quét chứ
+        # không phải sửa phân loại ở đây. Gộp chung một dòng cảnh báo thì hai nguyên nhân
+        # khác nhau ra cùng một câu chữ, và người đọc sẽ đi sửa nhầm chỗ.
+        world_urls = urls_of(world)
+        lac_muc2 = [it for it in roi if it.get("sourceUrl") in world_urls]
+        if lac_muc2:
+            print(f"⚠️  {len(lac_muc2)} tin worldNews KHÔNG neo được vào Úc/Biển Đông -> "
+                  f"tạm dồn vào 'Nội bộ Mỹ' để không mất tin. Đây là lỗi TẦNG QUÉT, "
+                  f"không phải lỗi phân loại: "
+                  + " | ".join((it.get("title") or "")[:45] for it in lac_muc2[:5]),
+                  file=sys.stderr)
+        con_lai = [it for it in roi if it.get("sourceUrl") not in world_urls]
+        if con_lai:
+            print(f"⚠️  {len(con_lai)} tin không khớp mục nào -> dồn vào 'Nội bộ Mỹ'. "
+                  f"Xem lại phân loại: "
+                  + " | ".join(f"[{it.get('category')}] {(it.get('title') or '')[:45]}"
+                               for it in con_lai[:5]), file=sys.stderr)
         sec1 = sec1 + roi
 
     return [

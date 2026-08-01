@@ -238,6 +238,54 @@ def check_x_id(url: str, ctx: str) -> None:
         raise ValueError(f"{ctx}: status ID X kết thúc bằng nhiều số 0 ({sid}) — nghi bịa")
 
 
+def check_neo_chu_de_2(item: dict, ctx: str) -> None:
+    """Tin vào `worldNews` phải tự neo được vào Úc / Biển Đông — hoặc là tin Mali (chủ đề 4).
+
+    ⚠️ VÌ SAO CÓ (Huy bắt 01/08/2026: *"hàn quốc liên quan đ gì đến biển đông và Úc mà cứ
+    cho vào???"*): chủ đề 2 khai *"hoạt động của Nhật/Ấn/Hàn TẠI VÙNG BIỂN NÀY"*. Mệnh đề
+    "tại vùng biển này" là ĐIỀU KIỆN, nhưng không cổng nào kiểm chủ đề — `add_news.py` chỉ
+    kiểm ngày · URL · trùng — nên nó bị đọc thành "tin quốc phòng Nhật/Ấn/Hàn". Bản tối
+    01/08 lọt 03 tin: Nhật phóng Tomahawk từ JS Chokai · Trung Quốc phóng YJ-20 · Hàn ký
+    7,8 nghìn tỷ won với Hanwha Ocean.
+
+    Lỗi này VÔ HÌNH suốt nhiều bản tin vì tầng dưới (`make_docx.py`) đặt mục 2 = "mọi
+    worldNews trừ Mali", nên tin sai vẫn có chỗ ngồi và trông như đúng chỗ. Hai tầng đã vá
+    cùng lượt; giữ cả hai, đừng bỏ tầng nào — tầng này chặn tin lên WEB, tầng kia chặn tin
+    vào FILE WORD, và tin Báo Mới đi thẳng vào `worldNews` không qua cổng này.
+
+    Bảng neo là `topics.NEO_UC_BIEN_DONG` — MỘT nguồn sự thật, dùng chung với make_docx.
+    KHÔNG có cửa mở bằng cờ: tin không neo được thì nó thuộc chủ đề khác (chuyển sang
+    `usNews`) hoặc ngoài phạm vi (bỏ, ghi `logs/loai-tin.md`). Mở một cửa ở đây là dựng
+    lại cái thùng dưới tên khác.
+    """
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    from topics import neo_uc_bien_dong
+
+    hay = " ".join(str(item.get(k, "")) for k in
+                   ("title", "summary", "region", "significance"))
+    if neo_uc_bien_dong(hay):
+        return
+    # Chủ đề 4 (Mỹ–Mali) cũng có thể nằm ở worldNews — make_docx tách nó ra mục riêng,
+    # gom từ CẢ usNews lẫn worldNews. Chặn nó ở đây là chặn oan một chủ đề đang hợp lệ.
+    if any(k in strip_accents(hay).lower() for k in MALI_KEYS_ADD):
+        return
+    raise ValueError(
+        f"{ctx}: tin worldNews KHÔNG neo được vào Úc hay Biển Đông — mục 2 chỉ nhận tin "
+        f"gắn Úc/AUKUS, gắn vùng biển & thực thể Biển Đông, hoặc gắn nước ven biển này. "
+        f"Tin quốc phòng Nhật/Hàn/Ấn/Trung Quốc CHỈ vào mục 2 khi có neo đó "
+        f"(chủ đề khai: 'hoạt động của Nhật/Ấn/Hàn TẠI VÙNG BIỂN NÀY'). "
+        f"Thuộc chủ đề khác -> chuyển sang usNews; ngoài 5 chủ đề -> bỏ, ghi "
+        f"logs/loai-tin.md. Tiêu đề: {(item.get('title') or '')[:80]!r}"
+    )
+
+
+# Từ khoá Mali dùng cho ngoại lệ ở `check_neo_chu_de_2`. Viết KHÔNG DẤU vì so sau
+# `strip_accents`. Giữ ĐỒNG BỘ với `MALI_KEYS` trong `.github/scripts/make_docx.py`: hai
+# nơi lệch nhau thì tin Sahel bị chặn ở đây trong khi tầng kia vẫn chờ nó.
+MALI_KEYS_ADD = ("mali", "jnim", "bamako", "sahel", "azawad", "niger", "burkina",
+                 "africa corps", "sahen")
+
+
 def validate_news_items(items: list, label: str, ref: datetime.date) -> None:
     for idx, item in enumerate(items):
         ctx = f"{label}[{idx}]"
@@ -251,6 +299,12 @@ def validate_news_items(items: list, label: str, ref: datetime.date) -> None:
         # truyền category để "Công nghệ quân sự" được hưởng khung ngày nới (MAX_AGE_DAYS_CNQS)
         check_date_window(item["date"], ref, ctx, item.get("category", ""))
         check_url_quality(item["sourceUrl"], ctx)
+        # CHỈ áp cho `worldNews` — mảng agent tự khai cho chủ đề 2. `baomoiNews` đi luồng
+        # riêng (4 chuyên mục, có cổng Báo Mới của nó) dù cũng được gộp vào worldNews khi
+        # ghi; chặn nó ở đây là chặn oan tin Báo Mới thuộc chủ đề Nội bộ Mỹ. Phần hở đó do
+        # tầng `make_docx.py` gánh — nó lọc trên `world` SAU khi đã gộp.
+        if label == "worldNews":
+            check_neo_chu_de_2(item, ctx)
 
 
 def validate_x_items(items: list, ref: datetime.date) -> None:

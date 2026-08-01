@@ -16,6 +16,7 @@ Chỉnh từ khoá thì chỉnh Ở ĐÂY. Thấy tin đúng gu bị lọt lư�
 đúng chủ đề, đừng nới lỏng ngưỡng khớp.
 """
 import re
+import unicodedata
 
 # ---------------------------------------------------------------- tiếng Việt
 # Dùng cho kho Báo Mới. Cố tình để RỘNG: mục đích là NHẮC cho phiên quét nhìn
@@ -156,6 +157,76 @@ TOPIC_KEYWORDS_EN = {
         "state department announces", "treasury announces", "commerce department",
     ],
 }
+
+
+# ------------------------------------------------- NEO của chủ đề 2 "Úc & Biển Đông"
+# ⛔ BẢNG NÀY KHÁC HẲN `TOPIC_KEYWORDS_*["Úc & Biển Đông"]` Ở TRÊN — đừng gộp lại.
+# Hai bảng phục vụ hai việc NGƯỢC CHIỀU nhau:
+#   - `TOPIC_KEYWORDS_*` để GỢI Ý ứng viên  -> cố ý RỘNG, thà nhắc thừa còn hơn bỏ sót.
+#   - `NEO_UC_BIEN_DONG` để CHẶN tin lạc mục -> phải HẸP, mỗi từ tự nó neo được vào
+#     Úc hoặc vào Biển Đông, không cần đọc thêm câu nào khác.
+#
+# Vì sao có (Huy bắt 01/08/2026: *"hàn quốc liên quan đ gì đến biển đông và Úc mà cứ cho
+# vào???"*): chủ đề 2 khai *"hoạt động của Nhật/Ấn/Hàn TẠI VÙNG BIỂN NÀY"*. Mệnh đề "tại
+# vùng biển này" là ĐIỀU KIỆN, nhưng không cổng nào kiểm nên nó bị đọc thành "tin quốc
+# phòng Nhật/Ấn/Hàn". Bản tối 01/08 lọt 03 tin: Nhật phóng Tomahawk từ JS Chokai · Trung
+# Quốc phóng YJ-20 · Hàn ký 7,8 nghìn tỷ won với Hanwha Ocean — không tin nào dính Úc hay
+# Biển Đông. Nay tin muốn vào mục 2 phải khớp ÍT NHẤT MỘT từ dưới đây.
+#
+# ⚠️ CỐ Ý KHÔNG có Nhật/Hàn/Ấn/Trung Quốc trong bảng — đó chính là điều kiện đang thiếu.
+# Tin của bốn nước ấy chỉ vào mục 2 khi câu chữ tự mang một neo bên dưới (ví dụ "Japan and
+# the Philippines patrol the South China Sea" khớp cả `philippines` lẫn `south china sea`).
+#
+# ⚠️ Viết KHÔNG DẤU: hàm so sánh bỏ dấu tiếng Việt trước khi khớp, nên "biển đông" phải
+# ghi "bien dong". Ghi có dấu thì từ đó KHÔNG BAO GIỜ khớp — hỏng câm.
+NEO_UC_BIEN_DONG = [
+    # -- vùng biển & thực thể tranh chấp
+    "bien dong", "south china sea", "west philippine sea", "bien tay philippines",
+    "truong sa", "hoang sa", "spratly", "spratlys", "paracel", "paracels",
+    "scarborough", "second thomas", "sabina shoal", "mischief reef", "thitu",
+    "co may", "bai co rong", "reed bank", "bai tu chinh", "vanguard bank",
+    "natuna", "luconia", "da vanh khan", "da chu thap", "whitsun",
+    "duong luoi bo", "nine-dash", "nine dash", "unclos", "phan quyet pca",
+    # ⛔ CỐ Ý KHÔNG có "bien hoa dong"/"east china sea"/"senkaku": Biển Hoa Đông là biển
+    #    KHÁC. Bảng gợi ý ở trên có "biển hoa đông" (để nhắc người quét nhìn), nhưng dùng
+    #    nó làm NEO thì mọi va chạm Nhật–Trung ở Senkaku lại vào mục "Úc và Biển Đông" —
+    #    đúng con lỗi đang vá, chỉ đổi tên nước.
+    # -- lực lượng chấp pháp đặc thù vùng biển này
+    "hai canh", "china coast guard", "philippine coast guard", "pcg",
+    "dan quan bien", "maritime militia",
+    # ⛔ KHÔNG lấy "tuan duyen"/"coast guard" trần: tuần duyên Nhật, Hàn, Mỹ đều khớp.
+    # -- các nước ven Biển Đông (khai của Huy 27/07/2026 liệt đích danh)
+    "philippines", "philippine", "manila", "malaysia", "indonesia", "brunei",
+    "dai loan", "taiwan", "viet nam", "vietnam", "ha noi", "hanoi",
+    # -- cơ chế & tập trận gắn liền vùng biển
+    "balikatan", "kamandag", "code of conduct", "bo quy tac ung xu", "asean maritime",
+    # ⛔ KHÔNG lấy "coc" trần (3 ký tự, khớp bậy quá dễ) — dùng dạng viết đủ ở trên.
+    # -- Úc
+    "uc", "australia", "australian", "canberra", "aukus", "adf",
+    "royal australian navy", "collins-class", "hmas",
+    # ⛔ KHÔNG lấy tên thành phố Úc trần ("darwin", "perth", "sydney"): Darwin còn là tên
+    #    người, Perth còn ở Scotland — neo phải chỉ đích danh nước hoặc vùng biển.
+]
+
+_RE_NEO = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE)
+           for k in NEO_UC_BIEN_DONG]
+
+
+def bo_dau(s) -> str:
+    """Bỏ dấu tiếng Việt để so khớp. `đ` -> `d` (unicodedata không tách được chữ này)."""
+    s = unicodedata.normalize("NFD", str(s or "").lower())
+    return "".join(c for c in s if unicodedata.category(c) != "Mn").replace("đ", "d")
+
+
+def neo_uc_bien_dong(text) -> bool:
+    """Văn bản có tự neo được vào Úc hoặc Biển Đông không?
+
+    Đây là HÀM KIỂM TRA DUY NHẤT của chủ đề 2 — `add_news.py` (cổng nạp) và
+    `.github/scripts/make_docx.py` (cổng dựng file Word) đều GỌI nó, không bên nào chép
+    lại bảng. Hai bản chép sẽ tách nhánh ở lần vá sau mà không ai thấy.
+    """
+    hay = bo_dau(text)
+    return any(p.search(hay) for p in _RE_NEO)
 
 
 def _compile(table):

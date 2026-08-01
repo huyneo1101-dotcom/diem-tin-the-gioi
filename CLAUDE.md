@@ -61,6 +61,13 @@ bài, khung 24 GIỜ gần nhất — nới 48h nếu chủ đề đó thiếu (
    **MỞ RỘNG 27/07/2026: tin liên quan tới CÁC NƯỚC KHÁC trong khu vực Biển Đông** — Malaysia, Indonesia,
    Brunei, Đài Loan, Việt Nam, và hoạt động của Nhật/Ấn/Hàn tại vùng biển này; đàm phán COC ASEAN–Trung
    Quốc; các thực thể Natuna, Bãi Tư Chính, Luconia, Bãi Cỏ Rong. → `worldNews`.
+   ⛔ **"TẠI VÙNG BIỂN NÀY" LÀ ĐIỀU KIỆN, KHÔNG PHẢI LỜI DẪN** (siết 01/08/2026, Huy bắt: *"hàn quốc
+   liên quan đ gì đến biển đông và Úc mà cứ cho vào???"*). Tin quốc phòng **nội bộ** Nhật/Ấn/Hàn/Trung
+   Quốc — phóng thử tên lửa, ký hợp đồng đóng tàu, luật quốc phòng trong nước — **KHÔNG thuộc chủ đề
+   này** dù nghe rất "quân sự châu Á". Chuẩn nhận: câu chữ phải tự neo được vào **Úc/AUKUS**, vào
+   **vùng biển & thực thể Biển Đông**, hoặc vào **một nước ven biển đó**. Nay đã cưỡng bức 02 tầng —
+   `add_news.py::check_neo_chu_de_2` (cổng nạp) và `make_docx.py::la_uc_bien_dong` (cổng dựng .docx),
+   bảng neo dùng chung ở `scripts/topics.py::NEO_UC_BIEN_DONG`. Xem mục "ĐÃ VÁ 02 TẦNG" bên dưới.
 3. **CNQS Mỹ** — khí tài/hệ thống cụ thể. → `usNews`, cat `Công nghệ quân sự`.
    ⏳ **KHUNG NGÀY NỚI RIÊNG: lùi tới 3 ngày** (chỉ thị Huy 27/07/2026 — "quét ngày 27 thì có thể lấy tin
    xuống tận ngày 24"), trong khi 4 chủ đề còn lại vẫn chỉ hôm nay + hôm qua. Lý do: tin khí tài/hợp đồng
@@ -1013,7 +1020,7 @@ mã. Thiếu nó thì lần lưu thứ hai trở đi im lặng không ghi đè �
 **vắng mặt trong phiên headless/cron** — đó là lý do routine đi bằng mã riêng + `curl` chứ
 không gọi MCP.
 
-### ⛔ MỤC "ÚC VÀ BIỂN ĐÔNG" ĐANG LÀ THÙNG CHỨA MỌI TIN THẾ GIỚI — tên mục nói dối (Huy bắt 01/08/2026)
+### ⛔ MỤC "ÚC VÀ BIỂN ĐÔNG" TỪNG LÀ THÙNG CHỨA MỌI TIN THẾ GIỚI — ĐÃ VÁ 02 TẦNG 01/08/2026 (Huy bắt cùng ngày)
 
 > Nguyên văn: *"hàn quốc liên quan đ gì đến biển đông và Úc mà cứ cho vào???"*
 
@@ -1037,7 +1044,60 @@ mục 2 có cần lưới an toàn riêng không.
 ⚠️ **Nhưng cũng đừng để mất tin trong im lặng.** `build_sections` cố ý có lưới cuối gom tin
 không khớp mục nào về mục 1 kèm cảnh báo, vì *mất tin tệ hơn xếp nhầm mục* — siết sec2 thì
 phải kiểm lại lưới đó còn kêu đúng không, đừng để tin rơi ra ngoài file.
-📌 **TRẠNG THÁI: chưa vá, mới ghi nhận.** Bản tin tối 01/08 đã gửi kèm 03 tin sai mục này.
+**✅ ĐÃ VÁ 01/08/2026 — 02 tầng cùng lượt, giữ CẢ HAI, đừng bỏ tầng nào.**
+
+| Tầng | Chỗ vá | Chặn gì |
+|---|---|---|
+| Nạp lên web | `scripts/add_news.py::check_neo_chu_de_2`, gọi trong `validate_news_items` **chỉ khi `label == "worldNews"`** | tin lạc chủ đề không lên được `index.html` |
+| Dựng file .docx | `.github/scripts/make_docx.py::la_uc_bien_dong`, siết `sec2` | tin lạc chủ đề không được dán nhãn mục 2 |
+
+Bảng neo là **`scripts/topics.py::NEO_UC_BIEN_DONG`** — một nguồn sự thật, `make_docx.py`
+**import** chứ không chép (import chéo thư mục, cố ý để ném lỗi nếu hỏng: file .docx không
+sinh ra và CI đỏ ngay, còn `try/except` cho êm thì mục 2 lặng lẽ trở lại làm cái thùng).
+
+⚠️ **Bảng neo KHÁC HẲN `TOPIC_KEYWORDS_*["Úc & Biển Đông"]` — đừng gộp lại.** Hai bảng ngược
+chiều nhau: bảng cũ để **GỢI Ý ứng viên** nên cố ý RỘNG (thà nhắc thừa còn hơn bỏ sót); bảng
+neo để **CHẶN** nên phải HẸP, mỗi từ tự nó neo được vào Úc hoặc vào Biển Đông.
+⚠️ **Cố ý KHÔNG có Nhật/Hàn/Ấn/Trung Quốc trong bảng neo** — đó chính là điều kiện đang
+thiếu. Tin bốn nước ấy chỉ vào mục 2 khi câu chữ tự mang một neo (ví dụ *"Japan and the
+Philippines patrol the South China Sea"*).
+⚠️ **Cố ý KHÔNG có `bien hoa dong`/`senkaku`**: Biển Hoa Đông là biển KHÁC — để nó vào thì
+mọi va chạm Nhật–Trung ở Senkaku lại rơi vào mục "Úc và Biển Đông", đúng con lỗi vừa vá.
+⚠️ **KHÔNG có cửa mở bằng cờ.** Tin không neo được thì thuộc chủ đề khác (chuyển `usNews`)
+hoặc ngoài phạm vi (bỏ, ghi `logs/loai-tin.md`). Mở một cửa ở đây là dựng lại cái thùng dưới
+tên khác.
+⚠️ **Cổng nạp CHỈ áp cho `worldNews`, không áp `baomoiNews`** dù tin Báo Mới cũng được gộp
+vào `worldNews` khi ghi — Báo Mới có 4 chuyên mục và cổng riêng, chặn ở đây là chặn oan tin
+Báo Mới thuộc chủ đề Nội bộ Mỹ. Phần hở đó do tầng `make_docx.py` gánh: nó lọc trên `world`
+**sau** khi đã gộp.
+⚠️ **Ngoại lệ Mali phải giữ** (`MALI_KEYS_ADD` trong `add_news.py`): chủ đề 4 đôi khi nằm ở
+`worldNews` và có mục riêng. Giữ đồng bộ với `MALI_KEYS` bên `make_docx.py` — hai nơi lệch
+thì tin Sahel bị chặn ở tầng này trong khi tầng kia vẫn chờ nó.
+
+**Lưới an toàn vẫn nguyên, và nay KÊU TÁCH nguyên nhân:** tin rớt không biến mất, vẫn dồn về
+mục 1 (*mất tin tệ hơn xếp nhầm mục*). Nhưng dòng cảnh báo tách làm hai — *"tin worldNews
+KHÔNG neo được vào Úc/Biển Đông … Đây là lỗi TẦNG QUÉT"* so với dòng cũ *"không khớp mục
+nào → xem lại phân loại"*. Gộp chung một câu thì hai nguyên nhân khác nhau ra cùng chữ và
+người đọc đi sửa nhầm chỗ.
+
+**Số đo nghiệm thu 01/08:**
+- Trên **dữ liệu thật**: 38 tin `worldNews` từ 28/07 → **34 nhận · 04 rớt**, và 04 tin rớt
+  đúng là 03 tin Huy chê + tin *"Hàn Quốc luật hóa cam kết… tàu ngầm hạt nhân"* mà mục
+  28/07 bên trên đã ghi là lọt oan. Không tin Biển Đông/Philippines/Úc/Đài Loan nào bị chặn.
+- Chạy `make_docx.py` thật: lưới kêu đúng **03 tin**, file .docx vẫn sinh ra, tin không mất.
+- Bộ test `tests/test-cong-uc-bien-dong.py`: **16 ca (08 PHẢI CHẶN · 08 đối chứng chống chặn
+  oan) · 10/10 bản hỏng đều bị bắt**, gồm 01 bản hỏng canh **chiều nới** (thêm thẳng
+  japan/korea/china vào bảng neo). Đã nạp `BO_TEST` của `HeThong/khoe.py`.
+- 17/17 bộ test của repo vẫn đạt sau khi vá.
+
+⚠️ **Bẫy khi sửa bộ test này:** `--tu-kiem` KHÔNG ghi đè file thật — mỗi bản hỏng dựng một
+**bản sao repo tối giản** trong thư mục tạm mang PID + sha1 nội dung, giữ nguyên cấu trúc
+`scripts/` + `.github/scripts/` để `make_docx.py` vẫn tự tìm `../../scripts/topics.py` của
+BẢN SAO. Repo này thường có nhiều phiên Claude chạy song song; ghi đè file thật là xoá việc
+của phiên khác.
+⚠️ **Ca test phải dùng `category` THẬT** (`VALID_CATEGORIES`). Vấp lúc dựng: đặt
+`category: "Quân sự"` thì cổng category chặn trước, 03 ca "PHẢI CHẶN" vẫn XANH nhưng xanh vì
+**lý do sai** — đo nhầm nhánh mà bảng kết quả trông vẫn bình thường.
 
 ### 🔄 ĐẢO NGUYÊN TẮC 01/08/2026 — FILE JAY LÂM GỬI LÀ **BỘ LỌC**, KHÔNG PHẢI NGUỒN TIN
 
