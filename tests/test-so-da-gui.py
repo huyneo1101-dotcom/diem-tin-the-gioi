@@ -290,9 +290,21 @@ def tu_kiem() -> int:
                   f"trong {ten_file} (cần đúng 1). Mã nguồn đã đổi → sửa lại test.")
             hong += 1
             continue
-        d = pathlib.Path(tempfile.mkdtemp(prefix="sodagui-hong-"))
+        # ⚠️ PHẢI GIỮ NGUYÊN CẤU TRÚC `<repo>/.github/scripts` + `<repo>/scripts`.
+        # `make_docx.py` suy đường tới `scripts/` từ vị trí CHÍNH NÓ (lên 3 cấp từ `__file__`)
+        # để `from topics import neo_uc_bien_dong`. Copy phẳng vào thư mục tạm thì phép suy đó
+        # trỏ ra ngoài `/var/folders/...` ⇒ `ModuleNotFoundError` ngay lúc nạp ⇒ bản con không
+        # in dòng ✗ nào ⇒ mọi bản hỏng bị đọc thành "KHÔNG CÓ CA NÀO ĐỎ". Vấp thật 02/08/2026:
+        # 8/8 bản hỏng của bộ này trượt cùng lúc, sau khi phiên khác thêm import chéo đó vào
+        # `make_docx.py` mà không sửa các bộ test dựng bản hỏng của file này.
+        goc_d = pathlib.Path(tempfile.mkdtemp(prefix="sodagui-hong-"))
+        d = goc_d / ".github" / "scripts"
+        d.mkdir(parents=True)
+        (goc_d / "scripts").mkdir()
         for f in ("so_da_gui.py", "make_docx.py"):
             shutil.copy2(GS_THAT / f, d / f)
+        for f in (REPO / "scripts").glob("*.py"):
+            shutil.copy2(f, goc_d / "scripts" / f.name)
         (d / ten_file).write_text(goc.replace(tim, thay), encoding="utf-8")
         env = dict(os.environ, SODAGUI_DIR=str(d))
         r = subprocess.run([sys.executable, str(pathlib.Path(__file__).resolve())],
@@ -308,7 +320,7 @@ def tu_kiem() -> int:
         if not ok:
             hong += 1
             print(f"        │ ⚠ ca {sorted(thieu)} VẪN XANH trên bản hỏng → test không bắt được lỗi này.")
-        shutil.rmtree(d, ignore_errors=True)
+        shutil.rmtree(goc_d, ignore_errors=True)
     print("═" * 78)
     if hong:
         print(f"✗ {hong}/{len(BAN_HONG)} phép thử tự kiểm THẤT BẠI — bộ test chưa chứng minh được "

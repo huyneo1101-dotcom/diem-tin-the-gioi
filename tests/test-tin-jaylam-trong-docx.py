@@ -340,10 +340,22 @@ def tu_kiem():
         sha = hashlib.sha1(hong.encode("utf-8")).hexdigest()[:8]
         d = pathlib.Path(tempfile.mkdtemp(prefix=f"jl-hong-{os.getpid()}-{sha}-"))
         try:
+            # ⚠️ PHẢI GIỮ NGUYÊN CẤU TRÚC THƯ MỤC `<repo>/.github/scripts` + `<repo>/scripts`.
+            # `make_docx.py` suy đường tới `scripts/` từ vị trí CHÍNH NÓ (lên 3 cấp từ
+            # `__file__`) để `from topics import neo_uc_bien_dong`. Copy phẳng vào một thư mục
+            # tạm thì phép suy đó trỏ ra ngoài `/var/folders/...` ⇒ `ModuleNotFoundError` ngay
+            # lúc nạp ⇒ bản con không in được dòng ✓/✗ nào ⇒ `--tu-kiem` đọc thành "ĐỎ TOÀN BỘ"
+            # và TRƯỢT cả 11 bản hỏng. Vấp thật 02/08/2026 ngay sau khi phiên khác thêm import
+            # chéo đó vào `make_docx.py` mà không sửa các bộ test dựng bản hỏng của file này.
+            gs = d / ".github" / "scripts"
+            gs.mkdir(parents=True)
+            (d / "scripts").mkdir()
             for f in GS.glob("*.py"):
-                shutil.copy2(f, d / f.name)
-            (d / "make_docx.py").write_text(hong, encoding="utf-8")
-            env = dict(os.environ, MAKEDOCX_DIR=str(d))
+                shutil.copy2(f, gs / f.name)
+            for f in (REPO / "scripts").glob("*.py"):
+                shutil.copy2(f, d / "scripts" / f.name)
+            (gs / "make_docx.py").write_text(hong, encoding="utf-8")
+            env = dict(os.environ, MAKEDOCX_DIR=str(gs))
             p = SP.run([sys.executable, str(pathlib.Path(__file__).resolve())],
                        capture_output=True, text=True, env=env, timeout=300)
             do = {_so_ca(l[2:]) for l in p.stdout.splitlines() if l.startswith("✗ ")}
