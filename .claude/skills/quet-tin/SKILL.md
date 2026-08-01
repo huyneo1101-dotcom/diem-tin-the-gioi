@@ -375,7 +375,7 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
 
 Chỉ thị Huy: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định dạng mẫu"*. Mục 5 của
 file .docx bản tin là tin Jay Lâm gửi vào bot; trước 30/07 nó dán nguyên văn tới 20.000 ký tự,
-lệch hẳn khuôn 4 mục kia. Việc truy nguồn + viết tóm tắt cần suy nghĩ nên `make_docx.py` không làm
+lệch hẳn khuôn 4 mục kia (nhánh dán nguyên văn đã bỏ hẳn 01/08/2026). Việc truy nguồn + viết tóm tắt cần suy nghĩ nên `make_docx.py` không làm
 được — đây là việc của phiên quét.
 
 ✅ **PHIÊN SÁNG SỚM CŨNG LÀM BƯỚC NÀY — đảo lại "CHỈ PHIÊN TỐI" của bản đầu, cùng ngày 30/07/2026.**
@@ -384,8 +384,8 @@ Huy chốt: *"Jay Lâm gửi tin muộn sau đợt quét buổi tối thì tự 
 20:47-21:26 mà file Jay Lâm gửi lúc 21:34 — muộn hơn cả bản .docx cuối cùng — nên tin phải chờ tới
 20:47 hôm sau, lúc đó khung ngày đã đẩy nó sang nhóm quá hạn rồi đóng sổ. Tức file gửi trong khoảng
 21:30-23:59 gần như **không bao giờ tới tay**, mà file .docx vẫn ra đời bình thường nên không dấu
-hiệu nào. Bỏ bước này ở phiên sáng thì mục 5 vẫn có nhưng in **nguyên văn dự phòng**, không phải tin
-chuẩn. Hạn chót 21:45 nhắc ở dưới là của RIÊNG phiên tối.
+hiệu nào. Bỏ bước này ở phiên sáng thì **mục 5 vắng mặt hẳn** (từ 01/08/2026 — trước đó nó in nguyên
+văn dự phòng). Hạn chót 21:45 nhắc ở dưới là của RIÊNG phiên tối.
 
 ⏰ **KÍCH BOT HÚT TELEGRAM TRƯỚC, RỒI MỚI ĐỌC HÀNG CHỜ** (thêm 30/07/2026 sau khi vấp thật). File Jay
 Lâm gửi chỉ vào bảng khi `telegram-bot.yml` chạy, mà GitHub chạy workflow đó **cách nhau 01-02 giờ**
@@ -432,10 +432,15 @@ chờ · `id` trùng trong cùng file · `tieu_de` ngoài 10-200 ký tự · `to
 thiếu `nguon_ten` · `nguon_url` là trang chủ/live-blog · `la_cnqs` không phải true/false. **Một mục
 sai là chặn CẢ LÔ** — cố ý, để không ghi nửa vời rồi không ai biết phần nào đã vào.
 
-⚠️ Bước này nằm SAU hạn 21:45 của phiên tối: quá hạn thì **chốt bản tin trước, bỏ bước này**. Tin
-không xử lý kịp KHÔNG mất — mục 5 tự lùi về nguyên văn đã cắt (kèm cảnh báo trong log workflow),
-hoặc vào bản tối hôm sau nếu còn trong khung ngày.
-⚠️ Phiên SÁNG SỚM không làm bước này — mục 5 chỉ có ở bản buổi TỐI.
+⛔ **BỎ BƯỚC NÀY = BẢN TIN HÔM ĐÓ KHÔNG CÓ MỤC 5** (siết 01/08/2026 — nhánh dán nguyên văn đã bỏ
+hẳn, xem CLAUDE.md). Câu cũ ở đây ghi *"tin không xử lý kịp KHÔNG mất, mục 5 tự lùi về nguyên văn
+đã cắt"* — nay sai: dòng chưa tóm tắt **không vào file**, nó nằm chờ. Vẫn không mất tin, nhưng cái
+giá đã đổi từ *"mục 5 xấu hơn"* thành *"mục 5 vắng mặt"*, nên đừng bỏ bước này cho nhẹ việc.
+⚠️ Bước này nằm SAU hạn 21:45 của phiên tối: quá hạn thì vẫn **chốt bản tin trước, bỏ bước này** —
+tin chờ sang bản SÁNG hôm sau (còn trong khung ngày). Nhưng **bỏ ba phiên liên tiếp là mất tin
+thật**: hết khung 3 ngày thì dòng đó bị đóng sổ mà chưa từng đăng ở đâu, chỉ còn một dòng
+`CHƯA TỪNG được tóm tắt` trong log workflow.
+⚠️ Phiên SÁNG SỚM CŨNG LÀM bước này — mục 5 dựng ở CẢ HAI buổi từ 30/07/2026.
 
 ## Bước 5 — Xuất bản + log
 - `git add index.html logs/` phải gồm **`logs/scan-gaps.json`** (cùng `logs/state.json`).

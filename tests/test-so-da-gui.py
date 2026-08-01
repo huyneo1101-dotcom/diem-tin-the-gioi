@@ -260,13 +260,16 @@ BAN_HONG = [
       '    if len(out) != len(items):\n'
       '        print(f"Ca sáng: bỏ'),
      [10]),
+    # ⚠ Hai neo dưới trỏ vào `_url_ca_sang` — từ 01/08/2026 phần đọc sổ được tách ra hàm
+    # riêng để `loc_bo_tin_ca_sang` (tin quét) và `loc_jaylam_ca_sang` (mục 5) dùng CHUNG một
+    # đường đọc. Trước đó chúng neo vào thân `loc_bo_tin_ca_sang` và đã trượt ngay lượt vá.
     ("make_docx: lọc theo TOÀN sổ (bọc loc_chua_gui) — giết cả bản dựng lại", "make_docx.py",
-     ('        da_gui = url_da_gui_buoi("sang", now.strftime("%Y-%m-%d"))',
-      '        da_gui = __import__("so_da_gui").url_da_gui()'),
+     ('        return url_da_gui_buoi("sang", now.strftime("%Y-%m-%d")) or set()',
+      '        return __import__("so_da_gui").url_da_gui()'),
      [11, 13]),
     ("make_docx: bỏ phép kiểm buổi → bản SÁNG cũng bị lọc", "make_docx.py",
-     ('    if not la_buoi_toi(now):\n        return items',
-      '    if False:\n        return items'),
+     ('    if not la_buoi_toi(now):\n        return set()',
+      '    if False:\n        return set()'),
      [12]),
     ("so_da_gui: url_da_gui_buoi lờ NGÀY, gom mọi dòng cùng buổi", "so_da_gui.py",
      ('        if luc.astimezone(VN).strftime("%Y-%m-%d") != ngay:\n            continue',

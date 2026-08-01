@@ -121,7 +121,8 @@ jobs:
           # Mã riêng đọc/ghi 2 bảng `dt_*` trên Supabase — cần cho BƯỚC 3b của phiên TỐI:
           # `scripts/tin_jaylam.py` đọc hàng chờ tin Jay Lâm gửi rồi ghi lại tóm tắt + nguồn
           # (thêm 30/07/2026). Thiếu secret thì script in cảnh báo và bỏ qua bước đó — bản tin
-          # vẫn ra, chỉ là mục 5 lùi về nguyên văn đã cắt. KHÔNG phải service key (mục
+          # vẫn ra nhưng KHÔNG có mục 5 (nhánh dán nguyên văn đã bỏ hẳn 01/08/2026, tin nằm
+          # chờ bản sau). KHÔNG phải service key (mục
           # "ĐỌC dt_bot_hoi dùng MÃ RIÊNG" trong CLAUDE.md).
           DT_BOT_KEY: ${{ secrets.DT_BOT_KEY }}
         run: |
