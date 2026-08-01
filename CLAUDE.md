@@ -350,6 +350,25 @@ hướng lệch là LẶP một bản tin, không phải MẤT tin. Ca 13 canh c
 khi đặt một cờ kiểu `GUI_EMAIL='0'`, soi xem kênh sắp tắt có đang MỘT MÌNH thi hành luật nào không
 — cùng họ với *"dời file thì phải dời cả thứ đang đo nó"*.
 
+⛔ **VÁ TIẾP CÙNG NGÀY: PHÉP LỌC TRÊN CHỈ PHỦ 03 MỤC QUÉT THƯỜNG, TIN JAY LÂM ĐI LỌT** (01/08/2026).
+Đo tối 01/08: **04 tin Jay Lâm lặp nguyên si bản tin sáng cùng ngày**. **Cơ chế gây vấp:** hai lớp
+chống trùng đứng cạnh nhau mà mỗi lớp hụt một nửa, và chỗ hụt của chúng chồng lên nhau —
+`loc_bo_tin_ca_sang` áp đúng `usNews`/`worldNews`/`events`, **không áp mục 5**; còn
+`loc_trung_jaylam` thì so tiêu đề với tin của **CHÍNH bản đang dựng**, không biết gì về bản sáng.
+Không lỗi, không cảnh báo — file .docx vẫn đủ mục.
+- `make_docx.py::loc_jaylam_ca_sang(rows, now)` — bỏ dòng có `nguon_url` nằm trong tập URL đã gửi
+  ca sáng cùng ngày; nhóm bị bỏ **VẪN đóng sổ** (nội dung đã tới tay Huy sáng nay).
+- **Một đường đọc sổ duy nhất: `_url_ca_sang(now)`**, cả hai phép lọc gọi chung. Hai nơi tự đọc sổ
+  riêng thì chắc chắn lệch, mà lệch âm thầm.
+- ⚠️ **Chỉ bắt được ca trùng ĐÚNG URL.** Jay Lâm gửi cùng sự kiện nhưng nguồn khác thì vẫn lọt —
+  giới hạn đã biết, không phải bug; siết bằng so tiêu đề là lọc oan tin nối tiếp.
+- ⚠️ **Fail-OPEN có tiếng:** đọc sổ hỏng ⇒ trả tập rỗng, giữ nguyên tin, in cảnh báo. Hướng lệch
+  phải là LẶP một bản tin, không phải MẤT tin — ca [62] canh chiều này, bản hỏng đổi sang ném lỗi
+  làm nó đỏ.
+- ⚠️ **Ca test đọc sổ phải dựng SỔ GIẢ, đừng đọc sổ thật của repo** — sổ chỉ giữ `GIU_NGAY = 7`
+  nên ca neo vào một ngày cụ thể sẽ tự tắt sau một tuần, tức bản hỏng lọt mà bảng vẫn xanh. Ca
+  [60]/[61] ghim `so_da_gui.SO` vào file tạm.
+
 ### 🔀 HAI WORKFLOW GHI CÙNG SỔ CÁCH 07 GIÂY — luật hợp nhất ở `ghi_so_push.py` (vá 30/07/2026)
 
 **Sự cố thật sáng 30/07:** `notify-morning.yml` ghi `logs/da-gui-email.json` lúc 21:28:01Z,
@@ -975,7 +994,7 @@ ngày (tới cả Huy lẫn Jay Lâm — họ tự gửi tin của mình nên kh
 | `.github/scripts/make_docx.py` mục 5 "Tin Jay Lâm gửi" | **CẢ HAI BUỔI** (mở cho bản sáng 30/07/2026 — trước đó khoá vào `la_buoi_toi(now)`). Đọc dòng `da_gop=false`, tách trong-khung / quá-hạn theo `jaylam_gioi_han_ngay()`, qua bộ lọc chống trùng `loc_trung_jaylam()`, in theo khuôn tin chuẩn (`add_jaylam_item`) kèm dòng nhãn xác minh, rồi đánh dấu `da_gop=true` SAU khi `doc.save()` thành công — **cho cả nhóm quá hạn** |
 | `.github/workflows/notify-email.yml` | Bước "Tạo file docx" nay có thêm `DT_BOT_KEY` — thiếu secret thì mục 5 tự bỏ qua, KHÔNG làm hỏng phần còn lại của file |
 | `tests/test-nhan-tin-jaylam.py` | **23 ca · `--tu-kiem` bắt 7/7 bản hỏng** — phần NHẬN (bóc chữ + `xu_ly_tin_jaylam`): 4 ca PHẢI CHẶN (từ chối không phải `.docx` · tải hỏng · file rỗng → KHÔNG lưu) · 3 ca TRẦN ĐỘ DÀI (hồi quy 34.525 ký tự · vượt trần PHẢI báo · dưới trần không kêu oan) · 6 ca CHUYỂN TIẾP bản sao về chat chủ · **5 ca CHAT CHỦ** (file của Huy KHÔNG vào hàng chờ, tin xác nhận nói rõ; người ngoài vẫn lưu; id chuỗi con vẫn lưu; thiếu chat chủ thì không chặn ai) |
-| `tests/test-tin-jaylam-trong-docx.py` | **49 ca · `--tu-kiem` bắt 16/16 bản hỏng** — phần GỘP: **buổi sáng CŨNG gộp** (ca 04/05/44/45) · trùng tin quét thường thì bị lọc NHƯNG vẫn đánh dấu đã gộp · trùng NỘI BỘ chỉ giữ dòng đầu · khung ngày 2 ngày mà CNQS được nới 3 ngày (ca 27-31, gồm đúng ví dụ "hôm nay 27 giữ tin ngày 24") · dòng chưa xử lý hưởng khung RỘNG · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
+| `tests/test-tin-jaylam-trong-docx.py` | **59 ca · `--tu-kiem` bắt 21/21 bản hỏng** — phần GỘP: **buổi sáng CŨNG gộp** (ca 04/05/44/45) · **dòng CHƯA tóm tắt KHÔNG vào file, không đóng sổ** (ca 14/15/46/52/53/54) · **tin trùng bản SÁNG cùng ngày bị lọc, vẫn đóng sổ** (ca 57-62) · trùng tin quét thường thì bị lọc NHƯNG vẫn đánh dấu đã gộp · trùng NỘI BỘ chỉ giữ dòng đầu · khung ngày 2 ngày mà CNQS được nới 3 ngày (ca 27-31, gồm đúng ví dụ "hôm nay 27 giữ tin ngày 24") · dòng chưa xử lý hưởng khung RỘNG · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
 | `tests/test-tin-jaylam-xu-ly.py` | **30 ca (14 ca PHẢI CHẶN) · `--tu-kiem` bắt 12/12 bản hỏng** — guardrail của `tin_jaylam.py`: id bịa/trùng · `tieu_de`/`tom_tat` không đạt · thiếu `nguon_ten` · URL trang chủ/live-blog · `la_cnqs` sai kiểu · ghi mù khi hàng chờ rỗng · PATCH hỏng phải KÊU · một mục sai chặn cả lô · khung ngày ở bước liệt kê dùng khung RỘNG NHẤT |
 
 ⚠️ **BỘ LỌC CHỐNG TRÙNG — "vẫn phải có như mọi khi" (Huy chốt)**, viết TẠI CHỖ trong
@@ -1110,9 +1129,33 @@ báo không đạt. Nghiệm thu 30/07: đổi thử một con số ⇒ cổng k
 ⚠️ **Dòng CHƯA được xử lý cũng hưởng khung RỘNG (3 ngày)** — lúc đó không ai biết nó thuộc chủ
 đề gì, mà siết hẹp thì một phiên quét chết giữa chừng kéo theo việc loại oan tin CNQS. Hướng
 lệch phải là GIỮ tin, không phải mất tin.
-⚠️ **Dòng chưa xử lý lùi về nguyên văn CẮT ở `JAYLAM_FALLBACK_CHARS` kèm cảnh báo stderr** —
-fail-open CÓ TIẾNG. Phiên quét chết thì tin vẫn tới tay Huy (chỉ thô hơn), nhưng im lặng ở đây
-là dựng lại đúng cảnh mất cân đối mà bản vá này xoá đi.
+⛔ **NHÁNH DÁN NGUYÊN VĂN ĐÃ BỎ HẲN 01/08/2026 (Huy chốt) — dòng chưa tóm tắt nay KHÔNG vào file,
+nằm chờ bản tin sau.** Câu cũ ở đây ghi *"lùi về nguyên văn CẮT ở `JAYLAM_FALLBACK_CHARS`, fail-open
+CÓ TIẾNG, tin vẫn tới tay Huy chỉ thô hơn"* — đúng về ý định, sai về thứ đo được. **Cơ chế gây vấp:**
+nhánh ấy là nhánh THƯỜNG TRỰC chứ không hiếm (phiên quét chạy 20:47-21:26, Jay Lâm gửi 21:06 và
+21:34), nên gần như tối nào bản .docx cũng có một khối chữ thô vài chục nghìn ký tự dán giữa bản tin
+— không tiêu đề, không link, không tách theo từng tin, lẫn cả mục lục file gốc. Đo tối 01/08: một
+dòng như vậy dài **34.525 ký tự, bằng cả bốn mục tin cộng lại**, và người đọc không phân biệt được
+đâu là tin. "Thà thô còn hơn mất tin" chỉ đúng khi mất tin là hệ quả thật — mà nó không phải: mục 5
+nay dựng ở **cả hai buổi** và dòng chưa xử lý hưởng **khung 3 ngày**, tức nó chờ đúng một phiên có
+chạy `tin_jaylam.py` rồi ra dưới dạng tin chuẩn.
+- Lớp lọc là `make_docx.py::tach_chua_tom_tat()`, xét **cả cờ `da_xu_ly` LẪN `tom_tat` không rỗng**:
+  `--ghi` đặt cờ theo lô nên một mục ghi thiếu tóm tắt sẽ lọt, và chỉ xét cờ thì file in ra đúng một
+  gạch đầu dòng trống. `add_jaylam_item` có chốt chặn thứ hai (kêu rồi bỏ qua) — chốt đó chỉ để
+  không in tin rỗng nếu về sau có đường gọi khác, KHÔNG thay được lớp lọc.
+- **Dòng chưa tóm tắt KHÔNG đóng sổ** — giữ nguyên luật cũ, nay là chốt duy nhất giữ tin.
+- ⚠️ **Rủi ro còn lại, khai rõ để phiên sau đừng tưởng là kín:** cả sáng lẫn tối cùng bỏ bước
+  `tin_jaylam.py` trong 3 ngày liên tiếp thì dòng đó hết khung, bị đóng sổ mà **chưa từng tới tay
+  ai**. `main()` kêu riêng ca này (`CHƯA TỪNG được tóm tắt`), tách khỏi cảnh báo quá hạn chung — đó
+  là tín hiệu duy nhất, và nó chỉ nằm trong log workflow.
+- Bộ test: `tests/test-tin-jaylam-trong-docx.py` **53 ca · `--tu-kiem` bắt 17/17 bản hỏng**, trong
+  đó 02 bản dựng lại đúng hành vi cũ (bỏ phép tách · đóng sổ cả dòng chưa tóm tắt).
+
+📜 **MỤC DƯỚI ĐÂY LÀ LỊCH SỬ — nhánh dự phòng nó nói tới đã BỎ HẲN 01/08/2026 (xem khối ngay
+trên).** Giữ lại vì hai luật trong đó vẫn còn hiệu lực và vẫn có ca test canh: **bảng đóng sổ**
+(dòng chưa tóm tắt KHÔNG đóng sổ, ba nhóm còn lại CÓ) và **nếp neo ca test bằng con số THẬT**.
+Phần nói về trần cắt `JAYLAM_FALLBACK_CHARS`, ca `[49]`, và cảnh báo "đã cắt bao nhiêu ký tự"
+thì đã hết hiệu lực — hằng số và cả hai ca đó không còn trong mã.
 
 ⛔ **NHÁNH DỰ PHÒNG LÀ NHÁNH THƯỜNG TRỰC, KHÔNG PHẢI NHÁNH HIẾM — và bản đầu của nó ĐÓNG SỔ tin
 ngay sau khi in thô, tức mất 96% nội dung vĩnh viễn** (đo thật tối 30/07/2026, vá cùng ngày,
@@ -1133,7 +1176,7 @@ tầng hỏng chồng lên nhau, cả hai đều không phát ra lỗi:
 | đã tóm tắt (`da_xu_ly=true` + có `tom_tat`) | **CÓ** |
 | bị `loc_trung_jaylam` lọc trùng | **CÓ** — nội dung đã có mặt qua bản còn lại |
 | quá khung ngày (`jaylam_qh`) | **CÓ** — không thì tối nào cũng đọc ra rồi loại lại |
-| **vừa in dạng nguyên văn mà chưa tóm tắt** | **KHÔNG** — để bản tối sau gộp lại dạng tin chuẩn |
+| **chưa tóm tắt** (từ 01/08 thì không in ra nữa) | **KHÔNG** — để bản tin sau gộp lại dạng tin chuẩn |
 
 ⚠️ Không có đường kẹt vĩnh viễn: dòng được tha mà tới lúc nào đó vẫn chưa ai tóm tắt thì khung
 ngày đẩy nó sang `jaylam_qh` rồi đóng sổ ở đó.
@@ -1143,7 +1186,7 @@ nên nó chỉ đo *phép cắt*, **không** đo trần đặt ở đâu, hạ t
 test xanh y nguyên.
 ⚠️ Cảnh báo stderr phải nói ĐÚNG có cắt hay không kèm số ký tự — bản cũ luôn ghi "đã cắt" kể cả
 khi in đủ, nên đọc log không phân biệt được tin ra đủ với tin mất 96%.
-Bộ test `tests/test-tin-jaylam-trong-docx.py` nay **49 ca · `--tu-kiem` bắt 16/16 bản hỏng**,
+Bộ test `tests/test-tin-jaylam-trong-docx.py` nay **59 ca · `--tu-kiem` bắt 21/21 bản hỏng**,
 trong đó 03 bản dựng lại đúng hành vi cũ (đóng sổ dòng chưa tóm tắt · tha cả dòng đã tóm
 tắt · hạ trần về 1.200) và 01 bản khoá lại mục 5 vào riêng bản tối.
 
@@ -1258,7 +1301,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `tests/test-ghi-so-push.py` | Sổ đã gửi chịu được HAI workflow ghi cùng lúc (`.github/scripts/ghi_so_push.py`) | 10 ca — 2 CA CHÍNH (giữ đủ hai dòng · URL tính đúng một lần) · 2 PHẢI CHẶN (nhân dòng · `--hard` đè index.html) · 1 PHẢI KÊU · 4 đối chứng · 1 kiểm cổng còn nằm trên đường đi (soi 2 file yml). `--tu-kiem` bắt 6/6 bản hỏng |
 | `tests/test-bang-nguon-claude-md.py` | Đường ĐỌC BẢNG NGUỒN từ CLAUDE.md + phép lấy TIÊU ĐỀ của lớp `[HTML]` | 13 ca — 6 PHẢI CHẶN (nhắc tên bảng trong văn xuôi ×1/×3 · bảng HTML lọt vào lớp RSS · feed giao với trang HTML · thẻ `<a>` gộp tóm tắt vẫn phải ra tiêu đề qua `aria-label` · và qua `<h4 class=title>` kèm tiêu đề phải sạch), 7 đối chứng (cột `CI` bị bỏ ở local · đủ 06 trang quân chủng · Navy+Marines có ở local · tên không mang dấu `**` · không có bảng thì trả rỗng êm · tiêu đề đổi chữ vẫn đọc được · **chống nới tay**: không có nguồn tiêu đề sạch thì BỎ chứ không nạp tiêu đề rác). `--tu-kiem` bắt 5/5 bản hỏng |
 | `tests/test-nhan-tin-jaylam.py` | Nhận file `.docx` Jay Lâm gửi qua bot (`docx_text.py` · `telegram_bot.py::xu_ly_tin_jaylam` · `gui_ban_sao_cho_chu` · `_la_chat_chu`) | **23 ca · `--tu-kiem` bắt 7/7 bản hỏng** — 4 PHẢI CHẶN (không phải `.docx` · tải hỏng · file rỗng → KHÔNG gọi `luu_tin_jaylam`), 4 ca trích chữ, 1 ca luồng bình thường, **3 ca trần độ dài** (hồi quy file thật 34.525 ký tự · vượt trần PHẢI báo · dưới trần không kêu oan), **6 ca chuyển tiếp bản sao** (đúng `file_id` + caption · VẪN gửi khi tải hỏng · VẪN gửi khi Supabase hỏng · KHÔNG gửi ngược cho chính chat chủ · thiếu chat chủ không crash · gọi THẲNG hàm để canh chốt bên trong), **5 ca chat chủ** |
-| `tests/test-tin-jaylam-trong-docx.py` | Gộp tin Jay Lâm vào mục 5 của `.docx` bản tin (CẢ HAI buổi — `make_docx.py`) | **49 ca · `--tu-kiem` bắt 16/16 bản hỏng** — **buổi sáng CŨNG gọi Supabase Jay Lâm** · tin gửi 21:34 tối qua lên bản SÁNG hôm sau · trùng tin quét thường thì ẩn khỏi mục riêng nhưng VẪN đánh dấu `da_gop` · trùng nội bộ chỉ hiện 1 lần nhưng đánh dấu cả 2 · **khung ngày 2 ngày mà CNQS Mỹ nới 3 ngày** · dòng chưa xử lý hưởng khung RỘNG · in tóm tắt thay nguyên văn · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
+| `tests/test-tin-jaylam-trong-docx.py` | Gộp tin Jay Lâm vào mục 5 của `.docx` bản tin (CẢ HAI buổi — `make_docx.py`) | **59 ca · `--tu-kiem` bắt 21/21 bản hỏng** — **buổi sáng CŨNG gọi Supabase Jay Lâm** · tin gửi 21:34 tối qua lên bản SÁNG hôm sau · trùng tin quét thường thì ẩn khỏi mục riêng nhưng VẪN đánh dấu `da_gop` · trùng nội bộ chỉ hiện 1 lần nhưng đánh dấu cả 2 · **khung ngày 2 ngày mà CNQS Mỹ nới 3 ngày** · dòng chưa xử lý hưởng khung RỘNG · **dòng chưa tóm tắt KHÔNG vào file và KHÔNG đóng sổ** · **tin trùng URL bản SÁNG cùng ngày bị lọc, vẫn đóng sổ** · nhãn xác minh · nhãn ghi cả ngày · không trần số lượng · thiếu secret thì im lặng đúng |
 | `tests/test-cong-kich-notify.py` | Cổng "chỉ phiên TỰ NẠP mới được kích notify" (`state.py::ghi_co_da_nap` + `.github/scripts/quyet_dinh_kich.py` + `claude-web-scan.yml`) | **10 ca · `--tu-kiem` bắt 3/3 bản hỏng** — 3 PHẢI CHẶN (chưa `done` · sau `skip` · sau `fail` đều KHÔNG kích), 3 chống chặn oan, 1 ca hai pipeline độc lập, **2 ca đọc chính file yml** (phải gọi `quyet_dinh_kich.py`; KHÔNG được quay lại `git log --format=%s`), 1 ca chạy `--tu-kiem` của chính script quyết định |
 | `tests/test-tin-jaylam-xu-ly.py` | Guardrail bước phiên quét tối biến tin Jay Lâm thành tin chuẩn (`scripts/tin_jaylam.py`) | **30 ca (14 PHẢI CHẶN) · `--tu-kiem` bắt 12/12 bản hỏng** — id bịa/trùng · `tieu_de` ngoài 10-200 · `tom_tat` cụt · thiếu `nguon_ten` · URL trang chủ/live-blog · `la_cnqs` sai kiểu · ghi mù khi hàng chờ rỗng · PATCH hỏng phải KÊU chứ không báo xong oan · một mục sai chặn cả lô · bước liệt kê dùng khung RỘNG NHẤT để không bỏ mất ứng viên CNQS |
 

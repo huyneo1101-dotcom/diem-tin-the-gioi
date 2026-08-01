@@ -28,9 +28,10 @@ tên file MẪU, KHÔNG phải tên file script này xuất ra — tên xuất r
                          Huy chốt 30/07/2026: "tin Jay Lâm gửi cũng là tin kèm url và tóm tắt
                          gần giống định dạng mẫu". Phần tóm tắt + truy URL gốc do PHIÊN QUÉT
                          làm (`scripts/tin_jaylam.py`, cần agent nên không làm được ở đây) —
-                         CẢ phiên sáng LẪN phiên tối đều phải chạy bước đó, kẻo bản sáng chỉ
-                         in được nguyên văn dự phòng; dòng chưa xử lý lùi về nguyên văn đã
-                         cắt kèm cảnh báo.
+                         CẢ phiên sáng LẪN phiên tối đều phải chạy bước đó. Dòng CHƯA qua
+                         bước đó thì KHÔNG vào file (Huy chốt 01/08/2026, bỏ hẳn nhánh dán
+                         nguyên văn — xem `tach_chua_tom_tat()`): nó nằm chờ, không đóng sổ,
+                         để bản tin kế tiếp gộp lại dưới dạng tin chuẩn.
                          Khung ngày: y như tin quét thường — mặc định 2 ngày, tin CNQS Mỹ
                          (cờ `la_cnqs`) được nới 3 ngày lùi; quá hạn thì bỏ + đánh dấu đã
                          gộp + cảnh báo. KHÔNG có trần số lượng.
@@ -414,6 +415,27 @@ def loc_chua_gui(items):
     return out
 
 
+def _url_ca_sang(now):
+    """URL đã gửi ở ca SÁNG cùng ngày, hoặc tập RỖNG nếu không áp được.
+
+    Một đường đọc sổ duy nhất cho CẢ tin quét thường (`loc_bo_tin_ca_sang`) LẪN tin Jay Lâm
+    (`loc_jaylam_ca_sang`) — hai nơi tự đọc sổ riêng thì chắc chắn lệch nhau, mà lệch âm
+    thầm (mục 14 CLAUDE.md toàn cục).
+
+    Rỗng nghĩa là KHÔNG lọc gì: bản sáng (tin vừa nạp, chưa từng gửi) · sổ chưa có dòng nào ·
+    đọc sổ hỏng. Hướng lệch có chủ ý là LẶP một bản tin, không phải MẤT tin.
+    """
+    if not la_buoi_toi(now):
+        return set()
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from so_da_gui import url_da_gui_buoi
+        return url_da_gui_buoi("sang", now.strftime("%Y-%m-%d")) or set()
+    except Exception as e:                  # noqa: BLE001
+        print(f"Không đọc được sổ ca sáng ({e}) — giữ nguyên toàn bộ tin.", file=sys.stderr)
+        return set()
+
+
 def loc_bo_tin_ca_sang(items, now):
     """Bỏ khỏi bản TỐI những tin đã gửi ở ca SÁNG cùng ngày (Huy chốt 01/08/2026).
 
@@ -431,15 +453,7 @@ def loc_bo_tin_ca_sang(items, now):
 
     Bản SÁNG không gọi hàm này: tin của nó vừa nạp, chưa từng gửi.
     """
-    if not la_buoi_toi(now):
-        return items
-    try:
-        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-        from so_da_gui import url_da_gui_buoi
-        da_gui = url_da_gui_buoi("sang", now.strftime("%Y-%m-%d"))
-    except Exception as e:                  # noqa: BLE001
-        print(f"Không đọc được sổ ca sáng ({e}) — giữ nguyên toàn bộ tin.", file=sys.stderr)
-        return items
+    da_gui = _url_ca_sang(now)
     if not da_gui:
         return items
     out = [it for it in items if it.get("sourceUrl") not in da_gui]
@@ -465,19 +479,22 @@ JAYLAM_BANG = "dt_jaylam_inbox"
 JAYLAM_MAX_AGE_DAYS = 1
 JAYLAM_MAX_AGE_DAYS_CNQS = 3
 
-# Dòng chưa được phiên quét tối xử lý thì lùi về NGUYÊN VĂN, cắt ở đây. Fail-open CÓ TIẾNG:
-# phiên quét chết giữa chừng thì tin của Jay Lâm vẫn tới tay Huy (chỉ thô hơn), nhưng phải
-# kèm cảnh báo — im lặng ở đây là dựng lại đúng cảnh mất cân đối mà bản vá này xoá đi.
+# ⛔ NHÁNH DÁN NGUYÊN VĂN ĐÃ BỎ HẲN 01/08/2026 (Huy chốt) — trước đó dòng chưa qua bước tóm
+# tắt được in thẳng `noi_dung` vào file, cắt ở `JAYLAM_FALLBACK_CHARS` = 50.000.
 #
-# ⚠️ NỚI 1.200 -> 50.000 ngày 30/07/2026, sau khi ĐO trên lô thật đầu tiên. Cơ chế gây vấp:
-# nhánh dự phòng này KHÔNG phải nhánh hiếm mà là nhánh THƯỜNG TRỰC — phiên quét tối chạy
-# 20:47-21:26 còn Jay Lâm gửi file lúc 21:06 và 21:34, tức file tới SAU khi bước tóm tắt đã
-# chạy xong, nên tối nhận file thì luôn rơi vào đây. Với trần 1.200, file 34.525 ký tự chỉ
-# tới tay 3,5%: hai mục Huy hỏi (Pat Conroy thăm Mỹ ở offset 20.173, viện trợ 98,3 triệu AUD
-# cho Việt Nam ở 20.609) nằm ngoài xa. Trần nhận vẫn là
-# `telegram_bot.JAYLAM_MAX_CHARS` = 200.000 nên file khổng lồ vẫn bị chặn từ đầu vào.
-JAYLAM_FALLBACK_CHARS = 50000
-
+# Cơ chế gây vấp của nhánh cũ: nó KHÔNG phải nhánh hiếm mà là nhánh THƯỜNG TRỰC (phiên quét
+# chạy 20:47-21:26, Jay Lâm gửi file 21:06 và 21:34 — tới sau khi bước tóm tắt đã xong), nên
+# gần như tối nào bản .docx cũng có một khối chữ thô vài chục nghìn ký tự dán giữa bản tin:
+# không tiêu đề, không link, không cắt theo từng tin, lẫn cả mục lục và ghi chú của file gốc.
+# Đo tối 01/08/2026: một dòng như vậy dài 34.525 ký tự, bằng cả bốn mục tin cộng lại. Người
+# đọc không phân biệt được đâu là tin. "Thà thô còn hơn mất tin" nghe hợp lý nhưng đo ra thì
+# cái thô ấy làm hỏng cả bản tin, trong khi tin KHÔNG mất: mục 5 nay dựng ở CẢ HAI buổi và
+# dòng chưa xử lý hưởng khung 3 ngày (`jaylam_gioi_han_ngay`), tức nó chờ đúng một phiên có
+# chạy `tin_jaylam.py` rồi ra dưới dạng tin chuẩn.
+#
+# Rủi ro còn lại, khai rõ để phiên sau đừng tưởng là kín: cả sáng lẫn tối cùng bỏ bước tóm
+# tắt 3 ngày liên tiếp thì dòng đó rơi vào nhóm quá hạn và bị đóng sổ mà CHƯA từng tới tay
+# ai. `main()` kêu riêng ca này (`chưa từng tóm tắt`), không gộp vào cảnh báo quá hạn chung.
 # Chỉ thị Huy 30/07/2026: mục này KHÔNG đi qua thang nguồn 3 tầng như 4 mục quét, nên phải
 # nói thẳng ra để người đọc không tin ngang nhau.
 JAYLAM_NHAN_XAC_MINH = ("Nội dung do Jay Lâm gửi qua bot, chưa qua thang xác minh nguồn "
@@ -678,34 +695,74 @@ def _jaylam_ngay_gio(created_at):
         return "--/-- --:--"
 
 
+def da_tom_tat(row):
+    """Dòng đã qua bước `scripts/tin_jaylam.py` của phiên quét: có cờ `da_xu_ly` VÀ có
+    `tom_tat` thật. Xét cả hai vì `--ghi` đặt cờ theo lô — cờ bật mà tóm tắt rỗng thì in ra
+    chỉ còn cái gạch đầu dòng trống, tức hỏng câm."""
+    return bool(row.get("da_xu_ly")) and bool((row.get("tom_tat") or "").strip())
+
+
+def tach_chua_tom_tat(rows):
+    """Tách hàng chờ thành (ĐÃ tóm tắt, CHƯA tóm tắt).
+
+    Chỉ nhóm đầu được vào file .docx; nhóm sau nằm chờ và KHÔNG đóng sổ (Huy chốt
+    01/08/2026 — xem khối chú thích chỗ nhánh dán nguyên văn đã bỏ). Đây là lớp lọc DUY
+    NHẤT cho việc đó: `add_jaylam_item` có chốt chặn thứ hai nhưng chốt ấy chỉ để không in
+    ra tin rỗng nếu về sau có ai gọi thẳng hàm, không phải lớp thay thế cho phép tách này.
+    """
+    du, cho = [], []
+    for r in rows:
+        (du if da_tom_tat(r) else cho).append(r)
+    return du, cho
+
+
+def loc_jaylam_ca_sang(rows, now):
+    """Bỏ khỏi bản TỐI dòng Jay Lâm có `nguon_url` ĐÃ đi trong bản SÁNG cùng ngày.
+    Trả `(giữ, bỏ)`; nhóm bỏ VẪN đóng sổ vì nội dung của nó đã tới tay Huy sáng nay.
+
+    Vá 01/08/2026. **Cơ chế gây vấp:** `loc_bo_tin_ca_sang` chỉ áp cho 03 mục quét thường,
+    còn `loc_trung_jaylam` chỉ so tiêu đề với tin của CHÍNH bản đang dựng — nên tin Jay Lâm
+    trùng bản tin sáng không lớp nào chặn. Đo tối 01/08: 04 tin lặp nguyên si bản sáng cùng
+    ngày.
+
+    ⚠️ Chỉ bắt được ca TRÙNG ĐÚNG URL. Jay Lâm gửi cùng sự kiện nhưng nguồn khác thì lọt —
+    đó là giới hạn đã biết, không phải bug; siết bằng so tiêu đề sẽ lọc oan tin nối tiếp.
+    """
+    da_gui = _url_ca_sang(now)
+    if not da_gui:
+        return list(rows), []
+    giu, bo = [], []
+    for r in rows:
+        u = (r.get("nguon_url") or "").strip()
+        (bo if u and u in da_gui else giu).append(r)
+    if bo:
+        print(f"Tin Jay Lâm gửi: bỏ {len(bo)} tin đã đi trong bản tin SÁNG nay "
+              "(vẫn đánh dấu đã gộp): "
+              + "; ".join(f"id={r.get('id')} {r.get('nguon_url')}" for r in bo),
+              file=sys.stderr)
+    return giu, bo
+
+
 def add_jaylam_item(doc, row):
     """Một tin Jay Lâm gửi, in theo ĐÚNG khuôn 4 mục quét thường (`add_item`): đoạn
     '- (dd/mm hh:mm) <tóm tắt>' rồi dòng link nguồn.
 
     Chỉ thị Huy 30/07/2026: *"tin Jay Lâm gửi cũng là tin kèm url và tóm tắt gần giống định
-    dạng mẫu"*. `tieu_de`/`tom_tat`/`nguon_*` do phiên quét TỐI viết
-    (`scripts/tin_jaylam.py`); dòng CHƯA được xử lý thì lùi về nguyên văn cắt ở
-    `JAYLAM_FALLBACK_CHARS` kèm cảnh báo — thà thô còn hơn mất tin, nhưng không được im lặng.
+    dạng mẫu"*. `tieu_de`/`tom_tat`/`nguon_*` do phiên quét viết (`scripts/tin_jaylam.py`).
+
+    Điều kiện tiên quyết: `da_tom_tat(row)` đúng — `main()` đã lọc bằng
+    `tach_chua_tom_tat`. Chốt chặn dưới đây là lớp thứ hai, chỉ để không lặng lẽ in ra một
+    gạch đầu dòng rỗng nếu về sau có đường gọi khác; nó KÊU rồi bỏ qua chứ không in.
     """
+    if not da_tom_tat(row):
+        print(f"Tin Jay Lâm id={row.get('id')} ({row.get('ten_file')}) chưa có tóm tắt mà "
+              "vẫn được đưa tới add_jaylam_item -> BỎ QUA. Lọc bằng tach_chua_tom_tat() "
+              "trước khi gọi.", file=sys.stderr)
+        return
     dau = f"- ({_jaylam_ngay_gio(row.get('created_at'))}) "
-    if row.get("da_xu_ly") and (row.get("tom_tat") or "").strip():
-        than_txt = dau + (row.get("tom_tat") or "").strip()
-        url = (row.get("nguon_url") or "").strip()
-        nguon_ten = (row.get("nguon_ten") or "").strip()
-    else:
-        raw = (row.get("noi_dung") or "").strip()
-        do_dai_goc = len(raw)
-        if len(raw) > JAYLAM_FALLBACK_CHARS:
-            raw = raw[:JAYLAM_FALLBACK_CHARS].rstrip() + " […]"
-        than_txt = dau + (raw or "(rỗng)")
-        url, nguon_ten = "", ""
-        # Nói ĐÚNG chuyện đã xảy ra: bản cũ luôn ghi "đã cắt" kể cả khi không cắt gì, nên đọc
-        # log không phân biệt được tin ra đủ với tin mất 96% nội dung.
-        bi_cat = (f" và BỊ CẮT còn {JAYLAM_FALLBACK_CHARS}/{do_dai_goc} ký tự"
-                  if do_dai_goc > JAYLAM_FALLBACK_CHARS else f" ĐỦ {do_dai_goc} ký tự")
-        print(f"Tin Jay Lâm id={row.get('id')} ({row.get('ten_file')}) CHƯA được phiên quét "
-              f"tối tóm tắt -> in nguyên văn{bi_cat}. Kiểm bước `tin_jaylam.py` trong "
-              "playbook quét tin.", file=sys.stderr)
+    than_txt = dau + (row.get("tom_tat") or "").strip()
+    url = (row.get("nguon_url") or "").strip()
+    nguon_ten = (row.get("nguon_ten") or "").strip()
 
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
@@ -752,18 +809,41 @@ def main(now=None):
     # `jaylam_qh` = tin quá khung: KHÔNG vào file nhưng VẪN đánh dấu đã gộp (xem
     # `doc_tin_jaylam_chua_gop`). Không trần số lượng — Huy chốt 30/07/2026.
     jaylam_goc, jaylam_qh = doc_tin_jaylam_chua_gop(now)
+    # Dòng chưa qua bước tóm tắt: KHÔNG vào file, KHÔNG đóng sổ — chờ phiên sau (Huy chốt
+    # 01/08/2026). Kêu ngay tại đây, trước nhánh `total == 0`, kẻo hôm nào cả bản tin rỗng
+    # thì cảnh báo bị nuốt cùng.
+    jaylam_du, jaylam_cho = tach_chua_tom_tat(jaylam_goc)
+    jaylam_du, jaylam_sang = loc_jaylam_ca_sang(jaylam_du, now)
+    if jaylam_cho:
+        print(f"Tin Jay Lâm gửi: GIỮ LẠI {len(jaylam_cho)} dòng CHƯA qua bước tóm tắt "
+              "(không vào file, không đóng sổ — chờ bản tin sau): "
+              + "; ".join(f"id={r.get('id')} {r.get('ten_file')}" for r in jaylam_cho)
+              + ". Kiểm bước `tin_jaylam.py` trong playbook quét tin.", file=sys.stderr)
+    # Ca MẤT TIN THẬT, tách khỏi cảnh báo quá hạn chung: dòng hết khung ngày mà chưa phiên
+    # nào tóm tắt thì nó bị đóng sổ dưới đây và chưa từng tới tay ai đọc.
+    qh_chua_tt = [r for r in jaylam_qh if not da_tom_tat(r)]
+    if qh_chua_tt:
+        print(f"⚠️ Tin Jay Lâm gửi: {len(qh_chua_tt)} dòng HẾT KHUNG NGÀY mà CHƯA TỪNG được "
+              "tóm tắt -> đóng sổ, không bản tin nào đăng: "
+              + "; ".join(f"id={r.get('id')} {r.get('created_at')} {r.get('ten_file')}"
+                          for r in qh_chua_tt)
+              + ". Bước `tin_jaylam.py` đã bị bỏ nhiều phiên liên tiếp.", file=sys.stderr)
+
     jaylam_hien = []
-    if jaylam_goc:
+    if jaylam_du:
         tieu_de_da_co = [it.get("title") or "" for it in us + world + list(events)]
-        jaylam_hien = loc_trung_jaylam(jaylam_goc, tieu_de_da_co)
+        jaylam_hien = loc_trung_jaylam(jaylam_du, tieu_de_da_co)
 
     total = sum(len(items) for _, items in sections) + len(jaylam_hien)
     if total == 0:
         # Hôm nay 0 tin -> không có file. Nhóm QUÁ HẠN vẫn phải đánh dấu: nó bị bỏ hẳn, không
         # phụ thuộc việc file có ra đời hay không, và để lại thì tối nào cũng loại lại.
-        # Nhóm `jaylam_goc` thì KHÔNG đánh dấu ở đây — chúng chưa vào bản tin nào.
-        if jaylam_qh:
-            danh_dau_da_gop_jaylam([r["id"] for r in jaylam_qh])
+        # `jaylam_sang` cũng đóng sổ: nội dung của nó đã tới tay Huy trong bản SÁNG nay,
+        # không phụ thuộc việc tối nay có file hay không.
+        # Nhóm còn trong khung (`jaylam_du`/`jaylam_cho`) thì KHÔNG — chúng chưa vào bản
+        # tin nào, và không có file thì cũng không có gì tới tay Huy để mà đóng sổ.
+        if jaylam_qh or jaylam_sang:
+            danh_dau_da_gop_jaylam([r["id"] for r in jaylam_sang + jaylam_qh])
         print("DOCX=")
         return
 
@@ -821,21 +901,17 @@ def main(now=None):
 
     out = f"/tmp/{ten_file(gen, now)}"
     doc.save(out)
-    # Đánh dấu SAU khi save thành công. Đánh dấu cả dòng bị lọc trùng (xem docstring
+    # Đánh dấu SAU khi save thành công. Đóng sổ cả dòng bị lọc trùng (xem docstring
     # `loc_trung_jaylam`) lẫn dòng QUÁ KHUNG NGÀY: bỏ sót nhóm quá hạn thì tối nào chúng cũng
     # được đọc ra rồi loại lại, tức nằm lại vĩnh viễn trong hàng chờ.
     #
-    # ⚠️ TRỪ đúng một nhóm — dòng vừa in dưới dạng NGUYÊN VĂN dự phòng vì chưa qua bước tóm
-    # tắt của phiên quét tối (`da_xu_ly` falsy). Đánh dấu chúng là ĐÓNG SỔ một tin mới ra
-    # được nửa vời: nó sẽ không bao giờ trở lại dưới dạng tin chuẩn có tiêu đề + link nguồn.
-    # Đo thật tối 30/07/2026: file đầu tiên (id=1) tới lúc 21:06, sau khi bước tóm tắt của
-    # phiên quét đã chạy xong, nên bản .docx 21:29 in nguyên văn rồi đánh dấu luôn — bản
-    # .docx 21:33, tức bản CUỐI CÙNG Huy nhận, mất sạch mục 5. Không đánh dấu thì bản tối kế
-    # tiếp gộp lại đầy đủ, và nếu tới lúc đó vẫn chưa ai tóm tắt thì khung ngày sẽ đẩy nó
-    # sang `jaylam_qh` rồi đóng sổ ở đó — không có đường kẹt vĩnh viễn.
-    chua_tom_tat = {r.get("id") for r in jaylam_hien if not r.get("da_xu_ly")}
-    can_danh_dau = [r["id"] for r in jaylam_goc + jaylam_qh
-                    if r.get("id") not in chua_tom_tat]
+    # ⚠️ `jaylam_cho` (chưa tóm tắt) CỐ Ý KHÔNG có mặt ở đây — nó không vào file thì cũng
+    # không được coi là đã đăng. Đo thật tối 30/07/2026 ở bản cũ: dòng id=1 tới lúc 21:06,
+    # bản .docx 21:29 in nguyên văn rồi đánh dấu luôn, nên bản 21:33 — bản CUỐI CÙNG Huy
+    # nhận — mất sạch mục 5. Không đóng sổ thì bản tin kế tiếp gộp lại dưới dạng tin chuẩn;
+    # tới hết khung ngày mà vẫn chưa ai tóm tắt thì nó rơi vào `jaylam_qh` và đóng sổ ở đó,
+    # kèm dòng kêu riêng phía trên — không có đường kẹt vĩnh viễn.
+    can_danh_dau = [r["id"] for r in jaylam_du + jaylam_sang + jaylam_qh]
     if can_danh_dau:
         danh_dau_da_gop_jaylam(can_danh_dau)
     print(f"DOCX={out}")
