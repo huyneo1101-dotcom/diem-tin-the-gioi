@@ -1,14 +1,14 @@
 {
   "date": "2026-08-02",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
-      "count": 5,
+      "count": 1,
       "target": 7,
       "min": 5,
-      "thieu": false,
-      "reason": "Đạt sàn tối thiểu 5: AI EO deadline (CNBC), ACLU toà bác dữ liệu cử tri Illinois, Dân chủ tự tin giữa nhiệm kỳ, Fed đề xuất sửa Quy định O, Amazon hoàn thuế 600tr. NHÓM 1 (điều trần/bỏ phiếu, ưu tiên tuyệt đối) = 0 tin: 4 ứng viên HTML từ trang uỷ ban Thượng viện không xác định được ngày sự kiện trong khung (harvest.py trả ngày [?]), dồn sang nhóm 4 theo đúng luật khi nhóm 1 không đủ."
+      "thieu": true,
+      "reason": "Chỉ giữ 1 tin (hạn chót sắc lệnh AI Trump trôi qua không có khung quy định, xác minh Yahoo Finance). Ứng viên nhóm 1 (điều trần/bỏ phiếu) do agent đề xuất đều SAI ngày sự kiện thật (vd 'nghị quyết en bloc 74 đề cử' agent ghi 01/08 nhưng WebSearch xác nhận vote thật là 30/07, ngoài khung) hoặc URL không khớp nội dung — đã tự tay WebSearch kiểm tra nhiều ứng viên khác (DOJ/SCOTUS mail-in voting thật ra nộp 27/07; Fed dissenters phát biểu 31/07; Maxwell pardon resolution thông qua 29-30/07; biểu tình Plymouth ICE nguồn yếu/mạng xã hội) đều rơi ngoài khung 2 ngày hoặc thiếu nguồn đủ mạnh. Quốc hội Mỹ đang vào kỳ nghỉ tháng 8 nên nhóm 1 khan hiếm."
     },
     {
       "name": "Úc & Biển Đông",
@@ -16,15 +16,15 @@
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Giữ 2 tin: TQ bác đường cơ sở Philippines quanh Scarborough, Bộ trưởng QP Úc đính chính cam kết tàu ngầm Mỹ lâu dài. Loại 1 ứng viên (Exercise Lanternfish AUKUS) vì nghi sai ngày sự kiện (URL gốc chứa slug 28/07 nhưng agent gắn 01/08, không xác minh lại được do WebFetch 403) — loại theo nguyên tắc an toàn. Nhiều ứng viên khác đã trùng DATA (Scarborough map filing, hải cảnh TQ Đài Loan) từ các phiên trước."
+      "reason": "Giữ 2 tin: TQ ban hành quy định 'khu bảo tồn' mới quanh Scarborough + PLA Daily đe doạ 'đòn phủ đầu' (SCMP 02/08), tập trận Lanternfish AUKUS đáy biển Anh-Úc-Mỹ (Ocean News). Phần lớn ứng viên còn lại trùng sự kiện đã có trong DATA từ 29/07-01/08 (Scarborough map filing, hải cảnh TQ Đài Loan, tàu ngầm Mỹ 'lâu dài') — agent đã kiểm kỹ và loại đúng theo nguyên tắc chống trùng."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 4,
+      "count": 3,
       "target": 7,
       "min": 5,
       "thieu": true,
-      "reason": "Giữ 4 tin: Patriot/THAAD/SM-6 $18,2 tỷ khẩn cấp, Lockheed Patriot $58,6 tỷ (07-30), drone Mỹ suýt bị Hàn Quốc bắn hạ, K2 Space laser $22,9tr. Loại 3 ứng viên NGOÀI KHUNG 3 NGÀY dù được nới riêng cho CNQS (USS Georgia nghỉ hưu 07-27, hợp đồng tàu ngầm Electric Boat/HII 07-29, SpaceX Golden Dome 07-29 — cả ba agent tự ghi ngày ngoài phạm vi được giao). Sau khi nạp, 1 tin (Lockheed Patriot) phát hiện trùng sự kiện với DATA đã có từ 29/07 — đã prune ngay."
+      "reason": "Giữ 3 tin: EUCOM cảnh báo thiếu tàu khu trục bảo vệ Israel (WaPo), Space-Based AMTI 2028 (Air & Space Forces), lễ hạ thuỷ USS William Charette (Bangor Daily News). Loại 1 tin B-21 Ellsworth vì PHÁT HIỆN TRÙNG THẬT với tin đã có trong DATA từ 30/07 (cùng sự kiện Tướng Dale White phát biểu tại Dayton, Ohio) — đã prune ngay sau khi add_news.py cảnh báo Jaccard 0.58."
     },
     {
       "name": "Mỹ - Mali",
@@ -32,7 +32,7 @@
       "target": 4,
       "min": 2,
       "thieu": true,
-      "reason": "Rà 18 ứng viên harvest + 1 Telegram, 4 tin thật sự liên quan Mali (HRW/Africa Corps 8 dân thường, Nga mở tuyến biển tiếp tế, hiệp ước quân sự mở rộng AES, phát biểu Tinubu Sahel) đều có ngày sự kiện 07-09 tới 07-31, ngoài khung 2 ngày cho phép (08-01/08-02). Chủ đề này không được nới khung."
+      "reason": "0 tin lần thứ hai liên tiếp trong ngày (phiên sáng cũng 0). Đã rà 35 ứng viên harvest + 2 Telegram + tự WebSearch thêm (State Dept/Pentagon Mali statement) — mọi diễn biến thật (tàu Nga chở vũ khí tới Bamako, báo cáo HRW Africa Corps không kích dân thường) đều có ngày sự kiện gốc 22-25/07 hoặc báo cáo công bố 31/07, ngoài khung 2 ngày cho phép (01-02/08). Chủ đề này không có nới khung riêng."
     },
     {
       "name": "Predator's Run 2026",
@@ -40,7 +40,7 @@
       "target": 2,
       "min": 1,
       "thieu": true,
-      "reason": "harvest.py không ra ứng viên nào. WebSearch xác nhận tập trận là chuỗi 9 ngày bắt đầu 21/07, đã kết thúc cuối tháng 7 — không còn diễn biến mới để đưa. Web tự suy effStatus theo dates, không cần sửa tay status."
+      "reason": "Tập trận đã kết thúc cuối tháng 7 (chuỗi 9 ngày từ 21/07) — không còn diễn biến mới. Đã xác nhận lại ở cả phiên sáng và tối cùng ngày. harvest.py ra 0 ứng viên."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": 3,
       "min": 0,
       "thieu": false,
-      "reason": "6 ứng viên cổng nhắc, đối chiếu nhanh do áp lực thời gian: phần lớn trùng góc với tin đã nạp trong chính batch này (kho vũ khí cạn Iran ~ Patriot/THAAD/SM-6, Hàn Quốc suýt bắn hạ UAV Mỹ đã nạp qua Stars and Stripes) hoặc trùng DATA cũ (Trump đổi ý Patriot Ukraine). 2 ứng viên (Trump họp Nội các Trại David, Úc kiện Telegram) chưa kịp truy bài gốc, để lại phiên sau."
+      "reason": "4 ứng viên cổng nhắc ở cuối add_news.py (Ukraine cạn Patriot, USS Shoup, Patriot Ukraine, bức tường thuế quan) — do áp lực thời gian hạn chót email 22:00, chưa kịp truy bài gốc trong phiên này, để lại phiên sau xử lý hoặc loại kèm lý do."
     }
   ],
-  "note": "Phiên sáng sớm CI 2026-08-02 04:00 VN. Tổng nạp: +2 worldNews, +8 usNews (sau khi prune 1 tin trùng). Nhiều ứng viên bị loại do vi phạm khung ngày nghiêm ngặt (3 tin CNQS ngoài khung 3 ngày, 1 tin Úc&BĐ nghi sai ngày) — ưu tiên AN TOÀN hơn số lượng theo đúng nguyên tắc CLAUDE.md."
+  "note": "Phiên TỐI CI 2026-08-02 21:00 VN (mốc 20:47, thực fire ~21:00). Tổng nạp: +2 worldNews, +5 usNews rồi prune 1 tin trùng thật (B-21 Ellsworth) => còn +2 worldNews, +4 usNews. Ưu tiên AN TOÀN hơn số lượng: đã tự WebSearch xác minh nhiều ứng viên nghi vấn trước khi nạp/loại, phát hiện và sửa 1 tin sai ngày+URL (nhóm 1 Nội bộ Mỹ) trước khi nạp. Không kịp xử lý cổng Báo Mới do áp lực hạn chót 22:00."
 }

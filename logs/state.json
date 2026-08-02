@@ -9,12 +9,12 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-02T04:20:36+07:00",
-    "lastSlot": "sang",
+    "lastRunAt": "2026-08-02T21:18:19+07:00",
+    "lastSlot": "toi",
     "lastStatus": "DONE",
-    "note": "+2 tin TG, +8 tin My (5 chu de: Noi bo My 5, Uc&BD 2, CNQS 4->wait check)",
+    "note": "+2 worldNews +4 usNews (5 chu de, sau prune 1 trung)",
     "lastSuccess": {
-      "toi": "2026-08-01",
+      "toi": "2026-08-02",
       "sang": "2026-08-02"
     }
   },
