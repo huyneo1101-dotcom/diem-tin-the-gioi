@@ -5,3 +5,4 @@
 [21:25Z] DONE ca hai pipeline (web-scan + event-scan). Da commit + push. KET THUC PHIEN.
 [21:39Z] SKIP (CI vet 04:47) - web-scan claim tra exit 10 (da xong luc 04:18). Kiem so da-gui-email.json: co dong 2026-08-03T04:24:50+07:00 [sang] 10 tin -> ban tin da toi tay that, khong phai co noi doi. SKIP em, khong quet lai.
 [21:59Z] SKIP (phien CI khac, gio 04:59 VN) - web-scan claim tra exit 10 (da xong luc 04:18). Kiem lai so da-gui-email.json: van co dong 2026-08-03T04:24:50+07:00 [sang] 10 tin + [sukien] 0 tin -> ban tin sang da toi tay that. SKIP em, khong quet lai.
+[22:38Z] SKIP (phien CI khac, gio 05:38 VN) - web-scan claim tra exit 10 (da xong luc 04:18). Kiem lai so da-gui-email.json: van co dong 2026-08-03T04:24:50+07:00 [sang] 10 tin + [sukien] 0 tin -> ban tin sang da toi tay that. event-scan cung DONE (04:23, +5 bai think-tank). SKIP em, khong quet lai.
