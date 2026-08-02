@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-03T04:19:00+07:00",
+    "lastRunAt": "2026-08-03T04:23:56+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+5 bai think-tank (Hudson, ASPI, RUSI, AGSI, Jamestown), 0 su kien/tap tran moi",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-08-02"
-    },
-    "heartbeat": "2026-08-03T04:19:00+07:00"
+      "sang": "2026-08-03"
+    }
   }
 }
