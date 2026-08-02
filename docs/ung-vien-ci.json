@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-02T05:29:12+07:00",
+  "tao_luc": "2026-08-02T20:46:31+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-01",
@@ -57,6 +57,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-02",
+      "tieu_de": "U.S. Air Force expands Blue Origin rocket cargo contract",
+      "nguon": "SpaceNews",
+      "url": "https://spacenews.com/u-s-air-force-expands-blue-origin-rocket-cargo-contract/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-01",
       "tieu_de": "Marine Corps F-35B crashes on runway of California base, pilot safe",
       "nguon": "Task & Purpose",
@@ -65,26 +73,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-01",
-      "tieu_de": "Most Australian teens still online three months after under-16 ban",
+      "ngay": "2026-08-02",
+      "tieu_de": "At least five dead, 41 missing after ferry catches fire off Indonesia",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/1/most-australian-teens-still-online-three-months-after-under-16-ban?traffic_source=rss"
+      "url": "https://www.aljazeera.com/news/2026/8/2/at-least-five-dead-41-missing-after-ferry-catches-fire-off-indonesia?traffic_source=rss"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-02",
-      "tieu_de": "How Australia combines modern tech and Indigenous knowledge to fight fire",
+      "tieu_de": "How Australia combines modern tech and Indigenous knowledge to fight wildfires",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/czdmvr984yyo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-01",
-      "tieu_de": "Greyhounds bound for Australia as New Zealand racing ban takes effect",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c5y62pe9g3no?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -169,6 +169,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-02",
+      "tieu_de": "Ph&agrave; chở hơn 270 người bốc ch&aacute;y dữ dội ở Indonesia",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/pha-cho-hon-270-nguoi-boc-chay-du-doi-o-indonesia-185260802182333063.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-01",
       "tieu_de": "Phi c&ocirc;ng Malaysia d&ugrave;ng ma t&uacute;y trước khi l&aacute;i m&aacute;y bay, mang theo 26 kg thuốc lắc",
       "nguon": "Thanh Niên",
@@ -184,11 +192,19 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Phà chở khoảng 250 người bốc cháy ngoài khơi Indonesia, ít nhất 5 người chết, 41 người mất tích",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/pha-cho-khoang-250-nguoi-boc-chay-ngoai-khoi-indonesia-it-nhat-5-nguoi-chet-41-nguoi-mat-tich-100260802174210867.htm"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-30",
-      "tieu_de": "Mỹ k&yacute; hợp đồng mua 58,6 tỉ USD t&ecirc;n lửa Patriot",
-      "nguon": "Thanh Niên",
-      "url": "https://thanhnien.vn/my-ky-hop-dong-mua-586-ti-usd-ten-lua-patriot-185260730065736198.htm"
+      "ngay": "?",
+      "tieu_de": "Iran tuyên bố diệt 6 tiêm kích F-35, làm hư hại 3 chiếc nữa",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/iran-tuyen-bo-diet-6-tiem-kich-f-35-lam-hu-hai-3-chiec-nua-100260802081116811.htm"
     },
     {
       "lop": "RSS",
@@ -233,28 +249,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
-      "tieu_de": "Hàn Quốc suýt bắn nhầm drone Mỹ gần biên giới Triều Tiên",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/han-quoc-suyt-ban-nham-drone-my-gan-bien-gioi-trieu-tien-100260731160915404.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Dùng bản đồ AI ghi sai toàn bộ các nước châu Phi, Bộ Ngoại giao Mỹ phải xin lỗi",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/dung-ban-do-ai-ghi-sai-toan-bo-cac-nuoc-chau-phi-bo-ngoai-giao-my-phai-xin-loi-100260731142847596.htm",
-      "nhom": 9
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "Ukraine vừa lạc quan, ông Trump lập tức giội 'gáo nước lạnh' về tên lửa Patriot",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/ukraine-vua-lac-quan-ong-trump-lap-tuc-doi-gao-nuoc-lanh-ve-ten-lua-patriot-100260731100958922.htm"
+      "tieu_de": "Anutin's Indonesia visit, Japanese carmaker earnings, Taiwan drills",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/spotlight/your-week-in-asia/anutin-s-indonesia-visit-japanese-carmaker-earnings-taiwan-drills"
     },
     {
       "lop": "RSS",
@@ -274,11 +273,20 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-01",
-      "tieu_de": "14 startup Đài Loan về AI tìm cơ hội tại Việt Nam",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-02",
+      "tieu_de": "“Bộ Tài chính Mỹ đã phối hợp với Nhật Bản can thiệp tỷ giá đồng yên”",
       "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/14-startup-dai-loan-ve-ai-tim-co-hoi-tai-viet-nam.htm"
+      "url": "https://vneconomy.vn/bo-tai-chinh-my-da-phoi-hop-voi-nhat-ban-can-thiep-ty-gia-dong-yen.htm",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-02",
+      "tieu_de": "Bước ngoặt lớn của Không quân Mỹ: F-15E thay thế A-10 tại căn cứ quan trọng",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/buoc-ngoat-lon-cua-khong-quan-my-f-15e-thay-the-a-10-tai-can-cu-quan-trong-20260731172150763.htm"
     },
     {
       "lop": "RSS",
@@ -334,62 +342,55 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-31",
-      "tieu_de": "Lockheed Martin wins $58.6B contract to produce Patriot interceptors",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/policy/defense/6000739-lockheed-martin-contract-patriot-interceptor-missiles-stockpile/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
       "tieu_de": "Scouting America drops diversity initiatives from event after pressure from the Pentagon",
       "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/scouting-america-pentagon-jamboree-diversity/"
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-02",
-      "tieu_de": "'It just gets forgotten': Increase in cars abandoned on Canberra roads",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-02/act-abandoned-vehicles-canberra-roads-tow-truck-removal-costs/106978630"
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-07-31",
+      "tieu_de": "Lockheed Martin wins $58.6B contract to produce Patriot interceptors",
+      "nguon": "The Hill — Defense",
+      "url": "https://thehill.com/policy/defense/6000739-lockheed-martin-contract-patriot-interceptor-missiles-stockpile/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-02",
-      "tieu_de": "Denny completes 68-year first to claim discus gold for Australia",
+      "tieu_de": "Fears shared on Australia reaching bleak milestone in spread of H5 bird flu",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-02/commonwealth-games-matt-denny-wins-discus-gold/106987034"
+      "url": "https://www.abc.net.au/news/2026-08-02/sa-bird-flu-concern/106987886"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-02",
-      "tieu_de": "A small Australian town's surprising link to The Wizard of Oz",
+      "tieu_de": "Australia's Rhiannan Iffland becomes greatest cliff diver of all time",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-02/percy-leason-australian-illustrator-kaniva-wizard-of-oz/106969854"
+      "url": "https://www.abc.net.au/news/2026-08-02/rhiannan-iffland-greatest-cliff-diver-wins-mostar-event-bosnia/106987668"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-02",
-      "tieu_de": "Australia's gamble on quantum computing in the age of AI",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/science/2026-08-02/csirac-quantum-computing-ai/106889490"
+      "tieu_de": "'Luis,' habagat to bring heavy rain to Metro Manila, Luzon this week",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/weather/2026/08/02/2546494/luis-habagat-bring-heavy-rain-metro-manila-luzon-week"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-02",
+      "tieu_de": "Prosecution: Sara trial testimony traced P612.5-M funds to public money",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/08/02/2546502/prosecution-sara-trial-testimony-traced-p6125-m-funds-public-money",
+      "nhom": 1
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-01",
-      "tieu_de": "Hindi Ito Marites: 4 historic maps show West Philippine Sea is ours",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/newsbreak/podcasts-videos/hindi-ito-marites-historic-maps-show-west-philippine-sea-ours/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-01",
+      "ngay": "2026-08-02",
       "tieu_de": "Philippines formally deposits Panatag Shoal chart with UN",
       "nguon": "Philstar (headlines)",
       "url": "https://www.philstar.com/headlines/2026/08/02/2546410/philippines-formally-deposits-panatag-shoal-chart-un"
@@ -398,9 +399,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-02",
-      "tieu_de": "Lucero sees beyond Manila Clasico hype",
+      "tieu_de": "Philippines storms back, routs Laos to stay alive in Hyundai Cup",
       "nguon": "Inquirer",
-      "url": "https://sports.inquirer.net/688571/lucero-sees-beyond-manila-clasico-hype"
+      "url": "https://cebudailynews.inquirer.net/752988/philippines-storms-back-routs-laos-to-stay-alive-in-hyundai-cup"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-02",
+      "tieu_de": "Alas Pilipinas misses out on SEA V Cup medal after loss to Indonesia",
+      "nguon": "Inquirer",
+      "url": "https://sports.inquirer.net/688825/alas-pilipinas-misses-out-on-sea-v-cup-medal-after-loss-to-indonesia"
     },
     {
       "lop": "RSS",
@@ -453,42 +462,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-01",
-      "tieu_de": "9th Marine Corps District Holds a Change of Command Ceremony",
-      "nguon": "DVIDS news (Predator)",
-      "url": "https://www.dvidshub.net/news/571294/9th-marine-corps-district-holds-change-command-ceremony"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-30",
       "tieu_de": "Space Force outlines acquisition wins amid ongoing Department wide transformation at Air and Space Summit",
       "nguon": "Lực lượng Không gian Mỹ",
       "url": "https://www.spaceforce.mil/News/Article-Display/Article/4559692/space-force-outlines-acquisition-wins-amid-ongoing-department-wide-transformati/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "U.S. Army Reserve’s Senior Enlisted Leader Immerses in Training and Modernization at Fort Lee",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294287/u_s_army_reserves_senior_enlisted_leader_immerses_in_training_and_modernization_at_fort_lee"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Dunmyer becomes Commandant of the U.S. Army War College",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294290/dunmyer_becomes_commandant_of_the_u_s_army_war_college"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-01",
-      "tieu_de": "U.S. Army Advances H-60M Black Hawk Air-Launched Effects Capabilities at Project Convergence Capstone 6",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294304/u_s_army_advances_h_60m_black_hawk_air_launched_effects_capabilities_at_project_convergence_capstone_6"
     },
     {
       "lop": "RSS",
@@ -677,6 +654,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-01",
+      "tieu_de": "9th Marine Corps District Holds a Change of Command Ceremony",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/571294/9th-marine-corps-district-holds-change-command-ceremony"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-07-31",
       "tieu_de": "Marine Corps logistics commander emphasizes readiness, stewardship at Blount Island",
       "nguon": "DVIDS (toàn bộ)",
@@ -705,14 +690,6 @@
       "tieu_de": "US Army Sgt. Maj. David E. Rieckmann, Master Sgt. Caleb Flaks discuss Army Body Composition Program updates",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1017013/us-army-sgt-maj-david-e-rieckmann-master-sgt-caleb-flaks-discuss-army-body-composition-program-updates"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Fort Rucker Teen Selected to Represent Alabama in the 2026 Patriot Games",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/571180/fort-rucker-teen-selected-represent-alabama-2026-patriot-games"
     },
     {
       "lop": "RSS",
@@ -764,12 +741,28 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-02",
+      "tieu_de": "McDonald's 'Taste of Korea' menu exported to Taiwan",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260802002200320"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-01",
       "tieu_de": "Sudan: US Congress Weighs Landmark Sudan Bills to Tighten Sanctions and Accountability",
       "nguon": "AllAfrica",
       "url": "https://allafrica.com/stories/202607310503.html",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-02",
+      "tieu_de": "EVs and hybrids approach half of Australian new car sales amid ongoing fuel crisis",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/02/ev-hybrids-almost-half-australian-new-car-sales-april-june-fuel-crisis"
     },
     {
       "lop": "RSS",
@@ -781,11 +774,20 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-01",
-      "tieu_de": "Missing Australian hiker found dead in Wyoming, officials say",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-02",
+      "tieu_de": "For most US small businesses, Trump’s tariffs aren’t the big issue they were",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/jul/31/australian-hiker-wyoming"
+      "url": "https://www.theguardian.com/business/2026/aug/02/us-small-businesses-trump-tariffs",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-02",
+      "tieu_de": "Breakfasts around the world: In Australia, being denied vegemite is grounds for suing",
+      "nguon": "NPR — World",
+      "url": "https://www.npr.org/2026/08/02/nx-s1-5896064/breakfasts-around-the-world-in-australia-being-denied-vegemite-is-grounds-for-suing"
     },
     {
       "lop": "RSS",
@@ -800,8 +802,8 @@
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-01",
       "tieu_de": "Tổng thống Mỹ Donald Trump triệu tập họp Nội các về tình hình Iran và Trung Đông",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tong-thong-my-donald-trump-trieu-tap-hop-noi-cac-ve-tinh-hinh-iran-va-trung-dong-post1127490.vnp",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/tong-thong-my-donald-trump-trieu-tap-hop-noi-cac-ve-tinh-hinh-iran-va-trung-dong-post979140.html",
       "nhom": 4
     },
     {
@@ -825,10 +827,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-01",
-      "tieu_de": "Mỹ không chuyển giao công nghệ tên lửa Patriot cho Ukraine",
+      "ngay": "2026-08-02",
+      "tieu_de": "Tin tức Thế giới 2/8: Mỹ không chuyển giao công nghệ Patriot cho Ukraine",
       "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/my-khong-chuyen-giao-cong-nghe-ten-lua-patriot-cho-ukraine-2541070.html"
+      "url": "https://vietnamnet.vn/tin-tuc-the-gioi-2-8-my-khong-chuyen-giao-cong-nghe-patriot-cho-ukraine-2541175.html"
     },
     {
       "lop": "RSS",
