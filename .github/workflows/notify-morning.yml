@@ -41,22 +41,40 @@ jobs:
             echo "go=0" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Lấy bản index.html của commit trước (để so cái gì mới)
+      - name: Lấy bản TRƯỚC COMMIT NỘI DUNG (để so cái gì mới)
         if: steps.chk.outputs.go == '1'
         run: |
-          git show HEAD~1:index.html > /tmp/prev-index.html 2>/dev/null || echo "" > /tmp/prev-index.html
+          # ⛔ KHÔNG dùng HEAD~1 — vá 02/08/2026, sự cố thật sáng đó.
+          # Phiên quét push commit nội dung `Cap nhat su kien 02/08` (bcf767b) RỒI push tiếp
+          # commit log `6fa8cd9 log: hoan tat phien sang som` MỚI gọi `gh workflow run`. Nên
+          # lúc workflow chạy, HEAD~1 trỏ vào commit LOG — tức bản ĐÃ CÓ SẴN lô vừa nạp.
+          # Đo thật: kho ở HEAD~1 có 489 bài, bản đúng ra phải dùng (trước commit nội dung)
+          # có 485. So hai bản gần như giống nhau ⇒ diff = 0 ⇒ script in "không có sự kiện/
+          # tập trận mới, không có báo cáo tuần mới, không có bài think-tank mới — bỏ qua gửi"
+          # ⇒ MẤT 04 bài think-tank + báo cáo tuần Chủ Nhật. Run vẫn XANH, không cảnh báo nào.
+          # Neo vào chính commit nội dung thì bao nhiêu commit log chen vào cũng không sai.
+          base=$(git log -1 -E -i --grep='^(Cap nhat su kien|Dang bao cao tuan)' --format=%H)
+          if [ -n "$base" ]; then
+            base="$base~1"
+          else
+            # Không tìm thấy commit nội dung nào trong lịch sử → lùi về hành vi cũ, CÓ TIẾNG.
+            echo "::warning::khong tim thay commit 'Cap nhat su kien'/'Dang bao cao tuan' — lui ve HEAD~1"
+            base="HEAD~1"
+          fi
+          echo "base de so: $base"
+          git show "$base:index.html" > /tmp/prev-index.html 2>/dev/null || echo "" > /tmp/prev-index.html
           echo "PREV_HTML=/tmp/prev-index.html" >> "$GITHUB_ENV"
           # Bài think-tank tách ra file riêng 30/07/2026 — thiếu dòng này thì diffAnalyses
-          # so với mảng rỗng và coi CẢ KHO 442 bài là "vừa nạp sáng nay".
-          # ⚠️ KHÔNG fallback về "[]": commit HEAD~1 có thể chưa có file (đúng ca commit tách
+          # so với mảng rỗng và coi CẢ KHO là "vừa nạp sáng nay".
+          # ⚠️ KHÔNG fallback về "[]": commit base có thể chưa có file (đúng ca commit tách
           # đầu tiên, hoặc lịch sử bị cắt nông). Mảng rỗng đọc thành "trước đây chưa có bài nào"
           # → email liệt kê nguyên kho. Lấy được thì khai PREV_ANALYSES, không thì BỎ HẲN biến
           # để send-morning-email.js tự lùi về dấu `_addedDate` — thà bỏ sót một email còn hơn
-          # gửi 442 bài như thể vừa nạp sáng nay.
-          if git show HEAD~1:data/analyses.json > /tmp/prev-analyses.json 2>/dev/null; then
+          # gửi cả kho như thể vừa nạp sáng nay.
+          if git show "$base:data/analyses.json" > /tmp/prev-analyses.json 2>/dev/null; then
             echo "PREV_ANALYSES=/tmp/prev-analyses.json" >> "$GITHUB_ENV"
           else
-            echo "::notice::HEAD~1 chưa có data/analyses.json — diffAnalyses lùi về dấu _addedDate."
+            echo "::notice::$base chua co data/analyses.json — diffAnalyses lui ve dau _addedDate."
           fi
 
       - name: Setup Node
