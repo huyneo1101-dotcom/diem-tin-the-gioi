@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-08-03 (phiên sáng sớm CI)
+
+- ⭐ [CNQS/US] Tiêm kích F-35B TQLC Mỹ rơi tại Miramar (Task & Purpose, 2026-07-31) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn trong DATA: "Tiêm kích F-35B của Thủy quân lục chiến Mỹ rơi và bốc cháy tại căn cứ Miramar, California" (The War Zone, 2026-08-01). Cùng một vụ tai nạn, tiêu đề khác nhau nên Jaccard chỉ 0,50 — không bị guardrail trùng-tiêu-đề chặn tự động, phải soát tay.
+- ⭐ [CNQS/US] Lầu Năm Góc trao Lockheed Martin hợp đồng 58,6 tỷ USD Patriot PAC-3 MSE (Defense News, 2026-07-31) — **loại vì TRÙNG SỰ KIỆN** đã có: "Lục quân Mỹ trao Lockheed Martin hợp đồng tới 58,6 tỷ USD..." (2026-07-29). Cùng con số 58,6 tỷ USD, cùng nội dung chuyển đổi hợp đồng 4,7 tỷ → khung 7 năm.
+- ⭐ [CNQS/US] SpaceX trúng hợp đồng 1,6 tỷ USD phóng vệ tinh cảnh báo tên lửa (American Bazaar, 2026-07-31) — **loại vì TRÙNG SỰ KIỆN** đã có: "SpaceX giành hợp đồng 1,6 tỷ USD phóng 18 vệ tinh cảnh báo tên lửa cho lá chắn Golden Dome" (Interesting Engineering, 2026-07-29). Cùng con số 1,6 tỷ USD + 18 vệ tinh cảnh báo tên lửa.
+
+Cả 3 tin trên đã lỡ qua guardrail `add_news.py` (Jaccard tiêu đề dưới ngưỡng 0,6 cảnh báo) rồi bị phát hiện trùng SỰ KIỆN khi đối chiếu thủ công ngay sau khi nạp — đã xoá bằng `scripts/prune_news.py` trước khi commit.
+
+### Báo Mới — 2 ứng viên chuyên mục, loại
+- [CNQS] "Những rào cản khiến Ukraine khó có khả năng sản xuất tên lửa Patriot Mỹ" (Báo Sức Khỏe & Đời Sống/baomoi) — WebSearch xác định bài gốc liên quan là loạt tin CNBC/Al Jazeera/Daily Kos về việc Kyiv cạn đạn đánh chặn Patriot trong các đợt tập kích tên lửa-drone của Nga đầu tháng 8/2026. Đây thực chất là tin CHIẾN SỰ NGA-UKRAINE (Kyiv bị tập kích, không đánh chặn được vì thiếu đạn Patriot), không phải tin về CNQS/chính sách vũ khí CỦA MỸ — thuộc diện "loại tin Nga-Ukraine chiến sự lặp" theo bộ lọc sở thích, và không thuộc 5 chủ đề CI. LOẠI.
+- [CNQS] "Hệ thống Patriot 'trắng bệ' khiến Ukraine chỉ chặn được một tên lửa Nga" (An Ninh Thủ Đô/baomoi) — cùng sự kiện với dòng trên (đợt tập kích Kyiv ~1/8, Zelensky nói không còn đạn đánh chặn). LOẠI vì cùng lý do.
+
 ## 2026-07-13
 
 ### ⭐ Tin CHỦ ĐỀ THÍCH bị loại (rà kỹ mục này)

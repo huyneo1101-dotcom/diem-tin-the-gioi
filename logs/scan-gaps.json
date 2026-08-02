@@ -1,55 +1,47 @@
 {
-  "date": "2026-08-02",
-  "session": "toi",
+  "date": "2026-08-03",
+  "session": "sang",
   "topics": [
     {
-      "name": "Nội bộ Mỹ",
-      "count": 1,
-      "target": 7,
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 3,
+      "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Chỉ giữ 1 tin (hạn chót sắc lệnh AI Trump trôi qua không có khung quy định, xác minh Yahoo Finance). Ứng viên nhóm 1 (điều trần/bỏ phiếu) do agent đề xuất đều SAI ngày sự kiện thật (vd 'nghị quyết en bloc 74 đề cử' agent ghi 01/08 nhưng WebSearch xác nhận vote thật là 30/07, ngoài khung) hoặc URL không khớp nội dung — đã tự tay WebSearch kiểm tra nhiều ứng viên khác (DOJ/SCOTUS mail-in voting thật ra nộp 27/07; Fed dissenters phát biểu 31/07; Maxwell pardon resolution thông qua 29-30/07; biểu tình Plymouth ICE nguồn yếu/mạng xã hội) đều rơi ngoài khung 2 ngày hoặc thiếu nguồn đủ mạnh. Quốc hội Mỹ đang vào kỳ nghỉ tháng 8 nên nhóm 1 khan hiếm."
+      "reason": "Quốc hội Mỹ đang trong kỳ nghỉ tháng 8 (Hạ viện nghỉ từ 24/7, Thượng viện chưa họp phiên toàn thể) nên KHÔNG có phiên điều trần/bỏ phiếu thông qua dự luật nào trong khung hôm nay+hôm qua (nhóm 1). Bù bằng nhóm 2-5: quy định bỏ phiếu qua thư (SCOTUS), biểu tình 50501 toàn quốc, sơ bộ Thượng viện Michigan. Loại nhiều ứng viên nhóm 4 (thuế quan/trừng phạt) vì trùng tin cũ hoặc không xác định rõ ngày sự kiện thật."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 2,
-      "target": 7,
+      "count": 3,
+      "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Giữ 2 tin: TQ ban hành quy định 'khu bảo tồn' mới quanh Scarborough + PLA Daily đe doạ 'đòn phủ đầu' (SCMP 02/08), tập trận Lanternfish AUKUS đáy biển Anh-Úc-Mỹ (Ocean News). Phần lớn ứng viên còn lại trùng sự kiện đã có trong DATA từ 29/07-01/08 (Scarborough map filing, hải cảnh TQ Đài Loan, tàu ngầm Mỹ 'lâu dài') — agent đã kiểm kỹ và loại đúng theo nguyên tắc chống trùng."
+      "reason": "Phần lớn ứng viên thô (43) là tin trùng sự kiện đã có trong DATA (Scarborough, AUKUS) sau khi xác minh, hoặc sự kiện quá cũ/tương lai. 1 tin đạt chuẩn ban đầu (Navy nuclear battleship A1B reactor) đã bị loại lại sau khi phát hiện trùng SỰ KIỆN với file Jay Lâm gửi (xem logs/trung-jaylam.json). Còn lại: USV Type 052D gần Philippines, Đài Loan phản ứng Scarborough, dự luật SeaLight gray-zone."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 3,
-      "target": 7,
+      "count": 2,
+      "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Giữ 3 tin: EUCOM cảnh báo thiếu tàu khu trục bảo vệ Israel (WaPo), Space-Based AMTI 2028 (Air & Space Forces), lễ hạ thuỷ USS William Charette (Bangor Daily News). Loại 1 tin B-21 Ellsworth vì PHÁT HIỆN TRÙNG THẬT với tin đã có trong DATA từ 30/07 (cùng sự kiện Tướng Dale White phát biểu tại Dayton, Ohio) — đã prune ngay sau khi add_news.py cảnh báo Jaccard 0.58."
+      "reason": "Agent tìm được 8 tin đạt chuẩn ban đầu nhưng 3/8 hoá ra TRÙNG SỰ KIỆN đã có sẵn trong DATA dưới tiêu đề khác (F-35B rơi Miramar, hợp đồng Lockheed 58,6 tỷ USD Patriot, SpaceX 1,6 tỷ USD PWSA — cùng số liệu/sự kiện, chỉ khác cách diễn đạt nên Jaccard tiêu đề dưới ngưỡng cảnh báo tự động). Đã xoá bằng prune_news.py, ghi logs/loai-tin.md. Còn lại 2 tin: JASSM/LRASM/AMRAAM 7,8 tỷ USD, Blue Origin Rocket Cargo."
     },
     {
-      "name": "Mỹ - Mali",
-      "count": 0,
-      "target": 4,
-      "min": 2,
-      "thieu": true,
-      "reason": "0 tin lần thứ hai liên tiếp trong ngày (phiên sáng cũng 0). Đã rà 35 ứng viên harvest + 2 Telegram + tự WebSearch thêm (State Dept/Pentagon Mali statement) — mọi diễn biến thật (tàu Nga chở vũ khí tới Bamako, báo cáo HRW Africa Corps không kích dân thường) đều có ngày sự kiện gốc 22-25/07 hoặc báo cáo công bố 31/07, ngoài khung 2 ngày cho phép (01-02/08). Chủ đề này không có nới khung riêng."
-    },
-    {
-      "name": "Predator's Run 2026",
-      "count": 0,
-      "target": 2,
+      "name": "Mỹ – Mali",
+      "count": 2,
+      "target": "1-3",
       "min": 1,
-      "thieu": true,
-      "reason": "Tập trận đã kết thúc cuối tháng 7 (chuỗi 9 ngày từ 21/07) — không còn diễn biến mới. Đã xác nhận lại ở cả phiên sáng và tối cùng ngày. harvest.py ra 0 ứng viên."
+      "thieu": false,
+      "reason": ""
     },
     {
-      "name": "Báo Mới",
+      "name": "Pitch Black 2026",
       "count": 0,
-      "target": 3,
+      "target": "1-2",
       "min": 0,
-      "thieu": false,
-      "reason": "4 ứng viên cổng nhắc ở cuối add_news.py (Ukraine cạn Patriot, USS Shoup, Patriot Ukraine, bức tường thuế quan) — do áp lực thời gian hạn chót email 22:00, chưa kịp truy bài gốc trong phiên này, để lại phiên sau xử lý hoặc loại kèm lý do."
+      "thieu": true,
+      "reason": "2/3 ứng viên tìm được (KC-30A tiếp dầu Rafale Ấn Độ, PNG tham gia lần 2) đã trùng với item cập nhật gần nhất đã có trong DATA. WebSearch thêm không ra diễn biến mới hẳn nào trong khung 02-03/08. Không có sự kiện ngoại giao mới đáng đưa (dipEvents) trong khung ngày dù đã thử nhiều hướng tìm kiếm."
     }
   ],
-  "note": "Phiên TỐI CI 2026-08-02 21:00 VN (mốc 20:47, thực fire ~21:00). Tổng nạp: +2 worldNews, +5 usNews rồi prune 1 tin trùng thật (B-21 Ellsworth) => còn +2 worldNews, +4 usNews. Ưu tiên AN TOÀN hơn số lượng: đã tự WebSearch xác minh nhiều ứng viên nghi vấn trước khi nạp/loại, phát hiện và sửa 1 tin sai ngày+URL (nhóm 1 Nội bộ Mỹ) trước khi nạp. Không kịp xử lý cổng Báo Mới do áp lực hạn chót 22:00."
+  "note": "Phiên SÁNG SỚM CI 2026-08-03 (mốc 03:47 VN). Tổng nạp ban đầu: +6 worldNews, +8 usNews; sau khi phát hiện 3 tin trùng sự kiện với DATA sẵn có (F-35B Miramar, Lockheed 58,6 tỷ USD Patriot, SpaceX 1,6 tỷ USD PWSA) và 1 tin trùng với file Jay Lâm (Navy nuclear battleship A1B) => còn +5 worldNews, +5 usNews. 2 ứng viên Báo Mới chuyên mục (gắn nhãn CNQS) bị loại vì thực chất là tin chiến sự Nga-Ukraine (Kyiv cạn đạn Patriot), không phải CNQS/chính sách vũ khí của Mỹ — đã ghi rejectedNews + logs/loai-tin.md. `gh workflow run telegram-bot.yml` bị chặn 'requires approval' trong phiên CI này nên không kích được bot hút file Jay Lâm mới; vẫn xử lý được 1 file Jay Lâm còn hiệu lực từ hàng chờ cũ (id=31, gửi 01/08). Chi tiết đầy đủ: logs/loai-tin.md, logs/trung-jaylam.json."
 }
