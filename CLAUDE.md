@@ -58,6 +58,21 @@ bài, khung 24 GIỜ gần nhất — nới 48h nếu chủ đề đó thiếu (
    bức bằng `WEAK_NEED_US` trong `scripts/topics.py` (thực tế lọt: nghị sĩ Philippines mặc đồ đen phản
    đối, chính sách tiền tệ Singapore, chi tiêu vốn Nhật Bản).
 2. **Úc & Biển Đông** — AUKUS/QP Úc (region IPAC) + chủ quyền/tuần tra/tập trận Biển Đông (region Đông Á),
+   **MỞ RỘNG 02/08/2026 (chỉ thị Huy):** chủ đề này còn gồm **(a) mọi tin QUÂN SỰ liên quan tới Úc**,
+   không riêng AUKUS — ngân sách quốc phòng, mua sắm khí tài, tập trận do Úc chủ trì hay tham gia,
+   triển khai lực lượng, cả ba quân chủng (⚠️ trước 02/08 bảng neo chỉ có Hải quân, nên tin của
+   **Không quân Hoàng gia Úc / RAAF** — quân chủng chủ trì Pitch Black — không khớp neo nào và bị
+   chặn oan; đo thật: tin KC-30A tiếp dầu Rafale Ấn Độ ngày 31/07 sót cả ở tầng quét lẫn tầng neo);
+   và **(b) hoạt động quân sự cùng CHIẾN TRANH VÙNG XÁM ở Biển Đông** — vòi rồng, đâm va, chiếu laser,
+   cắt cáp ngầm, dân quân biển, hải cảnh, bồi đắp, quân sự hoá thực thể, phong toả tiếp tế.
+   ⛔ **Từ chỉ vùng xám KHÔNG được đưa vào bảng neo `NEO_UC_BIEN_DONG`** — "vùng xám", "gray zone",
+   "vòi rồng", "cắt cáp" đều KHÔNG tự neo được vào vùng biển này (vùng xám còn ở Baltic, Bắc Cực,
+   eo biển Đài Loan), thêm vào là mục 2 trở lại thành cái thùng, đúng lỗi Huy bắt 01/08. Tin vùng xám
+   vào mục 2 nhờ neo sẵn có (`bien dong`, `philippines`, `hai canh`, `dan quan bien`…). Chúng chỉ nằm
+   ở **bảng gợi ý** `TOPIC_KEYWORDS_VI/EN` (dùng để phân loại ứng viên, được phép rộng) và ở truy vấn
+   Google News — nơi đã tự neo bằng cụm `"South China Sea"`. Ca 17·18·19 của
+   `tests/test-cong-uc-bien-dong.py` canh cả ba chiều: vùng xám Biển Đông phải qua · tin RAAF không có
+   chữ "Úc" phải qua · vùng xám Baltic phải bị chặn.
    **MỞ RỘNG 27/07/2026: tin liên quan tới CÁC NƯỚC KHÁC trong khu vực Biển Đông** — Malaysia, Indonesia,
    Brunei, Đài Loan, Việt Nam, và hoạt động của Nhật/Ấn/Hàn tại vùng biển này; đàm phán COC ASEAN–Trung
    Quốc; các thực thể Natuna, Bãi Tư Chính, Luconia, Bãi Cỏ Rong. → `worldNews`.

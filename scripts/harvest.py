@@ -81,6 +81,13 @@ GNEWS_QUERIES = {
         # các nước khác quanh Biển Đông (mở rộng 27/07/2026 theo chỉ thị Huy)
         'Malaysia OR Indonesia OR Vietnam OR Taiwan maritime "South China Sea" patrol OR protest',
         '"code of conduct" ASEAN China sea OR Natuna OR "Vanguard Bank"',
+        # CHIẾN TRANH VÙNG XÁM ở Biển Đông (chỉ thị Huy 02/08/2026). Mỗi truy vấn phải TỰ
+        # NEO vào vùng biển này — để trần "gray zone" hay "water cannon" là kéo về cả vùng
+        # xám Baltic, eo biển Đài Loan và vòi rồng biểu tình.
+        '"South China Sea" "water cannon" OR ramming OR laser OR blockade OR "gray zone"',
+        '"South China Sea" "maritime militia" OR "China Coast Guard" OR "land reclamation"',
+        # Quân sự Úc nói chung, ngoài AUKUS và ngoài Biển Đông (chỉ thị Huy 02/08/2026)
+        'Australia military OR defence exercise OR deployment OR "defence budget"',
     ],
     "CNQS Mỹ": [
         '"U.S. Air Force" OR "U.S. Navy" OR Pentagon missile OR hypersonic OR "Space Force"',

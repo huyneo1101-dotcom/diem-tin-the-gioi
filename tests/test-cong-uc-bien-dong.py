@@ -108,6 +108,19 @@ TIN_MALI = tin("Mỹ cân nhắc không kích JNIM tại Mali sau loạt tấn c
 # ── bẫy substring: "thúc đẩy" chứa chuỗi "uc" sau khi bỏ dấu ──────────────────
 TIN_BAY_THUC = tin("Nhật Bản thúc đẩy chương trình tên lửa nội địa thế hệ mới",
                    summary="Chính phủ thúc đẩy ngân sách quốc phòng.")
+# ── MỞ RỘNG 02/08/2026 (chỉ thị Huy): chủ đề 2 gồm cả tin quân sự của Úc NÓI CHUNG và
+#    chiến tranh VÙNG XÁM ở Biển Đông. Vùng xám cố ý KHÔNG vào bảng neo (không tự neo được
+#    vào vùng biển này) — nó vào mục 2 nhờ neo sẵn có, và ca 19 canh đúng chỗ đó.
+TIN_VUNG_XAM = tin("Tàu hải cảnh Trung Quốc dùng vòi rồng với tàu tiếp tế Philippines ở Bãi Cỏ Mây",
+                   summary="Hoạt động vùng xám leo thang trên Biển Đông trong tuần qua.")
+# ⚠ Tin mẫu này CỐ Ý chỉ mang ĐÚNG MỘT neo là chuỗi viết tắt "RAAF": bản đầu còn chữ "Úc"
+#   trong tiêu đề nên neo "uc" gánh, gỡ dòng neo Không quân đi ca vẫn xanh — đúng bẫy hai
+#   lớp chồng nhau. Không thêm "Úc", "Australia", "Tindal", "Pitch Black" vào đây.
+TIN_UC_QUAN_SU = tin("RAAF tiếp nhận thêm máy bay tiếp dầu KC-30A cho phi đội vận tải",
+                     summary="Hợp đồng mở rộng phi đội tiếp dầu vừa được công bố.")
+# ── đối chứng: vùng xám ở BIỂN KHÁC — phải CHẶN, kẻo mục 2 lại thành cái thùng ──
+TIN_VUNG_XAM_BALTIC = tin("NATO cảnh báo hoạt động vùng xám của Nga nhắm cáp ngầm ở biển Baltic",
+                          summary="Gray zone, cắt cáp, vòi rồng — nhưng ở Baltic.")
 # ── tin usNews / baomoiNews: cổng CHỈ áp cho worldNews ────────────────────────
 TIN_US = tin("Hạ viện Mỹ thông qua dự luật ngân sách quốc phòng NDAA", category="Chính trị")
 TIN_BAOMOI = tin("Fed giữ nguyên lãi suất trong cuộc họp tháng 8", category="Kinh tế",
@@ -244,6 +257,29 @@ def _():
             and err.strip() == ""), f"{muc} || {err}"
 
 
+@ca('17. Vùng xám Biển Đông (vòi rồng, hải cảnh) → phải CHO QUA (mở rộng 02/08)')
+def _():
+    chan, msg = nap_world(TIN_VUNG_XAM)
+    return not chan, msg
+
+
+@ca('18. Tin quân sự Úc nói chung, KHÔNG có chữ AUKUS → phải CHO QUA (mở rộng 02/08)')
+def _():
+    # Lỗ thật 02/08: bảng neo chỉ có "royal australian navy", nên tin của KHÔNG QUÂN Úc
+    # viết tắt "RAAF" không khớp neo nào. Ca này chết là lỗ đó mở lại.
+    chan, msg = nap_world(TIN_UC_QUAN_SU)
+    return not chan, msg
+
+
+@ca('19. ĐỐI CHỨNG: vùng xám ở biển Baltic → PHẢI CHẶN (chống nới tay khi mở phạm vi)')
+def _():
+    # Mở phạm vi sang "chiến tranh vùng xám" rất dễ bị hiểu thành "thêm gray zone/vòi rồng
+    # vào bảng neo". Làm thế là mục 2 nuốt cả Baltic, Bắc Cực, eo biển Đài Loan — đúng cái
+    # thùng mà cổng này sinh ra để phá.
+    chan, msg = nap_world(TIN_VUNG_XAM_BALTIC)
+    return chan, msg
+
+
 @ca('16. make_docx PHẢI dùng chung bảng neo của topics.py (một nguồn sự thật)')
 def _():
     # Cổng sống mà mỗi tầng một bảng thì hai bảng tách nhánh ở lần vá sau, âm thầm. Ca này
@@ -314,6 +350,16 @@ BAN_HONG = [
      [13]),
 
     # CHIỀU NỚI — mỗi lần siết một ngưỡng phải có ca canh chiều nới lại.
+    ("topics: nới bảng neo bằng từ vùng xám (mục 2 nuốt cả Baltic/Bắc Cực)",
+     "topics",
+     ('NEO_UC_BIEN_DONG = [',
+      'NEO_UC_BIEN_DONG = ["vung xam", "gray zone", "voi rong", "water cannon", "cat cap",'),
+     [19]),
+    ("topics: bỏ neo Không quân Úc (dựng lại lỗ làm sót tin Pitch Black 31/07)",
+     "topics",
+     ('    "raaf", "royal australian air force", "pitch black", "talisman sabre",\n    "tindal", "amberley",',
+      '    '),
+     [18]),
     ("topics: nới bảng neo, thêm thẳng japan/korea/china (mục 2 lại thành thùng)",
      "topics",
      ('    # -- Úc\n    "uc", "australia",',

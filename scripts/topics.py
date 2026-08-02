@@ -37,6 +37,13 @@ TOPIC_KEYWORDS_VI = {
         "malaysia", "indonesia", "brunei", "đài loan", "natuna", "bãi tư chính",
         "luconia", "bãi cỏ rong", "trường sa lớn", "biển hoa đông", "coc",
         "bộ quy tắc ứng xử",
+        # CHIẾN TRANH VÙNG XÁM + hoạt động quân sự ở Biển Đông, và tin quân sự của Úc nói
+        # chung (mở rộng theo chỉ thị Huy 02/08/2026). Bảng này là bảng GỢI Ý nên được
+        # rộng; bảng NEO bên dưới vẫn hẹp, các từ vùng xám cố ý KHÔNG có ở đó vì chúng
+        # không tự neo được vào vùng biển này.
+        "vùng xám", "vòi rồng", "đâm va", "chiếu laser", "cắt cáp", "bồi đắp",
+        "quân sự hoá", "phong toả", "raaf", "không quân hoàng gia úc", "pitch black",
+        "talisman sabre", "tàu ngầm aukus",
     ],
     "CNQS Mỹ": [
         "lầu năm góc", "không quân mỹ", "hải quân mỹ", "lục quân mỹ", "thủy quân lục chiến",
@@ -129,6 +136,10 @@ TOPIC_KEYWORDS_EN = {
         # các nước khác quanh Biển Đông (mở rộng 27/07/2026)
         "malaysia", "indonesia", "brunei", "taiwan", "natuna", "vanguard bank",
         "luconia shoals", "reed bank", "code of conduct", "asean maritime",
+        # vùng xám + quân sự Úc nói chung (chỉ thị Huy 02/08/2026) — xem chú thích bản VI
+        "gray zone", "grey zone", "water cannon", "ramming", "cable cutting",
+        "land reclamation", "militarisation", "blockade", "raaf",
+        "royal australian air force", "pitch black", "talisman sabre",
     ],
     "CNQS Mỹ": [
         "pentagon", "u.s. air force", "us air force", "u.s. navy", "us navy", "u.s. army",
@@ -204,6 +215,16 @@ NEO_UC_BIEN_DONG = [
     # -- Úc
     "uc", "australia", "australian", "canberra", "aukus", "adf",
     "royal australian navy", "collins-class", "hmas",
+    # Không quân Úc + tập trận do Úc chủ trì — thêm 02/08/2026 sau khi lỗ này làm sót
+    # tin "KC-30A của Úc lần đầu tiếp dầu Rafale Ấn Độ tại Pitch Black" (Janes 31/07):
+    # bảng chỉ có Hải quân, còn "australian" thì không khớp chuỗi viết tắt "RAAF".
+    "raaf", "royal australian air force", "pitch black", "talisman sabre",
+    "tindal", "amberley",
+    # ⛔ CỐ Ý KHÔNG thêm "vung xam"/"gray zone"/"water cannon"/"voi rong": chiến tranh vùng
+    #    xám thuộc PHẠM VI chủ đề (xem CLAUDE.md) nhưng KHÔNG tự neo được vào vùng biển này
+    #    — vùng xám còn có ở Baltic, eo biển Đài Loan, Bắc Cực. Tin vùng xám vào mục 2 nhờ
+    #    neo sẵn có ("bien dong", "philippines", "hai canh", "dan quan bien"...). Thêm vào
+    #    đây là mở lại đúng lỗ Huy bắt 01/08.
     # ⛔ KHÔNG lấy tên thành phố Úc trần ("darwin", "perth", "sydney"): Darwin còn là tên
     #    người, Perth còn ở Scotland — neo phải chỉ đích danh nước hoặc vùng biển.
 ]
