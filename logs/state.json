@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-02T21:18:19+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+2 worldNews +4 usNews (5 chu de, sau prune 1 trung)",
+    "lastRunAt": "2026-08-03T04:00:45+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-02",
       "sang": "2026-08-02"
-    }
+    },
+    "heartbeat": "2026-08-03T04:00:45+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-02T04:35:56+07:00",
