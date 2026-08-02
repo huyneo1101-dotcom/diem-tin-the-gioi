@@ -352,7 +352,7 @@ BAN_HONG = [
      [('_git("fetch", "-q", "origin", "main", kiem=True)\n'
        '        _git("reset", "-q", "--mixed", "FETCH_HEAD", kiem=True)',
        '_git("stash", "-q")\n        _git("stash", "-q", "pop", kiem=False)'),
-      ('if _git("checkout", "-q", "FETCH_HEAD", "--", SO_REL).returncode != 0:',
+      ('if _git("checkout", "-q", "FETCH_HEAD", "--", rel).returncode != 0:',
        'if False:'),
       ('if _git("push", "-q", "origin", "HEAD:main").returncode == 0:',
        'if _git("pull", "--rebase", "-q", "origin", "main").returncode == 0 '
@@ -360,9 +360,9 @@ BAN_HONG = [
      ["CA CHÍNH · workflow kia push trước 7 giây → sổ PHẢI có đủ hai dòng"]),
 
     ("bỏ bước lấy sổ mới nhất của remote (mất dòng workflow kia)",
-     [('if _git("checkout", "-q", "FETCH_HEAD", "--", SO_REL).returncode != 0:\n'
-       '            # sổ chưa từng có trên remote: bỏ bản trong working tree để khỏi nhân dòng\n'
-       '            (ROOT / SO_REL).unlink(missing_ok=True)',
+     [('if _git("checkout", "-q", "FETCH_HEAD", "--", rel).returncode != 0:\n'
+       '            # file chưa từng có trên remote: bỏ bản trong working tree để khỏi nhân dòng\n'
+       '            (ROOT / rel).unlink(missing_ok=True)',
        'pass')],
      ["CA CHÍNH · workflow kia push trước 7 giây → sổ PHẢI có đủ hai dòng",
       "PHẢI CHẶN · bị chen rồi ghi lại → KHÔNG nhân đôi dòng của mình",
@@ -375,9 +375,10 @@ BAN_HONG = [
      ["PHẢI CHẶN · index.html của phiên mình KHÔNG bị bản remote đè "
       "(--mixed, không --hard)"]),
 
+    # ⚠️ Neo đổi 02/08/2026: vòng lặp PHA 1 tách ra `day_len_remote()` để `ghi_log_push.py`
+    # (log ngày) dùng CHUNG thay vì chép lại logic git. Văn bản in ra KHÔNG đổi.
     ("hết vòng vẫn trả 0 cho êm (fail-open)",
-     [('    print(f"::error::khong push duoc so da gui sau {vong} vong. So TRONG se lam canary "\n'
-       '          f"keu oan va lam phien du phong quet lai — xem tests/test-ghi-so-push.py")\n'
+     [('    print(f"::error::khong push duoc {nhan} sau {vong} vong. {hau_qua}")\n'
        '    return 1',
        '    return 0')],
      ["PHẢI KÊU · hết vòng vẫn chưa push được → mã ≠ 0 + ::error::"]),
@@ -386,8 +387,11 @@ BAN_HONG = [
      [("for i in range(1, vong + 1):", "for i in range(1, 2):")],
      ["ĐỐI CHỨNG · chen 2 vòng đầu thì vòng 3 phải thắng (có retry thật)"]),
 
+    # PHA 0 nay truyền vào PHA 1 dưới dạng callback; "tính lại mỗi vòng" = cho callback
+    # gọi lại `ghi_so` (tức `so_da_gui.py`) sau khi HEAD đã nhảy sang đỉnh remote.
     ("tính lại URL ở MỖI vòng (gọi so_da_gui.py sau khi HEAD đã nhảy)",
-     [("        _append_dong(dong)", "        ghi_so(buoi, chi)")],
+     [("lambda _p: _append_dong(dong), tin_nhan,",
+       "lambda _p: (ghi_so(buoi, chi), _append_dong(_doc_lan_gui()[-1])), tin_nhan,")],
      ["CA CHÍNH 2 · URL tính ĐÚNG MỘT LẦN, retry không tính lại theo HEAD đã nhảy"]),
 ]
 

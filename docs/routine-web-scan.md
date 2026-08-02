@@ -54,10 +54,25 @@ Lệnh sạch dạng `git -C /Users/Huy/Claude/diem-tin-the-gioi add|commit|push
 ```
 git -C /Users/Huy/Claude/diem-tin-the-gioi pull --rebase origin main
 python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim web-scan
-git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/
-git -C /Users/Huy/Claude/diem-tin-the-gioi commit -q -m "log: claim web-scan phien toi (local)"
-git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main -q
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/ghi_log_push.py --file logs/scan-<ngày VN>.log --nhan "log: claim web-scan (local)"
 ```
+
+⛔ **COMMIT CHỈ-CÓ-LOG PHẢI ĐI QUA `ghi_log_push.py`, KHÔNG `git add logs/` + `commit` + `push`**
+(vá 02/08/2026 — sự cố thật sáng đó). Sáng 02/08 có **04 phiên** cùng append vào
+`logs/scan-2026-08-02.log` (CI 03:47 · local 04:30 · lớp vét 04:47 · một phiên gọi lại). Mỗi
+phiên push bị từ chối thì `pull --rebase`, mà hai dòng thêm vào cùng vị trí là **xung đột văn
+bản** ⇒ rebase hỏng ⇒ repo nằm lại ở trạng thái rebase dở ⇒ phiên local 05:30 vào thì chết ngay
+lệnh ĐẦU TIÊN: `error: Pulling is not possible because you have unmerged files`. Repo kẹt như
+thế thì **mọi phiên sau đều chết ở Bước 1**, kể cả phiên tối có hạn chót gửi 22:00, và tiếng
+kêu duy nhất là một dòng `fatal` không ai đọc.
+Script dùng CHUNG hàm hợp nhất với sổ đã gửi (`ghi_so_push.day_len_remote`): lấy bản mới nhất
+của remote rồi ghép dòng của mình vào, **không bao giờ rebase** nên không có xung đột để mà
+hỏng. Cứ ghi log bằng tool Edit/Write như thường, rồi gọi script — nó tự chụp dòng của phiên
+mình trước khi đụng git.
+⚠️ **CHỈ áp cho commit chỉ chứa log.** Commit bản tin (`index.html` + `logs/`) ở Bước 3 vẫn đi
+đường cũ — `index.html` KHÔNG phải append-only, hai lô tin cùng chèn vào đầu mảng là xung đột
+thật, git không hợp nhất hộ được.
+Bộ test canh: `tests/test-ghi-log-push.py` (07 ca · `--tu-kiem` bắt 3/3 bản hỏng).
 ⛔ **DÒNG 1 BÁO `cannot pull with rebase: You have unstaged changes` → ĐỪNG DỪNG PHIÊN, ĐI TIẾP.**
 Vá 29/07/2026 sau khi lỗi này chặn thật lần thứ hai (lần đầu sáng 27/07; lần 29/07 do một phiên khác
 dựng `tests/` + sửa `CLAUDE.md` rồi ngừng giữa chừng không commit).

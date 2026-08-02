@@ -111,6 +111,46 @@ def _append_dong(dong):
     p.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def day_len_remote(rel, hop_nhat, tin_nhan, vong=VONG_MAC_DINH, ngu=time.sleep,
+                   nhan="so da gui",
+                   hau_qua="So TRONG se lam canary keu oan va lam phien du phong quet "
+                           "lai — xem tests/test-ghi-so-push.py"):
+    """PHA 1 dùng chung cho MỌI file append-only: đẩy phần của phiên mình lên `main`.
+
+    `hop_nhat(p)` được gọi SAU khi `p` đã mang bản REMOTE mới nhất; nó ghi phần của phiên
+    mình vào đó và **phải idempotent** (chạy lại không nhân đôi), vì mỗi vòng retry gọi lại.
+
+    Dùng chung chứ không chép: `ghi_so_push` (sổ đã gửi JSON) và `scripts/ghi_log_push.py`
+    (log ngày dạng text) cùng đi qua đây. Hai bản logic git song song chắc chắn lệch nhau.
+    """
+    for i in range(1, vong + 1):
+        # (1) HEAD về đỉnh remote, GIỮ working tree (xem docstring: vì sao không --hard)
+        _git("fetch", "-q", "origin", "main", kiem=True)
+        _git("reset", "-q", "--mixed", "FETCH_HEAD", kiem=True)
+        # (2) riêng file đó lấy bản remote mới nhất — chỗ giữ phần của phiên kia
+        if _git("checkout", "-q", "FETCH_HEAD", "--", rel).returncode != 0:
+            # file chưa từng có trên remote: bỏ bản trong working tree để khỏi nhân dòng
+            (ROOT / rel).unlink(missing_ok=True)
+        # (3) ghép phần của PHA 0 vào — idempotent
+        hop_nhat(ROOT / rel)
+        # (4) commit CHỈ file đó rồi push
+        _git("add", rel, kiem=True)
+        if _git("diff", "--cached", "--quiet").returncode == 0:
+            print(f"{nhan} khong doi — khong can commit")
+            return 0
+        _git("commit", "-q", "-m", tin_nhan, kiem=True)
+        if _git("push", "-q", "origin", "HEAD:main").returncode == 0:
+            print(f"da push {nhan} (vong {i}/{vong})")
+            return 0
+        print(f"push lan {i} bi tu choi (co workflow khac vua push) — "
+              f"lay ban moi nhat roi ghi lai")
+        if i < vong:
+            ngu(i * NGU_GIAY)
+
+    print(f"::error::khong push duoc {nhan} sau {vong} vong. {hau_qua}")
+    return 1
+
+
 def ghi_va_push(buoi, chi=None, nhan="", vong=VONG_MAC_DINH,
                 ghi_so=None, ngu=time.sleep):
     """Ghi sổ rồi push, chịu được workflow khác ghi cùng lúc.
@@ -134,33 +174,8 @@ def ghi_va_push(buoi, chi=None, nhan="", vong=VONG_MAC_DINH,
     print(f"lan gui nay: buoi {dong.get('buoi')}, {len(dong.get('urls') or [])} URL")
 
     # ── PHA 1: đẩy dòng đó lên, thử lại trên đỉnh mới nếu bị chen ──
-    for i in range(1, vong + 1):
-        # (1) HEAD về đỉnh remote, GIỮ working tree (xem docstring: vì sao không --hard)
-        _git("fetch", "-q", "origin", "main", kiem=True)
-        _git("reset", "-q", "--mixed", "FETCH_HEAD", kiem=True)
-        # (2) riêng sổ lấy bản remote mới nhất — đây là chỗ giữ dòng của workflow kia
-        if _git("checkout", "-q", "FETCH_HEAD", "--", SO_REL).returncode != 0:
-            # sổ chưa từng có trên remote: bỏ bản trong working tree để khỏi nhân dòng
-            (ROOT / SO_REL).unlink(missing_ok=True)
-        # (3) append dòng của PHA 0 — idempotent, chạy lại không nhân đôi
-        _append_dong(dong)
-        # (4) commit CHỈ file sổ rồi push
-        _git("add", SO_REL, kiem=True)
-        if _git("diff", "--cached", "--quiet").returncode == 0:
-            print("so khong doi — khong can commit")
-            return 0
-        _git("commit", "-q", "-m", tin_nhan, kiem=True)
-        if _git("push", "-q", "origin", "HEAD:main").returncode == 0:
-            print(f"da push so da gui (vong {i}/{vong})")
-            return 0
-        print(f"push lan {i} bi tu choi (co workflow khac vua push) — "
-              f"lay so moi nhat roi ghi lai")
-        if i < vong:
-            ngu(i * NGU_GIAY)
-
-    print(f"::error::khong push duoc so da gui sau {vong} vong. So TRONG se lam canary "
-          f"keu oan va lam phien du phong quet lai — xem tests/test-ghi-so-push.py")
-    return 1
+    return day_len_remote(SO_REL, lambda _p: _append_dong(dong), tin_nhan,
+                          vong=vong, ngu=ngu)
 
 
 def main(argv=None):
