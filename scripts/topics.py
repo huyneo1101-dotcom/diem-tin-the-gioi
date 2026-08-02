@@ -50,7 +50,7 @@ TOPIC_KEYWORDS_VI = {
         "wagner", "africa corps", "tuareg", "azawad", "kidal", "gao", "timbuktu",
         "liên minh các quốc gia sahel",
     ],
-    "Predator's Run": ["predator's run", "predator run", "townsville", "carabaroo"],
+    "Pitch Black": ["pitch black", "căn cứ darwin", "tindal", "amberley", "raaf", "không quân hoàng gia úc"],
     # 4 NHÓM theo thứ tự ưu tiên (chỉ thị Huy 27/07/2026) — nhóm 1 BẮT BUỘC tìm trước,
     # thiếu chỉ tiêu mới xuống 2, 3, 4. Xem chi tiết trong CLAUDE.md / SKILL quét tin.
     # Ở đây CHỈ để từ khoá TỰ ĐỦ (nhắc tới là biết chuyện nội bộ Mỹ). Từ khoá chung chung
@@ -143,7 +143,7 @@ TOPIC_KEYWORDS_EN = {
         "wagner", "africa corps", "tuareg", "azawad", "kidal", "timbuktu",
         "alliance of sahel states",
     ],
-    "Predator's Run": ["predator's run", "predators run", "townsville", "carabaroo"],
+    "Pitch Black": ["pitch black", "raaf base darwin", "tindal", "amberley", "raaf", "royal australian air force"],
     # 4 NHÓM theo thứ tự ưu tiên (chỉ thị Huy 27/07/2026) — nhóm 1 tìm TRƯỚC, thiếu mới xuống 2/3/4.
     # Chỉ để từ khoá TỰ ĐỦ ở đây; từ khoá chung của nhóm 3-4 nằm ở WEAK_NEED_US (cần ngữ cảnh Mỹ).
     "Nội bộ Mỹ": [

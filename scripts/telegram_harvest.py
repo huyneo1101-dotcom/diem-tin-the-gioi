@@ -305,7 +305,7 @@ def main():
         by_topic.setdefault(h["chu_de"], []).append(h)
 
     print(f"\n=== ỨNG VIÊN TỪ TELEGRAM — {len(hits)} bài trong khung ngày ===")
-    order = ["Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", "Predator's Run"]
+    order = ["Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", "Pitch Black"]
     if args.all:
         order.append("(không khớp chủ đề)")
     for topic in order:

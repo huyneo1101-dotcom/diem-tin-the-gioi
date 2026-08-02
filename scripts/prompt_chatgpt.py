@@ -10,7 +10,7 @@ chạy trên máy Huy bằng terminal — KHÔNG tốn hạn mức Claude.
 Hai chiều dùng:
 
   1) Sinh prompt (tự chạy harvest + --recent-titles rồi nhúng thẳng vào prompt):
-       python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|predator
+       python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|pitchblack
      -> ghi vào ~/Claude/prompt-chatgpt/ và MỞ FINDER sẵn tại file đó. Copy TẤT CẢ, dán vào
      ChatGPT. Chạy KHÔNG có --chu-de thì ra prompt gộp 5 chủ đề — chỉ để xem, đừng dùng thật
      (quá dài, ChatGPT không mở hết link).
@@ -69,10 +69,10 @@ Khí tài/hệ thống CỤ THỂ của Mỹ: tên lửa, phòng không, hải q
     "mali": ("Mỹ – Mali", """**Mỹ – Mali** → `usNews` (đa số là chính sách/hành động của Mỹ), KHÔNG có `region`.
 Việc Mỹ cân nhắc/triển khai phương án quân sự ở Sahel nhắm JNIM (al-Qaeda): quyết định không kích drone, phản ứng của Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin phải gắn Mali/JNIM/Bamako/Sahel.
 ⚠️ Bỏ tin Mali không liên quan an ninh (kinh tế thường, thể thao, giáo dục)."""),
-    "predator": ("Predator's Run", """**Tập trận Predator's Run 2026** (Mỹ–Úc–Philippines, Townsville, tới ~29/7) → CHỈ dùng `exerciseUpdates`.
-`name` phải khớp ĐÚNG chuỗi này, sao y không sửa một ký tự: `Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)`
+    "pitchblack": ("Pitch Black", """**Tập trận Pitch Black 2026** (Úc chủ trì, 20 nước, Darwin/Tindal/Amberley, 20/7–7/8) → CHỈ dùng `exerciseUpdates`.
+`name` phải khớp ĐÚNG chuỗi này, sao y không sửa một ký tự: `Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)`
 Mỗi item chỉ có: `date`, `title`, `summary`, `sourceName`, `sourceUrl` (KHÔNG có category/region/significance).
-Tìm diễn biến mới: bài bắn đạn thật, tình huống huấn luyện, tuyên bố chỉ huy. Nguồn: dvidshub.net, defence.gov.au, marines.mil, pacom.mil."""),
+Tìm diễn biến mới: khoa mục bay, tiếp dầu trên không, lần đầu của từng nước, tuyên bố chỉ huy. Nguồn: defence.gov.au, janes.com, airforce.gov.au, dvidshub.net."""),
 }
 
 
@@ -191,9 +191,9 @@ Thà trả về 3 tin sạch còn hơn 8 tin có 1 tin bịa. Được phép tr�
 2. **Úc & Biển Đông** → `worldNews`. AUKUS/quốc phòng Úc (`region: "Ấn Độ Dương - Thái Bình Dương"`) + chủ quyền/tuần tra/tập trận Biển Đông (`region: "Đông Á"`), gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, COC ASEAN–Trung Quốc, Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong.
 3. **CNQS Mỹ** → `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống CỤ THỂ của Mỹ. Khí tài nước khác KHÔNG thuộc mục này.
 4. **Mỹ – Mali** → `usNews`. Mỹ cân nhắc/triển khai quân sự ở Sahel nhắm JNIM; phản ứng của Mali/Nga/JNIM.
-5. **Tập trận Predator's Run 2026** → `exerciseUpdates`, `name` khớp ĐÚNG: `Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)`.'''}
+5. **Tập trận Pitch Black 2026** → `exerciseUpdates`, `name` khớp ĐÚNG: `Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)`.'''}
 
-Nhắm **{ {'mali': '2–5 tin', 'predator': '1–2 tin cập nhật'}.get(key, '5–10 tin') }**{' cho chủ đề này' if ten_cd else ' mỗi chủ đề (Mali 2–5, Predator 1–2)'}; thiếu thì để ít, KHÔNG nhồi.
+Nhắm **{ {'mali': '2–5 tin', 'pitchblack': '1–2 tin cập nhật'}.get(key, '5–10 tin') }**{' cho chủ đề này' if ten_cd else ' mỗi chủ đề (Mali 2–5, Pitch Black 1–2)'}; thiếu thì để ít, KHÔNG nhồi.
 
 ## LUẬT NGUỒN
 | Nguồn | Cần xác nhận thêm? |
@@ -222,7 +222,7 @@ Nhắm **{ {'mali': '2–5 tin', 'predator': '1–2 tin cập nhật'}.get(key, 
     {{"date":"YYYY-MM-DD","category":"...","title":"...","summary":"...","sourceName":"...","sourceUrl":"https://...","significance":"..."}}
   ],
   "exerciseUpdates": [
-    {{"name":"Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)","items":[{{"date":"YYYY-MM-DD","title":"...","summary":"...","sourceName":"...","sourceUrl":"https://..."}}]}}
+    {{"name":"Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)","items":[{{"date":"YYYY-MM-DD","title":"...","summary":"...","sourceName":"...","sourceUrl":"https://..."}}]}}
   ]
 }}
 ```
@@ -255,7 +255,7 @@ Sau khối JSON, thêm một khối riêng: {'chủ đề này' if ten_cd else '
     if not key:
         print(f"\n⚠️  Prompt gộp cả 5 chủ đề ({n:,} ký tự) — ChatGPT sẽ KHÔNG mở hết link, dễ bịa")
         print("   summary. Nên chạy TỪNG chủ đề, mỗi cái một đoạn chat riêng:")
-        print("   python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|predator")
+        print("   python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|pitchblack")
 
 
 def nap(path):

@@ -75,7 +75,8 @@ bài, khung 24 GIỜ gần nhất — nới 48h nếu chủ đề đó thiếu (
    (áp theo **category** `Công nghệ quân sự`) và `CNQS_LOOKBACK_DAYS` trong `harvest.py` — sửa một bên
    phải sửa bên kia.
 4. **Mỹ–Mali** — Mỹ cân nhắc/không kích JNIM ở Sahel. → `usNews`, dossier `🟤 Mỹ – Mali`.
-5. **Tập trận Predator's Run 2026** — diễn biến tới ~29/7. → `exerciseUpdates` (tên khớp).
+5. **Tập trận Pitch Black 2026** — Úc chủ trì, 20 nước, Darwin/Tindal/Amberley, 20/7–7/8/2026. → `exerciseUpdates`, `name` khớp ĐÚNG `Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)`.
+   ⚠️ **ĐỔI 02/08/2026 (Huy chốt), trước đây neo cứng vào `Predator's Run` — kỳ đó kết thúc cuối tháng 7 nên chủ đề 05 báo 0 tin mỗi phiên trong khi Pitch Black chạy suốt mà không truy vấn nào hỏi tới.** Đổi kỳ tập trận thì phải sửa ĐỦ 05 chỗ, lệch một chỗ là chủ đề câm mà bảng vẫn đủ dòng: `harvest.py::GNEWS_QUERIES` + danh sách thứ tự cuối `harvest.py` · `telegram_harvest.py::order` · `topics.py` (HAI bảng: `CHU_DE` tiếng Việt và bảng tiếng Anh) · `prompt_chatgpt.py` (khối luật + mẫu JSON + tên khoá CLI) · dòng này.
 
 **BỎ khỏi phạm vi:** Kinh tế, Ngoại giao chung, xNews (X/Twitter), các vùng thế giới khác, tạo mới
 dipEvents, và **SÀN CỨNG 15+15**. **Báo Mới:** vẫn quét nhưng CHỈ giữ bài hợp 5 chủ đề trên.
@@ -1831,7 +1832,7 @@ trước** — feed thật nhưng gần như đứng. Ưu tiên thấp, đừng 
 **Cách kiểm lại về sau:** `scripts/rss_check.py` (đọc thẳng bảng này trong CLAUDE.md rồi fetch từng URL).
 
 ### Nguồn MỞ RỘNG 5 chủ đề — verify fetch thật 25/07/2026 (gộp vào để `rss_check.py` tự kiểm)
-Bổ sung cho 5 chủ đề (Nội bộ Mỹ · Úc–Biển Đông · CNQS Mỹ · Mali · Predator). Chi tiết cách dùng từng
+Bổ sung cho 5 chủ đề (Nội bộ Mỹ · Úc–Biển Đông · CNQS Mỹ · Mali · Pitch Black). Chi tiết cách dùng từng
 nguồn xem Phụ lục trong `.claude/skills/quet-tin/SKILL.md`.
 | Nguồn | RSS URL | Kiểm 25/07 |
 |---|---|---|
@@ -1851,7 +1852,7 @@ nguồn xem Phụ lục trong `.claude/skills/quet-tin/SKILL.md`.
 | DefenseScoop | https://defensescoop.com/feed/ | 10 item |
 | Aviation Week | https://aviationweek.com/rss.xml | 10 item |
 | Long War Journal (Mali/JNIM) | https://www.longwarjournal.org/feed | 30 item |
-| DVIDS news (Predator) | https://www.dvidshub.net/rss/news | 20 item |
+| DVIDS news (tập trận) | https://www.dvidshub.net/rss/news | 20 item |
 
 ⚠️ **Feed fetch được nhưng ĐỨNG — đừng trông vào cho tin trong ngày** (kiểm 25/07): **AMTI/CSIS** bài
 mới nhất ~81 ngày trước (nguồn phân tích tầng 3, đăng thưa — dùng làm nền/bối cảnh Biển Đông thôi);
@@ -2028,7 +2029,7 @@ chịu" và bị bỏ hoàn toàn.** Nguyên nhân gốc không nằm ở các t
 `403` tụt từ **31 xuống 6** và **27 nguồn** đọc được nhờ vân tay TLS — trong đó có cả 06 trang này.
 Số đo CI 30/07 (run 30516868251): PACOM **228.361B** · JCS 74.037B · USCG 68.712B · CENTCOM 46.728B ·
 Navy 114.720B · Marines 65.170B, tất cả 200 và thân không mang dấu hiệu chặn.
-Giá trị: PACOM và Marines là nguồn **tầng 1** cho chủ đề 2 (Úc & Biển Đông) và chủ đề 5 (Predator's
+Giá trị: PACOM và Marines là nguồn **tầng 1** cho chủ đề 2 (Úc & Biển Đông) và chủ đề 5 (Pitch Black
 Run) — hai chủ đề vẫn hay thiếu bài; CENTCOM là tầng 1 cho chủ đề 4 (Mỹ–Mali).
 
 ⚠️ **Vì sao Navy/Marines là `cả hai` mà PACOM/CENTCOM/JCS/USCG chỉ `CI`** — khác biệt nằm ở **DNS,
@@ -2069,8 +2070,8 @@ còn CI thì luôn lấy được. DNS zone `.mil` khoẻ lại thì nâng lên 
 | Uỷ ban Quy tắc Thượng viện | https://www.rules.senate.gov/news/press-releases | cả hai | nhóm 1 |
 | Thông cáo chung Thượng viện | https://www.pressphotographers.senate.gov/senate/senate-press-releases/ | cả hai | nhóm 1 |
 | **Hải quân Mỹ** | https://www.navy.mil/Press-Office/Press-Releases/ | cả hai | **Úc & Biển Đông** · CNQS Mỹ |
-| **Thuỷ quân lục chiến Mỹ** | https://www.marines.mil/News/Press-Releases/ | cả hai | **Úc & Biển Đông** · **Predator's Run** |
-| **PACOM (Bộ Chỉ huy Ấn Độ Dương-TBD)** | https://www.pacom.mil/Media/News/News-Articles/ | **CI** | **Úc & Biển Đông** · **Predator's Run** |
+| **Thuỷ quân lục chiến Mỹ** | https://www.marines.mil/News/Press-Releases/ | cả hai | **Úc & Biển Đông** · **Pitch Black** |
+| **PACOM (Bộ Chỉ huy Ấn Độ Dương-TBD)** | https://www.pacom.mil/Media/News/News-Articles/ | **CI** | **Úc & Biển Đông** · **Pitch Black** |
 | **CENTCOM** | https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/ | **CI** | **Mỹ–Mali** · CNQS Mỹ |
 | **JCS (Hội đồng Tham mưu trưởng Liên quân)** | https://www.jcs.mil/Media/News/ | **CI** | CNQS Mỹ · Úc & Biển Đông |
 | **Tuần duyên Mỹ (USCG)** | https://www.news.uscg.mil/Press-Releases/ | **CI** | Úc & Biển Đông |
@@ -2189,7 +2190,7 @@ thật hôm nay còn sống**. Cột "hợp chủ đề" = chủ đề trong 5 c
 | The Aviationist | https://theaviationist.com/feed/ | 15 item, mới 15h | 3 CNQS Mỹ |
 | Soldier Systems Daily | https://soldiersystems.net/feed/ | 6 item, mới 9h | 3 CNQS Mỹ |
 | Sandboxx News | https://www.sandboxx.us/news/feed/ | 15 item, mới 11h | 3 CNQS Mỹ |
-| DVIDS (toàn bộ) | https://www.dvidshub.net/rss/all | 419 item, mới 2h | 3 + 5 Predator |
+| DVIDS (toàn bộ) | https://www.dvidshub.net/rss/all | 419 item, mới 2h | 3 + 5 Pitch Black |
 | Shephard Media | https://www.shephardmedia.com/news/feed/ | 10 item, mới 23h | 3 + 2 Úc |
 | The Japan Times | https://www.japantimes.co.jp/feed/ | 30 item, mới 1h | 2 Biển Đông |
 | Yonhap (Hàn Quốc) | https://en.yna.co.kr/RSS/news.xml | 97 item, mới trong ngày | 2 Biển Đông |
@@ -2210,7 +2211,7 @@ thật hôm nay còn sống**. Cột "hợp chủ đề" = chủ đề trong 5 c
 ⚠️ **Sửa lại đánh giá cũ:** Thế giới & Việt Nam trước bị xếp "WebSearch-only" (bảng BỎ HẲN) vì thử
 `/rss/the-gioi.rss` → 404. Feed thật là `rss_feed/` và chạy tốt → đã chuyển lên bảng này.
 ⚠️ **DVIDS `/rss/all`** (419 item) rộng hơn `/rss/news` (20 item) đang dùng — giàu tin diễn tập/ảnh
-đơn vị, nhưng lẫn nhiều thông cáo địa phương; dùng cho Predator/CNQS thì lọc theo từ khoá.
+đơn vị, nhưng lẫn nhiều thông cáo địa phương; dùng cho tập trận/CNQS thì lọc theo từ khoá.
 ⚠️ **Nguồn VN vẫn là ưu tiên #2** (xem "Thứ tự ưu tiên" bên dưới: tiếng Anh trước) — thêm vào đây để
 có URL sẵn khi cần góc nhìn trong nước / tin Biển Đông, KHÔNG phải để thay nguồn tiếng Anh.
 
@@ -2266,7 +2267,7 @@ Phân bổ GỢI Ý CẢ NGÀY trong mỗi mục ≥15 (linh hoạt, miễn tổ
 3. **Nội bộ Mỹ (usNews) — CHỈ tiến trình lập pháp (chỉ thị người dùng 23/07/2026, siết lại từ "mở toàn bộ"):** với tin CHÍNH TRỊ NỘI BỘ Mỹ, **CHỈ nhận 2 loại**: (a) **các phiên điều trần** Quốc hội/uỷ ban (hearing, testimony, mark-up, chất vấn quan chức); (b) **kết quả hội đồng/uỷ ban/hai viện bỏ phiếu THÔNG QUA dự luật** (committee vote, floor vote, passage của bill/nghị quyết/NDAA/ngân sách...). **LOẠI** phần còn lại của chính trị nội bộ Mỹ: tranh cãi đảng phái/drama, chân dung/động thái chính trị gia, horserace bầu cử, biểu tình, chính sách nhập cư, cải cách tư pháp thuần, bê bối cá nhân... (Lưu ý: tin CHÍNH SÁCH/HÀNH PHÁP gắn quốc phòng–an ninh–kinh tế–ngoại giao vẫn nhận BÌNH THƯỜNG qua các category tương ứng; ràng buộc này chỉ áp cho mục CHÍNH TRỊ NỘI BỘ. Tin thế giới ngoài Mỹ vẫn theo bộ lọc gốc.)
 
 **📌 HAI CHỦ ĐỀ CHÚ TRỌNG QUÉT HÀNG NGÀY — thêm 23/07/2026 (chỉ thị người dùng):**
-- **Tập trận Predator's Run** — thẻ `exercises` đã tạo: `"Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)"` (khai mạc 21/7, kéo dài tới ~29/7, Townsville). **Mỗi phiên CHỦ ĐỘNG tìm diễn biến mới** (bài bắn đạn thật, tình huống hợp đồng, tuyên bố chỉ huy) → cập nhật qua `exerciseUpdates` (khớp đúng tên). Nguồn: pacom.mil, marines.mil, defence.gov.au, dvidshub.net, army Úc. **Khi tập trận KẾT THÚC (~29/7)** → dùng `exerciseUpdates` kèm nêu trong tóm tắt để đổi `status` sang `recent`.
+- **Tập trận Pitch Black 2026** *(thay Predator's Run từ 02/08/2026 — kỳ đó đã kết thúc)* — thẻ `exercises` đã có: `"Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)"` (20/7–7/8, Darwin/Tindal/Amberley, ~100 máy bay, hơn 2.500 quân nhân). **Mỗi phiên CHỦ ĐỘNG tìm diễn biến mới** (khoa mục bay, tiếp dầu trên không, lần đầu của từng nước, tuyên bố chỉ huy) → cập nhật qua `exerciseUpdates` (khớp đúng tên). Nguồn: defence.gov.au, airforce.gov.au, janes.com, dvidshub.net, pacom.mil. **Khi tập trận KẾT THÚC (7/8)** → dùng `exerciseUpdates` kèm nêu trong tóm tắt để đổi `status` sang `recent`, VÀ đổi chủ đề 05 sang kỳ tập trận kế tiếp theo đúng 05 chỗ liệt kê ở mục "5 chủ đề" đầu file — bỏ bước sau là chủ đề 05 lại báo 0 tin mỗi phiên trong im lặng.
 - **Mỹ – Mali** — hồ sơ sống mới (dossier `🟤 Mỹ – Mali` trong mục Hồ sơ). **Mỗi phiên theo dõi diễn biến** việc Mỹ cân nhắc/triển khai phương án quân sự ở Mali nhắm JNIM (al-Qaeda): quyết định không kích drone, phản ứng của Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin gắn Mali/JNIM/Bamako/Sahel để tự vào dossier. Ưu tiên nguồn: defense.gov, state.gov, centcom.mil (AFRICOM), Reuters/AP/AFP, WaPo. Đa số là tin **usNews** (chính sách/hành động của Mỹ).
 
 **Nguyên tắc "cứu":** tin công ty/chính trị VẪN nhận nếu gắn chủ đề chiến lược (vd Boeing↔máy bay quân sự, Samsung↔chip AI).

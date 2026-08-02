@@ -87,7 +87,7 @@ GNEWS_QUERIES = {
         '"defense contract" OR "awarded a contract" Pentagon',
     ],
     "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],
-    "Predator's Run": ['"Predator\'s Run"'],
+    "Pitch Black": ['"Pitch Black" Australia exercise OR RAAF'],
     # 4 NHÓM theo thứ tự ưu tiên Huy chốt 27/07/2026 — nhóm 1 trước, thiếu mới tới 2/3/4.
     "Nội bộ Mỹ": [
         # (1) điều trần + bỏ phiếu thông qua dự luật  ← BẮT BUỘC, tìm trước
@@ -842,7 +842,7 @@ def main():
     print(f"\n=== ỨNG VIÊN THEO 5 CHỦ ĐỀ — {len(out)} bài trong khung ngày ===")
     print(f"    (đã lọc: {bo_rac} rác · {bo_trung_data} trùng tin đã có · "
           f"{bo_trung_nhau} bản trùng nhau của cùng sự kiện)")
-    for topic in ("Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", "Predator's Run"):
+    for topic in ("Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", "Pitch Black"):
         lst = by_topic.get(topic, [])
         extra = f" — in {PER_TOPIC_CAP} bài" if len(lst) > PER_TOPIC_CAP else ""
         print(f"\n-- {topic} ({len(lst)} bài{extra}) --")
