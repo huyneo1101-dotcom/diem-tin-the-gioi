@@ -69,6 +69,15 @@ GNEWS_QUERIES = {
     "Úc & Biển Đông": [
         '"South China Sea" OR Scarborough OR "Second Thomas Shoal" OR "West Philippine Sea"',
         'AUKUS OR "Australian Defence Force" OR "Royal Australian Navy"',
+        # ⚠️ KHÔNG QUÂN Úc từng là lỗ hổng CÂM: dòng trên chỉ có Navy, nên mọi tin của
+        # Không quân Hoàng gia Úc (RAAF) — quân chủng chủ trì Pitch Black, kỳ tập trận
+        # không chiến lớn nhất Nam bán cầu, 20 nước, 20/07–07/08/2026 tại Bắc Úc — không
+        # có truy vấn nào bắt. Đo thật 02/08/2026: truy vấn dòng trên trả 0 kết quả cho
+        # tin "KC-30A của Úc lần đầu tiếp dầu Rafale Ấn Độ" (Janes 31/07), trong khi hai
+        # truy vấn dưới trả về đúng nó. Chủ đề 5 cũng không đỡ được vì nó neo cứng vào
+        # "Predator's Run", tập trận đã kết thúc cuối tháng 7.
+        '"Royal Australian Air Force" OR RAAF',
+        '"Pitch Black" Australia exercise',
         # các nước khác quanh Biển Đông (mở rộng 27/07/2026 theo chỉ thị Huy)
         'Malaysia OR Indonesia OR Vietnam OR Taiwan maritime "South China Sea" patrol OR protest',
         '"code of conduct" ASEAN China sea OR Natuna OR "Vanguard Bank"',
