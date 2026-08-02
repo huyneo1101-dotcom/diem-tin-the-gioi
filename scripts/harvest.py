@@ -94,7 +94,11 @@ GNEWS_QUERIES = {
         '"defense contract" OR "awarded a contract" Pentagon',
     ],
     "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],
-    "Pitch Black": ['"Pitch Black" Australia exercise OR RAAF'],
+    # ⚠️ CỐ Ý KHÔNG có `OR RAAF` ở đây (bỏ 02/08/2026). Chủ đề này giành URL TRƯỚC chủ đề 02
+    # (xem UU_TIEN_CHU_DE), nên một truy vấn rộng sẽ kéo mọi tin Không quân Úc vào mục tập
+    # trận — trong khi tin RAAF không dính kỳ tập trận phải thuộc chủ đề 02. Tin RAAF chung
+    # đã có truy vấn riêng `"Royal Australian Air Force" OR RAAF` ở chủ đề 02.
+    "Pitch Black": ['"Pitch Black" Australia exercise'],
     # 4 NHÓM theo thứ tự ưu tiên Huy chốt 27/07/2026 — nhóm 1 trước, thiếu mới tới 2/3/4.
     "Nội bộ Mỹ": [
         # (1) điều trần + bỏ phiếu thông qua dự luật  ← BẮT BUỘC, tìm trước
@@ -789,6 +793,35 @@ def bao_nguon_hong():
         print("\n✅ Mọi feed đều trả item; không nguồn nào bị chặn hết mọi đường.")
 
 
+# Thứ tự GIÀNH URL khi hai chủ đề cùng bắt được một bài. Khâu gộp cuối khử trùng theo URL
+# trên TOÀN lô, nên bài nào tới trước thì chủ đề đó giữ; chủ đề tới sau mất bài đó vĩnh viễn.
+#
+# ⚠️ CƠ CHẾ GÂY VẤP (đo thật 02/08/2026) — vì sao phải khai tường minh chứ không dựa vào thứ
+# tự khai trong GNEWS_QUERIES: ngày 02/08 chủ đề 02 được thêm truy vấn `"Pitch Black"
+# Australia exercise` (để bắt tin Không quân Úc), mà trong dict chủ đề 02 đứng TRƯỚC chủ đề
+# 05. Từ đó mọi tin Pitch Black bị chủ đề 02 ăn trước, và chủ đề 05 báo **0 bài mỗi phiên**
+# trong khi truy vấn của nó vẫn trả về 5–8 tin đúng khung ngày. Không lỗi, không cảnh báo:
+# bảng vẫn đủ 5 dòng, dòng cuối chỉ ghi "(không có ứng viên nào)" — đọc vào tưởng hôm đó
+# không có tin. Dựa vào thứ tự dict là mong manh gấp đôi, vì người sau sắp lại dict cho gọn
+# sẽ dựng lại đúng lỗ này mà không hay.
+#
+# Nguyên tắc xếp: chủ đề HẸP đứng trước chủ đề RỘNG. Mục tập trận là hẹp nhất (một kỳ tập
+# trận đang chạy, nạp qua `exerciseUpdates` vào đúng thẻ), nên nó giành trước mục 02.
+# Chủ đề không có tên trong danh sách này thì xuống cuối, giữ nguyên thứ tự tương đối.
+UU_TIEN_CHU_DE = ("Pitch Black", "Mỹ – Mali", "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")
+
+
+def uu_tien_chu_de(hits):
+    """Sắp lô ứng viên theo UU_TIEN_CHU_DE trước khi khử trùng URL.
+
+    Sort ỔN ĐỊNH: trong cùng một chủ đề, thứ tự cũ giữ nguyên — đó là điều kiện để lô local
+    vẫn đứng trước lô CI (xem chú thích ở chỗ gộp `doc_ung_vien_ci`), và để bản đầu của một
+    sự kiện vẫn là bản được giữ khi `same_story` loại các bản sau.
+    """
+    thu_tu = {t: i for i, t in enumerate(UU_TIEN_CHU_DE)}
+    return sorted(hits, key=lambda h: thu_tu.get(h.get("chu_de"), len(thu_tu)))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--rss", action="store_true", help="chỉ quét RSS trong bảng CLAUDE.md")
@@ -823,6 +856,7 @@ def main():
         hits += doc_ung_vien_ci(window)
 
     urls, titles = existing_urls_and_titles()
+    hits = uu_tien_chu_de(hits)
     out, seen = [], set()
     bo_rac = bo_trung_data = bo_trung_nhau = 0
     for h in hits:
