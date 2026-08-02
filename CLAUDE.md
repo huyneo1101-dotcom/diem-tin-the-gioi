@@ -556,9 +556,18 @@ Chọn từ 5 mẫu trong `docs/mockup-newsletter-sang-v1.html` (Intel Brief · 
 /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc /Users/Huy/Claude/diem-tin-the-gioi/.github/scripts/preview-morning-email.jsc.js > /Users/Huy/Claude/diem-tin-the-gioi/docs/preview-email-sang-mau4.html
 ```
 Mở file HTML đó trong trình duyệt để soi. Bản xem trước gần nhất đã commit sẵn ở đường dẫn trên.
-⚠️ Link "Đọc báo cáo tuần đầy đủ" đã **bỏ `#analysis`** (trỏ thẳng `WEB_URL`): index.html không đọc
-`location.hash` nên hash cũ chỉ mở trang chủ — hứa sai chỗ nhảy tới. Nếu sau này web có hash routing
-thì mới trỏ lại `#analysis`.
+⚠️ **ĐÍNH CHÍNH 02/08/2026 — câu cũ "index.html không đọc `location.hash`" ĐÃ SAI, đừng đọc theo
+trí nhớ.** Web nay CÓ hash routing đầy đủ: `HASH_TABS` + `HASH_SEG` + `hashApply()`/`hashStr()` trong
+`index.html`. Dạng hash: `#<tab>` · `#<tab>/<mục con>` (vd `#analysis/weekly`) · và từ 02/08 thêm
+**tầng 3 cho báo cáo tuần**: `#analysis/weekly/<us|cn|ru>` mở đúng mục rồi **cuộn thẳng tới khối nước
+đó** (`renderWeekly` gắn `id="wk-<key>"`, `cuonWk()` cuộn).
+- **Neo lạ thì BỎ QUA chứ không chặn cả hash** — `#analysis/weekly/zzz` vẫn mở đúng mục, chỉ không
+  cuộn. Tới đúng mục vẫn hơn rơi về trang chủ.
+- **KHÔNG dùng `behavior:'smooth'`**: đo 02/08 — khung xem có chiều cao 0 thì smooth **không nhúc
+  nhích và cũng không ném lỗi** (nên `try/catch` không đỡ được), còn `scrollIntoView()` trần thì cuộn
+  đúng vị trí. Link mở từ Telegram cần thấy ngay, không cần hiệu ứng.
+- Nghiệm thu 02/08 trên trình duyệt thật: `#analysis/weekly/ru` → `scrollY` 20766 · `/us` → 2374 ·
+  `#analysis/weekly` (không neo) → mở đúng mục, `wkGoto=null`.
 
 ## Tab "Cà phê" (ngoài chủ đề tin — thêm 24-25/07/2026)
 Tab **☕ Cà phê**: tìm quán cà phê làm việc HN, xếp theo khoảng cách từ điểm xuất phát. **Mốc xuất phát THEO USER** (Huy chốt 25/07/2026: *"với ngừoi dùng huyneo thì chỉ để 2 điểm xuất phát mặc định… với ngừoi dùng lamgiaphat thì chỉ để điểm mặc định là Trường chinh (ẩn điểm mặc định … với người dùng này)"*) — `huyneo` → **Núi Trúc + Nguyễn Khuyến**; `lamgiaphat` → **Trường Chinh** (ẩn 2 mốc kia); user khác → không có mốc mặc định, tự lưu mốc riêng vào `localStorage dt.cafeLocs`. ⚠ Dòng này từng ghi gộp *"(Giảng Võ/Trường Chinh/GPS)"* — **sai cả cấu trúc lẫn địa danh** (mốc Giảng Võ đã đổi sang Núi Trúc), phát hiện 30/07 khi rà quy tắc chưa ghi. Nguồn sự thật là chú thích ngay trên `renderCafes` trong `index.html`, đừng sửa dòng này rời khỏi code. Dữ liệu `DATA.workCafes` (embed index.html); code `renderCafes`/`cf*`/CSS `.cf-*`. Scheduled task local **`cafe-rating-retry`** (`15 9 * * 2,5`) vét dần rating Google còn thiếu qua `scripts/cafe_ratings.py` (--missing/--apply), commit **`Cap nhat rating quan ca phe: ...`** — tiền tố này KHÔNG khớp gate email nên không gửi mail. Chi tiết: memory `diem-tin-tab-cafe`.

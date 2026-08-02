@@ -206,12 +206,20 @@ def build_morning_messages(pl, tag=""):
     w = pl.get("weekly")
     if w:
         blocks.append(f"📊 <b>Báo cáo tuần {esc(w.get('weekStart'))}–{esc(w.get('weekEnd'))}</b>")
+        # CHỈ LINK, KHÔNG LIỆT KÊ LUẬN ĐIỂM (chỉ thị Huy 02/08/2026, nguyên văn:
+        # "không cần tóm tắt từng nước như vậy, chỉ cần có link trực tiếp đến Báo cáo tuần
+        # của từng nước trên web điểm tin"). Trước đó mỗi nước ngốn 3-5 dòng luận điểm cụt
+        # ngữ cảnh — đọc trên điện thoại thành một mảng chữ mà vẫn phải mở web mới hiểu.
+        # `url` do send-morning-email.js ghép sẵn (link sâu #analysis/weekly/<key>).
+        # Ba nước gộp MỘT khối: chúng là một danh sách, không phải ba ý rời.
+        dong = []
         for c in w.get("countries") or []:
-            # MỖI LUẬN ĐIỂM MỘT KHỐI. Trước đây gộp bằng " · " thành một đoạn chạy dài —
-            # đúng chỗ Huy gọi là "giữa các ý" cần giãn ra.
-            blocks.append(f"• {esc(c.get('flag'))} <b>{esc(c.get('name'))}</b>")
-            for p in c.get("points") or []:
-                blocks.append(f"– {esc(p)}")
+            ten = f"{esc(c.get('flag'))} <b>{esc(c.get('name'))}</b>".strip()
+            url = c.get("url") or ""
+            # Không có url thì vẫn in tên — mất link còn hơn mất luôn tên nước.
+            dong.append(f"• <a href=\"{esc(url)}\">{ten}</a>" if url else f"• {ten}")
+        if dong:
+            blocks.append("\n".join(dong))
 
     anas = pl.get("analyses") or []
     if anas:

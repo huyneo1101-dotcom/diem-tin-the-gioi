@@ -1218,7 +1218,9 @@ function renderWeekly(){
   var h=sel+'<div class="note">📊 <b>Báo cáo tuần — Mỹ · Trung Quốc · Nga</b>'+(range?' · tuần '+range:'')+'. Tổng hợp & nhận định do biên tập tự thực hiện từ nguồn mở.</div>';
   (wr.countries||[]).forEach(function(c){
     if(state.q&&!matchWeekly(c))return;
-    h+='<section class="wk"><div class="wk-h">'+esc(c.flag||'')+' '+esc(c.name||'')+'</div>';
+    /* id="wk-<key>" là ĐÍCH của link sâu #analysis/weekly/<key> (thêm 02/08/2026, chỉ thị Huy:
+       Telegram sáng thôi liệt kê luận điểm, chỉ đưa link tới báo cáo tuần TỪNG NƯỚC). */
+    h+='<section class="wk" id="wk-'+esc(c.key||'')+'"><div class="wk-h">'+esc(c.flag||'')+' '+esc(c.name||'')+'</div>';
     if(c.lede)h+='<div class="wk-lede">'+wkRich(c.lede)+'</div>';
     (c.points||[]).forEach(function(p){
       h+='<div class="wk-pt"><div class="wk-pt-t">'+esc(p.title||'')+'</div>'+(p.body?'<div class="wk-pt-b">'+wkRich(p.body)+'</div>':'');
@@ -1840,9 +1842,28 @@ function hashApply(){
   state.tab=tab;
   var m=HASH_SEG[tab];
   if(m&&sub&&m[1][sub])state[m[0]]=sub;
+  /* TẦNG 3 — mã nước của báo cáo tuần (#analysis/weekly/us|cn|ru), thêm 02/08/2026.
+     Chỉ nhận ở đúng tab+mục đó; hash lạ thì bỏ qua chứ KHÔNG chặn cả hash (thà mở đúng
+     mục mà không cuộn, còn hơn rơi về trang chủ — cùng lối "hash lạ → bỏ qua" ở trên). */
+  var neo=(p[2]||'').toLowerCase();
+  state.wkGoto=(tab==='analysis'&&sub==='weekly'&&/^[a-z]{2,8}$/.test(neo))?neo:null;
+  if(state.wkGoto)setTimeout(cuonWk,0);       /* render() chạy đồng bộ ngay sau hashApply */
   return true;
 }
-function hashStr(){var m=HASH_SEG[state.tab];return '#'+state.tab+(m&&state[m[0]]?'/'+state[m[0]]:'');}
+/* Cuộn tới khối nước trong Báo cáo tuần. Không tìm thấy id thì im — tuần đó có thể không có
+   nước ấy, mà mở đúng mục vẫn hữu ích hơn là báo lỗi. */
+function cuonWk(){
+  if(!state.wkGoto)return;
+  var el=document.getElementById('wk-'+state.wkGoto);
+  if(!el||!el.scrollIntoView)return;
+  /* NHẢY THẲNG, KHÔNG `behavior:'smooth'` — link này mở từ Telegram nên người đọc cần thấy
+     ngay khối nước đó. Đo 02/08: smooth KHÔNG nhúc nhích khi khung xem có chiều cao 0
+     (và nó không ném lỗi, nên try/catch không đỡ được) — bản trần thì cuộn đúng vị trí. */
+  el.scrollIntoView();
+}
+function hashStr(){var m=HASH_SEG[state.tab];
+  return '#'+state.tab+(m&&state[m[0]]?'/'+state[m[0]]:'')
+    +((state.wkGoto&&state.tab==='analysis'&&state.anaSeg==='weekly')?'/'+state.wkGoto:'');}
 /* replaceState: KHÔNG tạo entry lịch sử (nút Back vẫn thoát trang như cũ), KHÔNG bắn hashchange
    nên KHÔNG gây re-render → không mất vị trí cuộn. Gọi SAU content() vì content() còn tự quy
    tên tab cũ về tab mới. file:// ở vài trình duyệt chặn replaceState → nuốt lỗi, hash không đổi. */

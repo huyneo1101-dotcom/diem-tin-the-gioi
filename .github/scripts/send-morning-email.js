@@ -359,9 +359,16 @@ async function main() {
       })),
       weekly: weekly ? {
         weekStart: weekly.weekStart || '', weekEnd: weekly.weekEnd || '',
+        // Chỉ thị Huy 02/08/2026: Telegram sáng THÔI liệt kê luận điểm từng nước
+        // ("không cần tóm tắt từng nước như vậy, chỉ cần có link trực tiếp đến Báo cáo
+        // tuần của từng nước"). Nên payload bỏ `points`, thay bằng LINK SÂU.
+        // URL ghép ở ĐÂY chứ không ở phía Python: `WEB_URL` là một nguồn sự thật duy nhất,
+        // hai nơi tự ghép thì đổi tên miền là lệch âm thầm.
+        // `key` do add_weekly.py đặt (us|cn|ru); thiếu key thì trỏ về mục Báo cáo tuần
+        // chung — tới đúng mục vẫn hơn là đưa một link không nhảy được.
         countries: (weekly.countries || []).map(c => ({
           flag: c.flag || '', name: c.name,
-          points: (c.points || []).map(x => x.title).slice(0, 4),
+          url: WEB_URL + '/#analysis/weekly' + (c.key ? '/' + c.key : ''),
         })),
       } : null,
       analyses: anas.slice(0, ANA_MAX).map(a => ({
