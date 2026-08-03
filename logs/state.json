@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-03T21:23:44+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+2 worldNews, +5 usNews, +2 tap tran Pitch Black (5 chu de)",
+    "lastRunAt": "2026-08-04T04:00:51+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-03",
       "sang": "2026-08-03"
-    }
+    },
+    "heartbeat": "2026-08-04T04:00:51+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-03T04:23:56+07:00",
