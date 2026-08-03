@@ -1,0 +1,28 @@
+2026-08-03 10:04 (VN) — routine ho-so-doc-gia
+
+START — doc quy trinh docs/routine-ho-so-doc-gia.md
+
+B1 LAY SO LIEU: doc 28 luot hoi tu dt_bot_hoi, 2 nguoi doc.
+  - Jay (chat 6777454309): 18 luot, 28/07-31/07. Trong pham vi 9 / ngoai 9. 2 tin da de xuat.
+  - Huy (chat 6643748550): 10 luot, 27/07-28/07. Trong pham vi 3 / ngoai 7. 0 tin de xuat.
+
+B2 VIET HO SO: 2 ho so, moi ho so 4-8 cau. Chi viet dieu doc ra duoc tu cau hoi that
+  (chu de hay hoi / khong dung toi, hoi diem hay hoi rong, quan tam co keo dai khong).
+  Khong suy dien tinh cach, nghe nghiep, quan diem.
+
+B3 LUU: upsert dt_ho_so_doc_gia OK cho ca 2 chat_id.
+
+B4 GUI TELEGRAM qua @huyclaude_bot (viec_bot.py --bao -): OK, ma thoat 0.
+  LUU Y: lenh chay 2 luot (luot 2 de kiem ma thoat) nen Huy nhan 2 tin TRUNG NHAU.
+  Lan sau doc ma thoat ngay trong luot dau, dung chay lai lenh gui.
+
+  Noi dung gui gom 3 goi y cho ban tin:
+  - Jay hoi Fed/lai suat 7/18 luot, ma Fed nam o nhom 4 hang 2 muc Noi bo My
+    (chi lay khi nhom 1 da can) -> ngay co hop FOMC nen cho len hang 1.
+  - Jay hoi "tap tran ket thuc chua" 5 lan trong 3 ngay. Do that tren index.html:
+    Predator's Run 2026 co dates "21-29/07/2026" nen effStatus tu hien "da ket thuc",
+    NHUNG khong co tin be mac tu nguon chinh thuc nao -> hoi 5 lan van khong dut khoat.
+    De xuat: ky tap tran cham ngay cuoi trong dai thi chu dong lay 1 tin be mac de dong lai.
+  - Huy hoi lich tap tran NATO/chau Au 4 lan, vung do ngoai 5 chu de. Chi neu, khong tu mo pham vi.
+
+DONE — 2 ho so, da gui Telegram.
