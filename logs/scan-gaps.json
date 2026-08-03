@@ -1,6 +1,6 @@
 {
   "date": "2026-08-03",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
@@ -8,27 +8,27 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Quốc hội Mỹ đang trong kỳ nghỉ tháng 8 (Hạ viện nghỉ từ 24/7, Thượng viện chưa họp phiên toàn thể) nên KHÔNG có phiên điều trần/bỏ phiếu thông qua dự luật nào trong khung hôm nay+hôm qua (nhóm 1). Bù bằng nhóm 2-5: quy định bỏ phiếu qua thư (SCOTUS), biểu tình 50501 toàn quốc, sơ bộ Thượng viện Michigan. Loại nhiều ứng viên nhóm 4 (thuế quan/trừng phạt) vì trùng tin cũ hoặc không xác định rõ ngày sự kiện thật."
+      "reason": "Quốc hội Mỹ vẫn trong kỳ nghỉ tháng 8 nên ít phiên điều trần/bỏ phiếu mới trong khung hôm nay+hôm qua. Agent xác minh nhiều ứng viên nhóm 1 (Todd Blanche vote, Massachusetts abortion bill, Medicaid hearing, AI communications hearing) đều có ngày sự kiện thật ngoài khung 02-03/08 nên loại. Còn 1 tin nhóm 1 (Thượng viện cloture ngân sách tạm thời) + 2 tin nhóm 5 (Maryland redistricting, SCOTUS mail ballot deadline)."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 3,
+      "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Phần lớn ứng viên thô (43) là tin trùng sự kiện đã có trong DATA (Scarborough, AUKUS) sau khi xác minh, hoặc sự kiện quá cũ/tương lai. 1 tin đạt chuẩn ban đầu (Navy nuclear battleship A1B reactor) đã bị loại lại sau khi phát hiện trùng SỰ KIỆN với file Jay Lâm gửi (xem logs/trung-jaylam.json). Còn lại: USV Type 052D gần Philippines, Đài Loan phản ứng Scarborough, dự luật SeaLight gray-zone."
+      "reason": "Danh sách ứng viên harvest.py cho chủ đề này khá nghèo hôm nay (nhiều bài Tuổi Trẻ/Nikkei không liên quan quân sự/Biển Đông thật). Chỉ giữ được 1 tin (TQ 'ba mũi tên' quanh Scarborough, nguồn Global Times cho phát ngôn của chính TQ). Phần lớn diễn biến Scarborough/Philippines đã được đưa dày đặc trong 3 ngày trước, không còn diễn biến MỚI HẲN để tránh lặp."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 2,
+      "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Agent tìm được 8 tin đạt chuẩn ban đầu nhưng 3/8 hoá ra TRÙNG SỰ KIỆN đã có sẵn trong DATA dưới tiêu đề khác (F-35B rơi Miramar, hợp đồng Lockheed 58,6 tỷ USD Patriot, SpaceX 1,6 tỷ USD PWSA — cùng số liệu/sự kiện, chỉ khác cách diễn đạt nên Jaccard tiêu đề dưới ngưỡng cảnh báo tự động). Đã xoá bằng prune_news.py, ghi logs/loai-tin.md. Còn lại 2 tin: JASSM/LRASM/AMRAAM 7,8 tỷ USD, Blue Origin Rocket Cargo."
+      "reason": "Agent tìm được 2 tin đạt chuẩn ban đầu nhưng 1/2 (Lockheed Martin 58,6 tỷ USD Patriot PAC-3) hoá ra TRÙNG SỰ KIỆN đã có sẵn trong DATA từ 30/07 (cùng số tiền, cùng chi tiết Camden Arkansas) — đã xoá bằng prune_news.py, ghi logs/loai-tin.md. Còn lại 1 tin: Northrop Grumman $3B framework PAC-3/THAAD. Nhiều ứng viên khác (USS William Charette christening, Blue Origin cargo, Rocket Lab hypersonic, Minuteman III...) bị loại vì trùng DATA hoặc ngoài khung 3 ngày."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 2,
+      "count": 1,
       "target": "1-3",
       "min": 1,
       "thieu": false,
@@ -36,12 +36,12 @@
     },
     {
       "name": "Pitch Black 2026",
-      "count": 0,
+      "count": 2,
       "target": "1-2",
       "min": 0,
-      "thieu": true,
-      "reason": "2/3 ứng viên tìm được (KC-30A tiếp dầu Rafale Ấn Độ, PNG tham gia lần 2) đã trùng với item cập nhật gần nhất đã có trong DATA. WebSearch thêm không ra diễn biến mới hẳn nào trong khung 02-03/08. Không có sự kiện ngoại giao mới đáng đưa (dipEvents) trong khung ngày dù đã thử nhiều hướng tìm kiếm."
+      "thieu": false,
+      "reason": ""
     }
   ],
-  "note": "Phiên SÁNG SỚM CI 2026-08-03 (mốc 03:47 VN). Tổng nạp ban đầu: +6 worldNews, +8 usNews; sau khi phát hiện 3 tin trùng sự kiện với DATA sẵn có (F-35B Miramar, Lockheed 58,6 tỷ USD Patriot, SpaceX 1,6 tỷ USD PWSA) và 1 tin trùng với file Jay Lâm (Navy nuclear battleship A1B) => còn +5 worldNews, +5 usNews. 2 ứng viên Báo Mới chuyên mục (gắn nhãn CNQS) bị loại vì thực chất là tin chiến sự Nga-Ukraine (Kyiv cạn đạn Patriot), không phải CNQS/chính sách vũ khí của Mỹ — đã ghi rejectedNews + logs/loai-tin.md. `gh workflow run telegram-bot.yml` bị chặn 'requires approval' trong phiên CI này nên không kích được bot hút file Jay Lâm mới; vẫn xử lý được 1 file Jay Lâm còn hiệu lực từ hàng chờ cũ (id=31, gửi 01/08). Chi tiết đầy đủ: logs/loai-tin.md, logs/trung-jaylam.json."
+  "note": "Phiên TỐI CI 2026-08-03 (mốc 20:47 VN). Tổng nạp: +2 worldNews, +5 usNews, +2 tin cập nhật Pitch Black. Sau khi phát hiện 1 tin trùng sự kiện với DATA sẵn có (Lockheed Martin $58,6 tỷ Patriot PAC-3, trùng tin 30/07) đã xoá bằng prune_news.py — còn lại 7 tin tin tức thật sự mới. Ứng viên Báo Mới duy nhất (Nga đưa thiết bị quân sự BMP-3 tới Mali) trùng tin đã có, đã loại. Nhiều chủ đề mỏng do: Quốc hội Mỹ nghỉ tháng 8 (Nội bộ Mỹ), diễn biến Scarborough/Biển Đông đã đưa dày đặc 3 ngày trước không còn gì MỚI HẲN (Úc & Biển Đông), và một vài ứng viên CNQS trùng lặp với tin cũ dưới tiêu đề khác."
 }
