@@ -73,6 +73,20 @@ mình trước khi đụng git.
 đường cũ — `index.html` KHÔNG phải append-only, hai lô tin cùng chèn vào đầu mảng là xung đột
 thật, git không hợp nhất hộ được.
 Bộ test canh: `tests/test-ghi-log-push.py` (07 ca · `--tu-kiem` bắt 3/3 bản hỏng).
+⛔ **GỌI `ghi_log_push.py` THÌ ĐỪNG PIPE VÀO `tail` — MÃ THOÁT BỊ NUỐT, SCRIPT CHẾT MÀ NHÌN NHƯ
+XONG** (đúc 03/08/2026, đo thật ở phiên local 05:18). Mã thoát của một pipeline là mã thoát của
+lệnh CUỐI, tức của `tail`, và `tail` thì gần như luôn trả 0. Hôm đó mạng chập chờn:
+`ghi_log_push.py` chết ở `git fetch -q origin main rc=128: Connection to github.com closed by
+remote host`, traceback in ra đầy đủ — nhưng harness báo **"completed (exit code 0)"**, đọc vào
+là tưởng đã push xong. Dòng log chỉ lên được remote nhờ **ăn ké** commit của một phiên chạy bù
+đang chạy song song cuốn theo; không có phiên đó thì dòng log mất trắng, không một tiếng kêu.
+- **Gọi trần, không pipe.** Cần cắt bớt output thì đọc file output, đừng cắt bằng `tail`.
+- **Xác minh bằng REMOTE, không tin mã thoát**: `git -C <repo> fetch origin main` rồi
+  `git -C <repo> show FETCH_HEAD:logs/scan-<ngày VN>.log | grep -c '<mốc giờ của dòng mình>'`
+  phải ra `1`. Đọc `git show origin/main:…` là đọc ref LOCAL — ref đó có thể cũ, đúng bẫy
+  `rev-list` quên `fetch` đã ghi ở Bước 1.
+- **Hướng lệch:** mất một dòng log không làm hỏng bản tin, nhưng log là thứ DUY NHẤT để chẩn
+  đoán khi phiên sau hỏng — mất nó là mất đúng thứ cần lúc đi truy bug.
 ⛔ **DÒNG 1 BÁO `cannot pull with rebase: You have unstaged changes` → ĐỪNG DỪNG PHIÊN, ĐI TIẾP.**
 Vá 29/07/2026 sau khi lỗi này chặn thật lần thứ hai (lần đầu sáng 27/07; lần 29/07 do một phiên khác
 dựng `tests/` + sửa `CLAUDE.md` rồi ngừng giữa chừng không commit).
