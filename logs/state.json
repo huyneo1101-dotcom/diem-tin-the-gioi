@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-03T04:18:48+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+5 worldNews, +5 usNews (5 chu de: Noi bo My 3, Uc-Bien Dong 3, CNQS 2, Mali 2, Pitch Black 0)",
+    "lastRunAt": "2026-08-03T21:00:44+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-02",
       "sang": "2026-08-03"
-    }
+    },
+    "heartbeat": "2026-08-03T21:00:44+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-03T04:23:56+07:00",
