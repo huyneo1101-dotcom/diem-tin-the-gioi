@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-03T20:47:53+07:00",
+  "tao_luc": "2026-08-03T23:03:41+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-02",
@@ -81,6 +81,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-03",
+      "tieu_de": "Pentagon boosts Patriot, THAAD interceptor output amid stockpile strain",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/8/3/pentagon-boosts-patriot-thaad-interceptor-output-amid-stockpile-strain?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-01",
       "tieu_de": "F-35B stealth fighter crashed in California, US Marine Corps says",
       "nguon": "South China Morning Post",
@@ -130,9 +138,25 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "?",
+      "tieu_de": "Bom lượn Nga giội xuống Ukraine, Tổng thống Zelensky yêu cầu viện trợ khẩn Patriot",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/bom-luon-nga-doi-xuong-ukraine-tong-thong-zelensky-yeu-cau-vien-tro-khan-patriot-10026080320283461.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "?",
       "tieu_de": "Thủy thủ tàu sân bay USS George Washington ngồi cà phê vỉa hè, ăn mì Quảng, đi cáp treo lên Bà Nà Hills",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/thuy-thu-tau-san-bay-uss-george-washington-ngoi-ca-phe-via-he-an-mi-quang-di-cap-treo-len-ba-na-hills-100260803141308234.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-03",
+      "tieu_de": "Hạm đội phương Bắc của Nga tập trận ở biển Barents",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/ham-doi-phuong-bac-cua-nga-tap-tran-o-bien-barents-20260803190253651.htm"
     },
     {
       "lop": "RSS",
@@ -153,17 +177,9 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-07-31",
-      "tieu_de": "Tổng thống Trump: Mỹ chưa chắc cho phép Ukraine sản xuất Patriot",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/tong-thong-trump-my-chua-chac-cho-phep-ukraine-san-xuat-patriot-20260731081843722.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-01",
       "tieu_de": "F-35 fighter jet crashes near San Diego",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6002796-marine-corps-jet-crash-san-diego/"
     },
     {
@@ -194,17 +210,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-03",
-      "tieu_de": "NAVFAC MIDLANT Awards $29.5M Contract for Grounds Maintenance at Marine Corps Installations in North Carolina",
+      "tieu_de": "Marine Corps Detachment Goodfellow relief and appointment ceremony",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/571369/navfac-midlant-awards-295m-contract-grounds-maintenance-marine-corps-installations-north-carolina"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-03",
-      "tieu_de": "U.S. Army welcomes Asociația Spirit Tânăr on Mihail Kogălniceanu Air Base",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/571345/us-army-welcomes-asociatia-spirit-tanar-mihail-kogalniceanu-air-base"
+      "url": "https://www.dvidshub.net/news/571392/marine-corps-detachment-goodfellow-relief-and-appointment-ceremony"
     },
     {
       "lop": "RSS",
@@ -442,6 +450,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-03",
+      "tieu_de": "US Navy begins SPY-6(V)4 radar testing ahead of first Arleigh Burke destroyer backfit",
+      "nguon": "Shephard Media",
+      "url": "https://www.shephardmedia.com/news/naval-warfare/us-navy-begins-spy-6v4-radar-testing-ahead-of-first-arleigh-burke-destroyer-backfit/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-03",
       "tieu_de": "US Pentagon pushes for major reform of defence acquisition system",
       "nguon": "Shephard Media",
       "url": "https://www.shephardmedia.com/news/defence-notes/us-pentagon-plans-a-major-reform-in-the-defence-acquisition-system/"
@@ -474,9 +490,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-03",
-      "tieu_de": "Australia warns H5N1 likely to spread after first mass mortality episode",
+      "tieu_de": "Australian steel to support Virginia-class submarine construction",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/08/australian-steel-to-support-virginia-class-submarine-construction/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-03",
+      "tieu_de": "Australia’s under-16 social media ban failing, study shows: What it means",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/3/australia-warns-h5n1-likely-to-spread-after-first-mass-mortality-episode?traffic_source=rss"
+      "url": "https://www.aljazeera.com/news/2026/8/3/australias-under-16-social-media-ban-failing-study-shows-what-it-means?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -618,8 +642,24 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-03",
+      "tieu_de": "SB19 and Live Nation Philippines celebrate a year of historic milestones culminating in Lollapalooza",
+      "nguon": "Inquirer",
+      "url": "https://pop.inquirer.net/383751/sb19-and-live-nation-philippines-celebrate-a-year-of-historic-milestones-culminating-in-lollapalooza"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-03",
+      "tieu_de": "Manila Water readies backwash recovery system to boost water supply",
+      "nguon": "Inquirer",
+      "url": "https://newsinfo.inquirer.net/2276709/manila-water-readies-backwash-recovery-system-to-boost-water-supply"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-03",
       "tieu_de": "Pacific Partnership 2026 Concludes Second Mission Stop in Sibolga, Indonesia",
-      "nguon": "DVIDS news (tập trận)",
+      "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/571361/pacific-partnership-2026-concludes-second-mission-stop-sibolga-indonesia"
     },
     {
@@ -641,6 +681,22 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-03",
+      "tieu_de": "Kmart sells out of low-cost rival to Meta camera glasses across Australia amid warnings of ‘privacy nightmare’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/04/kmart-camera-glasses-anko-meta-smartglasses-australia"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-03",
+      "tieu_de": "Middle East crisis live: Trump calls Iran ‘unbelievably duplicitous’ as says US blockade will continue until ‘deal or total surrender’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/live/2026/aug/03/us-iran-trump-strait-of-hormuz-talks-israel-gaza-lebanon-latest-news-updates"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-02",
       "tieu_de": "Breakfasts around the world: In Australia, being denied vegemite is grounds for suing",
       "nguon": "NPR — World",
@@ -653,14 +709,6 @@
       "tieu_de": "Australia hoàn thiện dự luật buộc các nền tảng số trả phí cho báo chí",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/australia-hoan-thien-du-luat-buoc-cac-nen-tang-so-tra-phi-cho-bao-chi-post1127737.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-03",
-      "tieu_de": "Indonesia: Phà chở 271 người bốc cháy trên Biển Java, 41 người mất tích",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/indonesia-pha-cho-271-nguoi-boc-chay-tren-bien-java-41-nguoi-mat-tich-post1127698.vnp"
     },
     {
       "lop": "RSS",
@@ -686,6 +734,15 @@
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/kay-granger-first-republican-woman-to-lead-house-appropriations-committee-dies-at-83",
       "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-03",
+      "tieu_de": "Trump election claims debunked, US critical minerals fears: 7 US-China relations reads",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/us/diplomacy/article/3362449/trump-election-claims-debunked-us-critical-minerals-fears-7-us-china-relations-reads?utm_source=rss_feed",
+      "nhom": 5
     },
     {
       "lop": "RSS",
