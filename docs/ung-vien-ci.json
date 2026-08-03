@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-04T03:47:08+07:00",
+  "tao_luc": "2026-08-04T04:42:27+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-03",
@@ -201,14 +201,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-04",
-      "tieu_de": "US Army Engineer School welcomes new commandant",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/571413/us-army-engineer-school-welcomes-new-commandant"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-03",
       "tieu_de": "U.S. Army NATO Brigade Welcomes New Commander",
       "nguon": "Lục quân Mỹ",
@@ -221,6 +213,14 @@
       "tieu_de": "Rebuilding History: U.S. Army Corps of Engineers Completes Crucial Repairs to Vermilion Harbor Pier",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/294344/rebuilding_history_u_s_army_corps_of_engineers_completes_crucial_repairs_to_vermilion_harbor_pier"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "US Army Engineer School welcomes new commandant",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294349/us_army_engineer_school_welcomes_new_commandant"
     },
     {
       "lop": "RSS",
@@ -281,6 +281,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "Contracts for Aug. 3, 2026",
+      "nguon": "DoD Contracts",
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4562834/contracts-for-aug-3-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-01",
       "tieu_de": "Contracts for July 31, 2026",
       "nguon": "DoD Contracts",
@@ -301,6 +309,30 @@
       "tieu_de": "Department of War Signs Framework Agreements With Northrop Grumman to Ramp Production of PAC-3, THAAD Components",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4562167/department-of-war-signs-framework-agreements-with-northrop-grumman-to-ramp-prod/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "Northrop Signs $3 Billion In Framework Deals To Boost PAC-3 MSE, THAAD Component Production",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/northrop-signs-3-billion-in-framework-deals-to-boost-pac-3-mse-thaad-component-production/missile-defense/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "RTX Delivers First SPY-6 Backfit Radar For Destroyer Testing",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/rtx-delivers-first-spy-6-backfit-radar-for-destroyer-testing/navy-usmc/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "APG-85 Radar in LRIP, Northrop Grumman Says; F-35 Program Declines Comment",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/apg-85-radar-in-lrip-northrop-grumman-says-f-35-program-declines-comment/air-force/"
     },
     {
       "lop": "RSS",
@@ -333,6 +365,14 @@
       "tieu_de": "Space Force Picks 15 Firms to Build Test and Training Infrastructure",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/space-force-picks-15-firms-build-test-and-training-infrastructure/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-02",
+      "tieu_de": "Maryland StellarXplorers Team Gets Inside Look at Real Space Force Mission",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/maryland-stellarxplorers-team-gets-inside-look-at-real-space-force-mission/"
     },
     {
       "lop": "RSS",
@@ -457,6 +497,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "Pentagon loses pressure campaign to restrict quantum merger",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/08/03/2026/pentagon-loses-pressure-campaign-to-restrict-quantum-merger"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-02",
       "tieu_de": "Tin tức Thế giới 2/8: Mỹ không chuyển giao công nghệ Patriot cho Ukraine",
       "nguon": "VietnamNet",
@@ -546,6 +594,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
+      "tieu_de": "Laundromat demand draws washer makers to Thailand, Philippines",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/business-trends/laundromat-demand-draws-washer-makers-to-thailand-philippines"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
       "tieu_de": "EV boom drives ASEAN car sales in Q2, with Indonesia surging 34%",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/automobiles/ev-boom-drives-asean-car-sales-in-q2-with-indonesia-surging-34"
@@ -586,6 +642,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-04",
+      "tieu_de": "'Icon of our history': Canberra bus shelters added to heritage register",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-04/act-canberra-bus-shelters-added-to-heritage-register/106992032"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-04",
       "tieu_de": "White but ripe, these strawberries are new varieties grown in Australia",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/rural/2026-08-04/new-white-strawberry-varieties-grown-commercially-in-australia/106980704"
@@ -610,14 +674,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-03",
-      "tieu_de": "Canberra private school boys ranked female students",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-03/canberra-private-school-boys-ranked-female-students/106982550"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-03",
       "tieu_de": "Pacific Partnership 2026 Concludes Second Mission Stop in Sibolga, Indonesia",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/571361/pacific-partnership-2026-concludes-second-mission-stop-sibolga-indonesia"
@@ -629,6 +685,14 @@
       "tieu_de": "Taiwan minister says close ties with U.S. Pacific Command boost defense readiness",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/08/03/asia-pacific/politics/taiwan-us-pacific-command-defense/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-04",
+      "tieu_de": "Australia news live: charges laid after alleged replica gun scare in Sydney entertainment spot",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/aug/04/breaking-news-icac-liberal-politics-royal-commission-antisemitism-gambling-ad-inquiry-anthony-albanese-labor-angus-taylor-coalition-pauline-hanson-one-nation-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -669,6 +733,15 @@
       "tieu_de": "Kết quả bóng đá ASEAN Cup 2026 hôm nay Thắng thuyết phục Indonesia đội tuyển Việt Nam lập kỷ lục ấn tượng",
       "nguon": "Báo Thế giới & Việt Nam",
       "url": "https://baoquocte.vn/ket-qua-bong-da-asean-cup-2026-hom-nay-thang-thuyet-phuc-indonesia-doi-tuyen-viet-nam-lap-ky-luc-an-tuong-427013.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "US voters prefer Democrats over Republicans on economy for first time in a decade, Reuters/Ipsos poll finds",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/democrats-lead-republicans-on-economy-as-trump-approval-falls-reuters-ipsos-poll-finds",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -731,6 +804,15 @@
       "tieu_de": "Mỹ kêu gọi binh sĩ hiến kế 'trừng phạt Iran'",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/my-keu-goi-binh-si-hien-ke-trung-phat-iran-5104710.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "Democratic-led states join legal fight over Trump’s new tariffs",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/regulation/court-battles/6006607-democratic-states-sue-trump-tariffs/",
       "nhom": 4
     },
     {
