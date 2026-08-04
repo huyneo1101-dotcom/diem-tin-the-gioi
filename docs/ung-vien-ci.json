@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-08-04T20:47:43+07:00",
+  "tao_luc": "2026-08-04T22:56:45+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-03",
     "2026-08-04"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-04",
+      "tieu_de": "How Togo has become a new entry point for weapons sent by Russia to Mali",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/africa/20260804-togo-entry-point-weapons-russia-mali"
+    },
     {
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
@@ -21,6 +29,30 @@
       "tieu_de": "Mali: Moussa Mara calls for unity after release from prison",
       "nguon": "Africanews",
       "url": "http://www.africanews.com/2026/08/03/mali-moussa-mara-calls-for-unity-after-release-from-prison/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-04",
+      "tieu_de": "DISA seeks industry input on CommandNet migration following GAO protest",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/08/04/disa-commandnet-migration-dodnet/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-04",
+      "tieu_de": "Nigeria: Air Peace Expands West Coast With Lagos-Conakry-Bamako Flights",
+      "nguon": "AllAfrica",
+      "url": "https://allafrica.com/stories/202608040450.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "Ukraine’s Fire Point starts to integrate European tech into missile defense system",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/global/europe/2026/08/04/ukraines-fire-point-starts-to-integrate-european-tech-into-missile-defense-system/"
     },
     {
       "lop": "RSS",
@@ -73,10 +105,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-04",
-      "tieu_de": "US signs deal to boost Patriot and THAAD missile parts production",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-signs-deal-to-boost-patriot-and-thaad-missile-parts-production"
+      "ngay": "2026-08-03",
+      "tieu_de": "Pentagon signs US$3 billion deal to ramp up Patriot, THAAD missile parts production",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3362841/us-signs-deal-boost-patriot-and-thaad-missile-parts-production?utm_source=rss_feed"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-03",
+      "tieu_de": "Mỹ có thể đã rút lá chắn Patriot 'trúng đòn của Iran' khỏi Iraq",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/my-co-the-da-rut-la-chan-patriot-trung-don-cua-iran-khoi-iraq-5104449.html"
     },
     {
       "lop": "RSS",
@@ -101,14 +141,6 @@
       "tieu_de": "Bom lượn Nga giội xuống Ukraine, Tổng thống Zelensky yêu cầu viện trợ khẩn Patriot",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/bom-luon-nga-doi-xuong-ukraine-tong-thong-zelensky-yeu-cau-vien-tro-khan-patriot-10026080320283461.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "Thủy thủ tàu sân bay USS George Washington ngồi cà phê vỉa hè, ăn mì Quảng, đi cáp treo lên Bà Nà Hills",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/thuy-thu-tau-san-bay-uss-george-washington-ngoi-ca-phe-via-he-an-mi-quang-di-cap-treo-len-ba-na-hills-100260803141308234.htm"
     },
     {
       "lop": "RSS",
@@ -178,17 +210,17 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-04",
-      "tieu_de": "U.S. Army deputy inspector general visits BDAACH during Korea tour",
+      "tieu_de": "Meet a Deployer: U.S. Air Force Force Airman 1st Class Edward Buckley",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/571450/us-army-deputy-inspector-general-visits-bdaach-during-korea-tour"
+      "url": "https://www.dvidshub.net/news/571491/meet-deployer-us-air-force-force-airman-1st-class-edward-buckley"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-04",
-      "tieu_de": "U.S. Army Noncommissioned Officer Academy welcomes new commandant",
+      "tieu_de": "U.S. Army deputy inspector general visits BDAACH during Korea tour",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/571448/us-army-noncommissioned-officer-academy-welcomes-new-commandant"
+      "url": "https://www.dvidshub.net/news/571450/us-army-deputy-inspector-general-visits-bdaach-during-korea-tour"
     },
     {
       "lop": "RSS",
@@ -554,6 +586,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-04",
+      "tieu_de": "Thales Australia whips together armed UGV in just 6 weeks",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/global/asia-pacific/2026/08/04/thales-australia-whips-together-armed-ugv-in-just-6-weeks/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-04",
       "tieu_de": "Charity cyclist, 82, dies a day after 3,300 mile ride across Australia",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c4gkpwj2je9o?at_medium=RSS&at_campaign=rss"
@@ -589,6 +629,14 @@
       "tieu_de": "Malaysia’s DAP to Hold Vote on Whether to Remain in Anwar’s ‘Unity’ Government",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/08/malaysias-dap-to-hold-vote-on-whether-to-remain-in-anwars-unity-government/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-04",
+      "tieu_de": "Khoảnh khắc UAV phát nổ trên bãi biển đông nghịt du khách Nga",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/khoanh-khac-uav-phat-no-tren-bai-bien-dong-nghit-du-khach-nga-5104872.html"
     },
     {
       "lop": "RSS",
@@ -698,6 +746,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-04",
+      "tieu_de": "BSKE bets must submit sworn declaration on conflict of interest in COC",
+      "nguon": "Inquirer",
+      "url": "https://cebudailynews.inquirer.net/753690/bske-bets-must-submit-sworn-declaration-on-conflict-of-interest-in-coc"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-04",
       "tieu_de": "China's Special Maritime Law Enforcement Operation Near Taiwan",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/04/chinas_special_maritime_law_enforcement_operation_near_taiwan_1198322.html"
@@ -730,6 +786,22 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-04",
+      "tieu_de": "What’s Behind Indonesia’s Anti-Corruption Crusade?",
+      "nguon": "Foreign Policy",
+      "url": "https://foreignpolicy.com/2026/08/04/indonesia-corruption-nadiem-makari-investigation-jokowi-prabowo/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-04",
+      "tieu_de": "Reading and writing worsens in Australian schools as one in three students fail to meet Naplan benchmarks",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/04/naplan-results-2026-reading-writing-australian-school-standards"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-04",
       "tieu_de": "Vụ kiện 1MDB: Cựu Thủ tướng Malaysia bị yêu cầu bồi thường hơn 5,6 tỷ USD",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/vu-kien-1mdb-cuu-thu-tuong-malaysia-bi-yeu-cau-boi-thuong-hon-56-ty-usd-post1127998.vnp"
@@ -757,15 +829,6 @@
       "tieu_de": "Phà chở khách bốc cháy ngoài khơi Indonesia, nhiều người thương vong",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/pha-cho-khach-boc-chay-ngoai-khoi-indonesia-nhieu-nguoi-thuong-vong-2541435.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-04",
-      "tieu_de": "US primaries: What to watch in Kansas, Missouri, Virginia, Washington",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/4/us-primaries-what-to-watch-in-kansas-missouri-virginia-washington?traffic_source=rss",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -807,6 +870,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-04",
+      "tieu_de": "Cuban spy-base allegations, new Trump tariffs: 7 Latin America relations reads",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/china/diplomacy/article/3362614/cuban-spy-base-allegations-new-trump-tariffs-7-latin-america-relations-reads?utm_source=rss_feed",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-04",
       "tieu_de": "Democratic-led US states sue Trump over latest round of global tariffs",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3362848/democratic-us-states-sue-challenge-trumps-latest-round-tariffs?utm_source=rss_feed",
@@ -837,6 +909,24 @@
       "tieu_de": "Donald Trump’s Tariff Re-Do in Southeast Asia",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/08/donald-trumps-tariff-re-do-in-southeast-asia/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "Bộ trưởng Mỹ: Thỏa thuận Hormuz có thể hoàn tất trong nay mai",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/bo-truong-my-thoa-thuan-hormuz-co-the-hoan-tat-trong-nay-mai-5105238.html",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-03",
+      "tieu_de": "Mỹ kêu gọi binh sĩ hiến kế 'trừng phạt Iran'",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/my-keu-goi-binh-si-hien-ke-trung-phat-iran-5104710.html",
       "nhom": 4
     },
     {
@@ -932,7 +1022,16 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-03",
+      "ngay": "2026-08-04",
+      "tieu_de": "Three charts on how Latin American central banks are diverging on inflation",
+      "nguon": "Atlantic Council",
+      "url": "https://www.atlanticcouncil.org/dispatches/three-charts-on-how-latin-american-central-banks-are-diverging-on-inflation/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-04",
       "tieu_de": "Avila Chevalier plans to join Congressional Black Caucus",
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/08/03/2026/avila-chevalier-plans-to-join-congressional-black-caucus",
