@@ -2,3 +2,4 @@
 [21:24Z] web-scan DONE: +14 tin (TG+5, My+9), pushed
 [21:25Z] START event-scan (CI, gop vao sang som)
 [21:33Z] event-scan DONE: +6 bai think-tank (ASPI x2, Lowy x2, Hudson, CIMSEC), khong co tin tap tran/su kien dat khung ngay. Ca hai pipeline xong, pushed.
+[21:34Z] SKIP (CI, phien nay khoi dong sau) - web-scan exit 10 DA XONG, kiem so da gui: dong [sang] 14 tin luc 04:33:56+07:00 khop ngay hom nay -> xac nhan ban tin da toi tay, khong quet lai.
