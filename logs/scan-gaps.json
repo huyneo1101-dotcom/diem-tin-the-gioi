@@ -1,34 +1,34 @@
 {
-  "date": "2026-08-03",
-  "session": "toi",
+  "date": "2026-08-05",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
-      "count": 3,
+      "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Quốc hội Mỹ vẫn trong kỳ nghỉ tháng 8 nên ít phiên điều trần/bỏ phiếu mới trong khung hôm nay+hôm qua. Agent xác minh nhiều ứng viên nhóm 1 (Todd Blanche vote, Massachusetts abortion bill, Medicaid hearing, AI communications hearing) đều có ngày sự kiện thật ngoài khung 02-03/08 nên loại. Còn 1 tin nhóm 1 (Thượng viện cloture ngân sách tạm thời) + 2 tin nhóm 5 (Maryland redistricting, SCOTUS mail ballot deadline)."
+      "reason": "Giữ 4 tin (25 bang kiện thuế quan; Uỷ ban Thương mại TV markup an toàn trẻ em — nhóm 1; Maryland Hạ viện thông qua tu chính án redistricting 96-38 — nhóm 5; Đại sứ Mỹ tại NATO về sản xuất chung Patriot với Ukraine, truy gốc từ ứng viên Báo Mới). LOẠI nhiều ứng viên vì xác minh ra ngày sự kiện thật ngoài khung (House Insider Trading Bill thật ra là 22/07; OMB confirmation hearing Hal Duncan thật ra là 16/06; Senate stopgap 89-4 trùng cloture vote đã có từ 03/08; sắc lệnh Uỷ ban Vợ/Chồng Quân nhân ngày 03/08 cách hôm nay 2 ngày, ngoài khung 24h+48h) và 1 ứng viên chỉ có link AP live-blog không tìm được bài cố định."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 1,
+      "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Danh sách ứng viên harvest.py cho chủ đề này khá nghèo hôm nay (nhiều bài Tuổi Trẻ/Nikkei không liên quan quân sự/Biển Đông thật). Chỉ giữ được 1 tin (TQ 'ba mũi tên' quanh Scarborough, nguồn Global Times cho phát ngôn của chính TQ). Phần lớn diễn biến Scarborough/Philippines đã được đưa dày đặc trong 3 ngày trước, không còn diễn biến MỚI HẲN để tránh lặp."
+      "reason": "Giữ 4 tin (PLA Navy tập trận thật tại Scarborough — Manila Times; Chiến lược Đổi mới KHCN Quốc phòng Úc 10 năm; Thales Australia UGV Guardian Angel; Boeing LAND 4140 SATCOM cho ADF). LOẠI 1 ứng viên Hán Quang (Taipei Times ghi 'Han Kuang 41', lệch số với tên đã có trong DATA 'Hán Quang 42' — không đủ tự tin nạp, cũng không neo trực tiếp Úc/Biển Đông)."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 1,
+      "count": 5,
       "target": "5-10",
       "min": 5,
-      "thieu": true,
-      "reason": "Agent tìm được 2 tin đạt chuẩn ban đầu nhưng 1/2 (Lockheed Martin 58,6 tỷ USD Patriot PAC-3) hoá ra TRÙNG SỰ KIỆN đã có sẵn trong DATA từ 30/07 (cùng số tiền, cùng chi tiết Camden Arkansas) — đã xoá bằng prune_news.py, ghi logs/loai-tin.md. Còn lại 1 tin: Northrop Grumman $3B framework PAC-3/THAAD. Nhiều ứng viên khác (USS William Charette christening, Blue Origin cargo, Rocket Lab hypersonic, Minuteman III...) bị loại vì trùng DATA hoặc ngoài khung 3 ngày."
+      "thieu": false,
+      "reason": ""
     },
     {
       "name": "Mỹ – Mali",
-      "count": 1,
+      "count": 2,
       "target": "1-3",
       "min": 1,
       "thieu": false,
@@ -36,12 +36,20 @@
     },
     {
       "name": "Pitch Black 2026",
-      "count": 2,
+      "count": 0,
       "target": "1-2",
       "min": 0,
+      "thieu": true,
+      "reason": "Agent chỉ tìm được diễn biến Open Day 25.500 người (defence.gov.au, sự kiện 03/08) nhưng cách hôm nay 2 ngày, vượt khung 24h+nới48h (exerciseUpdates không có nới CNQS) — LOẠI. Không tìm được diễn biến mới hơn (khoa mục bay, tiếp dầu, tuyên bố chỉ huy) trong khung 04-05/08."
+    },
+    {
+      "name": "Báo Mới",
+      "count": 1,
+      "target": "xử lý hết ứng viên khớp 5 chủ đề",
+      "min": 0,
       "thieu": false,
-      "reason": ""
+      "reason": "5 ứng viên khớp từ khoá: 1 truy gốc thành công và nạp (Đại sứ Mỹ tại NATO/Patriot, kèm _baomoiUrl); 1 trùng sự kiện đã có trong DATA (Lầu Năm Góc mở rộng Patriot/THAAD = thoả thuận Northrop Grumman 03/08); 2 ngoài phạm vi 5 chủ đề (DF-17 Trung Quốc nội bộ; Hàn Quốc bắt giữ người xâm nhập căn cứ Osan) — đã ghi rejectedNews + logs/loai-tin.md. Cổng vẫn còn nhắc 3 ứng viên (2 unique + 1 trùng lặp danh sách) vì rejectedNews không xoá khỏi kho baomoi-topics.json — sẽ tự hết hạn sau 24h theo timestamp gốc."
     }
   ],
-  "note": "Phiên TỐI CI 2026-08-03 (mốc 20:47 VN). Tổng nạp: +2 worldNews, +5 usNews, +2 tin cập nhật Pitch Black. Sau khi phát hiện 1 tin trùng sự kiện với DATA sẵn có (Lockheed Martin $58,6 tỷ Patriot PAC-3, trùng tin 30/07) đã xoá bằng prune_news.py — còn lại 7 tin tin tức thật sự mới. Ứng viên Báo Mới duy nhất (Nga đưa thiết bị quân sự BMP-3 tới Mali) trùng tin đã có, đã loại. Nhiều chủ đề mỏng do: Quốc hội Mỹ nghỉ tháng 8 (Nội bộ Mỹ), diễn biến Scarborough/Biển Đông đã đưa dày đặc 3 ngày trước không còn gì MỚI HẲN (Úc & Biển Đông), và một vài ứng viên CNQS trùng lặp với tin cũ dưới tiêu đề khác."
+  "note": "Phiên sáng sớm CI (ô 'sang'). Không quét xNews/exercises/dipEvents do ưu tiên thời gian cho worldNews/usNews trước theo playbook phiên sáng (~10 tin/mục là đủ). Tổng nạp: 5 worldNews + 9 usNews = 14 tin qua 2 batch add_news.py."
 }
