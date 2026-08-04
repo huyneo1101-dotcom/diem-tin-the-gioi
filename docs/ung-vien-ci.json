@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-04T20:46:26+07:00",
+  "tao_luc": "2026-08-04T20:47:43+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-03",
@@ -775,6 +775,15 @@
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cy4kp8jd0ppo?at_medium=RSS&at_campaign=rss",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-04",
+      "tieu_de": "Ahead of the midterms, Democrats face reckoning in Michigan primary",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/ahead-of-the-midterms-democrats-face-reckoning-in-michigan-primary",
+      "nhom": 5
     },
     {
       "lop": "RSS",
