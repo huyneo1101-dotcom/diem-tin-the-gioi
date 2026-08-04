@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-05T04:31:27+07:00",
+  "tao_luc": "2026-08-05T04:50:44+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-04",
@@ -689,6 +689,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-05",
+      "tieu_de": "Australia news live: Jetstar to charge passengers for overhead baggage; Labor drops so-called ‘widow tax’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/aug/05/australia-news-live-jetstar-charge-overhead-luggage-labor-tax-coalition-economy-wednesday-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-04",
       "tieu_de": "Reading and writing worsens in Australian schools as one in three students fail to meet Naplan benchmarks",
       "nguon": "The Guardian — World",
@@ -869,15 +877,6 @@
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/campaign/6006752-ohio-gop-miller-replacement-deadline/",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-04",
-      "tieu_de": "Democratic-led states join legal fight over Trump’s new tariffs",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/regulation/court-battles/6006607-democratic-states-sue-trump-tariffs/",
-      "nhom": 4
     },
     {
       "lop": "RSS",
