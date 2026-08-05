@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-05T21:37:25+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+15 tin (My 4 + CNQS 5 + Mali 2, TG 3, Pitch Black 1)",
+    "lastRunAt": "2026-08-06T04:00:57+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-05",
       "sang": "2026-08-05"
-    }
+    },
+    "heartbeat": "2026-08-06T04:00:57+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-05T04:33:01+07:00",
