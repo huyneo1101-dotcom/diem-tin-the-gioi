@@ -235,6 +235,23 @@ def build_morning_messages(pl, tag=""):
                 line += f"\n<i>{esc(a['takeaway'])}</i>"
             blocks.append(line)
 
+    # 🟤 Mỹ – Mali — chuyển từ .docx bản tin sang bản SÁNG 05/08/2026 (chỉ thị Huy).
+    # Đứng sau Think-tank, trước "Mới trên web": cùng thứ tự với email, để ai đọc cả hai kênh
+    # không thấy hai bố cục khác nhau.
+    malis = pl.get("mali") or []
+    if malis:
+        blocks.append("🟤 <b>Mỹ – Mali</b>")
+        for a in malis:
+            t = esc(a.get("title"))
+            url = a.get("sourceUrl") or ""
+            line = f"• <a href=\"{esc(url)}\">{t}</a>" if url else f"• {t}"
+            if a.get("sourceName"):
+                line += f" <i>— {esc(a['sourceName'])}</i>"
+            # Tít + tóm tắt là một ý → chung khối (cùng quy ước giãn dòng với Think-tank).
+            if a.get("summary"):
+                line += f"\n<i>{esc(a['summary'])}</i>"
+            blocks.append(line)
+
     feats = pl.get("features") or []
     if feats:
         blocks.append("🆕 <b>Mới trên web</b>")

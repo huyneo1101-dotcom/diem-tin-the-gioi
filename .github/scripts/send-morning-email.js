@@ -158,6 +158,52 @@ function diffAnalyses(cur, prev) {
   return arr.filter(a => a && a._addedDate && a._addedDate === cur.generatedAt);
 }
 
+// ==== 🟤 Mỹ – Mali — chuyển sang bản SÁNG 05/08/2026 (chỉ thị Huy) ====
+// Nguyên văn: *"bỏ mục Mali trong file word gửi tele hàng ngày. Thêm mục Mali vào kết quả
+// phần quét tập trận và thinktank."* Tin Mali vẫn được quét và vẫn nạp vào `usNews`/
+// `worldNews` y như cũ — chỉ đổi KÊNH: rời `.docx` bản tin (xem make_docx.build_sections),
+// sang đúng email/Telegram buổi sáng, cạnh tập trận và think-tank.
+//
+// ⚠️ **BẢNG KHOÁ NÀY LÀ BẢN THỨ BA của cùng một luật** — hai bản kia là
+// `make_docx.py::MALI_KEYS` (lọc Mali khỏi 3 mục .docx) và `add_news.py::MALI_KEYS_ADD`
+// (ngoại lệ cho cổng neo chủ đề 2). JS không import được Python nên không tránh được việc
+// chép, và ba bảng lệch nhau thì hỏng CÂM theo hai chiều: tin Sahel vừa rơi khỏi .docx vừa
+// không lên bản sáng — mất hẳn mà không lỗi nào. Vì thế `tests/test-mali-ban-sang.py` đọc
+// THẲNG cả ba nơi và bắt lệch. Sửa một bảng thì sửa đủ ba.
+const MALI_KEYS = ['mali', 'jnim', 'bamako', 'sahel', 'azawad', 'niger', 'burkina',
+  'africa corps', 'chau phi', 'sahen'];
+
+function khongDau(s) {
+  return String(s == null ? '' : s).toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\u0111/g, 'd');
+}
+function laTinMali(it) {
+  const kho = khongDau(['title', 'summary', 'region', 'significance']
+    .map(k => (it && it[k]) || '').join(' '));
+  return MALI_KEYS.some(k => kho.includes(k));
+}
+
+// Tin Mali MỚI so với bản trước. Cùng khuôn với diffAnalyses, cố ý — hai mục cùng đi một
+// email thì đừng để mỗi mục một luật "mới".
+function diffMali(cur, prev) {
+  const arr = [].concat(
+    Array.isArray(cur.usNews) ? cur.usNews : [],
+    Array.isArray(cur.worldNews) ? cur.worldNews : []
+  ).filter(laTinMali);
+  if (prev) {
+    // `usNews`/`worldNews` nằm THẲNG trong index.html (khác kho think-tank đã tách file), nên
+    // prev != null là đủ để so — không cần cờ khai-bằng-lời kiểu `analysesKnown`.
+    const seen = new Set([].concat(
+      Array.isArray(prev.usNews) ? prev.usNews : [],
+      Array.isArray(prev.worldNews) ? prev.worldNews : []
+    ).map(a => a && a.sourceUrl).filter(Boolean));
+    return arr.filter(a => a && a.sourceUrl && !seen.has(a.sourceUrl));
+  }
+  // Không có HEAD~1: lùi về dấu `_addedDate` do add_news.py đóng. Tin không có dấu = tin đời
+  // cũ, coi như đã gửi. Hướng lệch: thà bỏ sót một mục còn hơn liệt kê lại cả kho Sahel.
+  return arr.filter(a => a && a._addedDate && a._addedDate === cur.generatedAt);
+}
+
 function weeklyIsNew(cur, prev) {
   const w = cur.weeklyReport;
   if (!w || !(w.countries || []).length) return null;
@@ -171,7 +217,7 @@ function weeklyIsNew(cur, prev) {
 // đây là làm mất chính thứ Huy chọn; muốn đổi phong cách thì lấy mẫu khác trong file mockup.
 // Vì sao mẫu này an toàn nhất: không ô nào dựa vào background-color, nên Outlook/Gmail dark mode
 // không thể tạo ra cảnh chữ trắng trên nền trắng như các mẫu nền tối.
-const ACCENT = { ex: '#b45309', dip: '#0f766e', ana: '#3730a3' };   // tập trận = hổ phách · ngoại giao = xanh mòng · think-tank = chàm
+const ACCENT = { ex: '#b45309', dip: '#0f766e', ana: '#3730a3', mali: '#7c2d12' };   // tập trận = hổ phách · ngoại giao = xanh mòng · think-tank = chàm · Mali = nâu đất
 const INK = '#111827', BODY = '#4b5563', MUTED = '#9ca3af', RULE = '#eceff3';
 
 // Số mục in ở lề trái: 01, 02, 03… Mục mẹo dùng 💡 thay số (xem tipHtml).
@@ -252,17 +298,36 @@ function analysesHtml(list, i) {
   return rowHtml(String(i + 1).padStart(2, '0'), labelHtml('Think-tank', ACCENT.ana) + rows + more);
 }
 
-function buildHtml(evs, weekly, anas, ddmm, feats, tip) {
+// Khối 🟤 Mỹ – Mali. Cùng khuôn với khối Think-tank: tít bấm được + dòng meta + tóm tắt.
+// Cap để email không dài hơn phần sự kiện — chủ đề này thường 2-5 tin/ngày.
+const MALI_MAX = 6;
+function maliHtml(list, i) {
+  const rows = list.slice(0, MALI_MAX).map((a, k) => `<div style="margin-top:${k ? 12 : 8}px;">
+        <a href="${esc(a.sourceUrl || WEB_URL)}" style="font-size:14.5px;font-weight:700;color:${INK};text-decoration:none;line-height:1.45;">${esc(trim(a.title, 150))}</a>
+        <div style="font-size:12.5px;color:${MUTED};margin-top:2px;">${[esc(a.sourceName || ''), esc(a.date || '')].filter(Boolean).join(' · ')}</div>
+        ${a.summary ? `<div style="font-size:13.5px;color:${BODY};line-height:1.62;margin-top:4px;">${esc(trim(a.summary, 260))}</div>` : ''}
+      </div>`).join('');
+  const more = list.length > MALI_MAX
+    ? `<div style="font-size:12.5px;color:${MUTED};margin-top:10px;">…và ${list.length - MALI_MAX} tin nữa trên web.</div>` : '';
+  return rowHtml(String(i + 1).padStart(2, '0'), labelHtml('Mỹ – Mali', ACCENT.mali) + rows + more);
+}
+
+function buildHtml(evs, weekly, anas, ddmm, feats, tip, malis) {
   // Số mục chạy LIÊN TỤC qua mọi khối có nội dung: mỗi sự kiện một số, rồi báo cáo tuần, rồi
   // Mới trên web. Ngày rỗng khối nào thì số tự dồn lên, không để lỗ 01 → 03.
   let n = 0, sections = '';
   evs.forEach(d => { if (n) sections += ruleHtml(); sections += evBlockHtml(d, n++); });
   if (weekly) { if (n) sections += ruleHtml(); sections += weeklyHtml(weekly, n++); }
   if (anas && anas.length) { if (n) sections += ruleHtml(); sections += analysesHtml(anas, n++); }
+  // Mali đứng SAU think-tank, TRƯỚC "Mới trên web": nó là nội dung tin, hai mục cuối là
+  // quảng bá tính năng web. Thứ tự này giữ đúng nguyên tắc "số mục chạy liên tục qua mọi
+  // khối có nội dung" của mẫu digest.
+  if (malis && malis.length) { if (n) sections += ruleHtml(); sections += maliHtml(malis, n++); }
   if (feats && feats.length) { if (n) sections += ruleHtml(); sections += featuresHtml(feats, n++); }
   if (tip) { if (n) sections += ruleHtml(); sections += tipHtml(tip); }
   const sub = [evs.length ? `${evs.length} cập nhật` : '', weekly ? 'báo cáo tuần' : '',
-    anas && anas.length ? `${anas.length} bài think-tank` : ''].filter(Boolean).join(' · ');
+    anas && anas.length ? `${anas.length} bài think-tank` : '',
+    malis && malis.length ? `${malis.length} tin Mali` : ''].filter(Boolean).join(' · ');
   return `<!doctype html><html><body style="margin:0;background:#f2f4f7;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f4f7;padding:24px 12px;">
     <tr><td align="center">
@@ -303,8 +368,12 @@ async function main() {
   const evs = diffEvents(cur, prev);
   const weekly = weeklyIsNew(cur, prev);
   const anas = diffAnalyses(cur, prev);
-  if (!evs.length && !weekly && !anas.length) {
-    console.log('Không có sự kiện/tập trận mới, không có báo cáo tuần mới, không có bài think-tank mới — bỏ qua gửi.');
+  // Mali nay là NỘI DUNG CHÍNH của bản sáng (chỉ thị Huy 05/08/2026), nên nó cũng ĐỦ để mở
+  // email — khác hẳn hai mục "Mới trên web"/"mẹo" vốn chỉ ăn theo. Không đưa vào gate thì
+  // ngày nào chỉ có tin Mali là mất trắng: .docx đã bỏ mục này rồi, không còn kênh nào khác.
+  const malis = diffMali(cur, prev);
+  if (!evs.length && !weekly && !anas.length && !malis.length) {
+    console.log('Không có sự kiện/tập trận mới, không có báo cáo tuần mới, không có bài think-tank mới, không có tin Mali mới — bỏ qua gửi.');
     return;
   }
 
@@ -314,6 +383,7 @@ async function main() {
   if (evs.length) subjBits.push(`${evs.length} sự kiện/tập trận`);
   if (weekly) subjBits.push('báo cáo tuần');
   if (anas.length) subjBits.push(`${anas.length} bài think-tank`);
+  if (malis.length) subjBits.push(`${malis.length} tin Mali`);
 
   const transporter = nodemailer.createTransport({ host: 'smtp.gmail.com', port: 465, secure: true, auth: { user: EMAIL_USER, pass: EMAIL_PASS } });
   const textLines = [];
@@ -328,6 +398,10 @@ async function main() {
   if (anas.length) {
     textLines.push('', '🏛️ Think-tank:');
     anas.slice(0, ANA_MAX).forEach(a => textLines.push(`   - [${a.outlet || ''}] ${a.title} — ${a.url || ''}`));
+  }
+  if (malis.length) {
+    textLines.push('', '🟤 Mỹ – Mali:');
+    malis.slice(0, MALI_MAX).forEach(a => textLines.push(`   - [${a.sourceName || ''}] ${a.title} — ${a.sourceUrl || ''}`));
   }
   const wn = readWhatsNew();
   const feats = freshFeatures(wn, cur.generatedAt);
@@ -374,6 +448,12 @@ async function main() {
       analyses: anas.slice(0, ANA_MAX).map(a => ({
         outlet: a.outlet || '', title: a.title, url: a.url || '', takeaway: a.takeaway || '',
       })),
+      // 🟤 Mỹ – Mali (chuyển sang bản sáng 05/08/2026). Cùng payload, cùng gate với email —
+      // đừng cho Telegram một đường lọc riêng, hai bộ luật song song chắc chắn lệch.
+      mali: malis.slice(0, MALI_MAX).map(a => ({
+        sourceName: a.sourceName || '', title: a.title, sourceUrl: a.sourceUrl || '',
+        summary: a.summary || '',
+      })),
       features: feats.map(f => ({ title: f.title, desc: f.desc || '' })),
       tip: tip ? { title: tip.title, desc: tip.desc || '', path: tip.path || '' } : null,
     }, null, 2), 'utf8');
@@ -401,7 +481,7 @@ async function main() {
     // dùng emoji khác hẳn (🎖️ vs 📰) để liếc là ra.
     subject: `🎖️ Sự kiện & Tập trận ${ddmm} — ${subjBits.join(' + ')}`,
     text: `Sự kiện & Tập trận ${ddmm}.\n\n` + textLines.join('\n') + `\n\nMở trang: ${WEB_URL}`,
-    html: buildHtml(evs, weekly, anas, ddmm, feats, tip),
+    html: buildHtml(evs, weekly, anas, ddmm, feats, tip, malis),
   });
   console.log(`Đã gửi email sáng tới ${EMAIL_TO}: ${info.messageId} (${evs.length} sự kiện, báo cáo tuần: ${weekly ? 'có' : 'không'}, think-tank: ${anas.length}, tính năng mới: ${feats.length}, mẹo: ${tip ? tip.title : 'không'})`);
 }

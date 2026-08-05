@@ -57,7 +57,14 @@ TOPIC_KEYWORDS_VI = {
         "wagner", "africa corps", "tuareg", "azawad", "kidal", "gao", "timbuktu",
         "liên minh các quốc gia sahel",
     ],
-    "Pitch Black": ["pitch black", "căn cứ darwin", "tindal", "amberley", "raaf", "không quân hoàng gia úc"],
+    # ⛔ NHÃN CỐ ĐỊNH "Tập trận" — KHÔNG bao giờ đổi theo tên kỳ tập trận (05/08/2026).
+    # Trước đây khoá này mang tên riêng ("Predator's Run", rồi "Pitch Black") và mỗi lần đổi kỳ
+    # phải sửa đủ 05 chỗ; quên một chỗ là chủ đề câm trong im lặng (đã xảy ra 2 lần).
+    # Danh sách dưới CỐ Ý RỖNG: từ khoá thật do `scripts/tap_tran.py::tu_khoa` sinh từ chính
+    # `DATA.exercises` rồi bơm vào bằng `nap_tu_khoa_tap_tran()` lúc chạy. Để sẵn từ chung như
+    # "tập trận"/"exercise" ở đây là hút mọi tin quân sự vào mục này — chủ đề 05 chỉ nhắm 1–2
+    # tin/phiên nên rộng tay là hỏng cả bảng.
+    "Tập trận": [],
     # 4 NHÓM theo thứ tự ưu tiên (chỉ thị Huy 27/07/2026) — nhóm 1 BẮT BUỘC tìm trước,
     # thiếu chỉ tiêu mới xuống 2, 3, 4. Xem chi tiết trong CLAUDE.md / SKILL quét tin.
     # Ở đây CHỈ để từ khoá TỰ ĐỦ (nhắc tới là biết chuyện nội bộ Mỹ). Từ khoá chung chung
@@ -154,7 +161,8 @@ TOPIC_KEYWORDS_EN = {
         "wagner", "africa corps", "tuareg", "azawad", "kidal", "timbuktu",
         "alliance of sahel states",
     ],
-    "Pitch Black": ["pitch black", "raaf base darwin", "tindal", "amberley", "raaf", "royal australian air force"],
+    # Xem chú thích ở bảng tiếng Việt — nhãn cố định, từ khoá bơm động.
+    "Tập trận": [],
     # 4 NHÓM theo thứ tự ưu tiên (chỉ thị Huy 27/07/2026) — nhóm 1 tìm TRƯỚC, thiếu mới xuống 2/3/4.
     # Chỉ để từ khoá TỰ ĐỦ ở đây; từ khoá chung của nhóm 3-4 nằm ở WEAK_NEED_US (cần ngữ cảnh Mỹ).
     "Nội bộ Mỹ": [
@@ -260,6 +268,41 @@ def _compile(table):
 _RE_VI = _compile(TOPIC_KEYWORDS_VI)
 _RE_EN = _compile(TOPIC_KEYWORDS_EN)
 _RE_WEAK = _compile(WEAK_NEED_US)
+
+# Nhãn chủ đề 05. Hằng số để nơi khác đừng gõ lại chuỗi bằng tay — gõ sai một ký tự là chủ đề
+# rơi khỏi `UU_TIEN_CHU_DE`/bảng kết quả mà không ai báo.
+CHU_DE_TAP_TRAN = "Tập trận"
+
+
+def nap_tu_khoa_tap_tran(keys):
+    """Bơm từ khoá của (các) cuộc tập trận ĐANG diễn ra vào bảng phân loại, lúc chạy.
+
+    Vì sao phải có đường bơm thay vì để bảng tĩnh: xem chú thích tại khoá `"Tập trận"` trong
+    `TOPIC_KEYWORDS_VI`. `harvest.py` và `telegram_harvest.py` gọi hàm này NGAY ĐẦU phiên, sau
+    khi đọc `DATA.exercises`.
+
+    Ghi vào CẢ `TOPIC_KEYWORDS_*` lẫn bảng regex đã biên dịch — quên bảng regex thì
+    `match_topic` vẫn dùng bản cũ và không có gì báo lỗi.
+    Gọi nhiều lần thì GHI ĐÈ, không cộng dồn: hai cuộc kết thúc rồi mà từ khoá còn nằm lại là
+    chủ đề bám tin của kỳ đã tàn.
+    """
+    keys = [str(k).strip() for k in (keys or []) if str(k).strip()]
+    TOPIC_KEYWORDS_VI[CHU_DE_TAP_TRAN] = list(keys)
+    TOPIC_KEYWORDS_EN[CHU_DE_TAP_TRAN] = list(keys)
+    pats = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in keys]
+    # ⚠️ ĐƯA CHỦ ĐỀ TẬP TRẬN LÊN ĐẦU bảng duyệt. `match_topic` trả chủ đề ĐẦU TIÊN khớp, mà
+    # bảng "Úc & Biển Đông" đứng trước và chứa `raaf`/`royal australian air force` — nên tiêu
+    # đề thật kiểu *"Exercise Pitch Black wraps up at RAAF Darwin"* bị chủ đề 02 bắt mất ngay
+    # ở LỚP RSS/HTML, nơi mỗi bài chỉ được gán MỘT nhãn nên `uu_tien_chu_de` (chỉ xử lý tranh
+    # chấp giữa hai bản cùng URL) không có gì để cứu. Đo thật 05/08/2026 khi dựng ca [22].
+    # Mutate TẠI CHỖ (clear+update) chứ không gán lại tên: `match_topic` giữ tham chiếu tới
+    # chính object này.
+    for bang in (_RE_VI, _RE_EN):
+        cu = {k: v for k, v in bang.items() if k != CHU_DE_TAP_TRAN}
+        bang.clear()
+        bang[CHU_DE_TAP_TRAN] = list(pats)
+        bang.update(cu)
+    return keys
 _RE_US_CTX = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in US_CONTEXT]
 
 

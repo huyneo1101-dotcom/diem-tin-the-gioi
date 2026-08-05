@@ -68,6 +68,33 @@ sys.path.insert(0, str(REPO_THU / "scripts"))
 HV = _nap("harvest", HARVEST)
 NGUON = HARVEST.read_text(encoding="utf-8")
 
+# Nhãn chủ đề 05 đọc THẲNG từ mã nguồn, không gõ tay (05/08/2026 — trước đây bộ này khai cứng
+# `"Pitch Black"` và 03 ca đỏ ngay lượt đổi nhãn). Gõ tay thì đổi nhãn là test đỏ oan, mà đỏ
+# oan vài lần là bảng hết được đọc.
+CD_TT = HV.topics.CHU_DE_TAP_TRAN
+
+# Chủ đề 05 nay có truy vấn RỖNG cho tới khi `nap_tap_tran_dang_chay()` bơm cuộc đang chạy vào.
+# Bộ test phải bơm y như phiên thật, nếu không ca [06]/[08] đo trên bảng rỗng — tức đo nhầm
+# nhánh mà bảng kết quả vẫn xanh.
+_EX_MAU = [{"name": "Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)",
+            "dates": "20/7 – 7/8/2026", "status": "ongoing",
+            "location": "RAAF Darwin, Tindal", "summary": "Úc chủ trì"}]
+
+
+def bom_tap_tran(exs=None, hom_nay="2026-08-05"):
+    """Bơm cuộc tập trận vào bảng chủ đề + bảng truy vấn của BẢN ĐANG THỬ."""
+    dang = HV.tap_tran.dang_dien_ra(exs if exs is not None else _EX_MAU, hom_nay)
+    keys, qs = [], []
+    for ex in dang:
+        keys.extend(HV.tap_tran.tu_khoa(ex))
+        qs.extend(HV.tap_tran.truy_van(ex))
+    HV.topics.nap_tu_khoa_tap_tran(keys)
+    HV.GNEWS_QUERIES[CD_TT] = qs
+    return dang
+
+
+bom_tap_tran()
+
 
 def ung_vien(chu_de, url, tieu_de="Tin mẫu"):
     return {"lop": "GNEWS", "chu_de": chu_de, "ngay": "2026-08-02",
@@ -99,11 +126,11 @@ def ca_01():
     """
     u = "https://www.janes.com/pitch-black-kc30a-rafale"
     lo = [ung_vien("Úc & Biển Đông", u, "Exercise Pitch Black 2026: KC-30A refuels Indian Rafales"),
-          ung_vien("Pitch Black", u, "Exercise Pitch Black 2026: KC-30A refuels Indian Rafales")]
+          ung_vien(CD_TT, u, "Exercise Pitch Black 2026: KC-30A refuels Indian Rafales")]
     ra = khu_trung_theo_url(HV.uu_tien_chu_de(lo))
     assert len(ra) == 1, f"phải còn đúng 1 bài, có {len(ra)}"
-    assert ra[0]["chu_de"] == "Pitch Black", \
-        f'bài Pitch Black bị chủ đề {ra[0]["chu_de"]!r} ăn mất — chủ đề 05 sẽ báo 0 bài'
+    assert ra[0]["chu_de"] == CD_TT, \
+        f'bài tập trận bị chủ đề {ra[0]["chu_de"]!r} ăn mất — chủ đề 05 sẽ báo 0 bài'
 
 
 def ca_02():
@@ -126,8 +153,8 @@ def ca_03():
     """
     u = "https://x/tranh-chap"
     ra = khu_trung_theo_url(HV.uu_tien_chu_de(
-        [ung_vien("Chủ đề chưa khai", u), ung_vien("Pitch Black", u)]))
-    assert ra[0]["chu_de"] == "Pitch Black", \
+        [ung_vien("Chủ đề chưa khai", u), ung_vien(CD_TT, u)]))
+    assert ra[0]["chu_de"] == CD_TT, \
         f'chủ đề lạ giành mất URL của chủ đề đã khai (còn lại: {ra[0]["chu_de"]!r})'
 
 
@@ -155,9 +182,10 @@ def ca_06():
     Chủ đề 05 giành URL trước, nên một truy vấn rộng sẽ kéo mọi tin Không quân Úc vào mục tập
     trận, kể cả tin không dính kỳ tập trận nào. Đây là chiều hỏng NGƯỢC với ca [01].
     """
-    q = " ".join(HV.GNEWS_QUERIES["Pitch Black"])
+    q = " ".join(HV.GNEWS_QUERIES[CD_TT])
     assert "raaf" not in q.lower(), \
         f"truy vấn chủ đề 05 quá rộng, sẽ nuốt tin RAAF thuần: {q!r}"
+    # Neo phải là TÊN CUỘC đang chạy, sinh từ `tap_tran.truy_van` — không còn là chuỗi cứng.
     assert "pitch black" in q.lower(), f"truy vấn chủ đề 05 mất neo tên tập trận: {q!r}"
 
 
@@ -229,8 +257,8 @@ BAN_HONG = [
       "    out, seen = [], set()"),
      [5]),
     ("đảo thứ tự: chủ đề 02 giành URL trước chủ đề 05 (đúng lỗi 02/08)",
-     ('UU_TIEN_CHU_DE = ("Pitch Black", "Mỹ – Mali", "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")',
-      'UU_TIEN_CHU_DE = ("Úc & Biển Đông", "Mỹ – Mali", "CNQS Mỹ", "Pitch Black", "Nội bộ Mỹ")'),
+     ('UU_TIEN_CHU_DE = (topics.CHU_DE_TAP_TRAN, "Mỹ – Mali", "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")',
+      'UU_TIEN_CHU_DE = ("Úc & Biển Đông", "Mỹ – Mali", "CNQS Mỹ", topics.CHU_DE_TAP_TRAN, "Nội bộ Mỹ")'),
      [1]),
     ("chủ đề chưa khai được cho lên ĐẦU thay vì xuống cuối",
      ("    return sorted(hits, key=lambda h: thu_tu.get(h.get(\"chu_de\"), len(thu_tu)))",
@@ -243,9 +271,10 @@ BAN_HONG = [
       "    return sorted(hits, key=lambda h: (thu_tu.get(h.get(\"chu_de\"), len(thu_tu)),\n"
       "                                       h.get(\"url\", \"\")), reverse=True)"),
      [1, 2]),
+    # Neo nằm ở `tap_tran.py` (nơi sinh truy vấn từ 05/08/2026), không còn ở harvest.py.
     ("trả lại `OR RAAF` vào truy vấn chủ đề 05",
-     ('''    "Pitch Black": ['"Pitch Black" Australia exercise'],''',
-      '''    "Pitch Black": ['"Pitch Black" Australia exercise OR RAAF'],'''),
+     ("""    ra = ['"%s" exercise' % kn]""",
+      """    ra = ['"%s" exercise OR RAAF' % kn]"""),
      [6]),
     ("bỏ truy vấn Không quân Úc khỏi chủ đề 02",
      ("""        '"Royal Australian Air Force" OR RAAF',\n        '"Pitch Black" Australia exercise',""",
@@ -276,10 +305,18 @@ def chay() -> int:
 
 
 def _dung_ban_sao(dich: pathlib.Path, tim: str, thay: str):
+    # ⚠️ CHÉP ĐỦ MỌI MODULE `harvest.py` IMPORT — thiếu một cái là tiến trình con chết ngay lúc
+    # nạp module, không in được dòng `✓`/`✗` nào, và `--tu-kiem` đọc thành "0 ca đỏ" rồi kết
+    # luận *"ca đó không bắt được lỗi"*. Đo thật 05/08/2026: thêm `import tap_tran` vào
+    # harvest mà quên dòng này ⇒ **7/7 bản hỏng đều trượt**, trong khi lượt chạy thường vẫn
+    # 10/10 xanh — tức bộ test mất sạch khả năng chứng minh mà không dấu hiệu nào.
     (dich / "scripts").mkdir(parents=True, exist_ok=True)
-    for ten in ("harvest.py", "topics.py"):
+    # Phép thay áp lên file NÀO CHỨA chuỗi neo — từ 05/08/2026 truy vấn chủ đề 05 sinh trong
+    # `tap_tran.py` chứ không còn nằm trong `harvest.py`, nên khoá cứng vào harvest là bản
+    # hỏng không áp được và `--tu-kiem` báo "0 chỗ khớp" cho một lỗi vẫn tồn tại.
+    for ten in ("harvest.py", "topics.py", "tap_tran.py"):
         goc = (REPO / "scripts" / ten).read_text(encoding="utf-8")
-        if ten == "harvest.py":
+        if tim in goc:
             goc = goc.replace(tim, thay)
         (dich / "scripts" / ten).write_text(goc, encoding="utf-8")
 
@@ -287,7 +324,11 @@ def _dung_ban_sao(dich: pathlib.Path, tim: str, thay: str):
 def tu_kiem() -> int:
     print("TỰ KIỂM — dựng bản harvest.py đã gỡ dòng bảo vệ, các ca đã khai PHẢI ĐỎ")
     print("═" * 78)
-    goc = (REPO / "scripts" / "harvest.py").read_text(encoding="utf-8")
+    # Đếm trên CẢ BA file mà `_dung_ban_sao` chép — neo có thể nằm ở `tap_tran.py` (truy vấn
+    # chủ đề 05 sinh ở đó từ 05/08/2026). Đếm mỗi harvest.py thì bản hỏng hợp lệ bị báo
+    # "0 chỗ khớp", tức mất một bản hỏng mà nhìn thông điệp lại tưởng neo hỏng.
+    goc = "\n".join((REPO / "scripts" / t).read_text(encoding="utf-8")
+                    for t in ("harvest.py", "topics.py", "tap_tran.py"))
     hong = 0
     for nhan, (tim, thay), ca_phai_do in BAN_HONG:
         if goc.count(tim) != 1:

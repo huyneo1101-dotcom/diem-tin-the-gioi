@@ -90,8 +90,22 @@ bài, khung 24 GIỜ gần nhất — nới 48h nếu chủ đề đó thiếu (
    (áp theo **category** `Công nghệ quân sự`) và `CNQS_LOOKBACK_DAYS` trong `harvest.py` — sửa một bên
    phải sửa bên kia.
 4. **Mỹ–Mali** — Mỹ cân nhắc/không kích JNIM ở Sahel. → `usNews`, dossier `🟤 Mỹ – Mali`.
-5. **Tập trận Pitch Black 2026** — Úc chủ trì, 20 nước, Darwin/Tindal/Amberley, 20/7–7/8/2026. → `exerciseUpdates`, `name` khớp ĐÚNG `Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)`.
-   ⚠️ **ĐỔI 02/08/2026 (Huy chốt), trước đây neo cứng vào `Predator's Run` — kỳ đó kết thúc cuối tháng 7 nên chủ đề 05 báo 0 tin mỗi phiên trong khi Pitch Black chạy suốt mà không truy vấn nào hỏi tới.** Đổi kỳ tập trận thì phải sửa ĐỦ 05 chỗ, lệch một chỗ là chủ đề câm mà bảng vẫn đủ dòng: `harvest.py::GNEWS_QUERIES` + danh sách thứ tự cuối `harvest.py` · `telegram_harvest.py::order` · `topics.py` (HAI bảng: `CHU_DE` tiếng Việt và bảng tiếng Anh) · `prompt_chatgpt.py` (khối luật + mẫu JSON + tên khoá CLI) · dòng này.
+   🔄 **ĐỔI KÊNH GỬI 05/08/2026 — xem mục "MALI RỜI FILE WORD" bên dưới.** Quét và nạp KHÔNG đổi.
+5. **Tập trận ĐANG DIỄN RA** (nhãn chủ đề cố định `Tập trận`) → `exerciseUpdates`, `name` khớp ĐÚNG tên trong `DATA.exercises`.
+   ✅ **VÁ GỐC 05/08/2026 (chỉ thị Huy: *"đang có tập trận nào thì chỉ tập trung quét thông tin về tập trận đó. Tự động mở rộng nguồn quét tuỳ theo tập trận để tìm được tối đa thông tin"*) — HẾT phải "sửa đủ 05 chỗ".** Trước đó chủ đề 05 neo cứng tên một kỳ (`Predator's Run`, rồi `Pitch Black`) rải ở 05 chỗ, và **đổi kỳ mà quên một chỗ là chủ đề câm trong im lặng — đã xảy ra thật hai lần**. Nay nhãn là hằng `topics.CHU_DE_TAP_TRAN = "Tập trận"` (không bao giờ đổi), còn từ khoá/truy vấn/nguồn sinh ĐỘNG từ chính `DATA.exercises` mỗi lượt chạy. Đổi kỳ tập trận **không phải sửa dòng mã nào**.
+   | Mảnh | Việc |
+   |---|---|
+   | `scripts/tap_tran.py` | Nguồn sự thật: `dang_dien_ra` · `tu_khoa` · `truy_van` · `nuoc_chu_nha` · `nguon_mo_rong` |
+   | `topics.py::nap_tu_khoa_tap_tran()` | Bơm từ khoá vào bảng phân loại lúc chạy; bảng mặc định CỐ Ý RỖNG |
+   | `harvest.py::nap_tap_tran_dang_chay()` | Gọi ở ĐẦU `main()`, in dòng `🎖️ Tập trận đang bám: …` |
+   | `telegram_harvest.py` | Bơm riêng — hai lớp quét chạy hai tiến trình, mỗi lớp nạp `topics` của mình |
+   | `prompt_chatgpt.py::_luat_tap_tran()` | Khối luật + tên mẫu JSON sinh động theo cuộc đang chạy |
+   | `tests/test-mali-va-tap-tran.py` | **26 ca · `--tu-kiem` bắt 12/12 bản hỏng** |
+   - ⛔ **KHÔNG tin trường `status` trong DATA** — đo thật 05/08/2026: `Predator's Run` (hết 29/07) và `RIMPAC` (hết 31/07) **vẫn mang `status: "ongoing"`** vì web tự suy từ `dates` nên không ai buồn sửa; ngược lại `Hán Quang 42` khai `upcoming` trong khi dải ngày 5–14/8 đã chứa hôm nay. Trạng thái thật tính bằng `tap_tran.trang_thai()` (bản Python của `index.html::evRange`). `status` chỉ là fallback khi `dates` không parse nổi ngày (`"Tháng 9/2026"`).
+   - **Không có cuộc nào đang chạy thì lấy cuộc SẮP diễn ra trong 7 ngày** — giữa hai kỳ luôn có quãng trống, mà tin chuẩn bị (điều quân, khai mạc, danh sách nước tham gia) rơi đúng vào đó. Không có nhánh này thì chủ đề 05 lại về 0 bài.
+   - ⚠️ **Bơm từ khoá phải đưa chủ đề tập trận lên ĐẦU bảng duyệt của `match_topic`.** Đo lúc dựng: tiêu đề thật *"Exercise Pitch Black wraps up at RAAF Darwin"* chứa `RAAF`, mà bảng "Úc & Biển Đông" đứng trước ⇒ ở **lớp RSS/HTML** (mỗi bài chỉ được gán MỘT nhãn) tin tập trận bị chủ đề 02 ăn mất, và `uu_tien_chu_de` không cứu được vì nó chỉ xử tranh chấp giữa hai bản CÙNG URL. Ca [22] canh chiều này, ca [26] canh chiều nới tay (tin RAAF thuần vẫn phải ở chủ đề 02).
+   - ⚠️ **Ba cái bẫy đã vấp NGAY lượt chạy đầu, đừng dựng lại:** (i) tách địa danh bằng regex `[A-ZÀ-Ỹ]` sinh từ khoá RÁC (`'lanh'`, `'u khong'`) vì dải đó không phủ hết chữ Việt tổ hợp — nay chỉ lấy từ ASCII viết hoa, và loại mảnh của tên nước (`"Đài Loan"` → bỏ `'loan'`, vì `'loan'` khớp trong "hỗn loạn"); (ii) `nuoc_chu_nha` phải suy từ `location` TRƯỚC, gộp cả `summary` thì "Hán Quang (Đài Loan)" ra `US`; (iii) dịch tên nước bằng `.replace()` biến `"trung quoc"` thành `"trung qAustralia"` — phải dùng bảng `TEN_ANH`.
+   - ⚠️ **Từ khoá phải sinh CẢ dạng CÓ DẤU** — `match_topic` so regex trên văn bản GỐC, bơm mỗi bản bỏ dấu là câm với mọi tiêu đề tiếng Việt. Ca [15] canh.
    ⛔ **VÀ SỬA ĐỦ 05 CHỖ VẪN CHƯA ĐỦ — chủ đề 05 còn câm thêm một tầng nữa, vá cùng ngày 02/08/2026.** Khâu gộp cuối `harvest.py::main` khử trùng theo **URL trên TOÀN lô**, nên bài nào tới trước thì chủ đề đó giữ, chủ đề tới sau mất bài vĩnh viễn. Cùng ngày, chủ đề 02 được thêm truy vấn `"Pitch Black" Australia exercise` (để bắt tin Không quân Úc) mà trong `GNEWS_QUERIES` chủ đề 02 đứng **TRƯỚC** chủ đề 05 ⇒ mục tập trận báo **0 bài mỗi phiên** trong khi truy vấn của chính nó vẫn trả về **5–8 tin đúng khung ngày**. Đo thật: sửa xong 05 chỗ lúc 21:06, chạy `harvest.py --gnews` lúc 22:0x vẫn ra `-- Pitch Black (0 bài) --`. Không lỗi, không cảnh báo, bảng vẫn đủ 5 dòng — đọc vào chỉ thấy *"(không có ứng viên nào trong khung hôm nay + hôm qua)"* và tưởng hôm đó không có tin.
    - **Thứ tự giành URL nay khai TƯỜNG MINH ở `harvest.py::UU_TIEN_CHU_DE`**, không dựa vào thứ tự khai trong dict — dựa vào thứ tự dict thì người sau sắp lại dict cho gọn sẽ dựng lại đúng lỗ này mà không hay. Nguyên tắc xếp: chủ đề **HẸP đứng trước chủ đề RỘNG**; mục tập trận hẹp nhất nên giành trước mục 02.
    - **Thêm chủ đề mới vào `GNEWS_QUERIES` thì phải khai luôn vào `UU_TIEN_CHU_DE`** — quên khai thì nó xuống cuối và bị chủ đề khác ăn mất, hỏng câm y hệt. Ca [08] canh đúng chỗ này.
@@ -402,6 +416,34 @@ Ba luật rút ra vẫn áp cho lớp lọc mới:
   nên ca neo vào một ngày cụ thể sẽ tự tắt sau một tuần, tức bản hỏng lọt mà bảng vẫn xanh. Ca
   [60]/[61] của `test-so-da-gui.py` ghim `so_da_gui.SO`; `SoGia` trong `test-tin-jaylam-xu-ly.py`
   ghim `tin_jaylam.SO_LOAI`.
+
+### 🟤 MALI RỜI FILE WORD, SANG BẢN SÁNG (chỉ thị Huy 05/08/2026)
+
+> Nguyên văn: *"bỏ mục Mali trong file word gửi tele hàng ngày. Thêm mục Mali vào kết quả
+> phần quét tập trận và thinktank."*
+
+Tin Mali **vẫn quét, vẫn nạp `usNews`/`worldNews`, vẫn lên web y như cũ** — chỉ đổi **KÊNH
+GỬI**: rời `.docx` của bản tin, sang **bản sáng 🎖️ Sự kiện & Tập trận**, đứng sau Think-tank.
+
+| Mảnh | Việc |
+|---|---|
+| `make_docx.py::build_sections` | BỎ tuple `("Mỹ – Mali", mali)`; **GIỮ NGUYÊN phép lọc** + `mali_urls` trong `da_xep`; in một dòng ghi vết mỗi lần bỏ |
+| `send-morning-email.js::diffMali` | Nhặt tin Mali mới từ `usNews`+`worldNews`, so với `HEAD~1` (không có thì lùi về `_addedDate`) |
+| `send-morning-email.js` | `maliHtml()` · Mali nằm trong **GATE** mở email · `subjBits` · payload `mali` |
+| `send_telegram.py::build_morning_messages` | Khối `🟤 Mỹ – Mali`, đọc `pl["mali"]` |
+| `tests/test-mali-va-tap-tran.py` | **26 ca · `--tu-kiem` bắt 12/12 bản hỏng** |
+
+⚠️ **BỎ MỤC KHÔNG PHẢI BỎ PHÉP LỌC.** Đây là chỗ dễ vá sai nhất: xoá luôn `mali`/`mali_urls`
+thì tin Sahel hết bị tách ra và mục 1 "Nội bộ Mỹ" lại hứng chúng — đúng con lỗi Huy bắt
+27/07/2026 (*"đang tin khcn-qs tự nhiên thấy lòi ra tin Mali"*), chỉ khác chỗ rơi. Ca [02] canh.
+⚠️ **Mali PHẢI nằm trong gate mở email sáng.** Không có thì ngày nào chỉ có tin Mali là **mất
+trắng**: `.docx` đã bỏ mục này rồi, không còn kênh nào khác mang nó đi. Ca [07] canh.
+⚠️ **BA bảng khoá Mali phải khớp nhau** — `make_docx.py::MALI_KEYS` · `add_news.py::MALI_KEYS_ADD`
+· bảng trong `send-morning-email.js`. JS không import được Python nên không tránh được việc
+chép; lệch nhau thì tin Sahel vừa rơi khỏi `.docx` vừa không lên bản sáng, tức **mất hẳn mà
+không lỗi nào**. Ca [09] đọc thẳng cả ba nơi, ca [10] chạy `laTinMali` THẬT bằng `jsc`.
+⚠️ **Hệ quả về thời điểm, biết trước để đừng tưởng là bug:** tin Mali quét ở phiên TỐI sẽ lên
+bản sáng HÔM SAU (bản sáng chỉ chạy buổi sáng). Đây là đánh đổi đã chấp nhận khi đổi kênh.
 
 ### 🔀 HAI WORKFLOW GHI CÙNG SỔ CÁCH 07 GIÂY — luật hợp nhất ở `ghi_so_push.py` (vá 30/07/2026)
 
@@ -1383,6 +1425,7 @@ nó không kêu" không chứng minh được gì. Mọi cổng của repo này 
 | `tests/test-cong-kich-notify.py` | Cổng "chỉ phiên TỰ NẠP mới được kích notify" (`state.py::ghi_co_da_nap` + `.github/scripts/quyet_dinh_kich.py` + `claude-web-scan.yml`) | **10 ca · `--tu-kiem` bắt 3/3 bản hỏng** — 3 PHẢI CHẶN (chưa `done` · sau `skip` · sau `fail` đều KHÔNG kích), 3 chống chặn oan, 1 ca hai pipeline độc lập, **2 ca đọc chính file yml** (phải gọi `quyet_dinh_kich.py`; KHÔNG được quay lại `git log --format=%s`), 1 ca chạy `--tu-kiem` của chính script quyết định |
 | `tests/test-tin-jaylam-xu-ly.py` | Ba lệnh của `scripts/tin_jaylam.py` (`--liet-ke`/`--ghi`/`--ghi-loai`) | **39 ca (14 PHẢI CHẶN) · `--tu-kiem` bắt 19/19 bản hỏng** — `--ghi`: id bịa/trùng · `tin` rỗng · tiêu đề ngoài 10-200 · url xấu thì BỎ url chứ không chặn cả lô · cảnh báo TRÍCH SÓT · PATCH hỏng phải KÊU. `--ghi-loai`: **`trung_voi` bắt buộc** (không có thì không soi ngược được vì sao mất tin) · dedupe theo url · cắt `GIU_NGAY` cả hai chiều · `id_jay` ngoài khung thì cảnh báo chứ không chặn. `--liet-ke`: dòng ĐÃ trích vẫn nằm trong hàng chờ (query KHÔNG lọc `da_xu_ly`) · đóng sổ dòng quá khung · khung RỘNG NHẤT 3 ngày |
 
+| `tests/test-mali-va-tap-tran.py` | Mali rời `.docx` + sang bản sáng · tập trận bám ĐỘNG (`make_docx` · `send-morning-email.js` · `send_telegram.py` · `tap_tran.py` · `topics.py` · `harvest.py`) | **26 ca · `--tu-kiem` bắt 12/12 bản hỏng** — 5 ca Mali rời .docx (gồm 1 PHẢI KÊU + 1 chống kêu oan) · 5 ca Mali vào bản sáng (gate · payload · **ba bảng khoá khớp nhau** · chạy `laTinMali` thật bằng `jsc`) · 16 ca tập trận động (cuộc đã tàn dù `status: ongoing` phải bị loại · cuộc đang chạy dù khai `upcoming` phải nhận · từ khoá không chứa mảnh tên nước · có CẢ dạng có dấu · nước đăng cai suy từ `location` · truy vấn không rộng · nạp TRƯỚC lớp quét · bơm GHI ĐÈ không cộng dồn · chống nới tay tin RAAF thuần) |
 | `tests/test-uu-tien-chu-de.py` | Một chủ đề ăn mất ứng viên của chủ đề khác (`harvest.py::UU_TIEN_CHU_DE` + `uu_tien_chu_de`) | **10 ca (05 PHẢI CHẶN) · `--tu-kiem` bắt 7/7 bản hỏng** — tin Pitch Black bị chủ đề 02 bắt trước vẫn phải về chủ đề 05 · `main()` phải gọi hàm sort **TRƯỚC** vòng khử trùng URL (hàm đúng mà không ai gọi thì lỗ vẫn nguyên) · truy vấn chủ đề 05 không được chứa `RAAF` · **đối chứng chiều ngược**: chủ đề 02 phải CÒN truy vấn Không quân Úc · mọi chủ đề trong `GNEWS_QUERIES` phải đã khai thứ tự · sort ổn định để lô local vẫn đứng trước lô CI |
 
 Chạy cả năm sau mỗi lần sửa `add_news.py` · `so_da_gui.py` · `ghi_so_push.py` · `make_docx.py` · `canary.py` · `state.py` · `telegram_bot.py` · `docx_text.py` · `harvest.py` · `claude-web-scan.yml` · `notify-email.yml` · `notify-morning.yml`:

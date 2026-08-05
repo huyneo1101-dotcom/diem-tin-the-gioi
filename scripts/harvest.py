@@ -57,6 +57,8 @@ import xml.etree.ElementTree as ET
 import zoneinfo
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import topics  # noqa: E402
+import tap_tran  # noqa: E402
 from topics import match_topic, us_subgroup, us_rank  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -94,11 +96,15 @@ GNEWS_QUERIES = {
         '"defense contract" OR "awarded a contract" Pentagon',
     ],
     "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],
-    # ⚠️ CỐ Ý KHÔNG có `OR RAAF` ở đây (bỏ 02/08/2026). Chủ đề này giành URL TRƯỚC chủ đề 02
-    # (xem UU_TIEN_CHU_DE), nên một truy vấn rộng sẽ kéo mọi tin Không quân Úc vào mục tập
-    # trận — trong khi tin RAAF không dính kỳ tập trận phải thuộc chủ đề 02. Tin RAAF chung
-    # đã có truy vấn riêng `"Royal Australian Air Force" OR RAAF` ở chủ đề 02.
-    "Pitch Black": ['"Pitch Black" Australia exercise'],
+    # ⛔ CHỦ ĐỀ 05 KHÔNG CÒN NEO CỨNG TÊN KỲ TẬP TRẬN (05/08/2026, chỉ thị Huy: *"đang có tập
+    # trận nào thì chỉ tập trung quét thông tin về tập trận đó"*). Danh sách để RỖNG ở đây;
+    # truy vấn thật sinh lúc chạy từ `DATA.exercises` qua `scripts/tap_tran.py::truy_van` và
+    # được `nap_tap_tran_dang_chay()` bơm vào chính dict này. Nhờ vậy đổi kỳ tập trận không
+    # phải sửa dòng mã nào — trước đây phải sửa đủ 05 chỗ và quên một chỗ là chủ đề câm.
+    # ⚠️ CỐ Ý KHÔNG có `OR RAAF` trong truy vấn sinh ra (xem `tap_tran.truy_van`). Chủ đề này
+    # giành URL TRƯỚC chủ đề 02 (xem UU_TIEN_CHU_DE), nên truy vấn rộng sẽ kéo mọi tin Không
+    # quân Úc vào mục tập trận — tin RAAF không dính kỳ nào phải thuộc chủ đề 02.
+    topics.CHU_DE_TAP_TRAN: [],
     # 4 NHÓM theo thứ tự ưu tiên Huy chốt 27/07/2026 — nhóm 1 trước, thiếu mới tới 2/3/4.
     "Nội bộ Mỹ": [
         # (1) điều trần + bỏ phiếu thông qua dự luật  ← BẮT BUỘC, tìm trước
@@ -808,7 +814,45 @@ def bao_nguon_hong():
 # Nguyên tắc xếp: chủ đề HẸP đứng trước chủ đề RỘNG. Mục tập trận là hẹp nhất (một kỳ tập
 # trận đang chạy, nạp qua `exerciseUpdates` vào đúng thẻ), nên nó giành trước mục 02.
 # Chủ đề không có tên trong danh sách này thì xuống cuối, giữ nguyên thứ tự tương đối.
-UU_TIEN_CHU_DE = ("Pitch Black", "Mỹ – Mali", "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")
+UU_TIEN_CHU_DE = (topics.CHU_DE_TAP_TRAN, "Mỹ – Mali", "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")
+
+
+def nap_tap_tran_dang_chay(hom_nay, im=False):
+    """Bơm cuộc tập trận ĐANG diễn ra vào bảng chủ đề + bảng truy vấn. Trả danh sách cuộc.
+
+    Chỉ thị Huy 05/08/2026: *"Đang có tập trận nào thì chỉ tập trung quét thông tin về tập
+    trận đó. Tự động mở rộng nguồn quét tuỳ theo tập trận."* Gọi NGAY ĐẦU `main()`, trước mọi
+    lớp quét — bơm sau là lớp RSS/HTML đã phân loại xong bằng bảng rỗng.
+
+    Fail-OPEN có tiếng: không có cuộc nào (hoặc đọc `index.html` hỏng) thì chủ đề 05 im lặng
+    đúng như trước, nhưng in một dòng nói rõ vì sao — im hẳn thì không phân biệt được "hôm nay
+    giữa hai kỳ tập trận" với "đường đọc DATA đã hỏng".
+    """
+    try:
+        exs = tap_tran.doc_exercises()
+        dang = tap_tran.dang_dien_ra(exs, hom_nay)
+    except Exception as e:                                    # pragma: no cover
+        print(f"⚠️  không đọc được DATA.exercises ({e}) — chủ đề tập trận sẽ trống",
+              file=sys.stderr)
+        return []
+    keys, qs = [], []
+    for ex in dang:
+        keys.extend(tap_tran.tu_khoa(ex))
+        qs.extend(tap_tran.truy_van(ex))
+    topics.nap_tu_khoa_tap_tran(keys)
+    GNEWS_QUERIES[topics.CHU_DE_TAP_TRAN] = qs
+    if not im:
+        if dang:
+            print(f"🎖️  Tập trận đang bám: {tap_tran.tom_tat(dang)}", file=sys.stderr)
+            print(f"    từ khoá: {', '.join(keys)}", file=sys.stderr)
+            print(f"    truy vấn: {' | '.join(qs)}", file=sys.stderr)
+            dom = tap_tran.nguon_mo_rong(dang)
+            print(f"    nguồn bản địa nên ưu tiên ({len(dom)}): {', '.join(dom[:12])}"
+                  + (" …" if len(dom) > 12 else ""), file=sys.stderr)
+        else:
+            print("🎖️  KHÔNG có cuộc tập trận nào đang/sắp diễn ra trong DATA.exercises — "
+                  "chủ đề tập trận sẽ trống (đúng, không phải lỗi)", file=sys.stderr)
+    return dang
 
 
 def uu_tien_chu_de(hits):
@@ -840,6 +884,10 @@ def main():
     cnqs = sorted(window_for("CNQS Mỹ", window))
     print(f"Khung ngày: {sorted(window)[0]} .. {sorted(window)[1]} (hôm nay + hôm qua, giờ VN) · "
           f"riêng CNQS Mỹ nới: {cnqs[0]} .. {cnqs[-1]}", file=sys.stderr)
+
+    # Bơm cuộc tập trận đang chạy TRƯỚC mọi lớp quét — bơm sau thì lớp RSS/HTML đã phân loại
+    # xong bằng bảng từ khoá rỗng và mọi tin tập trận rơi sang chủ đề khác (hoặc rớt hẳn).
+    nap_tap_tran_dang_chay(str(today))
 
     chi_dinh = args.rss or args.gnews or args.html
     hits = []
@@ -883,7 +931,8 @@ def main():
     print(f"\n=== ỨNG VIÊN THEO 5 CHỦ ĐỀ — {len(out)} bài trong khung ngày ===")
     print(f"    (đã lọc: {bo_rac} rác · {bo_trung_data} trùng tin đã có · "
           f"{bo_trung_nhau} bản trùng nhau của cùng sự kiện)")
-    for topic in ("Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", "Pitch Black"):
+    for topic in ("Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali",
+                  topics.CHU_DE_TAP_TRAN):
         lst = by_topic.get(topic, [])
         extra = f" — in {PER_TOPIC_CAP} bài" if len(lst) > PER_TOPIC_CAP else ""
         print(f"\n-- {topic} ({len(lst)} bài{extra}) --")

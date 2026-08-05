@@ -281,7 +281,20 @@ MUC_GHI_NGAY = "QS-KHCN"
 
 
 def build_sections(us, world, events):
-    """Chia thành 4 mục của bản tin.
+    """Chia thành 3 mục của bản tin (trước 05/08/2026 là 4 — mục Mali đã BỎ).
+
+    ⛔ **MỤC "Mỹ – Mali" BỎ KHỎI FILE WORD 05/08/2026 (chỉ thị Huy)**, nguyên văn: *"bỏ mục
+    Mali trong file word gửi tele hàng ngày. Thêm mục Mali vào kết quả phần quét tập trận và
+    thinktank."* Tin Mali **KHÔNG mất**: nó vẫn được quét, vẫn nạp vào `DATA`, vẫn lên web, và
+    nay đi ở **bản sáng 🎖️ Sự kiện & Tập trận** (`send-morning-email.js::diffMali`) cùng chỗ
+    với tập trận và think-tank.
+
+    ⚠️ **PHÉP LỌC MALI PHẢI GIỮ NGUYÊN, CHỈ BỎ MỤC.** Đây là chỗ dễ vá sai nhất: xoá luôn
+    `mali`/`mali_urls` thì tin Sahel hết bị tách ra, và mục 1 "Nội bộ Mỹ" lại hứng chúng —
+    đúng con lỗi Huy bắt 27/07/2026 (*"đang tin khcn-qs tự nhiên thấy lòi ra tin Mali"*), chỉ
+    khác chỗ rơi. Vì vậy `mali_urls` VẪN nằm trong `da_xep` để lưới an toàn không dồn chúng
+    về mục 1, và hàm in một dòng KÊU mỗi lần bỏ — im lặng ở đây thì không ai biết bản tin đã
+    rụng mấy tin.
 
     ⚠️ ĐÃ VÁ 27/07/2026 — Huy bắt lỗi: *"đang tin khcn-qs tự nhiên thấy lòi ra tin Mali, và
     chẳng thấy mục mali đâu"*. Trước đây hàm này chỉ dựng 3 mục và mục QS-KHCN được định
@@ -290,7 +303,7 @@ def build_sections(us, world, events):
     một chủ đề. Thực tế lọt vào bản 27/07: "Al Jazeera phân tích liên minh JNIM", "Niger
     Abdourahamane Tiani… Mali, Burkina".
 
-    Nay Mali có MỤC RIÊNG. Hai điểm phải giữ:
+    Hai điểm phải giữ:
     - Lọc Mali từ CẢ `us` LẪN `world`: tin Sahel nằm ở mảng nào cũng có thể, và trước đây
       `world` được đổ nguyên vào "Úc và Biển Đông" nên tin Mali trong `world` sẽ lọt vào mục
       Biển Đông — đúng cùng một con lỗi, chỉ khác chỗ.
@@ -299,10 +312,16 @@ def build_sections(us, world, events):
       khớp nhánh nào sẽ BIẾN MẤT khỏi file mà không báo gì. Lưới cuối bên dưới gom phần rơi
       về mục 1 và in cảnh báo — mất tin tệ hơn nhiều so với xếp nhầm mục.
 
-    Predator's Run vẫn nằm trong QS-KHCN qua `events` (bản tin mẫu để vậy, Huy không đụng).
+    Diễn biến tập trận vẫn nằm trong QS-KHCN qua `events` (bản tin mẫu để vậy, Huy không đụng).
     """
     mali = [it for it in us + world if la_tin_mali(it)]
     mali_urls = urls_of(mali)
+    if mali:
+        # KÊU, không im. Tin bị bỏ khỏi .docx phải soi ngược được — cùng nguyên tắc với
+        # `loc_bo_trung_jaylam`. Đây KHÔNG phải lỗi: đúng chỉ thị Huy 05/08/2026.
+        print(f"ℹ️  {len(mali)} tin Mỹ–Mali KHÔNG vào .docx (chỉ thị Huy 05/08/2026) — chúng "
+              f"đi ở bản sáng 🎖️ Sự kiện & Tập trận: "
+              + " | ".join((it.get("title") or "")[:45] for it in mali[:5]), file=sys.stderr)
 
     def khong_phai_mali(it):
         return it.get("sourceUrl") not in mali_urls
@@ -339,11 +358,11 @@ def build_sections(us, world, events):
                                for it in con_lai[:5]), file=sys.stderr)
         sec1 = sec1 + roi
 
+    # ⛔ KHÔNG thêm lại `("Mỹ – Mali", mali)` vào đây — xem docstring. Tin Mali đi ở bản sáng.
     return [
         ("Nội bộ Mỹ", sec1),
         ("Úc và Biển Đông", sec2),
         (MUC_GHI_NGAY, sec3 + list(events)),
-        ("Mỹ – Mali", mali),
     ]
 
 

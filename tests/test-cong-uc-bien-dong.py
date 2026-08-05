@@ -249,12 +249,17 @@ def _():
     return err.strip() == "", err
 
 
-@ca('15. Dựng file: tin Mali ở worldNews vào mục "Mỹ – Mali", không vào mục 2, không kêu')
+@ca('15. Dựng file: tin Mali ở worldNews RỜI khỏi .docx, KHÔNG lọt mục 2, KHÔNG làm lưới kêu')
 def _():
+    # ⚠️ ĐỔI 05/08/2026 — mục "Mỹ – Mali" đã BỎ khỏi .docx (chỉ thị Huy: tin Mali nay đi ở bản
+    # sáng 🎖️). Ca này vì thế đổi phép đo: không còn hỏi "Mali vào đúng mục Mali" mà hỏi
+    # "Mali KHÔNG lọt sang mục nào khác" — phần lọc phải giữ nguyên, chỉ mục là bỏ.
+    # Lưới an toàn cũng KHÔNG được kêu: tin Mali bị bỏ có chủ ý, không phải tin rớt vì lạc mục.
     muc, err = dung_muc(world=[TIN_MALI, TIN_AUKUS])
-    return (muc["Mỹ – Mali"] == [TIN_MALI["title"]]
+    return ("Mỹ – Mali" not in muc
+            and all(TIN_MALI["title"] not in ds for ds in muc.values())
             and muc["Úc và Biển Đông"] == [TIN_AUKUS["title"]]
-            and err.strip() == ""), f"{muc} || {err}"
+            and "KHÔNG neo được" not in err), f"{muc} || {err}"
 
 
 @ca('17. Vùng xám Biển Đông (vòi rồng, hải cảnh) → phải CHO QUA (mở rộng 02/08)')

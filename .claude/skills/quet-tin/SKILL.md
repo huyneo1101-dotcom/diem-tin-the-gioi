@@ -78,10 +78,26 @@ Mỗi phiên **CHỈ quét 5 chủ đề**, **mỗi chủ đề 5–10 bài** (b
    (al-Qaeda): không kích drone, phản ứng Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin
    gắn Mali/JNIM/Bamako/Sahel để tự vào dossier. Nguồn: defense.gov, state.gov, centcom.mil (AFRICOM),
    Reuters/AP/AFP, WaPo. 2–5 bài.
-5. **Tập trận Predator's Run 2026** (Mỹ–Úc–Philippines, Townsville, tới ~29/7) — cập nhật qua
-   `exerciseUpdates`, tên khớp `"Predator's Run 2026 (tập trận Mỹ - Úc - Philippines)"`. Diễn biến mới:
-   bài bắn đạn thật, tình huống hợp đồng, tuyên bố chỉ huy. Nguồn: pacom.mil, marines.mil,
-   defence.gov.au, dvidshub.net. Kết thúc (~29/7) → đổi `status`→`recent`. 1–2 tin.
+   🔄 **ĐỔI KÊNH GỬI 05/08/2026 (chỉ thị Huy), KHÔNG đổi cách quét:** tin Mali **vẫn quét, vẫn nạp
+   `usNews` y như cũ**, nhưng **RỜI khỏi file Word bản tin** và nay đi ở **bản sáng 🎖️ Sự kiện & Tập
+   trận**, cạnh tập trận và think-tank. Nguyên văn: *"bỏ mục Mali trong file word gửi tele hàng ngày.
+   Thêm mục Mali vào kết quả phần quét tập trận và thinktank."* Phiên quét KHÔNG phải làm gì thêm —
+   `make_docx.py` tự bỏ mục, `send-morning-email.js::diffMali` tự nhặt. Chi tiết + 03 bảng khoá phải
+   khớp nhau: CLAUDE.md gốc repo.
+5. **Tập trận ĐANG DIỄN RA** — cập nhật qua `exerciseUpdates`, `name` khớp **ĐÚNG** tên trong
+   `DATA.exercises`. Diễn biến mới: khoa mục, bài bắn, lần đầu của từng nước, tuyên bố chỉ huy, khai
+   mạc/bế mạc. 1–2 tin.
+   🔄 **KHÔNG CÒN NEO CỨNG MỘT KỲ TẬP TRẬN (05/08/2026, chỉ thị Huy:** *"đang có tập trận nào thì chỉ
+   tập trung quét thông tin về tập trận đó. Tự động mở rộng nguồn quét tuỳ theo tập trận"*). Máy tự
+   xác định cuộc nào đang chạy và tự sinh truy vấn + nguồn bản địa theo nước đăng cai —
+   `scripts/tap_tran.py`, bơm vào bảng chủ đề bằng `harvest.py::nap_tap_tran_dang_chay()`.
+   - **Cuộc nào đang chạy thì đọc dòng `🎖️ Tập trận đang bám: …` mà `harvest.py` in ra**, đừng tự
+     nhớ tên kỳ. Không có cuộc nào thì nó nói thẳng, và chủ đề này trống là ĐÚNG.
+   - ⛔ **Đừng tin trường `status` trong `DATA.exercises`** — đo thật 05/08: `Predator's Run` và
+     `RIMPAC` đã kết thúc từ 29/07 và 31/07 mà vẫn mang `status: "ongoing"` (web tự suy từ `dates`
+     nên không ai buồn sửa). Trạng thái thật tính từ `dates`.
+   - Nguồn: nguồn tầng 1 của **nước đăng cai** (Úc → defence.gov.au/airforce.gov.au · Đài Loan →
+     mnd.gov.tw · Philippines → pna.gov.ph…), cộng pacom.mil, dvidshub.net, janes.com.
 
 **KHÔNG quét** (đã bỏ khỏi phạm vi): Kinh tế, Ngoại giao chung, xNews (X/Twitter), tin thế giới các
 vùng khác (Trung Đông, Châu Âu, Nga–Ukraine…), tạo mới dipEvents. Chỉ đụng tới 5 chủ đề trên.

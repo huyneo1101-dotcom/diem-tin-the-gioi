@@ -32,6 +32,10 @@ import sys
 import zoneinfo
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import topics  # noqa: E402
+import tap_tran  # noqa: E402
+
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 
 # Ghi ra thư mục Huy MỞ ĐƯỢC BẰNG FINDER, không phải /tmp (chỉ thị Huy 28/07/2026).
@@ -69,11 +73,42 @@ Khí tài/hệ thống CỤ THỂ của Mỹ: tên lửa, phòng không, hải q
     "mali": ("Mỹ – Mali", """**Mỹ – Mali** → `usNews` (đa số là chính sách/hành động của Mỹ), KHÔNG có `region`.
 Việc Mỹ cân nhắc/triển khai phương án quân sự ở Sahel nhắm JNIM (al-Qaeda): quyết định không kích drone, phản ứng của Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin phải gắn Mali/JNIM/Bamako/Sahel.
 ⚠️ Bỏ tin Mali không liên quan an ninh (kinh tế thường, thể thao, giáo dục)."""),
-    "pitchblack": ("Pitch Black", """**Tập trận Pitch Black 2026** (Úc chủ trì, 20 nước, Darwin/Tindal/Amberley, 20/7–7/8) → CHỈ dùng `exerciseUpdates`.
-`name` phải khớp ĐÚNG chuỗi này, sao y không sửa một ký tự: `Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)`
-Mỗi item chỉ có: `date`, `title`, `summary`, `sourceName`, `sourceUrl` (KHÔNG có category/region/significance).
-Tìm diễn biến mới: khoa mục bay, tiếp dầu trên không, lần đầu của từng nước, tuyên bố chỉ huy. Nguồn: defence.gov.au, janes.com, airforce.gov.au, dvidshub.net."""),
+    # Khối luật của chủ đề 05 sinh ĐỘNG — xem `_luat_tap_tran()`. Đặt chuỗi rỗng ở đây rồi
+    # điền lúc chạy, vì dict này là hằng module-level: neo cứng tên kỳ tập trận vào đây chính
+    # là một trong 05 chỗ từng phải sửa tay mỗi lần đổi kỳ (và quên là chủ đề câm).
+    "taptran": (None, None),
 }
+
+
+def _luat_tap_tran():
+    """(tên chủ đề, khối luật) cho chủ đề 05, dựng từ cuộc tập trận ĐANG diễn ra.
+
+    Trả tên `name` ĐẦY ĐỦ, sao y trong DATA — `add_news.py` khớp `exerciseUpdates` theo tên
+    tuyệt đối, lệch một ký tự là guardrail chặn cả lô.
+    """
+    import datetime as _dt
+    hom_nay = _dt.datetime.now(VN).date().isoformat()
+    dang = tap_tran.dang_dien_ra(tap_tran.doc_exercises(), hom_nay)
+    if not dang:
+        return (topics.CHU_DE_TAP_TRAN,
+                "**Tập trận** — hiện KHÔNG có cuộc nào đang diễn ra trong dữ liệu. "
+                "Bỏ qua chủ đề này, trả mảng rỗng.")
+    dong = []
+    for ex in dang:
+        dom = tap_tran.NGUON_THEO_NUOC.get(tap_tran.nuoc_chu_nha(ex), [])
+        dong.append(
+            "- **%s** (%s · %s) → `exerciseUpdates`, `name` khớp ĐÚNG chuỗi này, sao y không "
+            "sửa một ký tự: `%s`%s"
+            % (tap_tran.ten_ngan(ex.get("name")), ex.get("dates") or "?",
+               ex.get("location") or "?", ex.get("name"),
+               ("\n  Nguồn bản địa nên soi trước: " + ", ".join(dom[:6])) if dom else ""))
+    return (topics.CHU_DE_TAP_TRAN,
+            "**Tập trận đang diễn ra** → CHỈ dùng `exerciseUpdates`.\n"
+            + "\n".join(dong)
+            + "\nMỗi item chỉ có: `date`, `title`, `summary`, `sourceName`, `sourceUrl` "
+              "(KHÔNG có category/region/significance).\n"
+              "Tìm diễn biến MỚI: khoa mục, bài bắn, lần đầu của từng nước, tuyên bố chỉ huy, "
+              "lễ khai mạc/bế mạc.")
 
 
 def chay(cmd, mo_ta):
@@ -161,6 +196,14 @@ def khoi_ung_vien(items, hom_nay, hom_qua, cnqs_som_nhat, chi=None):
 
 def sinh(key=None):
     ten_cd, luat_cd = CHU_DE[key] if key else (None, None)
+    if key == "taptran":
+        ten_cd, luat_cd = _luat_tap_tran()
+    # Tên mẫu trong khối JSON phải là tên THẬT của cuộc đang chạy — mẫu mang tên một kỳ đã tàn
+    # thì ChatGPT chép y nguyên, và `add_news.py` chặn cả lô vì không khớp entry nào.
+    _dang_ex = tap_tran.dang_dien_ra(tap_tran.doc_exercises(),
+                                     datetime.datetime.now(VN).date().isoformat())
+    ten_ex_mau = (_dang_ex[0].get("name") if _dang_ex
+                  else "<tên cuộc tập trận đang diễn ra, sao y từ mục Tập trận bên dưới>")
     now = datetime.datetime.now(VN)
     hom_nay = now.date()
     hom_qua = hom_nay - datetime.timedelta(days=1)
@@ -190,10 +233,10 @@ Thà trả về 3 tin sạch còn hơn 8 tin có 1 tin bịa. Được phép tr�
 {luat_cd if luat_cd else '''1. **Nội bộ Mỹ** → `usNews`, category `Chính trị` (hoặc `Kinh tế` nếu đúng nội dung). Vét cạn hạng 1 trước — (1) **toàn bộ phiên điều trần + toàn bộ kết quả bỏ phiếu thông qua dự luật**. Thiếu mới lấy sang 4 nhóm NGANG HÀNG: (2) sáng kiến/chiến lược chính quyền trên kênh chính thống các bộ · (3) biểu tình/tuần hành/đình công · (4) kinh tế Mỹ (Fed, thuế quan, trừng phạt, số liệu) + động thái Nhà Trắng/nội các · (5) bầu cử (giữa kỳ, sơ bộ, thăm dò, quy định cử tri, redistricting). Phải là chuyện NỘI BỘ MỸ.
 2. **Úc & Biển Đông** → `worldNews`. AUKUS/quốc phòng Úc (`region: "Ấn Độ Dương - Thái Bình Dương"`) + chủ quyền/tuần tra/tập trận Biển Đông (`region: "Đông Á"`), gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, COC ASEAN–Trung Quốc, Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong.
 3. **CNQS Mỹ** → `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống CỤ THỂ của Mỹ. Khí tài nước khác KHÔNG thuộc mục này.
-4. **Mỹ – Mali** → `usNews`. Mỹ cân nhắc/triển khai quân sự ở Sahel nhắm JNIM; phản ứng của Mali/Nga/JNIM.
-5. **Tập trận Pitch Black 2026** → `exerciseUpdates`, `name` khớp ĐÚNG: `Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)`.'''}
+4. **Mỹ – Mali** → `usNews`. Mỹ cân nhắc/triển khai quân sự ở Sahel nhắm JNIM; phản ứng của Mali/Nga/JNIM. (Từ 05/08/2026 tin Mali KHÔNG vào file Word bản tin nữa mà đi ở bản sáng 🎖️ — nhưng vẫn quét và vẫn nạp `usNews` y như cũ.)
+5. **Tập trận đang diễn ra** → `exerciseUpdates`. Tên cuộc lấy ĐÚNG từ mục Tập trận trong lô ứng viên bên dưới, sao y không sửa một ký tự.'''}
 
-Nhắm **{ {'mali': '2–5 tin', 'pitchblack': '1–2 tin cập nhật'}.get(key, '5–10 tin') }**{' cho chủ đề này' if ten_cd else ' mỗi chủ đề (Mali 2–5, Pitch Black 1–2)'}; thiếu thì để ít, KHÔNG nhồi.
+Nhắm **{ {'mali': '2–5 tin', 'taptran': '1–2 tin cập nhật'}.get(key, '5–10 tin') }**{' cho chủ đề này' if ten_cd else ' mỗi chủ đề (Mali 2–5, tập trận 1–2)'}; thiếu thì để ít, KHÔNG nhồi.
 
 ## LUẬT NGUỒN
 | Nguồn | Cần xác nhận thêm? |
@@ -222,7 +265,7 @@ Nhắm **{ {'mali': '2–5 tin', 'pitchblack': '1–2 tin cập nhật'}.get(key
     {{"date":"YYYY-MM-DD","category":"...","title":"...","summary":"...","sourceName":"...","sourceUrl":"https://...","significance":"..."}}
   ],
   "exerciseUpdates": [
-    {{"name":"Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)","items":[{{"date":"YYYY-MM-DD","title":"...","summary":"...","sourceName":"...","sourceUrl":"https://..."}}]}}
+    {{"name":"{ten_ex_mau}","items":[{{"date":"YYYY-MM-DD","title":"...","summary":"...","sourceName":"...","sourceUrl":"https://..."}}]}}
   ]
 }}
 ```

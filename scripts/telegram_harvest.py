@@ -44,6 +44,8 @@ import sys
 import zoneinfo
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import topics  # noqa: E402
+import tap_tran  # noqa: E402
 from topics import match_topic  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -259,6 +261,19 @@ def main():
     print(f"Khung ngày: {min(window)} .. {max(window)} (giờ VN) · {len(channels)} kênh",
           file=sys.stderr)
 
+    # Bơm từ khoá cuộc tập trận đang chạy TRƯỚC vòng `match_topic` (05/08/2026) — bảng chủ đề
+    # 05 rỗng mặc định, không bơm thì lớp Telegram không bao giờ xếp được bài nào vào đó.
+    # Đây là lý do lời gọi phải nằm ở CẢ HAI script quét, không chỉ `harvest.py`: hai lớp quét
+    # độc lập, mỗi lớp nạp `topics` trong tiến trình của riêng nó.
+    try:
+        _dang = tap_tran.dang_dien_ra(tap_tran.doc_exercises(), today.isoformat())
+        _keys = [k for e in _dang for k in tap_tran.tu_khoa(e)]
+        topics.nap_tu_khoa_tap_tran(_keys)
+        print(f"🎖️  Tập trận đang bám: {tap_tran.tom_tat(_dang)}", file=sys.stderr)
+    except Exception as e:                                     # pragma: no cover
+        print(f"⚠️  không nạp được cuộc tập trận đang chạy ({e}) — chủ đề tập trận sẽ trống",
+              file=sys.stderr)
+
     client = None
     if args.mtproto:
         client = mtproto_client()
@@ -305,7 +320,7 @@ def main():
         by_topic.setdefault(h["chu_de"], []).append(h)
 
     print(f"\n=== ỨNG VIÊN TỪ TELEGRAM — {len(hits)} bài trong khung ngày ===")
-    order = ["Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", "Pitch Black"]
+    order = ["Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali", topics.CHU_DE_TAP_TRAN]
     if args.all:
         order.append("(không khớp chủ đề)")
     for topic in order:
