@@ -1,1 +1,5 @@
 [21:00Z] START (CI) - phien sang som - claim web-scan OK
+[21:32Z] web-scan DONE - commit c906fb4 "Cap nhat ban tin 06/08: +14 tin (5 chu de)" - da push
+  - Noi bo My: 6 tin | Uc & Bien Dong: 1 tin | CNQS My: 6 tin | My-Mali: 0 tin | Tap tran: +3 (Pitch Black 2026, Han Quang 42)
+  - Loai 6 tin trung su kien/sai ngay tu agent (xem logs/loai-tin.md), loai 3 ung vien Bao Moi (trung/ngoai khung)
+  - Chuyen sang Buoc 6: pipeline event-scan (gop vao phien sang som)
