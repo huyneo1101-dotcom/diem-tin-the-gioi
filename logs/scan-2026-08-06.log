@@ -4,3 +4,9 @@
   - Loai 6 tin trung su kien/sai ngay tu agent (xem logs/loai-tin.md), loai 3 ung vien Bao Moi (trung/ngoai khung)
   - Chuyen sang Buoc 6: pipeline event-scan (gop vao phien sang som)
 [21:34Z] SKIP (local 04:30) - claim web-scan exit 11: phien khac dang chay (nhip tim 2' truoc, bat dau 04:00:57+07). Khong quet chong. KET THUC.
+[21:38Z] event-scan DONE (CI) - commit 3a6f062 "Cap nhat su kien 06/08: +1 su kien, +6 bai think-tank" - da push
+  - dipEvents: +1 su kien moi (My - Paraguay ky MOU hop tac hat nhan dan su, 04/08, nguon state.gov)
+  - Khong co cap nhat cho cac su kien dang theo doi (NATO Ankara, ASEAN AMM da ket thuc, khong co tin moi trong khung)
+  - Think-tank: +6 bai (ASPI, Hudson Institute, Lowy Institute, Long War Journal, RUSI, CIMSEC), +11 khai niem gan cho ca 6 bai
+  - Thu Nam (weekday=4), khong chay bao cao tuan (chi Chu nhat)
+[21:38Z] DONE - ca hai pipeline (web-scan + event-scan) hoan tat, da push. KET THUC PHIEN.
