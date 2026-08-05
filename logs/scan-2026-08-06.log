@@ -13,3 +13,4 @@
 [21:39Z] SKIP (CI, phien vet) - claim web-scan exit 10: phien 03:47 vua hoan tat ca web-scan+event-scan luc 21:38Z, so da gui co dong [sang] 39 tin + [sukien] 3 tin luc 04:39:13. Ban tin da toi tay. KET THUC PHIEN VET.
 [21:58Z] SKIP (CI, kich lai trung) - lai nhan duoc job cung phien vet, claim exit 10 lai. Kiem tra lai so_da_gui.py --xem: van dong [sang] 39 tin + [sukien] 3 tin ngay 06/08. Khong co gi moi de lam, khong sua gi them. KET THUC.
 [22:34Z] SKIP (local 05:30) - claim web-scan exit 10: ban tin sang som ngay 06/08 da xong luc 04:32+07. Khong quet lai. KET THUC.
+[22:41Z] SKIP (CI, kich lai trung) - claim web-scan exit 10: web-scan+event-scan da DONE luc 04:32/04:38+07. So da gui co dong [sang] 39 tin + [sukien] 3 tin ngay 2026-08-06 luc 04:39:13, cach hien tai >2 tieng. Ban tin da toi tay that. Khong co gi moi de quet. KET THUC.
