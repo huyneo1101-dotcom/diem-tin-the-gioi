@@ -1,55 +1,16 @@
 {
   "date": "2026-08-05",
-  "session": "sang",
+  "session": "toi",
   "topics": [
-    {
-      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Giữ 4 tin (25 bang kiện thuế quan; Uỷ ban Thương mại TV markup an toàn trẻ em — nhóm 1; Maryland Hạ viện thông qua tu chính án redistricting 96-38 — nhóm 5; Đại sứ Mỹ tại NATO về sản xuất chung Patriot với Ukraine, truy gốc từ ứng viên Báo Mới). LOẠI nhiều ứng viên vì xác minh ra ngày sự kiện thật ngoài khung (House Insider Trading Bill thật ra là 22/07; OMB confirmation hearing Hal Duncan thật ra là 16/06; Senate stopgap 89-4 trùng cloture vote đã có từ 03/08; sắc lệnh Uỷ ban Vợ/Chồng Quân nhân ngày 03/08 cách hôm nay 2 ngày, ngoài khung 24h+48h) và 1 ứng viên chỉ có link AP live-blog không tìm được bài cố định."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Giữ 4 tin (PLA Navy tập trận thật tại Scarborough — Manila Times; Chiến lược Đổi mới KHCN Quốc phòng Úc 10 năm; Thales Australia UGV Guardian Angel; Boeing LAND 4140 SATCOM cho ADF). LOẠI 1 ứng viên Hán Quang (Taipei Times ghi 'Han Kuang 41', lệch số với tên đã có trong DATA 'Hán Quang 42' — không đủ tự tin nạp, cũng không neo trực tiếp Úc/Biển Đông)."
-    },
-    {
-      "name": "CNQS Mỹ",
-      "count": 5,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Mỹ – Mali",
-      "count": 2,
-      "target": "1-3",
-      "min": 1,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Pitch Black 2026",
-      "count": 0,
-      "target": "1-2",
-      "min": 0,
-      "thieu": true,
-      "reason": "Agent chỉ tìm được diễn biến Open Day 25.500 người (defence.gov.au, sự kiện 03/08) nhưng cách hôm nay 2 ngày, vượt khung 24h+nới48h (exerciseUpdates không có nới CNQS) — LOẠI. Không tìm được diễn biến mới hơn (khoa mục bay, tiếp dầu, tuyên bố chỉ huy) trong khung 04-05/08."
-    },
-    {
-      "name": "Báo Mới",
-      "count": 1,
-      "target": "xử lý hết ứng viên khớp 5 chủ đề",
-      "min": 0,
-      "thieu": false,
-      "reason": "5 ứng viên khớp từ khoá: 1 truy gốc thành công và nạp (Đại sứ Mỹ tại NATO/Patriot, kèm _baomoiUrl); 1 trùng sự kiện đã có trong DATA (Lầu Năm Góc mở rộng Patriot/THAAD = thoả thuận Northrop Grumman 03/08); 2 ngoài phạm vi 5 chủ đề (DF-17 Trung Quốc nội bộ; Hàn Quốc bắt giữ người xâm nhập căn cứ Osan) — đã ghi rejectedNews + logs/loai-tin.md. Cổng vẫn còn nhắc 3 ứng viên (2 unique + 1 trùng lặp danh sách) vì rejectedNews không xoá khỏi kho baomoi-topics.json — sẽ tự hết hạn sau 24h theo timestamp gốc."
-    }
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Thiếu 1 bài so với sàn. Nhóm 1 (điều trần + bỏ phiếu) hôm nay gần như trắng: diễn biến duy nhất là Thượng viện thông qua dự luật ngân sách tạm thời, nhưng bước bỏ phiếu thủ tục của chính dự luật đó đã lên bản tin ngày 03/08 nên bị loại vì trùng sự kiện. Tin Maryland phân định lại khu vực bầu cử cũng đã lên bản tin hai ngày liên tiếp 03-04/08. Phiên fire trễ 7 phút so với mốc 21:15 nên không còn thời gian giao vòng agent bổ sung trước hạn chót 21:45."},
+    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Thiếu 2 bài. Đã loại 2 ứng viên vì sai chuẩn neo chủ đề: tin Đài Loan tập trận chống đổ bộ (thuần phòng thủ eo biển Đài Loan, không neo được vào Biển Đông hay Úc) và tin Úc thử thiết bị chống drone Dronebuster (sự kiện diễn ra 3-19/7, ngoài khung hôm nay + hôm qua, chỉ là bài đăng lại). Diễn biến Philippines - Trung Quốc quanh Scarborough đã nạp gần hết ở các phiên 01-04/08."},
+    {"name":"Công nghệ quân sự Mỹ","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":2,"target":"2-5","min":2,"thieu":false,"reason":""},
+    {"name":"Tập trận Pitch Black 2026","count":1,"target":"1-2","min":1,"thieu":false,"reason":""},
+    {"name":"Báo Mới","count":0,"target":"3-6","min":3,"thieu":true,
+     "reason":"CẮT VÒNG BÁO MỚI vì hạn chót email 22:00. Phiên local fire lúc 21:22 (trễ 7 phút so với mốc 21:15), tới lúc nạp xong lô chính đã 21:38 nên không đủ thời gian truy ngược 11 ứng viên về bài gốc. 11 ứng viên đó vẫn nằm trong baomoi-topics.json, phiên sáng sớm mai xử lý được — đáng chú ý nhất: Thượng viện Mỹ thông qua dự luật ngăn đóng cửa chính phủ, và loạt bài về mở rộng sản xuất tên lửa Patriot/THAAD."}
   ],
-  "note": "Phiên sáng sớm CI (ô 'sang'). Không quét xNews/exercises/dipEvents do ưu tiên thời gian cho worldNews/usNews trước theo playbook phiên sáng (~10 tin/mục là đủ). Tổng nạp: 5 worldNews + 9 usNews = 14 tin qua 2 batch add_news.py."
+  "note": "Phiên tối 05/08 chạy ở mốc LOCAL 21:15 (lớp cuối còn kịp hạn 22:00), fire trễ 7 phút. Đã chốt lô đang có theo đúng luật hạn chót, không giao vòng agent bổ sung. Hai bước bị cắt, đều ghi rõ: (1) vòng Báo Mới; (2) bước đối chiếu file Jay Lâm làm bộ lọc — file Jay Lâm còn hiệu lực 3 ngày nên bản tin sáng mai vẫn lọc được phần còn lại. Tin bị loại: xem logs/loai-tin.md."
 }
