@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-08-06 (phiên sáng sớm CI)
+
+- ⭐ [CT/TG] Hải cảnh Trung Quốc phun vòi rồng vào tàu tiếp tế Philippines gần Bãi Cỏ Mây (Philippine Daily Inquirer, url id 1812866) — **loại vì SAI NGÀY/ĐỊA ĐIỂM**: agent tường thuật là sự kiện 05/08 tại Ayungin Shoal, nhưng xác minh qua WebSearch cho thấy bài thực tế tường thuật sự kiện 24/07/2026 tại Bajo de Masinloc/Scarborough Shoal — ngoài khung ngày, agent nhầm lẫn hoặc suy diễn sai từ tiêu đề.
+- [CT/US] Lưỡng viện Nghị viện bang Maryland thông qua trưng cầu dân ý redistricting (The Hill) — **loại vì NGOÀI KHUNG NGÀY**: ngày sự kiện thật là 04/08/2026 (xác minh The Daily Record, Baltimore Sun: phiên đặc biệt House 96-38 + Senate 32-13 đều diễn ra 04/08), quá 1 ngày so với batch 06/08 — guardrail chặn đúng.
+- [CT/US] "Uỷ ban Thương mại Thượng viện thông qua KOSA" (CNBC) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn: "Uỷ ban Thương mại Thượng viện Mỹ họp biểu quyết thông qua loạt dự luật an toàn trẻ em trực tuyến" (2026-08-05) — cùng phiên họp 05/08 của Ted Cruz, guardrail Jaccard chỉ bắt được cảnh báo (0.64), phải prune tay.
+- [KT/US] "Trump hoàn trả 100 tỷ USD thuế quan 'Ngày Giải phóng'" (CNBC) — **loại vì TRÙNG SỰ KIỆN** đã có: "Chính quyền Trump hoàn trả 100 tỷ USD thuế quan sau thất bại pháp lý" (2026-08-05).
+- ⭐ [CNQS/US] "Bộ Quốc phòng Mỹ ký thoả thuận khung 3 tỷ USD với Northrop Grumman" (DoD News Releases) — **loại vì TRÙNG SỰ KIỆN** đã có: "Northrop Grumman ký thoả thuận khung 3 tỷ USD tăng sản xuất động cơ tên lửa đánh chặn PAC-3, THAAD" (đã có sẵn trước phiên này).
+- ⭐ [CNQS/US] "Thuỷ quân lục chiến Mỹ tiếp nhận chiếc MV-22 Osprey cuối cùng" (Sandboxx News) — **loại vì TRÙNG SỰ KIỆN**, đã có TỚI 2 bản trước đó trong DATA về cùng sự kiện bàn giao Osprey cuối cùng.
+- [Mỹ-Mali] Không tìm được tin sạch, chưa trùng, trong khung 05-06/08 sau ~10 lượt WebSearch — mọi ứng viên đều trùng tin đã có (AFRICOM/mỏ vàng Sahel, AFRICOM comeback) hoặc là bài phân tích/quá cũ. Chủ đề về 0 tin phiên này.
+- [Nội bộ Mỹ, Báo Mới] "Mỹ kêu gọi binh sĩ hiến kế 'trừng phạt Iran' sau khi chiến dịch quân sự bế tắc" (baomoi.com) — truy về bài gốc CNN "US military asks troops for 'creative and unconventional' ideas to punish Iran" (đăng 02-03/08/2026) — **loại vì NGOÀI KHUNG NGÀY** (category Chính trị chỉ nới 1 ngày, sự kiện 3 ngày trước batch 06/08).
+- [CNQS Mỹ, Báo Mới] "Rộ tin Trump từ chối cung cấp tên lửa Patriot cho Ukraine" (baomoi.com) — **loại vì TRÙNG SỰ KIỆN**: cùng cụm khủng hoảng kho tên lửa Patriot/THAAD đã nạp qua NPR ("Kho tên lửa tầm xa và đánh chặn THAAD của Mỹ gần cạn kiệt").
+- [CNQS Mỹ, Báo Mới] "Lầu Năm Góc bác tin Mỹ cạn kho tên lửa chủ lực" (baomoi.com) — **loại vì TRÙNG SỰ KIỆN**, cùng cụm với trên (Pentagon phủ nhận báo cáo CNN về kho tên lửa cạn — nội dung phủ nhận đã bao hàm trong tin NPR).
+
+- ⭐ [CT/TG] "Philippines lần đầu xác nhận chính thức đã giám sát cuộc tập trận hải-không của Trung Quốc gần Scarborough" (Manila Times) — **loại vì TRÙNG SỰ KIỆN** đã có: "Quân đội Philippines lần đầu xác nhận Hải quân Trung Quốc tập trận thật tại bãi cạn Scarborough" (2026-08-04).
+- ⭐ [CNQS/TG] "Drone mặt nước thương mại giá rẻ... Type 052D" (SCMP) — **loại vì TRÙNG SỰ KIỆN** đã có: "Xuồng không người lái Mỹ chụp cận cảnh tàu khu trục Type 052D của Trung Quốc gần Philippines" (2026-08-02).
+- [CT/TG] "Giới phân tích cảnh báo tranh chấp Biển Đông bước vào giai đoạn nguy hiểm hơn" (China-Global South Project, 03/08) — **loại vì NGOÀI KHUNG NGÀY** (category Chính trị chỉ nới 1 ngày).
+
 ## 2026-08-03 (phiên sáng sớm CI)
 
 - ⭐ [CNQS/US] Tiêm kích F-35B TQLC Mỹ rơi tại Miramar (Task & Purpose, 2026-07-31) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn trong DATA: "Tiêm kích F-35B của Thủy quân lục chiến Mỹ rơi và bốc cháy tại căn cứ Miramar, California" (The War Zone, 2026-08-01). Cùng một vụ tai nạn, tiêu đề khác nhau nên Jaccard chỉ 0,50 — không bị guardrail trùng-tiêu-đề chặn tự động, phải soát tay.
@@ -354,4 +371,9 @@ Phiên fire trễ 7 phút (21:22), hạn chót email 22:00 nên chốt lô lúc 
 - [Nội bộ Mỹ] LOẠI "Thượng viện Mỹ ngăn nguy cơ đóng cửa chính phủ" (Báo Nhân Dân qua Báo Mới) — cùng dự luật ngân sách tạm thời mà bước bỏ phiếu thủ tục (cloture) đã lên bản tin 03/08. Đây là diễn biến tiếp thật, nhưng hết thời gian truy nguồn gốc tiếng Anh để tách bạch tình tiết mới nên để lại phiên sáng mai.
 - [Báo Mới] **CẮT CẢ VÒNG** vì sát hạn chót — cổng nhắc 11 ứng viên khớp 5 chủ đề, không kịp truy ngược về bài gốc. Đáng chú ý còn lại cho phiên sau: Thượng viện thông qua dự luật ngăn đóng cửa chính phủ; loạt 5 bài về mở rộng sản xuất Patriot/THAAD và việc Mỹ phát tín hiệu trái chiều về cấp phép Ukraine sản xuất Patriot; "Hải quân Mỹ trả giá đắt do loại bỏ tàu hộ vệ để đặt cược vào LCS". Ghi vào `scan-gaps.json` mục Báo Mới.
 - [Bộ lọc Jay Lâm] **CẮT** — chưa kích bot hút Telegram và chưa chạy `tin_jaylam.py --liet-ke`, vì bước đó cần chờ run GitHub ~2 phút, không còn biên trước 21:45. File Jay Lâm còn hiệu lực 3 ngày nên bản tin sáng mai vẫn lọc được phần còn lại; rủi ro của lần cắt này là bản tối có thể lặp tin Jay Lâm đã có (không mất tin).
+
+## 2026-08-06 (phiên SÁNG SỚM — CI, cập nhật exercises/dipEvents)
+- [Pitch Black 2026] Giữ 1 tin (RAF medics diễn tập xử lý thương vong hàng loạt cùng Úc, UK Defence Journal, 05/08). LOẠI "Không quân Hàn Quốc lần đầu giữ vai trò Mission Commander" (Newspim, sự kiện thật 29/07-04/08) — đến lúc chạy `add_news.py` giờ VN đã sang 06/08, ngày sự kiện 04/08 cách hôm nay 2 ngày, vượt khung 1 ngày so với HÔM NAY (category không phải CNQS nên không có nới 3 ngày) — guardrail chặn cứng, không lùi batch để lách. LOẠI ứng viên "Aviation News.eu peak operations", "PNG welcome back" (Aviation Photography Digest, trùng tin PNG đã có), "Japanese E-2D Hawkeyes" (trùng/không xác minh được, có thể cùng sự kiện F-35A+E-2D đã có) — không tìm được bài gốc đọc được hoặc nội dung không đủ mới. Không tìm được tin bế mạc/tổng kết vì tập trận còn chạy tới 07/08.
+- [Hán Quang 42] Giữ 2 tin (khai mạc + backbrief + huy động 20.000 quân dự bị + throttling mạng — Defense News, 05/08; diễn tập bắn đạn thật trên bãi biển + phân quyền chỉ huy + Lại Thanh Đức cam kết 5% GDP — Tuổi Trẻ, 05/08). Đã bỏ tin trùng lặp nội dung từ Nikkei Asia (cùng góc backbrief + throttling mạng như Defense News, không có chi tiết khác biệt đáng kể) để tránh nhồi 2 tin cùng một câu chuyện. RealClearDefense (403, không mở được) — bỏ qua, đã có Defense News thay thế.
+- [dipEvents] KHÔNG có sự kiện ngoại giao mới trong phạm vi giao (task chỉ giao cập nhật 2 cuộc tập trận, không mở rộng quét dipEvents ngoài danh sách đã theo dõi sẵn).
 

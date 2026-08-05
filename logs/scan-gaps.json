@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-05",
-  "session": "toi",
+  "date": "2026-08-06",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"Thiếu 1 bài so với sàn. Nhóm 1 (điều trần + bỏ phiếu) hôm nay gần như trắng: diễn biến duy nhất là Thượng viện thông qua dự luật ngân sách tạm thời, nhưng bước bỏ phiếu thủ tục của chính dự luật đó đã lên bản tin ngày 03/08 nên bị loại vì trùng sự kiện. Tin Maryland phân định lại khu vực bầu cử cũng đã lên bản tin hai ngày liên tiếp 03-04/08. Phiên fire trễ 7 phút so với mốc 21:15 nên không còn thời gian giao vòng agent bổ sung trước hạn chót 21:45."},
-    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Thiếu 2 bài. Đã loại 2 ứng viên vì sai chuẩn neo chủ đề: tin Đài Loan tập trận chống đổ bộ (thuần phòng thủ eo biển Đài Loan, không neo được vào Biển Đông hay Úc) và tin Úc thử thiết bị chống drone Dronebuster (sự kiện diễn ra 3-19/7, ngoài khung hôm nay + hôm qua, chỉ là bài đăng lại). Diễn biến Philippines - Trung Quốc quanh Scarborough đã nạp gần hết ở các phiên 01-04/08."},
-    {"name":"Công nghệ quân sự Mỹ","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":2,"target":"2-5","min":2,"thieu":false,"reason":""},
-    {"name":"Tập trận Pitch Black 2026","count":1,"target":"1-2","min":1,"thieu":false,"reason":""},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Úc & Biển Đông","count":1,"target":"5-10","min":5,"thieu":true,
+     "reason":"Thiếu 4 bài nghiêm trọng. Ngày 05-06/08 khá trắng ở chủ đề này: hầu hết ứng viên tìm được (qua RSS/HTML lẫn WebSearch bổ sung) đều là tin ĐÃ đăng lại — sự kiện thật xảy ra sớm hơn 2-12 ngày (vd Bisalloy Steel AUKUS thực ra là 29/07, Philippines xác nhận tập trận TQ thực ra đã đăng 04/08, drone thương mại chụp tàu TQ thực ra đã đăng 02/08) — đều bị loại vì trùng sự kiện hoặc ngoài khung ngày sau khi xác minh kỹ bằng WebSearch. Chỉ nạp được 1 tin sạch, xác nhận đúng ngày: Bộ trưởng QP Malaysia thăm Việt Nam (05/08). Đài Loan Hán Quang 42 đã đi qua mục Tập trận riêng."},
+    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":0,"target":"3-8","min":3,"thieu":true,
+     "reason":"0 tin. Agent tìm kỹ qua ~10 lượt WebSearch (AFRICOM, JNIM, Africa Corps, Bamako, Sahel, gold mines, Garcia visit, FLA captives...) trong khung 05-06/08 nhưng mọi ứng viên đều trùng tin đã có trên web (AFRICOM mở rộng Tây Phi/mỏ vàng Sahel) hoặc là bài phân tích lặp lại/quá cũ. Không có diễn biến MỚI thật sự trong 2 ngày này."},
+    {"name":"Tập trận (Pitch Black 2026 + Hán Quang 42)","count":3,"target":"1-2 mỗi cuộc","min":1,"thieu":false,"reason":"Pitch Black 2026 (+1, sắp kết thúc 07/08) và Hán Quang 42 (+2, vừa khai mạc 05/08)."},
     {"name":"Báo Mới","count":0,"target":"3-6","min":3,"thieu":true,
-     "reason":"CẮT VÒNG BÁO MỚI vì hạn chót email 22:00. Phiên local fire lúc 21:22 (trễ 7 phút so với mốc 21:15), tới lúc nạp xong lô chính đã 21:38 nên không đủ thời gian truy ngược 11 ứng viên về bài gốc. 11 ứng viên đó vẫn nằm trong baomoi-topics.json, phiên sáng sớm mai xử lý được — đáng chú ý nhất: Thượng viện Mỹ thông qua dự luật ngăn đóng cửa chính phủ, và loạt bài về mở rộng sản xuất tên lửa Patriot/THAAD."}
+     "reason":"3 ứng viên khớp 5 chủ đề đều đã xử lý và LOẠI sau khi truy về bài gốc: 2 tin CNQS (Trump từ chối Patriot cho Ukraine / Lầu Năm Góc bác tin cạn kho) trùng sự kiện với tin NPR đã nạp; 1 tin Nội bộ Mỹ (binh sĩ hiến kế trừng phạt Iran) sự kiện thật 02-03/08, ngoài khung ngày cho category Chính trị (chỉ nới 1 ngày)."}
   ],
-  "note": "Phiên tối 05/08 chạy ở mốc LOCAL 21:15 (lớp cuối còn kịp hạn 22:00), fire trễ 7 phút. Đã chốt lô đang có theo đúng luật hạn chót, không giao vòng agent bổ sung. Hai bước bị cắt, đều ghi rõ: (1) vòng Báo Mới; (2) bước đối chiếu file Jay Lâm làm bộ lọc — file Jay Lâm còn hiệu lực 3 ngày nên bản tin sáng mai vẫn lọc được phần còn lại. Tin bị loại: xem logs/loai-tin.md."
+  "note": "Phiên SÁNG SỚM CI 06/08 (fire ~04:00 giờ VN). 5 agent Sonnet quét song song 5 chủ đề + 1 vòng bổ sung cho Nội bộ Mỹ và Úc & Biển Đông. Đã cài curl_cffi trong phiên để mở rộng nguồn RSS/HTML — cứu thêm 10 nguồn vốn 403 với curl trần (army.mil, navy.mil, marines.mil, pacom.mil, centcom.mil, jcs.mil, news.uscg.mil, axios.com, rappler.com, naval-technology.com). Phát hiện và loại 6 tin trùng sự kiện/sai ngày mà agent tự viết ban đầu (đã xác minh chéo bằng WebSearch/WebFetch trước khi commit) — xem logs/loai-tin.md. Đã chạy `tin_jaylam.py --liet-ke`: có 1 file còn hiệu lực (id=32, gửi 04/08, 39 tin phạm vi 30/07-02/08) — đối chiếu thủ công với toàn bộ tin vừa nạp hôm nay, KHÔNG có tin nào trùng sự kiện nên không cần `--ghi-loai`. Tin bị loại chi tiết: logs/loai-tin.md."
 }
