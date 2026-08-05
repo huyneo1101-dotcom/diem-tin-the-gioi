@@ -286,6 +286,25 @@ cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhan
   RealClear*, Investing.com, Yahoo/AOL/MSN) → BẮT BUỘC truy về bài gốc, không ra gốc thì cần 2 nguồn
   độc lập, không thì bỏ; **link không mở được bằng tool** (403/302) KHÔNG phải lý do bỏ nếu nội dung đã
   xác nhận được qua đường khác. Đừng bỏ tin tầng 1 chỉ vì chưa thấy báo nào đưa lại.
+- **⛔ DÍNH PAYWALL THÌ ĐỌC THỬ BẰNG `darkread.io` TRƯỚC KHI BỎ TIN** (chỉ thị Huy 05/08/2026: *"thêm
+  vào quy trình quét tin: dính paywall thì đọc thử bằng darkread.io"*).
+  **Cơ chế gây vấp:** thang lấy trang (`congcu/lay_trang.py`) chỉ được `harvest.py` gọi tới khi thân
+  trả về mang **dấu hiệu chặn** (403, "just a moment"…). Bài paywall thì ngược lại — máy chủ trả
+  **200 kèm vài đoạn đầu**, không dấu hiệu nào, nên thang KHÔNG kích và bài lặng lẽ bị bỏ với lý do
+  "không đọc được nội dung". Đây là bước của **agent/người quét**, không phải của script.
+  ```bash
+  python3 /Users/Huy/Claude/congcu/lay_trang.py --duong=darkread <url>
+  ```
+  - **Khai đúng mức, đừng kỳ vọng sai:** darkread KHÔNG vượt paywall cứng. Đo 05/08/2026 trên 06 bài:
+    ăn `japantimes.co.jp` (729 chữ, thang vốn trượt hoàn toàn) · `asia.nikkei.com` chỉ ra phần lead
+    (494 chữ) · trượt hẳn ở `wsj.com` · `ft.com` · `economist.com` · `38north.org`. Coi nó là **một
+    lượt thử thêm**, không phải cửa mở.
+  - **Bản lấy về là BẢN READER RÚT GỌN, có thể chỉ là phần miễn phí** — dùng để đối chiếu dữ kiện thì
+    được, nhưng `sourceUrl` vẫn phải là **URL gốc**, tuyệt đối không ghi link `darkread.io` vào tin.
+  - ⚠️ **CHỈ chạy được ở phiên LOCAL** — CI checkout đúng repo này, không có `~/Claude/congcu`. Phiên
+    CI gặp paywall thì xử như cũ: xác nhận nội dung qua nguồn thứ hai, không được thì bỏ tin.
+  - Đo được một tên miền mới đi lọt bằng đường này thì **ghi vào `congcu/bang-tra-web.json`** (khoá
+    `duong` thêm `"darkread"`), kẻo phiên sau đo lại từ số không.
 - **Ràng buộc chất lượng**: (a) `date` đúng khung 24h/48h; (b) `sourceUrl` trỏ THẲNG 1 bài cụ thể,
   KHÔNG trang chủ/"live"/live-blog/tổng hợp, link KHỚP nội dung; (c) `sourceName` trong danh sách nguồn
   được giao HOẶC nguồn chính thức phù hợp; (d) thà ÍT còn hơn sai — được phép trả mảng rỗng.
