@@ -11,6 +11,25 @@ Bản tin 2 phiên/ngày cùng playbook 5 chủ đề: TỐI (ô khoá `toi`) + 
 
 ⚠️ **PHÂN VAI: quy trình dưới đây là CHUNG cho cả hai phiên; mày là phiên nào thì xem stub task đã giao mày việc.** Task `web-scan-diem-tin` lo phiên SÁNG SỚM; task `web-scan-diem-tin-toi` lo phiên TỐI (tách 27/07/2026 vì phiên tối có hạn chót email cứng, cần fire sớm hơn để có biên; một task chỉ nhận một biểu thức cron nên phải tách). Cả hai task **KHÔNG chép lại quy trình** mà cùng Read file này — để hai phiên không bao giờ lệch nhau. Phiên TỐI có thêm mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" ở cuối file.
 
+## ⚡ BƯỚC 0 — CLAIM NGAY, PHIÊN NHƯỜNG PHẢI RẺ (thêm 05/08/2026, chỉ thị Huy tiết kiệm limit)
+
+**Đọc xong khối này thì CHẠY 3 LỆNH CỦA BƯỚC 1 LUÔN** (pull → claim → ghi_log_push), rồi mới đọc
+tiếp phần còn lại nếu được quét. Vì sao: đo 7 ngày cuối 07/2026, mỗi phiên local "nhường CI" vẫn
+đốt **~1,9 triệu token quy đổi / 26-27 lượt tool** — phần lớn lượt là thăm dò quanh việc claim
+(xem log cũ, show trạng thái, đọc thêm tài liệu) trong khi kết cục đã định là SKIP. Ba lớp CI +
+local mỗi ngày nhân số phiên nhường lên, nên phiên nhường phải rẻ như một cú gõ cửa.
+
+- **Claim trả SKIP (exit 10 hoặc 11)** → làm đúng 02 việc rồi **KẾT THÚC NGAY**: (i) ghi 1 dòng
+  SKIP vào `logs/scan-<ngày VN>.log` bằng tool Write/Edit; (ii) chạy `ghi_log_push.py` cho dòng
+  đó. Trả lời đúng một câu. **Toàn phiên SKIP không quá ~7 lượt tool.**
+- ⛔ **CẤM ở lối SKIP:** `state.py show` · đọc log ngày cũ · `gh run list` · đọc `LICH.md` /
+  `CLAUDE.md` repo / skill `quet-tin` · mọi lệnh thăm dò "cho chắc". Khoá heartbeat + mốc dự
+  phòng đã lo phần theo dõi (dòng KẾT THÚC ở Bước 1 vẫn nguyên hiệu lực).
+- **Riêng exit 10 ở mốc TỐI** vẫn giữ phép kiểm sổ đã gửi (mục "PHIÊN TỐI" điều 3) — đó là 1-2
+  lệnh, không phải giấy phép đi thăm dò rộng.
+- Claim trả **RUN (exit 0)** → đọc tiếp từ Bước 1b trở đi và quét như thường — mức chi cho phiên
+  quét thật không đổi.
+
 | Phiên | CI chính | local | CI dự phòng | local lưới cuối | Ai chạy phần local |
 |---|---|---|---|---|---|
 | SÁNG SỚM | **03:47** VN | **04:30** | 04:47 | 05:30 | task `web-scan-diem-tin` |
