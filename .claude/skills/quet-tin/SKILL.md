@@ -293,8 +293,17 @@ cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhan
   **200 kèm vài đoạn đầu**, không dấu hiệu nào, nên thang KHÔNG kích và bài lặng lẽ bị bỏ với lý do
   "không đọc được nội dung". Đây là bước của **agent/người quét**, không phải của script.
   ```bash
-  python3 /Users/Huy/Claude/congcu/lay_trang.py --duong=darkread <url>
+  python3 /Users/Huy/Claude/congcu/lay_trang.py <url>
   ```
+  Thang nay đi lần lượt `curl_cffi → thu_lai → ua_bot → wayback → darkread`; muốn thử riêng một
+  bậc thì thêm `--duong=ua_bot` hoặc `--duong=darkread`.
+  - **`ua_bot` = đổi User-Agent sang bot tìm kiếm/mạng xã hội** (Huy chốt 05/08/2026). Đo cùng
+    ngày: Japan Times từ **403 → 200 kèm trọn thân bài**; Economist trả thêm khối bài mà trình
+    duyệt thường không có (mới là phần đầu); WSJ vẫn 401, FT vẫn ra trang "Subscribe to read".
+    ⚠️ Đây là **giả danh bot** — nhiều báo cấm trong điều khoản, lạm dụng thì bị chặn IP; nên nó
+    đứng sau các đường thường, đừng gọi thẳng `--duong=ua_bot` cho cả lô.
+  - **`archive.today` là công cụ mạnh nhất cho báo trả tiền nhưng KHÔNG tự động hoá được** — script
+    nhận 429, trình duyệt trong app đòi bấm duyệt từng thao tác. Mở tay được, đừng cắm vào quy trình.
   - **Khai đúng mức, đừng kỳ vọng sai:** darkread KHÔNG vượt paywall cứng. Đo 05/08/2026 trên 06 bài:
     ăn `japantimes.co.jp` (729 chữ, thang vốn trượt hoàn toàn) · `asia.nikkei.com` chỉ ra phần lead
     (494 chữ) · trượt hẳn ở `wsj.com` · `ft.com` · `economist.com` · `38north.org`. Coi nó là **một
