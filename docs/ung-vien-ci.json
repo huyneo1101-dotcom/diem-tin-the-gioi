@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-08-06T04:49:13+07:00",
+  "tao_luc": "2026-08-06T05:36:58+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-05",
     "2026-08-06"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-06",
+      "tieu_de": "Man and woman found dead in outback Queensland home after hours-long police siege",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/06/charleville-siege-death-man-woman-police-assault-queensland-ntwnfb"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -229,6 +237,14 @@
       "tieu_de": "US Army and Tennessee Valley Authority explore initiatives to enhance grid resilience, support national security",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/294420/us_army_and_tennessee_valley_authority_explore_initiatives_to_enhance_grid_resilience_support_national_security"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "U.S. Army Combined Arms Command Advances AI-Powered Knowledge Platform, VICTOR",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294423/u_s_army_combined_arms_command_advances_ai_powered_knowledge_platform_victor"
     },
     {
       "lop": "RSS",
@@ -738,7 +754,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-06",
-      "tieu_de": "Australia news live: NSW man charged over alleged threats of violence against female MP",
+      "tieu_de": "News live: News Corp loses subscribers in Australia as company lashes out at AI ‘crass kleptomaniacs’ and ‘slimy sea of slop’",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/aug/06/australia-news-live-nsw-politics-icac-corruption-perrottet-ibac-victoria-daniel-andrews-royal-commission-antisemitism-labor-tax-albanese-ntwnfb"
     },
@@ -878,6 +894,15 @@
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/trung-quoc-dap-tra-cung-ran-lenh-trung-phat-cua-my-20260805193421997.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "GOP Women’s Caucus chair says House should follow through on Edwards censure",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/house/6012457-cammack-chuck-edwards-censure/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
