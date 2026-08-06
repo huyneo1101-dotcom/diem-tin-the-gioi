@@ -1598,6 +1598,107 @@ trùng theo tên đã bỏ dấu, chặn ở đây là chặn oan.
 công cụ LỌC, nhồi vào là hỏng đúng công dụng của nó. Quy trình phiên sáng: `docs/routine-web-scan.md`
 Bước 4.4 mục 4.
 
+### 📚 MỘT VIỆN CÓ HAI FEED: BLOG và NGHIÊN CỨU — bảng chỉ khai một nửa (vá 06/08/2026)
+
+**Cơ chế gây vấp.** `THINKTANK_FEEDS` khai mỗi viện đúng MỘT feed, và cái được khai luôn là
+feed **BLOG** — nó nằm ngay trang chủ nên dễ tìm hơn. Mục **NGHIÊN CỨU** của chính viện đó,
+xuất bản ở một feed khác, chưa từng được khai. Đo trên `data/analyses.json` ngày 06/08/2026:
+
+| | Con số |
+|---|---|
+| Bài Lowy thuộc `/the-interpreter/` (blog) | **35/35** |
+| Bài Lowy thuộc `/publications/` (nghiên cứu) | **0** |
+| Bài ASPI thuộc blog `aspistrategist.org.au` | **81/81** |
+| Bài ASPI thuộc `aspi.org.au` (báo cáo viện) | **0** |
+
+Điều đáng sợ không phải con số mà là **không dấu hiệu nào phát ra**: feed blog ra bài đều mỗi
+ngày, danh sách ứng viên vẫn đầy, mục Think-tank trên web vẫn có bài mới mỗi sáng — nên không
+ai có lý do đi hỏi *"còn thiếu gì"*. Toàn bộ mảng báo cáo của hai viện đầu ngành về Úc và Ấn
+Độ Dương - TBD nằm ngoài kho suốt từ ngày dựng, chỉ lộ ra khi có người đi tìm một nghiên cứu
+cụ thể mà không thấy.
+
+**04 feed nghiên cứu đã khai** (fetch thật 06/08/2026, hậu tố nhãn `[NC]` trong bảng):
+
+| Viện | Feed nghiên cứu | Đo | Bài nằm ở |
+|---|---|---|---|
+| Lowy Institute | `https://www.lowyinstitute.org/publications/rss.xml` | 200 · 50 item | `/publications/` |
+| ASPI | `https://www.aspi.org.au/feed/` | 200 · 10 item | `/report/` |
+| RUSI | `https://www.rusi.org/rss/latest-publications.xml` | 200 · 20 item | `/explore-our-research/` |
+| CSET | `https://cset.georgetown.edu/publications/feed/` | 200 · 10 item | `/publication/` |
+
+⚠️ **Feed BLOG phải giữ nguyên** — đây là THÊM mục nghiên cứu, không phải thay blog bằng
+nghiên cứu. Thay là mất ~35 bài Interpreter mỗi năm, tức vá một lỗ bằng cách mở một lỗ to hơn.
+Ca 02 của `tests/test-nguon-nghien-cuu.py` canh đúng chiều này.
+⚠️ **Feed publications của RUSI trộn CẢ podcast lẫn bản ghi sự kiện** — đo 06/08: 4/20 item là
+`/podcasts/` · `/members-event-recordings/` · `/research-event-recordings/`. Đã thêm
+`event-recordings` vào `NOISE_PATHS`; hai mục bản ghi sự kiện **KHÔNG khớp** `/event/` hay
+`/events/` có sẵn (đường dẫn là `members-event-recordings`, không có dấu `/` trước chữ
+`event`) — đó mới là chỗ hở thật. Không lọc thì mục Think-tank đầy dòng kiểu *"Episode 125 —
+Japan's intelligence reforms"*, tức một tập ghi âm được trình bày như một nghiên cứu.
+⛔ **ĐÃ THỬ VÀ CHẾT, ĐỪNG DÒ LẠI** (đo 06/08/2026): `aspi.org.au/rss.xml` 403 ·
+`aspi.org.au/publications/feed` 403 · `rand.org/pubs.xml` 200 nhưng **0 item** ·
+`rand.org/research.xml` 500 · `rusi.org/rss/latest-research.xml` 404 · `heritage.org/rss/reports`
+403 · `cepa.org/comprehensive-reports/feed/` 404.
+
+#### `--candidates-dai` — đường quét theo THÁNG, dùng khi nào
+
+**Lớp thứ hai của cùng một lỗ, và khai đúng feed KHÔNG chữa được nó.** `MAX_AGE_DAYS = 7` đặt
+theo nhịp của feed blog, còn báo cáo ra theo tháng — nên bản Lowy *"Understanding the Chinese
+military threat to Australia"* đăng 13/06/2026, tức **53 ngày** trước, vẫn không bao giờ vào
+danh sách ứng viên dù feed đã khai đúng. Nghiên cứu ra theo tháng, routine quét theo ngày.
+
+```
+python3 scripts/add_analyses.py --candidates-dai   # CHỈ 4 feed nghiên cứu, khung 60 ngày
+```
+
+- **Chạy TAY khi cần bổ sung kho nền, KHÔNG cắm vào phiên quét nào.** `--candidates` giữ
+  nguyên khung 7 ngày và nguyên danh sách feed — routine sáng không đổi một hành vi nào.
+- ⚠️ **Đừng "dọn cho gọn" bằng cách nới thẳng `MAX_AGE_DAYS`**: mỗi sáng danh sách ứng viên
+  phình lên gấp mấy lần bằng bài đã đọc từ tuần trước, ngốn hết context của agent chọn bài —
+  vá một lỗ bằng cách làm hỏng luồng đang chạy tốt.
+- **`MAX_AGE_DAYS_DAI = 60`, không phải 30**: 30 ngày vẫn bỏ sót đúng bản báo cáo 53 ngày tuổi
+  đã sinh ra việc này, tức khung đúng về nguyên tắc mà không giải quyết được ca thật.
+- Nghiệm thu 06/08: ra **40 ứng viên**, gồm đúng bản báo cáo Lowy 13/06.
+- ⚠️ `URL_NGHIEN_CUU` là bảng thứ hai bên cạnh `THINKTANK_FEEDS`, nên `feeds_dai()` **KÊU** khi
+  một URL ở đó không còn trong bảng feed. Không có phép canh này thì đổi tên miền một feed là
+  đường quét dài lặng lẽ bỏ viện ấy — đúng loại hỏng câm cả mục này sinh ra để chặn.
+
+#### `scripts/do_nguon_mot_muc.py` — tự dò viện thứ 5
+
+Vá tay 04 viện hôm nay không chặn được viện thứ 5 mai mốt, mà viện thứ 5 sẽ hỏng cùng một cách
+và cũng im lặng y hệt. Phép đo đếm phân bố (tên miền, mục đầu đường dẫn) trên kho: tên miền
+từ **5 bài** trở lên mà thảy đều rơi vào **đúng một mục** là ứng viên nghi thiếu feed — viện
+xuất bản thật thì bài rải nhiều mục (Hudson 71 bài/5 mục · Atlantic Council 57 bài/5 mục).
+
+Phân **04 nhóm**, cố ý không gộp — gộp lại là kêu oan, mà bảng bị kêu oan vài lần thì hết được đọc:
+
+| Nhóm | Nghĩa | Kêu? |
+|---|---|---|
+| ★ NGHI THIẾU FEED | một mục · **CÓ** feed khai trong `THINKTANK_FEEDS` | **CÓ** (mã 3) |
+| ○ CHƯA CÓ FEED | một mục · không feed nào khai ⇒ diện WebSearch, bài vào kho bằng tay nên dồn một mục là đương nhiên | không |
+| ▫ BÀI Ở GỐC | `MIEN_BAI_O_GOC` — đặt bài thẳng ở gốc tên miền nên "mục đầu đường dẫn" không tồn tại | không |
+| ✓ NHIỀU MỤC | bình thường | không |
+
+Không có nhóm ○ thì Brookings · CNAS · CSIS · SPF USA bị kêu oan ngay lượt chạy đầu — cả bốn
+đều một mục, nhưng vì **chưa có feed nào**, tức một trạng thái khác hẳn đã ghi ở `WEBSEARCH_ONLY`.
+`MIEN_BAI_O_GOC` lấy TỪ SỐ ĐO chứ không từ phỏng đoán (aspistrategist 81/81 ở gốc · ussc 31/31
+· mwi 15/15 · cimsec 5/5). **Thêm một tên miền vào đó là TẮT phép đo cho nó** — chỉ thêm khi
+đã mở vài url xem tận nơi, đừng thêm cho hết kêu.
+- `DA_DUYET` là chỗ ghi kết quả đã soi tận nơi, kèm lý do — **không phải chỗ giấu ứng viên khó**.
+- `--tu-kiem` (7 ca · 6 bản hỏng) gồm **01 ca vàng chạy trên KHO THẬT**: ứng viên nào chưa ai
+  soi thì ĐỎ. Đã nạp `BO_TEST` của `khoe.py`, nên một viện mới vượt ngưỡng là sáng hôm sau biết.
+- ⚠️ **GIỚI HẠN, đừng đọc bảng sạch thành "mọi viện đã khai đủ".** Phép đo bắt **hình dạng
+  Lowy** (một tên miền, bài chia theo mục), KHÔNG bắt **hình dạng ASPI** (viện xuất bản dưới
+  HAI tên miền, bảng chỉ khai một) — bài ASPI nằm ở GỐC tên miền blog nên rơi vào nhóm ▫. Hai
+  hình dạng cần hai phép đo; ở đây mới có một.
+
+⚠️ **`tests/test-nguon-nghien-cuu.py --tu-kiem` ĐANG HỎNG (0/3)** — harness của nó đem thay
+CHÍNH FILE CỔNG chứ không thay `add_analyses.py` như docstring khai, và cả 03 phép thay đều
+LÀM YẾU cổng, mà cổng yếu chạy trên bản đúng thì không thể đỏ. Cổng vẫn **CÓ răng**: đo riêng
+06/08 bằng 04 bản `add_analyses.py` hỏng qua seam `ADD_ANALYSES` thì **4/4 bị bắt**, mỗi bản đỏ
+đúng ca của nó. Vì vậy cổng nạp vào `khoe.py` **không kèm cờ `--tu-kiem`**. Chi tiết và cách đo
+lại: `logs/loi-cong-nguon-nghien-cuu.md`.
+
 | Bước | Lệnh | Ghi chú |
 |---|---|---|
 | Liệt kê ứng viên | `python3 scripts/add_analyses.py --candidates` | Fetch RSS **24 viện đã verify fetch thật 27/07**, xếp theo KHU VỰC (xem `THINKTANK_FEEDS`). Tự bỏ bài đã có trong DATA, đường dẫn rác (`/in-the-news/`, `/media-citations/`, `/event/`…) và tham số `utm_*`. Dòng cuối in **vùng không có RSS + domain** để bù bằng WebSearch |
