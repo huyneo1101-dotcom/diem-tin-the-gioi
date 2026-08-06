@@ -1652,7 +1652,14 @@ python3 scripts/add_analyses.py --candidates-dai   # CHỈ 4 feed nghiên cứu,
 ```
 
 - **Chạy TAY khi cần bổ sung kho nền, KHÔNG cắm vào phiên quét nào.** `--candidates` giữ
-  nguyên khung 7 ngày và nguyên danh sách feed — routine sáng không đổi một hành vi nào.
+  nguyên **khung 7 ngày** và nguyên phép lọc — routine sáng không đổi một tham số nào.
+- ⚠️ **Nhưng 04 feed `[NC]` nằm TRONG `THINKTANK_FEEDS` nên `--candidates` cũng quét chúng** —
+  đó là hệ quả bắt buộc của việc khai vào bảng, không phải sơ suất. Đo 06/08: cộng thêm
+  **07 bài/ngày** vào danh sách sáng (Lowy 1 · ASPI 1 · RUSI 4 · CSET 1), thảy đều là nghiên
+  cứu ra trong đúng 7 ngày qua, tức thứ lẽ ra phải có ở đó từ đầu. Muốn routine sáng tuyệt đối
+  không đổi thì phải loại `URL_NGHIEN_CUU` khỏi vòng lặp của `list_candidates` — **đừng làm**:
+  báo cáo mới ra trong tuần là thứ đáng đọc nhất, gạt nó khỏi danh sách sáng là dựng lại đúng
+  vùng câm vừa bịt, chỉ hẹp hơn.
 - ⚠️ **Đừng "dọn cho gọn" bằng cách nới thẳng `MAX_AGE_DAYS`**: mỗi sáng danh sách ứng viên
   phình lên gấp mấy lần bằng bài đã đọc từ tuần trước, ngốn hết context của agent chọn bài —
   vá một lỗ bằng cách làm hỏng luồng đang chạy tốt.
