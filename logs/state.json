@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-07T05:35:51+07:00",
+    "lastRunAt": "2026-08-07T05:44:35+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+5 bai think-tank (4 khu vuc), 0 su kien moi (2 ung vien bi guardrail chan vi ngoai khung ngay)",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-08-06"
-    },
-    "heartbeat": "2026-08-07T05:35:51+07:00"
+      "sang": "2026-08-07"
+    }
   }
 }
