@@ -47,6 +47,9 @@ import sys
 import urllib.parse
 import xml.etree.ElementTree as ET
 
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from harvest import _vi_tri_tieu_de  # noqa: E402
+
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/126.0 Safari/537.36"
 
@@ -117,7 +120,8 @@ def collect_targets():
 
     cm = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     try:
-        block = cm[cm.index("## URL RSS"):]
+        # Neo vào DÒNG TIÊU ĐỀ — xem chú thích cùng chỗ trong harvest.py (vá 06/08/2026).
+        block = cm[_vi_tri_tieu_de(cm, "URL RSS"):]
         block = block[: block.index("\n## ", 1)]
     except ValueError:
         block = ""

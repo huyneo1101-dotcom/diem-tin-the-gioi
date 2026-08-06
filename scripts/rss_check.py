@@ -21,6 +21,9 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from harvest import _vi_tri_tieu_de  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -38,7 +41,9 @@ def urls_from_claude_md():
     """
     text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     try:
-        block = text[text.index("## URL RSS") :]
+        # Neo vao DONG TIEU DE, khong `text.index` tho — xem chu thich cung cho trong harvest.py.
+        # Dung CHUNG ham cua harvest, khong chep sang day: hai ban cua cung mot luat chac chan lech.
+        block = text[_vi_tri_tieu_de(text, "URL RSS") :]
         block = block[: block.index("\n## ", 1)]
     except ValueError:
         print("Khong tim thay muc '## URL RSS' trong CLAUDE.md", file=sys.stderr)

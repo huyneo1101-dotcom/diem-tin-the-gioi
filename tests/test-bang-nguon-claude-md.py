@@ -41,6 +41,20 @@ CAU_NHAC = (
 )
 
 
+# Câu nhắc chuỗi `## URL RSS` trong VĂN XUÔI — đúng câu đã làm lớp RSS về 0 feed ngày 06/08/2026
+# khi khối mục lục được thêm vào đầu CLAUDE.md.
+CAU_NHAC_RSS = (
+    "\n`harvest.py` · `rss_check.py` · `probe_sources.py` đọc thẳng khối `## URL RSS` "
+    "→ `##` kế tiếp, nên mọi dòng bảng có URL ở đó phải ở lại file này.\n"
+)
+
+
+def _chen_dau_file(text, cau):
+    """Chèn `cau` ngay sau dòng tiêu đề `# ...` đầu file — đúng chỗ khối mục lục nằm."""
+    i = text.index("\n") + 1
+    return text[:i] + cau + text[i:]
+
+
 def _nap_harvest(thu_muc):
     """Nạp harvest với ROOT ghim vào thư mục chứa CLAUDE.md của ca thử.
 
@@ -293,6 +307,25 @@ def _c13():
     return "bỏ đúng, không nạp tiêu đề rác"
 
 
+@ca(14, "PHẢI CHẶN: văn xuôi nhắc chuỗi `## URL RSS` ở ĐẦU file -> lớp RSS vẫn đủ feed")
+def _c14():
+    """Hồi quy 06/08/2026 — bug đã xảy ra THẬT, không phải giả định.
+
+    Lượt xẻ CLAUDE.md thêm một khối mục lục ở đầu file, trong đó có câu dặn *"ba script đọc
+    thẳng khối `## URL RSS`"*. `feeds_from_claude_md` khi đó còn dùng `text.index("## URL RSS")`
+    thô nên cắt trúng câu văn ấy ⇒ **0 feed**, lớp [RSS] chết sạch mà không lỗi, không cảnh báo,
+    và bảng trong CLAUDE.md vẫn nguyên 114 dòng nên soi bằng mắt thì thấy đủ. Đúng con lỗi đã vá
+    cho bảng HTML hồi 30/07 (ca 1/3) — hôm đó chỉ vá một nửa.
+    """
+    _, goc, _ = _do(CLAUDE_THAT)
+    _, hong, _ = _do(_chen_dau_file(CLAUDE_THAT, CAU_NHAC_RSS))
+    # NGƯỠNG TUYỆT ĐỐI, không chỉ so hai phía: CLAUDE.md thật NAY ĐÃ chứa câu nhắc đó, nên trên
+    # bản hỏng cả `goc` lẫn `hong` cùng về 0 và phép so tương đối vẫn cho ĐẠT — mất răng y hệt ca 3.
+    assert hong > 50, f"chỉ còn {hong} feed"
+    assert hong == goc, f"số feed đổi {goc} -> {hong} khi văn xuôi nhắc `## URL RSS`"
+    return f"{goc} feed, bền với câu nhắc ở đầu file"
+
+
 BAN_HONG = [
     (
         # Phải gỡ CẢ HAI lớp cùng bảo vệ một hành vi (neo tiêu đề + nhánh chọn khối có nhiều
@@ -305,7 +338,16 @@ BAN_HONG = [
         # KHÔNG khai ca 2 (đo số feed): lớp vá này chỉ chi phối đường đọc BẢNG HTML, còn số feed
         # do lớp cắt trong `feeds_from_claude_md` giữ (bản hỏng thứ hai). Khai thừa thì `--tu-kiem`
         # báo trượt vì lý do sai, che mất bản hỏng thật sự không bắt được.
-        [1, 3],
+        # Từ 06/08/2026 `feeds_from_claude_md` cũng gọi `_vi_tri_tieu_de` -> gỡ neo là ca 14 đỏ theo.
+        [1, 3, 14],
+    ),
+    (
+        # Bản hỏng RIÊNG cho lớp RSS: `_vi_tri_tieu_de` còn nguyên (nên ca 1/3 vẫn xanh), chỉ
+        # `feeds_from_claude_md` quay lại `text.index` thô — đúng trạng thái của repo trước 06/08.
+        "gỡ neo tiêu đề của KHỐI `## URL RSS`, quay lại text.index — bug đã xảy ra thật 06/08",
+        [('        block = text[_vi_tri_tieu_de(text, "URL RSS"):]\n',
+          '        block = text[text.index("## URL RSS"):]\n')],
+        [14],
     ),
     (
         "lớp RSS KHÔNG cắt bảng HTML ra nữa",

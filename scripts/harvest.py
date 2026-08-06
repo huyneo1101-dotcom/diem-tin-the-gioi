@@ -369,7 +369,13 @@ def feeds_from_claude_md():
     """
     text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     try:
-        block = text[text.index("## URL RSS"):]
+        # ⚠️ Neo vào DÒNG TIÊU ĐỀ, KHÔNG `text.index("## URL RSS")` — vá 06/08/2026, bug đã xảy
+        # ra thật ngay trong lượt xẻ CLAUDE.md: một câu văn xuôi ở ĐẦU file nhắc chuỗi
+        # `## URL RSS` (để dặn rằng khối đó là cấu hình, đừng đụng) làm `text.index` cắt lấy
+        # đoạn văn ấy ⇒ **0 feed**, lớp [RSS] chết sạch, không lỗi, không cảnh báo, mà bảng
+        # trong CLAUDE.md vẫn còn nguyên 114 dòng nên soi bằng mắt thì thấy đủ. Đây ĐÚNG con lỗi
+        # đã vá cho bảng HTML hồi 30/07 (xem `_vi_tri_tieu_de`) — hôm đó chỉ vá một nửa.
+        block = text[_vi_tri_tieu_de(text, "URL RSS"):]
         block = block[: block.index("\n## ", 1)]
     except ValueError:
         print("Không tìm thấy mục '## URL RSS' trong CLAUDE.md", file=sys.stderr)
