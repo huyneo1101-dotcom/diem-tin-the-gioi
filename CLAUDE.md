@@ -1643,6 +1643,54 @@ ra **52** bài, nhưng `Ấn Độ` khớp cả trong `Ấn Độ Dương` — b
 52 dẫn thẳng tới kết luận sai *"19 bài Ấn Độ bị gán nhầm Đông Á"*, trong khi phần lớn là bài Đông
 Á có nhắc tới Ấn Độ Dương. Cùng lớp lỗi với luật đếm transcript ở `~/.claude/CLAUDE.md` mục 6.
 
+#### 🚨 CƠ CHẾ CANH — `scripts/do_can_doi_khu_vuc.py` (dựng 06/08/2026)
+
+Hai nguyên nhân trên **không có phép đo tự động nào canh** — chúng chỉ lộ ra khi Huy tự mở web
+rồi tự hỏi. Vá tay bốn vùng hôm nay không chặn được vùng thứ năm mai mốt: nó sẽ hỏng y hệt,
+cùng một cách, và cũng im lặng y hệt. Cổng đo cả hai nhánh, đã nạp `BO_TEST` của `khoe.py`.
+
+| Nhánh | Đo gì | Kêu thế nào |
+|---|---|---|
+| ① NHÃN | với mỗi vùng: (a) số bài MANG nhãn · (b) số bài **TIÊU ĐỀ** nhắc tới vùng. Tỉ lệ a/b tụt dưới `NGUONG_TY_LE` (và b ≥ `NGUONG_BAI`) | **mã 3**, kèm danh sách bài nghi gán nhãn quá rộng |
+| ② NGUỒN | vùng nào không feed/trang HTML nào khai nhãn khớp | **VÀNG, KHÔNG vào mã thoát** |
+
+**Dòng khai HIỆN HÀNH: `NGUONG_TY_LE = 0.35` · `NGUONG_BAI = 5`** — sửa đúng dòng này khi đo
+lại, đừng sửa bảng số đo trong docstring script (bảng đó là nhật ký hai kho).
+
+- ⚠️ **CHỈ SOI TIÊU ĐỀ, đã thử quét cả `summary` rồi LOẠI.** Quét phần tóm tắt thì "nói về vùng"
+  biến thành "có nhắc tới vùng": Nam Á vọt 35 → 76 bài, Trung Đông 47 → 131, vì một bài
+  Nga-Ukraine nhắc Iran một câu cũng bị tính. Kêu ở mức đó là kêu oan hàng loạt, mà bảng bị kêu
+  oan vài lần thì hết được đọc.
+- ⚠️ **Ngưỡng lấy TỪ SỐ ĐO hai kho thật, không từ mong muốn.** Kho cũ (656 bài, trước khi vá):
+  Nam Á 0,07 · Trung Á 0,25 · Bắc Cực 0,80 · Châu Phi 0,88. Kho nay (733 bài): Nam Á 0,46 ·
+  Trung Á 1,00 · Bắc Cực 0,80 · Châu Phi 0,90. **0,35 nằm giữa khoảng trũng 0,25 ↔ 0,46.**
+  Nghiệm thu: cổng **mã 3** trên kho cũ, **mã 0** trên kho nay — bằng chứng nó bắt đúng lỗi thật
+  đã xảy ra, không phải bắt một lỗi tự bịa.
+- ⚠️ **Tỉ lệ vượt 1,0 là bình thường** (bài về vùng mà tiêu đề không gọi tên vùng — Châu Mỹ 3,67).
+  Chỉ chiều TỤT mới là dấu hiệu nhãn bị hút đi, nên cổng cố ý canh MỘT chiều.
+- ⚠️ **Nhánh ② cố ý không vào mã thoát:** Bắc Cực không vá được (viện chuyên duy nhất chặn theo
+  vân tay TLS ở mọi bậc thang, chỉ còn đường trình duyệt local-only), để nó ĐỎ là đỏ vĩnh viễn
+  — rồi nhánh ① kêu thật cũng không ai thấy. Vùng đã kết luận không vá được thì ghi
+  `NGUON_DA_DUYET` kèm lý do đã soi.
+- ⚠️ **BA CÁI BẪY CÙNG MỘT HỌ — tên vùng NHỎ nằm lọt trong tên vùng LỚN**, cả ba đều sai trong
+  im lặng và đều có ca test riêng: `Ấn Độ` ⊂ `Ấn Độ Dương` · `Nam Á` ⊂ `Đông Nam Á` (bắt được
+  lúc dựng, 2 bài Đông Nam Á lọt vào nhóm Nam Á) · **cùng chuỗi đó ở nhánh ②**, nơi nhãn nguồn
+  `Đông Nam Á` (Fulcrum) làm Nam Á tưởng đã có nguồn ⇒ **cổng câm đúng vùng thiếu nguồn nhất**.
+  Mọi biểu thức phải neo lookahead/lookbehind; cấm cụm trần (`á`, `mỹ`). Và mỗi lần siết thì
+  thêm ngay ca canh **chiều nới** (ca 06 · 08: `Ấn Độ` thật và nhãn `Nam Á` thật vẫn phải nhận).
+- ⚠️ **`Toàn cầu` · `Châu Âu/NATO` · `Đông Á` · `Ấn Độ Dương - TBD` nằm NGOÀI phạm vi đo**
+  (`KHONG_DO`) — chúng là vùng LỚN, tức bên HÚT nhãn chứ không phải bên bị hút, và không bộ từ
+  khoá nào khoanh được chúng mà không nuốt nửa kho. Đừng đọc bảng sạch thành "mọi vùng cân đối".
+- Bộ ca: **12 ca (07 ca PHẢI KÊU) · `--tu-kiem` bắt 10/10 bản hỏng**, canh cả hai chiều của cả
+  hai ngưỡng (nới về 0 ⇒ không bao giờ kêu · siết lên 1,0 ⇒ kêu oan mọi vùng).
+- ⚠️ **Hai bài học của chính đợt dựng, đừng lặp:** (i) ca đối chứng dựng kho thử bằng
+  `NGUONG_BAI - 1` thì bản hỏng nới ngưỡng về 0 kéo luôn kho thử về rỗng ⇒ **ca vẫn xanh, ngưỡng
+  mất người canh** — phải GHIM CỨNG con số (mục 25 CLAUDE.md toàn cục); (ii) bản hỏng làm tiến
+  trình CHẾT thì stdout không có dòng ca nào, và `--tu-kiem` hiện ra thành *"đỏ thực tế: KHÔNG
+  CÓ"* — nghe y như phép đo không có răng, mất 03 lượt chẩn đoán sai hướng. Nhánh ấy nay tự khai
+  kèm stderr. **Chính bản hỏng đó lộ ra một lỗ THẬT**: `nhan_keu` chia cho `n` mà chỉ được che
+  GIÁN TIẾP bởi việc `NGUONG_BAI` tình cờ ≥ 1 — hạ ngưỡng là cả script sập.
+
 ⚠️ **BÀI LẤY QUA SITEMAP KHÔNG CÓ TIÊU ĐỀ — `quet_thinktank.py` suy từ slug, và nó xấu.** Đo
 06/08: **48/67** bài dính, ra `America S Munitions Challenge Industrial Constraints` (mất dấu
 nháy, mất hoa thường tên riêng: `NATO` → `Nato`, `Indo-Pacific` → `Indo Pacific`). Không lỗi nào
