@@ -58,6 +58,19 @@ OUTLET_CANON = {
     # `("CSET [NC]", …)`, tức nhãn sinh cho mọi lô nạp về sau là "CSET" — chọn khác bảng feed
     # thì nhãn tách đôi trở lại ngay ở bài kế tiếp của chính domain ấy.
     "cset.georgetown.edu": "CSET",
+    # 06/08/2026 — đợt nạp bù 4 khu vực (Nam Á · châu Phi · Trung Á · Bắc Cực) sinh thêm 02
+    # nhãn đôi, vì bộ quét lô `QuetThinkTank/quet_thinktank.py` khai tên nguồn KÈM CHÚ THÍCH
+    # KHU VỰC cho dễ đọc bảng ("ORF (Ấn Độ)", "SAIIA (Nam Phi)") trong khi kho đã có nhãn
+    # trần. Chốt theo `add_analyses.py`: `THINKTANK_HTML` khai `("ORF", …)` và
+    # `THINKTANK_FEEDS` khai `("SAIIA", …)` — đó là nhãn sinh cho mọi lô nạp về sau, chọn
+    # khác bảng đó thì nhãn tách đôi trở lại ngay ở bài kế tiếp của chính domain ấy.
+    # ⚠️ Cùng lý do, `cacianalyst.org` · `fiia.fi` · `icds.ee` hiện chỉ có MỘT nhãn nhưng nó
+    # là nhãn mang chú thích ("CACI Analyst (Trung Á)"…), còn `THINKTANK_FEEDS` khai
+    # "CACI Analyst" · "FIIA (Phần Lan)" · "ICDS (Estonia)". Hai cái sau khớp nhau; riêng
+    # CACI sẽ tách nhãn ở lô nạp kế tiếp nên chốt trước về nhãn của bảng feed.
+    "orfonline.org": "ORF (Observer Research Foundation)",
+    "saiia.org.za": "SAIIA",
+    "cacianalyst.org": "CACI Analyst",
 }
 
 MA_LOI = {"nhan_doi": 2, "ngoai_vien": 3, "trung_bai": 4}
