@@ -30,11 +30,15 @@ BỐN NHÓM, cố ý không gộp — gộp lại là kêu oan, mà bảng bị 
                      này vô nghĩa với chúng. Xếp riêng chứ đừng kêu
   ✓ NHIỀU MỤC        bình thường
 
-⚠️ GIỚI HẠN ĐÃ BIẾT, ĐỪNG TƯỞNG LÀ ĐÃ PHỦ HẾT. Phép đo bắt được **hình dạng Lowy** (một tên
-miền, bài chia theo mục), KHÔNG bắt được **hình dạng ASPI** (viện xuất bản dưới HAI tên miền —
-blog `aspistrategist.org.au`, báo cáo `aspi.org.au` — mà bảng chỉ khai một). Với ASPI thì 81/81
-bài nằm ở GỐC của tên miền blog, tức rơi vào nhóm ▫ và không được nêu. Hai hình dạng cần hai
-phép đo khác nhau; ở đây mới có một. Đừng đọc bảng kết quả sạch thành "mọi viện đã khai đủ".
+⚠️ GIỚI HẠN ĐÃ BIẾT, ĐỪNG TƯỞNG LÀ ĐÃ PHỦ HẾT. Phép đo NÀY chỉ bắt **hình dạng Lowy** (một tên
+miền, bài chia theo mục). Nó KHÔNG bắt **hình dạng ASPI** (viện xuất bản dưới HAI tên miền —
+blog `aspistrategist.org.au`, báo cáo `aspi.org.au` — mà bảng chỉ khai một): với ASPI thì 81/81
+bài nằm ở GỐC của tên miền blog, tức rơi vào nhóm ▫ và không được nêu.
+
+  → Hình dạng thứ hai nay do **`scripts/do_nguon_hai_mien.py`** đo (dựng 06/08/2026), cổng
+    nghiệm thu `tests/test-nguon-hai-mien.py`. Hai phép đo là hai lớp RỜI NHAU, không lớp nào
+    thay được lớp nào — bảng kết quả sạch của MỘT phép đo không có nghĩa "mọi viện đã khai đủ",
+    phải đọc cả hai. Cả hai đều đã nạp vào `BO_TEST` của `HeThong/khoe.py`.
 """
 import collections
 import importlib.util

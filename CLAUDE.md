@@ -1697,7 +1697,71 @@ Không có nhóm ○ thì Brookings · CNAS · CSIS · SPF USA bị kêu oan nga
 - ⚠️ **GIỚI HẠN, đừng đọc bảng sạch thành "mọi viện đã khai đủ".** Phép đo bắt **hình dạng
   Lowy** (một tên miền, bài chia theo mục), KHÔNG bắt **hình dạng ASPI** (viện xuất bản dưới
   HAI tên miền, bảng chỉ khai một) — bài ASPI nằm ở GỐC tên miền blog nên rơi vào nhóm ▫. Hai
-  hình dạng cần hai phép đo; ở đây mới có một.
+  hình dạng cần hai phép đo; hình dạng thứ hai xem mục ngay dưới.
+
+#### `scripts/do_nguon_hai_mien.py` — phép đo THỨ HAI: viện dưới HAI tên miền (dựng 06/08/2026)
+
+**CƠ CHẾ GÂY VẤP — cùng một lối im lặng, khác chỗ nấp.** Phép đo thứ nhất đếm phân bố MỤC bên
+trong một tên miền, nên nó chỉ nhìn thấy viện nào chia bài theo mục. ASPI thì không: nó đặt bài
+thẳng ở gốc tên miền blog `aspistrategist.org.au`, còn báo cáo nằm ở một tên miền HOÀN TOÀN
+KHÁC là `aspi.org.au`. Đo 06/08/2026: **81/81 bài ASPI thuộc blog, 0 bài `aspi.org.au`** — và
+vì bài nằm ở gốc nên phép đo thứ nhất xếp nó vào nhóm ▫ "phép đo không áp dụng" rồi im. Tức lỗ
+đứng ngay giữa bảng kết quả mà bảng vẫn sạch. Và **không dấu hiệu nào phát ra**: tên miền blog
+ra bài đều mỗi ngày nên danh sách ứng viên vẫn đầy, mục Think-tank vẫn có bài mới mỗi sáng,
+không ai có lý do đi hỏi *"còn thiếu gì"*. Lỗ ASPI cụ thể đã vá (feed `aspi.org.au/feed/`, khai
+trong commit `34f8973`); phép đo này để **viện thứ ba mai mốt không hỏng im lặng y hệt**.
+
+**Phép đo.** Gom tên miền trong `THINKTANK_DOMAINS` thành nhóm CÙNG MỘT VIỆN theo hai hình dạng
+— (a) tên miền con của cùng một tên đăng ký (`amti.csis.org` · `csis.org`); (b) chung gốc tên
+đăng ký (`aspi.org.au` / `aspistrategist.org.au`, kể cả lối `the<tên>` và `<tên>blog`) — rồi
+đối chiếu với tập tên miền đã có đường quét tự động (`THINKTANK_FEEDS` **hoặc** `THINKTANK_HTML`).
+Nhóm nào đường quét phủ tên miền này mà không phủ tên miền kia thì **LỆCH**.
+
+```
+python3 scripts/do_nguon_hai_mien.py             # báo cáo; mã 3 khi còn nhóm chưa soi
+python3 scripts/do_nguon_hai_mien.py --tu-kiem   # 13 ca · 10 bản hỏng
+python3 tests/test-nguon-hai-mien.py             # cổng nghiệm thu, 20 ca hộp đen
+```
+
+- ⚠️ **Cả nhóm đều CÓ đường, hoặc cả nhóm đều CHƯA, thì KHÔNG lệch.** Cả viện thuộc diện
+  WebSearch là một lựa chọn đã khai (`WEBSEARCH_ONLY`), không phải một lỗ — kêu vào đó là kêu
+  oan hàng loạt, mà bảng bị kêu oan vài lần thì hết được đọc.
+- ⚠️ **BA CÁI BẪY, dựng sai là kêu oan ngay lượt đầu** (đều đã thành ca đối chứng trong cổng):
+  **(1) so trên TÊN ĐĂNG KÝ, không so cả chuỗi tên miền** — `iss.europa.eu` và `issafrica.org`
+  khớp nhau ở chuỗi `iss`, nhưng `iss` bên trái là tên miền CON còn tên đăng ký của nó là
+  `europa`; EUISS và ISS Africa là hai viện khác hẳn. **(2) phải biết ĐUÔI CÔNG CỘNG NHIỀU
+  MẢNH** — `iseas.edu.sg` và `rsis.edu.sg` lấy hai mảnh cuối thì ra chung `edu.sg`, trong khi
+  tên đăng ký thật là `iseas` và `rsis`; thiếu bảng `DUOI_NHIEU_MANH` là mọi viện Úc gom một
+  cục, mọi viện Singapore gom một cục. **(3) ngưỡng tiền tố chung phải ≥ 4 ký tự** — `cepa.org`
+  và `ceps.eu` chung 3 ký tự đầu mà là hai viện khác nhau.
+- ⚠️ **Cộng một bảng `MIEN_TRO_CHUNG`**: `ctc.westpoint.edu` (Combating Terrorism Center) và
+  `mwi.westpoint.edu` (Modern War Institute) là hai viện khác nhau cùng trọ dưới tên miền một
+  trường đại học. Gom theo hình dạng (a) mà không loại tên miền đại học là kêu oan. Thêm tên
+  miền vào bảng đó là **TẮT phép đo** cho mọi viện trọ dưới nó — chỉ thêm tên miền của tổ chức
+  CHỦ NHÀ, đừng thêm tên miền của chính viện.
+- **BỐN NHÓM KHÔNG PHẢI LỖI, đã ghi `DA_DUYET`**: `spf.org`/`spfusa.org` (hai nhánh thật của
+  quỹ Sasakawa — Tokyo và Washington, hai ban biên tập riêng) · `agsi.org`/`agsiw.org` (viện
+  ĐỔI TÊN, tên cũ redirect sang tên mới; giữ cả hai chỉ để bài cũ trong kho không bị guardrail
+  domain chặn oan) · `ctc`/`mwi.westpoint.edu` · `dialogo-americas.com`/`thedialogue.org`
+  (phép gom dán chúng vào nhau vì chung 6 ký tự sau khi bóc `the`, nhưng một bên là tạp chí của
+  Bộ Chỉ huy miền Nam Hoa Kỳ, bên kia là viện Inter-American Dialogue).
+- **Hướng lệch CÓ CHỦ Ý: phép gom cố ý RỘNG.** Gom thừa một nhóm thì tốn đúng một dòng
+  `DA_DUYET`; gom hụt thì lỗ nằm im tiếp — mà im lặng chính là thứ phép đo này sinh ra để chặn.
+- **Đã xử lý ngay lượt dựng — CSIS xuất bản dưới BỐN tên miền** (`csis.org` · `amti` ·
+  `interpret` · `chinapower`), ba cái đầu có đường quét còn `chinapower.csis.org` thì không.
+  Đã tìm ra feed thật `https://chinapower.csis.org/feed/` (200 · 10 item) bằng cách đọc thẻ
+  `<link rel="alternate">` trên trang chủ — cùng đường đã tìm ra feed RUSI và CACI — và khai
+  vào `THINKTANK_FEEDS`. ⚠️ Viện này đăng **THƯA (~1 bài/tháng)** nên thường nằm trong dòng
+  *"feed không ra bài"*, đó là bình thường; và feed xếp item **KHÔNG theo thời gian** (bài ghim
+  từ 2016 nằm lẫn giữa bài 2026) — vô hại vì `loc_ung_vien_feed` lọc theo `pubDate` chứ không
+  theo vị trí, nhưng **đừng đọc item đầu feed thành "bài mới nhất"**.
+- `--tu-kiem` gồm **01 ca vàng chạy trên BẢNG NGUỒN THẬT**: nhóm lệch nào chưa ai soi thì ĐỎ.
+  Đã nạp `BO_TEST` của `khoe.py` cùng cổng, nên một viện mới lệch là sáng hôm sau biết.
+- ⚠️ **Ca đối chứng của bản hỏng phải tránh chỗ CÓ HAI LỚP CÙNG CHE.** Ca kiểm bảng
+  `MIEN_TRO_CHUNG` cố ý KHÔNG dùng cặp `ctc`/`mwi.westpoint.edu` — cặp đó vừa bị bảng ấy loại
+  vừa nằm trong `DA_DUYET`, nên gỡ bảng đi mà ca vẫn xanh. Tương tự, ca kiểm hình dạng (a) dùng
+  tên đăng ký **3 ký tự** (`vbc.org` / `blog.vbc.org`): tên dài hơn ngưỡng thì hình dạng (b)
+  gánh luôn, gỡ lớp (a) cũng không ai thấy.
 
 ⚠️ **`tests/test-nguon-nghien-cuu.py --tu-kiem` ĐANG HỎNG (0/3)** — harness của nó đem thay
 CHÍNH FILE CỔNG chứ không thay `add_analyses.py` như docstring khai, và cả 03 phép thay đều
