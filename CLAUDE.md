@@ -1789,6 +1789,82 @@ Defense, Seapower (Navy League), National Defense Magazine, Shephard, Janes — 
 kế. Cách xử lý: **gộp thành MỘT tin** ("Lầu Năm Góc công bố loạt hợp đồng ngày DD/MM: …, …"), hoặc lấy
 tin từ thông cáo riêng của nhà thầu để có URL khác. Đừng bỏ tin chỉ vì đụng guardrail này.
 
+## 🎯 BẢNG ĐỘ GẦN NGUỒN — cổng chặn tin kênh tuyên truyền đứng một mình (dựng 06/08/2026)
+
+**Dòng khai hiện hành — SỬA ĐÚNG DÒNG NÀY khi bảng đổi, đừng sửa phần nhật ký phía dưới:**
+bảng độ gần đang canh **109 hãng**, dấu vân tay `1fe3b2dc1b92a8b97f03e106208c98c3857d81ee`
+(độ gần 1: 18 · 2: 44 · 3: 41 · 4: 6).
+
+⚠️ **CHỮ "ĐỘ GẦN" LÀ CỐ Ý, KHÔNG PHẢI "TẦNG".** Mục *"Nguồn theo 3 tầng"* ngay bên dưới xếp
+nguồn theo **công dụng** — ở đó tầng 3 là viện nghiên cứu, dùng để neo nhận định, tức vị trí
+CAO. Bảng này xếp theo **độ gần sự việc** — ở đây mức 3 là trang tổng hợp/dẫn lại, tức vị trí
+THẤP. CSIS mang số 3 ở cả hai bảng với hai ý nghĩa trái ngược; Reuters là "báo chí dưới cùng"
+ở bảng cũ nhưng mức 2 ở bảng này. Giữ chung một chữ là gài sẵn một chỗ đọc nhầm mà không tool
+nào bắt được, nên Huy chốt 06/08/2026: bảng mới gọi là **độ gần**, bảng cũ giữ nguyên tên.
+
+| Độ gần | Nghĩa |
+|---|---|
+| 1 | nguồn gốc chính thức — chính bên tạo ra sự việc, hoặc người quan sát trực tiếp |
+| 2 | hãng tin có phóng viên tại chỗ |
+| 3 | trang tổng hợp / dẫn lại |
+| 4 | kênh tuyên truyền |
+
+**VÌ SAO CÓ BẢNG NÀY.** Mục THANG XÁC MINH phía trên đã có sẵn dòng luật *"truyền thông nhà
+nước độc tài: chỉ dùng cho phát ngôn của chính họ; sự kiện tranh chấp/thương vong phải có
+nguồn thứ hai"* từ 27/07/2026. Luật đúng và đủ — thứ thiếu là **chỗ tra**: nó gọi tên LOẠI
+nguồn chứ không gọi tên HÃNG, nên mỗi lượt quét lại phải xếp loại bằng phán đoán (*"Zona
+Militar thuộc loại nào?"*, *"The Epoch Times thì sao?"*), phán đoán đó không được ghi lại ở
+đâu, và không cổng nào đo được nó đã xảy ra hay chưa. Bảng biến phán đoán ấy thành phép tra.
+
+**Cắm ở đâu:** `scripts/do_gan.py` (một hàm kiểm tra duy nhất, `add_news.py` GỌI — cấm chép
+logic sang nơi khác) · bảng `data/do-gan-nguon.json`.
+
+**HAI ĐƯỜNG QUA CỔNG cho tin độ gần 4, cố ý là hai chứ không phải một:**
+- `"nguonThuHai": "<url>"` — phải khác **tên miền gốc** với `sourceUrl`. Dùng khi tin là sự
+  kiện tranh chấp/thương vong, hoặc nói về bên thứ ba.
+- `"phatNgonCuaChinhHo": true` — dùng khi tin là phát ngôn/hành động do CHÍNH bên đó công bố.
+
+⚠️ **Đường thứ hai BẮT BUỘC phải có, nếu không cổng chặn oan đúng loại tin mà luật gốc cho
+phép.** Đo trên 497 tin đang sống ngày 06/08: cổng chạm 03 tin, thì 02 tin là Trung Quốc
+công bố việc của chính Trung Quốc (Global Times) — hợp lệ theo luật gốc — chỉ 01 tin (The
+Epoch Times viết về cam kết của Tổng thống Philippines) mới là ca luật gốc nhắm tới. Cổng nào
+ở luồng bình thường luôn phải mở cờ mới qua được là cổng chết: nó dạy người dùng phản xạ mở
+cờ, mà mở cờ quen tay thì mọi cổng còn lại mất giá theo. Đường thứ hai không phải lỗ hổng —
+nó là một lời khai được GHI vào tin, tức đúng thứ trước giờ vẫn xảy ra trong đầu người quét
+mà không để lại dấu vết nào.
+
+**Phạm vi cố ý hẹp:** chỉ chặn `worldNews` · `usNews` · `baomoiNews` · items của sự kiện.
+`xNews` chỉ **cảnh báo**, không chặn — luồng đó được trình bày trên web đúng như bản chất của
+nó (tiếng nói mạng xã hội chưa thẩm định), nên bắt nó có nguồn thứ hai là đổi bản chất luồng
+chứ không phải vá một lỗ. Nguồn **chưa có trong bảng cũng không bị chặn**: đo 06/08 thì 39%
+số tin đang sống mang tên nguồn chưa xếp loại, chặn cả nhóm đó là chặn oan hàng loạt.
+
+**Cờ mở cổng — CÓ THẬT, được đọc, và để lại dấu:**
+```bash
+python3 scripts/add_news.py /tmp/new_items.json --bo-cong-do-gan="lý do cụ thể"
+```
+
+⚠️ **BẢNG TRONG REPO LÀ BẢN CHÉP — bản gốc ở `App/RenPhanTich/du-lieu/nguon.json`.** Buộc
+phải chép vì `add_news.py` chạy **cả trên máy chạy của GitHub Actions**
+(`import-news-from-drive.yml`, `claude-web-scan.yml`), nơi `/Users/Huy/Claude/App/` không tồn
+tại — trỏ đường dẫn tuyệt đối là cổng chết câm trên CI: không tra được thì không chặn được,
+và không có lỗi nào phát ra. Đã có hai bản thì phải có phép đo canh cho chúng đừng tách nhánh.
+**Sửa bảng thì sửa BẢN GỐC rồi chạy `python3 scripts/dong_bo_do_gan.py --sinh`**, đừng sửa tay
+bản trong repo (`--kiem` tính lại dấu vân tay từ chính nội dung nên sửa tay là lộ ngay).
+
+**Chuỗi canh — 03 mắt, mỗi mắt một phép đo khác nhau:**
+| Mắt | Đo gì | Chạy ở đâu |
+|---|---|---|
+| `scripts/dong_bo_do_gan.py --kiem` | bản gốc ↔ bản chép trong repo | `khoe.py` mỗi sáng |
+| `tests/test-cong-do-gan.py --tu-kiem` | bản chép ↔ hành vi cổng (16 ca · 10 bản hỏng) | `khoe.py` mỗi sáng |
+| `HeThong/dong-bo-luat.py --kiem` | bản chép ↔ dòng khai hiện hành ở đầu mục này | `khoe.py` lớp 8 |
+
+**Số đo lúc dựng (06/08/2026):** bảng khớp 61% số tin đang sống (388/638) — tin thế giới 65%,
+tin Mỹ 66%, tin bị loại 34%, mạng xã hội 54%; kho bài think-tank khớp 87% (443/506). Phần hụt
+lớn nhất là mục Bị loại: 56/86 tin đến từ báo trong nước qua Báo Mới, chưa có tên nào trong
+bảng. Độ gần 4 xuất hiện 07 lần trong dữ liệu sống (Global Times ×2, The Epoch Times ×1, cộng
+04 tài khoản mạng xã hội) — tức cổng có việc thật để làm.
+
 ## Nguồn theo 3 tầng (chuẩn báo cáo/INTREP — áp dụng từ 11/07/2026)
 **Nguyên tắc:** dữ kiện/sự kiện neo vào nguồn CHÍNH THỨC (tầng 1); số liệu kinh tế/quân sự neo vào nguồn DỮ LIỆU (tầng 2); kết luận/nhận định chiến lược (field `significance` + phần Phân tích) neo vào VIỆN NGHIÊN CỨU (tầng 3). Báo chí/hãng tin (dưới cùng) dùng để PHÁT HIỆN sự kiện sớm, KHÔNG tự mình làm chỗ dựa cho kết luận — luôn đối chiếu. Tin quân sự chỉ có 1 nguồn (Army Recognition/Naval News/blog) → kiểm chứng thêm bằng thông cáo bộ quốc phòng/ảnh chính thức/Janes/SIPRI. Khi tin bắt nguồn từ thông báo chính thức, link THẲNG tới nguồn gốc tầng 1 thay vì báo dẫn lại.
 

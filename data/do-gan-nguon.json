@@ -1,0 +1,669 @@
+{
+ "_doc": "SINH TỰ ĐỘNG — ĐỪNG SỬA TAY. Sửa bản gốc rồi chạy `python3 scripts/dong_bo_do_gan.py --sinh`.",
+ "_ban_goc": "/Users/Huy/Claude/App/RenPhanTich/du-lieu/nguon.json",
+ "_sinh_boi": "scripts/dong_bo_do_gan.py",
+ "_dau_van_tay": "1fe3b2dc1b92a8b97f03e106208c98c3857d81ee",
+ "_thang": {
+  "1": "nguồn gốc chính thức",
+  "2": "hãng tin có phóng viên tại chỗ",
+  "3": "trang tổng hợp / dẫn lại",
+  "4": "kênh tuyên truyền"
+ },
+ "so_hang": 109,
+ "hang": [
+  {
+   "ten": "@CENTCOM",
+   "do_gan": 1,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản chính thức của một bộ chỉ huy: mạng xã hội nhưng vẫn là nguồn gốc."
+  },
+  {
+   "ten": "@IEA",
+   "do_gan": 1,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản chính thức của tổ chức phát hành số liệu năng lượng — gốc cho chính số liệu đó."
+  },
+  {
+   "ten": "@NATO",
+   "do_gan": 1,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản chính thức của liên minh: gốc cho tuyên bố và hoạt động do chính NATO công bố."
+  },
+  {
+   "ten": "@usf_army",
+   "do_gan": 1,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản chính thức của một quân chủng: gốc cho việc họ tự công bố, nhưng vẫn là một bên tham chiến."
+  },
+  {
+   "ten": "@USTreasury",
+   "do_gan": 1,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản chính thức của bộ tài chính — thông báo trừng phạt thường lên đây trước."
+  },
+  {
+   "ten": "Bộ Ngoại giao Mỹ",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho tuyên bố chung và lập trường ngoại giao chính thức."
+  },
+  {
+   "ten": "Bộ Quốc phòng Anh",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho điều động và mua sắm của Anh."
+  },
+  {
+   "ten": "Bộ Quốc phòng Mỹ",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho số liệu hợp đồng và tuyên bố chính sách quốc phòng."
+  },
+  {
+   "ten": "Bộ Quốc phòng Úc",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho điều động và mua sắm của Úc."
+  },
+  {
+   "ten": "DVIDS",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Kho ảnh và video do chính các đơn vị quân đội Mỹ nộp lên — tư liệu gốc."
+  },
+  {
+   "ten": "European Commission",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho quy định, gói tài trợ và biện pháp thương mại của EU."
+  },
+  {
+   "ten": "Federal Reserve",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho lãi suất và số liệu tiền tệ Mỹ."
+  },
+  {
+   "ten": "GOV.UK",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Cổng công bố văn kiện chính thức của chính phủ Anh."
+  },
+  {
+   "ten": "Lực lượng Không gian Mỹ",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho hoạt động phóng và vận hành vệ tinh quân sự Mỹ."
+  },
+  {
+   "ten": "U.S. Department of State",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Bản tiếng Anh của cùng cơ quan trên."
+  },
+  {
+   "ten": "U.S. Department of the Treasury",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Gốc cho danh sách trừng phạt và biện pháp tài chính."
+  },
+  {
+   "ten": "U.S. Department of War",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Thông cáo của chính bộ chủ quản — gốc cho hợp đồng, điều động, bổ nhiệm."
+  },
+  {
+   "ten": "Uỷ ban Thương mại Thượng viện",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Biên bản và tài liệu phiên điều trần là văn bản gốc."
+  },
+  {
+   "ten": "@AJEnglish",
+   "do_gan": 2,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản của một hãng tin có phóng viên tại chỗ."
+  },
+  {
+   "ten": "@defense_news",
+   "do_gan": 2,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản của chuyên trang quốc phòng, đăng lại chính bài của mình."
+  },
+  {
+   "ten": "@KyivIndependent",
+   "do_gan": 2,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản của một toà soạn thật, có phóng viên tại chỗ — kênh mạng xã hội không hạ tầng của nó."
+  },
+  {
+   "ten": "@straits_times",
+   "do_gan": 2,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản của một nhật báo có phóng viên khu vực."
+  },
+  {
+   "ten": "@thewarzonewire",
+   "do_gan": 2,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản của một chuyên trang quốc phòng."
+  },
+  {
+   "ten": "Air & Space Forces Magazine",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Chuyên trang không quân và vũ trụ."
+  },
+  {
+   "ten": "Al Jazeera",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Phóng viên tại chỗ mạnh ở Trung Đông; chú ý góc nhìn khu vực khi đọc phần bình luận."
+  },
+  {
+   "ten": "AP",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Cùng hãng với mục trên, ghi tắt trong kho."
+  },
+  {
+   "ten": "Associated Press",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Hãng thông tấn, thường là nguồn đầu tiên được các báo khác dẫn lại."
+  },
+  {
+   "ten": "Axios",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Tin ngắn, thường có nguồn trong nội bộ chính quyền."
+  },
+  {
+   "ten": "Bloomberg",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Mạnh ở mảng kinh tế và công nghiệp quốc phòng."
+  },
+  {
+   "ten": "Breaking Defense",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Chuyên trang quốc phòng, nhiều tin từ hội nghị ngành."
+  },
+  {
+   "ten": "Báo Quân Đội Nhân Dân",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Cùng tình trạng: gốc cho phát ngôn của quân đội trong nước, dẫn lại cho tin quốc tế."
+  },
+  {
+   "ten": "CBS News",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Đài lớn, có phóng viên thường trú."
+  },
+  {
+   "ten": "CNBC",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Kênh kinh tế, mạnh ở số liệu doanh nghiệp."
+  },
+  {
+   "ten": "CNN",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Đài lớn, có phóng viên thường trú."
+  },
+  {
+   "ten": "Defense News",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Chuyên trang quốc phòng, bám sát ngân sách và hợp đồng."
+  },
+  {
+   "ten": "Defense One",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Chuyên trang quốc phòng và công nghệ."
+  },
+  {
+   "ten": "Euronews",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Theo sát chính trị châu Âu."
+  },
+  {
+   "ten": "Inquirer",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Bám sát các vụ việc trên Biển Tây Philippines, thường dẫn thẳng thông cáo của quân đội."
+  },
+  {
+   "ten": "Janes",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Cơ sở dữ liệu quốc phòng lâu đời, dẫn nguồn chặt."
+  },
+  {
+   "ten": "Military Times",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Bám mảng nhân sự và đời sống quân đội Mỹ."
+  },
+  {
+   "ten": "Naval News",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Chuyên trang hải quân, thường có ảnh chụp tại chỗ ở triển lãm và cảng."
+  },
+  {
+   "ten": "NBC News",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Đài lớn, có phóng viên thường trú."
+  },
+  {
+   "ten": "Nikkei Asia",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Mạnh ở kinh tế và chuỗi cung ứng châu Á."
+  },
+  {
+   "ten": "NPR",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Đài phát thanh công, quy trình kiểm chứng chặt."
+  },
+  {
+   "ten": "Rappler",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Báo mạng Philippines, mạnh mảng điều tra."
+  },
+  {
+   "ten": "Reuters",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Hãng thông tấn có mạng phóng viên rộng, có quy trình đính chính công khai."
+  },
+  {
+   "ten": "South China Morning Post",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Tiếp cận nguồn Trung Quốc tốt; chú ý phần bình luận có khuynh hướng riêng."
+  },
+  {
+   "ten": "SpaceNews",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Chuyên trang vũ trụ, bám hợp đồng phóng và vệ tinh."
+  },
+  {
+   "ten": "Stars and Stripes",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Báo của quân đội Mỹ nhưng có ban biên tập độc lập theo luật."
+  },
+  {
+   "ten": "Taipei Times",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Theo sát hoạt động quân sự quanh Đài Loan, dẫn thẳng thông cáo của cơ quan chức năng."
+  },
+  {
+   "ten": "Thanh Niên",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Nhật báo lớn, phần quốc tế chủ yếu dẫn lại."
+  },
+  {
+   "ten": "The Hill",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Bám hoạt động lập pháp tại Quốc hội Mỹ."
+  },
+  {
+   "ten": "The Korea Herald",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Theo sát bán đảo Triều Tiên."
+  },
+  {
+   "ten": "The Manila Times",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Nhật báo Philippines, hay dẫn phát ngôn của lực lượng vũ trang."
+  },
+  {
+   "ten": "The Moscow Times",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Toà soạn hoạt động ngoài Nga; đọc kèm nguồn trong nước để bù góc nhìn."
+  },
+  {
+   "ten": "The Straits Times",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Theo sát Đông Nam Á, thường dẫn nguồn khu vực trước các báo phương Tây."
+  },
+  {
+   "ten": "The Washington Post",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Nhật báo lớn, có phóng viên thường trú nhiều nơi."
+  },
+  {
+   "ten": "Tuổi Trẻ",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Nhật báo lớn, phần quốc tế chủ yếu dẫn lại."
+  },
+  {
+   "ten": "USNI News",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Theo dõi vị trí và điều động tàu chiến Mỹ theo tuần."
+  },
+  {
+   "ten": "VietnamPlus (TTXVN)",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Thông tấn xã nhà nước: với phát ngôn chính thức của Việt Nam thì đây là nguồn gốc, với sự việc ở nước ngoài thì là dẫn lại."
+  },
+  {
+   "ten": "VnExpress",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Báo mạng lớn trong nước, phần quốc tế chủ yếu dẫn lại."
+  },
+  {
+   "ten": "Xinhua",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Thông tấn nhà nước: gốc cho phát ngôn chính thức của Bắc Kinh, nhưng phải kiểm chéo khi nói về bên thứ ba."
+  },
+  {
+   "ten": "38 North",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Chuyên theo dõi Triều Tiên bằng nguồn mở và ảnh vệ tinh."
+  },
+  {
+   "ten": "@Defence_IDA",
+   "do_gan": 3,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản phân tích quốc phòng, dựng trên nguồn mở của người khác."
+  },
+  {
+   "ten": "@EU_ISS",
+   "do_gan": 3,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản của một viện nghiên cứu: nội dung là phân tích thứ cấp."
+  },
+  {
+   "ten": "@TheStudyofWar",
+   "do_gan": 3,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản của chính viện trên: kênh mạng xã hội, nội dung là phân tích thứ cấp."
+  },
+  {
+   "ten": "Africa Defense Forum",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Do một bộ chỉ huy Mỹ tài trợ — đọc kèm lưu ý về mục đích truyền thông."
+  },
+  {
+   "ten": "AMTI/CSIS",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Chuyên đọc ảnh vệ tinh: phần ảnh gốc là tầng 1, phần diễn giải vẫn là tầng 3."
+  },
+  {
+   "ten": "Arms Control Association",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Tổ chức vận động kiểm soát vũ khí — có lập trường công khai, đọc kèm lưu ý."
+  },
+  {
+   "ten": "Army Recognition",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Tổng hợp tin khí tài, hay dẫn lại thông cáo nhà sản xuất mà không kiểm chéo."
+  },
+  {
+   "ten": "ASPI Strategist",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu: phân tích công phu nhưng dựng trên quan sát của người khác."
+  },
+  {
+   "ten": "Atlantic Council",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu, mạnh mảng xuyên Đại Tây Dương."
+  },
+  {
+   "ten": "Australian Defence Magazine",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Tạp chí ngành, dẫn lại là chính."
+  },
+  {
+   "ten": "Brookings",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu chính sách."
+  },
+  {
+   "ten": "Báo Mới",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang tổng hợp: không tự sản xuất tin, luôn phải truy về báo gốc mà nó dẫn."
+  },
+  {
+   "ten": "Báo Tin Tức TTXVN",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Phần quốc tế chủ yếu dịch lại từ hãng tin nước ngoài."
+  },
+  {
+   "ten": "Báo Tiền Phong",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Phần quốc tế chủ yếu dịch lại."
+  },
+  {
+   "ten": "Báo VTC News",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Phần quốc tế chủ yếu dịch lại."
+  },
+  {
+   "ten": "CEPA",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu về châu Âu và Nga."
+  },
+  {
+   "ten": "CFR",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu quan hệ quốc tế."
+  },
+  {
+   "ten": "CIMSEC",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Diễn đàn nghiên cứu an ninh hàng hải."
+  },
+  {
+   "ten": "CNAS",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu an ninh."
+  },
+  {
+   "ten": "Crisis Group",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Tổ chức nghiên cứu xung đột, có người tại thực địa nhưng sản phẩm là phân tích."
+  },
+  {
+   "ten": "CSIS",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu lớn, nhiều mảng chuyên sâu."
+  },
+  {
+   "ten": "Defence Connect",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang ngành quốc phòng Úc, nhiều bài từ thông cáo."
+  },
+  {
+   "ten": "Dân Trí",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Phần quốc tế chủ yếu dịch lại."
+  },
+  {
+   "ten": "East Asia Forum",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Diễn đàn học thuật về Đông Á."
+  },
+  {
+   "ten": "Hudson Institute",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu, có khuynh hướng chính sách rõ."
+  },
+  {
+   "ten": "Institute for the Study of War (ISW)",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Bản đồ chiến sự dựng từ nguồn mở — giá trị cao nhưng vẫn là tổng hợp lại."
+  },
+  {
+   "ten": "Jamestown Foundation",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu, mạnh mảng Nga và Trung Á."
+  },
+  {
+   "ten": "Long War Journal",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Theo dõi các nhóm vũ trang, dựng từ nguồn mở."
+  },
+  {
+   "ten": "Lowy Institute",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu, mạnh về Ấn Độ Dương - Thái Bình Dương."
+  },
+  {
+   "ten": "MERICS",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu về Trung Quốc."
+  },
+  {
+   "ten": "Modern War Institute",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang nghiên cứu của một học viện quân sự."
+  },
+  {
+   "ten": "Naval Technology",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang ngành, phần lớn bài dựng từ thông cáo doanh nghiệp."
+  },
+  {
+   "ten": "Naval Today",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang ngành, chủ yếu dẫn lại."
+  },
+  {
+   "ten": "RUSI",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu quốc phòng lâu đời."
+  },
+  {
+   "ten": "Sandboxx News",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang nội dung quốc phòng, thiên về giải thích lại."
+  },
+  {
+   "ten": "The China-Global South Project",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang chuyên đề, chủ yếu tổng hợp và bình luận."
+  },
+  {
+   "ten": "The Defense Post",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Tổng hợp tin quốc phòng từ nguồn khác."
+  },
+  {
+   "ten": "VietTimes",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Phần quốc tế chủ yếu dịch lại."
+  },
+  {
+   "ten": "War on the Rocks",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Trang bình luận quốc phòng, bài của người trong ngành viết với tư cách cá nhân."
+  },
+  {
+   "ten": "Wilson Center",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Viện nghiên cứu chính sách."
+  },
+  {
+   "ten": "@Breaking911",
+   "do_gan": 4,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản tổng hợp tin nóng: đăng rất nhanh, không nêu nguồn gốc và không có quy trình đính chính."
+  },
+  {
+   "ten": "@ShanghaiEye",
+   "do_gan": 4,
+   "kenh": "mxh",
+   "luu_y": "Kênh truyền thông đối ngoại: dùng để đọc thông điệp muốn phát ra, không dùng làm bằng chứng sự việc."
+  },
+  {
+   "ten": "@WarMonitor3",
+   "do_gan": 4,
+   "kenh": "mxh",
+   "luu_y": "Tài khoản theo dõi chiến sự ẩn danh: không biết ai đứng sau, không truy được nguồn của từng tin."
+  },
+  {
+   "ten": "@WarshipCam",
+   "do_gan": 4,
+   "kenh": "mxh",
+   "luu_y": "Ảnh tàu do người chơi tự chụp: bức ảnh gốc gần tầng 1, nhưng danh tính người chụp và thời điểm không xác minh được."
+  },
+  {
+   "ten": "Global Times",
+   "do_gan": 4,
+   "kenh": "web",
+   "luu_y": "Báo của hệ thống đảng cầm quyền, giọng công kích: dùng để đọc LẬP TRƯỜNG chính thức, không dùng làm bằng chứng sự việc."
+  },
+  {
+   "ten": "The Epoch Times",
+   "do_gan": 4,
+   "kenh": "web",
+   "luu_y": "Khuynh hướng chính trị rõ rệt và lập trường chống Bắc Kinh công khai — kiểm chéo trước khi dùng."
+  }
+ ]
+}

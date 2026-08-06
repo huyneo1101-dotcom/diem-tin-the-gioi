@@ -660,17 +660,36 @@ def main() -> None:
         print_baomoi_pending(repo_root / "index.html", repo_root)
         return
 
-    if len(sys.argv) != 2:
+    # Cờ mở cổng độ gần: `--bo-cong-do-gan="lý do"` ở BẤT KỲ vị trí nào. Bóc ra khỏi argv
+    # trước khi đếm, kẻo thêm cờ là rơi vào nhánh in hướng dẫn. Cờ này CÓ THẬT và được đọc
+    # ở dưới — cờ được quảng cáo trong thông điệp lỗi mà không ai đọc còn tệ hơn không có cờ.
+    tham_so, bo_cong_do_gan, co_co = [], "", False
+    for x in sys.argv[1:]:
+        if x == "--bo-cong-do-gan" or x.startswith("--bo-cong-do-gan="):
+            # Cờ trần (không `=`) cũng nhận vào đây rồi mới từ chối vì thiếu lý do — để
+            # nó rơi vào danh sách tham số thì thông điệp lỗi hoá thành bảng hướng dẫn
+            # chung, người dùng đọc không biết mình sai ở chỗ nào.
+            co_co = True
+            bo_cong_do_gan = x.split("=", 1)[1].strip() if "=" in x else ""
+        else:
+            tham_so.append(x)
+
+    if co_co and not bo_cong_do_gan:
+        print("--bo-cong-do-gan phải kèm LÝ DO: --bo-cong-do-gan=\"...\"", file=sys.stderr)
+        sys.exit(1)
+
+    if len(tham_so) != 1:
         print(
             "Dùng: add_news.py <new_items.json>  |  add_news.py --recent-titles [N]"
-            "  |  add_news.py --baomoi-pending",
+            "  |  add_news.py --baomoi-pending"
+            "\n      (thêm --bo-cong-do-gan=\"lý do\" để hạ cổng độ gần xuống mức cảnh báo)",
             file=sys.stderr,
         )
         sys.exit(1)
 
     repo_root = pathlib.Path(__file__).resolve().parent.parent
     html_path = repo_root / "index.html"
-    new_items = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
+    new_items = json.loads(pathlib.Path(tham_so[0]).read_text(encoding="utf-8"))
 
     world_new = new_items.get("worldNews", [])
     us_new = new_items.get("usNews", [])
@@ -697,6 +716,15 @@ def main() -> None:
     validate_event_updates(dip_updates, "dipEventUpdates", ref)
     validate_new_events(new_dip_events, ref)
     validate_new_events(new_exercises, ref, "newExercises", check_dates=False)
+
+    # CỔNG ĐỘ GẦN — tin từ kênh tuyên truyền (độ gần 4) không được đứng một mình. Logic nằm
+    # ở `scripts/do_gan.py`, MỘT hàm kiểm tra duy nhất; chép sang đây thì hai bản tách nhánh
+    # ở lần vá sau mà không ai thấy. Cố ý KHÔNG bọc try/except: bảng mất thì phải chặn nạp
+    # và kêu, chứ không phải chạy tiếp trong im lặng với cổng đã chết.
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+    import do_gan  # noqa: E402
+    for dong in do_gan.kiem_lo(new_items, bo_cong_do_gan):
+        print("  " + dong)
 
     html = html_path.read_text(encoding="utf-8")
     start, end = find_data_span(html)
