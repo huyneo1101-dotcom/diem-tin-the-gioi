@@ -17,6 +17,8 @@ chính danh nghĩa của mục (18 bài cũ trong DATA có lẫn như vậy, đ�
 Dùng:
   python3 scripts/add_analyses.py --candidates      # LIỆT KÊ ứng viên từ RSS 13 viện (bước 1)
   python3 scripts/add_analyses.py /tmp/analyses.json # NẠP bài đã chọn + dịch (bước 2)
+  python3 scripts/add_analyses.py --candidates-dai  # BÀI DÀI: chỉ feed nghiên cứu, khung THÁNG
+  python3 scripts/do_nguon_mot_muc.py               # dò nguồn nghi chỉ khai một mục
 
 /tmp/analyses.json:
 {
@@ -163,10 +165,39 @@ BAD_URL = re.compile(r"/(live|live-blog|live-updates|liveblog)(/|$)", re.I)
 # "BỎ HẲN" vì vậy), nhưng có UA thì trả 100 item bình thường.
 # Cột 3 = khu vực/mảng chính. Có cột này để nhìn phát biết mình đang phủ đâu và TRỐNG đâu
 # (chỉ thị Huy 27/07/2026: "có thể quét các bài think tank về các khu vực quan trọng khác").
+#
+# ══ MỘT VIỆN CÓ THỂ CÓ HAI FEED: BLOG và NGHIÊN CỨU — hậu tố `[NC]` (thêm 06/08/2026) ══
+# Phần lớn viện lớn xuất bản ở HAI nhịp khác nhau, và mỗi nhịp một feed riêng:
+#   · BLOG — bình luận ngắn, ra hằng ngày. Lowy `the-interpreter` · ASPI `aspistrategist.org.au`
+#     · RUSI `latest-commentary` · CSET `/feed/`.
+#   · NGHIÊN CỨU — báo cáo dài, ra theo THÁNG. Lowy `/publications/` · ASPI `/report/`
+#     · RUSI `/explore-our-research/` · CSET `/publication/`.
+#
+# CƠ CHẾ GÂY VẤP — bảng này khai đúng MỘT feed cho mỗi viện, và cái được khai luôn là feed
+# BLOG (nó dễ tìm hơn, nằm ngay trang chủ). Hậu quả **không phát ra dấu hiệu nào**: feed blog
+# vẫn ra bài đều mỗi ngày, danh sách ứng viên vẫn đầy, mục Think-tank trên web vẫn có bài mới
+# mỗi sáng — nên không ai có lý do đi hỏi "còn thiếu gì". Đo trên `data/analyses.json` ngày
+# 06/08/2026: **35/35 bài Lowy thuộc `/the-interpreter/`, 0 bài `/publications/`**; **81/81
+# bài ASPI thuộc blog, 0 bài `aspi.org.au`**. Tức toàn bộ mảng BÁO CÁO của hai viện đầu ngành
+# về Úc và Ấn Độ Dương - TBD chưa từng vào kho, suốt từ ngày dựng. Chỉ lộ ra khi Huy đi tìm
+# một nghiên cứu cụ thể mà không thấy.
+#
+# ⚠️ Feed blog PHẢI GIỮ NGUYÊN — đây là THÊM mục nghiên cứu, không phải thay blog bằng nghiên
+# cứu. Thay là mất ~35 bài Interpreter mỗi năm, tức vá một lỗ bằng cách mở một lỗ to hơn.
+# ⚠️ Bốn feed `[NC]` đã FETCH THẬT 06/08/2026 (200 · lần lượt 50 · 10 · 20 · 10 item) và đã
+# kiểm là chúng ra bài ở mục KHÁC với feed blog cùng viện — hai feed cùng viện mà ra chung một
+# mục thì khai thêm chẳng được gì.
+# ⚠️ ĐÃ THỬ VÀ CHẾT, ĐỪNG DÒ LẠI (đo 06/08/2026): `aspi.org.au/rss.xml` 403 ·
+# `aspi.org.au/publications/feed` 403 · `rand.org/pubs.xml` 200 nhưng 0 item ·
+# `rand.org/research.xml` 500 · `rusi.org/rss/latest-research.xml` 404 · `heritage.org/rss/reports`
+# 403 · `cepa.org/comprehensive-reports/feed/` 404.
 THINKTANK_FEEDS = [
     # — Ấn Độ Dương - Thái Bình Dương / Đông Á
     ("Lowy Institute", "https://www.lowyinstitute.org/the-interpreter/rss.xml", "Ấn Độ Dương - TBD"),
+    ("Lowy Institute [NC]", "https://www.lowyinstitute.org/publications/rss.xml",
+     "Ấn Độ Dương - TBD · nghiên cứu"),
     ("ASPI", "https://www.aspistrategist.org.au/feed/", "Úc · Ấn Độ Dương - TBD"),
+    ("ASPI [NC]", "https://www.aspi.org.au/feed/", "Úc · Ấn Độ Dương - TBD · nghiên cứu"),
     ("Fulcrum (ISEAS)", "https://fulcrum.sg/feed/", "Đông Nam Á"),
     ("MERICS", "https://merics.org/en/rss", "Trung Quốc"),
     ("Interpret China (CSIS)", "https://interpret.csis.org/feed/", "Trung Quốc"),
@@ -187,6 +218,7 @@ THINKTANK_FEEDS = [
     # (thiếu --compressed) và War on the Rocks (thiếu -A): đừng gạch một nguồn khi chưa dò hết
     # đường vào.
     ("RUSI", "https://www.rusi.org/rss/latest-commentary.xml", "Anh · chiến lược"),
+    ("RUSI [NC]", "https://www.rusi.org/rss/latest-publications.xml", "Anh · chiến lược · nghiên cứu"),
     # CACI Analyst + USIP — hai feed ẩn tìm được 30/07/2026 bằng cách đọc thẻ
     # `<link rel="alternate">` trên trang chủ, cùng đường đã tìm ra feed RUSI. Cả hai vùng này
     # trước đó KHÔNG có nguồn tự động nào: Trung Á - Caucasus trắng hoàn toàn.
@@ -204,11 +236,54 @@ THINKTANK_FEEDS = [
     ("Hudson Institute", "https://www.hudson.org/rss.xml", "Mỹ · châu Á"),
     ("Heritage Foundation", "https://www.heritage.org/rss", "Mỹ"),
     ("CSET", "https://cset.georgetown.edu/feed/", "AI · công nghệ"),
+    ("CSET [NC]", "https://cset.georgetown.edu/publications/feed/", "AI · công nghệ · nghiên cứu"),
     ("Modern War Institute", "https://mwi.westpoint.edu/feed/", "Tác chiến"),
     ("Small Wars Journal", "https://smallwarsjournal.com/feed", "Xung đột phi quy ước"),
     ("CIMSEC", "https://cimsec.org/feed/", "Hải quân · biển"),
     ("Arms Control Association", "https://www.armscontrol.org/rss.xml", "Hạt nhân · kiểm soát vũ khí"),
 ]
+
+# ══ ĐƯỜNG NẠP BÀI DÀI — quét theo THÁNG, tách khỏi routine quét theo NGÀY (dựng 06/08/2026) ══
+#
+# CƠ CHẾ GÂY VẤP — LỚP THỨ HAI của cùng một lỗ, và khai đúng feed ở trên KHÔNG chữa được nó.
+# `MAX_AGE_DAYS = 7` là khung của routine sáng, đặt theo nhịp của feed BLOG. Nhưng báo cáo ra
+# theo tháng, nên tới lúc ai đó cần nó thì nó đã ngoài khung từ lâu: bản báo cáo Lowy
+# "Understanding the Chinese military threat to Australia" đăng 14/06/2026, tức **53 ngày**
+# trước ngày dựng — khai feed `/publications/` xong thì `--candidates` vẫn không bao giờ liệt
+# kê nó ra. Nghiên cứu ra theo tháng, routine quét theo ngày: hai nhịp không khớp nhau.
+#
+# Vì thế khung rộng đi kèm một CỜ RIÊNG (`--candidates-dai`), không nới khung của routine:
+# nới `MAX_AGE_DAYS` là mỗi sáng danh sách ứng viên phình lên gấp mấy lần bằng bài đã đọc từ
+# tuần trước, ngốn hết context của agent chọn bài — vá một lỗ bằng cách làm hỏng luồng đang
+# chạy tốt.
+# 60 ngày chứ không phải 30: 30 ngày vẫn bỏ sót đúng bản báo cáo 53 ngày tuổi đã nêu ở trên,
+# tức khung đúng về nguyên tắc mà vẫn không giải quyết được ca đã sinh ra nó.
+MAX_AGE_DAYS_DAI = 60
+
+# Feed nào thuộc mảng NGHIÊN CỨU — `--candidates-dai` CHỈ quét bằng đây. Khai bằng URL chứ
+# không thêm cột thứ tư vào `THINKTANK_FEEDS` vì đã có 3 chỗ giải nén đúng 3 cột; thêm cột là
+# sửa cả ba, mà sót một chỗ thì lỗi hiện ra ở nơi khác hẳn.
+# ⚠️ Hai bảng thì phải có phép canh cho chúng đừng tách nhánh: `feeds_dai()` đối chiếu và KÊU
+# khi một URL ở đây không còn trong `THINKTANK_FEEDS`. Không có phép canh đó thì đổi tên miền
+# một feed là đường quét dài lặng lẽ bỏ viện ấy — đúng loại hỏng câm mà cả mục này sinh ra để
+# chặn.
+URL_NGHIEN_CUU = frozenset({
+    "https://www.lowyinstitute.org/publications/rss.xml",
+    "https://www.aspi.org.au/feed/",
+    "https://www.rusi.org/rss/latest-publications.xml",
+    "https://cset.georgetown.edu/publications/feed/",
+})
+
+
+def feeds_dai():
+    """Các feed NGHIÊN CỨU, lấy thẳng từ `THINKTANK_FEEDS` để hai bảng không tách nhánh."""
+    ra = [f for f in THINKTANK_FEEDS if f[1] in URL_NGHIEN_CUU]
+    if len(ra) != len(URL_NGHIEN_CUU):
+        thieu = URL_NGHIEN_CUU - {f[1] for f in THINKTANK_FEEDS}
+        die("URL_NGHIEN_CUU lệch THINKTANK_FEEDS — feed nghiên cứu sau không còn được khai: "
+            + " · ".join(sorted(thieu))
+            + "\n       Sửa URL ở CẢ HAI chỗ, đừng gỡ một bên cho hết kêu.")
+    return ra
 
 # Đường dẫn KHÔNG phải bài phân tích, tuy nằm chung feed. Không lọc thì mục Think-tank đầy
 # mẩu "chuyên gia X được Coindesk trích dẫn" — Atlantic Council đẩy cả chuyên mục
@@ -219,6 +294,18 @@ NOISE_PATHS = (
     # Arms Control Association đẩy cả mục điểm báo (bài CNN/NYT trích lời chuyên gia) vào
     # feed — không phải nghiên cứu của viện.
     "/media-citations/", "/in-the-media", "/press-mention",
+    # ——— Feed publications của RUSI (thêm 06/08/2026 cùng lượt khai feed nghiên cứu).
+    # Feed đó trộn CẢ podcast lẫn bản ghi sự kiện vào chung với báo cáo: đo 06/08, trong 5 mục
+    # nó có mà feed commentary không có thì 4 là `/podcasts/` · `/members-event-recordings/` ·
+    # `/research-event-recordings/`. Không lọc thì mục Think-tank đầy dòng kiểu
+    # "Episode 125 — Japan's intelligence reforms", tức một tập ghi âm được trình bày như một
+    # nghiên cứu.
+    # ⚠️ `/podcasts/` về mặt chuỗi ĐÃ được `/podcast` ở trên phủ — giữ dòng này là để khai
+    # tường minh nguồn sinh ra nó, đừng đọc thành hai phép lọc khác nhau.
+    "/podcasts/",
+    # Hai mục bản ghi sự kiện của RUSI KHÔNG khớp `/event/` hay `/events/` ở trên (đường dẫn là
+    # `/members-event-recordings/`, không có dấu `/` trước chữ `event`) — đây mới là chỗ hở thật.
+    "event-recordings",
 )
 
 # KHÔNG có RSS dùng được — đã thử ÍT NHẤT 2 biến thể URL mỗi nơi (27/07/2026), ĐỪNG thử lại.
@@ -772,6 +859,61 @@ def kiem_html() -> None:
     print("\nMọi trang đều ra link bài.")
 
 
+def loc_ung_vien_feed(url: str, khung: int, existing: set, today_vn: datetime.date):
+    """Ứng viên của MỘT feed trong khung `khung` ngày -> [(ngày, tít, link)] mới nhất trước.
+
+    Một hàm lọc duy nhất cho cả `--candidates` (khung ngày) lẫn `--candidates-dai` (khung
+    tháng): hai đường quét mà mỗi đường tự viết lấy phép lọc thì chắc chắn lệch, và lệch âm
+    thầm — đường này bỏ bài trùng, đường kia không.
+    """
+    rows = []
+    for title, link, d in feed_items(curl(url)):
+        if d is None or (today_vn - d).days > khung or d > today_vn:
+            continue
+        link = clean_url(link)
+        if link in existing or link.split("?")[0] in existing:
+            continue
+        if any(p in link.lower() for p in NOISE_PATHS):
+            continue
+        rows.append((d, title, link))
+    rows.sort(reverse=True)
+    return rows
+
+
+def list_candidates_dai() -> None:
+    """Ứng viên BÀI DÀI: chỉ các feed NGHIÊN CỨU, khung `MAX_AGE_DAYS_DAI` ngày.
+
+    Tách hẳn khỏi `--candidates` để routine sáng KHÔNG đổi hành vi — xem khối chú thích ở
+    `MAX_AGE_DAYS_DAI`. Chạy tay khi cần bổ sung kho nền, không cắm vào phiên quét nào.
+    """
+    repo_root = pathlib.Path(__file__).resolve().parent.parent
+    html = (repo_root / "index.html").read_text(encoding="utf-8")
+    start, end = find_data_span(html)
+    existing = collect_existing_urls(json.loads(html[start:end]))
+
+    today_vn = datetime.datetime.now(VN).date()
+    feeds = feeds_dai()
+    print(f"=== ỨNG VIÊN BÀI DÀI ({len(feeds)} feed nghiên cứu · đăng trong "
+          f"{MAX_AGE_DAYS_DAI} ngày, tính tới {today_vn.isoformat()}) ===")
+    tong, trong = 0, []
+    for name, url, area in feeds:
+        rows = loc_ung_vien_feed(url, MAX_AGE_DAYS_DAI, existing, today_vn)
+        if not rows:
+            trong.append(f"{name} ({area})")
+            continue
+        print(f"\n## {name} — {area} ({len(rows)} bài)")
+        for d, title, link in rows[:PER_FEED_CAP]:
+            print(f"  [{d.isoformat()}] {title}\n      {link}")
+        if len(rows) > PER_FEED_CAP:
+            print(f"  … còn {len(rows) - PER_FEED_CAP} bài nữa (cắt bớt cho gọn context)")
+        tong += len(rows)
+    print(f"\n=== TỔNG {tong} ứng viên bài dài ===")
+    if trong:
+        # Feed nghiên cứu ra bài theo tháng nên "không có bài mới" là chuyện thường — in ra để
+        # phân biệt với ca feed đã chết, đừng đọc thành lỗi.
+        print("Feed không ra bài nào trong khung: " + " · ".join(trong))
+
+
 def list_candidates() -> None:
     """In ứng viên think-tank trong khung MAX_AGE_DAYS, đã bỏ bài đã có trong DATA.
 
@@ -791,16 +933,7 @@ def list_candidates() -> None:
     print(f"=== ỨNG VIÊN THINK-TANK ({len(THINKTANK_FEEDS)} viện · đăng trong {MAX_AGE_DAYS} ngày, "
           f"tính tới {today_vn.isoformat()}) ===")
     for name, url, area in THINKTANK_FEEDS:
-        rows = []
-        for title, link, d in feed_items(curl(url)):
-            if d is None or (today_vn - d).days > MAX_AGE_DAYS or d > today_vn:
-                continue
-            link = clean_url(link)
-            if link in existing or link.split("?")[0] in existing:
-                continue
-            if any(p in link.lower() for p in NOISE_PATHS):
-                continue
-            rows.append((d, title, link))
+        rows = loc_ung_vien_feed(url, MAX_AGE_DAYS, existing, today_vn)
         if not rows:
             empty.append(f"{name} ({area})")
             continue
@@ -857,12 +990,15 @@ def main() -> None:
     if len(sys.argv) == 2 and sys.argv[1] == "--candidates":
         list_candidates()
         return
+    if len(sys.argv) == 2 and sys.argv[1] == "--candidates-dai":
+        list_candidates_dai()
+        return
     if len(sys.argv) == 2 and sys.argv[1] == "--kiem-html":
         kiem_html()
         return
     if len(sys.argv) != 2:
-        print("Dùng: add_analyses.py /tmp/analyses.json  |  --candidates  |  --kiem-html",
-              file=sys.stderr)
+        print("Dùng: add_analyses.py /tmp/analyses.json  |  --candidates  "
+              "|  --candidates-dai  |  --kiem-html", file=sys.stderr)
         sys.exit(1)
 
     payload = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
