@@ -15,3 +15,9 @@
 [22:34Z] SKIP (local 05:30) - claim web-scan exit 10: ban tin sang som ngay 06/08 da xong luc 04:32+07. Khong quet lai. KET THUC.
 [22:41Z] SKIP (CI, kich lai trung) - claim web-scan exit 10: web-scan+event-scan da DONE luc 04:32/04:38+07. So da gui co dong [sang] 39 tin + [sukien] 3 tin ngay 2026-08-06 luc 04:39:13, cach hien tai >2 tieng. Ban tin da toi tay that. Khong co gi moi de quet. KET THUC.
 [14:00Z] START (CI) - phien toi - claim web-scan OK (exit 0, RUN, khoa toi ngay 06/08 con trong)
+[14:30Z] web-scan DONE - commit e6050ae "Cap nhat ban tin 06/08: +10 tin (5 chu de)" - da push
+  - Noi bo My: 5 tin | Uc & Bien Dong: 1 tin | CNQS My: 4 tin | Tap tran: +1 (Pitch Black - Phan Lan/Thuy Dien lan dau) | My-Mali: 0 tin
+  - 4 agent Sonnet song song. Kiem cheo phat hien 2 loi truoc/sau nap: tin Missouri trung URL 100% (loai truoc khi nap), tin Northrop $3B trung su kien 100% voi tin da co (lot qua canh bao Jaccard vi khac domain, phai prune_news.py go sau khi phat hien). Tin Maryland bi guardrail chan cung (ngay su kien cach batch 2 ngay). Xem logs/loai-tin.md.
+  - Bo loc Jay Lam: file id=32 (gui 04/08) khong trung tin nao cua lo hom nay, khong can --ghi-loai.
+  - Bao Moi: CAT VONG vi sat han 22:00, con 8 ung vien chua xu ly, ghi vao scan-gaps.json.
+  - Ket thuc phien.
