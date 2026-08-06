@@ -161,44 +161,61 @@ def main():
 
 # Bảng đặt CUỐI FILE, sau mã — neo trỏ vào chính dòng khai là bản hỏng "hỏng" ở bảng chứ
 # không ở mã (luật khung_tu_kiem, mục 17 CLAUDE.md).
+#
+# ⚠️ BẢN HỎNG PHẢI GỠ LỚP VÁ TRONG `scripts/add_analyses.py`, KHÔNG PHẢI GỠ CA KHỎI FILE NÀY.
+# Bản đầu của `tu_kiem` làm ngược: nó xoá dòng khai ca ra khỏi chính bộ test rồi chạy lại.
+# Khi đó bộ test còn ÍT CA HƠN nhưng mọi ca còn lại vẫn xanh ⇒ mã thoát 0 ⇒ báo "bản hỏng
+# không bị bắt" cho cả 3 bản, trong khi cổng hoàn toàn khoẻ. Đo thật 06/08/2026: 0/3. Gỡ ca
+# ra khỏi bộ đo không chứng minh được gì về bộ đo — thứ phải hỏng là VẬT BỊ ĐO.
 BAN_HONG = [
-    ("gỡ feed nghiên cứu Lowy khỏi phép kiểm",
-     '("Lowy Institute", "https://www.lowyinstitute.org/publications/rss.xml", "/publications/"),',
-     "", [1]),
-    ("nới ca khung dài: chấp nhận mọi con số",
-     "bool(khung) and int(khung.group(1)) >= 30", "True", [6]),
-    ("gỡ ca đối chứng giữ feed blog", "url in urls_feed,\n            f\"feed blog", "True,\n            f\"feed blog", [2]),
+    # Neo kèm NHÃN viện: url của feed nghiên cứu còn xuất hiện lần nữa ở `URL_NGHIEN_CUU`
+    # (danh sách feed mà `--candidates-dai` quét), neo bằng url trần thì khớp 2 chỗ.
+    ("gỡ feed nghiên cứu Lowy khỏi bảng nguồn",
+     '("Lowy Institute [NC]", "https://www.lowyinstitute.org/publications/rss.xml",',
+     '("Lowy Institute [NC]", "https://www.lowyinstitute.org/KHONG-CO/rss.xml",'),
+    ("gỡ feed báo cáo ASPI khỏi bảng nguồn",
+     '("ASPI [NC]", "https://www.aspi.org.au/feed/",',
+     '("ASPI [NC]", "https://www.aspi.org.au/KHONG-CO/",'),
+    ("gỡ lọc podcast/bản ghi sự kiện của feed RUSI", '"/podcasts/"', '"/khong-loc-gi/"'),
+    ("hạ khung quét dài về đúng khung ngày của routine",
+     "MAX_AGE_DAYS_DAI = ", "MAX_AGE_DAYS_DAI = 7  #"),
 ]
 
 
 def tu_kiem():
-    """Dựng bản add_analyses.py HỎNG rồi chứng minh ca tương ứng ĐỎ."""
+    """Dựng bản `add_analyses.py` HỎNG rồi chứng minh cổng này ĐỎ trên bản đó."""
     import hashlib
     import subprocess
     goc = SCRIPT.read_text(encoding="utf-8")
-    ban_than = pathlib.Path(__file__).read_text(encoding="utf-8")
+
+    # Ca đỏ trên bản ĐÚNG thì mọi phép so bên dưới mất nghĩa — bản hỏng cũng đỏ y hệt nên
+    # không lệch gì, và `--tu-kiem` sẽ in ✅ trong khi cổng đang trượt (luật mục 18 CLAUDE.md).
+    r0 = subprocess.run([sys.executable, str(pathlib.Path(__file__))],
+                        capture_output=True, text=True, env={**os.environ})
+    if r0.returncode != 0:
+        print(r0.stdout.rstrip())
+        print("\n⛔ CÒN CA ĐỎ TRÊN BẢN ĐÚNG — sửa cho hết đỏ rồi mới dựng bản hỏng.")
+        return 1
+
     tong = 0
-    for ten, tim, thay, ca_do in BAN_HONG:
-        if tim in ban_than:                       # bản hỏng nằm ở CHÍNH file test
-            noi = ban_than.replace(tim, thay, 1)
-            dich = pathlib.Path(__file__).parent / (
-                "_thu-hong-%d-%s-%s.py" % (os.getpid(),
-                                           hashlib.sha1(noi.encode()).hexdigest()[:8],
-                                           pathlib.Path(__file__).name))
-        else:
-            print("  ✗ %s — chuỗi neo không có trong nguồn" % ten)
+    for ten, tim, thay in BAN_HONG:
+        if goc.count(tim) != 1:
+            print("  ✗ %s — chuỗi neo khớp %d chỗ (phải đúng 1)" % (ten, goc.count(tim)))
             tong += 1
             continue
+        noi = goc.replace(tim, thay, 1)
+        dich = SCRIPT.parent / ("_thu-hong-%d-%s-%s" % (
+            os.getpid(), hashlib.sha1(noi.encode()).hexdigest()[:8], SCRIPT.name))
         dich.write_text(noi, encoding="utf-8")
         try:
-            r = subprocess.run([sys.executable, str(dich)], capture_output=True, text=True)
-            do_that = [i + 1 for i, ln in enumerate(r.stdout.splitlines()) if ln.startswith("  ✗")]
+            r = subprocess.run([sys.executable, str(pathlib.Path(__file__))],
+                               capture_output=True, text=True,
+                               env={**os.environ, "ADD_ANALYSES": str(dich)})
             bat = r.returncode != 0
             print(("  ✓ " if bat else "  ✗ ") + ten + ("" if bat else " — bản hỏng KHÔNG bị bắt"))
             tong += 0 if bat else 1
         finally:
             dich.unlink(missing_ok=True)
-    _ = goc
     print(f"\n{len(BAN_HONG) - tong}/{len(BAN_HONG)} bản hỏng bị bắt")
     return 1 if tong else 0
 
