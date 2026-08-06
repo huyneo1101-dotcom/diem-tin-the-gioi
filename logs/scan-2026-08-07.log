@@ -5,3 +5,4 @@
 [22:26Z] Giao 5 agent Sonnet song song (Noi bo My / Uc-Bien Dong / CNQS My / My-Mali / Tap tran Pitch Black+Han Quang 42). Ca 5 agent tra ve xong.
 [22:31Z] Kiem tra cheo + loai trung: 2 tin AIM-260 trung (Uc), 2 tin CNQS trung (PAC-3/THAAD Lockheed-Northrop ngoai khung, Anduril Pulsar-L trung 100%), 1 tin FCC (khong neo ro pham vi 5 nhom), 1 tin Tennessee (URL live-results). Chay add_news.py: OK +3 TG, +10 US, +2 tap tran. Phat hien them 1 trung lot qua guardrail (Virginia SSGN, Jaccard 0.89) - da prune_news.py go.
 [22:34Z] Bao Moi: xu ly du 8 ung vien (5 trung + 1 digest + 2 het thoi gian xac minh) - khong nap them. Bo loc Jay Lam: 1 file (id=32) con hieu luc, khong trung tin nao cua lo hom nay. Da ghi logs/loai-tin.md + logs/scan-gaps.json.
+[22:35Z] web-scan DONE, commit+push OK (341ac18). Bat dau BUOC 6 - event-scan (gop vao phien sang som): claim event-scan OK, giu khoa.

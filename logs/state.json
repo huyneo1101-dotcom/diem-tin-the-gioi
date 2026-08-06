@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-06T04:38:08+07:00",
+    "lastRunAt": "2026-08-07T05:35:51+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+1 su kien ngoai giao (My-Paraguay hat nhan), +6 bai think-tank + khai niem",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-08-06"
-    }
+    },
+    "heartbeat": "2026-08-07T05:35:51+07:00"
   }
 }
