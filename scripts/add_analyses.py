@@ -201,6 +201,19 @@ THINKTANK_FEEDS = [
     ("Fulcrum (ISEAS)", "https://fulcrum.sg/feed/", "Đông Nam Á"),
     ("MERICS", "https://merics.org/en/rss", "Trung Quốc"),
     ("Interpret China (CSIS)", "https://interpret.csis.org/feed/", "Trung Quốc"),
+    # ChinaPower (CSIS) — thêm 06/08/2026 khi dựng `scripts/do_nguon_hai_mien.py`. CSIS xuất bản
+    # dưới BỐN tên miền (`csis.org` · `amti` · `interpret` · `chinapower`), ba cái đầu đã có
+    # đường quét còn `chinapower.csis.org` thì chưa — đúng hình dạng lỗ mà phép đo đó dò.
+    # ⚠️ Viện này đăng THƯA (~1 bài/tháng: 06/07 · 30/04 · 24/02 · 12/02 · 05/02 · 13/01 năm
+    # 2026) nên thường nằm trong dòng "feed không ra bài" của `--candidates` — đó là bình
+    # thường, không phải feed hỏng. Cùng loại với USIP.
+    # ⚠️ Feed này xếp item KHÔNG theo thời gian (WordPress đẩy bài ghim lên trước, item cũ nhất
+    # từ 2016 nằm lẫn giữa bài 2026). Không sao vì `loc_ung_vien_feed` lọc theo `pubDate` chứ
+    # không theo vị trí — nhưng đừng đọc item đầu feed thành "bài mới nhất".
+    # ⚠️ Hai bài mới nhất là bài ĐĂNG CHÉO, link trỏ sang `www.csis.org` và
+    # `scstradedashboard.csis.org`. Cái sau KHÔNG có trong THINKTANK_DOMAINS nên guardrail domain
+    # sẽ chặn lúc nạp — chặn đúng, đó là trang bảng số liệu chứ không phải bài phân tích.
+    ("ChinaPower (CSIS)", "https://chinapower.csis.org/feed/", "Trung Quốc"),
     ("AMTI/CSIS", "https://amti.csis.org/feed/", "Biển Đông"),
     # — Nga · Đông Âu · châu Âu
     ("CEPA", "https://cepa.org/feed/", "Nga · Đông Âu"),
