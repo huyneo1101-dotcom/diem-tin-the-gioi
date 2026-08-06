@@ -142,6 +142,9 @@ THINKTANK_DOMAINS = {
     "wola.org", "dialogo-americas.com", "thedialogue.org",
     # Nam Á · Trung Á
     "idsa.in", "takshashila.org.in", "cacianalyst.org", "sipa.columbia.edu",
+    # South Asian Voices — nền tảng của Stimson Center dành riêng cho cây bút Nam Á, tên miền
+    # RIÊNG nên `stimson.org` không phủ được. Thêm 06/08/2026 cùng feed ở THINKTANK_FEEDS.
+    "southasianvoices.org",
     # Đông Bắc Á · Đông Nam Á
     "jiia.or.jp", "spf.org", "tokyofoundation.org", "sejong.org", "fulcrum.sg",
     # Sasakawa Peace Foundation USA (Washington DC) — thêm 29/07/2026. Danh sách đã có `spf.org`
@@ -224,6 +227,19 @@ THINKTANK_FEEDS = [
     # — Trung Đông · châu Phi · Sahel
     ("Long War Journal", "https://www.longwarjournal.org/feed", "Sahel · khủng bố"),
     ("SAIIA", "https://saiia.org.za/research/feed/", "Châu Phi"),
+    # — Nam Á · Bắc Cực (thêm 06/08/2026 — Huy hỏi "sao mục think-tank ít bài Nam Á/châu Phi/
+    # Trung Á/Bắc Cực thế"). Đo trên kho 616 bài hôm đó: Nam Á 01 · Trung Á 01 · Bắc Cực 04 ·
+    # Châu Phi 07, trong khi Châu Âu/NATO 188 · Đông Á 174. Nguyên nhân đo được là bảng feed
+    # KHÔNG có viện chuyên nào của Nam Á và Bắc Cực — hai vùng đó chỉ có bài khi một viện
+    # Anh-Mỹ-Úc tình cờ viết tới. ORF thì đã có ở THINKTANK_HTML nhưng chỉ nhánh expert-speak.
+    # ⚠️ FETCH THẬT 06/08/2026 trước khi khai, và ĐÃ THỬ-ĐÃ CHẾT thì ghi ở khối dưới bảng.
+    ("South Asian Voices (Stimson)", "https://southasianvoices.org/feed/", "Nam Á"),
+    # FIIA + ICDS: hai viện Bắc Âu/Baltic có mảng Bắc Cực. KHÔNG phải viện chuyên Bắc Cực —
+    # viện chuyên duy nhất (thearcticinstitute.org) chặn theo vân tay TLS ở MỌI bậc của thang
+    # `congcu/lay_trang.py`, chỉ còn đường trình duyệt, mà trình duyệt chỉ có ở phiên local nên
+    # cắm vào đây là lớp quét ra kết quả khác nhau giữa local và CI.
+    ("FIIA (Phần Lan)", "https://www.fiia.fi/en/feed", "Bắc Âu · Bắc Cực"),
+    ("ICDS (Estonia)", "https://icds.ee/en/feed/", "Baltic · Bắc Cực"),
     ("Crisis Group", "https://www.crisisgroup.org/rss.xml", "Xung đột toàn cầu"),
     # RUSI — CÓ RSS, đo lại 30/07/2026 (20 item, bài mới 1 ngày). Trước đó bị xếp nhầm vào
     # WEBSEARCH_ONLY vì chỉ thử `/feed/` + `/rss.xml`; feed thật nằm ở `/rss/latest-commentary.xml`,
