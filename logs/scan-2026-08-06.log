@@ -21,3 +21,4 @@
   - Bo loc Jay Lam: file id=32 (gui 04/08) khong trung tin nao cua lo hom nay, khong can --ghi-loai.
   - Bao Moi: CAT VONG vi sat han 22:00, con 8 ung vien chua xu ly, ghi vao scan-gaps.json.
   - Ket thuc phien.
+[14:31Z] SKIP (CI, kich lai trung) - claim web-scan exit 10: phien toi 2026-08-06 da xong luc 21:30:03+07 (commit e6050ae). Kiem lai qua Buoc 1 ngoai le: so_da_gui.py --xem co dong [toi] 22 tin luc 21:31:12+07, khop voi lastRunAt. Ban tin da toi tay that, khong co gi moi de quet. KET THUC.
