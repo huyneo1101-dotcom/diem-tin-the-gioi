@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-07T05:15:50+07:00",
+    "lastRunAt": "2026-08-07T05:34:29+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+13 tin (5 chu de: Noi bo My 6, Uc-Bien Dong 3, CNQS My 3, Mali 0) + 2 cap nhat tap tran",
     "lastSuccess": {
       "toi": "2026-08-06",
-      "sang": "2026-08-06"
-    },
-    "heartbeat": "2026-08-07T05:15:50+07:00"
+      "sang": "2026-08-07"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-06T04:38:08+07:00",
