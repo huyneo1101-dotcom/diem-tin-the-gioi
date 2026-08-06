@@ -1598,6 +1598,70 @@ trùng theo tên đã bỏ dấu, chặn ở đây là chặn oan.
 công cụ LỌC, nhồi vào là hỏng đúng công dụng của nó. Quy trình phiên sáng: `docs/routine-web-scan.md`
 Bước 4.4 mục 4.
 
+### 🌏 BỐN KHU VỰC GẦN NHƯ TRẮNG BÀI — hai nguyên nhân chồng nhau (vá 06/08/2026)
+
+> Huy hỏi: *"tại sao trong mục think-tank trên web tin tức, phần nam á, châu phi trung á và
+> bắc cực ít bài thế"*.
+
+**Số đo lúc bắt đầu**, trên kho 616 bài: Châu Âu/NATO **188** · Đông Á **174** · Ấn Độ Dương-TBD
+**134** · Trung Đông 51 · Toàn cầu 48 · Châu Mỹ 8 · **Châu Phi 07 · Bắc Cực 04 · Nam Á 01 ·
+Trung Á 01**. Bảy viện đầu bảng chiếm 462/616 bài (75%), thảy đều Anh · Mỹ · Úc.
+
+**NGUYÊN NHÂN 01 — bảng nguồn không có viện chuyên của bốn vùng đó.** `THINKTANK_FEEDS` khai
+32 feed, trong đó châu Phi có đúng SAIIA, Trung Á có đúng CACI Analyst, **Nam Á và Bắc Cực
+không có nguồn nào**; bộ quét lô `QuetThinkTank/quet_thinktank.py` khai 33 nguồn thì cả 33 đều
+là viện Mỹ · Anh · Âu · Úc · Nhật. Mà **87% kho được nạp bằng hai đợt quét lô** (415 bài ngày
+30/07 + 119 bài 06/08), nên bốn vùng kia chỉ có bài khi một viện Anh-Mỹ-Úc tình cờ viết tới.
+
+**NGUYÊN NHÂN 02 — nhãn khu vực bị hút về nhãn LỚN, và cái này che mất cái trên.** Kho **CÓ**
+27 bài thật về Ấn Độ/Pakistan, nhưng 16 bài mang nhãn `Ấn Độ Dương - Thái Bình Dương` và chỉ
+**01** mang nhãn `Nam Á`; 16 bài bàn Bắc Cực thì 5 nằm dưới `Châu Âu/NATO`, chỉ 4 mang nhãn
+`Bắc Cực`. Nội dung có sẵn, chỉ là không hiện ở mục người đọc đang mở — nên nhìn vào web thì
+tưởng thiếu nguồn, mà thêm nguồn xong vẫn thiếu nếu không sửa nhãn.
+
+**Đã làm:** thêm 03 feed (`South Asian Voices` · `FIIA` · `ICDS`) vào `THINKTANK_FEEDS` và 06
+nguồn vào bảng quét lô; quét bù 1.452 bài, lọc 78 bài điểm ≥3 từ 01/06/2026, tóm tắt tiếng Việt
+**và gán nhãn khu vực ngay lúc viết**. Sau khi nạp: **Nam Á 01 → 16 · Trung Á 01 → 08 · Châu Phi
+07 → 09**, tổng kho 656 → 733 bài.
+
+⚠️ **BẮC CỰC KHÔNG VÁ ĐƯỢC BẰNG NGUỒN CHUYÊN — khai rõ để phiên sau đừng đi tìm lại.** Viện
+chuyên duy nhất là `thearcticinstitute.org`: 403 với curl, và thang đầy đủ `congcu/lay_trang.py`
+trượt HẾT mọi bậc, chỉ còn `trinh_duyet` — mà trình duyệt chỉ có ở phiên local nên cắm vào là
+lớp quét ra kết quả khác nhau giữa local và CI. `highnorthnews.com` · `thebarentsobserver.com` ·
+`arctictoday.com` thì sitemap sống và có bài 2026, nhưng là **BÁO tin tức**, không phải viện —
+để vào mục tên là Think-tank là hỏng chính danh nghĩa của mục. FIIA và ICDS là hai viện Bắc Âu
+có mảng Bắc Cực, dùng để bù, không thay được viện chuyên.
+
+⚠️ **GÁN NHÃN LÀ VIỆC PHẢI DẶN RÕ TỪNG VÙNG, không dặn chung "gán region cho đúng".** Prompt của
+đợt này liệt kê thẳng: bài về Ấn Độ · Pakistan · Bangladesh · Sri Lanka · Nepal · Maldives ·
+Afghanistan → `Nam Á`, **đừng** gán `Ấn Độ Dương - Thái Bình Dương`; Kazakhstan · Uzbekistan ·
+Turkmenistan · Kyrgyzstan · Tajikistan · Caucasus → `Trung Á`; vùng cực bắc · tuyến biển Bắc Cực
+· Svalbard · Greenland → `Bắc Cực`. Không dặn ở mức đó thì nhãn lớn hút hết, đúng như 616 bài cũ.
+
+⚠️ **ĐO PHÂN BỐ KHU VỰC BẰNG TỪ KHOÁ THÌ PHẢI LỌC NHIỄU TRƯỚC.** Phép đo đầu đếm chuỗi `Ấn Độ`
+ra **52** bài, nhưng `Ấn Độ` khớp cả trong `Ấn Độ Dương` — bỏ chuỗi đó đi thì còn **27**. Con số
+52 dẫn thẳng tới kết luận sai *"19 bài Ấn Độ bị gán nhầm Đông Á"*, trong khi phần lớn là bài Đông
+Á có nhắc tới Ấn Độ Dương. Cùng lớp lỗi với luật đếm transcript ở `~/.claude/CLAUDE.md` mục 6.
+
+⚠️ **BÀI LẤY QUA SITEMAP KHÔNG CÓ TIÊU ĐỀ — `quet_thinktank.py` suy từ slug, và nó xấu.** Đo
+06/08: **48/67** bài dính, ra `America S Munitions Challenge Industrial Constraints` (mất dấu
+nháy, mất hoa thường tên riêng: `NATO` → `Nato`, `Indo-Pacific` → `Indo Pacific`). Không lỗi nào
+phát ra, bài vẫn nạp được — chỉ là tiêu đề, thứ ĐẦU TIÊN người đọc nhìn thấy, đọc như máy dịch.
+Vá bằng `QuetThinkTank/lay_tieu_de_that.py` (mở trang lấy `og:title`/`<title>`), chạy trên lô ĐÃ
+CHỌN chứ không chạy lúc quét — quét thì mỗi nguồn sitemap trả hàng nghìn `<loc>` (ORF 1.082 bài).
+Lấy lại được 47/48. **Hai lỗi của chính bản vá, cả hai đều câm, đừng dựng lại:** (i) đọc thẻ meta
+bằng `content=["\'](.*?)["\']` thì nháy đóng khớp cả hai loại, mà ORF khai thẻ bằng nháy ĐƠN
+trong khi tiêu đề chứa `Japan's` ⇒ trả về `Buying Time, Not Immunity: Japan`, **cụt mà vẫn nghe
+hợp lý**; phải dùng backreference buộc nháy đóng cùng loại nháy mở. (ii) cắt đuôi tên viện theo
+hình dạng chung (`… - <chữ gì đó>`) ăn mất nửa sau của tiêu đề thật; phải cắt theo **danh sách
+tên viện**.
+
+⚠️ **NHÃN `outlet` CỦA BỘ QUÉT LÔ KHÁC BẢNG FEED — đợt nạp sinh ngay 02 nhãn đôi.**
+`quet_thinktank.py` khai tên nguồn kèm chú thích khu vực cho dễ đọc bảng (`ORF (Ấn Độ)`,
+`SAIIA (Nam Phi)`) trong khi kho đã có nhãn trần. Đã gộp về nhãn của `add_analyses.py` theo đúng
+luật ở mục 🏷️ bên dưới, và **chốt trước** `cacianalyst.org` → `CACI Analyst` dù domain đó hiện
+mới có một nhãn — lô nạp kế tiếp qua bộ quét lô sẽ tách nhãn nếu không chốt.
+
 ### 📚 MỘT VIỆN CÓ HAI FEED: BLOG và NGHIÊN CỨU — bảng chỉ khai một nửa (vá 06/08/2026)
 
 **Cơ chế gây vấp.** `THINKTANK_FEEDS` khai mỗi viện đúng MỘT feed, và cái được khai luôn là
