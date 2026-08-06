@@ -53,6 +53,11 @@ REPO_ROOT = pathlib.Path(
 OUTLET_CANON = {
     "aspistrategist.org.au": "ASPI Strategist",
     "fulcrum.sg": "Fulcrum (ISEAS)",
+    # 06/08/2026 — `cset.georgetown.edu` mang 02 nhãn: "CSET" (9 bài) và "CSET (Georgetown)"
+    # (2 bài). Chốt theo `add_analyses.py::THINKTANK_FEEDS` khai `("CSET", …)` và
+    # `("CSET [NC]", …)`, tức nhãn sinh cho mọi lô nạp về sau là "CSET" — chọn khác bảng feed
+    # thì nhãn tách đôi trở lại ngay ở bài kế tiếp của chính domain ấy.
+    "cset.georgetown.edu": "CSET",
 }
 
 MA_LOI = {"nhan_doi": 2, "ngoai_vien": 3, "trung_bai": 4}
