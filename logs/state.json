@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-08T04:37:55+07:00",
+    "lastRunAt": "2026-08-08T04:45:51+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "phien sang 08/08: +1 tap tran cap nhat (Baltic Trust 26), +1 su kien ngoai giao moi (Hiep uoc Phong thu Mecca), +2 bai think-tank (AUKUS CSIS, AMTI Scarborough)",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-08-07"
-    },
-    "heartbeat": "2026-08-08T04:37:55+07:00"
+      "sang": "2026-08-08"
+    }
   }
 }
