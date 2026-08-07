@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-07T20:47:40+07:00",
+  "tao_luc": "2026-08-07T21:33:12+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-06",
@@ -201,6 +201,38 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "Ông Trump 'từ chối' chuyển hàng trăm tên lửa Patriot cho Ukraine",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/ong-trump-tu-choi-chuyen-hang-tram-ten-lua-patriot-cho-ukraine-5105750.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "Triều Tiên cáo buộc Nhật 'hiếu chiến' khi thử tên lửa Tomahawk",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/trieu-tien-cao-buoc-nhat-hieu-chien-khi-thu-ten-lua-tomahawk-5105753.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "Mỹ có thể tốn gần 300 tỷ USD để chế tạo hạm đội lớp Trump",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/my-co-the-ton-gan-300-ty-usd-de-che-tao-ham-doi-lop-trump-5105724.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "Vì sao 'thánh khí' Patriot cạn tên lửa?",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/vi-sao-thanh-khi-patriot-can-ten-lua-5105413.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "?",
       "tieu_de": "Chiến thuật của Ukraine đối phó tên lửa Nga trong điều kiện thiếu tên lửa đánh chặn Patriot",
       "nguon": "Tuổi Trẻ",
@@ -277,14 +309,6 @@
       "tieu_de": "U.S. Army Food Safety Officer Strengthens NATO Partnerships During Multinational Food Safety Training in Germany",
       "nguon": "DVIDS news (tập trận)",
       "url": "https://www.dvidshub.net/news/571829/us-army-food-safety-officer-strengthens-nato-partnerships-during-multinational-food-safety-training-germany"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-07",
-      "tieu_de": "U.S. Army Chaplain strengthens faith during Tamiok Strike 26",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/571819/us-army-chaplain-strengthens-faith-during-tamiok-strike-26"
     },
     {
       "lop": "RSS",
@@ -441,14 +465,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-04",
-      "tieu_de": "House Oversight Democrats seek records behind Pentagon changes to Iran war casualty database",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/08/04/house-oversight-democrats-seek-records-behind-pentagon-changes-to-iran-war-casualty-database/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-07",
       "tieu_de": "US Air Force Supplemental Inspection of M18 Modular Handguns Found Zero Evidence of Conditions Which Would Allow “Uncommanded Discharge”",
       "nguon": "Soldier Systems Daily",
@@ -569,14 +585,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-05",
-      "tieu_de": "Triều Tiên phản ứng mạnh khi Nhật Bản thử tên lửa Tomahawk",
-      "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/trieu-tien-phan-ung-manh-khi-nhat-ban-thu-ten-lua-tomahawk-2542141.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-04",
       "tieu_de": "Trung Quốc công bố video hiếm về đội hình tên lửa siêu vượt âm DF-17",
       "nguon": "VietnamNet",
@@ -666,6 +674,30 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-07",
+      "tieu_de": "Thủ tướng Australia mong đợi đón tiếp Tổng Bí thư, Chủ tịch nước Tô Lâm",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/thu-tuong-australia-mong-doi-don-tiep-tong-bi-thu-chu-tich-nuoc-to-lam-5106468.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-06",
+      "tieu_de": "Nghi vấn trong vụ UAV Ukraine lao xuống bãi biển đông nghịt du khách Nga",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/nghi-van-trong-vu-uav-ukraine-lao-xuong-bai-bien-dong-nghit-du-khach-nga-5105586.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-06",
+      "tieu_de": "Tổng Bí thư, Chủ tịch nước sắp thăm Australia, New Zealand",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/tong-bi-thu-chu-tich-nuoc-sap-tham-australia-new-zealand-5105895.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-07",
       "tieu_de": "Philippines v&agrave; &Uacute;c l&ecirc;n tiếng về h&agrave;nh động của Trung Quốc ở Biển Đ&ocirc;ng",
       "nguon": "Thanh Niên",
       "url": "https://thanhnien.vn/philippines-va-uc-len-tieng-ve-hanh-dong-cua-trung-quoc-o-bien-dong-185260807150547471.htm"
@@ -693,14 +725,6 @@
       "tieu_de": "Đài Loan đổi cách tập trận theo hướng thích ứng nguy cơ xung đột kéo dài với Trung Quốc",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/dai-loan-doi-cach-tap-tran-theo-huong-thich-ung-nguy-co-xung-dot-keo-dai-voi-trung-quoc-100260806191228918.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm thăm Úc: Khoa học - công nghệ trong chương trình nghị sự",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/tong-bi-thu-chu-tich-nuoc-to-lam-tham-uc-khoa-hoc-cong-nghe-trong-chuong-trinh-nghi-su-100260806153334572.htm"
     },
     {
       "lop": "RSS",
@@ -741,14 +765,6 @@
       "tieu_de": "Việt Nam và Australia còn nhiều dư địa mở rộng hợp tác trong các lĩnh vực mới",
       "nguon": "VnEconomy",
       "url": "https://vneconomy.vn/viet-nam-va-australia-con-nhieu-du-dia-mo-rong-hop-tac-trong-cac-linh-vuc-moi.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-07",
-      "tieu_de": "Australia mong đợi chào đón Tổng Bí thư, Chủ tịch nước Tô Lâm tới thăm",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/australia-mong-doi-chao-don-tong-bi-thu-chu-tich-nuoc-to-lam-toi-tham-20260807100520630.htm"
     },
     {
       "lop": "RSS",
@@ -881,14 +897,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-07",
-      "tieu_de": "Thủ tướng Lê Minh Hưng tiếp Đại sứ Malaysia đến chào từ biệt kết thúc nhiệm kỳ",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/thu-tuong-le-minh-hung-tiep-dai-su-malaysia-den-chao-tu-biet-ket-thuc-nhiem-ky-post1128609.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "Phát triển quan hệ Việt Nam-Australia toàn diện, thực chất, hiệu quả hơn",
       "nguon": "Báo Chính phủ",
@@ -901,6 +909,14 @@
       "tieu_de": "Malaysia áp dụng xác minh độ tuổi khi đăng ký mạng xã hội, cấm người dưới 16 tuổi mở tài khoản",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/malaysia-ap-dung-xac-minh-do-tuoi-khi-dang-ky-mang-xa-hoi-cam-nguoi-duoi-16-tuoi-mo-tai-khoan-102260804091045433.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-07",
+      "tieu_de": "Dự báo diễn biến áp thấp nhiệt đới trên Biển Đông Ít có khả năng mạnh lên thành bão không đi vào đất liền nước ta",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/du-bao-dien-bien-ap-thap-nhiet-doi-tren-bien-dong-it-co-kha-nang-manh-len-thanh-bao-khong-di-vao-dat-lien-nuoc-ta-428661.html"
     },
     {
       "lop": "RSS",
@@ -1007,6 +1023,15 @@
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/08/07/polysilicon-solar-tariffs-donald-trump-us-china-trade-war-energy-semiconductors.html",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Lo ngại về sắc lệnh siết luật 'sinh ở Mỹ là công dân Mỹ' của ông Trump",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/lo-ngai-ve-sac-lenh-siet-luat-sinh-o-my-la-cong-dan-my-cua-ong-trump-5106220.html",
+      "nhom": 2
     },
     {
       "lop": "RSS",
