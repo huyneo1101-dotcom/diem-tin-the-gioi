@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-07T21:33:12+07:00",
+  "tao_luc": "2026-08-07T22:29:09+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-06",
@@ -33,10 +33,10 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-08-06",
-      "tieu_de": "Multinational defense and security forces demonstrate united resolve at PANAMAX 2026",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294462/multinational_defense_and_security_forces_demonstrate_united_resolve_at_panamax_2026"
+      "ngay": "2026-08-07",
+      "tieu_de": "PANAMAX 26 Boat Raids",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1017912/panamax-26-boat-raids"
     },
     {
       "lop": "RSS",
@@ -61,6 +61,14 @@
       "tieu_de": "Joint Task Force-Bravo, Missouri Air National Guard and Panama’s Ministerio de Salud participate in a Medical Readiness Training Exercise during PANAMAX 2026",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/image/9853901/joint-task-force-bravo-missouri-air-national-guard-and-panamas-ministerio-de-salud-participate-medical-readiness-training-exercise"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-06",
+      "tieu_de": "Multinational defense and security forces demonstrate united resolve at PANAMAX 2026",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/571678/multinational-defense-and-security-forces-demonstrate-united-resolve-panamax-2026"
     },
     {
       "lop": "RSS",
@@ -153,26 +161,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-06",
-      "tieu_de": "Space Force awards 3 firms $615M to track airborne targets",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/08/space-force-awards-3-firms-615m-to-track-airborne-targets/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-05",
       "tieu_de": "Defense execs feel good about Pentagon spending despite uncertainty on FY27 budget",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/defense-execs-feel-good-about-pentagon-spending-despite-uncertainty-on-fy27-budget/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-07",
-      "tieu_de": "U.S. Senate confirms Schiess to lead Space Force",
-      "nguon": "SpaceNews",
-      "url": "https://spacenews.com/u-s-senate-confirms-schiess-to-lead-space-force/"
     },
     {
       "lop": "RSS",
@@ -189,6 +181,14 @@
       "tieu_de": "Telesat lands $1.63 billion Canadian defense contract",
       "nguon": "SpaceNews",
       "url": "https://spacenews.com/telesat-lands-1-63-billion-canadian-defense-contract/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "What is the Patriot missile system and why are supplies depleted worldwide?",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/what-is-the-patriot-missile-system-and-why-are-supplies-depleted-worldwide"
     },
     {
       "lop": "RSS",
@@ -250,6 +250,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-07",
+      "tieu_de": "Will the Pentagon prioritize munitions when the Iran conflict ends?",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/opinion/national-security/6012232-will-the-pentagon-prioritize-munitions-when-the-iran-conflict-ends/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
       "tieu_de": "Senate Democrats introduce bill to roll back press restrictions at Pentagon",
       "nguon": "The Hill",
       "url": "https://thehill.com/newsletters/defense-national-security/6015455-senate-democrats-introduce-bill-to-roll-back-press-restrictions-at-pentagon/"
@@ -277,14 +285,6 @@
       "tieu_de": "Virtuix taps AVRT for weapons tech on Marine Corps’ infantry trainer",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/virtuix-avrt-marine-corps-trainer/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-07",
-      "tieu_de": "Jet-Powered JDAM Production Is A Go For The U.S. Navy",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/air/jet-powered-jdam-production-is-a-go-for-the-u-s-navy"
     },
     {
       "lop": "RSS",
@@ -341,6 +341,22 @@
       "tieu_de": "US Army prepares Soldier deployment to support wildfire suppression",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/294456/us_army_prepares_soldier_deployment_to_support_wildfire_suppression"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "US Army officially authorizes Army-wide wear of the Jungle Tab",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294466/us_army_officially_authorizes_army_wide_wear_of_the_jungle_tab"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Jet-Powered JDAM Production Is a Go for the U.S. Navy",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/08/07/jet-powered_jdam_production_is_a_go_for_the_us_navy_1199025.html"
     },
     {
       "lop": "RSS",
@@ -410,14 +426,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-04",
-      "tieu_de": "APG-85 Radar in LRIP, Northrop Grumman Says; F-35 Program Declines Comment",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/apg-85-radar-in-lrip-northrop-grumman-says-f-35-program-declines-comment/air-force/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-04",
       "tieu_de": "Air Force Explores Digital HF For Sentinel, As Planned EMD Re-Certification Decision Nears",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/air-force-explores-digital-hf-for-sentinel-as-planned-emd-re-certification-decision-nears/nuclear-modernization/"
@@ -442,6 +450,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-07",
+      "tieu_de": "Marine Corps hackathon announced for fall",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/08/07/marine-corps-hackathon-announced-for-fall/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
       "tieu_de": "Pentagon ready to deploy Salesforce AI agents for admin tasks",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/08/07/pentagon-ready-to-deploy-ai-agents-for-admin-tasks/"
@@ -453,14 +469,6 @@
       "tieu_de": "US Navy, Saildrone to use unmanned systems in expanded counternarcotics role",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/industry/techwatch/2026/08/05/us-navy-saildrone-to-use-unmanned-systems-in-expanded-counternarcotics-role/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-05",
-      "tieu_de": "US Army wants a surface-to-air missile that can destroy small drones",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/industry/techwatch/2026/08/04/us-army-wants-a-surface-to-air-missile-that-can-destroy-small-drones/"
     },
     {
       "lop": "RSS",
@@ -525,14 +533,6 @@
       "tieu_de": "Bo Nickal, Penn State wrestlers visit Pentagon",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1017521/bo-nickal-penn-state-wrestlers-visit-pentagon"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-04",
-      "tieu_de": "Meet a Deployer: U.S. Air Force Force Airman 1st Class Edward Buckley",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/571491/meet-deployer-us-air-force-force-airman-1st-class-edward-buckley"
     },
     {
       "lop": "RSS",
@@ -669,6 +669,14 @@
       "tieu_de": "Malaysia Says It Will Not Deport Rohingya if There Are Risks to Their Safety",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/08/malaysia-says-it-will-not-deport-rohingya-if-there-are-risks-to-their-safety/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-07",
+      "tieu_de": "Hợp tác công nghệ sẽ là trọng tâm chuyến thăm Australia của Tổng Bí thư, Chủ tịch nước",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/hop-tac-cong-nghe-se-la-trong-tam-chuyen-tham-australia-cua-tong-bi-thu-chu-tich-nuoc-5106615.html"
     },
     {
       "lop": "RSS",
@@ -825,6 +833,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-07",
+      "tieu_de": "Asean Cup: PH needs big win vs Malaysia to reach semis",
+      "nguon": "Inquirer",
+      "url": "https://sports.inquirer.net/689669/asean-cup-ph-needs-big-win-vs-malaysia-to-reach-semis"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-06",
       "tieu_de": "Australia To Become First Foreign Operator Of AIM-260 Air-To-Air Missile",
       "nguon": "The War Zone (TWZ)",
@@ -912,27 +928,12 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-07",
-      "tieu_de": "Dự báo diễn biến áp thấp nhiệt đới trên Biển Đông Ít có khả năng mạnh lên thành bão không đi vào đất liền nước ta",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/du-bao-dien-bien-ap-thap-nhiet-doi-tren-bien-dong-it-co-kha-nang-manh-len-thanh-bao-khong-di-vao-dat-lien-nuoc-ta-428661.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-07",
-      "tieu_de": "Chuyến thăm của Tổng Bí thư Chủ tịch nước Tô Lâm sẽ tạo thêm xung lực mới đưa quan hệ Việt Nam Australia phát triển ngày càng sâu sắc",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/chuyen-tham-cua-tong-bi-thu-chu-tich-nuoc-to-lam-se-tao-them-xung-luc-moi-dua-quan-he-viet-nam-australia-phat-trien-ngay-cang-sau-sac-428449.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-07",
-      "tieu_de": "Tổng Bí thư Chủ tịch nước Tô Lâm thăm Australia Mở ra chương mới cho quan hệ Đối tác chiến lược toàn diện",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/tong-bi-thu-chu-tich-nuoc-to-lam-tham-australia-mo-ra-chuong-moi-cho-quan-he-doi-tac-chien-luoc-toan-dien-428473.html"
+      "tieu_de": "USA: Democratic party's progressive wing 'can win primaries', but can they win in swing states?",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/usa-democrats-progressive-wing-can-win-primaries-can-they-win-a-general-election",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1127,6 +1128,24 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-07",
+      "tieu_de": "US unexpectedly sheds 23,000 jobs in blow for Trump before midterms",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-08/thousands-of-jobs-lost-in-united-states/107011970",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "U.S., Moroccan forces enable first-ever Industry Partner live-fire demonstration advancing the Africa Multidomain Training and Experimentation Center",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/571851/us-moroccan-forces-enable-first-ever-industry-partner-live-fire-demonstration-advancing-africa-multidomain-training-and-experimentation-center",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
       "tieu_de": "(4th LD) Trump signs proclamation imposing 15 pct tariff on polysilicon derivative products",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260807000355315",
@@ -1229,6 +1248,15 @@
       "tieu_de": "THUẾ QUAN HOA KỲ: Brazil sẵn sàng đáp trả",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/thue-quan-hoa-ky-brazil-san-sang-dap-tra-102260717090702204.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Senator Warren Statement on July 2026 Jobs Report",
+      "nguon": "Uỷ ban Ngân hàng Thượng viện",
+      "url": "https://www.banking.senate.gov/newsroom/minority/senator-warren-statement-on-july-2026-jobs-report",
       "nhom": 4
     },
     {
