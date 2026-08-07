@@ -1540,6 +1540,15 @@ diễn tập Hạm đội Thái Bình Dương Nga: cả hai khai `status: "ongoi
 - ⛔ **CẤM bịa một ngày kết thúc cho đủ khuôn `d/m – d/m/yyyy`.** Nhãn trạng thái khi ấy đúng nhưng
   trang lại khai một dữ kiện không nguồn, và nó nằm ngay cạnh phần quy mô có nguồn nên đọc vào không
   phân biệt được.
+- ⚠️ **`evRange` QUÉT TOÀN CHUỖI, nên MỌI ngày dạng `d/m/yyyy` ở BẤT KỲ đâu trong `dates` đều bị bắt
+  — kể cả ngày nằm trong lời chú thích.** Vấp thật cùng ngày 07/08/2026, **ngay sau khi luật ở trên
+  vừa được đúc**: ba thẻ ghi `"Tháng 8/2026; ngày cụ thể chưa công bố tính tới 7/8/2026"`, và cụm
+  *"tính tới 7/8/2026"* khớp mẫu thứ ba ⇒ `a = b = 07/8/2026` ⇒ cả ba hiện **"● Đang diễn ra"** trong
+  khi `status` khai `upcoming` và cuộc chưa khai mạc. Biết luật chưa đủ: phải soi cả phần chú thích.
+  - **`"Tháng 8/2026"` thì AN TOÀN** — mẫu đòi `\d{1,2}/\d{1,2}/\d{4}`, mà `8/2026` chỉ có hai nhóm.
+  - **Mốc đo trong chú thích thì ghi bằng chữ** (`tính tới ngày 07 tháng 8 năm 2026`) hoặc bỏ hẳn.
+  - **Nghiệm thu bắt buộc sau mỗi lô nạp:** chạy chính `evRange` và `effStatus` bóc từ `index.html`
+    bằng `node` rồi đọc nhãn từng cuộc, đừng tin `status` đã khai trong payload.
 - Đã đo và KHÔNG vá `evRange`: sửa nó là đụng hai bản luật song song (JS trên web và Python trong
   `tap_tran.py`, xem ca [25] của `tests/test-mali-va-tap-tran.py`), trong khi đường viết đúng đã có sẵn
   và không tốn gì.
