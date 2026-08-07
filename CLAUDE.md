@@ -1553,6 +1553,33 @@ diễn tập Hạm đội Thái Bình Dương Nga: cả hai khai `status: "ongoi
   `tap_tran.py`, xem ca [25] của `tests/test-mali-va-tap-tran.py`), trong khi đường viết đúng đã có sẵn
   và không tốn gì.
 
+⛔ **SỬA `dates`/`status` CỦA CUỘC ĐÃ NẠP: DÙNG `scripts/sua_thong_tin_tap_tran.py`, CẤM SỬA TAY
+`index.html`** (dựng 07/08/2026). `add_news.py::apply_event_updates` chỉ chạm `entry["items"]`, nên
+trước đó **không đường nào** sửa `dates` · `status` · `location` · `scale` · `summary` của một cuộc
+đã có — mà tập trận lớn hay công bố ngày sát khai mạc, tức đây là việc thường xuyên nhất.
+```bash
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/sua_thong_tin_tap_tran.py --kiem
+```
+| Việc | Lệnh |
+|---|---|
+| Sửa | `sua_thong_tin_tap_tran.py sua.json` — `[{"name":"<khớp ĐÚNG>","dates":"…","status":"…"}]` |
+| Nghiệm thu | `--kiem` in nhãn MỌI cuộc suy từ `dates`, mã 3 khi có thẻ `status` khai lệch |
+| Chứng minh còn răng | `--tu-kiem` — **21 ca (14 PHẢI CHẶN) · 06 bản hỏng**, đã nạp `khoe.py` |
+
+- **Hai bẫy ở trên nay là CỔNG MÁY, không còn phải nhớ**: `dates` một mốc lẻ bị chặn (cờ mở
+  `--cho-phep-mot-moc` cho cuộc thật sự gói trong một ngày), và nhãn suy từ `dates` phải KHỚP
+  `status` khai — đây là thứ bắt được ngày lẫn trong lời chú thích.
+- ⚠️ **Sửa `dates` thì BẮT BUỘC khai `status` cùng lượt.** Ý định khai bằng lời, cùng bài học với
+  `tu_dong=1` · `TELEGRAM_BAT_BUOC` · `DIEMTIN_PHIEN_TEST`: tự suy `status` từ `dates` rồi ghi đè cho
+  êm là làm phép kiểm chéo hoá cổng chết — hai đại lượng cùng suy từ một nguồn thì không bao giờ lệch.
+- ⚠️ **Cố ý KHÔNG cho sửa `name`** (khoá tra của `exerciseUpdates`, đổi là mọi lô nạp sau trượt),
+  `items` (dùng `add_news.py`), `background`/`concepts` (dùng `set_exercise_briefing.py`). Khai nhầm
+  vào đây thì bị chặn kèm chỉ đường, không im lặng bỏ qua.
+- **Nghiệm thu 07/08 khi cắm**: bảng tố đúng 03 thẻ `status` lệch mà CLAUDE.md đã ghi từ 05/08 nhưng
+  chưa ai sửa được vì thiếu đường (`Hán Quang 42` khai `upcoming` khi đang chạy · `Predator's Run` và
+  `RIMPAC` khai `ongoing` khi đã tàn). Sửa xong, chạy lại chính `evRange`/`effStatus` bóc từ
+  `index.html` bằng `node`: **0/24 cuộc lệch**.
+
 **🎯 Ô ĐIỂM NHẤN TRANG CHỦ CHỌN CUỘC TẬP TRẬN ĐỘNG (chỉ thị Huy 07/08/2026 — trước đó neo cứng
 `Predator's Run`).** `renderHome()` từng lọc `/predator/i` để lấy cuộc lên hero, nên kỳ đó kết thúc
 **29/07** mà ô vẫn treo nhãn *"Đang diễn ra"* hơn một tuần, còn Pitch Black (20/7–7/8) và Hán Quang 42
