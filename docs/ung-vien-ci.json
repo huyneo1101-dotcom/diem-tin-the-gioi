@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-08T04:12:57+07:00",
+  "tao_luc": "2026-08-08T04:32:05+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-07",
@@ -18,9 +18,33 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-08-08",
+      "tieu_de": "PANAMAX 26 VBSS",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1018015/panamax-26-vbss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-08",
+      "tieu_de": "PANAMAX 26: Marines practice movement and reload drills",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1018016/panamax-26-marines-practice-movement-and-reload-drills"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-08",
       "tieu_de": "Joint Task Force-Bravo executes a bilateral firefighting exercise with El Servicio de Salvamento y Extincion de Incendios del Aeropuerto Internacional Panama Pacifico",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/image/9856601/joint-task-force-bravo-executes-bilateral-firefighting-exercise-with-el-servicio-de-salvamento-y-extincion-de-incendios-del-aeropuerto"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-07",
+      "tieu_de": "PANAMAX 26 Boat Raids",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1017912/panamax-26-boat-raids"
     },
     {
       "lop": "RSS",
@@ -501,14 +525,6 @@
       "tieu_de": "U.S. Army Soldier Wins 2026 USPSA Multigun Nationals; Teammate and Veteran Add Division Wins",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/571651/us-army-soldier-wins-2026-uspsa-multigun-nationals-teammate-and-veteran-add-division-wins"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-05",
-      "tieu_de": "Get Fit: Proper Pull-Up Technique, Marine Corps Air Station, Iwakuni, Japan 2026 (No Graphic)",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/video/1017408/get-fit-proper-pull-up-technique-marine-corps-air-station-iwakuni-japan-2026-no-graphic"
     },
     {
       "lop": "RSS",
@@ -1167,6 +1183,15 @@
       "tieu_de": "THUẾ QUAN HOA KỲ: Brazil sẵn sàng đáp trả",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/thue-quan-hoa-ky-brazil-san-sang-dap-tra-102260717090702204.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Senator Warren Statement on Reports about Fed Governor Lisa Cook",
+      "nguon": "Uỷ ban Ngân hàng Thượng viện",
+      "url": "https://www.banking.senate.gov/newsroom/minority/senator-warren-statement-on-reports-about-fed-governor-lisa-cook",
       "nhom": 4
     },
     {
