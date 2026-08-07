@@ -1704,20 +1704,41 @@ function loadBaomoi(){
 function renderHome(){
   var stamp=stampVN();
   var h='<div class="bs">';
-  /* --- Dải điểm nhấn: Predator's Run (hero) + Hồ sơ Mỹ-Mali (cột phải) --- */
-  var pred=(DATA.exercises||[]).filter(function(e){return /predator/i.test(e.name||'');})[0];
+  /* --- Dải điểm nhấn: Tập trận ĐANG DIỄN RA (hero) + Hồ sơ Mỹ-Mali (cột phải) --- */
+  /* Trước 07/08/2026 khối này neo CỨNG vào /predator/i. Predator's Run kết thúc 29/07 mà hero
+     vẫn treo nhãn "Đang diễn ra" suốt hơn một tuần, trong khi Pitch Black (20/7-7/8) và Hán
+     Quang 42 (5-14/8) đang chạy thật thì không lên trang chủ — hỏng câm, vì khối vẫn hiện đủ.
+     Nay chọn ĐỘNG bằng effStatus (suy từ dải ngày `dates`), KHÔNG đọc trường `status` tĩnh
+     trong DATA: `status` gán lúc quét và không ai sửa khi ngày trôi (Predator's Run và RIMPAC
+     đều còn "ongoing" sau khi đã tàn). Đổi kỳ tập trận từ nay không phải sửa dòng mã nào. */
+  function drillStart(ex){var r=evRange(ex);return r?r.a.y*10000+r.a.mo*100+r.a.d:0;}
+  function drillLastItem(ex){var it=sortD(ex.items||[])[0];return it?(''+(it.date||'')):'';}
+  var _exAll=DATA.exercises||[];
+  /* Cuộc chính = cuộc đang chạy có tin mới nhất (hero còn hiện dòng "Mới nhất:"), hoà thì lấy
+     cuộc khai mạc muộn hơn. */
+  var _live=_exAll.filter(function(e){return effStatus(e)==='ongoing';})
+    .sort(function(x,y){var d=drillLastItem(y).localeCompare(drillLastItem(x));return d||(drillStart(y)-drillStart(x));});
+  /* Giữa hai kỳ luôn có quãng trống — không có cuộc nào đang chạy thì lấy cuộc SẮP diễn ra gần
+     nhất (nhãn đổi theo), để dải điểm nhấn không trống. */
+  var _soon=_live.length?[]:_exAll.filter(function(e){return effStatus(e)==='upcoming';})
+    .sort(function(x,y){return drillStart(x)-drillStart(y);});
+  var pred=_live[0]||_soon[0],predLive=!!_live.length,_liveMore=_live.slice(1);
   var pool=newsPool().concat(sortD(DATA.xNews||[]));
   var mali=LIVE_DOSSIERS.filter(function(d){return /mali/i.test(d[0]);})[0];
   var marr=mali?pool.filter(function(a){return (mali[1].test(txtOf(a))||(mali[2]&&mali[2](a)));}).slice(0,2):[];
   var lead='<div class="bs-lead">';
   if(pred){
     var pit=sortD(pred.items||[])[0];
-    lead+='<div class="bs-main"><div class="bs-eye">🎯 Tập trận · Đang diễn ra'+(pred.dates?' · '+esc(pred.dates):'')+'</div>'+
+    lead+='<div class="bs-main"><div class="bs-eye">🎯 '+(predLive?'Tập trận đang diễn ra':'Tập trận · Sắp diễn ra')+(pred.dates?' · '+esc(pred.dates):'')+'</div>'+
       '<h2>'+esc(pred.name)+'</h2>'+
       (pred.summary?'<p class="bs-lede">'+esc(pred.summary)+'</p>':'')+
       (pred.location?'<div class="bs-meta">📍 '+esc(pred.location)+'</div>':'')+
       (pit?'<a class="bs-latest" href="'+esc(pit.sourceUrl||'#')+'" target="_blank" rel="noreferrer"><b>Mới nhất:</b> '+esc(pit.title)+'</a>':'')+
-      '<button class="morebtn" data-home-goto="topic|drills||'+esc(pred.name)+'">Xem tập trận →</button></div>';
+      '<button class="morebtn" data-home-goto="topic|drills||'+esc(pred.name)+'">Xem tập trận →</button>'+
+      /* Nhiều cuộc cùng chạy thì các cuộc còn lại vẫn phải thấy được, không im lặng biến mất. */
+      (_liveMore.length?'<div class="bs-meta" style="margin-top:9px">Cũng đang diễn ra: '+
+        _liveMore.map(function(e){return '<button class="morebtn sm" data-home-goto="topic|drills||'+esc(e.name)+'">'+esc(e.name)+'</button>';}).join(' ')+'</div>':'')+
+      '</div>';
   }
   lead+='<div class="bs-side"><div class="bs-sideh">🟤 Hồ sơ Mỹ – Mali</div>';
   if(marr.length){marr.forEach(function(a){

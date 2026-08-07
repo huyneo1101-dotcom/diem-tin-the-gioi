@@ -1525,6 +1525,29 @@ KHÁC với category "Ngoại giao" ở trên — đây là các **sự kiện l
 ```
 Với **`exercises` (tập trận)**: cập nhật `items` con vào cuộc **đã có** (khớp `name`) qua `exerciseUpdates`; **được phép TẠO cuộc tập trận MỚI** qua `newExercises` (phiên sáng `event-scan` chủ động quét tập trận lớn KHẮP THẾ GIỚI đang/sắp diễn ra — không chỉ Ấn Độ Dương-TBD). Ưu tiên cập nhật `status: "ongoing"`. `dates` ghi dạng CÓ ngày/tháng/năm để web tự suy trạng thái (`effStatus`).
 
+**🎯 Ô ĐIỂM NHẤN TRANG CHỦ CHỌN CUỘC TẬP TRẬN ĐỘNG (chỉ thị Huy 07/08/2026 — trước đó neo cứng
+`Predator's Run`).** `renderHome()` từng lọc `/predator/i` để lấy cuộc lên hero, nên kỳ đó kết thúc
+**29/07** mà ô vẫn treo nhãn *"Đang diễn ra"* hơn một tuần, còn Pitch Black (20/7–7/8) và Hán Quang 42
+(5–14/8) đang chạy thật thì **không bao giờ lên trang chủ**. **Cơ chế gây vấp:** hỏng câm hoàn toàn —
+khối vẫn hiện đủ tít, tóm tắt, dòng *"Mới nhất:"* và nút *"Xem tập trận →"*, chỉ là nói sai; nhìn
+trang chủ không có dấu hiệu nào để nghi. Cùng lớp lỗi với việc chủ đề 05 từng neo tên một kỳ ở 05 chỗ
+(mục "5 chủ đề" đầu file) — đổi kỳ là câm, chỉ khác chỗ câm.
+- Cuộc chính = cuộc `effStatus(e)==='ongoing'` có **tin mới nhất**, hoà thì lấy cuộc khai mạc muộn hơn.
+- ⛔ **Chọn bằng `effStatus` (suy từ `dates`), TUYỆT ĐỐI không đọc trường `status` tĩnh** — `status`
+  gán lúc quét và không ai sửa khi ngày trôi (đo 05/08: `Predator's Run` và `RIMPAC` đều đã tàn mà vẫn
+  mang `"ongoing"`, còn `Hán Quang 42` khai `"upcoming"` trong khi dải ngày đã chứa hôm nay). Đây là
+  cùng một cảnh báo đã ghi ở chủ đề 05.
+- **Nhiều cuộc cùng chạy thì các cuộc còn lại hiện thành nút** dưới hero (`Cũng đang diễn ra: …`) —
+  bỏ đi là chúng biến mất im lặng, đúng bệnh vừa vá.
+- **Không cuộc nào đang chạy thì lấy cuộc SẮP diễn ra gần nhất VÀ ĐỔI NHÃN** thành *"Sắp diễn ra"* —
+  giữa hai kỳ luôn có quãng trống; giữ nguyên nhãn cũ là dựng lại đúng lời nói dối vừa gỡ.
+- `DATA.exercises` rỗng → **bỏ hẳn khối hero**, cột Hồ sơ Mỹ–Mali vẫn nguyên (hành vi cũ, đã giữ).
+- Nghiệm thu 07/08 trên trình duyệt thật (Chromium headless, không lỗi JS): hero ra Hán Quang 42 +
+  chip Pitch Black · bấm chip → đúng `topic|drills|Pitch Black…` · ép hết cuộc về quá khứ → nhãn đổi
+  *"Sắp diễn ra"* · `exercises=[]` → 0 khối `.bs-main`, trang vẫn sống.
+- ⚠️ **Sửa `index.html` thì bump `C` trong `sw.js`** (nay `diemtin-v50`) — không bump thì máy đã cài
+  PWA vẫn ăn bản cache cũ, tức bản vá không tới người đọc mà cũng không báo lỗi gì.
+
 **BỐI CẢNH + KHÁI NIỆM (thông tin nền — cập nhật 25/07/2026):** mỗi cuộc tập trận có thể mang `background` (đoạn Bối cảnh chiến lược, nhiều đoạn ngăn bằng `\n`) + `concepts` ([{term,def}]) — web hiện 2 thẻ **📔 Bối cảnh** + **📚 Khái niệm** dưới mỗi cuộc (hàm `drillBriefing`). Chỉ thị Huy: **TỰ ĐỘNG sinh Bối cảnh khi phát hiện tập trận MỚI, và thêm Bối cảnh cho mọi cuộc ĐANG diễn ra chưa có.** Sinh qua agent rồi ghi bằng `scripts/set_exercise_briefing.py briefing.json` (`[{name,background,concepts}]`). Quy trình routine: xem `docs/routine-event-scan.md` Bước 2b.
 
 Với **`dipEvents` (sự kiện ngoại giao)** — áp dụng từ 11/07/2026 — được phép **tự động TẠO sự kiện mới** cho các sự kiện ngoại giao đáng đưa (dùng field `newDipEvents`), gồm: **ký kết/hiệp định song phương hoặc đa phương** (vd Nhật–New Zealand ký ACSA), **thượng đỉnh / hội nghị cấp cao**, **thăm cấp nguyên thủ/bộ trưởng có kết quả cụ thể**, **sáng kiến/khuôn khổ ngoại giao lớn mới**. KHÔNG tạo sự kiện cho: điện đàm/cuộc gọi thường lệ, phát ngôn đơn lẻ, tin đồn. **TĂNG số sự kiện ngoại giao mỗi ngày** (chủ động tạo 1–2 sự kiện mới + cập nhật item cho sự kiện đang chạy). Mỗi sự kiện mới phải có đủ `name`, `status`, `dates`, `location`, `scale`, `summary`, và ≥1 `items`. **`status` PHÂN LOẠI đúng 3 mức** (giao diện hiển thị theo nhóm này): `upcoming` = **Sắp diễn ra** (thượng đỉnh/hội nghị chưa họp) · `ongoing` = **Đang diễn ra** (đang họp/đàm phán nhiều ngày) · `recent` = **Đã kết thúc** (đã ký/đã họp xong). Khi một sự kiện `ongoing`/`upcoming` kết thúc, dùng `dipEventUpdates` KÈM đổi trạng thái (nêu trong tóm tắt để cập nhật status sang `recent`) (nguồn chứng minh — ưu tiên nguồn chính thức tầng 1). **LƯU Ý (24/07/2026): giao diện giờ tự SUY trạng thái hiển thị từ dải ngày `dates` so với hôm nay** (hàm `effStatus` trong `index.html`: parse "19-24/07/2026", "20/7 – 7/8/2026", "24/7/2026"… → trong khoảng = Đang diễn ra, trước = Sắp, sau = Đã kết thúc). Vì vậy KHÔNG cần sửa tay `status` mỗi ngày cho các mốc có `dates` rõ; `status` lưu trong DATA chỉ còn là **fallback** khi `dates` không parse được ngày (vd "Tháng 9/2026", "Cuối năm 2026"). Vẫn nên đặt `status` hợp lý lúc tạo, và ưu tiên ghi `dates` dạng có ngày/tháng/năm để auto hoạt động. Script tự CHẶN nếu tên trùng/giống sự kiện đã có (Jaccard ≥ 0.6) → khi đó dùng `dipEventUpdates` để thêm item vào sự kiện cũ thay vì tạo trùng. Nếu một tin đã đưa ở `worldNews`/`usNews` được nâng thành sự kiện, bỏ bản ở mảng tin phẳng để URL không trùng 2 chỗ.

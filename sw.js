@@ -1,5 +1,5 @@
 // Điểm Tin Thế Giới — service worker (network-first cho nội dung mới, cache dự phòng offline)
-var C = 'diemtin-v49';
+var C = 'diemtin-v50';
 // data/analyses.json tách khỏi index.html 30/07/2026 — phải precache, nếu không thì mở offline
 // mục 🏛️ Think-tank trống trơn (trước khi tách nó nằm sẵn trong index.html nên luôn có).
 var SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './data/analyses.json'];

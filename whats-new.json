@@ -2,6 +2,11 @@
   "_doc": "Nguồn dữ liệu cho HAI mục trong email sáng (.github/scripts/send-morning-email.js): '🆕 Mới trên web' và '💡 Có thể bạn chưa biết'. features = tính năng NGƯỜI ĐỌC nhìn thấy (không ghi việc sửa routine/CI/quy tắc quét); email chỉ in feature có date trong 7 ngày gần nhất, tối đa 3 mục. tips = mẹo dùng web, email xoay 1 mẹo/ngày theo số ngày (deterministic, không random) nên cứ thêm mẹo vào cuối mảng là nó tự tới lượt. MỌI mục phải là chức năng THẬT đã kiểm trên index.html — không hứa tính năng chưa có.",
   "features": [
     {
+      "date": "2026-08-07",
+      "title": "Trang chủ luôn nêu cuộc tập trận ĐANG diễn ra",
+      "desc": "Ô điểm nhấn đầu trang chủ trước đây gắn cứng vào Predator's Run, nên kỳ đó kết thúc từ 29/7 mà vẫn treo nhãn 'Đang diễn ra'. Nay ô này tự chọn cuộc tập trận đang chạy theo đúng dải ngày của nó, kèm tin mới nhất; nhiều cuộc cùng chạy thì các cuộc còn lại hiện thành nút bấm ngay dưới. Giữa hai kỳ, ô chuyển sang cuộc sắp diễn ra gần nhất và ghi rõ 'Sắp diễn ra'."
+    },
+    {
       "date": "2026-08-02",
       "title": "Link thẳng tới báo cáo tuần của từng nước",
       "desc": "Tin nhắn sáng Chủ nhật thôi liệt kê luận điểm từng nước — nay chỉ còn ba dòng Mỹ · Trung Quốc · Nga, bấm vào là trang mở đúng mục Báo cáo tuần và nhảy thẳng xuống nước đó. Địa chỉ dạng .../#analysis/weekly/us cũng sao chép gửi cho người khác được."
