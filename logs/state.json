@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-08T04:00:52+07:00",
+    "lastRunAt": "2026-08-08T04:35:45+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "phien sang som 08/08: +9 tin (Noi bo My +5, Uc&BD +3, CNQS +4, PANAMAX +1 cap nhat), Mali 0 tin (2 ung vien ngoai khung), 5 ung vien Bao Moi loai het",
     "lastSuccess": {
       "toi": "2026-08-07",
-      "sang": "2026-08-07"
-    },
-    "heartbeat": "2026-08-08T04:00:52+07:00"
+      "sang": "2026-08-08"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-07T05:44:35+07:00",

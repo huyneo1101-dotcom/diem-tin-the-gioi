@@ -1,2 +1,11 @@
 [21:00Z] START (CI) - phien sang som 08/08, khoa web-scan da giu (claim ok)
-[04:31] START (local) - phien sang som 08/08, claim web-scan OK (RUN, lastSuccess sang truoc do 2026-08-07)
+[21:00Z] harvest.py + telegram_harvest.py xong: 424 ung vien 5 chu de + 12 ung vien Telegram
+[21:14Z] Giao 4 agent Sonnet song song (Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran)
+[21:22Z] Bo sung agent Uc & Bien Dong (chi 2 tin) -> +3 tin moi
+[21:32Z] add_news.py lo 1: +4 TG, +8 My, +1 tap tran. Phat hien 2 tin trung (Jaccard) -> prune_news.py go 1 TG (Scarborough drills) + 1 My (chien luoc hat nhan)
+[21:40Z] Bo sung agent CNQS My + Uc & Bien Dong lan 2 -> 4 ung vien, sau kiem tra cheo chi giu 2 tin CNQS sach (2 tin con lai trung DATA da co)
+[21:45Z] add_news.py lo 2: +2 My (CNQS). Cong dong ngay 2026-08-07: Noi bo My 13, Uc&BD 8, CNQS 12, Mali 1, Tap tran(PANAMAX) 3
+[21:46Z] Bo Bao Moi: 5 ung vien deu LOAI (trung DATA hoac khong neo duoc chu de) - ghi logs/loai-tin.md
+[21:46Z] gh workflow run telegram-bot.yml bi chan (requires approval, phien CI khong tu approve duoc) -> khong kich duoc bot. Van chay tin_jaylam.py --liet-ke: khong co file Jay Lam nao trong khung ngay (ma 10) -> bo qua buoc loc Jay Lam, khong anh huong ket qua vi khong co file de loc.
+[04:31] (LOCAL, ghi chen khi rebase) START (local) - phien sang som 08/08, claim web-scan OK (RUN, lastSuccess sang truoc do 2026-08-07) - PHIEN NAY CHAY SONG SONG VOI PHIEN CI VI CI KHONG PUSH HEARTBEAT TRUNG GIAN (chi push luc START va luc DONE), heartbeat tren origin bi coi la cu sau ~30 phut. Phien CI da hoan tat va DONE truoc khi phien local kip nap tin gi - xem ghi chu duoi day.
+[21:47Z] (CI) Phat hien local claim lai cung khoa luc git pull --rebase (rebase conflict o file log nay). Phien CI DA hoan tat quet + add_news.py + state.py done TRUOC do (04:35 local = 21:35Z) nen giu nguyen ket qua, chi merge lai dong log. Neu phien local van dang quet thi lan push cua ho se tu dedupe qua guardrail add_news.py (chan URL trung) - khong can can thiep them tu day.

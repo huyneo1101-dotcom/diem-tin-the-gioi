@@ -1,18 +1,17 @@
 {
   "date": "2026-08-07",
-  "session": "toi",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Thiếu 3 bài. Agent tìm được 6 ứng viên nhưng 4/6 bị loại vì kiểm tra chéo phát hiện ĐÃ có sẵn trong DATA hôm nay (nạp từ phiên sáng sớm cùng ngày): dự luật biên giới phía Bắc (Cramer), sắc lệnh thuế polysilicon, hoàn thuế IEEPA 100 tỷ USD, trừng phạt quân đội Cuba. Chỉ còn 2 tin sạch: bầu cử sơ bộ Tennessee (Ogles thất cử), báo cáo việc làm tháng 7 (BLS). Nhóm 1 (điều trần + bỏ phiếu) đã cạn ứng viên mới trong ngày — DATA đã có 9 tin usNews hôm nay từ phiên sáng, tổng ngày (sáng+tối) đạt 11 tin cho chủ đề này, vượt sàn 5-10/phiên khi tính cả ngày."},
-    {"name":"Úc & Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Thiếu 3 bài. Agent tìm 4 ứng viên nhưng loại 2: tin Trung Quốc xác nhận thương vong Scarborough (SCMP) TRÙNG URL 100% với tin đã có sẵn hôm nay; tin Phần Lan/Thuỵ Điển tới Pitch Black đã có sẵn hôm nay + được ưu tiên xếp vào exerciseUpdates (chủ đề hẹp giành trước). Còn lại 2 tin sạch: họp Bộ trưởng QP Úc-Philippines tại Darwin (defence.gov.au), sắc lệnh Biển Tây Philippines EO29 (PNA)."},
-    {"name":"Công nghệ quân sự Mỹ","count":5,"target":"5-10","min":5,"thieu":false,"reason":"Đạt sàn 5 tin: Schiess Tư lệnh Không gian, vệ tinh SB-AMTI 615 triệu USD, radar APG-85, JDAM phản lực, tên lửa đất-đối-không diệt drone cỡ nhỏ. Đã loại 2 ứng viên trùng 100% với DATA sẵn có: PAC-3/THAAD Northrop 3 tỷ USD, tái phân loại tàu ngầm Virginia SSGN."},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":13,"target":"5-10","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Úc & Biển Đông","count":8,"target":"5-10","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Công nghệ quân sự Mỹ","count":12,"target":"5-10","min":5,"thieu":false,
+     "reason":""},
     {"name":"Mỹ – Mali","count":1,"target":"2-5","min":2,"thieu":true,
-     "reason":"Thiếu 1 bài để đạt tối thiểu. Chỉ 1 tin sạch: Mali tiếp nhận lô drone Bayraktar AKINCI thứ ba (Militarnyi). Ứng viên Telegram (Nigeria giải cứu 308 người bị bắt cóc) không neo rõ Mali/JNIM/Mỹ nên không dùng."},
-    {"name":"Tập trận (Pitch Black 2026 + PANAMAX 2026)","count":4,"target":"1-2 mỗi cuộc","min":1,"thieu":false,
-     "reason":"Pitch Black: 2 cập nhật (Rafale Ấn Độ, FA-50 Philippines) — đã loại 1 ứng viên trùng (Phần Lan/Thuỵ Điển, đã có sẵn hôm nay). PANAMAX: 2 cập nhật (Tuần duyên Mỹ, lực lượng đa quốc gia). SEACAT và Hán Quang 42: agent tìm được nhưng cả hai bị loại vì trùng nội dung với item đã có sẵn trong DATA."},
-    {"name":"Báo Mới","count":0,"target":"3-6","min":3,"thieu":true,
-     "reason":"5 ứng viên khớp 5 chủ đề — KHÔNG kịp xác minh bài gốc trước hạn 21:45 (phiên chạy trễ, ưu tiên gửi đúng giờ theo chỉ thị Huy 27/07/2026). Suy luận nhanh không nạp: 3 tin trùng nội dung đã có sẵn hôm nay (birthright citizenship EO x2, hoàn thuế IEEPA), 2 tin không neo rõ chủ đề (EU mua Patriot không phải khí tài Mỹ cụ thể; bán dẫn Malaysia không phải chủ quyền/quân sự Biển Đông). Cắt vòng xác minh vì sát hạn, đã ghi rõ trong logs/loai-tin.md."}
+     "reason":"Phiên sáng sớm 08/08 tìm thêm nhưng không nạp được tin mới: 2 ứng viên đáng chú ý nhất ('Trump weighs strikes in the Sahel' — Africa Confidential, 'Russian ship defies sanctions to Mali' — AOL.com) xác minh ra sự kiện thật diễn ra 22-25/07, ngoài khung 24-48h dù GNEWS đăng/dẫn lại gần đây. Vẫn giữ 1 tin từ phiên tối trước (Mali tiếp nhận lô drone Bayraktar AKINCI thứ ba)."},
+    {"name":"Tập trận (PANAMAX 2026 + các cuộc đang diễn ra)","count":3,"target":"1-2 mỗi cuộc","min":1,"thieu":false,
+     "reason":""}
   ],
-  "note": "Phiên TỐI CI (fire 20:47, ô toi), VN date 2026-08-07. Giao 5 agent Sonnet song song. Kiểm tra chéo trước khi add_news.py phát hiện 4/6 tin Nội bộ Mỹ, 1/1 tin Scarborough (Úc-BĐ), 2 tin CNQS (PAC-3/THAAD, Virginia SSGN), và 1 cập nhật Pitch Black (Phần Lan/Thuỵ Điển) + 1 SEACAT + 1 Hán Quang 42 đã TRÙNG với DATA sẵn có hôm nay (phiên sáng sớm cùng ngày đã nạp nhiều) — dù mọi agent đều được nhúng nguyên khối --recent-titles. Bài học ghi trong logs/loai-tin.md: bước kiểm tra chéo của session điều phối là lớp chặn hiệu quả, không thừa. Bộ lọc Jay Lâm: 1 file (id không đổi, xem log) không trùng tin nào của lô tối nay."
+  "note": "Số liệu CỘNG DỒN cả ngày 2026-08-07 (phiên tối 20:47 + phiên sáng sớm CI 03:47-04:47, cùng generatedAt do chưa có tin dated 2026-08-08). Phiên sáng sớm (session này) tự nạp thêm: +5 Nội bộ Mỹ, +3 Úc & Biển Đông (sau khi prune 1 tin trùng Scarborough drills), +4 CNQS Mỹ (sau khi prune 1 tin trùng chiến lược hạt nhân + loại 2 ứng viên trùng ở vòng bổ sung), +1 cập nhật PANAMAX, +0 Mali. Cổng Báo Mới: 5 ứng viên đều LOẠI (trùng tin đã có hoặc không neo được vào chủ đề — birthright citizenship EO x2, hoàn thuế IEEPA, EU mua Patriot không phải khí tài Mỹ, bán dẫn Malaysia không phải Úc/Biển Đông). Chi tiết đầy đủ: logs/loai-tin.md mục '08/08/2026 (phiên sáng sớm CI)'."
 }
