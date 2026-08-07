@@ -71,10 +71,31 @@ Lệnh sạch dạng `git -C /Users/Huy/Claude/diem-tin-the-gioi add|commit|push
 
 ## Bước 1 — Đồng bộ + giành khoá
 ```
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/don_ton_du.py
 git -C /Users/Huy/Claude/diem-tin-the-gioi pull --rebase origin main
 python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim web-scan
 python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/ghi_log_push.py --file logs/scan-<ngày VN>.log --nhan "log: claim web-scan (local)"
 ```
+
+⛔ **DÒNG ĐẦU LÀ BẮT BUỘC, LUÔN CHẠY TRƯỚC `pull --rebase`** (thêm 07/08/2026, chỉ thị Huy:
+*"lần sau phải tự động đẩy việc dở, không được để ảnh hưởng đến việc quét tin"*). Sự cố thật
+sáng 07/08: một phiên khác dựng `scripts/do_can_doi_khu_vuc.py` + sửa `CLAUDE.md` lúc 21:37 tối
+trước rồi kết phiên không commit; mốc quét local 04:30 chết ngay dòng đầu tiên
+(`cannot pull with rebase: You have unstaged changes`) — đúng lúc GitHub cũng không cấp máy chạy
+CI đêm đó (mọi run 22:56→04:45 chết sau 15 phút, 0 bước). Cả hai lớp cùng chết, bản tin sáng
+muộn một tiếng.
+`don_ton_du.py` tự phân loại tồn dư theo TUỔI FILE (mtime, ngưỡng 90 phút — đủ rộng để không bao
+giờ giật việc khỏi tay phiên đang gõ thật): file **NGUỘI** thuộc `scripts/`·`tests/`·`docs/`·
+`.claude/`·`.github/` hoặc đuôi `.py/.md/.yml/.sql` → tự commit + push (message KHÔNG khớp tiền
+tố `Cap nhat ban tin`/`Cap nhat su kien` nên không kích nhầm cổng gửi email); file **sinh tự
+động** (`logs/`, `baomoi-*.json`, `docs/ung-vien-ci.json`, `preferences.json`) → bỏ thay đổi cục
+bộ (`git checkout --`, lượt `pull --rebase` kế tiếp tự lấy đúng bản remote mới nhất); file
+**CẦN NGƯỜI** (`index.html`, `sw.js`, `manifest.json`, `data/analyses.json`) hoặc file **NÓNG**
+(< 90 phút tuổi — phiên khác đang gõ thật) → KHÔNG đụng, in cảnh báo, mã thoát khác 0.
+⚠️ **Script không chặn phiên dù mã thoát ≠ 0** — cứ đọc tiếp dòng 2 như thường. Còn `index.html`
+tồn dư (mã 3) hoặc file NÓNG (mã 4) thì `pull --rebase` ở dòng 2 vẫn có thể bị chặn — xử tiếp
+theo đúng bảng "DÒNG 1 BÁO lỗi" ngay dưới, KHÔNG bỏ qua bước đó.
+Bộ test canh: `tests/test-don-ton-du.py` (11 ca · `--tu-kiem` bắt 4/4 bản hỏng).
 
 ⛔ **COMMIT CHỈ-CÓ-LOG PHẢI ĐI QUA `ghi_log_push.py`, KHÔNG `git add logs/` + `commit` + `push`**
 (vá 02/08/2026 — sự cố thật sáng đó). Sáng 02/08 có **04 phiên** cùng append vào
