@@ -93,6 +93,18 @@ tách như cũ.
    - exit 10 (sáng nay đã xong) / exit 11 (phiên khác đang chạy): ghi 1 dòng SKIP vào log, commit +
      push log, DỪNG bước này (phiên vẫn coi là hoàn tất — bản tin 5 chủ đề ở Bước 5 đã xong).
    - exit 0: giữ khoá, làm tiếp. Ghi `[<giờ UTC>Z] START event-scan (CI, gop vao sang som)` vào log.
+1b. **Dò cuộc tập trận CÒN THIẾU** (thêm 07/08/2026): `python3 scripts/do_tap_tran_thieu.py`.
+   Vì sao đứng TRƯỚC bước 2: `tap_tran.py` sinh từ khoá từ chính `DATA.exercises` nên chỉ tìm tin cho
+   cuộc ĐÃ CÓ TÊN — cuộc chưa có thì không ai tìm, không ai tìm thì không bao giờ vào danh sách. Đo
+   07/08: 10 cuộc trong DATA, đọc tay ra **14 cuộc thiếu, 04 đang chạy**. Script hỏi theo KHUÔN
+   (`<nước A> <nước B> exercise <tháng>`) nên không cần biết trước tên.
+   - Nhóm **★ CÓ TÊN RIÊNG** → xác minh nguồn rồi gộp vào `/tmp/new_items_event.json` ở bước 2 dưới
+     dạng `newExercises`.
+   - Nhóm **○ KHÔNG TÊN** → hoạt động chung ngắn ngày; đọc rồi quyết. Đây đúng là nhóm bảng chuỗi
+     tập trận vốn mù, đừng bỏ qua cả nhóm.
+   - Mất ~3–4 phút, **KHÔNG phải cổng chặn** (luôn trả mã 0). Sát giờ hoặc mạng trục trặc thì bỏ
+     bước này, ghi một dòng log rồi đi tiếp — mất bước phụ còn hơn trễ bản tin.
+   - Sổ `logs/tap-tran-da-soi.json` chống báo lại tin đã đọc, phải `git add logs/` cùng lô.
 2. Quét sự kiện + tập trận bằng agent (tool Agent, model "sonnet"): nhúng nguyên output
    `python3 scripts/add_news.py --recent-titles 20`; tìm sự kiện ngoại giao có ký kết trong 48h +
    diễn biến tập trận + tin liên quan; gộp `/tmp/new_items_event.json` (chỉ khoá newDipEvents/

@@ -261,6 +261,33 @@ push log, DỪNG bước này (phiên vẫn coi là hoàn tất bình thường,
 SKIP exit 11 = phiên khác đang giữ khoá `event-scan` — cũng SKIP êm, không chờ, không Monitor.
 RUN exit 0 = giữ khoá, làm tiếp.
 
+### 4.2a — Dò cuộc tập trận CÒN THIẾU trong `DATA.exercises` (thêm 07/08/2026)
+```
+python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/do_tap_tran_thieu.py
+```
+**Vì sao phải có bước này, và vì sao nó đứng TRƯỚC 4.2:** bước 4.2 giao agent tìm *"diễn biến tập
+trận"*, mà `tap_tran.py` sinh từ khoá từ chính `DATA.exercises` — tức chỉ đi tìm tin cho cuộc ĐÃ CÓ
+TÊN. Cuộc chưa có trong danh sách thì không ai tìm, không ai tìm thì không bao giờ vào danh sách. Đo
+07/08/2026: `DATA.exercises` có 10 cuộc, một lượt đọc tay tìm ra **14 cuộc thiếu, 04 cuộc đang chạy
+đúng hôm đó**. Script này hỏi ngược lại — *"tháng này Nhật và Philippines có tập chung gì không"* —
+nên bắt được cả cuộc chưa ai đặt tên vào danh sách.
+
+Đầu ra **02 nhóm**, xử lý khác nhau:
+- **★ CÓ TÊN RIÊNG** → xác minh nguồn rồi nạp thẻ mới bằng `add_news.py` khoá `newExercises`, gộp
+  luôn vào `/tmp/new_items_event.json` của bước 4.2.
+- **○ KHÔNG TÊN CHUỖI** → hoạt động chung ngắn ngày (tuần tra ba bên, diễn tập hàng hải một lượt).
+  Đọc tay: đáng thành thẻ thì nạp, không thì bỏ qua. **Đây là nhóm mà bảng chuỗi tập trận vốn mù**,
+  đừng bỏ qua cả nhóm cho nhanh.
+
+⚠️ **Chạy ~3–4 phút (28 truy vấn Google News), KHÔNG phải cổng chặn.** Script luôn trả mã 0; hỏng thì
+in cảnh báo rồi thôi. Quá giờ hoặc mạng trục trặc thì bỏ bước này, ghi một dòng vào log, đi tiếp 4.2 —
+mất một bước phụ còn hơn trễ bản tin.
+⚠️ **Tin về cuộc ĐÃ CÓ mà tiêu đề không nêu tên cuộc sẽ rơi vào nhóm ○** (ví dụ *"S. Korean Air Force
+joins multinational exercise in Australia"* là Pitch Black). Đây là giới hạn đã biết của phép khớp
+theo tên, không phải lỗi — đọc thấy thì bỏ qua.
+⚠️ Sổ `logs/tap-tran-da-soi.json` giữ 14 ngày để khỏi báo lại tin đã đọc; muốn xem lại từ đầu thì
+thêm `--khong-so`. **Phải `git add logs/` cùng lô** như mọi sổ khác.
+
 ### 4.2 — Quét sự kiện + tập trận
 Giao agent (tool Agent, `model: "sonnet"`): nhúng nguyên output
 `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py --recent-titles 20` để chống trùng;

@@ -1580,6 +1580,40 @@ python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/sua_thong_tin_tap_tran.py --
   `RIMPAC` khai `ongoing` khi đã tàn). Sửa xong, chạy lại chính `evRange`/`effStatus` bóc từ
   `index.html` bằng `node`: **0/24 cuộc lệch**.
 
+🔎 **DÒ CUỘC TẬP TRẬN CÒN THIẾU — `scripts/do_tap_tran_thieu.py`, cắm vào phiên quét SÁNG bước 4.2a**
+(dựng 07/08/2026). **Vòng luẩn quẩn nó cắt:** `tap_tran.py` sinh từ khoá từ chính `DATA.exercises`, tức
+chỉ đi tìm tin cho cuộc **ĐÃ CÓ TÊN**; cuộc chưa có thì không ai tìm, không ai tìm thì không bao giờ vào
+danh sách. Đo 07/08: DATA có 10 cuộc, một lượt đọc tay ra **14 cuộc thiếu, 04 đang chạy đúng hôm đó**.
+Script hỏi ngược theo **KHUÔN** (`<nước A> <nước B> exercise <tháng năm>`) nên không cần biết trước tên.
+
+| Nhóm đầu ra | Nghĩa | Xử lý |
+|---|---|---|
+| **★ CÓ TÊN RIÊNG** | tên cuộc không khớp cuộc nào trong DATA | nạp thẻ mới `add_news.py --newExercises` |
+| **○ KHÔNG TÊN CHUỖI** | hoạt động chung ngắn ngày | đọc tay rồi quyết — **đây là nhóm bảng chuỗi vốn mù** |
+
+- **Nghiệm thu 07/08**: 28 truy vấn → 67 ứng viên, nhóm ★ tìm đúng **02 cuộc thật còn thiếu**
+  (`Exercise Carabaroo` Philippines–Úc tam phương · `Exercise MILAN-2026` Ấn Độ, kỳ 13 tại
+  Visakhapatnam). **29 ca (18 PHẢI CHẶN) · 11 bản hỏng**, đã nạp `khoe.py`.
+- ⚠️ **Là công cụ GỢI Ý, luôn trả mã 0** — cắm làm cổng chặn thì một hôm Google News đổi khuôn là chết
+  cả bản tin vì một mục phụ. Sát giờ thì bỏ bước, ghi một dòng log rồi đi tiếp.
+- ⚠️ **04 lớp hỏng đều CÂM, bảng vẫn đầy dòng** — đo thật lúc dựng: neo quá chặt rớt 5/6 tiêu đề mẫu ·
+  neo quá nới kéo tin điều tra dân số và tin sức khoẻ vào · đếm nước theo **chuỗi con** làm
+  `red**uc**es` thành 02 nước (cùng họ lỗi `úc → uc trúng 397/442 bài`) · bỏ khử trùng thì 40 tin thật
+  in ra **135 dòng**, mà bảng lặp là bảng không ai đọc hết.
+- ⚠️ **Đừng bỏ nhóm ○ cho bảng gọn** — nó dài hơn và khó xử hơn nhóm ★, nhưng chính nó là sản phẩm:
+  hoạt động hợp tác hàng hải ba bên không mang tên chuỗi nên không có hàng nào trong bảng để đặt vào.
+- ⚠️ **Giới hạn đã biết:** tin về cuộc ĐÃ CÓ mà tiêu đề không nêu tên cuộc sẽ rơi vào nhóm ○ (ví dụ
+  *"S. Korean Air Force joins multinational exercise in Australia"* chính là Pitch Black). Không phải
+  lỗi — đọc thấy thì bỏ qua.
+- ⛔ **HAI BẪY KHI NẠP TỪ BẢNG NÀY, cả hai bắt được ngay lượt chạy đầu 07/08 — script in cảnh báo
+  nhưng vẫn phải tự kiểm:**
+  - **Tin CŨ đăng lại mang ngày mới.** `when:7d` lọc theo ngày Google gán, không theo ngày sự kiện:
+    `Exercise MILAN-2026` vào bảng với ngày 07/08 trong khi cuộc đã chạy xong **15–25/02/2026**. Luôn
+    mở bài đọc ngày DIỄN RA trước khi nạp; cùng họ với BẪY NĂM đã ghi ở phần bàn giao tập trận.
+  - **Cuộc con của cuộc đã có.** `Exercise Carabaroo 2026` (Lục quân Philippines, Townsville, từ
+    21/7) là **thành phần nằm TRONG `Predator's Run 2026`** — thẻ đó đã có trong DATA. Xếp làm
+    `exerciseUpdates` của thẻ cũ; dựng thẻ mới là tách đôi cùng một cuộc.
+
 **🎯 Ô ĐIỂM NHẤN TRANG CHỦ CHỌN CUỘC TẬP TRẬN ĐỘNG (chỉ thị Huy 07/08/2026 — trước đó neo cứng
 `Predator's Run`).** `renderHome()` từng lọc `/predator/i` để lấy cuộc lên hero, nên kỳ đó kết thúc
 **29/07** mà ô vẫn treo nhãn *"Đang diễn ra"* hơn một tuần, còn Pitch Black (20/7–7/8) và Hán Quang 42
