@@ -96,6 +96,12 @@ bộ (`git checkout --`, lượt `pull --rebase` kế tiếp tự lấy đúng b
 tồn dư (mã 3) hoặc file NÓNG (mã 4) thì `pull --rebase` ở dòng 2 vẫn có thể bị chặn — xử tiếp
 theo đúng bảng "DÒNG 1 BÁO lỗi" ngay dưới, KHÔNG bỏ qua bước đó.
 Bộ test canh: `tests/test-don-ton-du.py` (11 ca · `--tu-kiem` bắt 4/4 bản hỏng).
+⚠️ **Vá này KHÔNG đảm bảo bản tin sáng luôn tới trước một giờ cố định** (Huy hỏi 07/08/2026 sau
+khi vá). Nó chỉ đóng đúng MỘT nguyên nhân — tồn dư chặn `pull --rebase`. Đêm 06→07/08 GitHub
+không cấp máy chạy CI suốt **22:56→05:15 (~6 tiếng)**, mọi run chết sau 15 phút không chạy nổi
+bước nào — đó mới là phần chiếm phần lớn độ trễ hôm đó, và nó nằm ngoài tầm với: GitHub tự cấp
+máy lại lúc 05:15 chứ không phải nhờ bản vá này. Lưới local vẫn còn hai điều kiện chưa ai bịt
+được: máy Mac phải đang THỨC (`pmset repeat wakeorpoweron`) và app Claude phải đang MỞ.
 
 ⛔ **COMMIT CHỈ-CÓ-LOG PHẢI ĐI QUA `ghi_log_push.py`, KHÔNG `git add logs/` + `commit` + `push`**
 (vá 02/08/2026 — sự cố thật sáng đó). Sáng 02/08 có **04 phiên** cùng append vào
