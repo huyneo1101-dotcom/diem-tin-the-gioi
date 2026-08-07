@@ -19,3 +19,4 @@
 [14:33Z] web-scan DONE. Commit + push.
 [14:40Z] SKIP web-scan (CI, phien toi, lot goi moi) - claim tra exit 10 (DA XONG, lastRunAt 2026-08-07T21:33:23+07:00). Ap dung ngoai le kiem so_da_gui: --xem co dong "2026-08-07T21:35:24+07:00 [toi] 28 tin" - ban tin toi da toi tay that, khong phai co dang noi doi. KHONG quet de. KET THUC theo dung Buoc 1.
 [15:01Z] SKIP web-scan (CI, phien toi, lot goi lap lai lan 2) - xac nhan lai: claim van tra exit 10, so_da_gui van co dong [toi] 28 tin cua hom nay 2026-08-07. Khong co gi thay doi so voi kiem tra 14:40Z, khong co viec gi chua commit. KET THUC.
+[15:02Z] SKIP web-scan (CI, phien toi, lot goi lap lai lan 3) - xac nhan lai lan nua: claim van tra exit 10, so_da_gui van co dong [toi] 28 tin cua hom nay 2026-08-07 (lastRunAt web-scan 21:33:23, event-scan 05:44:35, ca hai da DONE). Khong co gi thay doi. KET THUC.
