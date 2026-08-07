@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-07T03:46:34+07:00",
+  "tao_luc": "2026-08-07T07:58:12+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-06",
@@ -10,9 +10,17 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-08-07",
-      "tieu_de": "Queensland's Ekka embracing the future as it marks 150 years",
+      "tieu_de": "Queensland Audit Office criticises Townsville council rail yard project",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-07/qld-ekka-150-years-brisbane-olympic-games-future/106990766"
+      "url": "https://www.abc.net.au/news/2026-08-07/queensland-audit-office-finds-townsville-council-non-compliance/106989710"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-07",
+      "tieu_de": "Inaccurate data included in DOGE ‘Wall of Receipts’ report, GAO says",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6015109-gao-doge-savings-unreliable/"
     },
     {
       "lop": "RSS",
@@ -114,14 +122,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "?",
-      "tieu_de": "Nghi rò rỉ phốt pho trắng tại căn cứ Mỹ ở Hàn Quốc, quân đội Mỹ bác bỏ",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/nghi-ro-ri-phot-pho-trang-tai-can-cu-my-o-han-quoc-quan-doi-my-bac-bo-100260806171231912.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
       "tieu_de": "Chiến thuật của Ukraine đối phó tên lửa Nga trong điều kiện thiếu tên lửa đánh chặn Patriot",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/chien-thuat-cua-ukraine-doi-pho-ten-lua-nga-trong-dieu-kien-thieu-ten-lua-danh-chan-patriot-100260806154833744.htm"
@@ -138,9 +138,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-07",
-      "tieu_de": "Pentagon says no white phosphorus leak at South Korea air base",
+      "tieu_de": "Senate Democrats introduce bill to roll back press restrictions at Pentagon",
       "nguon": "The Hill",
-      "url": "https://thehill.com/policy/defense/6014833-us-base-south-korea-white-phosphorus-leak-denied/"
+      "url": "https://thehill.com/newsletters/defense-national-security/6015455-senate-democrats-introduce-bill-to-roll-back-press-restrictions-at-pentagon/"
     },
     {
       "lop": "RSS",
@@ -162,6 +162,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-07",
+      "tieu_de": "Jet-Powered JDAM Production Is A Go For The U.S. Navy",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/air/jet-powered-jdam-production-is-a-go-for-the-u-s-navy"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
       "tieu_de": "Marine Corps will hold AI ‘hackathon’ to prototype tools for training, education",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/08/06/marine-corps-ai-hackathon-training-education/"
@@ -173,14 +181,6 @@
       "tieu_de": "Pentagon appoints new Maven Smart System program director in fresh push for C2 integration",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/08/05/pentagon-appoints-new-maven-smart-system-program-director/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-07",
-      "tieu_de": "Pentagon honors 3 NAWCWD winners with Navy's top science and engineering awards",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/571768/pentagon-honors-3-nawcwd-winners-with-navys-top-science-and-engineering-awards"
     },
     {
       "lop": "RSS",
@@ -218,9 +218,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-06",
-      "tieu_de": "U.S. Army Combined Arms Command Advances AI-Powered Knowledge Platform, VICTOR",
+      "tieu_de": "US Army Combined Arms Command advances AI-powered knowledge platform, VICTOR",
       "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294423/u_s_army_combined_arms_command_advances_ai_powered_knowledge_platform_victor"
+      "url": "https://www.army.mil/article/294423/us_army_combined_arms_command_advances_ai_powered_knowledge_platform_victor"
     },
     {
       "lop": "RSS",
@@ -237,6 +237,14 @@
       "tieu_de": "U.S. Army Yuma Proving Ground personnel test T-11 interoperability at home and abroad",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/294445/u_s_army_yuma_proving_ground_personnel_test_t_11_interoperability_at_home_and_abroad"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "US Army prepares Soldier deployment to support wildfire suppression",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294456/us_army_prepares_soldier_deployment_to_support_wildfire_suppression"
     },
     {
       "lop": "RSS",
@@ -265,10 +273,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-06",
-      "tieu_de": "Contracts for Aug. 5, 2026",
+      "ngay": "2026-08-07",
+      "tieu_de": "Contracts for Aug. 6, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4564890/contracts-for-aug-5-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4565715/contracts-for-aug-6-2026/"
     },
     {
       "lop": "RSS",
@@ -337,6 +345,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "Maryland StellarXplorers Team Gets Inside Look at Real Space Force Mission",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/maryland-stellarxplorers-team-gets-inside-look-at-real-space-force-mission/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-05",
       "tieu_de": "Space Force Awards Three New Vendors for Sensing, Targeting Tech",
       "nguon": "Air & Space Forces Magazine",
@@ -389,6 +405,14 @@
       "tieu_de": "Marine Corps receives its final MV-22 Osprey in grand ceremony",
       "nguon": "Sandboxx News",
       "url": "https://www.sandboxx.us/news/marine-corps-receives-its-final-mv-22-osprey-in-grand-ceremony/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Pentagon honors 3 NAWCWD winners with Navy's top science and engineering awards",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/571768/pentagon-honors-3-nawcwd-winners-with-navys-top-science-and-engineering-awards"
     },
     {
       "lop": "RSS",
@@ -457,6 +481,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Đức giới thiệu tàu khinh hạm mới, có khả năng đối phó vũ khí siêu thanh",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/duc-gioi-thieu-tau-khinh-ham-moi-co-kha-nang-doi-pho-vu-khi-sieu-thanh-2542310.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-06",
       "tieu_de": "Hải quân Nga và Hải quân Mỹ: Ai kiểm soát đại dương năm 2026?",
       "nguon": "VietnamNet",
@@ -498,7 +530,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-06",
-      "tieu_de": "Afghan jailed for life for deadly Munich car-ramming",
+      "tieu_de": "Man jailed for life for deadly Munich car-ramming",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/afghan-jailed-for-life-for-deadly-munich-car-ramming"
     },
@@ -562,6 +594,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
+      "tieu_de": "Australian unions to escalate strikes at BHP iron ore export hub",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/markets/commodities/australian-unions-to-escalate-strikes-at-bhp-iron-ore-export-hub"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
       "tieu_de": "For Taiwan's tech suppliers, space economy could be next growth spark",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/technology/for-taiwan-s-tech-suppliers-space-economy-could-be-next-growth-spark"
@@ -578,17 +618,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-07",
-      "tieu_de": "Australian team pulls off 'extraordinary' midwinter rescue in Antarctica",
+      "tieu_de": "Homelessness a visible crisis on Canberra's streets",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-07/antarctic-expeditioner-medical-evacuation-us-mcmurdo-station/107005138"
+      "url": "https://www.abc.net.au/news/2026-08-07/canberra-homelessness-services-rise-public-housing/107004258"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-07",
-      "tieu_de": "Australian lithium miners want more value from Chinese-dominated battery supply chain",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-07/australian-lithium-miners-domestic-refineries/106619924"
+      "ngay": "2026-08-06",
+      "tieu_de": "Taiwan’s two-speed AI economy",
+      "nguon": "Lowy Interpreter",
+      "url": "https://www.lowyinstitute.org/the-interpreter/taiwan-s-two-speed-ai-economy"
     },
     {
       "lop": "RSS",
@@ -641,10 +681,34 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-07",
+      "tieu_de": "Australia news live: Richard Marles insists Tony Burke’s speech on Labor’s new restrictive immigration policy ‘hasn’t been called off’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/aug/07/royal-commission-antisemitism-national-cabinet-datacentres-icac-liberal-party-labor-anthony-albanese-one-nation-pauline-hanson-angus-taylor-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-06",
       "tieu_de": "‘We expected it, but now it’s here’: on the frontline of Australia’s bird flu outbreak, people are distressed",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/environment/2026/aug/07/we-expected-it-but-now-its-here-on-the-frontline-of-australias-bird-flu-outbreak-people-are-distressed"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-06",
+      "tieu_de": "Can Australia make housing affordable while avoiding a major market crash? We may soon find out",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/07/housing-property-prices-affordability-australia-avoid-major-market-crash"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-07",
+      "tieu_de": "Quan hệ quốc phòng Việt Nam-Malaysia: Gắn kết chính trị, hợp tác thực tiễn",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/quan-he-quoc-phong-viet-nam-malaysia-gan-ket-chinh-tri-hop-tac-thuc-tien-post1128641.vnp"
     },
     {
       "lop": "RSS",
@@ -706,6 +770,42 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-07",
+      "tieu_de": "US diplomat Rubio targets Cuban military officials, companies in sanctions",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/8/6/us-diplomat-rubio-targets-cuban-military-officials-companies-in-sanctions?traffic_source=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Trump imposes 15% tariff on key chip material to counter China",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cdrvn686dljo?at_medium=RSS&at_campaign=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-06",
+      "tieu_de": "Cuba: Independent experts condemn new US sanctions as humanitarian crisis deepens",
+      "nguon": "UN News",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168094",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "US scrutinises more schools over admissions practices, diversity and pro-Palestinian protests",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/us-scrutinises-more-schools-over-admissions-practices-diversity-and-pro-palestinian-protests",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
       "tieu_de": "US sanctions Cuban military officials, firms tied to weapons procurement",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/us-sanctions-cuban-military-officials-firms-tied-to-weapons-procurement",
@@ -732,6 +832,24 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Ông Trump ký sắc lệnh hạn chế luật 'sinh ở Mỹ là công dân Mỹ'",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/ong-trump-ky-sac-lenh-han-che-luat-sinh-o-my-la-cong-dan-my-5106183.html",
+      "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "&Ocirc;ng Trump k&yacute; sắc lệnh siết &#039;du lịch sinh con&#039; lấy quốc tịch Mỹ",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/ong-trump-ky-sac-lenh-siet-du-lich-sinh-con-lay-quoc-tich-my-185260807063909626.htm",
+      "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
       "tieu_de": "Ủy ban Thượng viện Mỹ kiến nghị truy tố ông Anthony Fauci",
       "nguon": "Tuổi Trẻ",
@@ -745,6 +863,15 @@
       "tieu_de": "Tin tức thế giới 6-8: Mỹ hoàn trả 100 tỉ USD thuế quan; Tàu chiến lớp Trump giá khủng",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/tin-tuc-the-gioi-6-8-my-hoan-tra-100-ti-usd-thue-quan-tau-chien-lop-trump-gia-khung-100260806052555261.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "US imposes 15% tariff on polysilicon in pushback against China",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/economy/trade-war/trump-tariffs/us-imposes-15-tariff-on-polysilicon-in-pushback-against-china",
       "nhom": 4
     },
     {
@@ -769,19 +896,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-07",
-      "tieu_de": "Alsobrooks introducing legislation to exempt school supplies from Trump tariffs",
+      "tieu_de": "Live results: Tennessee voters pick congressional candidates after redistricting battle",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6014527-angela-alsobrooks-trump-tariffs-school-supplies-exemption/",
-      "nhom": 4
+      "url": "https://thehill.com/homenews/campaign/6014339-live-results-tennessee-voters-pick-congressional-candidates-after-redistricting-battle/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-06",
-      "tieu_de": "GOP Women’s Caucus chair says House should follow through on Edwards censure",
+      "ngay": "2026-08-07",
+      "tieu_de": "Alsobrooks introducing legislation to exempt school supplies from Trump tariffs",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/house/6012457-cammack-chuck-edwards-censure/",
-      "nhom": 5
+      "url": "https://thehill.com/homenews/senate/6014527-angela-alsobrooks-trump-tariffs-school-supplies-exemption/",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -796,10 +923,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-07",
-      "tieu_de": "Trump signs executive order on polysilicon industry",
+      "tieu_de": "(3rd LD) Trump signs proclamation imposing 15 pct tariff on polysilicon derivative products",
       "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260807000351315",
-      "nhom": 2
+      "url": "https://en.yna.co.kr/view/AEN20260807000354315",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "(URGENT) U.S. to impose 15 pct tariff on polysilicon derivative products: White House",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260807000500315",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -822,6 +958,33 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Lawmakers urge Trump to impose Balkan sanctions",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/08/06/2026/lawmakers-urge-trump-to-impose-balkan-sanctions",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Đảng Cộng hòa đề xuất dự luật trao thêm thẩm quyền thuế quan cho ông Trump",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/dang-cong-hoa-de-xuat-du-luat-trao-them-tham-quyen-thue-quan-cho-ong-trump-post1128665.vnp",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-07",
+      "tieu_de": "Bộ Ngoại giao Mỹ mở rộng kiểm tra mạng xã hội đối với đương đơn xin thị thực",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/bo-ngoai-giao-my-mo-rong-kiem-tra-mang-xa-hoi-doi-voi-duong-don-xin-thi-thuc-post1128643.vnp",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-06",
       "tieu_de": "Mỹ dỡ bỏ lệnh trừng phạt đối với hãng hàng không Iraq",
       "nguon": "VietnamPlus (TTXVN)",
@@ -835,15 +998,6 @@
       "tieu_de": "Tòa án Mỹ chỉ định hội đồng thẩm phán xét xử các vụ kiện về thuế quan Mục 301",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/toa-an-my-chi-dinh-hoi-dong-tham-phan-xet-xu-cac-vu-kien-ve-thue-quan-muc-301-post1128436.vnp",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-06",
-      "tieu_de": "Mỹ hoàn trả khoảng 100 tỷ USD thuế quan sau phán quyết của Tòa án Tối cao",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/my-hoan-tra-khoang-100-ty-usd-thue-quan-sau-phan-quyet-cua-toa-an-toi-cao-post1128401.vnp",
       "nhom": 4
     },
     {
