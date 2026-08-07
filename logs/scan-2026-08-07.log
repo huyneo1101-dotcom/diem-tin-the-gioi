@@ -12,4 +12,8 @@
 [00:59Z] SKIP web-scan (CI, phien sang som moi) - claim tra exit 10 (DA XONG, lastRunAt 2026-08-07T05:34:29+07:00; event-scan cung DONE lastRunAt 05:44:35). Ap dung ngoai le kiem so_da_gui: --xem co dong "2026-08-07T05:45:38+07:00 [sang] 12 tin" - ban tin sang da toi tay that, khong phai co dang noi doi. KHONG quet de. KET THUC theo dung Buoc 1.
 [01:04Z] SKIP web-scan (CI, phien sang som) - claim tra exit 10 (DA XONG, lastRunAt 2026-08-07T05:34:29+07:00; event-scan cung DONE lastRunAt 05:44:35). Ap dung ngoai le kiem so_da_gui: --xem co dong "2026-08-07T05:45:38+07:00 [sang] 12 tin" - ban tin sang da toi tay that, khong phai co dang noi doi. KHONG quet de. KET THUC theo dung Buoc 1.
 [14:00Z] START (CI) phien toi 2026-08-07 - claim web-scan OK, giu khoa.
-[21:15] SKIP web-scan (local toi, moc 21:15) - claim tra exit 11 (phien khac dang chay, nhip tim 15' truoc, bat dau 21:00:54 - dung phien CI dong 14:00Z o tren). KHONG quet chong. KET THUC theo dung Buoc 1.
+[14:04Z] Cai curl_cffi, chay harvest.py (471 ung vien) + telegram_harvest.py (10 ung vien) OK.
+[14:27Z] Giao 5 agent Sonnet song song (Noi bo My / Uc-Bien Dong / CNQS My / My-Mali / Tap tran). Ca 5 tra ve xong.
+[14:33Z] Kiem tra cheo voi DATA phat hien 4/6 tin Noi bo My + 1 tin Scarborough (Uc-BD) + 2 tin CNQS + 1 cap nhat Pitch Black (Phan Lan/Thuy Dien) + 1 SEACAT + 1 Han Quang 42 da TRUNG voi tin da co san hom nay (phien sang som cung ngay nap nhieu) - loai het truoc/trong luc chay add_news.py. Chay add_news.py: OK +3 TG, +7 US, +4 tap tran. Bo loc Jay Lam: 1 file (id=32, du lieu 02/08) khong trung tin nao. Da ghi logs/loai-tin.md + logs/scan-gaps.json.
+[21:15] SKIP web-scan (local toi, moc 21:15) - claim tra exit 11 (phien khac dang chay, nhip tim 15' truoc, bat dau 21:00:54 - dung phien CI nay). KHONG quet chong. KET THUC theo dung Buoc 1.
+[14:33Z] web-scan DONE. Commit + push.

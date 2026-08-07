@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-07T21:00:54+07:00",
+    "lastRunAt": "2026-08-07T21:33:23+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+3 TG, +7 US, +4 tap tran (5 chu de)",
     "lastSuccess": {
-      "toi": "2026-08-06",
+      "toi": "2026-08-07",
       "sang": "2026-08-07"
-    },
-    "heartbeat": "2026-08-07T21:00:54+07:00"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-07T05:44:35+07:00",
