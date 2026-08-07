@@ -76,15 +76,55 @@ MIEN_BAI_O_GOC = frozenset({
     "warontherocks.com",
     "smallwarsjournal.com",
     "eastasiaforum.org",
+    # ── thêm 07/08/2026, đã mở feed ra xem tận nơi chứ không suy từ bảng phân bố ──
+    # amti: 8/8 item của `amti.csis.org/feed/` đều dạng `amti.csis.org/<slug>/`, không mục nào.
+    "amti.csis.org",
+    # icds: 8/8 item dạng `icds.ee/en/<slug>/` — `en` là TIỀN TỐ NGÔN NGỮ, đã bóc ở `phan_bo`.
+    # Viện này phân loại nội dung bằng CATEGORY trong feed (Commentary · Analysis · Report ·
+    # Brief · Policy paper · News) chứ không bằng đường dẫn, nên mọi loại nằm chung một tầng
+    # và "mục đầu đường dẫn" không nói được gì.
+    "icds.ee",
 })
+
+# Tiền tố NGÔN NGỮ — bóc trước khi tính mục. `icds.ee/en/<slug>` không có nghĩa là viện ấy chỉ
+# xuất bản một mục tên `en`; đó là mảnh định tuyến ngôn ngữ, không phải mục.
+# ⚠️ CỐ Ý CHỈ BÓC TIỀN TỐ NGÔN NGỮ, KHÔNG bóc "mảnh đầu nào cũng bóc". Phép bóc rộng ấy đã
+# dựng thành bản hỏng và ĐO: nó biến MỌI mục thật thành "(GỐC)", nên tên miền đang xếp "nhiều
+# mục" tụt xuống một mục và bị nêu OAN — đo trên kho thật 07/08/2026 thì hudson.org · cepa.org
+# · lowyinstitute.org · cset.georgetown.edu cùng lúc vào nhóm ★.
+# ⚠️ ĐÍNH CHÍNH ngay trong lượt dựng: chú thích bản đầu ghi phép bóc rộng sẽ "xoá lỗ hình dạng
+# Lowy khỏi bảng". SAI — bản hỏng cho thấy Lowy VẪN bị nêu (6 bài `the-interpreter/<slug>` bóc
+# xong thành 6 bài "(GỐC)", vẫn là một mục duy nhất). Chiều hỏng thật là CHẶN OAN, không phải
+# lọt. Suy luận nghe rất trôi mà sai dấu; chỉ bản hỏng mới tố ra.
+TIEN_TO_NGON_NGU = frozenset({"en", "eng", "english"})
 
 # Ứng viên ĐÃ SOI TẬN NƠI rồi — kèm lý do, để lần chạy sau không kêu lại. Đây là chỗ ghi kết
 # quả triage, KHÔNG phải chỗ giấu ứng viên khó: mỗi dòng phải nói được đã soi cái gì.
 DA_DUYET = {
-    "lowyinstitute.org":
-        "ĐÃ VÁ 06/08/2026 — feed nghiên cứu `/publications/rss.xml` đã khai vào "
-        "THINKTANK_FEEDS. Kho vẫn 35/35 bài `/the-interpreter/` vì lô bài mục mới chưa nạp; "
-        "nạp xong thì tên miền này tự rời danh sách, lúc đó GỠ dòng này đi.",
+    # ⚠️ `lowyinstitute.org` ĐÃ GỠ 07/08/2026 — đúng theo dòng dặn của chính nó. Kho nay 53 bài
+    # chia `the-interpreter` (46) + `publications` (7), tên miền đã tự rời nhóm ★. Dòng duyệt
+    # sống lâu hơn lý do của nó thì thành chỗ miễn trừ vĩnh viễn, nên gỡ đúng lúc mới là phần
+    # thi hành của cơ chế này.
+    "rusi.org":
+        "SOI 07/08/2026, KHÔNG phải lỗ — phép đo không áp được cho lối đặt URL của RUSI. "
+        "Fetch thật `/rss/latest-publications.xml`: 200, bài mới 06/08/2026, item rải ra "
+        "`/news-and-comment/rusi-reflects/`, `/news-and-comment/video-commentary/`, "
+        "`/explore-our-research/publications/rusi-newsbrief/` và `.../commentary/` — tức đường "
+        "vào KHÔNG chỉ có một cửa. Kho dồn `explore-our-research (16)` vì RUSI để trọn mảng "
+        "nghiên cứu dưới MỘT container, mục thật nằm ở mảnh thứ ba (`commentary` 15 · "
+        "`rusi-defence-systems` 1). Cả feed bình luận lẫn feed nghiên cứu đều đã khai.",
+    "aspi.org.au":
+        "ĐÃ VÁ 07/08/2026 — LỖ THẬT, đúng hình dạng Lowy. `aspi.org.au/feed/` chỉ trả kiểu bài "
+        "`post` (= `/report/`), nên mảng `/opinions/` chưa từng có đường vào; đã khai thêm "
+        "`ASPI [BL]` = `/feed/?post_type=opinions` (fetch thật: 200 · 10 item · bài mới "
+        "16/07/2026). Kho vẫn 10/10 bài `/report/` vì lô bài mục mới chưa nạp; nạp xong thì "
+        "tên miền này tự rời danh sách, lúc đó GỠ dòng này đi.",
+    "cacianalyst.org":
+        "ĐÃ VÁ 07/08/2026 — LỖ THẬT. Viện có 04 mục, mới khai feed `analytical-articles`; đã "
+        "khai thêm `CACI Analyst [FA]` = `/publications/feature-articles.feed` (fetch thật: "
+        "200 · 10 item · bài mới 25/06/2026). Mục `field-reports` CÓ feed hợp lệ nhưng bài mới "
+        "nhất là 03/10/2016 nên cố ý KHÔNG khai. Kho vẫn 6/6 bài `analytical-articles` vì lô "
+        "bài mục mới chưa nạp; nạp xong thì tự rời danh sách, lúc đó GỠ dòng này đi.",
 }
 
 
@@ -125,6 +165,8 @@ def phan_bo(bai):
             continue
         dom = u.netloc.replace("www.", "")
         seg = [s for s in u.path.split("/") if s]
+        if seg and seg[0].lower() in TIEN_TO_NGON_NGU:
+            seg = seg[1:]
         # Chỉ có 1 mảnh nghĩa là bài nằm ngay ở gốc (`domain.org/ten-bai`) — không có "mục".
         g[dom][seg[0] if len(seg) > 1 else "(GỐC)"] += 1
     return g
@@ -253,6 +295,28 @@ def cac_ca():
             ok = e.code == 2
     ra.append(("★ 07 kho không phải MẢNG ⇒ kêu mã 2, không trả bảng sạch", ok,
                "kho hỏng bị nuốt — kho rỗng và kho không đọc được ra cùng một bảng"))
+
+    # ── 08 đối chứng: `/en/` là tiền tố NGÔN NGỮ, không phải mục (thêm 07/08/2026 cùng bản vá)
+    # Không bóc thì `icds.ee` hiện "en (7)" — một mục duy nhất — và bị nêu OAN suốt đời, vì
+    # không feed nào sửa được chuyện đó. Ca dựng ở dạng bài CÓ mục thật dưới tiền tố, để đo
+    # đúng phép bóc chứ không đo nhờ nhóm "bài ở gốc" gánh.
+    k = phan_loai(_kho_gia([("https://vien-moi.org/en/publications/bai-%d", 5),
+                            ("https://vien-moi.org/en/commentary/bai-%d", 4)]), co_feed)
+    ra.append(("08 đối chứng — tiền tố ngôn ngữ /en/ KHÔNG được đọc thành mục",
+               not k["nghi"] and [d for d, _, _ in k["nhieu_muc"]] == ["vien-moi.org"],
+               f"tiền tố ngôn ngữ bị đọc thành mục ⇒ nêu oan: {k}"))
+
+    # ── 09 chống NỚI phép bóc: mảnh KHÔNG phải tiền tố ngôn ngữ thì phải giữ nguyên làm mục.
+    # ⚠️ Ca này đo đúng chiều hỏng ĐÃ ĐO ĐƯỢC (chặn oan), không phải chiều suy ra ban đầu. Bản
+    # đầu của ca dựng kho hình dạng Lowy rồi đòi nó "vẫn bị nêu" — chạy bản hỏng mới thấy Lowy
+    # bị nêu ở CẢ hai bản, tức ca xanh trên cả hai và không canh được gì. Nay ca neo vào tên
+    # miền có mục THẬT: bóc rộng làm `report` và `commentary` cùng biến thành "(GỐC)".
+    k = phan_loai(_kho_gia([("https://vien-moi.org/report/bai-%d", 5),
+                            ("https://vien-moi.org/commentary/bai-%d", 4)]), co_feed)
+    ra.append(("09 chống nới — mảnh KHÔNG phải tiền tố ngôn ngữ phải được giữ làm mục",
+               not k["nghi"] and dict(k["nhieu_muc"][0][2]) == {"report": 5, "commentary": 4}
+               if k["nhieu_muc"] else False,
+               f"phép bóc nới quá tay, mục thật bị xoá thành (GỐC) ⇒ nêu oan: {k}"))
     return ra
 
 
@@ -331,6 +395,23 @@ BAN_HONG = [
     ("kho hỏng thì nuốt, trả mảng rỗng cho êm",
      "        print(f\"✗ Kho bài phải là một MẢNG, đọc ra {type(d).__name__}: {duong}\", file=sys.stderr)\n        raise SystemExit(2)",
      "        return []", [7]),
+    # ── 02 bản hỏng canh HAI CHIỀU của phép bóc tiền tố ngôn ngữ (thêm 07/08/2026) ──
+    # ⚠️ Chuỗi neo dưới đây CỐ Ý CẮT LÀM ĐÔI (`"…NGON" "_NGU:…"`). Phép đếm chạy trên TOÀN VĂN
+    # file, nên một chuỗi neo viết liền sẽ khớp cả dòng mã lẫn chính dòng khai này ⇒ "khớp 3
+    # chỗ (phải đúng 1)" và không bản hỏng nào dựng được. Sáu dòng phía trên thoát được là nhờ
+    # chúng có dấu nháy phải escape (`\"`) nên văn bản nguồn khác văn bản mã — ở đây không có
+    # dấu nháy nào, phải cắt tay. Đừng "dọn cho gọn" bằng cách nối lại.
+    ("gỡ phép bóc tiền tố ngôn ngữ — `/en/` bị đọc thành mục, nêu oan vĩnh viễn",
+     "        if seg and seg[0].lower() in TIEN_TO_NGON" "_NGU:\n            seg = seg[1:]",
+     "        if False:\n            seg = seg[1:]", [8]),
+    # Chiều NỚI phải dựng bằng cách THAY phép bóc, không gỡ được: cơ chế BAN_HONG chỉ tháo lớp
+    # bảo vệ, mà ở đây thiệt hại đến từ việc bóc RỘNG HƠN chứ không phải bóc hụt.
+    # Khai [2, 9] chứ không khai ca 06: bản hỏng này cũng làm ca 06 đỏ (hudson · cepa · lowy ·
+    # cset), nhưng ca 06 đọc kho THẬT nên danh sách ấy đổi theo từng đợt nạp bài — neo vào nó
+    # là dựng một ca chập chờn, mà ca chập chờn dạy người đọc bỏ qua màu đỏ.
+    ("NỚI phép bóc thành 'mảnh đầu nào cũng bóc' — mục thật thành (GỐC), nêu oan hàng loạt",
+     "        if seg and seg[0].lower() in TIEN_TO_NGON" "_NGU:",
+     "        if seg:", [2, 9]),
 ]
 
 

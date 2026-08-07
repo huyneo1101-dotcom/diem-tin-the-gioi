@@ -3188,3 +3188,40 @@ bẩn** — retry chỉ chữa được lỗi *tạm thời* (mạng), không ch
   chúng có ghi chung file nào không** — đừng chỉ nghĩ về thời lượng.
 
 
+
+## DÒ FEED CÒN THIẾU — 03 bẫy đúc 07/08/2026
+
+Đợt triage 05 tên miền mà `scripts/do_nguon_mot_muc.py` nêu. Kết quả: **02 lỗ thật**
+(`aspi.org.au` mục `/opinions/` · `cacianalyst.org` mục Feature Articles), 03 còn lại là
+phép đo không áp được cho lối đặt URL của viện.
+
+- ⛔ **WORDPRESS `/feed/` CHỈ TRẢ KIỂU BÀI `post` — mọi kiểu bài riêng đều nằm ngoài.** ASPI để
+  `/report/` làm kiểu `post`, còn `/opinions/`, `/news/`, `/podcast/` là kiểu riêng. Feed đã
+  khai chạy tốt, 200 mọi lượt, ra bài đều — mà mảng bình luận **chưa từng có đường vào nào**.
+  Đường dò: đọc `/wp-json/wp/v2/types`, lấy `slug`, rồi `?post_type=<slug>`.
+  - ⚠️ **THAM SỐ PHẢI ĐÚNG `slug`, và sai thì KHÔNG có lỗi nào phát ra.** Thử
+    `?post_type=opinion` (số ít) thì WordPress **lặng lẽ bỏ tham số và trả feed mặc định**:
+    200 · 10 item · nhìn y hệt feed đúng, chỉ là vẫn đủ 10 bài cũ. Đừng đoán tên kiểu bài từ
+    nhãn trên thanh điều hướng — đọc `types` rồi lấy `slug`.
+- ⛔ **FEED SỐNG VÀ FEED CHẾT TRẢ VỀ CÙNG MÃ 200 — phải đọc `pubDate` mới phân biệt.** CACI có
+  04 mục: `feature-articles.feed` bài mới **25/06/2026** (khai), `field-reports.feed` bài mới
+  **03/10/2016** (cố ý KHÔNG khai — khai vào là mỗi lượt quét lại kéo tin 2016 vào hàng ứng
+  viên). Cùng bẫy đã ghi cho feed trang chủ CACI (`/?format=feed`, 200 nhưng đứng từ 2012).
+- ⚠️ **PHÉP ĐO "MỘT MỤC" ĐỌC MẢNH ĐẦU ĐƯỜNG DẪN, nên mù với 02 lối đặt URL** — cả hai đều là
+  nêu OAN, không phải lọt:
+  - **tiền tố ngôn ngữ** (`icds.ee/en/<slug>`): đã vá, `phan_bo` bóc `TIEN_TO_NGON_NGU` trước
+    khi tính mục, rồi tên miền vào `MIEN_BAI_O_GOC`.
+  - **container duy nhất** (`rusi.org/explore-our-research/...`): mục thật nằm ở mảnh THỨ BA.
+    **CỐ Ý không vá bằng máy**, chỉ ghi `DA_DUYET` — xem gạch dưới.
+- ⚠️ **ĐÃ DỰNG BẢN HỎNG VÀ ĐO: nới phép bóc thành "mảnh đầu nào cũng bóc" gây CHẶN OAN HÀNG
+  LOẠT, không phải giấu lỗ.** Chú thích bản đầu suy rằng nó sẽ xoá lỗ hình dạng Lowy khỏi bảng
+  — SAI: Lowy bóc xong vẫn còn đúng một mục `(GỐC)` nên vẫn bị nêu. Thiệt hại thật là mọi mục
+  thật biến thành `(GỐC)`, đo trên kho thật thì `hudson.org` · `cepa.org` · `lowyinstitute.org`
+  · `cset.georgetown.edu` cùng lúc vào nhóm ★. **Suy luận nghe rất trôi mà sai dấu; chỉ bản
+  hỏng mới tố ra** — đừng viết chú thích cơ chế trước khi dựng bản hỏng và đọc kết quả.
+- **`DA_DUYET` là sổ triage, không phải chỗ miễn trừ vĩnh viễn.** Dòng `lowyinstitute.org` đã
+  GỠ 07/08 đúng theo lời dặn của chính nó (kho nay 46/7 hai mục, tên miền tự rời nhóm ★). Dòng
+  duyệt sống lâu hơn lý do của nó thì thành lỗ hổng.
+- Nghiệm thu 07/08: `do_nguon_mot_muc.py --tu-kiem` **9/9 ca · 8/8 bản hỏng**; 03 bộ khác đụng
+  `THINKTANK_FEEDS` (`test-html-thinktank` · `test-nguon-hai-mien` · `test-nguon-nghien-cuu`)
+  đều chạy lại và xanh.

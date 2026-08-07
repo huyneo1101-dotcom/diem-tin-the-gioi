@@ -201,6 +201,21 @@ THINKTANK_FEEDS = [
      "Ấn Độ Dương - TBD · nghiên cứu"),
     ("ASPI", "https://www.aspistrategist.org.au/feed/", "Úc · Ấn Độ Dương - TBD"),
     ("ASPI [NC]", "https://www.aspi.org.au/feed/", "Úc · Ấn Độ Dương - TBD · nghiên cứu"),
+    # ASPI mục BÌNH LUẬN — thêm 07/08/2026 sau khi `do_nguon_mot_muc.py` nêu `aspi.org.au`
+    # (10/10 bài đều `/report/`). Đúng hình dạng lỗ Lowy, và lần này lộ ra một biến thể mới:
+    # ASPI chạy WordPress với KIỂU BÀI RIÊNG, mà `/feed/` của WordPress theo mặc định CHỈ trả
+    # kiểu `post` — ở đây `post` chính là `/report/`. Nên feed đã khai chạy tốt, ra bài đều,
+    # 200 mọi lượt, mà mảng `/opinions/` thì chưa từng có đường vào nào.
+    # ⚠️ THAM SỐ PHẢI LÀ SỐ NHIỀU `opinions`, đúng `slug` trong `/wp-json/wp/v2/types`. Thử
+    # `?post_type=opinion` (số ít) thì WordPress **lặng lẽ bỏ qua tham số và trả feed mặc
+    # định** — 200, 10 item, nhìn y hệt feed đúng, chỉ là vẫn đủ 10 bài `/report/` cũ. Đây là
+    # kiểu trượt tệ nhất khi dò feed: không lỗi, không rỗng, chỉ sai. Dò kiểu bài thì đọc
+    # `/wp-json/wp/v2/types` rồi lấy `slug`, đừng đoán từ tên mục trên thanh điều hướng.
+    # ⚠️ Đã fetch thật 07/08: 200 · 10 item · bài mới 16/07/2026 · cả 10 đều `/opinions/`.
+    # ⚠️ KHÔNG khai `?post_type=news` (cũng 200 · 10 item · mới 30/07): đó là thông cáo nội bộ
+    # của viện (ra mắt chương trình, cập nhật bộ dữ liệu), không phải bài phân tích.
+    ("ASPI [BL]", "https://www.aspi.org.au/feed/?post_type=opinions",
+     "Úc · Ấn Độ Dương - TBD · bình luận"),
     ("Fulcrum (ISEAS)", "https://fulcrum.sg/feed/", "Đông Nam Á"),
     ("MERICS", "https://merics.org/en/rss", "Trung Quốc"),
     ("Interpret China (CSIS)", "https://interpret.csis.org/feed/", "Trung Quốc"),
@@ -255,6 +270,18 @@ THINKTANK_FEEDS = [
     # trang chủ (`/?format=feed`) CÓ trả 200 nhưng đứng từ 2012 — nhìn giống nhau, khác hẳn nhau.
     ("CACI Analyst", "https://www.cacianalyst.org/publications/analytical-articles.feed",
      "Trung Á · Caucasus"),
+    # CACI mục FEATURE ARTICLES — thêm 07/08/2026, cùng lượt với ASPI [BL], sau khi
+    # `do_nguon_mot_muc.py` nêu `cacianalyst.org` (6/6 bài đều `analytical-articles`).
+    # Đã fetch thật: 200 · 10 item · bài mới 25/06/2026.
+    # ⚠️ Viện này có 04 mục và KHÔNG mục nào tự khai feed trong thẻ <link rel="alternate">;
+    # đường vào là ghép `.feed` vào sau đường dẫn mục, đúng lối đã tìm ra feed analytical.
+    # ⚠️ CỐ Ý KHÔNG khai `publications/field-reports.feed` dù nó CŨNG trả 200 và cũng là RSS
+    # hợp lệ: bài mới nhất của nó là **03/10/2016**, tức mục đã ngừng xuất bản gần một thập
+    # niên. Khai vào thì mỗi lượt quét lại kéo tin 2016 vào hàng ứng viên. Cùng bẫy đã ghi cho
+    # feed trang chủ CACI (`/?format=feed`, 200 nhưng đứng từ 2012): **feed sống và feed chết
+    # trả về cùng một mã 200, phải đọc `pubDate` mới phân biệt được.**
+    ("CACI Analyst [FA]", "https://www.cacianalyst.org/publications/feature-articles.feed",
+     "Trung Á · Caucasus · chuyên đề"),
     # ⚠️ USIP đăng THƯA (bài mới nhất lúc thêm đã 35 ngày tuổi) nên thường xuyên nằm trong dòng
     # "feed không ra bài" — đó là bình thường, không phải feed hỏng.
     ("USIP", "https://www.usip.org/feed/", "Xung đột · hoà giải"),
