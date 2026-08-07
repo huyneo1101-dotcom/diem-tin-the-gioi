@@ -1525,6 +1525,25 @@ KHÁC với category "Ngoại giao" ở trên — đây là các **sự kiện l
 ```
 Với **`exercises` (tập trận)**: cập nhật `items` con vào cuộc **đã có** (khớp `name`) qua `exerciseUpdates`; **được phép TẠO cuộc tập trận MỚI** qua `newExercises` (phiên sáng `event-scan` chủ động quét tập trận lớn KHẮP THẾ GIỚI đang/sắp diễn ra — không chỉ Ấn Độ Dương-TBD). Ưu tiên cập nhật `status: "ongoing"`. `dates` ghi dạng CÓ ngày/tháng/năm để web tự suy trạng thái (`effStatus`).
 
+⚠️ **`dates` CHỈ CÓ MỘT MỐC LÀM WEB HIỆN "✓ Đã kết thúc" CHO CUỘC ĐANG CHẠY — đúc 07/08/2026.**
+Mẫu thứ ba của `evRange` bắt một ngày lẻ `d/m/yyyy` rồi trả `a === b`, nên `effStatus` so `t > b` và ra
+`recent` **ngay trong ngày khai mạc**. `tap_tran.py::trang_thai` sao y hành vi ấy, nên cuộc đó cũng
+rơi khỏi `dang_dien_ra` và **không được bơm từ khoá vào lượt quét tin**. Đo thật khi nạp SEACAT 2026 và
+diễn tập Hạm đội Thái Bình Dương Nga: cả hai khai `status: "ongoing"`, cả hai bị xếp `recent`.
+- **Cơ chế gây vấp:** nhánh lùi về `status` **chỉ chạy khi `evRange` trả `null`**, tức khi không mẫu
+  nào khớp. Một chuỗi có ĐÚNG một ngày thì mẫu vẫn khớp, nên nhánh lùi không bao giờ tới. Nói cách
+  khác, chuỗi một mốc **tệ hơn** chuỗi không đọc được ngày nào — và không có dấu hiệu nào để nghi, vì
+  thẻ vẫn hiện đủ tên, địa bàn, quy mô, tóm tắt, chỉ có mỗi nhãn trạng thái là sai.
+- **Cách viết đúng khi CHƯA BIẾT ngày kết thúc:** ghi ngày bằng chữ, không dùng dấu gạch chéo —
+  `"Khai mạc ngày 04 tháng 8 năm 2026; ngày kết thúc chưa công bố"`. Không mẫu nào khớp ⇒ `evRange`
+  trả `null` ⇒ lùi về `status`, đúng đường đã thiết kế sẵn.
+- ⛔ **CẤM bịa một ngày kết thúc cho đủ khuôn `d/m – d/m/yyyy`.** Nhãn trạng thái khi ấy đúng nhưng
+  trang lại khai một dữ kiện không nguồn, và nó nằm ngay cạnh phần quy mô có nguồn nên đọc vào không
+  phân biệt được.
+- Đã đo và KHÔNG vá `evRange`: sửa nó là đụng hai bản luật song song (JS trên web và Python trong
+  `tap_tran.py`, xem ca [25] của `tests/test-mali-va-tap-tran.py`), trong khi đường viết đúng đã có sẵn
+  và không tốn gì.
+
 **🎯 Ô ĐIỂM NHẤN TRANG CHỦ CHỌN CUỘC TẬP TRẬN ĐỘNG (chỉ thị Huy 07/08/2026 — trước đó neo cứng
 `Predator's Run`).** `renderHome()` từng lọc `/predator/i` để lấy cuộc lên hero, nên kỳ đó kết thúc
 **29/07** mà ô vẫn treo nhãn *"Đang diễn ra"* hơn một tuần, còn Pitch Black (20/7–7/8) và Hán Quang 42
