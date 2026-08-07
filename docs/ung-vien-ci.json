@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-08T03:47:38+07:00",
+  "tao_luc": "2026-08-08T04:12:57+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-07",
@@ -21,14 +21,6 @@
       "tieu_de": "Joint Task Force-Bravo executes a bilateral firefighting exercise with El Servicio de Salvamento y Extincion de Incendios del Aeropuerto Internacional Panama Pacifico",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/image/9856601/joint-task-force-bravo-executes-bilateral-firefighting-exercise-with-el-servicio-de-salvamento-y-extincion-de-incendios-del-aeropuerto"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-08-07",
-      "tieu_de": "PANAMAX 26 Boat Raids",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/video/1017912/panamax-26-boat-raids"
     },
     {
       "lop": "RSS",
@@ -266,6 +258,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-08",
+      "tieu_de": "U.S. Army Chief Spearheads Army-Industry Cross-Training Initiative",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/571889/us-army-chief-spearheads-army-industry-cross-training-initiative"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-08",
       "tieu_de": "New Commander arrives at U.S. Army Joint Modernization Command",
       "nguon": "DVIDS news (tập trận)",
       "url": "https://www.dvidshub.net/news/571874/new-commander-arrives-us-army-joint-modernization-command"
@@ -389,6 +389,14 @@
       "tieu_de": "Department of War Publishes Fifth Release of Unidentified Anomalous Phenomena Files on WAR.GOV/UFO",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4565994/department-of-war-publishes-fifth-release-of-unidentified-anomalous-phenomena-f/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-08",
+      "tieu_de": "Defense Watch: CSO Schiess, SSGNs, Golden Dome Sats, Big DHS C-UAS Award",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/defense-watch-cso-schiess-ssgns-golden-dome-sats-big-dhs-c-uas-award/defense-watch/"
     },
     {
       "lop": "RSS",
@@ -877,6 +885,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-08",
+      "tieu_de": "Trump renews effort to fire Fed’s Lisa Cook despite Supreme Court ruling",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3363370/trump-renews-effort-fire-feds-lisa-cook-despite-supreme-court-ruling?utm_source=rss_feed",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-08",
       "tieu_de": "UnionPay to plug Chinese payment apps into Brazil’s Pix after US tariffs over the system",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/china/article/3363365/unionpay-plug-chinese-payment-apps-brazils-pix-after-us-tariffs-over-system?utm_source=rss_feed",
@@ -917,15 +934,6 @@
       "nguon": "Axios",
       "url": "https://www.axios.com/2026/08/07/gop-midterm-convention-gameplan",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-08",
-      "tieu_de": "Trump revives effort to fire Fed's Lisa Cook",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/08/07/trump-lisa-cook-federal-reserve.html",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1097,15 +1105,6 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/2026/aug/07/russia-sanctions-senate-passed-petroleum",
       "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-08",
-      "tieu_de": "Trump renews bid to fire Fed governor Lisa Cook despite supreme court ruling",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/2026/aug/07/trump-lisa-cook-fed-firing-scotus-ruling",
-      "nhom": 4
     },
     {
       "lop": "RSS",
