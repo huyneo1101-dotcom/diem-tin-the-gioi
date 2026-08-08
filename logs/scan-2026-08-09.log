@@ -8,3 +8,4 @@
 [21:44Z] event-scan: nap 6 bai think-tank (ASPI/Atlantic Council/Jamestown) + 5 khai niem.
 [21:48Z] event-scan: bao cao tuan 03/08-09/08 (3 nuoc, 18 luan diem, agent Opus) da nap.
 [21:49Z] event-scan DONE. Commit `Cap nhat su kien 09/08` da push (bee61f4 -> rebase -> bec8e78).
+[21:50Z] SKIP (CI, phien moi trigger) - state.py claim web-scan tra exit 10, lastRunAt 04:35:11+07:00 (~15p truoc). Kiem tra ngoai le: so_da_gui --xem CO dong 2026-08-09T04:50:00+07:00 [sang] 17 tin - ban tin sang nay DA gui that (17 URL khop voi lastRunAt). event-scan cung DONE lastRunAt 04:48:53+07:00, note "6 bai think-tank, bao cao tuan (18 luan diem)". Ca hai pipeline cua phien sang som hom nay da hoan tat va da gui - day la CI trigger trung lap. Khong quet lai. Ket thuc em.
