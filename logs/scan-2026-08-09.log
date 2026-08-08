@@ -4,3 +4,7 @@
 [21:35Z] START event-scan (CI, gop vao sang som)
 [21:37Z] SKIP event-scan (phien nay, khac phien tren) - co phien khac dang chay event-scan that (state.py claim tra RUNNING, nhip tim 1p truoc, bat dau 04:35:43+07:00 = 21:35:43Z). Khong dung --force vi khoa chua het han (30p). Khong quet chong len.
 [04:45] SKIP (local web-scan-diem-tin, lan chay 05:30) - web-scan da xong (lan chay cuoi 04:35:11+07:00). Khong lam lai.
+[21:37Z] DINH CHINH: dong SKIP o tren la do subagent duoc giao tu chay lai `state.py claim event-scan` (khoa CHINH cua phien nay), gay nham lan - khoa do la cua CHINH phien nay, khong phai phien khac. Da doi cach: giao lai cho subagent CHI nghien cuu/tra JSON, khong dung git/state.py.
+[21:44Z] event-scan: nap 6 bai think-tank (ASPI/Atlantic Council/Jamestown) + 5 khai niem.
+[21:48Z] event-scan: bao cao tuan 03/08-09/08 (3 nuoc, 18 luan diem, agent Opus) da nap.
+[21:49Z] event-scan DONE. Commit `Cap nhat su kien 09/08` da push (bee61f4 -> rebase -> bec8e78).
