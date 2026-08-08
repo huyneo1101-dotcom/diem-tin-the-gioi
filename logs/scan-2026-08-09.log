@@ -3,3 +3,4 @@
 [21:23Z] web-scan DONE: +2 worldNews, +5 usNews, +3 tap tran. Da push (2a44d10 -> rebase -> 0590d1c).
 [21:35Z] START event-scan (CI, gop vao sang som)
 [21:37Z] SKIP event-scan (phien nay, khac phien tren) - co phien khac dang chay event-scan that (state.py claim tra RUNNING, nhip tim 1p truoc, bat dau 04:35:43+07:00 = 21:35:43Z). Khong dung --force vi khoa chua het han (30p). Khong quet chong len.
+[04:45] SKIP (local web-scan-diem-tin, lan chay 05:30) - web-scan da xong (lan chay cuoi 04:35:11+07:00). Khong lam lai.
