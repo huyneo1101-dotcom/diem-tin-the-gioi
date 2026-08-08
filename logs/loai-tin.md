@@ -7,6 +7,16 @@
 
 ---
 
+## 2026-08-08 (phiên tối CI)
+
+- [CNQS/US] "Israel và Cơ quan Phòng thủ Tên lửa Mỹ thử thành công hệ thống Arrow nâng cấp" (Defense Daily) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn: "...hệ thống phòng không Arrow nâng cấp" (Jerusalem Post, _addedDate 2026-08-07) — guardrail chỉ cảnh báo Jaccard 0.94 (URL khác nên không tự chặn), đã prune tay bằng `prune_news.py`.
+- [CNQS/US] "Lực lượng Không gian Mỹ trao thêm hợp đồng theo dõi mục tiêu bay nhanh cho Rocket Lab" (Defense Daily) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn: "Lực lượng Không gian Mỹ trao 615 triệu USD cho 3 công ty..." (BreakingDefense) + "Rocket Lab và STR nhận 615 triệu USD..." (SpaceNews, cả hai đã trong DATA) — cùng gói hợp đồng SB-AMTI $615M ngày 6/8, đã prune tay.
+- [UC-BD/TG] "Mỹ và Đài Loan lần đầu công khai tuần tra chung bằng tàu tuần duyên" (USNI News) — **KHÔNG nạp**: URL bài gốc mang ngày 2026-07-29 trong đường dẫn trong khi agent gán ngày sự kiện 07/08 — nghi lệch ngày, bỏ qua theo nguyên tắc "không chắc thì bỏ".
+- [UC-BD/TG] "Doanh nghiệp chế tạo đắp lớp Úc AML3D tiến gần hơn tới chuỗi cung ứng tàu ngầm AUKUS" (Defence Connect) — **KHÔNG nạp**: TRÙNG với tin đã có sẵn 07/08 "Nhà sản xuất Úc AML3D tiến gần hơn tới chuỗi cung ứng tàu ngầm AUKUS" — agent bỏ sót dù đã được nhắc rõ trong prompt.
+- [TT] "Hán Quang 42: Taiwan áp dụng kiểu huấn luyện Mỹ..." (Focus Taiwan, ngày sự kiện 02/08) + "Hán Quang 42 mở rộng ra ngoài thao trường..." (TaiwanPlus, ngày sự kiện 06/08) — **KHÔNG nạp**: cả hai ngoài khung ngày hôm nay+hôm qua (08/08 phiên tối chỉ nhận 07-08/08), MAX_AGE_DAYS=1 cho exerciseUpdates không có ngoại lệ CNQS.
+- [UC-BD/TG] Vòng bổ sung — "Úc và Philippines ký Hiệp ước Hợp tác Quốc phòng mới tại Darwin" (Manila Bulletin) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn: "Bộ trưởng Quốc phòng Úc-Philippines họp tại Darwin: chỉ trích Trung Quốc, nhất trí xây dựng Thoả thuận Hợp tác Quốc phòng mới" (07/08) — cùng cuộc họp, cùng ngày, quên liệt kê trong danh sách ĐÃ CÓ khi giao agent bổ sung, tự phát hiện khi đối chiếu trước khi nạp.
+- [Mali] Không tìm được tin đạt chuẩn nguồn trong khung ngày — "Trump may launch military operation in Mali" chỉ có nguồn không đáng tin (logos-pres.md), "Trump weighs strikes in the Sahel" chỉ có Africa Confidential (trả phí, không xác nhận chéo được) — bỏ theo nguyên tắc "không chắc thì bỏ".
+
 ## 2026-08-06 (phiên sáng sớm CI)
 
 - ⭐ [CT/TG] Hải cảnh Trung Quốc phun vòi rồng vào tàu tiếp tế Philippines gần Bãi Cỏ Mây (Philippine Daily Inquirer, url id 1812866) — **loại vì SAI NGÀY/ĐỊA ĐIỂM**: agent tường thuật là sự kiện 05/08 tại Ayungin Shoal, nhưng xác minh qua WebSearch cho thấy bài thực tế tường thuật sự kiện 24/07/2026 tại Bajo de Masinloc/Scarborough Shoal — ngoài khung ngày, agent nhầm lẫn hoặc suy diễn sai từ tiêu đề.

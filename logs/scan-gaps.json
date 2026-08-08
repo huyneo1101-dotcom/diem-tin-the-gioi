@@ -1,17 +1,17 @@
 {
-  "date": "2026-08-07",
-  "session": "sang",
+  "date": "2026-08-08",
+  "session": "toi",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":13,"target":"5-10","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Úc & Biển Đông","count":8,"target":"5-10","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Công nghệ quân sự Mỹ","count":12,"target":"5-10","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Mỹ – Mali","count":1,"target":"2-5","min":2,"thieu":true,
-     "reason":"Phiên sáng sớm 08/08 tìm thêm nhưng không nạp được tin mới: 2 ứng viên đáng chú ý nhất ('Trump weighs strikes in the Sahel' — Africa Confidential, 'Russian ship defies sanctions to Mali' — AOL.com) xác minh ra sự kiện thật diễn ra 22-25/07, ngoài khung 24-48h dù GNEWS đăng/dẫn lại gần đây. Vẫn giữ 1 tin từ phiên tối trước (Mali tiếp nhận lô drone Bayraktar AKINCI thứ ba)."},
-    {"name":"Tập trận (PANAMAX 2026 + các cuộc đang diễn ra)","count":3,"target":"1-2 mỗi cuộc","min":1,"thieu":false,
-     "reason":""}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Phiên tối 08/08 chỉ tìm được 3 tin nhóm 1 đạt chuẩn (chuẩn thuận Todd Blanche 50-49, dự luật ngân sách tạm thời 90-6, dự luật voter ID bị bác 52-46). Nhiều ứng viên khác trong khung ngày là tin LẶP LẠI sự kiện đã đưa hôm 07/08 (Thượng viện thông qua trừng phạt Nga/Iran — vote đã đưa hôm trước, hôm nay chỉ là báo chí đăng lại; Fed Lisa Cook — Trump tiếp tục gây sức ép, không có bước leo thang mới; báo cáo việc làm tháng 7 yếu — đã đưa; Fauci contempt — đã đưa). Một tin sắc lệnh birthright citizenship bị bỏ vì ngày sự kiện thật (06/08) ngoài khung 2 ngày. Hạn chót email 22:00 buộc chốt sớm, không kịp giao thêm vòng bổ sung cho chủ đề này."},
+    {"name":"Úc & Biển Đông","count":1,"target":"5-10","min":5,"thieu":true,
+     "reason":"Phiên tối 08/08 chỉ giữ được 1 tin (Lầu Năm Góc đầu tư 400 triệu USD mỏ scandium Sunrise Energy Metals Úc). Đã giao 1 vòng bổ sung nhưng ứng viên duy nhất tìm được (họp Bộ trưởng QP Úc-Philippines tại Darwin) lại TRÙNG với tin đã đưa 07/08 cùng sự kiện. Nhiều ứng viên khác trong khung ngày là tin lặp (Trung Quốc xác nhận 2 người chết Scarborough — đã đưa 06-07/08; AML3D chuỗi cung ứng AUKUS — đã đưa 07/08); 1 ứng viên (Mỹ-Đài Loan tuần tra chung tuần duyên, USNI News) bị loại vì URL mang ngày 29/07 nghi lệch ngày sự kiện, không xác nhận chéo kịp trong hạn."},
+    {"name":"Công nghệ quân sự Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Phiên tối 08/08 nạp 5 tin nhưng phải prune 2 tin (thử tên lửa Arrow Israel-Mỹ, hợp đồng SB-AMTI Rocket Lab) vì phát hiện trùng sự kiện đã có sẵn trong DATA từ nguồn khác (guardrail chỉ cảnh báo Jaccard, không tự chặn do URL khác nhau) — còn lại 3 tin (Golden Dome ngân sách, dự luật Space Superiority Readiness Act, khoản vay Sila Nanotechnologies). Không kịp giao vòng bổ sung do hạn chót 22:00."},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
+     "reason":"Không tìm được tin đạt chuẩn nguồn trong khung ngày. Ứng viên đáng chú ý nhất ('Trump may launch military operation in Mali' — nguồn logos-pres.md không đáng tin; 'Trump weighs strikes in the Sahel' — Africa Confidential, trả phí, không xác nhận chéo được qua Reuters/AP/AFP/CENTCOM trong thời gian cho phép) đều bị bỏ theo nguyên tắc 'không chắc thì bỏ'. Phần lớn ứng viên khác từ 'Mali' trong tên là nhiễu (công ty khai khoáng B2Gold, thể thao, showbiz)."},
+    {"name":"Tập trận (PANAMAX 2026 + các cuộc đang diễn ra)","count":1,"target":"1-2 mỗi cuộc","min":1,"thieu":false,
+     "reason":"Nạp 1 cập nhật PANAMAX 2026 (Tuần duyên Mỹ tham gia diễn tập chống đe doạ kênh đào Panama). 2 ứng viên cho Hán Quang 42 (Đài Loan) bị loại vì ngày sự kiện thật (02/08 và 06/08) ngoài khung 1 ngày (MAX_AGE_DAYS=1, không có ngoại lệ CNQS cho exerciseUpdates). Không tìm được cập nhật mới trong khung 07-08/08 cho Pitch Black, SEACAT, Baltic Trust, Diễn tập Hạm đội TBD Nga."}
   ],
-  "note": "Số liệu CỘNG DỒN cả ngày 2026-08-07 (phiên tối 20:47 + phiên sáng sớm CI 03:47-04:47, cùng generatedAt do chưa có tin dated 2026-08-08). Phiên sáng sớm (session này) tự nạp thêm: +5 Nội bộ Mỹ, +3 Úc & Biển Đông (sau khi prune 1 tin trùng Scarborough drills), +4 CNQS Mỹ (sau khi prune 1 tin trùng chiến lược hạt nhân + loại 2 ứng viên trùng ở vòng bổ sung), +1 cập nhật PANAMAX, +0 Mali. Cổng Báo Mới: 5 ứng viên đều LOẠI (trùng tin đã có hoặc không neo được vào chủ đề — birthright citizenship EO x2, hoàn thuế IEEPA, EU mua Patriot không phải khí tài Mỹ, bán dẫn Malaysia không phải Úc/Biển Đông). Chi tiết đầy đủ: logs/loai-tin.md mục '08/08/2026 (phiên sáng sớm CI)'."
+  "note": "Phiên TỐI CI 08/08, mốc chính trong hạn chót email 22:00. Do áp lực thời gian, chỉ chạy 1 vòng chính + 1 vòng bổ sung ngắn cho Úc & Biển Đông (không ra thêm tin do trùng lặp). Đã phát hiện và tự sửa 2 lỗi trùng lặp sau khi nạp (Arrow missile test, Rocket Lab SB-AMTI) bằng prune_news.py — guardrail Jaccard chỉ cảnh báo chứ không tự chặn vì URL khác nguồn. Không có file Jay Lâm nào trong khung ngày để đối chiếu lọc trùng (tin_jaylam.py --liet-ke trả rỗng). Cổng Báo Mới: 9 ứng viên CHƯA xử lý (thiếu thời gian trong hạn chót) — 2 tin Nhật Bản ngân sách QP không thuộc phạm vi 5 chủ đề, 3 tin trùng dự luật trừng phạt Nga đã đưa, 1 tin MQ-25 CNQS + 1 tin S-300 Ukraine (không phải khí tài Mỹ) + 2 tin Úc thương mại/khoáng sản (tin khoáng sản trùng với tin đã nạp). Chi tiết đầy đủ: logs/loai-tin.md mục '2026-08-08 (phiên tối CI)'."
 }
