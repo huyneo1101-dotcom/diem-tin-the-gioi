@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-08T21:07:20+07:00",
+  "tao_luc": "2026-08-08T22:01:13+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-07",
@@ -145,14 +145,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-07",
-      "tieu_de": "Bipartisan Senate bill would sharpen Space Force training for conflict with China",
-      "nguon": "SpaceNews",
-      "url": "https://spacenews.com/bipartisan-senate-bill-would-sharpen-space-force-training-for-conflict-with-china/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-05",
       "tieu_de": "Telesat lands $1.63 billion Canadian defense contract",
       "nguon": "SpaceNews",
@@ -202,6 +194,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "?",
+      "tieu_de": "Đức phát hiện drone xâm nhập căn cứ bảo trì hệ thống Patriot",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/duc-phat-hien-drone-xam-nhap-can-cu-bao-tri-he-thong-patriot-100260808210743523.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "?",
       "tieu_de": "US court pauses Pentagon's blacklisting of China's WuXi AppTec",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/politics/international-relations/us-china-tensions/us-court-pauses-pentagon-s-blacklisting-of-china-s-wuxi-apptec"
@@ -229,14 +229,6 @@
       "tieu_de": "Will the Pentagon prioritize munitions when the Iran conflict ends?",
       "nguon": "The Hill",
       "url": "https://thehill.com/opinion/national-security/6012232-will-the-pentagon-prioritize-munitions-when-the-iran-conflict-ends/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-07",
-      "tieu_de": "Senate Democrats introduce bill to roll back press restrictions at Pentagon",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/newsletters/defense-national-security/6015455-senate-democrats-introduce-bill-to-roll-back-press-restrictions-at-pentagon/"
     },
     {
       "lop": "RSS",
@@ -434,6 +426,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-08",
+      "tieu_de": "Engineering the Future Force: Exclusive Interview with the Secretary of the U.S. Air Force",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/08/08/exclusive-interview-secretary-us-air-force/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-08",
       "tieu_de": "New Commander arrives at U.S. Army Joint Modernization Command",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/571874/new-commander-arrives-us-army-joint-modernization-command"
@@ -597,6 +597,14 @@
       "tieu_de": "Pentagon to invest $511 million in Australian rare earth mine",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/pentagon-to-invest-511-million-in-australian-rare-earth-mine"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-08",
+      "tieu_de": "Five dead, 41 missing in Indonesia ferry fire",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/ferry-fire-in-indonesia-leaves-few-dead-and-many-missing/article71297598.ece"
     },
     {
       "lop": "RSS",
@@ -1013,6 +1021,15 @@
       "nguon": "Thanh Niên",
       "url": "https://thanhnien.vn/ong-trump-ky-sac-lenh-siet-du-lich-sinh-con-lay-quoc-tich-my-185260807063909626.htm",
       "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Thượng viện Mỹ phê chuẩn cựu luật sư của ông Trump làm Bộ trưởng Tư pháp",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/thuong-vien-my-phe-chuan-cuu-luat-su-cua-ong-trump-lam-bo-truong-tu-phap-100260808194650451.htm",
+      "nhom": 9
     },
     {
       "lop": "RSS",
