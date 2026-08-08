@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-08T21:23:06+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+1 TG, +6 My, +1 tap tran (PANAMAX) - phien toi han che thoi gian (han email 22:00)",
+    "lastRunAt": "2026-08-09T04:00:51+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-08",
       "sang": "2026-08-08"
-    }
+    },
+    "heartbeat": "2026-08-09T04:00:51+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-08T04:45:51+07:00",
