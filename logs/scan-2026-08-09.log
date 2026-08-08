@@ -1,2 +1,4 @@
 [21:00Z] START (CI) - phien sang som 09/08/2026
 [04:30] SKIP (local web-scan-diem-tin) - phien khac dang chay web-scan (nhip tim 04:00:51+07:00), khong quet chong len
+[21:23Z] web-scan DONE: +2 worldNews, +5 usNews, +3 tap tran. Da push (2a44d10 -> rebase -> 0590d1c).
+[21:35Z] START event-scan (CI, gop vao sang som)
