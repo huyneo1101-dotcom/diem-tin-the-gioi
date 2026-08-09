@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-10T04:00:44+07:00",
+    "lastRunAt": "2026-08-10T04:44:21+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+3 tin TG, +6 tin My, +5 cap nhat tap tran (5 chu de, phien sang som)",
     "lastSuccess": {
       "toi": "2026-08-09",
-      "sang": "2026-08-09"
-    },
-    "heartbeat": "2026-08-10T04:00:44+07:00"
+      "sang": "2026-08-10"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-09T04:48:53+07:00",

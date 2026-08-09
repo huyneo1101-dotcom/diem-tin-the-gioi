@@ -7,6 +7,25 @@
 
 ---
 
+## 2026-08-10 (phiên sáng sớm CI)
+
+- [Nội bộ Mỹ] Không đủ tin trong khung 09-10/08: Quốc hội Mỹ nghỉ cuối tuần rồi bước vào kỳ nghỉ hè (Thượng viện tới 14/9, Hạ viện tới 31/8) — Nhóm 1 (điều trần+bỏ phiếu) trắng hoàn toàn. Đã thử mở rộng cả 4 nhóm còn lại (sắc lệnh/fact sheet, biểu tình, kinh tế/nội các, bầu cử) — mọi ứng viên đều ngoài khung ngày (03-07/08) hoặc thuộc sự kiện tương lai (sơ bộ 11/08). Chỉ nạp được 2 tin.
+- [CNQS/US] "Hải quân tái phân loại 19 tàu ngầm Virginia thành SSGN" (Naval News) — **loại vì NGOÀI KHUNG**: sự kiện thật 2026-08-03, quá 3 ngày so với batch 10/08 (giới hạn CNQS chỉ tới 07/08).
+- [CNQS/US] "Israel-Mỹ thử thành công hệ thống Arrow nâng cấp" (Defense Daily) — **loại vì NGOÀI KHUNG**: sự kiện thật Thứ Tư 2026-08-05, quá 3 ngày.
+- [CNQS/US] "Lầu Năm Góc ấn định khung ngân sách Golden Dome" (Bloomberg) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn trong DATA (bị guardrail chặn cứng, URL trùng).
+- [CNQS/US] "Thượng viện phê chuẩn Trung tướng Schiess làm Tư lệnh Tác chiến Không gian" (Breaking Defense) — nạp lọt guardrail (Jaccard 0.73, chỉ cảnh báo) nhưng xác nhận **TRÙNG SỰ KIỆN** đã có sẵn trong DATA — đã `prune_news.py` xoá tay.
+- [CNQS/US] "Lầu Năm Góc yêu cầu hãng vũ khí tăng tốc sản xuất" (WaPo/Bloomberg, thư Feinberg 05/08) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn "Lầu Năm Góc ra hạn 21 ngày..." (08/08).
+- [CNQS Mỹ, Báo Mới] "Mỹ giúp Ukraine nâng cấp S-300" — truy gốc (Militarnyi/RBC-Ukraine/NV.ua) xác nhận **TRÙNG SỰ KIỆN** đã có "Mỹ-Ukraine hợp tác hồi sinh sản xuất S-300" (07/08).
+- [CNQS Mỹ, Báo Mới] "Lầu Năm Góc hối thúc ngành quốc phòng Mỹ tăng tốc sản xuất vũ khí" — **loại vì TRÙNG SỰ KIỆN** đã có "Lầu Năm Góc ra hạn 21 ngày..." (08/08).
+- [Úc-BD, Báo Mới] "Nga giăng lưới 'bắt' UAV Ukraine trên căn cứ tàu ngầm hạt nhân" (Báo Sức Khỏe & Đời Sống) — categorizer gán nhầm chủ đề Úc & Biển Đông; nội dung về Nga-Ukraine, **không thuộc phạm vi 5 chủ đề** — loại.
+- [Úc-BD/TG] "Pitch Black 2026 kết thúc sau 3 tuần" + "Wedgetail-E2D kết nối tại Pitch Black" (Defence Australia) — **loại vì NGOÀI KHUNG**: sự kiện 07/08, quá 1 ngày so với batch 10/08 (chủ đề này không có ngoại lệ nới 3 ngày).
+- [Úc-BD/TG] "Úc chi 736tr AUD mua AIM-260 JATM" — **loại vì TRÙNG SỰ KIỆN** đã có sẵn trong DATA (06/08) + ngoài khung.
+- [Úc-BD/TG] "Đài Loan gọi kiểm soát giao thông TQ tại eo biển là 'lố bịch'" (Reuters) — **loại vì NGOÀI KHUNG**: sự kiện 07/08.
+- [Úc-BD/TG] "Trung Quốc lần đầu xác nhận 2 thủy thủ thiệt mạng va chạm gần Scarborough" (Philstar/AFP) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn "Trung Quốc lần đầu xác nhận 2 nhân viên tuần duyên thiệt mạng..." (06/08), cùng sự việc.
+- [Úc-BD/TG] "Mỹ bác bỏ 'khu bảo tồn thiên nhiên' TQ tại Scarborough" (State Dept, đường link mới) — nạp lọt guardrail (Jaccard 0.58) nhưng xác nhận **TRÙNG SỰ KIỆN** đã có sẵn trong DATA (08/08, cùng thông cáo Bộ Ngoại giao) — đã `prune_news.py` xoá tay.
+- [Tập trận] SEACAT 2026 và Baltic Trust 26 — **0 tin phiên này**: mọi bài tìm được đều ngoài khung 09-10/08 (SEACAT chỉ có tin khai mạc 04/08, Baltic Trust chỉ có tin khai mạc 03/08 + tổng hợp không mang ngày sự kiện mới).
+- [Mali] Đã thử ~10 lượt WebSearch, chỉ 1 tin đạt chuẩn (Military Africa). Loại: HRW/Africa Corps không kích Kyrnia (sự kiện 15/06, công bố 31/07 — ngoài khung); Africa Corps/FAMa Abeibara/Kidal (03-06/08, nguồn Pravda Mali/afrinz.ru không xác nhận độc lập); Reuters "US nears deal intelligence ops" (thực chất tin tháng 3); vụ bắt cóc phi công Kevin Rideout (10/2025, quá cũ).
+
 ## 2026-08-08 (phiên tối CI)
 
 - [CNQS/US] "Israel và Cơ quan Phòng thủ Tên lửa Mỹ thử thành công hệ thống Arrow nâng cấp" (Defense Daily) — **loại vì TRÙNG SỰ KIỆN** đã có sẵn: "...hệ thống phòng không Arrow nâng cấp" (Jerusalem Post, _addedDate 2026-08-07) — guardrail chỉ cảnh báo Jaccard 0.94 (URL khác nên không tự chặn), đã prune tay bằng `prune_news.py`.
