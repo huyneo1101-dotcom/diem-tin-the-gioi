@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-09T04:35:11+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+2 worldNews, +5 usNews, +3 tap tran (5 chu de, phien sang som)",
+    "lastRunAt": "2026-08-09T21:00:34+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-08",
       "sang": "2026-08-09"
-    }
+    },
+    "heartbeat": "2026-08-09T21:00:34+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-09T04:48:53+07:00",
