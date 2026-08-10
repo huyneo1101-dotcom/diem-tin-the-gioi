@@ -14,3 +14,4 @@
 [21:30Z] SKIP local web-scan (phien sang som/du phong 04:30-05:30) - da thay CI DA XONG (lan chay cuoi 04:21:24+07:00). Khong lam lai, dung y nhu thiet ke.
 [21:31Z] add_news.py + add_analyses.py: nap xong ca 2 batch. Chuan bi commit + push.
 [21:34Z] SKIP (CI, lan fire trung) - state.py claim web-scan tra exit 10 (DA XONG luc 04:21:24+07:00). Kiem tra ngoai le: so_da_gui --xem CO dong 2026-08-11 [sang] 12 tin -> ban tin da toi tay that. SKIP em, khong quet lai.
+[04:45 VN] SKIP local web-scan (mocs 04:30/05:30) - claim tra exit 10, da xong luc 04:21:24+07:00. SKIP em.
