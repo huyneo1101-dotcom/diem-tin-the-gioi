@@ -172,3 +172,17 @@ jobs:
             # claude-event-scan.yml (đã xoá, gộp việc quét vào job này, xem BƯỚC 6 prompt).
             gh workflow run notify-morning.yml -f tu_dong=1
           fi
+
+      # ĐẶT CUỐI JOB, SAU cả bước kích email — cố ý. Phiên quét này ăn cùng gói Claude
+      # với mọi phiên trên máy Mac nhưng bản ghi của nó nằm trên máy GitHub rồi biến mất
+      # cùng máy, nên `do-token.py` ở nhà đếm phần này bằng 0 và mọi ngân sách cho routine
+      # đêm đều tính thiếu đúng khoản cạnh tranh với mốc quét 04:00.
+      # Bước này CHỈ ĐỌC và CHỈ IN CON SỐ: repo công khai nên không được đẩy bản ghi phiên
+      # ra ngoài dưới bất kỳ hình thức nào. `if: always()` để phiên quét lỗi cũng biết đã
+      # tiêu bao nhiêu; `continue-on-error` để bước đo không bao giờ làm gãy bản tin.
+      # Bộ ca canh: tests/test-do-token-phien.py (có ca đọc chính file yml này).
+      - name: Đo mức tiêu thụ của phiên quét
+        if: always() && steps.gate.outputs.run == 'true'
+        continue-on-error: true   # bước đo KHÔNG được làm gãy bản tin
+        run: |
+          python3 .github/scripts/do_token_phien.py
