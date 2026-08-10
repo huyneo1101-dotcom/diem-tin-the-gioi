@@ -6,3 +6,5 @@
 [21:20Z] add_news.py: +2 worldNews +9 usNews +1 exerciseUpdate (PANAMAX 2026). Phat hien 1 tin usNews trung (Sila Nanotechnologies, cung URL war.gov khac slug) qua canh bao Jaccard -> da prune_news.py go bo, con 8 usNews thuc.
 [21:20Z] Ghi logs/loai-tin.md (10 muc loai) + logs/scan-gaps.json (5 chu de, deu duoi san 5 bai - giai doan lang tin dung khung 10-11/08).
 [21:20Z] Buoc 4c: khong kich duoc `gh workflow run telegram-bot.yml` (requires approval trong phien CI). tin_jaylam.py --liet-ke: khong co file Jay Lam nao trong khung ngay (ma 10) - bo qua buoc loc.
+[21:20Z] DONE web-scan. Commit 42c9192 da push.
+[21:21Z] START event-scan (CI, gop vao sang som) - khoa da giu.
