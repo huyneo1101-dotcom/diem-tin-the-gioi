@@ -19,3 +19,4 @@
 [14:20Z] ghi logs/loai-tin.md + logs/scan-gaps.json (session=toi)
 [14:18Z] web-scan DONE: +5 TG, +4 My, +4 cap nhat tap tran (5 chu de)
 [14:20Z] SKIP (CI, phien moi kich hoat) — claim tra exit 10, phien toi da DONE luc 21:18:57 VN. Kiem tra ngoai le: so_da_gui.py --xem co dong 2026-08-10T21:20:08+07:00 [toi] 25 tin — ban tin DA gui that, khong phai co noi doi. Khong quet lai.
+[14:45Z] SKIP (CI, lop vet 21:47) - claim tra exit 10, phien toi da DONE luc 21:18:57 VN (25 phut truoc). Kiem tra ngoai le: so_da_gui.py --xem co dong 2026-08-10T21:20:08+07:00 [toi] 25 tin - ban tin DA gui that, khong phai co noi doi. Khong quet lai, ket thuc em.
