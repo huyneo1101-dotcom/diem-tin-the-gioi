@@ -1,1 +1,8 @@
 [21:00Z] START (CI) - phien sang som, khoa web-scan da giu
+[21:00Z] harvest.py: 339 ung vien (Noi bo My 110, Uc&BD 90, CNQS 83, Mali 43, Tap tran 13). telegram_harvest.py: 14 ung vien.
+[21:04Z] Giao 4 agent Sonnet song song (Noi bo My, Uc&BD, CNQS, Mali+Tap tran).
+[21:12Z] 4 agent tra ve. Uc&BD chi 2/4 item hop khung ngay (2 item 08-08/08-07 bi loai vi qua khung 1 ngay) - gui them 1 vong bo sung.
+[21:19Z] Agent bo sung Uc&BD xac nhan khong tim them duoc tin nao trong khung nghiem ngat - giu 2 item.
+[21:20Z] add_news.py: +2 worldNews +9 usNews +1 exerciseUpdate (PANAMAX 2026). Phat hien 1 tin usNews trung (Sila Nanotechnologies, cung URL war.gov khac slug) qua canh bao Jaccard -> da prune_news.py go bo, con 8 usNews thuc.
+[21:20Z] Ghi logs/loai-tin.md (10 muc loai) + logs/scan-gaps.json (5 chu de, deu duoi san 5 bai - giai doan lang tin dung khung 10-11/08).
+[21:20Z] Buoc 4c: khong kich duoc `gh workflow run telegram-bot.yml` (requires approval trong phien CI). tin_jaylam.py --liet-ke: khong co file Jay Lam nao trong khung ngay (ma 10) - bo qua buoc loc.
