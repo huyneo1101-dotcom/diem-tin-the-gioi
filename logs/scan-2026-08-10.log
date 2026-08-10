@@ -9,3 +9,12 @@
 [21:52Z] event-scan DONE. Commit tiep theo.
 [21:54Z] SKIP web-scan (CI, phien moi) — claim tra exit 10, da DONE luc 04:44:21 (+3 TG, +6 My, +5 cap nhat tap tran). Kiem tra ngoai le: so_da_gui.py --xem co dong 2026-08-10T04:54:08 [sang] 12 tin + 2026-08-10T04:54:11 [sukien] 3 tin — ban tin DA gui that, khong phai co noi doi. Khong quet chong len.
 [14:00Z] START (CI) phien toi 2026-08-10 - web-scan claimed, bat dau quet
+[14:03Z] cai curl_cffi, chay lai harvest.py: 415 ung vien (5 chu de) + telegram_harvest.py: 18 ung vien
+[14:12Z] giao 5 agent Sonnet song song (Noi bo My, Uc-BD, CNQS My, My-Mali, Tap tran) - hoan tat sau ~5.5 phut
+[14:16Z] gop ket qua: Noi bo My 0 tin (Quoc hoi nghi cuoi tuan, agent quet 48 luot tool khong ra tin dung khung), Uc-BD 5 tin, CNQS My 7 tin -> 5 tin (bo 1 ngoai khung), Mali 1 tin, Tap tran 4 cap nhat
+[14:16Z] add_news.py: phat hien 1 tin worldNews ngoai khung (Malaysia Sabah 08/08) -> bo. Chay lai OK: +5 TG, +6 My, +4 tap tran
+[14:17Z] canh bao trung su kien (Jaccard 0.94 va 0.71): xac nhan trung, prune_news.py xoa 2 tin CNQS (Schiess Space Force, Virginia SSGN reclassify) -> con +5 TG, +4 My
+[14:18Z] xu ly 2 ung vien Bao Moi: ca 2 loai (bo nhiem nhan su Trump khong thuoc 5 nhom Noi bo My; thuong mai VN-Australia sai chu de)
+[14:20Z] tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung ngay, bo qua buoc loc
+[14:20Z] ghi logs/loai-tin.md + logs/scan-gaps.json (session=toi)
+[14:18Z] web-scan DONE: +5 TG, +4 My, +4 cap nhat tap tran (5 chu de)

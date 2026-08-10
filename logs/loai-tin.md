@@ -7,6 +7,18 @@
 
 ---
 
+## 2026-08-10 (phiên tối CI)
+
+- [Nội bộ Mỹ] 0 tin nạp được — đã giao 1 agent Sonnet quét kỹ (48 lượt tool, cả 5 nhóm). Mọi sự kiện lớn (thông qua ngân sách tạm, chuẩn thuận Todd Blanche, sắc lệnh birth tourism, thuế polysilicon...) có ngày sự kiện thật 06-08/08, ngoài khung 09-10/08. Quốc hội nghỉ cuối tuần + bước vào kỳ nghỉ hè, không có điều trần/bỏ phiếu ngày 09-10/08.
+- [Úc-BD/TG] "Malaysia gửi công hàm phản đối LHQ về yêu sách Sabah của Philippines" (The Star Malaysia) — **loại vì NGOÀI KHUNG**: sự kiện 08/08, quá 1 ngày so với batch 10/08.
+- [CNQS/US] "Thượng viện Mỹ chuẩn thuận Tướng Douglas Schiess làm Tư lệnh Tác chiến Không gian" (Breaking Defense, sự kiện 07/08) — nạp lọt guardrail (Jaccard 0.94, chỉ cảnh báo) nhưng xác nhận **TRÙNG SỰ KIỆN** đã có sẵn trong DATA (SpaceNews, cùng ngày) — đã `prune_news.py` xoá tay.
+- [CNQS/US] "Hải quân Mỹ tái phân loại 19 tàu ngầm lớp Virginia thành nền tảng phóng tên lửa dẫn đường" (Atlantic Council, sự kiện 07/08) — nạp lọt guardrail (Jaccard 0.71) nhưng xác nhận **TRÙNG SỰ KIỆN** đã có sẵn trong DATA (US Navy, cùng ngày) — đã `prune_news.py` xoá tay.
+- [CNQS/US] "Israel-Mỹ thử thành công hệ thống Arrow nâng cấp" (Defense Daily, sự kiện 06/08) — agent tự loại vì **NGOÀI KHUNG** (quá 3 ngày so với batch 10/08, giới hạn CNQS chỉ tới 07/08).
+- [Mali] Nhiều ứng viên harvest.py (B2Gold cổ phiếu, thể thao, du lịch) chỉ trùng chữ "Mali"/"Sahel" — loại vì không liên quan an ninh/quân sự. Tin Niger uranium (Romania) — loại vì không neo được vào Mali/Mỹ.
+- [Tập trận] SEACAT 2026, Baltic Trust 26 — 0 tin mới đủ khác biệt trong khung 09-10/08 so với item chống trùng đã có; Pitch Black 2026 đã kết thúc (không còn trong danh sách đang diễn ra), không báo cáo.
+- [Nội bộ Mỹ, Báo Mới] "Chính quyền Tổng thống Trump thay 'cánh tay pháp lý'..." — truy gốc xác nhận (WaPo/NBC/UPI): Trump bổ nhiệm Will Scharf làm White House Counsel mới, thay David Warrington, từ 01/09. **Loại vì đây là bổ nhiệm nhân sự cá nhân**, không thuộc 5 nhóm nghiêm ngặt của chủ đề Nội bộ Mỹ (không phải điều trần/bỏ phiếu, không phải sắc lệnh/chiến lược, không biểu tình/kinh tế/bầu cử trực tiếp).
+- [Úc-BD, Báo Mới] "Kim ngạch xuất nhập khẩu Việt Nam - Australia tăng tốc, cán mốc 8 tỷ USD" (Mekong Asean) — **loại vì không thuộc phạm vi chủ đề**: đây là số liệu thương mại song phương, không phải tin quân sự Úc hay Biển Đông/vùng biển tranh chấp — categorizer gán nhầm chủ đề.
+
 ## 2026-08-10 (phiên sáng sớm CI)
 
 - [Nội bộ Mỹ] Không đủ tin trong khung 09-10/08: Quốc hội Mỹ nghỉ cuối tuần rồi bước vào kỳ nghỉ hè (Thượng viện tới 14/9, Hạ viện tới 31/8) — Nhóm 1 (điều trần+bỏ phiếu) trắng hoàn toàn. Đã thử mở rộng cả 4 nhóm còn lại (sắc lệnh/fact sheet, biểu tình, kinh tế/nội các, bầu cử) — mọi ứng viên đều ngoài khung ngày (03-07/08) hoặc thuộc sự kiện tương lai (sơ bộ 11/08). Chỉ nạp được 2 tin.
