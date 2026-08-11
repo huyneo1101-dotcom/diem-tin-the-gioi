@@ -5,3 +5,8 @@
 [21:41Z] Agent bo sung Uc&BD: +1 tin (Philippines-My 8-Star memo 75 nam MDT). Nap qua add_news.py.
 [21:43Z] Ghi logs/loai-tin.md + logs/scan-gaps.json. Thu kich bot Telegram lay file Jay Lam qua `gh workflow run` - BI CHAN (requires approval, khong kha dung trong phien CI nay). tin_jaylam.py --liet-ke: khong co file nao trong khung ngay (ma 10) -> bo qua buoc loc, khong anh huong.
 [21:44Z] Tong ket: worldNews +4, usNews +9, exerciseUpdates +2 (PANAMAX 2026, Han Quang 42). Chuan bi commit "Cap nhat ban tin".
+[21:31Z] START event-scan (CI, gop vao sang som). Bat dau buoc 6: su kien ngoai giao + tap tran + think-tank.
+[21:32Z] do_tap_tran_thieu.py: 26 ung vien, 2 ★ co ten rieng (Talisman Sabre 2027 da co, MRF-D Capital Reach - agent loai vi chi la hoat dong thanh phan nho).
+[21:37Z] Agent su kien+tap tran toan cau xong: +1 dipEventUpdate (VN-Australia), +1 exerciseUpdate (Super Garuda Shield), +1 newExercise (TQ-Indonesia dong Dai Loan). Loai Ulchi Freedom Shield vi ngoai khung ngay (08-10).
+[21:41Z] Agent think-tank xong: 5 bai (ASPI, Lowy, ORF, War on the Rocks, Atlantic Council), phu 4 vung (IDD-TBD x2, Dong A, Nam A, Chau Phi). Nap qua add_analyses.py, tong kho 762 bai.
+[21:42Z] Khong phai Chu nhat (thu 4) - bo qua bao cao tuan. Chuan bi commit "Cap nhat su kien".
