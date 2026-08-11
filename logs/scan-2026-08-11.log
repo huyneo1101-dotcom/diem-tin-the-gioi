@@ -17,3 +17,4 @@
 [04:45 VN] SKIP local web-scan (mocs 04:30/05:30) - claim tra exit 10, da xong luc 04:21:24+07:00. SKIP em.
 [21:45Z] SKIP (CI, lan fire vet 04:47) - state.py claim web-scan tra exit 10 (DA XONG luc 04:21:24+07:00, cach hien tai 24 phut). Kiem tra ngoai le: so_da_gui --xem van CO dong 2026-08-11T04:33:38 [sang] 12 tin, event-scan cung DONE (lastRunAt 04:32:12, +1 su kien +2 tap tran +5 think-tank). Ban tin da gui that. SKIP em, ket thuc.
 [22:19Z] SKIP (CI, lan fire khac 05:19 VN) - state.py claim web-scan tra exit 10 (DA XONG luc 04:21:24+07:00, cach hien tai 58 phut). Kiem tra ngoai le: so_da_gui --xem van CO dong 2026-08-11T04:33:38 [sang] 12 tin, event-scan DONE (lastRunAt 04:32:12, +1 su kien +2 tap tran +5 think-tank). Ban tin sang som da toi tay that. SKIP em, ket thuc.
+[14:00Z] START (CI) - phien toi (20:47 VN moc chinh), khoa web-scan da giu (claim tra exit 0, chua co ban tin toi hom nay 2026-08-11).
