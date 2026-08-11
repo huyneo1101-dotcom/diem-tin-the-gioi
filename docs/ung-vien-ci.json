@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-12T04:42:41+07:00",
+  "tao_luc": "2026-08-12T05:20:51+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-11",
@@ -181,6 +181,14 @@
       "tieu_de": "Pentagon to solicit entrants for next giant cloud-service contract vehicle",
       "nguon": "Defense One",
       "url": "https://www.defenseone.com/defense-systems/2026/08/disa-sets-release-date-follow-cloud-solicitation/415345/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Golden Dome faces 2027 funding cliff",
+      "nguon": "SpaceNews",
+      "url": "https://spacenews.com/golden-dome-faces-2027-funding-cliff/"
     },
     {
       "lop": "RSS",
@@ -402,6 +410,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-12",
+      "tieu_de": "Guetlein: Without Reconciliation, ‘There Is No Golden Dome Because There Is No Funding’",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/guetlein-without-reconciliation-there-is-no-golden-dome-because-there-is-no-funding/missile-defense/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
       "tieu_de": "Pentagon Launches Golden Dome Hub To ‘Streamline Collaboration’",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/pentagon-launches-golden-dome-hub-to-streamline-collaboration/missile-defense/"
@@ -597,14 +613,6 @@
       "tieu_de": "US helicopter fired on ship that tried to break Iran ports blockade",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/middle-east/us-helicopter-fired-on-ship-that-tried-to-break-iran-ports-blockade"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "US judge rules Meta hid evidence in Australian tycoon fake ad case",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-judge-rules-meta-hid-evidence-in-australian-tycoon-fake-ad-case"
     },
     {
       "lop": "RSS",
@@ -849,6 +857,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "12yo will walk 500km for meeting with PM in Canberra",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-12/dusty-langby-12-years-old-walk-to-meet-pm/107000328"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-11",
       "tieu_de": "Australia, Lockheed search for CSI suppliers for Virginia subs",
       "nguon": "Naval Technology",
@@ -890,7 +906,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Australia politics live: Coalition promises to simplify construction code to help speed up housing builds",
+      "tieu_de": "Australia politics live: Coalition to heavily cut net migration and shred 96% of house construction code; CBA posts bumper $11bn profit",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/aug/12/australia-politics-live-question-time-anthony-albanese-angus-taylor-coalition-andrew-bragg-housing-construction-immigration-one-nation-pauline-hanson-gambling-melon-gift-japan-ndis-ntwnfb"
     },
@@ -933,14 +949,6 @@
       "tieu_de": "Tuyên bố chung về nâng cao sức chống chịu, thích ứng và phục hồi kinh tế Việt Nam-Australia",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/tuyen-bo-chung-ve-nang-cao-suc-chong-chiu-thich-ung-va-phuc-hoi-kinh-te-viet-nam-australia-post1129549.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-12",
-      "tieu_de": "Tuyên bố chung về làm sâu sắc quan hệ Đối tác Chiến lược Toàn diện Việt Nam-Australia",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tuyen-bo-chung-ve-lam-sau-sac-quan-he-doi-tac-chien-luoc-toan-dien-viet-nam-australia-post1129544.vnp"
     },
     {
       "lop": "RSS",
@@ -1109,6 +1117,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Trump's mail-in voting restrictions blocked nationwide by federal judge",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/08/11/trump-mail-in-voting-executive-order-us-postal-service",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-11",
       "tieu_de": "Trump signs executive order to split up MMR vaccine",
       "nguon": "Axios",
@@ -1185,6 +1202,15 @@
       "tieu_de": "Nigeria: Osun Election - APC's Oyebamiji Downplays 'Federal Might', Vows to Banish Poverty",
       "nguon": "AllAfrica",
       "url": "https://allafrica.com/stories/202608110592.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Judge blocks Trump’s order aimed at using USPS to restrict mail-in voting",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/aug/11/judge-blocks-trump-mail-in-voting-usps",
       "nhom": 5
     },
     {
