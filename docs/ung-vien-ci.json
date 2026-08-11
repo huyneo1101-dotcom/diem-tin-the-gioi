@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-11T20:48:12+07:00",
+  "tao_luc": "2026-08-11T21:37:16+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-10",
@@ -177,18 +177,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-10",
-      "tieu_de": "Air Force seeks AI tool to help manage Minuteman III ICBM sustainment",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/08/air-force-seeks-ai-tool-to-help-manage-minuteman-iii-icbm-sustainment/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-08",
       "tieu_de": "Senate confirms nominees for Pentagon comptroller, space acquisition and NRO chief",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/senate-confirms-nominees-for-pentagon-comptroller-space-acquisition-and-nro-chief/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-11",
+      "tieu_de": "SpaceX increasing footprint in missile defense",
+      "nguon": "SpaceNews",
+      "url": "https://spacenews.com/spacex-increasing-footprint-in-missile-defense/"
     },
     {
       "lop": "RSS",
@@ -221,14 +221,6 @@
       "tieu_de": "US ‘digging in’ to Asia but wants ‘partners not dependency’: Pentagon",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3363543/us-digging-asia-wants-partners-not-dependency-pentagon?utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-09",
-      "tieu_de": "Nagasaki marks 81st atomic bomb anniversary as Mayor says nuclear deterrence only increases risk",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/nagasaki-marks-81st-atomic-bomb-anniversary/article71324359.ece"
     },
     {
       "lop": "RSS",
@@ -410,14 +402,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-10",
-      "tieu_de": "US Navy tests AI-powered submarine hunter",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/industry/techwatch/2026/08/10/us-navy-tests-ai-powered-submarine-hunter/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-10",
       "tieu_de": "Marine Corps to get ‘production-ready’ microwave drone swarm killer",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/08/10/marine-corps-to-get-production-ready-microwave-drone-swarm-killer/"
@@ -509,14 +493,6 @@
       "tieu_de": "Lawmakers seek to expand Space Force training, wargaming to strengthen readiness",
       "nguon": "Federal News Network — Defense",
       "url": "https://federalnewsnetwork.com/congress/2026/08/lawmakers-seek-to-expand-space-force-training-wargaming-to-strengthen-readiness/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Pete Hegseth’s Pentagon picks raise questions over Trump family business ties",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/aug/11/pete-hegseth-pentagon-picks-trump-family-business"
     },
     {
       "lop": "RSS",
@@ -613,6 +589,14 @@
       "tieu_de": "Indonesia’s President Nominates Central Bank Deputy as New Governor",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/08/indonesias-president-nominates-central-bank-deputy-as-new-governor/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-11",
+      "tieu_de": "Việt Nam đề nghị Australia tiếp tục hỗ trợ nâng cao chuyển đổi số khu vực công",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/viet-nam-de-nghi-australia-tiep-tuc-ho-tro-nang-cao-chuyen-doi-so-khu-vuc-cong-5108029.html"
     },
     {
       "lop": "RSS",
@@ -1017,14 +1001,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-10",
-      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Đặc phái viên của Chính phủ Australia về Đông Nam Á",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tong-bi-thu-chu-tich-nuoc-to-lam-tiep-dac-phai-vien-cua-chinh-phu-australia-ve-dong-nam-a-post1129298.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-11",
       "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm chứng kiến trao văn kiện hợp tác Việt Nam-Australia",
       "nguon": "Nhân Dân",
@@ -1252,19 +1228,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-11",
-      "tieu_de": "New White House counsel could face Democrats’ scrutiny post-midterms",
+      "tieu_de": "US imposes new tariffs targeting China's solar panel sector",
       "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/08/11/2026/new-white-house-counsel-could-face-democrats-scrutiny-post-midterms",
-      "nhom": 5
+      "url": "https://www.semafor.com/article/08/11/2026/us-imposes-new-tariffs-targeting-chinas-solar-panel-sector",
+      "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-10",
-      "tieu_de": "Trump takes his second swing at Fed’s Cook",
+      "ngay": "2026-08-11",
+      "tieu_de": "New White House counsel could face Democrats’ scrutiny post-midterms",
       "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/08/10/2026/trump-takes-his-second-swing-at-feds-cook",
-      "nhom": 4
+      "url": "https://www.semafor.com/article/08/11/2026/new-white-house-counsel-could-face-democrats-scrutiny-post-midterms",
+      "nhom": 5
     },
     {
       "lop": "RSS",
