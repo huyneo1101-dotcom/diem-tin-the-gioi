@@ -1,1 +1,7 @@
 [21:00Z] START (CI) phien sang som - web-scan
+[21:06Z] harvest.py + telegram_harvest.py xong: 427 ung vien 5 chu de + TG radar. Cai them curl_cffi giam chan nguon 12->1-2.
+[21:29Z] 4 agent Sonnet vong chinh xong: Noi bo My (6), Uc&BD (3), CNQS (6), Mali+Tap tran (Mali 2, exercise 5).
+[21:37Z] Nap lo 1 qua add_news.py: +3 worldNews +12 usNews +2 exerciseUpdates. Phat hien 3 trung that (Jaccard cao) qua canh bao: Lindsey Graham vote da co 07/08, DARPA hypersonic RFI da co 07/08, Raytheon SM-3 745tr da co truoc do -> prune_news.py go ca 3.
+[21:41Z] Agent bo sung Uc&BD: +1 tin (Philippines-My 8-Star memo 75 nam MDT). Nap qua add_news.py.
+[21:43Z] Ghi logs/loai-tin.md + logs/scan-gaps.json. Thu kich bot Telegram lay file Jay Lam qua `gh workflow run` - BI CHAN (requires approval, khong kha dung trong phien CI nay). tin_jaylam.py --liet-ke: khong co file nao trong khung ngay (ma 10) -> bo qua buoc loc, khong anh huong.
+[21:44Z] Tong ket: worldNews +4, usNews +9, exerciseUpdates +2 (PANAMAX 2026, Han Quang 42). Chuan bi commit "Cap nhat ban tin".

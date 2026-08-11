@@ -1,17 +1,18 @@
 {
-  "date": "2026-08-11",
-  "session": "toi",
+  "date": "2026-08-12",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Vẫn giai đoạn Quốc hội nghỉ hè tháng 8 — không có điều trần/bỏ phiếu mới trong khung 10-11/08 (dự luật ngân sách tạm thời và trừng phạt Nga-Iran đã đưa tin từ 07-08/08). Loại 1 ứng viên hạng 1 giả (Hạ viện chỉ GIỚI THIỆU dự luật song hành, không phải bỏ phiếu thông qua). Bù bằng nhóm 4 kinh tế/bộ sậu (Nhà Trắng gia hạn hạn phản hồi Thống đốc Fed Lisa Cook, Trump xác nhận có liên lạc với Chủ tịch Fed Warsh) và nhóm 5 bầu cử (Cộng hòa North Carolina chọn ứng viên thay thế Chuck Edwards)."},
-    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Chạy 2 vòng agent (vòng 2 mở rộng thêm Philippines/Malaysia/Indonesia). Loại 1 ứng viên vòng 1 (tập trận TQ-Indonesia 'phía đông Đài Loan' — SAI vùng biển, không phải Biển Đông). 3 tin đạt chuẩn: laser chống drone LY-1 của TQ tại Scarborough, Philippines yêu cầu TQ tuân thủ an toàn hàng hải sau vụ va chạm có thương vong, drone Ghost Bat do Úc phát triển được Đức chọn tích hợp. 5 ứng viên Báo Mới xử lý đủ, cả 5 loại (2 trùng vaccine EO, 1 trùng LMS Batch 2 đã có, 1 sai nước Thổ Nhĩ Kỳ/PKK, 1 lạc chủ đề Nga)."},
-    {"name":"Công nghệ quân sự Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Agent tìm được 5 ứng viên, nạp xong phát hiện 2/5 TRÙNG sự kiện đã có sẵn từ 07/08 (DARPA RFI tên lửa siêu vượt âm, hợp đồng Raytheon SM-3 745tr USD — cùng sự kiện, chỉ khác nguồn đưa muộn hơn) — đã prune bằng prune_news.py. Còn lại 3 tin thật: AI săn ngầm SensorMAX (Lockheed), AI quản lý bảo trì Minuteman III, laser ngắm bắn cấp tiểu đội Squad Aiming Laser (TQLC)."},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":9,"target":"5-10","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Úc & Biển Đông","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Thiếu 1 bài để đạt sàn. Chạy 2 vòng agent (chính + bổ sung); phần lớn ứng viên còn lại là tin cũ bị Google News trồi lại pubDate mới (B-2 Spirit tháng 6, va chạm CCG-PLAN Scarborough thực chất 2025) hoặc trùng sự kiện đã có trong DATA. Không nhồi tin sai chủ đề để đủ số."},
+    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"Chạy 2 vòng (đầu + bổ sung), không tìm được diễn biến mới ngoài trận San (08-09) đã có sẵn trong DATA. Ứng viên còn lại (khai khoáng B2Gold, ngoại giao Nigeria-Sahel) không thuộc phạm vi quân sự Mỹ-Mali."},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2 mỗi cuộc","min":1,"thieu":true,
-     "reason":"PANAMAX 2026 (chủ đề chính, ongoing) đã có 1 cập nhật từ phiên sáng sớm cùng ngày. Vòng bổ sung tìm được diễn biến '45 đơn vị 5 nước đột kích đường không-biển' nhưng ngày sự kiện 08-09, ngoài khung 2 ngày (10-11/08) và nội dung gần trùng diễn biến đã đưa (đột kích tàu/chống UAS/đổ bộ) — loại."}
+     "reason":"0 tin phiên này (lặp lại tình trạng của 2 phiên trước 08-11 sáng và tối). Hai ứng viên tìm được đều loại: một bài có URL mang dấu vết đăng tháng 6 dù được agent gán ngày 08-10 (nghi bài nền/phân tích cũ, không phải diễn biến mới), một bài (Mỹ cân nhắc không kích JNIM, Military Africa) có ngày sự kiện 08-09 ngoài khung 24-48h cho phép của chủ đề Mali. Phần còn lại của ứng viên xoay quanh trận San (08-09) đã có sẵn trong DATA từ trước."},
+    {"name":"Tập trận đang diễn ra","count":2,"target":"1-2 mỗi cuộc có diễn biến","min":1,"thieu":false,
+     "reason":"Cập nhật PANAMAX 2026 (Hegseth thăm Panama, 11/08) và Hán Quang 42 (giai đoạn kháng cự đô thị New Taipei/Yilan, 12/08). 4 diễn biến khác tìm được (Baltic Trust 26, Diễn tập Hạm đội TBD Nga, FRATERNO XXXIX khai mạc, PANAMAX chi tiết VBSS) đều có ngày sự kiện 08-09/08-10, ngoài khung 24-48h (window 11-12/08) nên bị loại — 3 cuộc tập trận đang chạy (Baltic Trust, Hạm đội TBD Nga, FRATERNO XXXIX) không có cập nhật hợp lệ phiên này."},
+    {"name":"Báo Mới","count":0,"target":"2-5 nếu có bài hợp chủ đề","min":0,"thieu":false,
+     "reason":"71 ứng viên chuyên mục quét được, cổng lọc ra 5 khớp từ khoá 5 chủ đề — cả 5 đều LOẠI: 2 tin Úc&BD (1 không neo được chủ đề, 1 trùng sự kiện Malaysia LMS Batch 2 đã có), 2 tin Nội bộ Mỹ trùng sắc lệnh vaccine đã có, 1 tin sai nước (Quốc hội Thổ Nhĩ Kỳ, không phải Mỹ). Chi tiết trong logs/loai-tin.md."}
   ],
-  "note": "Phiên TỐI CI 11/08/2026 (ô `toi`, mốc chính 20:47 VN). Nạp mới: 3 worldNews + 8 usNews qua add_news.py, sau đó gỡ 2 tin CNQS trùng sự kiện bằng prune_news.py (còn lại 3 worldNews + 6 usNews = 9 tin thực). Tổng ngày (gộp sáng+tối): worldNews 5/15, usNews 14/15 — chưa đạt sàn cứng nhưng đúng thực trạng 'giai đoạn lắng tin' đã ghi từ phiên sáng, quét đủ 4 agent vòng đầu + 2 agent vòng bổ sung (Úc&BD, Mali+Tập trận), không phải do thiếu công sức. File Jay Lâm: không có file nào trong khung ngày (mã 10), bỏ qua bước lọc."
+  "note": "Phiên sáng sớm CI 12/08 (ô `sang`). Tổng nạp: +4 worldNews, +9 usNews (sau khi prune 3 trùng sự kiện đã có sẵn từ trước: dự luật trừng phạt Nga-Iran Lindsey Graham 86-11 đã có từ 07/08, DARPA RFI tên lửa siêu vượt âm đã có từ 07/08, hợp đồng Raytheon SM-3 745tr USD đã có từ trước), +2 exerciseUpdates (PANAMAX 2026, Hán Quang 42). File Jay Lâm: chưa kích được bot qua `gh workflow run` trong phiên CI này (lệnh `gh` không khả dụng/bị chặn) — bỏ qua bước lọc, fail-open có tiếng, ghi rõ trong log."
 }
