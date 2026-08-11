@@ -18,3 +18,11 @@
 [21:45Z] SKIP (CI, lan fire vet 04:47) - state.py claim web-scan tra exit 10 (DA XONG luc 04:21:24+07:00, cach hien tai 24 phut). Kiem tra ngoai le: so_da_gui --xem van CO dong 2026-08-11T04:33:38 [sang] 12 tin, event-scan cung DONE (lastRunAt 04:32:12, +1 su kien +2 tap tran +5 think-tank). Ban tin da gui that. SKIP em, ket thuc.
 [22:19Z] SKIP (CI, lan fire khac 05:19 VN) - state.py claim web-scan tra exit 10 (DA XONG luc 04:21:24+07:00, cach hien tai 58 phut). Kiem tra ngoai le: so_da_gui --xem van CO dong 2026-08-11T04:33:38 [sang] 12 tin, event-scan DONE (lastRunAt 04:32:12, +1 su kien +2 tap tran +5 think-tank). Ban tin sang som da toi tay that. SKIP em, ket thuc.
 [14:00Z] START (CI) - phien toi (20:47 VN moc chinh), khoa web-scan da giu (claim tra exit 0, chua co ban tin toi hom nay 2026-08-11).
+[14:04Z] pip install curl_cffi OK. harvest.py: 478 ung vien (Noi bo My 166, Uc&BD 154, CNQS 79, Mali 62, Tap tran 17). telegram_harvest.py: nhieu ung vien, khong co tin moi lien quan 5 chu de ngoai cac agent da xu ly.
+[14:10Z] Giao 4 agent Sonnet song song (Noi bo My, Uc&BD, CNQS, Mali+Tap tran).
+[14:16Z] 4 agent tra ve. Review phat hien: 1 tin Noi bo My khong dat hang 1 (chi gioi thieu du luat, khong phai bo phieu) - loai. 1 tin Uc&BD sai vung bien (TQ-Indonesia "phia dong Dai Loan", khong phai Bien Dong) - loai. Agent4 (Mali+PANAMAX) tra ve 1 exerciseUpdate ngay 08-09 ngoai khung 2 ngay va trung noi dung da dua - loai.
+[14:18Z] Giao 2 agent bo sung (Uc&BD vong 2, Mali+Tap tran vong 2). Uc&BD +2 tin (Philippines AFP Scarborough, Rheinmetall-Boeing Ghost Bat). Mali+Tap tran: 0 tin (khong tim duoc dien bien moi dat chuan).
+[14:22Z] add_news.py: +3 worldNews +8 usNews. Canh bao Jaccard phat hien 2/8 usNews TRUNG su kien da co tu 07/08 (DARPA RFI ten lua sieu vuot am, hop dong Raytheon SM-3 745tr USD) - da prune_news.py go, con lai +3 worldNews +6 usNews = 9 tin thuc.
+[14:25Z] Ghi logs/loai-tin.md (7 muc loai, gom 5 ung vien Bao Moi da xu ly du - ca 5 loai) + logs/scan-gaps.json (5 chu de, session=toi, deu duoi san).
+[14:25Z] tin_jaylam.py --liet-ke: khong co file Jay Lam nao trong khung ngay (ma 10) - bo qua buoc loc. gh workflow run telegram-bot.yml bi chan (requires approval trong CI).
+[14:26Z] DONE web-scan phien toi. Chuan bi commit + push.
