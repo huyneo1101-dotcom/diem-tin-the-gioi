@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-12T03:48:13+07:00",
+  "tao_luc": "2026-08-12T04:24:01+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-11",
@@ -153,6 +153,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "If funding falters, ‘there’s no Golden Dome,’ Guetlein warns",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/08/if-funding-falters-theres-no-golden-dome-general-warns/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-11",
       "tieu_de": "Fatalities at CYBERCOM merit Pentagon intervention",
       "nguon": "Breaking Defense",
@@ -289,17 +297,9 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "What to know about Trump’s ‘Patriot Games’",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6020740-trump-attends-patriot-games/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-10",
       "tieu_de": "Pentagon renames South Carolina air base after Graham",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6020662-pentagon-renames-south-carolina-base-lindsey-graham/"
     },
     {
@@ -362,17 +362,17 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-11",
-      "tieu_de": "Patriot Day ceremony to be held at General George Patton Museum for 25th anniversary of 9/11",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/572122/patriot-day-ceremony-held-general-george-patton-museum-25th-anniversary-9-11"
+      "tieu_de": "U.S. Army announces vendors  for Infantry Last Tactical Mile Operations",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294539/u_s_army_announces_vendors_for_infantry_last_tactical_mile_operations"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-11",
-      "tieu_de": "U.S. Army announces vendors  for Infantry Last Tactical Mile Operations",
+      "tieu_de": "Patriot Day ceremony to be held at General George Patton Museum for 25th anniversary of 9/11",
       "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294539/u_s_army_announces_vendors_for_infantry_last_tactical_mile_operations"
+      "url": "https://www.army.mil/article/294549/patriot_day_ceremony_to_be_held_at_general_george_patton_museum_for_25th_anniversary_of_911"
     },
     {
       "lop": "RSS",
@@ -409,10 +409,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Contracts for Aug. 10, 2026",
+      "ngay": "2026-08-12",
+      "tieu_de": "Contracts for Aug. 11, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4567805/contracts-for-aug-10-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4568855/contracts-for-aug-11-2026/"
     },
     {
       "lop": "RSS",
@@ -421,6 +421,14 @@
       "tieu_de": "Department of War Launches the 'Golden Dome for America Hub' To Accelerate Industry Engagement, Revolutionize Homeland Missile Defense Partnerships",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4568639/department-of-war-launches-the-golden-dome-for-america-hub-to-accelerate-indust/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Pentagon Launches Golden Dome Hub To ‘Streamline Collaboration’",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/pentagon-launches-golden-dome-hub-to-streamline-collaboration/missile-defense/"
     },
     {
       "lop": "RSS",
@@ -501,6 +509,22 @@
       "tieu_de": "RTX confirms US Marine Corps and US Navy acquire Hadalus UUV",
       "nguon": "Shephard Media",
       "url": "https://www.shephardmedia.com/news/naval-warfare/rtx-confirms-us-marine-corps-and-us-navy-acquire-hadalus-uuv/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-11",
+      "tieu_de": "S. Korea, U.S. Army chiefs discuss strengthening combined defense posture",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260811010300315"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-10",
+      "tieu_de": "Pentagon official renews calls for allies' greater defense contributions",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260811000200315"
     },
     {
       "lop": "RSS",
@@ -850,9 +874,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Fire is both friend and foe for Australia's wildflowers",
+      "tieu_de": "One census question artificially inflates Australia's home ownership rate",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/science/2026-08-12/australian-flowers-love-hate-relationship-with-fire-heating-up/106732114"
+      "url": "https://www.abc.net.au/news/2026-08-12/home-ownership-rate-lower-in-reality-australia-census/107009168"
     },
     {
       "lop": "RSS",
@@ -1144,6 +1168,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Cornyn posts data on vaccines preventing deaths after Trump executive order",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/6023448-cornyn-cassidy-vaccine-dispute-trump/",
+      "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-11",
       "tieu_de": "Senate passes bill that could change nickels and how you pay with cash",
       "nguon": "The Hill",
@@ -1185,6 +1218,15 @@
       "nguon": "Roll Call",
       "url": "https://rollcall.com/2026/08/10/north-carolina-republicans-pick-state-legislator-to-replace-edwards-on-ballot/",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-11",
+      "tieu_de": "Gov't, businesses meet over U.S. polysilicon tariffs",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260811002500320",
+      "nhom": 4
     },
     {
       "lop": "RSS",
