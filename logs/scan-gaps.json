@@ -1,18 +1,17 @@
 {
   "date": "2026-08-12",
-  "session": "sang",
+  "session": "toi",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":9,"target":"5-10","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Úc & Biển Đông","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"Thiếu 1 bài để đạt sàn. Chạy 2 vòng agent (chính + bổ sung); phần lớn ứng viên còn lại là tin cũ bị Google News trồi lại pubDate mới (B-2 Spirit tháng 6, va chạm CCG-PLAN Scarborough thực chất 2025) hoặc trùng sự kiện đã có trong DATA. Không nhồi tin sai chủ đề để đủ số."},
-    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"0 tin phiên này (lặp lại tình trạng của 2 phiên trước 08-11 sáng và tối). Hai ứng viên tìm được đều loại: một bài có URL mang dấu vết đăng tháng 6 dù được agent gán ngày 08-10 (nghi bài nền/phân tích cũ, không phải diễn biến mới), một bài (Mỹ cân nhắc không kích JNIM, Military Africa) có ngày sự kiện 08-09 ngoài khung 24-48h cho phép của chủ đề Mali. Phần còn lại của ứng viên xoay quanh trận San (08-09) đã có sẵn trong DATA từ trước."},
-    {"name":"Tập trận đang diễn ra","count":2,"target":"1-2 mỗi cuộc có diễn biến","min":1,"thieu":false,
-     "reason":"Cập nhật PANAMAX 2026 (Hegseth thăm Panama, 11/08) và Hán Quang 42 (giai đoạn kháng cự đô thị New Taipei/Yilan, 12/08). 4 diễn biến khác tìm được (Baltic Trust 26, Diễn tập Hạm đội TBD Nga, FRATERNO XXXIX khai mạc, PANAMAX chi tiết VBSS) đều có ngày sự kiện 08-09/08-10, ngoài khung 24-48h (window 11-12/08) nên bị loại — 3 cuộc tập trận đang chạy (Baltic Trust, Hạm đội TBD Nga, FRATERNO XXXIX) không có cập nhật hợp lệ phiên này."},
-    {"name":"Báo Mới","count":0,"target":"2-5 nếu có bài hợp chủ đề","min":0,"thieu":false,
-     "reason":"71 ứng viên chuyên mục quét được, cổng lọc ra 5 khớp từ khoá 5 chủ đề — cả 5 đều LOẠI: 2 tin Úc&BD (1 không neo được chủ đề, 1 trùng sự kiện Malaysia LMS Batch 2 đã có), 2 tin Nội bộ Mỹ trùng sắc lệnh vaccine đã có, 1 tin sai nước (Quốc hội Thổ Nhĩ Kỳ, không phải Mỹ). Chi tiết trong logs/loai-tin.md."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Nhóm 1 (điều trần + bỏ phiếu) 0 bài — Thượng viện nghỉ tới 14/9, Hạ viện nghỉ tới 31/8, không có phiên điều trần/bỏ phiếu ngày 11-12/08. Đã lấy sang nhóm 2-5 (bầu cử: 3 bài — phán quyết bỏ phiếu qua thư, sơ bộ Wisconsin, phát ngôn khẩn cấp bầu cử của Trump; y tế/lập pháp: 1 bài phản đối sắc lệnh vaccine của Cassidy/Cornyn; Pentagon-Thượng viện: 1 bài báo cáo Yemen từ Báo Mới). Một số ứng viên bị loại vì trùng tin đã có (sắc lệnh vaccine gốc, phiên bản khác của tin tình trạng khẩn cấp bầu cử — cùng bài CNN nhưng khác subdomain URL)."},
+    {"name":"Úc & Biển Đông","count":1,"target":"5-10","min":5,"thieu":true,
+     "reason":"Chỉ nạp được 1 tin (Mỹ-Brunei tập trận Pahlawan Warrior 26). Đã giao 2 vòng agent: vòng 1 tìm được 3 ứng viên nhưng 2/3 trùng tin đã có (Colby Manila trùng URL với tin đã publish, TQ-Indonesia tập trận trùng entry exerciseUpdates đã nạp từ phiên sáng); vòng 2 bổ sung không tìm thêm được tin sạch trong khung 11-12/08 — ứng viên còn lại hoặc ngoài khung ngày (Bajo de Masinloc 01/08, họp Bộ trưởng QP Úc-Philippines 07/08) hoặc trùng tin cũ."},
+    {"name":"CNQS Mỹ","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":1,"target":"2-5","min":2,"thieu":true,
+     "reason":"Chỉ 1 tin (Africa Corps Nga mở rộng hạ tầng 6 căn cứ không quân Libya, liên quan gián tiếp tới an ninh Sahel). Ứng viên harvest.py cho chủ đề này gần như toàn nhiễu (trùng chữ 'Mali' với ca sĩ/thể thao/khai khoáng), không tìm được tin trực tiếp Mỹ-Mali/JNIM mới trong khung 11-12/08 ngoài tin đã có sẵn (Quân đội Mali đẩy lùi JNIM tại San, 09/08)."},
+    {"name":"Tập trận đang diễn ra","count":2,"target":"1-2","min":1,"thieu":false,"reason":"Đủ chỉ tiêu: Hán Quang 42 (Đài Loan, khoa mục chống đổ bộ đường không tại Đài Bắc/Miêu Lật, 11/08) + Diễn tập Hạm đội Thái Bình Dương Nga (Putin thị sát giai đoạn cuối, đe doạ đáp trả phương Tây, 12/08)."},
+    {"name":"Báo Mới (ứng viên chuyên mục)","count":2,"target":"best-effort","min":0,"thieu":false,
+     "reason":"6 ứng viên ban đầu, xử lý: 2 nạp (Yemen/Pentagon report → Nội bộ Mỹ nhóm Chính trị, Patriot licensing concerns → CNQS Mỹ, cả hai truy về nguồn gốc tiếng Anh), 4 loại (Indonesia Rafale không neo Úc/Biển Đông, Triều Tiên căn cứ hải quân không phải CNQS Mỹ, Petrovietnam là tin kinh tế VN nội địa gán nhầm chủ đề, Trump vaccine EO trùng tin đã có sẵn)."}
   ],
-  "note": "Phiên sáng sớm CI 12/08 (ô `sang`). Tổng nạp: +4 worldNews, +9 usNews (sau khi prune 3 trùng sự kiện đã có sẵn từ trước: dự luật trừng phạt Nga-Iran Lindsey Graham 86-11 đã có từ 07/08, DARPA RFI tên lửa siêu vượt âm đã có từ 07/08, hợp đồng Raytheon SM-3 745tr USD đã có từ trước), +2 exerciseUpdates (PANAMAX 2026, Hán Quang 42). File Jay Lâm: chưa kích được bot qua `gh workflow run` trong phiên CI này (lệnh `gh` không khả dụng/bị chặn) — bỏ qua bước lọc, fail-open có tiếng, ghi rõ trong log."
+  "note": "Phiên tối CI (fire ~20:47, giành khoá lúc 21:00 VN, local backup 21:15 đã tự nhường vì xác nhận CI đang chạy qua `gh run list`). Đã giao 6 agent Sonnet: 4 agent vòng chính (Nội bộ Mỹ/Úc-BĐ/CNQS/Mali+Tập trận) + 1 agent Báo Mới + 1 agent bổ sung Úc-BĐ+Tập trận. Nhiều tin bị loại sau khi nạp do phát hiện trùng thủ công (guardrail Jaccard/URL không bắt hết — 2 tin bị `prune_news.py` xoá tay: 'Lầu Năm Góc 21 ngày lập kế hoạch' trùng tin đã có từ 08/08, tin 'Trump tình trạng khẩn cấp bầu cử' trùng bài CNN đã có nhưng khác subdomain URL nên URL-dedup không bắt được). Chi tiết đầy đủ: logs/loai-tin.md mục '2026-08-12 (phiên tối CI)'. File Jay Lâm: `tin_jaylam.py --liet-ke` trả mã 10 (không có file nào trong khung ngày) — bỏ qua bước lọc, không ảnh hưởng."
 }
