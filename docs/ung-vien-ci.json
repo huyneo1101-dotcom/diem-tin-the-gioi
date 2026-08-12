@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-12T20:51:46+07:00",
+  "tao_luc": "2026-08-12T21:37:16+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-11",
@@ -82,17 +82,9 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-08-12",
-      "tieu_de": "Parkour helps Singapore’s elderly boost agility, strength",
+      "tieu_de": "Parkour helps Singapore’s elderly boost agility and strength",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/08/12/asia-pacific/society/parkour-singapore-elderly/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-08-12",
-      "tieu_de": "Panama canal fees soar due to Iran war and El Niño as ship ‘pays $4m to jump queue’",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/2026/aug/12/panama-canal-fees-iran-war-el-nino-ship-jump-queue"
     },
     {
       "lop": "RSS",
@@ -229,6 +221,14 @@
       "tieu_de": "Pentagon to solicit entrants for next giant cloud-service contract vehicle",
       "nguon": "Defense One",
       "url": "https://www.defenseone.com/defense-systems/2026/08/disa-sets-release-date-follow-cloud-solicitation/415345/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Golden Dome creates digital hub to expand commercial participation",
+      "nguon": "SpaceNews",
+      "url": "https://spacenews.com/golden-dome-creates-digital-hub-to-expand-commercial-participation/"
     },
     {
       "lop": "RSS",
@@ -556,7 +556,7 @@
       "ngay": "2026-08-12",
       "tieu_de": "Michigan Guard Conducts HIMARS Rapid Infiltration During Northern Strike 26-2",
       "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9863020/michigan-guard-conducts-himars-rapid-infiltration-during-northern-strike-26-2"
+      "url": "https://www.dvidshub.net/image/9863028/michigan-guard-conducts-himars-rapid-infiltration-during-northern-strike-26-2"
     },
     {
       "lop": "RSS",
@@ -1138,7 +1138,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-12",
-      "tieu_de": "Wisconsin race tight: Key takeaways from US primary election results",
+      "tieu_de": "Wisconsin race upset: Key takeaways from US primary election results",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/8/12/wisconsin-race-tight-key-takeaways-from-us-primary-election-results?traffic_source=rss",
       "nhom": 5
@@ -1147,7 +1147,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-12",
-      "tieu_de": "US inflation eases as food costs cool",
+      "tieu_de": "US inflation eases as food and fuel costs cool",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c0qv2nn1gpeo?at_medium=RSS&at_campaign=rss",
       "nhom": 4
