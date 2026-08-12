@@ -9,3 +9,4 @@
 [21:21Z] do_tap_tran_thieu.py: 0 cuoc tap tran thieu (811 tin trung cuoc da co, 143 da soi lan truoc)
 [21:26Z] 2 agent xong: think-tank (5 bai nap qua add_analyses.py + 8 khai niem) + su kien ngoai giao moi (0 - khong tim duoc su kien dat chuan trong 48h, VN-New Zealand Tô Lam moi bat dau tham, chua co van kien ky)
 [21:26Z] state.py done event-scan, chuan bi commit rieng
+[21:27Z] DONE ca hai pipeline (web-scan + event-scan), da commit + push ca hai (rebase 1 lan do harvest-ci commit xen giua)
