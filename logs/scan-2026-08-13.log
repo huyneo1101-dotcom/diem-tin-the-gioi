@@ -4,3 +4,5 @@
 [21:18Z] add_news.py nap OK: +2 TG, +9 US, +2 tap tran -> phat hien 3 tin CNQS trung su kien da co, da prune_news.py xoa 3 -> con +2 TG, +6 US
 [21:19Z] gh workflow run telegram-bot.yml bi chan (requires approval) - chua kich duoc bot; tin_jaylam.py --liet-ke exit 10 (khong co file) nen khong anh huong
 [21:19Z] Ghi logs/loai-tin.md + logs/scan-gaps.json xong, chuan bi commit ban tin
+[21:19Z] Da commit + push ban tin (Cap nhat ban tin 13/08: +8 tin)
+[21:20Z] START event-scan (CI, gop vao sang som)
