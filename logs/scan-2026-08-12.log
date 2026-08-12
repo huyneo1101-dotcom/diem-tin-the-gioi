@@ -11,3 +11,4 @@
 [21:41Z] Agent think-tank xong: 5 bai (ASPI, Lowy, ORF, War on the Rocks, Atlantic Council), phu 4 vung (IDD-TBD x2, Dong A, Nam A, Chau Phi). Nap qua add_analyses.py, tong kho 762 bai.
 [21:42Z] Khong phai Chu nhat (thu 4) - bo qua bao cao tuan. Chuan bi commit "Cap nhat su kien".
 [21:43Z] SKIP web-scan (CI, session moi) - claim tra exit 10. Kiem so-da-gui: da co dong 2026-08-12T04:43:28 [sang] 14 tin va [sukien] 1 tin, khop lastRunAt web-scan (04:31) va event-scan (04:42) cua phien vua roi. Ban tin sang da toi tay, khong quet de.
+[09:15Z] START (CI TEST) - PHIEN TEST HA TANG, DIEMTIN_PHIEN_TEST=1 xac nhan (ghi state-test.json, khong dung co that). Muc tieu: chung minh claim->quet->add_news->commit->push voi chi phi nho nhat, 2-4 tin.
