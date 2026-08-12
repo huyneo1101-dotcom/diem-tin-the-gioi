@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-12T05:20:51+07:00",
+  "tao_luc": "2026-08-12T20:50:24+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-11",
@@ -9,10 +9,18 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-08-11",
-      "tieu_de": "Latvia finds tunnel under Belarus border, vows to combat people smugglers",
+      "ngay": "2026-08-12",
+      "tieu_de": "Singapore and S Korea pull Trader Joe's seasoning over poppy seeds",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cdewpklnzwxo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-12",
+      "tieu_de": "Ship pays $5 million to skip line to cross Panama Canal",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/latvia-finds-tunnel-under-belarus-border-vows-to-combat-people-smugglers"
+      "url": "https://www.straitstimes.com/world/ship-pays-5-million-to-skip-line-to-cross-panama-canal"
     },
     {
       "lop": "RSS",
@@ -50,25 +58,49 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-08-12",
-      "tieu_de": "Ship Pays $4 Million to Cut the Line at Panama Canal",
-      "nguon": "gCaptain",
-      "url": "https://gcaptain.com/ship-pays-4-million-to-cut-the-line-at-panama-canal/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-08-12",
-      "tieu_de": "U.S. Navy Helicopter Fires on Panama-Flagged Containership in Gulf of Oman in Blockade Enforcement",
+      "tieu_de": "U.S. Navy Helicopter Fires on Panama-Flagged Containership in Blockade Enforcement",
       "nguon": "gCaptain",
       "url": "https://gcaptain.com/u-s-navy-helicopter-fires-on-panama-flagged-containership-in-gulf-of-oman-in-blockade-enforcement/"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-08-11",
-      "tieu_de": "Xuất khẩu chủ lực của Singapore tăng mạnh nhờ làn sóng AI",
+      "ngay": "2026-08-12",
+      "tieu_de": "U.S. Army Generals Greet Multinational Partners Participating in PANAMAX 2026",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1018202/us-army-generals-greet-multinational-partners-participating-panamax-2026"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-12",
+      "tieu_de": "Missouri Governor visits Missouri National Guardsmen participating in PANAMAX 2026",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1018239/missouri-governor-visits-missouri-national-guardsmen-participating-panamax-2026"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-12",
+      "tieu_de": "Parkour helps Singapore’s elderly boost agility, strength",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/news/2026/08/12/asia-pacific/society/parkour-singapore-elderly/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-12",
+      "tieu_de": "Panama canal fees soar due to Iran war and El Niño as ship ‘pays $4m to jump queue’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/business/2026/aug/12/panama-canal-fees-iran-war-el-nino-ship-jump-queue"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-12",
+      "tieu_de": "Thủ tướng Lê Minh Hưng tiếp các Đại sứ Singapore và Israel",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/xuat-khau-chu-luc-cua-singapore-tang-manh-nho-lan-song-ai-post1129426.vnp"
+      "url": "https://www.vietnamplus.vn/thu-tuong-le-minh-hung-tiep-cac-dai-su-singapore-va-israel-post1129734.vnp"
     },
     {
       "lop": "RSS",
@@ -96,6 +128,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-12",
+      "tieu_de": "Jazz Hà Nội Giai điệu không biên giới",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/jazz-ha-noi-giai-dieu-khong-bien-gioi-430625.html"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-08-11",
       "tieu_de": "Generation Jihad | Losing ground: Somalia and Mali’s jihad problem",
@@ -109,14 +149,6 @@
       "tieu_de": "DOGE said it saved $1.7 billion by terminating a military health IT contract. GAO found the contract was never terminated.",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/pentagon-congress/2026/08/10/doge-said-it-saved-17-billion-by-terminating-a-military-health-it-contract-gao-found-the-contract-was-never-terminated/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-08-11",
-      "tieu_de": "Nigeria: 192 Children Trafficked, Violated in Niger in Eight Months",
-      "nguon": "AllAfrica",
-      "url": "https://allafrica.com/stories/202608110147.html"
     },
     {
       "lop": "RSS",
@@ -141,6 +173,14 @@
       "tieu_de": "US not disengaging from Asia, seeks ‘partners, not protectorates,’ says Pentagon official",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/pentagon/2026/08/10/us-not-disengaging-from-asia-seeks-partners-not-protectorates-says-pentagon-official/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Will money run out for Golden Dome?",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/08/will-money-run-out-for-golden-dome/"
     },
     {
       "lop": "RSS",
@@ -173,6 +213,14 @@
       "tieu_de": "Epirus secures $11 million Marine Corps contract for HAVOC system",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/epirus-secures-11-million-marine-corps-contract-for-havoc-system/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "‘There is no Golden Dome’ unless Congress prioritizes funding, general warns",
+      "nguon": "Defense One",
+      "url": "https://www.defenseone.com/policy/2026/08/golden-dome-congress-general/415355/"
     },
     {
       "lop": "RSS",
@@ -233,6 +281,22 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Short on US Patriot missiles, Ukraine looks for alternatives",
+      "nguon": "Deutsche Welle",
+      "url": "https://www.dw.com/en/short-on-us-patriot-missiles-ukraine-looks-for-alternatives/a-78328784?maca=en-rss-en-world-4025-rdf"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "US military operations killed 153 civilians in 2025, official says, citing Pentagon assessment",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/us-military-operations-killed-153-civilians-in-2025-official-says-citing-pentagon-assessment"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-10",
       "tieu_de": "US ‘digging in’ to Asia but wants ‘partners not dependency’: Pentagon",
       "nguon": "South China Morning Post",
@@ -241,34 +305,34 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Ukraine tuyên bố tập kích 'thành trì cuối cùng' của Hạm đội Biển Đen Nga",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/ukraine-tuyen-bo-tap-kich-thanh-tri-cuoi-cung-cua-ham-doi-bien-den-nga-5108375.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Nhiều thủy thủ Mỹ từng 'cố nhảy khỏi tàu sân bay' gần Iran",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/nhieu-thuy-thu-my-tung-co-nhay-khoi-tau-san-bay-gan-iran-5108209.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Tướng Mỹ: Tổ hợp Patriot, THAAD là niềm mơ ước của cả thế giới",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/tuong-my-to-hop-patriot-thaad-la-niem-mo-uoc-cua-ca-the-gioi-5108170.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-11",
       "tieu_de": "Patriot Ukraine có thể đã bắn hụt loạt tên lửa Nga",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/patriot-ukraine-co-the-da-ban-hut-loat-ten-lua-nga-5107879.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-10",
-      "tieu_de": "Tập đoàn Mỹ lo bị Ukraine 'vượt mặt về tên lửa Patriot'",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/tap-doan-my-lo-bi-ukraine-vuot-mat-ve-ten-lua-patriot-5107161.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-10",
-      "tieu_de": "Lầu Năm Góc ra tối hậu thư với các nhà sản xuất vũ khí",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/lau-nam-goc-ra-toi-hau-thu-voi-cac-nha-san-xuat-vu-khi-5107139.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-09",
-      "tieu_de": "Cảng Odessa hư hại sau khi hứng loạt tên lửa đạn đạo, siêu thanh Nga",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/cang-odessa-hu-hai-sau-khi-hung-loat-ten-lua-dan-dao-sieu-thanh-nga-5107094.html"
     },
     {
       "lop": "RSS",
@@ -282,6 +346,38 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-12",
+      "tieu_de": "Sức ép đè nặng thủy thủ Mỹ trên tàu sân bay tác chiến gần Iran",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/suc-ep-de-nang-thuy-thu-my-tren-tau-san-bay-tac-chien-gan-iran-20260812142911534.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Nga trả tự do cho cựu lính thủy quân lục chiến Mỹ sau 4 năm giam giữ",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/nga-tra-tu-do-cho-cuu-linh-thuy-quan-luc-chien-my-sau-4-nam-giam-giu-20260812065520643.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Winners crowned at Patriot Games next to Trump",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6024100-trump-patriot-games-winners/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Pentagon tells Congress US military airstrikes in Yemen resulted in 153 civilians killed",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/6023883-pentagon-report-yemen-civilian-casualties/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
       "tieu_de": "Watch live: Trump attends Patriot Games in Ohio",
       "nguon": "The Hill",
       "url": "https://thehill.com/video-clips/6023238-watch-live-donald-trump-patriot-games-ohio-student-athletes/"
@@ -290,8 +386,8 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-11",
-      "tieu_de": "Ex-Trump Pentagon chief on Iran: ‘We seem to be on our back foot’",
-      "nguon": "The Hill",
+      "tieu_de": "Ex-Trump Pentagon chief on Iran: 'We seem to be on our back foot'",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6021909-mark-esper-donald-trump-iran-war-strategy/"
     },
     {
@@ -313,10 +409,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Thales to supply Minerva cameras for US Marine Corps combat vehicles",
+      "nguon": "Naval Technology",
+      "url": "https://www.naval-technology.com/news/thales-minerva-cameras-marine-corps/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-10",
       "tieu_de": "Hadalus UUV launches MCM effects in US Navy exercise",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/hadalus-uuv-launches-mcm-effects-in-us-navy-exercise/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Golden Dome Missile Defense Shield At Risk Of Grinding To A Halt Due To Budget Impasse",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/space/golden-dome-missile-defense-shield-at-risk-of-grinding-to-a-halt-due-to-budget-impasse"
     },
     {
       "lop": "RSS",
@@ -333,22 +445,6 @@
       "tieu_de": "DARPA looking to develop ‘foundation’ of next-generation hypersonic missile work",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/08/10/darpa-next-generation-hypersonic-cruise-missile/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-12",
-      "tieu_de": "From Greenwood to the Fleet: Wisconsin Native Finds Purpose in the U.S. Navy",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/572150/greenwood-fleet-wisconsin-native-finds-purpose-us-navy"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-12",
-      "tieu_de": "U.S. Army EOD Specialists Dispose of Legacy Munitions in Palau During Exercise Tenacious Archer 26",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/572133/us-army-eod-specialists-dispose-legacy-munitions-palau-during-exercise-tenacious-archer-26"
     },
     {
       "lop": "RSS",
@@ -370,17 +466,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-12",
-      "tieu_de": "F-35's Expanded Role as Airborne Tracking and Targeting Node",
+      "tieu_de": "U.S. Army Speeds Up Drone Buying",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/08/11/f-35s_expanded_role_as_airborne_tracking_and_targeting_node_1199587.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-12",
-      "tieu_de": "Pentagon Asks Defense Firms to Boost Production of Key Systems",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/08/11/pentagon_asks_defense_firms_to_boost_production_of_key_systems_1199494.html"
+      "url": "https://www.realcleardefense.com/2026/08/12/us_army_speeds_up_drone_buying_1199848.html"
     },
     {
       "lop": "RSS",
@@ -433,6 +521,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Budget Instability Puts Golden Dome at Risk, Guetlein Warns",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/budget-instability-golden-dome-guetlein-warns/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-11",
       "tieu_de": "Pentagon gives industry 21 days to submit plans for ‘significantly faster’ weapons production",
       "nguon": "Military Times",
@@ -450,14 +546,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-11",
-      "tieu_de": "PAE Marine Corps Fields Squad Aiming Laser",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/08/11/pae-marine-corps-fields-squad-aiming-laser/?utm_source=rss&utm_medium=rss&utm_campaign=pae-marine-corps-fields-squad-aiming-laser"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-11",
       "tieu_de": "F-22 jets paired with special operations aircraft for hot-pit refueling in Japan",
       "nguon": "Sandboxx News",
       "url": "https://www.sandboxx.us/news/f-22-jets-paired-with-special-operations-aircraft-for-hot-pit-refueling-in-japan/"
@@ -468,7 +556,7 @@
       "ngay": "2026-08-12",
       "tieu_de": "Michigan Guard Conducts HIMARS Rapid Infiltration During Northern Strike 26-2",
       "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9863020/michigan-guard-conducts-himars-rapid-infiltration-during-northern-strike-26-2"
+      "url": "https://www.dvidshub.net/image/9863028/michigan-guard-conducts-himars-rapid-infiltration-during-northern-strike-26-2"
     },
     {
       "lop": "RSS",
@@ -513,14 +601,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-10",
-      "tieu_de": "Pentagon official renews calls for allies' greater defense contributions",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260811000200315"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-12",
       "tieu_de": "Contractors trying to comply with the Pentagon’s Anthropic restrictions are running into an unexpected problem",
       "nguon": "Federal News Network — Defense",
@@ -529,18 +609,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-12",
-      "tieu_de": "Các nước EU giáp Nga từ chối chuyển Patriot cho Ukraine do lo ngại an ninh",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/cac-nuoc-eu-giap-nga-tu-choi-chuyen-patriot-cho-ukraine-do-lo-ngai-an-ninh-post1129598.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-10",
       "tieu_de": "Lầu năm góc đốc thúc ngành công nghiệp quốc phòng Mỹ tăng tốc sản xuất vũ khí",
       "nguon": "Nhân Dân",
       "url": "https://nhandan.vn/lau-nam-goc-doc-thuc-nganh-cong-nghiep-quoc-phong-my-tang-toc-san-xuat-vu-khi-post980891.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Tiêm kích Su-35 của Nga và F-35 của Mỹ: Cuộc đối đầu giữa hai thế hệ máy bay",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/tiem-kich-su-35-cua-nga-va-f-35-cua-my-cuoc-doi-dau-giua-hai-the-he-may-bay-2544379.html"
     },
     {
       "lop": "RSS",
@@ -562,17 +642,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "US military fires on cargo vessel it said sought to break Iran blockade",
+      "tieu_de": "More than 100 passengers rescued after Indonesia ferry fire",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/11/us-military-fires-on-cargo-vessel-it-said-sought-to-break-iran-blockade?traffic_source=rss"
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/12/more-than-100-passengers-rescued-after-indonesia-ferry-fire?traffic_source=rss"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Tightened blockade on Gaza causes prices to soar",
+      "tieu_de": "Taiwan’s Foxconn reports 35 percent rise in profit on AI demand",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/11/tightened-blockade-on-gaza-causes-prices-to-soar?traffic_source=rss"
+      "url": "https://www.aljazeera.com/economy/2026/8/12/taiwans-foxconn-reports-35-percent-rise-in-profit-on-ai-demand?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -586,33 +666,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-11",
-      "tieu_de": "Australia PM under fire for remarks on Japanese counterpart's melon gifts",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c0jl6ewvq42o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
       "tieu_de": "Watch: Tide of rubbish blankets Philippines river",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/videos/c5y3vzvnnkro?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Young girl finds whale stranded on Australian beach",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/videos/c1w148g9e5vo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-12",
-      "tieu_de": "US helicopter fired on ship that tried to break Iran ports blockade",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/middle-east/us-helicopter-fired-on-ship-that-tried-to-break-iran-ports-blockade"
     },
     {
       "lop": "RSS",
@@ -690,6 +746,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-11",
+      "tieu_de": "Australia bắn 21 loạt đại bác chào mừng Tổng Bí thư, Chủ tịch nước Tô Lâm",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/australia-ban-21-loat-dai-bac-chao-mung-tong-bi-thu-chu-tich-nuoc-to-lam-5107748.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-11",
       "tieu_de": "Việt Nam - Australia sẽ tăng cường hợp tác về AI, công nghệ số",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/viet-nam-australia-se-tang-cuong-hop-tac-ve-ai-cong-nghe-so-5107868.html"
@@ -697,10 +761,58 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Australia bắn 21 loạt đại bác chào mừng Tổng Bí thư, Chủ tịch nước Tô Lâm",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/australia-ban-21-loat-dai-bac-chao-mung-tong-bi-thu-chu-tich-nuoc-to-lam-5107748.html"
+      "ngay": "?",
+      "tieu_de": "Những điểm đáng chú ý trong tuyên bố chung Việt - Úc",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/nhung-diem-dang-chu-y-trong-tuyen-bo-chung-viet-uc-100260812142105162.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Từ nhân lực đến chuỗi giá trị: Dư địa mới cho hợp tác Việt - Úc",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/tu-nhan-luc-den-chuoi-gia-tri-du-dia-moi-cho-hop-tac-viet-uc-100260812113040401.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Đài Loan phản đối kế hoạch tập trận chung của Trung Quốc - Indonesia ở phía đông hòn đảo",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/dai-loan-phan-doi-ke-hoach-tap-tran-chung-cua-trung-quoc-indonesia-o-phia-dong-hon-dao-100260812100923317.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Doanh nghiệp Úc đánh giá cao tầm nhìn của Việt Nam với công nghệ",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/doanh-nghiep-uc-danh-gia-cao-tam-nhin-cua-viet-nam-voi-cong-nghe-100260812101412711.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm rời Úc, lên đường thăm New Zealand",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/tong-bi-thu-chu-tich-nuoc-to-lam-roi-uc-len-duong-tham-new-zealand-100260812054959504.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Hợp tác Việt Nam - Úc: Vị thế mới từ tinh thần 'đồng kiến tạo'",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/hop-tac-viet-nam-uc-vi-the-moi-tu-tinh-than-dong-kien-tao-100260812062155303.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Từ ổ bánh mì, ly bia hơi đến chiều sâu quan hệ Việt Nam - Úc",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/tu-o-banh-mi-ly-bia-hoi-den-chieu-sau-quan-he-viet-nam-uc-10026081204350986.htm"
     },
     {
       "lop": "RSS",
@@ -730,62 +842,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
-      "tieu_de": "Sản phẩm xuất khẩu nào 'đắt hàng' tại Úc, có tiềm năng vào thị trường hơn 1.600 tỉ USD?",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/san-pham-xuat-khau-nao-dat-hang-tai-uc-co-tiem-nang-vao-thi-truong-hon-1600-ti-usd-10026081110495961.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Truyền thông Úc đưa tin đậm nét về chuyến thăm của Tổng Bí thư, Chủ tịch nước Tô Lâm",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/truyen-thong-uc-dua-tin-dam-net-ve-chuyen-tham-cua-tong-bi-thu-chu-tich-nuoc-to-lam-100260811124218584.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Việt Nam và Úc ra 3 tuyên bố chung nhân chuyến thăm của Tổng Bí thư, Chủ tịch nước Tô Lâm",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/viet-nam-va-uc-ra-3-tuyen-bo-chung-nhan-chuyen-tham-cua-tong-bi-thu-chu-tich-nuoc-to-lam-100260811125338733.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Toàn quyền Úc: Sẵn sàng là đối tác tin cậy, đồng hành và hỗ trợ Việt Nam phát triển",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/toan-quyen-uc-san-sang-la-doi-tac-tin-cay-dong-hanh-va-ho-tro-viet-nam-phat-trien-100260811111244791.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Úc đón Tổng Bí thư, Chủ tịch nước Tô Lâm theo nghi thức cao nhất",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/uc-don-tong-bi-thu-chu-tich-nuoc-to-lam-theo-nghi-thuc-cao-nhat-100260811091253904.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Đặc phái viên Úc: Việt Nam có thể là điểm đến của các startup công nghệ",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/dac-phai-vien-uc-viet-nam-co-the-la-diem-den-cua-cac-startup-cong-nghe-100260810185431381.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Tổng Bí thư, Chủ tịch nước mong kiều bào trí thức tại Úc làm cầu nối phát triển 'lực lượng sản xuất mới'",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/tong-bi-thu-chu-tich-nuoc-mong-kieu-bao-tri-thuc-tai-uc-lam-cau-noi-phat-trien-luc-luong-san-xuat-moi-100260810175919165.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
       "tieu_de": "Compal bets on expansion in Taiwan, Vietnam and US for AI servers",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/compal-bets-on-expansion-in-taiwan-vietnam-and-us-for-ai-servers"
@@ -809,26 +865,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Modi independence day speech, To Lam in Australia, SMIC earnings",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/spotlight/your-week-in-asia/modi-independence-day-speech-to-lam-in-australia-smic-earnings"
+      "ngay": "2026-08-12",
+      "tieu_de": "Nhà đầu tư toàn cầu chuộng cổ phiếu Đài Loan hơn Hàn Quốc sau đợt bán tháo cổ phiếu AI",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/nha-dau-tu-toan-cau-chuong-co-phieu-dai-loan-hon-han-quoc-sau-dot-ban-thao-co-phieu-ai.htm"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Việt Nam - Australia thông qua 3 tuyên bố chung, trao 7 văn kiện hợp tác",
+      "ngay": "2026-08-12",
+      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm đề nghị doanh nghiệp Australia mở rộng hợp tác cung ứng khoáng sản chiến lược và công nghệ cao",
       "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/viet-nam-australia-thong-qua-3-tuyen-bo-chung-trao-7-van-kien-hop-tac.htm"
+      "url": "https://vneconomy.vn/tong-bi-thu-chu-tich-nuoc-to-lam-de-nghi-doanh-nghiep-australia-mo-rong-hop-tac-cung-ung-khoang-san-chien-luoc-va-cong-nghe-cao.htm"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Việt Nam - Australia hướng tới kim ngạch thương mại hai chiều 20 tỷ USD",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/viet-nam-australia-huong-toi-kim-ngach-thuong-mai-hai-chieu-20-ty-usd.htm"
+      "ngay": "2026-08-12",
+      "tieu_de": "Một người thiệt mạng, 172 người được cứu trong vụ cháy phà tại Indonesia",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/dt360/mot-nguoi-thiet-mang-172-nguoi-duoc-cuu-trong-vu-chay-pha-tai-indonesia-20260812164628834.htm"
     },
     {
       "lop": "RSS",
@@ -849,18 +905,82 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Indonesia and India are jointly planning a hydrocarbon-powered future",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/opinion/energy-environment/5975103-india-indonesia-energy-trade/"
+      "ngay": "2026-08-12",
+      "tieu_de": "Taiwan responds furiously as China, Indonesia plan military exercise off coast",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-12/taiwan-condemns-plan-for-china-indonesia-military-exercise/107030316"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "12yo will walk 500km for meeting with PM in Canberra",
+      "tieu_de": "Eli Lilly boss calls out Australia on Mounjaro and Trump administration over kids vaccines",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-12/dusty-langby-12-years-old-walk-to-meet-pm/107000328"
+      "url": "https://www.abc.net.au/news/2026-08-12/eli-lillyceo-still-looking-to-bring-mounjaro-to-australia/107030066"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "Australia experiencing rampant tooth decay as millions delay dentistry",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-12/dentists-demand-progress-on-national-oral-health-plan/107028152"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-11",
+      "tieu_de": "The back-the-front approach to Australia’s Asia literacy",
+      "nguon": "Lowy Interpreter",
+      "url": "https://www.lowyinstitute.org/the-interpreter/the-back-the-front-approach-to-australia-s-asia-literacy"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-11",
+      "tieu_de": "China offers Australia coercion, not commerce",
+      "nguon": "Lowy Interpreter",
+      "url": "https://www.lowyinstitute.org/the-interpreter/china-offers-australia-coercion-not-commerce"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "Tarriela to PMA cadets: Keep West Philippine Sea above partisan politics",
+      "nguon": "Rappler",
+      "url": "https://www.rappler.com/philippines/coast-guard-jay-tristan-tarriela-pma-cadets-west-sea-partisan-politics/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "List of flooded Metro Manila areas on Aug. 12",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/nation/2026/08/12/2548823/list-flooded-metro-manila-areas-aug-12"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "Cordova Dancesport Team bags 24 medals at Malaysia int'l championship",
+      "nguon": "Inquirer",
+      "url": "https://cebudailynews.inquirer.net/756175/cordova-dancesport-team-bags-24-medals-at-malaysia-intl-championship"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "Manila Water’s 200MLD East Bay Ph2 Water Supply Project nears completion",
+      "nguon": "Inquirer",
+      "url": "https://newsinfo.inquirer.net/2283337/manila-waters-200mld-east-bay-ph2-water-supply-project-nears-completion"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "Taiwan Condemns ‘Dangerous’ Planned Chinese Navy Drill with Indonesia to Its East",
+      "nguon": "gCaptain",
+      "url": "https://gcaptain.com/taiwan-condemns-dangerous-planned-chinese-navy-drill-with-indonesia-to-its-east/"
     },
     {
       "lop": "RSS",
@@ -873,50 +993,42 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Washington National Guard strengthen partnership during Malaysia logistics exchange",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294514/washington_national_guard_strengthen_partnership_during_malaysia_logistics_exchange"
+      "ngay": "2026-08-12",
+      "tieu_de": "US Army, Royal Brunei Land Forces kick off Exercise Pahlawan Warrior 26",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/572178/us-army-royal-brunei-land-forces-kick-off-exercise-pahlawan-warrior-26"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Will Taiwan Fight China? Just Ask Its People",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/08/11/will_taiwan_fight_china_just_ask_its_people_1199575.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Taiwan gingerly tests how it would cope if China choked its internet",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/08/11/asia-pacific/taiwan-test-china-internet/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Indonesia races to contain fires as haze spreads",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/08/11/asia-pacific/indonesia-fires-haze/"
+      "tieu_de": "Massive bailout for Australia’s largest aluminium smelter to be announced by PM and NSW premier",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/12/massive-bailout-for-australias-largest-aluminium-smelter-expected-to-be-announced-by-pm-and-nsw-premier"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Australia politics live: Coalition to heavily cut net migration and shred 96% of house construction code; CBA posts bumper $11bn profit",
+      "tieu_de": "Barnaby Joyce claims One Nation ‘one of the gayest parties in Australia’ as former candidate’s comments surface",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/live/2026/aug/12/australia-politics-live-question-time-anthony-albanese-angus-taylor-coalition-andrew-bragg-housing-construction-immigration-one-nation-pauline-hanson-gambling-melon-gift-japan-ndis-ntwnfb"
+      "url": "https://www.theguardian.com/australia-news/2026/aug/12/barnaby-joyce-one-nation-paraminder-singh-homophobic-comments-ntwnfb"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Delivery drivers to be paid minimum $31.30 an hour across Australia in ‘world-leading’ decision",
+      "ngay": "2026-08-12",
+      "tieu_de": "Japanese ambassador to Australia downplays Albanese melon gaffe as Taylor claims PM has ‘stuffed up’",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/2026/aug/11/delivery-drivers-to-be-paid-minimum-3130-an-hour-across-australia-in-world-leading-decision"
+      "url": "https://www.theguardian.com/australia-news/2026/aug/12/anthony-albanese-japanese-prime-minister-melon-gate-coalition"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-12",
+      "tieu_de": "Iran's export lifeline runs dry as US defends blockade",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/08/12/2026/irans-export-lifeline-runs-dry-as-us-defends-blockade"
     },
     {
       "lop": "RSS",
@@ -930,97 +1042,41 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Malaysia đẩy mạnh phát triển nhân tài ngành công nghệ",
+      "tieu_de": "Việt Nam-Australia ký kết Cập nhật Tuyên bố Tầm nhìn chung về thúc đẩy hợp tác quốc phòng",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/malaysia-day-manh-phat-trien-nhan-tai-nganh-cong-nghe-post1129597.vnp"
+      "url": "https://www.vietnamplus.vn/viet-nam-australia-ky-ket-cap-nhat-tuyen-bo-tam-nhin-chung-ve-thuc-day-hop-tac-quoc-phong-post1129656.vnp"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Tăng cường những cầu nối gắn kết quan hệ Việt Nam-Australia",
+      "tieu_de": "Thúc đẩy hợp tác Việt Nam-Australia về đào tạo cán bộ và tư vấn chính sách",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tang-cuong-nhung-cau-noi-gan-ket-quan-he-viet-nam-australia-post1129583.vnp"
+      "url": "https://www.vietnamplus.vn/thuc-day-hop-tac-viet-nam-australia-ve-dao-tao-can-bo-va-tu-van-chinh-sach-post1129634.vnp"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-12",
-      "tieu_de": "Tuyên bố chung về nâng cao sức chống chịu, thích ứng và phục hồi kinh tế Việt Nam-Australia",
+      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp nguyên Thủ tướng Australia Malcolm Turnbull AC",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tuyen-bo-chung-ve-nang-cao-suc-chong-chiu-thich-ung-va-phuc-hoi-kinh-te-viet-nam-australia-post1129549.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-12",
-      "tieu_de": "Tuyên bố chung về tăng cường kết nối khoa học, công nghệ Việt Nam-Australia",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tuyen-bo-chung-ve-tang-cuong-ket-noi-khoa-hoc-cong-nghe-viet-nam-australia-post1129545.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-12",
-      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Lãnh đạo Liên đảng Tự do-Quốc gia Australia",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tong-bi-thu-chu-tich-nuoc-to-lam-tiep-lanh-dao-lien-dang-tu-do-quoc-gia-australia-post1129533.vnp"
+      "url": "https://www.vietnamplus.vn/tong-bi-thu-chu-tich-nuoc-to-lam-tiep-nguyen-thu-tuong-australia-malcolm-turnbull-ac-post1129622.vnp"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-11",
-      "tieu_de": "Philippines đề xuất hạn chế trẻ vị thành niên sử dụng mạng xã hội",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/philippines-de-xuat-han-che-tre-vi-thanh-nien-su-dung-mang-xa-hoi-post1129491.vnp"
+      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm hội kiến Chủ tịch Thượng viện và Chủ tịch Hạ viện Australia",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/tong-bi-thu-chu-tich-nuoc-to-lam-hoi-kien-chu-tich-thuong-vien-va-chu-tich-ha-vien-australia-post981151.html"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-11",
-      "tieu_de": "Tiếp tục đưa quan hệ Việt Nam-Australia lên tầm cao mới",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tiep-tuc-dua-quan-he-viet-nam-australia-len-tam-cao-moi-post1129471.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Tăng cường quan hệ Nghị viện và giao lưu nhân dân Việt Nam-Australia",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tang-cuong-quan-he-nghi-vien-va-giao-luu-nhan-dan-viet-nam-australia-post1129466.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm và Thủ tướng Australia gặp gỡ báo chí",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tong-bi-thu-chu-tich-nuoc-to-lam-va-thu-tuong-australia-gap-go-bao-chi-post1129451.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm hội kiến Toàn quyền Australia",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tong-bi-thu-chu-tich-nuoc-to-lam-hoi-kien-toan-quyen-australia-post1129434.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Bài học về phát triển bán dẫn cho Việt Nam từ chiến lược của Malaysia",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/bai-hoc-ve-phat-trien-ban-dan-cho-viet-nam-tu-chien-luoc-cua-malaysia-post1129391.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Tăng cường hợp tác truyền thông Việt Nam-Australia trong kỷ nguyên số",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tang-cuong-hop-tac-truyen-thong-viet-nam-australia-trong-ky-nguyen-so-post1129393.vnp"
+      "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm và Thủ tướng Australia Anthony Albanese gặp mặt báo chí",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/tong-bi-thu-chu-tich-nuoc-to-lam-va-thu-tuong-australia-anthony-albanese-gap-mat-bao-chi-post981144.html"
     },
     {
       "lop": "RSS",
@@ -1029,6 +1085,14 @@
       "tieu_de": "Tổng Bí thư, Chủ tịch nước Tô Lâm chứng kiến trao văn kiện hợp tác Việt Nam-Australia",
       "nguon": "Nhân Dân",
       "url": "https://nhandan.vn/tong-bi-thu-chu-tich-nuoc-to-lam-chung-kien-trao-van-kien-hop-tac-viet-nam-australia-post981128.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-11",
+      "tieu_de": "Bài học về phát triển bán dẫn cho Việt Nam từ chiến lược của Malaysia",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/bai-hoc-ve-phat-trien-ban-dan-cho-viet-nam-tu-chien-luoc-cua-malaysia-post981112.html"
     },
     {
       "lop": "RSS",
@@ -1057,26 +1121,54 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Vietnam Australia issue Joint Statement on Economic Resilience Cooperation",
+      "ngay": "2026-08-12",
+      "tieu_de": "Vietnam Australia Advancing defence cooperation to match bilateral relations",
       "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://en.baoquocte.vn/vietnam-australia-issue-joint-statement-on-economic-resilience-cooperation-430249.html"
+      "url": "https://en.baoquocte.vn/vietnam-australia-advancing-defence-cooperation-to-match-bilateral-relations-430685.html"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Party General Secretary President To Lam meets Head of Australia s Liberal–National Coalition in Canberra",
+      "ngay": "2026-08-12",
+      "tieu_de": "FM Le Hoai Trung and Australian counterpart Penny Wong co chair 8th Vietnam–Australia Foreign Ministers Meeting in Canberra",
       "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://en.baoquocte.vn/party-general-secretary-president-to-lam-meets-head-of-australia-s-liberal-national-coalition-in-canberra-430245.html"
+      "url": "https://en.baoquocte.vn/fm-le-hoai-trung-and-australian-counterpart-penny-wong-co-chair-8th-vietnam-australia-foreign-ministers-meeting-in-canberra-430689.html"
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-11",
-      "tieu_de": "Bridges of knowledge between Vietnam and Australia",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://en.baoquocte.vn/bridges-of-knowledge-between-vietnam-and-australia-430193.html"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Wisconsin race tight: Key takeaways from US primary election results",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/8/12/wisconsin-race-tight-key-takeaways-from-us-primary-election-results?traffic_source=rss",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "US inflation eases as food costs cool",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/c0qv2nn1gpeo?at_medium=RSS&at_campaign=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "US consumer inflation slows in July, giving Fed room to breathe",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/us-consumer-inflation-slows-in-july-giving-fed-room-to-breathe",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Voting ends in Upper Midwest primaries, a test of progressive energy and Trump's influence",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/voting-ends-in-upper-midwest-primaries-a-test-of-progressive-energy-and-trumps-influence",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1099,19 +1191,19 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Watch: India’s Russian oil imports hit 48% as U.S. readies 100% tariffs",
+      "ngay": "2026-08-12",
+      "tieu_de": "Trump pivots back to sanctions for Iran as other strategies to end his war fizzle",
       "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/videos/watch-indias-russian-oil-imports-hit-48-as-us-readies-100-tariffs/article71332467.ece",
+      "url": "https://www.thehindu.com/news/international/trump-pivots-back-to-sanctions-for-iran-as-other-strategies-to-end-his-war-fizzle/article71331380.ece",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-11",
-      "tieu_de": "Trump pivots back to sanctions for Iran as other strategies to end his war fizzle",
+      "tieu_de": "Watch: India’s Russian oil imports hit 48% as U.S. readies 100% tariffs",
       "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/trump-pivots-back-to-sanctions-for-iran-as-other-strategies-to-end-his-war-fizzle/article71331380.ece",
+      "url": "https://www.thehindu.com/videos/watch-indias-russian-oil-imports-hit-48-as-us-readies-100-tariffs/article71332467.ece",
       "nhom": 4
     },
     {
@@ -1136,19 +1228,46 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-12",
-      "tieu_de": "Democrats clash again in Minnesota and Wisconsin primaries as big midterm races take shape",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/08/11/minnesota-wisconsin-primaries-hong-flanagan-craig-run-in-key-races.html",
+      "tieu_de": "Mỹ bán phế liệu hai tàu dầu bị tịch thu trong chiến dịch trừng phạt Venezuela",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/my-ban-phe-lieu-hai-tau-dau-bi-tich-thu-trong-chien-dich-trung-phat-venezuela-5108217.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Ông Trump lại nói rất muốn tranh cử nhiệm kỳ thứ 3",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/ong-trump-lai-noi-rat-muon-tranh-cu-nhiem-ky-thu-3-10026081215061268.htm",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Trump signs executive order calling for fewer childhood vaccines, falsely linking shots to autism",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/08/10/trump-vaccine-executive-order-autism.html",
-      "nhom": 2
+      "ngay": "2026-08-12",
+      "tieu_de": "Brazil’s elections are the acid test for Trump’s Latin America policy",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/opinion/international/6022742-brazil-election-lula-bolsonaro/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Trump puts vaccines on front burner ahead of crucial midterms for GOP",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/healthcare/6023575-trump-vaccines-order-gop-risks-midterms/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Trump on declaring national security emergency for elections: ‘Stranger things have happened’",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6023743-trump-national-emergency-midterms/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1162,55 +1281,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "American Medical Association criticizes Trump executive order on childhood vaccine schedule",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/policy/healthcare/6021625-ama-warns-childhood-immunization-risks/",
-      "nhom": 2
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "North Carolina Republicans pick ballot replacement for Rep. Chuck Edwards",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6021588-balkcom-chosen-nc-11-gop/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
       "tieu_de": "North Carolina Republicans pick state legislator to replace Edwards on ballot",
       "nguon": "Roll Call",
       "url": "https://rollcall.com/2026/08/10/north-carolina-republicans-pick-state-legislator-to-replace-edwards-on-ballot/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Gov't, businesses meet over U.S. polysilicon tariffs",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260811002500320",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Nigeria: Osun Election - APC's Oyebamiji Downplays 'Federal Might', Vows to Banish Poverty",
-      "nguon": "AllAfrica",
-      "url": "https://allafrica.com/stories/202608110592.html",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-12",
-      "tieu_de": "Judge blocks Trump’s order aimed at using USPS to restrict mail-in voting",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/aug/11/judge-blocks-trump-mail-in-voting-usps",
       "nhom": 5
     },
     {
@@ -1234,20 +1308,29 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Quốc hội Thổ Nhĩ Kỳ thông qua dự luật về giải thể đảng Công nhân người Kurd",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/quoc-hoi-tho-nhi-ky-thong-qua-du-luat-ve-giai-the-dang-cong-nhan-nguoi-kurd-post1129458.vnp",
-      "nhom": 1
+      "ngay": "2026-08-12",
+      "tieu_de": "Takeaways from Tuesday primaries. And, Iran threat prompted Trump's secret plane swap",
+      "nguon": "NPR — World",
+      "url": "https://www.npr.org/2026/08/12/g-s1-138337/up-first-newsletter-primaries-wisconsin-minnesota-south-carolina-trump-air-force-one-iraq-iran-militias",
+      "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-11",
-      "tieu_de": "Mỹ: Quy trình kiểm chứng quốc tịch cử tri thành điểm nóng trước bầu cử giữa kỳ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Mỹ: Mối lo ngại về chi phí sinh hoạt khiến đảng Cộng hòa mất lợi thế trước bầu cử",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/my-quy-trinh-kiem-chung-quoc-tich-cu-tri-thanh-diem-nong-truoc-bau-cu-giua-ky-post1129390.vnp",
+      "url": "https://www.vietnamplus.vn/my-moi-lo-ngai-ve-chi-phi-sinh-hoat-khien-dang-cong-hoa-mat-loi-the-truoc-bau-cu-post1129665.vnp",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-12",
+      "tieu_de": "Thẩm phán liên bang Mỹ chặn một phần sắc lệnh bầu cử của Tổng thống Trump",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/tham-phan-lien-bang-my-chan-mot-phan-sac-lenh-bau-cu-cua-tong-thong-trump-post1129653.vnp",
+      "nhom": 2
     },
     {
       "lop": "RSS",
