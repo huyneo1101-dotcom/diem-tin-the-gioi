@@ -9,10 +9,10 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-12T04:31:01+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+4 worldNews, +9 usNews, +2 exerciseUpdates (5 chu de)",
+    "lastRunAt": "2026-08-12T21:18:41+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "SKIP",
+    "note": "Nhuong CI: gh run list xac nhan run 31604389924 dang in_progress tu 21:00 VN (chi la CI chua kip push khoa len git luc local pull 21:15). Khong quet chong.",
     "lastSuccess": {
       "toi": "2026-08-11",
       "sang": "2026-08-12"
