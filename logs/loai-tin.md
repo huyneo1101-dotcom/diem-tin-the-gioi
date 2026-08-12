@@ -7,6 +7,26 @@
 
 ---
 
+## 2026-08-13 (phiên sáng sớm CI)
+
+- [CNQS/US] "Raytheon nhận hợp đồng 745 triệu USD sản xuất tên lửa đánh chặn SM-3 Block IIA" (RTX, sự kiện 10/08) — nạp lọt guardrail (Jaccard 1.00) nhưng xác nhận **TRÙNG SỰ KIỆN** đã có sẵn trong DATA (war.gov Contracts for Aug 7, thêm 03/08 → 07/08) — đã `prune_news.py` xoá tay.
+- [CNQS/US] "DARPA tìm ý tưởng 'không giới hạn, cấp tiến' cho tên lửa hành trình siêu vượt âm thế hệ mới" (Breaking Defense, sự kiện 13/08) — nạp lọt guardrail (Jaccard 0.42) nhưng xác nhận **TRÙNG SỰ KIỆN** với "DARPA phát yêu cầu thông tin phát triển tên lửa hành trình siêu vượt âm thế hệ mới" đã có sẵn (defence-blog.com, 07/08) — cùng một RFI, đã `prune_news.py` xoá tay.
+- [CNQS/US] "Cơ quan Phòng thủ Tên lửa Mỹ theo đuổi radar cơ động phát hiện tên lửa siêu vượt âm..." (The War Zone, sự kiện 12/08) — nạp lọt guardrail (Jaccard 0.48) nhưng xác nhận **TRÙNG SỰ KIỆN** với "Cơ quan Phòng thủ Tên lửa Mỹ tìm radar cơ động mới để theo dõi tên lửa siêu vượt âm" đã có sẵn (DefenseScoop, 11/08) — đã `prune_news.py` xoá tay.
+- [CNQS/US] "Golden Dome funding crisis" (nhiều nguồn cùng đưa: Breaking Defense, Defense One, SpaceNews, DefenseScoop, Defense Daily, The War Zone) — chỉ 1 sự kiện (tướng Guetlein cảnh báo thiếu ngân sách 2027), và DATA đã có "Golden Dome đối mặt nguy cơ ngừng hoạt động nếu Quốc hội không thông qua ngân sách reconciliation" (11/08) — **loại trước khi nạp**, không đưa bản Guetlein 12/08 vì trùng sự kiện.
+- [Nội bộ Mỹ] "Thượng viện thông qua đạo luật trừng phạt Nga-Iran mang tên cố TNS Lindsey Graham" (Reuters/WaPo/CBS/NBC, 86-11) — sự kiện thật 07/08, **NGOÀI KHUNG 2 ngày**. Hạ viện chưa bỏ phiếu (dự kiến đầu tháng 9) nên chưa có diễn biến mới trong khung 12-13/08 để bám — loại, chờ Hạ viện bỏ phiếu.
+- ⭐ [Nội bộ Mỹ] "Toà liên bang mở rộng lệnh chặn sắc lệnh hạn chế bỏ phiếu qua thư ra toàn quốc" (thẩm phán Talwani, 11/08) — **TRÙNG SỰ KIỆN** đã có sẵn trong DATA (11/08, cùng phán quyết) — loại trước khi nạp.
+- [Nội bộ Mỹ] "Em gái cố TNS Lindsey Graham (Darline Graham) thắng vòng bầu cử sơ bộ bổ sung SC" (The Hill, sự kiện 11/08) — **NGOÀI KHUNG**, quá 1 ngày so với batch 13/08.
+- [Tập trận/SEACAT] "SEACAT 2026 bước vào giai đoạn trên biển" — agent tái sử dụng đúng URL DVIDS của tin khai mạc ĐÃ CÓ SẴN ("Sixteen Indo-Pacific maritime forces commence 25th SEACAT Exercise") kèm ngày/summary tự chế — loại trước khi nạp, không tìm được nguồn thật khác cho diễn biến 12-13/08.
+- [Tập trận/Baltic Trust 26] tin chống drone (LSM Latvia) — nguồn thật đăng 31/07 (thì tương lai "sẽ diễn ra"), đã có sẵn trong DATA dưới dạng "International drone defence exercise to take place in Latvia" — loại trước khi nạp, agent gán nhầm ngày 12/08.
+- [Tập trận/FRATERNO XXXIX] tin tàu ngầm Humaitá (Zona Militar, đăng 07/08) — đã có sẵn trong DATA ("Tàu ngầm Brazil Humaitá lên đường sang Argentina") — loại trước khi nạp, agent gán nhầm ngày 13/08 khai mạc.
+- [Mỹ-Mali] 0 tin nạp được — agent quét kỹ (23 lượt tool). "40.000 người sơ tán" và "diệt 50 quân JNIM" đều truy về cùng trận đánh San (09/08) đã có sẵn trong DATA. "Mỹ cân nhắc không kích JNIM" là câu chuyện thật (WaPo 22/07, Military Africa ~08/08) nhưng ngoài khung 2 ngày, không có diễn biến mới 12-13/08.
+
+### Báo Mới — 4 ứng viên khớp 5 chủ đề (cổng `--recent-titles`), xử lý 2026-08-13:
+- [Úc & Biển Đông] "Indonesia: Lần đầu đưa tiêm kích Rafale trình diễn trong lễ Quốc khánh" (Báo Tin Tức TTXVN) — **loại**: trình diễn duyệt binh Quốc khánh, không neo được vào Úc/AUKUS hay Biển Đông/vùng biển tranh chấp, không phải diễn biến quân sự thực chất.
+- [CNQS Mỹ] "Triều Tiên nối lại xây dựng căn cứ hải quân giữa lúc hiện đại hóa hạm đội" (Báo Tin Tức TTXVN) — **loại**: không liên quan tới Mỹ, chủ đề CNQS Mỹ chỉ nhận khí tài/hệ thống của Mỹ, không phải Triều Tiên.
+- [Nội bộ Mỹ] "Tổng thống Trump ký sắc lệnh gây tranh cãi về tiêm vaccine cho trẻ em" (An Ninh Thủ Đô) — **loại**: sự kiện ký sắc lệnh đã ngoài khung ngày (~10/08), và các phản ứng liên quan (Cassidy chỉ trích, WHO quan ngại) đã có sẵn trong DATA, bài Báo Mới không thêm thông tin mới trong khung 12-13/08.
+- [Nội bộ Mỹ] "Petrovietnam: Khẳng định vai trò trụ cột đầu tư chiến lược quốc gia" (Báo Công Thương) — **loại**: hoàn toàn không liên quan chính trị/kinh tế Mỹ, khớp nhầm do tên chủ đề (misclassified bởi baomoi_topics).
+
 ## 2026-08-10 (phiên tối CI)
 
 - [Nội bộ Mỹ] 0 tin nạp được — đã giao 1 agent Sonnet quét kỹ (48 lượt tool, cả 5 nhóm). Mọi sự kiện lớn (thông qua ngân sách tạm, chuẩn thuận Todd Blanche, sắc lệnh birth tourism, thuế polysilicon...) có ngày sự kiện thật 06-08/08, ngoài khung 09-10/08. Quốc hội nghỉ cuối tuần + bước vào kỳ nghỉ hè, không có điều trần/bỏ phiếu ngày 09-10/08.

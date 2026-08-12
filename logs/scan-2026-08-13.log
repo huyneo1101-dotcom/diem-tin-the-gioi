@@ -1,1 +1,6 @@
 [21:00Z] START (CI) - phien sang som, gio VN 04:00 13/08/2026
+[21:03Z] harvest.py + telegram_harvest.py xong (388 ung vien RSS/GNEWS + 11 TG, da cai curl_cffi)
+[21:16Z] 5 agent Sonnet xong (Noi bo My, Uc-BD, CNQS, Mali, Tap tran) + 2 vong follow-up xac minh
+[21:18Z] add_news.py nap OK: +2 TG, +9 US, +2 tap tran -> phat hien 3 tin CNQS trung su kien da co, da prune_news.py xoa 3 -> con +2 TG, +6 US
+[21:19Z] gh workflow run telegram-bot.yml bi chan (requires approval) - chua kich duoc bot; tin_jaylam.py --liet-ke exit 10 (khong co file) nen khong anh huong
+[21:19Z] Ghi logs/loai-tin.md + logs/scan-gaps.json xong, chuan bi commit ban tin
