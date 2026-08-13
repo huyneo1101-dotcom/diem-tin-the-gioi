@@ -7,7 +7,7 @@
 [21:19Z] Da commit + push ban tin (Cap nhat ban tin 13/08: +8 tin)
 [21:20Z] START event-scan (CI, gop vao sang som)
 [21:21Z] do_tap_tran_thieu.py: 0 cuoc tap tran thieu (811 tin trung cuoc da co, 143 da soi lan truoc)
-[21:26Z] 2 agent xong: think-tank (5 bai nap qua add_analyses.py + 8 khai niem) + su kien ngoai giao moi (0 - khong tim duoc su kien dat chuan trong 48h, VN-New Zealand Tô Lam moi bat dau tham, chua co van kien ky)
+[21:26Z] 2 agent xong: think-tank (5 bai nap qua add_analyses.py + 8 khai niem) + su kien ngoai giao moi (0 - khong tim duoc su kien dat chuan trong 48h, VN-New Zealand To Lam moi bat dau tham, chua co van kien ky)
 [21:26Z] state.py done event-scan, chuan bi commit rieng
 [21:27Z] DONE ca hai pipeline (web-scan + event-scan), da commit + push ca hai (rebase 1 lan do harvest-ci commit xen giua)
 [21:28Z] START (CI) - phien nay (lan chay tiep theo, co the la moc 04:47 vet)
@@ -33,3 +33,5 @@
 [14:18Z] add_news.py nap OK (sau khi bo 1 tin CNQS trung URL voi phien sang, 1 tin CNQS ngoai khung 3 ngay): +3 TG, +8 US, +2 tap tran, +14 tin BI LOAI (gom 5 ung vien Bao Moi khop chu de + 9 khac). Da ghi logs/loai-tin.md + logs/scan-gaps.json (session=toi). SAN CUNG TONG NGAY: worldNews 5/15 (thieu 10), usNews 14/15 (thieu 1) - da thu het ung vien dat chuan trong khung ngay, khong noi long bo loc.
 [14:20Z] state.py claim tra RUN o day cung la ket qua CUA CHINH PHIEN NAY (khong phai xung dot that - phien local 21:15 da tu nhuong va SKIP dung luc, khong quet gi). Chi la xung dot log/state.json do ca hai cung ghi gan nhau, resolve bang cach giu ca hai dong log THEO THU TU THOI GIAN, khong mat noi dung nao.
 [14:20Z] DONE - da commit + push ban tin toi (1d1a6dc), rebase 1 lan do local task 21:15 ghi log SKIP xen giua. state.py show xac nhan web-scan DONE ca 2 phien 13/08. Day la phien TOI nen KHONG lam Buoc 6 (event-scan gop chi danh cho phien sang som). Ket thuc phien nay.
+[14:21Z] START (CI) - lan fire ke tiep. state.py claim web-scan -> exit 10 (DA XONG, lastRunAt 2026-08-13T21:19:30+07:00, cach hien tai ~2 phut, < nguong 20 phut).
+[14:21Z] so_da_gui.py --xem: dong "2026-08-13T21:21:25+07:00 [toi] 22 tin" DA CO cho hom nay -> ban tin toi da toi tay that. SKIP em, khong quet de. Ket thuc phien nay.
