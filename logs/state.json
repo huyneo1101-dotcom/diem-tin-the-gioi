@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-14T04:24:37+07:00",
+    "lastRunAt": "2026-08-14T04:28:57+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+5 bai think-tank, 0 su kien/tap tran moi (da cap nhat 2 tap tran trong pipeline web-scan)",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-08-13"
-    },
-    "heartbeat": "2026-08-14T04:24:37+07:00"
+      "sang": "2026-08-14"
+    }
   }
 }
