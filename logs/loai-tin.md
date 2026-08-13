@@ -27,6 +27,20 @@
 - [Nội bộ Mỹ] "Tổng thống Trump ký sắc lệnh gây tranh cãi về tiêm vaccine cho trẻ em" (An Ninh Thủ Đô) — **loại**: sự kiện ký sắc lệnh đã ngoài khung ngày (~10/08), và các phản ứng liên quan (Cassidy chỉ trích, WHO quan ngại) đã có sẵn trong DATA, bài Báo Mới không thêm thông tin mới trong khung 12-13/08.
 - [Nội bộ Mỹ] "Petrovietnam: Khẳng định vai trò trụ cột đầu tư chiến lược quốc gia" (Báo Công Thương) — **loại**: hoàn toàn không liên quan chính trị/kinh tế Mỹ, khớp nhầm do tên chủ đề (misclassified bởi baomoi_topics).
 
+## 2026-08-13 (phiên tối CI)
+
+- [CNQS/US] "MDA phát triển radar cơ động phát hiện tên lửa siêu vượt âm cho tuyến đầu" (DefenseScoop, 11/08) — nạp lọt kiểm ban đầu nhưng xác nhận **TRÙNG URL** với tin đã có sẵn trong DATA (nạp từ phiên sáng sớm cùng ngày) — `add_news.py` tự chặn (ValueError), đã bỏ trước khi ghi batch.
+- [CNQS/US] "RTX xác nhận Thuỷ quân lục chiến và Hải quân Mỹ mua drone lặn Hadalus" (Shephard Media, sự kiện 10/08) — **NGOÀI KHUNG** dù đã nới 3 ngày cho CNQS (khung 11-13/08), sự kiện 10/08 vượt biên 1 ngày — loại trước khi nạp.
+- [Tập trận/Hán Quang 42] "Bộ trưởng Quốc phòng Đài Loan thị sát Trung tâm Hiệp đồng Hoả lực" (GlobalSecurity.org dẫn MND, sự kiện 09/08) — **NGOÀI KHUNG** (batch 13/08, giới hạn 1 ngày cho tập trận, không phải CNQS) — loại trước khi nạp; agent tìm được nội dung tốt nhưng ngày quá cũ.
+- [Nội bộ Mỹ] Chỉ tìm được 2 tin nhóm 5 (Bầu cử) — nhóm 1 (điều trần/bỏ phiếu) trống vì Quốc hội đang nghỉ hè tháng 8, không có phiên điều trần/bỏ phiếu mới trong khung 12-13/08.
+
+### Báo Mới — 5 ứng viên khớp 5 chủ đề (cổng `--recent-titles`), xử lý 2026-08-13 (phiên tối):
+- [CNQS Mỹ] "Nga đánh cảng ngũ cốc lớn nhất Ukraine, ông Zelensky kêu gọi Mỹ tăng viện Patriot" (VietTimes) — **loại**: tin chiến sự Nga-Ukraine bị bộ lọc sở thích loại trừ, không phải khí tài/hợp đồng cụ thể của Mỹ.
+- [CNQS Mỹ] "Ông Zelensky: 'Ukraine sẽ chặn toàn bộ tên lửa Nga nếu có 10% kho Patriot của Mỹ'" (Tạp chí Mekong Asean) — **loại**: cùng lý do trên.
+- [Úc & Biển Đông] "Triều Tiên: Kế hoạch tàu ngầm hạt nhân của Hàn Quốc có thể tạo 'hiệu ứng domino hạt nhân'" (Báo Thanh Hóa) — **loại**: chuyện quốc phòng NỘI BỘ Hàn Quốc, không neo được vào Úc/AUKUS hay vùng biển & thực thể Biển Đông — đúng loại tin CLAUDE.md cảnh báo đã từng lọt oan.
+- [Úc & Biển Đông] "Chủ tịch LĐBĐ Indonesia đối diện làn sóng yêu cầu từ chức sau thất bại ở ASEAN Cup 2026" (Báo Tiền Phong) — **loại**: tin thể thao, không liên quan chủ đề.
+- [Úc & Biển Đông] "Bản đồ dịch vụ Internet vệ tinh Starlink tại Việt Nam không hiển thị tên Hoàng Sa và Trường Sa" (Báo Sài Gòn Giải Phóng) — **loại**: tranh cãi bản đồ dịch vụ thương mại, không phải hoạt động quân sự/vùng xám/hành động chính phủ tại Biển Đông.
+
 ## 2026-08-10 (phiên tối CI)
 
 - [Nội bộ Mỹ] 0 tin nạp được — đã giao 1 agent Sonnet quét kỹ (48 lượt tool, cả 5 nhóm). Mọi sự kiện lớn (thông qua ngân sách tạm, chuẩn thuận Todd Blanche, sắc lệnh birth tourism, thuế polysilicon...) có ngày sự kiện thật 06-08/08, ngoài khung 09-10/08. Quốc hội nghỉ cuối tuần + bước vào kỳ nghỉ hè, không có điều trần/bỏ phiếu ngày 09-10/08.

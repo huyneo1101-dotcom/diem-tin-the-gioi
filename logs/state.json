@@ -9,12 +9,12 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-13T21:17:31+07:00",
+    "lastRunAt": "2026-08-13T21:19:30+07:00",
     "lastSlot": "toi",
-    "lastStatus": "SKIP",
-    "note": "Nhuong CI: gh run list xac nhan run 31707838696 dang in_progress tu 14:00:08Z (21:00 VN), CI chua kip push khoa len git luc local pull 21:15. Khong quet chong, dung tien le 12/08 (ff20701/1cb3cb9).",
+    "lastStatus": "DONE",
+    "note": "+3 TG, +8 My, +2 tap tran (5 chu de, phien toi CI)",
     "lastSuccess": {
-      "toi": "2026-08-12",
+      "toi": "2026-08-13",
       "sang": "2026-08-13"
     }
   },
