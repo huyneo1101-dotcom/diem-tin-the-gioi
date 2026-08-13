@@ -1,19 +1,55 @@
 {
   "date": "2026-08-13",
-  "session": "toi",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, sáng kiến, biểu tình, kinh tế, bầu cử)","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Nhóm 1 (điều trần + bỏ phiếu) 0 bài — Quốc hội đang trong kỳ nghỉ hè tháng 8, không có phiên điều trần/bỏ phiếu mới trong khung 12-13/08. Chỉ nạp được 2 tin nhóm 5 (Bầu cử): kết quả bầu cử sơ bộ 6 bang (NPR) và vòng chạy nước rút Thượng viện South Carolina (The Hill). Không tìm được ứng viên hợp lệ ở nhóm 2/3/4 trong khung ngày."},
-    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Nạp được 3 tin: phát biểu Thứ trưởng Colby về AUKUS (The Nightly), Anh-Úc ký hợp tác radar AESA (GOV.UK), biệt kích PASKAL Malaysia được cứu gần Trường Sa (Free Malaysia Today). Loại 5 ứng viên Báo Mới không neo được vào chủ đề (Triều Tiên bình luận tàu ngầm HQ, thể thao, bản đồ Starlink) — xem logs/loai-tin.md."},
-    {"name":"CNQS Mỹ","count":7,"target":"5-10","min":5,"thieu":false,
-     "reason":"Đạt chỉ tiêu: 2 tin Golden Dome (vệ tinh đánh chặn qua Cổng 1, cảnh báo ngân sách 2027), Golden Dome Hub công nghiệp, DARPA RFI tên lửa hành trình siêu vượt âm, Không quân Mỹ tìm tên lửa GLCA giá rẻ, bị vong lục 21 ngày ép ngành công nghiệp tăng tốc sản xuất. Loại 2 ứng viên: MDA radar (trùng URL với tin phiên sáng cùng ngày) và RTX Hadalus UUV (ngoài khung 3 ngày)."},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"0 tin nạp được — agent rà soát 61 ứng viên (đa số nhiễu: bóng rổ AfroBasket, Mauritania, tin không liên quan). Hai sự kiện có vẻ mới (trận đánh San, Africa Corps mở rộng hạ tầng Libya) đều đã có sẵn trong DATA từ 09/08 và 11/08 — không có diễn biến MỚI HẲN trong khung 12-13/08."},
-    {"name":"Tập trận đang diễn ra","count":2,"target":"1-2","min":1,"thieu":false,
-     "reason":"Đủ chỉ tiêu: PANAMAX 2026 bế mạc với Hegseth dự lễ (La Prensa Panamá) + diễn tập Hạm đội Thái Bình Dương Nga kết thúc, Putin thăm đảo Kuril tranh chấp gây phản ứng Nhật Bản (Meduza). SEACAT 2026 và Baltic Trust 26 không tìm được diễn biến mới hẳn trong khung — bỏ, không nhồi tin lặp. Hán Quang 42 tìm được nội dung tốt (thị sát Trung tâm Hiệp đồng Hoả lực) nhưng sự kiện 09/08, ngoài khung 1 ngày — loại."},
-    {"name":"Báo Mới (ứng viên chuyên mục)","count":0,"target":"best-effort","min":0,"thieu":false,
-     "reason":"5 ứng viên khớp 5 chủ đề qua cổng --recent-titles, cả 5 đều loại: 2 tin chiến sự Nga-Ukraine (không phải CNQS Mỹ), Triều Tiên bình luận tàu ngầm hạt nhân nội bộ Hàn Quốc (không neo Úc/Biển Đông), thể thao Indonesia, tranh cãi bản đồ Starlink. Xem logs/loai-tin.md mục 2026-08-13 (phiên tối CI)."}
+    {
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Quốc hội Mỹ đang trong kỳ pro forma session/nghỉ recess mùa hè (từ 07-08/08/2026) — không có phiên điều trần hay bỏ phiếu thật diễn ra trong khung ngày 13-14/08 (đã xác minh qua congress.gov/C-SPAN). NHÓM 1 (điều trần+bỏ phiếu) về 0. Bù bằng 2 tin nhóm Kinh tế (thuế quan/AI truy quét né thuế) + 2 tin Mali (dossier Mỹ-Mali, category Chính trị/Ngoại giao) — dưới sàn 5-10."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "1 tin bị loại vì ngoài khung ngày (HMAS Perth, ngày sự kiện 11/08 ngoài khung hôm nay+hôm qua). 2 ứng viên Báo Mới không neo được vào chủ đề (Triều Tiên/Hàn Quốc nội bộ, bóng đá Indonesia) — loại theo đúng luật siết 01/08. Còn 4 tin đạt chuẩn: MC-55A Peregrine, AUKUS Colby, TQ-Indonesia tập trận đông Đài Loan, Starlink Hoàng Sa/Trường Sa."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 7,
+      "target": "5-10",
+      "min": 5,
+      "thieu": false,
+      "reason": ""
+    },
+    {
+      "name": "Mỹ–Mali",
+      "count": 2,
+      "target": "2-5",
+      "min": 2,
+      "thieu": false,
+      "reason": "Đủ chỉ tiêu tối thiểu: ân xá điệp viên Pháp Yann Vézilier + thả 82 binh sĩ Mali. Không có diễn biến quân sự Mỹ-JNIM mới trong khung ngày (đã tìm kỹ, không có tin không kích/AFRICOM mới)."
+    },
+    {
+      "name": "Tập trận đang diễn ra",
+      "count": 2,
+      "target": "1-2 mỗi cuộc",
+      "min": 1,
+      "thieu": false,
+      "reason": "Cập nhật được 2/5 cuộc đang bám (FRATERNO XXXIX khai mạc, Hán Quang 42 diễn tập hộ tống phá phong toả). 3 cuộc còn lại (SEACAT 2026, Baltic Trust 26, Diễn tập Hạm đội TBD Nga 2026) không có diễn biến MỚI HẲN so với bản tin trước trong khung ngày 13-14/08 — không bịa thêm."
+    },
+    {
+      "name": "Báo Mới",
+      "count": 1,
+      "target": "best-effort",
+      "min": 0,
+      "thieu": false,
+      "reason": "5 ứng viên khớp chủ đề: 1 nạp được (Starlink Hoàng Sa/Trường Sa, truy về Báo Sài Gòn Giải Phóng), 4 loại (2 tin Zelensky/Patriot không đúng phạm vi CNQS Mỹ, tin Triều Tiên/Hàn Quốc không neo Úc/Biển Đông, tin bóng đá Indonesia không liên quan) — chi tiết logs/loai-tin.md."
+    }
   ],
-  "note": "Phiên TỐI CI (fire 20:47 VN, giành khoá lúc 21:00 VN 13/08). curl_cffi đã cài sẵn từ phiên sáng, harvest.py chạy đầy đủ nguồn (462 ứng viên) + telegram_harvest.py. Đã giao 5 agent Sonnet song song (Nội bộ Mỹ/Úc-BĐ/CNQS/Mali/Tập trận). Sau khi nạp: +3 worldNews, +8 usNews, +2 tập trận cập nhật, +0 xNews, +0 dipEvents. SÀN CỨNG TỔNG NGÀY (gộp sáng+tối): worldNews 5/15 (thiếu 10), usNews 14/15 (thiếu 1) — đã thử bổ sung tối đa với tin đạt chuẩn trong khung ngày, không nới lỏng bộ lọc để nhồi cho đủ số. Ngày 13/08 là ngày khan tin đạt chuẩn ở worldNews (Quốc hội Mỹ nghỉ hè + nhiều sự kiện lớn đã được đưa từ phiên trước)."
+  "note": "Phiên SÁNG SỚM CI (fire ~03:47-04:47 VN 14/08, giành khoá lúc 04:00 VN). harvest.py 337 ứng viên + telegram_harvest.py 18 bài. Giao 4 agent Sonnet song song (Nội bộ Mỹ/Úc-BĐ/CNQS/Mali+Tập trận). Sau review: loại 1 tin ngoài khung ngày HMAS Perth (worldNews), 2 tin ngoài khung Kinh tế/Chính trị (thâm hụt ngân sách, bỏ phiếu qua thư), 1 tin CNQS ngoài khung nới 3 ngày (DARPA RFI), 1 tin trùng URL đã có (Guetlein Golden Dome), 2 tin Philippines lẫn vào Nội bộ Mỹ. Sau khi nạp: +4 worldNews, +10 usNews, +2 tập trận cập nhật, +0 xNews, +0 dipEvents. File Jay Lâm: không có file nào trong khung ngày (tin_jaylam.py --liet-ke exit 10) — không cần lọc. gh workflow bị chặn requires-approval trong môi trường CI nên không kích được telegram-bot.yml trước khi đọc — nhưng --liet-ke đã xác nhận không có file nào nên không ảnh hưởng."
 }

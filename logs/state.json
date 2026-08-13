@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-14T04:00:47+07:00",
+    "lastRunAt": "2026-08-14T04:23:56+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+16 tin (4 the gioi, 10 My, 2 tap tran) - 5 chu de, phien sang som CI",
     "lastSuccess": {
       "toi": "2026-08-13",
-      "sang": "2026-08-13"
-    },
-    "heartbeat": "2026-08-14T04:04:11+07:00"
+      "sang": "2026-08-14"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-13T04:26:39+07:00",

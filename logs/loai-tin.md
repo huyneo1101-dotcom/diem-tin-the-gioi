@@ -574,3 +574,16 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 
 - [Tập trận] LOẠI "Hán Quang 42 bước vào giai đoạn phản công đổ bộ, Bộ trưởng Quốc phòng Đài Loan thị sát" (GlobalSecurity.org, theo Bộ Quốc phòng Đài Loan) — sau khi verify link, ngày sự kiện thật là 09/08/2026 (URL mang mã 260809, nội dung xác nhận "ngày thứ 5 của đợt diễn tập 10 ngày"), NGOÀI khung 11-12/08 cho phép — loại dù nội dung chất lượng tốt, đúng bẫy "ngày đăng/ngày trong URL ≠ ngày sự kiện thật" đã ghi trong CLAUDE.md.
 
+## 2026-08-13/14 (phiên sáng sớm CI)
+
+- [Báo Mới, CNQS Mỹ] LOẠI "Nga đánh cảng ngũ cốc lớn nhất Ukraine, ông Zelensky kêu gọi Mỹ tăng viện Patriot" (VietTimes qua baomoi.com/…-c55827098.epi) — nội dung chủ yếu là diễn biến chiến sự Nga-Ukraine + lời kêu gọi của Zelensky, không mô tả khí tài/hệ thống cụ thể của Mỹ theo đúng phạm vi CNQS Mỹ (khí tài Mỹ, không phải diễn biến chiến trường Ukraine).
+- [Báo Mới, CNQS Mỹ] LOẠI "Ông Zelensky: 'Ukraine sẽ chặn toàn bộ tên lửa Nga nếu có 10% kho Patriot của Mỹ'" (Tạp chí Mekong Asean qua baomoi.com/…-c55825597.epi) — cùng sự kiện với tin trên, cùng lý do loại.
+- [Báo Mới, Úc & Biển Đông] LOẠI "Triều Tiên: Kế hoạch tàu ngầm hạt nhân của Hàn Quốc có thể tạo 'hiệu ứng domino hạt nhân'" (Báo Thanh Hóa qua baomoi.com/…-c55826116.epi) — chuyện nội bộ bán đảo Triều Tiên (CHDCND Triều Tiên bình luận về Hàn Quốc), không neo được vào Úc/AUKUS hay Biển Đông — đúng ca "tại vùng biển này là điều kiện" đã siết 01/08/2026.
+- [Báo Mới, Úc & Biển Đông] LOẠI "Chủ tịch LĐBĐ Indonesia đối diện làn sóng yêu cầu từ chức sau thất bại ở ASEAN Cup 2026" (Báo Tiền Phong qua baomoi.com/…-c55825095.epi) — tin thể thao, không liên quan chủ đề.
+- [Nội bộ Mỹ] LOẠI 2 tin "House passes bill giving students free WiFi, access to digital learning resources" (Philstar Life, Manila Standard) — xác minh là Hạ viện PHILIPPINES thông qua, không phải Quốc hội Mỹ.
+- [Úc & Biển Đông] LOẠI "Hộ vệ hạm HMAS Perth của Úc sát cánh cùng USS George Washington ở Biển Đông" (USNI News) — ngày sự kiện 11/08/2026, ngoài khung hôm nay+hôm qua (13-14/08) cho worldNews (không được nới 3 ngày như CNQS).
+- [CNQS Mỹ] LOẠI "DARPA tìm kiếm thiết kế tên lửa hành trình siêu vượt âm thế hệ mới" — sau khi xác minh, ngày RFI công bố thật là 07/08/2026, ngoài khung nới 3 ngày (11-14/08) cho phép.
+- [Nội bộ Mỹ] LOẠI "Thâm hụt ngân sách Mỹ tháng 7 lập kỷ lục 432 tỷ USD" (Reuters/kfgo.com) — ngày sự kiện 12/08/2026, ngoài khung hôm nay+hôm qua (13-14/08) cho category Kinh tế (không được nới).
+- [Nội bộ Mỹ] LOẠI "Bộ Tư pháp Mỹ lại đề nghị Tối cao Pháp viện can thiệp khẩn bỏ phiếu qua thư" (Reuters/kfgo.com) — ngày sự kiện 12/08/2026, cùng lý do ngoài khung.
+- [CNQS Mỹ] LOẠI "Tướng Guetlein cảnh báo Golden Dome ngừng hoạt động từ tháng 10" (Breaking Defense) — URL đã có sẵn trong DATA (tin trùng, đã nạp trước đó).
+
