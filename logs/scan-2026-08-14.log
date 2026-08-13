@@ -1,3 +1,4 @@
 [21:00Z] START (CI) phien sang som — claim web-scan OK
 [21:04Z] harvest.py (337 ung vien 5 chu de) + telegram_harvest.py (18 bai) xong. Giao 5 agent Sonnet song song (A=Noi bo My, B=Uc&BienDong, C=CNQS My, D=My-Mali+Tap tran, BM=Bao Moi).
 [21:24Z] DONE: da nap +4 worldNews, +10 usNews, +2 tap tran cap nhat qua add_news.py. Loai 8 tin (ngoai khung ngay/trung URL/tin nuoc khac lan) - xem logs/loai-tin.md. scan-gaps.json da ghi. File Jay Lam: khong co trong khung ngay. Commit "Cap nhat ban tin 13/08: +16 tin (5 chu de)" da push thanh cong len main.
+[21:24Z] START event-scan (CI, gop vao phien sang som) - claim OK. Khong phai Chu nhat (thu 5) nen bo qua bao cao tuan.
