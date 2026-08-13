@@ -17,3 +17,8 @@
 [21:31Z] Kiem ngoai le exit10: state.py show + so_da_gui.py --xem -> dong "2026-08-14T04:29:53+07:00 [sang] 38 tin" va "[sukien] 5 tin" dung ngay hom nay, lastRunAt <20 phut -> ban tin sang da GUI THAT SU, khong phai co noi doi.
 [21:31Z] SKIP em (CI) — phien sang som hom nay da hoan tat boi lan fire truoc. Khong quet de.
 [21:45Z] SKIP (local 05:30) web-scan — claim exit 10, DA XONG (lastRunAt 04:23:56+07:00). Khong lam lai.
+
+[21:45Z] --- Lan fire ke tiep cua CI (phien sang som, session moi) ---
+[21:45Z] START (CI) — pull rebase OK (already up to date), claim web-scan -> exit 10 (DA XONG, lastRunAt 2026-08-14T04:23:56+07:00, ~22 phut truoc).
+[21:45Z] state.py show: web-scan phien toi CHAY BU (sang som)=2026-08-14 DONE (+16 tin, 5 chu de); event-scan phien sang=2026-08-14 DONE (+5 bai think-tank, 0 su kien/tap tran moi). git log xac nhan commit "Cap nhat ban tin 13/08" va "Cap nhat su kien 13/08" da push, kem 2 lan SKIP truoc cua chinh CI (21:30Z, 21:31Z) cung ket luan da xong that.
+[21:45Z] SKIP em (CI) — phien sang som hom nay da hoan tat that su boi lan fire truoc (04:23-04:28 VN). Khong quet de.
