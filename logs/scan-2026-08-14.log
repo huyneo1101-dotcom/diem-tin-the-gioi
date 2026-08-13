@@ -10,3 +10,4 @@
 [21:30Z] Kiem ngoai le bat buoc cua exit10 (CLAUDE.md): so_da_gui.py --xem co dong "2026-08-14T04:29:53+07:00 [sang] 38 tin" va "[sukien] 5 tin" -> ban tin sang da GUI THAT SU, khong phai co noi doi. lastRunAt cach hien tai ~6 phut (<20p) nen du khong co dong so cung se SKIP em.
 [21:30Z] SKIP em - phien sang som hom nay da hoan tat truoc do trong ngay boi lan fire truoc cua chinh CI.
 [21:30Z] DONE (SKIP)
+[21:30Z] SKIP (local 04:30) web-scan — exit 10, da xong (lan chay cuoi 04:23:56+07:00). Khong lam lai.
