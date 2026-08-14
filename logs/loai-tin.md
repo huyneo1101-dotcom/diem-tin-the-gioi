@@ -7,6 +7,23 @@
 
 ---
 
+## 2026-08-15 (phiên sáng sớm CI)
+
+- [Úc&BĐ/TG] "Trung Quốc xác nhận tàu đổ bộ Type 075 thứ tư đạt chuẩn tác chiến ở Biển Đông" (Global Times, sự kiện 12/08) — NGOÀI KHUNG 2 ngày (14-15/08). Loại trước khi nạp.
+- [Úc&BĐ/TG] "Đô đốc Bradley (SOCOM) tuyên bố sẵn sàng mở rộng huấn luyện Philippines" (Washington Post, sự kiện 13/08) — NGOÀI KHUNG. Loại trước khi nạp.
+- [CNQS/US] "Boeing/Northrop giới thiệu công nghệ đánh chặn chi phí thấp" (Breaking Defense) — xác minh URL có thật (WebFetch) nhưng ngày đăng thực 11/08, ngoài cả khung nới 3 ngày của CNQS (12-15/08). Loại trước khi nạp.
+- [CNQS/US] "Pentagon watchdog cảnh báo căn cứ Thái Bình Dương xuống cấp" (SCMP) — TRÙNG URL đã có sẵn trong DATA, bị `add_news.py` chặn cứng ngay khi thử nạp.
+- [CNQS/US] "Lầu Năm Góc chỉ thị chi 244 triệu USD cho Palantir" (DefenseScoop) — lọt guardrail (Jaccard 0.65, chỉ cảnh báo) nhưng xác nhận TRÙNG SỰ KIỆN với tin đã có ("...theo hợp đồng không đấu thầu", Defense One, 13/08) — đã `prune_news.py` xoá tay sau khi lỡ nạp.
+- [Mali/TG] "Africa Corps Airline — mạng lưới không vận Nga tới Sahel" (Jeune Afrique, sự kiện 13/08) — NGOÀI KHUNG (chủ đề Mali không có khung nới). Loại trước khi nạp.
+- [Tập trận] "Đài Loan kết thúc 10 ngày tập trận Hán Quang" (Focus Taiwan, worldNews) — TRÙNG sự kiện với "Hán Quang 42 kết thúc sau 10 ngày..." đã có trong `exerciseUpdates`. Loại trước khi nạp.
+- [Tập trận/Úc&BĐ] "Úc-Mỹ thử nghiệm AUKUS Trụ cột II tại RIMPAC 2026" (Mirage News, sự kiện 13/08) — NGOÀI KHUNG; RIMPAC 2026 đã kết thúc trước đó nên nghi ngờ độ mới. Loại trước khi nạp.
+- [Tập trận/SEACAT] "16 nước khai mạc SEACAT 2026 tại Singapore" (U.S. Pacific Fleet) — sự kiện 04/08, NGOÀI KHUNG rất xa, trùng nội dung tin khai mạc đã có sẵn trong DATA. Loại trước khi nạp.
+- [Tập trận/Nga TBD] "Putin thăm Kuril/Sakhalin sau diễn tập Hạm đội TBD" (CNN, sự kiện 13/08) — NGOÀI KHUNG. Loại trước khi nạp.
+- [Tập trận/FRATERNO] "Brazil điều tàu ngầm Humaitá dự FRATERNO XXXIX" (Zona Militar, sự kiện 13/08) — NGOÀI KHUNG. Loại trước khi nạp.
+- ⭐ [CNQS/Báo Mới] "Nga dừng sản xuất tên lửa Kh-32/Kh-47M2 Kinzhal?" — chỉ tìm được nguồn Ukraine (GUR/Militarnyi/Defense Express), không có wire/nguồn tầng 1 xác nhận độc lập trong khung ngày → không đủ chuẩn thang xác minh. Loại.
+- ⭐ [CNQS/Báo Mới] "Lý do Trump yêu cầu thiết kế lại tàu sân bay Mỹ" (TTXVN) — TRÙNG sự kiện với "Tổng thống Mỹ chỉ thị dùng công nghệ cũ trên tàu sân bay thế hệ mới" (cùng lô Báo Mới, cùng lệnh Trump về USS Doris Miller/EMALS). Loại, chỉ giữ 1 bản.
+- [CNQS/Báo Mới] "Tổng thống Mỹ chỉ thị dùng công nghệ cũ trên tàu sân bay thế hệ mới" / "Bộ trưởng Quốc phòng Mỹ lên tiếng vụ thủy thủ nhảy tàu" — sau khi truy nguồn gốc (Stars and Stripes, Jerusalem Post) quyết định KHÔNG nạp: cụm sự kiện USS Abraham Lincoln/USS Doris Miller đã bão hoà trên bản tin (nhiều tin cùng chuỗi sự kiện đã có sẵn). Loại để tránh dồn quá nhiều góc nhìn của cùng một câu chuyện.
+
 ## 2026-08-13 (phiên sáng sớm CI)
 
 - [CNQS/US] "Raytheon nhận hợp đồng 745 triệu USD sản xuất tên lửa đánh chặn SM-3 Block IIA" (RTX, sự kiện 10/08) — nạp lọt guardrail (Jaccard 1.00) nhưng xác nhận **TRÙNG SỰ KIỆN** đã có sẵn trong DATA (war.gov Contracts for Aug 7, thêm 03/08 → 07/08) — đã `prune_news.py` xoá tay.

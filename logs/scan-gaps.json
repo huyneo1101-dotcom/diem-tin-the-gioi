@@ -1,14 +1,14 @@
 {
-  "date": "2026-08-14",
-  "session": "toi",
+  "date": "2026-08-15",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ",
-      "count": 6,
+      "count": 3,
       "target": "5-10",
       "min": 5,
-      "thieu": false,
-      "reason": "4 tin từ agent chính (báo cáo Nhà Trắng transshipment, thuế quan 100% drone, thăm dò Thượng viện Texas, Fed cưỡng chế Regions Bank) + 2 tin Báo Mới (thuế quan cản UAV Ukraine, Brazil trả đũa). Nhóm 1 (điều trần+bỏ phiếu) không có ứng viên đủ tin cậy về ngày bỏ phiếu trong khung 13-14/08 nên agent bỏ, ưu tiên nhóm 2/4/5."
+      "thieu": true,
+      "reason": "Nhóm 1 (điều trần + bỏ phiếu) TRẮNG hoàn toàn trong khung 14-15/08 — Quốc hội Mỹ đang trong kỳ nghỉ hè (August recess), House chỉ họp phiên pro forma 2 phút ngày 14/08. Mọi ứng viên bỏ phiếu/điều trần tìm được (đạo luật trừng phạt Nga, markup Kids Online Safety, bill USMMA) đều có ngày sự kiện thật 05-07/08, ngoài khung, đã loại. Bù bằng nhóm 2/3/4: doanh số bán lẻ giảm (Census Bureau), biểu tình Big Bend chống tường biên giới, tuyệt thực tại trại ICE Tacoma."
     },
     {
       "name": "Úc & Biển Đông",
@@ -16,40 +16,40 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Dưới chỉ tiêu. Loại nhiều ứng viên trùng sự kiện đã có (MC-55 Peregrine, QinetiQ radar Anh-Úc) hoặc không xác minh chéo được (USS Benfold, 147 drone breaches ADF) — xem logs/loai-tin.md. Còn 3 tin đạt chuẩn: Albanese-Trump AUKUS, Bắc Kinh phản ứng Hán Quang 42, Indonesia giải thích tập trận với TQ."
+      "reason": "Dưới chỉ tiêu. Nhiều ứng viên bị loại vì ngoài khung 2 ngày (Type 075 TQ 12/08, SOCOM Bradley Manila 13/08, AUKUS Trụ cột II tại RIMPAC 13/08) hoặc trùng sự kiện đã có (MC-55 Peregrine, 6 biệt kích Malaysia, Colby phát biểu Manila). Còn 3 tin đạt chuẩn: Trung Quốc bác bỏ chỉ trích Mỹ về Scarborough, Marcos xác nhận đàm phán dầu khí TQ tiến triển, phân tích Hải quân Mỹ giảm tần suất qua eo biển Đài Loan."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 10,
+      "count": 5,
       "target": "5-10",
       "min": 5,
       "thieu": false,
-      "reason": "Vượt chỉ tiêu — 9 tin agent chính (SM-3 Boeing/RTX, Space Force vệ tinh, tàu sân bay steam catapult, USS Lincoln, MQ-9 Reaper, radar cơ động, Lockheed hypersonic, Apache rơi) + 1 tin Báo Mới (BBGN qua Shephard Media)."
+      "reason": "Đạt tối thiểu: Golden Dome nguy cơ hết vốn (Defense One), tên lửa AHSS 1.000km của Lục quân (TWZ), sonar Ultra Maritime chống UUV (Naval News), làn sóng đặt hàng tên lửa thay đổi nhà máy quốc phòng (SpaceNews), AI Trung Quốc nhận dạng F-22/F-35 (Báo Mới → SCMP). Loại: Pentagon watchdog Pacific bases (trùng URL đã có), Palantir memo (trùng sự kiện, đã prune), Boeing/Northrop intercept tech (ngày đăng 11/08 ngoài khung dù URL thật)."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 2,
+      "count": 0,
       "target": "2-5",
       "min": 2,
-      "thieu": false,
-      "reason": "Đủ tối thiểu: nhà truyền giáo Mỹ được thả ở Niger + báo cáo LHQ về JNIM dùng tiền chuộc 50 triệu USD. Tin 82 binh sĩ Mali được thả/ân xá điệp viên Pháp đã có sẵn từ bản tin 13/08 nên không nạp lại."
+      "thieu": true,
+      "reason": "Về 0 — mọi ứng viên đều ngoài khung ngày (JNIM tấn công San 09/08, tuyên bố '1.850 phiến quân bị loại' của quân đội Mali 11/08, Africa Corps Airline 13/08) hoặc đã có sẵn trong DATA (Mali thả 82 binh sĩ + ân xá Vézilier, nhà truyền giáo Niger được thả). Chấp nhận thiếu theo đúng nguyên tắc 'thà về 0 còn hơn nhồi tin sai khung'."
     },
     {
       "name": "Tập trận",
-      "count": 3,
+      "count": 2,
       "target": "1-2 mỗi cuộc",
       "min": 1,
       "thieu": false,
-      "reason": "3 cập nhật: Hán Quang 42 (kết thúc sau 10 ngày), Baltic Trust 26 (NATO bắn hạ drone tại Latvia), Diễn tập Hạm đội Thái Bình Dương Nga 2026 (Nhật Bản phản đối Putin thăm Kuril)."
+      "reason": "2 cập nhật đạt chuẩn: Baltic Trust 26 khép lại sau 12 ngày tại Latvia (NATO JFC Brunssum), PANAMAX 2026 — Hegseth tuyên bố tăng quân tại Panama (Newsroom Panama). Loại nhiều ứng viên khác vì ngoài khung (SEACAT 04/08, Nga TBD Fleet 13/08, FRATERNO 13/08) hoặc trùng sự kiện đã có (Hán Quang 42 bế mạc)."
     },
     {
       "name": "Báo Mới",
-      "count": 3,
+      "count": 1,
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "8 ứng viên chuyên mục xử lý đủ: 3 nạp (BBGN, thuế quan UAV Ukraine, Brazil trả đũa), 5 loại (2 trùng CNQS đã nạp, 2 trùng sự kiện steam catapult, 1 ngoài phạm vi AI Trung Quốc, 1 ngoài phạm vi khí tài Nga) — chi tiết logs/loai-tin.md."
+      "reason": "5 ứng viên chuyên mục khớp 5 chủ đề xử lý đủ: 1 nạp (AI Trung Quốc nhận dạng F-22/F-35, truy về SCMP), 4 loại (2 cùng sự kiện USS Doris Miller/EMALS, 1 thiếu nguồn tầng 1 độc lập cho tin Kh-32/Kinzhal, 1 vụ thủy thủ nhảy tàu bị loại vì chủ đề đã bão hoà) — chi tiết logs/loai-tin.md."
     }
   ],
-  "note": "Phiên TỐI CI (mốc 20:47, lớp đầu trong 2 lớp trong hạn email 22:00). Đã cài curl_cffi trong session để tăng độ phủ nguồn (10 nguồn vân tay TLS thêm được, ví dụ Breaking Defense, army.mil). Không có file Jay Lâm trong khung ngày. Sau khi nạp: +4 worldNews, +17 usNews, +3 tập trận cập nhật, +1 dipEvent cập nhật (Tô Lâm kết thúc thăm Australia), +0 xNews. Ưu tiên tốc độ để kịp hạn email tối — không mở vòng bổ sung cho Úc&BĐ dù dưới chỉ tiêu, vì lượng ứng viên tốt đã cạn sau khi loại trùng/không xác minh được."
+  "note": "Phiên SÁNG SỚM CI (mốc 03:47/04:47), start 21:00Z. Đã cài curl_cffi trong session để tăng độ phủ nguồn (10 nguồn vân tay TLS thêm được: Breaking Defense, army.mil, navy.mil, marines.mil, pacom.mil, centcom.mil, jcs.mil, uscg.mil, Rappler, Axios). Không có file Jay Lâm trong khung ngày (exit 10). Sau khi nạp: +3 worldNews, +8 usNews, +2 tập trận cập nhật, +0 dipEvent, +0 xNews. Nội bộ Mỹ và Mỹ-Mali dưới chỉ tiêu do Quốc hội nghỉ hè + ngày thưa tin Sahel trong đúng khung 2 ngày — đã chạy 2 vòng agent bổ sung cho cả hai chủ đề trước khi chấp nhận."
 }

@@ -1,2 +1,9 @@
 [21:00Z] START (CI) - phien sang som 2026-08-15
-[04:30] SKIP (local web-scan-diem-tin) - phien khac dang chay web-scan (nhip tim 30' truoc, bat dau 04:00:50)
+[21:03Z] harvest.py xong: 395 ung vien (curl_cffi cai them, cuu them army.mil/navy.mil/marines.mil/pacom.mil/centcom.mil/jcs.mil/uscg.mil/Rappler/Axios)
+[21:05Z] telegram_harvest.py xong: 13 ung vien tu 14 kenh
+[21:20Z] 5 agent Sonnet quet song song 5 chu de: Noi bo My=0, Uc&BD=5 (loc con 3), CNQS=7 (loc con 5), My-Mali=2 (loc con 0), Tap tran=5 updates (loc con 2)
+[21:30Z] [SKIP-GHI-CHEP] local web-scan-diem-tin thay phien nay dang chay (khoa nhip tim), tu SKIP dung - xac nhan co che khoa hoat dong
+[21:35Z] Bao Moi: 5 ung vien khop 5 chu de, xu ly xong (1 nap AI F-22/F-35, 4 loai - xem loai-tin.md)
+[21:38Z] add_news.py OK: +3 worldNews, +8 usNews, +2 tap tran cap nhat. Xoa 1 tin trung (Palantir memo) bang prune_news.py
+[21:40Z] tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung ngay (exit 10), bo qua buoc 3b
+[21:40Z] Chuan bi commit ban tin, chuyen sang Buoc 6 (event-scan) vi la phien sang som
