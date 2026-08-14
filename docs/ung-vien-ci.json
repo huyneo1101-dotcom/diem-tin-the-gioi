@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-15T03:57:42+07:00",
+  "tao_luc": "2026-08-15T04:31:17+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-14",
@@ -90,14 +90,6 @@
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-08-14",
-      "tieu_de": "US missionary kidnapped in Niger released after nine months in captivity",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/14/us-missionary-kidnapped-in-niger-released-after-nine-months-in-captivity?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-08-14",
       "tieu_de": "US missionary released following kidnap in Niger, Christian group says",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/ckg40jvvkp7o?at_medium=RSS&at_campaign=rss"
@@ -133,6 +125,14 @@
       "tieu_de": "Mali: Mali Junta Pardons French Agent Jailed for 'Undermining State Security'",
       "nguon": "AllAfrica",
       "url": "https://allafrica.com/stories/202608140174.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-14",
+      "tieu_de": "American missionary kidnapped in Niger freed after nine months",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/2026/aug/14/american-missionary-kevin-rideout-niger-released-kidnapping"
     },
     {
       "lop": "RSS",
@@ -205,6 +205,14 @@
       "tieu_de": "Golden Dome faces 2027 funding cliff",
       "nguon": "SpaceNews",
       "url": "https://spacenews.com/golden-dome-faces-2027-funding-cliff/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-15",
+      "tieu_de": "Trump dismisses mental health concerns on USS Lincoln aircraft carrier",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/8/14/trump-dismisses-mental-health-concerns-on-uss-lincoln-aircraft-carrier?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -537,10 +545,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Contracts for Aug. 13, 2026",
+      "ngay": "2026-08-15",
+      "tieu_de": "Contracts for Aug. 14, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4573283/contracts-for-aug-13-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4574365/contracts-for-aug-14-2026/"
     },
     {
       "lop": "RSS",
@@ -645,6 +653,14 @@
       "tieu_de": "Marine Corps identifies recruit who died at Camp Pendleton",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-marine-corps/2026/08/13/marine-corps-identifies-recruit-killed-at-camp-pendleton/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-15",
+      "tieu_de": "U.S. Army Selects M1 for Flight School Next Program",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/08/14/us-army-selects-m1-flight-school-next/"
     },
     {
       "lop": "RSS",
@@ -922,6 +938,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-15",
+      "tieu_de": "Should Australia copy New Zealand's 83-page building code?",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-15/andrew-bragg-building-code-modern-methods-of-construction/107028282"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-15",
       "tieu_de": "Men attack trans women in Indonesia after presidential policy deems them a 'threat'",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-08-15/men-attack-transwomen-in-indonesia-after-rule-deems-them-threat/107023468"
@@ -1091,7 +1115,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-14",
-      "tieu_de": "Trump to tout drop in US crime rates with an eye on midterms",
+      "tieu_de": "Trump touts drop in US crime rates with an eye on midterms",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/trump-to-tout-drop-in-us-crime-rates-with-an-eye-on-midterms",
       "nhom": 5
