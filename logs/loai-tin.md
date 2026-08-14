@@ -587,3 +587,17 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 - [Nội bộ Mỹ] LOẠI "Bộ Tư pháp Mỹ lại đề nghị Tối cao Pháp viện can thiệp khẩn bỏ phiếu qua thư" (Reuters/kfgo.com) — ngày sự kiện 12/08/2026, cùng lý do ngoài khung.
 - [CNQS Mỹ] LOẠI "Tướng Guetlein cảnh báo Golden Dome ngừng hoạt động từ tháng 10" (Breaking Defense) — URL đã có sẵn trong DATA (tin trùng, đã nạp trước đó).
 
+## 2026-08-14 (phiên tối CI)
+
+- [Báo Mới, CNQS Mỹ] LOẠI "Bộ trưởng Quốc phòng Mỹ lên tiếng về vụ thủy thủ cố nhảy khỏi tàu sân bay gần Iran" (An Ninh Thủ Đô qua baomoi.com/…-c55833973.epi) — trùng sự kiện USS Abraham Lincoln/phát biểu Hegseth về điều kiện trên tàu, đã nạp qua nguồn South China Morning Post trong cùng phiên.
+- [Báo Mới, CNQS Mỹ] LOẠI "Nga dừng sản xuất tên lửa siêu thanh Kh-32 và Kh-47M2 Kinzhal?" (An Ninh Thủ Đô qua baomoi.com/…-c55834118.epi) — xác nhận là tin thật (nguồn Militarnyi/Defence Express) nhưng nói về khí tài NGA, không phải Mỹ — ngoài phạm vi chủ đề "CNQS Mỹ" (chỉ nhận khí tài/hệ thống Mỹ).
+- [Báo Mới, CNQS Mỹ] LOẠI "Lý do khiến Tổng thống Trump yêu cầu thiết kế lại tàu sân bay Mỹ" (Báo Tin Tức TTXVN qua baomoi.com/…-c55832633.epi) — trùng sự kiện memorandum Trump ký 13/8 về quay lại máy phóng hơi nước, đã nạp qua nguồn The Straits Times.
+- [Báo Mới, CNQS Mỹ] LOẠI "Tổng thống Mỹ chỉ thị dùng công nghệ cũ trên tàu sân bay thế hệ mới" (Báo Tin Tức TTXVN qua baomoi.com/…-c55832401.epi) — cùng sự kiện steam catapult ở trên, đã nạp qua The Straits Times (3 bài Báo Mới cùng đưa 1 tin).
+- [Báo Mới, CNQS Mỹ] LOẠI "AI Trung Quốc nhận dạng F-22, F-35 bằng hồng ngoại" (Tạp chí Điện tử & Ứng dụng qua baomoi.com/…-c55834343.epi) — nghiên cứu học thuật của Trung Quốc, không phải khí tài/hệ thống Mỹ, không có hành động cụ thể của Mỹ trong khung ngày — ngoài phạm vi CNQS Mỹ.
+- [CNQS Mỹ] LOẠI "Pentagon watchdog warns of severe decay at US military bases across Pacific region" (SCMP, 13/08) — nghi trùng sự kiện với tin "Thanh tra Lầu Năm Góc cảnh báo tình trạng xuống cấp nghiêm trọng tại các căn cứ quân sự Mỹ ở Thái Bình Dương" đã có sẵn 12/08.
+- [CNQS Mỹ] LOẠI "The War Zone: Golden Dome Missile Defense Shield At Risk Of Grinding To A Halt Due To Budget Impasse" (12/08) — nghi trùng sự kiện với "Tướng Guetlein cảnh báo Golden Dome 'không còn tồn tại'" đã có sẵn 12/08.
+- [Úc & Biển Đông] LOẠI "Australia's MC-55 Electronic Warfare Jet Has Entered The South China Sea" (TWZ, 14/08) — trùng sự kiện MC-55A Peregrine đã có sẵn 13/08.
+- [Úc & Biển Đông] LOẠI "QinetiQ to integrate Australian radars across UK enterprise" (Naval Technology, 13/08) — trùng sự kiện thỏa thuận radar Anh-Úc AUKUS đã có sẵn 12/08.
+- [Úc & Biển Đông] LOẠI "'No Toilets, No Power': 300 US Sailors 'Trapped' 4 Days On Stranded USS Benfold In South China Sea" — không xác minh chéo được bằng nguồn uy tín thứ hai.
+- [Úc & Biển Đông] LOẠI "147 drone breaches reported at ADF bases in one year" (7NEWS/Daily Telegraph) — chỉ có ở nguồn không đủ uy tín theo thang xác minh, không xác nhận chéo được.
+
