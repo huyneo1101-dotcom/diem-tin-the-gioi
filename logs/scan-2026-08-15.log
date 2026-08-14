@@ -7,3 +7,4 @@
 [21:38Z] add_news.py OK: +3 worldNews, +8 usNews, +2 tap tran cap nhat. Xoa 1 tin trung (Palantir memo) bang prune_news.py
 [21:40Z] tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung ngay (exit 10), bo qua buoc 3b
 [21:40Z] Chuan bi commit ban tin, chuyen sang Buoc 6 (event-scan) vi la phien sang som
+[04:45] SKIP local (05:30 lop vet) - state.py claim tra exit 10, phien toi CHAY BU (sang som) DA XONG luc 04:40:49. Khong lam lai.
