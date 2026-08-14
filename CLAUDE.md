@@ -1491,6 +1491,38 @@ neo_uc_bien_dong`. Copy phẳng vào một thư mục tạm thì phép suy đó 
 của canary soi ô **`sang`** của pipeline `event-scan`, không phải ô `sukien` — chép tay là test đỏ
 oan và tưởng cổng hỏng.
 
+## ⛔ `vote_stats` + `vote_items` CỐ Ý CHẠY QUYỀN CHỦ SỞ HỮU — advisor kêu ERROR là kêu ĐÚNG THIẾT KẾ, ĐỪNG "VÁ"
+
+Advisor bảo mật Supabase xếp `public.vote_stats` và `public.vote_items` vào lỗi mức **ERROR**
+loại `security_definer_view` (phát hiện 14/08/2026). Ở đây đó là **chủ ý, không phải lỗi**:
+hai view khai `with (security_invoker = false)` để gộp phiếu của **toàn bộ người đọc** rồi trả
+về **chỉ số đếm**, cho GitHub Action `sync-preferences.yml` đọc bằng khoá công khai mà dựng
+`preferences.json`. Bật `security_invoker = on` là mỗi lần Action gọi chỉ thấy phiếu của chính
+nó, tức **0 dòng** ⇒ `preferences.json` rỗng ⇒ mất hẳn phần điều hướng quét theo sở thích.
+
+Số đo nghiệm thu 14/08/2026, gọi thật bằng khoá công khai (`sb_publishable_74Lm…`):
+
+| Đường gọi | Kết quả | Ý nghĩa |
+|---|---|---|
+| `GET /rest/v1/vote_stats` | trả dòng, cột `scope · key · up · down · net · total` | Action còn chạy được |
+| `GET /rest/v1/vote_items` | trả dòng, cột `sign · title · category · region · source · n` | tiêu đề là tin công khai |
+| `GET /rest/v1/votes` | **0 dòng** | bảng nền vẫn kín |
+| `GET /rest/v1/votes?select=user_id` | **0 dòng** | danh tính người bình chọn không lọt |
+
+Bảng nền `public.votes` đã bật RLS với đúng một policy `own_votes` (`auth.uid() = user_id`), nên
+người ngoài không đọc được `user_id` lẫn từng phiếu lẻ. Toàn bộ 313 phiếu của 02 tài khoản chỉ
+mang tiêu đề tin, chuyên mục, khu vực, nguồn — **không cột nào chứa tên người, số điện thoại hay
+ghi chú tự do**, tức nằm ngoài lớp DANH TÍNH của mục 25 `~/.claude/CLAUDE.md`.
+
+Hai view này đã nằm sẵn trong danh sách `BANG_MO` của `HeThong/canh-ro-ri-supabase.py` với ghi
+chú "cố ý công khai". Dựng view tổng hợp mới trong nhóm này thì cùng lượt đó phải **khai vào
+`BANG_MO`**, và phải đo lại 04 đường trên — thiếu ca đo bảng nền `votes` thì siết hay nới đều
+không ai biết.
+
+⚠️ Chỗ khác thì luật ngược lại: view của **Sổ Công Nợ** (`cn_v_*`) bắt buộc `security_invoker = on`
+vì chúng chở dữ liệu tiền của mẹ Huy — xem `App/CongNo/CLAUDE.md`. Phân biệt bằng **nội dung view
+chở**, không bằng mức advisor.
+
 ## Nơi lưu dữ liệu
 Dữ liệu nằm trong `index.html`, biến `var DATA = {...}` (xem mục "Quy trình" bên dưới — KHÔNG đọc trực tiếp file này).
 

@@ -60,6 +60,11 @@ create policy "own_votes" on votes for all
 -- View TỔNG HỢP công khai (CHỈ số đếm, KHÔNG lộ danh tính) — để session quét đọc bằng
 -- publishable key qua REST: GET /rest/v1/vote_stats?select=*  (điều hướng preferences.md).
 -- View chạy quyền owner (bỏ qua RLS) nên gộp được toàn bộ user, nhưng chỉ trả count tổng.
+-- ⛔ ADVISOR SUPABASE XẾP HAI VIEW NÀY MỨC ERROR (`security_definer_view`) — ĐÚNG THIẾT KẾ,
+-- ĐỪNG ĐỔI SANG `security_invoker = on`: đổi rồi thì GitHub Action `sync-preferences.yml` gọi
+-- bằng khoá công khai chỉ thấy 0 dòng, `preferences.json` rỗng, mất điều hướng quét theo sở
+-- thích. Số đo nghiệm thu 14/08/2026 và ranh giới với view `cn_v_*` của Sổ Công Nợ: CLAUDE.md
+-- mục "vote_stats + vote_items CỐ Ý CHẠY QUYỀN CHỦ SỞ HỮU".
 create or replace view vote_stats
 with (security_invoker = false) as
   select 'category'::text as scope, category as key,
