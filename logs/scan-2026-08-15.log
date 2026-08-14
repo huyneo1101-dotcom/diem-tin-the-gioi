@@ -8,3 +8,6 @@
 [21:40Z] tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung ngay (exit 10), bo qua buoc 3b
 [21:40Z] Chuan bi commit ban tin, chuyen sang Buoc 6 (event-scan) vi la phien sang som
 [04:45] SKIP local (05:30 lop vet) - state.py claim tra exit 10, phien toi CHAY BU (sang som) DA XONG luc 04:40:49. Khong lam lai.
+[21:44Z] event-scan: do_tap_tran_thieu.py chay, 2 ung vien co ten rieng (Tenacious Archer Palau, 1 false-positive) nhung nguon yeu/ngoai uu tien - bo qua, khong tao the moi
+[21:46Z] event-scan: nap 5 bai think-tank (ASPI x3, CEPA, South Asian Voices) + 5 khai niem. DONE.
+[21:47Z] Ca hai commit da push thanh cong (935111e ban tin + f1afbd7 su kien). KET THUC PHIEN.
