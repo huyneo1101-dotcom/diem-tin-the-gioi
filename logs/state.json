@@ -9,10 +9,10 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-14T04:23:56+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+16 tin (4 the gioi, 10 My, 2 tap tran) - 5 chu de, phien sang som CI",
+    "lastRunAt": "2026-08-14T21:18:32+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "SKIP",
+    "note": "Nhuong CI: gh run list xac nhan run 31807383077 (va 31807390901) dang in_progress/pending tu 14:00:2xZ (21:00 VN). CI chua kip push khoa len git luc local pull 21:15/21:17 nen local claim thanh cong nham (git-sync race). Khong quet chong, dung tien le 12-13/08 (3e71d6b, ff20701/1cb3cb9).",
     "lastSuccess": {
       "toi": "2026-08-13",
       "sang": "2026-08-14"
