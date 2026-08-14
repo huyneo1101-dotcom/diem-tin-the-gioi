@@ -96,7 +96,22 @@ a{color:inherit}
 .chips .chip-rej{margin-left:auto;border-color:#c0392b;color:#c0392b}
 .chips .chip-rej.on{background:#c0392b;color:#fff;border-color:#c0392b}
 @media (max-width:640px){.chips .chip-rej{margin-left:0}}
-#concept-fab{position:fixed;z-index:90;background:var(--accent);color:#fff;border:none;border-radius:16px;padding:7px 13px;font-size:12.5px;font-weight:700;font-family:inherit;cursor:pointer;box-shadow:0 3px 14px rgba(0,0,0,.32);display:none}
+/* Thanh lưu khái niệm — ĐẶT Ở ĐỈNH màn hình, không thả nổi cạnh vùng bôi đen.
+   Cạnh vùng bôi đen là chỗ điện thoại dựng menu Chép/Chia sẻ/Tìm kiếm trên web của
+   hệ điều hành, và đáy màn hình là chỗ dựng thanh tìm kiếm cùng ba nút điều hướng —
+   cả hai đều đè kín nút, bấm không tới. */
+#concept-fab{position:fixed;z-index:90;left:0;right:0;top:0;margin:0 auto;width:100%;max-width:520px;
+  background:var(--paper);color:var(--ink);border:1px solid var(--accent);border-top:none;
+  border-radius:0 0 14px 14px;box-shadow:0 8px 26px rgba(0,0,0,.32);
+  padding:calc(10px + env(safe-area-inset-top)) 12px 10px;display:none;flex-direction:column;gap:8px;font-family:inherit}
+#concept-fab.on{display:flex}
+#concept-fab .cbtxt{font-size:12.5px;line-height:1.45;color:var(--ink);
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+#concept-fab .cbacts{display:flex;gap:8px}
+#concept-fab button{border:none;border-radius:12px;padding:10px 13px;font-size:12.5px;font-weight:700;
+  font-family:inherit;cursor:pointer;min-height:44px}
+#concept-fab .cbluu{flex:1;background:var(--accent);color:#fff}
+#concept-fab .cbbo{background:transparent;color:var(--muted);border:1px solid var(--line)}
 .cadd{display:flex;gap:7px;margin:0 0 14px}
 .cadd input{flex:1;min-width:0;border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:9px 11px;font-family:inherit;font-size:calc(13.5px*var(--fs));color:var(--ink);outline:none}
 .cadd button{border:none;background:var(--ink);color:var(--bg);border-radius:7px;padding:9px 16px;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
@@ -895,7 +910,10 @@ function conceptList(){return jget('dt.concepts');}
 function conceptDefs(){var o;try{o=JSON.parse(localStorage.getItem('dt.conceptDefs')||'{}');}catch(e){o={};}return (o&&typeof o==='object')?o:{};}
 function setConceptDefs(o){try{localStorage.setItem('dt.conceptDefs',JSON.stringify(o));}catch(e){}}
 function defOf(t){var d=conceptDefs()[norm(t)];return (d&&d.def)?d:null;}
-function addConcept(t){t=(t||'').trim().replace(/\s+/g,' ');if(t.length<2)return;if(t.length>90)t=t.slice(0,90);var a=conceptList();var n=norm(t);if(a.some(function(x){return norm(x)===n;})){toast('Khái niệm đã có trong sổ tay');return;}a.unshift(t);if(a.length>200)a=a.slice(0,200);jset('dt.concepts',a);jset('dt.conceptHidden',jget('dt.conceptHidden').filter(function(x){return x!==n;}));touchConcept(t);sbSaveConcept(t);toast('Đã lưu khái niệm: '+t);}
+/* ⛔ Đừng cắt trần danh sách ở đây. Bản cũ cắt còn 200 mục mỗi lần lưu, mà hai đường nạp
+   tự động (importDrillConcepts · importAnalysisConcepts) push không giới hạn nên sổ đã lên
+   404 mục — cú bấm Lưu kế tiếp xoá trắng 204 khái niệm cũ, không lỗi nào phát ra. */
+function addConcept(t){t=(t||'').trim().replace(/\s+/g,' ');if(t.length<2)return;if(t.length>90)t=t.slice(0,90);var a=conceptList();var n=norm(t);if(a.some(function(x){return norm(x)===n;})){toast('Khái niệm đã có trong sổ tay');return;}a.unshift(t);jset('dt.concepts',a);jset('dt.conceptHidden',jget('dt.conceptHidden').filter(function(x){return x!==n;}));touchConcept(t);sbSaveConcept(t);toast('Đã lưu khái niệm: '+t);}
 function removeConcept(t){jset('dt.concepts',conceptList().filter(function(x){return x!==t;}));var n=norm(t),hid=jget('dt.conceptHidden');if(hid.indexOf(n)<0){hid.push(n);jset('dt.conceptHidden',hid);}sbRemoveConcept(t);}
 /* Tự nạp khái niệm từ mục Tập trận (ex.concepts do phiên quét sáng sinh) vào sổ tay.
    Khái niệm user đã xoá nằm trong dt.conceptHidden nên không bị nạp lại. */
@@ -1992,28 +2010,36 @@ loadAnalyses();
 loadBaomoi();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 /* ==== Bôi đen chữ trong tin → nút "Lưu khái niệm" ==== */
-function cFab(){var f=document.getElementById('concept-fab');if(!f){f=document.createElement('button');f.id='concept-fab';f.type='button';f.textContent='★ Lưu khái niệm';document.body.appendChild(f);
+var _cbHen=null;
+function cbAn(){var f=document.getElementById('concept-fab');if(f)f.classList.remove('on');clearTimeout(_cbHen);}
+function cFab(){var f=document.getElementById('concept-fab');if(!f){
+  f=document.createElement('div');f.id='concept-fab';
+  f.innerHTML='<div class="cbtxt"></div><div class="cbacts"><button type="button" class="cbbo">Bỏ</button><button type="button" class="cbluu">★ Lưu khái niệm</button></div>';
+  document.body.appendChild(f);
   f.addEventListener('mousedown',function(e){e.preventDefault();});
-  f.addEventListener('click',function(e){e.stopPropagation();addConcept(f._t||'');f.style.display='none';var s=window.getSelection&&window.getSelection();if(s)s.removeAllRanges();if(state.tab==='concepts')reContent();});}
+  f.querySelector('.cbbo').addEventListener('click',function(e){e.stopPropagation();cbAn();var s=window.getSelection&&window.getSelection();if(s)s.removeAllRanges();});
+  f.querySelector('.cbluu').addEventListener('click',function(e){e.stopPropagation();addConcept(f._t||'');cbAn();var s=window.getSelection&&window.getSelection();if(s)s.removeAllRanges();if(state.tab==='concepts')reContent();});}
   return f;}
+/* Thanh KHÔNG tự ẩn khi vùng bôi đen mất. Trên điện thoại, hệ điều hành dựng menu riêng
+   (Chép · Chia sẻ · Tìm kiếm trên web) đè lên trang, và cú chạm ra chỗ trống để dẹp menu ấy
+   cũng xoá luôn vùng chọn — ẩn theo vùng chọn là nút biến mất đúng lúc sắp bấm được.
+   Chỉ ẩn khi bấm Lưu/Bỏ, hoặc sau 30 giây không đụng tới. */
 function onSel(){
-  var f=document.getElementById('concept-fab');
   var s=window.getSelection?window.getSelection():null;
   var txt=s&&s.rangeCount?(''+s).trim():'';
   var node=s&&s.anchorNode; node=node&&node.nodeType===3?node.parentNode:node;
   var host=node&&node.closest?node.closest('.sum,.take,.title,.relate,.drill-sum,.cexp'):null;
   if(host&&host.closest('.cexp'))host=null; // đừng lưu từ chính phần giải thích
   if(txt&&txt.length>=2&&txt.length<=90&&host){
-    f=cFab();f._t=txt;
-    var r=s.getRangeAt(0).getBoundingClientRect();
-    var x=Math.max(8,Math.min(r.left,window.innerWidth-150)),y=r.top-42;
-    if(y<6)y=r.bottom+8;
-    f.style.left=x+'px';f.style.top=y+'px';f.style.display='block';
-  }else if(f){f.style.display='none';}
+    var f=cFab();f._t=txt;
+    f.querySelector('.cbtxt').textContent='“'+txt+'”';
+    f.classList.add('on');
+    clearTimeout(_cbHen);_cbHen=setTimeout(cbAn,30000);
+  }
 }
 document.addEventListener('mouseup',function(){setTimeout(onSel,10);});
 document.addEventListener('touchend',function(){setTimeout(onSel,10);});
-window.addEventListener('scroll',function(){var f=document.getElementById('concept-fab');if(f&&f.style.display==='block')f.style.display='none';});
+document.addEventListener('selectionchange',function(){clearTimeout(window._cbSel);window._cbSel=setTimeout(onSel,180);});
 </script>
 </body>
 </html>
