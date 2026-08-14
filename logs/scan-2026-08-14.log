@@ -30,3 +30,4 @@
 
 [14:00Z] --- Phien TOI (session moi, CI) ---
 [14:00Z] START (CI) - pull rebase OK, claim web-scan -> exit 0, giu khoa. Bat dau quet phien toi.
+[14:18Z] SKIP (local 21:15) web-scan - nhuong CI dang in_progress that. gh run list xac nhan run 31807383077 (in_progress) va 31807390901 (pending) tu 14:00:2xZ (21:00 VN). CI chua push khoa len git luc local pull 21:15/21:17 (git-sync race, dung tien le 12-13/08). Khong quet chong.
