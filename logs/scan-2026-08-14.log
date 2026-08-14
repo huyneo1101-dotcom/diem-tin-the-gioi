@@ -35,3 +35,8 @@
 [14:19Z] DONE: da nap +4 worldNews, +17 usNews, +3 tap tran cap nhat (Han Quang 42 ket thuc, Baltic Trust 26 NATO ban ha drone, Diem tap Ham doi TBD Nga - phan ung Nhat Ban vu Putin tham Kuril), +1 dipEvent cap nhat (To Lam ket thuc tham Australia) qua add_news.py. Loai 9 tin (trung su kien/ngoai pham vi/khong xac minh cheo) - xem logs/loai-tin.md. scan-gaps.json da ghi. File Jay Lam: khong co trong khung ngay.
 [14:20Z] Push bi tu choi lan dau (local 21:15 vua push 2 commit SKIP truoc do) -> pull --rebase, resolve conflict logs/scan-2026-08-14.log + logs/state.json (giu ban DONE moi nhat), kiem tra JSON index.html hop le sau rebase (worldNews=248, usNews=432). Commit "Cap nhat ban tin 14/08: +21 tin (5 chu de)" (aef8056) da PUSH THANH CONG len main.
 [14:20Z] DONE (session ket thuc). notify-email.yml se tu kich gui email/Telegram theo commit nay.
+
+[14:22Z] --- Lan fire ke tiep cua CI (phien toi, session moi) ---
+[14:22Z] START (CI) - pull rebase OK (fast-forward, da nhan commit 14/08 +21 tin), claim web-scan -> exit 10 (DA XONG, lastRunAt 2026-08-14T21:19:58+07:00, ~2 phut truoc).
+[14:22Z] Kiem ngoai le exit10: state.py show + so_da_gui.py --xem -> dong "2026-08-14T21:22:01+07:00 [toi] 24 tin" dung ngay hom nay, khop lastRunAt -> ban tin toi da GUI THAT SU, khong phai co noi doi.
+[14:22Z] SKIP em (CI) - phien toi hom nay da hoan tat that su boi lan fire truoc (21:00-21:20 VN). Khong quet de.
