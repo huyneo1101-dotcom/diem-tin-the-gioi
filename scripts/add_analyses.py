@@ -297,6 +297,22 @@ THINKTANK_FEEDS = [
     ("Small Wars Journal", "https://smallwarsjournal.com/feed", "Xung đột phi quy ước"),
     ("CIMSEC", "https://cimsec.org/feed/", "Hải quân · biển"),
     ("Arms Control Association", "https://www.armscontrol.org/rss.xml", "Hạt nhân · kiểm soát vũ khí"),
+    # ——— Thêm 15/08/2026 khi mở rộng lớp [HTML] (chỉ thị Huy: "29 viện đọc được mà Điểm Tin
+    # không quét vì thiếu feed"). Cả hai nguồn dưới đây nằm trong `WEBSEARCH_ONLY` với nhãn
+    # "KHÔNG có RSS" — nhãn đó SAI, và sai từ 27/07. Đo thật trên CI 15/08 bằng
+    # `scripts/do_ung_vien_html.py`:
+    #   · Stimson  `/feed/`  → 200 · 12 item · **07 bài trong khung 7 ngày** · mới nhất 14/08.
+    #   · Diálogo  `/feed/`  → 200 · 10 item · **10/10 bài trong khung** · mới nhất 14/08.
+    # ⚠️ ĐÂY LÀ FEED, KHÔNG PHẢI QUÉT HTML — cố ý. Cả hai viện cũng quét được bằng lớp [HTML]
+    # (Diálogo `/articles/` ra 9 link, 5 trong khung), nhưng feed hơn hẳn ở ba điểm: rẻ hơn
+    # (1 request thay vì 1 + N lượt mở bài dò ngày), ngày lấy từ `pubDate` chuẩn thay vì đoán
+    # từ khối HTML quanh link, và không vỡ khi viện đổi giao diện. Khai HTML cho nguồn đã có
+    # feed sống là tự chuốc cả ba nhược điểm mà không được gì.
+    # ⚠️ Stimson vẫn nằm trong khối "ĐÃ THỬ VÀ BỎ" của lớp [HTML] phía dưới, và điều đó KHÔNG
+    # mâu thuẫn: trang HTML của họ đúng là 403 (đo lại 15/08: `/research/` và `/commentary/`
+    # đều trả 5KB). Hỏng đường HTML không kéo theo hỏng đường FEED — hai đường khác nhau.
+    ("Stimson Center", "https://www.stimson.org/feed/", "Mỹ · hạt nhân · Nam Á"),
+    ("Diálogo Américas", "https://dialogo-americas.com/feed/", "Mỹ Latin"),
 ]
 
 # ══ ĐƯỜNG NẠP BÀI DÀI — quét theo THÁNG, tách khỏi routine quét theo NGÀY (dựng 06/08/2026) ══
@@ -364,7 +380,18 @@ NOISE_PATHS = (
     "event-recordings",
 )
 
-# KHÔNG có RSS dùng được — đã thử ÍT NHẤT 2 biến thể URL mỗi nơi (27/07/2026), ĐỪNG thử lại.
+# KHÔNG có RSS dùng được — đã thử ÍT NHẤT 2 biến thể URL mỗi nơi (27/07/2026).
+#
+# ⛔ CÂU "ĐỪNG THỬ LẠI" ĐÃ BỊ GỠ KHỎI DÒNG TRÊN (15/08/2026) vì nó sai tới lần thứ TƯ. Bảng này
+# vốn dặn đừng dò lại, rồi lần lượt `rusi.org` · `usip.org` · `cacianalyst.org` (30/07) và nay
+# `stimson.org` · `dialogo-americas.com` (15/08) đều hoá ra CÓ feed sống — riêng Stimson ra 7
+# bài trong khung 7 ngày, tức một nguồn khoẻ bị bỏ ngoài suốt gần ba tuần chỉ vì một dòng ghi
+# chú. Bảng này là ẢNH CHỤP một lần dò, không phải kết luận vĩnh viễn; nguồn nào còn ở đây thì
+# nghĩa là "lần dò gần nhất chưa tìm ra đường", không phải "không có đường".
+#
+# ⚠️ Domain nào nay đã có feed/HTML thì KHÔNG cần gỡ khỏi bảng này — `list_candidates` tự trừ
+# chúng khỏi dòng "phải bù bằng WebSearch" (biến `da_phu`), đúng như csis.org/cnas.org đang nằm
+# ở cả hai chỗ mà không sinh vấn đề.
 # Xếp theo KHU VỰC để phiên sáng biết vùng nào đang trống RSS mà chủ động `WebSearch
 # site:<domain>`. Lý do hỏng: phần lớn Cloudflare 403 · vài nơi 404 · Africa Center và AGSIW
 # trả RSS hợp lệ nhưng feed RỖNG (0 item) · IFRI feed đứng từ 2023.
@@ -463,6 +490,26 @@ THINKTANK_HTML = [
      r"^/publication/[^/]{10,}", "Hạt nhân · khoa học"),
     ("SPF (IINA)", "https://www.spf.org/iina/en/articles/",
      r"^/iina/en/articles/[^/]+\.html$", "Nhật Bản"),
+    # ——— Thêm 15/08/2026. Hai viện này bị khối "ĐÃ THỬ VÀ BỎ" ngay dưới chấm là JS-only hồi
+    # 30/07, và chấm ấy ĐÚNG *với trang đã thử lúc đó* nhưng SAI nếu đọc thành kết luận về cả
+    # tên miền — mỗi viện lớn có nhiều trang danh sách, hỏng một trang không có nghĩa hỏng hết.
+    # Đo lại trên CI 15/08 bằng `scripts/do_ung_vien_html.py`:
+    #   · Brookings `/research-commentary/` → 791KB · **0 link** (đúng như ghi 30/07),
+    #     nhưng `/topic/international-affairs/` → 4 link · **4 trong khung**,
+    #     và `/research/` → 4 link · 3 trong khung.
+    #   · Carnegie `/research` + `/publications` → 146KB · **0 link** (đúng như ghi 30/07),
+    #     nhưng `/emissary` → 6 link · **2 trong khung**.
+    # Chọn `/topic/international-affairs/` chứ không phải `/research/`: cùng đo được là sống,
+    # nhưng trang topic đã lọc sẵn mảng đối ngoại nên 4/4 link đều trong khung và đúng mảng của
+    # bản tin, còn `/research/` trộn cả bài chính sách nội địa Mỹ (y tế, ma tuý) — lấy về rồi
+    # agent lại phải loại bằng tay.
+    ("Brookings", "https://www.brookings.edu/topic/international-affairs/",
+     r"^/articles/[^/]{15,}", "Mỹ · viện lớn · đối ngoại"),
+    # Carnegie: `/emissary` là mục bình luận thời sự của viện. Biểu thức phải cho đoạn NĂM đi
+    # qua (`/emissary/2026/08/slug`) — bản đầu viết `^/(research|posts|emissary)/[^/]{10,}` ra
+    # 0 link vì nó đòi đoạn ngay sau `/emissary/` dài ≥10 ký tự, mà đoạn đó là năm, 4 ký tự.
+    ("Carnegie Endowment", "https://carnegieendowment.org/emissary",
+     r"^/emissary/20\d\d/\d\d/[^/]{10,}", "Mỹ · viện lớn · bình luận"),
 ]
 
 # ĐÃ THỬ VÀ BỎ (30/07/2026) — ghi lại để phiên sau đừng dựng lại rồi mới biết:
@@ -472,8 +519,39 @@ THINKTANK_HTML = [
 #   thì WebSearch.
 # · `issafrica.org` — danh sách bài dựng bằng JS, HTML thô chỉ có link điều hướng (`/research/
 #   books-and-other-publications`…). Không có biểu thức path nào cứu được.
-# · `washingtoninstitute.org`, `carnegieendowment.org`, `iiss.org`, `brookings.edu` — cùng lý do
-#   JS-only: trang trả 200, 100-800KB, mà 0 link bài trong HTML thô.
+# · `washingtoninstitute.org` — JS-only: trang trả 200, 78KB, mà HTML thô chỉ ra 01 link bài
+#   (đo lại 15/08: vẫn 1 link, 0 trong khung). Không đủ để khai.
+#
+# ⚠️ SỬA LẠI 15/08/2026 — `carnegieendowment.org`, `brookings.edu` ĐÃ RỜI khối này (xem hai
+# dòng cuối bảng `THINKTANK_HTML` ở trên). Bài học đáng giữ hơn cả hai nguồn đó cộng lại:
+# **"trang X không ra link" KHÔNG ĐƯỢC chép thành "tên miền X là JS-only"**. Ghi vắn tắt như
+# bản 30/07 thì phiên sau đọc là cả tên miền đã chết và không thử nữa — mà thật ra chỉ cần đổi
+# trang danh sách là quét được: Brookings sống ở `/topic/…` và `/research/` trong khi
+# `/research-commentary/` vẫn 0 link, Carnegie sống ở `/emissary` trong khi `/research` vẫn 0
+# link. Cả hai trang hỏng ấy đo lại 15/08 vẫn hỏng y nguyên, tức bản ghi cũ không sai về SỐ
+# LIỆU, chỉ sai về PHẠM VI kết luận. Từ nay ghi rõ đã thử trang NÀO.
+#
+# · `iiss.org` — JS-only THẬT, đã đo lại 15/08 trên CẢ BA trang (`/online-analysis/`,
+#   `/online-analysis/online-analysis/`, `/publications/strategic-comments/`): 58-64KB, cả ba
+#   ra **0 link** và HTML thô không phơi lấy một hình dạng đường dẫn bài nào. Đừng dò lại.
+# · `orfonline.org` mục NGHIÊN CỨU (`/research`, `/issue-briefs-and-special-reports`) — 93KB,
+#   0 link bài; HTML thô chỉ có `/programme/…`, `/centers/…`, `/topic/…`. Mục `/expert-speak`
+#   thì vẫn quét tốt và đã nằm trong bảng — tức ORF có bài, chỉ nhánh nghiên cứu là JS-only.
+# ——— Cùng lượt 15/08, đo rồi BỎ (ghi lại để đừng dựng lại):
+# · `carnegie-mec.org` → trang `/middle-east` ra 16 link (biểu thức `/(diwan|research|posts)/`
+#   chạy đúng) nhưng **cả 16 đều ngoài khung 7 ngày**, mà 16 chính là trần `HTML_LINK_CAP` —
+#   tức mỗi lượt quét tốn 16 lượt curl dò ngày để đổi lấy 0 bài. Đắt mà rỗng.
+# · `jiia.or.jp` → link bài nằm ở `/eng/report/…` (KHÔNG phải `/en/`), quét ra 9-15 link,
+#   nhưng trang bài KHÔNG phơi meta ngày nào nên `fetch_article_date` trả None cho toàn bộ
+#   (`không-ngày` = 9/9 và 6/15). Không có ngày thì không lọc được khung — bỏ.
+# · `africacenter.org` → `/spotlight/` trả 0 byte, `/publications/` ra 16 link nhưng đều là
+#   bản TIẾNG PHÁP (`/fr/publication/…`) và cả 16 đều không đọc được ngày.
+# · `issafrica.org` → xác nhận lại kết luận cũ theo cách khác: nay có ra 3 link
+#   (`/(iss-today|research)/`) nhưng cả 3 không đọc được ngày.
+# · `ifri.org` → **có RSS thật** (`/en/rss.xml`, 200, 10 item) nhưng bài mới nhất là
+#   **03/06/2022** — feed bỏ hoang hơn 4 năm, và 7/10 mục là tiếng Pháp. Đây đúng cái bẫy đã
+#   ghi cho CACI: feed chết và feed sống đều trả 200 với đủ số item, phải đọc `pubDate` mới
+#   phân biệt. Khai vào là mỗi sáng kéo bài 2022 vào hàng ứng viên.
 
 # Trần số link BÀI lấy từ mỗi trang danh sách. Trang danh sách xếp bài mới trước, nên cắt ở
 # đây gần như không mất bài trong khung 7 ngày; đổi lại chặn được ca trang lưu trữ trả về
