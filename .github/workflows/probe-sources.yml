@@ -1,14 +1,16 @@
 name: Dò nguồn từ CI (Mỹ)
 
-# Chạy `scripts/probe_sources.py` trên GitHub runner để biết nguồn nào đọc được TỪ MỸ —
-# đối chiếu với bản dò trên máy Mac của Huy (DNS zone .mil fail ở local, còn CI thì được;
-# ngược lại vài trang chặn IP datacenter GitHub nhưng mở từ máy Huy).
-# Kết quả commit vào docs/probe-ci.json để so sánh.
+# ⚠️ BẢN TẠM trên nhánh `scratch/do-ung-vien-html` (15/08/2026) — KHÔNG gộp vào main.
+# Nhánh này mượn tên file `probe-sources.yml` vì `workflow_dispatch` chỉ kích được workflow đã
+# có mặt trên nhánh MẶC ĐỊNH; workflow mới chỉ nằm ở nhánh phụ thì API không thấy để kích.
+# Nội dung đã thay bằng lượt dò `do_ung_vien_html.py`, và **bỏ hẳn bước commit/push**: bản gốc
+# đẩy thẳng lên `main`, mà chạy bản gốc từ một nhánh phụ tức là đẩy nội dung nhánh phụ đè lên
+# main. Nhánh này xoá sau khi đọc xong kết quả.
 on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   probe:
@@ -16,20 +18,14 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
-      # BẮT BUỘC: thiếu thư viện này thì probe chỉ đo bằng curl TRẦN, và curl trần bị Akamai/
-      # Cloudflare cắt theo dấu vân tay TLS -> mọi nguồn loại đó bị chấm 403 rồi ghi vào bảng
-      # thành "nguồn chết". Chính bằng cách đó `pacom.mil`/`navy.mil`/`marines.mil` bị xếp vào
-      # nhóm "cả hai chịu" và harvest bỏ chúng. Script vẫn chạy khi thiếu, nhưng nó KÊU và số đo
-      # của những domain đó không kết luận được.
-      - name: Cài curl_cffi (giả vân tay TLS Chrome)
-        run: python3 -m pip install --quiet curl_cffi || true
-      - name: Dò nguồn
-        run: python3 scripts/probe_sources.py --json docs/probe-ci.json --workers 12
-      - name: Commit kết quả
-        run: |
-          git config user.name "claude-scan-ci"
-          git config user.email "noreply@anthropic.com"
-          git add docs/probe-ci.json
-          git commit -m "probe: ket qua do nguon tu CI (My)" || echo "khong co thay doi"
-          git pull --rebase origin main || true
-          git push origin main
+      # KHÔNG cài curl_cffi ở đây, khác hẳn bản gốc — và đây là chỗ dễ làm sai nhất.
+      # Lớp [HTML] của `add_analyses.py` đi bằng `curl` TRẦN (xem `curl()` trong file ấy).
+      # Dò bằng vân tay TLS Chrome sẽ chấm "khai được" cho trang mà lúc chạy thật lấy về trang
+      # challenge, tức đẻ ra một bảng nguồn xanh giả. Đo phải khổ đúng bằng lúc chạy thật.
+      - name: Dò ứng viên [HTML] + RSS
+        run: python3 scripts/do_ung_vien_html.py --json /tmp/ung-vien-html.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ung-vien-html
+          path: /tmp/ung-vien-html.json
