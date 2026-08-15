@@ -14,4 +14,13 @@
 [21:47Z] LOP VET CI (04:47 VN): state.py claim web-scan -> exit 10 (DA XONG 04:40:49+07:00). Kiem tra ngoai le: so_da_gui.py --xem CO dong 2026-08-15T04:47:28+07:00 [sang] 11 tin + [sukien] 0 tin => co gui that, khong phai co noi doi. SKIP hop le, khong quet lai.
 [21:57Z] Lan goi them (04:57 VN): state.py claim web-scan -> exit 10 (DA XONG 04:40:49+07:00, cach hien tai ~17 phut). Kiem tra ngoai le: so_da_gui.py --xem CO dong 2026-08-15T04:47:28+07:00 [sang] 11 tin + [sukien] 0 tin => da gui that. SKIP hop le, KET THUC PHIEN (khong quet lai).
 [14:00Z] START (CI) - phien toi 2026-08-15. claim web-scan -> RUN (chua xong, giu khoa). Bat dau quet 5 chu de.
+[14:03Z] curl_cffi cai them. harvest.py --gop-ci xong: ~450 ung vien (gop 191 ung vien CI RSS+HTML). telegram_harvest.py xong: 17 ung vien tu 14 kenh (AfricaIntel manh cho Mali).
 [21:15:45+07:00] SKIP - local web-scan-diem-tin-toi (moc 21:15). state.py claim web-scan -> exit 11 (dang co phien khac chay, nhip tim 15' truoc, bat dau 21:00:15+07:00). Khong quet chong, KET THUC PHIEN theo dieu 3.
+[14:22Z] 4 agent Sonnet quet song song (goc Mali+Tap tran gop 1 agent theo kien truc SKILL): Noi bo My=6, Uc&BD=2 (duoi nguong), CNQS=5, Mali=2+Tap tran=2 updates.
+[14:24Z] Bo sung 1 vong rieng cho Uc&BD: +1 tin (AUKUS RIMPAC undersea). Tong Uc&BD=3, van duoi nguong 5 sau 2 vong - chap nhan, ghi scan-gaps.json.
+[14:27Z] Bao Moi: 3 ung vien khop 5 chu de. Truy nguon goc bang WebSearch: 1 nap (AI bau cu -> Washington Post), 2 loai (trung su kien da dua: USS Lincoln, SM-3).
+[14:28Z] add_news.py lan 1: phat hien 2 tin trung (Golden Dome URL trung DATA - tu chan; Mali "tien chuoc 50 trieu" trung noi dung tin da co "LHQ: JNIM dung khoan tien chuoc..."). Sua JSON, bo 2 tin.
+[14:29Z] add_news.py lan 2 OK: +3 worldNews, +11 usNews, +1 tap tran cap nhat. PHAT HIEN THEM 1 tin trung SAU KHI NAP (Nguoi truyen giao Niger, trung voi ban Washington Post da co san cung ngay tu phien khac) - dung prune_news.py go ra.
+[14:28Z] Mali con 0 tin sau khi go trung. Tim them bang WebSearch rieng: +1 tin (Africa Corps mang luoi hang khong Sahel, The Africa Report/C4ADS 14/08). Mali=1 tin, duoi nguong 2 nhung da 2 vong tim.
+[14:30Z] tin_jaylam.py --liet-ke: khong co file Jay Lam (exit 10). gh workflow run telegram-bot.yml bi chan (requires approval trong sandbox CI) - ghi nhan fail-open, bo qua buoc loc.
+[14:31Z] Ghi logs/loai-tin.md (6 dong moi) + logs/scan-gaps.json (de ban cu, session=toi). state.py done web-scan. Chuan bi commit ban tin.

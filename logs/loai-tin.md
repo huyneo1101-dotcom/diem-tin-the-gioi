@@ -618,3 +618,13 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 - [Úc & Biển Đông] LOẠI "'No Toilets, No Power': 300 US Sailors 'Trapped' 4 Days On Stranded USS Benfold In South China Sea" — không xác minh chéo được bằng nguồn uy tín thứ hai.
 - [Úc & Biển Đông] LOẠI "147 drone breaches reported at ADF bases in one year" (7NEWS/Daily Telegraph) — chỉ có ở nguồn không đủ uy tín theo thang xác minh, không xác nhận chéo được.
 
+## 2026-08-15 (phiên tối CI)
+
+- [Báo Mới, CNQS Mỹ] LOẠI "Phản ứng bất ngờ của Tổng thống Trump về tàu sân bay lênh đênh hơn 8 tháng trên biển" (Báo Tin Tức TTXVN qua baomoi.com/…-c55838982.epi) — trùng sự kiện USS Abraham Lincoln (điều kiện sinh hoạt, thiếu thực phẩm) đã nạp trước đó qua The Straits Times/The Hill/BBC trong khung ngày này.
+- [Báo Mới, CNQS Mỹ] LOẠI "Lầu Năm Góc thúc đẩy sản xuất tên lửa đánh chặn SM-3" (Báo Thanh Hóa qua baomoi.com/…-c55837429.epi) — trùng sự kiện thỏa thuận khung 7 năm Lầu Năm Góc-Boeing-RTX tăng sản xuất SM-3 đã nạp trước đó (14/08).
+- [CNQS Mỹ] LOẠI "12 nhà thầu đánh chặn vũ trụ vượt qua cột mốc Golden Dome" (Breaking Defense, breakingdefense.com/…/space-based-interceptor-contractors-passed-first-golden-dome-milestone-guetlein/) — URL đã có sẵn trong DATA (tin trùng, nạp trước đó ngày 13/08 với tiêu đề khác), bị `add_news.py` chặn cứng khi thử nạp.
+- [Mỹ–Mali] LOẠI "LHQ: Khoản tiền chuộc 50 triệu USD tài trợ chiến dịch al-Qaeda ở Mali" (Africanews/Reuters) — trùng nội dung với tin đã có sẵn trong DATA "LHQ: JNIM dùng khoản tiền chuộc 50 triệu USD để mở rộng tấn công ở Mali" (14/08), cùng một báo cáo LHQ, chỉ khác góc viết.
+- [Mỹ–Mali] LOẠI "Nhà truyền giáo Mỹ bị bắt cóc ở Niger được trả tự do sau 9 tháng" (CBS News) — trùng sự kiện với tin đã có sẵn trong DATA nguồn Washington Post cùng ngày (14/08), đã nạp rồi phát hiện trùng sau khi add_news.py chạy, phải dùng prune_news.py gỡ ra.
+- [Úc & Biển Đông] LOẠI (không nạp, chỉ tìm thêm không ra) — sau 2 vòng agent + 15+ truy vấn WebSearch, chỉ tìm được 3 tin sạch đúng khung ngày (Marcos/Bãi Cỏ Mây, Hán Quang 42 chống phong tỏa, AUKUS RIMPAC undersea) — dưới ngưỡng mục tiêu 5-8 bài; phần lớn diễn biến khác trong ngày đã trùng tin đã đưa 11-14/08 hoặc ngoài khung 2 ngày.
+- [Nội bộ Mỹ] LOẠI "Trump ký sắc lệnh áp thuế tới 100% lên drone nhập khẩu" (whitehouse.gov fact sheet, xác nhận qua US News/UPI/ABC News) — ngày sự kiện thật 13/08/2026 (đã xác minh qua nhiều nguồn độc lập), NGOÀI khung hôm nay+hôm qua (14-15/08) cho category "Kinh tế" (không được nới 3 ngày như CNQS). Loại trước khi nạp dù nội dung đáng chú ý (thuế 100% với drone TQ, ưu đãi đồng minh).
+
