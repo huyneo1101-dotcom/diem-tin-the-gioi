@@ -9,4 +9,11 @@
 [21:25Z] Cong Bao Moi: da truy nguoc 2 ung vien ve nguon that (USS Lincoln->WaPo da co, SM-3->war.gov da co), gan _baomoiUrl, cong da khep
 [21:27Z] tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung (gh workflow run bi chan approval, khong kich duoc bot)
 [21:27Z] Tong ket vong 1: worldNews 6, usNews 3, exerciseUpdates 1 (Ulchi Freedom Shield 2026)
-[21:30Z] SKIP (local sang som) - web-scan da DONE luc 04:28:29+07 (CI), khong quet lai
+[21:28Z] Commit + push "Cap nhat ban tin 16/08" thanh cong. state.py done web-scan.
+[21:28Z] START event-scan (CI, gop vao sang som). Hom nay Chu Nhat -> se lam ca bao cao tuan.
+[21:29Z] do_tap_tran_thieu.py: 1 ung vien co ten rieng (Capital Reach), 24 khong ten chuoi (da doc tay)
+[21:30Z] (song song) SKIP (local sang som) - web-scan da DONE luc 04:28:29+07 (CI), khong quet lai
+[21:37Z] Agent su kien+tap tran+think-tank: +1 dipEventUpdate (VN-Australia), +3 newExercises (Falcon Strike, Swift Eagle, Capital Reach), +4 bai think-tank
+[21:38Z] set_exercise_briefing.py: gan Boi canh+Khai niem cho 3 cuoc tap tran moi
+[21:41Z] weekly_context.py + agent Opus + add_weekly.py: bao cao tuan 10-16/08 (My/TQ/Nga, 18 luan diem) da nap
+[21:41Z] state.py done event-scan
