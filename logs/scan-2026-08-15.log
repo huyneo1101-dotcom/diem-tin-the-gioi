@@ -14,3 +14,4 @@
 [21:47Z] LOP VET CI (04:47 VN): state.py claim web-scan -> exit 10 (DA XONG 04:40:49+07:00). Kiem tra ngoai le: so_da_gui.py --xem CO dong 2026-08-15T04:47:28+07:00 [sang] 11 tin + [sukien] 0 tin => co gui that, khong phai co noi doi. SKIP hop le, khong quet lai.
 [21:57Z] Lan goi them (04:57 VN): state.py claim web-scan -> exit 10 (DA XONG 04:40:49+07:00, cach hien tai ~17 phut). Kiem tra ngoai le: so_da_gui.py --xem CO dong 2026-08-15T04:47:28+07:00 [sang] 11 tin + [sukien] 0 tin => da gui that. SKIP hop le, KET THUC PHIEN (khong quet lai).
 [14:00Z] START (CI) - phien toi 2026-08-15. claim web-scan -> RUN (chua xong, giu khoa). Bat dau quet 5 chu de.
+[21:15:45+07:00] SKIP - local web-scan-diem-tin-toi (moc 21:15). state.py claim web-scan -> exit 11 (dang co phien khac chay, nhip tim 15' truoc, bat dau 21:00:15+07:00). Khong quet chong, KET THUC PHIEN theo dieu 3.
