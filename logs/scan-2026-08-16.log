@@ -17,3 +17,6 @@
 [21:38Z] set_exercise_briefing.py: gan Boi canh+Khai niem cho 3 cuoc tap tran moi
 [21:41Z] weekly_context.py + agent Opus + add_weekly.py: bao cao tuan 10-16/08 (My/TQ/Nga, 18 luan diem) da nap
 [21:41Z] state.py done event-scan
+[21:43Z] Phien CI moi (sang som, gio VN 04:43) - claim web-scan tra ve exit 10 (SKIP, da xong luc 04:28:29+07).
+[21:43Z] Kiem ngoai le: so_da_gui.py --xem co dong 2026-08-16T04:43:22+07:00 [sang] 12 tin + [sukien] 3 tin -> ban tin DA toi tay dung ca nay.
+[21:43Z] SKIP em, khong quet lai. Ket thuc phien.
