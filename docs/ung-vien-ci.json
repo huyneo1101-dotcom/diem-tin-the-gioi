@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-16T03:50:11+07:00",
+  "tao_luc": "2026-08-16T04:31:24+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-15",
@@ -601,18 +601,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "Is China seeking to copy Iran’s Strait of Hormuz blockade around Taiwan?",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/101-east/2026/8/15/is-china-seeking-to-copy-irans-strait-of-hormuz-blockade-around-taiwan?traffic_source=rss"
+      "ngay": "2026-08-16",
+      "tieu_de": "Powerful magnitude 7.7 earthquake kills at least 47 in Indonesia",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/c5y0zz63gero?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-16",
-      "tieu_de": "Powerful magnitude 7.7 earthquake kills at least 47 in Indonesia",
+      "tieu_de": "Why is Australia's mushroom killer back in court this week?",
       "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c5y0zz63gero?at_medium=RSS&at_campaign=rss"
+      "url": "https://www.bbc.co.uk/news/videos/c62e1v8p07go?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -637,6 +637,14 @@
       "tieu_de": "Indonesia earthquake kills at least 38 as rescue operation continues",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/indonesia-earthquake-kills-at-least-38-as-rescue-operation-continues"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Magnitude 6.0 earthquake strikes Minahassa Peninsula; third to strike Indonesia",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/indonesia-earthquake-strikes-minahassa-peninsula/article71350769.ece"
     },
     {
       "lop": "RSS",
@@ -845,6 +853,14 @@
       "tieu_de": "Khoảnh khắc động đất mạnh rung chuyển Indonesia",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/khoanh-khac-dong-dat-manh-rung-chuyen-indonesia-20260815090731345.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "One of Australia's 'most violent' killers makes bid for freedom",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-16/parole-review-underway-for-convicted-murderer-alistair-macrae/107028580"
     },
     {
       "lop": "RSS",
@@ -1082,6 +1098,15 @@
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/economy/trade-war/trump-tariffs/trump-s-tariffs-unevenly-reshape-american-manufacturing",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Republicans face unexpected challenge in Alaska Senate race",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/6030558-alaska-senate-seat-tightening/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
