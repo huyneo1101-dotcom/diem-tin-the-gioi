@@ -70,92 +70,41 @@ def nap():
 #   (C) đã thử và bỏ 30/07/2026 vì JS-only — đo LẠI vì trang viện có đổi giao diện, và vì
 #       nhóm (A) trùng phần lớn với nhóm này nên dù sao cũng đang đo.
 UNG_VIEN = [
-    # ── (A) Huy nêu đích danh ────────────────────────────────────────────────────────────
+    # ── VÒNG 1 đã ăn — giữ lại để mỗi vòng sau còn ĐỐI CHỨNG (trang từng ăn mà nay 0 link tức
+    # viện đổi giao diện, phải biết ngay chứ không phải lúc khai xong mới biết).
     ("Brookings", "Mỹ · viện lớn", [
-        "https://www.brookings.edu/research-commentary/",
-        "https://www.brookings.edu/articles/",
-        "https://www.brookings.edu/research/",
         "https://www.brookings.edu/topic/international-affairs/",
-    ], [
-        r"^/articles/[^/]{15,}",
-        r"^/(articles|research|commentary)/[^/]{15,}",
-    ]),
-    ("Carnegie Endowment", "Mỹ · viện lớn", [
-        "https://carnegieendowment.org/research",
-        "https://carnegieendowment.org/publications",
-        "https://carnegieendowment.org/emissary",
-    ], [
-        r"^/research/20\d\d/\d\d/[^/]{10,}",
-        r"^/(research|posts|emissary)/[^/]{10,}",
-    ]),
-    ("IISS", "Anh · quân sự", [
-        "https://www.iiss.org/online-analysis/",
-        "https://www.iiss.org/online-analysis/online-analysis/",
-        "https://www.iiss.org/publications/strategic-comments/",
-    ], [
-        r"^/online-analysis/[^/]{15,}",
-        r"^/(online-analysis|publications)/.*/[^/]{15,}",
-    ]),
-    # ORF ĐÃ có `/expert-speak` trong bảng. Đo thêm mục NGHIÊN CỨU — đúng hình dạng lỗ Lowy đã
-    # vá 06/08 (một viện hai nhịp xuất bản, bảng mới khai nhịp blog).
-    ("ORF [NC]", "Nam Á · nghiên cứu", [
-        "https://www.orfonline.org/research",
-        "https://www.orfonline.org/issue-briefs-and-special-reports",
-    ], [
-        r"^/research/[^/]{15,}",
-        r"^/(research|issue-briefs-and-special-reports|occasionalpapers)/[^/]{15,}",
-    ]),
-
-    # ── (B) chưa từng thử lớp [HTML] ─────────────────────────────────────────────────────
-    ("Carnegie MEC", "Trung Đông", [
-        "https://carnegie-mec.org/research",
-        "https://carnegieendowment.org/middle-east",
-    ], [r"^/research/20\d\d/\d\d/[^/]{10,}", r"^/(research|posts)/[^/]{10,}"]),
-    ("Africa Center", "Châu Phi · Sahel", [
-        "https://africacenter.org/spotlight/",
-        "https://africacenter.org/publications/",
-    ], [r"^/spotlight/[^/]{15,}", r"^/(spotlight|publication|publications)/[^/]{15,}"]),
-    ("WOLA", "Mỹ Latin", [
-        "https://www.wola.org/analysis/",
-        "https://www.wola.org/news/",
-    ], [r"^/analysis/[^/]{15,}", r"^/(analysis|news)/[^/]{15,}"]),
+        "https://www.brookings.edu/research/",
+    ], [r"^/articles/[^/]{15,}"]),
     ("Diálogo Américas", "Mỹ Latin", [
         "https://dialogo-americas.com/articles/",
-        "https://dialogo-americas.com/",
-    ], [r"^/articles/[^/]{15,}", r"^/(articles|noticias)/[^/]{15,}"]),
-    ("Takshashila", "Nam Á", [
-        "https://takshashila.org.in/research",
-        "https://takshashila.org.in/discussion-documents",
-    ], [r"^/research/[^/]{15,}", r"^/(research|discussion-documents|blog)/[^/]{10,}"]),
+    ], [r"^/articles/[^/]{15,}"]),
+
+    # ── VÒNG 2 — biểu thức path dựng theo hình dạng ĐO ĐƯỢC ở vòng 1, không đoán nữa.
+    # Carnegie: `/research` và `/publications` ra 0 link (JS-only, đúng như ghi 30/07), NHƯNG
+    # `/emissary` phơi 6× `/emissary/<năm>/…` trong HTML thô. Vòng 1 trượt vì biểu thức đòi
+    # đoạn ngay sau `/emissary/` dài ≥10 ký tự, mà đoạn đó là NĂM (4 ký tự).
+    ("Carnegie Endowment", "Mỹ · viện lớn", [
+        "https://carnegieendowment.org/emissary",
+    ], [r"^/emissary/20\d\d/.{10,}", r"^/emissary/20\d\d/\d\d/[^/]{10,}"]),
+    # Carnegie MEC: trang `/middle-east` phơi `/middle-east/diwan/…` 9× · `/research/…` 8×.
+    # Diwan là blog bình luận của viện, research là báo cáo — lấy cả hai, bỏ `/events/`.
+    ("Carnegie MEC", "Trung Đông", [
+        "https://carnegieendowment.org/middle-east",
+    ], [r"^/middle-east/(diwan|research|posts)/.{10,}"]),
+    # JIIA: trang `/en/column/` phơi 30× `/eng/report/…` — mục tiếng Anh nằm dưới `/eng/`,
+    # KHÔNG phải `/en/`. Vòng 1 trượt vì lấy nhầm tiền tố ngôn ngữ.
     ("JIIA", "Nhật Bản", [
         "https://www.jiia.or.jp/en/column/",
-        "https://www.jiia.or.jp/en/research/",
-    ], [r"^/en/column/[^/]{10,}", r"^/en/(column|research|policybrief)/[^/]{8,}"]),
-    ("CTC Sentinel", "Khủng bố", [
-        "https://ctc.westpoint.edu/posts/",
-        "https://ctc.westpoint.edu/",
-    ], [r"^/[^/]{15,}/?$", r"^/(posts|articles)/[^/]{15,}"]),
-    ("IFRI", "Pháp · châu Âu", [
-        "https://www.ifri.org/en/publications",
-        "https://www.ifri.org/en",
-    ], [r"^/en/publications/[^/]+/[^/]{10,}", r"^/en/(publications|papers|briefings)/.*[^/]{10,}"]),
-    ("SWP", "Đức · châu Âu", [
-        "https://www.swp-berlin.org/en/publications",
-        "https://www.swp-berlin.org/publikationen",
-    ], [r"^/en/publication/[^/]{15,}", r"^/(en/)?publi[ck]ation[^/]*/[^/]{15,}"]),
-
-    # ── (C) đã thử và bỏ 30/07 — đo lại ──────────────────────────────────────────────────
-    ("Stimson", "Mỹ · hạt nhân", [
-        "https://www.stimson.org/research/",
-        "https://www.stimson.org/commentary/",
-    ], [r"^/20\d\d/[^/]{15,}", r"^/(research|commentary)/[^/]{15,}"]),
-    ("Washington Institute", "Trung Đông", [
-        "https://www.washingtoninstitute.org/policy-analysis",
-    ], [r"^/policy-analysis/[^/]{15,}"]),
-    ("ISS Africa", "Châu Phi", [
-        "https://issafrica.org/iss-today",
-        "https://issafrica.org/research",
-    ], [r"^/iss-today/[^/]{15,}", r"^/(iss-today|research)/[^/]{15,}"]),
+        "https://www.jiia.or.jp/eng/report/",
+    ], [r"^/eng/report/.{8,}", r"^/eng/(report|project)/.{8,}"]),
+    # Africa Center: `/spotlight/` trả 0 byte (redirect?), `/publications/` phơi 24×
+    # `/fr/publication/…` — tức trang tiếng Anh đẩy sang bản PHÁP. Thử thẳng mục tiếng Anh.
+    ("Africa Center", "Châu Phi · Sahel", [
+        "https://africacenter.org/spotlight",
+        "https://africacenter.org/en/spotlight/",
+        "https://africacenter.org/publications/",
+    ], [r"^/spotlight/[^/]{15,}", r"^/publication/[^/]{15,}", r"^/fr/publication/[^/]{15,}"]),
 ]
 
 # Feed RSS đáng thử cùng lượt: nếu một viện HÓA RA có feed sống thì khai feed LUÔN TỐT HƠN quét
@@ -163,21 +112,17 @@ UNG_VIEN = [
 # rằng chúng "không có RSS", nhưng chữ đó có từ 27/07 và đã sai ít nhất 3 lần từ đó (usip.org,
 # cacianalyst.org, rusi.org đều lần lượt tìm ra feed thật). Nên đo lại, đừng tin bảng.
 FEED_THU = [
-    ("Brookings", "https://www.brookings.edu/feed/"),
-    ("Carnegie Endowment", "https://carnegieendowment.org/rss/publications"),
-    ("IISS", "https://www.iiss.org/rss/online-analysis/"),
-    ("ORF", "https://www.orfonline.org/rss.xml"),
-    ("ORF [expert-speak]", "https://www.orfonline.org/feed"),
-    ("Africa Center", "https://africacenter.org/feed/"),
-    ("WOLA", "https://www.wola.org/feed/"),
-    ("Takshashila", "https://takshashila.org.in/feed"),
-    ("CTC Sentinel", "https://ctc.westpoint.edu/feed/"),
-    ("IFRI", "https://www.ifri.org/en/rss.xml"),
-    ("SWP", "https://www.swp-berlin.org/en/rss"),
+    # Vòng 1: 12 item nhưng 0 trong khung — PHẢI đọc `mới-nhất` mới biết là feed sống đăng thưa
+    # hay feed bỏ hoang. Đây chính là cặp đã bẫy CACI (200 · 10 item · bài mới nhất 2012).
     ("Stimson", "https://www.stimson.org/feed/"),
-    ("Washington Institute", "https://www.washingtoninstitute.org/feed"),
-    ("JIIA", "https://www.jiia.or.jp/en/feed/"),
+    ("IFRI", "https://www.ifri.org/en/rss.xml"),
     ("Diálogo Américas", "https://dialogo-americas.com/feed/"),
+    # Vòng 2: vài biến thể chưa thử của chính các viện đang dò.
+    ("Carnegie [rss]", "https://carnegieendowment.org/rss"),
+    ("Carnegie [emissary]", "https://carnegieendowment.org/emissary/rss"),
+    ("JIIA [eng]", "https://www.jiia.or.jp/eng/rss.xml"),
+    ("Africa Center [en]", "https://africacenter.org/en/feed/"),
+    ("Brookings [topic]", "https://www.brookings.edu/topic/international-affairs/feed/"),
 ]
 
 
@@ -250,8 +195,15 @@ def do_feed(mod, ten, url, today_vn):
         if d and (today_vn - d).days <= mod.MAX_AGE_DAYS and d <= today_vn:
             trong.append((d.isoformat(), (t or "")[:80], link))
     trong.sort(reverse=True)
+    # NGÀY BÀI MỚI NHẤT — bắt buộc phải in ra, kể cả khi `trong_khung` = 0. Feed CHẾT và feed
+    # SỐNG-nhưng-đăng-thưa đều hiện ra là "200 · N item · 0 trong khung", nhìn y hệt nhau; chỉ
+    # `pubDate` mới nhất mới tách được. Đây đúng cái bẫy đã ghi cho CACI: feed trang chủ trả 200
+    # với 10 item nhưng bài mới nhất từ 2012, khai vào là mỗi lượt quét kéo tin 2012 về.
+    moi = [d for d in (mod.parse_feed_date(r) for _t, _l, r in items) if d]
     return {
         "ten": ten, "url": url, "byte": len(body), "item": len(items),
+        "moi_nhat": max(moi).isoformat() if moi else None,
+        "tuoi_ngay": (today_vn - max(moi)).days if moi else None,
         "trong_khung": len(trong), "mau": trong[:3],
         # Mục đầu đường dẫn của bài — dùng để biết feed này ra bài ở mảng nào, tức có trùng
         # với feed/trang đã khai cho cùng viện hay không (bài học `[NC]` 06/08).
@@ -312,8 +264,10 @@ def main():
             r = do_feed(mod, ten, url, today_vn)
             kq_feed.append(r)
             dau = "✅" if r["trong_khung"] else ("◻️ " if r["item"] else "❌")
+            moi = (f"mới-nhất={r['moi_nhat']} ({r['tuoi_ngay']}n)" if r["moi_nhat"]
+                   else "mới-nhất=KHÔNG ĐỌC ĐƯỢC NGÀY")
             print(f"{dau} {ten:24s} item={r['item']:3d} trong-khung={r['trong_khung']:2d} "
-                  f"[{r['byte']//1024}KB]  {url}")
+                  f"{moi:32s} [{r['byte']//1024}KB]  {url}")
             for d, t, u in r["mau"]:
                 print(f"     · {d}  {t}")
             if r["item"] and r["muc"]:
