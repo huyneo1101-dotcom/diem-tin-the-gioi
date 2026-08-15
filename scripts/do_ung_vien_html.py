@@ -70,41 +70,18 @@ def nap():
 #   (C) đã thử và bỏ 30/07/2026 vì JS-only — đo LẠI vì trang viện có đổi giao diện, và vì
 #       nhóm (A) trùng phần lớn với nhóm này nên dù sao cũng đang đo.
 UNG_VIEN = [
-    # ── VÒNG 1 đã ăn — giữ lại để mỗi vòng sau còn ĐỐI CHỨNG (trang từng ăn mà nay 0 link tức
-    # viện đổi giao diện, phải biết ngay chứ không phải lúc khai xong mới biết).
+    # Ba trang đã ĐO ĐƯỢC là ăn (15/08/2026) — giữ làm ĐỐI CHỨNG cho mọi vòng sau: trang từng
+    # ăn mà nay ra 0 link tức viện đổi giao diện, phải lộ ra ngay ở lượt dò chứ không đợi tới
+    # lúc `--candidates` im lặng trả 0 bài.
     ("Brookings", "Mỹ · viện lớn", [
         "https://www.brookings.edu/topic/international-affairs/",
-        "https://www.brookings.edu/research/",
     ], [r"^/articles/[^/]{15,}"]),
+    ("Carnegie Endowment", "Mỹ · viện lớn", [
+        "https://carnegieendowment.org/emissary",
+    ], [r"^/emissary/20\d\d/\d\d/[^/]{10,}"]),
     ("Diálogo Américas", "Mỹ Latin", [
         "https://dialogo-americas.com/articles/",
     ], [r"^/articles/[^/]{15,}"]),
-
-    # ── VÒNG 2 — biểu thức path dựng theo hình dạng ĐO ĐƯỢC ở vòng 1, không đoán nữa.
-    # Carnegie: `/research` và `/publications` ra 0 link (JS-only, đúng như ghi 30/07), NHƯNG
-    # `/emissary` phơi 6× `/emissary/<năm>/…` trong HTML thô. Vòng 1 trượt vì biểu thức đòi
-    # đoạn ngay sau `/emissary/` dài ≥10 ký tự, mà đoạn đó là NĂM (4 ký tự).
-    ("Carnegie Endowment", "Mỹ · viện lớn", [
-        "https://carnegieendowment.org/emissary",
-    ], [r"^/emissary/20\d\d/.{10,}", r"^/emissary/20\d\d/\d\d/[^/]{10,}"]),
-    # Carnegie MEC: trang `/middle-east` phơi `/middle-east/diwan/…` 9× · `/research/…` 8×.
-    # Diwan là blog bình luận của viện, research là báo cáo — lấy cả hai, bỏ `/events/`.
-    ("Carnegie MEC", "Trung Đông", [
-        "https://carnegieendowment.org/middle-east",
-    ], [r"^/middle-east/(diwan|research|posts)/.{10,}"]),
-    # JIIA: trang `/en/column/` phơi 30× `/eng/report/…` — mục tiếng Anh nằm dưới `/eng/`,
-    # KHÔNG phải `/en/`. Vòng 1 trượt vì lấy nhầm tiền tố ngôn ngữ.
-    ("JIIA", "Nhật Bản", [
-        "https://www.jiia.or.jp/en/column/",
-        "https://www.jiia.or.jp/eng/report/",
-    ], [r"^/eng/report/.{8,}", r"^/eng/(report|project)/.{8,}"]),
-    # Africa Center: `/spotlight/` trả 0 byte (redirect?), `/publications/` phơi 24×
-    # `/fr/publication/…` — tức trang tiếng Anh đẩy sang bản PHÁP. Thử thẳng mục tiếng Anh.
-    ("Africa Center", "Châu Phi · Sahel", [
-        "https://africacenter.org/spotlight",
-        "https://africacenter.org/en/spotlight/",
-        "https://africacenter.org/publications/",
-    ], [r"^/spotlight/[^/]{15,}", r"^/publication/[^/]{15,}", r"^/fr/publication/[^/]{15,}"]),
 ]
 
 # Feed RSS đáng thử cùng lượt: nếu một viện HÓA RA có feed sống thì khai feed LUÔN TỐT HƠN quét
@@ -112,17 +89,13 @@ UNG_VIEN = [
 # rằng chúng "không có RSS", nhưng chữ đó có từ 27/07 và đã sai ít nhất 3 lần từ đó (usip.org,
 # cacianalyst.org, rusi.org đều lần lượt tìm ra feed thật). Nên đo lại, đừng tin bảng.
 FEED_THU = [
-    # Vòng 1: 12 item nhưng 0 trong khung — PHẢI đọc `mới-nhất` mới biết là feed sống đăng thưa
-    # hay feed bỏ hoang. Đây chính là cặp đã bẫy CACI (200 · 10 item · bài mới nhất 2012).
+    # CHỈ ba feed này còn đáng đo. Vòng 1 dò 15 feed: 12 cái trả **0 item** — con số đó KHÔNG
+    # dính lỗi parse ngày (nó đếm số thẻ <item>/<entry>), nên 12 cái ấy đúng là không phải feed
+    # (server trả HTML). Ba cái dưới đây trả item thật nhưng bị lỗi parse-ngày-hai-lần chấm oan
+    # là "0 trong khung", nên phải đo lại sau khi vá.
     ("Stimson", "https://www.stimson.org/feed/"),
     ("IFRI", "https://www.ifri.org/en/rss.xml"),
     ("Diálogo Américas", "https://dialogo-americas.com/feed/"),
-    # Vòng 2: vài biến thể chưa thử của chính các viện đang dò.
-    ("Carnegie [rss]", "https://carnegieendowment.org/rss"),
-    ("Carnegie [emissary]", "https://carnegieendowment.org/emissary/rss"),
-    ("JIIA [eng]", "https://www.jiia.or.jp/eng/rss.xml"),
-    ("Africa Center [en]", "https://africacenter.org/en/feed/"),
-    ("Brookings [topic]", "https://www.brookings.edu/topic/international-affairs/feed/"),
 ]
 
 
@@ -189,9 +162,13 @@ def do_mot_trang(mod, ten, khu_vuc, page_url, path_res, today_vn):
 def do_feed(mod, ten, url, today_vn):
     body = mod.curl(url)
     items = mod.feed_items(body)
+    # ⚠️ `feed_items` TRẢ VỀ SẴN `date` ở cột 3 (nó gọi `parse_feed_date` bên trong, xem
+    # `add_analyses.py`). Gọi `parse_feed_date` lần nữa lên chính cái `date` đó thì LUÔN ra
+    # None — và hỏng theo kiểu câm hoàn hảo: mọi feed đều hiện "N item · 0 trong khung · không
+    # đọc được ngày", tức feed SỐNG bị chấm y hệt feed CHẾT. Đã vấp thật ở vòng 2 (15/08/2026):
+    # Stimson/IFRI/Diálogo bị báo là chết oan. Cột 3 dùng thẳng, đừng parse lại.
     trong = []
-    for t, link, raw in items:
-        d = mod.parse_feed_date(raw)
+    for t, link, d in items:
         if d and (today_vn - d).days <= mod.MAX_AGE_DAYS and d <= today_vn:
             trong.append((d.isoformat(), (t or "")[:80], link))
     trong.sort(reverse=True)
@@ -199,7 +176,7 @@ def do_feed(mod, ten, url, today_vn):
     # SỐNG-nhưng-đăng-thưa đều hiện ra là "200 · N item · 0 trong khung", nhìn y hệt nhau; chỉ
     # `pubDate` mới nhất mới tách được. Đây đúng cái bẫy đã ghi cho CACI: feed trang chủ trả 200
     # với 10 item nhưng bài mới nhất từ 2012, khai vào là mỗi lượt quét kéo tin 2012 về.
-    moi = [d for d in (mod.parse_feed_date(r) for _t, _l, r in items) if d]
+    moi = [d for _t, _l, d in items if d]
     return {
         "ten": ten, "url": url, "byte": len(body), "item": len(items),
         "moi_nhat": max(moi).isoformat() if moi else None,
