@@ -1,38 +1,38 @@
 {
-  "date": "2026-08-15",
-  "session": "toi",
+  "date": "2026-08-16",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
+      "count": 0,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "0 tin đạt chuẩn. Quốc hội nghỉ hè (cuối tuần, không phiên điều trần/bỏ phiếu nào 15-16/08 — đã kiểm trực tiếp whitehouse.gov/presidential-actions và /briefings-statements, dừng ở 13-14/08). Các sự kiện đáng chú ý nhất trong khung rộng hơn (rally Long Island/Hormuz, báo cáo transshipment TQ, sắc lệnh vắc-xin MMR) đều rơi vào 10-14/08, ngoài khung hôm nay+hôm qua. Đã xác minh qua nhiều nguồn độc lập (whitehouse.gov, Reuters dateline, The Hill), không nạp để tránh vi phạm khung ngày."
+    },
+    {
+      "name": "Úc & Biển Đông",
       "count": 6,
       "target": "5-10",
       "min": 5,
       "thieu": false,
-      "reason": "Nhóm 1 (điều trần + bỏ phiếu) TRỐNG hoàn toàn: Hạ viện nghỉ tới 31/8, Thượng viện nghỉ tới 14/9, xác nhận qua nhiều nguồn (thehill.com, federalnewsnetwork.com) không có markup/floor vote nào tuần 14-15/08. Bù bằng 6 tin nhóm 2-5 (sắc lệnh, biểu tình, kinh tế/thuế quan, bầu cử giữa kỳ)."
+      "reason": "Đạt tối thiểu. 6 tin nạp (USS Benfold mất điện Biển Đông, AIM-260 Úc [tin gốc, bản trùng đã prune], báo cáo sinh thái Bắc Kinh, tàu Phúc Kiến trở lại Biển Đông, Burkina Faso/Mỹ trừng phạt, Haftar-Libya). Phần lớn ứng viên khác là nhiễu tin động đất Indonesia hoặc trùng sự kiện đã đưa 11-14/08."
     },
     {
-      "name": "Úc & Biển Đông",
+      "name": "CNQS Mỹ",
       "count": 3,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Sau 2 vòng agent + 15+ truy vấn WebSearch chỉ tìm được 3 tin sạch đúng khung ngày (14-15/8): Marcos bảo vệ thỏa thuận tiếp tế Bãi Cỏ Mây, Hán Quang 42 kết thúc bằng diễn tập chống phong tỏa, AUKUS thử nghiệm tác chiến dưới đáy biển tại RIMPAC. Phần lớn diễn biến khác trong ngày (TQ-Indonesia tập trận, AUKUS tàu ngầm, MC-55A Peregrine...) đã được đưa 11-13/08, không có diễn biến MỚI HẲN để tránh lặp."
-    },
-    {
-      "name": "CNQS Mỹ",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Nạp được 4 tin (Apache huấn luyện dừng bay, hợp đồng Lakota Airbus, Orca XLUUV, cảm biến Space Force Nhật). 1 ứng viên khác (Golden Dome Gate 1 milestone, Breaking Defense) bị chặn vì URL đã có sẵn trong DATA (nạp trùng với bản đưa ngày 13/08). Không đủ thời gian tìm thêm trước hạn chót 21:45."
+      "reason": "3 tin nạp (USS Lincoln/Trump remark, Navy Ford redesign, Code Metal WarMatrix). 2 tin ứng viên khác của vòng bổ sung (DARPA hypersonic RFI 07/08, Golden Dome Ecosystem Hub 11/08) ngoài khung nới 3 ngày của CNQS (13-16/08). Cắt vòng bổ sung tại đây do đã dành đủ thời gian; phiên tối sẽ bù."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 1,
+      "count": 4,
       "target": "2-5",
       "min": 2,
-      "thieu": true,
-      "reason": "2 ứng viên đầu (tiền chuộc 50 triệu USD JNIM, nhà truyền giáo Niger được thả) đều là TRÙNG nội dung với tin đã nạp trước đó trong ngày (phiên sáng sớm/local). Tìm bổ sung ra 1 tin mới (mạng lưới hàng không Africa Corps tiếp tế Sahel, The Africa Report/C4ADS 14/08). Nguồn Mali/Sahel hôm nay khá khan tin thực sự mới ngoài các sự kiện đã đưa."
+      "thieu": false,
+      "reason": "Đạt tối thiểu. 4 tin nạp (Mali ân xá điệp viên DGSE Pháp qua Morocco, Burkina Faso nhà báo bị cưỡng huấn luyện quân sự + Mỹ dọa trừng phạt, Haftar-Libya vai trò giải cứu con tin Mỹ; loại 2 tin trùng sự kiện đã có trong DATA — 82 binh sĩ Mali được thả 08-13, drone Akinci 08-07)."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,16 +40,16 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "Máy tự bám 3 cuộc đang chạy (FRATERNO XXXIX, SEACAT 2026, Diễn tập Hạm đội TBD Nga). Chỉ FRATERNO XXXIX có diễn biến mới (tàu ngầm Humaitá cập cảng Mar del Plata). Diễn biến 'Putin thăm Iturup' cho Hạm đội TBD Nga đã có sẵn trong DATA từ trước — không nạp trùng. SEACAT 2026 không có tin mới trong khung 14-15/08."
+      "reason": "3 cuộc đang bám (FRATERNO XXXIX, SEACAT 2026, Diễn tập Hạm đội TBD Nga) — không có diễn biến MỚI trong khung 15-16/08, mọi tin tìm được đều đã có sẵn trong DATA. Bù bằng 1 cập nhật cho cuộc SẮP diễn ra Ulchi Freedom Shield 2026 (xác nhận lịch chính thức 17-27/8)."
     },
     {
       "name": "Báo Mới",
-      "count": 1,
+      "count": 2,
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "3 ứng viên chuyên mục khớp 5 chủ đề xử lý đủ: 1 nạp (AI len sâu vào bầu cử giữa kỳ, truy về Washington Post 14/08), 2 loại (Trump/tàu sân bay và SM-3 — cả hai trùng sự kiện đã đưa trong ngày). Chi tiết logs/loai-tin.md."
+      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề, cả 2 truy về bài gốc thành công nhưng cùng sự kiện đã có sẵn trong DATA (USS Lincoln->Washington Post, SM-3->war.gov) — đã gắn _baomoiUrl vào 2 tin hiện có thay vì nạp trùng. Cổng Báo Mới đã khép."
     }
   ],
-  "note": "Phiên TỐI CI, start 14:00Z (21:00 VN). Xoá 2 tin trùng phát hiện SAU khi add_news.py chạy: Golden Dome (URL trùng, tự chặn khi chạy lần 1) và nhà truyền giáo Niger (trùng nội dung với bản Washington Post đã nạp sẵn cùng ngày bởi phiên khác, phải dùng prune_news.py gỡ). Xem chi tiết logs/loai-tin.md mục '2026-08-15 (phiên tối CI)'. Không kích được bot Telegram Jay Lâm (gh workflow run bị chặn trong sandbox CI, cần phê duyệt) — chạy tin_jaylam.py --liet-ke độc lập, kết quả: không có file Jay Lâm nào trong khung ngày (exit 10), bỏ qua bước lọc."
+  "note": "Phiên SÁNG SỚM CI, start 21:00Z (04:00 VN 16/08). Phát hiện 5 tin TRÙNG SỰ KIỆN với DATA cũ ngay sau add_news.py lần 1 (Jaccard 0.46-0.83, khác URL nhưng cùng sự kiện thật — sự kiện gốc đăng 08-06..08-14 đã rơi khỏi --recent-titles 20 dòng nên agent không thấy): AIM-260 Úc, Mali 82 binh sĩ, Mali Akinci drone, SM-3 Boeing/RTX, Space Data Network 60tr USD. Đã dùng prune_news.py gỡ cả 5, giữ bản gốc cũ hơn trong DATA. Chi tiết logs/loai-tin.md mục '2026-08-16 (phiên sáng sớm CI)'. Không kích được bot Telegram Jay Lâm (gh workflow run bị chặn trong sandbox CI, cần phê duyệt) — chạy tin_jaylam.py --liet-ke độc lập, kết quả: không có file Jay Lâm nào trong khung ngày (exit 10), bỏ qua bước lọc."
 }

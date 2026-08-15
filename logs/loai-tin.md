@@ -628,3 +628,13 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 - [Úc & Biển Đông] LOẠI (không nạp, chỉ tìm thêm không ra) — sau 2 vòng agent + 15+ truy vấn WebSearch, chỉ tìm được 3 tin sạch đúng khung ngày (Marcos/Bãi Cỏ Mây, Hán Quang 42 chống phong tỏa, AUKUS RIMPAC undersea) — dưới ngưỡng mục tiêu 5-8 bài; phần lớn diễn biến khác trong ngày đã trùng tin đã đưa 11-14/08 hoặc ngoài khung 2 ngày.
 - [Nội bộ Mỹ] LOẠI "Trump ký sắc lệnh áp thuế tới 100% lên drone nhập khẩu" (whitehouse.gov fact sheet, xác nhận qua US News/UPI/ABC News) — ngày sự kiện thật 13/08/2026 (đã xác minh qua nhiều nguồn độc lập), NGOÀI khung hôm nay+hôm qua (14-15/08) cho category "Kinh tế" (không được nới 3 ngày như CNQS). Loại trước khi nạp dù nội dung đáng chú ý (thuế 100% với drone TQ, ưu đãi đồng minh).
 
+## 2026-08-16 (phiên sáng sớm CI)
+
+- [Nội bộ Mỹ] KHÔNG có tin nào đạt chuẩn — Quốc hội Mỹ nghỉ hè (không điều trần/bỏ phiếu), cuối tuần nên chính quyền không ra hành động chính thức mới trong khung 15-16/08. Các sự kiện đáng chú ý nhất (rally Long Island/Hormuz, báo cáo transshipment TQ, sắc lệnh vắc-xin MMR) đều xác minh rơi vào 10-14/08, ngoài khung. Đã kiểm trực tiếp whitehouse.gov/presidential-actions và /briefings-statements, dừng ở 13-14/08.
+- [Úc & Biển Đông] LOẠI "Úc chi 736 triệu AUD mua tên lửa AIM-260" (Air Force Technology, airforce-technology.com) — TRÙNG sự kiện đã có trong DATA (08-06 qua defence-industry.eu, 08-10 qua defensenews.com). Đã lỡ nạp, dùng prune_news.py gỡ ra.
+- [Mỹ–Mali] LOẠI "Mali xác nhận 82 binh sĩ bị bắt giữ từ tháng 4 đã được thả tự do" (TimesLIVE) — TRÙNG sự kiện đã có trong DATA (08-13 qua mesabitribune.com/AP). Đã lỡ nạp, dùng prune_news.py gỡ ra.
+- [Mỹ–Mali] LOẠI "Mali tiếp nhận thêm drone tấn công Akinci từ Thổ Nhĩ Kỳ" (Military Africa) — TRÙNG sự kiện đã có trong DATA (08-07 qua militarnyi.com). Đã lỡ nạp, dùng prune_news.py gỡ ra.
+- [CNQS Mỹ] LOẠI "Lầu Năm Góc ký thoả thuận khung 7 năm với Boeing/RTX cho SM-3" (Defense News) — TRÙNG sự kiện đã có trong DATA (08-14 qua war.gov, cùng thông cáo gốc). Đã lỡ nạp, dùng prune_news.py gỡ ra.
+- [CNQS Mỹ] LOẠI "Không quân Vũ trụ Mỹ hợp đồng 60 triệu USD Space Data Network" (Via Satellite) — TRÙNG sự kiện đã có trong DATA (08-13 qua defensescoop.com, 08-14 qua spacenews.com). Đã lỡ nạp, dùng prune_news.py gỡ ra.
+- Ghi chú chung: cả 5 tin trùng ở trên đều lọt qua vòng chống trùng ban đầu (agent chỉ được cấp `--recent-titles 20`, sự kiện gốc 08-06..08-14 đã rơi khỏi danh sách 20 dòng gần nhất) nhưng `add_news.py` cảnh báo Jaccard tiêu đề cao (0.46-0.83) — nhờ đó phát hiện và gỡ kịp trước khi commit.
+

@@ -1,1 +1,11 @@
 [21:00Z] START (CI) phien sang som 2026-08-16
+[21:00Z] harvest.py: 277 ung vien (5 chu de), curl_cffi cai duoc, cuu them 8 nguon (navy/marines/centcom/jcs/uscg/army/axios/naval-technology)
+[21:03Z] telegram_harvest.py: 15 bai trong khung (Uc&BD 4, CNQS 7, Mali 4)
+[21:11Z] Giao 5 agent Sonnet song song: Noi bo My, Uc & Bien Dong, CNQS My, My-Mali, Tap tran
+[21:11Z] Noi bo My: RONG (co can cu - Quoc hoi nghi he, cuoi tuan, da kiem whitehouse.gov/presidential-actions)
+[21:19Z] add_news.py lan 1: +9 TG, +4 US, +1 tap tran. Phat hien 5 tin TRUNG su kien voi DATA cu (Jaccard 0.46-0.83) qua canh bao
+[21:20Z] prune_news.py: xoa 5 tin trung (AIM-260, Mali 82 binh si, Mali Akinci, SM-3 Boeing/RTX, Space Data Network) - da ghi logs/loai-tin.md
+[21:23Z] Vong bo sung CNQS My: +1 tin moi (Code Metal WarMatrix 80tr USD), 2 tin khac ngoai khung 3 ngay bi loai
+[21:25Z] Cong Bao Moi: da truy nguoc 2 ung vien ve nguon that (USS Lincoln->WaPo da co, SM-3->war.gov da co), gan _baomoiUrl, cong da khep
+[21:27Z] tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung (gh workflow run bi chan approval, khong kich duoc bot)
+[21:27Z] Tong ket vong 1: worldNews 6, usNews 3, exerciseUpdates 1 (Ulchi Freedom Shield 2026)
