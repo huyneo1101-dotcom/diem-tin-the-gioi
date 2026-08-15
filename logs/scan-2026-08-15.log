@@ -25,3 +25,4 @@
 [14:30Z] tin_jaylam.py --liet-ke: khong co file Jay Lam (exit 10). gh workflow run telegram-bot.yml bi chan (requires approval trong sandbox CI) - ghi nhan fail-open, bo qua buoc loc.
 [14:31Z] Ghi logs/loai-tin.md (6 dong moi) + logs/scan-gaps.json (de ban cu, session=toi). state.py done web-scan. Chuan bi commit ban tin.
 [14:33Z] Phien moi (goi lai sau khi commit da push): state.py claim web-scan -> exit 10 (DA XONG luc 21:30:59+07:00, cach hien tai ~3 phut). Kiem tra ngoai le: so_da_gui.py --xem CO dong 2026-08-15T21:33:15+07:00 [toi] 26 tin => da gui that, khong phai co noi doi. SKIP hop le, KET THUC PHIEN (khong quet lai).
+[14:58Z] Phien moi (goi lai lan nua, co the la lop CI vet 21:47): state.py claim web-scan -> exit 10 (DA XONG luc 21:30:59+07:00, cach hien tai ~28 phut). Kiem tra ngoai le: so_da_gui.py --xem CO dong 2026-08-15T21:33:15+07:00 [toi] 26 tin => da gui that. SKIP hop le, KET THUC PHIEN (khong quet lai).
