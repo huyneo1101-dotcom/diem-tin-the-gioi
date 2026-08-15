@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-15T21:30:59+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+6 tin Noi bo My, +3 tin Uc&BD, +4 tin CNQS, +1 tin Mali, +1 cap nhat tap tran (5 chu de)",
+    "lastRunAt": "2026-08-16T04:00:46+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-15",
       "sang": "2026-08-15"
-    }
+    },
+    "heartbeat": "2026-08-16T04:00:46+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-15T04:46:14+07:00",
