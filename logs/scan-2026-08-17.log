@@ -14,3 +14,4 @@
 [21:26Z] SKIP (CI, phien sau) - claim web-scan tra exit 10 (DONE luc 2026-08-17T04:16:58+07:00, cach ~10 phut). Kiem tra ngoai le: so_da_gui --xem co dong 2026-08-17T04:25:36+07:00 [sang] 5 tin + [sukien] 1 tin -> ban tin da toi tay that. SKIP hop le, khong quet lai.
 [21:30Z] SKIP (local, phien sang som 04:30) - claim web-scan tra exit 10 (DONE luc 2026-08-17T04:16:58+07:00, cach ~14 phut). Ban tin sang da toi tay that. SKIP hop le, khong quet lai.
 [21:30Z] SKIP (CI, phien goi lai lan nua) - claim web-scan van tra exit 10 (state khong doi, lastRunAt 04:16:58+07:00). Xac nhan lai so_da_gui --xem: dong [sang] 5 tin + [sukien] 1 tin van con nguyen. Khong co gi de lam them, ket thuc phien.
+[21:32Z] SKIP (CI, phien goi lai lan 4) - claim web-scan van tra exit 10 (state khong doi, lastRunAt 04:16:58+07:00). so_da_gui --xem: dong 2026-08-17 [sang] 5 tin + [sukien] 1 tin van nguyen. Ban tin sang da toi tay that, khong quet lai.
