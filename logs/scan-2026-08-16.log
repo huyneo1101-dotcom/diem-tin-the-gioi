@@ -31,3 +31,6 @@
 [14:43Z] Da chuan bi xong 6 tin usNews sach (2 Noi bo My, 3 CNQS My, 1 Mali) qua 4 agent Sonnet + 2 vong bo sung + kiem trung ky (Jaccard + case-insensitive) truoc khi phat hien xung dot - KHONG duoc cong bo vi phien local se la ban tin chinh thuc cho ca toi hom nay. logs/loai-tin.md va logs/scan-gaps.json da ghi cuc bo cung bi mat theo reset (chi con trong commit 8a0f3df da bi bo, khong con trong lich su).
 [14:43Z] SKIP - ket thuc phien CI nay, nhuong cho phien local dang chay.
 [14:43Z] (phien local) Giao 5 agent Sonnet song song (Noi bo My, Uc&BD, CNQS, Mali, Tap tran). add_news.py: +2 TG, +7 US, +1 tap tran. Phat hien 2 tin TRUNG (SM-3, EMALS) qua canh bao Jaccard - da prune_news.py go, giu ban goc cu hon. Ket qua sau prune: +2 TG, +5 US, +1 tap tran. BUOC 2b (loc Jay Lam) BI BO QUA do sat han chot 21:45. Commit + push ngay.
+[14:44Z] Phien CI moi (phien toi, gio VN 21:44 - co the la lop vet 21:47). claim web-scan tra ve exit 11 (SKIP - web-scan DANG CO PHIEN KHAC CHAY, nhip tim 29' truoc, bat dau 21:15:45+07 - trong nguong 30' con song).
+[14:44Z] state.py show xac nhan: web-scan RUNNING, lastRunAt=2026-08-16T21:15:45+07:00, khoa het han sau 30'. Day la phien local dang lam viec that (dung lop cuoi trong han 22:00).
+[14:44Z] SKIP em, khong quet chong (local da xong ban tin toi). Ket thuc phien.
