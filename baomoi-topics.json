@@ -1,17 +1,537 @@
 {
- "generatedAt": "2026-08-15T20:03:43+0700",
- "count": 72,
+ "generatedAt": "2026-08-16T09:00:21+0700",
+ "count": 69,
  "source": "Bao Moi - quet chuyen muc the-gioi, kinh-te, khoa-hoc-cong-nghe (24h gan nhat, loc 4 chu de cua web)",
  "note": "KHO UNG VIEN — phien quet chon loc theo bo loc so thich roi moi dang, khong dang het.",
  "items": [
   {
-   "date": "2026-08-15",
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Nga cảnh báo Mỹ và Thổ Nhĩ Kỳ về kế hoạch gửi vũ khí cho Ukraine",
+   "summary": "",
+   "sourceName": "Báo VietnamNet",
+   "sourceUrl": "https://baomoi.com/nga-canh-bao-my-va-tho-nhi-ky-ve-ke-hoach-gui-vu-khi-cho-ukraine-c55842371.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Tên lửa Iskander-M: Từ 'kẻ bị hoài nghi' đến cơn ác mộng của Ukraine",
+   "summary": "",
+   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
+   "sourceUrl": "https://baomoi.com/ten-lua-iskander-m-tu-ke-bi-hoai-nghi-den-con-ac-mong-cua-ukraine-c55841893.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Ukraine tập kích nhà máy sản xuất tên lửa vũ trụ của Nga",
+   "summary": "",
+   "sourceName": "Báo Tiền Phong",
+   "sourceUrl": "https://baomoi.com/ukraine-tap-kich-nha-may-san-xuat-ten-lua-vu-tru-cua-nga-c55841983.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "An ninh dầu khí trước những rủi ro mới từ drone",
+   "summary": "",
+   "sourceName": "Tạp chí Petrotimes",
+   "sourceUrl": "https://baomoi.com/an-ninh-dau-khi-truoc-nhung-rui-ro-moi-tu-drone-c55842505.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
    "category": "Chính trị",
-   "title": "Cựu Thủ tướng Ukraine hé lộ lý do phái đoàn của ông Trump chưa từng tới Kiev",
+   "title": "Tổng thống Brazil tung đòn đáp trả thuế Mỹ, yêu cầu được tôn trọng",
+   "summary": "",
+   "sourceName": "Báo Tiền Phong",
+   "sourceUrl": "https://baomoi.com/tong-thong-brazil-tung-don-dap-tra-thue-my-yeu-cau-duoc-ton-trong-c55842538.epi",
+   "region": "Châu Mỹ",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Giá xăng dầu hôm nay 16/8: Chưa ngừng đà đi lên",
+   "summary": "",
+   "sourceName": "Báo VTC News",
+   "sourceUrl": "https://baomoi.com/gia-xang-dau-hom-nay-16-8-chua-ngung-da-di-len-c55842274.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Chính trị",
+   "title": "Bất ổn trên tàu sân bay Mỹ phản ánh sức ép từ cuộc chiến Iran",
    "summary": "",
    "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/cuu-thu-tuong-ukraine-he-lo-ly-do-phai-doan-cua-ong-trump-chua-tung-toi-kiev-c55840324.epi",
+   "sourceUrl": "https://baomoi.com/bat-on-tren-tau-san-bay-my-phan-anh-suc-ep-tu-cuoc-chien-iran-c55842212.epi",
+   "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Israel thực hiện loạt không kích, Tổng thống Lebanon nói một điều về tiến trình đàm phán",
+   "summary": "",
+   "sourceName": "Báo Thế Giới & Việt Nam",
+   "sourceUrl": "https://baomoi.com/israel-thuc-hien-loat-khong-kich-tong-thong-lebanon-noi-mot-dieu-ve-tien-trinh-dam-phan-c55842083.epi",
+   "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Xu hướng gia tăng đầu tư tên lửa đạn đạo tầm xa tái định hình thế trận an ninh toàn cầu",
+   "summary": "",
+   "sourceName": "Báo Lâm Đồng",
+   "sourceUrl": "https://baomoi.com/xu-huong-gia-tang-dau-tu-ten-lua-dan-dao-tam-xa-tai-dinh-hinh-the-tran-an-ninh-toan-cau-c55842026.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Quân sự thế giới hôm nay (16-8): Nga triển khai tên lửa S-8000 Banderol tại Odesa",
+   "summary": "",
+   "sourceName": "Báo Quân Đội Nhân Dân",
+   "sourceUrl": "https://baomoi.com/quan-su-the-gioi-hom-nay-16-8-nga-trien-khai-ten-lua-s-8000-banderol-tai-odesa-c55841966.epi",
    "region": "Châu Âu/NATO",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Các nước thúc đẩy trao đổi với Mỹ về thuế quan",
+   "summary": "",
+   "sourceName": "Báo Nhân Dân",
+   "sourceUrl": "https://baomoi.com/cac-nuoc-thuc-day-trao-doi-voi-my-ve-thue-quan-c55841972.epi",
+   "region": "Ấn Độ Dương - Thái Bình Dương",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Tình trạng tấn công tàu thương mại tại Eo biển Hormuz tiếp diễn",
+   "summary": "",
+   "sourceName": "Báo Nhân Dân",
+   "sourceUrl": "https://baomoi.com/tinh-trang-tan-cong-tau-thuong-mai-tai-eo-bien-hormuz-tiep-dien-c55841922.epi",
+   "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Giá xăng dầu hôm nay (16-8): Tuần tăng giá của dầu thế giới",
+   "summary": "",
+   "sourceName": "Báo Quân Đội Nhân Dân",
+   "sourceUrl": "https://baomoi.com/gia-xang-dau-hom-nay-16-8-tuan-tang-gia-cua-dau-the-gioi-c55841806.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Ngưỡng cửa 'thời đại tên lửa mới'",
+   "summary": "",
+   "sourceName": "Báo Quân Đội Nhân Dân",
+   "sourceUrl": "https://baomoi.com/nguong-cua-thoi-dai-ten-lua-moi-c55841918.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Vì sao sân bay Leipzig/Halle ở Đức liên tục bị UAV nhắm tới?",
+   "summary": "",
+   "sourceName": "Báo VietnamNet",
+   "sourceUrl": "https://baomoi.com/vi-sao-san-bay-leipzig-halle-o-duc-lien-tuc-bi-uav-nham-toi-c55841742.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Tiền gửi ngân hàng tăng kỷ lục, nguồn vốn khổng lồ đang chảy về đâu?",
+   "summary": "",
+   "sourceName": "Báo Tiền Phong",
+   "sourceUrl": "https://baomoi.com/tien-gui-ngan-hang-tang-ky-luc-nguon-von-khong-lo-dang-chay-ve-dau-c55841749.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Bất động sản Đà Nẵng giảm giá, trầm lắng: Nhà đầu tư cần lưu ý điều gì?",
+   "summary": "",
+   "sourceName": "VietTimes",
+   "sourceUrl": "https://baomoi.com/bat-dong-san-da-nang-giam-gia-tram-lang-nha-dau-tu-can-luu-y-dieu-gi-c55842509.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Tỷ giá ngoại tệ ngày 16/8: USD ngân hàng duy trì vùng bán ra 26.330 đồng",
+   "summary": "",
+   "sourceName": "Chuyên trang Công Lý & Xã Hội - Báo Công Lý",
+   "sourceUrl": "https://baomoi.com/ty-gia-ngoai-te-ngay-16-8-usd-ngan-hang-duy-tri-vung-ban-ra-26-330-dong-c55842520.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Chính trị",
+   "title": "Tuy Đức đẩy mạnh cải cách hành chính, xây dựng chính quyền số",
+   "summary": "",
+   "sourceName": "Báo Lâm Đồng",
+   "sourceUrl": "https://baomoi.com/tuy-duc-day-manh-cai-cach-hanh-chinh-xay-dung-chinh-quyen-so-c55842441.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Tỷ giá trung tâm giảm, áp lực USD chưa hạ nhiệt",
+   "summary": "",
+   "sourceName": "Báo Hà Nội Mới",
+   "sourceUrl": "https://baomoi.com/ty-gia-trung-tam-giam-ap-luc-usd-chua-ha-nhiet-c55842442.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Chính trị",
+   "title": "Vận hành chính quyền địa phương 2 cấp ở thành phố Đồng Nai Bài cuối: Tiếp tục hoàn thiện cơ chế khuyến khích, bảo vệ cán bộ dám đổi mới vì lợi ích chung",
+   "summary": "",
+   "sourceName": "Đại Biểu Nhân Dân",
+   "sourceUrl": "https://baomoi.com/van-hanh-chinh-quyen-dia-phuong-2-cap-o-thanh-pho-dong-nai-bai-cuoi-tiep-tuc-hoan-thien-co-che-khuyen-khich-bao-ve-can-bo-dam-doi-moi-vi-loi-ich-chung-c55842399.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Chính trị",
+   "title": "Chính quyền tận tâm, vì Nhân dân phục vụ",
+   "summary": "",
+   "sourceName": "Đại Biểu Nhân Dân",
+   "sourceUrl": "https://baomoi.com/chinh-quyen-tan-tam-vi-nhan-dan-phuc-vu-c55842377.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "AI đang tái định hình thị trường lao động Việt Nam",
+   "summary": "",
+   "sourceName": "Báo Đại Đoàn Kết",
+   "sourceUrl": "https://baomoi.com/ai-dang-tai-dinh-hinh-thi-truong-lao-dong-viet-nam-c55842406.epi",
+   "region": "Ấn Độ Dương - Thái Bình Dương",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Đề xuất hỗ trợ có mục tiêu cho doanh nghiệp nhỏ và vừa",
+   "summary": "",
+   "sourceName": "Đại Biểu Nhân Dân",
+   "sourceUrl": "https://baomoi.com/de-xuat-ho-tro-co-muc-tieu-cho-doanh-nghiep-nho-va-vua-c55842376.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Hai doanh nghiệp nhà Lã Vọng báo lỗ",
+   "summary": "",
+   "sourceName": "Tạp chí Doanh Nhân VN",
+   "sourceUrl": "https://baomoi.com/hai-doanh-nghiep-nha-la-vong-bao-lo-c55842381.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Tối đa hóa giá trị phổ tần, tránh đầu tư trùng lặp hạ tầng viễn thông",
+   "summary": "",
+   "sourceName": "Đại Biểu Nhân Dân",
+   "sourceUrl": "https://baomoi.com/toi-da-hoa-gia-tri-pho-tan-tranh-dau-tu-trung-lap-ha-tang-vien-thong-c55842321.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Đẩy mạnh hỗ trợ doanh nghiệp xuất, nhập khẩu",
+   "summary": "",
+   "sourceName": "Báo Nhân Dân",
+   "sourceUrl": "https://baomoi.com/day-manh-ho-tro-doanh-nghiep-xuat-nhap-khau-c55842288.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "'Thủ tục đầu tư theo chuỗi' lần đầu tiên được đưa vào hệ thống luật pháp",
+   "summary": "",
+   "sourceName": "Tạp chí VnEconomy",
+   "sourceUrl": "https://baomoi.com/thu-tuc-dau-tu-theo-chuoi-lan-dau-tien-duoc-dua-vao-he-thong-luat-phap-c55842326.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Thực hiện Nghị quyết 68 của Bộ Chính trị: Xây dựng hệ sinh thái hỗ trợ doanh nghiệp",
+   "summary": "",
+   "sourceName": "Báo Bắc Ninh",
+   "sourceUrl": "https://baomoi.com/thuc-hien-nghi-quyet-68-cua-bo-chinh-tri-xay-dung-he-sinh-thai-ho-tro-doanh-nghiep-c55842233.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Kinh tế châu Âu đối mặt cú sốc kép",
+   "summary": "",
+   "sourceName": "Báo Hà Nội Mới",
+   "sourceUrl": "https://baomoi.com/kinh-te-chau-au-doi-mat-cu-soc-kep-c55842279.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Ngân hàng Việt tăng tốc gọi vốn ngoại, tìm 'nguồn tiếp sức' cho cuộc đua tín dụng",
+   "summary": "",
+   "sourceName": "Tạp chí Thương Gia",
+   "sourceUrl": "https://baomoi.com/ngan-hang-viet-tang-toc-goi-von-ngoai-tim-nguon-tiep-suc-cho-cuoc-dua-tin-dung-c55842184.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Kinh tế Cần Thơ 7 tháng 2026: Sản xuất công nghiệp là động lực quan trọng",
+   "summary": "",
+   "sourceName": "Tạp chí Mekong Asean",
+   "sourceUrl": "https://baomoi.com/kinh-te-can-tho-7-thang-2026-san-xuat-cong-nghiep-la-dong-luc-quan-trong-c55842181.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Phát triển Khu Kinh tế Ninh Cơ theo hướng xanh và bền vững",
+   "summary": "",
+   "sourceName": "Báo Ninh Bình",
+   "sourceUrl": "https://baomoi.com/phat-trien-khu-kinh-te-ninh-co-theo-huong-xanh-va-ben-vung-c55842198.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Hướng tới xuất khẩu ngành nông nghiệp đạt 100 tỷ USD: Giảm dấu chân carbon ngành cao su để tăng giá trị",
+   "summary": "",
+   "sourceName": "Tạp chí Kinh tế Môi trường",
+   "sourceUrl": "https://baomoi.com/huong-toi-xuat-khau-nganh-nong-nghiep-dat-100-ty-usd-giam-dau-chan-carbon-nganh-cao-su-de-tang-gia-tri-c55842206.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Chính trị",
+   "title": "Thủ tướng: Đưa tín dụng vào đúng lĩnh vực, kiểm soát chặt rủi ro",
+   "summary": "",
+   "sourceName": "Báo Sức Khỏe & Đời Sống",
+   "sourceUrl": "https://baomoi.com/thu-tuong-dua-tin-dung-vao-dung-linh-vuc-kiem-soat-chat-rui-ro-c55842180.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Khơi thông dòng vốn, tạo động lực cho tăng trưởng hai con số",
+   "summary": "",
+   "sourceName": "Báo Hà Nội Mới",
+   "sourceUrl": "https://baomoi.com/khoi-thong-dong-von-tao-dong-luc-cho-tang-truong-hai-con-so-c55842367.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Xuất khẩu của Brazil sang Mỹ 'chạm đáy' trong 3 năm, nguyên nhân đã rõ",
+   "summary": "",
+   "sourceName": "Báo Thế Giới & Việt Nam",
+   "sourceUrl": "https://baomoi.com/xuat-khau-cua-brazil-sang-my-cham-day-trong-3-nam-nguyen-nhan-da-ro-c55842082.epi",
+   "region": "Châu Mỹ",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Nam Tuấn khai thác hiệu quả tiềm năng, phát triển kinh tế - Bài 1",
+   "summary": "",
+   "sourceName": "Báo Cao Bằng",
+   "sourceUrl": "https://baomoi.com/nam-tuan-khai-thac-hieu-qua-tiem-nang-phat-trien-kinh-te-bai-1-c55842019.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Xây dựng Dung Quất trở thành trung tâm lọc hóa dầu và năng lượng quốc gia",
+   "summary": "",
+   "sourceName": "Báo Hà Nội Mới",
+   "sourceUrl": "https://baomoi.com/xay-dung-dung-quat-tro-thanh-trung-tam-loc-hoa-dau-va-nang-luong-quoc-gia-c55842014.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Kinh tế",
+   "title": "Tỷ giá ngoại tệ ngày 16/8: USD bán ra 26.330 đồng, nhiều ngoại tệ tăng cao",
+   "summary": "",
+   "sourceName": "Chuyên Trang Doanh nhân & Công lý - Báo Công Lý",
+   "sourceUrl": "https://baomoi.com/ty-gia-ngoai-te-ngay-16-8-usd-ban-ra-26-330-dong-nhieu-ngoai-te-tang-cao-c55841920.epi",
+   "region": "",
+   "topic": "kinh-te"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Vũ khí 'tàng hình' Stone Cloak giúp drone Ukraine xuyên thủng radar Nga",
+   "summary": "",
+   "sourceName": "Báo VietnamNet",
+   "sourceUrl": "https://baomoi.com/vu-khi-tang-hinh-stone-cloak-giup-drone-ukraine-xuyen-thung-radar-nga-c55842065.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "khoa-hoc-cong-nghe"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Trung Quốc phát triển dẫn đường bằng sao cho vũ khí siêu vượt âm",
+   "summary": "",
+   "sourceName": "Báo Giáo Dục & Thời Đại",
+   "sourceUrl": "https://baomoi.com/trung-quoc-phat-trien-dan-duong-bang-sao-cho-vu-khi-sieu-vuot-am-c55841764.epi",
+   "region": "Đông Á",
+   "topic": "khoa-hoc-cong-nghe"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Nga thử nghiệm tiêm kích hai chỗ ngồi Su-57D làm trung tâm chỉ huy bầy UAV không người lái",
+   "summary": "",
+   "sourceName": "Báo Lâm Đồng",
+   "sourceUrl": "https://baomoi.com/nga-thu-nghiem-tiem-kich-hai-cho-ngoi-su-57d-lam-trung-tam-chi-huy-bay-uav-khong-nguoi-lai-c55841840.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "khoa-hoc-cong-nghe"
+  },
+  {
+   "date": "2026-08-16",
+   "category": "Công nghệ quân sự",
+   "title": "Từ các vụ UAV xâm nhập sân bay: Khi hai hệ sinh thái hàng không gặp nhau trên một bầu trời",
+   "summary": "",
+   "sourceName": "Báo VietnamNet",
+   "sourceUrl": "https://baomoi.com/tu-cac-vu-uav-xam-nhap-san-bay-khi-hai-he-sinh-thai-hang-khong-gap-nhau-tren-mot-bau-troi-c55841685.epi",
+   "region": "",
+   "topic": "khoa-hoc-cong-nghe"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Chính trị",
+   "title": "Tổng thống Trump: 'Eo biển Hormuz sẽ sớm là lãnh thổ Mỹ'",
+   "summary": "",
+   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
+   "sourceUrl": "https://baomoi.com/tong-thong-trump-eo-bien-hormuz-se-som-la-lanh-tho-my-c55841429.epi",
+   "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Chính trị",
+   "title": "Mỹ chuẩn bị giáng 'đòn chưa từng có', dù 47 năm trừng phạt không khuất phục được Iran",
+   "summary": "",
+   "sourceName": "Báo Tiền Phong",
+   "sourceUrl": "https://baomoi.com/my-chuan-bi-giang-don-chua-tung-co-du-47-nam-trung-phat-khong-khuat-phuc-duoc-iran-c55841147.epi",
+   "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Ngoại giao",
+   "title": "Tây Ban Nha bác yêu cầu đàm phán của Maroc về chủ quyền Ceuta và Melilla",
+   "summary": "",
+   "sourceName": "Báo VietnamPlus",
+   "sourceUrl": "https://baomoi.com/tay-ban-nha-bac-yeu-cau-dam-phan-cua-maroc-ve-chu-quyen-ceuta-va-melilla-c55841120.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Công nghệ quân sự",
+   "title": "Thủ tướng Thái Lan vạch ra 5 ưu tiên nhằm tăng năng lực lực lượng không quân",
+   "summary": "",
+   "sourceName": "Báo VietnamPlus",
+   "sourceUrl": "https://baomoi.com/thu-tuong-thai-lan-vach-ra-5-uu-tien-nham-tang-nang-luc-luc-luong-khong-quan-c55841099.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Ngoại giao",
+   "title": "Liên hợp quốc: Cứ 30 phút lại có 1 người chết vì Ebola",
+   "summary": "",
+   "sourceName": "Báo VietnamPlus",
+   "sourceUrl": "https://baomoi.com/lien-hop-quoc-cu-30-phut-lai-co-1-nguoi-chet-vi-ebola-c55841100.epi",
+   "region": "",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Chính trị",
+   "title": "Cựu Thủ tướng Ukraine nêu lý do đặc phái viên Mỹ chưa tới Kiev",
+   "summary": "",
+   "sourceName": "Báo VietnamNet",
+   "sourceUrl": "https://baomoi.com/cuu-thu-tuong-ukraine-neu-ly-do-dac-phai-vien-my-chua-toi-kiev-c55841027.epi",
+   "region": "Châu Âu/NATO",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Ngoại giao",
+   "title": "Iran khẳng định chủ quyền ở Hormuz, chưa vội nối lại đàm phán với Mỹ",
+   "summary": "",
+   "sourceName": "Báo VietnamNet",
+   "sourceUrl": "https://baomoi.com/iran-khang-dinh-chu-quyen-o-hormuz-chua-voi-noi-lai-dam-phan-voi-my-c55840996.epi",
+   "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Kinh tế",
+   "title": "Dòng dầu vận chuyển qua eo biển Hormuz chưa phục hồi như mức trước xung đột",
+   "summary": "",
+   "sourceName": "Báo VietnamPlus",
+   "sourceUrl": "https://baomoi.com/dong-dau-van-chuyen-qua-eo-bien-hormuz-chua-phuc-hoi-nhu-muc-truoc-xung-dot-c55840837.epi",
+   "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Ngoại giao",
+   "title": "Nóng lòng công du Damascus, Tổng thống Erdogan muốn 'hâm nóng' quan hệ với Syria",
+   "summary": "",
+   "sourceName": "Báo Thế Giới & Việt Nam",
+   "sourceUrl": "https://baomoi.com/nong-long-cong-du-damascus-tong-thong-erdogan-muon-ham-nong-quan-he-voi-syria-c55840736.epi",
+   "region": "Trung Đông",
    "topic": "the-gioi"
   },
   {
@@ -42,6 +562,16 @@
    "sourceName": "Báo Tin Tức TTXVN",
    "sourceUrl": "https://baomoi.com/israel-khong-kich-mien-nam-liban-gay-thuong-vong-c55840401.epi",
    "region": "Trung Đông",
+   "topic": "the-gioi"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Chính trị",
+   "title": "Cựu Thủ tướng Ukraine hé lộ lý do phái đoàn của ông Trump chưa từng tới Kiev",
+   "summary": "",
+   "sourceName": "Báo Tin Tức TTXVN",
+   "sourceUrl": "https://baomoi.com/cuu-thu-tuong-ukraine-he-lo-ly-do-phai-doan-cua-ong-trump-chua-tung-toi-kiev-c55840324.epi",
+   "region": "Châu Âu/NATO",
    "topic": "the-gioi"
   },
   {
@@ -117,532 +647,42 @@
   {
    "date": "2026-08-15",
    "category": "Kinh tế",
-   "title": "Giữ giá dầu thấp là ưu tiên hàng đầu của Mỹ trong xung đột với Iran",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/giu-gia-dau-thap-la-uu-tien-hang-dau-cua-my-trong-xung-dot-voi-iran-c55839329.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Chính trị",
-   "title": "Trí tuệ nhân tạo len sâu vào cuộc đua tranh cử Quốc hội Mỹ",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/tri-tue-nhan-tao-len-sau-vao-cuoc-dua-tranh-cu-quoc-hoi-my-c55839349.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Ngoại giao",
-   "title": "Hàn Quốc kêu gọi Triều Tiên nối lại đối thoại , chung sống hòa bình và cùng phát triển",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/han-quoc-keu-goi-trieu-tien-noi-lai-doi-thoai-chung-song-hoa-binh-va-cung-phat-trien-c55839694.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Ngoại giao",
-   "title": "Sóng gió mới trong quan hệ Mỹ-Mexico",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/song-gio-moi-trong-quan-he-my-mexico-c55839417.epi",
-   "region": "Châu Mỹ",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Ngoại giao",
-   "title": "Tổng thống Hàn Quốc đề xuất đàm phán với Triều Tiên",
-   "summary": "",
-   "sourceName": "Báo VTC News",
-   "sourceUrl": "https://baomoi.com/tong-thong-han-quoc-de-xuat-dam-phan-voi-trieu-tien-c55839196.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Chính trị",
-   "title": "Phản ứng bất ngờ của Tổng thống Trump về tàu sân bay lênh đênh hơn 8 tháng trên biển",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/phan-ung-bat-ngo-cua-tong-thong-trump-ve-tau-san-bay-lenh-denh-hon-8-thang-tren-bien-c55838982.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Ngoại giao",
-   "title": "Hàn Quốc đề xuất đối thoại với Triều Tiên để chấm dứt tình trạng chiến tranh",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/han-quoc-de-xuat-doi-thoai-voi-trieu-tien-de-cham-dut-tinh-trang-chien-tranh-c55838969.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Mỹ chuẩn bị áp dụng biện pháp chưa từng có để cô lập kinh tế Iran",
-   "summary": "",
-   "sourceName": "Chuyên trang Công an Đà Nẵng - Báo Công an Nhân dân",
-   "sourceUrl": "https://baomoi.com/my-chuan-bi-ap-dung-bien-phap-chua-tung-co-de-co-lap-kinh-te-iran-c55838925.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Công nghệ quân sự",
-   "title": "Mỹ lập lực lượng UAV đại bàng tấn công",
-   "summary": "",
-   "sourceName": "Báo Tiền Phong",
-   "sourceUrl": "https://baomoi.com/my-lap-luc-luong-uav-dai-bang-tan-cong-c55838802.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Tổng thống Trump cho phép doanh nghiệp tư nhân tấn công tin tặc nước ngoài: Nguy cơ và rủi ro pháp lý",
-   "summary": "",
-   "sourceName": "Đại Biểu Nhân Dân",
-   "sourceUrl": "https://baomoi.com/tong-thong-trump-cho-phep-doanh-nghiep-tu-nhan-tan-cong-tin-tac-nuoc-ngoai-nguy-co-va-rui-ro-phap-ly-c55838357.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Mỹ chuyển trọng tâm chiến tranh Iran sang cuộc chiến giá dầu",
-   "summary": "",
-   "sourceName": "Chuyên trang Sài Gòn Đầu Tư Tài Chính - Báo Sài Gòn Giải Phóng",
-   "sourceUrl": "https://baomoi.com/my-chuyen-trong-tam-chien-tranh-iran-sang-cuoc-chien-gia-dau-c55838382.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Mỹ gia tăng sức ép thương mại, EU khẳng định không thương lượng về quyền tự chủ pháp lý",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/my-gia-tang-suc-ep-thuong-mai-eu-khang-dinh-khong-thuong-luong-ve-quyen-tu-chu-phap-ly-c55838221.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Chính trị",
-   "title": "Tin thế giới ngày 15-8: Tổng thống Trump đe dọa tuyên bố Hormuz là của Mỹ, Iran phản pháo",
-   "summary": "",
-   "sourceName": "Báo Gia Lai",
-   "sourceUrl": "https://baomoi.com/tin-the-gioi-ngay-15-8-tong-thong-trump-de-doa-tuyen-bo-hormuz-la-cua-my-iran-phan-phao-c55838123.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Công nghệ quân sự",
-   "title": "Ukraine chặn đứng kế hoạch săn chiến đấu cơ F-16 và Mirage 2000 từ Nga",
-   "summary": "",
-   "sourceName": "Báo Sức Khỏe & Đời Sống",
-   "sourceUrl": "https://baomoi.com/ukraine-chan-dung-ke-hoach-san-chien-dau-co-f-16-va-mirage-2000-tu-nga-c55837858.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Ngoại giao",
-   "title": "Liên minh phòng thủ Biển Đỏ có đủ sức bảo vệ tuyến hàng hải?",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/lien-minh-phong-thu-bien-do-co-du-suc-bao-ve-tuyen-hang-hai-c55837809.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Ngoại giao",
-   "title": "Hàn Quốc kêu gọi Triều Tiên đối thoại để chấm dứt tình trạng chiến tranh",
-   "summary": "",
-   "sourceName": "Báo VietnamNet",
-   "sourceUrl": "https://baomoi.com/han-quoc-keu-goi-trieu-tien-doi-thoai-de-cham-dut-tinh-trang-chien-tranh-c55837682.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Mỹ xác định giá dầu thấp là 'mục tiêu số 1' trong cuộc chiến với Iran",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/my-xac-dinh-gia-dau-thap-la-muc-tieu-so-1-trong-cuoc-chien-voi-iran-c55837572.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Công nghệ quân sự",
-   "title": "Pakistan thúc đẩy triển khai hiệp ước quốc phòng ba bên với Ả Rập Xê Út và Thổ Nhĩ Kỳ",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/pakistan-thuc-day-trien-khai-hiep-uoc-quoc-phong-ba-ben-voi-a-rap-xe-ut-va-tho-nhi-ky-c55838211.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Ngoại giao",
-   "title": "Ukraine đặt mục tiêu lớn trên tiền tuyến, Nga vẫn để ngỏ khả năng đối thoại",
-   "summary": "",
-   "sourceName": "Báo VietnamNet",
-   "sourceUrl": "https://baomoi.com/ukraine-dat-muc-tieu-lon-tren-tien-tuyen-nga-van-de-ngo-kha-nang-doi-thoai-c55837512.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Giá dầu thế giới tăng nhẹ",
-   "summary": "",
-   "sourceName": "Tạp chí Tài Chính Doanh Nghiệp",
-   "sourceUrl": "https://baomoi.com/gia-dau-the-gioi-tang-nhe-c55837484.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Công nghệ quân sự",
-   "title": "Lầu Năm Góc thúc đẩy sản xuất tên lửa đánh chặn SM-3",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/lau-nam-goc-thuc-day-san-xuat-ten-lua-danh-chan-sm-3-c55837429.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Công nghệ quân sự",
-   "title": "Mỹ đe dọa phong tỏa hải quân 'vô thời hạn': Iran có thể chống chịu đến đâu?",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/my-de-doa-phong-toa-hai-quan-vo-thoi-han-iran-co-the-chong-chiu-den-dau-c55837345.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "EU phản đối sức ép thương mại mới từ Mỹ",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/eu-phan-doi-suc-ep-thuong-mai-moi-tu-my-c55837325.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Chính trị",
-   "title": "Tổng thống Trump cảnh báo đáp trả 'mạnh gấp 100 lần' nếu Iran tấn công",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/tong-thong-trump-canh-bao-dap-tra-manh-gap-100-lan-neu-iran-tan-cong-c55837134.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Điện Máy Xanh hoạt động như 'ngân hàng ngầm'?",
-   "summary": "",
-   "sourceName": "Báo Tiền Phong",
-   "sourceUrl": "https://baomoi.com/dien-may-xanh-hoat-dong-nhu-ngan-hang-ngam-c55839947.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Kết luận của Thủ tướng Lê Minh Hưng tại Buổi làm việc với Ngân hàng Nhà nước Việt Nam và hệ thống các tổ chức tín dụng",
-   "summary": "",
-   "sourceName": "Báo Chính Phủ",
-   "sourceUrl": "https://baomoi.com/ket-luan-cua-thu-tuong-le-minh-hung-tai-buoi-lam-viec-voi-ngan-hang-nha-nuoc-viet-nam-va-he-thong-cac-to-chuc-tin-dung-c55840641.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Quảng Ngãi cần định hình rõ các cực tăng trưởng, hành lang kinh tế và không gian phát triển mới",
-   "summary": "",
-   "sourceName": "Báo Nhân Dân",
-   "sourceUrl": "https://baomoi.com/quang-ngai-can-dinh-hinh-ro-cac-cuc-tang-truong-hanh-lang-kinh-te-va-khong-gian-phat-trien-moi-c55840562.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Gemadept (GMD): Khai thác Gemalink vượt công suất, dồn lực đầu tư giai đoạn hai với 220 triệu USD",
+   "title": "Vietnam Post: Tham gia thị trường viễn thông với mô hình mạng ảo, bắt tay cùng VNPT",
    "summary": "",
    "sourceName": "Chuyên trang Doanh nhân & Pháp luật - Báo Pháp luật Việt Nam",
-   "sourceUrl": "https://baomoi.com/gemadept-gmd-khai-thac-gemalink-vuot-cong-suat-don-luc-dau-tu-giai-doan-hai-voi-220-trieu-usd-c55840569.epi",
+   "sourceUrl": "https://baomoi.com/vietnam-post-tham-gia-thi-truong-vien-thong-voi-mo-hinh-mang-ao-bat-tay-cung-vnpt-c55841453.epi",
    "region": "",
-   "topic": "kinh-te"
+   "topic": "khoa-hoc-cong-nghe"
   },
   {
    "date": "2026-08-15",
    "category": "Kinh tế",
-   "title": "Chứng khoán VPBank (VPX): Lợi nhuận bán niên đạt 2.673 tỷ đồng, đề cử CEO Nhâm Hà Hải vào HĐQT",
+   "title": "Doanh nghiệp Trung Quốc vươn lên thành mắt xích công nghệ cốt lõi của các tập đoàn toàn cầu",
    "summary": "",
    "sourceName": "Chuyên trang Doanh nhân & Pháp luật - Báo Pháp luật Việt Nam",
-   "sourceUrl": "https://baomoi.com/chung-khoan-vpbank-vpx-loi-nhuan-ban-nien-dat-2-673-ty-dong-de-cu-ceo-nham-ha-hai-vao-hdqt-c55840507.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Chứng khoán tuần 10-14/8: VN-Index rơi 38,98 điểm, khối ngoại bán ròng hơn 2.100 tỷ đồng",
-   "summary": "",
-   "sourceName": "Tạp chí Điện tử & Ứng dụng",
-   "sourceUrl": "https://baomoi.com/chung-khoan-tuan-10-14-8-vn-index-roi-38-98-diem-khoi-ngoai-ban-rong-hon-2-100-ty-dong-c55840442.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Tài chính Hoàng Huy (TCH): Chốt quyền phát hành hơn 91 triệu cổ phiếu thưởng, vốn điều lệ vượt 10.000 tỷ đồng",
-   "summary": "",
-   "sourceName": "Chuyên trang Doanh nhân & Pháp luật - Báo Pháp luật Việt Nam",
-   "sourceUrl": "https://baomoi.com/tai-chinh-hoang-huy-tch-chot-quyen-phat-hanh-hon-91-trieu-co-phieu-thuong-von-dieu-le-vuot-10-000-ty-dong-c55840482.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Quyết tâm khơi thông nguồn lực, tạo bứt phá tăng trưởng trong giai đoạn 2026-2030",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/quyet-tam-khoi-thong-nguon-luc-tao-but-pha-tang-truong-trong-giai-doan-2026-2030-c55840451.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Toàn cảnh Gia Lai 24h: Kết nối doanh nghiệp lữ hành, mở rộng thị trường du lịch",
-   "summary": "",
-   "sourceName": "Báo Gia Lai",
-   "sourceUrl": "https://baomoi.com/toan-canh-gia-lai-24h-ket-noi-doanh-nghiep-lu-hanh-mo-rong-thi-truong-du-lich-c55840406.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Điều hành chính sách tiền tệ: Giữ vững nền móng ổn định để hỗ trợ tăng trưởng",
-   "summary": "",
-   "sourceName": "Tạp chí VnEconomy",
-   "sourceUrl": "https://baomoi.com/dieu-hanh-chinh-sach-tien-te-giu-vung-nen-mong-on-dinh-de-ho-tro-tang-truong-c55840434.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Nhóm CII tiếp tục mua cổ phiếu PC1, tổng giá trị đầu tư hơn 1.000 tỷ đồng",
-   "summary": "",
-   "sourceName": "Tạp chí Mekong Asean",
-   "sourceUrl": "https://baomoi.com/nhom-cii-tiep-tuc-mua-co-phieu-pc1-tong-gia-tri-dau-tu-hon-1-000-ty-dong-c55840389.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Ứng dụng công nghệ số - minh bạch hóa thị trường bất động sản",
-   "summary": "",
-   "sourceName": "Đài Phát thanh và truyền hình Hà Nội",
-   "sourceUrl": "https://baomoi.com/ung-dung-cong-nghe-so-minh-bach-hoa-thi-truong-bat-dong-san-c55840496.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "'Khoan thư sức dân', tạo dư địa cho doanh nghiệp phục hồi",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/khoan-thu-suc-dan-tao-du-dia-cho-doanh-nghiep-phuc-hoi-c55840317.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Ngày lữ hành Việt Nam 2026 tại Gia Lai: Doanh nghiệp đi tìm sản phẩm mới, địa phương tìm khách quốc tế",
-   "summary": "",
-   "sourceName": "Tạp chí Người Đưa Tin",
-   "sourceUrl": "https://baomoi.com/ngay-lu-hanh-viet-nam-2026-tai-gia-lai-doanh-nghiep-di-tim-san-pham-moi-dia-phuong-tim-khach-quoc-te-c55840338.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "AI - động lực cốt lõi giúp doanh nghiệp đổi mới mô hình tăng trưởng",
-   "summary": "",
-   "sourceName": "Báo Công Thương",
-   "sourceUrl": "https://baomoi.com/ai-dong-luc-cot-loi-giup-doanh-nghiep-doi-moi-mo-hinh-tang-truong-c55840176.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Algeria trở thành nhà cung cấp khí đốt lớn nhất của Tây Ban Nha",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/algeria-tro-thanh-nha-cung-cap-khi-dot-lon-nhat-cua-tay-ban-nha-c55840166.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Trung Quốc tăng cường kiểm soát xuất khẩu khoáng sản thiết yếu",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/trung-quoc-tang-cuong-kiem-soat-xuat-khau-khoang-san-thiet-yeu-c55840167.epi",
+   "sourceUrl": "https://baomoi.com/doanh-nghiep-trung-quoc-vuon-len-thanh-mat-xich-cong-nghe-cot-loi-cua-cac-tap-doan-toan-cau-c55841475.epi",
    "region": "Đông Á",
-   "topic": "kinh-te"
+   "topic": "khoa-hoc-cong-nghe"
   },
   {
    "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Giá tiêu hôm nay 15/8: Giá tiêu đen xuất khẩu của Việt Nam tăng nhẹ",
+   "category": "Ngoại giao",
+   "title": "Phân Bón Miền Nam và WASI ký kết hợp tác phát triển nông nghiệp bền vững tại Tây Nguyên",
    "summary": "",
    "sourceName": "Tạp chí Công thương",
-   "sourceUrl": "https://baomoi.com/gia-tieu-hom-nay-15-8-gia-tieu-den-xuat-khau-cua-viet-nam-tang-nhe-c55840726.epi",
+   "sourceUrl": "https://baomoi.com/phan-bon-mien-nam-va-wasi-ky-ket-hop-tac-phat-trien-nong-nghiep-ben-vung-tai-tay-nguyen-c55840880.epi",
+   "region": "",
+   "topic": "khoa-hoc-cong-nghe"
+  },
+  {
+   "date": "2026-08-15",
+   "category": "Kinh tế",
+   "title": "Indonesia thúc đẩy điện Mặt Trời để tăng tự chủ năng lượng",
+   "summary": "",
+   "sourceName": "Báo Nhân Dân",
+   "sourceUrl": "https://baomoi.com/indonesia-thuc-day-dien-mat-troi-de-tang-tu-chu-nang-luong-c55840656.epi",
    "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "FTA tạo lực đẩy mạnh cho xuất khẩu Ấn Độ",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/fta-tao-luc-day-manh-cho-xuat-khau-an-do-c55840150.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Đầu tư Hạ tầng Kỹ thuật TP.HCM (CII) chào bán hơn 67 triệu trái phiếu chuyển đổi cho cổ đông",
-   "summary": "",
-   "sourceName": "Chuyên trang Doanh nhân & Pháp luật - Báo Pháp luật Việt Nam",
-   "sourceUrl": "https://baomoi.com/dau-tu-ha-tang-ky-thuat-tp-hcm-cii-chao-ban-hon-67-trieu-trai-phieu-chuyen-doi-cho-co-dong-c55840216.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Highlands Coffee lãi lớn, đóng góp vào đà tăng trưởng của Jollibee",
-   "summary": "",
-   "sourceName": "Chuyên trang Doanh nhân & Pháp luật - Báo Pháp luật Việt Nam",
-   "sourceUrl": "https://baomoi.com/highlands-coffee-lai-lon-dong-gop-vao-da-tang-truong-cua-jollibee-c55840141.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Động lực mới từ Khu kinh tế Đông Nam Nghệ An",
-   "summary": "",
-   "sourceName": "Báo Nghệ An",
-   "sourceUrl": "https://baomoi.com/dong-luc-moi-tu-khu-kinh-te-dong-nam-nghe-an-c55840065.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "PVEP: Giữ vững nền tảng, mở rộng chuỗi giá trị năng lượng",
-   "summary": "",
-   "sourceName": "Tạp chí Petrotimes",
-   "sourceUrl": "https://baomoi.com/pvep-giu-vung-nen-tang-mo-rong-chuoi-gia-tri-nang-luong-c55840062.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Chính trị",
-   "title": "Thủ tướng Ấn Độ công bố 7 trụ cột nâng cao sức mạnh quốc gia",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/thu-tuong-an-do-cong-bo-7-tru-cot-nang-cao-suc-manh-quoc-gia-c55840035.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Đặc sản vùng miền 'đón sóng' xuất khẩu",
-   "summary": "",
-   "sourceName": "Báo Sài Gòn Giải Phóng",
-   "sourceUrl": "https://baomoi.com/dac-san-vung-mien-don-song-xuat-khau-c55839998.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Khai mạc Ngày Lữ hành Việt Nam 2026: Mở rộng kết nối thị trường du lịch quốc tế",
-   "summary": "",
-   "sourceName": "Báo Hà Nội Mới",
-   "sourceUrl": "https://baomoi.com/khai-mac-ngay-lu-hanh-viet-nam-2026-mo-rong-ket-noi-thi-truong-du-lich-quoc-te-c55839937.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Xây dựng Dung Quất thành trung tâm lọc hóa dầu, năng lượng và logistics",
-   "summary": "",
-   "sourceName": "Báo Văn hóa",
-   "sourceUrl": "https://baomoi.com/xay-dung-dung-quat-thanh-trung-tam-loc-hoa-dau-nang-luong-va-logistics-c55839892.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Chênh lệch giá vàng giảm mạnh, thị trường dần trở về quỹ đạo",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/chenh-lech-gia-vang-giam-manh-thi-truong-dan-tro-ve-quy-dao-c55839869.epi",
-   "region": "",
-   "topic": "kinh-te"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Lãi suất đang giảm, người vay mua nhà cần lưu ý điều này?",
-   "summary": "",
-   "sourceName": "Tạp chí Tri thức",
-   "sourceUrl": "https://baomoi.com/lai-suat-dang-giam-nguoi-vay-mua-nha-can-luu-y-dieu-nay-c55839833.epi",
-   "region": "",
-   "topic": "kinh-te"
+   "topic": "khoa-hoc-cong-nghe"
   },
   {
    "date": "2026-08-15",
@@ -651,76 +691,6 @@
    "summary": "",
    "sourceName": "VietTimes",
    "sourceUrl": "https://baomoi.com/dot-pha-ve-cam-bien-tu-truong-co-the-giup-dong-ho-thong-minh-phat-hien-tau-ngam-o-do-sau-500-m-c55840564.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Công nghệ quân sự",
-   "title": "Vietjet (VJC) rót thêm 250 tỷ đồng vào Galaxy Pay để triển khai Internet vệ tinh",
-   "summary": "",
-   "sourceName": "Chuyên trang Doanh nhân & Pháp luật - Báo Pháp luật Việt Nam",
-   "sourceUrl": "https://baomoi.com/vietjet-vjc-rot-them-250-ty-dong-vao-galaxy-pay-de-trien-khai-internet-ve-tinh-c55840480.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Samsung Galaxy S26 FE rò rỉ tại Nga với chip Exynos 2500, màn hình 120Hz và pin 4900mAh",
-   "summary": "",
-   "sourceName": "Báo Lâm Đồng",
-   "sourceUrl": "https://baomoi.com/samsung-galaxy-s26-fe-ro-ri-tai-nga-voi-chip-exynos-2500-man-hinh-120hz-va-pin-4900mah-c55840328.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "Cơ quan an ninh mạng báo rủi ro từ một lỗ hổng doanh nghiệp",
-   "summary": "",
-   "sourceName": "Tạp chí Tri thức",
-   "sourceUrl": "https://baomoi.com/co-quan-an-ninh-mang-bao-rui-ro-tu-mot-lo-hong-doanh-nghiep-c55840100.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "ASUS TUF Gaming 16 chính thức ra mắt tại Việt Nam với đồ họa RTX 50 Series và chip Intel i7",
-   "summary": "",
-   "sourceName": "Báo Đà Nẵng",
-   "sourceUrl": "https://baomoi.com/asus-tuf-gaming-16-chinh-thuc-ra-mat-tai-viet-nam-voi-do-hoa-rtx-50-series-va-chip-intel-i7-c55840061.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "AI - động lực mới của kinh tế số",
-   "summary": "",
-   "sourceName": "Báo Thời Báo Ngân Hàng",
-   "sourceUrl": "https://baomoi.com/ai-dong-luc-moi-cua-kinh-te-so-c55840017.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "HONOR Magic 9 chốt ngày ra mắt với chip 2nm Snapdragon 8 Elite Gen 6 và camera ARRI 200MP",
-   "summary": "",
-   "sourceName": "Báo Lâm Đồng",
-   "sourceUrl": "https://baomoi.com/honor-magic-9-chot-ngay-ra-mat-voi-chip-2nm-snapdragon-8-elite-gen-6-va-camera-arri-200mp-c55839808.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-08-15",
-   "category": "Kinh tế",
-   "title": "HONOR Magic 9 chốt ngày ra mắt 28/9 với chip 2nm Snapdragon 8 Elite Gen 6 và camera ARRI 200MP",
-   "summary": "",
-   "sourceName": "Báo Đà Nẵng",
-   "sourceUrl": "https://baomoi.com/honor-magic-9-chot-ngay-ra-mat-28-9-voi-chip-2nm-snapdragon-8-elite-gen-6-va-camera-arri-200mp-c55839708.epi",
    "region": "",
    "topic": "khoa-hoc-cong-nghe"
   }
