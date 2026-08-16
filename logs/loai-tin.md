@@ -638,3 +638,9 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 - [CNQS Mỹ] LOẠI "Không quân Vũ trụ Mỹ hợp đồng 60 triệu USD Space Data Network" (Via Satellite) — TRÙNG sự kiện đã có trong DATA (08-13 qua defensescoop.com, 08-14 qua spacenews.com). Đã lỡ nạp, dùng prune_news.py gỡ ra.
 - Ghi chú chung: cả 5 tin trùng ở trên đều lọt qua vòng chống trùng ban đầu (agent chỉ được cấp `--recent-titles 20`, sự kiện gốc 08-06..08-14 đã rơi khỏi danh sách 20 dòng gần nhất) nhưng `add_news.py` cảnh báo Jaccard tiêu đề cao (0.46-0.83) — nhờ đó phát hiện và gỡ kịp trước khi commit.
 
+## 2026-08-16 (phiên tối local)
+- [CNQS Mỹ] LOẠI "Lầu Năm Góc ký thỏa thuận khung 7 năm với RTX và Boeing để tăng sản xuất linh kiện tên lửa đánh chặn SM-3" (Breaking Defense) — TRÙNG sự kiện đã có trong DATA (08-14 qua war.gov). Đã lỡ nạp, dùng prune_news.py gỡ ra.
+- [CNQS Mỹ] LOẠI "Ông Trump ký lệnh yêu cầu Hải quân Mỹ quay lại máy phóng hơi nước trên tàu sân bay lớp Ford tương lai" (19FortyFive) — TRÙNG sự kiện đã có trong DATA (08-14 qua straitstimes.com). Đã lỡ nạp, dùng prune_news.py gỡ ra.
+- Ghi chú: agent chỉ được cấp `--recent-titles 20`, hai sự kiện gốc 08-14 đã rơi khỏi danh sách 20 dòng gần nhất; `add_news.py` cảnh báo Jaccard 0.83/0.59 — nhờ đó phát hiện và gỡ kịp trước khi commit. Phiên chạy sát hạn chót 21:45 (Bước 2b Jay Lâm bị BỎ QUA để ưu tiên gửi đúng giờ).
+- 2 ứng viên Báo Mới (Mecca/F-35 Thổ Nhĩ Kỳ; hàng không Việt-Australia) KHÔNG kịp xử lý vì sát hạn — để lại cho phiên sau.
+

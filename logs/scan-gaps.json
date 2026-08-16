@@ -1,38 +1,38 @@
 {
   "date": "2026-08-16",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 0,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "0 tin đạt chuẩn. Quốc hội nghỉ hè (cuối tuần, không phiên điều trần/bỏ phiếu nào 15-16/08 — đã kiểm trực tiếp whitehouse.gov/presidential-actions và /briefings-statements, dừng ở 13-14/08). Các sự kiện đáng chú ý nhất trong khung rộng hơn (rally Long Island/Hormuz, báo cáo transshipment TQ, sắc lệnh vắc-xin MMR) đều rơi vào 10-14/08, ngoài khung hôm nay+hôm qua. Đã xác minh qua nhiều nguồn độc lập (whitehouse.gov, Reuters dateline, The Hill), không nạp để tránh vi phạm khung ngày."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 6,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": "Đạt tối thiểu. 6 tin nạp (USS Benfold mất điện Biển Đông, AIM-260 Úc [tin gốc, bản trùng đã prune], báo cáo sinh thái Bắc Kinh, tàu Phúc Kiến trở lại Biển Đông, Burkina Faso/Mỹ trừng phạt, Haftar-Libya). Phần lớn ứng viên khác là nhiễu tin động đất Indonesia hoặc trùng sự kiện đã đưa 11-14/08."
-    },
-    {
-      "name": "CNQS Mỹ",
       "count": 3,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "3 tin nạp (USS Lincoln/Trump remark, Navy Ford redesign, Code Metal WarMatrix). 2 tin ứng viên khác của vòng bổ sung (DARPA hypersonic RFI 07/08, Golden Dome Ecosystem Hub 11/08) ngoài khung nới 3 ngày của CNQS (13-16/08). Cắt vòng bổ sung tại đây do đã dành đủ thời gian; phiên tối sẽ bù."
+      "reason": "3 tin nạp (toà phúc thẩm ID bỏ phiếu qua thư Texas, đua ghế Thượng viện Alaska, khảo sát FT về tài chính cử tri) — không có phiên điều trần/bỏ phiếu dự luật nào trong khung 15-16/08 (cuối tuần, Quốc hội nghỉ). Phiên chạy sát hạn chót 21:45 nên KHÔNG giao vòng bổ sung — ưu tiên gửi đúng giờ theo chỉ thị Huy."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 1,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "1 tin nạp (Bắc Kinh-Manila tranh cãi vụ bắt giữ lao động, lan từ Biển Đông sang nhập cư). Phần lớn ứng viên khác trùng sự kiện đã có trong DATA (Fukuian carrier, USS Benfold, bãi cạn Scarborough...) hoặc ngoài khung ngày. Không giao vòng bổ sung vì sát hạn chót."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 1,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "3 tin agent đề xuất, 2 tin (SM-3 RTX/Boeing, EMALS/Trump) bị phát hiện TRÙNG sự kiện đã có trong DATA (cùng ngày 08-14, nguồn khác) qua cảnh báo Jaccard của add_news.py — đã prune. Chỉ còn 1 tin thật mới (Shield AI X-Bat drone VTOL). Không giao vòng bổ sung vì sát hạn chót."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 4,
+      "count": 1,
       "target": "2-5",
       "min": 2,
-      "thieu": false,
-      "reason": "Đạt tối thiểu. 4 tin nạp (Mali ân xá điệp viên DGSE Pháp qua Morocco, Burkina Faso nhà báo bị cưỡng huấn luyện quân sự + Mỹ dọa trừng phạt, Haftar-Libya vai trò giải cứu con tin Mỹ; loại 2 tin trùng sự kiện đã có trong DATA — 82 binh sĩ Mali được thả 08-13, drone Akinci 08-07)."
+      "thieu": true,
+      "reason": "1 tin nạp (Africa Corps Nga mất địa bàn ở Mali trước JNIM, theo SOFREP). Không đủ 2 tin — phần lớn ứng viên khác trùng sự kiện đã đưa những ngày trước (hostage Niger/Libya, ransom UN...). Không giao vòng bổ sung vì sát hạn chót."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,16 +40,16 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "3 cuộc đang bám (FRATERNO XXXIX, SEACAT 2026, Diễn tập Hạm đội TBD Nga) — không có diễn biến MỚI trong khung 15-16/08, mọi tin tìm được đều đã có sẵn trong DATA. Bù bằng 1 cập nhật cho cuộc SẮP diễn ra Ulchi Freedom Shield 2026 (xác nhận lịch chính thức 17-27/8)."
+      "reason": "Đạt tối thiểu. 1 cập nhật cho Falcon Strike 2026 (Trung Quốc-Thái Lan): J-10C/Y-20 triển khai, nguồn Global Times (độ gần 4, khai phatNgonCuaChinhHo vì là phát ngôn của chính Trung Quốc về tập trận của họ)."
     },
     {
       "name": "Báo Mới",
-      "count": 2,
+      "count": 0,
       "target": "best-effort",
       "min": 0,
-      "thieu": false,
-      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề, cả 2 truy về bài gốc thành công nhưng cùng sự kiện đã có sẵn trong DATA (USS Lincoln->Washington Post, SM-3->war.gov) — đã gắn _baomoiUrl vào 2 tin hiện có thay vì nạp trùng. Cổng Báo Mới đã khép."
+      "thieu": true,
+      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề (Thổ Nhĩ Kỳ/Mecca/F-35; hàng không Việt-Australia) KHÔNG kịp xử lý — phiên chạy sát hạn chót 21:45, ưu tiên chốt và gửi đúng giờ theo chỉ thị Huy (hạn chót cứng 22:00). Để lại cho phiên sau."
     }
   ],
-  "note": "Phiên SÁNG SỚM CI, start 21:00Z (04:00 VN 16/08). Phát hiện 5 tin TRÙNG SỰ KIỆN với DATA cũ ngay sau add_news.py lần 1 (Jaccard 0.46-0.83, khác URL nhưng cùng sự kiện thật — sự kiện gốc đăng 08-06..08-14 đã rơi khỏi --recent-titles 20 dòng nên agent không thấy): AIM-260 Úc, Mali 82 binh sĩ, Mali Akinci drone, SM-3 Boeing/RTX, Space Data Network 60tr USD. Đã dùng prune_news.py gỡ cả 5, giữ bản gốc cũ hơn trong DATA. Chi tiết logs/loai-tin.md mục '2026-08-16 (phiên sáng sớm CI)'. Không kích được bot Telegram Jay Lâm (gh workflow run bị chặn trong sandbox CI, cần phê duyệt) — chạy tin_jaylam.py --liet-ke độc lập, kết quả: không có file Jay Lâm nào trong khung ngày (exit 10), bỏ qua bước lọc."
+  "note": "Phiên TỐI local, mốc 21:15 VN (lớp cuối còn kịp hạn email 22:00). CI 20:47 khởi động nhưng chưa ghi done khi claim (RUN exit 0). Quét gọn 5 agent song song, KHÔNG vòng bổ sung để giữ đúng hạn chót. Phát hiện 2 tin TRÙNG sự kiện với DATA cũ ngay sau add_news.py (Jaccard 0.83/0.59, sự kiện gốc 08-14 đã rơi khỏi --recent-titles 20 dòng): SM-3 RTX/Boeing, EMALS/Trump. Đã prune_news.py gỡ cả 2, giữ bản gốc cũ hơn. Chi tiết logs/loai-tin.md mục '2026-08-16 (phiên tối local)'. BƯỚC 2b (lọc file Jay Lâm) BỊ BỎ QUA hoàn toàn do sát hạn chót — chưa kích bot, chưa kiểm tin_jaylam.py --liet-ke lần này; rủi ro: nếu Jay Lâm có gửi file trong ngày, bản tin tối có thể lặp tin anh ta đã có, bù được ở phiên sáng mai (file còn hiệu lực lọc 3 ngày)."
 }
