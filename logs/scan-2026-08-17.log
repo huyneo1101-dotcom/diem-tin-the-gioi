@@ -5,3 +5,9 @@
 [21:12Z] gh workflow run telegram-bot.yml bi chan approval (khong the kich) -> tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung ngay, bo qua buoc 3b
 [21:13Z] add_news.py: OK +4 tin usNews (2 Chinh tri, 1 CNQS, 1 Mali) +1 cap nhat tap tran (Ulchi Freedom Shield 2026 khai mac). 0 tin worldNews (Uc & Bien Dong trang, da ghi ly do). Da xu ly 2 ung vien Bao Moi (ca 2 LOAI). Ghi logs/loai-tin.md + logs/scan-gaps.json day du.
 [21:14Z] DONE - chuan bi commit
+[21:16Z] Commit ban tin thanh cong (Cap nhat ban tin 17/08: +4 tin)
+[21:17Z] BUOC 6 (event-scan): claim OK. do_tap_tran_thieu.py: 14 ung vien, 1 co ten rieng (Talisman Sabre 2027 - qua som), Udara Shakti 2026 (An Do-Malaysia) da ket thuc 14/08 truoc ngay quet
+[21:20Z] Giao 1 agent Sonnet: su kien ngoai giao + think-tank
+[21:25Z] Ket qua: +1 su kien moi (Israel-Honduras MOU quoc phong, xac minh WebFetch), +5 ung vien think-tank nhung 4/5 TRUNG voi kho data/analyses.json (782 bai) -> chi nap 1 bai moi (War on the Rocks - Rickover)
+[21:26Z] add_news.py nap dipEvent OK, add_analyses.py nap think-tank OK. Khong phai Chu nhat (thu 2) nen bo qua bao cao tuan.
+[21:27Z] DONE event-scan - chuan bi commit rieng
