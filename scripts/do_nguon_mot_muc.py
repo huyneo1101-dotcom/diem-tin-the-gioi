@@ -84,6 +84,10 @@ MIEN_BAI_O_GOC = frozenset({
     # Brief · Policy paper · News) chứ không bằng đường dẫn, nên mọi loại nằm chung một tầng
     # và "mục đầu đường dẫn" không nói được gì.
     "icds.ee",
+    # thêm 16/08/2026, đã mở feed ra xem tận nơi: 6/6 item của `southasianvoices.org/feed/`
+    # đều dạng `southasianvoices.org/<slug-dai>/`, không mục nào — cùng hình dạng
+    # aspistrategist/ussc/mwi. Feed đã khai trong THINKTANK_FEEDS, đây KHÔNG phải lỗ thiếu feed.
+    "southasianvoices.org",
 })
 
 # Tiền tố NGÔN NGỮ — bóc trước khi tính mục. `icds.ee/en/<slug>` không có nghĩa là viện ấy chỉ
