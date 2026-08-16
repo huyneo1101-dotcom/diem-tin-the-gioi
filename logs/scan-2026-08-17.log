@@ -11,3 +11,4 @@
 [21:25Z] Ket qua: +1 su kien moi (Israel-Honduras MOU quoc phong, xac minh WebFetch), +5 ung vien think-tank nhung 4/5 TRUNG voi kho data/analyses.json (782 bai) -> chi nap 1 bai moi (War on the Rocks - Rickover)
 [21:26Z] add_news.py nap dipEvent OK, add_analyses.py nap think-tank OK. Khong phai Chu nhat (thu 2) nen bo qua bao cao tuan.
 [21:27Z] DONE event-scan - chuan bi commit rieng
+[21:26Z] SKIP (CI, phien sau) - claim web-scan tra exit 10 (DONE luc 2026-08-17T04:16:58+07:00, cach ~10 phut). Kiem tra ngoai le: so_da_gui --xem co dong 2026-08-17T04:25:36+07:00 [sang] 5 tin + [sukien] 1 tin -> ban tin da toi tay that. SKIP hop le, khong quet lai.
