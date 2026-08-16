@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-16T04:48:33+07:00",
+  "tao_luc": "2026-08-16T20:46:25+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-15",
@@ -21,6 +21,14 @@
       "tieu_de": "Indian Envoy leads celebration of Independence Day in Singapore",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/national/indian-envoy-leads-celebration-of-independence-day-in-singapore/article71348824.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-16",
+      "tieu_de": "Argentina’s big cats begin relocation to sanctuaries abroad",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/08/16/argentinas-big-cats-begin-relocation-to-sanctuaries-abroad/"
     },
     {
       "lop": "RSS",
@@ -106,17 +114,17 @@
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-08-15",
-      "tieu_de": "A US$50 million hostage ransom funded Al Qaeda’s Mali offensive, UN says",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/a-50-million-hostage-ransom-funded-al-qaedas-mali-offensive-un-says"
+      "tieu_de": "Burkina Faso imposes military training on journalists",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/08/15/burkina-faso-imposes-military-training-on-journalists/"
     },
     {
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-08-15",
-      "tieu_de": "Burkina Faso imposes military training on journalists",
+      "tieu_de": "UN says $50 million ransom fueled Al-Qaeda offensive in Mali",
       "nguon": "Africanews",
-      "url": "http://www.africanews.com/2026/08/15/burkina-faso-imposes-military-training-on-journalists/"
+      "url": "http://www.africanews.com/2026/08/15/un-says-50-million-ransom-fueled-al-qaeda-offensive-in-mali/"
     },
     {
       "lop": "RSS",
@@ -141,14 +149,6 @@
       "tieu_de": "Day 3 of the 2026 Space and Missile Defense Symposium",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/day-3-of-the-2026-space-and-missile-defense-symposium/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-16",
-      "tieu_de": "US aircraft carrier expected to relieve USS Lincoln in Middle East",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/15/us-aircraft-carrier-expected-to-relieve-uss-lincoln-in-middle-east?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -193,6 +193,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Ba yếu tố bào mòn tàu sân bay Mỹ giữa vùng chiến sự",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/ba-yeu-to-bao-mon-tau-san-bay-my-giua-vung-chien-su-5109364.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-15",
       "tieu_de": "Mỹ muốn mua tên lửa giá rẻ tầm 1.000 km cho HIMARS",
       "nguon": "VnExpress",
@@ -233,14 +241,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-13",
-      "tieu_de": "Ông Hùng Cao bị chất vấn sau thông tin thủy thủ nhảy khỏi tàu sân bay gần Iran",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/ong-hung-cao-bi-chat-van-sau-thong-tin-thuy-thu-nhay-khoi-tau-san-bay-gan-iran-5108719.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "?",
       "tieu_de": "Nguồn cơn cuộc khủng hoảng hậu cần trên tàu sân bay Mỹ",
       "nguon": "Tuổi Trẻ",
@@ -265,22 +265,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "Mỹ rút tàu sân bay USS Abraham Lincoln, điều tàu George Washington đến Trung Đông",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/my-rut-tau-san-bay-uss-abraham-lincoln-dieu-tau-george-washington-den-trung-dong-10026081415372067.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "Tàu sân bay USS Abraham Lincoln 'sống' thế nào suốt 9 tháng không cập cảng?",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/tau-san-bay-uss-abraham-lincoln-song-the-nao-suot-9-thang-khong-cap-cang-100260814133252201.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-14",
       "tieu_de": "Lý do Mỹ quay lại dùng công nghệ 70 năm trước trên dàn tàu sân bay hạt nhân",
       "nguon": "Dân Trí",
@@ -293,6 +277,14 @@
       "tieu_de": "Sức ép bủa vây thủy thủ tàu sân bay Mỹ trong chuỗi ngày lênh đênh trên biển",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/suc-ep-bua-vay-thuy-thu-tau-san-bay-my-trong-chuoi-ngay-lenh-denh-tren-bien-20260814141131724.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-14",
+      "tieu_de": "Mỹ điều tàu sân bay mới đến Trung Đông",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/my-dieu-tau-san-bay-moi-den-trung-dong-20260814122137559.htm"
     },
     {
       "lop": "RSS",
@@ -339,7 +331,7 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-14",
       "tieu_de": "New aircraft carrier going to Middle East amid questions over conditions on USS Abraham Lincoln",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6028854-george-washington-replaces-abraham-lincoln/"
     },
     {
@@ -385,14 +377,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-15",
-      "tieu_de": "Forging Precision: Inside the U.S. Army Marksmanship Unit’s Custom Firearms Shop",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/294639/forging_precision_inside_the_u_s_army_marksmanship_units_custom_firearms_shop"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-13",
       "tieu_de": "Cold War-era law finds new use at America’s B-2 bomber base",
       "nguon": "Không quân Mỹ — Air Force Link News",
@@ -401,7 +385,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-15",
+      "ngay": "2026-08-16",
       "tieu_de": "Why China's Grip on Iron Ore Is a Warning for the U.S. Navy",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/15/why_chinas_grip_on_iron_ore_is_a_warning_for_the_us_navy_1200550.html"
@@ -529,6 +513,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "US Army Combined Arms Command Advances AI-Powered Knowledge Platform, VICTOR",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/08/16/us-army-combined-arms-command-advances-ai-powered-knowledge-platform-victor/?utm_source=rss&utm_medium=rss&utm_campaign=us-army-combined-arms-command-advances-ai-powered-knowledge-platform-victor"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-13",
       "tieu_de": "Army and Marine Corps strengthen their joint air defense capabilities in the Pacific",
       "nguon": "Sandboxx News",
@@ -601,10 +593,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-15",
-      "tieu_de": "Tổng thống Trump chỉ đạo cải tổ lớn ngành đóng tàu Hải quân Mỹ",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tong-thong-trump-chi-dao-cai-to-lon-nganh-dong-tau-hai-quan-my-post1130292.vnp"
+      "ngay": "2026-08-16",
+      "tieu_de": "Mỹ rút tàu sân bay cuối cùng khỏi châu Á",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/my-rut-tau-san-bay-cuoi-cung-khoi-chau-a-2545946.html"
     },
     {
       "lop": "RSS",
@@ -626,9 +618,33 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-16",
-      "tieu_de": "Powerful magnitude 7.7 earthquake kills at least 47 in Indonesia",
+      "tieu_de": "Patients treated in tents after earthquake damages Indonesia hospital",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/16/patients-treated-in-tents-after-earthquake-damages-indonesia-hospital?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Australia to begin gun buyback scheme in response to Bondi shooting",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/16/australia-to-begin-gun-buyback-scheme-in-response-to-bondi-shooting?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Bangladesh make history with first-ever Test cricket win in Australia",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/sports/2026/8/16/bangladesh-australia-first-test-win-miraz-mahmud-hasan-smith-green-hazlewood?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Thousands displaced by deadly Indonesia earthquake as rescue efforts continue",
       "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c5y0zz63gero?at_medium=RSS&at_campaign=rss"
+      "url": "https://www.bbc.co.uk/news/articles/c3v00w5ylw9o?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -649,26 +665,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "Indonesia hit by earthquake aftershock as rescuers search for survivors",
+      "ngay": "2026-08-16",
+      "tieu_de": "Thousands of evacuees await aid after deadly quake on Indonesia's Flores island",
       "nguon": "France 24",
-      "url": "https://www.france24.com/en/indonesia-hit-by-earthquake-aftershock-as-rescuers-search-for-survivors"
+      "url": "https://www.france24.com/en/asia-pacific/20260816-thousands-await-aid-after-deadly-indonesian-quake"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "🔴 Indonesia hit by two powerful earthquakes",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/asia-pacific/20260815-deadly-earthquake-strikes-indonesia-and-triggers-mass-evacuations"
+      "ngay": "2026-08-16",
+      "tieu_de": "Thousands evacuate after Indonesia earthquake kills 51, cuts roads",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/indonesia-earthquake-death-toll-flores-island-damage-and-evacuations/article71352038.ece"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "Indonesia earthquake kills at least 38 as rescue operation continues",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/indonesia-earthquake-kills-at-least-38-as-rescue-operation-continues"
+      "ngay": "2026-08-16",
+      "tieu_de": "Magnitude 7.7 earthquake strikes off Indonesia’s coast, killing at least 47 and toppling buildings",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/indonesia-earthquake-august-15-2026/article71347456.ece"
     },
     {
       "lop": "RSS",
@@ -677,14 +693,6 @@
       "tieu_de": "Magnitude 6.0 earthquake strikes Minahassa Peninsula; third to strike Indonesia",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/indonesia-earthquake-strikes-minahassa-peninsula/article71350769.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "Magnitude 7.7 earthquake strikes off Indonesia’s coast, killing at least 47 and toppling buildings",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/indonesia-earthquake-august-15-2026/article71347456.ece"
     },
     {
       "lop": "RSS",
@@ -721,6 +729,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Chạy đua t&igrave;m người sống s&oacute;t sau động đất 7,7 độ ở Indonesia",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/chay-dua-tim-nguoi-song-sot-sau-dong-dat-77-do-o-indonesia-185260816092924303.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-15",
       "tieu_de": "&Iacute;t nhất 20 người thiệt mạng trong động đất tại Indonesia",
       "nguon": "Thanh Niên",
@@ -733,6 +749,14 @@
       "tieu_de": "Động đất 7,7 độ Richter rung chuyển Indonesia, xuất hiện s&oacute;ng thần",
       "nguon": "Thanh Niên",
       "url": "https://thanhnien.vn/dong-dat-77-do-richter-rung-chuyen-indonesia-xuat-hien-song-than-185260815083848352.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "51 người thiệt mạng trong động đất, người dân Indonesia hoảng loạn tìm sự sống",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/51-nguoi-thiet-mang-trong-dong-dat-nguoi-dan-indonesia-hoang-loan-tim-su-song-100260816113316233.htm"
     },
     {
       "lop": "RSS",
@@ -802,9 +826,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
-      "tieu_de": "Indonesia sẽ giải thể hơn 750 doanh nghiệp nhà nước thua lỗ triền miên nhưng vẫn báo cáo có lãi",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/indonesia-se-giai-the-hon-750-doanh-nghiep-nha-nuoc-thua-lo-trien-mien-nhung-van-bao-cao-co-lai-100260814162239482.htm"
+      "tieu_de": "DAP votes to stay in Malaysia's ruling coalition, easing pressure on Anwar",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/politics/dap-votes-to-stay-in-malaysia-s-ruling-coalition-easing-pressure-on-anwar"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Australian puppy yoga: It's a combination of cuddles and chaos",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/life-arts/life/australian-puppy-yoga-it-s-a-combination-of-cuddles-and-chaos"
     },
     {
       "lop": "RSS",
@@ -813,6 +845,14 @@
       "tieu_de": "Taiwan rail jumps to growth track with new Japan bullet train cars",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/transportation/taiwan-rail-jumps-to-growth-track-with-new-japan-bullet-train-cars"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "At least 47 dead in eastern Indonesia earthquake of magnitude 7.7",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/economy/natural-disasters/at-least-47-dead-in-eastern-indonesia-earthquake-of-magnitude-7.7"
     },
     {
       "lop": "RSS",
@@ -857,6 +897,22 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Chuyến thăm Australia và New Zealand của Tổng Bí thư, Chủ tịch nước Tô Lâm: Từ củng cố quan hệ đến chủ động kiến tạo không gian phát triển",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/chuyen-tham-australia-va-new-zealand-cua-tong-bi-thu-chu-tich-nuoc-to-lam-tu-cung-co-quan-he-den-chu-dong-kien-tao-khong-gian-phat-trien.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Indonesia chạy đua tìm kiếm người sống sót sau động đất",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/indonesia-chay-dua-tim-kiem-nguoi-song-sot-sau-dong-dat-20260816105016725.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-15",
       "tieu_de": "Indonesia hứng chịu 2 trận động đất cường độ mạnh trong 1 ngày",
       "nguon": "Dân Trí",
@@ -882,22 +938,22 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-16",
-      "tieu_de": "One of Australia's 'most violent' killers makes bid for freedom",
+      "tieu_de": "Indonesia earthquake death toll reaches 53, thousands evacuated",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-16/parole-review-underway-for-convicted-murderer-alistair-macrae/107028580"
+      "url": "https://www.abc.net.au/news/2026-08-16/evacuees-wait-for-aid-after-deadly-earthquake-in-indonesia/107043232"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-16",
-      "tieu_de": "Earthquake survivors 'still on alert' after dozens killed in Indonesia",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-16/search-for-survivors-after-indonesia-earthquake/107042186"
+      "tieu_de": "23 dead as habagat, 'Luis,' 'Maymay' batter Philippines — OCD",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/08/16/2549693/23-dead-habagat-luis-maymay-batter-philippines-ocd"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
+      "ngay": "2026-08-16",
       "tieu_de": "Media Pushes Carrier Crew Story As Iran Blockade Is Working",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/15/media_pushes_carrier_crew_story_as_iran_blockade_is_working_1200516.html"
@@ -913,10 +969,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "Powerful quake off Indonesia kills 20, sparks mass evacuations",
+      "ngay": "2026-08-16",
+      "tieu_de": "New shinkansen model delivered to Taiwan",
       "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/08/15/asia-pacific/indonesia-earthquake-flores-island/"
+      "url": "https://www.japantimes.co.jp/business/2026/08/16/taiwan-shinkansen-arrival/"
     },
     {
       "lop": "RSS",
@@ -933,6 +989,22 @@
       "tieu_de": "Indonesia has all that it takes to move up the value chain",
       "nguon": "Atlantic Council",
       "url": "https://www.atlanticcouncil.org/blogs/econographics/indonesia-has-all-that-it-takes-to-move-up-the-value-chain/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Japan’s defence minister heads to Australia to meet Marles in wake of melon-gate controversy",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/2026/aug/16/japans-defence-minister-heads-to-australia-to-meet-marles-in-wake-of-melon-gate-controversy"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-16",
+      "tieu_de": "Rescue teams search for survivors in Indonesia after powerful earthquake",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/2026/aug/16/rescue-teams-search-for-survivors-in-indonesia-after-powerful-earthquake"
     },
     {
       "lop": "RSS",
@@ -954,9 +1026,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-15",
-      "tieu_de": "Coalition split on Andrew Bragg speech as South Australian senator Andrew McLachlan urges colleagues to ‘follow his lead’",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/aug/15/coalition-split-on-andrew-bragg-speech-as-south-australian-senator-andrew-mclachlan-urges-colleagues-to-follow-his-lead"
+      "tieu_de": "Rescuers dig through rubble and landslides after Indonesia quake kills 51",
+      "nguon": "NPR — World",
+      "url": "https://www.npr.org/2026/08/15/nx-s1-5932405/earthquake-indonesia"
     },
     {
       "lop": "RSS",
@@ -985,22 +1057,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "Động đất có độ lớn 7,7 ngoài khơi Indonesia kèm hai dư chấn mạnh",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/dong-dat-co-do-lon-77-ngoai-khoi-indonesia-kem-hai-du-chan-manh-post1130296.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "59 năm ASEAN: Tăng cường kết nối ASEAN và địa phương của Australia",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/59-nam-asean-tang-cuong-ket-noi-asean-va-dia-phuong-cua-australia-post1130282.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-16",
       "tieu_de": "Indonesia thúc đẩy điện Mặt Trời để tăng tự chủ năng lượng",
       "nguon": "Nhân Dân",
@@ -1013,6 +1069,14 @@
       "tieu_de": "Động đất ở Indonesia khiến ít nhất 20 người tử vong",
       "nguon": "Nhân Dân",
       "url": "https://nhandan.vn/dong-dat-o-indonesia-khien-it-nhat-20-nguoi-tu-vong-post982091.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-15",
+      "tieu_de": "Động đất có độ lớn 7,7 ngoài khơi Indonesia kèm hai dư chấn mạnh",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/dong-dat-co-do-lon-77-ngoai-khoi-indonesia-kem-hai-du-chan-manh-post982051.html"
     },
     {
       "lop": "RSS",
@@ -1064,29 +1128,30 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-15",
-      "tieu_de": "Ít nhất 47 người thiệt mạng do động đất kinh hoàng tại Indonesia",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/it-nhat-47-nguoi-thiet-mang-do-dong-dat-kinh-hoang-tai-indonesia-432061.html"
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Colombia's new president asks Trump to suspend tariffs after deadly earthquake",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/americas/20260816-colombia-s-new-president-asks-trump-to-suspend-tariffs-after-deadly-earthquake",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Colombia’s leader asks Trump to suspend tariffs over quake",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/colombias-leader-asks-trump-to-suspend-tariffs-over-quake",
+      "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-15",
-      "tieu_de": "Trump’s 2024 grocery photo op now haunts Republicans in the midterms",
+      "tieu_de": "Trump’s 2024 grocery photo op returns to haunt Republicans in the midterms",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/united-states/trumps-2024-grocery-photo-op-now-haunts-republicans-in-the-midterms",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-15",
-      "tieu_de": "Florida venue cancels rally with Palestinian-American lawmaker Rashida Tlaib​​",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/florida-venue-cancels-rally-with-palestinian-american-lawmaker-rashida-tlaib",
-      "nhom": 3
     },
     {
       "lop": "RSS",
@@ -1110,10 +1175,46 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
+      "tieu_de": "Hàn Quốc bất ngờ miễn nhiệm Bộ trưởng Thương mại giữa sức ép thuế quan với Mỹ",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/han-quoc-bat-ngo-mien-nhiem-bo-truong-thuong-mai-giua-suc-ep-thue-quan-voi-my-100260816090223514.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Tin tức thế giới 16-8: Cháy rừng ở châu Âu gây khủng hoảng; Đảng Dân chủ Mỹ khởi động bầu cử 2028",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/tin-tuc-the-gioi-16-8-chay-rung-o-chau-au-gay-khung-hoang-dang-dan-chu-my-khoi-dong-bau-cu-2028-100260816050702333.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
       "tieu_de": "Trump's tariffs unevenly reshape American manufacturing",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/economy/trade-war/trump-tariffs/trump-s-tariffs-unevenly-reshape-american-manufacturing",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Mỹ tuyên bố thiệt hại 26 tỷ USD tiền thuế quan mỗi năm vì hàng Trung Quốc chuyển tải",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/my-tuyen-bo-thiet-hai-26-ty-usd-tien-thue-quan-moi-nam-vi-hang-trung-quoc-chuyen-tai.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "ID requirements for mail-in voting in Texas reinstated by federal appeals court",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/state-watch/6031844-id-requirements-for-mail-in-voting-in-texas-reinstated-by-federal-appeals-court/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1145,6 +1246,42 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Amid Republican Midterm Worries, Trump OK's Cash Infusion",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/2026/08/16/amid_republican_midterm_worries_trump_oks_cash_infusion_708123.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "China’s 32,000-kilometer solar trade route that battled U.S. tariffs",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/business/2026/08/16/tech/china-us-trump-solar-energy/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "U.S. military option for Cuba fades as Trump focuses on sanctions",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/news/2026/08/16/world/politics/trump-us-military-cuba-sanctions/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Industry minister again heads for Washington amid growing U.S. tariff pressure",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260816002000320",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-15",
       "tieu_de": "(LEAD) S. Korea's chief trade negotiator fired amid growing U.S. tariff pressure",
       "nguon": "Yonhap (Hàn Quốc)",
@@ -1159,6 +1296,15 @@
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/tri-tue-nhan-tao-ai-len-sau-vao-cuoc-dua-tranh-cu-quoc-hoi-my-post1130377.vnp",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-16",
+      "tieu_de": "Các nước thúc đẩy trao đổi với Mỹ về thuế quan",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/cac-nuoc-thuc-day-trao-doi-voi-my-ve-thue-quan-post982173.html",
+      "nhom": 4
     },
     {
       "lop": "RSS",
