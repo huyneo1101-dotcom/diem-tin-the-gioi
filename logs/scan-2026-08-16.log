@@ -26,3 +26,7 @@
 [21:55Z] SKIP em, khong quet lai. Ket thuc phien.
 [14:00Z] START (CI) phien toi 2026-08-16
 [14:15Z] START (local) phien toi, moc 21:15 VN. claim web-scan tra RUN (exit 0). Quet that.
+[14:43Z] KHOA BI CUOP: local phien claim web-scan luc 21:15:45+07 (sau khi phien CI nay claim luc 21:00 nhung KHONG push logs/state.json ngay - dung loi da canh bao trong CLAUDE.md). Phat hien luc pull --rebase bi tu choi vi unstaged changes, fetch thay origin/main da di truoc 3 commit tu phien local.
+[14:43Z] Theo dung giao thuc xung dot khoa: DUNG phien nay, KHONG goi state.py skip/fail (se de len RUNNING cua phien dang giu khoa that), git reset --hard origin/main de huy index.html + state.json cuc bo chua push.
+[14:43Z] Da chuan bi xong 6 tin usNews sach (2 Noi bo My, 3 CNQS My, 1 Mali) qua 4 agent Sonnet + 2 vong bo sung + kiem trung ky (Jaccard + case-insensitive) truoc khi phat hien xung dot - KHONG duoc cong bo vi phien local se la ban tin chinh thuc cho ca toi hom nay. logs/loai-tin.md va logs/scan-gaps.json da ghi cuc bo cung bi mat theo reset (chi con trong commit 8a0f3df da bi bo, khong con trong lich su).
+[14:43Z] SKIP - ket thuc phien CI nay, nhuong cho phien local dang chay.
