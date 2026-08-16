@@ -1,1 +1,7 @@
 [21:00Z] START (CI) phien sang som 2026-08-17 03:59 VN
+[21:02Z] harvest.py: 262 ung vien (curl_cffi khong co, khong tien hanh cai vi can approval) + telegram_harvest.py: 12 ung vien, bam 6 tap tran dang chay
+[21:04Z] Giao 4 agent Sonnet song song: Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran
+[21:10Z] Ca 4 agent tra ket qua. Review + WebFetch/WebSearch xac minh: loai nhieu tin trung/qua han (SM-3 x3 lan, Orca UUV, AHSS/TWZ, FT poll, Canada tariff, Texas voter ID, Manila Times 8-star memo su kien 7/8, Jamestown AQAP su kien 7/8, Golden Dome Hub 11/8, Flight School Next 13/8)
+[21:12Z] gh workflow run telegram-bot.yml bi chan approval (khong the kich) -> tin_jaylam.py --liet-ke: khong co file Jay Lam trong khung ngay, bo qua buoc 3b
+[21:13Z] add_news.py: OK +4 tin usNews (2 Chinh tri, 1 CNQS, 1 Mali) +1 cap nhat tap tran (Ulchi Freedom Shield 2026 khai mac). 0 tin worldNews (Uc & Bien Dong trang, da ghi ly do). Da xu ly 2 ung vien Bao Moi (ca 2 LOAI). Ghi logs/loai-tin.md + logs/scan-gaps.json day du.
+[21:14Z] DONE - chuan bi commit

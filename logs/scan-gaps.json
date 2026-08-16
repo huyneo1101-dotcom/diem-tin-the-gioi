@@ -1,22 +1,22 @@
 {
-  "date": "2026-08-16",
-  "session": "toi",
+  "date": "2026-08-17",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 3,
+      "count": 2,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "3 tin nạp (toà phúc thẩm ID bỏ phiếu qua thư Texas, đua ghế Thượng viện Alaska, khảo sát FT về tài chính cử tri) — không có phiên điều trần/bỏ phiếu dự luật nào trong khung 15-16/08 (cuối tuần, Quốc hội nghỉ). Phiên chạy sát hạn chót 21:45 nên KHÔNG giao vòng bổ sung — ưu tiên gửi đúng giờ theo chỉ thị Huy."
+      "reason": "2 tin nạp (Jeffries bác cương lĩnh DSA, Malliotakis cảnh báo 'khối nghị sĩ cộng sản' — cả hai nhóm 5/bầu cử). Nhóm 1 (điều trần + bỏ phiếu) TRẮNG hoàn toàn: Quốc hội Mỹ đang nghỉ hè (Hạ viện tới 31/8, Thượng viện tới 14/9), đã xác nhận qua nhiều tìm kiếm. Nhiều ứng viên khác bị loại vì trùng tin đã có (khảo sát FT, thuế Canada, ID bỏ phiếu Texas) hoặc ngoài khung ngày (15/08)."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 1,
+      "count": 0,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "1 tin nạp (Bắc Kinh-Manila tranh cãi vụ bắt giữ lao động, lan từ Biển Đông sang nhập cư). Phần lớn ứng viên khác trùng sự kiện đã có trong DATA (Fukuian carrier, USS Benfold, bãi cạn Scarborough...) hoặc ngoài khung ngày. Không giao vòng bổ sung vì sát hạn chót."
+      "reason": "0 tin nạp. Ứng viên duy nhất gần đạt (Philippines-Mỹ ký '8-star memo' hợp tác quốc phòng, Manila Times) bị loại sau khi WebFetch xác minh sự kiện ký thật diễn ra 07/08 — Manila Times chỉ đăng bài chi tiết muộn 10 ngày, ngoài khung. Phần lớn diễn biến đáng chú ý trong tuần (USS Benfold, Scarborough, Marcos-Bãi Cỏ Mây, Pitch Black, AUKUS RIMPAC, Osborne 4.6 tỷ AUD) đã nạp ở các phiên 11-15/08 trước đó."
     },
     {
       "name": "CNQS Mỹ",
@@ -24,7 +24,7 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "3 tin agent đề xuất, 2 tin (SM-3 RTX/Boeing, EMALS/Trump) bị phát hiện TRÙNG sự kiện đã có trong DATA (cùng ngày 08-14, nguồn khác) qua cảnh báo Jaccard của add_news.py — đã prune. Chỉ còn 1 tin thật mới (Shield AI X-Bat drone VTOL). Không giao vòng bổ sung vì sát hạn chót."
+      "reason": "1 tin nạp (Không quân Mỹ mua drone DJI Trung Quốc làm mục tiêu huấn luyện chống UAS tại căn cứ tên lửa hạt nhân F.E. Warren). 5 ứng viên khác bị loại: SM-3 Boeing/RTX (trùng sự kiện đã nạp 08-14, lần thứ 3 câu chuyện này suýt bị nạp trùng), AHSS 1000km/TWZ (URL đã có sẵn trong DATA), Orca UUV (trùng tiêu đề gần y hệt tin 15/08 đã có), Flight School Next/army.mil (sự kiện 13/08, ngoài khung nới 3 ngày 14-17/08), Golden Dome Hub/war.gov (sự kiện 11/08, ngoài khung)."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "1 tin nạp (Africa Corps Nga mất địa bàn ở Mali trước JNIM, theo SOFREP). Không đủ 2 tin — phần lớn ứng viên khác trùng sự kiện đã đưa những ngày trước (hostage Niger/Libya, ransom UN...). Không giao vòng bổ sung vì sát hạn chót."
+      "reason": "1 tin nạp (ICRC chuyển 6 người bị thương từ Kidal về Gao, 16/08). Ứng viên thứ hai (AQAP tận dụng đà JNIM ở Sahel, Jamestown Foundation) bị loại vì bài thực đăng 07/08, ngoài khung dù agent báo cáo nhầm ngày 16/08. Nhiều diễn biến Mali/Sahel khác trong tuần đã trùng tin đã đưa 14-16/08 (Africa Corps mất thị trấn, ân xá điệp viên Pháp, tiền chuộc 50 triệu USD LHQ)."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,16 +40,16 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "Đạt tối thiểu. 1 cập nhật cho Falcon Strike 2026 (Trung Quốc-Thái Lan): J-10C/Y-20 triển khai, nguồn Global Times (độ gần 4, khai phatNgonCuaChinhHo vì là phát ngôn của chính Trung Quốc về tập trận của họ)."
+      "reason": "Đạt tối thiểu. 1 cập nhật cho Ulchi Freedom Shield 2026 (Hàn Quốc-Mỹ): khai mạc đúng ngày 17/08, ~18.000 quân Hàn tham gia, nguồn Korea Times. Các cuộc khác đang bám (PANAMAX, Baltic Trust, Hán Quang 42, Diễn tập Hạm đội TBD Nga) đã kết thúc/không có diễn biến mới trong khung; SEACAT 2026 không tìm được cập nhật mới."
     },
     {
       "name": "Báo Mới",
       "count": 0,
       "target": "best-effort",
       "min": 0,
-      "thieu": true,
-      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề (Thổ Nhĩ Kỳ/Mecca/F-35; hàng không Việt-Australia) KHÔNG kịp xử lý — phiên chạy sát hạn chót 21:45, ưu tiên chốt và gửi đúng giờ theo chỉ thị Huy (hạn chót cứng 22:00). Để lại cho phiên sau."
+      "thieu": false,
+      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề (Mecca/F-35 Thổ Nhĩ Kỳ; hàng không Việt-Australia) đã xử lý — cả hai LOẠI (không phải chủ đề quân sự/an ninh đúng phạm vi), ghi lý do chi tiết trong logs/loai-tin.md."
     }
   ],
-  "note": "Phiên TỐI local, mốc 21:15 VN (lớp cuối còn kịp hạn email 22:00). CI 20:47 khởi động nhưng chưa ghi done khi claim (RUN exit 0). Quét gọn 5 agent song song, KHÔNG vòng bổ sung để giữ đúng hạn chót. Phát hiện 2 tin TRÙNG sự kiện với DATA cũ ngay sau add_news.py (Jaccard 0.83/0.59, sự kiện gốc 08-14 đã rơi khỏi --recent-titles 20 dòng): SM-3 RTX/Boeing, EMALS/Trump. Đã prune_news.py gỡ cả 2, giữ bản gốc cũ hơn. Chi tiết logs/loai-tin.md mục '2026-08-16 (phiên tối local)'. BƯỚC 2b (lọc file Jay Lâm) BỊ BỎ QUA hoàn toàn do sát hạn chót — chưa kích bot, chưa kiểm tin_jaylam.py --liet-ke lần này; rủi ro: nếu Jay Lâm có gửi file trong ngày, bản tin tối có thể lặp tin anh ta đã có, bù được ở phiên sáng mai (file còn hiệu lực lọc 3 ngày)."
+  "note": "Phiên sáng sớm CI (03:59-05:xx VN, 17/08/2026). Nhiều sự kiện lớn ngày 16/08 đã được các phiên trước (tối 16/08 local + vòng CI) nạp gần hết, khiến sản lượng các chủ đề khá mỏng đêm nay — thực trạng khách quan (nhiều lần suýt nạp trùng tin đã có, guardrail Jaccard + trùng URL bắt được kịp), không nới lỏng tiêu chuẩn/bịa tin để bù số."
 }
