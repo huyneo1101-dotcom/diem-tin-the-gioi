@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-17T21:03:41+07:00",
+  "tao_luc": "2026-08-17T21:56:18+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-16",
@@ -10,9 +10,9 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-08-17",
-      "tieu_de": "Putin visited Kuril to 'punish' Japan over Ukraine stance",
+      "tieu_de": "Putin visited Kuril Islands to 'punish' Japan over Ukraine stance",
       "nguon": "Deutsche Welle",
-      "url": "https://www.dw.com/en/putin-visited-kuril-to-punish-japan-over-ukraine-stance/a-78398035?maca=en-rss-en-world-4025-rdf"
+      "url": "https://www.dw.com/en/putin-visited-kuril-islands-to-punish-japan-over-ukraine-stance/a-78398035?maca=en-rss-en-world-4025-rdf"
     },
     {
       "lop": "RSS",
@@ -105,6 +105,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-17",
+      "tieu_de": "US awards Raytheon $22.9 billion deal to boost Tomahawk output",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/news/pentagon-congress/2026/08/17/us-awards-raytheon-229-billion-deal-to-boost-tomahawk-output/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-15",
       "tieu_de": "Patriot makers hedge on Ukraine production deal as officials question cause of hold-up",
       "nguon": "Defense News",
@@ -122,14 +130,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-14",
-      "tieu_de": "Pentagon inks SM-3 framework deals with RTX, Boeing on critical components",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/08/pentagon-inks-sm-3-framework-deals-with-rtx-boeing-on-critical-components/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
       "tieu_de": "Day 3 of the 2026 Space and Missile Defense Symposium",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/day-3-of-the-2026-space-and-missile-defense-symposium/"
@@ -141,6 +141,14 @@
       "tieu_de": "USS Lincoln crisis: How it compares to past aircraft carrier deployments",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/8/17/uss-lincoln-crisis-how-it-compares-to-past-aircraft-carrier-deployments?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-17",
+      "tieu_de": "Trump orders Pentagon to cut back military drills with Seoul hours before start",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/video/20260817-trump-orders-pentagon-to-cut-back-military-drills-with-seoul-hours-before-start"
     },
     {
       "lop": "RSS",
@@ -314,9 +322,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-17",
-      "tieu_de": "Department of War and RTX Accelerate Critical Munitions Production Through Navy Tomahawk Award",
+      "tieu_de": "Department of War Orders Research Security Audits at 30 Academic Institutions",
       "nguon": "DoD News Releases",
-      "url": "https://www.war.gov/News/Releases/Release/Article/4573544/department-of-war-and-rtx-accelerate-critical-munitions-production-through-navy/"
+      "url": "https://www.war.gov/News/Releases/Release/Article/4575019/department-of-war-orders-research-security-audits-at-30-academic-institutions/"
     },
     {
       "lop": "RSS",
@@ -373,6 +381,14 @@
       "tieu_de": "Operationalizing Operator Syndrome: What the Pentagon advisory council needs to get right",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/opinion/2026/08/14/operationalizing-operator-syndrome-what-the-pentagon-advisory-council-needs-to-get-right/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-15",
+      "tieu_de": "Pentagon inks deals with Boeing, RTX to boost production of SM-3 components",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/industry/techwatch/2026/08/14/pentagon-inks-deals-with-boeing-rtx-to-boost-production-of-sm-3-components/"
     },
     {
       "lop": "RSS",
@@ -487,6 +503,14 @@
       "url": "https://science.house.gov/press-releases?ID=52612EE3-D235-4B86-9426-482AD63D5606"
     },
     {
+      "lop": "HTML",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "?",
+      "tieu_de": "U.S. Navy and RTX Accelerate Critical Munitions Production Through Tomahawk Award",
+      "nguon": "Hải quân Mỹ",
+      "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/4574913/us-navy-and-rtx-accelerate-critical-munitions-production-through-tomahawk-award/"
+    },
+    {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-17",
@@ -506,14 +530,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-16",
-      "tieu_de": "Thousands displaced by deadly Indonesia earthquake as rescue efforts continue",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c3v00w5ylw9o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
       "tieu_de": "Why is Australia's mushroom killer back in court this week?",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/videos/c62e1v8p07go?at_medium=RSS&at_campaign=rss"
@@ -525,6 +541,14 @@
       "tieu_de": "Indonesia neutrality tested by joint naval drill with China",
       "nguon": "Deutsche Welle",
       "url": "https://www.dw.com/en/indonesia-neutrality-tested-by-joint-naval-drill-with-china/a-78400288?maca=en-rss-en-world-4025-rdf"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-17",
+      "tieu_de": "Indonesia earthquake leaves thousands homeless as rescue efforts continue",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/indonesia-earthquake-leaves-thousands-homeless-as-rescue-efforts-continue"
     },
     {
       "lop": "RSS",
@@ -642,6 +666,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
+      "tieu_de": "Mitsubishi Motors plans EV for Australia, New Zealand, made by Foxconn unit",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/automobiles/electric-vehicles/mitsubishi-motors-plans-ev-for-australia-new-zealand-made-by-foxconn-unit"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
       "tieu_de": "Indonesia extends credit card network in challenge to Visa and Mastercard",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/finance/indonesia-extends-credit-card-network-in-challenge-to-visa-and-mastercard"
@@ -701,14 +733,6 @@
       "tieu_de": "Indonesia's Prabowo targets 6% growth, lower budget deficit in 2027",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/economy/indonesia-s-prabowo-targets-6-growth-lower-budget-deficit-in-2027"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Taiwan drills send 'serious' message with more realism, internet throttling",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/taiwan-tensions/taiwan-drills-send-serious-message-with-more-realism-internet-throttling"
     },
     {
       "lop": "RSS",
@@ -797,14 +821,6 @@
       "tieu_de": "Manila Water boosts Upper Wawa Dam monitoring, coordination",
       "nguon": "Inquirer",
       "url": "https://newsinfo.inquirer.net/2286653/manila-water-boosts-upper-wawa-dam-monitoring-coordination"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "DOLE files bid to lift freeze on ​P85 wage hike in Metro Manila",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2286636/dole-files-bid-to-lift-freeze-on-p85-wage-hike-in-metro-manila"
     },
     {
       "lop": "RSS",
@@ -960,14 +976,6 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "Sailing the same tide Indonesia at 81 and the shared voyage with Viet Nam",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://en.baoquocte.vn/sailing-the-same-tide-indonesia-at-81-and-the-shared-voyage-with-viet-nam-432689.html"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "Lula holds tight lead over Senator Bolsonaro ahead of Brazil election, poll shows",
@@ -1055,6 +1063,15 @@
       "nguon": "VnEconomy",
       "url": "https://vneconomy.vn/tong-thong-trump-ap-thue-quan-moi-doi-voi-thiet-bi-bay-khong-nguoi-lai.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-17",
+      "tieu_de": "Blanche: Trump administration may seek Supreme Court intervention in state voter rolls fight",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/regulation/court-battles/6033159-todd-blanche-donald-trump-voter-rolls-supreme-court/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
