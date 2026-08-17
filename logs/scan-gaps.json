@@ -1,38 +1,38 @@
 {
-  "date": "2026-08-17",
-  "session": "toi",
+  "date": "2026-08-18",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 1,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "1 tin nạp (Canada-Mỹ đàm phán thuế quan trước hạn chót 50%, nhóm 4). Nhóm 1 (điều trần + bỏ phiếu) TIẾP TỤC TRẮNG — Quốc hội Mỹ vẫn nghỉ hè. 12/14 ứng viên GNEWS bị loại: sắc lệnh vắc-xin (ký 10/08, ngoài khung), Thượng viện thông qua thuế Nga 100% (07/08, ngoài khung), markup Cantwell (05/08), phán quyết tariff/de minimis (13/08), Golden Dome/transshipment (11-13/08), tin 'Senate passes' của Quốc hội Brazil/Philippines bị lọc nhầm, thăm dò dư luận/horserace bị loại theo bộ lọc sở thích, và 1 tin (biểu tình SNAP) dùng link redirect GNEWS chưa kịp truy gốc trước hạn."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "4 tin nạp: Mali kết án nhà báo/nhà hoạt động, Philippines cảnh báo 'tam giác sắt' Scarborough, Úc bàn giao tiền đồn Solomon, Úc-PNG đẩy nhanh Hiệp ước Pukpuk. 1 ứng viên bị loại (AIM-260 JATM Úc, TRÙNG sự kiện đã nạp 06-10/08). Gần đạt sàn tối thiểu 5, thiếu 1."
-    },
-    {
-      "name": "CNQS Mỹ",
       "count": 2,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "2 tin nạp: hợp đồng RTX 22,9 tỷ USD tăng sản lượng Tomahawk (war.gov), thoả thuận khung SM-3 RTX/Boeing (Breaking Defense). 1 tin (AHSS/HIMARS, The War Zone) bị loại vì URL đã có sẵn trong DATA (trùng, nạp từ phiên trước). Ứng viên Báo Mới 'khu trục hạm săn ngầm VN theo báo Nga' chưa kịp xử lý, để rejectedNews."
+      "reason": "2 tin nạp (nhóm 4: Canada-Mỹ đàm phán thuế quan sát hạn chót; nhóm 5: khảo sát Axios tỷ lệ ủng hộ Trump sụt trong nội bộ Cộng hoà). Nhóm 1 (điều trần + bỏ phiếu) TIẾP TỤC TRẮNG — Quốc hội Mỹ vẫn nghỉ hè (Hạ viện tới 31/8, Thượng viện tới 14/9). Phần lớn ứng viên GNEWS còn lại là tin sắc lệnh vắc-xin Trump (đã có DATA từ phiên trước) hoặc lệch ngày."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 3,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "3 tin nạp: USS Benfold sửa xong trở lại nhiệm vụ, Philippines-Ấn Độ hình mẫu xuất khẩu vũ khí (BrahMos), Nhật-Úc-New Zealand bàn xuất khẩu khinh hạm Mogami. 1 tin bị loại sau khi nạp (MC-55A Peregrine, TRÙNG sự kiện đã có 13/08 — đã xoá bằng prune_news.py). Vòng bổ sung tìm thêm category Chính trị/Kinh tế không ra tin mới không trùng — các ứng viên tốt khác (ngân sách QP Đài Loan, tiền đồn Solomon, Pukpuk Treaty) đều đã có trong DATA hoặc ngoài khung ngày."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 5,
+      "target": "5-10",
+      "min": 5,
+      "thieu": false,
+      "reason": ""
     },
     {
       "name": "Mỹ – Mali",
-      "count": 1,
+      "count": 0,
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "1 tin nạp (Mali kết án 7 năm tù nhà báo Ras Bath và nhà hoạt động Rokia Doumbia vì chỉ trích chính quyền quân sự, xác minh qua France24 + đối chiếu Punch/La Libre/TheStar). Nhiều ứng viên khác bị loại vì trùng tin đã có (ân xá điệp viên Pháp) hoặc ngoài khung ngày (thả 82 lính 13-14/08, thư McGovern 12/08) hoặc không xác minh được (UN peacekeeper bị thương — nghi sai vì MINUSMA đã giải thể 2023)."
+      "reason": "TRẮNG hoàn toàn — 7 ứng viên kiểm: 1 trùng sự kiện đã có (Ras Bath/Rokia Doumbia kết án, 17/08), còn lại ngoài khung ngày (12-15/08) hoặc không xác minh được là sự kiện thật ('6 lính LHQ bị thương trong vụ nổ ở Mali' không tìm được nguồn xác nhận — MINUSMA đã rút khỏi Mali từ 2023, nghi bài tổng hợp gắn nhãn sai). Ngày khan tin sạch, chấp nhận 0 tin theo nguyên tắc thà ít còn hơn sai."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,16 +40,16 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "Đạt tối thiểu. 1 cập nhật quan trọng cho Ulchi Freedom Shield 2026: Trump ra lệnh Lầu Năm Góc 'giảm đáng kể' quy mô tập trận ngay ngày khai mạc (17/08), Hàn Quốc bác bỏ và giữ nguyên kế hoạch 18.000 quân — xác minh qua NPR, đối chiếu Al Jazeera/PBS/Fox News/GPB."
+      "reason": "1 cập nhật cho Ulchi Freedom Shield 2026: Lầu Năm Góc chưa công bố cụ thể việc giảm quy mô dù Trump đã ra lệnh, Hàn Quốc khẳng định tập trận vẫn diễn ra đúng lịch với 18.000 quân — xác minh qua The Korea Times."
     },
     {
       "name": "Báo Mới",
-      "count": 0,
+      "count": 1,
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "3 ứng viên chuyên mục khớp 5 chủ đề: 2 đã ghi vào rejectedNews (mục Bị loại trên web) vì chưa kịp truy bài gốc trước hạn chót phiên tối; 1 (cảnh báo Canada thuế quan) trùng nội dung với tin Canada-Mỹ đàm phán đã nạp trong batch chính, coi như đã xử lý."
+      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề: 'Philippines coi Ấn Độ làm hình mẫu xuất khẩu vũ khí' đã truy về bài gốc baotintuc.vn và nạp vào worldNews (kèm _baomoiUrl); 'Báo Nga đưa tin khu trục hạm săn ngầm VN' loại vì ngoài phạm vi CNQS Mỹ (tin Việt Nam/Nga); 'Mỹ cảnh báo Canada leo thang thuế quan' loại vì trùng nội dung tin Canada-Mỹ đàm phán đã nạp cùng batch. Cả hai tin loại đã ghi vào rejectedNews."
     }
   ],
-  "note": "Phiên tối CI (20:47 VN, 17/08/2026), quét gọn theo chỉ thị ưu tiên gửi đúng hạn 22:00 hơn gom đủ số lượng. Sản lượng thấp (4 worldNews + 3 usNews + 1 cập nhật tập trận) chủ yếu do: (a) nhiều sự kiện lớn trong ngày đã được phiên sáng sớm CI cùng ngày nạp trước, (b) lượng lớn ứng viên GNEWS hôm nay lệch ngày sự kiện (đăng lại tin cũ) hoặc lệch chủ đề. Không nới lỏng tiêu chuẩn/bịa tin để bù số — 1 tin bị loại thủ công vì dùng link redirect GNEWS."
+  "note": "Phiên sáng sớm CI (03:47-04:47 VN, ngày 18/08/2026). Đã xoá 1 tin trùng sự kiện (MC-55A Peregrine, worldNews) sau cảnh báo Jaccard 0.48 của add_news.py — chi tiết logs/loai-tin.md mục 2026-08-18. Chưa kích được telegram-bot.yml qua `gh` (bị chặn 'requires approval' trong môi trường CI) để lấy file Jay Lâm mới nhất; kiểm trực tiếp `tin_jaylam.py --liet-ke` thì không có file nào trong khung ngày (mã 10), nên không có tác động tới bản tin lần này. Sản lượng thấp ở Nội bộ Mỹ/Úc & Biển Đông/Mỹ-Mali chủ yếu do phần lớn sự kiện đáng đưa trong 2 ngày qua đã được các phiên trước (tối 17/08 local + CI) nạp gần hết."
 }

@@ -1,1 +1,9 @@
 [21:00Z] START (CI) phien sang som
+[21:01Z] harvest.py: 353 ung vien 5 chu de (sau cai curl_cffi) + telegram_harvest.py: 7 ung vien TG
+[21:07Z] Giao 5 agent Sonnet song song (Noi bo My, Uc & Bien Dong, CNQS My, My-Mali, Tap tran)
+[21:11Z] Gop ket qua: +4 worldNews, +6 usNews, +1 exerciseUpdates (Ulchi Freedom Shield 2026)
+[21:12Z] Phat hien trung: MC-55A Peregrine (worldNews) trung su kien da co 13/08 -> xoa bang prune_news.py
+[21:18Z] Vong bo sung: +1 usNews CNQS (SpaceX USSF-366), Uc&BienDong khong tim them duoc tin moi
+[21:19Z] Xu ly 2 ung vien Bao Moi con lai: 1 nap (Philippines-An Do BrahMos, kem _baomoiUrl), 1 loai (trung noi dung Canada thue quan)
+[21:23Z] Buoc 4c: gh workflow run bi chan (requires approval) trong moi truong CI -> kiem truc tiep tin_jaylam.py --liet-ke: ma 10, khong co file Jay Lam nao trong khung ngay
+[21:24Z] Ghi logs/scan-gaps.json + logs/loai-tin.md, chuan bi commit
