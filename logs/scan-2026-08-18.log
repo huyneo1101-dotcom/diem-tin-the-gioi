@@ -12,3 +12,4 @@
 [21:29Z] Giao 2 agent Sonnet: think-tank (6 bai chon) + su kien ngoai giao (0 su kien moi trong khung 48h)
 [21:30Z] add_analyses.py: +6 bai think-tank. event-scan DONE.
 [21:32Z] SKIP (CI, lop vet) — web-scan phien sang som ngay 2026-08-18 DA XONG (lastRunAt 04:24:54+07). Kiem so_da_gui --xem: co dong 2026-08-18T04:31:44+07:00 [sang] 10 tin -> ban tin da toi tay that, khong phai co gia. Ket thuc em, khong quet lai.
+[21:41Z] SKIP (CI) - web-scan phien sang som ngay 2026-08-18 DA XONG (lastRunAt 04:24:54+07, event-scan lastRunAt 04:30:46+07). Kiem lai so_da_gui --xem: dong 2026-08-18T04:31:44+07:00 [sang] 10 tin van con -> ban tin da toi tay that. Day la lan fire CI ke tiep trong cung khung, khong quet lai, ket thuc em.
