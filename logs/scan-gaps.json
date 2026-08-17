@@ -1,30 +1,30 @@
 {
   "date": "2026-08-17",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 2,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "2 tin nạp (Jeffries bác cương lĩnh DSA, Malliotakis cảnh báo 'khối nghị sĩ cộng sản' — cả hai nhóm 5/bầu cử). Nhóm 1 (điều trần + bỏ phiếu) TRẮNG hoàn toàn: Quốc hội Mỹ đang nghỉ hè (Hạ viện tới 31/8, Thượng viện tới 14/9), đã xác nhận qua nhiều tìm kiếm. Nhiều ứng viên khác bị loại vì trùng tin đã có (khảo sát FT, thuế Canada, ID bỏ phiếu Texas) hoặc ngoài khung ngày (15/08)."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 0,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "0 tin nạp. Ứng viên duy nhất gần đạt (Philippines-Mỹ ký '8-star memo' hợp tác quốc phòng, Manila Times) bị loại sau khi WebFetch xác minh sự kiện ký thật diễn ra 07/08 — Manila Times chỉ đăng bài chi tiết muộn 10 ngày, ngoài khung. Phần lớn diễn biến đáng chú ý trong tuần (USS Benfold, Scarborough, Marcos-Bãi Cỏ Mây, Pitch Black, AUKUS RIMPAC, Osborne 4.6 tỷ AUD) đã nạp ở các phiên 11-15/08 trước đó."
-    },
-    {
-      "name": "CNQS Mỹ",
       "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "1 tin nạp (Không quân Mỹ mua drone DJI Trung Quốc làm mục tiêu huấn luyện chống UAS tại căn cứ tên lửa hạt nhân F.E. Warren). 5 ứng viên khác bị loại: SM-3 Boeing/RTX (trùng sự kiện đã nạp 08-14, lần thứ 3 câu chuyện này suýt bị nạp trùng), AHSS 1000km/TWZ (URL đã có sẵn trong DATA), Orca UUV (trùng tiêu đề gần y hệt tin 15/08 đã có), Flight School Next/army.mil (sự kiện 13/08, ngoài khung nới 3 ngày 14-17/08), Golden Dome Hub/war.gov (sự kiện 11/08, ngoài khung)."
+      "reason": "1 tin nạp (Canada-Mỹ đàm phán thuế quan trước hạn chót 50%, nhóm 4). Nhóm 1 (điều trần + bỏ phiếu) TIẾP TỤC TRẮNG — Quốc hội Mỹ vẫn nghỉ hè. 12/14 ứng viên GNEWS bị loại: sắc lệnh vắc-xin (ký 10/08, ngoài khung), Thượng viện thông qua thuế Nga 100% (07/08, ngoài khung), markup Cantwell (05/08), phán quyết tariff/de minimis (13/08), Golden Dome/transshipment (11-13/08), tin 'Senate passes' của Quốc hội Brazil/Philippines bị lọc nhầm, thăm dò dư luận/horserace bị loại theo bộ lọc sở thích, và 1 tin (biểu tình SNAP) dùng link redirect GNEWS chưa kịp truy gốc trước hạn."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "4 tin nạp: Mali kết án nhà báo/nhà hoạt động, Philippines cảnh báo 'tam giác sắt' Scarborough, Úc bàn giao tiền đồn Solomon, Úc-PNG đẩy nhanh Hiệp ước Pukpuk. 1 ứng viên bị loại (AIM-260 JATM Úc, TRÙNG sự kiện đã nạp 06-10/08). Gần đạt sàn tối thiểu 5, thiếu 1."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 2,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "2 tin nạp: hợp đồng RTX 22,9 tỷ USD tăng sản lượng Tomahawk (war.gov), thoả thuận khung SM-3 RTX/Boeing (Breaking Defense). 1 tin (AHSS/HIMARS, The War Zone) bị loại vì URL đã có sẵn trong DATA (trùng, nạp từ phiên trước). Ứng viên Báo Mới 'khu trục hạm săn ngầm VN theo báo Nga' chưa kịp xử lý, để rejectedNews."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "1 tin nạp (ICRC chuyển 6 người bị thương từ Kidal về Gao, 16/08). Ứng viên thứ hai (AQAP tận dụng đà JNIM ở Sahel, Jamestown Foundation) bị loại vì bài thực đăng 07/08, ngoài khung dù agent báo cáo nhầm ngày 16/08. Nhiều diễn biến Mali/Sahel khác trong tuần đã trùng tin đã đưa 14-16/08 (Africa Corps mất thị trấn, ân xá điệp viên Pháp, tiền chuộc 50 triệu USD LHQ)."
+      "reason": "1 tin nạp (Mali kết án 7 năm tù nhà báo Ras Bath và nhà hoạt động Rokia Doumbia vì chỉ trích chính quyền quân sự, xác minh qua France24 + đối chiếu Punch/La Libre/TheStar). Nhiều ứng viên khác bị loại vì trùng tin đã có (ân xá điệp viên Pháp) hoặc ngoài khung ngày (thả 82 lính 13-14/08, thư McGovern 12/08) hoặc không xác minh được (UN peacekeeper bị thương — nghi sai vì MINUSMA đã giải thể 2023)."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,7 +40,7 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "Đạt tối thiểu. 1 cập nhật cho Ulchi Freedom Shield 2026 (Hàn Quốc-Mỹ): khai mạc đúng ngày 17/08, ~18.000 quân Hàn tham gia, nguồn Korea Times. Các cuộc khác đang bám (PANAMAX, Baltic Trust, Hán Quang 42, Diễn tập Hạm đội TBD Nga) đã kết thúc/không có diễn biến mới trong khung; SEACAT 2026 không tìm được cập nhật mới."
+      "reason": "Đạt tối thiểu. 1 cập nhật quan trọng cho Ulchi Freedom Shield 2026: Trump ra lệnh Lầu Năm Góc 'giảm đáng kể' quy mô tập trận ngay ngày khai mạc (17/08), Hàn Quốc bác bỏ và giữ nguyên kế hoạch 18.000 quân — xác minh qua NPR, đối chiếu Al Jazeera/PBS/Fox News/GPB."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề (Mecca/F-35 Thổ Nhĩ Kỳ; hàng không Việt-Australia) đã xử lý — cả hai LOẠI (không phải chủ đề quân sự/an ninh đúng phạm vi), ghi lý do chi tiết trong logs/loai-tin.md."
+      "reason": "3 ứng viên chuyên mục khớp 5 chủ đề: 2 đã ghi vào rejectedNews (mục Bị loại trên web) vì chưa kịp truy bài gốc trước hạn chót phiên tối; 1 (cảnh báo Canada thuế quan) trùng nội dung với tin Canada-Mỹ đàm phán đã nạp trong batch chính, coi như đã xử lý."
     }
   ],
-  "note": "Phiên sáng sớm CI (03:59-05:xx VN, 17/08/2026). Nhiều sự kiện lớn ngày 16/08 đã được các phiên trước (tối 16/08 local + vòng CI) nạp gần hết, khiến sản lượng các chủ đề khá mỏng đêm nay — thực trạng khách quan (nhiều lần suýt nạp trùng tin đã có, guardrail Jaccard + trùng URL bắt được kịp), không nới lỏng tiêu chuẩn/bịa tin để bù số."
+  "note": "Phiên tối CI (20:47 VN, 17/08/2026), quét gọn theo chỉ thị ưu tiên gửi đúng hạn 22:00 hơn gom đủ số lượng. Sản lượng thấp (4 worldNews + 3 usNews + 1 cập nhật tập trận) chủ yếu do: (a) nhiều sự kiện lớn trong ngày đã được phiên sáng sớm CI cùng ngày nạp trước, (b) lượng lớn ứng viên GNEWS hôm nay lệch ngày sự kiện (đăng lại tin cũ) hoặc lệch chủ đề. Không nới lỏng tiêu chuẩn/bịa tin để bù số — 1 tin bị loại thủ công vì dùng link redirect GNEWS."
 }

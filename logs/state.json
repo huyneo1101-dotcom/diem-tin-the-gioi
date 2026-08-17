@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-17T21:00:52+07:00",
+    "lastRunAt": "2026-08-17T21:26:17+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+4 tin worldNews, +3 tin usNews, +1 cap nhat tap tran (5 chu de, phien toi CI)",
     "lastSuccess": {
-      "toi": "2026-08-16",
+      "toi": "2026-08-17",
       "sang": "2026-08-17"
-    },
-    "heartbeat": "2026-08-17T21:00:52+07:00"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-17T04:24:52+07:00",
