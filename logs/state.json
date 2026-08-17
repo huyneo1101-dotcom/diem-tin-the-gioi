@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-17T04:16:58+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+4 tin usNews (2 Chinh tri, 1 CNQS, 1 Mali) +1 cap nhat tap tran; Uc-Bien Dong 0 tin (het ung vien sach)",
+    "lastRunAt": "2026-08-17T21:00:52+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-16",
       "sang": "2026-08-17"
-    }
+    },
+    "heartbeat": "2026-08-17T21:00:52+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-17T04:24:52+07:00",
