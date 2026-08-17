@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-08-17T21:56:18+07:00",
+  "tao_luc": "2026-08-18T03:46:34+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
-    "2026-08-16",
-    "2026-08-17"
+    "2026-08-17",
+    "2026-08-18"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-17",
+      "tieu_de": "Special ops commander relieved, another reassigned at Air National Guard Wing",
+      "nguon": "Task & Purpose",
+      "url": "https://taskandpurpose.com/news/special-ops-commanders-fired/"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -25,18 +33,18 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-08-16",
-      "tieu_de": "Argentina’s big cats begin relocation to sanctuaries abroad",
-      "nguon": "Africanews",
-      "url": "http://www.africanews.com/2026/08/16/argentinas-big-cats-begin-relocation-to-sanctuaries-abroad/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
       "ngay": "2026-08-17",
       "tieu_de": "Bút máy của cố thủ tướng Singapore Lý Quang Diệu được đấu giá 360.000 USD",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/but-may-cua-co-thu-tuong-singapore-ly-quang-dieu-duoc-dau-gia-360-000-usd-5109846.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Năm 2027: Việt Nam đăng cai APEC, Singapore dẫn dắt ASEAN cùng thúc đẩy khu vực",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/nam-2027-viet-nam-dang-cai-apec-singapore-dan-dat-asean-cung-thuc-day-khu-vuc-100260817234559888.htm"
     },
     {
       "lop": "RSS",
@@ -53,22 +61,6 @@
       "tieu_de": "Canada review of Argentina lithium sale tests warming ties with China",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/materials/canada-review-of-argentina-lithium-sale-tests-warming-ties-with-china"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-08-17",
-      "tieu_de": "Qantas A380 flew to US and back with maintenance light left in wing",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-17/atsb-qantas-maintenance-tool-found-in-wing/107047286"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-08-16",
-      "tieu_de": "CENTCOM Launches Multinational Attack Drone Task Force ‘Falcon Strike’",
-      "nguon": "The Aviationist",
-      "url": "https://theaviationist.com/2026/08/15/centcom-task-force-falcon-strike/"
     },
     {
       "lop": "RSS",
@@ -97,10 +89,34 @@
     {
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
-      "ngay": "2026-08-16",
-      "tieu_de": "West Africa: Lithium in the Sahel - How Armed Groups Are Exploiting the Global Scramble for the Critical Mineral",
-      "nguon": "AllAfrica",
-      "url": "https://allafrica.com/stories/202608160006.html"
+      "ngay": "2026-08-17",
+      "tieu_de": "Mali jails government critic for 'discrediting state'",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/08/17/mali-jails-government-critic-for-discrediting-state/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-17",
+      "tieu_de": "American missionary abducted in Niger freed after nearly 10 months of captivity",
+      "nguon": "Long War Journal (Mali/JNIM)",
+      "url": "https://www.longwarjournal.org/archives/2026/08/american-missionary-abducted-in-niger-freed-after-nearly-10-months-of-captivity.php"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-17",
+      "tieu_de": "Trump orders Pentagon to cut back military exercises with South Korea",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/news/your-military/2026/08/17/trump-orders-pentagon-to-cut-back-military-exercises-with-south-korea/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-17",
+      "tieu_de": "US Space Force, Japan launch sensor to bolster space surveillance above Indo-Pacific",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/industry/techwatch/2026/08/17/us-space-force-japan-launch-sensor-to-bolster-space-surveillance-above-indo-pacific/"
     },
     {
       "lop": "RSS",
@@ -121,34 +137,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-18",
+      "tieu_de": "U.S. Navy Looks to Carrier-Basing, Submarine Replenishment Missions for UUVs",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/08/u-s-navy-looks-to-carrier-basing-submarine-replenishment-missions-for-uuvs/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-18",
+      "tieu_de": "Raytheon gets massive $23B contract to boost Tomahawk production",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/08/raytheon-gets-massive-23b-contract-to-boost-tomahawk-production/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "Space Force brings 5 companies on-board Space Data Network",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/space-force-brings-5-companies-on-board-space-data-network/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Day 3 of the 2026 Space and Missile Defense Symposium",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/08/day-3-of-the-2026-space-and-missile-defense-symposium/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-17",
-      "tieu_de": "USS Lincoln crisis: How it compares to past aircraft carrier deployments",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/17/uss-lincoln-crisis-how-it-compares-to-past-aircraft-carrier-deployments?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-17",
-      "tieu_de": "Trump orders Pentagon to cut back military drills with Seoul hours before start",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20260817-trump-orders-pentagon-to-cut-back-military-drills-with-seoul-hours-before-start"
     },
     {
       "lop": "RSS",
@@ -161,14 +169,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-17",
-      "tieu_de": "US-South Korea joint military exercises start after Trump orders Pentagon to scale back",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3364222/trump-orders-pentagon-scale-back-joint-military-exercises-south-korea?utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-15",
       "tieu_de": "Iran war: Trump dismisses concerns over conditions on USS Abraham Lincoln aircraft carrier",
       "nguon": "South China Morning Post",
@@ -177,10 +177,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "US sailors endure dire conditions on Abraham Lincoln aircraft carrier",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3363976/us-sailors-endure-dire-conditions-abraham-lincoln-aircraft-carrier?utm_source=rss_feed"
+      "ngay": "2026-08-17",
+      "tieu_de": "Mỹ chi gần 23 tỷ USD để tăng tốc sản xuất tên lửa Tomahawk",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/my-chi-gan-23-ty-usd-de-tang-toc-san-xuat-ten-lua-tomahawk-5110170.html"
     },
     {
       "lop": "RSS",
@@ -241,50 +241,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Lý do Mỹ quay lại dùng công nghệ 70 năm trước trên dàn tàu sân bay hạt nhân",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/ly-do-my-quay-lai-dung-cong-nghe-70-nam-truoc-tren-dan-tau-san-bay-hat-nhan-20260814145116442.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Sức ép bủa vây thủy thủ tàu sân bay Mỹ trong chuỗi ngày lênh đênh trên biển",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/suc-ep-bua-vay-thuy-thu-tau-san-bay-my-trong-chuoi-ngay-lenh-denh-tren-bien-20260814141131724.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Mỹ điều tàu sân bay mới đến Trung Đông",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/my-dieu-tau-san-bay-moi-den-trung-dong-20260814122137559.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Mỹ bác thông tin binh sĩ sa sút tinh thần trên tàu sân bay gần Iran",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/my-bac-thong-tin-binh-si-sa-sut-tinh-than-tren-tau-san-bay-gan-iran-20260814080310757.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "Navy considers major aircraft carrier revamp to better suit Trump’s aesthetic",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/defense/6032559-navy-reviews-carrier-island-design/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-15",
-      "tieu_de": "USS Abraham Lincoln controversy likely to loom over Pentagon",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/6030865-congress-scrutinizes-navy-deployment/"
     },
     {
       "lop": "RSS",
@@ -297,18 +257,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Ultra Maritime demonstrates new integrated sonar in US Navy exercise",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/ultra-maritime-integrated-sonar/"
+      "ngay": "2026-08-18",
+      "tieu_de": "New Patriot Battalion To Bolster Guam’s Defenses Within Months",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/land/new-patriot-battalion-to-bolster-guams-defenses-within-months"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Pentagon’s nascent BOND program informed Feinberg’s new ‘Funding Palantir’ memo",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/08/13/feinberg-funding-palantir-memo-pentagon-bond-program/"
+      "ngay": "2026-08-18",
+      "tieu_de": "U.S. Army ALERT! Notification System: A Critical Tool for Force Protection",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294673/u_s_army_alert_notification_system_a_critical_tool_for_force_protection"
     },
     {
       "lop": "RSS",
@@ -329,10 +289,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Secretary of War Hegseth Reaffirms the Trump Corollary to the Monroe Doctrine, Calls on Regional Partners to Take Fight to the Cartels",
-      "nguon": "DoD News Releases",
-      "url": "https://www.war.gov/News/Releases/Release/Article/4573580/secretary-of-war-hegseth-reaffirms-the-trump-corollary-to-the-monroe-doctrine-c/"
+      "ngay": "2026-08-18",
+      "tieu_de": "Navy Awards Raytheon $22.9 Billion Tomahawk Contract To Bolster Long-Term Production",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/navy-awards-raytheon-22-9-billion-tomahawk-contract-to-bolster-long-term-production/navy-usmc/"
     },
     {
       "lop": "RSS",
@@ -345,34 +305,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Space Force Selects Five Companies To Help Leverage Commercial Satellites As Part Of SDN",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/space-force-selects-five-companies-to-help-leverage-commercial-satellites-as-part-of-sdn/space/"
+      "ngay": "2026-08-18",
+      "tieu_de": "US Space Force Payload Lifts Off on Japanese Satellite",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/us-space-force-payload-lifts-off-on-japanese-satellite/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Saltzman Prepares to Leave ‘Combat-Credible, Battle-Tested’ Space Force",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/saltzman-retirement-battle-tested-space-force/"
+      "ngay": "2026-08-18",
+      "tieu_de": "US Air Force looks to acquire target drones that can mimic stealth jets",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/industry/techwatch/2026/08/17/us-air-force-looks-to-acquire-target-drones-that-can-mimic-stealth-jets/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Space Force Adds 5 New Vendors to Space Data Network Project",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/space-force-adds-new-vendors-space-data-network-5-awards/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Space Force Plans Two More Missions to Test Tactically Responsive Maneuvers",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/space-force-two-more-missions-responsive-maneuvers-orbit/"
+      "ngay": "2026-08-18",
+      "tieu_de": "Pentagon scrutinizes foreign research ties at 30 US academic institutions",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/08/17/pentagon-scrutinizes-foreign-research-ties-at-30-us-academic-institutions/"
     },
     {
       "lop": "RSS",
@@ -409,10 +361,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-16",
-      "tieu_de": "US Army Combined Arms Command Advances AI-Powered Knowledge Platform, VICTOR",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/08/16/us-army-combined-arms-command-advances-ai-powered-knowledge-platform-victor/?utm_source=rss&utm_medium=rss&utm_campaign=us-army-combined-arms-command-advances-ai-powered-knowledge-platform-victor"
+      "ngay": "2026-08-17",
+      "tieu_de": "U.S. Army Corps of Engineers Recognizes National Hydropower Day and Highlights Public-Private Energy Partnerships",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/572548/us-army-corps-engineers-recognizes-national-hydropower-day-and-highlights-public-private-energy-partnerships"
     },
     {
       "lop": "RSS",
@@ -457,6 +409,22 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-18",
+      "tieu_de": "(LEAD) Pentagon says it is 'actively working on executing' Trump's directive on S. Korea-U.S. military drills",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260818000251315"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-18",
+      "tieu_de": "Pentagon says 'no changes' to announce about ongoing S. Korea-U.S. exercise",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260818000200315"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "(3rd LD) Trump orders Pentagon to 'substantially' reduce S. Korea-U.S. military exercises",
       "nguon": "Yonhap (Hàn Quốc)",
@@ -473,6 +441,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-18",
+      "tieu_de": "Mỹ chi gần 23 tỷ USD mua tên lửa Tomahawk trong bối cảnh thiếu hụt đạn dược",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/my-chi-gan-23-ty-usd-mua-ten-lua-tomahawk-trong-boi-canh-thieu-hut-dan-duoc-post1130761.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "Căng thẳng chiến trường Iran buộc Mỹ phải rút tàu sân bay duy nhất ở Tây Thái Bình Dương",
       "nguon": "VietnamPlus (TTXVN)",
@@ -485,14 +461,6 @@
       "tieu_de": "Mỹ rút tàu sân bay cuối cùng khỏi châu Á",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/my-rut-tau-san-bay-cuoi-cung-khoi-chau-a-2545946.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-14",
-      "tieu_de": "Triều Tiên dọa tăng cường năng lực răn đe hạt nhân để đối phó Mỹ",
-      "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/trieu-tien-doa-tang-cuong-nang-luc-ran-de-hat-nhan-de-doi-pho-my-2545377.html"
     },
     {
       "lop": "HTML",
@@ -513,10 +481,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "Thousands await aid after deadly Indonesia quake as rescue work under way",
+      "ngay": "2026-08-18",
+      "tieu_de": "Photos: Search for Indonesia earthquake victims continues",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/17/thousands-await-aid-after-deadly-indonesia-quake-as-rescue-work-conducted?traffic_source=rss"
+      "url": "https://www.aljazeera.com/gallery/2026/8/17/photos-search-for-indonesia-earthquake-victims-continues?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -525,14 +493,6 @@
       "tieu_de": "Aid shortages and fears of starvation as Indonesia reels from deadly earthquake",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/crl7686r71yo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Why is Australia's mushroom killer back in court this week?",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/videos/c62e1v8p07go?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -569,18 +529,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Magnitude 7.7 earthquake strikes off Indonesia’s coast, killing at least 47 and toppling buildings",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/indonesia-earthquake-august-15-2026/article71347456.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Magnitude 6.0 earthquake strikes Minahassa Peninsula; third to strike Indonesia",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/indonesia-earthquake-strikes-minahassa-peninsula/article71350769.ece"
+      "ngay": "2026-08-17",
+      "tieu_de": "The Dilemma Facing Malaysia’s Democratic Action Party",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/08/the-dilemma-facing-malaysias-democratic-action-party/"
     },
     {
       "lop": "RSS",
@@ -609,10 +561,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Chạy đua t&igrave;m người sống s&oacute;t sau động đất 7,7 độ ở Indonesia",
-      "nguon": "Thanh Niên",
-      "url": "https://thanhnien.vn/chay-dua-tim-nguoi-song-sot-sau-dong-dat-77-do-o-indonesia-185260816092924303.htm"
+      "ngay": "?",
+      "tieu_de": "Kinh tế tăng trưởng, Đài Loan đề xuất tặng mỗi người dân 314 USD",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/kinh-te-tang-truong-dai-loan-de-xuat-tang-moi-nguoi-dan-314-usd-100260817191950992.htm"
     },
     {
       "lop": "RSS",
@@ -653,14 +605,6 @@
       "tieu_de": "Hết tàu sân bay, đến lượt tàu khu trục Mỹ gặp sự cố kỹ thuật ở Biển Đông, mất điện 4 ngày liền",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/het-tau-san-bay-den-luot-tau-khu-truc-my-gap-su-co-ky-thuat-o-bien-dong-mat-dien-4-ngay-lien-100260815223315814.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "NÓNG: Động đất 6,9 độ ở Indonesia, trận thứ hai trong một ngày",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/nong-dong-dat-69-do-o-indonesia-tran-thu-hai-trong-mot-ngay-100260815184247516.htm"
     },
     {
       "lop": "RSS",
@@ -721,22 +665,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "China EVs close in on Japan automakers' Australia stronghold, led by BYD",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/automobiles/electric-vehicles/china-evs-close-in-on-japan-automakers-australia-stronghold-led-by-byd"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Indonesia's Prabowo targets 6% growth, lower budget deficit in 2027",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/economy/indonesia-s-prabowo-targets-6-growth-lower-budget-deficit-in-2027"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-17",
       "tieu_de": "Malaysia bắt đầu hưởng lợi từ làn sóng trung tâm dữ liệu",
       "nguon": "VnEconomy",
@@ -745,10 +673,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Chuyến thăm Australia và New Zealand của Tổng Bí thư, Chủ tịch nước Tô Lâm: Từ củng cố quan hệ đến chủ động kiến tạo không gian phát triển",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/chuyen-tham-australia-va-new-zealand-cua-tong-bi-thu-chu-tich-nuoc-to-lam-tu-cung-co-quan-he-den-chu-dong-kien-tao-khong-gian-phat-trien.htm"
+      "ngay": "2026-08-17",
+      "tieu_de": "Gần 13.000 người chưa thể trở về nhà sau động đất tại Indonesia",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/gan-13000-nguoi-chua-the-tro-ve-nha-sau-dong-dat-tai-indonesia-20260817160421051.htm"
     },
     {
       "lop": "RSS",
@@ -761,10 +689,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Indonesia chạy đua tìm kiếm người sống sót sau động đất",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/indonesia-chay-dua-tim-kiem-nguoi-song-sot-sau-dong-dat-20260816105016725.htm"
+      "ngay": "2026-08-18",
+      "tieu_de": "Options are slim for new Australia Test cricket batters",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-18/australia-cricket-batsmen-options-thin/107046784"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-18",
+      "tieu_de": "Creators of Untitled Goose Game turn Australia into a playground",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-18/the-big-walk-video-game-untitled-goose-game/107045696"
     },
     {
       "lop": "RSS",
@@ -777,55 +713,15 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "Brothers aged two and four kicked by stranger at Canberra shopping centre",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-17/man-charged-assault-young-boys-canberra-shopping-centre/107045076"
+      "ngay": "2026-08-18",
+      "tieu_de": "Washington Guard, Malaysia strengthen expeditionary capabilities",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/294684/washington_guard_malaysia_strengthen_expeditionary_capabilities"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Colby’s reassurance deepens Manila’s trilemma",
-      "nguon": "Lowy Interpreter",
-      "url": "https://www.lowyinstitute.org/the-interpreter/manila-s-trilemma"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "Red rainfall warning remains over Metro Manila, Central Luzon",
-      "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/weather/2026/08/17/2549898/red-rainfall-warning-remains-over-metro-manila-central-luzon"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "LIST: Flooded Metro Manila areas on Aug. 17",
-      "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/nation/2026/08/17/2549888/list-flooded-metro-manila-areas-aug-17"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "Manila health centers open half-day Tuesday for leptospirosis medicines",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2286717/manila-health-centers-open-half-day-tuesday-for-leptospirosis-medicines"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "Manila Water boosts Upper Wawa Dam monitoring, coordination",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2286653/manila-water-boosts-upper-wawa-dam-monitoring-coordination"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
+      "ngay": "2026-08-18",
       "tieu_de": "USS Benfold Was Stalled in the South China Sea for Four Days",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/17/uss_benfold_was_stalled_in_the_south_china_sea_for_four_days_1200643.html"
@@ -865,26 +761,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Japan’s defence minister heads to Australia to meet Marles in wake of melon-gate controversy",
+      "ngay": "2026-08-18",
+      "tieu_de": "Australia politics live: Greens say Labor and Coalition deal on gambling ad laws a ‘smokescreen’",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/aug/16/japans-defence-minister-heads-to-australia-to-meet-marles-in-wake-of-melon-gate-controversy"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Rescue teams search for survivors in Indonesia after powerful earthquake",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/aug/16/rescue-teams-search-for-survivors-in-indonesia-after-powerful-earthquake"
+      "url": "https://www.theguardian.com/australia-news/live/2026/aug/18/australia-politics-live-labor-coalition-gambling-advertising-ai-charlton-datacentres-question-time-anthony-albanese-angus-taylor-one-nation-pauline-hanson-ntwnfb"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-17",
-      "tieu_de": "Who is Hasan Piker – and why are some Australian conservatives outraged about his return to the ABC?",
+      "tieu_de": "3M knew for more than 50 years that its products could harm humans, Australian government alleges in court documents",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/media/2026/aug/17/who-is-hasan-piker-and-why-are-some-conservatives-outraged-about-his-return-to-the-abc"
+      "url": "https://www.theguardian.com/environment/2026/aug/18/3m-knew-for-more-than-50-years-that-its-products-could-harm-humans-australian-government-alleges-in-court-documents"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-17",
+      "tieu_de": "Why rightwing critics are wrong to say the Australian super system is broken",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/aug/18/why-rightwing-critics-are-wrong-to-say-the-australian-super-system-is-broken"
     },
     {
       "lop": "RSS",
@@ -905,34 +801,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-18",
+      "tieu_de": "Số người thiệt mạng do trận động đất ở Đông Indonesia đã tăng lên 68",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/so-nguoi-thiet-mang-do-tran-dong-dat-o-dong-indonesia-da-tang-len-68-post982455.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-17",
       "tieu_de": "Australia thiệt hại hàng triệu USD vì hành vi lừa đảo giả mạo chính khách",
       "nguon": "Nhân Dân",
       "url": "https://nhandan.vn/australia-thiet-hai-hang-trieu-usd-vi-hanh-vi-lua-dao-gia-mao-chinh-khach-post982416.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-17",
-      "tieu_de": "Động đất tại Indonesia: Gần 13.000 người chưa thể trở về nhà",
-      "nguon": "Nhân Dân",
-      "url": "https://nhandan.vn/dong-dat-tai-indonesia-gan-13000-nguoi-chua-the-tro-ve-nha-post982414.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Điện chia buồn về trận động đất gây nhiều thương vong tại Indonesia",
-      "nguon": "Nhân Dân",
-      "url": "https://nhandan.vn/dien-chia-buon-ve-tran-dong-dat-gay-nhieu-thuong-vong-tai-indonesia-post982150.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-16",
-      "tieu_de": "Indonesia thúc đẩy điện Mặt Trời để tăng tự chủ năng lượng",
-      "nguon": "Nhân Dân",
-      "url": "https://nhandan.vn/indonesia-thuc-day-dien-mat-troi-de-tang-tu-chu-nang-luong-post982126.html"
     },
     {
       "lop": "RSS",
@@ -977,6 +857,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-18",
+      "tieu_de": "Betting on US midterm election reaches $169 million, surpassing 2024 congressional total",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/betting-on-us-midterm-election-reaches-169-million-surpassing-2024-congressional-total",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "Lula holds tight lead over Senator Bolsonaro ahead of Brazil election, poll shows",
       "nguon": "The Straits Times",
@@ -986,20 +875,11 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-16",
-      "tieu_de": "BBC asks US court for help with testimony from the Trump family in defamation suit",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/europe/article/3364214/bbc-asks-us-court-help-testimony-trump-family-defamation-suit?utm_source=rss_feed",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-16",
-      "tieu_de": "Colombia leader asks Trump to suspend tariffs after deadly quake",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/americas/article/3364165/colombia-leader-asks-trump-suspend-tariffs-after-deadly-quake?utm_source=rss_feed",
-      "nhom": 4
+      "ngay": "2026-08-17",
+      "tieu_de": "Older Democrats walloped by midterms anti-establishment revolt",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/08/13/democrats-old-age-larson-bronin-young-primaries",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1040,15 +920,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Trump's tariffs unevenly reshape American manufacturing",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/economy/trade-war/trump-tariffs/trump-s-tariffs-unevenly-reshape-american-manufacturing",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "Mỹ cảnh báo Canada về leo thang thuế quan",
       "nguon": "VnEconomy",
@@ -1063,6 +934,15 @@
       "nguon": "VnEconomy",
       "url": "https://vneconomy.vn/tong-thong-trump-ap-thue-quan-moi-doi-voi-thiet-bi-bay-khong-nguoi-lai.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-18",
+      "tieu_de": "Gingrich: Midterms offer choice of ‘big government socialism and weird values’ or Republicans",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/6033875-newt-gingrich-republicans-midterms/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1090,24 +970,6 @@
       "nguon": "RealClearPolitics",
       "url": "https://www.realclearpolitics.com/2026/08/17/iran_and_trumps_midterm_malaise_708165.html",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-16",
-      "tieu_de": "Industry minister again heads for Washington amid growing U.S. tariff pressure",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260816002000320",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-16",
-      "tieu_de": "Các nước thúc đẩy trao đổi với Mỹ về thuế quan",
-      "nguon": "Nhân Dân",
-      "url": "https://nhandan.vn/cac-nuoc-thuc-day-trao-doi-voi-my-ve-thue-quan-post982173.html",
-      "nhom": 4
     },
     {
       "lop": "RSS",
