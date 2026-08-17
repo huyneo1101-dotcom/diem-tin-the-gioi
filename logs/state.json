@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-17T04:24:52+07:00",
+    "lastRunAt": "2026-08-18T04:25:12+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+1 su kien moi (Israel-Honduras MOU), +1 bai think-tank (War on the Rocks); khong phai CN nen khong bao cao tuan",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-08-17"
-    }
+    },
+    "heartbeat": "2026-08-18T04:25:12+07:00"
   }
 }
