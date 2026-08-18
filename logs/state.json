@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-18T22:22:02+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+2 the gioi, +9 My, +3 tap tran (Ulchi Freedom Shield) - phien toi gap rut sau khi CI can han muc tuan; run CI song song 32153600315 (claim 22:18) da bi huy de tranh xung dot",
+    "lastRunAt": "2026-08-19T04:00:55+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-18",
       "sang": "2026-08-18"
-    }
+    },
+    "heartbeat": "2026-08-19T04:00:55+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-18T04:30:46+07:00",
