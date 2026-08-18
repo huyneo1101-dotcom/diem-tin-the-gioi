@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-18T21:07:29+07:00",
+  "tao_luc": "2026-08-18T22:04:42+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-17",
@@ -21,14 +21,6 @@
       "tieu_de": "Russia protests Japan PM’s comments after Putin’s Kuril visit",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/8/18/russia-protests-japan-pms-comments-after-putins-kuril-visit?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-08-17",
-      "tieu_de": "Putin visited Kuril Islands to 'punish' Japan over Ukraine stance",
-      "nguon": "Deutsche Welle",
-      "url": "https://www.dw.com/en/putin-visited-kuril-islands-to-punish-japan-over-ukraine-stance/a-78398035?maca=en-rss-en-world-4025-rdf"
     },
     {
       "lop": "RSS",
@@ -186,6 +178,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-18",
+      "tieu_de": "Raytheon awarded 7-year contract for Tomahawk cruise missiles",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/08/raytheon-awarded-7-year-contract-for-tomahawk-cruise-missiles/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-18",
       "tieu_de": "U.S. Navy Looks to Carrier-Basing, Submarine Replenishment Missions for UUVs",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/08/u-s-navy-looks-to-carrier-basing-submarine-replenishment-missions-for-uuvs/"
@@ -323,7 +323,7 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-17",
       "tieu_de": "Navy considers major aircraft carrier revamp to better suit Trump’s aesthetic",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6032559-navy-reviews-carrier-island-design/"
     },
     {
@@ -605,14 +605,6 @@
       "tieu_de": "(3rd LD) Trump orders Pentagon to 'substantially' reduce S. Korea-U.S. military exercises",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260817000253315"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-18",
-      "tieu_de": "Mỹ chi gần 23 tỷ USD mua tên lửa Tomahawk trong bối cảnh thiếu hụt đạn dược",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/my-chi-gan-23-ty-usd-mua-ten-lua-tomahawk-trong-boi-canh-thieu-hut-dan-duoc-post1130761.vnp"
     },
     {
       "lop": "RSS",
@@ -1074,6 +1066,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-18",
+      "tieu_de": "Trump votes by mail after calling ballots ‘inherently corrupt’",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/trump-votes-by-mail-after-calling-ballots-inherently-corrupt",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-18",
       "tieu_de": "Trump leans on India’s election playbook in push to change how Americans vote",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3364400/trump-leans-indias-election-playbook-push-change-how-americans-vote?utm_source=rss_feed",
@@ -1221,15 +1222,6 @@
       "tieu_de": "Trump, GOP Have an Election Message That Could Work",
       "nguon": "RealClearPolitics",
       "url": "https://www.realclearpolitics.com/articles/2026/08/18/trump_gop_have_an_election_message_that_could_work_154422.html",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-18",
-      "tieu_de": "Redistricting scrambles Florida primary as Alaska awaits Dan Sullivan v Dan Sullivan – US politics live",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/live/2026/aug/18/donald-trump-florida-alaska-wyoming-primaries-midterms-white-house-ballroom-iran-cnn-latest-news-updates",
       "nhom": 5
     },
     {
