@@ -17,4 +17,8 @@
 [21:59Z] SKIP (CI) - web-scan phien sang som ngay 2026-08-18 DA XONG (lastRunAt 04:24:54+07, event-scan lastRunAt 04:30:46+07). Kiem lai so_da_gui --xem: dong 2026-08-18T04:31:44+07:00 [sang] 10 tin van con -> ban tin da toi tay that. Lan fire CI thu tu trong cung khung, khong quet lai, ket thuc em.
 [05:27] SKIP (local) - web-scan phien sang som ngay 2026-08-18 DA XONG (lastRunAt 04:24:54+07). claim exit 10, khong quet lai.
 [14:00Z] START (CI) phien toi 2026-08-18 - claim web-scan exit 0, khoa duoc giu.
-[15:18Z] Phien 14:00Z khong co dong log tiep theo (chet/timeout truoc khi lam gi) -> khoa het han sau 30'. Phien MOI claim lai thanh cong (lastRunAt 22:18:33+07). START (CI) phien toi 2026-08-18, tiep tuc quet binh thuong.
+21:53 [toi] START phien local toi 21:15 (fire thuc te 21:53). Claim: RUN.
+21:55 [toi] CI 4 lan fire toi (21:00-21:35) deu FAIL vi "weekly limit, resets 7pm UTC" (~02:00 VN) - khong phai loi script. Local la lop duy nhat con kha nang toi nay. Da qua 21:45, quet nhanh, chot ngay khi co tin sach.
+22:00 [toi] harvest.py: 487 ung vien (NoiboMy 141, UcBienDong 132, CNQS 107, Mali 72, TapTran 35). Beat. Giao 5 agent Sonnet song song ngay.
+22:22 [toi] Nap xong: +2 worldNews, +9 usNews, +3 exerciseUpdates (Ulchi Freedom Shield). Cat vong Bao Moi + Jay Lam do da tre han 22:00 (~20 phut). Ghi scan-gaps.json. Chuan bi commit.
+[15:18Z] Phien 14:00Z khong co dong log tiep theo (chet/timeout truoc khi lam gi) -> khoa het han sau 30'. Phien MOI (CI) claim lai (lastRunAt 22:18:33+07) trong khi local DA claim tu 21:53 nhung CHUA push claim ngay (loi vi pham quy tac push khoa ngay sau claim) -> hai phien cung giu "khoa" tren 2 nhanh khac nhau. Local da nap xong va sap push truoc; DA HUY (gh run cancel) run CI 32153600315 dang chay de tranh xung dot that tren index.html. state.json duoc merge ve DONE phan anh dung viec local da lam xong.

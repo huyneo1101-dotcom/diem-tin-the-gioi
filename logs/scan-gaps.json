@@ -1,22 +1,22 @@
 {
   "date": "2026-08-18",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 2,
+      "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "2 tin nạp (nhóm 4: Canada-Mỹ đàm phán thuế quan sát hạn chót; nhóm 5: khảo sát Axios tỷ lệ ủng hộ Trump sụt trong nội bộ Cộng hoà). Nhóm 1 (điều trần + bỏ phiếu) TIẾP TỤC TRẮNG — Quốc hội Mỹ vẫn nghỉ hè (Hạ viện tới 31/8, Thượng viện tới 14/9). Phần lớn ứng viên GNEWS còn lại là tin sắc lệnh vắc-xin Trump (đã có DATA từ phiên trước) hoặc lệch ngày."
+      "reason": "4 tin nạp, toàn bộ thuộc nhóm 5 (bầu cử: sơ bộ Florida/Alaska/Wyoming, Trump viện dẫn thẻ cử tri Ấn Độ cho SAVE America Act, Trump tự bỏ phiếu qua thư) và nhóm 4 (Canada-Mỹ thuế quan). Nhóm 1 (điều trần + bỏ phiếu) TRẮNG — Quốc hội Mỹ vẫn nghỉ hè. Phiên chạy GẤP RÚT sau khi CI tối (20:47-21:35 VN) cạn hạn mức tuần OAuth ('weekly limit, resets 7pm UTC'), chỉ kịp một vòng agent, không có vòng bổ sung."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 3,
+      "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "3 tin nạp: USS Benfold sửa xong trở lại nhiệm vụ, Philippines-Ấn Độ hình mẫu xuất khẩu vũ khí (BrahMos), Nhật-Úc-New Zealand bàn xuất khẩu khinh hạm Mogami. 1 tin bị loại sau khi nạp (MC-55A Peregrine, TRÙNG sự kiện đã có 13/08 — đã xoá bằng prune_news.py). Vòng bổ sung tìm thêm category Chính trị/Kinh tế không ra tin mới không trùng — các ứng viên tốt khác (ngân sách QP Đài Loan, tiền đồn Solomon, Pukpuk Treaty) đều đã có trong DATA hoặc ngoài khung ngày."
+      "reason": "1 tin nạp: Úc-Nhật thử laser Boobook thành công + thoả thuận cho Nhật thử tên lửa siêu vượt âm trên đất Úc. Phần lớn tin nóng khác của ngày (USS Benfold, Philippines-BrahMos, Nhật-Úc-NZ Mogami, Úc-Solomon, Úc-PNG Pukpuk, tàu sân bay Phúc Kiến) đã được phiên sáng sớm cùng ngày nạp. Chưa kịp vòng bổ sung do CI tối cạn hạn mức và phiên local phải chạy dồn sát/trễ hạn email 22:00."
     },
     {
       "name": "CNQS Mỹ",
@@ -24,7 +24,7 @@
       "target": "5-10",
       "min": 5,
       "thieu": false,
-      "reason": ""
+      "reason": "5 tin nạp: GMLRS 133.000 rocket, UUV căn cứ tàu sân bay, trung đoàn tác chiến điện tử Không gian Mỹ, USS Massachusetts bỏ qua bảo dưỡng sau chạy thử, ngân sách Không gian Mỹ 2027 tăng gấp đôi. Đạt sàn tối thiểu."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,24 +32,24 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "TRẮNG hoàn toàn — 7 ứng viên kiểm: 1 trùng sự kiện đã có (Ras Bath/Rokia Doumbia kết án, 17/08), còn lại ngoài khung ngày (12-15/08) hoặc không xác minh được là sự kiện thật ('6 lính LHQ bị thương trong vụ nổ ở Mali' không tìm được nguồn xác nhận — MINUSMA đã rút khỏi Mali từ 2023, nghi bài tổng hợp gắn nhãn sai). Ngày khan tin sạch, chấp nhận 0 tin theo nguyên tắc thà ít còn hơn sai."
+      "reason": "0 tin nạp trực tiếp về hành động Mỹ-Mali/JNIM. Chỉ có 1 tin liên quan Sahel nạp vào worldNews (Nga/Lavrov cáo buộc Ukraine 'khủng bố nhà nước' ở Sahel, bênh vực Africa Corps) — không tính vào mục Mali vì trọng tâm là phát ngôn Nga, không phải hành động Mỹ. ~15 ứng viên khác đều trùng tin đã có (kết án 7 năm, Africa Corps mất thị trấn, ân xá DGSE, Burkina Faso cưỡng ép nhà báo), lệch khung ngày, hoặc không xác minh được link gốc (bài Politico 'Washington's Mali gamble' bị chặn WebFetch)."
     },
     {
       "name": "Tập trận đang diễn ra",
-      "count": 1,
+      "count": 3,
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "1 cập nhật cho Ulchi Freedom Shield 2026: Lầu Năm Góc chưa công bố cụ thể việc giảm quy mô dù Trump đã ra lệnh, Hàn Quốc khẳng định tập trận vẫn diễn ra đúng lịch với 18.000 quân — xác minh qua The Korea Times."
+      "reason": "3 cập nhật cho Ulchi Freedom Shield 2026 (Hàn Quốc-Hoa Kỳ): Trump ra lệnh giảm quy mô ngay trước khai mạc, Lầu Năm Góc xác nhận đang thực thi chỉ thị (đảo ngược tuyên bố 'chưa đổi gì'), Tổng thống Hàn Quốc Lee Jae Myung nhân cơ hội thúc đẩy giành lại OPCON. Đây là diễn biến nóng nhất trong ngày của chủ đề này."
     },
     {
       "name": "Báo Mới",
-      "count": 1,
+      "count": 0,
       "target": "best-effort",
       "min": 0,
-      "thieu": false,
-      "reason": "2 ứng viên chuyên mục khớp 5 chủ đề: 'Philippines coi Ấn Độ làm hình mẫu xuất khẩu vũ khí' đã truy về bài gốc baotintuc.vn và nạp vào worldNews (kèm _baomoiUrl); 'Báo Nga đưa tin khu trục hạm săn ngầm VN' loại vì ngoài phạm vi CNQS Mỹ (tin Việt Nam/Nga); 'Mỹ cảnh báo Canada leo thang thuế quan' loại vì trùng nội dung tin Canada-Mỹ đàm phán đã nạp cùng batch. Cả hai tin loại đã ghi vào rejectedNews."
+      "thieu": true,
+      "reason": "CẮT VÒNG BÁO MỚI vì sát/trễ hạn chót email 22:00 — CI tối cạn hạn mức tuần lúc ~21:00-21:35 VN, phiên local phải quét dồn từ ~21:55, không còn thời gian xử lý 7 ứng viên Báo Mới đang treo (laser Nhật-Úc — đã trùng tin vừa nạp qua nguồn chính thức nên không cần truy nữa; Canada-Mỹ thuế quan — trùng tin đã nạp; Tomahawk 1.000 quả/năm, YJ-20 Trung Quốc, khu trục hạm Mỹ mất điện — CNQS; cử tri Mỹ 'túi tiền eo hẹp' — Nội bộ Mỹ). Bản tin sau xử lý tiếp, các tin đã trùng thì tự động bị chặn URL khi truy gốc."
     }
   ],
-  "note": "Phiên sáng sớm CI (03:47-04:47 VN, ngày 18/08/2026). Đã xoá 1 tin trùng sự kiện (MC-55A Peregrine, worldNews) sau cảnh báo Jaccard 0.48 của add_news.py — chi tiết logs/loai-tin.md mục 2026-08-18. Chưa kích được telegram-bot.yml qua `gh` (bị chặn 'requires approval' trong môi trường CI) để lấy file Jay Lâm mới nhất; kiểm trực tiếp `tin_jaylam.py --liet-ke` thì không có file nào trong khung ngày (mã 10), nên không có tác động tới bản tin lần này. Sản lượng thấp ở Nội bộ Mỹ/Úc & Biển Đông/Mỹ-Mali chủ yếu do phần lớn sự kiện đáng đưa trong 2 ngày qua đã được các phiên trước (tối 17/08 local + CI) nạp gần hết."
+  "note": "PHIÊN TỐI GẤP RÚT 2026-08-18: cả 4 lượt CI tối (20:47, 21:00, 21:17, 21:35 VN) đều FAIL vì 'You've hit your weekly limit · resets 7pm (UTC)' — hạn mức tuần của CLAUDE_CODE_OAUTH_TOKEN dùng cho routine CI, KHÔNG phải lỗi script. Local claim lúc 21:53 (khoá CI cũ đã hết hạn 30'), harvest 487 ứng viên, giao 5 agent Sonnet song song, nạp lúc 22:20 — đã trễ hạn chót email 22:00 khoảng 20 phút. Theo đúng luật phiên tối (điều 2): 'quá 21:45 chưa nạp xong thì CHỐT lô đang có' — đã bỏ qua bước Jay Lâm (điều 5, cho phép bỏ khi trễ hạn) và bước Báo Mới để commit ngay. CI đã cạn hạn mức nên các lớp CI dự phòng còn lại tối nay (21:47 lớp vét) và có thể cả sáng sớm mai (03:47/04:47) SẼ TIẾP TỤC FAIL cho tới khi hạn mức reset ~19:00 UTC = 02:00 giờ VN 19/08 — cần theo dõi, lưới local là chỗ dựa duy nhất trong cửa sổ này."
 }
