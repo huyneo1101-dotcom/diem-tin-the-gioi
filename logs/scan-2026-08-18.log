@@ -17,3 +17,4 @@
 [21:59Z] SKIP (CI) - web-scan phien sang som ngay 2026-08-18 DA XONG (lastRunAt 04:24:54+07, event-scan lastRunAt 04:30:46+07). Kiem lai so_da_gui --xem: dong 2026-08-18T04:31:44+07:00 [sang] 10 tin van con -> ban tin da toi tay that. Lan fire CI thu tu trong cung khung, khong quet lai, ket thuc em.
 [05:27] SKIP (local) - web-scan phien sang som ngay 2026-08-18 DA XONG (lastRunAt 04:24:54+07). claim exit 10, khong quet lai.
 [14:00Z] START (CI) phien toi 2026-08-18 - claim web-scan exit 0, khoa duoc giu.
+[15:18Z] Phien 14:00Z khong co dong log tiep theo (chet/timeout truoc khi lam gi) -> khoa het han sau 30'. Phien MOI claim lai thanh cong (lastRunAt 22:18:33+07). START (CI) phien toi 2026-08-18, tiep tuc quet binh thuong.
