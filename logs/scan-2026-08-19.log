@@ -22,3 +22,4 @@
 [21:33Z] START event-scan (CI, gop vao sang som) - claim OK
 [21:42Z] Lan goi CI moi (04:42 VN): claim web-scan -> exit 10 (DA XONG, lastRunAt 04:32:56 VN, ~10 phut truoc). Kiem ngoai le: so_da_gui.py --xem co dong [sang] 28 tin luc 04:42:51 VN hom nay -> that, khong phai co noi doi. SKIP em, khong quet lai.
 [04:45 VN] SKIP (local) - claim web-scan tra exit 10: DA XONG (lastRunAt 04:32:56 VN). KET THUC.
+[21:46Z] Lan goi CI thu ba (04:46 VN): claim web-scan -> exit 10 lai (DA XONG, lastRunAt 04:32:56 VN). so_da_gui.py --xem van co dong [sang] 28 tin luc 04:42:51 VN. Xac nhan lai: khong phai co noi doi, SKIP em. DUNG session, khong lam gi them.
