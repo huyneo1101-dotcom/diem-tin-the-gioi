@@ -2,7 +2,7 @@
 
 > **File này là nguồn sự thật duy nhất về quy trình quét bản tin cho CẢ HAI phiên** (sáng sớm + tối).
 > Dời từ `~/.claude/scheduled-tasks/web-scan-diem-tin/SKILL.md` vào repo ngày 27/07/2026 — vùng `~/.claude/` là sensitive, mọi Edit vào đó đều bị hỏi quyền bất kể allowlist, trong khi file này rất hay phải vá bài học mới. Repo thì Edit/Write đã allow toàn phần + có git history.
-> **Ai đọc file này:** task local `web-scan-diem-tin` (phiên SÁNG SỚM 04:30/05:30) và task local `web-scan-diem-tin-toi` (phiên TỐI 21:15) — SKILL.md của 2 task đó giờ chỉ là stub trỏ về đây. **Sửa quy trình thì sửa file này**, đừng sửa stub.
+> **Ai đọc file này:** mốc local `com.huy.routine-diemtin-sang` (phiên SÁNG SỚM **04:30 · 04:45**) và mốc local `com.huy.routine-diemtin-toi` (phiên TỐI 21:15) — cả hai là LaunchAgent gọi `claude -p --model sonnet`, KHÔNG còn là scheduled task của app (đổi 06/08, đo lại 18/08/2026) — SKILL.md của 2 task đó giờ chỉ là stub trỏ về đây. **Sửa quy trình thì sửa file này**, đừng sửa stub.
 
 Quét tin và xuất bản bản tin cho web "Điểm Tin Thế Giới" (https://huyneo1101-dotcom.github.io/diem-tin-the-gioi).
 Repo: /Users/Huy/Claude/diem-tin-the-gioi (git remote SSH, push thẳng nhánh `main`).
@@ -32,7 +32,7 @@ local mỗi ngày nhân số phiên nhường lên, nên phiên nhường phải
 
 | Phiên | CI chính | local | CI dự phòng | local lưới cuối | Ai chạy phần local |
 |---|---|---|---|---|---|
-| SÁNG SỚM | **03:47** VN | **04:30** | 04:47 | 05:30 | task `web-scan-diem-tin` |
+| SÁNG SỚM | **03:47** VN | **04:30** | 04:47 | **04:45** | LaunchAgent `com.huy.routine-diemtin-sang` |
 | TỐI | 20:47 VN | 21:15 ← lớp cuối trong hạn | 21:47 = lớp VÉT đã trễ | — | task `web-scan-diem-tin-toi` |
 
 📅 **BẢNG LỊCH ĐẦY ĐỦ + NGUỒN SỰ THẬT: [`docs/LICH.md`](LICH.md)** — sinh từ chính dòng `cron:`
@@ -374,7 +374,7 @@ báo cáo tuần không (nếu CN), trạng thái push của CẢ HAI commit (b�
 
 Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ stub task `web-scan-diem-tin-toi` ngày 27/07/2026):
 
-1. **Task tối là mốc LOCAL 21:15 của phiên TỐI.** Chuỗi phiên tối: CI GitHub 20:47 → **local 21:15** → CI 21:47 (lưới vét đã trễ hạn). Task `web-scan-diem-tin` lo phiên SÁNG SỚM (04:30/05:30), không đụng tới phiên tối.
+1. **Task tối là mốc LOCAL 21:15 của phiên TỐI.** Chuỗi phiên tối: CI GitHub 20:47 → **local 21:15** → CI 21:47 (lưới vét đã trễ hạn). Mốc `com.huy.routine-diemtin-sang` lo phiên SÁNG SỚM (04:30 · 04:45), không đụng tới phiên tối.
 
 2. **HẠN CHÓT CỨNG: email bản tin tối phải tới hộp thư MUỘN NHẤT 22:00** (chỉ thị Huy 27/07/2026). Mốc local 21:15 là **lớp cuối cùng còn kịp hạn** — mốc CI 21:47 sau đó chạy xong thì email đã ~22:10, tức đã trễ. Đừng ỷ vào nó.
    - Quét mất ~20 phút (đo thật: CI 26/07 hết 20m45s, local 27/07 hết 16'), email gửi ~20 giây sau commit.

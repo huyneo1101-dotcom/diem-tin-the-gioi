@@ -45,18 +45,29 @@ LICH_MD = pathlib.Path(os.environ.get("KIEMLICH_MD") or (ROOT / "docs" / "LICH.m
 BEGIN = "<!-- LICH:BEGIN — sinh bằng scripts/kiem_lich.py --sinh, ĐỪNG sửa tay -->"
 END = "<!-- LICH:END -->"
 
-# Lịch scheduled task LOCAL — KHAI TAY vì app Claude không để cron trên đĩa (xem docstring).
-# Đo ngày 30/07/2026 bằng `mcp__scheduled-tasks__list_scheduled_tasks`.
+# Lịch mốc LOCAL — KHAI TAY vì lịch nằm trong plist LaunchAgent, không nằm cạnh workflow.
+# ⚠️ SỬA 18/08/2026: phần local KHÔNG CÒN chạy bằng scheduled task của app Claude.
+# Từ 06/08/2026 cả hai mốc chuyển sang LaunchAgent gọi `routine-claude-headless.py`
+# (`claude -p --model sonnet`), và tới 18/08/2026 `list_scheduled_tasks` trả về RỖNG —
+# không còn task nào trong app. Bảng cũ khai `web-scan-diem-tin` cron `30 4,5` (04:30 · 05:30)
+# là số đã chết: plist thật khai 04:30 VÀ 04:45, không có mốc 05:30 nào.
+# Đo lại bằng: grep -A14 StartCalendarInterval ~/Library/LaunchAgents/com.huy.routine-diemtin-*.plist
 LOCAL_KHAI_TAY = [
-    ("web-scan-diem-tin", "30 4,5 * * *", "04:30 · 05:30", "bật",
-     "dự phòng bản tin SÁNG SỚM + event-scan (Bước 4)"),
-    ("web-scan-diem-tin-toi", "15 21 * * *", "21:15", "bật",
-     "dự phòng bản tin TỐI — lớp CUỐI còn kịp hạn email 22:00"),
-    ("event-scan-diem-tin", "15 9,10 * * *", "09:15 · 10:15", "TẮT 28/07",
-     "gộp vào web-scan-diem-tin, đừng bật lại"),
+    ("com.huy.routine-diemtin-sang", "30,45 4 * * *", "04:30 · 04:45", "bật",
+     "dự phòng bản tin SÁNG SỚM + event-scan (Bước 4) — LaunchAgent headless sonnet"),
+    ("com.huy.routine-diemtin-toi", "15 21 * * *", "21:15", "bật",
+     "dự phòng bản tin TỐI — lớp CUỐI còn kịp hạn email 22:00 — LaunchAgent headless sonnet"),
+    ("com.huy.diemtin-giu-thuc-som", "41 3 * * *", "03:41", "bật",
+     "caffeinate 90' giữ máy thức cho 2 mốc local sáng — CẶP với `pmset repeat` 03:40"),
+    ("com.huy.diemtin-giu-thuc", "26 4 * * *", "04:26", "bật (lưới 2)",
+     "caffeinate 90' — mốc cũ cặp với pmset 04:25 đã đổi, giữ làm lưới thứ hai"),
+    ("com.huy.diemtin-giu-thuc-toi", "40 20 * * *", "20:40", "bật",
+     "caffeinate 90' giữ máy thức cho mốc local tối 21:15"),
 ]
-# Jitter thật của app (giây) — fire trễ hơn cron đúng chừng này, đo 30/07.
-JITTER_GIAY = {"web-scan-diem-tin": 209, "web-scan-diem-tin-toi": 377}
+# LaunchAgent KHÔNG có jitter như scheduled task của app — nổ đúng giờ MIỄN LÀ máy đang thức.
+# Máy ngủ thì launchd nổ MUỘN lúc máy tình cờ thức (đo 18/08: mốc 04:30 nổ 04:40:12) — đó là
+# lý do phải có cặp caffeinate ở trên.
+JITTER_GIAY = {}
 
 
 def _gio_vn(cron: str):
