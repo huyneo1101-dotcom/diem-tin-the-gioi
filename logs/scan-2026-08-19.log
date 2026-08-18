@@ -14,5 +14,9 @@
 [21:41Z] add_news.py /tmp/new_items.json: +1 worldNews, +3 usNews, +1 tap tran update. generatedAt=2026-08-18
 [21:42Z] ghi logs/loai-tin.md muc 2026-08-19 + logs/scan-gaps.json (5 chu de deu thieu tru Tap tran)
 [21:45Z] gh workflow run telegram-bot.yml bi chan (requires approval) - KHONG kich duoc bot Jay Lam. tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10) - bo qua buoc loc Jay Lam, di tiep.
+[21:33Z] START event-scan (CI, gop vao sang som) - claim OK
+[21:34Z] do_tap_tran_thieu.py: 40 ung vien, 2 co ten rieng (Pacific Dragon 2026 - da ket thuc 15/08 ngoai khung, Ulchi Freedom Shield - TRUNG voi cuoc da co). Khong tao the moi.
+[21:37Z] agent event-scan: khong tim duoc dip event moi trong khung 48h (NATO Ankara, ASEAN AMM, UNGA, G20 deu ngoai khung)
+[21:41Z] think-tank: chon 6 bai (Hudson, RUSI, War on the Rocks, Atlantic Council, CSET, Jamestown), add_analyses.py OK, set_analysis_concepts.py: 7 khai niem/6 bai
 [04:30 VN] SKIP (local) - claim web-scan tra exit 11: dang co phien khac chay (nhip tim bat dau 04:00:55). Khong quet chong. (ghi nhan tu commit local f1c494f, hop nhat qua rebase)
 [21:33Z] START event-scan (CI, gop vao sang som) - claim OK
