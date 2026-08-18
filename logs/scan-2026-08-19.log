@@ -1,2 +1,17 @@
 [21:00Z] START (CI) - phien sang som (GitHub Actions)
-[04:30 VN] SKIP (local) - claim web-scan tra exit 11: dang co phien khac chay (nhip tim bat dau 04:00:55). Khong quet chong.
+[21:04Z] claim web-scan OK - da giu khoa (RUN, o khoa toi CHAY BU sang som)
+[21:04Z] harvest.py --json /tmp/ung-vien.json: 364 ung vien (Noi bo My 125, CNQS 91, Uc&BD 88, Mali 38, Tap tran 22)
+[21:05Z] cai curl_cffi thanh cong; telegram_harvest.py: 13 ung vien trong khung ngay
+[21:20Z] giao 4 agent Sonnet song song (Noi bo My, Uc&BD, CNQS My, Mali+Tap tran) - vong 1
+[21:22Z] Noi bo My vong 1: 2 tin (gerrymander Missouri, shadow hearing Maine)
+[21:24Z] Uc&BD vong 1: 2 tin (ngan sach QP Dai Loan, Philippines-Uc disaster resp)
+[21:27Z] CNQS My vong 1: 1 tin (Elroy Air Chaparral drone)
+[21:30Z] Mali+Tap tran vong 1: 1 mali tin (82 linh Mali) + 1 exerciseUpdate (Ulchi Freedom Shield)
+[21:32Z] giao 2 agent bo sung (Noi bo My, CNQS My) - vong 2
+[21:36Z] Noi bo My vong 2: +1 tin (FBI HQ ruling)
+[21:39Z] CNQS My vong 2: +2 tin (DARPA hypersonic, Golden Dome) - CA HAI se bi loai vi ngoai khung nam nhat 3 ngay khi kiem lai
+[21:40Z] review: loai Maine shadow hearing (khong phai dieu tran chinh thuc + thuoc dien nhap cu bi cam), loai Dai Loan QP budget + Mali 82 linh + DARPA + Golden Dome (ngoai khung 1 ngay/3 ngay tinh tu HOM NAY 19/08 that)
+[21:41Z] add_news.py /tmp/new_items.json: +1 worldNews, +3 usNews, +1 tap tran update. generatedAt=2026-08-18
+[21:42Z] ghi logs/loai-tin.md muc 2026-08-19 + logs/scan-gaps.json (5 chu de deu thieu tru Tap tran)
+[21:45Z] gh workflow run telegram-bot.yml bi chan (requires approval) - KHONG kich duoc bot Jay Lam. tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10) - bo qua buoc loc Jay Lam, di tiep.
+[04:30 VN] SKIP (local) - claim web-scan tra exit 11: dang co phien khac chay (nhip tim bat dau 04:00:55). Khong quet chong. (ghi nhan tu commit local f1c494f, hop nhat qua rebase)

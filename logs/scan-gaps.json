@@ -1,14 +1,14 @@
 {
   "date": "2026-08-18",
-  "session": "toi",
+  "session": "sang",
   "topics": [
     {
-      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, 5 nhóm)",
-      "count": 4,
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 2,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "4 tin nạp, toàn bộ thuộc nhóm 5 (bầu cử: sơ bộ Florida/Alaska/Wyoming, Trump viện dẫn thẻ cử tri Ấn Độ cho SAVE America Act, Trump tự bỏ phiếu qua thư) và nhóm 4 (Canada-Mỹ thuế quan). Nhóm 1 (điều trần + bỏ phiếu) TRẮNG — Quốc hội Mỹ vẫn nghỉ hè. Phiên chạy GẤP RÚT sau khi CI tối (20:47-21:35 VN) cạn hạn mức tuần OAuth ('weekly limit, resets 7pm UTC'), chỉ kịp một vòng agent, không có vòng bổ sung."
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng lần thứ 4 liên tiếp — Quốc hội Mỹ đang nghỉ hè tới 30/8 (Hạ viện) và 11/9 (Thượng viện). 2 tin nạp thuộc nhóm 5 (gerrymander Missouri) và nhóm 2/thể chế (toà chặn dời trụ sở FBI). Đã thử 2 vòng bổ sung; nhiều ứng viên khác (khảo sát cử tri, thăm dò bầu cử) trùng tin đã có hoặc chưa kịp truy nguồn gốc."
     },
     {
       "name": "Úc & Biển Đông",
@@ -16,15 +16,15 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "1 tin nạp: Úc-Nhật thử laser Boobook thành công + thoả thuận cho Nhật thử tên lửa siêu vượt âm trên đất Úc. Phần lớn tin nóng khác của ngày (USS Benfold, Philippines-BrahMos, Nhật-Úc-NZ Mogami, Úc-Solomon, Úc-PNG Pukpuk, tàu sân bay Phúc Kiến) đã được phiên sáng sớm cùng ngày nạp. Chưa kịp vòng bổ sung do CI tối cạn hạn mức và phiên local phải chạy dồn sát/trễ hạn email 22:00."
+      "reason": "Đa số tin nóng của ngày 18/08 (laser Boobook, USS Benfold, AUKUS RIMPAC) đã được phiên tối 20:47 cùng ngày nạp trước. Ứng viên còn lại (ngân sách QP Đài Loan) bị chặn vì ngày sự kiện 17/08 rơi ngoài khung 1 ngày tính từ hôm nay 19/08. Chỉ giữ được 1 tin: Philippines-Úc-Indonesia kỷ niệm 10 năm chương trình ứng phó thảm hoạ chung."
     },
     {
-      "name": "CNQS Mỹ",
-      "count": 5,
+      "name": "Công nghệ quân sự Mỹ",
+      "count": 1,
       "target": "5-10",
       "min": 5,
-      "thieu": false,
-      "reason": "5 tin nạp: GMLRS 133.000 rocket, UUV căn cứ tàu sân bay, trung đoàn tác chiến điện tử Không gian Mỹ, USS Massachusetts bỏ qua bảo dưỡng sau chạy thử, ngân sách Không gian Mỹ 2027 tăng gấp đôi. Đạt sàn tối thiểu."
+      "thieu": true,
+      "reason": "Đa số hợp đồng lớn (Tomahawk 22,9 tỷ USD, Patriot Guam, JASSM, GMLRS, UUV, ngân sách Space Force) đã nạp ở phiên tối 18/08. 2 vòng bổ sung tìm thêm được DARPA hypersonic + Golden Dome SBI nhưng cả hai ngoài khung nới 3 ngày (16-19/08). Chỉ giữ được 1 tin: hợp đồng drone VTOL Chaparral của Elroy Air (17/08)."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,24 +32,24 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "0 tin nạp trực tiếp về hành động Mỹ-Mali/JNIM. Chỉ có 1 tin liên quan Sahel nạp vào worldNews (Nga/Lavrov cáo buộc Ukraine 'khủng bố nhà nước' ở Sahel, bênh vực Africa Corps) — không tính vào mục Mali vì trọng tâm là phát ngôn Nga, không phải hành động Mỹ. ~15 ứng viên khác đều trùng tin đã có (kết án 7 năm, Africa Corps mất thị trấn, ân xá DGSE, Burkina Faso cưỡng ép nhà báo), lệch khung ngày, hoặc không xác minh được link gốc (bài Politico 'Washington's Mali gamble' bị chặn WebFetch)."
+      "reason": "Tìm được 1 tin thật (Mali đón 82 binh sĩ được thả, tuyên bố không đàm phán với JNIM/FLA) nhưng ngày sự kiện 17/08 ngoài khung 1 ngày tính từ hôm nay 19/08 (Mali không được nới 3 ngày như CNQS). Các ứng viên khác trùng tin đã có (Ras Bath 7 năm tù, DGSE pardon)."
     },
     {
       "name": "Tập trận đang diễn ra",
-      "count": 3,
+      "count": 1,
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "3 cập nhật cho Ulchi Freedom Shield 2026 (Hàn Quốc-Hoa Kỳ): Trump ra lệnh giảm quy mô ngay trước khai mạc, Lầu Năm Góc xác nhận đang thực thi chỉ thị (đảo ngược tuyên bố 'chưa đổi gì'), Tổng thống Hàn Quốc Lee Jae Myung nhân cơ hội thúc đẩy giành lại OPCON. Đây là diễn biến nóng nhất trong ngày của chủ đề này."
+      "reason": ""
     },
     {
       "name": "Báo Mới",
       "count": 0,
-      "target": "best-effort",
+      "target": "0-5",
       "min": 0,
-      "thieu": true,
-      "reason": "CẮT VÒNG BÁO MỚI vì sát/trễ hạn chót email 22:00 — CI tối cạn hạn mức tuần lúc ~21:00-21:35 VN, phiên local phải quét dồn từ ~21:55, không còn thời gian xử lý 7 ứng viên Báo Mới đang treo (laser Nhật-Úc — đã trùng tin vừa nạp qua nguồn chính thức nên không cần truy nữa; Canada-Mỹ thuế quan — trùng tin đã nạp; Tomahawk 1.000 quả/năm, YJ-20 Trung Quốc, khu trục hạm Mỹ mất điện — CNQS; cử tri Mỹ 'túi tiền eo hẹp' — Nội bộ Mỹ). Bản tin sau xử lý tiếp, các tin đã trùng thì tự động bị chặn URL khi truy gốc."
+      "thieu": false,
+      "reason": "7 ứng viên chuyên mục đều xử lý: 6 trùng tin đã có hoặc ngoài phạm vi 5 chủ đề, 1 (khảo sát tài chính cử tri) chưa kịp truy nguồn gốc trong phiên — chi tiết logs/loai-tin.md."
     }
   ],
-  "note": "PHIÊN TỐI GẤP RÚT 2026-08-18: cả 4 lượt CI tối (20:47, 21:00, 21:17, 21:35 VN) đều FAIL vì 'You've hit your weekly limit · resets 7pm (UTC)' — hạn mức tuần của CLAUDE_CODE_OAUTH_TOKEN dùng cho routine CI, KHÔNG phải lỗi script. Local claim lúc 21:53 (khoá CI cũ đã hết hạn 30'), harvest 487 ứng viên, giao 5 agent Sonnet song song, nạp lúc 22:20 — đã trễ hạn chót email 22:00 khoảng 20 phút. Theo đúng luật phiên tối (điều 2): 'quá 21:45 chưa nạp xong thì CHỐT lô đang có' — đã bỏ qua bước Jay Lâm (điều 5, cho phép bỏ khi trễ hạn) và bước Báo Mới để commit ngay. CI đã cạn hạn mức nên các lớp CI dự phòng còn lại tối nay (21:47 lớp vét) và có thể cả sáng sớm mai (03:47/04:47) SẼ TIẾP TỤC FAIL cho tới khi hạn mức reset ~19:00 UTC = 02:00 giờ VN 19/08 — cần theo dõi, lưới local là chỗ dựa duy nhất trong cửa sổ này."
+  "note": "Phiên sáng sớm CI (chạy bù local 04:00 giờ VN, mốc chính CI 03:47/04:47 không thấy dấu vết trong git log). Sản lượng mỏng do 3 nguyên nhân: (1) phiên tối 20:47 cùng ngày 18/08 đã nạp gần hết tin nóng trong ngày; (2) mới 04:00 sáng 19/08 nên tin thật sự MỚI của 'hôm nay' chưa kịp xuất hiện trên báo Mỹ (giờ Mỹ vẫn đang đêm 18/08); (3) nhiều ứng viên hợp lệ về nội dung (Đài Loan ngân sách QP, Mali 82 binh sĩ, DARPA hypersonic, Golden Dome) bị chặn đúng luật vì ngày sự kiện là 'hôm kia' (17/08) chứ không phải hôm nay/hôm qua. Đã chạy 2 vòng bổ sung cho Nội bộ Mỹ và CNQS Mỹ trước khi chấp nhận thiếu. Chi tiết đầy đủ: logs/loai-tin.md mục 2026-08-19."
 }
