@@ -20,3 +20,4 @@
 [21:41Z] think-tank: chon 6 bai (Hudson, RUSI, War on the Rocks, Atlantic Council, CSET, Jamestown), add_analyses.py OK, set_analysis_concepts.py: 7 khai niem/6 bai
 [04:30 VN] SKIP (local) - claim web-scan tra exit 11: dang co phien khac chay (nhip tim bat dau 04:00:55). Khong quet chong. (ghi nhan tu commit local f1c494f, hop nhat qua rebase)
 [21:33Z] START event-scan (CI, gop vao sang som) - claim OK
+[21:42Z] Lan goi CI moi (04:42 VN): claim web-scan -> exit 10 (DA XONG, lastRunAt 04:32:56 VN, ~10 phut truoc). Kiem ngoai le: so_da_gui.py --xem co dong [sang] 28 tin luc 04:42:51 VN hom nay -> that, khong phai co noi doi. SKIP em, khong quet lai.
