@@ -6,3 +6,4 @@
 [21:22Z] do_tap_tran_thieu.py: 0 ung vien moi (het trung cuoc da co / da soi lan truoc).
 [21:28Z] 2 agent song song (su kien+tap tran, think-tank) xong. Nap 1 cap nhat Ulchi Freedom Shield + 6 bai think-tank (Lowy, AGSI, RUSI, Hudson, ASPI, ORF - 5 khu vuc). Khong co su kien ngoai giao moi dat chuan trong 48h.
 [21:29Z] DONE ca hai pipeline (web-scan + event-scan), da push. Ket thuc phien.
+[21:30Z] SKIP (CI) - phien sang som moi (04:29 VN). state.py claim web-scan tra exit 10: ngay 2026-08-20 DA XONG (lan chay cuoi 04:20:58 VN). Kiem tra ngoai le: so_da_gui --xem co dong 2026-08-20T04:29:30+07:00 [sang] 4 tin + [sukien] 0 tin - ban tin da toi tay that, khong phai co noi doi. Ket thuc em, khong quet lai.
