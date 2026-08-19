@@ -8,3 +8,6 @@ __pycache__/
 # Cờ trạng thái của PHIÊN TEST hạ tầng (DIEMTIN_PHIEN_TEST=1). Sổ riêng, ephemeral —
 # commit vào repo chỉ là rác, và tệ hơn: dễ bị đọc nhầm thành cờ thật khi chẩn đoán.
 logs/state-test.json
+
+# Cấu hình phiên Claude cục bộ — không commit
+.claude/
