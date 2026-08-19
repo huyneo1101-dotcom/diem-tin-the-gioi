@@ -2,3 +2,4 @@
 [21:02Z] harvest.py + telegram_harvest.py xong: 381 ung vien RSS/GNEWS/HTML + 18 TG
 [21:12Z] 4 agent Sonnet song song (Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran) tra ket qua
 [21:20Z] Da kiem tra cheo bang WebSearch, loai 6/8 tin Agent A trung/sai, loai GMLRS trung, loai FRATERNO+Nixon vi ngoai khung ngay. add_news.py: OK +0 worldNews +4 usNews +1 tap tran. Ghi scan-gaps.json + loai-tin.md.
+[21:21Z] web-scan DONE, da push. Bat dau event-scan (Buoc 6, phien sang som).
