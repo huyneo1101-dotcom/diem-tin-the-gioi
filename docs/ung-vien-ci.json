@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-20T03:46:37+07:00",
+  "tao_luc": "2026-08-20T03:56:14+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-19",
@@ -37,14 +37,6 @@
       "tieu_de": "Singapore expands elite visa program to lure top fund managers",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/spotlight/work/singapore-expands-elite-visa-program-to-lure-top-fund-managers"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-08-19",
-      "tieu_de": "15-year-old girl arrested over bomb hoax at Singapore secondary school",
-      "nguon": "Inquirer",
-      "url": "https://globalnation.inquirer.net/335188/15-year-old-girl-arrested-over-bomb-hoax-at-singapore-secondary-school"
     },
     {
       "lop": "RSS",
@@ -482,6 +474,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-20",
+      "tieu_de": "Military’s newest branch sees significant funding increase for missile defense programs",
+      "nguon": "Federal News Network — Defense",
+      "url": "https://federalnewsnetwork.com/federal-newscast/2026/08/militarys-newest-branch-sees-significant-funding-increase-for-missile-defense-programs/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-20",
       "tieu_de": "Iran cảnh báo các nước vùng Vịnh không hỗ trợ quân đội Mỹ",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/iran-canh-bao-cac-nuoc-vung-vinh-khong-ho-tro-quan-doi-my-post1131220.vnp"
@@ -658,30 +658,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-19",
-      "tieu_de": "Free ride services continue in select Metro Manila routes Wednesday",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2287871/free-ride-services-continue-in-select-metro-manila-routes-wednesday"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-19",
-      "tieu_de": "LIST:  Flooded areas in Metro Manila as habagat brings heavy rains",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2287861/list-flooded-areas-in-metro-manila-as-habagat-brings-heavy-rains"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-19",
-      "tieu_de": "Red rainfall warning up over Metro Manila, parts of Luzon due to habagat",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2287835/red-rainfall-warning-up-over-metro-manila-parts-of-luzon-due-to-habagat"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-19",
       "tieu_de": "Amentum-Laing O’Rourke JV to support Australia SSN yard",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/amentum-australia-nuclear-submarine-yard/"
@@ -794,9 +770,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-19",
-      "tieu_de": "International Criminal Court says US sanctions ‘flagrant attack’ on tribunal’s independence",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/international-criminal-court-says-us-sanctions-flagrant-attack-on-tribunals-independence",
+      "tieu_de": "International Criminal Court: New US sanctions ‘a flagrant attack’ against its independence",
+      "nguon": "UN News",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168168",
       "nhom": 4
     },
     {
@@ -815,6 +791,15 @@
       "tieu_de": "Trump delays 50% US tariffs on Canadian goods for 3 days after last-minute talks",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3364480/trump-and-carney-hold-urgent-talks-steep-50-us-tariffs-canada-loom?utm_source=rss_feed",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-20",
+      "tieu_de": "ICC says U.S. sanctions 'flagrant attack' on court independence",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/icc-says-us-sanctions-flagrant-attack-on-court-independence/article71366455.ece",
       "nhom": 4
     },
     {
@@ -851,6 +836,15 @@
       "tieu_de": "Trump touted a deal to avert new tariffs on Canada. Here's what we know so far",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/08/19/trump-canada-tariffs-deal-carney.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-20",
+      "tieu_de": "Trump bemoans Fed interest rate policy, says U.S. should be paying much less",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/08/19/trump-bemoans-fed-interest-rate-policy-says-us-should-be-paying-much-less.html",
       "nhom": 4
     },
     {
