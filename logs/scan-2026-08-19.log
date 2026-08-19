@@ -27,3 +27,11 @@
 [20:12 VN] SKIP (local toi) - claim web-scan tra exit 10: phien toi CHAY BU (sang som) 2026-08-19 DA XONG luc 04:32:56 VN. Ban tin sang co 28 tin da gui. KET THUC.
 [14:00Z] START (CI) - phien toi THAT 19/08/2026 (21:00 VN). claim web-scan -> RUN, "phien toi ngay 2026-08-19 chua xong" (khac voi ban CHAY BU sang som da xong luc 04:32). Quet binh thuong.
 [21:15 VN] SKIP (local toi) - claim web-scan tra exit 11: dang co phien khac chay (CI bat dau 21:00:41 VN, nhip tim 15' truoc). Khong quet chong. KET THUC session.
+[14:04Z] pip install curl_cffi OK. harvest.py: 473 ung vien (Noi bo My 163, Uc&BD 131, CNQS 91, Mali 62, Tap tran 26). telegram_harvest.py: 16 ung vien.
+[14:05Z] giao 4 agent Sonnet song song (vong 1). 2 agent (Noi bo My, Uc&BD) fail lan dau vi khong doc duoc /tmp - da copy file vao .scratch/ trong repo va giao lai, ca 4 deu xong.
+[14:17Z] Ket qua: Noi bo My 5 tin (loai 1: trang hub whitehouse.gov khong phai bai cu the) - Uc&BD 6 tin - CNQS My 5 tin (loai 1: Pentagon Gulf posture khong co khi tai cu the) - Mali+Tap tran: 0 Mali, 1 exerciseUpdate (Ulchi Freedom Shield ket thuc som 21/8, huy giai doan phan cong).
+[14:19Z] Tu kiem tra doc lap 2 URL nghi ngo (abcnews.com) bang urllib - xac nhan noi dung khop, khong bi bia. navy.mil xac nhan qua curl_cffi impersonate=chrome.
+[14:21Z] add_news.py x2: +6 worldNews, +9 usNews (gom 1 tin An Do UAV truy nguon tu Bao Moi), +1 tap tran update. generatedAt=2026-08-19.
+[14:22Z] Xu ly cong Bao Moi: 5 ung vien - 1 nap (An Do UAV, doi nguon Business Today) - 4 loai (kinh te Iran, F-35/S-400 khong moi, tau ngam Nga khong neo Uc/BD, cong nghe ten lua TQ). Ghi logs/loai-tin.md + logs/scan-gaps.json.
+[14:23Z] gh workflow run telegram-bot.yml bi chan (requires approval). tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10). Bo qua buoc loc Jay Lam.
+[14:24Z] Merge log: phien local web-scan-diem-tin-toi (21:15 VN) da chay va tu SKIP dung vi thay khoa CI dang RUNNING - khong quet chong, dung nhu thiet ke.

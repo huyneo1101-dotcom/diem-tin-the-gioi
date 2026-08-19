@@ -1,30 +1,30 @@
 {
-  "date": "2026-08-18",
-  "session": "sang",
+  "date": "2026-08-19",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
-      "count": 2,
+      "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng lần thứ 4 liên tiếp — Quốc hội Mỹ đang nghỉ hè tới 30/8 (Hạ viện) và 11/9 (Thượng viện). 2 tin nạp thuộc nhóm 5 (gerrymander Missouri) và nhóm 2/thể chế (toà chặn dời trụ sở FBI). Đã thử 2 vòng bổ sung; nhiều ứng viên khác (khảo sát cử tri, thăm dò bầu cử) trùng tin đã có hoặc chưa kịp truy nguồn gốc."
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ vẫn nghỉ hè. 4 tin nạp thuộc nhóm 2/5 (trừng phạt ICC, hoãn thuế Canada, thư Slotkin về trung lập quân đội bầu cử, DOJ triển khai 1.000 giám sát viên bầu cử). Một ứng viên (Nhà Trắng giải mật email NSA) bị loại vì sourceUrl chỉ là trang hub tài liệu (whitehouse.gov/election-integrity/, 183 link), không phải bài viết cụ thể — không đạt chuẩn nguồn."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 1,
+      "count": 6,
       "target": "5-10",
       "min": 5,
-      "thieu": true,
-      "reason": "Đa số tin nóng của ngày 18/08 (laser Boobook, USS Benfold, AUKUS RIMPAC) đã được phiên tối 20:47 cùng ngày nạp trước. Ứng viên còn lại (ngân sách QP Đài Loan) bị chặn vì ngày sự kiện 17/08 rơi ngoài khung 1 ngày tính từ hôm nay 19/08. Chỉ giữ được 1 tin: Philippines-Úc-Indonesia kỷ niệm 10 năm chương trình ứng phó thảm hoạ chung."
+      "thieu": false,
+      "reason": ""
     },
     {
       "name": "Công nghệ quân sự Mỹ",
-      "count": 1,
+      "count": 5,
       "target": "5-10",
       "min": 5,
-      "thieu": true,
-      "reason": "Đa số hợp đồng lớn (Tomahawk 22,9 tỷ USD, Patriot Guam, JASSM, GMLRS, UUV, ngân sách Space Force) đã nạp ở phiên tối 18/08. 2 vòng bổ sung tìm thêm được DARPA hypersonic + Golden Dome SBI nhưng cả hai ngoài khung nới 3 ngày (16-19/08). Chỉ giữ được 1 tin: hợp đồng drone VTOL Chaparral của Elroy Air (17/08)."
+      "thieu": false,
+      "reason": ""
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "Tìm được 1 tin thật (Mali đón 82 binh sĩ được thả, tuyên bố không đàm phán với JNIM/FLA) nhưng ngày sự kiện 17/08 ngoài khung 1 ngày tính từ hôm nay 19/08 (Mali không được nới 3 ngày như CNQS). Các ứng viên khác trùng tin đã có (Ras Bath 7 năm tù, DGSE pardon)."
+      "reason": "62 ứng viên harvest.py + Telegram chủ yếu là nhiễu (thể thao/nghệ sĩ tên 'Mali') hoặc tin đã nạp trước đó (ân xá Yann Vezilier, 82 lính được thả — cả hai đã lên bản tin 13-15/08). Tin 'IS Sahel commander killed' chỉ có 1 nguồn tổng hợp không kiểm chứng được (TVC News) nên loại theo thang xác minh."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -44,12 +44,12 @@
     },
     {
       "name": "Báo Mới",
-      "count": 0,
+      "count": 1,
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "7 ứng viên chuyên mục đều xử lý: 6 trùng tin đã có hoặc ngoài phạm vi 5 chủ đề, 1 (khảo sát tài chính cử tri) chưa kịp truy nguồn gốc trong phiên — chi tiết logs/loai-tin.md."
+      "reason": "5 ứng viên chuyên mục xử lý: 1 truy về bài gốc và nạp thành công (Ấn Độ thuê UAV MQ-9B Mỹ, đổi nguồn sang Business Today), 4 loại (kinh tế Iran không phải nội bộ Mỹ; F-35/S-400 Turkey không có diễn biến mới trong khung; tàu ngầm Nga Khabarovsk không neo Úc/Biển Đông; công nghệ tên lửa Trung Quốc không phải khí tài Mỹ) — chi tiết logs/loai-tin.md."
     }
   ],
-  "note": "Phiên sáng sớm CI (chạy bù local 04:00 giờ VN, mốc chính CI 03:47/04:47 không thấy dấu vết trong git log). Sản lượng mỏng do 3 nguyên nhân: (1) phiên tối 20:47 cùng ngày 18/08 đã nạp gần hết tin nóng trong ngày; (2) mới 04:00 sáng 19/08 nên tin thật sự MỚI của 'hôm nay' chưa kịp xuất hiện trên báo Mỹ (giờ Mỹ vẫn đang đêm 18/08); (3) nhiều ứng viên hợp lệ về nội dung (Đài Loan ngân sách QP, Mali 82 binh sĩ, DARPA hypersonic, Golden Dome) bị chặn đúng luật vì ngày sự kiện là 'hôm kia' (17/08) chứ không phải hôm nay/hôm qua. Đã chạy 2 vòng bổ sung cho Nội bộ Mỹ và CNQS Mỹ trước khi chấp nhận thiếu. Chi tiết đầy đủ: logs/loai-tin.md mục 2026-08-19."
+  "note": "Phiên TỐI CI thật (21:00-21:25 VN, mốc chính 20:47 trễ do phiên sáng sớm cùng ngày chiếm ô khoá 'toi CHAY BU' tới 04:32 VN, tối nay claim lại đúng slot 'toi' 2026-08-19 chưa xong). Quét gọn theo yêu cầu hạn chót email 22:00 — 1 vòng agent Sonnet cho 4 nhóm chủ đề, không lặp vòng bổ sung. Nhóm Nội bộ Mỹ + Mỹ-Mali thiếu chỉ tiêu do khan tin thật trong khung 18-19/08 (Quốc hội nghỉ hè, Mali chủ yếu nhiễu/tin cũ) — đã xác minh kỹ trước khi chấp nhận thiếu. Đã kích gh workflow run telegram-bot.yml nhưng bị chặn (requires approval) nên KHÔNG lọc được qua bộ lọc Jay Lâm — tin_jaylam.py --liet-ke báo không có file trong khung ngày (mã 10) nên không ảnh hưởng gì thêm."
 }

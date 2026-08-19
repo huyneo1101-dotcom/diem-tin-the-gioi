@@ -7,6 +7,14 @@
 
 ---
 
+## 2026-08-19 (phiên tối CI)
+
+- ⭐ [Nội bộ Mỹ/Báo Mới] "Mỹ siết trừng phạt, kinh tế Iran 'khó chồng khó', thị trường toàn cầu có chịu ảnh hưởng?" (Báo Thế Giới & Việt Nam) — nói về kinh tế IRAN chịu tác động trừng phạt, không phải chính sách/kinh tế NỘI BỘ Mỹ — không thuộc 1 trong 5 nhóm chủ đề Nội bộ Mỹ. Loại.
+- [CNQS/Báo Mới] "Ankara không thể quay lại dự án F-35 khi vấn đề S-400 chưa được giải quyết triệt để" (An Ninh Thủ Đô) — xác nhận đây là câu chuyện đang kéo dài (từ 07/2026), không tìm được diễn biến MỚI cụ thể trong khung 17-19/08 (bài mới nhất xác nhận được là "at a standstill" 13/08, ngoài khung nới 3 ngày). Loại vì không đủ tính mới.
+- [Úc&BĐ/Báo Mới] "Nga thử nghiệm tàu ngầm hạt nhân Khabarovsk, mở hướng răn đe mới với Poseidon" (VietTimes) — tin về tàu ngầm Nga/vũ khí Poseidon, không neo được vào Úc/AUKUS hay Biển Đông. Loại vì ngoài phạm vi chủ đề.
+- [CNQS/Báo Mới] "Trung Quốc lần đầu tiên đạt được điều mà công nghệ tên lửa Mỹ chưa làm được" (Báo Sức Khỏe & Đời Sống) — nội dung là thành tựu công nghệ tên lửa CỦA TRUNG QUỐC, không phải khí tài Mỹ — không thuộc chủ đề "CNQS Mỹ" hay 4 chủ đề khác trong phạm vi tối nay. Loại.
+- [CNQS/Báo Mới] "Ấn Độ thuê UAV Mỹ tăng cường giám sát trên Ấn Độ Dương" (Báo Thanh Hóa) — ĐÃ TRUY VỀ BÀI GỐC và NẠP THÀNH CÔNG dưới nguồn Business Today (hợp đồng MQ-9B Sea Guardian General Atomics, ký 17/08/2026) — không phải loại, chỉ đổi nguồn/URL nên cổng vẫn hiện tên cũ.
+
 ## 2026-08-15 (phiên sáng sớm CI)
 
 - [Úc&BĐ/TG] "Trung Quốc xác nhận tàu đổ bộ Type 075 thứ tư đạt chuẩn tác chiến ở Biển Đông" (Global Times, sự kiện 12/08) — NGOÀI KHUNG 2 ngày (14-15/08). Loại trước khi nạp.
