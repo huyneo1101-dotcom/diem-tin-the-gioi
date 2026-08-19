@@ -1,30 +1,30 @@
 {
-  "date": "2026-08-19",
-  "session": "toi",
+  "date": "2026-08-20",
+  "session": "sang",
   "topics": [
     {
-      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
-      "count": 4,
+      "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
+      "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ vẫn nghỉ hè. 4 tin nạp thuộc nhóm 2/5 (trừng phạt ICC, hoãn thuế Canada, thư Slotkin về trung lập quân đội bầu cử, DOJ triển khai 1.000 giám sát viên bầu cử). Một ứng viên (Nhà Trắng giải mật email NSA) bị loại vì sourceUrl chỉ là trang hub tài liệu (whitehouse.gov/election-integrity/, 183 link), không phải bài viết cụ thể — không đạt chuẩn nguồn."
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ vẫn nghỉ hè tháng 8 (xác nhận qua WebSearch). Agent A trả 8 ứng viên nhóm 2-5 nhưng 6/8 TRÙNG tin đã có trên bản tin (ICC, Canada tariff, DOJ monitors, Slotkin, FBI HQ, Missouri redistricting — hai tin cuối còn bị đảo ngược sự thật so với DATA đã có), và 1 ứng viên hợp lệ (Nixon-Vindman Florida primary) rơi vào ngày 18/08, ngoài khung 2 ngày cho phép của phiên chạy 20/08. Chỉ giữ được 1 tin (Trump chỉ trích Fed). Chi tiết logs/loai-tin.md."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 6,
+      "count": 0,
       "target": "5-10",
       "min": 5,
-      "thieu": false,
-      "reason": ""
+      "thieu": true,
+      "reason": "Agent B tìm 53 lượt tool nhưng mọi ứng viên đều trùng tin đã có (AUKUS Osborne, laser Boobook, Koizumi thăm Úc, PNG-Pukpuk, hải cảnh Philippines...) hoặc ngoài khung ngày. Điều phối tự kiểm thêm không ra ứng viên mới. Phần lớn tin nóng chủ đề này của 18-19/08 đã được các phiên trước nạp."
     },
     {
-      "name": "Công nghệ quân sự Mỹ",
-      "count": 5,
+      "name": "CNQS Mỹ",
+      "count": 3,
       "target": "5-10",
       "min": 5,
-      "thieu": false,
-      "reason": ""
+      "thieu": true,
+      "reason": "5 ứng viên ban đầu, loại 2: 'Golden Dome for America Hub' trùng URL war.gov đã có sẵn trong DATA; 'Lục quân đặt hàng 133.000 rocket GMLRS' trùng tin đã có 18/08. Còn lại 3 tin nạp: radar SPY-6(V)3 USS JFK, X-Bow tên lửa đánh chặn giá rẻ MDA, ThinKom vũ khí vi sóng Alecto chống drone."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "62 ứng viên harvest.py + Telegram chủ yếu là nhiễu (thể thao/nghệ sĩ tên 'Mali') hoặc tin đã nạp trước đó (ân xá Yann Vezilier, 82 lính được thả — cả hai đã lên bản tin 13-15/08). Tin 'IS Sahel commander killed' chỉ có 1 nguồn tổng hợp không kiểm chứng được (TVC News) nên loại theo thang xác minh."
+      "reason": "Agent D không tìm được diễn biến MỚI liên quan tới Mỹ trong khung 18-20/08 — chỉ có tin cân nhắc không kích JNIM từ 22/07 (quá cũ) và tin Putin-Goïta/Africa Corps không có yếu tố Mỹ trực tiếp nên không đưa."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,16 +40,16 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": ""
+      "reason": "Nạp 1 cập nhật Ulchi Freedom Shield 2026 (Lầu Năm Góc xác nhận cắt giảm không suy giảm mục tiêu huấn luyện). Ứng viên FRATERNO XXXIX (Argentina/Brazil khởi động giai đoạn trên biển, xác nhận thật qua argentina.gob.ar) bị loại vì ngày sự kiện 18/08 ngoài khung 2 ngày."
     },
     {
       "name": "Báo Mới",
-      "count": 1,
+      "count": 0,
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "5 ứng viên chuyên mục xử lý: 1 truy về bài gốc và nạp thành công (Ấn Độ thuê UAV MQ-9B Mỹ, đổi nguồn sang Business Today), 4 loại (kinh tế Iran không phải nội bộ Mỹ; F-35/S-400 Turkey không có diễn biến mới trong khung; tàu ngầm Nga Khabarovsk không neo Úc/Biển Đông; công nghệ tên lửa Trung Quốc không phải khí tài Mỹ) — chi tiết logs/loai-tin.md."
+      "reason": "5 ứng viên chuyên mục xử lý hết, loại cả 5: kinh tế Iran là bài phân tích tổng hợp không neo sự kiện cụ thể; F-35/S-400 Turkey chỉ có 1 nguồn ít tên tuổi xác nhận nên không đạt thang xác minh; tàu ngầm Nga Khabarovsk không neo Úc/Biển Đông; tên lửa Trung Quốc không phải khí tài Mỹ; UAV MQ-9B Ấn Độ trùng tin đã có 17/08. Chi tiết logs/loai-tin.md."
     }
   ],
-  "note": "Phiên TỐI CI thật (21:00-21:25 VN, mốc chính 20:47 trễ do phiên sáng sớm cùng ngày chiếm ô khoá 'toi CHAY BU' tới 04:32 VN, tối nay claim lại đúng slot 'toi' 2026-08-19 chưa xong). Quét gọn theo yêu cầu hạn chót email 22:00 — 1 vòng agent Sonnet cho 4 nhóm chủ đề, không lặp vòng bổ sung. Nhóm Nội bộ Mỹ + Mỹ-Mali thiếu chỉ tiêu do khan tin thật trong khung 18-19/08 (Quốc hội nghỉ hè, Mali chủ yếu nhiễu/tin cũ) — đã xác minh kỹ trước khi chấp nhận thiếu. Đã kích gh workflow run telegram-bot.yml nhưng bị chặn (requires approval) nên KHÔNG lọc được qua bộ lọc Jay Lâm — tin_jaylam.py --liet-ke báo không có file trong khung ngày (mã 10) nên không ảnh hưởng gì thêm."
+  "note": "Phiên SÁNG SỚM chạy bù local/CI lúc 04:00-04:20 giờ VN ngày 20/08 (mốc chính CI 03:47/04:47 không thấy dấu vết — có thể đã SKIP hoặc chưa fire, phiên này claim khoá 'toi CHAY BU (sang som)'). Sản lượng MỎNG: 0 worldNews + 4 usNews + 1 cập nhật tập trận. Nguyên nhân chính: (a) đa số tin nóng ngày 18-19/08 đã được các phiên trước nạp gần hết; (b) 4 agent Sonnet song song bị trùng đáng kể với DATA dù đã nhúng đủ danh sách chống trùng — điều phối phải tự xác minh lại bằng WebSearch và loại 6/8 tin của riêng agent Nội bộ Mỹ (2 tin trong số đó còn bị đảo ngược sự thật so với DATA); (c) một số ứng viên hợp lệ về nội dung (Nixon-Vindman, FRATERNO XXXIX sea phase) bị chặn đúng luật vì rơi vào ngày 18/08, ngoài khung 24h/48h nghiêm ngặt của phiên chạy 04:00 sáng 20/08 — đây là ứng viên tốt cho phiên kế tiếp. Đã cố kích gh workflow run telegram-bot.yml để lọc qua file Jay Lâm nhưng bị chặn (requires approval); tin_jaylam.py --liet-ke báo không có file trong khung ngày (mã 10) nên không ảnh hưởng thêm."
 }
