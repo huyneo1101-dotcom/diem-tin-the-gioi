@@ -88,6 +88,12 @@ MIEN_BAI_O_GOC = frozenset({
     # đều dạng `southasianvoices.org/<slug-dai>/`, không mục nào — cùng hình dạng
     # aspistrategist/ussc/mwi. Feed đã khai trong THINKTANK_FEEDS, đây KHÔNG phải lỗ thiếu feed.
     "southasianvoices.org",
+    # thêm 19/08/2026, đã mở `longwarjournal.org/feed` ra xem tận nơi: 15/15 item mới nhất dạng
+    # `/archives/<năm>/<tháng>/<slug>.php` — bất kể chủ đề (Iran, Yemen, Somalia, Bắc Triều
+    # Tiên, Mali đều rơi cùng khuôn). `archives` là tiền tố ngày tháng của MỌI bài trên site,
+    # không phải mục phân loại, nên "mục đầu đường dẫn" không nói được gì — cùng hình dạng
+    # aspistrategist/ussc/mwi. Feed đã khai trong THINKTANK_FEEDS, đây KHÔNG phải lỗ thiếu feed.
+    "longwarjournal.org",
 })
 
 # Tiền tố NGÔN NGỮ — bóc trước khi tính mục. `icds.ee/en/<slug>` không có nghĩa là viện ấy chỉ
