@@ -35,3 +35,4 @@
 [14:22Z] Xu ly cong Bao Moi: 5 ung vien - 1 nap (An Do UAV, doi nguon Business Today) - 4 loai (kinh te Iran, F-35/S-400 khong moi, tau ngam Nga khong neo Uc/BD, cong nghe ten lua TQ). Ghi logs/loai-tin.md + logs/scan-gaps.json.
 [14:23Z] gh workflow run telegram-bot.yml bi chan (requires approval). tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10). Bo qua buoc loc Jay Lam.
 [14:24Z] Merge log: phien local web-scan-diem-tin-toi (21:15 VN) da chay va tu SKIP dung vi thay khoa CI dang RUNNING - khong quet chong, dung nhu thiet ke.
+[14:26Z] Lan goi CI thu hai (21:26 VN, lop vet 21:47): claim web-scan -> exit 10 (phien toi 2026-08-19 DA XONG, lastRunAt 21:23:37+07:00). Kiem ngoai le: so_da_gui.py --xem co dong 2026-08-19T21:26:23+07:00 [toi] 16 tin -> ban tin toi that su da toi tay, khong phai co noi doi. SKIP em, KET THUC session, khong quet lai.
