@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-19T21:23:37+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+6 tin TG, +9 tin My (5 CNQS, 4 khac), +1 tap tran (Ulchi Freedom Shield)",
+    "lastRunAt": "2026-08-20T04:00:56+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-19",
       "sang": "2026-08-19"
-    }
+    },
+    "heartbeat": "2026-08-20T04:00:56+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-19T04:42:04+07:00",
