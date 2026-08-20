@@ -297,6 +297,35 @@ THINKTANK_FEEDS = [
     ("Small Wars Journal", "https://smallwarsjournal.com/feed", "Xung đột phi quy ước"),
     ("CIMSEC", "https://cimsec.org/feed/", "Hải quân · biển"),
     ("Arms Control Association", "https://www.armscontrol.org/rss.xml", "Hạt nhân · kiểm soát vũ khí"),
+    # ══ Bổ sung 20/08/2026 — 05 viện NẰM SẴN trong THINKTANK_DOMAINS mà chưa từng có đường quét ══
+    # CƠ CHẾ GÂY VẤP, đo 20/08: `THINKTANK_DOMAINS` có **35 domain** không xuất hiện ở
+    # THINKTANK_FEEDS, THINKTANK_HTML lẫn WEBSEARCH_ONLY. Guardrail nạp cho chúng đi qua, nên
+    # nhìn danh sách thì tưởng đã phủ; thực tế KHÔNG lớp nào quét về, và cũng không lớp nào giục
+    # WebSearch. Trong đó có `cfr.org` — viện đối ngoại lớn nhất của Mỹ, feed 24 item ra bài mỗi
+    # ngày, chưa từng vào kho. Đây là hỏng câm ở tầng danh sách chứ không ở tầng mã.
+    # ⚠️ PHÉP ĐO PHẢI GIỮ: `THINKTANK_DOMAINS trừ (FEEDS ∪ HTML ∪ WEBSEARCH_ONLY)` — thêm domain
+    # vào guardrail mà quên khai đường vào là lỗi không phát ra dấu hiệu nào.
+    ("CFR", "https://www.cfr.org/feed/", "Mỹ · đối ngoại"),
+    # ⚠️ FDD: phải là nhánh `category/analysis`, KHÔNG dùng `/feed/` gốc. Feed gốc trả 50 item
+    # nhưng 32 nằm ở `/in_the_news/` — điểm báo, mà đường dẫn viết bằng gạch DƯỚI nên NOISE_PATHS
+    # (`/in-the-news/`, gạch ngang) không chặn được. Nhánh này trả 50/50 dưới `/analysis/`.
+    ("FDD", "https://www.fdd.org/category/analysis/feed/", "Trung Đông · Iran"),
+    # Inter-American Dialogue — LẤP VÙNG MỸ LATIN, trước nay trắng hoàn toàn: `wola.org` 403 mọi
+    # đường, `dialogo-americas.com` là tạp chí của Bộ Tư lệnh Miền Nam Hoa Kỳ (báo chí quân đội,
+    # không phải viện). Feed này 10/10 bài dưới `/blogs/` của chính viện.
+    ("Inter-American Dialogue", "https://thedialogue.org/feed", "Mỹ Latin"),
+    # ⚠️ Elcano: dùng bản `/en/feed/` (tiếng Anh). Feed gốc `/feed/` cũng sống nhưng ra bài tiếng
+    # Tây Ban Nha.
+    ("Real Instituto Elcano", "https://www.realinstitutoelcano.org/en/feed/", "Nam Âu · Tây Ban Nha"),
+    # ⚠️ SPF USA đăng RẤT thưa (lúc cắm, bài mới nhất đã 5 tháng tuổi) nên gần như luôn nằm trong
+    # dòng "feed không ra bài" — bình thường, giống USIP.
+    ("SPF USA", "https://www.spfusa.org/feed/", "Nhật - Mỹ"),
+    # ⛔ ĐÃ ĐO VÀ BỎ 20/08/2026, đừng cắm lại:
+    # · `defensepriorities.org/feed/` — 10/10 item nằm ở `/in-the-media/`, tức điểm báo. Cắm vào
+    #   thì NOISE_PATHS lọc sạch, được đúng con số 0 kèm một lượt curl mỗi ngày.
+    # · `iss.europa.eu/rss.xml` (EUISS) — 10 item nhưng nội dung là "X discussing … in Euronews",
+    #   "… cited in El Confidencial", tức trích dẫn truyền thông chứ không phải nghiên cứu. Cùng
+    #   loại với feed SWP và Clingendael đã bỏ.
 ]
 
 # ══ ĐƯỜNG NẠP BÀI DÀI — quét theo THÁNG, tách khỏi routine quét theo NGÀY (dựng 06/08/2026) ══
@@ -409,7 +438,48 @@ WEBSEARCH_ONLY = {
     "Viện lớn của Mỹ": ["csis.org", "brookings.edu", "cnas.org", "stimson.org",
                         "carnegieendowment.org", "fpri.org", "belfercenter.org",
                         "wilsoncenter.org", "iiss.org"],
+    # ══ Bổ sung 20/08/2026 — 30 viện trước đây IM LẶNG hoàn toàn ══
+    # Chúng nằm trong `THINKTANK_DOMAINS` (guardrail cho nạp) nhưng KHÔNG có ở FEEDS, KHÔNG có ở
+    # HTML, và cũng KHÔNG có ở đây — nên không lớp nào quét về, mà `--candidates` cũng không giục
+    # agent tìm. Nhìn `THINKTANK_DOMAINS` thì tưởng đã phủ. Đã dò feed cả 35 domain thuộc diện
+    # này (thẻ `<link rel=alternate>` + `/feed/` + `/rss.xml`): chỉ 07 có feed, 05 đã cắm vào
+    # THINKTANK_FEEDS, 02 bị bỏ vì là feed điểm báo. Số còn lại xếp xuống đây.
+    # ⚠️ CHƯA dò quét HTML cho nhóm này — WebSearch là hướng lệch AN TOÀN (bài vẫn tới được),
+    # không phải kết luận "không quét HTML được". Viện nào hay ra bài thì đo `--kiem-html` rồi
+    # nâng lên THINKTANK_HTML.
+    "Mỹ · viện và tạp chí": ["aei.org", "cato.org", "csbaonline.org", "defensepriorities.org",
+                             "foreignaffairs.com", "nbr.org", "piie.com", "sipa.columbia.edu",
+                             "understandingwar.org"],
+    "Châu Âu · viện quốc gia": ["carnegieeurope.eu", "ceps.eu", "egmontinstitute.be",
+                                "giga-hamburg.de", "ispionline.it", "iss.europa.eu", "nupi.no",
+                                "pism.pl", "prif.org", "ui.se"],
+    "Vùng Vịnh": ["epc.ae", "gulfif.org"],
+    "Bắc Cực · báo chuyên": ["highnorthnews.com"],
+    "Đông Á · Đông Nam Á": ["iseas.edu.sg", "rsis.edu.sg", "sejong.org", "tokyofoundation.org"],
+    "Úc · Ấn Độ Dương - TBD": ["ussc.edu.au"],
+    "Châu Phi · Sahel (bổ sung)": ["timbuktu-institute.org"],
+    "Dữ liệu · số liệu": ["sipri.org"],
 }
+
+# Domain CŨ của một viện đã đổi tên miền: guardrail phải giữ (bài cũ trong kho còn mang url cũ)
+# nhưng KHÔNG cần đường quét riêng — tên miền mới mới là chỗ quét. Miễn chúng khỏi phép đo
+# "domain nào chưa có đường quét", nếu không phép đo đó kêu oan mãi mãi.
+DOMAIN_CU_DA_CHUYEN = {"agsiw.org": "agsi.org", "spf.org": "spf.org"}
+
+
+def domain_chua_co_duong_quet() -> set:
+    """`THINKTANK_DOMAINS` trừ đi mọi domain đã có đường quét (feed · HTML · WebSearch).
+
+    Phép đo cho một hỏng câm ở tầng DANH SÁCH: thêm domain vào guardrail rồi quên khai đường
+    vào thì không lớp nào quét, không lớp nào giục, và không dấu hiệu nào phát ra. Đo 20/08/2026
+    trước khi vá: **35 domain**, trong đó có `cfr.org`.
+    """
+    co = set(DOMAIN_CU_DA_CHUYEN)
+    co |= {urllib.parse.urlparse(u).netloc.replace("www.", "") for _, u, _ in THINKTANK_FEEDS}
+    co |= {urllib.parse.urlparse(u).netloc.replace("www.", "") for _, u, _, _ in THINKTANK_HTML}
+    for ds in WEBSEARCH_ONLY.values():
+        co |= set(ds)
+    return THINKTANK_DOMAINS - co
 
 # ─────────────────────────── LỚP [HTML] — viện KHÔNG có RSS ───────────────────────────
 # Vì sao có lớp này (30/07/2026): đo lại 40 domain trong WEBSEARCH_ONLY thì 29 cái trả 200
@@ -463,6 +533,39 @@ THINKTANK_HTML = [
      r"^/publication/[^/]{10,}", "Hạt nhân · khoa học"),
     ("SPF (IINA)", "https://www.spf.org/iina/en/articles/",
      r"^/iina/en/articles/[^/]+\.html$", "Nhật Bản"),
+    # ─── Bổ sung 20/08/2026 — 05 viện lấp bốn vùng mục Think-tank gần như trắng ───
+    # Đo lúc cắm (số bài trang danh sách trả về / bài mới nhất): ACSS 6/07-08 · CTC 9/31-07 ·
+    # IFRI 6/16-07 · SWP 6/18-08 · JIIA 8/17-08. Bốn viện đầu đăng THƯA (1-4 bài/tháng) nên
+    # lớp này ra 0 bài phần lớn các ngày — đó là bình thường, không phải biểu thức path chết;
+    # phân biệt hai ca bằng `--kiem-html` (nó in SỐ LINK khớp, khác hẳn số bài trong khung).
+    #
+    # ⚠️ ACSS: dùng `/in-focus/` chứ KHÔNG dùng `/research/`. Cả hai trả 200 và `/research/`
+    # còn cho nhiều link hơn (16 so với 6), nhưng `/research/` xếp theo CHỦ ĐỀ nên bài mới nhất
+    # trên đó đã 5 tháng tuổi, trong khi `/in-focus/` xếp theo thời gian. Đúng bài học Wilson
+    # Center: nhiều link không có nghĩa là danh sách mới.
+    ("Africa Center (ACSS)", "https://africacenter.org/in-focus/",
+     r"^/(?:publication|spotlight)/[^/]{15,}", "Châu Phi · Sahel"),
+    # ⚠️ CTC: bài nằm THẲNG ở gốc tên miền, không có tiền tố nào — biểu thức path vì thế phải
+    # chặn bằng ĐỘ DÀI (≥30 ký tự, một segment) thay vì bằng tiền tố. Mọi lối điều hướng của
+    # họ đều ngắn hơn (`/topics/…`, `/regions/…`, `/ctc-sentinel/`) hoặc có hai segment.
+    ("CTC Sentinel (West Point)", "https://ctc.westpoint.edu/ctc-sentinel/",
+     r"^/[a-z0-9-]{30,}/?$", "Khủng bố · cực đoan"),
+    # ⚠️ IFRI: `/en/publications/all` mới là danh sách; `/en/publications-list` và
+    # `/en/all-publications` cùng trả 200 nhưng chỉ 9 KB, tức trang rỗng. Bỏ `external-articles`
+    # khỏi biểu thức: đó là bài người của viện đăng trên BÁO khác, url trỏ ra ngoài.
+    ("IFRI", "https://www.ifri.org/en/publications/all",
+     r"^/en/(?:studies|memos|briefings|papers|editorials|notes|reports)/[^/]{10,}", "Châu Âu · Pháp"),
+    # ⚠️ SWP: feed của họ ĐÃ BỊ BỎ khỏi THINKTANK_FEEDS vì là feed ĐIỂM BÁO (phát link thẳng ra
+    # cicero.de/deutschlandfunk.de). Lớp HTML này lấy nhánh khác hẳn — `/en/publication/…` là
+    # nghiên cứu do chính viện xuất bản dưới domain của mình. Đừng đọc ghi chú bỏ-feed rồi suy ra
+    # "SWP là nguồn đã loại".
+    ("SWP Berlin", "https://www.swp-berlin.org/en",
+     r"^/en/publication/[^/]{15,}", "Châu Âu · Đức"),
+    # ⚠️ JIIA: trang `/en/column/` liệt kê bài, nhưng link trỏ sang nhánh `/eng/report/…` —
+    # host vẫn là `jiia.or.jp` nên guardrail domain không chặn. Ngày lấy từ TÊN FILE, xem
+    # `ngay_trong_ten_file`.
+    ("JIIA (Nhật)", "https://www.jiia.or.jp/en/column/",
+     r"^/eng/(?:report|column)/20\d\d/\d\d/[^/]+\.html$", "Nhật Bản"),
 ]
 
 # ĐÃ THỬ VÀ BỎ (30/07/2026) — ghi lại để phiên sau đừng dựng lại rồi mới biết:
@@ -754,6 +857,30 @@ def parse_html_date(raw: str):
     return None
 
 
+# Ngày nhét trong TÊN FILE, dạng `20260817.html` (thêm 20/08/2026 khi cắm JIIA).
+# CƠ CHẾ GÂY VẤP: JIIA đặt đường dẫn `/eng/report/2026/08/20260817.html` — bước (1) đòi đủ
+# `/YYYY/M/D/` nên trượt, và bước (2) thì trang danh sách của họ CHỈ in `2026/08` cạnh tiêu đề,
+# tức chỉ có năm-tháng. Kết quả: mọi bài JIIA nhận ngày mồng 20 của tháng đó, lệch tới 19 ngày
+# mà không dấu hiệu nào — bài cũ lọt vào khung 7 ngày, bài mới bị đẩy ra ngoài. Đo thật lúc cắm:
+# bài `20260817.html` dò ra 2026-08-20 (lệch 3 ngày).
+# ⚠️ Chỉ đọc phần TÊN FILE (bỏ đuôi), và 8 chữ số phải đứng trọn giữa hai ranh giới không phải
+# số — nếu không thì mã báo cáo kiểu `asb44en-2026081712` cũng bị đọc thành ngày.
+_TEN_FILE_NGAY = re.compile(r"(?:^|[^0-9])(20\d\d)(\d\d)(\d\d)(?:[^0-9]|$)")
+
+
+def ngay_trong_ten_file(path: str):
+    """`/eng/report/2026/08/20260817.html` -> date(2026, 8, 17). None nếu không có."""
+    ten = path.rstrip("/").rsplit("/", 1)[-1]
+    ten = re.sub(r"\.(?:html?|php|aspx?|pdf)$", "", ten, flags=re.I)
+    m = _TEN_FILE_NGAY.search(ten)
+    if not m:
+        return None
+    try:
+        return datetime.date(int(m.group(1)), int(m.group(2)), int(m.group(3)))
+    except ValueError:
+        return None
+
+
 def html_article_links(page_url: str, path_re: str, body: str):
     """[(tiêu đề, url tuyệt đối, ngày|None)] — bài trên một trang danh sách, giữ thứ tự trang.
 
@@ -804,6 +931,11 @@ def html_article_links(page_url: str, path_re: str, body: str):
         # read read more". Cắt ở dấu hiệu đầu tiên của đuôi đó.
         title = re.sub(r"\s*\d\d\.\d\d\.\d\d\s*\|.*$", "", title)
         title = re.sub(r"\s*(?:\d+\s*min read|read more|Read More)\s*$", "", title).strip(" |·–—")
+        # JIIA bọc cả khối bài trong <a> nên tiêu đề nuốt luôn tên tác giả và ngày ở cuối:
+        # "… into Sustainable Prosperity Soichiro Chiba (Founder, Thousandleaf) 17.08.2026".
+        # Cắt đuôi ngày dạng `dd.mm.yyyy` / `dd/mm/yyyy` (khác đuôi `07.29.26 |` của FAS ở chỗ
+        # năm đủ 4 số và KHÔNG có dấu gạch đứng theo sau).
+        title = re.sub(r"\s*\d{1,2}[./]\d{1,2}[./]20\d\d\s*$", "", title).strip(" |·–—")
         if len(title) < 25 or len(title) > 200:
             continue
         full = urllib.parse.urljoin(page_url, href)
@@ -825,6 +957,8 @@ def html_article_links(page_url: str, path_re: str, body: str):
                 d = datetime.date(int(mu.group(1)), int(mu.group(2)), int(mu.group(3)))
             except ValueError:
                 d = None
+        if d is None:                             # (1b) ngày YYYYMMDD nằm trong TÊN FILE
+            d = ngay_trong_ten_file(pr.path)
         if d is None:                             # (2) ngày gần link nhất trên trang
             d = ngay_gan_nhat(a.start())
         out.append((title, link, d))
@@ -908,11 +1042,20 @@ def kiem_html() -> None:
               f"ngoài-khung={st['ngoai_khung']:2d}  ({area})")
         if not st["link"]:
             chet.append(name)
+    # Đo luôn hỏng câm ở tầng DANH SÁCH — domain nằm trong guardrail mà không đường nào quét.
+    # Đặt ở đây vì `--kiem-html` là chỗ duy nhất người ta mở ra khi nghi lớp quét có vấn đề.
+    mo_coi = sorted(domain_chua_co_duong_quet())
+    if mo_coi:
+        print(f"\n⚠️ {len(mo_coi)} domain nằm trong THINKTANK_DOMAINS mà KHÔNG có đường quét nào "
+              f"(không feed, không HTML, không cả WebSearch) — bài của họ không bao giờ tới:\n   "
+              + " · ".join(mo_coi))
     if chet:
         print("\n⚠️ Trang KHÔNG ra link bài nào — sửa biểu thức path hoặc bỏ khỏi bảng: "
               + " · ".join(chet))
         raise SystemExit(3)
-    print("\nMọi trang đều ra link bài.")
+    if mo_coi:
+        raise SystemExit(4)
+    print("\nMọi trang đều ra link bài; mọi domain trong guardrail đều có đường quét.")
 
 
 def loc_ung_vien_feed(url: str, khung: int, existing: set, today_vn: datetime.date):

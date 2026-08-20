@@ -106,6 +106,22 @@ TRANG_NHIEU_LINK = DON + "<html><body>" + "".join(
     f'<a href="/analysis/bai-so-{i:03d}-trong-trang-luu-tru/">Bai so {i:03d} trong trang luu tru '
     f'cua vien nghien cuu</a></div>' for i in range(40)) + "</body></html>"
 
+# ── Trang kiểu JIIA: ngày nằm trong TÊN FILE, còn cạnh tiêu đề chỉ in NĂM/THÁNG ────────────
+# Dựng theo hình dạng đo được 20/08/2026 ở `jiia.or.jp/en/column/`. Đây là ca mà bước (1) và
+# bước (2) đều ra kết quả SAI chứ không phải ra rỗng — nguy hiểm hơn hẳn, vì rỗng thì `--kiem-html`
+# kêu còn sai thì không ai thấy.
+TRANG_NGAY_TRONG_TEN_FILE = DON + """<html><body>
+<div class="card"><span class="date">2026/07/20</span>
+  <a href="/eng/report/2026/07/20260728.html">Bao cao ve chuyen doi cong nghiep quoc phong
+  Nhat Ban nam 2026 Taro Yamada (Vien truong) 28.07.2026</a></div>
+<div class="card"><span class="date">2026/07/26</span>
+  <a href="/eng/report/2026/07/bao-cao-thuong-nien-cua-vien.html">Bao cao thuong nien cua vien
+  ve an ninh khu vuc Dong Bac A</a></div>
+<div class="card"><span class="date">2026/07/25</span>
+  <a href="/eng/report/2026/07/asb44en-20260712345.html">Ma bao cao co chuoi so dai khong phai
+  la ngay thang gi ca</a></div>
+</body></html>"""
+
 GOC = "https://vien-gia.example.org"
 TRANG_DS = f"{GOC}/analysis/"
 PATH_RE = r"^/analysis/[^/]{15,}"
@@ -119,6 +135,7 @@ BO_TRANG = {
     f"{GOC}/publications/": TRANG_DUOI_TIEU_DE,
     f"{GOC}/bi-chan/": TRANG_CHAN,
     f"{GOC}/luu-tru/": TRANG_NHIEU_LINK,
+    f"{GOC}/eng-column/": TRANG_NGAY_TRONG_TEN_FILE,
 }
 
 
@@ -307,8 +324,96 @@ def ca_khong_giuc_websearch_nguon_da_quet(mod):
     return None
 
 
+PATH_RE_TEN_FILE = r"^/eng/report/20\d\d/\d\d/[^/]+\.html$"
+
+
+def ca_ngay_lay_tu_ten_file(mod):
+    """PHẢI CHẶN: tên file `20260728.html` là ngày THẬT, thắng con số in cạnh tiêu đề.
+
+    Trang danh sách in `2026/07/20` cho cả mục, nên bỏ bước (1b) thì mọi bài của viện này nhận
+    chung ngày 20/07 — vẫn nằm trong khung 7 ngày, vẫn ra danh sách, chỉ SAI ngày. Ca này vì thế
+    phải đo GIÁ TRỊ ngày chứ không đo bài có mặt hay không.
+    """
+    slug, _st, _ = _quet(mod, trang=f"{GOC}/eng-column/", path_re=PATH_RE_TEN_FILE, kho=set())
+    if "20260728.html" not in slug:
+        return "bài có ngày trong tên file bị rơi khỏi danh sách"
+    d = slug["20260728.html"][0]
+    if d != datetime.date(2026, 7, 28):
+        return f"ngày sai: {d} — phải là 2026-07-28 lấy từ tên file, không phải ngày in cạnh tiêu đề"
+    return None
+
+
+def ca_cat_duoi_ngay_trong_tieu_de(mod):
+    """PHẢI CHẶN: tiêu đề không được mang đuôi `28.07.2026` — JIIA bọc cả khối bài trong <a>."""
+    slug, _st, _ = _quet(mod, trang=f"{GOC}/eng-column/", path_re=PATH_RE_TEN_FILE, kho=set())
+    t = slug.get("20260728.html", (None, ""))[1]
+    if t.rstrip().endswith("28.07.2026"):
+        return f"tiêu đề còn dính đuôi ngày: …{t[-40:]}"
+    if "Taro Yamada" not in t:
+        return "cắt quá tay — phần tên tác giả cũng bị nuốt mất"
+    return None
+
+
+def ca_khong_doc_chuoi_so_dai_thanh_ngay(mod):
+    """ĐỐI CHỨNG hai chiều cho bước (1b): tên file KHÔNG phải ngày thì phải nhường lại bước (2).
+
+    `asb44en-20260712345` có 11 chữ số liền — mã báo cáo, không phải ngày. Đọc bừa 8 số đầu ra
+    12/07 là sai lặng; đúng thì bài này lấy 25/07 in cạnh tiêu đề. Và bài slug chữ phải lấy 26/07.
+    """
+    slug, _st, _ = _quet(mod, trang=f"{GOC}/eng-column/", path_re=PATH_RE_TEN_FILE, kho=set())
+    if slug.get("asb44en-20260712345.html", (None,))[0] != datetime.date(2026, 7, 25):
+        return (f"chuỗi số dài bị đọc thành ngày: "
+                f"{slug.get('asb44en-20260712345.html', ('vắng mặt',))[0]} — phải là 2026-07-25")
+    if slug.get("bao-cao-thuong-nien-cua-vien.html", (None,))[0] != datetime.date(2026, 7, 26):
+        return "bài tên file bằng chữ không còn lấy được ngày cạnh tiêu đề"
+    return None
+
+
+def ca_moi_domain_deu_co_duong_quet(mod):
+    """PHẢI CHẶN: domain trong guardrail mà không feed / không HTML / không cả WebSearch.
+
+    Đây là hỏng câm ở tầng DANH SÁCH, không ở tầng mã: thêm domain vào `THINKTANK_DOMAINS` rồi
+    quên khai đường vào thì không lớp nào quét, không lớp nào giục, và không dấu hiệu nào phát
+    ra. Đo 20/08/2026 trước khi vá: 35 domain im lặng, trong đó có `cfr.org`.
+    """
+    thieu = sorted(mod.domain_chua_co_duong_quet())
+    if thieu:
+        return (f"{len(thieu)} domain trong THINKTANK_DOMAINS không có đường quét nào: "
+                + " · ".join(thieu[:8]) + (" …" if len(thieu) > 8 else ""))
+    return None
+
+
+def ca_kiem_html_keu_khi_co_domain_mo_coi(mod):
+    """PHẢI CHẶN: `--kiem-html` phải KÊU (mã 4) khi có domain mồ côi, không im lặng đi qua."""
+    goc = dict(mod.WEBSEARCH_ONLY)
+    mod.THINKTANK_DOMAINS = set(mod.THINKTANK_DOMAINS) | {"vien-mo-coi-gia.example.org"}
+    try:
+        buf = io.StringIO()
+        ma = 0
+        try:
+            with contextlib.redirect_stdout(buf):
+                mod.kiem_html()
+        except SystemExit as ex:
+            ma = ex.code
+        ra = buf.getvalue()
+        if "vien-mo-coi-gia.example.org" not in ra:
+            return "--kiem-html KHÔNG nêu tên domain mồ côi"
+        if ma not in (3, 4):
+            return f"--kiem-html thoát mã {ma} — phải khác 0 để routine biết mà kêu"
+        return None
+    finally:
+        mod.THINKTANK_DOMAINS = set(mod.THINKTANK_DOMAINS) - {"vien-mo-coi-gia.example.org"}
+        mod.WEBSEARCH_ONLY = goc
+
+
 CA = [
     ("lấy được bài mới trong khung 7 ngày", ca_lay_duoc_bai_moi),
+    ("mọi domain trong guardrail đều có đường quét", ca_moi_domain_deu_co_duong_quet),
+    ("--kiem-html KÊU khi có domain mồ côi", ca_kiem_html_keu_khi_co_domain_mo_coi),
+    ("ngày lấy từ TÊN FILE thắng ngày in cạnh tiêu đề", ca_ngay_lay_tu_ten_file),
+    ("cắt đuôi ngày dd.mm.yyyy khỏi tiêu đề", ca_cat_duoi_ngay_trong_tieu_de),
+    ("KHÔNG đọc chuỗi số dài trong tên file thành ngày (đối chứng)",
+     ca_khong_doc_chuoi_so_dai_thanh_ngay),
     ("LOẠI bài ngoài khung ngày", ca_loai_bai_ngoai_khung),
     ("LOẠI link điều hướng /topics/", ca_loai_link_dieu_huong),
     ("LOẠI đường dẫn rác /events/", ca_loai_duong_dan_rac),
@@ -397,6 +502,25 @@ BAN_HONG = [
      lambda s: s.replace('    da_phu = {urllib.parse.urlparse(u).netloc.replace("www.", "") '
                          'for _, u, _, _ in THINKTANK_HTML}\n', "    da_phu = set()\n", 1),
      "không giục WebSearch nguồn đã quét tự động"),
+    ("bỏ bước (1b) đọc ngày từ tên file",
+     lambda s: s.replace("        if d is None:                             # (1b) ngày YYYYMMDD "
+                         "nằm trong TÊN FILE\n            d = ngay_trong_ten_file(pr.path)\n", "", 1),
+     "ngày lấy từ TÊN FILE thắng ngày in cạnh tiêu đề"),
+    ("nới bước (1b) — đọc bừa 8 số đầu, không cần ranh giới",
+     lambda s: s.replace('_TEN_FILE_NGAY = re.compile(r"(?:^|[^0-9])(20\\d\\d)(\\d\\d)(\\d\\d)(?:[^0-9]|$)")',
+                         '_TEN_FILE_NGAY = re.compile(r"(20\\d\\d)(\\d\\d)(\\d\\d)")', 1),
+     "KHÔNG đọc chuỗi số dài trong tên file thành ngày (đối chứng)"),
+    ("bỏ cắt đuôi ngày dd.mm.yyyy khỏi tiêu đề",
+     lambda s: s.replace('        title = re.sub(r"\\s*\\d{1,2}[./]\\d{1,2}[./]20\\d\\d\\s*$", "", '
+                         'title).strip(" |·–—")\n', "", 1),
+     "cắt đuôi ngày dd.mm.yyyy khỏi tiêu đề"),
+    ("bỏ khai đường quét cho một domain (mô phỏng quên khai)",
+     lambda s: s.replace('    "Vùng Vịnh": ["epc.ae", "gulfif.org"],\n', "", 1),
+     "mọi domain trong guardrail đều có đường quét"),
+    ("--kiem-html thấy domain mồ côi mà không kêu",
+     lambda s: s.replace("    mo_coi = sorted(domain_chua_co_duong_quet())",
+                         "    mo_coi = []", 1),
+     "--kiem-html KÊU khi có domain mồ côi"),
     ("bỏ chốt trang quá ngắn (403/challenge)",
      lambda s: s.replace("    if len(body) < 2000:", "    if False:", 1),
      "trang bị chặn không ra link rác"),

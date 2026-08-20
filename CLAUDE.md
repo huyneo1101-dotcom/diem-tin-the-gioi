@@ -2129,9 +2129,30 @@ site:<domain>` hay không — tức một mục có tồn tại hay không tuỳ
 | | |
 |---|---|
 | Bảng cấu hình | `THINKTANK_HTML` trong `scripts/add_analyses.py` — (tên viện, trang danh sách, biểu thức đường dẫn BÀI, khu vực) |
-| Soi sức khoẻ | `python3 scripts/add_analyses.py --kiem-html` — ~3 giây, chạm mạng thật |
-| Bộ test canh | `tests/test-html-thinktank.py` (16 ca · `--tu-kiem` bắt 11/11 bản hỏng), đã nạp `khoe.py` |
+| Soi sức khoẻ | `python3 scripts/add_analyses.py --kiem-html` — ~3 giây, chạm mạng thật. Mã 3 = trang chết · mã 4 = có domain mồ côi |
+| Bộ test canh | `tests/test-html-thinktank.py` (**21 ca** · `--tu-kiem` bắt **16/16** bản hỏng), đã nạp `khoe.py` |
 | Sản lượng đo 30/07 | **44 ứng viên** trong khung 7 ngày, cộng với 159 từ RSS |
+| Số viện HIỆN HÀNH | **15** (10 dựng 30/07 + 05 thêm 20/08/2026) |
+
+**➕ 05 VIỆN THÊM 20/08/2026 — lấp bốn vùng gần như trắng.** ACSS (`/in-focus/`, châu Phi ·
+Sahel) · CTC Sentinel West Point (khủng bố) · IFRI (`/en/publications/all`, Pháp) · SWP Berlin
+(`/en`, Đức) · JIIA (`/en/column/`, Nhật). Bốn viện đầu đăng THƯA 1-4 bài/tháng nên lớp này ra
+0 bài phần lớn các ngày — bình thường, phân biệt với path chết bằng `--kiem-html` (nó in SỐ LINK
+khớp, khác hẳn số bài trong khung).
+- ⚠️ **ACSS phải là `/in-focus/`, KHÔNG phải `/research/`** dù `/research/` cho nhiều link hơn
+  (16 so với 6): `/research/` xếp theo CHỦ ĐỀ nên bài mới nhất trên đó đã 5 tháng tuổi. Đúng bài
+  học Wilson Center — nhiều link không có nghĩa là danh sách mới.
+- ⚠️ **CTC đặt bài THẲNG ở gốc tên miền**, không tiền tố nào, nên biểu thức path phải chặn bằng
+  ĐỘ DÀI (`^/[a-z0-9-]{30,}/?$`) thay vì bằng tiền tố.
+- ⚠️ **SWP: đừng đọc ghi chú bỏ-feed rồi suy ra "SWP là nguồn đã loại".** Feed của họ bị bỏ vì là
+  feed ĐIỂM BÁO; nhánh `/en/publication/…` lấy ở đây là nghiên cứu do chính viện xuất bản.
+
+**🗓️ BƯỚC (1b) — NGÀY NẰM TRONG TÊN FILE** (thêm 20/08/2026 cùng lượt cắm JIIA). JIIA dùng đường
+dẫn `/eng/report/2026/08/20260817.html`: bước (1) đòi đủ `/YYYY/M/D/` nên trượt, còn trang danh
+sách CHỈ in `2026/08` cạnh tiêu đề. Kết quả cũ: mọi bài JIIA nhận chung ngày mồng 20 của tháng
+đó, lệch tới 19 ngày **mà vẫn nằm trong khung 7 ngày** nên không ai thấy. Nay đọc 8 chữ số trong
+TÊN FILE, có ranh giới hai đầu để mã báo cáo kiểu `asb44en-20260712345` không bị đọc thành ngày.
+Cả hai chiều đều có ca test và bản hỏng riêng.
 
 **Ngày lấy theo 3 bước, dừng ở bước đầu tiên ra kết quả** — đây là chỗ khác lớp `[HTML]` của
 `harvest.py` (bên đó đoán ngày quanh link nên phải dặn agent mở bài kiểm lại):
@@ -2153,6 +2174,41 @@ tên trang), còn `--candidates` in dòng cảnh báo riêng. Đừng gộp hai 
 bài 573KB/5,4 giây — chiếm quá nửa thời lượng cả bảng để đổi lấy không gì) · `issafrica.org`,
 `washingtoninstitute.org`, `carnegieendowment.org`, `iiss.org`, `brookings.edu` (danh sách dựng bằng
 JS, HTML thô chỉ có link điều hướng).
+
+### 🕳️ 35 VIỆN NẰM TRONG GUARDRAIL MÀ KHÔNG LỚP NÀO QUÉT — vá 20/08/2026
+Hỏng câm ở tầng DANH SÁCH, không ở tầng mã. `THINKTANK_DOMAINS` (danh sách guardrail dùng khi
+NẠP) có **35 domain** không xuất hiện ở `THINKTANK_FEEDS`, `THINKTANK_HTML` lẫn `WEBSEARCH_ONLY`.
+Hậu quả: không lớp nào quét về, và `--candidates` cũng không giục agent tìm — nhìn danh sách
+guardrail thì tưởng đã phủ. Trong số đó có **`cfr.org`**, viện đối ngoại lớn nhất của Mỹ, feed 24
+item ra bài mỗi ngày, chưa từng vào kho suốt từ ngày dựng.
+
+**Đã dò feed cả 35 domain** (thẻ `<link rel="alternate">` + `/feed/` + `/rss.xml`) — chỉ 07 có
+feed sống, và trong 07 thì 02 phải bỏ:
+
+| Cắm vào `THINKTANK_FEEDS` | Vì sao |
+|---|---|
+| CFR `https://www.cfr.org/feed/` | 24 item, 19 bài `/articles/`, ra bài hằng ngày |
+| FDD `https://www.fdd.org/category/analysis/feed/` | **nhánh `category/analysis`, KHÔNG dùng `/feed/` gốc** — feed gốc có 32/50 item nằm ở `/in_the_news/`, mà đường dẫn viết bằng gạch DƯỚI nên `NOISE_PATHS` (`/in-the-news/`, gạch ngang) không chặn được |
+| Inter-American Dialogue `https://thedialogue.org/feed` | **lấp vùng Mỹ Latin**, trước nay trắng hoàn toàn |
+| Real Instituto Elcano `https://www.realinstitutoelcano.org/en/feed/` | bản `/en/` — feed gốc ra bài tiếng Tây Ban Nha |
+| SPF USA `https://www.spfusa.org/feed/` | đăng rất thưa, gần như luôn nằm trong dòng "feed không ra bài" — bình thường, giống USIP |
+
+⛔ **ĐÃ ĐO VÀ BỎ, đừng cắm lại:** `defensepriorities.org/feed/` (10/10 item ở `/in-the-media/`,
+tức điểm báo) · `iss.europa.eu/rss.xml` EUISS (nội dung là *"X discussing … in Euronews"*, trích
+dẫn truyền thông chứ không phải nghiên cứu — cùng loại với feed SWP và Clingendael đã bỏ).
+
+**30 domain còn lại xếp xuống `WEBSEARCH_ONLY`** theo khu vực. Đây là hướng lệch AN TOÀN (bài vẫn
+tới được qua WebSearch), **không phải kết luận "không quét HTML được"** — chưa dò quét HTML cho
+nhóm này. Viện nào hay ra bài thì đo `--kiem-html` rồi nâng lên `THINKTANK_HTML`.
+
+**Phép đo phải giữ:** `add_analyses.domain_chua_co_duong_quet()` = `THINKTANK_DOMAINS` trừ
+(FEEDS ∪ HTML ∪ WEBSEARCH_ONLY ∪ `DOMAIN_CU_DA_CHUYEN`). `--kiem-html` in tên domain mồ côi rồi
+thoát **mã 4**; hai ca test canh cả phép đo lẫn việc `--kiem-html` có kêu hay không.
+⚠️ `DOMAIN_CU_DA_CHUYEN` miễn trừ tên miền CŨ của viện đã đổi tên (`agsiw.org` → `agsi.org`):
+guardrail phải giữ chúng cho bài cũ trong kho, nhưng chúng không cần đường quét riêng — không
+miễn thì phép đo kêu oan mãi mãi.
+
+**Sản lượng đo 20/08/2026 sau cả hai đợt vá:** 206 → **254 ứng viên** (215 RSS · 39 HTML).
 
 ### 🏷️ Nhãn `outlet` — bảo trì bằng `scripts/sua_nhan_analyses.py` (dựng 29/07/2026)
 Guardrail của `add_analyses.py` kiểm theo **DOMAIN**, **không kiểm nhãn `outlet`** — cố ý, vì tên viện
