@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-21T03:58:04+07:00",
+  "tao_luc": "2026-08-21T04:31:22+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-20",
@@ -145,14 +145,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "US Air Force flight to Antarctica turns back after Russian hazardous space activity warning",
-      "nguon": "Defense News",
-      "url": "https://www.defensenews.com/news/your-military/2026/08/20/us-air-force-flight-to-antarctica-turns-back-after-russian-hazardous-space-activity-warning/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-20",
       "tieu_de": "Lockheed Martin and U.S. Navy Demonstrate AI-Powered Submarine Hunter at RIMPAC 2026",
       "nguon": "Naval News",
@@ -205,6 +197,14 @@
       "tieu_de": "US Army unit offers time off for Grand Theft Auto VI in exchange for re-enlistment",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/united-states/us-army-unit-offers-time-off-for-grand-theft-auto-vi-in-exchange-for-reenlistment"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "US Army unit offers soldiers 4 days off to play Grand Theft Auto VI if they re-enlist",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3364738/us-army-unit-offers-soldiers-4-days-play-grand-theft-auto-vi-if-they-re-enlist?utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -330,6 +330,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-21",
+      "tieu_de": "U.S. Space Forces–Space Outlines Joint and Allied Integration Strategies at Space and Missile Defense Symposium",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/572873/us-space-forces-space-outlines-joint-and-allied-integration-strategies-space-and-missile-defense-symposium"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-21",
       "tieu_de": "The U.S. Army Marksmanship Unit’s Instructor Training Group: Strengthening Lethality Through Expert Instruction",
       "nguon": "DVIDS news (tập trận)",
       "url": "https://www.dvidshub.net/news/572859/us-army-marksmanship-units-instructor-training-group-strengthening-lethality-through-expert-instruction"
@@ -357,14 +365,6 @@
       "tieu_de": "Patriot Forge II prepares Air National Guard engineers for contested operations",
       "nguon": "Không quân Mỹ — Air Force Link News",
       "url": "https://www.af.mil/News/Article-Display/Article/4577450/patriot-forge-ii-prepares-air-national-guard-engineers-for-contested-operations/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "U.S. Army Expands Ultra-Light Vehicle Buy 18-Fold",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/08/20/us_army_expands_ultra-light_vehicle_buy_18-fold_1201484.html"
     },
     {
       "lop": "RSS",
@@ -401,10 +401,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-20",
-      "tieu_de": "Contracts for Aug. 19, 2026",
+      "ngay": "2026-08-21",
+      "tieu_de": "Contracts for Aug. 20, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4578063/contracts-for-aug-19-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4578834/contracts-for-aug-20-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "Office of Strategic Capital Posts Application for National Security Fund Finance Program",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4579297/office-of-strategic-capital-posts-application-for-national-security-fund-financ/"
     },
     {
       "lop": "RSS",
@@ -461,6 +469,14 @@
       "tieu_de": "US Navy leads multinational effort for next-gen SeaSparrow missile",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/air-warfare/2026/08/20/us-navy-leads-multinational-effort-for-next-gen-seasparrow-missile/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "US Air Force flight to Antarctica turns back after Russian hazardous space activity warning",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/08/20/us-air-force-flight-to-antarctica-turns-back-after-russian-hazardous-space-activity-warning/"
     },
     {
       "lop": "RSS",
@@ -634,6 +650,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-20",
+      "tieu_de": "Australia 'outraged' over Israel decision to close probe into aid worker killings",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/video/20260820-australia-outraged-over-israel-decision-to-close-probe-into-aid-worker-killings"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-20",
       "tieu_de": "Can Japan Become Indonesia’s Principal Partner in Asia?",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/08/can-japan-become-indonesias-principal-partner-in-asia/"
@@ -697,10 +721,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-20",
-      "tieu_de": "‘Not that informed’: Darline Graham bungles Taiwan question",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/opinion/lindseys-lens/6039150-darline-graham-senate-debate-fail/"
+      "ngay": "2026-08-21",
+      "tieu_de": "Nazi item auctions test effectiveness of Australia's hate symbol laws",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-21/nazi-items-sales-question-hate-laws-efficiency/107017668"
     },
     {
       "lop": "RSS",
@@ -765,22 +789,6 @@
       "tieu_de": "Philippines convenes ASEAN space forum",
       "nguon": "Philstar (headlines)",
       "url": "https://www.philstar.com/headlines/2026/08/21/2550726/philippines-convenes-asean-space-forum"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-20",
-      "tieu_de": "PH hopeful SCS Code of Conduct issues may be resolved soon",
-      "nguon": "Inquirer",
-      "url": "https://www.inquirer.net/485081/ph-hopeful-scs-code-of-conduct-issues-may-be-resolved-soon/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-20",
-      "tieu_de": "30 Metro Manila sites identified as rain basins vs floods",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2288556/30-ncr-sites-identified-as-rain-basins-vs-floods"
     },
     {
       "lop": "RSS",
@@ -885,6 +893,15 @@
       "tieu_de": "Malaysia áp dụng xác minh độ tuổi khi đăng ký mạng xã hội, cấm người dưới 16 tuổi mở tài khoản",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/malaysia-ap-dung-xac-minh-do-tuoi-khi-dang-ky-mang-xa-hoi-cam-nguoi-duoi-16-tuoi-mo-tai-khoan-102260804091045433.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "US pummels Cuban economy with new sanctions on mining, construction",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/8/20/us-pummels-cuban-economy-with-new-sanctions-on-mining-construction?traffic_source=rss",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1061,10 +1078,10 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-21",
-      "tieu_de": "National Security Presidential Memorandum / NSPM-17",
-      "nguon": "Nhà Trắng — Presidential Actions",
-      "url": "https://www.whitehouse.gov/presidential-actions/2026/08/national-security-presidential-memorandum-nspm-17/",
-      "nhom": 2
+      "tieu_de": "US Will Impose ‘Toughest Sanctions in History’ on Iran, Bessent Says",
+      "nguon": "gCaptain",
+      "url": "https://gcaptain.com/us-will-impose-toughest-sanctions-in-history-on-iran-bessent-says/",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1073,15 +1090,6 @@
       "tieu_de": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
       "nguon": "Cục Dự trữ Liên bang",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260820a.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-20",
-      "tieu_de": "Federal Reserve Board issues enforcement action with SouthPoint Bancshares, Inc. and announces termination of enforcement action with Deutsche Bank AG, DB USA Corporation, and Deutsche Bank AG New York Branch",
-      "nguon": "Cục Dự trữ Liên bang",
-      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260820b.htm",
       "nhom": 4
     },
     {
