@@ -1,46 +1,46 @@
 {
   "date": "2026-08-20",
-  "session": "toi",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Nhóm 1 (điều trần/bỏ phiếu) vẫn trắng — Quốc hội Mỹ còn nghỉ hè. Agent A trả 6 tin, sau khi điều phối tự WebFetch/WebSearch xác minh phát hiện 2/6 TRÙNG tin đã có (nạp bởi phiên sáng sớm CÙNG NGÀY, không lọt vào --recent-titles 20 vì bị exercises/dipEvents chiếm chỗ) — đã xoá bằng prune_news.py. Giữ 4 tin thuộc nhóm 2/4/5: Braid từ chức, biên bản Fed tháng 7, Nixon-Vindman Florida primary, Trump 'Ngày D kinh tế' Iran."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 1,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Agent B trả 8 tin; sau xác minh: 4/8 TRÙNG tin đã có (Antelope Reef, Amentum AUKUS Osborne, Malaysia Sabah, Nhật-Australia hypersonic/Boobook — cùng lý do phiên sáng đã nạp trước), 1 tin TRÙNG DATA cũ hơn (COC Philippines, bị add_news.py chặn cứng), 2 tin phải loại vì ngày đăng ≠ ngày sự kiện thật (USS Benfold mất điện — sự kiện thật 24-30/7; drone Williamtown — sự kiện thật ~10/8). Chỉ giữ 1 tin: Đài Loan hợp tác Vatn Systems phát triển drone ngầm."
-    },
-    {
-      "name": "CNQS Mỹ",
       "count": 3,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Agent C trả 6 tin; loại trước khi nạp 1 tin (Lockheed AI SensorMAX RIMPAC — sự kiện thật 05/08, ngoài khung nới 3 ngày), sau khi nạp phát hiện thêm 1 tin TRÙNG (Hanwha K9 — trùng bản twz.com đã có từ phiên sáng) và xoá luôn tin Raytheon Tomahawk (navalnews.com) vì cùng sự kiện với bản navy.mil đã có dù add_news.py chỉ cảnh báo Jaccard chứ không chặn. Giữ 3 tin: Castelion gọi vốn 1 tỷ USD, PAC-3 MSE tăng sản lượng 800%, bí mật Golden Dome/CBO."
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ còn nghỉ hè, không có phiên điều trần/bỏ phiếu nào trong khung 20-21/08. Agent trả 6 tin thuộc nhóm 2/4/5; điều phối loại 3: 'James Braid từ chức' (chính trị nhân vật, không gắn tiến trình lập pháp/bầu cử cụ thể — LOẠI theo bộ lọc chung), 'Toà án Missouri cho bản đồ khu vực bầu cử' và 'Trump thúc Quốc hội thông qua Clarity Act' (cả hai có ngày sự kiện thật 2026-08-19, ngoài khung hôm nay+hôm qua 20-21/08, guardrail 2 lớp sẽ chặn cứng). Giữ 3 tin: khảo sát Emerson GOP thua 8 điểm, Mỹ trừng phạt thêm Cuba, Fed chấm dứt giám sát Deutsche Bank."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 2,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Agent chủ động loại phần lớn candidate vì đã trùng tin nạp bởi các phiên trước (Antelope Reef, AUKUS Osborne shipyard, USS Benfold, Vatn Systems drone, Nhật-Úc laser Boobook đều đã có trong DATA từ 17-19/08) hoặc ngày sự kiện thật ngoài khung (China robotic fortresses SCS — chưa xác nhận ngày cụ thể). Giữ 2 tin xác minh KHÔNG trùng: drone xâm nhập RAAF Williamtown lần 2 (ABC News AU, sự kiện 20/08 — khác lần đầu ~đầu tháng 8 đã đưa), Đài Loan đề xuất ngân sách quốc phòng 2027 +18%."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Agent trả 6 tin; loại 2: 'Hanwha K9MH $262,9 triệu' TRÙNG tin đã có (usNews 2026-08-18, cùng con số $262,9 triệu, xác nhận qua grep index.html), 'General Atomics Wildfire kế nhiệm MQ-9' có ngày sự kiện thật 2026-08-17, ngoài khung nới 3 ngày cho CNQS (18-21/08). Giữ 4 tin: C-17 quay đầu vì cảnh báo tên lửa Nga ở Nam Cực, Lầu Năm Góc lập Liên minh Vũ khí Năng lượng Định hướng, Lục quân tăng mua ISV gấp 18 lần, Hải quân dẫn dắt tên lửa SeaSparrow thế hệ mới — tất cả xác minh qua WebFetch."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 1,
+      "count": 0,
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "Agent D chỉ tìm được 1 tin đạt chuẩn trong khung ngày: báo cáo HRW 20/8 về Africa Corps thảm sát dân thường làng Bombori (xác minh không trùng các báo cáo HRW/adf-magazine trước đó về Mali). Không có diễn biến nào khác liên quan trực tiếp tới Mỹ trong khung 19-20/08."
+      "reason": "Không tìm được diễn biến MỚI trong khung 20-21/08. Tin HRW/Africa Corps thảm sát dân thường (nổi bật trong candidates GNEWS/Telegram) TRÙNG với tin đã nạp bởi phiên trước (usNews 2026-08-20, cùng báo cáo HRW). Loạt tin về Trump cân nhắc không kích JNIM/Gorka có ngày sự kiện thật 22-24/07, ngoài khung dù xuất hiện với pubDate 20-21/08 (tin cũ đăng lại). Không có thông cáo mới từ AFRICOM/State Department trong khung ngày."
     },
     {
       "name": "Tập trận đang diễn ra",
-      "count": 1,
+      "count": 0,
       "target": "1-2",
       "min": 1,
-      "thieu": false,
-      "reason": "Nạp 1 cập nhật Ulchi Freedom Shield 2026: Triều Tiên phóng ~10 tên lửa đạn đạo tầm ngắn + phát ngôn Kim Yo-jong bác bỏ thiện chí Trump (20/8) — diễn biến MỚI hoàn toàn so với các tin 'rút ngắn còn 5 ngày' đã có. Ứng viên FRATERNO XXXIX (khai mạc giai đoạn biển, xác nhận thật qua Zona Militar) bị add_news.py CHẶN vì ngày sự kiện 18/8 ngoài khung 2 ngày."
+      "thieu": true,
+      "reason": "4 cuộc đang bám thật sự (Falcon Strike 2026, Swift Eagle 2026, SEACAT 2026, Diễn tập Hạm đội TBD Nga — xác định qua dates trong DATA, bỏ qua nhãn status cũ của Pitch Black/Hán Quang 42/Baltic Trust/PANAMAX đã thực tế kết thúc) không có diễn biến MỚI xác minh được trong khung 20-21/08. Nguồn Bộ Quốc phòng TQ về Swift Eagle chỉ lặp lại nội dung khai mạc đã đưa; không tìm được tin bế mạc Falcon Strike dù hôm nay là ngày cuối theo lịch."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "4 ứng viên chuyên mục CHƯA xử lý trong phiên này — khối lượng xác minh trùng lặp (8/17 tin của 4 agent trùng DATA, phải WebFetch/WebSearch từng cái) chiếm hết thời gian còn lại trước khi cần chốt bản tin đúng hạn 22:00. Để lại cho phiên kế tiếp: Hạm đội Biển Đen mất 2 chiến hạm Kalibr, phản ứng quốc tế + ICC lên án trừng phạt (2 bài liên quan cùng sự kiện ICC đã nạp), Trump kêu gọi Fed hạ lãi suất."
+      "reason": "4 ứng viên chuyên mục còn tồn đọng từ 2 phiên trước — GIẢI QUYẾT DỨT ĐIỂM phiên này, đều LOẠI: 'Hạm đội Biển Đen mất 2 chiến hạm Kalibr' (chủ thể Nga, ngoài phạm vi 5 chủ đề dù gán nhãn CNQS Mỹ do khớp từ khoá sai), 'Phản ứng quốc tế + ICC lên án trừng phạt' (2 bài, đều là phản ứng dội lại sự kiện gốc đã đưa 19/08, không đủ tầm tin riêng), 'Trump kêu gọi Fed hạ lãi suất' (lặp lại chủ đề đã đưa 19/08, không phải diễn biến mới). Chi tiết: logs/loai-tin.md mục 2026-08-21."
     }
   ],
-  "note": "Phiên TỐI CI (fire 20:47 VN, chạy lúc 21:00-21:30). BÀI HỌC LẶP LẠI từ phiên sáng sớm CÙNG NGÀY: 8/17 tin (47%) do 4 agent Sonnet tìm được là TRÙNG với DATA đã có, dù mỗi agent được nhúng đủ ràng buộc chống trùng + --recent-titles 20. Nguyên nhân gốc: hai phiên (sáng sớm 04:00 và tối 21:00) cùng ngày VN quét cửa sổ ngày gần như trùng nhau (hôm nay+hôm qua), và --recent-titles 20 bị các dòng exercises/dipEvents (luôn đứng đầu output, số lượng nhiều) chiếm hết chỗ nên tin worldNews/usNews vừa nạp buổi sáng không lọt vào danh sách chống trùng đưa cho agent buổi tối. Điều phối đã bù bằng cách tự WebFetch/WebSearch xác minh TỪNG tin trước khi merge (bắt được cả 8 tin trùng, cộng 2 tin ngày-đăng-khác-ngày-sự-kiện) — tốn nhiều lượt gọi nhưng giữ bản tin sạch. Kết quả cuối: 1 worldNews + 8 usNews + 1 cập nhật tập trận (đã trừ 8 tin trùng bị prune_news.py xoá ngay sau khi add_news.py cảnh báo/chặn). Không kịp xử lý cổng Báo Mới (4 ứng viên còn lại) — chốt bản tin đúng hạn 22:00 ưu tiên hơn gom đủ tin."
+  "note": "Phiên SÁNG SỚM CI (fire 03:47 VN, chạy lúc 04:00-04:20+). Batch neo date=2026-08-20 vì đa số tin xác minh có ngày sự kiện thật 2026-08-20 (hôm nay VN 21/08 tại thời điểm chạy chưa có nhiều tin mới đăng). Kết quả: 2 worldNews + 7 usNews, 0 Mỹ-Mali, 0 tập trận cập nhật (cả hai chủ đề dossier hẹp, không có diễn biến mới đạt chuẩn trong khung ngày — chấp nhận theo đúng nguyên tắc 'thà ít tin đạt chuẩn còn hơn nhồi tin sai'). Đã giải quyết dứt điểm 4 ứng viên Báo Mới tồn đọng từ 2 phiên trước (đều loại, xem loai-tin.md). Phiên này nhắm ~10/mục là đủ (không cần đạt sàn 15 ngay), để phiên tối bù."
 }

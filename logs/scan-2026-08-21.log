@@ -1,1 +1,11 @@
 [21:00Z] START (CI) phien sang som 2026-08-21
+[21:00Z] harvest.py: 349 ung vien (Noi bo My 121, Uc&BD 87, CNQS 84, Mali 37, Tap tran 20)
+[21:00Z] telegram_harvest.py: ung vien bo sung tu Telegram (CNQS 12, Uc&BD 3, Mali 1)
+[21:17Z] 5 agent Sonnet song song xong. Ket qua sau kiem tra trung/khung ngay:
+  - Noi bo My: 3 tin (loai 3: chinh tri nhan vat + 2 ngoai khung ngay)
+  - Uc & Bien Dong: 2 tin (loai 4 vi trung DATA da co)
+  - CNQS My: 4 tin (loai 1 trung, 1 ngoai khung)
+  - My-Mali: 0 tin (tat ca trung hoac ngoai khung)
+  - Tap tran: 0 tin (khong tim duoc dien bien moi cho 4 cuoc dang chay)
+[21:17Z] add_news.py: +2 worldNews, +7 usNews. generatedAt=2026-08-20
+[21:17Z] Giai quyet dut diem 4 ung vien Bao Moi ton dong tu 2 phien truoc -> loai ca 4, ghi logs/loai-tin.md
