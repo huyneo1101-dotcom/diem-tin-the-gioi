@@ -1,22 +1,22 @@
 {
   "date": "2026-08-20",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) vẫn trắng — Quốc hội Mỹ còn nghỉ hè. Agent A trả 6 tin, sau khi điều phối tự WebFetch/WebSearch xác minh phát hiện 2/6 TRÙNG tin đã có (nạp bởi phiên sáng sớm CÙNG NGÀY, không lọt vào --recent-titles 20 vì bị exercises/dipEvents chiếm chỗ) — đã xoá bằng prune_news.py. Giữ 4 tin thuộc nhóm 2/4/5: Braid từ chức, biên bản Fed tháng 7, Nixon-Vindman Florida primary, Trump 'Ngày D kinh tế' Iran."
+    },
+    {
+      "name": "Úc & Biển Đông",
       "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ vẫn nghỉ hè tháng 8 (xác nhận qua WebSearch). Agent A trả 8 ứng viên nhóm 2-5 nhưng 6/8 TRÙNG tin đã có trên bản tin (ICC, Canada tariff, DOJ monitors, Slotkin, FBI HQ, Missouri redistricting — hai tin cuối còn bị đảo ngược sự thật so với DATA đã có), và 1 ứng viên hợp lệ (Nixon-Vindman Florida primary) rơi vào ngày 18/08, ngoài khung 2 ngày cho phép của phiên chạy 20/08. Chỉ giữ được 1 tin (Trump chỉ trích Fed). Chi tiết logs/loai-tin.md."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 0,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Agent B tìm 53 lượt tool nhưng mọi ứng viên đều trùng tin đã có (AUKUS Osborne, laser Boobook, Koizumi thăm Úc, PNG-Pukpuk, hải cảnh Philippines...) hoặc ngoài khung ngày. Điều phối tự kiểm thêm không ra ứng viên mới. Phần lớn tin nóng chủ đề này của 18-19/08 đã được các phiên trước nạp."
+      "reason": "Agent B trả 8 tin; sau xác minh: 4/8 TRÙNG tin đã có (Antelope Reef, Amentum AUKUS Osborne, Malaysia Sabah, Nhật-Australia hypersonic/Boobook — cùng lý do phiên sáng đã nạp trước), 1 tin TRÙNG DATA cũ hơn (COC Philippines, bị add_news.py chặn cứng), 2 tin phải loại vì ngày đăng ≠ ngày sự kiện thật (USS Benfold mất điện — sự kiện thật 24-30/7; drone Williamtown — sự kiện thật ~10/8). Chỉ giữ 1 tin: Đài Loan hợp tác Vatn Systems phát triển drone ngầm."
     },
     {
       "name": "CNQS Mỹ",
@@ -24,15 +24,15 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "5 ứng viên ban đầu, loại 2: 'Golden Dome for America Hub' trùng URL war.gov đã có sẵn trong DATA; 'Lục quân đặt hàng 133.000 rocket GMLRS' trùng tin đã có 18/08. Còn lại 3 tin nạp: radar SPY-6(V)3 USS JFK, X-Bow tên lửa đánh chặn giá rẻ MDA, ThinKom vũ khí vi sóng Alecto chống drone."
+      "reason": "Agent C trả 6 tin; loại trước khi nạp 1 tin (Lockheed AI SensorMAX RIMPAC — sự kiện thật 05/08, ngoài khung nới 3 ngày), sau khi nạp phát hiện thêm 1 tin TRÙNG (Hanwha K9 — trùng bản twz.com đã có từ phiên sáng) và xoá luôn tin Raytheon Tomahawk (navalnews.com) vì cùng sự kiện với bản navy.mil đã có dù add_news.py chỉ cảnh báo Jaccard chứ không chặn. Giữ 3 tin: Castelion gọi vốn 1 tỷ USD, PAC-3 MSE tăng sản lượng 800%, bí mật Golden Dome/CBO."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 0,
+      "count": 1,
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "Agent D không tìm được diễn biến MỚI liên quan tới Mỹ trong khung 18-20/08 — chỉ có tin cân nhắc không kích JNIM từ 22/07 (quá cũ) và tin Putin-Goïta/Africa Corps không có yếu tố Mỹ trực tiếp nên không đưa."
+      "reason": "Agent D chỉ tìm được 1 tin đạt chuẩn trong khung ngày: báo cáo HRW 20/8 về Africa Corps thảm sát dân thường làng Bombori (xác minh không trùng các báo cáo HRW/adf-magazine trước đó về Mali). Không có diễn biến nào khác liên quan trực tiếp tới Mỹ trong khung 19-20/08."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,7 +40,7 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "Nạp 1 cập nhật Ulchi Freedom Shield 2026 (Lầu Năm Góc xác nhận cắt giảm không suy giảm mục tiêu huấn luyện). Ứng viên FRATERNO XXXIX (Argentina/Brazil khởi động giai đoạn trên biển, xác nhận thật qua argentina.gob.ar) bị loại vì ngày sự kiện 18/08 ngoài khung 2 ngày."
+      "reason": "Nạp 1 cập nhật Ulchi Freedom Shield 2026: Triều Tiên phóng ~10 tên lửa đạn đạo tầm ngắn + phát ngôn Kim Yo-jong bác bỏ thiện chí Trump (20/8) — diễn biến MỚI hoàn toàn so với các tin 'rút ngắn còn 5 ngày' đã có. Ứng viên FRATERNO XXXIX (khai mạc giai đoạn biển, xác nhận thật qua Zona Militar) bị add_news.py CHẶN vì ngày sự kiện 18/8 ngoài khung 2 ngày."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "5 ứng viên chuyên mục xử lý hết, loại cả 5: kinh tế Iran là bài phân tích tổng hợp không neo sự kiện cụ thể; F-35/S-400 Turkey chỉ có 1 nguồn ít tên tuổi xác nhận nên không đạt thang xác minh; tàu ngầm Nga Khabarovsk không neo Úc/Biển Đông; tên lửa Trung Quốc không phải khí tài Mỹ; UAV MQ-9B Ấn Độ trùng tin đã có 17/08. Chi tiết logs/loai-tin.md."
+      "reason": "4 ứng viên chuyên mục CHƯA xử lý trong phiên này — khối lượng xác minh trùng lặp (8/17 tin của 4 agent trùng DATA, phải WebFetch/WebSearch từng cái) chiếm hết thời gian còn lại trước khi cần chốt bản tin đúng hạn 22:00. Để lại cho phiên kế tiếp: Hạm đội Biển Đen mất 2 chiến hạm Kalibr, phản ứng quốc tế + ICC lên án trừng phạt (2 bài liên quan cùng sự kiện ICC đã nạp), Trump kêu gọi Fed hạ lãi suất."
     }
   ],
-  "note": "Phiên SÁNG SỚM chạy bù local/CI lúc 04:00-04:20 giờ VN ngày 20/08 (mốc chính CI 03:47/04:47 không thấy dấu vết — có thể đã SKIP hoặc chưa fire, phiên này claim khoá 'toi CHAY BU (sang som)'). Sản lượng MỎNG: 0 worldNews + 4 usNews + 1 cập nhật tập trận. Nguyên nhân chính: (a) đa số tin nóng ngày 18-19/08 đã được các phiên trước nạp gần hết; (b) 4 agent Sonnet song song bị trùng đáng kể với DATA dù đã nhúng đủ danh sách chống trùng — điều phối phải tự xác minh lại bằng WebSearch và loại 6/8 tin của riêng agent Nội bộ Mỹ (2 tin trong số đó còn bị đảo ngược sự thật so với DATA); (c) một số ứng viên hợp lệ về nội dung (Nixon-Vindman, FRATERNO XXXIX sea phase) bị chặn đúng luật vì rơi vào ngày 18/08, ngoài khung 24h/48h nghiêm ngặt của phiên chạy 04:00 sáng 20/08 — đây là ứng viên tốt cho phiên kế tiếp. Đã cố kích gh workflow run telegram-bot.yml để lọc qua file Jay Lâm nhưng bị chặn (requires approval); tin_jaylam.py --liet-ke báo không có file trong khung ngày (mã 10) nên không ảnh hưởng thêm."
+  "note": "Phiên TỐI CI (fire 20:47 VN, chạy lúc 21:00-21:30). BÀI HỌC LẶP LẠI từ phiên sáng sớm CÙNG NGÀY: 8/17 tin (47%) do 4 agent Sonnet tìm được là TRÙNG với DATA đã có, dù mỗi agent được nhúng đủ ràng buộc chống trùng + --recent-titles 20. Nguyên nhân gốc: hai phiên (sáng sớm 04:00 và tối 21:00) cùng ngày VN quét cửa sổ ngày gần như trùng nhau (hôm nay+hôm qua), và --recent-titles 20 bị các dòng exercises/dipEvents (luôn đứng đầu output, số lượng nhiều) chiếm hết chỗ nên tin worldNews/usNews vừa nạp buổi sáng không lọt vào danh sách chống trùng đưa cho agent buổi tối. Điều phối đã bù bằng cách tự WebFetch/WebSearch xác minh TỪNG tin trước khi merge (bắt được cả 8 tin trùng, cộng 2 tin ngày-đăng-khác-ngày-sự-kiện) — tốn nhiều lượt gọi nhưng giữ bản tin sạch. Kết quả cuối: 1 worldNews + 8 usNews + 1 cập nhật tập trận (đã trừ 8 tin trùng bị prune_news.py xoá ngay sau khi add_news.py cảnh báo/chặn). Không kịp xử lý cổng Báo Mới (4 ứng viên còn lại) — chốt bản tin đúng hạn 22:00 ưu tiên hơn gom đủ tin."
 }
