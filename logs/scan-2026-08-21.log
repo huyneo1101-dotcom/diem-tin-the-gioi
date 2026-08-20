@@ -9,3 +9,4 @@
   - Tap tran: 0 tin (khong tim duoc dien bien moi cho 4 cuoc dang chay)
 [21:17Z] add_news.py: +2 worldNews, +7 usNews. generatedAt=2026-08-20
 [21:17Z] Giai quyet dut diem 4 ung vien Bao Moi ton dong tu 2 phien truoc -> loai ca 4, ghi logs/loai-tin.md
+[21:18Z] gh workflow run telegram-bot.yml bi chan "requires approval" - CHUA kich duoc bot hut Jay Lam, doc truc tiep tin_jaylam.py --liet-ke thay
