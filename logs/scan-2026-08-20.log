@@ -1,3 +1,4 @@
+[13:14Z] SKIP (Windows task cu diemtin-cap-nhat-hang-ngay - 20:14 VN) - Python khong co tren Windows, khong the chay pipeline moi. CI toi se chay luc 20:47 VN. Sang: +0 worldNews +4 usNews +1 tap tran (CI 04:00 VN). worldGeneratedAt=2026-08-19 (0 tin moi qua kieu tra cheo sang nay).
 [21:00Z] START (CI) - phien sang som (04:00 VN)
 [21:02Z] harvest.py + telegram_harvest.py xong: 381 ung vien RSS/GNEWS/HTML + 18 TG
 [21:12Z] 4 agent Sonnet song song (Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran) tra ket qua
