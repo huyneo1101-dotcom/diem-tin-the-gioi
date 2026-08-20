@@ -2132,7 +2132,7 @@ site:<domain>` hay không — tức một mục có tồn tại hay không tuỳ
 | Soi sức khoẻ | `python3 scripts/add_analyses.py --kiem-html` — ~3 giây, chạm mạng thật. Mã 3 = trang chết · mã 4 = có domain mồ côi |
 | Bộ test canh | `tests/test-html-thinktank.py` (**21 ca** · `--tu-kiem` bắt **16/16** bản hỏng), đã nạp `khoe.py` |
 | Sản lượng đo 30/07 | **44 ứng viên** trong khung 7 ngày, cộng với 159 từ RSS |
-| Số viện HIỆN HÀNH | **15** (10 dựng 30/07 + 05 thêm 20/08/2026) |
+| Số viện HIỆN HÀNH | **24** (10 dựng 30/07 + 05 thêm 20/08 + 09 thêm 21/08/2026) |
 
 **➕ 05 VIỆN THÊM 20/08/2026 — lấp bốn vùng gần như trắng.** ACSS (`/in-focus/`, châu Phi ·
 Sahel) · CTC Sentinel West Point (khủng bố) · IFRI (`/en/publications/all`, Pháp) · SWP Berlin
@@ -2197,9 +2197,11 @@ feed sống, và trong 07 thì 02 phải bỏ:
 tức điểm báo) · `iss.europa.eu/rss.xml` EUISS (nội dung là *"X discussing … in Euronews"*, trích
 dẫn truyền thông chứ không phải nghiên cứu — cùng loại với feed SWP và Clingendael đã bỏ).
 
-**30 domain còn lại xếp xuống `WEBSEARCH_ONLY`** theo khu vực. Đây là hướng lệch AN TOÀN (bài vẫn
-tới được qua WebSearch), **không phải kết luận "không quét HTML được"** — chưa dò quét HTML cho
-nhóm này. Viện nào hay ra bài thì đo `--kiem-html` rồi nâng lên `THINKTANK_HTML`.
+**30 domain còn lại xếp xuống `WEBSEARCH_ONLY`** theo khu vực — hướng lệch AN TOÀN (bài vẫn tới
+được qua WebSearch), **không phải kết luận "không quét HTML được"**.
+✅ **Lời dặn "viện nào hay ra bài thì đo `--kiem-html` rồi nâng lên `THINKTANK_HTML`" ĐÃ THI HÀNH
+21/08/2026 — 11/30 domain đã rời khỏi đây, xem mục ngay dưới.** Đừng đọc đoạn này rồi đi dò lại
+từ đầu: 19 domain còn ở `WEBSEARCH_ONLY` nay đều mang lý do đã đo.
 
 **Phép đo phải giữ:** `add_analyses.domain_chua_co_duong_quet()` = `THINKTANK_DOMAINS` trừ
 (FEEDS ∪ HTML ∪ WEBSEARCH_ONLY ∪ `DOMAIN_CU_DA_CHUYEN`). `--kiem-html` in tên domain mồ côi rồi
@@ -2209,6 +2211,91 @@ guardrail phải giữ chúng cho bài cũ trong kho, nhưng chúng không cần
 miễn thì phép đo kêu oan mãi mãi.
 
 **Sản lượng đo 20/08/2026 sau cả hai đợt vá:** 206 → **254 ứng viên** (215 RSS · 39 HTML).
+
+### ✅ DÒ QUÉT HTML CHO 30 VIỆN CÒN LẠI — 21/08/2026 (nối tiếp mục ngay trên)
+
+Mục trên xếp 30 domain xuống `WEBSEARCH_ONLY` kèm lời dặn *"CHƯA dò quét HTML cho nhóm này"*.
+Đây là vòng dò ấy. Kết quả: **11/30 rời khỏi WebSearch** — 09 lên `THINKTANK_HTML`, 02 lên
+`THINKTANK_FEEDS`; 19 còn lại nằm nguyên nhưng nay mang **lý do đã đo**, không còn là "chưa dò".
+
+| Lên `THINKTANK_HTML` | Trang danh sách | Đo 21/08 (link · bài mới nhất) |
+|---|---|---|
+| **ISW** | `understandingwar.org/publications` | 16 · 19/08 |
+| **NBR** | `nbr.org/publications/` | 16 · 19/08 |
+| **USSC (Úc)** | `ussc.edu.au/publications` | 16 · 17/08 |
+| **PIIE** | `piie.com/blogs` | 10 · 17/08 |
+| **Defense Priorities** | `defensepriorities.org/explainers/` | 14 · 18/08 |
+| **Timbuktu Institute** | `timbuktu-institute.org/index.php/publications` | 16 · 17/08 |
+| Egmont | `egmontinstitute.be/publications/` | 6 · 16/07 |
+| EUISS | `iss.europa.eu/publications/commentary` | 10 · 09/07 |
+| SIPRI | `sipri.org/commentary` | 16 · 02/07 |
+
+**Sản lượng, đo hai bản CÙNG một thời điểm** (bản cũ lấy từ `git show HEAD:`, chạy cạnh bản mới
+để loại yếu tố ngày khác nhau): **222 → 247 ứng viên** · HTML 34 → 56 · RSS 188 → 191.
+
+⚠️ **ISW ra 3-4 bài MỖI NGÀY và tất cả đều là loạt định kỳ** (*"Russian Offensive Campaign
+Assessment, August 19, 2026"*). Đo 21/08: 16/16 link khớp đều thuộc loạt này, tức viện này một
+mình chiếm trọn `HTML_LINK_CAP` của chính nó. Không lấn viện khác (trần tính theo TỪNG trang),
+nhưng agent chọn bài phải biết đây là báo cáo tình hình định kỳ chứ không phải nghiên cứu mới:
+lấy nhiều nhất 1-2 bài, ưu tiên bản *"Special Report"*. Nhồi cả loạt vào kho là biến mục
+Think-tank thành nhật ký chiến sự.
+⚠️ **Defense Priorities và EUISS đều đã bị BỎ FEED hôm 20/08 vì feed của chúng là điểm báo** —
+lớp HTML lấy nhánh KHÁC HẲN (`/explainers/` · `/publications/commentary/`), là bài do chính
+viện viết. Đúng ca SWP; hai ghi chú ấy KHÔNG mâu thuẫn nhau, đừng đọc ghi chú bỏ-feed rồi suy
+ra "nguồn đã loại".
+
+#### ⛔ HAI LỖ CÂM BẮT ĐƯỢC TRONG CHÍNH VÒNG DÒ NÀY — cả hai đều nằm ngoài phạm vi việc đang làm
+
+**(1) `parse_feed` chết vì MỘT ký tự xuống dòng ở đầu file.** Feed Gulf International Forum mở
+đầu bằng `\n` trước `<?xml …?>` (WordPress hay in thừa như vậy khi một plugin phát ra newline
+trước header). `ET.fromstring` ném *"XML or text declaration not at start of entity"* ⇒
+`parse_feed` trả `None` ⇒ `feed_items` trả rỗng ⇒ nguồn hiện ra ở dòng *"Feed không ra bài nào
+trong khung ngày"* — **nhìn dòng đó không phân biệt được với viện đăng thưa thật**, nên một
+nguồn có thể nằm chết trong bảng hàng tháng. Feed ấy thật ra trả 113 KB và 10 item hợp lệ.
+Đã vá bằng `lstrip` BOM + khoảng trắng; quét lại toàn bộ 44 feed thì **chỉ GulfIF dính**.
+⚠️ Chỉ cắt **khoảng trắng và BOM**, không cắt gì khác — rác đầu file mà không phải khoảng trắng
+thì đó là trang lỗi hoặc trang challenge, đọc nó thành feed mới là hỏng thật. Ca [03] canh
+chiều nới này, bản hỏng *"cắt tới `<?xml` đầu tiên"* làm nó đỏ.
+
+**(2) SPF USA khai nhầm nhánh feed — cùng hình dạng Lowy và ASPI.** `do_nguon_mot_muc.py` tố
+tên miền này ngay lượt chạy đầu. Feed khai hôm 20/08 là `/feed/` gốc: 12 item toàn
+`/spfusa-news/` và `/congressional-outreach/`, bài mới nhất **21/03/2026** — nên chú thích lúc
+ấy kết luận *"viện đăng RẤT thưa"*. Đo lại: `/publications/feed/` trả 12/12 item dưới
+`/publications/`, bài mới nhất **01/08/2026**. Viện ra bài đều, chỉ là đường vào khai nhầm
+nhánh. Đã đổi feed và ghi `DA_DUYET`.
+⚠️ **Cố ý KHÔNG giữ thêm feed gốc**, khác ca ASPI (ở đó cả blog lẫn báo cáo đều là nghiên cứu
+nên giữ cả hai): nhánh gốc ở đây là tin hoạt động, cùng loại với các feed điểm báo đã bỏ.
+⚠️ **Bài học chung của cả hai lỗ:** một dòng *"feed không ra bài"* và một chú thích *"viện đăng
+thưa"* đều là **kết luận**, không phải số đo. Trước khi tin, đọc `pubDate` của item đầu và xem
+item rơi vào MỤC nào — đó là hai phép đo phân biệt được "nguồn thưa" với "khai nhầm nhánh" và
+với "parser chết".
+
+⛔ **ĐÃ DÒ QUÉT HTML VÀ BỎ (21/08/2026) — đừng dò lại.** Ba nhóm nguyên nhân khác hẳn nhau, ghi
+đủ trong `add_analyses.py` ngay dưới `WEBSEARCH_ONLY`; tóm tắt:
+- **(a) không trả về HTML** (chặn hoặc JS-only): rsis.edu.sg 5,7 KB · aei.org 5,5 KB ·
+  sipa.columbia.edu 5,7 KB · cato.org 949 B · csbaonline.org 103 B · ispionline.it 552 B ·
+  pism.pl 212 B · sejong.org 1,4 KB · epc.ae và giga-hamburg.de đọc được nhưng 0 href bài ·
+  carnegieeurope.eu chuyển hướng sang Carnegie Endowment (đã biết JS-only).
+- **(b) có link, KHÔNG có ngày** — nguy hơn (a) vì trang danh sách trả hàng trăm KB nên nhìn như
+  đang chạy: ceps.eu (trang bài lẻ trả 5,9 KB, không meta ngày nào; 11/16 link không ngày) ·
+  tokyofoundation.org (`/research/detail.php?id=…`, 11/16 không ngày, mọi bài chung một path).
+- **(c) lấy được đủ nhưng nội dung không thuộc mục này** — phải chặn bằng phán xét, không cổng
+  máy nào bắt: nupi.no (bản ghi thư mục học thuật, chỉ abstract) · prif.org (bài thật ở
+  `blog.prif.org`, TÊN MIỀN khác nên guardrail chặn khi nạp) · ui.se (ấn phẩm là PDF) ·
+  highnorthnews.com (**BÁO tin tức Bắc Cực, không phải viện**) · foreignaffairs.com (tạp chí
+  trả phí, bài xếp theo khu vực nên không tiền tố nào tách được bài khỏi trang chuyên mục).
+
+**Bộ test canh:** `tests/test-html-thinktank.py` nay **27 ca · `--tu-kiem` bắt 22/22 bản hỏng**
+(thêm 06 ca: 02 cho `parse_feed` hai chiều · 04 cho biểu thức path của các viện hình dạng lạ —
+SIPRI phải mở cờ `(?i)` vì trang trộn `/commentary/essay/` thường với `/commentary/
+Topical-backgrounder` HOA; ISW không được nuốt trang chuyên mục; USSC · Egmont đặt bài ở GỐC nên
+chỉ còn ĐỘ DÀI để chặn; Timbuktu chạy Joomla `/index.php/<mục>/item/<id>-<slug>`).
+⚠️ Ca đối chứng *"trang sống thì `--kiem-html` KHÔNG kêu oan"* đã phải vá cùng lượt: nó tráo
+`THINKTANK_HTML` bằng bảng một dòng, mà `kiem_html` gộp HAI nhánh vào một mã thoát (trang chết =
+3 · domain mồ côi = 4), nên mọi domain HTML thật lập tức thành mồ côi và ca đỏ vì nhánh nó KHÔNG
+định đo. Trước 21/08 nó xanh chỉ vì mọi domain trong bảng HTML khi ấy **tình cờ** còn nằm cả ở
+`WEBSEARCH_ONLY`; 09 viện rời danh sách ấy là giả định ngầm vỡ ngay. Đã cô lập bằng cách ghim
+guardrail về đúng domain của trang giả — **không nới điều kiện của ca cho hết đỏ**.
 
 ### 🏷️ Nhãn `outlet` — bảo trì bằng `scripts/sua_nhan_analyses.py` (dựng 29/07/2026)
 Guardrail của `add_analyses.py` kiểm theo **DOMAIN**, **không kiểm nhãn `outlet`** — cố ý, vì tên viện

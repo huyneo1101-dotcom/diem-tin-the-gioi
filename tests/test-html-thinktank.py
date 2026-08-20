@@ -29,6 +29,7 @@ import datetime
 import importlib.util
 import io
 import os
+import re
 import pathlib
 import sys
 
@@ -260,8 +261,9 @@ def ca_trang_bi_chan_khong_ra_link(mod):
 
 def ca_path_chet_thi_phai_keu(mod):
     """PHẢI KÊU: biểu thức path không khớp gì ⇒ `--kiem-html` phải thoát mã 3, không im."""
-    goc = mod.THINKTANK_HTML
+    goc, goc_dom = mod.THINKTANK_HTML, mod.THINKTANK_DOMAINS
     mod.THINKTANK_HTML = [("Viện giả", TRANG_DS, r"^/khong-bao-gio-khop/[^/]+", "Khu vực giả")]
+    mod.THINKTANK_DOMAINS = _dom_chi_vien_gia(mod)
     try:
         buf = io.StringIO()
         ma = 0
@@ -276,13 +278,28 @@ def ca_path_chet_thi_phai_keu(mod):
             return "có kêu nhưng không chỉ ra trang nào chết"
         return None
     finally:
-        mod.THINKTANK_HTML = goc
+        mod.THINKTANK_HTML, mod.THINKTANK_DOMAINS = goc, goc_dom
+
+
+def _dom_chi_vien_gia(mod):
+    """Guardrail rút về ĐÚNG domain của trang giả, dùng cho hai ca tráo `THINKTANK_HTML`.
+
+    Vì sao cần: `kiem_html` gộp HAI nhánh vào một mã thoát — trang chết (mã 3) và domain mồ côi
+    (mã 4). Ca nào tráo `THINKTANK_HTML` bằng bảng một dòng thì mọi domain HTML THẬT lập tức
+    thành mồ côi, nên ca đối chứng đỏ vì nhánh nó KHÔNG định đo. Trước 21/08/2026 nó xanh chỉ
+    vì mọi domain trong bảng HTML khi ấy tình cờ còn nằm cả ở `WEBSEARCH_ONLY`; 09 viện cắm
+    hôm đó rời khỏi danh sách ấy là giả định ngầm vỡ ngay. Ghim guardrail lại là cách cô lập
+    đúng nhánh, thay vì nới điều kiện của ca cho hết đỏ.
+    """
+    import urllib.parse
+    return {urllib.parse.urlparse(TRANG_DS).netloc.replace("www.", "")}
 
 
 def ca_trang_song_thi_khong_keu_oan(mod):
     """ĐỐI CHỨNG của ca trên: trang ra link bình thường thì tuyệt đối không được kêu."""
-    goc = mod.THINKTANK_HTML
+    goc, goc_dom = mod.THINKTANK_HTML, mod.THINKTANK_DOMAINS
     mod.THINKTANK_HTML = [("Viện giả", TRANG_DS, PATH_RE, "Khu vực giả")]
+    mod.THINKTANK_DOMAINS = _dom_chi_vien_gia(mod)
     try:
         buf = io.StringIO()
         try:
@@ -293,7 +310,7 @@ def ca_trang_song_thi_khong_keu_oan(mod):
                 return f"trang sống mà --kiem-html kêu chết (mã {ex.code})"
         return None
     finally:
-        mod.THINKTANK_HTML = goc
+        mod.THINKTANK_HTML, mod.THINKTANK_DOMAINS = goc, goc_dom
 
 
 def ca_domain_phai_qua_duoc_guardrail(mod):
@@ -406,8 +423,125 @@ def ca_kiem_html_keu_khi_co_domain_mo_coi(mod):
         mod.WEBSEARCH_ONLY = goc
 
 
+def _path_re(mod, ten_vien: str) -> str:
+    """Biểu thức path của MỘT viện, tra theo tên trong bảng thật.
+
+    Bốn ca dưới đo chính DỮ LIỆU trong `THINKTANK_HTML` chứ không đo mã chung, nên chúng chạy
+    thuần trên biểu thức — không chạm mạng, không cần trang giả. Đây là chỗ duy nhất bắt được
+    lỗi kiểu "sửa một dòng bảng cho gọn": mã vẫn đúng, mọi trang khác vẫn ra bài, chỉ viện ấy
+    lặng lẽ hụt một nhánh.
+    """
+    for ten, _url, rx, _kv in mod.THINKTANK_HTML:
+        if ten == ten_vien:
+            return rx
+    raise AssertionError(f"không còn dòng nào tên '{ten_vien}' trong THINKTANK_HTML")
+
+
+def ca_sipri_bat_ca_nhanh_viet_hoa(mod):
+    """PHẢI KHỚP: SIPRI trộn `/commentary/essay/…` thường với `/commentary/Topical-backgrounder`
+    HOA trong CÙNG một trang. Thiếu cờ `(?i)` thì mất đúng nhánh backgrounder mà không dấu hiệu
+    nào — nhánh essay vẫn ra link nên `--kiem-html` vẫn báo OK."""
+    rx = re.compile(_path_re(mod, "SIPRI"))
+    thuong = "/commentary/essay/2026/united-states-deal-iran-could-put-freedom-navigation-risk"
+    hoa = "/commentary/Topical-backgrounder/2026/how-maintain-multilateral-cooperation-export"
+    if not rx.search(thuong):
+        return "biểu thức SIPRI không khớp cả nhánh viết thường"
+    if not rx.search(hoa):
+        return "biểu thức SIPRI mất nhánh viết HOA `Topical-backgrounder` — thiếu cờ (?i)"
+    return None
+
+
+def ca_isw_khong_nuot_trang_chuyen_muc(mod):
+    """ĐỐI CHỨNG chống nới: ISW đặt bài ở `/research/<vùng>/<slug>/`, còn `/research/<vùng>/`
+    là trang chuyên mục. Nới biểu thức là mỗi lượt quét nạp thêm 3 trang chuyên mục làm "bài",
+    và chúng có tiêu đề nghe hợp lý nên nhìn danh sách không phân biệt được."""
+    rx = re.compile(_path_re(mod, "ISW"))
+    bai = "/research/russia-ukraine/russian-offensive-campaign-assessment-august-19-2026/"
+    if not rx.search(bai):
+        return "biểu thức ISW không còn khớp bài thật"
+    for muc in ("/research/russia-ukraine/", "/research/middle-east/", "/research/"):
+        if rx.search(muc):
+            return f"biểu thức ISW nuốt trang chuyên mục {muc}"
+    return None
+
+
+def ca_bai_o_goc_khong_nuot_dieu_huong(mod):
+    """USSC và Egmont đặt bài THẲNG ở gốc tên miền nên biểu thức chỉ còn ĐỘ DÀI để chặn. Ca này
+    canh cả hai chiều: bài thật phải qua, mà trang người và lối điều hướng phải rớt."""
+    for ten, bai, rac in (
+        ("USSC (Úc)", "/liberty-yards-us-maritime-revival-as-an-alliance-project",
+         ("/dr-michael-green", "/publications", "/topics", "/experts")),
+        ("Egmont", "/the-ankara-summit-its-trumps-nato-europe-just-lives-in-it/",
+         ("/publications/", "/staff/", "/events", "/topics/")),
+    ):
+        rx = re.compile(_path_re(mod, ten))
+        if not rx.search(bai):
+            return f"{ten}: biểu thức không còn khớp bài thật {bai}"
+        for r in rac:
+            if rx.search(r):
+                return f"{ten}: biểu thức nuốt lối điều hướng {r}"
+    return None
+
+
+def ca_timbuktu_khop_duong_dan_joomla(mod):
+    """Timbuktu chạy Joomla: `/index.php/<chuyên mục>/item/<id>-<slug>`. Mảnh `item/<id>-` là
+    thứ duy nhất tách bài khỏi trang chuyên mục, vì cả hai đều nằm dưới `/index.php/`."""
+    rx = re.compile(_path_re(mod, "Timbuktu Institute"))
+    bai = "/index.php/toutes-l-actualites/item/1701-cheikh-el-hadji-malick-sy-un-soufisme"
+    if not rx.search(bai):
+        return "biểu thức Timbuktu không còn khớp bài thật"
+    for r in ("/index.php/publications", "/index.php/l-institut/preambule", "/index.php/timbuktu-tv"):
+        if rx.search(r):
+            return f"biểu thức Timbuktu nuốt trang chuyên mục {r}"
+    return None
+
+
+_FEED_MAU = (b'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>'
+             b"<item><title>Bai nghien cuu ve an ninh vung Vinh</title>"
+             b"<link>https://vien-gia.example.org/bai-mot/</link>"
+             b"<pubDate>Thu, 20 Aug 2026 15:12:34 +0000</pubDate></item>"
+             b"</channel></rss>")
+
+
+def ca_feed_co_dong_trong_dau_file(mod):
+    """PHẢI ĐỌC ĐƯỢC: một ký tự xuống dòng trước `<?xml` là đủ để ET từ chối CẢ feed.
+
+    WordPress in thừa newline như vậy khá thường. Hỏng câm hạng nặng: `parse_feed` trả None ⇒
+    0 item ⇒ nguồn hiện ở dòng "Feed không ra bài nào trong khung ngày", nhìn y hệt viện đăng
+    thưa thật. Đo 21/08/2026 trên bảng 44 feed: Gulf International Forum nằm chết đúng kiểu này
+    ngay lượt vừa cắm, feed thật có 113 KB và 10 item.
+    """
+    if len(mod.feed_items(_FEED_MAU)) != 1:
+        return "feed sạch mà đã không đọc được — ca hỏng, sửa ca trước khi kết luận về mã"
+    for rac, ten in ((b"\n", "dòng trống"), (b"  \n\t", "khoảng trắng"),
+                     (b"\xef\xbb\xbf", "BOM UTF-8")):
+        if len(mod.feed_items(rac + _FEED_MAU)) != 1:
+            return f"feed mở đầu bằng {ten} bị đọc thành 0 item"
+    return None
+
+
+def ca_rac_dau_file_khong_phai_khoang_trang_van_bi_loai(mod):
+    """ĐỐI CHỨNG chống nới: chỉ được cắt KHOẢNG TRẮNG và BOM.
+
+    Rác đầu file mà không phải khoảng trắng thì đó là trang lỗi hoặc trang challenge dán trước
+    XML; đọc nó thành feed là nạp rác vào kho — hướng lệch tệ hơn hẳn việc bỏ sót một nguồn.
+    """
+    for rac in (b"<!-- loi may chu -->", b"Attention Required! ", b"<html><body>403"):
+        if mod.feed_items(rac + _FEED_MAU):
+            return f"rác đầu file {rac[:20]!r} vẫn được đọc thành feed"
+    return None
+
+
 CA = [
     ("lấy được bài mới trong khung 7 ngày", ca_lay_duoc_bai_moi),
+    ("feed mở đầu bằng dòng trống/BOM vẫn đọc được item", ca_feed_co_dong_trong_dau_file),
+    ("rác đầu file KHÔNG phải khoảng trắng vẫn bị loại (đối chứng)",
+     ca_rac_dau_file_khong_phai_khoang_trang_van_bi_loai),
+    ("SIPRI: biểu thức bắt CẢ nhánh viết HOA", ca_sipri_bat_ca_nhanh_viet_hoa),
+    ("ISW: KHÔNG nuốt trang chuyên mục (đối chứng)", ca_isw_khong_nuot_trang_chuyen_muc),
+    ("bài đặt ở GỐC: khớp bài, không khớp điều hướng (USSC · Egmont)",
+     ca_bai_o_goc_khong_nuot_dieu_huong),
+    ("Timbuktu: khớp đúng đường dẫn Joomla /item/<id>-", ca_timbuktu_khop_duong_dan_joomla),
     ("mọi domain trong guardrail đều có đường quét", ca_moi_domain_deu_co_duong_quet),
     ("--kiem-html KÊU khi có domain mồ côi", ca_kiem_html_keu_khi_co_domain_mo_coi),
     ("ngày lấy từ TÊN FILE thắng ngày in cạnh tiêu đề", ca_ngay_lay_tu_ten_file),
@@ -510,12 +644,43 @@ BAN_HONG = [
      lambda s: s.replace('_TEN_FILE_NGAY = re.compile(r"(?:^|[^0-9])(20\\d\\d)(\\d\\d)(\\d\\d)(?:[^0-9]|$)")',
                          '_TEN_FILE_NGAY = re.compile(r"(20\\d\\d)(\\d\\d)(\\d\\d)")', 1),
      "KHÔNG đọc chuỗi số dài trong tên file thành ngày (đối chứng)"),
+    ("bỏ cắt khoảng trắng đầu file trong parse_feed",
+     lambda s: s.replace('    xml_bytes = xml_bytes.lstrip(b"\\xef\\xbb\\xbf").lstrip()\n', "", 1),
+     "feed mở đầu bằng dòng trống/BOM vẫn đọc được item"),
+    ("nới phép cắt đầu file — cắt tới dấu `<` đầu tiên",
+     lambda s: s.replace('    xml_bytes = xml_bytes.lstrip(b"\\xef\\xbb\\xbf").lstrip()',
+                         '    k = xml_bytes.find(b"<?xml")\n'
+                         '    xml_bytes = xml_bytes[k:] if k > 0 else xml_bytes', 1),
+     "rác đầu file KHÔNG phải khoảng trắng vẫn bị loại (đối chứng)"),
+    # ── 04 bản hỏng cho các viện cắm 21/08/2026. Chúng thay DÒNG BẢNG chứ không thay mã chung:
+    # lỗi loại này không làm hỏng lớp quét, chỉ làm một viện hụt nhánh — nên phải có ca riêng.
+    ("bỏ cờ (?i) khỏi biểu thức SIPRI",
+     lambda s: s.replace(r'r"(?i)^/commentary/[a-z-]+/20\d\d/[^/]{10,}"',
+                         r'r"^/commentary/[a-z-]+/20\d\d/[^/]{10,}"', 1),
+     "SIPRI: biểu thức bắt CẢ nhánh viết HOA"),
+    ("nới biểu thức ISW cho khớp cả trang chuyên mục",
+     lambda s: s.replace(r'r"^/research/[a-z-]+/[^/]{15,}/?$"', r'r"^/research/[a-z-]+/[^/]*"', 1),
+     "ISW: KHÔNG nuốt trang chuyên mục (đối chứng)"),
+    ("hạ ngưỡng độ dài slug gốc của USSC 30 -> 10",
+     lambda s: s.replace('    ("USSC (Úc)", "https://www.ussc.edu.au/publications",\n'
+                         '     r"^/[a-z0-9-]{30,}/?$", "Úc · quan hệ Mỹ-Úc"),',
+                         '    ("USSC (Úc)", "https://www.ussc.edu.au/publications",\n'
+                         '     r"^/[a-z0-9-]{10,}/?$", "Úc · quan hệ Mỹ-Úc"),', 1),
+     "bài đặt ở GỐC: khớp bài, không khớp điều hướng (USSC · Egmont)"),
+    ("bỏ mảnh item/<id>- khỏi biểu thức Timbuktu",
+     lambda s: s.replace(r'r"^/index\.php/[^/]+/item/\d+-[^/]{10,}"',
+                         r'r"^/index\.php/[^/]{10,}"', 1),
+     "Timbuktu: khớp đúng đường dẫn Joomla /item/<id>-"),
     ("bỏ cắt đuôi ngày dd.mm.yyyy khỏi tiêu đề",
      lambda s: s.replace('        title = re.sub(r"\\s*\\d{1,2}[./]\\d{1,2}[./]20\\d\\d\\s*$", "", '
                          'title).strip(" |·–—")\n', "", 1),
      "cắt đuôi ngày dd.mm.yyyy khỏi tiêu đề"),
+    # ⚠️ Bản hỏng này neo vào một DÒNG DỮ LIỆU của `WEBSEARCH_ONLY`, nên mỗi lần bảng đổi là
+    # phải sửa neo trong CÙNG lượt — `--tu-kiem` báo "KHÔNG áp được phép thay" chứ không im,
+    # nhưng lượt chạy thường vẫn xanh nên chỉ `--tu-kiem` mới tố. Đã vỡ một lần 21/08/2026 khi
+    # `gulfif.org` rời bảng để lên `THINKTANK_FEEDS`.
     ("bỏ khai đường quét cho một domain (mô phỏng quên khai)",
-     lambda s: s.replace('    "Vùng Vịnh": ["epc.ae", "gulfif.org"],\n', "", 1),
+     lambda s: s.replace('    "Vùng Vịnh": ["epc.ae"],\n', "", 1),
      "mọi domain trong guardrail đều có đường quét"),
     ("--kiem-html thấy domain mồ côi mà không kêu",
      lambda s: s.replace("    mo_coi = sorted(domain_chua_co_duong_quet())",

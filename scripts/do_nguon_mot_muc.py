@@ -129,6 +129,13 @@ DA_DUYET = {
         "`ASPI [BL]` = `/feed/?post_type=opinions` (fetch thật: 200 · 10 item · bài mới "
         "16/07/2026). Kho vẫn 10/10 bài `/report/` vì lô bài mục mới chưa nạp; nạp xong thì "
         "tên miền này tự rời danh sách, lúc đó GỠ dòng này đi.",
+    "spfusa.org":
+        "ĐÃ VÁ 21/08/2026 — LỖ THẬT, đúng hình dạng Lowy. Feed khai hôm 20/08 là `/feed/` gốc, "
+        "trả 12 item toàn `/spfusa-news/` và `/congressional-outreach/` (tin nội bộ, bài mới "
+        "nhất 21/03/2026) — nên chú thích lúc ấy kết luận nhầm là 'viện đăng rất thưa'. Đã đổi "
+        "sang `/publications/feed/` (fetch thật: 278 KB · 12/12 item dưới `/publications/` · bài "
+        "mới nhất 01/08/2026). Kho vẫn 9/9 bài `publications` vì lô bài mục mới chưa nạp; nạp "
+        "xong thì tên miền này tự rời danh sách, lúc đó GỠ dòng này đi.",
     "cacianalyst.org":
         "ĐÃ VÁ 07/08/2026 — LỖ THẬT. Viện có 04 mục, mới khai feed `analytical-articles`; đã "
         "khai thêm `CACI Analyst [FA]` = `/publications/feature-articles.feed` (fetch thật: "

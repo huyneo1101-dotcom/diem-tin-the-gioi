@@ -317,9 +317,33 @@ THINKTANK_FEEDS = [
     # ⚠️ Elcano: dùng bản `/en/feed/` (tiếng Anh). Feed gốc `/feed/` cũng sống nhưng ra bài tiếng
     # Tây Ban Nha.
     ("Real Instituto Elcano", "https://www.realinstitutoelcano.org/en/feed/", "Nam Âu · Tây Ban Nha"),
-    # ⚠️ SPF USA đăng RẤT thưa (lúc cắm, bài mới nhất đã 5 tháng tuổi) nên gần như luôn nằm trong
-    # dòng "feed không ra bài" — bình thường, giống USIP.
-    ("SPF USA", "https://www.spfusa.org/feed/", "Nhật - Mỹ"),
+    # ⚠️ SPF USA: phải là `/publications/feed/`, KHÔNG dùng `/feed/` gốc — sửa 21/08/2026 sau
+    # khi `do_nguon_mot_muc.py` tố tên miền này. Câu ghi hôm 20/08 ("viện đăng RẤT thưa, bài mới
+    # nhất đã 5 tháng tuổi") là kết luận SAI rút từ nhánh sai: feed gốc trả 12 item toàn
+    # `/spfusa-news/` và `/congressional-outreach/`, tức tin nội bộ và chương trình quốc hội,
+    # bài mới nhất 21/03/2026; còn `/publications/feed/` trả 12/12 item dưới `/publications/`
+    # với bài mới nhất 01/08/2026. Viện ra bài đều, chỉ là đường vào khai nhầm nhánh — đúng
+    # hình dạng Lowy và ASPI.
+    # ⛔ Cố ý KHÔNG giữ thêm feed gốc: khác ca ASPI (ở đó cả blog lẫn báo cáo đều là nghiên cứu
+    # của viện nên giữ cả hai), nhánh gốc ở đây là tin hoạt động chứ không phải nghiên cứu —
+    # cùng loại với các feed điểm báo đã bỏ ngay phía dưới.
+    ("SPF USA", "https://www.spfusa.org/publications/feed/", "Nhật - Mỹ"),
+    # ══ Bổ sung 21/08/2026 — 02 feed DANH MỤC CON, đường mà vòng dò 20/08 không đi tới ══
+    # CƠ CHẾ GÂY VẤP: vòng dò hôm trước hỏi `<link rel=alternate>` + `/feed/` + `/rss.xml`, tức
+    # chỉ hỏi feed GỐC. Với WordPress, feed gốc trả kiểu bài `post`, còn ấn phẩm chính của viện
+    # lại nằm dưới một CHUYÊN MỤC — và `/<category>/feed/` thì không lối dò nào ở trên chạm tới.
+    # Cùng họ với bài học ASPI (`?post_type=` cho kiểu bài riêng), chỉ khác trục: ở đó là KIỂU
+    # BÀI, ở đây là CHUYÊN MỤC.
+    # ⚠️ `iseas.edu.sg/feed/` trả **108 KB nhưng 0 item** — nó phát HTML chứ không phát RSS, nên
+    # phép dò chỉ đếm mã 200 sẽ đọc thành "có feed" còn phép dò đếm item đọc thành "không có
+    # feed"; cả hai đều dẫn tới kết luận sai là ISEAS không có đường feed nào.
+    ("ISEAS (Yusof Ishak)", "https://www.iseas.edu.sg/category/articles-commentaries/feed/",
+     "Đông Nam Á"),
+    # GulfIF: feed gốc SỐNG (10 item, bài mới trong ngày, 10/10 là nghiên cứu của chính viện —
+    # không phải điểm báo). Vòng dò 20/08 chấm nó "không feed"; đo lại 21/08 thì trả 113 KB/10
+    # item. Nghi là lượt dò hôm đó trượt tạm. Bài học: một lượt dò trượt KHÔNG đủ để gạch tên
+    # nguồn — cùng luật đã ghi cho `probe_sources.py` (đo lại lẻ, tuần tự).
+    ("Gulf International Forum", "https://gulfif.org/feed/", "Vùng Vịnh"),
     # ⛔ ĐÃ ĐO VÀ BỎ 20/08/2026, đừng cắm lại:
     # · `defensepriorities.org/feed/` — 10/10 item nằm ở `/in-the-media/`, tức điểm báo. Cắm vào
     #   thì NOISE_PATHS lọc sạch, được đúng con số 0 kèm một lượt curl mỗi ngày.
@@ -444,22 +468,54 @@ WEBSEARCH_ONLY = {
     # agent tìm. Nhìn `THINKTANK_DOMAINS` thì tưởng đã phủ. Đã dò feed cả 35 domain thuộc diện
     # này (thẻ `<link rel=alternate>` + `/feed/` + `/rss.xml`): chỉ 07 có feed, 05 đã cắm vào
     # THINKTANK_FEEDS, 02 bị bỏ vì là feed điểm báo. Số còn lại xếp xuống đây.
-    # ⚠️ CHƯA dò quét HTML cho nhóm này — WebSearch là hướng lệch AN TOÀN (bài vẫn tới được),
-    # không phải kết luận "không quét HTML được". Viện nào hay ra bài thì đo `--kiem-html` rồi
-    # nâng lên THINKTANK_HTML.
-    "Mỹ · viện và tạp chí": ["aei.org", "cato.org", "csbaonline.org", "defensepriorities.org",
-                             "foreignaffairs.com", "nbr.org", "piie.com", "sipa.columbia.edu",
-                             "understandingwar.org"],
-    "Châu Âu · viện quốc gia": ["carnegieeurope.eu", "ceps.eu", "egmontinstitute.be",
-                                "giga-hamburg.de", "ispionline.it", "iss.europa.eu", "nupi.no",
+    # ✅ ĐÃ DÒ QUÉT HTML 21/08/2026 — 11/30 domain rời khỏi đây: 09 lên `THINKTANK_HTML`
+    # (ISW · NBR · USSC · PIIE · Defense Priorities · Timbuktu · Egmont · EUISS · SIPRI) và
+    # 02 lên `THINKTANK_FEEDS` qua feed danh mục con (ISEAS · GulfIF). 19 domain còn lại nằm
+    # đây kèm LÝ DO ĐÃ ĐO ở ngay dưới — chúng không còn là "chưa dò", nên đừng dò lại từ đầu.
+    "Mỹ · viện và tạp chí": ["aei.org", "cato.org", "csbaonline.org",
+                             "foreignaffairs.com", "sipa.columbia.edu"],
+    "Châu Âu · viện quốc gia": ["carnegieeurope.eu", "ceps.eu",
+                                "giga-hamburg.de", "ispionline.it", "nupi.no",
                                 "pism.pl", "prif.org", "ui.se"],
-    "Vùng Vịnh": ["epc.ae", "gulfif.org"],
+    "Vùng Vịnh": ["epc.ae"],
     "Bắc Cực · báo chuyên": ["highnorthnews.com"],
-    "Đông Á · Đông Nam Á": ["iseas.edu.sg", "rsis.edu.sg", "sejong.org", "tokyofoundation.org"],
-    "Úc · Ấn Độ Dương - TBD": ["ussc.edu.au"],
-    "Châu Phi · Sahel (bổ sung)": ["timbuktu-institute.org"],
-    "Dữ liệu · số liệu": ["sipri.org"],
+    "Đông Á · Đông Nam Á": ["rsis.edu.sg", "sejong.org", "tokyofoundation.org"],
 }
+
+# ⛔ ĐÃ DÒ QUÉT HTML VÀ BỎ (21/08/2026) — số đo kèm lý do, để phiên sau đừng dò lại rồi mới biết.
+# Ba nhóm nguyên nhân KHÁC HẲN nhau; gộp chung một chữ "không quét được" là mất thông tin cần
+# để biết cái nào đáng thử lại về sau.
+#
+# (a) TRANG DANH SÁCH KHÔNG TRẢ VỀ HTML — mọi đường thử đều ra vài KB, tức chặn hoặc dựng bằng
+#     JS. Không biểu thức path nào cứu được:
+#     · rsis.edu.sg 5,7 KB · aei.org 5,5 KB · sipa.columbia.edu 5,7 KB · cato.org 949 B ·
+#       csbaonline.org 103 B · ispionline.it 552 B · pism.pl 212 B · sejong.org 1,4 KB
+#     · epc.ae 15 KB và giga-hamburg.de 31-33 KB: đọc được HTML nhưng **0 href bài nội bộ**,
+#       danh sách dựng bằng JS.
+#     · carnegieeurope.eu: chuyển hướng sang `carnegieendowment.org/europe/` (Next.js), mà
+#       Carnegie Endowment đã nằm sẵn ở danh sách "ĐÃ THỬ VÀ BỎ" phía trên vì JS-only.
+#
+# (b) LẤY ĐƯỢC LINK NHƯNG KHÔNG LẤY ĐƯỢC NGÀY — nguy hơn nhóm (a) vì trang danh sách trả về
+#     hàng trăm KB nên nhìn như đang chạy, chỉ có `khong_ngay` là tố:
+#     · ceps.eu — trang danh sách 379 KB, 16 link đúng, nhưng trang BÀI lẻ trả **5,9 KB** và
+#       không mang meta ngày nào trong 04 mẫu của `_META_DATE_PATTERNS`. Đo: 11/16 link không
+#       ngày ⇒ bị bỏ hết. Chặn ở tầng trang bài, không phải tầng biểu thức path.
+#     · tokyofoundation.org — bài nằm ở `/research/detail.php?id=…`, 11/16 link không dò được
+#       ngày. Ngoài ra mọi bài chung một `path` nên biểu thức path mất hết khả năng phân loại.
+#
+# (c) LẤY ĐƯỢC ĐỦ NHƯNG NỘI DUNG KHÔNG THUỘC MỤC NÀY — đây là loại phải chặn bằng phán xét,
+#     không cổng máy nào bắt được:
+#     · nupi.no — `/en/publications/cristin-pub/…` là bản ghi thư mục của chương sách và bài
+#       tạp chí học thuật (chỉ có abstract), không phải bình luận chính sách kịp thời; bài mới
+#       nhất lúc đo đã 38 ngày.
+#     · prif.org — 2 link khớp, cả hai không ngày; bài thật nằm ở `blog.prif.org`, một TÊN MIỀN
+#       KHÁC nên guardrail domain sẽ chặn khi nạp.
+#     · ui.se — ấn phẩm phát dưới dạng **PDF** (`/globalassets/…pdf`), không có trang bài HTML.
+#     · highnorthnews.com — đọc được (251 KB) nhưng là **BÁO tin tức Bắc Cực, không phải viện**.
+#       Để vào mục tên là Think-tank là hỏng chính danh nghĩa của mục; cùng lý do đã ghi cho
+#       thebarentsobserver.com và arctictoday.com.
+#     · foreignaffairs.com — tạp chí trả phí, bài xếp theo khu vực (`/china/…`, `/ukraine/…`)
+#       nên không có tiền tố nào tách được bài khỏi trang chuyên mục.
 
 # Domain CŨ của một viện đã đổi tên miền: guardrail phải giữ (bài cũ trong kho còn mang url cũ)
 # nhưng KHÔNG cần đường quét riêng — tên miền mới mới là chỗ quét. Miễn chúng khỏi phép đo
@@ -566,6 +622,54 @@ THINKTANK_HTML = [
     # `ngay_trong_ten_file`.
     ("JIIA (Nhật)", "https://www.jiia.or.jp/en/column/",
      r"^/eng/(?:report|column)/20\d\d/\d\d/[^/]+\.html$", "Nhật Bản"),
+    # ─── Bổ sung 21/08/2026 — 09 viện dò từ khối "30 viện IM LẶNG" của WEBSEARCH_ONLY ───
+    # Vòng 20/08 mới dò FEED cho khối đó rồi xếp phần còn lại xuống WebSearch, kèm lời dặn
+    # "CHƯA dò quét HTML cho nhóm này". Đây là vòng dò ấy. Đo 21/08 (link khớp / bài mới nhất):
+    # ISW 16/19-08 · NBR 16/19-08 · USSC 16/17-08 · PIIE 10/17-08 · DefPri 14/18-08 ·
+    # Timbuktu 16/17-08 · Egmont 6/16-07 · EUISS 10/09-07 · SIPRI 16/02-07.
+    #
+    # ⚠️ ISW ra 3-4 bài MỖI NGÀY và tất cả đều là loạt định kỳ cùng tên khác ngày ("Russian
+    # Offensive Campaign Assessment, August 19, 2026"). Đo 21/08: 16/16 link khớp đều thuộc
+    # loạt này, tức viện này một mình chiếm trọn `HTML_LINK_CAP` của chính nó. Không lấn viện
+    # khác (cap tính theo TỪNG trang), nhưng agent chọn bài phải biết đây là báo cáo tình hình
+    # định kỳ chứ không phải nghiên cứu mới: lấy nhiều nhất 1-2 bài, ưu tiên bản "Special
+    # Report". Nhồi cả loạt vào kho là biến mục Think-tank thành nhật ký chiến sự.
+    ("ISW", "https://understandingwar.org/publications",
+     r"^/research/[a-z-]+/[^/]{15,}/?$", "Nga-Ukraine · Trung Đông"),
+    ("NBR", "https://www.nbr.org/publications/",
+     r"^/publication/[^/]{15,}", "Đông Á"),
+    # ⚠️ USSC và Egmont đặt bài THẲNG ở gốc tên miền, nên biểu thức phải chặn bằng ĐỘ DÀI như
+    # CTC. Ngưỡng 30 ký tự lấy TỪ SỐ ĐO chứ không từ phỏng đoán: trang người của USSC
+    # (`/dr-michael-green`, 16 ký tự) và lối điều hướng (`/publications`, `/topics`) đều ngắn
+    # hơn nhiều, còn bài ngắn nhất đo được vẫn trên 40 ký tự.
+    ("USSC (Úc)", "https://www.ussc.edu.au/publications",
+     r"^/[a-z0-9-]{30,}/?$", "Úc · quan hệ Mỹ-Úc"),
+    # PIIE: dùng `/blogs` (gộp mọi nhánh blog) chứ không neo riêng `realtime-economics` — đo
+    # cả hai ra cùng số bài trong khung, nhưng nhánh gộp không chết khi viện mở nhánh blog mới.
+    ("PIIE", "https://www.piie.com/blogs",
+     r"^/blogs/[a-z-]+/20\d\d/[^/]{10,}", "Kinh tế quốc tế"),
+    # ⚠️ Defense Priorities: feed của họ ĐÃ BỊ BỎ ngay phía trên vì 10/10 item nằm ở
+    # `/in-the-media/` — điểm báo. Lớp HTML này lấy nhánh KHÁC HẲN: `/explainers/` và
+    # `/policy-papers/` là bài do chính viện viết. Cùng ca với SWP; đừng đọc ghi chú bỏ-feed rồi
+    # suy ra "Defense Priorities là nguồn đã loại".
+    ("Defense Priorities", "https://www.defensepriorities.org/explainers/",
+     r"^/(?:explainers|policy-papers)/[^/]{15,}/?$", "Mỹ · đại chiến lược"),
+    # ⚠️ Timbuktu: chạy Joomla nên đường dẫn mang `/index.php/<chuyên mục>/item/<id>-<slug>`.
+    # Bài phần lớn TIẾNG PHÁP — đúng thứ cần cho vùng Sahel, nơi nguồn tiếng Anh mỏng nhất.
+    ("Timbuktu Institute", "https://timbuktu-institute.org/index.php/publications",
+     r"^/index\.php/[^/]+/item/\d+-[^/]{10,}", "Châu Phi · Sahel"),
+    ("Egmont", "https://www.egmontinstitute.be/publications/",
+     r"^/[a-z0-9-]{30,}/?$", "Châu Âu · Bỉ"),
+    # ⚠️ EUISS: `rss.xml` của họ ĐÃ BỊ BỎ 20/08 vì là điểm báo ("X discussing … in Euronews").
+    # Nhánh `/publications/<loại>/…` lấy ở đây là nghiên cứu do chính viện xuất bản — lại đúng
+    # ca SWP một lần nữa, nên hai ghi chú ấy KHÔNG mâu thuẫn nhau.
+    ("EUISS", "https://www.iss.europa.eu/publications/commentary",
+     r"^/publications/[a-z-]+/[^/]{15,}", "Châu Âu · EU"),
+    # ⚠️ SIPRI: biểu thức phải mở cờ `(?i)`. Trang của họ trộn `/commentary/essay/…` viết thường
+    # với `/commentary/Topical-backgrounder` viết HOA trong CÙNG một trang danh sách; thiếu cờ
+    # thì mất đúng nhánh backgrounder mà không dấu hiệu nào, vì nhánh essay vẫn ra link.
+    ("SIPRI", "https://www.sipri.org/commentary",
+     r"(?i)^/commentary/[a-z-]+/20\d\d/[^/]{10,}", "Dữ liệu · giải trừ quân bị"),
 ]
 
 # ĐÃ THỬ VÀ BỎ (30/07/2026) — ghi lại để phiên sau đừng dựng lại rồi mới biết:
@@ -769,7 +873,18 @@ def parse_feed(xml_bytes: bytes):
     Vì sao cần fallback: feed Arms Control Association trả XML hợp lệ NHƯNG server nhét
     thêm nội dung sau `</rss>` → ET báo "junk after document element" và ta suýt gạch nhầm
     một nguồn hạt nhân đang sống (10 item). Cắt tới thẻ đóng rồi parse lại là lấy được.
+
+    ⚠️ Rác ở ĐẦU file cũng giết cả feed, và giết êm hơn hẳn rác ở cuối: feed Gulf International
+    Forum mở đầu bằng đúng MỘT ký tự xuống dòng trước `<?xml …?>` (WordPress hay in thừa như
+    vậy khi một plugin phát ra newline trước header), ET ném "XML or text declaration not at
+    start of entity" ⇒ `parse_feed` trả None ⇒ `feed_items` trả rỗng ⇒ feed hiện ra ở dòng
+    "Feed không ra bài nào trong khung ngày". Nhìn dòng đó không phân biệt được với viện đăng
+    thưa thật, nên nguồn có thể nằm chết trong bảng nhiều tháng. Đo 21/08/2026: feed ấy trả
+    113 KB và 10 item hợp lệ, chỉ vướng đúng một ký tự thừa.
+    ⚠️ Chỉ cắt KHOẢNG TRẮNG và BOM, không cắt gì khác: rác đầu file mà không phải khoảng trắng
+    thì đó là trang lỗi hoặc trang challenge, và đọc nó thành feed mới là hỏng thật.
     """
+    xml_bytes = xml_bytes.lstrip(b"\xef\xbb\xbf").lstrip()
     try:
         return ET.fromstring(xml_bytes)
     except Exception:
