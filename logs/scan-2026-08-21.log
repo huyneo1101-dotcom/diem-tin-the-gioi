@@ -10,3 +10,10 @@
 [21:17Z] add_news.py: +2 worldNews, +7 usNews. generatedAt=2026-08-20
 [21:17Z] Giai quyet dut diem 4 ung vien Bao Moi ton dong tu 2 phien truoc -> loai ca 4, ghi logs/loai-tin.md
 [21:18Z] gh workflow run telegram-bot.yml bi chan "requires approval" - CHUA kich duoc bot hut Jay Lam, doc truc tiep tin_jaylam.py --liet-ke thay
+[21:18Z] state.py done web-scan OK. Commit "Cap nhat ban tin 21/08: +9 tin (5 chu de)" da push.
+[21:19Z] START event-scan (CI, gop vao sang som)
+[21:19Z] do_tap_tran_thieu.py: tim ra MAITREE-XV (An Do-Thai Lan, 18-31/8) chua co trong DATA
+[21:20Z] agent event-scan: +1 tap tran moi (MAITREE-XV), +1 cap nhat Ulchi Freedom Shield ket thuc som
+[21:24Z] add_analyses.py --candidates: 44 vien, chon 6 bai (Lowy, ASPI x2, Jamestown, Long War Journal, South Asian Voices)
+[21:26Z] add_analyses.py + set_analysis_concepts.py: +6 bai think-tank, +7 khai niem cho 5 bai
+[21:26Z] state.py done event-scan OK
