@@ -12,3 +12,5 @@
 [21:45Z] SKIP (local) - phien sang som 04:45 VN (moc du phong LaunchAgent). state.py claim web-scan tra exit 10: ngay 2026-08-20 DA XONG (lan chay cuoi 04:20:58 VN). Khong thuoc moc toi nen khong can kiem so da gui. Ket thuc.
 [21:45Z] SKIP (CI) - phien sang som 04:45 VN. state.py claim web-scan tra exit 10: ngay 2026-08-20 DA XONG (lan chay cuoi 04:20:58 VN). Kiem tra ngoai le: so_da_gui --xem co dong 2026-08-20T04:29:30+07:00 [sang] 4 tin + [sukien] 0 tin - ban tin da toi tay that. Ket thuc em, khong quet lai.
 [21:59Z] SKIP (CI) - phien sang som moi, gio VN 04:59. state.py claim web-scan tra exit 10: ngay 2026-08-20 DA XONG (lan chay cuoi 04:20:58 VN, cach hien tai ~38 phut). Kiem tra ngoai le: state.py show + so_da_gui --xem co dong 2026-08-20T04:29:30+07:00 [sang] 4 tin + [sukien] 0 tin - ban tin da toi tay that, khong phai co noi doi. Ket thuc em, khong quet lai.
+
+[14:00Z] START (CI) phien toi 2026-08-20, gio VN 21:00. state.py claim web-scan tra exit 0, giu duoc khoa. Bat dau harvest.
