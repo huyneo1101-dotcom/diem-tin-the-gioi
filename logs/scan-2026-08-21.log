@@ -36,3 +36,8 @@
   event-scan deu DONE (04:17:52 / 04:26:32 VN) voi note +9 tin / +1 tap tran moi+1 cap nhat+6 bai
   think-tank. so_da_gui.py --xem xac nhan dong [sang] 04:27:27 va [sukien] 04:27:28 ngay 2026-08-21,
   khop voi lastRunAt (cach <10 phut). Ban tin THAT SU da gui, khong phai co gia. SKIP em, KET THUC.
+[22:00Z] SKIP (CI, lan fire trung khac) - claim web-scan tra exit 10 (lastRunAt phien toi CHAY BU
+  (sang som)=2026-08-21T04:17:52+07:00, gio VN hien tai 05:00, cach ~43 phut). state.py show xac nhan
+  ca web-scan lan event-scan deu DONE (04:17:52 / 04:26:32 VN). so_da_gui.py --xem xac nhan dong
+  [sang] 04:27:27 va [sukien] 04:27:28 ngay 2026-08-21, khop voi lastRunAt. Ban tin THAT SU da gui,
+  khong phai co gia. SKIP em, KET THUC phien.
