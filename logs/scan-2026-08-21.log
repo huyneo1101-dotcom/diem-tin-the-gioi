@@ -18,3 +18,7 @@
 [21:26Z] add_analyses.py + set_analysis_concepts.py: +6 bai think-tank, +7 khai niem cho 5 bai
 [21:26Z] state.py done event-scan OK
 [21:27Z] KET THUC phien. Ca 2 commit da push: "Cap nhat ban tin 21/08" va "Cap nhat su kien 21/08".
+[21:27Z] SKIP (CI, lan fire trung) - state.py claim web-scan tra exit 10. Kiem tra 3 lop: state.py show
+  cho thay web-scan+event-scan DONE lastRunAt=04:17:52/04:26:32 VN; so_da_gui.py --xem co dong
+  [sang] va [sukien] ngay 2026-08-21 luc 04:27:27/04:27:28 VN, khop voi lastRunAt (cach <10 phut).
+  Ban tin THAT SU da gui, khong phai co gia. SKIP em, khong quet lai.
