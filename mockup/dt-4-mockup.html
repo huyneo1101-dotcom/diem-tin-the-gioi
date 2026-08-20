@@ -1,0 +1,514 @@
+<title>Điểm Tin — 4 hướng</title>
+<style>
+:root{
+  --trang-nen:#f2efe9; --trang-chu:#1b1a18; --trang-mo:#6f6a62; --trang-vien:#ddd7cd;
+  --trang-the:#fffdf9;
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--trang-nen:#141311;--trang-chu:#eceae5;--trang-mo:#9a948a;--trang-vien:#2c2a26;--trang-the:#1c1a17;}
+}
+:root[data-theme="dark"]{--trang-nen:#141311;--trang-chu:#eceae5;--trang-mo:#9a948a;--trang-vien:#2c2a26;--trang-the:#1c1a17;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--trang-nen);color:var(--trang-chu);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+.bao{max-width:1120px;margin:0 auto;padding:40px 20px 80px}
+h1.tieu{font-size:32px;line-height:1.15;margin:0 0 8px;letter-spacing:-.02em}
+.dan{color:var(--trang-mo);max-width:640px;margin:0 0 32px;font-size:15px}
+.muc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-bottom:56px}
+.muc a{display:block;text-decoration:none;color:inherit;background:var(--trang-the);
+  border:1px solid var(--trang-vien);border-radius:14px;padding:16px}
+.muc a:hover{border-color:var(--trang-chu)}
+.muc .so{font-size:11px;letter-spacing:.14em;color:var(--trang-mo);font-weight:600}
+.muc .ten{font-size:17px;font-weight:700;margin:6px 0 4px}
+.muc .cam{font-size:13px;color:var(--trang-mo);line-height:1.45}
+section{margin:0 0 72px;scroll-margin-top:20px}
+.dau{border-top:2px solid var(--trang-chu);padding-top:14px;margin-bottom:20px}
+.dau .so{font-size:11px;letter-spacing:.14em;color:var(--trang-mo);font-weight:700}
+.dau h2{font-size:24px;margin:6px 0 6px;letter-spacing:-.01em}
+.dau p{margin:0;color:var(--trang-mo);font-size:14px;max-width:660px}
+.hang{display:flex;gap:22px;flex-wrap:wrap}
+.o{width:calc(390px * var(--s));height:calc(844px * var(--s));overflow:hidden;position:relative;flex:0 0 auto}
+:root{--s:.62}
+@media (max-width:900px){:root{--s:.48}}
+@media (max-width:560px){:root{--s:.42}}
+.may{width:390px;height:844px;position:absolute;top:0;left:0;transform:scale(var(--s));transform-origin:top left;
+  border-radius:38px;overflow:hidden;box-shadow:0 18px 44px rgba(0,0,0,.22),0 0 0 8px #23211e,0 0 0 9px #46423c;}
+.than{position:absolute;inset:0;display:flex;flex-direction:column;overflow:hidden;font-size:15px}
+.than > *{flex:0 0 auto}
+.cuon{flex:1 1 auto;overflow:hidden;min-height:0}
+.nhan{font-size:12px;color:var(--trang-mo);margin:10px 0 0;font-weight:600}
+.tai{position:absolute;top:0;left:0;right:0;height:44px;display:flex;align-items:flex-end;justify-content:space-between;
+  padding:0 22px 6px;font-size:12px;font-weight:600;z-index:5;letter-spacing:.02em}
+.vach{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:126px;height:4px;border-radius:2px;opacity:.35;z-index:6}
+.tien{font-variant-numeric:tabular-nums}
+svg{display:block}
+</style>
+
+<div class="bao">
+<h1 class="tieu">Điểm Tin Thế Giới — 04 hướng thiết kế</h1>
+<p class="dan">Cùng một nội dung thật của bản tin ngày 18/08/2026 dựng lại theo bốn lối khác hẳn nhau: khác chất, khác hệ màu, và khác cả chỗ đặt chức năng. Bản đang chạy có hai lỗi phải gỡ — chữ tràn ra ngoài bề ngang điện thoại, và cả hàng tab là emoji.</p>
+
+<div class="muc">
+  <a href="#m1"><div class="so">MOCKUP 01</div><div class="ten">Nhật Báo In</div><div class="cam">Cầm lên như tờ báo sáng: măng-sét kẻ chỉ, tin đánh số, chữ có chân. Điều hướng nằm ở đầu trang chứ không có thanh dưới.</div></a>
+  <a href="#m2"><div class="so">MOCKUP 02</div><div class="ten">Phòng Tình Báo</div><div class="cam">Tối như phòng trực đêm. Tin xếp theo trục thời gian dọc, mỗi tin một mốc giờ và một mức đáng chú ý.</div></a>
+  <a href="#m3"><div class="so">MOCKUP 03</div><div class="ten">Thẻ Vuốt</div><div class="cam">Mỗi tin chiếm trọn màn hình, vuốt lên là tin sau. Không menu, không danh sách, đọc một mạch.</div></a>
+  <a href="#m4"><div class="so">MOCKUP 04</div><div class="ten">Bảng Điều Phối</div><div class="cam">Dày và nhanh: lọc theo khu vực, đọc lướt hàng chục tin trong một màn, tab nằm trên đầu.</div></a>
+</div>
+
+<!-- ================= 01 NHẬT BÁO IN ================= -->
+<section id="m1">
+<div class="dau"><div class="so">MOCKUP 01</div><h2>Nhật Báo In</h2>
+<p>Nền giấy ngà, chữ có chân, kẻ chỉ đôi dưới măng-sét. Tin không nằm trong thẻ bo góc mà xếp thành cột báo, cách nhau bằng nét kẻ mảnh. Điều hướng là hàng chuyên mục ngay dưới măng-sét, bỏ hẳn thanh tab dưới đáy.</p></div>
+<div class="hang">
+<div class="o"><div class="may"><div class="than p1">
+  <div class="tai" style="color:#26241f">23:41<span>Việt Nam</span></div>
+  <div style="padding:52px 20px 0;background:#f7f3e8">
+    <div style="text-align:center">
+      <div style="font-size:10px;letter-spacing:.24em;color:#8a7f6a;font-weight:700">BẢN TIN ĐỘC LẬP · SỐ 214</div>
+      <div style="font-family:Georgia,'Times New Roman',serif;font-size:31px;font-weight:700;letter-spacing:-.01em;color:#1d1b16;margin:6px 0 4px">Điểm Tin Thế Giới</div>
+      <div style="font-family:Georgia,serif;font-style:italic;font-size:12px;color:#7d7361">Kinh tế · Chính trị · Ngoại giao · Công nghệ quân sự</div>
+    </div>
+    <div style="border-top:2px solid #26241f;border-bottom:1px solid #26241f;height:5px;margin:12px 0 0"></div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;letter-spacing:.12em;color:#8a7f6a;padding:7px 0 9px;font-weight:600">
+      <span>THỨ TƯ 19.08.2026</span><span class="tien">CẬP NHẬT 04:30</span></div>
+  </div>
+  <div style="background:#f7f3e8;padding:0 20px 10px;display:flex;gap:16px;font-family:Georgia,serif;font-size:13px;border-bottom:1px solid #d8d0bd">
+    <span style="font-weight:700;color:#8c2f2a;border-bottom:2px solid #8c2f2a;padding-bottom:6px">Thế giới</span>
+    <span style="color:#6d6455;padding-bottom:6px">Nội bộ Mỹ</span>
+    <span style="color:#6d6455;padding-bottom:6px">Tập trận</span>
+    <span style="color:#6d6455;padding-bottom:6px">Khái niệm</span>
+  </div>
+  <div class="cuon" style="background:#f7f3e8;padding:14px 20px 0">
+    <div style="display:flex;gap:11px;padding-bottom:13px;border-bottom:1px solid #ddd5c2">
+      <div style="font-family:Georgia,serif;font-size:26px;color:#c3b393;line-height:.9;width:26px" class="tien">01</div>
+      <div style="min-width:0">
+        <div style="font-size:9px;letter-spacing:.16em;color:#8c2f2a;font-weight:700;margin-bottom:3px">CÔNG NGHỆ QUÂN SỰ</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;line-height:1.25;color:#1d1b16">Úc và Nhật Bản thử nghiệm thành công laser Boobook</div>
+        <div style="font-size:12px;color:#5f584a;line-height:1.45;margin-top:5px">Hai bên ký thoả thuận cho Nhật thử tên lửa siêu vượt âm trên trường bắn Woomera.</div>
+        <div style="font-size:10px;color:#948a75;margin-top:6px" class="tien">18.08 · Bộ Quốc phòng Úc</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:11px;padding:13px 0;border-bottom:1px solid #ddd5c2">
+      <div style="font-family:Georgia,serif;font-size:26px;color:#c3b393;line-height:.9;width:26px" class="tien">02</div>
+      <div style="min-width:0">
+        <div style="font-size:9px;letter-spacing:.16em;color:#8c2f2a;font-weight:700;margin-bottom:3px">NGOẠI GIAO</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;line-height:1.25;color:#1d1b16">Bộ trưởng Quốc phòng Nhật Koizumi thăm Úc</div>
+        <div style="font-size:12px;color:#5f584a;line-height:1.45;margin-top:5px">Cùng New Zealand bàn xuất khẩu khinh hạm Mogami.</div>
+        <div style="font-size:10px;color:#948a75;margin-top:6px" class="tien">18.08 · NHK</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:11px;padding:13px 0;border-bottom:1px solid #ddd5c2">
+      <div style="font-family:Georgia,serif;font-size:26px;color:#c3b393;line-height:.9;width:26px" class="tien">03</div>
+      <div style="min-width:0">
+        <div style="font-size:9px;letter-spacing:.16em;color:#8c2f2a;font-weight:700;margin-bottom:3px">CÔNG NGHỆ QUÂN SỰ</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;line-height:1.25;color:#1d1b16">USS Benfold trở lại nhiệm vụ sau 4 ngày mất điện</div>
+        <div style="font-size:12px;color:#5f584a;line-height:1.45;margin-top:5px">Hải quân Mỹ xác nhận khu trục hạm đã sửa xong tại Biển Đông.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:11px;padding:13px 0;border-bottom:1px solid #ddd5c2">
+      <div style="font-family:Georgia,serif;font-size:26px;color:#c3b393;line-height:.9;width:26px" class="tien">04</div>
+      <div style="min-width:0">
+        <div style="font-size:9px;letter-spacing:.16em;color:#8c2f2a;font-weight:700;margin-bottom:3px">NGOẠI GIAO</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;line-height:1.25;color:#1d1b16">Philippines lấy Ấn Độ làm hình mẫu xuất khẩu vũ khí</div>
+        <div style="font-size:12px;color:#5f584a;line-height:1.45;margin-top:5px">Sau thương vụ tên lửa BrahMos, Manila tính bán ra khu vực.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:11px;padding:13px 0 10px">
+      <div style="font-family:Georgia,serif;font-size:26px;color:#c3b393;line-height:.9;width:26px" class="tien">05</div>
+      <div style="min-width:0">
+        <div style="font-size:9px;letter-spacing:.16em;color:#8c2f2a;font-weight:700;margin-bottom:3px">NGOẠI GIAO</div>
+        <div style="font-family:Georgia,serif;font-size:17px;font-weight:700;line-height:1.25;color:#1d1b16">Nga cáo buộc Ukraine đứng sau các vụ tấn công ở Sahel</div>
+      </div>
+    </div>
+  </div>
+  <div class="vach" style="background:#26241f"></div>
+</div></div></div>
+
+<div class="o"><div class="may"><div class="than p1b">
+  <div class="tai" style="color:#e8e3d5">23:41<span>Việt Nam</span></div>
+  <div style="padding:52px 20px 12px;background:#1c1a15;border-bottom:1px solid #35312a">
+    <div style="display:flex;align-items:center;gap:10px;color:#c9a227;font-size:12px;font-weight:600">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      Thế giới
+    </div>
+  </div>
+  <div class="cuon" style="background:#1c1a15;padding:18px 20px 0">
+    <div style="font-size:9px;letter-spacing:.16em;color:#c9a227;font-weight:700">CÔNG NGHỆ QUÂN SỰ · 18.08.2026</div>
+    <div style="font-family:Georgia,serif;font-size:24px;font-weight:700;line-height:1.22;color:#f2eee2;margin:8px 0 12px">Úc và Nhật Bản thử nghiệm thành công laser Boobook</div>
+    <div style="height:1px;background:#3a352c;margin-bottom:13px"></div>
+    <div style="font-family:Georgia,serif;font-size:14px;line-height:1.62;color:#cfc9b8">Bộ Quốc phòng Úc công bố hệ thống laser Boobook đã hoàn tất loạt thử nghiệm trên trường bắn Woomera. Cùng dịp, hai nước ký thoả thuận cho phép Nhật Bản đưa tên lửa siêu vượt âm sang thử tại đây.</div>
+    <div style="margin-top:16px;border-left:2px solid #c9a227;padding:2px 0 2px 12px">
+      <div style="font-size:10px;letter-spacing:.14em;color:#8f876f;font-weight:700;margin-bottom:4px">VÌ SAO ĐÁNG CHÚ Ý</div>
+      <div style="font-size:13px;color:#cfc9b8;line-height:1.5">Woomera thành nơi thử chung của ba nước, rút ngắn đường đưa vũ khí siêu vượt âm Nhật vào giai đoạn bắn thật.</div>
+    </div>
+    <div style="margin-top:18px;display:flex;gap:9px">
+      <span style="flex:1;text-align:center;background:#c9a227;color:#1c1a15;font-weight:700;font-size:13px;padding:11px;border-radius:9px">Mở nguồn gốc</span>
+      <span style="width:44px;display:flex;align-items:center;justify-content:center;border:1px solid #3a352c;border-radius:9px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c9a227" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+      </span>
+    </div>
+  </div>
+  <div class="vach" style="background:#e8e3d5"></div>
+</div></div></div>
+</div>
+<div class="nhan">Trái: bản sáng, màn danh sách. Phải: bản tối, màn đọc một tin.</div>
+</section>
+
+<!-- ================= 02 PHÒNG TÌNH BÁO ================= -->
+<section id="m2">
+<div class="dau"><div class="so">MOCKUP 02</div><h2>Phòng Tình Báo</h2>
+<p>Nền than, chữ hổ phách. Tin không xếp thành danh sách phẳng mà treo trên một trục thời gian dọc: mỗi tin một mốc giờ, một chấm mức đáng chú ý, một nhãn khu vực. Bộ lọc khu vực là hàng chip trên đầu; dưới đáy là bốn biểu tượng vẽ nét.</p></div>
+<div class="hang">
+<div class="o"><div class="may"><div class="than">
+  <div class="tai" style="color:#e6e8e4">23:41<span>Việt Nam</span></div>
+  <div style="background:#0e1210;padding:52px 18px 12px">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div>
+        <div style="font-size:19px;font-weight:700;color:#eef0ec;letter-spacing:-.01em">Trực ban</div>
+        <div style="font-size:11px;color:#6f7a72" class="tien">19.08.2026 · làm mới 04:30</div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <span style="width:34px;height:34px;border:1px solid #23302a;border-radius:10px;display:flex;align-items:center;justify-content:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8fa397" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+        <span style="width:34px;height:34px;border:1px solid #23302a;border-radius:10px;display:flex;align-items:center;justify-content:center">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8fa397" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg></span>
+      </div>
+    </div>
+    <div style="display:flex;gap:7px;margin-top:13px">
+      <span style="font-size:11px;font-weight:700;background:#d9a441;color:#0e1210;padding:6px 11px;border-radius:999px">Tất cả</span>
+      <span style="font-size:11px;color:#8fa397;border:1px solid #23302a;padding:6px 11px;border-radius:999px">Ấn Độ Dương</span>
+      <span style="font-size:11px;color:#8fa397;border:1px solid #23302a;padding:6px 11px;border-radius:999px">Đông Á</span>
+      <span style="font-size:11px;color:#8fa397;border:1px solid #23302a;padding:6px 11px;border-radius:999px">Mỹ</span>
+    </div>
+  </div>
+  <div class="cuon" style="background:#0e1210;padding:6px 18px 0">
+    <div style="display:flex;gap:12px;padding:12px 0 0">
+      <div style="width:44px;flex:0 0 44px;text-align:right">
+        <div style="font-size:12px;color:#d9a441;font-weight:700" class="tien">18.08</div>
+        <div style="font-size:10px;color:#5c675f" class="tien">06:12</div>
+      </div>
+      <div style="width:11px;flex:0 0 11px;position:relative">
+        <div style="position:absolute;left:4px;top:5px;bottom:-14px;width:1px;background:#23302a"></div>
+        <div style="position:absolute;left:0;top:3px;width:9px;height:9px;border-radius:50%;background:#d9a441"></div>
+      </div>
+      <div style="min-width:0;padding-bottom:16px">
+        <div style="font-size:14px;font-weight:600;color:#e8ebe6;line-height:1.35">Úc và Nhật Bản thử nghiệm thành công laser Boobook</div>
+        <div style="font-size:12px;color:#7d8a80;line-height:1.45;margin-top:4px">Ký thoả thuận cho Nhật thử tên lửa siêu vượt âm tại Woomera.</div>
+        <div style="margin-top:7px;display:flex;gap:6px">
+          <span style="font-size:10px;color:#d9a441;border:1px solid #4a3c1c;background:#1c1809;padding:3px 8px;border-radius:6px">Đáng chú ý</span>
+          <span style="font-size:10px;color:#7d8a80;border:1px solid #23302a;padding:3px 8px;border-radius:6px">Nam Thái Bình Dương</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px">
+      <div style="width:44px;flex:0 0 44px;text-align:right">
+        <div style="font-size:12px;color:#7d8a80;font-weight:700" class="tien">18.08</div>
+        <div style="font-size:10px;color:#5c675f" class="tien">04:55</div>
+      </div>
+      <div style="width:11px;flex:0 0 11px;position:relative">
+        <div style="position:absolute;left:4px;top:0;bottom:-14px;width:1px;background:#23302a"></div>
+        <div style="position:absolute;left:1.5px;top:4px;width:7px;height:7px;border-radius:50%;background:#3c4a41"></div>
+      </div>
+      <div style="min-width:0;padding-bottom:16px">
+        <div style="font-size:14px;font-weight:600;color:#e8ebe6;line-height:1.35">Koizumi thăm Úc, bàn xuất khẩu khinh hạm Mogami</div>
+        <div style="font-size:12px;color:#7d8a80;line-height:1.45;margin-top:4px">New Zealand cùng dự, hướng tới hợp đồng đóng mới.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px">
+      <div style="width:44px;flex:0 0 44px;text-align:right">
+        <div style="font-size:12px;color:#7d8a80;font-weight:700" class="tien">17.08</div>
+        <div style="font-size:10px;color:#5c675f" class="tien">22:03</div>
+      </div>
+      <div style="width:11px;flex:0 0 11px;position:relative">
+        <div style="position:absolute;left:4px;top:0;bottom:0;width:1px;background:#23302a"></div>
+        <div style="position:absolute;left:1.5px;top:4px;width:7px;height:7px;border-radius:50%;background:#3c4a41"></div>
+      </div>
+      <div style="min-width:0">
+        <div style="font-size:14px;font-weight:600;color:#e8ebe6;line-height:1.35">USS Benfold trở lại nhiệm vụ trên Biển Đông</div>
+        <div style="font-size:12px;color:#7d8a80;line-height:1.45;margin-top:4px">Bốn ngày mất điện, đã sửa xong.</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:#111614;border-top:1px solid #1e2823;display:flex;padding:9px 0 20px">
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#d9a441" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+      <div style="font-size:10px;color:#d9a441;margin-top:3px;font-weight:600">Trực ban</div></div>
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#6f7a72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18"/></svg>
+      <div style="font-size:10px;color:#6f7a72;margin-top:3px">Bản đồ</div></div>
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#6f7a72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto"><path d="M5 4h14v16l-7-4-7 4z"/></svg>
+      <div style="font-size:10px;color:#6f7a72;margin-top:3px">Đã lưu</div></div>
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#6f7a72" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto"><path d="M4 19V9M10 19V5M16 19v-7M4 19h16"/></svg>
+      <div style="font-size:10px;color:#6f7a72;margin-top:3px">Tập trận</div></div>
+  </div>
+  <div class="vach" style="background:#e6e8e4"></div>
+</div></div></div>
+
+<div class="o"><div class="may"><div class="than">
+  <div class="tai" style="color:#1d211e">23:41<span>Việt Nam</span></div>
+  <div style="background:#eef1ec;padding:52px 18px 12px;border-bottom:1px solid #d9ded7">
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#3d5c4c" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      <div style="font-size:15px;font-weight:700;color:#1d211e">Tập trận đang diễn ra</div>
+    </div>
+  </div>
+  <div class="cuon" style="background:#eef1ec;padding:14px 18px 0">
+    <div style="background:#fff;border:1px solid #dde2db;border-radius:13px;padding:14px;margin-bottom:11px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+        <div style="font-size:15px;font-weight:700;color:#1d211e;line-height:1.3">Ulchi Freedom Shield 2026</div>
+        <span style="flex:0 0 auto;font-size:10px;font-weight:700;color:#8a5a12;background:#fdf1dc;border:1px solid #f0dcb4;padding:3px 8px;border-radius:6px">Đang chạy</span>
+      </div>
+      <div style="font-size:12px;color:#5c6660;margin-top:5px" class="tien">17 – 27.08.2026 · Hàn Quốc</div>
+      <div style="height:5px;background:#e2e7e0;border-radius:3px;margin-top:10px;overflow:hidden">
+        <div style="width:24%;height:100%;background:#3d5c4c;border-radius:3px"></div></div>
+      <div style="font-size:11px;color:#7b857e;margin-top:6px">Ngày thứ 03 trên 11</div>
+    </div>
+    <div style="background:#fff;border:1px solid #dde2db;border-radius:13px;padding:14px">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+        <div style="font-size:15px;font-weight:700;color:#1d211e;line-height:1.3">Falcon Strike 2026</div>
+        <span style="flex:0 0 auto;font-size:10px;font-weight:700;color:#8a5a12;background:#fdf1dc;border:1px solid #f0dcb4;padding:3px 8px;border-radius:6px">Đang chạy</span>
+      </div>
+      <div style="font-size:12px;color:#5c6660;margin-top:5px" class="tien">10 – 21.08.2026 · Udon Thani, Thái Lan</div>
+      <div style="font-size:12px;color:#5c6660;line-height:1.45;margin-top:8px">Không quân Trung Quốc mang J-10C, J-11 và máy bay cảnh báo sớm; phía Thái Lan có Gripen và Alpha Jet.</div>
+      <div style="height:5px;background:#e2e7e0;border-radius:3px;margin-top:10px;overflow:hidden">
+        <div style="width:82%;height:100%;background:#3d5c4c;border-radius:3px"></div></div>
+      <div style="font-size:11px;color:#7b857e;margin-top:6px">Ngày thứ 10 trên 12</div>
+    </div>
+  </div>
+  <div style="background:#fff;border-top:1px solid #dde2db;display:flex;padding:9px 0 20px">
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#9aa49d" stroke-width="1.8" stroke-linecap="round" style="margin:0 auto"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+      <div style="font-size:10px;color:#9aa49d;margin-top:3px">Trực ban</div></div>
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#9aa49d" stroke-width="1.8" stroke-linecap="round" style="margin:0 auto"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18"/></svg>
+      <div style="font-size:10px;color:#9aa49d;margin-top:3px">Bản đồ</div></div>
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#9aa49d" stroke-width="1.8" stroke-linecap="round" style="margin:0 auto"><path d="M5 4h14v16l-7-4-7 4z"/></svg>
+      <div style="font-size:10px;color:#9aa49d;margin-top:3px">Đã lưu</div></div>
+    <div style="flex:1;text-align:center">
+      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#3d5c4c" stroke-width="1.8" stroke-linecap="round" style="margin:0 auto"><path d="M4 19V9M10 19V5M16 19v-7M4 19h16"/></svg>
+      <div style="font-size:10px;color:#3d5c4c;margin-top:3px;font-weight:600">Tập trận</div></div>
+  </div>
+  <div class="vach" style="background:#1d211e"></div>
+</div></div></div>
+</div>
+<div class="nhan">Trái: bản tối, trục thời gian tin. Phải: bản sáng, màn Tập trận có thanh tiến độ ngày.</div>
+</section>
+
+<!-- ================= 03 THẺ VUỐT ================= -->
+<section id="m3">
+<div class="dau"><div class="so">MOCKUP 03</div><h2>Thẻ Vuốt</h2>
+<p>Bỏ hẳn danh sách. Mỗi tin chiếm trọn màn hình trên một nền ảnh mờ theo chủ đề, vuốt lên là sang tin sau, vuốt ngang là đổi chuyên mục. Chỉ còn hai nút tròn ở mép phải và một dãy vạch tiến độ trên đỉnh, kiểu đọc một mạch không phải chọn.</p></div>
+<div class="hang">
+<div class="o"><div class="may"><div class="than">
+  <div class="tai" style="color:#fff;z-index:9">23:41<span>Việt Nam</span></div>
+  <div class="cuon" style="position:relative;background:linear-gradient(160deg,#123a4d 0%,#0d2331 55%,#08161f 100%)">
+    <div style="position:absolute;inset:0;background:radial-gradient(120% 60% at 80% 8%,rgba(96,180,208,.28),transparent 60%)"></div>
+    <div style="position:absolute;top:48px;left:16px;right:16px;display:flex;gap:4px">
+      <span style="flex:1;height:3px;background:#fff;border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:2px"></span>
+    </div>
+    <div style="position:absolute;top:66px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.72);font-weight:700">CÔNG NGHỆ QUÂN SỰ</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.55)" class="tien">01/05</div>
+    </div>
+    <div style="position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px">
+      <span style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
+      <span style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></span>
+      <span style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.5.5l3-3a5 5 0 00-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 00-7.5-.5l-3 3a5 5 0 007 7L12 19"/></svg></span>
+    </div>
+    <div style="position:absolute;left:18px;right:76px;bottom:26px">
+      <div style="font-size:29px;font-weight:800;color:#fff;line-height:1.14;letter-spacing:-.02em">Úc và Nhật thử laser Boobook thành công</div>
+      <div style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.5;margin-top:12px">Hai bên ký luôn thoả thuận cho Nhật đưa tên lửa siêu vượt âm sang bắn thử ở trường Woomera.</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:16px">
+        <span style="font-size:11px;font-weight:700;color:#08161f;background:#7fd4f0;padding:5px 10px;border-radius:999px">Nam Thái Bình Dương</span>
+        <span style="font-size:11px;color:rgba(255,255,255,.6)" class="tien">18.08 · Bộ Quốc phòng Úc</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;margin-top:20px;color:rgba(255,255,255,.5);font-size:11px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        Vuốt lên để đọc tin sau
+      </div>
+    </div>
+  </div>
+  <div class="vach" style="background:#fff"></div>
+</div></div></div>
+
+<div class="o"><div class="may"><div class="than">
+  <div class="tai" style="color:#22201c">23:41<span>Việt Nam</span></div>
+  <div class="cuon" style="position:relative;background:linear-gradient(165deg,#fdf6e8 0%,#f6ead2 60%,#efdfc2 100%)">
+    <div style="position:absolute;top:48px;left:16px;right:16px;display:flex;gap:4px">
+      <span style="flex:1;height:3px;background:#8a6b32;border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:#8a6b32;border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:rgba(138,107,50,.25);border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:rgba(138,107,50,.25);border-radius:2px"></span>
+      <span style="flex:1;height:3px;background:rgba(138,107,50,.25);border-radius:2px"></span>
+    </div>
+    <div style="position:absolute;top:66px;left:18px;right:18px;display:flex;justify-content:space-between;align-items:center">
+      <div style="font-size:11px;letter-spacing:.16em;color:#8a6b32;font-weight:700">KHÁI NIỆM TRONG NGÀY</div>
+      <div style="font-size:11px;color:#a08d6b" class="tien">02/05</div>
+    </div>
+    <div style="position:absolute;left:18px;right:18px;top:118px">
+      <div style="font-size:52px;font-weight:800;color:#2a2419;letter-spacing:-.03em;line-height:1">SLBM</div>
+      <div style="font-size:14px;color:#6d6248;margin-top:6px;font-style:italic;font-family:Georgia,serif">Submarine-Launched Ballistic Missile</div>
+      <div style="height:1px;background:#ddd0b0;margin:18px 0"></div>
+      <div style="font-size:17px;line-height:1.55;color:#3a3324;font-family:Georgia,serif">Tên lửa đạn đạo phóng từ tàu ngầm — vũ khí hạt nhân chiến lược khó bị phát hiện, là trụ cột <span style="background:#f3e2b8;padding:0 3px">răn đe trên biển</span> trong bộ ba hạt nhân.</div>
+      <div style="margin-top:22px;background:rgba(255,255,255,.7);border:1px solid #e4d7b8;border-radius:13px;padding:13px">
+        <div style="font-size:10px;letter-spacing:.14em;color:#8a6b32;font-weight:700;margin-bottom:5px">GẶP Ở TIN NÀO</div>
+        <div style="font-size:13px;color:#4a4231;line-height:1.45">Nga thử Bulava từ tàu ngầm lớp Borei-A, ngày 12.08.2026.</div>
+      </div>
+    </div>
+    <div style="position:absolute;left:18px;right:18px;bottom:26px;display:flex;gap:9px">
+      <span style="flex:1;text-align:center;background:#2a2419;color:#fdf6e8;font-size:13px;font-weight:700;padding:12px;border-radius:11px">Đã hiểu, tin sau</span>
+      <span style="width:48px;display:flex;align-items:center;justify-content:center;border:1px solid #ddd0b0;border-radius:11px;background:rgba(255,255,255,.6)">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8a6b32" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
+    </div>
+  </div>
+  <div class="vach" style="background:#22201c"></div>
+</div></div></div>
+</div>
+<div class="nhan">Trái: bản tối, thẻ tin. Phải: bản sáng, thẻ khái niệm — cùng một lối vuốt.</div>
+</section>
+
+<!-- ================= 04 BẢNG ĐIỀU PHỐI ================= -->
+<section id="m4">
+<div class="dau"><div class="so">MOCKUP 04</div><h2>Bảng Điều Phối</h2>
+<p>Cho người đọc lướt: mật độ cao, mỗi tin một dòng hai tầng, ngày và khu vực xếp thẳng cột. Tab chuyên mục chuyển lên đầu màn dưới dạng thanh gạt, đáy để trống cho ngón cái. Chấm màu bên trái là mức đáng chú ý, không cần chữ.</p></div>
+<div class="hang">
+<div class="o"><div class="may"><div class="than">
+  <div class="tai" style="color:#101418">23:41<span>Việt Nam</span></div>
+  <div style="background:#fff;padding:50px 16px 0;border-bottom:1px solid #e6eaef">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px">
+      <div style="font-size:20px;font-weight:800;color:#101418;letter-spacing:-.02em">Điểm Tin</div>
+      <div style="display:flex;gap:7px">
+        <span style="width:32px;height:32px;border-radius:9px;background:#f1f4f8;display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5a6675" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+        <span style="width:32px;height:32px;border-radius:9px;background:#f1f4f8;display:flex;align-items:center;justify-content:center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5a6675" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16M7 12h10M10 19h4"/></svg></span>
+      </div>
+    </div>
+    <div style="display:flex;background:#f1f4f8;border-radius:10px;padding:3px;gap:2px">
+      <span style="flex:1;text-align:center;font-size:12px;font-weight:700;color:#101418;background:#fff;border-radius:8px;padding:7px 0;box-shadow:0 1px 2px rgba(16,20,24,.08)">Thế giới</span>
+      <span style="flex:1;text-align:center;font-size:12px;color:#5a6675;padding:7px 0">Nội bộ Mỹ</span>
+      <span style="flex:1;text-align:center;font-size:12px;color:#5a6675;padding:7px 0">Tập trận</span>
+    </div>
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 2px 9px">
+      <div style="font-size:11px;color:#8a94a2;font-weight:600" class="tien">272 tin · 18–19.08</div>
+      <div style="font-size:11px;color:#2563a8;font-weight:700">Khu vực: tất cả</div>
+    </div>
+  </div>
+  <div class="cuon" style="background:#f7f9fb">
+    <div style="background:#fff;border-bottom:1px solid #eef1f5;padding:11px 16px;display:flex;gap:11px">
+      <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#e07b39;margin-top:6px"></span>
+      <div style="min-width:0">
+        <div style="font-size:14px;font-weight:650;color:#101418;line-height:1.32">Úc và Nhật thử laser Boobook thành công, ký thoả thuận thử tên lửa siêu vượt âm</div>
+        <div style="display:flex;gap:9px;margin-top:5px;font-size:11px;color:#8a94a2" class="tien">
+          <span>18.08</span><span style="color:#c8cfd8">·</span><span>Nam TBD</span><span style="color:#c8cfd8">·</span><span style="color:#2563a8;font-weight:600">Công nghệ QS</span></div>
+      </div>
+    </div>
+    <div style="background:#fff;border-bottom:1px solid #eef1f5;padding:11px 16px;display:flex;gap:11px">
+      <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#cdd4dd;margin-top:6px"></span>
+      <div style="min-width:0">
+        <div style="font-size:14px;font-weight:650;color:#101418;line-height:1.32">Koizumi thăm Úc, cùng New Zealand bàn xuất khẩu khinh hạm Mogami</div>
+        <div style="display:flex;gap:9px;margin-top:5px;font-size:11px;color:#8a94a2" class="tien">
+          <span>18.08</span><span style="color:#c8cfd8">·</span><span>Đông Á</span><span style="color:#c8cfd8">·</span><span style="color:#2563a8;font-weight:600">Ngoại giao</span></div>
+      </div>
+    </div>
+    <div style="background:#fff;border-bottom:1px solid #eef1f5;padding:11px 16px;display:flex;gap:11px">
+      <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#cdd4dd;margin-top:6px"></span>
+      <div style="min-width:0">
+        <div style="font-size:14px;font-weight:650;color:#101418;line-height:1.32">USS Benfold trở lại nhiệm vụ sau 4 ngày mất điện trên Biển Đông</div>
+        <div style="display:flex;gap:9px;margin-top:5px;font-size:11px;color:#8a94a2" class="tien">
+          <span>17.08</span><span style="color:#c8cfd8">·</span><span>Biển Đông</span><span style="color:#c8cfd8">·</span><span style="color:#2563a8;font-weight:600">Công nghệ QS</span></div>
+      </div>
+    </div>
+    <div style="background:#fff;border-bottom:1px solid #eef1f5;padding:11px 16px;display:flex;gap:11px">
+      <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#cdd4dd;margin-top:6px"></span>
+      <div style="min-width:0">
+        <div style="font-size:14px;font-weight:650;color:#101418;line-height:1.32">Philippines xem Ấn Độ là hình mẫu để xuất khẩu vũ khí, sau thương vụ BrahMos</div>
+        <div style="display:flex;gap:9px;margin-top:5px;font-size:11px;color:#8a94a2" class="tien">
+          <span>17.08</span><span style="color:#c8cfd8">·</span><span>Đông Nam Á</span><span style="color:#c8cfd8">·</span><span style="color:#2563a8;font-weight:600">Ngoại giao</span></div>
+      </div>
+    </div>
+    <div style="background:#fff;padding:11px 16px;display:flex;gap:11px">
+      <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#cdd4dd;margin-top:6px"></span>
+      <div style="min-width:0">
+        <div style="font-size:14px;font-weight:650;color:#101418;line-height:1.32">Nga cáo buộc Ukraine đứng sau các vụ tấn công ở Sahel</div>
+        <div style="display:flex;gap:9px;margin-top:5px;font-size:11px;color:#8a94a2" class="tien">
+          <span>17.08</span><span style="color:#c8cfd8">·</span><span>Châu Phi</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="vach" style="background:#101418"></div>
+</div></div></div>
+
+<div class="o"><div class="may"><div class="than">
+  <div class="tai" style="color:#e8ecf1">23:41<span>Việt Nam</span></div>
+  <div style="background:#141a21;padding:50px 16px 0;border-bottom:1px solid #212a34">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:11px">
+      <div style="font-size:20px;font-weight:800;color:#e8ecf1;letter-spacing:-.02em">Điểm Tin</div>
+      <span style="font-size:11px;font-weight:700;color:#7fb2e8;border:1px solid #2b3947;border-radius:8px;padding:5px 10px">Bỏ lọc</span>
+    </div>
+    <div style="display:flex;background:#1c242d;border-radius:10px;padding:3px;gap:2px">
+      <span style="flex:1;text-align:center;font-size:12px;color:#8996a6;padding:7px 0">Thế giới</span>
+      <span style="flex:1;text-align:center;font-size:12px;font-weight:700;color:#e8ecf1;background:#2a343f;border-radius:8px;padding:7px 0">Nội bộ Mỹ</span>
+      <span style="flex:1;text-align:center;font-size:12px;color:#8996a6;padding:7px 0">Tập trận</span>
+    </div>
+    <div style="display:flex;gap:6px;padding:11px 0 10px;overflow:hidden">
+      <span style="font-size:11px;font-weight:700;background:#2563a8;color:#fff;padding:5px 10px;border-radius:7px">Điều trần</span>
+      <span style="font-size:11px;color:#8996a6;border:1px solid #2b3947;padding:5px 10px;border-radius:7px">Toà án</span>
+      <span style="font-size:11px;color:#8996a6;border:1px solid #2b3947;padding:5px 10px;border-radius:7px">Quốc phòng</span>
+    </div>
+  </div>
+  <div class="cuon" style="background:#0f141a">
+    <div style="padding:13px 16px;border-bottom:1px solid #1b232c">
+      <div style="font-size:10px;letter-spacing:.14em;color:#5f6c7b;font-weight:700;margin-bottom:8px">HÔM NAY · 19.08</div>
+      <div style="display:flex;gap:11px;margin-bottom:13px">
+        <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#e07b39;margin-top:6px"></span>
+        <div style="min-width:0">
+          <div style="font-size:14px;font-weight:650;color:#e8ecf1;line-height:1.32">Thẩm phán liên bang chặn kế hoạch huỷ dời trụ sở FBI sang Maryland</div>
+          <div style="font-size:11px;color:#6d7a89;margin-top:5px" class="tien">19.08 · Toà án liên bang</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:11px">
+        <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#39424d;margin-top:6px"></span>
+        <div style="min-width:0">
+          <div style="font-size:14px;font-weight:650;color:#e8ecf1;line-height:1.32">Lục quân Mỹ trao Elroy Air hợp đồng 46 triệu USD phát triển drone Chaparral</div>
+          <div style="font-size:11px;color:#6d7a89;margin-top:5px" class="tien">19.08 · Quốc phòng</div>
+        </div>
+      </div>
+    </div>
+    <div style="padding:13px 16px">
+      <div style="font-size:10px;letter-spacing:.14em;color:#5f6c7b;font-weight:700;margin-bottom:8px">HÔM QUA · 18.08</div>
+      <div style="display:flex;gap:11px;margin-bottom:13px">
+        <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#39424d;margin-top:6px"></span>
+        <div style="min-width:0">
+          <div style="font-size:14px;font-weight:650;color:#e8ecf1;line-height:1.32">Thẩm phán Missouri bác một phần đơn kiện về bản đồ khu vực bầu cử</div>
+          <div style="font-size:11px;color:#6d7a89;margin-top:5px" class="tien">18.08 · Bầu cử</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:11px">
+        <span style="flex:0 0 7px;width:7px;height:7px;border-radius:50%;background:#39424d;margin-top:6px"></span>
+        <div style="min-width:0">
+          <div style="font-size:14px;font-weight:650;color:#e8ecf1;line-height:1.32">Trump viện dẫn hệ thống thẻ cử tri Ấn Độ để thúc đẩy SAVE America Act</div>
+          <div style="font-size:11px;color:#6d7a89;margin-top:5px" class="tien">18.08 · Bầu cử</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vach" style="background:#e8ecf1"></div>
+</div></div></div>
+</div>
+<div class="nhan">Trái: bản sáng, tab Thế giới. Phải: bản tối, tab Nội bộ Mỹ có thêm hàng lọc nhóm.</div>
+</section>
+
+</div>
