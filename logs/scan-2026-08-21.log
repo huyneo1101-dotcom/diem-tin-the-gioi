@@ -31,3 +31,8 @@
   gui that, khong co gi thay doi. SKIP em, KET THUC phien.
 [04:45] SKIP (local, moc 04:45 du phong) - state.py claim web-scan tra exit 10, buoi [phien toi CHAY BU
   (sang som)] ngay 2026-08-21 DA XONG lan chay cuoi 04:17:52 VN. KET THUC.
+[21:45Z] SKIP (CI, lan fire trung khac) - claim web-scan tra exit 10 (lastRunAt phien toi CHAY BU
+  (sang som)=2026-08-21T04:17:52+07:00, ~28 phut truoc). state.py show xac nhan ca web-scan lan
+  event-scan deu DONE (04:17:52 / 04:26:32 VN) voi note +9 tin / +1 tap tran moi+1 cap nhat+6 bai
+  think-tank. so_da_gui.py --xem xac nhan dong [sang] 04:27:27 va [sukien] 04:27:28 ngay 2026-08-21,
+  khop voi lastRunAt (cach <10 phut). Ban tin THAT SU da gui, khong phai co gia. SKIP em, KET THUC.
