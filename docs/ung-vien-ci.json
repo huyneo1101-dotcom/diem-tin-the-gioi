@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-21T03:46:46+07:00",
+  "tao_luc": "2026-08-21T03:58:04+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-20",
@@ -706,7 +706,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-21",
-      "tieu_de": "Preview: Test history looms, Renshaw returns as Australia and Bangladesh go again",
+      "tieu_de": "Test history looms, Renshaw returns as Australia and Bangladesh go again",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-08-21/australia-vs-bangladesh-second-test-when-is-it-where-is-it/107060464"
     },
@@ -789,6 +789,14 @@
       "tieu_de": "Taiwan proposes boosting 2027 defense spending 18% to a record high",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/08/20/asia-pacific/taiwan-defense-budget-boost/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-21",
+      "tieu_de": "Australia news live: PM says he shouldn’t have gone on Bush Deep podcast; home sales to overseas buyers plunge",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/aug/21/australia-news-live-anthony-albanese-melon-podcast-sydney-swans-melbourne-hotel-police-investigation-alan-jones-antisemitism-inquiry-icac-nsw-liberals-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -1053,6 +1061,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-21",
+      "tieu_de": "National Security Presidential Memorandum / NSPM-17",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/08/national-security-presidential-memorandum-nspm-17/",
+      "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-21",
       "tieu_de": "Federal Reserve Board announces approval of application by National Westminster Bank Plc",
       "nguon": "Cục Dự trữ Liên bang",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260820a.htm",
@@ -1102,6 +1119,15 @@
       "nguon": "Foreign Policy",
       "url": "https://foreignpolicy.com/2026/08/19/trump-netanyahu-israel-election-endorsement-gaza-iran/",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "US places sanctions on 10 people over alleged Hezbollah cash-smuggling ring",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/aug/20/alleged-money-smuggling-sanctions-hezbollah",
+      "nhom": 4
     },
     {
       "lop": "RSS",
