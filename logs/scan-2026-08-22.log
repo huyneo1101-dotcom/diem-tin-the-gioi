@@ -3,3 +3,5 @@
 [21:23Z] Giao 5 agent Sonnet theo 5 chu de. Ket qua vong 1: Noi bo My 6 tin (2 bi loai do ngay/trung), CNQS My 7 tin, Uc & Bien Dong 2 tin (ca hai sai ngay - da yeu cau agent sua), My-Mali 0 tin (khong co tin dat chuan), Tap tran 1 cap nhat (Ham doi TBD Nga).
 [21:24Z] Bao Moi: 10 ung vien cho, xu ly duoc 1 (USS George Washington toi Trung Dong, CNQS My), con lai trung/ngoai pham vi.
 [21:24Z] tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10) - bo qua buoc loc Jay Lam.
+[21:30Z] add_news.py: +8 tin usNews, +1 cap nhat tap tran. Phat hien 1 tin trung (Bessent Iran sanctions) sau khi nap, da xoa bang prune_news.py. Con lai 7 tin usNews thuc chat + 1 cap nhat tap tran. Commit + push "Cap nhat ban tin 22/08" thanh cong.
+[21:30Z] state.py done web-scan. Bat dau Buoc 6 (event-scan) vi la phien sang som.
