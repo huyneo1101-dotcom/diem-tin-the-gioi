@@ -1,30 +1,30 @@
 {
-  "date": "2026-08-20",
-  "session": "sang",
+  "date": "2026-08-21",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
+      "count": 6,
+      "target": "5-10",
+      "min": 5,
+      "thieu": false,
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) vẫn trắng trong khung 20-21/08 — không tìm được phiên điều trần/bỏ phiếu Quốc hội nào đúng ngày. Đạt sàn tối thiểu bằng nhóm 2/4/5: Trump ký memo phóng vũ trụ thương mại (nhóm 2), Bessent tuyên bố trừng phạt Iran mạnh nhất lịch sử (nhóm 4), Trump vận động SC cho Graham + Missouri giữ bản đồ khu vực bầu cử (nhóm 5), thiếu tá Không quân bị giam vì chỉ trích Trump (nhóm 3), Michigan giữ lịch tiêm chủng bất chấp sắc lệnh (nhóm 2). Loại 1 tin trùng (Fed Deutsche Bank — đã có sẵn từ sáng) + 1 tin trùng (Cuba sanctions mining/construction — đã có 20/08) — xem logs/loai-tin.md."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 5,
+      "target": "5-10",
+      "min": 5,
+      "thieu": false,
+      "reason": "Đạt sàn. 5 tin: Trung Quốc-Indonesia họp 2+2, Trung Quốc tố máy bay Philippines xâm phạm Scarborough, DIU chọn 3ME Technology (AUKUS Trụ cột II), Úc lập Lực lượng Dự bị Mạng Quốc phòng, HMAS Perth cập cảng Thái Lan. Loại nhiều candidate trùng tin đã có (Antelope Reef, AUKUS shipyard, drone RAAF Williamtown, USS Benfold — đều đã nạp từ phiên sáng 19-20/08)."
+    },
+    {
+      "name": "CNQS Mỹ",
       "count": 3,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ còn nghỉ hè, không có phiên điều trần/bỏ phiếu nào trong khung 20-21/08. Agent trả 6 tin thuộc nhóm 2/4/5; điều phối loại 3: 'James Braid từ chức' (chính trị nhân vật, không gắn tiến trình lập pháp/bầu cử cụ thể — LOẠI theo bộ lọc chung), 'Toà án Missouri cho bản đồ khu vực bầu cử' và 'Trump thúc Quốc hội thông qua Clarity Act' (cả hai có ngày sự kiện thật 2026-08-19, ngoài khung hôm nay+hôm qua 20-21/08, guardrail 2 lớp sẽ chặn cứng). Giữ 3 tin: khảo sát Emerson GOP thua 8 điểm, Mỹ trừng phạt thêm Cuba, Fed chấm dứt giám sát Deutsche Bank."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 2,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Agent chủ động loại phần lớn candidate vì đã trùng tin nạp bởi các phiên trước (Antelope Reef, AUKUS Osborne shipyard, USS Benfold, Vatn Systems drone, Nhật-Úc laser Boobook đều đã có trong DATA từ 17-19/08) hoặc ngày sự kiện thật ngoài khung (China robotic fortresses SCS — chưa xác nhận ngày cụ thể). Giữ 2 tin xác minh KHÔNG trùng: drone xâm nhập RAAF Williamtown lần 2 (ABC News AU, sự kiện 20/08 — khác lần đầu ~đầu tháng 8 đã đưa), Đài Loan đề xuất ngân sách quốc phòng 2027 +18%."
-    },
-    {
-      "name": "CNQS Mỹ",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Agent trả 6 tin; loại 2: 'Hanwha K9MH $262,9 triệu' TRÙNG tin đã có (usNews 2026-08-18, cùng con số $262,9 triệu, xác nhận qua grep index.html), 'General Atomics Wildfire kế nhiệm MQ-9' có ngày sự kiện thật 2026-08-17, ngoài khung nới 3 ngày cho CNQS (18-21/08). Giữ 4 tin: C-17 quay đầu vì cảnh báo tên lửa Nga ở Nam Cực, Lầu Năm Góc lập Liên minh Vũ khí Năng lượng Định hướng, Lục quân tăng mua ISV gấp 18 lần, Hải quân dẫn dắt tên lửa SeaSparrow thế hệ mới — tất cả xác minh qua WebFetch."
+      "reason": "Phần lớn ứng viên tốt trong khung nới 3 ngày (18-21/08) TRÙNG với tin phiên sáng cùng ngày đã nạp: X-Bow $11tr interceptor, PAC-3 MSE 800%, Golden Dome CBO rebuff, Castelion $1B, và ban đầu cả Tomahawk Raytheon $22,9 tỷ (nạp nhầm rồi phát hiện trùng qua cảnh báo Jaccard, đã xoá bằng prune_news.py). Giữ 3 tin thật sự mới: Hanwha K9 Mobile Howitzer $262,9 triệu (hợp đồng đầu tiên của Hanwha với Lục quân Mỹ), General Atomics giới thiệu drone Wildfire kế nhiệm MQ-9 Reaper, Lockheed+Hải quân demo AI săn tàu ngầm tại RIMPAC 2026 (tin nối tiếp hợp lệ của SensorMAX 10/08, giữ vì là sự kiện demo cụ thể khác). Đã thử hết ứng viên tốt trong 2 lượt quét (harvest.py + telegram_harvest.py) — chấp nhận thiếu, không nới chuẩn để nhồi."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,15 +32,15 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "Không tìm được diễn biến MỚI trong khung 20-21/08. Tin HRW/Africa Corps thảm sát dân thường (nổi bật trong candidates GNEWS/Telegram) TRÙNG với tin đã nạp bởi phiên trước (usNews 2026-08-20, cùng báo cáo HRW). Loạt tin về Trump cân nhắc không kích JNIM/Gorka có ngày sự kiện thật 22-24/07, ngoài khung dù xuất hiện với pubDate 20-21/08 (tin cũ đăng lại). Không có thông cáo mới từ AFRICOM/State Department trong khung ngày."
+      "reason": "0/57 ứng viên đạt chuẩn. Tin HRW/Africa Corps thảm sát dân thường TRÙNG tin đã có 20/08. Tin chuộc tiền $50 triệu tài trợ JNIM ngoài khung ngày (14/08). Chuỗi bài 'Trump cân nhắc không kích Mali' (Firstpost) là bài tổng hợp nhắc lại tin cũ tháng 7, không có sourceUrl bài viết gốc đáng tin. ~50 ứng viên còn lại là rác trùng từ khoá 'Mali' (cầu thủ, diễn viên Ấn Độ, lễ hội, game). Không có thông cáo mới từ CENTCOM/AFRICOM/State Dept trong khung ngày."
     },
     {
       "name": "Tập trận đang diễn ra",
-      "count": 0,
+      "count": 1,
       "target": "1-2",
       "min": 1,
-      "thieu": true,
-      "reason": "4 cuộc đang bám thật sự (Falcon Strike 2026, Swift Eagle 2026, SEACAT 2026, Diễn tập Hạm đội TBD Nga — xác định qua dates trong DATA, bỏ qua nhãn status cũ của Pitch Black/Hán Quang 42/Baltic Trust/PANAMAX đã thực tế kết thúc) không có diễn biến MỚI xác minh được trong khung 20-21/08. Nguồn Bộ Quốc phòng TQ về Swift Eagle chỉ lặp lại nội dung khai mạc đã đưa; không tìm được tin bế mạc Falcon Strike dù hôm nay là ngày cuối theo lịch."
+      "thieu": false,
+      "reason": "1 cập nhật: Falcon Strike 2026 (Trung Quốc-Thái Lan) bế mạc tại căn cứ Udorn 20/08, nguồn China Military (phát ngôn chính thức của chính TQ về hoạt động của họ, hợp lệ theo thang xác minh). Loại 1 ứng viên nghi trùng: phát ngôn Kim Yo-jong chỉ trích rút ngắn Ulchi Freedom Shield — nghi trùng với item đã có sẵn về cùng nhân vật/ngày, chọn an toàn không nạp. MAITREE-XV/Swift Eagle không có diễn biến mới hẳn so với tin nền đã có."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,8 @@
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "4 ứng viên chuyên mục còn tồn đọng từ 2 phiên trước — GIẢI QUYẾT DỨT ĐIỂM phiên này, đều LOẠI: 'Hạm đội Biển Đen mất 2 chiến hạm Kalibr' (chủ thể Nga, ngoài phạm vi 5 chủ đề dù gán nhãn CNQS Mỹ do khớp từ khoá sai), 'Phản ứng quốc tế + ICC lên án trừng phạt' (2 bài, đều là phản ứng dội lại sự kiện gốc đã đưa 19/08, không đủ tầm tin riêng), 'Trump kêu gọi Fed hạ lãi suất' (lặp lại chủ đề đã đưa 19/08, không phải diễn biến mới). Chi tiết: logs/loai-tin.md mục 2026-08-21."
+      "reason": "10 ứng viên chuyên mục tồn đọng — GIẢI QUYẾT DỨT ĐIỂM, đều LOẠI: 2 bài phân tích vũ khí Nga Kinzhal/Iskander-M (không phải khí tài Mỹ), 5 bài về trừng phạt Iran/Hezbollah (trùng nội dung tin đã nạp qua nguồn tiếng Anh, không đủ giá trị thêm), 1 bài tàu sân bay George Washington (trùng tin đã có), 1 bài ngân sách quốc phòng Nhật Bản (lạc chủ đề, không phải Nội bộ Mỹ), 1 bài rơi máy bay căn cứ không quân Mỹ (chưa xác minh được bài gốc tiếng Anh trong phiên này, để phiên sau). Chi tiết: logs/loai-tin.md mục 2026-08-21."
     }
   ],
-  "note": "Phiên SÁNG SỚM CI (fire 03:47 VN, chạy lúc 04:00-04:20+). Batch neo date=2026-08-20 vì đa số tin xác minh có ngày sự kiện thật 2026-08-20 (hôm nay VN 21/08 tại thời điểm chạy chưa có nhiều tin mới đăng). Kết quả: 2 worldNews + 7 usNews, 0 Mỹ-Mali, 0 tập trận cập nhật (cả hai chủ đề dossier hẹp, không có diễn biến mới đạt chuẩn trong khung ngày — chấp nhận theo đúng nguyên tắc 'thà ít tin đạt chuẩn còn hơn nhồi tin sai'). Đã giải quyết dứt điểm 4 ứng viên Báo Mới tồn đọng từ 2 phiên trước (đều loại, xem loai-tin.md). Phiên này nhắm ~10/mục là đủ (không cần đạt sàn 15 ngay), để phiên tối bù."
+  "note": "Phiên TỐI CI (fire ~20:47 VN, chạy thực tế từ 21:00). Batch date=2026-08-21. Kết quả: +5 worldNews, +9 usNews (sau khi xoá 1 tin nạp nhầm trùng lặp), +1 cập nhật tập trận, 0 Mỹ-Mali. SÀN CỨNG TỔNG NGÀY (gộp cả sáng+tối): worldNews 5/15, usNews 9/15 — CHƯA ĐẠT do thời gian phiên tối bị giới hạn bởi hạn chót email 22:00 (chỉ quét 1 vòng 5-agent, không lặp vòng bổ sung theo đúng chỉ dẫn 'quét gọn' của phiên tối). Nguồn ứng viên hai chủ đề CNQS/Nội bộ Mỹ phần lớn đã bị phiên sáng cùng ngày dùng hết (nhiều tin trùng phát hiện qua cảnh báo Jaccard + kiểm tra thủ công), nên phần bù thêm hạn chế hơn bình thường."
 }

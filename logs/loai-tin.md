@@ -7,6 +7,24 @@
 
 ---
 
+## 2026-08-21 (phiên tối CI)
+
+- [CNQS/US] "Hải quân Mỹ trao Raytheon hợp đồng 7 năm trị giá 22,9 tỷ USD sản xuất tên lửa Tomahawk" (Defense Daily) — TRÙNG SỰ KIỆN với tin đã có 2026-08-18 "Hải quân Mỹ trao Raytheon hợp đồng 22,9 tỷ USD tăng gấp 16 lần sản lượng tên lửa Tomahawk" (cùng con số 22,9 tỷ USD, cùng ngày, khác nguồn/tiêu đề). Đã nạp nhầm rồi phát hiện qua cảnh báo Jaccard 0.56, dùng prune_news.py xoá ngay.
+- [CNQS/US] "Cơ quan Phòng thủ Tên lửa Mỹ trao X-Bow 11 triệu USD phát triển tên lửa đánh chặn giá rẻ" — TRÙNG tin đã có 19/08 "Cơ quan Phòng thủ Tên lửa Mỹ trao gần 11 triệu USD cho X-Bow...". Loại trước khi nạp (agent quét lại đúng ứng viên đã dùng sáng nay).
+- [CNQS/US] "Kế hoạch tăng 800% sản lượng PAC-3 MSE vướng nút thắt sản xuất" (Shephard Media) — TRÙNG tin đã có 19/08 cùng con số 800%. Loại trước khi nạp.
+- [CNQS/US] "Lầu Năm Góc từ chối nhiều lần yêu cầu báo cáo Golden Dome từ CBO" (Breaking Defense) — TRÙNG tin đã có 19/08 "Bí mật quân sự khiến CBO không thể ước tính chi phí Golden Dome" (cùng câu chuyện CBO-Pentagon). Loại trước khi nạp.
+- [CNQS/US] "Startup Castelion huy động 1 tỷ USD" — TRÙNG tin đã có 19/08 cùng số tiền/công ty. Loại trước khi nạp.
+- [CNQS/US] "Hải quân Mỹ dùng AI săn tàu ngầm tại RIMPAC 2026" (Naval News, Lockheed) — sau khi nạp có cảnh báo Jaccard 0.52 với tin cũ 10/08 "Hải quân Mỹ thử nghiệm AI SensorMAX của Lockheed"; XEM LÀ TIN NỐI TIẾP (demo cụ thể tại RIMPAC, cách 10 ngày) nên GIỮ lại, không xoá.
+- [Nội bộ Mỹ/US] "Mỹ mở rộng trừng phạt Cuba sang khai khoáng, xây dựng" (Al Jazeera) — TRÙNG tin đã có 20/08 "Mỹ áp thêm trừng phạt lên ngành khai khoáng, xây dựng Cuba...". Loại trước khi nạp.
+- [CNQS/US] "Diễn tập phòng thủ tên lửa Pacific Dragon 2026 hoàn tất, USS Jack H. Lucas lần đầu tham gia" (DVIDS) — ngày sự kiện 2026-08-15, NGOÀI khung nới 3 ngày của CNQS (18-21/08). Loại trước khi nạp.
+- ⭐ [Tập trận] "Em gái Kim Jong-un chỉ trích Mỹ-Hàn rút ngắn Ulchi Freedom Shield" (Korea Herald, 20/08) — NGHI TRÙNG với item đã có trong `exerciseUpdates` của Ulchi Freedom Shield ("Triều Tiên phóng loạt tên lửa đạn đạo tầm ngắn, em gái Kim Jong-un bác bỏ thiện chí của Trump", cùng ngày, cùng nhân vật phát ngôn). Không đủ chắc chắn đây là phát ngôn KHÁC hay cùng một phát ngôn được diễn giải hai cách — chọn AN TOÀN, loại để tránh trùng.
+- [Mỹ-Mali] Toàn bộ 57 ứng viên bị loại — 0 tin đạt chuẩn. Lý do: tin HRW/Africa Corps thảm sát dân thường Mali TRÙNG với tin đã có 20/08; tin chuộc tiền $50 triệu tài trợ JNIM ngoài khung ngày (14/08); chuỗi bài "Trump cân nhắc không kích Mali" (Firstpost) là bài tổng hợp nhắc lại tin cũ tháng 7, không có sourceUrl bài viết gốc đáng tin; phần còn lại (~50 ứng viên) là rác trùng từ khoá "Mali" (cầu thủ, diễn viên Ấn Độ, lễ hội Croatia, game Fortnite, GAO report Army network không liên quan).
+- ⭐ [CNQS/Báo Mới] "Mỹ điều tàu sân bay George Washington tới Trung Đông, tăng hiện diện quân sự" (Báo Thanh Hóa) — TRÙNG với tin đã nạp "Tàu sân bay Mỹ đến Trung Đông thay USS Abraham Lincoln" (VnExpress, đã có trong recent-titles usNews). Loại.
+- [CNQS/Báo Mới] "Rơi máy bay tại căn cứ không quân Mỹ làm 8 người thiệt mạng" (VietnamPlus) — chưa xác minh được bài gốc tiếng Anh trong phiên này (hết thời gian), để lại cho phiên sau xử lý; ghi vào scan-gaps.
+- [CNQS/Báo Mới] 2 tin so sánh Kinzhal/Iskander-M/Patriot (An Ninh Thủ Đô) — bài phân tích vũ khí Nga, không phải khí tài Mỹ, không thuộc chủ đề CNQS Mỹ. Loại.
+- [Nội bộ Mỹ/Báo Mới] 5 tin về trừng phạt Iran/Hezbollah của Mỹ (Tiền Phong, Công An TP.HCM, An Ninh Thủ Đô x2, VietnamPlus) — nội dung trùng lặp với các tin sanctions Iran đã nạp qua nguồn tiếng Anh (Bessent tuyên bố "toughest sanctions"), không truy được bài gốc khác biệt đủ giá trị để nạp thêm. Loại để tránh nhồi quá nhiều tin cùng chủ đề Iran.
+- [Nội bộ Mỹ/Báo Mới] "Những điểm đáng chú ý trong đề xuất ngân sách quốc phòng kỷ lục của Nhật Bản" (An Ninh Thủ Đô) — về NGÂN SÁCH QUỐC PHÒNG NỘI BỘ Nhật Bản, không thuộc "Nội bộ Mỹ" (đã có tin tương tự về Đài Loan trong recent-titles, không phải Nhật). Loại vì lạc chủ đề.
+
 ## 2026-08-19 (phiên tối CI)
 
 - ⭐ [Nội bộ Mỹ/Báo Mới] "Mỹ siết trừng phạt, kinh tế Iran 'khó chồng khó', thị trường toàn cầu có chịu ảnh hưởng?" (Báo Thế Giới & Việt Nam) — nói về kinh tế IRAN chịu tác động trừng phạt, không phải chính sách/kinh tế NỘI BỘ Mỹ — không thuộc 1 trong 5 nhóm chủ đề Nội bộ Mỹ. Loại.

@@ -46,3 +46,19 @@
 [21:15] SKIP (local, moc 21:15 phien toi) - state.py claim web-scan tra exit 11: phien khac (CI 21:00
   VN) dang chay, nhip tim 15 phut truoc, bat dau 21:00:32 VN - khop dung voi dong START [14:00Z] o
   tren. Khong quet chong. KET THUC ngay theo dieu 3, khong Monitor, khong cho.
+[14:00Z] harvest.py: 433 ung vien (Noi bo My 146, Uc&BD 110, CNQS 96, Mali 53, Tap tran 28)
+[14:02Z] telegram_harvest.py: bo sung (CNQS 9, Uc&BD 2, Mali 2, Tap tran 2, Noi bo My nhieu Iran/CENTCOM)
+[14:05Z] 5 agent Sonnet song song xong. Ket qua truoc kiem tra trung:
+  - Noi bo My: 8 tin (dieu phoi loai 2 trung: Fed Deutsche Bank da co, Cuba sanctions da co)
+  - Uc & Bien Dong: 5 tin (khong trung, giu ca 5)
+  - CNQS My: 10 tin (dieu phoi loai 6 trung/ngoai khung: PAC-3 MSE, Golden Dome CBO, Castelion,
+    X-Bow da trung tin sang nay; Pacific Dragon 15/8 ngoai khung noi 3 ngay; Tomahawk 22.9B nap
+    nham roi phat hien trung qua canh bao Jaccard 0.56, da prune_news.py xoa)
+  - My-Mali: 0 tin (57 ung vien deu rac hoac trung/ngoai khung)
+  - Tap tran: 1 cap nhat (Falcon Strike be mac), loai 1 nghi trung (Kim Yo-jong Ulchi FS)
+[14:18Z] add_news.py: +5 worldNews, +9 usNews (sau khi xoa 1 tin Tomahawk trung), +1 tap tran.
+  generatedAt=2026-08-21. San cung ngay: worldNews 5/15, usNews 9/15 - chua dat, chap nhan vi
+  han che thoi gian phien toi (han email 22:00) + phan lon ung vien tot da bi phien sang dung het.
+[14:19Z] Giai quyet dut diem 10 ung vien Bao Moi ton dong -> loai ca 10 (9 trung/lac chu de + 1 de
+  lai phien sau vi chua xac minh duoc bai goc), ghi logs/loai-tin.md + logs/scan-gaps.json.
+[14:20Z] gh workflow run telegram-bot.yml khong thu (uu tien thoi gian, han 22:00 email).
