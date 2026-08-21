@@ -1,30 +1,30 @@
 {
-  "date": "2026-08-21",
-  "session": "toi",
+  "date": "2026-08-22",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
-      "count": 6,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": "Nhóm 1 (điều trần/bỏ phiếu) vẫn trắng trong khung 20-21/08 — không tìm được phiên điều trần/bỏ phiếu Quốc hội nào đúng ngày. Đạt sàn tối thiểu bằng nhóm 2/4/5: Trump ký memo phóng vũ trụ thương mại (nhóm 2), Bessent tuyên bố trừng phạt Iran mạnh nhất lịch sử (nhóm 4), Trump vận động SC cho Graham + Missouri giữ bản đồ khu vực bầu cử (nhóm 5), thiếu tá Không quân bị giam vì chỉ trích Trump (nhóm 3), Michigan giữ lịch tiêm chủng bất chấp sắc lệnh (nhóm 2). Loại 1 tin trùng (Fed Deutsche Bank — đã có sẵn từ sáng) + 1 tin trùng (Cuba sanctions mining/construction — đã có 20/08) — xem logs/loai-tin.md."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 5,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": "Đạt sàn. 5 tin: Trung Quốc-Indonesia họp 2+2, Trung Quốc tố máy bay Philippines xâm phạm Scarborough, DIU chọn 3ME Technology (AUKUS Trụ cột II), Úc lập Lực lượng Dự bị Mạng Quốc phòng, HMAS Perth cập cảng Thái Lan. Loại nhiều candidate trùng tin đã có (Antelope Reef, AUKUS shipyard, drone RAAF Williamtown, USS Benfold — đều đã nạp từ phiên sáng 19-20/08)."
-    },
-    {
-      "name": "CNQS Mỹ",
-      "count": 3,
+      "count": 4,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Phần lớn ứng viên tốt trong khung nới 3 ngày (18-21/08) TRÙNG với tin phiên sáng cùng ngày đã nạp: X-Bow $11tr interceptor, PAC-3 MSE 800%, Golden Dome CBO rebuff, Castelion $1B, và ban đầu cả Tomahawk Raytheon $22,9 tỷ (nạp nhầm rồi phát hiện trùng qua cảnh báo Jaccard, đã xoá bằng prune_news.py). Giữ 3 tin thật sự mới: Hanwha K9 Mobile Howitzer $262,9 triệu (hợp đồng đầu tiên của Hanwha với Lục quân Mỹ), General Atomics giới thiệu drone Wildfire kế nhiệm MQ-9 Reaper, Lockheed+Hải quân demo AI săn tàu ngầm tại RIMPAC 2026 (tin nối tiếp hợp lệ của SensorMAX 10/08, giữ vì là sự kiện demo cụ thể khác). Đã thử hết ứng viên tốt trong 2 lượt quét (harvest.py + telegram_harvest.py) — chấp nhận thiếu, không nới chuẩn để nhồi."
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ vẫn trong kỳ nghỉ hè tháng 8, không có phiên điều trần/bỏ phiếu nào trong khung 21-22/08. Đạt được 4 tin qua nhóm 2/4/5: Trump miễn thuế thịt bò 90 ngày (nhóm 4), Treasury trừng phạt mạng lưới tiền mặt Hezbollah (nhóm 4), RNC giữ lợi thế tài chính trước DNC (nhóm 5). Loại 2 tin ngoài khung ngày (DNC kiện Bộ Tư pháp, Cuba sanctions — cả hai ngày sự kiện thật 20/08, ngoài khung 1 ngày cho phép của chủ đề này) và 1 tin trùng phát hiện sau khi nạp (Bessent Iran sanctions qua westhawaiitoday, trùng bản CNBC đã có — đã xoá bằng prune_news.py). Xem logs/loai-tin.md."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 0,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "0 tin đạt chuẩn. Agent tìm 2 ứng viên ban đầu (MH-60 TALON Mỹ-Úc, HMAS Hobart Tomahawk upgrade) nhưng cả hai có ngày sự kiện thật 19-20/08, ngoài khung 21-22/08 nghiêm ngặt (chủ đề này KHÔNG được nới 3 ngày như CNQS). Sau khi yêu cầu tìm lại đúng khung, agent rà thêm qua nhiều góc (Trung Quốc-Philippines, quốc phòng Úc, Việt Nam-Úc, tập trận đa quốc gia, drone RAAF Williamtown) nhưng mọi ứng viên khớp chủ đề đều hoặc đã trùng DATA hoặc ngày sự kiện ngoài khung — phần lớn tin nóng 21-22/08 của chủ đề này đã bị các phiên CI trước (20-21/08) nạp gần hết."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Trong khung nới 3 ngày (19-22/08), 4/7 ứng viên ban đầu của agent TRÙNG tin đã có trong DATA (Golden Dome CBO, Raytheon Tomahawk 22,9 tỷ USD x2 bản, Castelion 1 tỷ USD, X-Bow interceptor 11 triệu USD) — điều phối tự grep index.html theo từ khoá phát hiện vì --recent-titles 20 bị exercises/dipEvents chiếm hết chỗ hiển thị. Giữ 4 tin thật sự mới: Kongsberg/Zone 5 hợp đồng Rusty Dagger (CHAOS), Thuỷ quân lục chiến nhận tàu đổ bộ ASC mới, Boeing hợp đồng bảo trì động cơ P-8A/C-40A 156,2 triệu USD, USS George Washington tới Trung Đông (truy gốc từ ứng viên Báo Mới). Loại 1 ứng viên Báo Mới ngoài phạm vi (rơi máy bay charter dân sự tại căn cứ Alaska — không phải khí tài quân sự)."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "0/57 ứng viên đạt chuẩn. Tin HRW/Africa Corps thảm sát dân thường TRÙNG tin đã có 20/08. Tin chuộc tiền $50 triệu tài trợ JNIM ngoài khung ngày (14/08). Chuỗi bài 'Trump cân nhắc không kích Mali' (Firstpost) là bài tổng hợp nhắc lại tin cũ tháng 7, không có sourceUrl bài viết gốc đáng tin. ~50 ứng viên còn lại là rác trùng từ khoá 'Mali' (cầu thủ, diễn viên Ấn Độ, lễ hội, game). Không có thông cáo mới từ CENTCOM/AFRICOM/State Dept trong khung ngày."
+      "reason": "0/34 ứng viên đạt chuẩn. Không tìm được diễn biến nào của Mỹ (quyết định/hành động/phản ứng) liên quan Mali/JNIM/Sahel trong khung ngày — phần lớn ứng viên là tin nội bộ Mali/Sahel không dính Mỹ trực tiếp (bầu cử, kinh tế Niger, ICC-ECOWAS...). Không có thông cáo mới từ CENTCOM/AFRICOM/State Dept."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,16 +40,16 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "1 cập nhật: Falcon Strike 2026 (Trung Quốc-Thái Lan) bế mạc tại căn cứ Udorn 20/08, nguồn China Military (phát ngôn chính thức của chính TQ về hoạt động của họ, hợp lệ theo thang xác minh). Loại 1 ứng viên nghi trùng: phát ngôn Kim Yo-jong chỉ trích rút ngắn Ulchi Freedom Shield — nghi trùng với item đã có sẵn về cùng nhân vật/ngày, chọn an toàn không nạp. MAITREE-XV/Swift Eagle không có diễn biến mới hẳn so với tin nền đã có."
+      "reason": "1 cập nhật: Nga phóng loạt tên lửa Vulkan/Granit/Oniks gần quần đảo Kuril (21/08, Stars and Stripes) — diễn biến mới trong 'Diễn tập Hạm đội Thái Bình Dương Nga 2026'. Các cuộc đang diễn ra khác (MAITREE-XV, Swift Eagle 2026, Ulchi Freedom Shield 2026, FRATERNO XXXIX, SEACAT 2026) không có diễn biến MỚI HẲN trong khung 21-22/08 so với tin nền đã có."
     },
     {
       "name": "Báo Mới",
-      "count": 0,
+      "count": 1,
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "10 ứng viên chuyên mục tồn đọng — GIẢI QUYẾT DỨT ĐIỂM, đều LOẠI: 2 bài phân tích vũ khí Nga Kinzhal/Iskander-M (không phải khí tài Mỹ), 5 bài về trừng phạt Iran/Hezbollah (trùng nội dung tin đã nạp qua nguồn tiếng Anh, không đủ giá trị thêm), 1 bài tàu sân bay George Washington (trùng tin đã có), 1 bài ngân sách quốc phòng Nhật Bản (lạc chủ đề, không phải Nội bộ Mỹ), 1 bài rơi máy bay căn cứ không quân Mỹ (chưa xác minh được bài gốc tiếng Anh trong phiên này, để phiên sau). Chi tiết: logs/loai-tin.md mục 2026-08-21."
+      "reason": "10 ứng viên tồn đọng — giải quyết dứt điểm: nạp 1 tin qua truy gốc (USS George Washington → USNI News, tính vào chủ đề CNQS Mỹ ở trên). Loại 9: 2 bài explainer vũ khí Nga (Kinzhal/Iskander-M, không phải sự kiện), 4 bài trùng sự kiện Bessent/Hezbollah sanctions đã nạp qua nguồn tiếng Anh, 1 bài phát ngôn ngoại giao Trung Quốc (ngoài phạm vi 5 chủ đề), 1 bài rơi máy bay charter dân sự (không phải khí tài, ngoài phạm vi CNQS), 1 bài ngân sách quốc phòng Nhật Bản (không neo Úc/Biển Đông/Mỹ). Chi tiết: logs/loai-tin.md mục 2026-08-22."
     }
   ],
-  "note": "Phiên TỐI CI (fire ~20:47 VN, chạy thực tế từ 21:00). Batch date=2026-08-21. Kết quả: +5 worldNews, +9 usNews (sau khi xoá 1 tin nạp nhầm trùng lặp), +1 cập nhật tập trận, 0 Mỹ-Mali. SÀN CỨNG TỔNG NGÀY (gộp cả sáng+tối): worldNews 5/15, usNews 9/15 — CHƯA ĐẠT do thời gian phiên tối bị giới hạn bởi hạn chót email 22:00 (chỉ quét 1 vòng 5-agent, không lặp vòng bổ sung theo đúng chỉ dẫn 'quét gọn' của phiên tối). Nguồn ứng viên hai chủ đề CNQS/Nội bộ Mỹ phần lớn đã bị phiên sáng cùng ngày dùng hết (nhiều tin trùng phát hiện qua cảnh báo Jaccard + kiểm tra thủ công), nên phần bù thêm hạn chế hơn bình thường."
+  "note": "Phiên SÁNG SỚM CI (fire 03:47/04:47 VN, chạy thực tế từ 04:00). Batch date=2026-08-22. Kết quả sau khi xoá 1 tin trùng: +0 worldNews, +7 usNews thực chất mới, +1 cập nhật tập trận, 0 Mỹ-Mali. SÀN CỨNG TỔNG NGÀY (gộp cả sáng+tối, hiển thị bởi add_news.py): worldNews 0/15, usNews 8/15 (script đếm trước khi xoá tin trùng, số thực chất còn lại là 7) — phiên SÁNG chỉ cần đạt ~10/mục, không ép đủ 15, để phiên tối cùng ngày bù thêm. Nguyên nhân sản lượng mỏng: phần lớn tin nóng 19-21/08 của CNQS Mỹ và Nội bộ Mỹ (mảng Iran sanctions) đã bị các phiên CI liền trước (20-21/08) nạp gần hết trước khi phiên này chạy; chủ đề Úc & Biển Đông và Mỹ-Mali về 0 tin dù đã tìm kỹ qua nhiều góc độ."
 }
