@@ -43,3 +43,6 @@
   khong phai co gia. SKIP em, KET THUC phien.
 [14:00Z] START (CI) - phien toi ngay 2026-08-21 (gio VN 21:00). state.py claim web-scan tra exit 0,
   giu khoa. Quet that.
+[21:15] SKIP (local, moc 21:15 phien toi) - state.py claim web-scan tra exit 11: phien khac (CI 21:00
+  VN) dang chay, nhip tim 15 phut truoc, bat dau 21:00:32 VN - khop dung voi dong START [14:00Z] o
+  tren. Khong quet chong. KET THUC ngay theo dieu 3, khong Monitor, khong cho.
