@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Bản hỏng cho `.github/scripts/do_vi_token.py` — chứng minh 9 ca tự kiểm có răng.
+"""Bản hỏng cho `.github/scripts/do_vi_token.py` — chứng minh 15 ca tự kiểm có răng.
 
     python3 tests/test-do-vi-token.py
 
@@ -66,10 +66,18 @@ BAN_HONG = [
     ),
     (
         # Chiều IM: thiếu token đọc thành "đo xong, không thấy gì".
-        "thiếu token vẫn đi gọi API (mất nhánh báo chưa đo được)",
-        '    if not token:\n        return None, "thiếu token: biến CLAUDE_CODE_OAUTH_TOKEN rỗng"',
-        "    if False:\n        pass",
+        # ⚠ Neo phải kèm dòng LIỀN SAU: sau khi thêm nhánh dấu vân 21/08, đoạn kiểm token
+        # rỗng xuất hiện ở CẢ HAI hàm, neo trần khớp 2 chỗ và bản hỏng bị từ chối.
+        "thiếu token vẫn đi gọi API — nhánh danh tính",
+        '    if not token:\n        return None, "thiếu token: biến CLAUDE_CODE_OAUTH_TOKEN rỗng"\n    if mo is not None:\n        return mo(token)\n    req = urllib.request.Request(API,',
+        "    req = urllib.request.Request(API,",
         [1],
+    ),
+    (
+        "thiếu token vẫn đi gọi API — nhánh dấu vân hạn mức",
+        '    if not token:\n        return None, "thiếu token: biến CLAUDE_CODE_OAUTH_TOKEN rỗng"\n    if mo is not None:\n        return mo(token)\n    body = json.dumps(',
+        "    body = json.dumps(",
+        [10],
     ),
     (
         # Chiều CẮT PHÉP ĐO: bỏ mức gói là mất đúng thứ phân biệt hai túi khi bảng băm chưa
@@ -78,6 +86,37 @@ BAN_HONG = [
         '    print("mức gói     : %s" % tier)\n',
         "",
         [8],
+    ),
+    (
+        # Chiều LỘ Ở NHÁNH THỨ HAI: nhánh dấu vân mới thêm 21/08 là chỗ dễ quên nhất — ca 7
+        # chỉ canh nhánh danh tính, nên phải có ca 13 và bản hỏng riêng cho nhánh này.
+        "nhánh dấu vân in luôn cả email lấy từ hồ sơ",
+        '        print("mốc reset tuần : %s" % van["reset_7d"])',
+        '        print("mốc reset tuần : %s (%s)" % (van["reset_7d"], van.get("email", "")))',
+        [13],
+    ),
+    (
+        # Chiều MẤT PHÉP SO: bỏ mốc reset tuần là bỏ đúng thứ duy nhất phân biệt được hai ví
+        # khi endpoint danh tính đã trả 403.
+        "bỏ dòng in mốc reset tuần (mất hẳn phép so hai ví)",
+        '        print("mốc reset tuần : %s" % van["reset_7d"])\n',
+        "",
+        [13, 14],
+    ),
+    (
+        # Chiều FAIL-OPEN: header thiếu mốc tuần vẫn trả vân cụt, bảng in ra "mốc: None" mà
+        # mã thoát vẫn 0.
+        "header thiếu mốc reset tuần vẫn trả vân cụt (mã thoát 0)",
+        '    if not van["reset_7d"]:\n        return None, "header không có mốc reset tuần — chưa đo được dấu vân ví"',
+        "    if False:\n        pass",
+        [12],
+    ),
+    (
+        # Chiều GỘP: hai nhánh cùng trượt mà vẫn trả 0 thì lượt đo hỏng đọc y như lượt đo xong.
+        "cả hai nhánh trượt vẫn trả mã 0",
+        '            print("⛔ CHƯA ĐO ĐƯỢC ví của token CI — %s" % loi2)\n            return 4',
+        '            print("⛔ CHƯA ĐO ĐƯỢC ví của token CI — %s" % loi2)\n            return 0',
+        [15],
     ),
     (
         # Chiều BĂM CỤT: cắt dấu hiệu còn 2 ký tự thì hai ví khác nhau đụng nhau rất dễ, mà
