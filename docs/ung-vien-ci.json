@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-21T21:11:18+07:00",
+  "tao_luc": "2026-08-21T22:06:19+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-20",
@@ -53,6 +53,14 @@
       "tieu_de": "(URGENT) N.K. leader's sister says scaling down Ulchi Freedom Shield put Seoul 'in poor plight of canceling war games it liked very much'",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260820011400320"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-21",
+      "tieu_de": "Argentina's economy grows, but public frustration remains",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/08/21/2026/argentinas-economy-grows-but-public-frustration-remains"
     },
     {
       "lop": "RSS",
@@ -133,14 +141,6 @@
       "tieu_de": "U.S. Navy Awards Contract For Zone 5’s Combat-Proven Rusty Dagger Cruise Missile",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/08/u-s-navy-awards-contract-for-zone-5s-combat-proven-rusty-dagger-cruise-missile/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-20",
-      "tieu_de": "Lockheed Martin and U.S. Navy Demonstrate AI-Powered Submarine Hunter at RIMPAC 2026",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/08/lockheed-martin-and-u-s-navy-demonstrate-ai-powered-submarine-hunter-at-rimpac-2026/"
     },
     {
       "lop": "RSS",
@@ -349,14 +349,6 @@
       "tieu_de": "US expands Tomahawk production with $23bn contract",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/us-expands-tomahawk-production-with-23bn-contract/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "Wildfire Is General Atomics’ Successor To The MQ-9 Reaper",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/air/wildfire-is-general-atomics-successor-to-the-mq-9-reaper"
     },
     {
       "lop": "RSS",
@@ -706,22 +698,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-21",
-      "tieu_de": "Australian hiker's body recovered as officials apologise for misreporting she was alive",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c0rdk5kg4r4o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-21",
-      "tieu_de": "British rapper Yung Filly to face retrial on rape charges in Australia",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cd7l1g8922jo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-21",
       "tieu_de": "Australia charges dual citizen accused of spying for Russia in Ukraine",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/asia/australasia/article/3364856/australia-charges-dual-citizen-accused-spying-russia-ukraine?utm_source=rss_feed"
@@ -849,6 +825,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-21",
+      "tieu_de": "Philippines’ poverty rate hits record low 9.7% | The wRap",
+      "nguon": "Rappler",
+      "url": "https://www.rappler.com/video/daily-wrap/august-21-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-20",
       "tieu_de": "‘New South Korea envoy familiar with Philippines relations’",
       "nguon": "Philstar (headlines)",
@@ -882,9 +866,25 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-21",
+      "tieu_de": "‘Shameful’: UK, Australia and Canada criticise Israel over Gaza aid convoy killings decision",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/2026/aug/21/uk-australia-canada-criticise-israel-gaza-aid-convoy-killings-decision"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-21",
       "tieu_de": "Australian police charge man accused of attempting to share Ukrainian military intel with Russian agents",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/2026/aug/21/vladimir-teslov-australian-charged-sharing-ukraine-intel-russian-agents-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-21",
+      "tieu_de": "Taiwan plans record defense budget",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/08/21/2026/taiwan-plans-record-defense-budget"
     },
     {
       "lop": "RSS",
@@ -983,15 +983,6 @@
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/us-canadian-trade-teams-to-meet-again-as-tariffs-deadline-looms",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "Trump seeks to bolster Graham Senate bid with South Carolina rally",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/trump-seeks-to-bolster-graham-senate-bid-with-south-carolina-rally",
-      "nhom": 3
     },
     {
       "lop": "RSS",
@@ -1096,7 +1087,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-21",
-      "tieu_de": "U.S., Canada near final trade deal as Trump tariff deadline looms",
+      "tieu_de": "Trump tariff deadline looms as U.S. and Canada say final trade deal is near",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/08/21/trump-canada-tariffs-trade-deal-deadline.html",
       "nhom": 4
@@ -1144,6 +1135,15 @@
       "tieu_de": "Mỹ nêu lý do áp đặt lệnh trừng phạt mạnh chưa từng có với Iran",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/my-neu-ly-do-ap-dat-lenh-trung-phat-manh-chua-tung-co-voi-iran-20260821061107737.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "Trump temporarily lifts ground beef import tariffs",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6043387-donald-trump-us-ground-beef-tariffs-higher-rate-temporary-pause/",
       "nhom": 4
     },
     {
@@ -1205,7 +1205,7 @@
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-20",
       "tieu_de": "Air Force major detained again for Capitol protest after Trump criticism",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6040353-airman-detained-again-capitol-trump-protest/",
       "nhom": 3
     },
