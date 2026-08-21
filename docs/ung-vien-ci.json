@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-21T20:48:36+07:00",
+  "tao_luc": "2026-08-21T21:11:18+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-20",
@@ -197,6 +197,14 @@
       "tieu_de": "Moog Highlights Huntsville Expansion and New Hardware-in-the-Loop Lab During Space and Missile Defense Symposium",
       "nguon": "SpaceNews",
       "url": "https://spacenews.com/moog-highlights-huntsville-expansion-and-new-hardware-in-the-loop-lab-during-space-and-missile-defense-symposium/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-20",
+      "tieu_de": "US destroyed a lost Reaper drone after hard landing in Middle East",
+      "nguon": "Task & Purpose",
+      "url": "https://taskandpurpose.com/news/drone-crash-destroyed-2025/"
     },
     {
       "lop": "RSS",
@@ -698,22 +706,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-21",
-      "tieu_de": "Philippines floods fuel anger over alleged corruption",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/21/philippines-floods-fuel-anger-over-alleged-corruption?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-21",
-      "tieu_de": "Australia charges man for passing Ukrainian military intel to Russia",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/21/australia-charges-man-for-passing-ukrainian-military-intel-to-russia?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-21",
       "tieu_de": "Australian hiker's body recovered as officials apologise for misreporting she was alive",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c0rdk5kg4r4o?at_medium=RSS&at_campaign=rss"
@@ -765,6 +757,14 @@
       "tieu_de": "China Praises Malaysian PM Anwar Ibrahim For Supportive Comments on Taiwan",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/08/china-praises-malaysian-pm-anwar-ibrahim-for-supportive-comments-on-taiwan/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-21",
+      "tieu_de": "Kh&oacute;i m&ugrave; bủa v&acirc;y Malaysia, gần 200.000 học sinh nghỉ học",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/khoi-mu-bua-vay-malaysia-gan-200000-hoc-sinh-nghi-hoc-185260821193845454.htm"
     },
     {
       "lop": "RSS",
@@ -1081,6 +1081,15 @@
       "tieu_de": "ICC says U.S. sanctions 'flagrant attack' on court independence",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/icc-says-us-sanctions-flagrant-attack-on-court-independence/article71366455.ece",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "Trump to allow import of 300,000 metric tons of ground beef without tariff",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/08/21/trump-ground-beef-import-tariff.html",
       "nhom": 4
     },
     {
