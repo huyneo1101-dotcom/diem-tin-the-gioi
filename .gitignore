@@ -11,3 +11,8 @@ logs/state-test.json
 
 # Cấu hình phiên Claude cục bộ — không commit
 .claude/
+
+# Kho tách ra ở BƯỚC DỰNG của pages.yml (scripts/cat_nhe_trang.py --tai-cho). Chỉ tồn tại
+# trong runner CI; lỡ chạy cờ đó trên máy thì file này KHÔNG được lọt vào commit — kèm theo
+# nó là một index.html đã cụt mất kho, mà 21 script Python vẫn ghi vào đấy như thường.
+/data/kho.json

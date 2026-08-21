@@ -14,6 +14,28 @@ sha1 kiểu git blob của `index.html` trên github.io so với bản trên `ma
 Bộ canh: `tests/test-canary-web-lech.py` — **10 ca (03 ca PHẢI KÊU) · `--tu-kiem` bắt 5/5 bản
 hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`. Dựng lại tay: `gh workflow run pages.yml`.
 
+⛔ **TRANG ĐẨY LÊN PAGES LÀ BẢN ĐÃ CẮT — `index.html` TRONG REPO VẪN ĐỦ KHO, ĐỪNG "DỌN".**
+Từ 21/08/2026 `pages.yml` chạy `python3 scripts/cat_nhe_trang.py --tai-cho` ngay trước
+`upload-pages-artifact`: index.html còn **lát đầu** (357.088 byte thô / 108.709 nén, bớt **80%**
+so với 1.719.986 / 486.042), toàn bộ kho ra `data/kho.json` (1.515.777 byte) và trang tự nạp
+bằng `loadKho()` sau khi đã hiện chữ. Lát đầu giữ 45 tin Mỹ · 30 tin thế giới · 15 tin X · 29
+cuộc tập trận (bỏ `concepts`/`background`/`backgroundDoc`, giữ 01 item mới nhất mỗi cuộc); cà
+phê, bản tuần, ngoại giao, tin bị loại để rỗng. Đo bằng `--kiem`.
+- **Bước cắt CHỈ chạy trong runner, KHÔNG commit gì.** `main` giữ index.html đủ dữ liệu để 21
+  script Python ghi vào như cũ — đó là lý do không phải sửa `add_news.py`, `harvest.py`, …
+- ⛔ **CẤM chạy `--tai-cho` trên máy Mac rồi commit.** Bản cụt mất kho mà mọi script vẫn ghi vào
+  đấy như thường, không lệnh nào báo lỗi. Hai rào: `.gitignore` chặn `/data/kho.json`, và ca 01
+  của bộ test bắt cờ `_nhe` trong index.html của repo.
+- ⛔ **`analyses` TUYỆT ĐỐI không vào `kho.json`.** Bài think-tank có kho riêng
+  (`data/analyses.json`, tách 30/07/2026); hai lời gọi fetch chạy song song nên ghi đè là mục
+  🏛️ Think-tank trống mà không có lỗi nào hiện ra. Chặn ở cả hai đầu: `KHONG_TACH` trong
+  `cat_nhe_trang.py` và `if(k!=='analyses')` trong `loadKho()`.
+- ⚠️ **`canary.py::kiem_web()` nay so bản web với bản DỰNG LẠI** (`ban_mong_doi()` gọi chính
+  `cat_nhe()`), không so bytes thô của repo nữa — bỏ bước dựng khỏi `pages.yml` là canary kêu
+  lệch **mọi ca**, kêu oan vài lần là thôi đọc.
+- Bộ canh: `tests/test-cat-nhe-trang.py` — **12 ca · `--tu-kiem` bắt 9/9 bản hỏng**, đã nạp
+  `BO_TEST` của `HeThong/khoe.py`.
+
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)
 Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 20:47** và **SÁNG SỚM 03:47**
 (đêm VN = ngày làm việc Mỹ nên nhiều tin mới; cả 2 phiên đều gửi email). Mốc CHÍNH chạy trên **GitHub

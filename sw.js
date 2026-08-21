@@ -1,12 +1,21 @@
 // Điểm Tin Thế Giới — service worker (network-first cho nội dung mới, cache dự phòng offline)
-var C = 'diemtin-v51';
-// data/analyses.json tách khỏi index.html 30/07/2026 — phải precache, nếu không thì mở offline
-// mục 🏛️ Think-tank trống trơn (trước khi tách nó nằm sẵn trong index.html nên luôn có).
-var SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './data/analyses.json'];
+var C = 'diemtin-v52';
+var SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg'];
+// HAI KHO TÁCH KHỎI index.html, phải precache nếu không thì mở offline sẽ thiếu nội dung mà
+// KHÔNG có lỗi nào hiện ra: data/analyses.json (tách 30/07/2026) mất mục 🏛️ Think-tank;
+// data/kho.json (tách 21/08/2026) mất kho tin cũ, hồ sơ tập trận, cà phê, bản tuần.
+// ⚠️ Để RIÊNG khỏi SHELL và bắt lỗi từng file: `addAll` là tất-cả-hoặc-không — một file 404
+// (bản dựng cũ chưa có kho.json, hoặc mở từ bản repo chưa qua bước dựng) là service worker
+// KHÔNG cài được, mất luôn cả phần chạy offline của trang.
+var KHO = ['./data/analyses.json', './data/kho.json'];
 
 self.addEventListener('install', function (e) {
   self.skipWaiting();
-  e.waitUntil(caches.open(C).then(function (c) { return c.addAll(SHELL); }));
+  e.waitUntil(caches.open(C).then(function (c) {
+    return c.addAll(SHELL).then(function () {
+      return Promise.all(KHO.map(function (u) { return c.add(u).catch(function () {}); }));
+    });
+  }));
 });
 
 self.addEventListener('activate', function (e) {

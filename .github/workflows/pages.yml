@@ -40,6 +40,15 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: main
+      # ⛔ 21/08/2026 — BƯỚC DỰNG BẢN NHẸ. `index.html` trên `main` nặng 1.718.169 byte, riêng
+      # `var DATA` chiếm 88,5%; bước này cắt còn lát đầu (355 KB thô / 108 KB nén) và đẩy kho ra
+      # `data/kho.json`, trang tự nạp sau khi đã hiện chữ. Chỉ sửa BẢN CHECKOUT trong runner —
+      # KHÔNG commit gì, `main` vẫn giữ index.html đủ dữ liệu cho 21 script Python ghi vào.
+      # ⚠️ Bỏ bước này thì trang vẫn chạy (nặng như cũ) NHƯNG canary sẽ kêu lệch mỗi ca, vì
+      # `canary.kiem_web()` so bản web với bản ĐÃ CẮT dựng lại từ main.
+      - name: Dung ban nhe (tach kho ra data/kho.json)
+        run: python3 scripts/cat_nhe_trang.py --tai-cho
+
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact

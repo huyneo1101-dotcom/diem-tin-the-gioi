@@ -67,8 +67,17 @@ def ca_goi_o_boot(html, sw):
 
 
 def _than_loadAnalyses(html: str) -> str:
+    """Thân hàm loadAnalyses, CẮT ĐÚNG ở hàm kế tiếp.
+
+    ⚠️ Trước 21/08/2026 hàm này cắt tới `function loadBaomoi(`. Khi `loadKho()` chen vào giữa
+    hai hàm đó, "thân loadAnalyses" nuốt luôn thân loadKho — mà loadKho chép đúng khuôn
+    `commitSeen(); if(_firstRun)initSeen(); render();`. Hậu quả: gỡ sạch mấy dòng ấy khỏi
+    loadAnalyses mà ca vẫn báo đạt, tức cổng ngừng phát hiện trong im lặng. `--tu-kiem` bắt
+    được đúng ca này. Nay cắt ở mốc mở đầu khai báo cấp cao nhất kế tiếp, không neo vào tên.
+    """
     i = html.index("function loadAnalyses(")
-    return html[i:html.index("function loadBaomoi(", i)]
+    m = re.search(r"\n(?:function |var |/\* )", html[i + 1:])
+    return html[i:i + 1 + m.start()] if m else html[i:]
 
 
 def ca_chay_lai_phu_thuoc(html, sw):
@@ -85,13 +94,19 @@ def ca_lan_dau_vao_web(html, sw):
 
 
 def ca_sw_precache(html, sw):
-    # Soi ĐÚNG dòng khai SHELL, không soi cả file: comment trong sw.js cũng nhắc tên file này,
-    # nên `"data/analyses.json" in sw` vẫn đúng kể cả khi đã bị gỡ khỏi SHELL — ca xanh giả.
-    m = re.search(r"^var SHELL\s*=\s*\[(.*?)\];", sw, re.M | re.S)
-    if not m:
-        return "sw.js: không tìm thấy khai báo `var SHELL = [...]`"
-    if "data/analyses.json" not in m.group(1):
-        return "sw.js: data/analyses.json không nằm trong SHELL — mở offline thì Think-tank trống"
+    # Soi ĐÚNG dòng khai danh sách, không soi cả file: comment trong sw.js cũng nhắc tên file
+    # này, nên `"data/analyses.json" in sw` vẫn đúng kể cả khi đã bị gỡ — ca xanh giả.
+    # Từ 21/08/2026 hai kho tách ra nằm ở `var KHO` chứ không ở `var SHELL`: `addAll` là
+    # tất-cả-hoặc-không, một kho 404 là service worker không cài được. Ca này nhận CẢ HAI chỗ,
+    # nhưng bắt buộc tên file phải xuất hiện trong một danh sách ĐƯỢC install() nạp thật.
+    khai = "".join(m.group(1) for m in
+                   re.finditer(r"^var (?:SHELL|KHO)\s*=\s*\[(.*?)\];", sw, re.M | re.S))
+    if not khai:
+        return "sw.js: không tìm thấy khai báo `var SHELL = [...]` / `var KHO = [...]`"
+    if "data/analyses.json" not in khai:
+        return "sw.js: data/analyses.json không nằm trong SHELL/KHO — mở offline thì Think-tank trống"
+    if not re.search(r"addEventListener\('install'[\s\S]{0,400}?KHO", sw):
+        return "sw.js: `var KHO` khai rồi nhưng install() không nạp — precache chỉ có trên giấy"
     return None
 
 
@@ -167,8 +182,12 @@ BAN_HONG = [
      lambda h: h.replace("    DATA.analyses=arr;\n    importAnalysisConcepts();",
                          "    DATA.analyses=arr;", 1),
      "nạp xong chạy lại 3 việc phụ thuộc"),
-    ("gỡ kho khỏi SHELL của sw.js", "sw",
-     lambda s: s.replace(", './data/analyses.json'", ""),
+    ("gỡ kho analyses khỏi danh sách precache của sw.js", "sw",
+     lambda s: s.replace("'./data/analyses.json', ", ""),
+     "sw.js precache kho cho bản offline"),
+    ("khai KHO nhưng install() không nạp (precache trên giấy)", "sw",
+     lambda s: s.replace("return c.addAll(SHELL).then(function () {\n      return Promise.all(KHO.map(function (u) { return c.add(u).catch(function () {}); }));\n    });",
+                         "return c.addAll(SHELL);"),
      "sw.js precache kho cho bản offline"),
 ]
 

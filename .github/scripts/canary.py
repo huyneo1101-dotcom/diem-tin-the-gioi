@@ -243,11 +243,31 @@ def kiem_web(url: str = WEB_URL) -> tuple[bool, str]:
     if ma != "200":
         return True, f"HTTP {ma} (bỏ qua)"
     tren_web = bam_blob(than)
-    tren_main = bam_blob(trong_repo.read_bytes())
+    mong_doi, cach = ban_mong_doi(trong_repo)
+    tren_main = bam_blob(mong_doi)
     if tren_web == tren_main:
-        return True, f"trang khớp bản trên main ({tren_main[:8]})"
+        return True, f"trang khớp bản trên main ({tren_main[:8]}, {cach})"
     return False, (f"trang đang phục vụ bản {tren_web[:8]} ({len(than):,} byte), "
-                   f"còn main là {tren_main[:8]} ({trong_repo.stat().st_size:,} byte)")
+                   f"còn main dựng ra {tren_main[:8]} ({len(mong_doi):,} byte, {cach})")
+
+
+def ban_mong_doi(trong_repo) -> tuple[bytes, str]:
+    """Bytes mà Pages ĐÁNG LẼ đang phục vụ, dựng lại từ index.html trên main.
+
+    Từ 21/08/2026 `pages.yml` chạy `scripts/cat_nhe_trang.py --tai-cho` trước khi đóng gói
+    artifact, nên bản trên web KHÔNG còn giống byte-đối-byte với file trong repo. So thẳng như
+    trước là kêu lệch ở MỌI ca — kêu oan vài lần là Huy thôi đọc, tức lớp đo tự vô hiệu hoá.
+    Phép cắt thuần tuý và tất định (cùng đầu vào ra cùng đầu ra) nên dựng lại rồi so vẫn là so
+    bit-đối-bit, không suy diễn từ nội dung.
+    Dựng lại hỏng vì bất cứ lý do gì thì lùi về so bản thô: thà đo thô còn hơn tắt lớp đo.
+    """
+    raw = trong_repo.read_bytes()
+    try:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        from cat_nhe_trang import cat_nhe  # noqa: PLC0415
+        return cat_nhe(raw.decode("utf-8"))[0].encode("utf-8"), "bản dựng nhẹ"
+    except Exception:  # noqa: BLE001
+        return raw, "bản thô (không dựng lại được)"
 
 
 def main() -> int:

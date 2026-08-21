@@ -1692,6 +1692,31 @@ function loadAnalyses(){
     render();
   }).catch(function(){ANALYSES_LOADED=true;});
 }
+/* ==== Kho lưu trữ tách khỏi trang (bản dựng nhẹ — 21/08/2026) ====
+   `pages.yml` chạy `scripts/cat_nhe_trang.py --tai-cho` trước khi đóng gói artifact: index.html
+   đẩy lên Pages chỉ mang LÁT ĐẦU (tin vài ngày gần nhất, tập trận không kèm concepts/background),
+   toàn bộ kho nằm ở `data/kho.json` và về sau khi trang đã hiện chữ. 485 KB nén còn 108 KB.
+   ⚠️ Trong repo, index.html VẪN đủ dữ liệu và KHÔNG có cờ `_nhe` — mọi script Python ghi như cũ,
+   hàm này tự đứng im (không fetch, không 404). Chỉ bản đã dựng mới nạp kho.
+   ⛔ CẤM gán `DATA.analyses` từ kho: bài think-tank có kho RIÊNG (`data/analyses.json`, tách
+   30/07/2026) và hai lời gọi fetch chạy song song — ghi đè là mục Think-tank trống mà không
+   có lỗi nào hiện ra. `cat_nhe_trang.py` đã loại `analyses` khỏi kho, vòng lặp dưới chặn lần hai.
+   ⚠️ Nạp xong PHẢI chạy lại importDrillConcepts(): khái niệm rút từ hồ sơ tập trận nằm trong
+   `exercises[].concepts`, mà lát đầu cố tình bỏ trường đó. commitSeen()+initSeen() giữ đúng
+   bài học của loadAnalyses(): người vào web lần đầu không được thấy cả kho gắn nhãn MỚI. */
+var KHO_LOADED=false;
+function loadKho(){
+  if(KHO_LOADED||!DATA._nhe)return;
+  fetch('data/kho.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(kho){
+    KHO_LOADED=true;
+    if(!kho||typeof kho!=='object')return;
+    Object.keys(kho).forEach(function(k){if(k!=='analyses')DATA[k]=kho[k];});
+    importDrillConcepts();
+    commitSeen();
+    if(_firstRun)initSeen();
+    render();
+  }).catch(function(){KHO_LOADED=true;});
+}
 function loadBaomoi(){
   if(BAOMOI_MERGED)return;
   fetch('baomoi-saved.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(sv){
@@ -2006,6 +2031,7 @@ importDrillConcepts();
 importAnalysisConcepts();
 hashApply();   /* mở bằng link có #... thì vào thẳng tab/mục con đó, phải chạy TRƯỚC render đầu tiên */
 render();
+loadKho();
 loadAnalyses();
 loadBaomoi();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
