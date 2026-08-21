@@ -40,8 +40,16 @@ phê, bản tuần, ngoại giao, tin bị loại để rỗng. Đo bằng `--ki
   trả undefined, thêm `ignoreSearch` thì trúng — tức precache offline đã **vô tác dụng từ
   30/07/2026**, mở offline mục 🏛️ Think-tank vẫn trống dù sw.js khai precache nó. Chỉ áp cho
   cùng gốc: chuỗi truy vấn của Supabase (`?select=cid,tags`) MANG NGHĨA.
-- Bộ canh: `tests/test-cat-nhe-trang.py` — **13 ca · `--tu-kiem` bắt 11/11 bản hỏng**, đã nạp
+- Bộ canh: `tests/test-cat-nhe-trang.py` — **17 ca · `--tu-kiem` bắt 20/20 bản hỏng**, đã nạp
   `BO_TEST` của `HeThong/khoe.py`.
+- ⚖️ **Phép cân trang: `HeThong/khoe.py::trang_diemtin_phinh()`** (nạp 21/08/2026). Kích thước
+  `index.html` trên đĩa KHÔNG nói gì về thứ người đọc tải, nên phép đo dựng lại đúng bản đã
+  cắt rồi cân byte gzip của **lát đầu**: hiện **109.127 / trần `TRAN_TRANG_DT_NEN` = 125.000**.
+  Vượt trần ⇒ VÀNG; **bước cắt mất tác dụng ⇒ ĐỎ** — `cat_nhe()` trượt vẫn trả HTML hợp lệ nên
+  `pages.yml` vẫn xanh và trang lại nặng 1,7 MB, không dấu hiệu nào. Trần là **ratchet, chỉ hạ**:
+  nới lên quá 25% so với số đo hiện tại thì chính phép đo kêu VÀNG. 05 ca trong `khoe.py --tu-kiem`.
+  ⚠️ KHÁC `canary.kiem_web()`, đừng gộp: canary hỏi *bản trên mạng có khớp bản dựng không*,
+  phép cân này hỏi *bản dựng có còn gọn không*.
 
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)
 Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 20:47** và **SÁNG SỚM 03:47**
