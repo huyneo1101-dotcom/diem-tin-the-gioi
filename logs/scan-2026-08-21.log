@@ -65,3 +65,7 @@
 [14:21Z] git push bi tu choi (co commit SKIP cua local 21:15 chen vao), pull --rebase resolve
   xung dot 1 file (log, giu ca hai doan theo dung thu tu thoi gian) roi push lai thanh cong.
   KET THUC phien toi. Commit "Cap nhat ban tin 21/08" (8ed122f) da len main.
+[14:22Z] SKIP (CI, lan fire trung khac) - state.py claim web-scan tra exit 10, phien toi ngay
+  2026-08-21 DA XONG (lastRunAt 21:20:38+07, note +5 worldNews +9 usNews +1 tap tran). Kiem tra
+  ngoai le theo quy trinh: so_da_gui.py --xem xac nhan dong "2026-08-21T21:22:14+07:00 [toi] 15
+  tin" - ban tin THAT SU da gui, khong phai co noi doi. SKIP hop le, KET THUC.
