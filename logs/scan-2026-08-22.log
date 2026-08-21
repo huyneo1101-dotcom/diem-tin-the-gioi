@@ -5,3 +5,4 @@
 [21:24Z] tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10) - bo qua buoc loc Jay Lam.
 [21:30Z] add_news.py: +8 tin usNews, +1 cap nhat tap tran. Phat hien 1 tin trung (Bessent Iran sanctions) sau khi nap, da xoa bang prune_news.py. Con lai 7 tin usNews thuc chat + 1 cap nhat tap tran. Commit + push "Cap nhat ban tin 22/08" thanh cong.
 [21:30Z] state.py done web-scan. Bat dau Buoc 6 (event-scan) vi la phien sang som.
+[21:30Z] SKIP (local 04:30) - web-scan da DONE (CI 03:47 xong luc 04:30:02). Khong lam lai.
