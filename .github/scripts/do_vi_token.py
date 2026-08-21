@@ -40,6 +40,12 @@ VI_DA_BIET = {
     "fc00b51b4530": "ví B (túi Max 20x, chủ hiện hành của máy Mac)",
 }
 
+# SỐ ĐO 21/08/2026 lúc 15:54 giờ VN — mốc để lượt sau đối chiếu, đừng đo lại từ đầu:
+#   máy Mac (ví B): reset tuần 1787684400 = 26/08 02:00 · reset 5 giờ 1787307000 = 21/08 17:10
+#   token CI      : reset tuần 1787335200 = 22/08 01:00 · reset 5 giờ 1787310000 = 21/08 18:00
+# Hai mốc tuần LỆCH ⇒ CI KHÔNG rút cùng ví với máy Mac, tức đang rút ví A. Cùng lượt đo, CI
+# khai tuần đã dùng 0.87 — túi ấy sắp cạn trước mốc reset 22/08 01:00.
+
 
 def lay_ho_so(token, mo=None):
     """Trả (dict hồ sơ, lỗi). `mo` là hàm tiêm cho tự kiểm — CHỈ dùng trong `--tu-kiem`."""
