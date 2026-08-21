@@ -61,8 +61,121 @@ def ca_co_ham_nap(html, sw, pages, canary):
 
 
 def ca_goi_o_boot(html, sw, pages, canary):
-    if not re.search(r"^loadKho\(\);", html, re.M):
-        return "không có lời gọi loadKho() ở luồng boot — kho không bao giờ được nạp"
+    """Kho phải được nạp bằng HAI đường, không đường nào thay được đường kia.
+
+    21/08/2026 bỏ lời gọi thẳng ở boot (kéo 711 KB nén cho phần người đọc bản tin không mở
+    tới) và thay bằng: (i) nạp khi trang rảnh, để bấm sang tab không phải chờ; (ii) nạp theo
+    nhu cầu ở tab / ô tìm kiếm, cho máy chậm chưa kịp rảnh. Mất (i) thì mỗi lần bấm tab phải
+    chờ tải; mất (ii) thì máy chậm bấm tab ra trang thiếu tin — cả hai đều KHÔNG phát ra lỗi.
+    """
+    if not re.search(r"^napKhiRanh\(\);", html, re.M):
+        return "luồng boot không gọi napKhiRanh() — kho không bao giờ được nạp"
+    than = _than_ham(html, "function napKhiRanh(")
+    if "loadKho()" not in than or "loadAnalyses()" not in than:
+        return "napKhiRanh() không nạp đủ cả kho lẫn analyses"
+    if "requestIdleCallback" not in than:
+        return "napKhiRanh() không dùng requestIdleCallback — nạp sẵn lúc rảnh mất tác dụng"
+    if "setTimeout" not in than:
+        return ("napKhiRanh() không có nhánh lùi setTimeout — Safari cũ không có "
+                "requestIdleCallback sẽ KHÔNG BAO GIỜ nạp kho, và không lỗi nào hiện ra")
+    if "loadKho()" not in _handler_input(html):
+        return "gõ vào ô tìm kiếm không kéo kho về — tìm trên lát đầu, ra thiếu tin"
+    if not re.search(r"data-tab'\)\)\{loadKho\(\);", html):
+        return "bấm tab không kéo kho về — máy chậm chưa kịp rảnh sẽ mở tab thiếu dữ liệu"
+    return None
+
+
+def _than_ham(html, mo_dau):
+    i = html.index(mo_dau)
+    m = re.search(r"\n(?:function |var |/\* )", html[i + 1:])
+    return html[i:i + 1 + m.start()] if m else html[i:]
+
+
+def _handler_input(html):
+    i = html.index("document.addEventListener('input'")
+    return html[i:i + 800]
+
+
+def ca_tim_kiem_bao_thieu_kho(html, sw, pages, canary):
+    """Tìm kiếm quét TOÀN kho. Kho chưa về mà con số vẫn in trơ là người đọc tin rằng
+    tìm không ra nghĩa là không có — đúng chiều hỏng câm cả bước tách kho phải né."""
+    than = _than_ham(html, "function searchInfo(")
+    if "khoSan()" not in than:
+        return "searchInfo() không hỏi khoSan() — kết quả thiếu tin mà không dấu hiệu nào"
+    return None
+
+
+def ca_xuat_word_chan_khi_thieu_kho(html, sw, pages, canary):
+    """Hai nút xuất Word đều quét toàn kho; xuất khi kho chưa về là ra file thiếu tin."""
+    thieu = []
+    for nhan in ("data-export-home", "data-export-picked"):
+        i = html.index("t.getAttribute('%s')" % nhan)
+        if "khoSan()" not in html[i:i + 400]:
+            thieu.append(nhan)
+    return ("nút %s xuất Word mà không kiểm khoSan() — file ra thiếu tin, không báo"
+            % ", ".join(thieu)) if thieu else None
+
+
+def ca_mang_yeu_khong_nap_san(html, sw, pages, canary):
+    """CHẠY THẬT napKhiRanh() bằng node, bốn trạng thái mạng.
+
+    Chiều PHẢI CHẶN: mạng 3G hoặc người dùng bật tiết kiệm dữ liệu thì KHÔNG nạp sẵn 711 KB.
+    Chiều CHỐNG CHẶN OAN: mạng 4G và trình duyệt không khai `navigator.connection` (Safari)
+    thì VẪN nạp sẵn — bỏ nạp ở đây là mỗi lần bấm tab phải ngồi chờ tải, mà không lỗi nào hiện.
+    """
+    import subprocess  # noqa: PLC0415
+    # Cắt tới dấu `}` ở CỘT 0, không dùng _than_ham: ngay sau hàm là lời gọi
+    # `napKhiRanh();` chứ không phải một khai báo, nên _than_ham sẽ nuốt luôn cả
+    # phần boot phía dưới và node vấp `loadBaomoi is not defined`.
+    m0 = re.search(r"function napKhiRanh\(\)\{.*?\n\}", html, re.S)
+    if not m0:
+        return "index.html không có hàm napKhiRanh()"
+    than = m0.group(0)
+    js = ("var goi=0;var navigator={},window={};"
+          "function loadKho(){goi++;}function loadAnalyses(){goi++;}"
+          # Lời gọi trong mã là `requestIdleCallback(f,...)` TRẦN sau khi kiểm
+          # `window.requestIdleCallback` — nên phải khai cả hai, không chỉ khai trên window.
+          "var requestIdleCallback=function(f){f();};"
+          "window.requestIdleCallback=requestIdleCallback;"
+          + than +
+          ";function thu(c){goi=0;navigator.connection=c;napKhiRanh();return goi;}"
+          "console.log(JSON.stringify([thu(null),thu({effectiveType:'4g'}),"
+          "thu({effectiveType:'3g'}),thu({saveData:true,effectiveType:'4g'})]));")
+    p = subprocess.run(["node", "-e", js], capture_output=True, text=True)
+    if p.returncode != 0:
+        return "không chạy được napKhiRanh() bằng node: %s" % p.stderr.strip()[:200]
+    ra = json.loads(p.stdout.strip())
+    mong = [2, 2, 0, 0]
+    if ra != mong:
+        return ("napKhiRanh() gọi %s lời nạp, phải là %s cho [không khai mạng · 4g · 3g · "
+                "tiết kiệm dữ liệu]" % (ra, mong))
+    return None
+
+
+def ca_khosan_dung_hai_chieu(html, sw, pages, canary):
+    """CHẠY THẬT hàm khoSan() bằng node, ba trạng thái. Soi chuỗi thì một phép so bị đảo
+    dấu vẫn xanh; chạy thật mới phân biệt được chặn đúng với CHẶN OAN.
+
+    Chặn oan ở đây tốn thật: bản trong repo (mở bằng file:// trên máy) không bao giờ có kho
+    tách rời, nên khoSan() trả false là ô tìm kiếm treo dòng ⏳ vĩnh viễn và nút xuất Word
+    không bao giờ bấm được."""
+    import subprocess  # noqa: PLC0415
+    m = re.search(r"function khoSan\(\)\{[^}]*\}", html)
+    if not m:
+        return "index.html không có hàm khoSan()"
+    js = ("var DATA,KHO_LOADED;" + m.group(0) + ";var r=[];"
+          "DATA={};KHO_LOADED=false;r.push(khoSan());"
+          "DATA={_nhe:1};KHO_LOADED=false;r.push(khoSan());"
+          "DATA={_nhe:1};KHO_LOADED=true;r.push(khoSan());"
+          "console.log(JSON.stringify(r));")
+    p = subprocess.run(["node", "-e", js], capture_output=True, text=True)
+    if p.returncode != 0:
+        return "không chạy được khoSan() bằng node: %s" % p.stderr.strip()[:200]
+    ra = json.loads(p.stdout.strip())
+    mong = [True, False, True]
+    if ra != mong:
+        return ("khoSan() trả %s, phải là %s cho [bản repo đủ kho · bản Pages chưa nạp · "
+                "bản Pages đã nạp]" % (ra, mong))
     return None
 
 
@@ -170,7 +283,11 @@ def ca_lat_dau_du_cho_trang_chu(html, sw, pages, canary):
 CA = [
     ("index.html trong repo vẫn là bản ĐỦ kho", ca_repo_con_du_kho),
     ("index.html có loadKho() fetch đúng data/kho.json", ca_co_ham_nap),
-    ("loadKho() được gọi ở luồng boot", ca_goi_o_boot),
+    ("kho nạp khi trang rảnh VÀ theo nhu cầu (tab · ô tìm kiếm)", ca_goi_o_boot),
+    ("ô tìm kiếm BÁO khi kho chưa về", ca_tim_kiem_bao_thieu_kho),
+    ("nút xuất Word CHẶN khi kho chưa về", ca_xuat_word_chan_khi_thieu_kho),
+    ("khoSan() đúng cả ba trạng thái (chạy thật, chống chặn oan)", ca_khosan_dung_hai_chieu),
+    ("mạng yếu / tiết kiệm dữ liệu KHÔNG nạp sẵn 711 KB (chạy thật)", ca_mang_yeu_khong_nap_san),
     ("nạp xong chạy lại importDrillConcepts + commitSeen + render", ca_chay_lai_phu_thuoc),
     ("người vào web LẦN ĐẦU không thấy cả kho gắn nhãn MỚI", ca_lan_dau_vao_web),
     ("loadKho() KHÔNG ghi đè DATA.analyses", ca_khong_de_len_analyses),
@@ -209,9 +326,42 @@ def chay(html=None, sw=None, pages=None, canary=None, im=False) -> int:
 # Mỗi bản hỏng gỡ đúng MỘT lớp bảo vệ và khai ca nào PHẢI báo không đạt theo. Khai thừa ca là
 # tự bịt mắt mình — `--tu-kiem` sẽ báo trượt vì lý do sai.
 BAN_HONG = [
-    ("gỡ lời gọi loadKho() ở boot", "html",
-     lambda h: h.replace("\nloadKho();\nloadAnalyses();", "\nloadAnalyses();"),
-     "loadKho() được gọi ở luồng boot"),
+    ("gỡ lời gọi napKhiRanh() ở boot", "html",
+     lambda h: h.replace("\nnapKhiRanh();\nloadBaomoi();", "\nloadBaomoi();"),
+     "kho nạp khi trang rảnh VÀ theo nhu cầu (tab · ô tìm kiếm)"),
+    ("gỡ nhánh lùi setTimeout (Safari cũ không bao giờ nạp kho)", "html",
+     lambda h: h.replace("if(window.requestIdleCallback)requestIdleCallback(f,{timeout:4000});else setTimeout(f,2000);",
+                         "if(window.requestIdleCallback)requestIdleCallback(f,{timeout:4000});", 1),
+     "kho nạp khi trang rảnh VÀ theo nhu cầu (tab · ô tìm kiếm)"),
+    ("gỡ loadKho() khỏi ô tìm kiếm (tìm trên lát đầu, ra thiếu tin)", "html",
+     lambda h: h.replace("if(e.target&&e.target.id==='q'){loadKho();", "if(e.target&&e.target.id==='q'){", 1),
+     "kho nạp khi trang rảnh VÀ theo nhu cầu (tab · ô tìm kiếm)"),
+    ("gỡ loadKho() khỏi nút bấm tab (máy chậm mở tab thiếu dữ liệu)", "html",
+     lambda h: h.replace("if(t.getAttribute('data-tab')){loadKho();", "if(t.getAttribute('data-tab')){", 1),
+     "kho nạp khi trang rảnh VÀ theo nhu cầu (tab · ô tìm kiếm)"),
+    ("ô tìm kiếm thôi báo kho chưa về (kết quả thiếu mà im)", "html",
+     lambda h: h.replace("var them=khoSan()?'':' <b style=\"color:#c2410c\">\u23f3 Kho l\u01b0u tr\u1eef \u0111ang t\u1ea3i, k\u1ebft qu\u1ea3 c\u00f2n thi\u1ebfu</b>';",
+                         "var them='';", 1),
+     "ô tìm kiếm BÁO khi kho chưa về"),
+    ("nút xuất Word thôi chặn khi kho chưa về (file ra thiếu tin)", "html",
+     lambda h: h.replace("    if(!khoSan()){loadKho();toast('\u0110ang t\u1ea3i kho l\u01b0u tr\u1eef\u2026 b\u1ea5m l\u1ea1i sau v\u00e0i gi\u00e2y \u0111\u1ec3 file \u0111\u1ee7 tin');return;}\n    exportHomeDocx();return;}",
+                         "    exportHomeDocx();return;}", 1),
+     "nút xuất Word CHẶN khi kho chưa về"),
+    ("khoSan() chặn OAN cả bản repo đủ kho (ô tìm kiếm treo ⏳ vĩnh viễn)", "html",
+     lambda h: h.replace("function khoSan(){return !DATA._nhe||KHO_LOADED;}",
+                         "function khoSan(){return KHO_LOADED;}", 1),
+     "khoSan() đúng cả ba trạng thái (chạy thật, chống chặn oan)"),
+    ("bỏ rào mạng yếu (3G vẫn kéo 711 KB người đọc không cần)", "html",
+     lambda h: h.replace("  if(c&&(c.saveData===true||/^(slow-2g|2g|3g)$/.test(c.effectiveType||'')))return;\n", "", 1),
+     "mạng yếu / tiết kiệm dữ liệu KHÔNG nạp sẵn 711 KB (chạy thật)"),
+    ("rào mạng chặn OAN cả 4G và trình duyệt không khai connection", "html",
+     lambda h: h.replace("if(c&&(c.saveData===true||/^(slow-2g|2g|3g)$/.test(c.effectiveType||'')))return;",
+                         "return;", 1),
+     "mạng yếu / tiết kiệm dữ liệu KHÔNG nạp sẵn 711 KB (chạy thật)"),
+    ("khoSan() luôn nói SẴN (van chặn chết câm)", "html",
+     lambda h: h.replace("function khoSan(){return !DATA._nhe||KHO_LOADED;}",
+                         "function khoSan(){return true;}", 1),
+     "khoSan() đúng cả ba trạng thái (chạy thật, chống chặn oan)"),
     ("gỡ rào k!=='analyses' trong loadKho", "html",
      lambda h: h.replace("Object.keys(kho).forEach(function(k){if(k!=='analyses')DATA[k]=kho[k];});",
                          "Object.keys(kho).forEach(function(k){DATA[k]=kho[k];});", 1),

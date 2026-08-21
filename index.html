@@ -1178,7 +1178,12 @@ function renderFresh(){
   var rescHtml=resc.length?'<div class="rejsec">⭐ Tin bạn đã cứu từ mục Bị loại ('+resc.length+')</div>'+resc.map(function(a){return card(newsCardInner(a),idOf(a));}).join(''):'';
   return exportBar()+note+searchInfo(shown.length)+chips+dsel+featHtml+rescHtml+'<div class="list">'+cards+'</div>'+more;
 }
-function searchInfo(n){return state.q?'<div class="searchinfo">Kết quả cho “'+esc(state.q)+'”: <b>'+n+'</b> tin.</div>':'';}
+function searchInfo(n){
+  if(!state.q)return '';
+  /* Kho chưa về ⇒ con số này là của LÁT ĐẦU, không phải của cả kho. Im ở đây là để người đọc
+     tin rằng tìm không ra nghĩa là không có — đúng chiều hỏng câm mà cả bước tách kho phải né. */
+  var them=khoSan()?'':' <b style="color:#c2410c">⏳ Kho lưu trữ đang tải, kết quả còn thiếu</b>';
+  return '<div class="searchinfo">Kết quả cho “'+esc(state.q)+'”: <b>'+n+'</b> tin.'+them+'</div>';}
 function catFilters(arr){
   var out='';
   var rs=[];arr.forEach(function(a){var r=regionOf(a);if(r!=='Khác'&&rs.indexOf(r)<0)rs.push(r);});
@@ -1705,6 +1710,10 @@ function loadAnalyses(){
    `exercises[].concepts`, mà lát đầu cố tình bỏ trường đó. commitSeen()+initSeen() giữ đúng
    bài học của loadAnalyses(): người vào web lần đầu không được thấy cả kho gắn nhãn MỚI. */
 var KHO_LOADED=false;
+/* Kho đã dùng được chưa. Bản trong repo không có cờ `_nhe` nên luôn ĐỦ ngay từ đầu — chỉ bản
+   dựng cho Pages mới có quãng chờ. Trả về false nghĩa là mọi phép quét toàn kho (tìm kiếm,
+   xuất Word) đang chạy trên lát đầu và PHẢI nói ra. */
+function khoSan(){return !DATA._nhe||KHO_LOADED;}
 function loadKho(){
   if(KHO_LOADED||!DATA._nhe)return;
   fetch('data/kho.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).then(function(kho){
@@ -1971,12 +1980,17 @@ document.addEventListener('click',function(e){
   if(t.getAttribute('data-cafesave')!=null){cfSaveCustom2();return;}
   if(t.getAttribute('data-cafecancel')!=null){state.cafeAdding=false;window._cfCoord=null;render();return;}
   if(t.getAttribute('data-pick')!=null){togglePick(t.getAttribute('data-pick'));reContent();return;}
-  if(t.getAttribute('data-export-home')!=null){exportHomeDocx();return;}
+  if(t.getAttribute('data-export-home')!=null){
+    /* Xuất khi kho chưa về là ra file THIẾU tin mà không dấu hiệu nào — chặn, kéo kho, báo. */
+    if(!khoSan()){loadKho();toast('Đang tải kho lưu trữ… bấm lại sau vài giây để file đủ tin');return;}
+    exportHomeDocx();return;}
   /* Chọn hết / bỏ chọn CHỈ trong phạm vi tin đang hiện ở trang chủ — không đụng tin đã tick ở tab khác. */
   if(t.getAttribute('data-pick-home')!=null){var _all=t.getAttribute('data-pick-home')==='all';
     homePickIds().forEach(function(id){if(_all)PICK.add(id);else PICK['delete'](id);});
     savePick();reContent();return;}
-  if(t.getAttribute('data-export-picked')!=null){exportPickedDocx();return;}
+  if(t.getAttribute('data-export-picked')!=null){
+    if(!khoSan()){loadKho();toast('Đang tải kho lưu trữ… bấm lại sau vài giây để file đủ tin');return;}
+    exportPickedDocx();return;}
   if(t.getAttribute('data-clear-pick')!=null){PICK.clear();savePick();reContent();return;}
   if(t.getAttribute('data-share')!=null){doShare(t.getAttribute('data-url'),t.getAttribute('data-title'));return;}
   if(t.getAttribute('data-copy')!=null){doCopy(t.getAttribute('data-url'));return;}
@@ -1989,7 +2003,8 @@ document.addEventListener('click',function(e){
   if(t.getAttribute('data-drillcon')!=null){drillDocScrollY=window.scrollY;state.drillDoc={name:t.getAttribute('data-drillcon'),kind:'concepts'};render();window.scrollTo(0,0);return;}
   if(t.getAttribute('data-drilltk')!=null){drillDocScrollY=window.scrollY;state.drillDoc={name:t.getAttribute('data-drilltk'),kind:'thinktank'};render();window.scrollTo(0,0);return;}
   if(t.getAttribute('data-drilldocback')!=null){state.drillDoc=null;render();var _y=drillDocScrollY;setTimeout(function(){window.scrollTo(0,_y);},0);return;}
-  if(t.getAttribute('data-tab')){state.drillDoc=null;state.tab=t.getAttribute('data-tab');state.newsSeg='fresh';state.fresh='Tất cả';state.freshDate='';state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
+  if(t.getAttribute('data-tab')){loadKho();if(t.getAttribute('data-tab')==='analysis')loadAnalyses();
+    state.drillDoc=null;state.tab=t.getAttribute('data-tab');state.newsSeg='fresh';state.fresh='Tất cả';state.freshDate='';state.wcat='Tất cả';state.wdate='Tất cả';state.wregion='Tất cả';state.xhandle='Tất cả';state.xdate='Tất cả';state.drill='Tất cả';state.dip='Tất cả';state.dossier='Tất cả';}
   else if(t.getAttribute('data-fresh')!=null){state.fresh=t.getAttribute('data-fresh');state.freshDate='';}
   else if(t.getAttribute('data-wcat'))state.wcat=t.getAttribute('data-wcat');
   else if(t.getAttribute('data-areg'))state.areg=t.getAttribute('data-areg');
@@ -2008,7 +2023,7 @@ document.addEventListener('click',function(e){
 var cfScrollY=0,cfRestoring=false;
 window.addEventListener('scroll',function(){if(state.tab==='cafe'&&!cfRestoring)cfScrollY=window.scrollY;},{passive:true});
 document.addEventListener('input',function(e){
-  if(e.target&&e.target.id==='q'){var had=!!state.q;state.q=e.target.value;if((!had)!==(!state.q)){render();var el=document.getElementById('q');if(el){el.focus();var v=el.value;el.value='';el.value=v;}}else{reContent();}}
+  if(e.target&&e.target.id==='q'){loadKho();var had=!!state.q;state.q=e.target.value;if((!had)!==(!state.q)){render();var el=document.getElementById('q');if(el){el.focus();var v=el.value;el.value='';el.value=v;}}else{reContent();}}
 });
 document.addEventListener('change',function(e){
   var s=e.target;if(!s||!s.getAttribute)return;
@@ -2031,8 +2046,26 @@ importDrillConcepts();
 importAnalysisConcepts();
 hashApply();   /* mở bằng link có #... thì vào thẳng tab/mục con đó, phải chạy TRƯỚC render đầu tiên */
 render();
-loadKho();
-loadAnalyses();
+/* ==== Hoãn 711 KB nén tới lúc THẬT SỰ cần (21/08/2026) ====
+   Trước đây boot gọi thẳng loadKho()+loadAnalyses(), tức mọi lần mở trang đều kéo
+   `data/kho.json` (422 KB nén) và `data/analyses.json` (289 KB nén) — trong khi người vào đọc
+   bản tin trong ngày không mở tới hai kho ấy. Nay:
+     · nạp NGAY khi trang rảnh (requestIdleCallback) ⇒ bấm sang tab khác vẫn không phải chờ;
+     · nạp THEO NHU CẦU khi bấm tab / gõ tìm kiếm / bấm xuất Word, cho máy chậm chưa kịp rảnh.
+   ⛔ Ô tìm kiếm và bộ xuất Word quét TOÀN kho, nên hai chỗ đó phải BÁO khi kho chưa về
+   (khoSan()) — tìm ra thiếu tin mà không có dấu hiệu nào đúng là chiều hỏng câm.
+   requestIdleCallback vắng mặt trên Safari cũ ⇒ lùi về setTimeout, KHÔNG bỏ nạp. */
+function napKhiRanh(){
+  /* Mạng yếu hoặc người dùng đã bật tiết kiệm dữ liệu ⇒ KHÔNG nạp sẵn. Đây mới là chỗ 711 KB
+     thật sự đắt: trên 3G nó là vài chục giây và một phần dung lượng của gói cước, cho phần
+     người đọc bản tin trong ngày không mở tới. Hai kho vẫn về đủ khi bấm tab hoặc gõ tìm kiếm.
+     `navigator.connection` vắng mặt trên Safari ⇒ coi như mạng tốt, giữ nạp sẵn. */
+  var c=navigator.connection||null;
+  if(c&&(c.saveData===true||/^(slow-2g|2g|3g)$/.test(c.effectiveType||'')))return;
+  var f=function(){loadKho();loadAnalyses();};
+  if(window.requestIdleCallback)requestIdleCallback(f,{timeout:4000});else setTimeout(f,2000);
+}
+napKhiRanh();
 loadBaomoi();
 if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
 /* ==== Bôi đen chữ trong tin → nút "Lưu khái niệm" ==== */
