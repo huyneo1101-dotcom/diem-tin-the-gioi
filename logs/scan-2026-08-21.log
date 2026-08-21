@@ -62,3 +62,6 @@
 [14:19Z] Giai quyet dut diem 10 ung vien Bao Moi ton dong -> loai ca 10 (9 trung/lac chu de + 1 de
   lai phien sau vi chua xac minh duoc bai goc), ghi logs/loai-tin.md + logs/scan-gaps.json.
 [14:20Z] gh workflow run telegram-bot.yml khong thu (uu tien thoi gian, han 22:00 email).
+[14:21Z] git push bi tu choi (co commit SKIP cua local 21:15 chen vao), pull --rebase resolve
+  xung dot 1 file (log, giu ca hai doan theo dung thu tu thoi gian) roi push lai thanh cong.
+  KET THUC phien toi. Commit "Cap nhat ban tin 21/08" (8ed122f) da len main.
