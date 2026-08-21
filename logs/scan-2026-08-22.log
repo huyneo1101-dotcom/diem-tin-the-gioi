@@ -6,3 +6,7 @@
 [21:30Z] add_news.py: +8 tin usNews, +1 cap nhat tap tran. Phat hien 1 tin trung (Bessent Iran sanctions) sau khi nap, da xoa bang prune_news.py. Con lai 7 tin usNews thuc chat + 1 cap nhat tap tran. Commit + push "Cap nhat ban tin 22/08" thanh cong.
 [21:30Z] state.py done web-scan. Bat dau Buoc 6 (event-scan) vi la phien sang som.
 [21:30Z] SKIP (local 04:30) - web-scan da DONE (CI 03:47 xong luc 04:30:02). Khong lam lai.
+[21:32Z] do_tap_tran_thieu.py: 31 ung vien, khong co cuoc nao dang du dieu kien tao the moi (3 ung vien "co ten rieng" deu la false positive hoac cuoc phu/da ket thuc).
+[21:35Z] Agent su kien ngoai giao: 0 ket qua dat chuan trong khung 48h.
+[21:36Z] add_analyses.py: nap 5 bai think-tank (USSC Liberty Yards, ORF Pakistan-US, SWP Arctic Strategy, ISW China-Taiwan, ORF Titanium). Gan 3 khai niem.
+[21:36Z] Hom nay thu Bay (khong phai Chu nhat) - bo qua bao cao tuan.
