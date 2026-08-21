@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-22T03:52:17+07:00",
+  "tao_luc": "2026-08-22T04:31:53+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-21",
@@ -21,6 +21,14 @@
       "tieu_de": "Việt Nam và Singapore lần đầu đối thoại chiến lược giữa hai Đảng",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/viet-nam-va-singapore-lan-dau-doi-thoai-chien-luoc-giua-hai-dang-100260820191133838.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Singapore breeds mosquito 'studs' by the millions for war on dengue",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/spotlight/big-in-asia/singapore-breeds-mosquito-studs-by-the-millions-for-war-on-dengue"
     },
     {
       "lop": "RSS",
@@ -122,14 +130,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-21",
-      "tieu_de": "U.S. Navy Awards Contract For Zone 5’s Combat-Proven Rusty Dagger Cruise Missile",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/08/u-s-navy-awards-contract-for-zone-5s-combat-proven-rusty-dagger-cruise-missile/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
       "tieu_de": "How the Army balances Patriot priorities and approaches Golden Dome",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/how-the-army-balances-patriot-priorities-and-approaches-golden-dome/"
@@ -213,14 +213,6 @@
       "tieu_de": "Startup Mỹ ra mắt 'tên lửa siêu vượt âm giá rẻ'",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/startup-my-ra-mat-ten-lua-sieu-vuot-am-gia-re-5111588.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "Tàu sân bay Mỹ đến Trung Đông thay USS Abraham Lincoln",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/tau-san-bay-my-den-trung-dong-thay-uss-abraham-lincoln-5111485.html"
     },
     {
       "lop": "RSS",
@@ -329,14 +321,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "New Beach Landing Vessel For The Marine Corps Breaks Cover (Updated)",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/sea/new-beach-landing-vessel-for-the-marine-corps-breaks-cover"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-20",
       "tieu_de": "This Is The New Blackbeard ‘Cheap’ Hypersonic Weapon",
       "nguon": "The War Zone (TWZ)",
@@ -409,10 +393,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "Contracts for Aug. 20, 2026",
+      "ngay": "2026-08-20",
+      "tieu_de": "Contracts for Aug. 19, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4578834/contracts-for-aug-20-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4578063/contracts-for-aug-19-2026/"
     },
     {
       "lop": "RSS",
@@ -657,6 +641,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-21",
+      "tieu_de": "Sau 9 tháng ở Trung Đông, tàu sân bay USS Abraham Lincoln trở về Mỹ",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/sau-9-thang-o-trung-dong-tau-san-bay-uss-abraham-lincoln-tro-ve-my-2547474.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-20",
       "tieu_de": "Quyết định bất ngờ của quân đội Mỹ về sử dụng máy bay không người lái",
       "nguon": "VietnamNet",
@@ -797,6 +789,14 @@
       "tieu_de": "Philippines races toward cashless future as digital payments hit 64.7%",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/finance/philippines-races-toward-cashless-future-as-digital-payments-hit-64.7"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-22",
+      "tieu_de": "Guilt and isolation: Genocide survivors on adjusting to life in Australia",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-22/rohingya-genocide-community-australia/107058060"
     },
     {
       "lop": "RSS",
@@ -1036,7 +1036,7 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-21",
+      "ngay": "2026-08-22",
       "tieu_de": "Trump to allow import of 300,000 metric tons of ground beef without tariff",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/08/21/trump-ground-beef-import-tariff.html",
@@ -1140,15 +1140,6 @@
       "nguon": "Roll Call",
       "url": "https://rollcall.com/2026/08/20/white-house-legislative-liaisons-exit-comes-ahead-of-tricky-pre-midterms-session/",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "Burke breaks silence on ex-ASIO agent's royal commission testimony",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-21/ex-asio-agent-can-give-bondi-rc-evidence-in-open-hearing-burke/107064756",
-      "nhom": 1
     },
     {
       "lop": "RSS",
