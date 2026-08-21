@@ -41,3 +41,5 @@
   ca web-scan lan event-scan deu DONE (04:17:52 / 04:26:32 VN). so_da_gui.py --xem xac nhan dong
   [sang] 04:27:27 va [sukien] 04:27:28 ngay 2026-08-21, khop voi lastRunAt. Ban tin THAT SU da gui,
   khong phai co gia. SKIP em, KET THUC phien.
+[14:00Z] START (CI) - phien toi ngay 2026-08-21 (gio VN 21:00). state.py claim web-scan tra exit 0,
+  giu khoa. Quet that.
