@@ -52,7 +52,17 @@ self.addEventListener('fetch', function (e) {
       caches.open(C).then(function (c) { c.put(e.request, cp); });
       return r;
     }).catch(function () {
-      return caches.match(e.request).then(function (m) { return m || caches.match('./index.html'); });
+      // ⛔ 21/08/2026 — `ignoreSearch` cho request CÙNG GỐC, đừng gỡ. `loadKho()` và
+      // `loadAnalyses()` gắn `?t=<mốc hiện tại>` để né cache, nên mỗi lần mở trang là một URL
+      // khác. `caches.match` mặc định so CẢ chuỗi truy vấn ⇒ bản precache `/data/kho.json`
+      // KHÔNG BAO GIỜ khớp, hàm rơi xuống trả `index.html`, `r.json()` ném lỗi, `catch` nuốt
+      // gọn: mở offline thì mất kho tin cũ và mục 🏛️ Think-tank trống — precache chỉ có trên
+      // giấy. Đo 21/08: `match(kho.json?t=999999)` trả undefined, thêm ignoreSearch thì trúng.
+      // Chỉ áp cho cùng gốc: chuỗi truy vấn của Supabase (`?select=cid,tags`) MANG NGHĨA, bỏ
+      // qua nó là trả nhầm bảng cho nhau.
+      var nha = e.request.url.indexOf(self.location.origin) === 0;
+      return caches.match(e.request, nha ? { ignoreSearch: true } : undefined)
+        .then(function (m) { return m || caches.match('./index.html'); });
     })
   );
 });

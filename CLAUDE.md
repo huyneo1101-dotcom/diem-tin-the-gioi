@@ -33,7 +33,14 @@ phê, bản tuần, ngoại giao, tin bị loại để rỗng. Đo bằng `--ki
 - ⚠️ **`canary.py::kiem_web()` nay so bản web với bản DỰNG LẠI** (`ban_mong_doi()` gọi chính
   `cat_nhe()`), không so bytes thô của repo nữa — bỏ bước dựng khỏi `pages.yml` là canary kêu
   lệch **mọi ca**, kêu oan vài lần là thôi đọc.
-- Bộ canh: `tests/test-cat-nhe-trang.py` — **12 ca · `--tu-kiem` bắt 9/9 bản hỏng**, đã nạp
+- ⛔ **`sw.js` phải `ignoreSearch` cho request CÙNG GỐC — đừng gỡ.** `loadKho()` và
+  `loadAnalyses()` gắn `?t=<mốc hiện tại>` để né cache, mà `caches.match` mặc định so cả chuỗi
+  truy vấn ⇒ bản precache **không bao giờ khớp**, hàm rơi xuống trả `index.html`, `r.json()` ném
+  lỗi và `catch` nuốt gọn. Đo 21/08/2026 trên bản đang chạy: `match('data/kho.json?t=999999')`
+  trả undefined, thêm `ignoreSearch` thì trúng — tức precache offline đã **vô tác dụng từ
+  30/07/2026**, mở offline mục 🏛️ Think-tank vẫn trống dù sw.js khai precache nó. Chỉ áp cho
+  cùng gốc: chuỗi truy vấn của Supabase (`?select=cid,tags`) MANG NGHĨA.
+- Bộ canh: `tests/test-cat-nhe-trang.py` — **13 ca · `--tu-kiem` bắt 11/11 bản hỏng**, đã nạp
   `BO_TEST` của `HeThong/khoe.py`.
 
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)

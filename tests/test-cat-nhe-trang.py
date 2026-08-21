@@ -100,6 +100,28 @@ def ca_sw_precache(html, sw, pages, canary):
     return None
 
 
+def ca_offline_lay_duoc_kho(html, sw, pages, canary):
+    """Precache mà không `ignoreSearch` là precache trên giấy.
+
+    `loadKho()`/`loadAnalyses()` gắn `?t=<mốc hiện tại>` để né cache trình duyệt, nên mỗi lần
+    mở trang là một URL khác. `caches.match` mặc định so CẢ chuỗi truy vấn ⇒ bản precache
+    không khớp, sw rơi xuống trả index.html, `r.json()` ném lỗi và `catch` nuốt gọn: mở
+    offline mất kho mà không có dấu hiệu nào. Đo 21/08/2026 trên bản đang chạy:
+    `match('data/kho.json?t=999999')` trả undefined, thêm ignoreSearch thì trúng.
+    """
+    # Soi MÃ, không soi cả file: chính đoạn chú thích ngay trên nhánh catch cũng nhắc
+    # `ignoreSearch`, nên `"ignoreSearch" in sw` vẫn đúng kể cả sau khi lời gọi đã bị gỡ —
+    # ca xanh giả. `--tu-kiem` bắt được đúng ca này lúc mới viết.
+    ma = re.sub(r"(?m)^\s*//.*$", "", sw)
+    if "ignoreSearch" not in ma or not re.search(r"caches\.match\(e\.request\s*,", ma):
+        return ("sw.js: nhánh catch không dùng ignoreSearch — mọi lần nạp gắn ?t= mới nên bản "
+                "precache không bao giờ khớp, mở offline là mất cả hai kho")
+    if not re.search(r"self\.location\.origin", ma):
+        return ("sw.js: ignoreSearch phải giới hạn ở request CÙNG GỐC — chuỗi truy vấn của "
+                "Supabase mang nghĩa, bỏ qua nó là trả nhầm bảng cho nhau")
+    return None
+
+
 def ca_pages_dung_ban_nhe(html, sw, pages, canary):
     if not re.search(r"cat_nhe_trang\.py\s+--tai-cho", pages):
         return "pages.yml không chạy `cat_nhe_trang.py --tai-cho` — trang đẩy lên vẫn nặng nguyên"
@@ -154,6 +176,7 @@ CA = [
     ("loadKho() KHÔNG ghi đè DATA.analyses", ca_khong_de_len_analyses),
     ("bản đủ dữ liệu trong repo không đi fetch kho", ca_ban_repo_khong_fetch),
     ("sw.js precache data/kho.json cho bản offline", ca_sw_precache),
+    ("mở offline lấy được kho dù URL gắn ?t= mới", ca_offline_lay_duoc_kho),
     ("pages.yml dựng bản nhẹ TRƯỚC khi đóng gói artifact", ca_pages_dung_ban_nhe),
     ("canary so bản web với bản ĐÃ DỰNG, không so bản thô", ca_canary_so_ban_da_dung),
     ("bản dựng ra thật sự nhẹ và kho không mang analyses", ca_cat_that_su_nhe),
@@ -210,6 +233,14 @@ BAN_HONG = [
     ("gỡ data/kho.json khỏi precache sw.js", "sw",
      lambda s: s.replace(", './data/kho.json'", ""),
      "sw.js precache data/kho.json cho bản offline"),
+    ("gỡ ignoreSearch (precache chỉ còn trên giấy)", "sw",
+     lambda s: s.replace("caches.match(e.request, nha ? { ignoreSearch: true } : undefined)",
+                         "caches.match(e.request)"),
+     "mở offline lấy được kho dù URL gắn ?t= mới"),
+    ("ignoreSearch áp cho MỌI gốc (trả nhầm bảng Supabase)", "sw",
+     lambda s: s.replace("var nha = e.request.url.indexOf(self.location.origin) === 0;", "var nha = true;")
+                .replace("nha ? { ignoreSearch: true } : undefined", "{ ignoreSearch: true }"),
+     "mở offline lấy được kho dù URL gắn ?t= mới"),
     ("gỡ bước dựng khỏi pages.yml", "pages",
      lambda s: s.replace("        run: python3 scripts/cat_nhe_trang.py --tai-cho\n", ""),
      "pages.yml dựng bản nhẹ TRƯỚC khi đóng gói artifact"),
