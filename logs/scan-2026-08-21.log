@@ -76,3 +76,7 @@
   2026-08-21 DA XONG (lastRunAt 21:20:38+07, cach hien tai ~41 phut). Kiem tra ngoai le theo quy
   trinh: so_da_gui.py --xem xac nhan dong "2026-08-21T21:22:14+07:00 [toi] 15 tin" - ban tin
   THAT SU da gui, khong phai co doi. SKIP hop le, KET THUC phien.
+[15:14Z] SKIP (CI, lan fire trung khac) - state.py claim web-scan tra exit 10, phien toi ngay
+  2026-08-21 DA XONG (lastRunAt 21:20:38+07). so_da_gui.py --xem van xac nhan dong
+  "2026-08-21T21:22:14+07:00 [toi] 15 tin" - khong co gi thay doi so voi cac lan kiem truoc.
+  SKIP hop le, KET THUC phien.
