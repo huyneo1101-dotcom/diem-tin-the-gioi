@@ -2,6 +2,18 @@
 
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
+⛔ **COMMIT DO ACTIONS ĐẨY KHÔNG TỰ DỰNG LẠI TRANG — đã vá 21/08/2026, đừng gỡ.** GitHub chặn
+`GITHUB_TOKEN` kích hoạt workflow khác (chống vòng lặp), nên mọi commit `Cap nhat ban tin` của
+`claude-scan-ci` **không** chạm tới `on: push` của `pages.yml`; trang chỉ được dựng lại khi máy
+Mac tình cờ đẩy một commit sau đó. Sáng 21/08 không có commit local nào ⇒ bản tin 04:17 nạp đủ,
+email đi đủ, sổ ghi đủ, canary im lặng, mà web vẫn phục vụ bản 01:24 — **hỏng mà không phát ra
+tiếng nào**. Hai lớp vá: (i) `pages.yml` thêm nhánh `workflow_run` (nghe theo WORKFLOW nên không
+dính rào) kèm `checkout ref: main` (bỏ dòng này là dựng lại đúng bản cũ, vì `workflow_run` mang
+SHA lúc workflow gốc khởi động); (ii) `canary.py::kiem_web()` đo **bản người dùng đang thấy** —
+sha1 kiểu git blob của `index.html` trên github.io so với bản trên `main`, lệch thì nhắn Telegram.
+Bộ canh: `tests/test-canary-web-lech.py` — **10 ca (03 ca PHẢI KÊU) · `--tu-kiem` bắt 5/5 bản
+hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`. Dựng lại tay: `gh workflow run pages.yml`.
+
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)
 Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 20:47** và **SÁNG SỚM 03:47**
 (đêm VN = ngày làm việc Mỹ nên nhiều tin mới; cả 2 phiên đều gửi email). Mốc CHÍNH chạy trên **GitHub

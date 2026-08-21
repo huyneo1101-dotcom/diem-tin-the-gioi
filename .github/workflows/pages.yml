@@ -1,10 +1,26 @@
 name: Deploy static site to Pages
+# ⛔ 21/08/2026 — VÌ SAO CÓ NHÁNH `workflow_run`: commit do GitHub Actions đẩy lên bằng
+# `GITHUB_TOKEN` KHÔNG kích hoạt `on: push` (GitHub chặn để tránh workflow tự gọi vòng tròn).
+# Từ khi mốc quét chính dời sang CI, mọi commit "Cap nhat ban tin" đều do `claude-scan-ci` đẩy
+# ⇒ trang web CHỈ được dựng lại khi máy Mac tình cờ đẩy một commit khác sau đó (ăn ké). Sáng
+# 21/08 không có commit local nào, nên bản tin 04:17 nạp đủ, email gửi đủ, mà trang web vẫn
+# đứng ở bản 01:24 — không lỗi, không cảnh báo. Nhánh `workflow_run` nghe THEO WORKFLOW nên
+# không dính rào chống vòng lặp.
+# ⚠️ `checkout` phải khai `ref: main`: với `workflow_run`, `github.sha` là commit mà workflow
+# gốc KHỞI ĐỘNG, tức bản TRƯỚC khi nó đẩy tin mới — bỏ dòng đó là dựng lại đúng bản cũ.
 on:
   push:
     branches: [main]
     # Commit chi co log/state (Action chay nhung khong co tin moi) khong lam doi noi dung web
     # => khoi ton 1 lan deploy. Moi thu khac van deploy nhu cu.
     paths-ignore: ['logs/**']
+  workflow_run:
+    workflows:
+      - 'Claude web-scan (bản tin tối + sáng sớm)'
+      - 'Sync Baomoi (bai da luu + quet chuyen muc)'
+      - 'Sync reader preferences'
+      - 'Import news from Google Drive'
+    types: [completed]
   workflow_dispatch:
 permissions:
   contents: read
@@ -22,6 +38,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: main
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact

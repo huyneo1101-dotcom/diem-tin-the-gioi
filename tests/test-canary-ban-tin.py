@@ -36,6 +36,10 @@ REPO = HERE.parent
 GS = REPO / ".github" / "scripts"
 # Seam để tự kiểm: trỏ sang một bản canary.py khác (xem --tu-kiem).
 MOD_PATH = pathlib.Path(os.environ.get("CANARY_TIN_MOD") or (GS / "canary.py"))
+# Bộ này chạy OFFLINE, mà `canary.main()` từ 21/08/2026 còn gọi thêm lớp đo "bản người dùng
+# đang thấy" (curl tới github.io). Tắt lớp đó ở đây để test không phụ thuộc mạng — lớp đó có
+# bộ riêng: tests/test-canary-web-lech.py.
+os.environ["CANARY_BO_KIEM_WEB"] = "1"
 
 VN = datetime.datetime.now().astimezone().tzinfo   # thay ngay sau khi nạp module
 

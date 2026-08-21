@@ -194,6 +194,62 @@ def gui(text: str) -> int:
     return loi
 
 
+# ---------------------------------------------------------------------------
+# LỚP ĐO THỨ HAI (21/08/2026): BẢN NGƯỜI DÙNG ĐANG THẤY
+# ---------------------------------------------------------------------------
+# Vì sao phải có: mọi phép đo phía trên đều đọc FILE TRONG REPO (sổ đã gửi, state.json). Cả ba
+# đều báo ĐẠT trong khi trang web đứng im ở bản cũ — đúng ca đã xảy ra sáng 21/08/2026: bản tin
+# 04:17 nạp đủ, email đi đủ, sổ ghi đủ, canary im lặng, mà https://…github.io vẫn là bản 01:24.
+# Nguyên nhân: commit do Actions đẩy bằng GITHUB_TOKEN không kích hoạt `on: push` của pages.yml
+# (đã vá ở pages.yml bằng nhánh `workflow_run`) — nhưng lớp đo này phải giữ, vì nó canh HỆ QUẢ
+# (trang có đúng bản không) chứ không canh NGUYÊN NHÂN (một cách dựng lại trang cụ thể).
+# Phép so là sha1 kiểu git blob: khớp bit-đối-bit hay không, không suy diễn từ nội dung.
+# Seam CHỈ để bộ test trỏ vào máy chủ giả trên 127.0.0.1 (xem tests/test-canary-web-lech.py).
+# ⛔ KHÔNG khai biến này trong workflow — khai là lớp đo đi hỏi một trang khác rồi báo đạt.
+# Ca [09] của bộ test canh đúng chiều đó: canary.yml không được chứa `CANARY_WEB_URL`.
+WEB_URL = os.environ.get("CANARY_WEB_URL") or "https://huyneo1101-dotcom.github.io/diem-tin-the-gioi/index.html"
+
+
+def bam_blob(data: bytes) -> str:
+    """sha1 kiểu git blob — so được thẳng với `git hash-object index.html`."""
+    import hashlib
+    return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+
+
+def kiem_web(url: str = WEB_URL) -> tuple[bool, str]:
+    """(khớp, mô tả). Đi bằng curl chứ không urllib — cùng lý do với tg_api.
+
+    Không đo được (mạng hỏng, HTTP != 200) thì trả (True, …): canary chỉ kêu khi ĐO ĐƯỢC và
+    THẤY LỆCH. Kêu vì không đo được là kêu oan, mà kêu oan vài lần là Huy thôi đọc.
+    """
+    import subprocess
+    if os.environ.get("CANARY_BO_KIEM_WEB") == "1":
+        return True, "đã tắt lớp đo web bằng CANARY_BO_KIEM_WEB (chỉ dùng trong test offline)"
+    trong_repo = ROOT / "index.html"
+    if not trong_repo.exists():
+        return True, "không có index.html trong repo — bỏ qua"
+    try:
+        r = subprocess.run(
+            ["curl", "-sS", "-L", "--max-time", "45", "-w", "\n%{http_code}", url],
+            capture_output=True, timeout=60)
+    except Exception as e:  # noqa: BLE001
+        return True, f"không tải được trang (bỏ qua): {e}"
+    if r.returncode != 0:
+        return True, f"curl mã {r.returncode} (bỏ qua)"
+    than = r.stdout
+    cat = than.rfind(b"\n")
+    ma = than[cat + 1:].decode().strip()
+    than = than[:cat]
+    if ma != "200":
+        return True, f"HTTP {ma} (bỏ qua)"
+    tren_web = bam_blob(than)
+    tren_main = bam_blob(trong_repo.read_bytes())
+    if tren_web == tren_main:
+        return True, f"trang khớp bản trên main ({tren_main[:8]})"
+    return False, (f"trang đang phục vụ bản {tren_web[:8]} ({len(than):,} byte), "
+                   f"còn main là {tren_main[:8]} ({trong_repo.stat().st_size:,} byte)")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--ca", required=True, choices=list(CA))
@@ -201,6 +257,16 @@ def main() -> int:
 
     nhan, pipeline, o = CA[args.ca]
     bay_gio = datetime.datetime.now(VN)
+    # Lớp đo web chạy ở MỌI ca và độc lập với kết quả ca đó: bản tin tới tay qua email vẫn có
+    # thể vắng mặt trên web, và ngược lại. Mã thoát gộp ở cuối.
+    loi_web = 0
+    khop_web, mota_web = kiem_web()
+    print(f"[canary] web: {mota_web}")
+    if not khop_web:
+        print(f"::warning::canary web: {mota_web}")
+        loi_web = gui(f"⚠️ {bay_gio.strftime('%H:%M')} — TRANG WEB chưa dựng lại bản mới.\n\n"
+                      f"{mota_web}\n\nBản tin có thể đã nạp và gửi email đủ, nhưng người mở "
+                      f"trang vẫn thấy bản cũ.\n\nDựng lại: gh workflow run pages.yml")
     # NGÀY CỦA CA, không phải ngày đồng hồ — xem `ngay_cua_ca`. Tin nhắn cũng hiện ngày này
     # chứ không hiện ngày hôm nay: canary chạy 00:23 mà báo "28/07 chưa có bản tin tối" thì
     # đọc vào tưởng đang nói về tối nay, trong khi nó đang nói về tối HÔM QUA.
@@ -213,21 +279,21 @@ def main() -> int:
         xong, mota = trang_thai_quet(pipeline, o, ngay)
         if xong:
             print(f"[canary] {nhan} {ngay}: phiên event-scan DONE — im lặng.")
-            return 0
+            return loi_web
         text = (f"⚠️ {gio_vn} {ngay_vn} — phiên SỰ KIỆN & TẬP TRẬN chưa chạy xong.\n\n"
                 f"Pipeline này gộp vào phiên sáng sớm từ 28/07/2026 — cả 4 mốc của phiên đó "
                 f"(CI 04:00 · local 04:30 · CI 05:00 · local 05:30) đều không hoàn tất.\n"
                 f"{mota}\n\n"
                 f"Chạy tay: gh workflow run claude-web-scan.yml")
         print(f"::warning::canary {args.ca}: {mota}")
-        return gui(text)
+        return gui(text) + loi_web
 
     # --- Ca sang/toi: bằng chứng là SỔ ĐÃ GỬI ---
     lan = da_gui(o, ngay)
     if lan:
         print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get('luc')} "
               f"({len(lan.get('urls') or [])} tin) — im lặng.")
-        return 0
+        return loi_web
 
     xong, mota = trang_thai_quet(pipeline, o, ngay)
     if xong:
@@ -243,7 +309,7 @@ def main() -> int:
             f"{mota}\n\n"
             f"Chạy tay: gh workflow run claude-web-scan.yml")
     print(f"::warning::canary {args.ca}: {khau} | {mota}")
-    return gui(text)
+    return gui(text) + loi_web
 
 
 if __name__ == "__main__":
