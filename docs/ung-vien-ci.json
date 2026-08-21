@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-22T04:31:53+07:00",
+  "tao_luc": "2026-08-22T04:52:32+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-21",
@@ -274,7 +274,7 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-22",
-      "tieu_de": "Navy reportedly weighs renaming aircraft carrier for Trump",
+      "tieu_de": "Navy reportedly weighs naming aircraft carrier for Trump instead of Black Pearl Harbor hero",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/defense/6044226-navy-doris-miller-trump-aircraft-carrier/"
     },
@@ -429,6 +429,14 @@
       "tieu_de": "U.S. – Jamaica Joint Statement on Status of Forces Agreement",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4578742/us-jamaica-joint-statement-on-status-of-forces-agreement/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-22",
+      "tieu_de": "Guetlein On Golden Dome: ‘We Cannot Protect This Nation And Bankrupt It At The Same Time’",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/guetlein-on-golden-dome-we-cannot-protect-this-nation-and-bankrupt-it-at-the-same-time/missile-defense/"
     },
     {
       "lop": "RSS",
@@ -746,6 +754,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
+      "tieu_de": "Japan's Tokuyama to make key chip material in Vietnam, Malaysia",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/tech/semiconductors/japan-s-tokuyama-to-make-key-chip-material-in-vietnam-malaysia"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
       "tieu_de": "Indonesia seeks expanded joint military exercises with China",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/politics/defense/indonesia-seeks-expanded-joint-military-exercises-with-china"
@@ -785,14 +801,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Philippines races toward cashless future as digital payments hit 64.7%",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/finance/philippines-races-toward-cashless-future-as-digital-payments-hit-64.7"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-22",
       "tieu_de": "Guilt and isolation: Genocide survivors on adjusting to life in Australia",
       "nguon": "ABC News AU (world)",
@@ -813,14 +821,6 @@
       "tieu_de": "'Shameful': Australia, UK, Canada slam Israel over probe into aid killings",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-08-22/australia-uk-canada-israel-aid-worker-probe/107066540"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-22",
-      "tieu_de": "Australia has a soft spot for the amazing flannel flower",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/science/2026-08-22/flannel-flower-australias-most-amazing-wildflower/107053414"
     },
     {
       "lop": "RSS",
@@ -861,6 +861,14 @@
       "tieu_de": "Victorian Labor promises free dental care if re-elected in Australia-first move",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/2026/aug/22/victoria-labor-free-dental-care-ben-carroll-election-promise"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-22",
+      "tieu_de": "Big tech companies will have to pay to publish Australian news content under new laws",
+      "nguon": "NPR — World",
+      "url": "https://www.npr.org/2026/08/21/nx-s1-5939814/big-tech-companies-will-have-to-pay-to-publish-australian-news-content-under-new-laws"
     },
     {
       "lop": "RSS",
@@ -956,7 +964,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-22",
-      "tieu_de": "Lula, Trump discuss tariffs in phone call, Brazil says",
+      "tieu_de": "Trump told Lula that officials should meet soon to discuss tariffs, Brazil says",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/lula-trump-discuss-tariffs-in-phone-call-brazil-says",
       "nhom": 4
@@ -1028,7 +1036,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-22",
-      "tieu_de": "Trump tariff deadline looms as Canada says it's working to resolve 'trade issues' with U.S.",
+      "tieu_de": "Trump says U.S., Canada 'should be able' to reach trade deal as tariff deadline looms",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/08/21/trump-canada-tariffs-trade-deal-deadline.html",
       "nhom": 4
