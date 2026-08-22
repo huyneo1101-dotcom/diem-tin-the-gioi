@@ -34,14 +34,22 @@ jobs:
           items=$(curl -sS -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
             "$SB_URL/rest/v1/vote_items?select=*&order=sign.desc,n.desc" || echo '[]')
           echo "$items" | jq -e 'type == "array"' >/dev/null || items='[]'
-          new=$(jq -n --argjson s "$resp" --argjson i "$items" '{stats:$s,items:$i}' | jq -S -c .)
-          old=$(jq -S -c '{stats:(.stats//[]),items:(.items//[])}' preferences.json 2>/dev/null || echo 'null')
+          # vote_thich_theo_bai (dung 22/08/2026): bai duoc 👍 kem DIA CHI BAI. `vote_items` gom
+          # theo tieu de nen khong tra URL, khong dung de doi chieu voi muc "Bi loai" duoc.
+          # Cong `--bi-loai-thich` cua add_news.py doc dung field nay.
+          liked=$(curl -sS -H "apikey: $SB_KEY" -H "Authorization: Bearer $SB_KEY" \
+            "$SB_URL/rest/v1/vote_thich_theo_bai?select=*&order=updated_at.desc" || echo '[]')
+          echo "$liked" | jq -e 'type == "array"' >/dev/null || liked='[]'
+          new=$(jq -n --argjson s "$resp" --argjson i "$items" --argjson l "$liked" \
+            '{stats:$s,items:$i,liked:$l}' | jq -S -c .)
+          old=$(jq -S -c '{stats:(.stats//[]),items:(.items//[]),liked:(.liked//[])}' preferences.json 2>/dev/null || echo 'null')
           if [ "$new" = "$old" ]; then
             echo "khong doi — bo qua."
             echo "changed=0" >> "$GITHUB_ENV"
           else
-            jq -n --argjson stats "$resp" --argjson items "$items" --arg t "$(date -u +%FT%TZ)" \
-              '{generatedAt:$t, source:"supabase vote_stats + vote_items (auto by GitHub Action)", stats:$stats, items:$items}' \
+            jq -n --argjson stats "$resp" --argjson items "$items" --argjson liked "$liked" \
+              --arg t "$(date -u +%FT%TZ)" \
+              '{generatedAt:$t, source:"supabase vote_stats + vote_items + vote_thich_theo_bai (auto by GitHub Action)", stats:$stats, items:$items, liked:$liked}' \
               > preferences.json
             echo "changed=1" >> "$GITHUB_ENV"
             echo "Cap nhat preferences.json:"; cat preferences.json

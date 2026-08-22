@@ -651,6 +651,89 @@ def print_baomoi_gate(repo_root: pathlib.Path, existing: set) -> None:
     print("     Cắt vòng Báo Mới vì bất kỳ lý do gì (giục nhanh, sát hạn) thì PHẢI nói rõ trong tóm tắt cuối.")
 
 
+class LoiNguonThich(RuntimeError):
+    """Nguồn dữ liệu 👍 chết. Ném chứ không trả rỗng — xem `bi_loai_duoc_thich`."""
+
+
+# Bài "Bị loại" đã được 👍 phải còn trong khung ngày này mới đáng đưa lên bản tin. Rộng hơn
+# khung tin thường vì bài bị loại nằm chờ người đọc rà, nhưng quá mốc thì hết là tin.
+BI_LOAI_THICH_MAX_AGE = 10
+
+
+def bi_loai_duoc_thich(repo_root: pathlib.Path, data: dict, ref: datetime.date | None = None):
+    """Bài đang nằm ở mục "Bị loại" mà người đọc đã 👍, CHƯA nạp vào bản tin.
+
+    Huy chốt 02/08/2026: *"tự tổng hợp những bài bị loại được bấm nút thích hàng ngày để thêm
+    vào lần gửi tin tiếp theo (miễn vẫn đúng các tiêu chí)"*.
+
+    Đường dữ liệu: nút 👍 trên thẻ Bị loại gọi `castVote` → bảng `votes` trên Supabase, khoá là
+    `item_id` = chính `sourceUrl` của bài. View công khai `vote_thich_theo_bai` gom theo item_id
+    (không kèm `user_id`) → `sync-preferences.yml` kéo về `preferences.json` field `liked`.
+    ⚠ KHÔNG dùng được `vote_items`: view đó gom theo TIÊU ĐỀ nên không trả về địa chỉ bài, mà
+    khớp bài theo tiêu đề thì sai một dấu là mất bài (mục 6 CLAUDE.md toàn cục).
+    ⚠ Cũng KHÔNG dùng được `dt.promoted`: nút "kéo vào Bài mới" chỉ ghi localStorage của máy
+    người đọc, phiên quét không có đường nào thấy.
+
+    Trả list (item_dict_trong_rejectedNews, so_luot_thich). Rỗng là sạch.
+    """
+    ref = ref or today_vn()
+    try:
+        pref = json.loads((repo_root / "preferences.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        # ⛔ FAIL VỀ PHÍA KÊU. Im ở đây không phân biệt được với "không có bài nào được 👍",
+        # mà nguồn dữ liệu chết thì cổng coi như không tồn tại — đúng loại hỏng câm.
+        raise LoiNguonThich("không đọc được preferences.json: %r" % e)
+    if "liked" not in pref:
+        # Field do `sync-preferences.yml` ghi. Thiếu hẳn field ⇒ workflow chưa chạy lần nào kể
+        # từ lượt dựng, hoặc lời gọi view đã hỏng — cả hai đều làm cổng này câm vĩnh viễn.
+        raise LoiNguonThich(
+            "preferences.json KHÔNG có field `liked` — workflow sync-preferences chưa kéo "
+            "view `vote_thich_theo_bai` về (chạy tay: gh workflow run sync-preferences.yml)")
+    liked = {i.get("item_id") for i in (pref.get("liked") or []) if i.get("item_id")}
+    if not liked:
+        return []
+    dem = {i.get("item_id"): i.get("n") or 1 for i in (pref.get("liked") or [])}
+    da_nap = collect_existing_urls(data)
+    cutoff = ref - datetime.timedelta(days=BI_LOAI_THICH_MAX_AGE)
+    ra = []
+    for it in data.get("rejectedNews", []):
+        u = it.get("sourceUrl", "")
+        if u not in liked or u in da_nap:
+            continue
+        try:
+            if parse_date(it.get("date", "")) < cutoff:
+                continue               # quá cũ: 👍 rồi cũng không còn là tin
+        except ValueError:
+            pass                       # không đọc được ngày ⇒ vẫn nêu, để agent tự xét
+        ra.append((it, dem.get(u, 1)))
+    return ra
+
+
+def print_bi_loai_thich_gate(repo_root: pathlib.Path, data: dict) -> None:
+    """CỔNG BÀI BỊ LOẠI ĐƯỢC 👍 — in ở mọi lệnh phiên quét chạy, cùng lẽ với cổng Báo Mới.
+
+    Cùng loại hỏng câm: người đọc bấm 👍 để cứu một bài, phiên quét không biết, bài nằm trong
+    mục Bị loại tới lúc bị dọn rồi biến mất. Không lệnh nào báo lỗi, bản tin vẫn gửi.
+    """
+    print()
+    try:
+        hits = bi_loai_duoc_thich(repo_root, data)
+    except LoiNguonThich as e:
+        print("🔴 CỔNG BÀI 👍 KHÔNG ĐO ĐƯỢC — %s" % e)
+        print("   → Tới khi sửa xong, mọi bài người đọc bấm 👍 để cứu đều rơi vào im lặng.")
+        return
+    if not hits:
+        print("✅ CỔNG BÀI 👍: không có bài Bị loại nào được thích mà chưa nạp.")
+        return
+    print(f"⚠️  CỔNG BÀI 👍: CÒN {len(hits)} BÀI Ở MỤC BỊ LOẠI ĐÃ ĐƯỢC THÍCH, CHƯA NẠP:")
+    for it, n in hits:
+        print(f"   [{it.get('category','?')}] {it.get('date','?')} — {it.get('title','')}"
+              + (f"  ({n} lượt 👍)" if n > 1 else ""))
+        print(f"      {it.get('sourceName','')} — {it.get('sourceUrl','')}")
+    print("   → Đưa vào bản tin lần này MIỄN VẪN ĐÚNG TIÊU CHÍ (khung ngày · chủ đề · không trùng).")
+    print("     Không đạt tiêu chí thì ghi lý do vào logs/loai-tin.md — đừng im lặng bỏ qua.")
+
+
 def gop_bi_loai(data: dict, rejected_new: list, repo_root: pathlib.Path,
                 date: str, ref: datetime.date):
     """Gộp mục "Bị loại" của một lượt quét. Trả (clean, baomoi_rejects, kept_existing, pruned).
@@ -742,7 +825,9 @@ def main() -> None:
         print_recent_titles(repo_root / "index.html", n)
         html = (repo_root / "index.html").read_text(encoding="utf-8")
         s, e = find_data_span(html)
-        print_baomoi_gate(repo_root, collect_existing_urls(json.loads(html[s:e])))
+        _d = json.loads(html[s:e])
+        print_baomoi_gate(repo_root, collect_existing_urls(_d))
+        print_bi_loai_thich_gate(repo_root, _d)
         return
 
     if len(sys.argv) >= 2 and sys.argv[1] == "--baomoi-pending":
@@ -940,6 +1025,7 @@ def main() -> None:
     # CỔNG BÁO MỚI in SAU CÙNG (dòng cuối màn hình, ngay trước lúc phiên đi commit) — chốt chặn
     # thứ hai sau lần in ở --recent-titles. Xem docstring print_baomoi_gate để biết vì sao có nó.
     print_baomoi_gate(repo_root, collect_existing_urls(data))
+    print_bi_loai_thich_gate(repo_root, data)
 
 
 if __name__ == "__main__":
