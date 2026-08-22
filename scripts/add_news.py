@@ -84,11 +84,17 @@ MAX_AGE_DAYS_CNQS = 3
 # nay canh chiều đó bằng cách khẳng định `make_docx.py` không dựng lại phép lọc Jaccard nào.
 JACCARD_CANH_BAO_TIEU_DE = 0.4
 
-# Mục "Bị loại" KHÔNG giới hạn tổng số — chỉ giới hạn lượng thêm MỖI LẦN QUÉT, để một lô
-# ứng viên Báo Mới (~80 bài/lần) không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent
-# phải loại vì ngày/nghi trùng — đó mới là thứ người dùng cần rà để 👍 cứu.
-REJECTED_PER_RUN = 20          # tổng thêm mỗi lần quét
-BAOMOI_REJECT_PER_RUN = 10     # trong đó, phần ứng viên chuyên mục Báo Mới
+# Mục "Bị loại" KHÔNG giới hạn — không giới hạn tổng số, và từ 22/08/2026 cũng KHÔNG giới hạn
+# lượng thêm mỗi lần quét. Huy chốt 02/08/2026 nguyên văn: *"bị loại chỉ là những bài không
+# đúng chủ đề hoặc không nằm trong khung ngày cho phép. không có số lượng tối đa cho bài bị
+# loại."* Trần cũ (20 tổng / 10 phần Báo Mới) dựng để một lô ứng viên Báo Mới ~80 bài không
+# nhấn chìm tin agent chủ động loại; nay thay bằng THỨ TỰ — nhánh (b) xếp TRƯỚC nhánh (a) nên
+# tin giá trị hơn vẫn nằm trên, mà không bài nào bị cắt.
+#
+# ⛔ ĐỪNG VÁ BẰNG CÁCH HẠ HAI HẰNG SỐ VỀ 0. Đã thử 02/08 và hỏng CÂM ngược ý: nhánh (b) cắt
+# theo `len(clean) >= REJECTED_PER_RUN - len(baomoi_rejects)`, trần 0 làm vế phải âm nên vòng
+# lặp thoát ngay lượt đầu và tin agent chủ động loại bị cắt SẠCH. Trần phải gỡ ở CẢ HAI nhánh.
+# Chặn đường lùi: `tests/test-cong-baomoi.py` có ca canh không nhánh nào còn cắt theo trần.
 # Tự dọn mục Bị loại: bỏ mục đã NẰM TRONG MỤC quá 2 ngày (tính theo `addedAt` — ngày được
 # đưa vào, KHÔNG phải ngày đăng bài; tin "vừa rơi khỏi khung 3-7 ngày" vẫn vào được).
 # Web giữ snapshot riêng cho tin đã 👍 kéo vào Bài mới (dt.promotedSnap) nên dọn không mất tin đã cứu.
@@ -640,9 +646,93 @@ def print_baomoi_gate(repo_root: pathlib.Path, existing: set) -> None:
     for topic, it in hits:
         print(f"   [{topic}] {it.get('date','?')} — {it.get('title','')}")
         print(f"      {it.get('sourceName','')} — {it['sourceUrl']}")
-    print("   → Với mỗi bài: TRUY VỀ BÀI GỐC (không giữ link Báo Mới với ứng viên chuyên mục) rồi nạp,")
+    print("   → Với mỗi bài: TRUY VỀ BÀI GỐC rồi nạp; KHÔNG truy được thì GIỮ link Báo Mới, đừng bỏ bài,")
     print("     HOẶC loại và ghi lý do vào logs/loai-tin.md + mục 'Báo Mới' trong logs/scan-gaps.json.")
     print("     Cắt vòng Báo Mới vì bất kỳ lý do gì (giục nhanh, sát hạn) thì PHẢI nói rõ trong tóm tắt cuối.")
+
+
+def gop_bi_loai(data: dict, rejected_new: list, repo_root: pathlib.Path,
+                date: str, ref: datetime.date):
+    """Gộp mục "Bị loại" của một lượt quét. Trả (clean, baomoi_rejects, kept_existing, pruned).
+
+    ⚠ TÁCH RA KHỎI `main()` ngày 22/08/2026 để `tests/test-cong-bi-loai.py` gọi được thẳng.
+    Trước đó khối này nằm lọt trong `main()` nên không cổng nào canh được, và luật "không có
+    số lượng tối đa cho bài bị loại" (Huy chốt 02/08/2026) không có gì giữ: ai đặt lại một
+    trần thì mục Bị loại chỉ ngắn đi, phiên quét vẫn xanh, không lệnh nào báo lỗi.
+    """
+    # rejectedNews: tin bị loại khi quét — hiện ở mục "Bị loại" trên web để người dùng cứu (like)
+    # hoặc xác nhận không thích (dislike). Không áp guardrail ngày/trùng-DATA (chúng là tin bị loại,
+    # có thể cũ); chỉ cần title + sourceUrl, kèm 'reason'. Chống trùng trong rejectedNews + với tin live.
+    # KHÔNG giới hạn — không giới hạn tổng số, cũng không giới hạn số thêm mỗi lượt quét
+    # (Huy chốt 02/08/2026; trần cũ gỡ 22/08/2026, xem chú thích đầu file).
+    live_urls = {i.get("sourceUrl", "") for i in data.get("worldNews", [])} | {
+        i.get("sourceUrl", "") for i in data.get("usNews", [])
+    }
+    existing = data.get("rejectedNews", [])
+    existing_urls = {i.get("sourceUrl", "") for i in existing}
+
+    # (a) Ứng viên Báo Mới KHÔNG được chọn -> tự đổ vào mục Bị loại, không tốn token agent
+    #     (dữ liệu đã đủ field sẵn trong baomoi-topics.json). Ưu tiên chủ đề người dùng thích.
+    #     CHIA ĐỀU 4 chuyên mục (xoay vòng) thay vì lấy hết mục ưu tiên trước — kho ứng viên
+    #     lệch nặng (vd 45 Kinh tế / 5 Ngoại giao) nên xếp theo độ ưu tiên sẽ ăn hết 10 slot
+    #     bằng đúng 1 mục, người dùng không thấy được ứng viên của 3 mục còn lại.
+    #     Vòng xoay đi theo thứ tự ưu tiên nên mục thích hơn vẫn được nhiều hơn: 3-3-2-2.
+    cand_pool, _ = _load_baomoi(repo_root / "baomoi-topics.json")
+    by_cat = collections.defaultdict(collections.deque)
+    for it in sorted(cand_pool, key=lambda x: x.get("date", ""), reverse=True):  # mới nhất trước
+        u = it.get("sourceUrl", "")
+        if not it.get("title") or not u or u in live_urls or u in existing_urls:
+            continue
+        by_cat[it.get("category", "")].append(it)
+
+    baomoi_rejects = []
+    cats = sorted(by_cat, key=lambda c: REJECT_CATEGORY_ORDER.get(c, 9))
+    # Vòng xoay giữ lại dù đã bỏ trần: nó nay quyết THỨ TỰ hiện trên web chứ không quyết bài
+    # nào bị cắt. Xoay vòng theo độ ưu tiên thì mục người dùng thích hơn nổi lên trước.
+    while any(by_cat[c] for c in cats):
+        for c in cats:
+            if not by_cat[c]:
+                continue
+            it = by_cat[c].popleft()
+            existing_urls.add(it["sourceUrl"])
+            baomoi_rejects.append(
+                {k: v for k, v in it.items() if k != "topic"}
+                | {"reason": "Ứng viên Báo Mới không được chọn — 👍 để đưa vào bản tin", "addedAt": date}
+            )
+
+    # (b) Tin agent chủ động loại (sai ngày/không hợp gu) — GIÁ TRỊ HƠN nên xếp TRƯỚC nhánh (a)
+    #     khi ghép danh sách. Không còn trần: mọi bài agent loại đều vào mục Bị loại.
+    clean = []
+    for it in rejected_new:
+        u = it.get("sourceUrl", "")
+        if not it.get("title") or not u or u in live_urls or u in existing_urls:
+            continue
+        it.setdefault("reason", "")
+        it["addedAt"] = date
+        existing_urls.add(u)
+        clean.append(it)
+
+    # (c) Dọn mục cũ: bỏ mục đã nằm trong Bị loại quá REJECTED_KEEP_DAYS ngày. Mục cũ chưa có
+    #     `addedAt` (từ trước khi thêm trường này) được đóng dấu ngày hôm nay để sống thêm 1 vòng,
+    #     thay vì biến mất ngay lập tức.
+    keep_from = ref - datetime.timedelta(days=REJECTED_KEEP_DAYS)
+    kept_existing, pruned = [], 0
+    for it in existing:
+        stamp = it.get("addedAt")
+        if not stamp:
+            it["addedAt"] = date
+            kept_existing.append(it)
+            continue
+        try:
+            if parse_date(stamp) >= keep_from:
+                kept_existing.append(it)
+            else:
+                pruned += 1
+        except ValueError:
+            it["addedAt"] = date
+            kept_existing.append(it)
+
+    return clean, baomoi_rejects, kept_existing, pruned
 
 
 def main() -> None:
@@ -766,79 +856,8 @@ def main() -> None:
     if new_exercises:
         data["exercises"] = new_exercises + data.get("exercises", [])
 
-    # rejectedNews: tin bị loại khi quét — hiện ở mục "Bị loại" trên web để người dùng cứu (like)
-    # hoặc xác nhận không thích (dislike). Không áp guardrail ngày/trùng-DATA (chúng là tin bị loại,
-    # có thể cũ); chỉ cần title + sourceUrl, kèm 'reason'. Chống trùng trong rejectedNews + với tin live.
-    # KHÔNG giới hạn tổng số, chỉ giới hạn số thêm MỖI LẦN QUÉT (xem 2 hằng số ở đầu file).
-    live_urls = {i.get("sourceUrl", "") for i in data.get("worldNews", [])} | {
-        i.get("sourceUrl", "") for i in data.get("usNews", [])
-    }
-    existing = data.get("rejectedNews", [])
-    existing_urls = {i.get("sourceUrl", "") for i in existing}
-
-    # (a) Ứng viên Báo Mới KHÔNG được chọn -> tự đổ vào mục Bị loại, không tốn token agent
-    #     (dữ liệu đã đủ field sẵn trong baomoi-topics.json). Ưu tiên chủ đề người dùng thích.
-    #     CHIA ĐỀU 4 chuyên mục (xoay vòng) thay vì lấy hết mục ưu tiên trước — kho ứng viên
-    #     lệch nặng (vd 45 Kinh tế / 5 Ngoại giao) nên xếp theo độ ưu tiên sẽ ăn hết 10 slot
-    #     bằng đúng 1 mục, người dùng không thấy được ứng viên của 3 mục còn lại.
-    #     Vòng xoay đi theo thứ tự ưu tiên nên mục thích hơn vẫn được nhiều hơn: 3-3-2-2.
-    cand_pool, _ = _load_baomoi(repo_root / "baomoi-topics.json")
-    by_cat = collections.defaultdict(collections.deque)
-    for it in sorted(cand_pool, key=lambda x: x.get("date", ""), reverse=True):  # mới nhất trước
-        u = it.get("sourceUrl", "")
-        if not it.get("title") or not u or u in live_urls or u in existing_urls:
-            continue
-        by_cat[it.get("category", "")].append(it)
-
-    baomoi_rejects = []
-    cats = sorted(by_cat, key=lambda c: REJECT_CATEGORY_ORDER.get(c, 9))
-    while len(baomoi_rejects) < BAOMOI_REJECT_PER_RUN and any(by_cat[c] for c in cats):
-        for c in cats:
-            if len(baomoi_rejects) >= BAOMOI_REJECT_PER_RUN:
-                break
-            if not by_cat[c]:
-                continue  # mục hết bài -> các mục khác lấp chỗ, vẫn đủ hạn mức
-            it = by_cat[c].popleft()
-            existing_urls.add(it["sourceUrl"])
-            baomoi_rejects.append(
-                {k: v for k, v in it.items() if k != "topic"}
-                | {"reason": "Ứng viên Báo Mới không được chọn — 👍 để đưa vào bản tin", "addedAt": date}
-            )
-
-    # (b) Tin agent chủ động loại (sai ngày/không hợp gu) — GIÁ TRỊ HƠN nên được xếp trước và
-    #     luôn còn ít nhất REJECTED_PER_RUN - BAOMOI_REJECT_PER_RUN slot.
-    clean = []
-    for it in rejected_new:
-        if len(clean) >= REJECTED_PER_RUN - len(baomoi_rejects):
-            break
-        u = it.get("sourceUrl", "")
-        if not it.get("title") or not u or u in live_urls or u in existing_urls:
-            continue
-        it.setdefault("reason", "")
-        it["addedAt"] = date
-        existing_urls.add(u)
-        clean.append(it)
-
-    # (c) Dọn mục cũ: bỏ mục đã nằm trong Bị loại quá REJECTED_KEEP_DAYS ngày. Mục cũ chưa có
-    #     `addedAt` (từ trước khi thêm trường này) được đóng dấu ngày hôm nay để sống thêm 1 vòng,
-    #     thay vì biến mất ngay lập tức.
-    keep_from = ref - datetime.timedelta(days=REJECTED_KEEP_DAYS)
-    kept_existing, pruned = [], 0
-    for it in existing:
-        stamp = it.get("addedAt")
-        if not stamp:
-            it["addedAt"] = date
-            kept_existing.append(it)
-            continue
-        try:
-            if parse_date(stamp) >= keep_from:
-                kept_existing.append(it)
-            else:
-                pruned += 1
-        except ValueError:
-            it["addedAt"] = date
-            kept_existing.append(it)
-
+    clean, baomoi_rejects, kept_existing, pruned = gop_bi_loai(
+        data, rejected_new, repo_root, date, ref)
     rejected_added = len(clean) + len(baomoi_rejects)
     if rejected_added or pruned:
         data["rejectedNews"] = clean + baomoi_rejects + kept_existing

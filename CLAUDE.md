@@ -3260,7 +3260,7 @@ timestamp thật của Báo Mới) và đúng 4 chủ đề của web. Cả hai 
 | File | Nguồn | Cần cookie | Cách dùng |
 |---|---|---|---|
 | `baomoi-saved.json` | Bài **người dùng tự bookmark** | Có (`BAOMOI_COOKIE`) | Lấy **HẾT**, KHÔNG áp bộ lọc sở thích → section `baomoiNews` → `DATA.worldNews` kèm cờ `_baomoi` (nhãn 📌 Đã lưu) |
-| `baomoi-topics.json` | **Quét chuyên mục công khai** (`the-gioi`, `kinh-te`, `khoa-hoc-cong-nghe`) | Không | **KHO ỨNG VIÊN** (~50–100 bài) → CHỌN LỌC theo bộ lọc sở thích, lấy ~3–6 bài tốt nhất → `worldNews` như tin thường, KHÔNG gắn `_baomoi` |
+| `baomoi-topics.json` | **Quét chuyên mục công khai** (`the-gioi`, `kinh-te`, `khoa-hoc-cong-nghe`) | Không | **KHO ỨNG VIÊN** (~50–100 bài) → **đúng chủ đề là cho vào, KHÔNG có trần số lượng** (Huy chốt 02/08/2026, bỏ luật cũ «lấy ~3–6 bài tốt nhất») → `worldNews` như tin thường, KHÔNG gắn `_baomoi` |
 
 ```
 python3 scripts/add_news.py --baomoi-pending   # in cả 2 nhóm, đã bỏ bài quá 24h + bài đã có trong DATA
@@ -3270,8 +3270,8 @@ Báo Mới là trang TỔNG HỢP — gần như mọi bài quốc tế trên đ
 Agent 7 và 8 phải **tìm bài gốc** (nguồn chính thức → wire → báo quốc tế uy tín), **đăng trong 24h**,
 **mở bằng WebFetch để xác nhận có thật**, rồi lấy `sourceName` + `sourceUrl` + `title` + `summary` +
 `significance` theo bài gốc — **đổi cả tiêu đề lẫn URL**, không giữ cách đặt tiêu đề của bản dẫn lại.
-- Không tìm được: **Agent 7 GIỮ link Báo Mới** (người dùng tự bookmark, không được bỏ tin) ·
-  **Agent 8 BỎ bài đó**, chọn ứng viên khác (kho 50–90 bài, không cần hạ chuẩn nguồn).
+- Không tìm được: **CẢ Agent 7 LẪN Agent 8 GIỮ link báo Việt Nam hoặc link Báo Mới, KHÔNG bỏ bài**
+  (Huy chốt 02/08/2026, đổi luật cũ bắt Agent 8 bỏ bài rồi chọn ứng viên khác).
 - Số liệu lấy theo bài gốc: bản dẫn lại hay làm tròn/rút gọn sai (thực tế 22/07 — "87 tỷ" thay vì
   87,6 tỷ; "tính tới 21/7" thay vì "hết năm tài khóa 30/9").
 - **MỌI tin truy ngược từ Báo Mới — Agent 7 VÀ Agent 8 — phải thêm `"_baomoiUrl": "<link Báo Mới gốc>"`.**
@@ -3287,12 +3287,14 @@ Agent 7 và 8 phải **tìm bài gốc** (nguồn chính thức → wire → bá
   trong mảng; xoá rồi chèn lại sẽ làm tin nhảy lên đầu, mất thứ tự thời gian).
 
 **Ứng viên không được chọn → tự vào mục 🚫 Bị loại** (người dùng 👍 để cứu lên bản tin). Agent KHÔNG
-phải liệt kê lại — `add_news.py` tự đọc `baomoi-topics.json` và lấy phần chưa dùng. Hạn mức mỗi lần
-quét (hằng số đầu `add_news.py`): `REJECTED_PER_RUN = 20` tổng, trong đó `BAOMOI_REJECT_PER_RUN = 10`
-là ứng viên Báo Mới — **chia đều 4 chuyên mục theo vòng xoay**, mỗi mục lấy bài mới nhất trước. Vòng
-xoay đi theo thứ tự CNQS → Ngoại giao → Kinh tế → Chính trị nên mục thích hơn vẫn nhiều hơn (3-3-2-2);
-mục nào hết bài thì mục khác lấp chỗ. (Xếp thuần theo độ ưu tiên thì hỏng: kho lệch nặng — có hôm 45
-Kinh tế / 5 Ngoại giao — nên 1 mục ăn hết 10 slot, người dùng không thấy ứng viên của 3 mục còn lại.)
+phải liệt kê lại — `add_news.py` tự đọc `baomoi-topics.json` và lấy phần chưa dùng. **KHÔNG CÓ TRẦN**
+(Huy chốt 02/08/2026: *"bị loại chỉ là những bài không đúng chủ đề hoặc không nằm trong khung ngày
+cho phép. không có số lượng tối đa cho bài bị loại"*; hai hằng số `REJECTED_PER_RUN`/
+`BAOMOI_REJECT_PER_RUN` gỡ hẳn 22/08/2026). Vòng xoay 4 chuyên mục **giữ lại nhưng nay chỉ quyết THỨ
+TỰ hiện trên web**, không quyết bài nào bị cắt: xoay theo CNQS → Ngoại giao → Kinh tế → Chính trị nên
+mục thích hơn nổi lên trước. Tin agent CHỦ ĐỘNG loại xếp TRƯỚC ứng viên Báo Mới trong danh sách.
+⛔ **Đừng vá bằng cách hạ hai hằng số về 0** — đã thử 02/08 và hỏng CÂM ngược ý (vế phải âm cắt sạch
+nhánh tin agent loại). Cổng canh: `tests/test-cong-bi-loai.py` (07 ca · 06 bản hỏng).
 **Tổng mục Bị loại không cap theo số lượng** — chỉ giới hạn lượng thêm mỗi lần, để một lô ~80 ứng viên
 Báo Mới không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent phải loại vì ngày/nghi trùng.
 

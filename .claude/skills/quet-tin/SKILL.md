@@ -251,13 +251,14 @@ Chỉ **5 luồng** cho 5 chủ đề (gộp Mali+Predator vào 1 agent; Báo M�
 | B | **Úc & Biển Đông** → `worldNews` | **5–10** — Úc (region IPAC) + Biển Đông (region Đông Á). |
 | C | **CNQS Mỹ** → `usNews` cat `Công nghệ quân sự` | **5–10** — khí tài/hệ thống cụ thể. |
 | D | **Mỹ–Mali + Predator's Run 2026** | Mali 2–5 (`usNews` dossier) · Predator 1–2 (`exerciseUpdates`). |
-| BM | **Báo Mới** (nếu `--baomoi-pending` có bài hợp 5 chủ đề) | Bài ĐÃ LƯU: giữ hết (field `baomoiNews`). Ứng viên chuyên mục: **CHỈ chọn bài hợp 5 chủ đề**, 2–5 bài, `worldNews`/`usNews` như thường. Không có bài hợp → bỏ qua agent này. |
+| BM | **Báo Mới** (nếu `--baomoi-pending` có bài hợp 5 chủ đề) | Bài ĐÃ LƯU: giữ hết (field `baomoiNews`). Ứng viên chuyên mục: **đúng chủ đề là CHO VÀO, không có trần số lượng** (Huy chốt 02/08/2026 — bỏ luật cũ «chọn 3–6 bài hợp gu nhất»), `worldNews`/`usNews` như thường. Không có bài hợp → bỏ qua agent này. |
 
 **Agent Báo Mới — TRUY NGƯỢC VỀ NGUỒN GỐC** (giữ nguyên quy tắc cũ): Báo Mới là trang tổng hợp. Với mỗi
 bài: mở `sourceUrl` (WebFetch) đọc nội dung, **tìm bài gốc nước ngoài** đúng sự kiện (đăng ≤48h), **mở
 WebFetch xác nhận có thật + đúng ngày**, lấy `sourceName`+`sourceUrl`+`title`+`summary`+`significance`
-theo bài GỐC (đổi cả tiêu đề lẫn URL). Không tìm được: bài ĐÃ LƯU → giữ link Báo Mới; ứng viên chuyên
-mục → bỏ, chọn bài khác. Cả hai chỉ giữ bài hợp 5 chủ đề.
+theo bài GỐC (đổi cả tiêu đề lẫn URL). **Không tìm được thì GIỮ LINK báo Việt Nam hoặc link Báo Mới,
+KHÔNG bỏ bài** — áp cho CẢ HAI nhóm (Huy chốt 02/08/2026; luật cũ bắt ứng viên chuyên mục bỏ bài).
+Cả hai chỉ giữ bài hợp 5 chủ đề.
 
 ⚠️ **HỄ ĐÃ ĐỔI URL SANG NGUỒN GỐC LÀ PHẢI KÈM `"_baomoiUrl":"<link Báo Mới>"` — CẢ bài đã lưu LẪN ứng
 viên chuyên mục** (sửa 27/07/2026; trước đây ghi nhầm là ứng viên chuyên mục không cần). Thiếu field
