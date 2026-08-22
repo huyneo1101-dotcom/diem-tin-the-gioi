@@ -141,6 +141,86 @@ def ca7_khong_nhanh_nao_con_cat_theo_tran():
     return not xau, "thân hàm còn dấu vết trần: %s" % ", ".join(xau)
 
 
+
+# ══ CỔNG BÀI ĐƯỢC 👍 (dựng 22/08/2026, việc 4 trong chốt 02/08 của Huy) ══════════════
+NAY = datetime.datetime.now(datetime.timezone.utc)
+
+
+def _moc(ngay_truoc):
+    return (NAY - datetime.timedelta(days=ngay_truoc)).isoformat().replace("+00:00", "Z")
+
+
+def _thich(*muc):
+    """muc = (url, so_ngay_truoc). Trả thư mục repo giả có preferences.json."""
+    tam = pathlib.Path(tempfile.mkdtemp(prefix="test-thich-"))
+    (tam / "preferences.json").write_text(json.dumps({
+        "liked": [{"item_id": u, "title": "Bài %s" % u[-3:], "category": "Kinh tế",
+                   "source": "Reuters", "n": 1, "updated_at": _moc(d)}
+                  for u, d in muc]}, ensure_ascii=False), encoding="utf-8")
+    return tam
+
+
+DATA_TRONG = {"worldNews": [], "usNews": [], "rejectedNews": []}
+
+
+def ca8_bai_thich_chua_nap_phai_hien():
+    tam = _thich(("https://x.test/a01", 1), ("https://x.test/a02", 3))
+    ra = AN.bi_loai_duoc_thich(tam, DATA_TRONG)
+    return len(ra) == 2, "chỉ nêu %d/2 bài đã 👍 mà chưa nạp" % len(ra)
+
+
+def ca9_bai_da_bi_don_khoi_muc_van_phai_hien():
+    """Mục Bị loại tự dọn sau 1 ngày — giao với `rejectedNews` là mất sạch bài 👍 muộn."""
+    tam = _thich(("https://x.test/a01", 2))
+    ra = AN.bi_loai_duoc_thich(tam, DATA_TRONG)   # rejectedNews RỖNG
+    return len(ra) == 1 and ra[0]["con_trong_muc"] is False,         "bài đã bị dọn khỏi mục Bị loại vẫn phải được nêu, thực tế nêu %d bài" % len(ra)
+
+
+def ca10_doi_chung_bai_da_nap_thi_im():
+    tam = _thich(("https://x.test/a01", 1))
+    data = {"worldNews": [{"sourceUrl": "https://x.test/a01"}], "usNews": [], "rejectedNews": []}
+    ra = AN.bi_loai_duoc_thich(tam, data)
+    return ra == [], "bài đã nạp rồi mà cổng vẫn nhắc — kêu oan mỗi lượt quét"
+
+
+def ca11_doi_chung_thich_qua_lau_thi_im():
+    tam = _thich(("https://x.test/a01", AN.BI_LOAI_THICH_SO_NGAY + 3))
+    ra = AN.bi_loai_duoc_thich(tam, DATA_TRONG)
+    return ra == [], "bài 👍 quá %d ngày vẫn bị lôi lên — hết là tin" % AN.BI_LOAI_THICH_SO_NGAY
+
+
+def ca12_thieu_field_liked_phai_KEU():
+    tam = pathlib.Path(tempfile.mkdtemp(prefix="test-thich-thieu-"))
+    (tam / "preferences.json").write_text(json.dumps({"stats": [], "items": []}),
+                                          encoding="utf-8")
+    try:
+        AN.bi_loai_duoc_thich(tam, DATA_TRONG)
+    except AN.LoiNguonThich:
+        return True, ""
+    return False, "preferences.json thiếu field `liked` mà cổng IM — cổng câm vĩnh viễn " \
+                  "trong khi workflow sync-preferences đã chết"
+
+
+def ca13_khong_doc_duoc_preferences_phai_KEU():
+    tam = pathlib.Path(tempfile.mkdtemp(prefix="test-thich-hong-"))
+    try:
+        AN.bi_loai_duoc_thich(tam, DATA_TRONG)   # không hề có file
+    except AN.LoiNguonThich:
+        return True, ""
+    return False, "không có preferences.json mà cổng IM — im ở đây không phân biệt được " \
+                  "với «không có bài nào được thích»"
+
+
+def ca14_cong_phai_nam_tren_duong_di_cua_lenh_phien_quet():
+    """Cổng sống mà không ai gọi thì y như cổng chết."""
+    # Chạy MOD_PATH chứ không phải add_news.py thật: lúc `--tu-kiem` thì MOD_PATH là bản
+    # hỏng: chạy bản thật ở đây thì ca luôn xanh và bản hỏng "gỡ lời gọi cổng" không bị bắt.
+    # Bản hỏng nằm trong scripts/ nên nó vẫn tự suy đúng repo_root.
+    r = subprocess.run([sys.executable, str(MOD_PATH), "--recent-titles", "1"],
+                       capture_output=True, text=True, cwd=str(REPO))
+    return "CỔNG BÀI 👍" in r.stdout, \
+        "chạy `--recent-titles` mà KHÔNG in cổng bài 👍 (mã %s)" % r.returncode
+
 CA = [
     ("1. MỌI ứng viên Báo Mới đều vào mục Bị loại (không trần)", ca1_moi_ung_vien_baomoi_deu_vao),
     ("2. Lô lệch nặng vẫn ra đủ 04 chuyên mục", ca2_du_ca_bon_chuyen_muc),
@@ -149,6 +229,13 @@ CA = [
     ("5. ĐỐI CHỨNG: phép chống trùng vẫn còn (chiều NỚI)", ca5_doi_chung_chong_trung_van_con),
     ("6. ĐỐI CHỨNG: tin agent loại vẫn xếp TRƯỚC ứng viên Báo Mới", ca6_doi_chung_tin_agent_xep_truoc),
     ("7. Soi tĩnh: không nhánh nào còn cắt theo trần", ca7_khong_nhanh_nao_con_cat_theo_tran),
+    ("8. Bài đã 👍 mà chưa nạp → PHẢI hiện", ca8_bai_thich_chua_nap_phai_hien),
+    ("9. Bài đã bị dọn khỏi mục Bị loại vẫn PHẢI hiện", ca9_bai_da_bi_don_khoi_muc_van_phai_hien),
+    ("10. ĐỐI CHỨNG: bài đã nạp rồi thì im (chiều NỚI)", ca10_doi_chung_bai_da_nap_thi_im),
+    ("11. ĐỐI CHỨNG: 👍 quá cửa sổ ngày thì im (chiều NỚI)", ca11_doi_chung_thich_qua_lau_thi_im),
+    ("12. Thiếu field `liked` → PHẢI KÊU chứ không im", ca12_thieu_field_liked_phai_KEU),
+    ("13. Không đọc được preferences.json → PHẢI KÊU", ca13_khong_doc_duoc_preferences_phai_KEU),
+    ("14. Cổng PHẢI nằm trên đường đi của `--recent-titles`", ca14_cong_phai_nam_tren_duong_di_cua_lenh_phien_quet),
 ]
 
 BAN_HONG = [
@@ -176,6 +263,29 @@ BAN_HONG = [
      ('data["rejectedNews"] = clean + baomoi_rejects + kept_existing',
       'data["rejectedNews"] = baomoi_rejects + clean + kept_existing'),
      [6]),
+    # ── cổng bài được 👍 ────────────────────────────────────────────────────────
+    ("lỗi đọc preferences.json thoát êm (fail-open, đúng lối cổng chết)",
+     ('        raise LoiNguonThich("không đọc được preferences.json: %r" % e)',
+      '        return []'),
+     [13]),
+    ("thiếu field `liked` coi như sạch (cổng câm khi workflow chết)",
+     ('    if "liked" not in pref:', '    if False and "liked" not in pref:'),
+     [12]),
+    ("giao với `rejectedNews` (mất sạch bài 👍 muộn — mục tự dọn sau 1 ngày)",
+     ('        if not u or u in da_nap:\n            continue',
+      '        if not u or u in da_nap or u not in con_trong_muc:\n            continue'),
+     [8, 9]),
+    ("gỡ phép loại bài ĐÃ NẠP (cổng nhắc oan mỗi lượt quét)",
+     ('        if not u or u in da_nap:\n            continue',
+      '        if not u:\n            continue'),
+     [10]),
+    ("gỡ cửa sổ ngày (lôi cả bài 👍 từ ba tuần trước)",
+     ('        if khi is not None and (bay_gio - khi).days > BI_LOAI_THICH_SO_NGAY:\n            continue',
+      '        pass'),
+     [11]),
+    ("gỡ lời gọi cổng khỏi `--recent-titles` (cổng sống nhưng không ai gọi)",
+     ('        print_bi_loai_thich_gate(repo_root, _d)', '        pass'),
+     [14]),
 ]
 
 

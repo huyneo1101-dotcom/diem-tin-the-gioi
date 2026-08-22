@@ -655,13 +655,19 @@ class LoiNguonThich(RuntimeError):
     """Nguồn dữ liệu 👍 chết. Ném chứ không trả rỗng — xem `bi_loai_duoc_thich`."""
 
 
-# Bài "Bị loại" đã được 👍 phải còn trong khung ngày này mới đáng đưa lên bản tin. Rộng hơn
-# khung tin thường vì bài bị loại nằm chờ người đọc rà, nhưng quá mốc thì hết là tin.
-BI_LOAI_THICH_MAX_AGE = 10
+# Cửa sổ tính từ lúc BẤM 👍, không phải từ ngày đăng bài. Mục "Bị loại" tự dọn sau
+# `REJECTED_KEEP_DAYS` = 1 ngày, nên bài được thích muộn đã biến mất khỏi `rejectedNews`
+# trước lượt quét sau — đo 22/08/2026: 21 bài đã 👍 mà chưa nạp, KHÔNG bài nào còn nằm
+# trong mục Bị loại. Vì thế cổng đọc thẳng danh sách 👍 chứ không giao với `rejectedNews`.
+BI_LOAI_THICH_SO_NGAY = 7
 
 
-def bi_loai_duoc_thich(repo_root: pathlib.Path, data: dict, ref: datetime.date | None = None):
-    """Bài đang nằm ở mục "Bị loại" mà người đọc đã 👍, CHƯA nạp vào bản tin.
+class LoiNguonThich(RuntimeError):
+    """Nguồn dữ liệu 👍 chết. Ném chứ không trả rỗng — xem `bi_loai_duoc_thich`."""
+
+
+def bi_loai_duoc_thich(repo_root: pathlib.Path, data: dict, bay_gio=None):
+    """Bài người đọc đã 👍 mà CHƯA nạp vào bản tin.
 
     Huy chốt 02/08/2026: *"tự tổng hợp những bài bị loại được bấm nút thích hàng ngày để thêm
     vào lần gửi tin tiếp theo (miễn vẫn đúng các tiêu chí)"*.
@@ -674,9 +680,8 @@ def bi_loai_duoc_thich(repo_root: pathlib.Path, data: dict, ref: datetime.date |
     ⚠ Cũng KHÔNG dùng được `dt.promoted`: nút "kéo vào Bài mới" chỉ ghi localStorage của máy
     người đọc, phiên quét không có đường nào thấy.
 
-    Trả list (item_dict_trong_rejectedNews, so_luot_thich). Rỗng là sạch.
+    Trả list dict {item_id, title, category, source, n, ngay_thich, con_trong_muc}. Rỗng là sạch.
     """
-    ref = ref or today_vn()
     try:
         pref = json.loads((repo_root / "preferences.json").read_text(encoding="utf-8"))
     except (OSError, ValueError) as e:
@@ -689,23 +694,24 @@ def bi_loai_duoc_thich(repo_root: pathlib.Path, data: dict, ref: datetime.date |
         raise LoiNguonThich(
             "preferences.json KHÔNG có field `liked` — workflow sync-preferences chưa kéo "
             "view `vote_thich_theo_bai` về (chạy tay: gh workflow run sync-preferences.yml)")
-    liked = {i.get("item_id") for i in (pref.get("liked") or []) if i.get("item_id")}
-    if not liked:
-        return []
-    dem = {i.get("item_id"): i.get("n") or 1 for i in (pref.get("liked") or [])}
+    bay_gio = bay_gio or datetime.datetime.now(datetime.timezone.utc)
     da_nap = collect_existing_urls(data)
-    cutoff = ref - datetime.timedelta(days=BI_LOAI_THICH_MAX_AGE)
+    con_trong_muc = {i.get("sourceUrl", "") for i in data.get("rejectedNews", [])}
     ra = []
-    for it in data.get("rejectedNews", []):
-        u = it.get("sourceUrl", "")
-        if u not in liked or u in da_nap:
+    for i in pref.get("liked") or []:
+        u = i.get("item_id")
+        if not u or u in da_nap:
             continue
         try:
-            if parse_date(it.get("date", "")) < cutoff:
-                continue               # quá cũ: 👍 rồi cũng không còn là tin
-        except ValueError:
-            pass                       # không đọc được ngày ⇒ vẫn nêu, để agent tự xét
-        ra.append((it, dem.get(u, 1)))
+            khi = datetime.datetime.fromisoformat(str(i.get("updated_at")).replace("Z", "+00:00"))
+        except (TypeError, ValueError):
+            khi = None                 # không đọc được mốc ⇒ vẫn nêu, để agent tự xét
+        if khi is not None and (bay_gio - khi).days > BI_LOAI_THICH_SO_NGAY:
+            continue
+        ra.append({"item_id": u, "title": i.get("title") or "", "n": i.get("n") or 1,
+                   "category": i.get("category") or "?", "source": i.get("source") or "",
+                   "ngay_thich": (khi.date().isoformat() if khi else "?"),
+                   "con_trong_muc": u in con_trong_muc})
     return ra
 
 
@@ -725,11 +731,12 @@ def print_bi_loai_thich_gate(repo_root: pathlib.Path, data: dict) -> None:
     if not hits:
         print("✅ CỔNG BÀI 👍: không có bài Bị loại nào được thích mà chưa nạp.")
         return
-    print(f"⚠️  CỔNG BÀI 👍: CÒN {len(hits)} BÀI Ở MỤC BỊ LOẠI ĐÃ ĐƯỢC THÍCH, CHƯA NẠP:")
-    for it, n in hits:
-        print(f"   [{it.get('category','?')}] {it.get('date','?')} — {it.get('title','')}"
-              + (f"  ({n} lượt 👍)" if n > 1 else ""))
-        print(f"      {it.get('sourceName','')} — {it.get('sourceUrl','')}")
+    print(f"⚠️  CỔNG BÀI 👍: CÒN {len(hits)} BÀI ĐÃ ĐƯỢC THÍCH MÀ CHƯA NẠP:")
+    for h in hits:
+        print(f"   [{h['category']}] 👍 {h['ngay_thich']} — {h['title']}"
+              + (f"  ({h['n']} lượt)" if h["n"] > 1 else "")
+              + ("" if h["con_trong_muc"] else "  · đã bị dọn khỏi mục Bị loại"))
+        print(f"      {h['source']} — {h['item_id']}")
     print("   → Đưa vào bản tin lần này MIỄN VẪN ĐÚNG TIÊU CHÍ (khung ngày · chủ đề · không trùng).")
     print("     Không đạt tiêu chí thì ghi lý do vào logs/loai-tin.md — đừng im lặng bỏ qua.")
 

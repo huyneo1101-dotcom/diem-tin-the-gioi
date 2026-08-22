@@ -266,6 +266,11 @@ này, `collect_existing_urls` mất dấu link Báo Mới cũ → cổng Báo M�
 "chưa nạp" và phiên sau nạp lại y hệt, mà guardrail trùng URL KHÔNG bắt được vì URL đã đổi. Gặp thật
 với tin "Tàu 015-Trần Hưng Đạo thăm Manila" ngày 27/07.
 
+🚪 **CỔNG BÀI ĐƯỢC 👍 (dựng 22/08/2026).** `add_news.py` in ngay sau cổng Báo Mới, ở cả hai lệnh phiên
+quét bắt buộc chạy: danh sách bài Huy đã bấm 👍 trong 7 ngày mà CHƯA vào bản tin. Với mỗi bài — nạp
+nếu vẫn đúng khung ngày + chủ đề + không trùng, HOẶC ghi lý do vào `logs/loai-tin.md`. **Không được
+im lặng bỏ qua.** Cổng in 🔴 «KHÔNG ĐO ĐƯỢC» nghĩa là workflow `sync-preferences` đã chết — báo Huy.
+
 🚪 **CỔNG BÁO MỚI (dựng 27/07/2026 — cưỡng bức, không dựa vào trí nhớ).** `add_news.py` tự lọc kho Báo
 Mới theo bộ từ khoá 5 chủ đề rồi in danh sách ứng viên KHỚP mà chưa nạp, ở **cả hai** lệnh phiên quét
 bắt buộc chạy: `--recent-titles` (đầu phiên) và lúc nạp lô (dòng CUỐI, ngay trước khi commit). Thấy

@@ -3294,7 +3294,26 @@ cho phép. không có số lượng tối đa cho bài bị loại"*; hai hằng
 TỰ hiện trên web**, không quyết bài nào bị cắt: xoay theo CNQS → Ngoại giao → Kinh tế → Chính trị nên
 mục thích hơn nổi lên trước. Tin agent CHỦ ĐỘNG loại xếp TRƯỚC ứng viên Báo Mới trong danh sách.
 ⛔ **Đừng vá bằng cách hạ hai hằng số về 0** — đã thử 02/08 và hỏng CÂM ngược ý (vế phải âm cắt sạch
-nhánh tin agent loại). Cổng canh: `tests/test-cong-bi-loai.py` (07 ca · 06 bản hỏng).
+nhánh tin agent loại). Cổng canh: `tests/test-cong-bi-loai.py` (14 ca · 12 bản hỏng).
+
+### 🚪 CỔNG BÀI ĐƯỢC 👍 (dựng 22/08/2026)
+Huy chốt 02/08/2026: *"tự tổng hợp những bài bị loại được bấm nút thích hằng ngày để thêm vào lần
+gửi tin tiếp theo (miễn vẫn đúng các tiêu chí)"*. `add_news.py` in cổng này ở **cả hai** lệnh phiên
+quét bắt buộc chạy, ngay sau cổng Báo Mới. Thấy cổng còn bài thì **phải xử lý từng bài**: nạp nếu
+vẫn đúng khung ngày + chủ đề + không trùng, HOẶC ghi lý do vào `logs/loai-tin.md`.
+
+**Đường dữ liệu** (đừng đo lại): nút 👍 trên thẻ Bị loại gọi `castVote` → bảng `votes` Supabase,
+khoá `item_id` chính là `sourceUrl`. View công khai **`vote_thich_theo_bai`** gom theo `item_id`,
+chỉ `v=1`, cửa sổ 21 ngày, KHÔNG kèm `user_id`, chỉ cấp quyền `SELECT`. `sync-preferences.yml` kéo
+về `preferences.json` field **`liked`**.
+- ⚠ **KHÔNG dùng được `vote_items`** — view đó gom theo TIÊU ĐỀ nên không trả về địa chỉ bài.
+- ⚠ **KHÔNG dùng được `dt.promoted`** — nút *kéo vào Bài mới* chỉ ghi localStorage máy người đọc.
+- ⚠ **Cổng đọc THẲNG danh sách 👍, KHÔNG giao với `rejectedNews`**: mục Bị loại tự dọn sau
+  `REJECTED_KEEP_DAYS` = 1 ngày, nên bài 👍 muộn đã biến mất. Đo 22/08: 21 bài đã 👍 mà chưa nạp,
+  **không bài nào** còn nằm trong mục Bị loại — giao hai tập là mất sạch.
+- Cửa sổ nêu lại: `BI_LOAI_THICH_SO_NGAY` = 7 ngày kể từ lúc BẤM 👍, không phải từ ngày đăng bài.
+- **Fail về phía KÊU:** `preferences.json` không đọc được, hoặc thiếu hẳn field `liked` (workflow
+  `sync-preferences` chết), thì cổng in ĐỎ — im ở đó không phân biệt được với «không có bài nào».
 **Tổng mục Bị loại không cap theo số lượng** — chỉ giới hạn lượng thêm mỗi lần, để một lô ~80 ứng viên
 Báo Mới không nhấn chìm loại tin giá trị hơn: tin ĐÚNG GU mà agent phải loại vì ngày/nghi trùng.
 
