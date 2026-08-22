@@ -211,8 +211,11 @@ BAN_HONG = [
      ('    cutoff = datetime.date.today() - datetime.timedelta(days=MAX_AGE_DAYS)',
       '    cutoff = datetime.date(1970, 1, 1)'),
      [7]),
+    # ⚠ Neo đổi 22/08/2026: lời gọi cổng nay đọc DATA vào biến `_d` để cổng bài 👍 dùng chung
+    # lượt parse. Neo cũ trỏ vào chuỗi đã biến mất nên bản hỏng không áp được — bộ test báo
+    # TRƯỢT ngay lượt đầu sau khi sửa mã, đúng vai của nó.
     ("gỡ lời gọi cổng khỏi `--recent-titles` (cổng sống nhưng không ai gọi)",
-     ('        print_baomoi_gate(repo_root, collect_existing_urls(json.loads(html[s:e])))',
+     ('        print_baomoi_gate(repo_root, collect_existing_urls(_d))',
       '        pass'),
      [8]),
 ]
