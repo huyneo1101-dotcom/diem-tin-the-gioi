@@ -14,4 +14,10 @@
 [04:45Z] SKIP (local 04:45, moc luoi cuoi) - web-scan claim tra exit 10 (DONE luc 04:30:02, cach 15 phut). Ban tin sang da xong day du. Khong quet lai.
 [21:58Z] SKIP (CI) - web-scan claim tra exit 10 lai lan nua (DONE luc 04:30:02). Kiem tra ngoai le theo quy trinh: so da-gui-email.json co dong "2026-08-22T04:37:19+07:00 [sang] 7 tin" + "2026-08-22T04:37:21+07:00 [sukien] 0 tin" khop dung ca sang som hom nay - ban tin da toi tay that, khong phai co noi doi. Ket luan: day la lan kich CI khac cua cung phien sang som, da co nhieu lan SKIP tuong tu truoc do (dong 8,13,14). Khong quet lai, khong commit gi them ngoai log nay.
 [13:59Z] START (CI) - phien toi, gio VN 20:59. claim web-scan OK (phien toi ngay 2026-08-22 chua xong, da giu khoa).
+[14:00Z] harvest.py: 421 ung vien (cai them curl_cffi). telegram_harvest.py: cham 10 ung vien.
+[14:13Z] Giao 5 agent Sonnet theo 5 chu de. Ket qua: Noi bo My 4 tin, CNQS My 5 tin (sau xoa trung con 3), Uc & Bien Dong 4 tin, My-Mali 0 tin, Tap tran 1 cap nhat (Nga thu Bastion gan Kuril).
 [14:15Z] SKIP (local 21:15) - web-scan claim tra exit 11: phien khac (CI 20:47/20:59) dang chay that, nhip tim 16' truoc, chua qua han 30'. Khong quet chong. Ket thuc, khong dieu tra them.
+[14:29Z] Bao Moi cong: 12 ung vien, xu ly dut diem - nap 1 (P-8A Poseidon qua eo Dai Loan, truy goc PACOM). Cong bai thich: 21 bai, TAT CA ngoai khung ngay (16-17/08) - khong nap bai nao.
+[14:30Z] tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10) - bo qua buoc loc Jay Lam.
+[14:31Z] add_news.py: +5 worldNews, +9 usNews, +1 cap nhat tap tran. Phat hien 2 tin trung sau khi nap (SeaSparrow, X-Bow interceptor) - da xoa bang prune_news.py. Con lai thuc chat: +5 worldNews, +7 usNews, +1 cap nhat tap tran.
+[14:35Z] Ghi logs/loai-tin.md + logs/scan-gaps.json (session=toi) day du chi tiet cac tin loai.

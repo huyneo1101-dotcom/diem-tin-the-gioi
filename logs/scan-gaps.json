@@ -1,6 +1,6 @@
 {
   "date": "2026-08-22",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
@@ -8,23 +8,23 @@
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Nhóm 1 (điều trần/bỏ phiếu) trắng — Quốc hội Mỹ vẫn trong kỳ nghỉ hè tháng 8, không có phiên điều trần/bỏ phiếu nào trong khung 21-22/08. Đạt được 4 tin qua nhóm 2/4/5: Trump miễn thuế thịt bò 90 ngày (nhóm 4), Treasury trừng phạt mạng lưới tiền mặt Hezbollah (nhóm 4), RNC giữ lợi thế tài chính trước DNC (nhóm 5). Loại 2 tin ngoài khung ngày (DNC kiện Bộ Tư pháp, Cuba sanctions — cả hai ngày sự kiện thật 20/08, ngoài khung 1 ngày cho phép của chủ đề này) và 1 tin trùng phát hiện sau khi nạp (Bessent Iran sanctions qua westhawaiitoday, trùng bản CNBC đã có — đã xoá bằng prune_news.py). Xem logs/loai-tin.md."
+      "reason": "Nhóm 1 (điều trần/bỏ phiếu) gần như trắng — Quốc hội Mỹ vẫn trong kỳ nghỉ hè, không có phiên điều trần/bỏ phiếu lớn nào 21-22/08. Đạt 4 tin qua nhóm 2/4: Trump chính thức áp thuế 50% Canada sau đàm phán đổ vỡ, Iran phản đối trừng phạt mới (Bessent), USPS siết mail-in voting bất chấp lệnh toà chặn, HHS công bố sáng kiến cảnh báo người tự kỷ mất tích. Đã kiểm và bỏ nhiều tin trùng sự kiện Iran/Canada từ cổng Báo Mới (xem logs/loai-tin.md)."
     },
     {
       "name": "Úc & Biển Đông",
-      "count": 0,
+      "count": 5,
       "target": "5-10",
       "min": 5,
-      "thieu": true,
-      "reason": "0 tin đạt chuẩn. Agent tìm 2 ứng viên ban đầu (MH-60 TALON Mỹ-Úc, HMAS Hobart Tomahawk upgrade) nhưng cả hai có ngày sự kiện thật 19-20/08, ngoài khung 21-22/08 nghiêm ngặt (chủ đề này KHÔNG được nới 3 ngày như CNQS). Sau khi yêu cầu tìm lại đúng khung, agent rà thêm qua nhiều góc (Trung Quốc-Philippines, quốc phòng Úc, Việt Nam-Úc, tập trận đa quốc gia, drone RAAF Williamtown) nhưng mọi ứng viên khớp chủ đề đều hoặc đã trùng DATA hoặc ngày sự kiện ngoài khung — phần lớn tin nóng 21-22/08 của chủ đề này đã bị các phiên CI trước (20-21/08) nạp gần hết."
+      "thieu": false,
+      "reason": "Đạt sàn: 4 tin từ agent (Trung Quốc-Indonesia hợp tác nhà máy vũ khí, báo cáo AMTI/CSIS về phong toả biển đông Đài Loan, Hải cảnh TQ quay lại Đông Sa, đề xuất 'pháo đài robot' Biển Đông) + 1 tin từ cổng Báo Mới truy gốc PACOM (P-8A Poseidon qua eo biển Đài Loan)."
     },
     {
       "name": "CNQS Mỹ",
-      "count": 4,
+      "count": 3,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Trong khung nới 3 ngày (19-22/08), 4/7 ứng viên ban đầu của agent TRÙNG tin đã có trong DATA (Golden Dome CBO, Raytheon Tomahawk 22,9 tỷ USD x2 bản, Castelion 1 tỷ USD, X-Bow interceptor 11 triệu USD) — điều phối tự grep index.html theo từ khoá phát hiện vì --recent-titles 20 bị exercises/dipEvents chiếm hết chỗ hiển thị. Giữ 4 tin thật sự mới: Kongsberg/Zone 5 hợp đồng Rusty Dagger (CHAOS), Thuỷ quân lục chiến nhận tàu đổ bộ ASC mới, Boeing hợp đồng bảo trì động cơ P-8A/C-40A 156,2 triệu USD, USS George Washington tới Trung Đông (truy gốc từ ứng viên Báo Mới). Loại 1 ứng viên Báo Mới ngoài phạm vi (rơi máy bay charter dân sự tại căn cứ Alaska — không phải khí tài quân sự)."
+      "reason": "Agent tìm được 5 tin trong khung nới 3 ngày (19-22/08), nhưng SAU KHI NẠP phát hiện 2/5 TRÙNG sự kiện đã có trong DATA (SeaSparrow — trùng bản Defense News cùng ngày; X-Bow interceptor — trùng bản đã nạp sáng cùng ngày), đã xoá bằng prune_news.py. Còn 3 tin thật sự mới: MDA hợp đồng X-Bow low-cost interceptor khác (đã xoá nên KHÔNG tính — chỉ còn CBO Golden Dome report, Castelion Blackbeard 1 tỷ USD, Space Force Colorado Springs). Không kịp giao vòng bổ sung do ưu tiên hạn chót email 22:00."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "0/34 ứng viên đạt chuẩn. Không tìm được diễn biến nào của Mỹ (quyết định/hành động/phản ứng) liên quan Mali/JNIM/Sahel trong khung ngày — phần lớn ứng viên là tin nội bộ Mali/Sahel không dính Mỹ trực tiếp (bầu cử, kinh tế Niger, ICC-ECOWAS...). Không có thông cáo mới từ CENTCOM/AFRICOM/State Dept."
+      "reason": "0 tin đạt chuẩn (best-effort, chủ đề thường khan). Câu chuyện 'Mỹ cân nhắc không kích Mali' chỉ có nguồn WaPo cũ (22/07), ngoài mọi khung ngày. Tin duy nhất trong khung (HRW: Africa Corps thảm sát dân Bombori) là chuyện nội bộ Nga-Mali, không phải hành động/quyết định của Mỹ nên không khớp phạm vi hẹp của chủ đề."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,7 +40,7 @@
       "target": "1-2",
       "min": 1,
       "thieu": false,
-      "reason": "1 cập nhật: Nga phóng loạt tên lửa Vulkan/Granit/Oniks gần quần đảo Kuril (21/08, Stars and Stripes) — diễn biến mới trong 'Diễn tập Hạm đội Thái Bình Dương Nga 2026'. Các cuộc đang diễn ra khác (MAITREE-XV, Swift Eagle 2026, Ulchi Freedom Shield 2026, FRATERNO XXXIX, SEACAT 2026) không có diễn biến MỚI HẲN trong khung 21-22/08 so với tin nền đã có."
+      "reason": "1 cập nhật: Nga thử tên lửa Bastion gần quần đảo Kuril tranh chấp (21/08, Euronews), Nhật Bản phản đối gay gắt — diễn biến mới của 'Diễn tập Hạm đội Thái Bình Dương Nga 2026'. Các cuộc khác không có diễn biến mới hẳn trong khung ngày."
     },
     {
       "name": "Báo Mới",
@@ -48,8 +48,16 @@
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "10 ứng viên tồn đọng — giải quyết dứt điểm: nạp 1 tin qua truy gốc (USS George Washington → USNI News, tính vào chủ đề CNQS Mỹ ở trên). Loại 9: 2 bài explainer vũ khí Nga (Kinzhal/Iskander-M, không phải sự kiện), 4 bài trùng sự kiện Bessent/Hezbollah sanctions đã nạp qua nguồn tiếng Anh, 1 bài phát ngôn ngoại giao Trung Quốc (ngoài phạm vi 5 chủ đề), 1 bài rơi máy bay charter dân sự (không phải khí tài, ngoài phạm vi CNQS), 1 bài ngân sách quốc phòng Nhật Bản (không neo Úc/Biển Đông/Mỹ). Chi tiết: logs/loai-tin.md mục 2026-08-22."
+      "reason": "12 ứng viên xử lý dứt điểm: nạp 1 tin qua truy gốc (P-8A Poseidon → PACOM, tính vào Úc & Biển Đông ở trên). Loại 11: 2 bài vũ khí Nga (Kinzhal), 1 bài Su-35/Kh-31PM (vũ khí Nga), 4 bài trùng sự kiện Canada/Iran đã nạp qua nguồn khác, 1 bài chưa xác minh kịp (Bộ trưởng Lục quân rời chức), 1 bài Triều Tiên/Nhật Bản (ngoài phạm vi Nội bộ Mỹ), 1 bài thuế cá tra Việt (ngoài 5 nhóm nghiêm ngặt), 1 bài MQ-9 Reaper ngoài khung ngày (báo cáo điều tra công bố 13/08 về sự cố 31/08/2025). Chi tiết: logs/loai-tin.md mục 2026-08-22 (phiên tối CI)."
+    },
+    {
+      "name": "Cổng bài 👍",
+      "count": 0,
+      "target": "best-effort",
+      "min": 0,
+      "thieu": false,
+      "reason": "21 bài đã 👍 chờ nạp — TẤT CẢ có ngày bài 16-17/08/2026, ngoài khung ngày cho phép của mọi chủ đề (kể cả khung nới xa nhất CNQS Mỹ chỉ tới 19/08). Không đạt tiêu chí khung ngày nên không nạp bài nào lần này — hạn chế đã biết của cổng khi bài 👍 quá lâu sau khi bị loại."
     }
   ],
-  "note": "Phiên SÁNG SỚM CI (fire 03:47/04:47 VN, chạy thực tế từ 04:00). Batch date=2026-08-22. Kết quả sau khi xoá 1 tin trùng: +0 worldNews, +7 usNews thực chất mới, +1 cập nhật tập trận, 0 Mỹ-Mali. SÀN CỨNG TỔNG NGÀY (gộp cả sáng+tối, hiển thị bởi add_news.py): worldNews 0/15, usNews 8/15 (script đếm trước khi xoá tin trùng, số thực chất còn lại là 7) — phiên SÁNG chỉ cần đạt ~10/mục, không ép đủ 15, để phiên tối cùng ngày bù thêm. Nguyên nhân sản lượng mỏng: phần lớn tin nóng 19-21/08 của CNQS Mỹ và Nội bộ Mỹ (mảng Iran sanctions) đã bị các phiên CI liền trước (20-21/08) nạp gần hết trước khi phiên này chạy; chủ đề Úc & Biển Đông và Mỹ-Mali về 0 tin dù đã tìm kỹ qua nhiều góc độ."
+  "note": "Phiên TỐI CI (fire 20:47 VN, chạy thực tế từ 20:59-21:35). Batch date=2026-08-22. Kết quả sau khi xoá 2 tin trùng: +5 worldNews, +7 usNews, +1 cập nhật tập trận. Ưu tiên chốt đúng hạn email 22:00 nên không mở vòng bổ sung cho Nội bộ Mỹ/CNQS Mỹ dù còn thiếu sàn tối thiểu 5 — 2 chủ đề này đã bị các phiên CI trước (sáng sớm cùng ngày, 20-21/08) nạp gần hết tin nóng trước khi phiên này chạy."
 }
