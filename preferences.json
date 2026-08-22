@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-18T01:56:50Z",
-  "source": "supabase vote_stats + vote_items (auto by GitHub Action)",
+  "generatedAt": "2026-08-22T09:50:30Z",
+  "source": "supabase vote_stats + vote_items + vote_thich_theo_bai (auto by GitHub Action)",
   "stats": [
     {
       "scope": "category",
@@ -4083,6 +4083,638 @@
       "region": "Châu Phi",
       "source": "Al Jazeera",
       "n": 1
+    }
+  ],
+  "liked": [
+    {
+      "item_id": "https://baomoi.com/hang-tram-uav-ukraine-lao-vao-moscow-nga-lap-tuc-dap-tra-bang-ten-lua-dan-dao-c55844993.epi",
+      "title": "Hàng trăm UAV Ukraine lao vào Moscow, Nga lập tức đáp trả bằng tên lửa đạn đạo",
+      "category": "Công nghệ quân sự",
+      "region": "Nga–Ukraine",
+      "source": "VietTimes",
+      "n": 1,
+      "updated_at": "2026-08-17T07:08:03.751+00:00"
+    },
+    {
+      "item_id": "https://www.minister.defence.gov.au/statements/2026-08-12/2026-updated-joint-vision-statement-further-defence-cooperation-between-department-defence-australia-ministry-national-defence-socialist-republic-viet-nam",
+      "title": "Australia - Việt Nam ký Tuyên bố Tầm nhìn chung cập nhật về hợp tác quốc phòng",
+      "category": null,
+      "region": null,
+      "source": "Bộ Quốc phòng Australia",
+      "n": 1,
+      "updated_at": "2026-08-17T02:54:52.398+00:00"
+    },
+    {
+      "item_id": "https://www.upi.com/Top_News/World-News/2026/08/10/korea-Ulchi-Freedom-Shield-26-US-South-Korea-joint-military-exercise-launch/3191786354705/",
+      "title": "Hàn Quốc - Mỹ ấn định tập trận Ulchi Freedom Shield 2026 diễn ra 17-27/8, khoảng 18.000 quân Hàn tham gia",
+      "category": null,
+      "region": null,
+      "source": "UPI",
+      "n": 1,
+      "updated_at": "2026-08-17T02:54:04.664+00:00"
+    },
+    {
+      "item_id": "https://www.globaltimes.cn/page/202608/1368153.shtml",
+      "title": "Trung Quốc điều tiêm kích J-10C, máy bay cảnh báo sớm tới Thái Lan tập trận Falcon Strike 2026",
+      "category": null,
+      "region": null,
+      "source": "Global Times",
+      "n": 1,
+      "updated_at": "2026-08-17T02:53:58.548+00:00"
+    },
+    {
+      "item_id": "https://www.scmp.com/news/world/middle-east/article/3364150/us-readies-iran-penalties-trump-downplays-midterms-impact",
+      "title": "Mỹ chuẩn bị gói trừng phạt kinh tế 'chưa từng có' với Iran, Trump nói không quan tâm ảnh hưởng bầu cử giữa kỳ",
+      "category": "Chính trị",
+      "region": "Trung Đông",
+      "source": "South China Morning Post",
+      "n": 1,
+      "updated_at": "2026-08-17T02:53:22.614+00:00"
+    },
+    {
+      "item_id": "https://www.yabiladi.com/articles/details/200671/agent-francais-dgse-libere-mali.html",
+      "title": "Mali ân xá điệp viên tình báo Pháp DGSE nhờ trung gian Morocco",
+      "category": "Ngoại giao",
+      "region": "Châu Phi",
+      "source": "Yabiladi.com",
+      "n": 1,
+      "updated_at": "2026-08-17T02:52:48.867+00:00"
+    },
+    {
+      "item_id": "https://www.africanews.com/2026/08/15/burkina-faso-imposes-military-training-on-journalists/",
+      "title": "Burkina Faso cưỡng ép nhà báo qua đào tạo quân sự giữa lúc đối mặt lệnh trừng phạt mới từ Washington",
+      "category": "Chính trị",
+      "region": "Nga–Ukraine",
+      "source": "Africanews",
+      "n": 1,
+      "updated_at": "2026-08-17T02:52:46.198+00:00"
+    },
+    {
+      "item_id": "https://sofrep.com/news/mission-accomplished-undone-africa-corps-loses-ground-wagner-once-held-in-mali",
+      "title": "Africa Corps của Nga mất nhiều thị trấn ở Mali trước đà tấn công của JNIM",
+      "category": "Chính trị",
+      "region": "Nga–Ukraine",
+      "source": "SOFREP",
+      "n": 1,
+      "updated_at": "2026-08-17T02:52:34.297+00:00"
+    },
+    {
+      "item_id": "https://www.usnews.com/news/world/articles/2026-08-14/exclusive-libyas-haftar-played-key-role-in-release-of-us-hostage-held-by-islamic-state-sources-say",
+      "title": "Libya's Haftar củng cố vai trò trung gian an ninh ở Sahel sau vụ giải cứu con tin Mỹ bị IS bắt giữ",
+      "category": "Ngoại giao",
+      "region": "Châu Phi",
+      "source": "Reuters (qua US News)",
+      "n": 1,
+      "updated_at": "2026-08-17T02:52:30.986+00:00"
+    },
+    {
+      "item_id": "https://www.pm.gov.au/media/australia-india-joint-statement",
+      "title": "Ấn Độ - Australia ký Tuyên bố chung Quốc phòng-An ninh và thỏa thuận uranium dân sự",
+      "category": null,
+      "region": null,
+      "source": "Văn phòng Thủ tướng Australia",
+      "n": 1,
+      "updated_at": "2026-08-17T02:51:53.632+00:00"
+    },
+    {
+      "item_id": "https://www.mofa.go.jp/press/release/press1e_000382.html",
+      "title": "Nhật Bản - New Zealand ký thỏa thuận hậu cần quân sự ACSA, nâng cấp quan hệ song phương",
+      "category": null,
+      "region": null,
+      "source": "Bộ Ngoại giao Nhật Bản",
+      "n": 1,
+      "updated_at": "2026-08-17T02:51:43.031+00:00"
+    },
+    {
+      "item_id": "https://www.navalnews.com/naval-news/2026/07/kongsberg-norway-standardised-vessels-lithuania-uk/",
+      "title": "Lithuania ký MoU tham gia chương trình tàu chuẩn hóa của Na Uy bên lề thượng đỉnh",
+      "category": null,
+      "region": null,
+      "source": "Naval News",
+      "n": 1,
+      "updated_at": "2026-08-17T02:51:34.783+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/tong-thong-putin-canh-bao-nato-mo-rong-hien-dien-o-chau-a-thai-binh-duong-de-doa-an-ninh-nga-c55827476.epi",
+      "title": "Tổng thống Putin cảnh báo NATO mở rộng hiện diện ở châu Á - Thái Bình Dương đe dọa an ninh Nga",
+      "category": "Chính trị",
+      "region": "Nga–Ukraine",
+      "source": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:59.563+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/tong-thong-nga-putin-lan-dau-toi-tham-quan-dao-tranh-chap-voi-nhat-ban-c55827452.epi",
+      "title": "Tổng thống Nga Putin lần đầu tới thăm quần đảo tranh chấp với Nhật Bản",
+      "category": "Chính trị",
+      "region": "Nga–Ukraine",
+      "source": "Báo VietnamNet",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:42.113+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/chinh-quyen-my-neu-bat-thanh-tich-ngan-chan-nhap-cu-trai-phep-c55833933.epi",
+      "title": "Chính quyền Mỹ nêu bật thành tích ngăn chặn nhập cư trái phép",
+      "category": "Chính trị",
+      "region": "Khác",
+      "source": "Báo Tin Tức TTXVN",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:36.397+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/hon-40-quoc-gia-ra-tuyen-bo-chung-keu-goi-thong-bao-truoc-khi-phong-ten-lua-c55817884.epi",
+      "title": "Hơn 40 quốc gia ra tuyên bố chung kêu gọi thông báo trước khi phóng tên lửa",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Báo Thanh Hóa",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:20.046+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/viet-nam-anh-tim-dong-luc-tang-truong-moi-tu-cong-nghe-va-logistics-c55820127.epi",
+      "title": "Việt Nam - Anh tìm động lực tăng trưởng mới từ công nghệ và logistics",
+      "category": "Kinh tế",
+      "region": "Khác",
+      "source": "Bnews",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:17.563+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/thoa-thuan-phong-thu-chung-mecca-su-tro-lai-cua-tu-duy-lien-minh-c55826319.epi",
+      "title": "Thỏa thuận phòng thủ chung Mecca: Sự trở lại của tư duy liên minh",
+      "category": "Ngoại giao",
+      "region": "Khác",
+      "source": "Báo Thế Giới & Việt Nam",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:13.362+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/ukraine-tap-kich-nhieu-tau-chien-nga-o-novorossiysk-c55827395.epi",
+      "title": "Ukraine tập kích nhiều tàu chiến Nga ở Novorossiysk",
+      "category": "Công nghệ quân sự",
+      "region": "Nga–Ukraine",
+      "source": "Báo Tiền Phong",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:11.031+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/vet-dau-loang-de-doa-bo-bien-oman-c55827633.epi",
+      "title": "Vết dầu loang đe dọa bờ biển Oman",
+      "category": "Kinh tế",
+      "region": "Khác",
+      "source": "Báo Tri thức & Cuộc sống",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:08.712+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/dan-mach-keu-goi-cai-to-quy-dinh-ve-van-de-di-cu-cua-lien-minh-chau-au-c55826458.epi",
+      "title": "Đan Mạch kêu gọi cải tổ quy định về vấn đề di cư của Liên minh châu Âu",
+      "category": "Ngoại giao",
+      "region": "Châu Âu/NATO",
+      "source": "Báo Nhân Dân",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:06.878+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/tiem-kich-f-16-tho-nhi-ky-lao-xuong-dat-phat-no-du-doi-c55827479.epi",
+      "title": "Tiêm kích F-16 Thổ Nhĩ Kỳ lao xuống đất, phát nổ dữ dội",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
+      "n": 1,
+      "updated_at": "2026-08-16T08:45:02.93+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/nam-phi-siet-chat-an-ninh-cho-hoi-nghi-thuong-dinh-khu-vuc-c55827533.epi",
+      "title": "Nam Phi siết chặt an ninh cho hội nghị thượng đỉnh khu vực",
+      "category": "Ngoại giao",
+      "region": "Khác",
+      "source": "Báo VietnamPlus",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:56.812+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/nga-danh-cang-ngu-coc-lon-nhat-ukraine-ong-zelensky-keu-goi-my-tang-vien-patriot-c55827098.epi",
+      "title": "Nga đánh cảng ngũ cốc lớn nhất Ukraine, ông Zelensky kêu gọi Mỹ tăng viện Patriot",
+      "category": "Công nghệ quân sự",
+      "region": "Nga–Ukraine",
+      "source": "VietTimes",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:54.129+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/ong-zelensky-ukraine-se-chan-toan-bo-ten-lua-nga-neu-co-10-kho-patriot-cua-my-c55825597.epi",
+      "title": "Ông Zelensky: 'Ukraine sẽ chặn toàn bộ tên lửa Nga nếu có 10% kho Patriot của Mỹ'",
+      "category": "Công nghệ quân sự",
+      "region": "Nga–Ukraine",
+      "source": "Tạp chí Mekong Asean (qua Báo Mới)",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:51.896+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/greenland-buoc-cong-ty-dau-khi-my-hoan-khoan-dau-c55826753.epi",
+      "title": "Greenland buộc công ty dầu khí Mỹ hoãn khoan dầu",
+      "category": "Kinh tế",
+      "region": "Khác",
+      "source": "Báo Tin Tức TTXVN",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:41.646+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/lien-hop-quoc-keu-goi-dam-phan-tim-giai-phap-lau-dai-cho-xung-dot-trung-dong-c55824811.epi",
+      "title": "Liên hợp quốc kêu gọi đàm phán tìm giải pháp lâu dài cho xung đột Trung Đông",
+      "category": "Ngoại giao",
+      "region": "Trung Đông",
+      "source": "Báo VietnamPlus",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:38.98+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/dai-su-quan-my-o-trung-dong-chuan-bi-cho-giai-doan-giam-nhan-su-keo-dai-c55825197.epi",
+      "title": "Đại sứ quán Mỹ ở Trung Đông chuẩn bị cho giai đoạn giảm nhân sự kéo dài",
+      "category": "Ngoại giao",
+      "region": "Trung Đông",
+      "source": "Báo Tin Tức TTXVN",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:33.163+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/tang-cuong-kiem-soat-uav-quanh-khu-vuc-san-bay-c55827384.epi",
+      "title": "Tăng cường kiểm soát UAV quanh khu vực sân bay",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:30.512+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/venezuela-cap-phep-cho-bp-va-hai-cong-ty-nuoc-ngoai-khai-thac-khi-dot-c55833629.epi",
+      "title": "Venezuela cấp phép cho BP và hai công ty nước ngoài khai thác khí đốt",
+      "category": "Kinh tế",
+      "region": "Châu Mỹ",
+      "source": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
+      "n": 1,
+      "updated_at": "2026-08-16T08:44:17.696+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/israel-bat-ngo-truoc-toc-do-iran-khoi-phuc-nang-luc-quan-su-c55834625.epi",
+      "title": "Israel bất ngờ trước tốc độ Iran khôi phục năng lực quân sự",
+      "category": "Công nghệ quân sự",
+      "region": "Trung Đông",
+      "source": "Báo Tin Tức TTXVN",
+      "n": 1,
+      "updated_at": "2026-08-16T08:39:21.048+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/thue-quan-moi-cua-tong-thong-trump-co-the-can-tham-vong-xuat-khau-uav-cua-ukraine-c55834685.epi",
+      "title": "Thuế quan mới của Tổng thống Trump có thể cản tham vọng xuất khẩu UAV của Ukraine",
+      "category": "Kinh tế",
+      "region": "Nga–Ukraine",
+      "source": "Báo Tin Tức TTXVN",
+      "n": 1,
+      "updated_at": "2026-08-16T08:39:19.098+00:00"
+    },
+    {
+      "item_id": "https://baomoi.com/dam-phan-my-iran-be-tac-nhung-van-de-nao-can-tro-thoa-thuan-c55833057.epi",
+      "title": "Đàm phán Mỹ - Iran bế tắc, những vấn đề nào cản trở thỏa thuận?",
+      "category": "Ngoại giao",
+      "region": "Trung Đông",
+      "source": "Báo Tin Tức TTXVN",
+      "n": 1,
+      "updated_at": "2026-08-16T08:39:16.401+00:00"
+    },
+    {
+      "item_id": "https://www.taipeitimes.com/News/taiwan/archives/2026/08/13/2003862437",
+      "title": "Đài Loan lần đầu diễn tập hải quân-tuần duyên hộ tống phá phong tỏa trong khuôn khổ Hán Quang 42",
+      "category": null,
+      "region": null,
+      "source": "Taipei Times",
+      "n": 1,
+      "updated_at": "2026-08-16T08:39:01.597+00:00"
+    },
+    {
+      "item_id": "https://www.taipeitimes.com/News/front/archives/2026/08/13/2003842000",
+      "title": "Hán Quang 42 tiếp tục ngày diễn tập 13/8, mô phỏng kịch bản phòng thủ trước nguy cơ tấn công từ đại lục",
+      "category": null,
+      "region": null,
+      "source": "Taipei Times",
+      "n": 1,
+      "updated_at": "2026-08-16T08:39:00.597+00:00"
+    },
+    {
+      "item_id": "https://meduza.io/en/news/2026/08/13/putin-visits-the-kuril-islands-for-the-first-time-japan-issues-a-strong-protest",
+      "title": "Putin thăm đảo Kuril tranh chấp ngay sau khi thị sát tổng kết diễn tập Hạm đội Thái Bình Dương, Nhật Bản phản đối mạnh",
+      "category": null,
+      "region": null,
+      "source": "Meduza",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:56.796+00:00"
+    },
+    {
+      "item_id": "https://www.prensa.com/judiciales/pete-hegseth-volvera-a-panama-para-clausurar-el-ejercicio-panamax-2026/",
+      "title": "PANAMAX 2026 bế mạc, Bộ trưởng Quốc phòng Mỹ Hegseth dự lễ tại Panama",
+      "category": null,
+      "region": null,
+      "source": "La Prensa Panamá",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:44.564+00:00"
+    },
+    {
+      "item_id": "https://www.zona-militar.com/pt/2026/08/07/fraterno-xxxix-nova-fragata-tamandare-da-marinha-do-brasil-devera-fazer-sua-estreia-internacional-no-mar-argentino",
+      "title": "FRATERNO XXXIX chính thức khai mạc, khinh hạm Tamandaré lần đầu ra nước ngoài",
+      "category": null,
+      "region": null,
+      "source": "Zona Militar",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:42.848+00:00"
+    },
+    {
+      "item_id": "https://breakingdefense.com/2026/08/army-selects-air-defense-unit-to-prepare-for-golden-dome-mission/",
+      "title": "Lục quân Mỹ chọn đơn vị phòng không chuẩn bị cho nhiệm vụ Golden Dome",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Breaking Defense",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:34.096+00:00"
+    },
+    {
+      "item_id": "https://www.mesabitribune.com/ap/world/mali-separatists-release-82-soldiers-including-some-held-since-a-major-attack-in-april/article_2f5dc528-fe73-561b-9e70-699388e89608.html",
+      "title": "82 binh sĩ Mali bị phe ly khai bắt giữ từ vụ tấn công tháng 4 được trả tự do",
+      "category": "Chính trị",
+      "region": "Châu Phi",
+      "source": "Associated Press",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:31.248+00:00"
+    },
+    {
+      "item_id": "https://www.france24.com/en/africa/20260813-mali-grants-presidential-pardon-to-french-national-sentenced-to-20-years-in-prison",
+      "title": "Mali ân xá cho cựu điệp viên Pháp bị kết án 20 năm tù vì cáo buộc âm mưu đảo chính",
+      "category": "Ngoại giao",
+      "region": "Châu Phi",
+      "source": "France 24",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:27.132+00:00"
+    },
+    {
+      "item_id": "https://www.semafor.com/article/08/13/2026/at-a-standstill-trkiyes-f-35-buy-faces-headwinds",
+      "title": "Thổ Nhĩ Kỳ tiếp tục bế tắc thương vụ mua F-35 dù Trump từng hứa ủng hộ",
+      "category": "Công nghệ quân sự",
+      "region": "Châu Âu/NATO",
+      "source": "Semafor",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:21.498+00:00"
+    },
+    {
+      "item_id": "https://defensescoop.com/2026/08/13/space-force-taps-5-companies-space-data-network-connectivity-demos/",
+      "title": "Không quân Vũ trụ Mỹ chọn 5 công ty thử nghiệm kết nối Mạng Dữ liệu Không gian",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "DefenseScoop",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:17.897+00:00"
+    },
+    {
+      "item_id": "https://www.defenseone.com/business/2026/08/pentagon-palantir-no-bid/415400/",
+      "title": "Lầu Năm Góc chi tới 244 triệu USD cho Palantir theo hợp đồng không đấu thầu",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "Defense One",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:14.681+00:00"
+    },
+    {
+      "item_id": "https://www.bloomberg.com/news/articles/2026-08-13/trump-trade-enforcers-deploy-ai-to-crack-down-on-tariff-dodging",
+      "title": "Nhà Trắng triển khai AI truy quét mạng lưới né thuế quan liên quan Trung Quốc",
+      "category": "Kinh tế",
+      "region": "Đông Nam Á",
+      "source": "Bloomberg",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:11.847+00:00"
+    },
+    {
+      "item_id": "https://www.bloomberg.com/news/articles/2026-08-13/us-court-says-trump-can-halt-tariff-exemption-for-low-cost-goods",
+      "title": "Toà Thương mại Quốc tế Mỹ giữ nguyên quyền của Trump chấm dứt miễn thuế 'de minimis'",
+      "category": "Kinh tế",
+      "region": "Châu Âu/NATO",
+      "source": "Bloomberg",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:06.998+00:00"
+    },
+    {
+      "item_id": "https://spacenews.com/space-force-orders-two-more-impulse-space-vehicles-for-maneuvering-demonstrations/",
+      "title": "Không quân Vũ trụ Mỹ đặt thêm 2 phương tiện cơ động quỹ đạo từ Impulse Space",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "SpaceNews",
+      "n": 1,
+      "updated_at": "2026-08-16T08:38:03.564+00:00"
+    },
+    {
+      "item_id": "https://emersoncollegepolling.com/texas-2026-poll-paxton-and-talarico/",
+      "title": "Thăm dò: Ken Paxton và James Talarico bám sát nhau trong cuộc đua vào Thượng viện Texas",
+      "category": "Chính trị",
+      "region": "Khác",
+      "source": "Emerson College Polling",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:52.714+00:00"
+    },
+    {
+      "item_id": "https://www.bloomberg.com/news/articles/2026-08-13/trump-imposes-100-tariffs-on-certain-drones-countering-china",
+      "title": "Trump áp thuế tới 100% lên drone nhập khẩu nhằm vào nhà sản xuất Trung Quốc",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "Bloomberg",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:50.349+00:00"
+    },
+    {
+      "item_id": "https://www.washingtonpost.com/politics/2026/08/13/white-house-says-more-than-40-nations-help-china-dodge-tariffs/",
+      "title": "Nhà Trắng công bố báo cáo cáo buộc hơn 40 quốc gia tiếp tay Trung Quốc né thuế quan Mỹ",
+      "category": "Kinh tế",
+      "region": "Đông Á",
+      "source": "The Washington Post",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:46.048+00:00"
+    },
+    {
+      "item_id": "https://aninews.in/news/world/asia/india-malaysia-commence-bilateral-exercise-udara-shakti-2026-at-subang-air-base20260813020229/",
+      "title": "Không quân Ấn Độ và Malaysia khai mạc tập trận song phương Udara Shakti 2026 tại căn cứ Subang",
+      "category": "Công nghệ quân sự",
+      "region": "Nam Á",
+      "source": "ANI News",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:42.881+00:00"
+    },
+    {
+      "item_id": "https://www.sggp.org.vn/ban-do-dich-vu-internet-ve-tinh-starlink-tai-viet-nam-khong-hien-thi-ten-quan-dao-hoang-sa-va-truong-sa-post866904.html",
+      "title": "Bản đồ phủ sóng Starlink tại Việt Nam không hiển thị tên quần đảo Hoàng Sa, Trường Sa",
+      "category": "Ngoại giao",
+      "region": "Châu Âu/NATO",
+      "source": "Báo Sài Gòn Giải Phóng",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:22.597+00:00"
+    },
+    {
+      "item_id": "https://www.bloomberg.com/news/articles/2026-08-11/china-indonesia-plan-joint-exercise-in-waters-east-of-taiwan",
+      "title": "Trung Quốc-Indonesia tập trận hải quân chung phía đông Đài Loan, Đài Bắc phản đối",
+      "category": "Chính trị",
+      "region": "Đông Á",
+      "source": "Bloomberg",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:19.998+00:00"
+    },
+    {
+      "item_id": "https://breakingdefense.com/2026/08/on-asia-trip-dod-policy-chief-has-praise-for-aukus-and-a-warning-for-middle-powers/",
+      "title": "Lầu Năm Góc khẳng định AUKUS 'toàn lực', cảnh báo liên minh 'cường quốc tầm trung' là viển vông",
+      "category": "Ngoại giao",
+      "region": "Đông Á",
+      "source": "Breaking Defense",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:14.498+00:00"
+    },
+    {
+      "item_id": "https://www.twz.com/air/australias-mc-55-electronic-warfare-jet-has-entered-the-south-china-sea",
+      "title": "Máy bay tác chiến điện tử MC-55A Peregrine của Úc lần đầu vào Biển Đông",
+      "category": "Công nghệ quân sự",
+      "region": "Đông Á",
+      "source": "The War Zone (TWZ)",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:09.265+00:00"
+    },
+    {
+      "item_id": "https://news.usni.org/2026/08/13/chinese-indonesian-warships-drill-east-of-taiwan",
+      "title": "Indonesia khẳng định tập trận hải quân với Trung Quốc gần Đài Loan chỉ là 'ngoại giao hàng hải thường lệ'",
+      "category": "Chính trị",
+      "region": "Đông Á",
+      "source": "USNI News",
+      "n": 1,
+      "updated_at": "2026-08-16T08:37:02.83+00:00"
+    },
+    {
+      "item_id": "https://focustaiwan.tw/politics/202608140027",
+      "title": "Hán Quang 42 kết thúc sau 10 ngày, Bộ trưởng Quốc phòng Đài Loan yêu cầu khắc phục điểm yếu",
+      "category": null,
+      "region": null,
+      "source": "Focus Taiwan",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:58.615+00:00"
+    },
+    {
+      "item_id": "https://www.cnbc.com/2026/08/14/putin-kuril-islands-japan.html",
+      "title": "Nhật Bản phản đối mạnh việc Putin thăm quần đảo Kuril tranh chấp ngay sau khi thị sát diễn tập",
+      "category": null,
+      "region": null,
+      "source": "CNBC",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:54.165+00:00"
+    },
+    {
+      "item_id": "https://www.cnbc.com/2026/08/14/nato-drone-latvia.html",
+      "title": "Tiêm kích NATO bắn hạ drone xâm nhập không phận Latvia giữa lúc diễn ra Baltic Trust 26",
+      "category": null,
+      "region": null,
+      "source": "CNBC",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:40.599+00:00"
+    },
+    {
+      "item_id": "https://www.washingtonpost.com/world/2026/08/14/niger-kidnapped-us-missionary-released/91dd1474-97b9-11f1-9ef9-1be722184483_story.html",
+      "title": "Nhà truyền giáo Mỹ bị bắt cóc ở Niger được thả sau 9 tháng giam giữ",
+      "category": "Ngoại giao",
+      "region": "Châu Phi",
+      "source": "The Washington Post",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:37.415+00:00"
+    },
+    {
+      "item_id": "https://www.defensedaily.com/lockheed-martin-developing-modular-payload-system-for-hypersonic-missiles/weapons/",
+      "title": "Lockheed Martin phát triển hệ thống tải trọng module cho tên lửa siêu vượt âm",
+      "category": "Công nghệ quân sự",
+      "region": "Nga–Ukraine",
+      "source": "Defense Daily",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:26.165+00:00"
+    },
+    {
+      "item_id": "https://www.scmp.com/news/world/middle-east/article/3363960/us-sends-new-aircraft-carrier-mideast-amid-concerns-over-abraham-lincoln?utm_source=rss_feed",
+      "title": "Mỹ điều thêm tàu sân bay tới Trung Đông giữa lo ngại về tình trạng USS Abraham Lincoln",
+      "category": "Công nghệ quân sự",
+      "region": "Trung Đông",
+      "source": "South China Morning Post",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:19.832+00:00"
+    },
+    {
+      "item_id": "https://www.aljazeera.com/news/2026/8/14/brazil-begins-exploring-retaliatory-options-to-new-us-tariffs",
+      "title": "Brazil khởi động tiến trình trả đũa thuế quan Mỹ",
+      "category": "Kinh tế",
+      "region": "Châu Mỹ",
+      "source": "Al Jazeera",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:14.899+00:00"
+    },
+    {
+      "item_id": "https://kyivindependent.com/trump-imposes-steep-tariffs-on-drone-imports/",
+      "title": "Thuế quan mới của Trump đe doạ tham vọng xuất khẩu drone hàng chục tỷ USD của Ukraine sang Mỹ",
+      "category": "Kinh tế",
+      "region": "Nga–Ukraine",
+      "source": "Kyiv Independent",
+      "n": 1,
+      "updated_at": "2026-08-16T08:36:13.051+00:00"
+    },
+    {
+      "item_id": "https://www.theglobeandmail.com/world/article-islamist-group-used-50-million-ransom-to-escalate-its-attacks-in-mali/",
+      "title": "LHQ: JNIM dùng khoản tiền chuộc 50 triệu USD để mở rộng tấn công ở Mali",
+      "category": "Chính trị",
+      "region": "Châu Phi",
+      "source": "The Globe and Mail",
+      "n": 1,
+      "updated_at": "2026-08-16T08:35:59.049+00:00"
+    },
+    {
+      "item_id": "https://tuoitre.vn/bac-kinh-lan-dau-len-tieng-ve-cuoc-tap-tran-quan-su-thuong-nien-cua-dai-loan-100260814155221377.htm",
+      "title": "Bắc Kinh lần đầu lên tiếng chỉ trích tập trận Hán Quang 42 của Đài Loan",
+      "category": "Chính trị",
+      "region": "Đông Á",
+      "source": "Tuổi Trẻ",
+      "n": 1,
+      "updated_at": "2026-08-16T08:35:55.166+00:00"
+    },
+    {
+      "item_id": "https://www.usnews.com/news/world/articles/2026-08-13/australias-albanese-says-aukus-remains-full-steam-ahead-after-trump-call",
+      "title": "Thủ tướng Úc Albanese: AUKUS vẫn 'toàn lực tiến bước' sau cuộc gọi với Trump",
+      "category": "Chính trị",
+      "region": "Khác",
+      "source": "Reuters (qua US News)",
+      "n": 1,
+      "updated_at": "2026-08-16T08:35:49.565+00:00"
+    },
+    {
+      "item_id": "https://www.straitstimes.com/world/united-states/trump-allows-us-navy-to-build-ships-abroad-orders-return-to-steam-catapults-on-carriers",
+      "title": "Ông Trump ký lệnh yêu cầu Hải quân Mỹ quay lại máy phóng hơi nước, cho phép đóng tàu ở nước ngoài",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "The Straits Times",
+      "n": 1,
+      "updated_at": "2026-08-16T08:35:38.615+00:00"
+    },
+    {
+      "item_id": "https://spacenews.com/space-force-awards-five-companies-60-million-for-multi-vendor-satellite-network-tests/",
+      "title": "Không quân Vũ trụ Mỹ chi 60 triệu USD cho 5 công ty thử nghiệm mạng vệ tinh đa nhà cung cấp",
+      "category": "Công nghệ quân sự",
+      "region": "Khác",
+      "source": "SpaceNews",
+      "n": 1,
+      "updated_at": "2026-08-16T08:35:32.415+00:00"
+    },
+    {
+      "item_id": "https://www.war.gov/News/Releases/Release/Article/4567790/department-of-war-boeing-and-rtx-forge-agreements-to-strengthen-production-of-c/",
+      "title": "Lầu Năm Góc, Boeing và RTX ký thỏa thuận khung 7 năm tăng sản xuất tên lửa đánh chặn SM-3",
+      "category": "Công nghệ quân sự",
+      "region": "Đông Á",
+      "source": "Department of War (war.gov)",
+      "n": 1,
+      "updated_at": "2026-08-16T08:35:23.867+00:00"
     }
   ]
 }
