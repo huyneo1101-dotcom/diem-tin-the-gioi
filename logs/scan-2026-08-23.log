@@ -1,1 +1,4 @@
 [21:00Z] START (CI) - phien sang som
+[21:04Z] harvest.py + telegram_harvest.py xong, 314 ung vien + 11 TG
+[21:28Z] Ban tin xong: +2 worldNews, +2 usNews (5 chu de). state.py done web-scan.
+[21:28Z] START event-scan (CI, gop vao sang som)
