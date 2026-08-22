@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-22T04:30:02+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+7 tin My (Noi bo My 4, CNQS My 4 -1 trung Uc BD 0), +1 cap nhat tap tran",
+    "lastRunAt": "2026-08-22T20:59:25+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-21",
       "sang": "2026-08-22"
-    }
+    },
+    "heartbeat": "2026-08-22T20:59:25+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-22T04:36:18+07:00",
