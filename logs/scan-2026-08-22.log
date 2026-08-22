@@ -21,3 +21,4 @@
 [14:30Z] tin_jaylam.py --liet-ke: khong co file trong khung ngay (exit 10) - bo qua buoc loc Jay Lam.
 [14:31Z] add_news.py: +5 worldNews, +9 usNews, +1 cap nhat tap tran. Phat hien 2 tin trung sau khi nap (SeaSparrow, X-Bow interceptor) - da xoa bang prune_news.py. Con lai thuc chat: +5 worldNews, +7 usNews, +1 cap nhat tap tran.
 [14:35Z] Ghi logs/loai-tin.md + logs/scan-gaps.json (session=toi) day du chi tiet cac tin loai.
+[14:37Z] SKIP (CI, phien trung lap) - web-scan claim tra exit 10: DA XONG (lan chay cuoi 2026-08-22T21:35:09+07:00, +5 worldNews +7 usNews +1 cap nhat tap tran). Kiem tra ngoai le: so_da_gui --xem co dong "2026-08-22T21:36:53+07:00 [toi] 20 tin" - ban tin toi da toi tay that, khong phai co noi doi. Day la lan kich CI khac cua cung phien toi. Khong quet lai, khong commit gi them ngoai log nay.
