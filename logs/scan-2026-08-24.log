@@ -3,3 +3,4 @@
 [21:04Z] telegram_harvest.py: OK, ~30 ung vien lop [TG]
 [21:05Z] gh CLI bi chan "requires approval" trong phien CI nay -> KHONG kich duoc telegram-bot.yml de hut file Jay Lam. tin_jaylam.py --liet-ke: khong co file trong khung -> bo qua buoc loc Jay Lam
 [21:06Z] Bat dau giao 5 agent Sonnet theo 5 chu de
+[21:30Z] SKIP (local 04:30) - web-scan dang co phien khac chay (CI 04:00, nhip tim 28' truoc). Khong quet chong.
