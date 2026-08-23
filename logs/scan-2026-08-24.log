@@ -8,3 +8,9 @@
 [21:45Z] Vong 2 bo sung Noi bo My + CNQS/Uc&BD sau khi dieu phoi tu WebFetch phat hien loi SAI NGAY o vong 1 (B-1B bai that thang 4, Golden Dome bai that 20/8, Bessent bai that 20/8)
 [21:50Z] Xu ly cong Bao Moi (4/4 loai - trung/lac chu de) va cong bai thich (21/21 loai - ngoai khung ngay). Ghi logs/loai-tin.md + logs/scan-gaps.json
 [21:52Z] add_news.py: +1 worldNews (Uc&BD) +2 usNews (CNQS My) = 3 tin. Tong: Noi bo My 0, Uc&BD 1, CNQS My 2, Mali 0, Tap tran 0
+[21:52Z] BUOC 6 (gop event-scan vao phien sang som): git pull rebase OK, claim event-scan OK
+[21:53Z] do_tap_tran_thieu.py: 29 ung vien, nhom (a) 3 CO TEN nhung 2/3 la bay ngay cu (MILAN-2026 khai mac that 19/2, VEER GUARDIAN thang 9 chua trong 7 ngay), 1 la tin ve GIAM tap tran khong phai ten cuoc moi. Khong tao newExercises.
+[21:55Z] Agent su kien+tap tran: exerciseUpdates rong (khong co dien bien dung khung), dipEventUpdates +1 (Azerbaijan-Uzbekistan, Hiep uoc Tinh ban Vinh cuu, xac minh 2 nguon)
+[21:58Z] add_news.py new_items_event.json: +1 tin ngoai giao (sau khi sua ten khop chinh xac DATA)
+[22:05Z] add_analyses.py: +6 bai think-tank (ASPI x2, RUSI x2, Lowy, War on the Rocks) - phu Uc/AUKUS, CNQS toan cau, Trung Dong, Anh
+[22:06Z] Khong phai Chu Nhat (thu Hai) -> bo qua bao cao tuan
