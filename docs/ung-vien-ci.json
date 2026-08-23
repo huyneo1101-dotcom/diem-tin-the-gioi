@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-23T20:55:36+07:00",
+  "tao_luc": "2026-08-23T21:53:09+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-22",
@@ -96,6 +96,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-23",
+      "tieu_de": "Vietnam Singapore economic ties enter new phase of cooperation",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://en.baoquocte.vn/vietnam-singapore-economic-ties-enter-new-phase-of-cooperation-435289.html"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-08-22",
       "tieu_de": "Minot, Andersen Facilities Deteriorating as Military Building Repairs Lag, GAO Says",
@@ -109,14 +117,6 @@
       "tieu_de": "Some military barracks ‘chronically neglected’ due to $285 billion in maintenance backlogs, GAO finds",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/pentagon-congress/2026/08/21/some-military-barracks-chronically-neglected-due-to-285-billion-in-maintenance-backlogs-gao-finds/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-23",
-      "tieu_de": "U.S. Navy Unveils AIM-424 Malice Long-Range Air-to-Air Missile",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/08/us-navy-unveils-aim-424-malice-lraam/"
     },
     {
       "lop": "RSS",
@@ -173,14 +173,6 @@
       "tieu_de": "US Army to end experimental drone battalion in Europe",
       "nguon": "C4ISRNet",
       "url": "https://www.c4isrnet.com/news/your-military/2026/08/21/us-army-to-end-experimental-drone-battalion-in-europe/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-23",
-      "tieu_de": "Ukraine: Zelensky asks for more Patriot interceptors as civilian deaths hit highest level since 2022",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/ukraine-zelensky-asks-for-more-patriot-interceptors-as-civilian-deaths-hit-highest-level-since-2022"
     },
     {
       "lop": "RSS",
@@ -369,7 +361,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-22",
+      "ngay": "2026-08-23",
       "tieu_de": "Golden Dome Cost Estimate Draws Pentagon Pushback",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/21/golden_dome_cost_estimate_draws_pentagon_pushback_1201708.html"
@@ -377,7 +369,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-22",
+      "ngay": "2026-08-23",
       "tieu_de": "Why Would the Pentagon Want To Hide Weapons Testing Results?",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/21/why_would_the_pentagon_want_to_hide_weapons_testing_results_1201678.html"
@@ -501,6 +493,14 @@
       "tieu_de": "US Air Force flight to Antarctica turns back after Russian hazardous space activity warning",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/08/20/us-air-force-flight-to-antarctica-turns-back-after-russian-hazardous-space-activity-warning/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-23",
+      "tieu_de": "U.S. Navy Reveals AIM-424 “Malice” Long-Range Air-to-Air Missile",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/08/23/us-navy-reveals-aim-424-malice-lraam/"
     },
     {
       "lop": "RSS",
@@ -689,6 +689,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-23",
+      "tieu_de": "Man completes 2,800 mile scoot across Australia",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/clylqlkq5e5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "Manila airport aims to shed 'world's worst' label with upgrades",
       "nguon": "Nikkei Asia",
@@ -770,14 +778,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-23",
-      "tieu_de": "Taiwan president touts peace through strength on China battle anniversary",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/08/23/asia-pacific/politics/lai-taiwan-kinmen-matsu-anniversary/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-23",
       "tieu_de": "Fur seal’s death marks first Australian mainland mammal fatality from spreading H5 bird flu strain",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/aug/23/fur-seal-death-first-australian-mainland-mammal-h5-bird-flu"
@@ -853,24 +853,6 @@
       "tieu_de": "Malaysia áp dụng xác minh độ tuổi khi đăng ký mạng xã hội, cấm người dưới 16 tuổi mở tài khoản",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/malaysia-ap-dung-xac-minh-do-tuoi-khi-dang-ky-mang-xa-hoi-cam-nguoi-duoi-16-tuoi-mo-tai-khoan-102260804091045433.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-23",
-      "tieu_de": "Middle East live: Iran's president says country facing 'many problems' as US sanctions loom",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/middle-east/20260823-middle-east-live-iran-s-president-says-country-facing-many-problems-as-us-sanctions-loom",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-23",
-      "tieu_de": "US-Canada trade dispute escalates after Carney announces retaliatory tariffs",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/us-canada-trade-dispute-escalates-after-carney-announces-retaliatory-tariffs",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1100,15 +1082,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-23",
-      "tieu_de": "US Postal Service issues rule to tighten requirements for mail-in voting despite courts looking to block",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6045248-usps-mail-in-voting-guidelines-tighten/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-22",
       "tieu_de": "Tuesday’s election results could spell real trouble for Florida Republicans",
       "nguon": "The Hill",
@@ -1185,6 +1158,15 @@
       "tieu_de": "Canada vows ‘dollar for dollar’ response as US puts 50% tariffs on some goods",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/aug/22/canada-tariffs-trump-trade-deal-talks-fail",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-23",
+      "tieu_de": "Iran’s foreign minister calls threat of new US economic sanctions ‘desperate’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/2026/aug/23/iran-new-security-chief-trump-economic-war-enemies-mohsen-rezaei",
       "nhom": 4
     },
     {
