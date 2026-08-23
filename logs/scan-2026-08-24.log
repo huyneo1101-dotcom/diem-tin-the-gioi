@@ -1,1 +1,5 @@
 [21:00Z] START (CI) phien sang som 2026-08-24
+[21:03Z] harvest.py: 252 ung vien (Noi bo My 94, CNQS My 81, Uc&BD 40, Mali 22, Tap tran 15)
+[21:04Z] telegram_harvest.py: OK, ~30 ung vien lop [TG]
+[21:05Z] gh CLI bi chan "requires approval" trong phien CI nay -> KHONG kich duoc telegram-bot.yml de hut file Jay Lam. tin_jaylam.py --liet-ke: khong co file trong khung -> bo qua buoc loc Jay Lam
+[21:06Z] Bat dau giao 5 agent Sonnet theo 5 chu de
