@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-23T21:40:30+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+2 worldNews, +7 usNews (5 chu de, gom truy goc Bao Moi)",
+    "lastRunAt": "2026-08-24T04:00:27+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-23",
       "sang": "2026-08-23"
-    }
+    },
+    "heartbeat": "2026-08-24T04:00:27+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-23T04:40:44+07:00",
