@@ -4,3 +4,7 @@
 [21:05Z] gh CLI bi chan "requires approval" trong phien CI nay -> KHONG kich duoc telegram-bot.yml de hut file Jay Lam. tin_jaylam.py --liet-ke: khong co file trong khung -> bo qua buoc loc Jay Lam
 [21:06Z] Bat dau giao 5 agent Sonnet theo 5 chu de
 [21:30Z] SKIP (local 04:30) - web-scan dang co phien khac chay (CI 04:00, nhip tim 28' truoc). Khong quet chong.
+[21:33Z] Vong 1: Noi bo My 1 tin (bi loai sau verify), Uc&BD 2 tin, CNQS My 3 tin, Mali 0, Tap tran 0
+[21:45Z] Vong 2 bo sung Noi bo My + CNQS/Uc&BD sau khi dieu phoi tu WebFetch phat hien loi SAI NGAY o vong 1 (B-1B bai that thang 4, Golden Dome bai that 20/8, Bessent bai that 20/8)
+[21:50Z] Xu ly cong Bao Moi (4/4 loai - trung/lac chu de) va cong bai thich (21/21 loai - ngoai khung ngay). Ghi logs/loai-tin.md + logs/scan-gaps.json
+[21:52Z] add_news.py: +1 worldNews (Uc&BD) +2 usNews (CNQS My) = 3 tin. Tong: Noi bo My 0, Uc&BD 1, CNQS My 2, Mali 0, Tap tran 0

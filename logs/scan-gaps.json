@@ -1,30 +1,30 @@
 {
-  "date": "2026-08-23",
-  "session": "toi",
+  "date": "2026-08-24",
+  "session": "sang",
   "topics": [
     {
       "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
-      "count": 4,
+      "count": 0,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "4 tin đạt chuẩn, đúng khung 2026-08-22: USPS siết mail-in voting (chờ SCOTUS), DHS công bố 250k non-citizen registered voters (dữ liệu chưa chứng minh), SCOTUS cho phép Nhà Trắng tiếp tục xây ballroom, Bessent tăng mua lại trái phiếu. Nhóm 1 (điều trần/bỏ phiếu) trắng hoàn toàn — Quốc hội Mỹ đang nghỉ họp tháng 8 (recess)."
+      "reason": "0 tin đạt chuẩn sau 2 vòng agent + điều phối tự verify. Nhóm 1 (điều trần/bỏ phiếu) trắng — Thượng viện đang họp phiên pro-forma tới 14/09, không điều trần/bỏ phiếu. Một tin 'Bessent họp báo Iran' bị loại vì bài gốc Al Jazeera thật đăng 20/08 (không phải 24/08 như agent gắn nhãn); họp báo thật dự kiến 'thứ Hai 24/8 14h ET' = ~01h sáng 25/8 giờ VN, TỨC CHƯA XẢY RA tại thời điểm quét. Vòng 2 xác nhận thêm loạt tin tưởng là mới thực ra đã cũ (poll 30/07, bài Trump/Turkey từ 2019). Cuối tuần chuyển sang thứ Hai, Quốc hội nghỉ — tin chính trị nội bộ thưa thật."
     },
     {
       "name": "Úc & Biển Đông",
+      "count": 1,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "1 tin đạt chuẩn: điều tra Four Corners về cựu quan chức quốc phòng Úc chuyển sang lobby AUKUS (ABC News Australia, 24/08). Loại 1 ứng viên khác (báo cáo ASPI/Dibb về thời gian cảnh báo chiến lược) vì nguồn agent đưa là aggregator (infosectoday.io), truy gốc ra bài phân tích/opinion của The Strategist — không phải 'tin sự kiện', để dành vòng think-tank. Vòng 2 bổ sung (>25 truy vấn) không ra thêm ứng viên đúng khung 23-24/08 mà không trùng DATA đã có."
+    },
+    {
+      "name": "CNQS Mỹ",
       "count": 2,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "2 tin đạt chuẩn: Tổng thống Đài Loan phát biểu nhân kỷ niệm 68 năm trận Kim Môn (23/08), Philippines tiếp tế Bãi Cỏ Mây giữa tàu Trung Quốc bám sát (22/08). Agent tìm thêm 2 ứng viên nhưng điều phối loại vì sai khung ngày/trùng DATA (đảo nhân tạo Antelope Reef trùng bản đã nạp 19/08; AS9 Huntsman Úc ngoài khung 2 ngày)."
-    },
-    {
-      "name": "CNQS Mỹ",
-      "count": 3,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "3 tin đạt chuẩn: AIM-424 Malice missile mới của Hải quân (23/08), radar SPY-6 thử nghiệm tại Pacific Dragon 2026 (22/08), Hải quân cân nhắc đổi tên tàu sân bay CVN-81 theo Trump thay vì Doris Miller (20/08, qua truy gốc CNN từ ứng viên Báo Mới). Agent viết thêm 2 tin nhưng điều phối tự grep index.html phát hiện TRÙNG chính xác với DATA đã có (hợp đồng Tomahawk 22,9 tỷ USD RTX; hợp đồng K9 Hanwha) — cả hai đã nạp ở các phiên trước."
+      "reason": "2 tin đạt chuẩn: tàu đổ bộ dân sự Matilda 1 (Military Times, 21/08), USS Abraham Lincoln rời Trung Đông sau 7 tháng (Stars and Stripes/USNI, 22/08). Loại 3 ứng viên khác vì SAI NGÀY nghiêm trọng sau khi điều phối tự WebFetch verify: 'Golden Dome CBO cost dispute' (bài gốc Federal News Network thật đăng 20/08, phát biểu gốc từ hội nghị 11/08); 'B-1B giữ hoạt động tới 2037' (bài Air & Space Forces Magazine đăng THẬT 24/04/2026 — 4 tháng trước, agent đọc nhầm); 'YFQ-44A Fury đợt diễn tập 2' (nguồn đối chiếu Military Embedded Systems xác nhận publish thật 19/08, ngoài khung nới 3 ngày)."
     },
     {
       "name": "Mỹ – Mali",
@@ -32,7 +32,7 @@
       "target": "2-5",
       "min": 2,
       "thieu": true,
-      "reason": "0 tin đạt chuẩn (best-effort, chủ đề liên tục khan nhiều phiên liên tiếp). WebSearch xác nhận mọi tin thời sự thật về Mỹ cân nhắc không kích JNIM ở Mali đều từ cuối tháng 7/2026, không có diễn biến mới trong khung 22-23/08. Ứng viên quét sẵn (33 dòng) thuần nhiễu (thể thao, chip ARM, lễ hội trùng chữ 'Mali'/'Sahel')."
+      "reason": "0 tin đạt chuẩn (best-effort, khan nhiều phiên liên tiếp). 22 ứng viên quét sẵn thuần nhiễu (CLB bóng đá Étoile du Sahel, thời tiết, lễ hội trùng chữ 'Sahel'/'Mali'). WebSearch xác nhận mọi tin thời sự thật về Mỹ-JNIM đều từ cuối tháng 7/2026."
     },
     {
       "name": "Tập trận đang diễn ra",
@@ -40,15 +40,15 @@
       "target": "1-2",
       "min": 1,
       "thieu": true,
-      "reason": "Agent viết 3 mục (2 MAITREE-XV + 1 SEACAT) nhưng điều phối tự WebFetch/curl_cffi xác minh publish date THẬT của cả 3 bài đều ngoài khung: 2 bài MAITREE-XV thực chất đăng 2026-08-17 (tin đoàn quân khởi hành, agent gắn nhầm ngày 22/08); bài SEACAT thực chất là thông báo khai mạc ban đầu ngày 2026-08-04 (agent đọc nhầm thành 'giai đoạn biển bắt đầu 22/08'). Không nạp cập nhật nào phiên này để tránh vi phạm guardrail ngày — tin tập trận quốc tế (Ấn Độ, Nga, Nam Mỹ) tiếp tục là điểm yếu cấu trúc do đăng chậm/khó xác minh ngày thật."
+      "reason": "0 tin đạt chuẩn. Xác nhận Falcon Strike/PANAMAX/Hán Quang 42/Pitch Black/Baltic Trust đã bế mạc thật (07-21/08). MAITREE-XV/Swift Eagle/SEACAT/Diễn tập Hạm đội TBD Nga vẫn đang chạy thật nhưng tin cập nhật mới nhất tìm được đều ≤21/08, ngoài khung 23-24/08. Sẽ được do_tap_tran_thieu.py ở Bước 6 dò bù cuộc tập trận mới nếu có."
     },
     {
       "name": "Báo Mới",
-      "count": 1,
+      "count": 0,
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "4 ứng viên xử lý dứt điểm: nạp 1 tin qua truy gốc (đổi tên tàu sân bay theo Trump → CNN, tính vào CNQS Mỹ ở trên, 2 bản Báo Mới trùng nhau gộp thành 1). Loại 2: 'Mỹ-Canada thương chiến vượt khỏi bất đồng thuế quan' (Báo Hà Nội Mới, bài phân tích trùng sự kiện đã có trong DATA) và 'Triều Tiên lên án ngân sách QP Nhật Bản' (An Ninh Thủ Đô, chủ thể Triều Tiên/Nhật Bản, gán nhãn 'Nội bộ Mỹ' sai do bộ lọc chuyên mục, ngoài phạm vi cả 5 chủ đề)."
+      "reason": "4 ứng viên xử lý dứt điểm, LOẠI CẢ 4: 2 bản 'Mỹ cân nhắc đặt tên tàu sân bay vinh danh Trump' (CA Đà Nẵng, Tin Tức TTXVN) — xác minh TRÙNG chính xác sự kiện đã có trên web từ 20/08 (đổi tên CVN-81 Doris Miller → Trump). 'Mỹ-Canada thương chiến vượt khỏi bất đồng thuế quan' (Hà Nội Mới) — truy gốc ra Global News 22/08 với góc mới thật (3 lý do đàm phán đổ vỡ: ô tô, hạn chế FTA khác, tiếng Pháp/Quebec) nhưng CÙNG sự kiện/ngày với tin 'đàm phán Canada đổ vỡ, thuế 50%' đã có trên web → loại vì trùng sự kiện. 'Triều Tiên lên án ngân sách QP Nhật Bản' (An Ninh Thủ Đô) — xác minh chủ thể thuần Triều Tiên-Nhật, Mỹ chỉ nhắc phụ, ngoài phạm vi 5 chủ đề."
     },
     {
       "name": "Cổng bài 👍",
@@ -56,8 +56,8 @@
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "21 bài đã 👍 chờ nạp — TẤT CẢ có ngày bài 16-17/08/2026, nay cách hôm nay 6-7 ngày, ngoài khung ngày cho phép của mọi chủ đề kể cả CNQS Mỹ (nới xa nhất 3 ngày = tới 20/08). LOẠI TOÀN BỘ 21 bài lần thứ 3 liên tiếp (đã ghi nhận cùng lý do ở phiên tối 22/08 và phiên sáng sớm 23/08) — giới hạn cấu trúc của cổng, không còn cách nạp lại trừ khi Huy chủ động nới khung ngày riêng cho nhóm này."
+      "reason": "21 bài đã 👍 chờ nạp — TẤT CẢ vẫn ngày 16/08/2026, nay cách hôm nay (24/08) tới 8 ngày, ngoài khung ngày mọi chủ đề kể cả CNQS Mỹ (nới xa nhất 3 ngày). LOẠI TOÀN BỘ 21 bài — lặp lại giới hạn cấu trúc đã ghi nhận nhiều phiên liên tiếp (22/08, 23/08 tối, 23/08 sáng sớm)."
     }
   ],
-  "note": "Phiên TỐI CI (fire ~14:00Z = 21:00 VN 23/08). Batch date=2026-08-23. Kết quả: +2 worldNews (Úc & Biển Đông) + 7 usNews (4 Nội bộ Mỹ + 3 CNQS Mỹ). Điều phối tự sửa lỗi giữa phiên: prompt ban đầu cho 2 agent (Úc&BĐ, CNQS) nhầm cho phép nới khung ngày xuống 3 ngày trước — đã tự kiểm và loại bỏ 4 ứng viên sai khung/trùng DATA trước khi nạp. Tập trận về 0 vì cả 3 mục agent tìm được đều verify ra publish date thật ngoài khung sau khi điều phối tự WebFetch kiểm tra. Sản lượng thấp chủ yếu do khối tin nóng 20-22/08 đã được 4-5 phiên CI/local liên tiếp trước đó nạp gần hết."
+  "note": "Phiên SÁNG SỚM CI (fire ~21:00Z 23/08 = 04:00 VN 24/08). Batch date=2026-08-24. Kết quả: +1 worldNews (Úc & Biển Đông) + 2 usNews (CNQS Mỹ) = 3 tin thực chất. Nội bộ Mỹ/Mỹ-Mali/Tập trận đều về 0. Nguyên nhân chính: (1) cuối tuần chuyển sang thứ Hai, Quốc hội Mỹ nghỉ họp — tin chính trị nội bộ thưa thật; (2) hai vòng agent Sonnet liên tiếp mắc lỗi SAI NGÀY nghiêm trọng (lấy tin cũ tới 4 tháng, gắn nhãn ngày hôm nay) — điều phối phải tự WebFetch/WebSearch verify publish date thật cho từng ứng viên trước khi nạp; (3) khối tin nóng 19-23/08 đã được nhiều phiên CI/local liên tiếp trước đó nạp gần hết. Phiên sáng chấp nhận sản lượng mỏng theo đúng quy tắc (nhắm ~10/mục, để tối bù) — tuy vậy phiên này thấp hơn cả mức đó do đặc thù cuối tuần + Quốc hội nghỉ. gh CLI bị chặn 'requires approval' trong môi trường CI này nên KHÔNG kích được telegram-bot.yml để hút file Jay Lâm; tin_jaylam.py xác nhận không có file trong khung nên bỏ qua bước lọc Jay Lâm."
 }
