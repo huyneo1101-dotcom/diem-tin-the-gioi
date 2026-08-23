@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-08-24T03:51:27+07:00",
+  "tao_luc": "2026-08-24T04:31:14+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-23",
     "2026-08-24"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Thailand, Singapore exchanges seek tech listings as AI booms",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/markets/trading-asia/thailand-singapore-exchanges-seek-tech-listings-as-ai-booms"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -285,14 +293,6 @@
       "tieu_de": "Aircraft carrier arrives in Middle East to relieve USS Abraham Lincoln after lengthy deployment",
       "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6042201-uss-george-washington-middle-east/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-21",
-      "tieu_de": "Invited media, military members held at gunpoint by Space Force security",
-      "nguon": "The Hill — Defense",
-      "url": "https://thehill.com/policy/defense/6041787-media-military-escort-detained-space-force-incident-california/"
     },
     {
       "lop": "RSS",
