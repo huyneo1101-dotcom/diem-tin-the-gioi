@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-25T04:35:30+07:00",
+  "tao_luc": "2026-08-25T04:55:41+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-24",
@@ -337,10 +337,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-22",
-      "tieu_de": "Contracts for Aug. 21, 2026",
+      "ngay": "2026-08-25",
+      "tieu_de": "Contracts for Aug. 24, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4580429/contracts-for-aug-21-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4581800/contracts-for-aug-24-2026/"
     },
     {
       "lop": "RSS",
@@ -501,6 +501,14 @@
       "tieu_de": "Australia identifies future defense precinct site for AUKUS sub sustainment",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/australia-identifies-future-defense-precinct-site-for-aukus-sub-sustainment/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-25",
+      "tieu_de": "Japan lawmakers visit China seeking to ease tensions over Taiwan",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/8/24/japanese-delegation-seeks-to-soothe-strained-ties-with-china?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -787,15 +795,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-25",
-      "tieu_de": "US launches ‘D-day sanctions’ aimed at cutting Iran’s economic lifeline",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/24/trump-administration-announces-global-economic-war-on-iran?traffic_source=rss",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-25",
       "tieu_de": "🔴 Mideast live: US unveils fresh sanctions to 'sever every economic lifeline' sustaining Iran",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/middle-east/20260824-middle-east-live-iran-warns-of-a-harsh-response-to-anticipated-us-sanctions",
@@ -841,7 +840,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-25",
-      "tieu_de": "US Supreme Court lifts a judicial hurdle to Trump's mail-in ballot curbs",
+      "tieu_de": "US Supreme Court hands a win to Trump over mail-in ballot restrictions",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/us-supreme-court-lifts-a-judicial-hurdle-to-trumps-mail-in-ballot-curbs",
       "nhom": 5
@@ -1047,15 +1046,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-25",
-      "tieu_de": "Why the US and Canada are embroiled in a fresh tariff war",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-25/canada-us-trade-rift-explained/107073872",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-24",
       "tieu_de": "VP Trial Day 17: Gina Acosta to continue testimony on confidential funds",
       "nguon": "Inquirer",
@@ -1120,18 +1110,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-25",
-      "tieu_de": "US supreme court rules Trump can proceed with crackdown on mail-in voting",
+      "tieu_de": "US supreme court allows Trump administration to move forward with order restricting mail-in voting – live",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/aug/24/supreme-court-trump-mail-in-voting",
+      "url": "https://www.theguardian.com/us-news/live/2026/aug/24/hakeem-jeffries-jared-kushner-democrats-midterm-elections-donald-trump-iran-war-sanctions-latest-news-updates",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-25",
-      "tieu_de": "US supreme court allows Trump administration to move forward with order restricting mail-in voting – live",
+      "tieu_de": "US supreme court rules Trump can proceed with crackdown on mail-in voting",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/live/2026/aug/24/hakeem-jeffries-jared-kushner-democrats-midterm-elections-donald-trump-iran-war-sanctions-latest-news-updates",
+      "url": "https://www.theguardian.com/us-news/2026/aug/24/supreme-court-trump-mail-in-voting",
       "nhom": 5
     },
     {
