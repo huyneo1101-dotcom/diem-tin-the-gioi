@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-24T04:44:01+07:00",
+    "lastRunAt": "2026-08-25T04:32:48+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+1 su kien ngoai giao (Azerbaijan-Uzbekistan), +6 bai think-tank",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-08-24"
-    }
+    },
+    "heartbeat": "2026-08-25T04:32:48+07:00"
   }
 }
