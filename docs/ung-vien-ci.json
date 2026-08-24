@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-24T20:48:01+07:00",
+  "tao_luc": "2026-08-24T21:12:05+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-23",
@@ -29,14 +29,6 @@
       "tieu_de": "Thường trực Ban Bí thư Trần Cẩm Tú lên đường thăm Singapore",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/thuong-truc-ban-bi-thu-tran-cam-tu-len-duong-tham-singapore-5112669.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "Đảng Hành động Nhân dân Singapore sẽ phối hợp chặt chẽ với Đảng Cộng sản Việt Nam",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/dang-hanh-dong-nhan-dan-singapore-se-phoi-hop-chat-che-voi-dang-cong-san-viet-nam-10026082419331055.htm"
     },
     {
       "lop": "RSS",
@@ -307,7 +299,7 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-22",
       "tieu_de": "Navy reportedly weighs naming aircraft carrier for Trump instead of Black Pearl Harbor hero",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6044226-navy-doris-miller-trump-aircraft-carrier/"
     },
     {
@@ -317,6 +309,14 @@
       "tieu_de": "Pentagon says more than 750 US service members wounded in Iran war",
       "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6043630-trump-economic-warfare-iran/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-24",
+      "tieu_de": "US Navy unveils AIM-424 Malice missile to counter China threat",
+      "nguon": "Naval Technology",
+      "url": "https://www.naval-technology.com/news/us-navy-aim-424-missile/"
     },
     {
       "lop": "RSS",
@@ -851,6 +851,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-24",
+      "tieu_de": "What could new US sanctions on Iran entail?",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/what-could-new-us-sanctions-on-iran-entail",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-24",
       "tieu_de": "Mideast live: Trump claims Iran is ‘completely collapsing’ as US readies new sanctions",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/middle-east/20260824-middle-east-live-iran-warns-of-a-harsh-response-to-anticipated-us-sanctions",
@@ -863,6 +872,15 @@
       "tieu_de": "US sanctions 'unlikely to get Tehran to bow down' despite effect on population",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/us-sanctions-unlikely-to-get-tehran-to-bow-down-despite-effect-on-population",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-24",
+      "tieu_de": "US Treasury to broaden scope of secondary sanctions on Iran, source says",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/middle-east/us-treasury-to-broaden-scope-of-secondary-sanctions-on-iran-source-says",
       "nhom": 4
     },
     {
@@ -1070,15 +1088,6 @@
       "tieu_de": "Iran’s foreign minister calls threat of new US economic sanctions ‘desperate’",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/aug/23/iran-new-security-chief-trump-economic-war-enemies-mohsen-rezaei",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-24",
-      "tieu_de": "Trump says Iran is ‘completely collapsing’ ahead of new sanctions announcement – live",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/live/2026/aug/24/hakeem-jeffries-jared-kushner-democrats-midterm-elections-donald-trump-iran-war-sanctions-latest-news-updates",
       "nhom": 4
     },
     {
