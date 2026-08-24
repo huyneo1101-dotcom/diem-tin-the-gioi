@@ -68,10 +68,22 @@ MUC_TIEU = [
 
 # Khuôn API đoán được từ CMS, thử thẳng không cần đọc HTML.
 KHUON = [
-    ("WordPress", "/wp-json/wp/v2/posts?per_page=5"),
+    ("WordPress posts", "/wp-json/wp/v2/posts?per_page=5"),
+    # WordPress cho phép KIỂU BÀI RIÊNG, và viện nghiên cứu gần như luôn dùng nó cho ấn phẩm —
+    # đúng bài học ASPI đã ghi trong add_analyses.py (feed `/feed/` chỉ trả kiểu `post`).
+    # `/wp-json/wp/v2/types` liệt kê mọi kiểu bài, đọc nó là biết phải gọi endpoint nào.
+    ("WordPress types", "/wp-json/wp/v2/types"),
+    ("WordPress publication", "/wp-json/wp/v2/publication?per_page=5"),
     ("Drupal JSON:API", "/jsonapi/node/article?page[limit]=5"),
     ("Drupal JSON:API (gốc)", "/jsonapi"),
 ]
+
+# ĐƯỜNG THỨ TƯ, và có lẽ là đường đáng giá nhất cho trang JS-only: SITEMAP.
+# Sitemap là XML chứ không phải JSON, nhưng nó giải đúng bài toán đang mắc — nó liệt kê URL bài
+# KÈM `<lastmod>`, tức có cả link lẫn ngày, mà không cần chạy một dòng JavaScript nào. Gần như
+# site nào cũng có vì Google đòi. Trang JS-only giấu bài khỏi `curl`, nhưng không ai giấu bài
+# khỏi Google cả.
+SITEMAP = ["/sitemap.xml", "/sitemap_index.xml", "/news-sitemap.xml", "/sitemap-index.xml"]
 
 # Địa chỉ trông như API, moi từ HTML thô.
 RE_API = re.compile(
@@ -131,11 +143,20 @@ def thu_json(mod, url, today, nhan=""):
     """Gọi một URL, nếu ra JSON thì moi bài. Trả dict mô tả, hoặc None nếu không phải JSON."""
     body = mod.curl(url)
     if not body:
-        return {"url": url, "nhan": nhan, "ma": "rỗng", "bai": []}
+        return {"url": url, "nhan": nhan, "ma": "rỗng", "vi_sao": "không trả gì", "bai": []}
     try:
         data = json.loads(body.decode("utf-8", "replace"))
     except Exception:
-        return None
+        # ⚠️ TRẢ VỀ MÔ TẢ, ĐỪNG TRẢ None. Bản đầu (24/08) trả None rồi `continue`, nên mọi lần
+        # thử không-ra-JSON biến mất khỏi báo cáo — nhìn log tưởng chưa thử. Chính vì vậy mà
+        # lượt dò đầu in ra đúng một dòng "Drupal JSON:API" cho mỗi viện và giấu mất kết quả
+        # của khuôn WordPress, trong khi CEPS thật ra CHÍNH LÀ WordPress (`/wp-json/` trả 206KB
+        # JSON). Không phân biệt được "đã thử, hỏng" với "chưa thử" là lỗi nặng hơn cả hỏng.
+        dau = body[:200].lower()
+        vi_sao = ("trang HTML" if b"<html" in dau or b"<!doctype" in dau else
+                  "404/không tồn tại" if b"404" in dau else "không phải JSON")
+        return {"url": url, "nhan": nhan, "ma": f"{len(body)//1024}KB",
+                "vi_sao": vi_sao, "bai": []}
     bai = moi_bai(data)
     # Gộp theo đường dẫn trong JSON: chỗ nào ra nhiều bài nhất chính là danh sách bài.
     theo_duong = {}
@@ -148,6 +169,81 @@ def thu_json(mod, url, today, nhan=""):
         "trong_khung": sum(1 for d, _, _ in (tot[1] if tot else [])
                            if d <= today and (today - d).days <= mod.MAX_AGE_DAYS),
     }
+
+
+def do_sitemap(mod, goc, today):
+    """Dò sitemap: trả (url đã dùng, số bài có ngày, số bài trong khung, 3 mẫu).
+
+    Sitemap chỉ mục (`<sitemapindex>`) thì đi xuống một tầng, lấy sitemap con MỚI NHẤT — site
+    lớn chia sitemap theo năm/tháng, lấy nhầm cái cũ là ra toàn bài 2019 rồi kết luận "sitemap
+    chỉ có bài cũ", sai y như bẫy CACI.
+    """
+    for duoi in SITEMAP:
+        url = goc + duoi
+        body = mod.curl(url).decode("utf-8", "replace")
+        if "<sitemapindex" in body:
+            con = re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", body)
+            # ⚠️ Xếp theo lastmod nếu có, không thì lấy cái CUỐI danh sách: sitemap chia theo
+            # thời gian thường xếp cũ→mới nên cái mới nhất nằm cuối.
+            cap = re.findall(r"<sitemap>.*?<loc>\s*([^<\s]+)\s*</loc>.*?"
+                             r"(?:<lastmod>\s*([^<\s]+)\s*</lastmod>)?.*?</sitemap>", body, re.S)
+            if cap and any(c[1] for c in cap):
+                con = [c[0] for c in sorted(cap, key=lambda c: c[1] or "")]
+            if not con:
+                continue
+            url = con[-1]
+            body = mod.curl(url).decode("utf-8", "replace")
+        if "<urlset" not in body:
+            continue
+        muc = re.findall(r"<url>(.*?)</url>", body, re.S)
+        ra = []
+        for m in muc:
+            loc = re.search(r"<loc>\s*([^<\s]+)\s*</loc>", m)
+            ng = (re.search(r"<lastmod>\s*([^<\s]+)", m)
+                  or re.search(r"<news:publication_date>\s*([^<\s]+)", m))
+            if not loc or not ng:
+                continue
+            d = la_ngay(ng.group(1))
+            if d:
+                ra.append((d, loc.group(1)))
+        if not ra:
+            continue
+        ra.sort(reverse=True)
+        trong = sum(1 for d, _ in ra if d <= today and (today - d).days <= mod.MAX_AGE_DAYS)
+        return url, len(ra), trong, ra[:3]
+    return None, 0, 0, []
+
+
+def do_next_f(mod, body, today):
+    """Next.js App Router: dữ liệu nằm trong luồng `self.__next_f.push([1,"..."])`, KHÔNG phải
+    `__NEXT_DATA__` (đó là App Router đời cũ). Bản dò đầu 24/08 chỉ tìm `__NEXT_DATA__` nên
+    chấm Carnegie là "không có dữ liệu nhúng", trong khi chính ghi chú 21/08 của repo đã nói
+    Carnegie chạy Next.js — tức tôi tìm sai chỗ rồi kết luận là không có.
+    """
+    manh = re.findall(r'self\.__next_f\.push\(\[1,\s*"((?:[^"\\]|\\.)*)"\]\)', body)
+    if not manh:
+        return 0, 0, []
+    try:
+        gop = "".join(json.loads(f'"{m}"') for m in manh)
+    except Exception:
+        gop = "".join(m.encode().decode("unicode_escape", "replace") for m in manh)
+    # Luồng RSC không phải một JSON hợp lệ duy nhất; moi từng cụm {...} đủ lớn rồi thử parse.
+    bai, seen = [], set()
+    for mm in re.finditer(r'\{(?:[^{}]|\{(?:[^{}]|\{[^{}]*\})*\})*\}', gop):
+        cum = mm.group(0)
+        if len(cum) < 60 or not re.search(r"20\d\d-\d\d-\d\d", cum):
+            continue
+        try:
+            o = json.loads(cum)
+        except Exception:
+            continue
+        for _duong, t, u, d in moi_bai(o):
+            if (t, d) not in seen:
+                seen.add((t, d))
+                bai.append((d, t, u))
+    bai.sort(reverse=True)
+    trong = sum(1 for d, _, _ in bai if d <= today and (today - d).days <= mod.MAX_AGE_DAYS)
+    return len(bai), trong, bai[:3]
 
 
 def do_mot(mod, ten, trang, today):
@@ -187,13 +283,35 @@ def do_mot(mod, ten, trang, today):
             print(f"   ❌ __NEXT_DATA__ có nhưng parse hỏng: {type(ex).__name__}")
     else:
         print("   – không có __NEXT_DATA__")
+        n, trong, mau = do_next_f(mod, body, today)
+        if n:
+            dau = "✅" if trong else "◻️ "
+            print(f"   {dau} __next_f (Next.js App Router): {n} bài · {trong} trong khung")
+            for d, t, u in mau:
+                print(f"        · {d}  {str(t)[:78]}")
+                print(f"          {u}")
+            ket.append(("__next_f", n, trong))
+        else:
+            print("   – không có luồng __next_f")
+
+    # (4) SITEMAP — không cần JS, có sẵn URL + lastmod.
+    sm_url, sm_n, sm_trong, sm_mau = do_sitemap(mod, goc, today)
+    if sm_url:
+        dau = "✅" if sm_trong else ("◻️ " if sm_n else "❌")
+        print(f"   {dau} sitemap: {sm_url[:95]}  {sm_n} url có ngày · {sm_trong} trong khung")
+        for d, u in sm_mau:
+            print(f"        · {d}  {u[:95]}")
+        ket.append((f"sitemap {sm_url}", sm_n, sm_trong))
+    else:
+        print("   – không đọc được sitemap")
 
     # (2) khuôn CMS quen thuộc
     for nhan, duoi in KHUON:
         r = thu_json(mod, goc + duoi, today, nhan)
-        if r is None:
-            continue
         n = len(r["bai"])
+        if r.get("vi_sao"):
+            print(f"   ❌ {nhan}: {duoi}  [{r['ma']}] — {r['vi_sao']}")
+            continue
         dau = "✅" if r.get("trong_khung") else ("◻️ " if n else "❌")
         print(f"   {dau} {nhan}: {duoi}  [{r['ma']}] {n} bài · {r.get('trong_khung', 0)} trong khung")
         for d, t, u in r["bai"][:2]:
@@ -219,10 +337,10 @@ def do_mot(mod, ten, trang, today):
         print(f"   ↳ địa chỉ trông như API tìm thấy trong HTML ({len(thay)}):")
         for u in thay:
             r = thu_json(mod, u, today, "từ HTML")
-            if r is None:
-                print(f"        – {u[:110]}  (không trả JSON)")
-                continue
             n = len(r["bai"])
+            if r.get("vi_sao"):
+                print(f"        – {u[:100]}  [{r['ma']}] — {r['vi_sao']}")
+                continue
             dau = "✅" if r.get("trong_khung") else ("◻️ " if n else "❌")
             print(f"        {dau} {u[:110]}  [{r['ma']}] {n} bài · {r.get('trong_khung', 0)} trong khung")
             for d, t, _ in r["bai"][:2]:
