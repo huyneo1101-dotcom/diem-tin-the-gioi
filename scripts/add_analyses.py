@@ -819,6 +819,39 @@ THINKTANK_HTML = [
 #   Nhưng feed chết KHÔNG có nghĩa viện chết — `/en/publications/all` quét HTML được, và vòng
 #   21/08 đã khai. ⛔ Vẫn đừng cắm `/en/rss.xml` vào `THINKTANK_FEEDS`.
 
+# ══ ĐƯỜNG THỨ BA — API JSON — ĐÃ THỬ VÀ BỎ CHO CẢ 9 VIỆN JS-ONLY (24/08/2026) ══
+# Chỉ thị Huy: "thử tìm api json của mấy viện js-only". Ý đúng: trang JS-only không phải bị
+# chặn, chỉ là JavaScript mới dựng danh sách bài sau khi tải, nên phải có MỘT nguồn dữ liệu ở
+# đâu đó mà JS ấy đọc — công cụ `scripts/do_api_json.py` đo 4 đường có thể của nguồn đó:
+#   (1) Next.js đời cũ nhúng sẵn `__NEXT_DATA__` ngay trong HTML — miễn phí, không tốn request.
+#   (2) Next.js App Router (đời mới) nhúng qua luồng `self.__next_f.push(...)` — vẫn miễn phí.
+#   (3) API REST theo khuôn CMS có sẵn: WordPress `/wp-json/wp/v2/posts`, Drupal `/jsonapi/…`.
+#   (4) Sitemap XML — không phải JSON nhưng giải đúng bài toán (URL + ngày, không cần JS).
+#
+# KẾT QUẢ ÂM TÍNH TRÊN CẢ 9 VIỆN đã thử (iiss.org · orfonline.org/research ·
+# carnegieendowment.org/{research,europe} · takshashila.org.in · nupi.no · ui.se ·
+# giga-hamburg.de · epc.ae · ceps.eu):
+#   · KHÔNG viện nào có `__NEXT_DATA__` hay `__next_f` — không viện nào chạy Next.js kiểu lộ
+#     dữ liệu ra HTML (dù ghi chú 21/08 đoán Carnegie chạy Next.js; đo lại thì không thấy).
+#   · WordPress/Drupal REST: MỌI endpoint đoán được đều trả về TRANG HTML thay vì JSON — nghĩa
+#     là bị tắt, đổi đường dẫn, hoặc chặn ở tầng CDN riêng cho các path đó. `ceps.eu/wp-json/`
+#     là ngoại lệ duy nhất trả JSON thật (206KB) nhưng nội dung không có bài nào khớp hình dạng
+#     tiêu đề+ngày mà `moi_bai()` tìm.
+#   · Sitemap: CẢ 9 viện đều có sitemap sống, nhưng toàn bộ chỉ mang `<lastmod>` — không viện
+#     nào nhúng ngày vào URL (`/2026/08/…`) hay dùng `<news:publication_date>`. `<lastmod>`
+#     KHÔNG phải ngày đăng — nó là lần cuối trang được DỰNG LẠI, và đo thật lộ ra ngay: sitemap
+#     Takshashila chấm 893/960 url "trong khung 7 ngày" nhưng mẫu là bản tin **10/07** mang
+#     lastmod **23/08** (dựng lại toàn site). Coi lastmod là ngày đăng là tự chuốc đúng loại lỗi
+#     mà `check_date()` sinh ra để chặn: ngày ở TƯƠNG LAI so với ngày bài thật.
+#
+# ⛔ KẾT LUẬN: đường API JSON KHÔNG giải được lớp JS-only cho 9 viện này bằng cách đoán khuôn
+# có sẵn. Cách còn lại — mở DevTools thật trên trình duyệt, xem tab Network lúc tải trang, tìm
+# đúng request mà JS gọi — không tự động hoá được qua `curl`; đó là việc LÀM TỪNG VIỆN MỘT, tốn
+# công ngang khai một nguồn HTML mới, không phải "thử luôn thể" như kỳ vọng ban đầu.
+# ⚠️ ĐỪNG DÒ LẠI bằng đúng 4 đường trên cho 9 domain này — trừ khi viện đổi cả nền tảng web.
+# Công cụ `scripts/do_api_json.py` + workflow `do-api-json.yml` vẫn còn trong repo, dùng được
+# cho viện MỚI chưa từng thử (đổi bảng `MUC_TIEU` trong file đó).
+
 # ——— VÒNG 4 (24/08/2026) đo 17 viện còn lại của WEBSEARCH_ONLY, ĐO RỒI BỎ:
 # · Trang trả ~5KB (challenge/JS), khai gì cũng vô ích: rsis.edu.sg · chathamhouse.org ·
 #   mei.edu · nti.org · thebulletin.org · 38north.org(HTML) · ceps.eu(mục commentary).
