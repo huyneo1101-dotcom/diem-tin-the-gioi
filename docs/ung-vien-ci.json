@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-25T03:46:29+07:00",
+  "tao_luc": "2026-08-25T04:00:52+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-24",
@@ -634,7 +634,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-25",
-      "tieu_de": "Australia dismayed over US move to 'dismantle' International Criminal Court",
+      "tieu_de": "Australian officials warn of US's 'destructive' move to 'dismantle' ICC",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-08-25/australia-reacts-to-us-plans-to-dismantle-icc/107073360"
     },
@@ -913,6 +913,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-25",
+      "tieu_de": "America's elections are getting caught in a fight over the mail",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/08/24/trump-usps-federal-power-state-elections-mail-voting",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-25",
       "tieu_de": "Trump says U.S. will hike Canada auto tariffs to 50% as trade war escalates",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/08/24/trump-canada-auto-tariffs-trade-war.html",
@@ -1015,6 +1024,15 @@
       "tieu_de": "Carney says US ‘attacked’ Canada with tariffs",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/international/6045895-carney-denounces-us-tariffs/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-25",
+      "tieu_de": "Why the US and Canada are embroiled in a fresh tariff war",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-08-25/canada-us-trade-rift-explained/107073872",
       "nhom": 4
     },
     {
