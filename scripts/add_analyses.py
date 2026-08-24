@@ -363,6 +363,26 @@ THINKTANK_FEEDS = [
     # không phải lý do để cho nó vào mục tên là "Think-tank" — đúng cái chốt ghi ở đầu file
     # (lọt Al Jazeera/Naval News vào đây là hỏng). Vùng Mỹ Latin đã có Inter-American Dialogue.
     ("Stimson Center", "https://www.stimson.org/feed/", "Mỹ · hạt nhân · Nam Á"),
+    # ══ Bổ sung 24/08/2026 — vòng dò thứ tư, nhắm 37 tên miền còn lại của WEBSEARCH_ONLY ══
+    # PHÁT HIỆN CHÍNH CỦA VÒNG NÀY, và nó lật một giả định đã đóng đinh trong file: khối ⛔ ở
+    # `THINKTANK_HTML` cấm cắm 38north/ecfr/chathamhouse/mei/nti/thebulletin vì "Cloudflare chỉ
+    # cho TRÌNH DUYỆT THẬT vào, CI thì không". Đo từ CI 24/08 bằng `curl` trần cho thấy lệnh cấm
+    # ấy ĐÚNG với trang HTML (cả 6 đều trả đúng 5KB, tức trang challenge) nhưng **chưa ai thử
+    # đường FEED của chúng** — mà feed thì Cloudflare không chặn:
+    #   · 38 North `/feed/` → 8 item · 3 bài trong khung · mới nhất 21/08
+    #   · ECFR     `/feed/` → 25 item · 4 bài trong khung · mới nhất 21/08
+    # Hai viện này vì thế nằm ngoài kho suốt từ đầu, không phải vì chặn mà vì không ai gõ cửa
+    # đúng cửa. ⛔ Lệnh cấm với lớp HTML thì GIỮ NGUYÊN — nó vẫn đúng.
+    # ⚠️ ECFR: feed trộn `/podcasts/` (6/25 item). NOISE_PATHS đã có `/podcast` nên lọc được;
+    # đừng gỡ mẫu đó đi.
+    ("38 North", "https://www.38north.org/feed/", "Triều Tiên"),
+    ("ECFR", "https://ecfr.eu/feed/", "Châu Âu"),
+    # PRIF: feed nằm ở BLOG (`blog.prif.org`), không phải domain chính — `prif.org/en/publications`
+    # quét HTML chỉ ra 2 link và cả 2 không đọc được ngày. Viện đăng thưa (bài mới nhất 7 ngày
+    # tuổi lúc đo) nên lớp này thường xuyên ra 0 bài; đó là bình thường, giống USIP.
+    # Guardrail nạp đi ngược tên miền cha nên `blog.prif.org` khớp `prif.org` sẵn có, không phải
+    # thêm gì vào THINKTANK_DOMAINS.
+    ("PRIF (Frankfurt)", "https://blog.prif.org/feed/", "Châu Âu · Đức"),
 ]
 
 # ══ ĐƯỜNG NẠP BÀI DÀI — quét theo THÁNG, tách khỏi routine quét theo NGÀY (dựng 06/08/2026) ══
@@ -445,6 +465,11 @@ NOISE_PATHS = (
 # Xếp theo KHU VỰC để phiên sáng biết vùng nào đang trống RSS mà chủ động `WebSearch
 # site:<domain>`. Lý do hỏng: phần lớn Cloudflare 403 · vài nơi 404 · Africa Center và AGSIW
 # trả RSS hợp lệ nhưng feed RỖNG (0 item) · IFRI feed đứng từ 2023.
+#
+# ⚠️ `idsa.in` — bảng này (và khối 30/07) chấm nó "hỏng DNS từ máy Huy, cùng kiểu với zone
+# `.mil`". Đúng ở LOCAL, sai ở CI: đo 24/08 từ runner thì trang chủ trả 364KB bình thường và
+# nay đã khai ở `THINKTANK_HTML`. Đây đúng lý do `probe_sources.py` tồn tại — nguồn sống hay
+# chết phụ thuộc ĐO Ở ĐÂU, mà luồng quét thật chạy ở CI chứ không ở máy Mac.
 #
 # ⚠️ ĐO LẠI 30/07/2026 — "KHÔNG CÓ RSS" ≠ "KHÔNG ĐỌC ĐƯỢC". Dò cả 40 domain bằng curl có UA
 # trình duyệt, thử CẢ dạng `www.` lẫn không: **29/40 trả 200 và đọc được HTML bình thường**;
@@ -583,7 +608,14 @@ def domain_chua_co_duong_quet() -> set:
 # Vì (3) chỉ chạy cho link mà (1)(2) trượt, và bị chặn trần `HTML_LINK_CAP`, chi phí cả lớp
 # đo được là ~15–25 giây cho toàn bộ bảng.
 #
-# ⛔ KHÔNG đưa domain sau vào đây dù trình duyệt mở được: 38north · ecfr.eu · chathamhouse ·
+# ⛔ KHÔNG đưa domain sau vào LỚP HTML NÀY dù trình duyệt mở được:
+# ⚠️ ĐỌC KỸ PHẠM VI (làm rõ 24/08/2026): lệnh cấm dưới đây nói về **trang HTML**, KHÔNG nói về
+# feed. Đo lại từ CI 24/08 bằng `curl` trần: cả 6 trang HTML (38north · ecfr · chathamhouse ·
+# mei · nti · thebulletin) đều trả đúng 5KB tức trang challenge — cấm là ĐÚNG. Nhưng feed của
+# chúng thì Cloudflare không chặn, và chưa ai từng thử: `38north.org/feed/` ra 8 item (3 bài
+# trong khung) và `ecfr.eu/feed/` ra 25 item (4 bài trong khung), nay đã khai ở THINKTANK_FEEDS.
+# Hai viện lớn nằm ngoài kho suốt mấy tháng chỉ vì lệnh cấm này bị đọc rộng hơn phạm vi thật.
+# (chathamhouse/mei/nti/thebulletin thì feed CŨNG chết — đã đo, 0-5KB.) 38north · ecfr.eu · chathamhouse ·
 # clingendael · inss.org.il · mei.edu · nti.org · thearcticinstitute · thebulletin. Chúng
 # chặn theo dấu vân tay TLS (Cloudflare challenge), chỉ TRÌNH DUYỆT THẬT vào được — mà
 # trình duyệt chỉ có ở phiên local, CI thì không. Cắm vào đây là lớp này ra kết quả KHÁC
@@ -718,6 +750,19 @@ THINKTANK_HTML = [
     # 0 link vì nó đòi đoạn ngay sau `/emissary/` dài ≥10 ký tự, mà đoạn đó là năm, 4 ký tự.
     ("Carnegie Endowment", "https://carnegieendowment.org/emissary",
      r"^/emissary/20\d\d/\d\d/[^/]{10,}", "Mỹ · viện lớn · bình luận"),
+    # ——— Thêm 24/08/2026. MP-IDSA (Ấn Độ) — vùng Nam Á vốn mỏng nhất.
+    # ⚠️ VÌ SAO TRƯỚC GIỜ TƯỞNG CHẾT: bảng WEBSEARCH_ONLY ghi `idsa.in` là "hỏng DNS". Điều đó
+    # đúng TRÊN MÁY MAC của Huy (cùng kiểu lỗi DNSSEC với zone `.mil`), nhưng từ CI thì phân
+    # giải bình thường — trang chủ trả 364KB. Đây đúng lý do `probe_sources.py` tồn tại: nguồn
+    # sống hay chết phụ thuộc ĐO Ở ĐÂU, mà luồng quét thật chạy ở CI chứ không ở máy Mac.
+    # ⚠️ BIỂU THỨC PHẢI CHẶT — chỗ này suýt sai. Dòng TÓM TẮT của `do_ung_vien_html.py` xếp
+    # hạng theo SỐ BÀI nên nó tiến cử `^/[a-z-]+/[^/]{20,}` (9 bài, hơn hẳn 5 bài). Nhưng mở
+    # mẫu ra đọc thì 9 bài đó phần lớn là `/mpidsanews/…`: "MP-IDSA Hosts 88th Edition of Know
+    # India Programme", "Monday Morning Meeting on…" — tin hoạt động của viện, không phải
+    # nghiên cứu. `^/publisher/…` ra ít hơn nhưng đúng thứ cần (`/publisher/issuebrief/…`).
+    # Bài học: số bài nhiều hơn KHÔNG có nghĩa biểu thức tốt hơn, phải đọc mẫu.
+    ("MP-IDSA (Ấn Độ)", "https://www.idsa.in/",
+     r"^/publisher/[^/]+/[^/]{15,}", "Nam Á · Ấn Độ"),
 ]
 
 # ĐÃ THỬ VÀ BỎ (30/07/2026) — ghi lại để phiên sau đừng dựng lại rồi mới biết:
@@ -773,6 +818,19 @@ THINKTANK_HTML = [
 #   (đúng bẫy CACI: feed chết và feed sống cùng trả 200 kèm đủ item, phải đọc `pubDate`).
 #   Nhưng feed chết KHÔNG có nghĩa viện chết — `/en/publications/all` quét HTML được, và vòng
 #   21/08 đã khai. ⛔ Vẫn đừng cắm `/en/rss.xml` vào `THINKTANK_FEEDS`.
+
+# ——— VÒNG 4 (24/08/2026) đo 17 viện còn lại của WEBSEARCH_ONLY, ĐO RỒI BỎ:
+# · Trang trả ~5KB (challenge/JS), khai gì cũng vô ích: rsis.edu.sg · chathamhouse.org ·
+#   mei.edu · nti.org · thebulletin.org · 38north.org(HTML) · ceps.eu(mục commentary).
+# · Ra link nhưng KHÔNG đọc được ngày ⇒ không lọc được khung: ceps.eu (16 link, 11-16 không
+#   ngày) · nupi.no · ui.se · prif.org(trang chính, 2 link đều không ngày).
+# · Ra link, đọc được ngày, nhưng 0 bài trong khung 7 ngày: carnegieendowment.org/middle-east/diwan
+#   (5 link) và /sada (6 link) · washingtoninstitute.org (1 link).
+# · JS-only, HTML thô chỉ có link điều hướng: takshashila.org.in · issafrica.org (7×
+#   `/iss-today/<slug>` hiện trong trang nhưng biểu thức `^/iss-today/[^/]{15,}` không khớp vì
+#   văn bản neo dưới 25 ký tự — thử lại thì phải hạ ngưỡng tiêu đề, không phải sửa path).
+# · highnorthnews.com — `/en/rss.xml` trả 82KB HTML (không phải feed), trang danh sách 0 bài
+#   trong khung. Bắc Cực vẫn phải trông vào FIIA/ICDS.
 
 # Trần số link BÀI lấy từ mỗi trang danh sách. Trang danh sách xếp bài mới trước, nên cắt ở
 # đây gần như không mất bài trong khung 7 ngày; đổi lại chặn được ca trang lưu trữ trả về

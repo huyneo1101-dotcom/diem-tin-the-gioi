@@ -9,7 +9,7 @@
 VÌ SAO CÓ SCRIPT NÀY (15/08/2026). Bảng `WEBSEARCH_ONLY` trong `add_analyses.py` ghi 40 viện
 "không có RSS", và phép đo 30/07/2026 cho thấy **29/40 vẫn trả 200 và đọc được HTML** — tức
 phần lớn chỉ THIẾU FEED chứ không mất nguồn. Lớp `[HTML]` sinh ra để vá đúng chỗ đó, nhưng
-tới nay mới khai 12 trang. Muốn khai thêm thì phải trả lời được ba câu cho từng ứng viên:
+tới nay mới khai 27 trang. Muốn khai thêm thì phải trả lời được ba câu cho từng ứng viên:
 
   1. trang danh sách có trả HTML thô không (hay JS-only / Cloudflare chặn)?
   2. link bài nằm ở đường dẫn hình dạng nào (để viết biểu thức path)?
@@ -63,24 +63,29 @@ def nap():
 # Khai NHIỀU trang và NHIỀU biểu thức cho mỗi viện là cố ý: một lượt CI mất vài phút, nên thà
 # thử rộng một lượt còn hơn đúng-một-đoán rồi phải chạy lại. Trang nào ăn thì giữ, còn lại bỏ.
 UNG_VIEN = [
-    # ── ĐỐI CHỨNG — hai trang ĐÃ KHAI trong `THINKTANK_HTML` sau lượt đo 15/08/2026.
-    # Để lại đây để lần dò sau còn so được: trang từng ăn mà nay ra 0 link nghĩa là viện đổi
-    # giao diện, và biết ở đây thì rẻ hơn nhiều so với biết lúc `--candidates` lặng lẽ trả 0 bài.
-    # (`--kiem-html` cũng canh việc này, nhưng nó chỉ soi bảng đã khai; chỗ này soi được cả
-    # trang chưa khai, nên hai phép bổ cho nhau.)
+    # ── ĐỐI CHỨNG: trang ĐÃ KHAI trong `THINKTANK_HTML`, phải còn ra link.
+    # Trang từng ăn mà nay 0 link nghĩa là viện đổi giao diện — biết ở đây rẻ hơn nhiều so với
+    # biết lúc `--candidates` lặng lẽ trả 0 bài.
     ("Brookings", "Mỹ · viện lớn · đối ngoại", [
         "https://www.brookings.edu/topic/international-affairs/",
     ], [r"^/articles/[^/]{15,}"]),
     ("Carnegie Endowment", "Mỹ · viện lớn · bình luận", [
         "https://carnegieendowment.org/emissary",
     ], [r"^/emissary/20\d\d/\d\d/[^/]{10,}"]),
+    ("MP-IDSA", "Nam Á · Ấn Độ", [
+        "https://www.idsa.in/",
+    ], [r"^/publisher/[^/]+/[^/]{15,}"]),
 
-    # ── CHỖ THÊM ỨNG VIÊN MỚI. Thêm vào đây rồi chạy trên CI, ĐỌC SỐ, mới khai vào
-    # `add_analyses.py`. Đừng làm ngược lại.
-    # ⛔ Đã đo 15/08 và BỎ, đừng dựng lại (lý do ghi ở khối "ĐÃ THỬ VÀ BỎ" trong add_analyses.py):
-    #    iiss.org · orfonline.org/research · carnegie-mec.org · jiia.or.jp · africacenter.org ·
-    #    issafrica.org · takshashila.org.in · swp-berlin.org · wola.org · ctc.westpoint.edu ·
-    #    washingtoninstitute.org · stimson.org (trang HTML — nhưng FEED thì sống, đã khai).
+    # ── CHỖ THÊM ỨNG VIÊN MỚI: thêm vào đây → chạy CI → ĐỌC SỐ (và đọc cả MẪU, đừng đọc mỗi
+    # dòng TÓM TẮT: nó xếp hạng theo SỐ BÀI nên từng tiến cử biểu thức lỏng kéo về tin hoạt
+    # động của viện thay vì nghiên cứu — xem ghi chú MP-IDSA trong add_analyses.py) → mới khai.
+    #
+    # ⛔ ĐÃ ĐO VÀ BỎ, đừng dựng lại (lý do đầy đủ trong add_analyses.py):
+    #    15/08: iiss.org · orfonline.org/research · carnegie-mec.org · washingtoninstitute.org
+    #    24/08: rsis.edu.sg · chathamhouse.org · mei.edu · nti.org · thebulletin.org ·
+    #           ceps.eu · nupi.no · ui.se · takshashila.org.in · issafrica.org ·
+    #           highnorthnews.com · carnegieendowment.org/{middle-east/diwan,sada}
+    #    (jiia · africacenter · ifri · ctc · swp: các vòng 20-21/08 đã khai, xem THINKTANK_HTML)
 ]
 
 # Feed RSS đáng thử cùng lượt: nếu một viện HÓA RA có feed sống thì khai feed LUÔN TỐT HƠN quét
@@ -88,13 +93,13 @@ UNG_VIEN = [
 # rằng chúng "không có RSS", nhưng chữ đó có từ 27/07 và đã sai ít nhất 3 lần từ đó (usip.org,
 # cacianalyst.org, rusi.org đều lần lượt tìm ra feed thật). Nên đo lại, đừng tin bảng.
 FEED_THU = [
-    # ── ĐỐI CHỨNG — hai feed ĐÃ KHAI trong `THINKTANK_FEEDS` sau lượt đo 15/08/2026.
-    # Cột `mới-nhất` mới là cột phải đọc: feed chết và feed sống đều trả 200 kèm đủ số item.
-    ("Stimson", "https://www.stimson.org/feed/"),            # 15/08: 12 item · 7 trong khung
-    ("Diálogo Américas", "https://dialogo-americas.com/feed/"),  # 15/08: 10 item · 10 trong khung
-    # ⛔ `ifri.org` (`/en/rss.xml`) — 200 · 10 item · nhưng bài mới nhất 03/06/2022. Giữ trong
-    # danh sách dò như một CA MẪU cho cái bẫy đó: nếu một ngày nó ra `mới-nhất` gần đây thì viện
-    # đã hồi sinh feed và khai được; còn không thì mỗi lượt chạy nhắc lại rằng nó vẫn chết.
+    # ── ĐỐI CHỨNG: feed ĐÃ KHAI, phải còn sống. Đọc cột `mới-nhất`, đừng đọc mỗi số item —
+    # feed bỏ hoang và feed khoẻ đều trả 200 kèm đủ item (bẫy CACI, và IFRI ngay dưới).
+    ("Stimson", "https://www.stimson.org/feed/"),
+    ("38 North", "https://www.38north.org/feed/"),
+    ("ECFR", "https://ecfr.eu/feed/"),
+    ("PRIF blog", "https://blog.prif.org/feed/"),
+    # ── CA MẪU cho cái bẫy trên: 200 · 10 item · nhưng bài mới nhất 03/06/2022.
     ("IFRI (ca mẫu: feed 200 nhưng bỏ hoang)", "https://www.ifri.org/en/rss.xml"),
 ]
 
