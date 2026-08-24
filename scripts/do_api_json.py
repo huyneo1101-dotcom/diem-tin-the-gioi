@@ -171,47 +171,72 @@ def thu_json(mod, url, today, nhan=""):
     }
 
 
-def do_sitemap(mod, goc, today):
-    """Dò sitemap: trả (url đã dùng, số bài có ngày, số bài trong khung, 3 mẫu).
+def do_sitemap(mod, goc, today, sau=0):
+    """Dò sitemap → (url đã dùng, số bài, số 'trong khung', 3 mẫu, ngày-có-đáng-tin).
 
-    Sitemap chỉ mục (`<sitemapindex>`) thì đi xuống một tầng, lấy sitemap con MỚI NHẤT — site
-    lớn chia sitemap theo năm/tháng, lấy nhầm cái cũ là ra toàn bài 2019 rồi kết luận "sitemap
-    chỉ có bài cũ", sai y như bẫy CACI.
+    ⚠️ HAI LỖI CỦA BẢN ĐẦU (24/08), sửa ở đây — cả hai đều làm phép đo BÁO THẮNG GIẢ:
+
+    (1) KHÔNG ĐI XUỐNG SITEMAP CON. `carnegieendowment.org/sitemap.xml` là một danh mục, nhưng
+        nó gói bằng thẻ `<urlset>` chứ không phải `<sitemapindex>`, nên bản đầu đọc nó như một
+        danh sách bài rồi báo "25 url · 25 trong khung" — trong khi 25 cái đó là
+        `videos-index.xml`, `topics-index.xml`, `staff-index.xml`. Nay: loc nào trỏ tới `.xml`
+        thì ĐI XUỐNG, không tính là bài.
+
+    (2) COI `<lastmod>` LÀ NGÀY ĐĂNG. Sai, và sai nguy hiểm vì nó luôn ra số đẹp: `lastmod` là
+        lần cuối trang được sinh lại, nên site nào dựng lại toàn bộ là mọi bài đều "đăng hôm
+        qua". Đo thật ở Takshashila: 893/960 url "trong khung", mà mẫu là bản tin ngày
+        **2026-07-10** mang lastmod **2026-08-23**. Nay: ngày chỉ được coi là ĐÁNG TIN khi lấy
+        từ CHÍNH ĐƯỜNG DẪN (`/2026/08/…`) hoặc từ `<news:publication_date>`; `lastmod` vẫn in
+        ra nhưng gắn nhãn `lastmod(không phải ngày đăng)` để không ai đọc nhầm lần nữa.
     """
-    for duoi in SITEMAP:
-        url = goc + duoi
+    if sau > 2:
+        return None, 0, 0, [], False
+    for duoi in (SITEMAP if sau == 0 else [goc]):
+        url = duoi if sau else goc + duoi
         body = mod.curl(url).decode("utf-8", "replace")
-        if "<sitemapindex" in body:
-            con = re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", body)
-            # ⚠️ Xếp theo lastmod nếu có, không thì lấy cái CUỐI danh sách: sitemap chia theo
-            # thời gian thường xếp cũ→mới nên cái mới nhất nằm cuối.
-            cap = re.findall(r"<sitemap>.*?<loc>\s*([^<\s]+)\s*</loc>.*?"
-                             r"(?:<lastmod>\s*([^<\s]+)\s*</lastmod>)?.*?</sitemap>", body, re.S)
-            if cap and any(c[1] for c in cap):
-                con = [c[0] for c in sorted(cap, key=lambda c: c[1] or "")]
-            if not con:
-                continue
-            url = con[-1]
-            body = mod.curl(url).decode("utf-8", "replace")
-        if "<urlset" not in body:
+        if "<urlset" not in body and "<sitemapindex" not in body:
             continue
-        muc = re.findall(r"<url>(.*?)</url>", body, re.S)
+        locs = re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", body)
+        con = [u for u in locs if u.lower().endswith((".xml", ".xml.gz"))]
+        if con and sau < 2:
+            # Ưu tiên sitemap con trông như NỘI DUNG, bỏ staff/topics/videos/tags.
+            uu = [u for u in con if re.search(r"(post|article|publication|news|research|content|blog)", u, re.I)]
+            for ung in (uu or con)[-3:]:
+                r = do_sitemap(mod, ung, today, sau + 1)
+                if r[1]:
+                    return r
+            continue
         ra = []
-        for m in muc:
+        for m in re.findall(r"<url>(.*?)</url>", body, re.S):
             loc = re.search(r"<loc>\s*([^<\s]+)\s*</loc>", m)
-            ng = (re.search(r"<lastmod>\s*([^<\s]+)", m)
-                  or re.search(r"<news:publication_date>\s*([^<\s]+)", m))
-            if not loc or not ng:
+            if not loc:
                 continue
-            d = la_ngay(ng.group(1))
+            u = loc.group(1)
+            tin = True
+            mu = re.search(r"/(20\d\d)[/-](\d{1,2})[/-](\d{1,2})/", u)
+            d = None
+            if mu:
+                try:
+                    d = datetime.date(int(mu.group(1)), int(mu.group(2)), int(mu.group(3)))
+                except ValueError:
+                    d = None
+            if d is None:
+                ng = re.search(r"<news:publication_date>\s*([^<\s]+)", m)
+                if ng:
+                    d = la_ngay(ng.group(1))
+            if d is None:
+                ng = re.search(r"<lastmod>\s*([^<\s]+)", m)
+                d = la_ngay(ng.group(1)) if ng else None
+                tin = False
             if d:
-                ra.append((d, loc.group(1)))
+                ra.append((d, u, tin))
         if not ra:
             continue
         ra.sort(reverse=True)
-        trong = sum(1 for d, _ in ra if d <= today and (today - d).days <= mod.MAX_AGE_DAYS)
-        return url, len(ra), trong, ra[:3]
-    return None, 0, 0, []
+        trong = sum(1 for d, _, _ in ra if d <= today and (today - d).days <= mod.MAX_AGE_DAYS)
+        dang_tin = any(t for _, _, t in ra)
+        return url, len(ra), trong, ra[:3], dang_tin
+    return None, 0, 0, [], False
 
 
 def do_next_f(mod, body, today):
@@ -295,13 +320,16 @@ def do_mot(mod, ten, trang, today):
             print("   – không có luồng __next_f")
 
     # (4) SITEMAP — không cần JS, có sẵn URL + lastmod.
-    sm_url, sm_n, sm_trong, sm_mau = do_sitemap(mod, goc, today)
+    sm_url, sm_n, sm_trong, sm_mau, sm_tin = do_sitemap(mod, goc, today)
     if sm_url:
-        dau = "✅" if sm_trong else ("◻️ " if sm_n else "❌")
-        print(f"   {dau} sitemap: {sm_url[:95]}  {sm_n} url có ngày · {sm_trong} trong khung")
-        for d, u in sm_mau:
-            print(f"        · {d}  {u[:95]}")
-        ket.append((f"sitemap {sm_url}", sm_n, sm_trong))
+        nhan = "ngày TỪ ĐƯỜNG DẪN (tin được)" if sm_tin else "chỉ có lastmod (KHÔNG phải ngày đăng)"
+        dau = "✅" if (sm_trong and sm_tin) else ("◻️ " if sm_n else "❌")
+        print(f"   {dau} sitemap: {sm_url[:90]}")
+        print(f"        {sm_n} url · {sm_trong} trong khung · {nhan}")
+        for d, u, t in sm_mau:
+            print(f"        · {d}{'' if t else ' (lastmod)'}  {u[:88]}")
+        # Chỉ tính là ĐƯỜNG DÙNG ĐƯỢC khi ngày đáng tin — nếu không thì mọi bài đều "mới".
+        ket.append((f"sitemap {sm_url}", sm_n, sm_trong if sm_tin else 0))
     else:
         print("   – không đọc được sitemap")
 
