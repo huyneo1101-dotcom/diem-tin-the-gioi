@@ -268,6 +268,9 @@ def main() -> None:
     force = "--force" in args
     if force:
         args.remove("--force")
+    as_json = "--json" in args
+    if as_json:
+        args.remove("--json")
     cmd = args[0] if args else "show"
 
     if la_phien_test():
@@ -277,10 +280,25 @@ def main() -> None:
 
     if cmd == "show":
         state = load()
+        now_slot = slot or current_slot()
+        if as_json:
+            # Dữ liệu THÔ, có cấu trúc — nơi khác (vd. bot điện thoại) tự dịch sang câu dễ đọc,
+            # thay vì bóc tách lại chuỗi text kỹ thuật ở nhánh in dưới đây.
+            out = {"today": today(), "nowSlot": now_slot, "pipelines": {}}
+            for name, e in state.items():
+                out["pipelines"][name] = {
+                    "slots": {slot_label(name, s): last_success(e, s) for s in slots_ordered(name)},
+                    "lastStatus": e.get("lastStatus"),
+                    "lastRunAt": e.get("lastRunAt"),
+                    "note": e.get("note") or "",
+                    "doneToday": last_success(e, now_slot) == today(),
+                    "running": is_running(e),
+                }
+            print(json.dumps(out, ensure_ascii=False))
+            return
         if not state:
             print(f"(chua co {state_path().name})")
             return
-        now_slot = slot or current_slot()
         print(f"Hom nay {today()}, o hien tai: {now_slot}\n")
         for name, e in state.items():
             done = " · ".join(
