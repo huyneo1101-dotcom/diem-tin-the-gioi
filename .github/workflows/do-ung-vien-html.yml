@@ -36,11 +36,11 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
-      - name: Dò ứng viên [HTML] + RSS
-        run: |
-          python3 scripts/do_ung_vien_html.py \
-            ${{ inputs.chi && format('--chi {0}', inputs.chi) || '' }} \
-            --json /tmp/ung-vien-html.json
+      # ⚠️ BẢN MƯỢN TẠM trên nhánh `claude/api-json-cac-vien-js-only` — KHÔNG gộp bước này.
+      # `do-api-json.yml` mới chỉ nằm ở nhánh phụ, mà workflow_dispatch chỉ kích được workflow
+      # đã có trên nhánh MẶC ĐỊNH; nên mượn tên file này để chạy phép dò API. Gộp thì gỡ.
+      - name: Dò API JSON (bản mượn)
+        run: python3 scripts/do_api_json.py ${{ inputs.chi && format('--chi {0}', inputs.chi) || '' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
