@@ -63,24 +63,87 @@ def nap():
 # Khai NHIỀU trang và NHIỀU biểu thức cho mỗi viện là cố ý: một lượt CI mất vài phút, nên thà
 # thử rộng một lượt còn hơn đúng-một-đoán rồi phải chạy lại. Trang nào ăn thì giữ, còn lại bỏ.
 UNG_VIEN = [
-    # ── ĐỐI CHỨNG — hai trang ĐÃ KHAI trong `THINKTANK_HTML` sau lượt đo 15/08/2026.
-    # Để lại đây để lần dò sau còn so được: trang từng ăn mà nay ra 0 link nghĩa là viện đổi
-    # giao diện, và biết ở đây thì rẻ hơn nhiều so với biết lúc `--candidates` lặng lẽ trả 0 bài.
-    # (`--kiem-html` cũng canh việc này, nhưng nó chỉ soi bảng đã khai; chỗ này soi được cả
-    # trang chưa khai, nên hai phép bổ cho nhau.)
-    ("Brookings", "Mỹ · viện lớn · đối ngoại", [
-        "https://www.brookings.edu/topic/international-affairs/",
-    ], [r"^/articles/[^/]{15,}"]),
-    ("Carnegie Endowment", "Mỹ · viện lớn · bình luận", [
-        "https://carnegieendowment.org/emissary",
-    ], [r"^/emissary/20\d\d/\d\d/[^/]{10,}"]),
+    # ══ VÒNG 4 (24/08/2026) — dò 37 tên miền CÒN LẠI của WEBSEARCH_ONLY ══
+    # Chia theo LÝ DO chưa phủ, vì mỗi nhóm cần một phép thử khác nhau.
+    #
+    # ── (a) CHƯA AI THỬ LẦN NÀO. Đáng giá nhất, và đúng chỗ bản tin đang trắng.
+    ("High North News", "Bắc Cực", [
+        "https://www.highnorthnews.com/en",
+        "https://www.highnorthnews.com/en/articles",
+    ], [r"^/en/[a-z0-9-]{20,}/?$", r"^/en/(articles|news)/[^/]{15,}"]),
+    ("NUPI", "Bắc Âu · Na Uy", [
+        "https://www.nupi.no/en/publications",
+        "https://www.nupi.no/en",
+    ], [r"^/en/publications/[^/]{15,}", r"^/en/[a-z0-9-]{25,}/?$"]),
+    ("UI (Thuỵ Điển)", "Bắc Âu · Thuỵ Điển", [
+        "https://www.ui.se/english/",
+        "https://www.ui.se/butiken/uis-publikationer/",
+    ], [r"^/english/[a-z0-9-]{20,}", r"^/butiken/[^/]+/[^/]{15,}"]),
+    ("PRIF (Frankfurt)", "Châu Âu · Đức", [
+        "https://www.prif.org/en/publications",
+        "https://blog.prif.org/",
+    ], [r"^/en/publications/[^/]{15,}", r"^/20\d\d/\d\d/\d\d/[^/]{10,}"]),
+    ("IDSA (MP-IDSA)", "Nam Á · Ấn Độ", [
+        "https://www.idsa.in/publisher/idsa-comments",
+        "https://www.idsa.in/",
+    ], [r"^/publisher/[^/]+/[^/]{15,}", r"^/[a-z-]+/[^/]{20,}"]),
+    ("RSIS", "Đông Nam Á", [
+        "https://www.rsis.edu.sg/rsis-publications/",
+        "https://www.rsis.edu.sg/research/rsis-publications/",
+    ], [r"^/rsis-publication/[^/]{15,}", r"^/rsis-publications?/[^/]{15,}"]),
 
-    # ── CHỖ THÊM ỨNG VIÊN MỚI. Thêm vào đây rồi chạy trên CI, ĐỌC SỐ, mới khai vào
-    # `add_analyses.py`. Đừng làm ngược lại.
-    # ⛔ Đã đo 15/08 và BỎ, đừng dựng lại (lý do ghi ở khối "ĐÃ THỬ VÀ BỎ" trong add_analyses.py):
-    #    iiss.org · orfonline.org/research · carnegie-mec.org · jiia.or.jp · africacenter.org ·
-    #    issafrica.org · takshashila.org.in · swp-berlin.org · wola.org · ctc.westpoint.edu ·
-    #    washingtoninstitute.org · stimson.org (trang HTML — nhưng FEED thì sống, đã khai).
+    # ── (b) ĐÃ THỬ MỘT TRANG RỒI HỤT — nay thử nhánh XẾP THEO THỜI GIAN.
+    # Đúng bài học Wilson Center/Africa Center: trang xếp theo CHỦ ĐỀ trả nhiều link hơn nhưng
+    # bài mới nhất đã mấy tháng tuổi; trang xếp theo thời gian mới là trang phải khai.
+    ("Carnegie MEC (Diwan)", "Trung Đông", [
+        "https://carnegieendowment.org/middle-east/diwan",
+        "https://carnegieendowment.org/sada",
+    ], [r"^/(middle-east/diwan|sada)/20\d\d/\d\d/[^/]{10,}",
+        r"^/(middle-east/diwan|sada)/[^/]{15,}"]),
+    ("Washington Institute", "Trung Đông", [
+        "https://www.washingtoninstitute.org/policy-analysis?f%5B0%5D=type%3A1",
+        "https://www.washingtoninstitute.org/policy-analysis/all",
+    ], [r"^/policy-analysis/[^/]{15,}"]),
+    ("ISS Africa", "Châu Phi", [
+        "https://issafrica.org/iss-today",
+        "https://issafrica.org/about-us/press-releases",
+    ], [r"^/iss-today/[^/]{15,}"]),
+    ("Takshashila", "Nam Á", [
+        "https://takshashila.org.in/pages/research",
+        "https://takshashila.org.in/high-curry",
+    ], [r"^/(pages/)?research/[^/]{15,}", r"^/[a-z-]+/[^/]{20,}"]),
+    ("CEPS", "Châu Âu · EU", [
+        "https://www.ceps.eu/ceps-publications/",
+        "https://www.ceps.eu/category/publication-type/commentary/",
+    ], [r"^/ceps-publications/[^/]{15,}", r"^/[a-z-]+/[^/]{20,}"]),
+
+    # ── (c) DANH SÁCH ⛔ CLOUDFLARE — đo lại bằng `curl` TRẦN TỪ CI.
+    # Khối ⛔ trong add_analyses.py cấm cắm chúng vì "chỉ trình duyệt thật vào được, CI thì
+    # không". Cái cấm ấy ĐÚNG về nguyên tắc nhưng chưa lần nào được đo TỪ CI bằng đúng công cụ
+    # sản xuất — nó suy từ lần dò trên máy Mac. Đo ở đây tốn vài giây và cho câu trả lời dứt
+    # điểm: hoặc xác nhận cấm là đúng, hoặc mở lại được mấy viện lớn.
+    # ⚠️ Nếu chúng SỐNG từ CI thì vẫn phải cân nhắc trước khi khai: lớp này chạy cả ở phiên
+    # local, mà local có thể lại chặn — tức nguy cơ "kết quả khác nhau giữa hai nơi" mà khối ⛔
+    # cảnh báo. Có số đo rồi hẵng bàn.
+    ("Chatham House", "Anh · toàn cầu", [
+        "https://www.chathamhouse.org/publications/the-world-today",
+        "https://www.chathamhouse.org/publications",
+    ], [r"^/20\d\d/\d\d/[^/]{15,}", r"^/publications/[^/]+/[^/]{15,}"]),
+    ("MEI", "Trung Đông", [
+        "https://www.mei.edu/publications",
+    ], [r"^/publications/[^/]{15,}"]),
+    ("NTI", "Hạt nhân", [
+        "https://www.nti.org/analysis/",
+    ], [r"^/analysis/[a-z-]+/[^/]{15,}"]),
+    ("Bulletin of the Atomic Scientists", "Hạt nhân", [
+        "https://thebulletin.org/latest/",
+    ], [r"^/20\d\d/\d\d/[^/]{15,}"]),
+    ("38 North", "Triều Tiên", [
+        "https://www.38north.org/",
+    ], [r"^/20\d\d/\d\d/[^/]{15,}"]),
+    ("ECFR", "Châu Âu", [
+        "https://ecfr.eu/publications/",
+    ], [r"^/publication/[^/]{15,}", r"^/article/[^/]{15,}"]),
 ]
 
 # Feed RSS đáng thử cùng lượt: nếu một viện HÓA RA có feed sống thì khai feed LUÔN TỐT HƠN quét
@@ -88,14 +151,25 @@ UNG_VIEN = [
 # rằng chúng "không có RSS", nhưng chữ đó có từ 27/07 và đã sai ít nhất 3 lần từ đó (usip.org,
 # cacianalyst.org, rusi.org đều lần lượt tìm ra feed thật). Nên đo lại, đừng tin bảng.
 FEED_THU = [
-    # ── ĐỐI CHỨNG — hai feed ĐÃ KHAI trong `THINKTANK_FEEDS` sau lượt đo 15/08/2026.
-    # Cột `mới-nhất` mới là cột phải đọc: feed chết và feed sống đều trả 200 kèm đủ số item.
-    ("Stimson", "https://www.stimson.org/feed/"),            # 15/08: 12 item · 7 trong khung
-    ("Diálogo Américas", "https://dialogo-americas.com/feed/"),  # 15/08: 10 item · 10 trong khung
-    # ⛔ `ifri.org` (`/en/rss.xml`) — 200 · 10 item · nhưng bài mới nhất 03/06/2022. Giữ trong
-    # danh sách dò như một CA MẪU cho cái bẫy đó: nếu một ngày nó ra `mới-nhất` gần đây thì viện
-    # đã hồi sinh feed và khai được; còn không thì mỗi lượt chạy nhắc lại rằng nó vẫn chết.
-    ("IFRI (ca mẫu: feed 200 nhưng bỏ hoang)", "https://www.ifri.org/en/rss.xml"),
+    # ── ĐỐI CHỨNG: feed đã khai, phải còn sống.
+    ("Stimson (đã khai)", "https://www.stimson.org/feed/"),
+    # ── VÒNG 4: feed của chính các viện đang dò HTML ở trên. Rẻ, nên hỏi luôn — feed sống thì
+    # LUÔN hơn quét HTML. Đọc cột `mới-nhất`, đừng đọc mỗi số item (bẫy CACI/IFRI).
+    ("High North News", "https://www.highnorthnews.com/en/rss.xml"),
+    ("NUPI", "https://www.nupi.no/en/rss"),
+    ("PRIF blog", "https://blog.prif.org/feed/"),
+    ("IDSA", "https://www.idsa.in/rss.xml"),
+    ("RSIS", "https://www.rsis.edu.sg/feed/"),
+    ("Chatham House", "https://www.chathamhouse.org/rss.xml"),
+    ("MEI", "https://www.mei.edu/rss.xml"),
+    ("NTI", "https://www.nti.org/feed/"),
+    ("Bulletin", "https://thebulletin.org/feed/"),
+    ("38 North", "https://www.38north.org/feed/"),
+    ("ECFR", "https://ecfr.eu/feed/"),
+    ("CEPS", "https://www.ceps.eu/feed/"),
+    ("ISS Africa", "https://issafrica.org/rss"),
+    ("Takshashila", "https://takshashila.org.in/rss.xml"),
+    ("Washington Institute", "https://www.washingtoninstitute.org/rss/policy-analysis"),
 ]
 
 
