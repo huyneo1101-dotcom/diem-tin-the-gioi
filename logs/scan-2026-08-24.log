@@ -19,3 +19,9 @@
 [21:57Z] SKIP (CI, lan goi lai session moi) - claim web-scan exit 10, lastRunAt 04:35:38+07 (~21' truoc). so_da_gui --xem xac nhan dong [sang] 3 tin + [sukien] 0 tin da gui that luc 04:44:41/04:44:42+07 hom nay. Ban tin da toi tay. KET THUC.
 [14:00Z] START (CI) phien toi web-scan - claim exit 0, giu khoa. Bat dau quet 5 chu de.
 [21:15] SKIP (local, mocc 21:15 phien toi) - claim web-scan exit 11, phien khac dang chay (CI 20:47/14:00Z, nhip tim 15' truoc). Khong quet chong. KET THUC.
+[14:02Z] harvest.py: 342 ung vien (Noi bo My 127, CNQS My 77, Uc&BD 67, Mali 48, Tap tran 23). telegram_harvest.py: OK, ~35 ung vien lop [TG].
+[14:03Z] tin_jaylam.py --liet-ke: 1 file CHUA TRICH (id=33, gui 13:20Z cung ngay, truoc phien nay) -> trich du 27 tin, nop bang qua --ghi. Doi chieu voi tin quet duoc: khong tin nao trung (moi tin trung tiem nang deu da publish TRUOC phien nay).
+[14:06Z] Giao 5 agent Sonnet song song theo 5 chu de, nhung cac ket qua sau khi dieu phoi tu WebSearch/WebFetch verify.
+[14:31Z] Ket qua sau verify: Noi bo My 1 tin, Uc&BD 3 tin (sua 1 sourceUrl sai cua agent), CNQS My 4 tin, Mali 2 tin (loai 3/5 do agent sai khung ngay), Tap tran 2 cap nhat.
+[14:35Z] add_news.py /tmp/new_items.json: OK +5 worldNews +5 usNews +2 tap tran +0 xNews +0 dipEvents (+92 tin bi loai vao muc Bi loai). Xu ly dut diem cong Bao Moi (5/5 loai) va cong bai thich (1/1 loai) - ghi logs/loai-tin.md + logs/scan-gaps.json.
+[14:40Z] Chuan bi commit "Cap nhat ban tin 24/08: +12 tin (TG+5, My+5, Tap tran+2)".

@@ -1,46 +1,46 @@
 {
   "date": "2026-08-24",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {
       "name": "Nội bộ Mỹ (5 nhóm, 2 hạng)",
-      "count": 0,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "0 tin đạt chuẩn sau 2 vòng agent + điều phối tự verify. Nhóm 1 (điều trần/bỏ phiếu) trắng — Thượng viện đang họp phiên pro-forma tới 14/09, không điều trần/bỏ phiếu. Một tin 'Bessent họp báo Iran' bị loại vì bài gốc Al Jazeera thật đăng 20/08 (không phải 24/08 như agent gắn nhãn); họp báo thật dự kiến 'thứ Hai 24/8 14h ET' = ~01h sáng 25/8 giờ VN, TỨC CHƯA XẢY RA tại thời điểm quét. Vòng 2 xác nhận thêm loạt tin tưởng là mới thực ra đã cũ (poll 30/07, bài Trump/Turkey từ 2019). Cuối tuần chuyển sang thứ Hai, Quốc hội nghỉ — tin chính trị nội bộ thưa thật."
-    },
-    {
-      "name": "Úc & Biển Đông",
       "count": 1,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "1 tin đạt chuẩn: điều tra Four Corners về cựu quan chức quốc phòng Úc chuyển sang lobby AUKUS (ABC News Australia, 24/08). Loại 1 ứng viên khác (báo cáo ASPI/Dibb về thời gian cảnh báo chiến lược) vì nguồn agent đưa là aggregator (infosectoday.io), truy gốc ra bài phân tích/opinion của The Strategist — không phải 'tin sự kiện', để dành vòng think-tank. Vòng 2 bổ sung (>25 truy vấn) không ra thêm ứng viên đúng khung 23-24/08 mà không trùng DATA đã có."
+      "reason": "1 tin đạt chuẩn: Bessent phát động 'Economic D-Day' trừng phạt Iran (24/08, NPR, category Kinh tế). Nhóm 1 (điều trần/bỏ phiếu) trắng hoàn toàn — Quốc hội đang trong phiên nghỉ pro-forma 23-24/08 (xác nhận qua WebSearch), không có phiên điều trần/markup/bỏ phiếu nào. Loại ~10 ứng viên khác: 2 tin nhóm 1 nghi ngờ (Senate spending bill, Cantwell markup) hoá ra sự kiện thật xảy ra 05-08/08, ngoài khung dù Google News đăng lại gần đây; 4 tin trùng sự kiện đã có trong DATA (USPS mail voting, DHS 250k voters, Bessent bond buyback, US-Canada tariff); còn lại ngoài khung ngày hoặc thuộc diện chính trị nhân vật/drama bị loại theo bộ lọc."
     },
     {
-      "name": "CNQS Mỹ",
-      "count": 2,
+      "name": "Úc & Biển Đông",
+      "count": 3,
       "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "2 tin đạt chuẩn: tàu đổ bộ dân sự Matilda 1 (Military Times, 21/08), USS Abraham Lincoln rời Trung Đông sau 7 tháng (Stars and Stripes/USNI, 22/08). Loại 3 ứng viên khác vì SAI NGÀY nghiêm trọng sau khi điều phối tự WebFetch verify: 'Golden Dome CBO cost dispute' (bài gốc Federal News Network thật đăng 20/08, phát biểu gốc từ hội nghị 11/08); 'B-1B giữ hoạt động tới 2037' (bài Air & Space Forces Magazine đăng THẬT 24/04/2026 — 4 tháng trước, agent đọc nhầm); 'YFQ-44A Fury đợt diễn tập 2' (nguồn đối chiếu Military Embedded Systems xác nhận publish thật 19/08, ngoài khung nới 3 ngày)."
+      "reason": "3 tin đạt chuẩn: Australia đặt sống tàu khinh hạm Hunter đầu tiên (24/08, Naval News), Australia công bố địa điểm Trung tâm Quốc phòng Henderson cho bảo trì tàu ngầm AUKUS (24/08, PM.gov.au — điều phối phải tự sửa sourceUrl vì agent dùng nhầm link của tin Hunter frigate), AFP-Trung Quốc đấu khẩu về Bãi Cỏ Mây (23/08, Philstar). Loại 'Indonesia điện hạt nhân đảo không người ở' (Báo Mới) vì không neo được vào Biển Đông/Úc/quân sự theo quy tắc neo bắt buộc; loại tin live-fire Trạm Giang từ file Jay Lâm vì không xác minh được nguồn độc lập; loại vài tin trùng/ngoài phạm vi khác (AS9 Huntsman sự kiện cũ, P-8A trùng DATA, TQ-Indonesia hợp tác chung chung không neo Biển Đông)."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "4 tin đạt chuẩn (khung nới 3 ngày 22-24/08): F/A-XX award status (24/08, Aviation Week), hợp đồng AI quản lý ngân sách Space Force (24/08, Defense One), Rocket Lab HASTE thử siêu vượt âm (22/08, Motley Fool), MQ-9 Reaper phase-out (24/08, Asia Times). Loại 'Cạn kiệt lá chắn Patriot Kiev' (Báo Mới — thuộc Nga-Ukraine, không phải quyết định/khí tài Mỹ); loại bài 👍 UAV Ukraine (17/08, ngoài khung + Nga-Ukraine); loại AIM-424/SPY-6 (trùng DATA); loại 6 ứng viên khác vì sự kiện gốc ngoài khung 3 ngày dù đăng lại gần đây (Hanwha K9, Golden Dome, NODA AI, SeaSparrow NSV, radar siêu vượt âm, B-21/Future Artillery Complex từ Telegram)."
     },
     {
       "name": "Mỹ – Mali",
-      "count": 0,
+      "count": 2,
       "target": "2-5",
       "min": 2,
-      "thieu": true,
-      "reason": "0 tin đạt chuẩn (best-effort, khan nhiều phiên liên tiếp). 22 ứng viên quét sẵn thuần nhiễu (CLB bóng đá Étoile du Sahel, thời tiết, lễ hội trùng chữ 'Sahel'/'Mali'). WebSearch xác nhận mọi tin thời sự thật về Mỹ-JNIM đều từ cuối tháng 7/2026."
+      "thieu": false,
+      "reason": "Đạt chỉ tiêu tối thiểu: Tuareg thả 22 lính Mali (23/08, African Insider/AFP), Thủ tướng Mali thăm Algiers nối lại quan hệ Algeria (24/08, Anadolu Agency). Agent đề xuất thêm 3 tin nhưng điều phối tự kiểm phát hiện SAI KHUNG NGÀY nghiêm trọng (sự kiện gốc thật 13/08, 14/08, 20/08 dù agent tự gắn field date gần hôm nay) nên đã loại: 'Nga duy trì cầu hàng không Sahel' (Defense News, gốc 13/08), 'LHQ tiền chuộc 50tr USD JNIM' (Africanews, gốc 14-15/08), 'Haftar giải cứu lính Wagner' (Arab News, gốc ~20/08)."
     },
     {
       "name": "Tập trận đang diễn ra",
-      "count": 0,
+      "count": 2,
       "target": "1-2",
       "min": 1,
-      "thieu": true,
-      "reason": "0 tin đạt chuẩn. Xác nhận Falcon Strike/PANAMAX/Hán Quang 42/Pitch Black/Baltic Trust đã bế mạc thật (07-21/08). MAITREE-XV/Swift Eagle/SEACAT/Diễn tập Hạm đội TBD Nga vẫn đang chạy thật nhưng tin cập nhật mới nhất tìm được đều ≤21/08, ngoài khung 23-24/08. Sẽ được do_tap_tran_thieu.py ở Bước 6 dò bù cuộc tập trận mới nếu có."
+      "thieu": false,
+      "reason": "Đạt chỉ tiêu: Swift Eagle 2026 Trung Quốc-Belarus ngày áp chót tập trận (23/08, BELTA), Diễn tập Hạm đội Thái Bình Dương Nga bắn tên lửa gần Kuril (24/08, Militarnyi). Candidate file harvest.py rất nhiễu (chủ yếu tin thăm Singapore của lãnh đạo VN) nên phải WebSearch trực tiếp theo tên từng cuộc đang chạy. Loại 'Indian Air Force Wraps Up Pitch Black' (chỉ lặp lại tin đã có, Pitch Black đã ghi nhận kết thúc); không tìm được cập nhật mới cho SEACAT/MAITREE-XV/Super Garuda Shield trong 24-48h qua."
     },
     {
       "name": "Báo Mới",
@@ -48,7 +48,7 @@
       "target": "0-5",
       "min": 0,
       "thieu": false,
-      "reason": "4 ứng viên xử lý dứt điểm, LOẠI CẢ 4: 2 bản 'Mỹ cân nhắc đặt tên tàu sân bay vinh danh Trump' (CA Đà Nẵng, Tin Tức TTXVN) — xác minh TRÙNG chính xác sự kiện đã có trên web từ 20/08 (đổi tên CVN-81 Doris Miller → Trump). 'Mỹ-Canada thương chiến vượt khỏi bất đồng thuế quan' (Hà Nội Mới) — truy gốc ra Global News 22/08 với góc mới thật (3 lý do đàm phán đổ vỡ: ô tô, hạn chế FTA khác, tiếng Pháp/Quebec) nhưng CÙNG sự kiện/ngày với tin 'đàm phán Canada đổ vỡ, thuế 50%' đã có trên web → loại vì trùng sự kiện. 'Triều Tiên lên án ngân sách QP Nhật Bản' (An Ninh Thủ Đô) — xác minh chủ thể thuần Triều Tiên-Nhật, Mỹ chỉ nhắc phụ, ngoài phạm vi 5 chủ đề."
+      "reason": "5 ứng viên xử lý dứt điểm, LOẠI CẢ 5: 'Giá dầu giảm trước trừng phạt Iran' (TTXVN) — thay bằng tin chính thức đầy đủ hơn về vụ trừng phạt Economic D-Day đã nạp; 'Cạn kiệt lá chắn Patriot' (CAND) — xem lý do ở mục CNQS Mỹ; 'Chuyên gia Peterson bình luận thuế quan' (TG&VN) và Video Tiêu điểm thuế quan Canada (Nhân Dân) — bài phân tích/bình luận, không phải sự kiện cụ thể, trùng chủ đề đã có; 'Indonesia điện hạt nhân' (TTXVN) — xem lý do ở mục Úc & Biển Đông."
     },
     {
       "name": "Cổng bài 👍",
@@ -56,8 +56,8 @@
       "target": "best-effort",
       "min": 0,
       "thieu": false,
-      "reason": "21 bài đã 👍 chờ nạp — TẤT CẢ vẫn ngày 16/08/2026, nay cách hôm nay (24/08) tới 8 ngày, ngoài khung ngày mọi chủ đề kể cả CNQS Mỹ (nới xa nhất 3 ngày). LOẠI TOÀN BỘ 21 bài — lặp lại giới hạn cấu trúc đã ghi nhận nhiều phiên liên tiếp (22/08, 23/08 tối, 23/08 sáng sớm)."
+      "reason": "1 bài đã 👍 chờ nạp: 'Hàng trăm UAV Ukraine lao vào Moscow' (VietTimes, 17/08) — LOẠI vì ngoài khung ngày mọi chủ đề (kể cả CNQS Mỹ nới 3 ngày chỉ tới 22/08) và thuộc Nga-Ukraine chiến sự đã loại khỏi phạm vi quét."
     }
   ],
-  "note": "Phiên SÁNG SỚM CI (fire ~21:00Z 23/08 = 04:00 VN 24/08). Batch date=2026-08-24. Kết quả: +1 worldNews (Úc & Biển Đông) + 2 usNews (CNQS Mỹ) = 3 tin thực chất. Nội bộ Mỹ/Mỹ-Mali/Tập trận đều về 0. Nguyên nhân chính: (1) cuối tuần chuyển sang thứ Hai, Quốc hội Mỹ nghỉ họp — tin chính trị nội bộ thưa thật; (2) hai vòng agent Sonnet liên tiếp mắc lỗi SAI NGÀY nghiêm trọng (lấy tin cũ tới 4 tháng, gắn nhãn ngày hôm nay) — điều phối phải tự WebFetch/WebSearch verify publish date thật cho từng ứng viên trước khi nạp; (3) khối tin nóng 19-23/08 đã được nhiều phiên CI/local liên tiếp trước đó nạp gần hết. Phiên sáng chấp nhận sản lượng mỏng theo đúng quy tắc (nhắm ~10/mục, để tối bù) — tuy vậy phiên này thấp hơn cả mức đó do đặc thù cuối tuần + Quốc hội nghỉ. gh CLI bị chặn 'requires approval' trong môi trường CI này nên KHÔNG kích được telegram-bot.yml để hút file Jay Lâm; tin_jaylam.py xác nhận không có file trong khung nên bỏ qua bước lọc Jay Lâm."
+  "note": "Phiên TỐI CI (fire ~14:00Z 24/08 = 21:00 VN). Batch date=2026-08-24. Kết quả: +5 worldNews + 5 usNews + 2 cập nhật tập trận = 12 mục. 5 agent Sonnet chạy song song theo 5 chủ đề; điều phối tự WebSearch/WebFetch verify từng tin trước khi nạp, phát hiện và sửa 1 lỗi URL sai (Henderson Defence Precinct — agent dùng nhầm link tin Hunter frigate), loại 3 tin Mỹ-Mali sai khung ngày (agent tự gắn date gần hôm nay nhưng sự kiện gốc thật cũ 4-11 ngày). gh CLI bị chặn 'requires approval' trong môi trường CI nên không kích được telegram-bot.yml để hút file Jay Lâm mới; file Jay Lâm 'ĐTN_M_24.8.2026.docx' (gửi 13:20Z cùng ngày, TRƯỚC khi phiên này bắt đầu) đã được trích đủ 27 tin qua tin_jaylam.py --ghi và dùng làm bộ lọc — không phát hiện tin nào của phiên này trùng với nội dung file Jay Lâm (đối chiếu theo sự kiện: các tin trùng tiềm năng như Four Corners AUKUS, Kim Môn, Bãi Cỏ Mây tiếp tế, USS Lincoln, AIM-424 đều đã publish TRƯỚC phiên này nên không nạp lại, không cần --ghi-loai)."
 }
