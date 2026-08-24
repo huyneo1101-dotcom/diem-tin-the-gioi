@@ -25,3 +25,4 @@
 [14:31Z] Ket qua sau verify: Noi bo My 1 tin, Uc&BD 3 tin (sua 1 sourceUrl sai cua agent), CNQS My 4 tin, Mali 2 tin (loai 3/5 do agent sai khung ngay), Tap tran 2 cap nhat.
 [14:35Z] add_news.py /tmp/new_items.json: OK +5 worldNews +5 usNews +2 tap tran +0 xNews +0 dipEvents (+92 tin bi loai vao muc Bi loai). Xu ly dut diem cong Bao Moi (5/5 loai) va cong bai thich (1/1 loai) - ghi logs/loai-tin.md + logs/scan-gaps.json.
 [14:40Z] Chuan bi commit "Cap nhat ban tin 24/08: +12 tin (TG+5, My+5, Tap tran+2)".
+[14:42Z] SKIP (CI, lan goi lai session moi, phien toi) - claim web-scan exit 10, lastRunAt 21:40:31+07 (~2' truoc). so_da_gui --xem xac nhan dong [toi] 15 tin da gui that luc 21:42:14+07 hom nay, khop dung buoi. Ban tin toi da toi tay. KET THUC.
