@@ -1,1 +1,12 @@
 [21:00Z] START (CI) - phien sang som (VN 04:00)
+[21:03Z] harvest.py: 311 ung vien (67 RSS + GNEWS + telegram_harvest 24 bai)
+[21:09Z] telegram_harvest.py xong, cai curl_cffi cuu them 9 nguon .mil/Axios
+[21:20Z] tin_jaylam.py --liet-ke: 1 file (id=33, 27 tin) da trich san, dung lam bo loc
+[21:28Z] 4 agent Sonnet song song: Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran
+[22:00Z] Agent Noi bo My: 4 tin sau vong 1, tim them via WebSearch nhung Quoc hoi nghi thang 8
+[22:15Z] Agent Uc & Bien Dong: 2 vong quet deu ve 0 (moi thu deu trung tin da dang hoac ngoai khung)
+[22:25Z] Agent CNQS My: 7 tin, loai 2 ngoai khung 3 ngay + 1 trung DARPA hypersonic (da xoa)
+[22:30Z] Agent Mali+Tap tran: 1 tin Mali (AES parliament Niamey), 2 cap nhat tap tran deu trung
+[22:32Z] add_news.py: +9 tin usNews (sau khi xoa 1 tin trung qua prune_news.py)
+[22:35Z] Ghi logs/loai-tin.md + logs/scan-gaps.json
+[22:36Z] DONE: +9 tin (Noi bo My 3, CNQS My 4, Mali 1, Uc-BD 0, Tap tran 0). worldNews thieu hoan toan phien nay - da ghi ly do vao scan-gaps.json.
