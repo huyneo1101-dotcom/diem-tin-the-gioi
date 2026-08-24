@@ -1,0 +1,48 @@
+name: Dò ứng viên [HTML] cho bảng think-tank
+
+# Chạy `scripts/do_ung_vien_html.py` trên GitHub runner để đo THẬT xem một viện có quét được
+# bằng lớp [HTML] hay không, TRƯỚC khi khai nó vào `THINKTANK_HTML` của `add_analyses.py`.
+#
+# VÌ SAO PHẢI LÀ CI, KHÔNG PHẢI MÁY LOCAL: luồng quét thật chạy trên `ubuntu-latest`
+# (`claude-web-scan.yml`), nên "trang này đọc được" chỉ có nghĩa khi đo TỪ ĐÓ. Máy Mac hỏng DNS
+# zone `.mil`; ngược lại vài trang chặn IP datacenter GitHub. Đo nhầm chỗ là dựng bảng nguồn
+# sai cho cả hai nơi.
+#
+# ⚠️ CỐ Ý KHÔNG cài `curl_cffi` (khác `probe-sources.yml`). Lớp [HTML] của `add_analyses.py` đi
+# bằng `curl` TRẦN, nên dò bằng vân tay TLS Chrome sẽ chấm "khai được" cho trang mà lúc chạy
+# thật lấy về trang challenge — tức đẻ ra một bảng nguồn xanh giả.
+#
+# ⚠️ CHỈ ĐỌC, KHÔNG commit gì. Kết quả nằm trong log + artifact `ung-vien-html`. Bảng nguồn là
+# thứ phải do người đọc số rồi tự khai, không phải thứ CI tự ghi vào.
+#
+# ⚠️ `workflow_dispatch` chỉ kích được khi file này đã có trên NHÁNH MẶC ĐỊNH. Trước khi nó
+# được gộp vào `main`, muốn chạy thử từ một nhánh phụ thì phải mượn tạm một workflow đã nằm
+# sẵn trên main (và nhớ gỡ mọi bước `git push` của bản mượn — bản gốc `probe-sources.yml` đẩy
+# thẳng lên main, chạy nó từ nhánh phụ là đẩy nội dung nhánh phụ đè lên main).
+on:
+  workflow_dispatch:
+    inputs:
+      chi:
+        description: "Lọc theo tên viện hoặc domain (bỏ trống = dò cả bảng)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  do:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - name: Dò ứng viên [HTML] + RSS
+        run: |
+          python3 scripts/do_ung_vien_html.py \
+            ${{ inputs.chi && format('--chi {0}', inputs.chi) || '' }} \
+            --json /tmp/ung-vien-html.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ung-vien-html
+          path: /tmp/ung-vien-html.json

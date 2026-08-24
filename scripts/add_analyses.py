@@ -350,6 +350,19 @@ THINKTANK_FEEDS = [
     # · `iss.europa.eu/rss.xml` (EUISS) — 10 item nhưng nội dung là "X discussing … in Euronews",
     #   "… cited in El Confidencial", tức trích dẫn truyền thông chứ không phải nghiên cứu. Cùng
     #   loại với feed SWP và Clingendael đã bỏ.
+    # ——— Thêm 15/08/2026 (gộp vào main 24/08). Đo thật trên CI bằng
+    # `scripts/do_ung_vien_html.py`: Stimson `/feed/` → 200 · 12 item · **07 bài trong khung 7
+    # ngày** · mới nhất 14/08. Nguồn này nằm trong `WEBSEARCH_ONLY` với nhãn "KHÔNG có RSS" —
+    # nhãn sai, và đây là lần thứ tư nó sai (trước đó rusi · usip · cacianalyst).
+    # ⚠️ Stimson vẫn nằm trong khối "ĐÃ THỬ VÀ BỎ" của lớp [HTML] phía dưới, và KHÔNG mâu
+    # thuẫn: trang HTML của họ đúng là 403 (đo 15/08: `/research/` và `/commentary/` đều trả
+    # 5KB). Hỏng đường HTML không kéo theo hỏng đường FEED.
+    # ⛔ Cùng lượt đó có đo `dialogo-americas.com/feed/` (10/10 bài trong khung, feed rất khoẻ)
+    # và đã ĐỊNH khai — nay BỎ, theo đúng lý lẽ của khối 20/08 ngay trên: đó là tạp chí của Bộ
+    # Tư lệnh Miền Nam Hoa Kỳ, tức BÁO CHÍ QUÂN ĐỘI chứ không phải viện nghiên cứu. Feed khoẻ
+    # không phải lý do để cho nó vào mục tên là "Think-tank" — đúng cái chốt ghi ở đầu file
+    # (lọt Al Jazeera/Naval News vào đây là hỏng). Vùng Mỹ Latin đã có Inter-American Dialogue.
+    ("Stimson Center", "https://www.stimson.org/feed/", "Mỹ · hạt nhân · Nam Á"),
 ]
 
 # ══ ĐƯỜNG NẠP BÀI DÀI — quét theo THÁNG, tách khỏi routine quét theo NGÀY (dựng 06/08/2026) ══
@@ -417,7 +430,18 @@ NOISE_PATHS = (
     "event-recordings",
 )
 
-# KHÔNG có RSS dùng được — đã thử ÍT NHẤT 2 biến thể URL mỗi nơi (27/07/2026), ĐỪNG thử lại.
+# KHÔNG có RSS dùng được — đã thử ÍT NHẤT 2 biến thể URL mỗi nơi (27/07/2026).
+#
+# ⛔ CÂU "ĐỪNG THỬ LẠI" ĐÃ BỊ GỠ KHỎI DÒNG TRÊN (15/08/2026) vì nó sai tới lần thứ TƯ. Bảng này
+# vốn dặn đừng dò lại, rồi lần lượt `rusi.org` · `usip.org` · `cacianalyst.org` (30/07) và
+# `stimson.org` (15/08) đều hoá ra CÓ feed sống — riêng Stimson trả 12 item với 7 bài trong
+# khung 7 ngày, tức một nguồn khoẻ bị bỏ ngoài suốt gần ba tuần chỉ vì một dòng ghi chú. Các
+# vòng 20-21/08 sau đó còn moi thêm hàng chục nguồn nữa từ chính bảng này. Bảng này là ẢNH CHỤP một lần dò, không phải kết luận vĩnh viễn; nguồn nào còn ở đây thì
+# nghĩa là "lần dò gần nhất chưa tìm ra đường", không phải "không có đường".
+#
+# ⚠️ Domain nào nay đã có feed/HTML thì KHÔNG cần gỡ khỏi bảng này — `list_candidates` tự trừ
+# chúng khỏi dòng "phải bù bằng WebSearch" (biến `da_phu`), đúng như csis.org/cnas.org đang nằm
+# ở cả hai chỗ mà không sinh vấn đề.
 # Xếp theo KHU VỰC để phiên sáng biết vùng nào đang trống RSS mà chủ động `WebSearch
 # site:<domain>`. Lý do hỏng: phần lớn Cloudflare 403 · vài nơi 404 · Africa Center và AGSIW
 # trả RSS hợp lệ nhưng feed RỖNG (0 item) · IFRI feed đứng từ 2023.
@@ -492,8 +516,12 @@ WEBSEARCH_ONLY = {
 #       csbaonline.org 103 B · ispionline.it 552 B · pism.pl 212 B · sejong.org 1,4 KB
 #     · epc.ae 15 KB và giga-hamburg.de 31-33 KB: đọc được HTML nhưng **0 href bài nội bộ**,
 #       danh sách dựng bằng JS.
-#     · carnegieeurope.eu: chuyển hướng sang `carnegieendowment.org/europe/` (Next.js), mà
-#       Carnegie Endowment đã nằm sẵn ở danh sách "ĐÃ THỬ VÀ BỎ" phía trên vì JS-only.
+#     · carnegieeurope.eu: chuyển hướng sang `carnegieendowment.org/europe/` (Next.js), và
+#       nhánh `/europe/` đó đúng là JS-only.
+#       ⚠️ SỬA 24/08: câu cũ ở đây viết "Carnegie Endowment đã nằm ở danh sách ĐÃ THỬ VÀ BỎ vì
+#       JS-only" — nay KHÔNG còn đúng, `carnegieendowment.org/emissary` đã được khai trong
+#       `THINKTANK_HTML` (đo 15/08: 6 link, 2 bài trong khung). Kết luận "bỏ carnegieeurope.eu"
+#       thì vẫn giữ, chỉ lý do là phải nói riêng về nhánh `/europe/`, đừng suy từ cả tên miền.
 #
 # (b) LẤY ĐƯỢC LINK NHƯNG KHÔNG LẤY ĐƯỢC NGÀY — nguy hơn nhóm (a) vì trang danh sách trả về
 #     hàng trăm KB nên nhìn như đang chạy, chỉ có `khong_ngay` là tố:
@@ -670,17 +698,81 @@ THINKTANK_HTML = [
     # thì mất đúng nhánh backgrounder mà không dấu hiệu nào, vì nhánh essay vẫn ra link.
     ("SIPRI", "https://www.sipri.org/commentary",
      r"(?i)^/commentary/[a-z-]+/20\d\d/[^/]{10,}", "Dữ liệu · giải trừ quân bị"),
+    # ——— Thêm 15/08/2026. Hai viện này bị khối "ĐÃ THỬ VÀ BỎ" ngay dưới chấm là JS-only hồi
+    # 30/07, và chấm ấy ĐÚNG *với trang đã thử lúc đó* nhưng SAI nếu đọc thành kết luận về cả
+    # tên miền — mỗi viện lớn có nhiều trang danh sách, hỏng một trang không có nghĩa hỏng hết.
+    # Đo lại trên CI 15/08 bằng `scripts/do_ung_vien_html.py`:
+    #   · Brookings `/research-commentary/` → 791KB · **0 link** (đúng như ghi 30/07),
+    #     nhưng `/topic/international-affairs/` → 4 link · **4 trong khung**,
+    #     và `/research/` → 4 link · 3 trong khung.
+    #   · Carnegie `/research` + `/publications` → 146KB · **0 link** (đúng như ghi 30/07),
+    #     nhưng `/emissary` → 6 link · **2 trong khung**.
+    # Chọn `/topic/international-affairs/` chứ không phải `/research/`: cùng đo được là sống,
+    # nhưng trang topic đã lọc sẵn mảng đối ngoại nên 4/4 link đều trong khung và đúng mảng của
+    # bản tin, còn `/research/` trộn cả bài chính sách nội địa Mỹ (y tế, ma tuý) — lấy về rồi
+    # agent lại phải loại bằng tay.
+    ("Brookings", "https://www.brookings.edu/topic/international-affairs/",
+     r"^/articles/[^/]{15,}", "Mỹ · viện lớn · đối ngoại"),
+    # Carnegie: `/emissary` là mục bình luận thời sự của viện. Biểu thức phải cho đoạn NĂM đi
+    # qua (`/emissary/2026/08/slug`) — bản đầu viết `^/(research|posts|emissary)/[^/]{10,}` ra
+    # 0 link vì nó đòi đoạn ngay sau `/emissary/` dài ≥10 ký tự, mà đoạn đó là năm, 4 ký tự.
+    ("Carnegie Endowment", "https://carnegieendowment.org/emissary",
+     r"^/emissary/20\d\d/\d\d/[^/]{10,}", "Mỹ · viện lớn · bình luận"),
 ]
 
 # ĐÃ THỬ VÀ BỎ (30/07/2026) — ghi lại để phiên sau đừng dựng lại rồi mới biết:
-# · `stimson.org` — CHỈ trang chủ đọc được (`/research/`, `/commentary/`, `/2026/` đều 403).
-#   Trang chủ là khối bài nổi bật, đo được 0/16 bài trong khung 7 ngày, mà mỗi trang bài nặng
-#   573KB/5,4 giây — tức chiếm quá nửa thời lượng cả bảng để đổi lấy không gì. Muốn bài Stimson
-#   thì WebSearch.
+# · `stimson.org` — CHỈ trang chủ đọc được (`/research/`, `/commentary/`, `/2026/` đều 403;
+#   đo lại 15/08 vẫn 403, cả hai trang trả 5KB). Trang chủ là khối bài nổi bật, đo được 0/16
+#   bài trong khung 7 ngày, mà mỗi trang bài nặng 573KB/5,4 giây — chiếm quá nửa thời lượng cả
+#   bảng để đổi lấy không gì.
+#   ✅ NHƯNG đường FEED thì sống: `/feed/` trả 12 item, 7 bài trong khung (đo 15/08), nay đã
+#   khai ở `THINKTANK_FEEDS`. Câu "muốn bài Stimson thì WebSearch" của bản 30/07 ĐÃ HẾT HIỆU
+#   LỰC. Bài học: hỏng đường HTML không kéo theo hỏng đường FEED, và ngược lại — dò hụt một
+#   đường thì ghi rõ ĐƯỜNG NÀO hụt, đừng gạch cả nguồn.
 # · `issafrica.org` — danh sách bài dựng bằng JS, HTML thô chỉ có link điều hướng (`/research/
 #   books-and-other-publications`…). Không có biểu thức path nào cứu được.
-# · `washingtoninstitute.org`, `carnegieendowment.org`, `iiss.org`, `brookings.edu` — cùng lý do
-#   JS-only: trang trả 200, 100-800KB, mà 0 link bài trong HTML thô.
+# · `washingtoninstitute.org` — JS-only: trang trả 200, 78KB, mà HTML thô chỉ ra 01 link bài
+#   (đo lại 15/08: vẫn 1 link, 0 trong khung). Không đủ để khai.
+#
+# ⚠️ SỬA LẠI 15/08/2026 — `carnegieendowment.org`, `brookings.edu` ĐÃ RỜI khối này (xem hai
+# dòng cuối bảng `THINKTANK_HTML` ở trên). Bài học đáng giữ hơn cả hai nguồn đó cộng lại:
+# **"trang X không ra link" KHÔNG ĐƯỢC chép thành "tên miền X là JS-only"**. Ghi vắn tắt như
+# bản 30/07 thì phiên sau đọc là cả tên miền đã chết và không thử nữa — mà thật ra chỉ cần đổi
+# trang danh sách là quét được: Brookings sống ở `/topic/…` và `/research/` trong khi
+# `/research-commentary/` vẫn 0 link, Carnegie sống ở `/emissary` trong khi `/research` vẫn 0
+# link. Cả hai trang hỏng ấy đo lại 15/08 vẫn hỏng y nguyên, tức bản ghi cũ không sai về SỐ
+# LIỆU, chỉ sai về PHẠM VI kết luận. Từ nay ghi rõ đã thử trang NÀO.
+#
+# · `iiss.org` — JS-only THẬT, đã đo lại 15/08 trên CẢ BA trang (`/online-analysis/`,
+#   `/online-analysis/online-analysis/`, `/publications/strategic-comments/`): 58-64KB, cả ba
+#   ra **0 link** và HTML thô không phơi lấy một hình dạng đường dẫn bài nào. Đừng dò lại.
+# · `orfonline.org` mục NGHIÊN CỨU (`/research`, `/issue-briefs-and-special-reports`) — 93KB,
+#   0 link bài; HTML thô chỉ có `/programme/…`, `/centers/…`, `/topic/…`. Mục `/expert-speak`
+#   thì vẫn quét tốt và đã nằm trong bảng — tức ORF có bài, chỉ nhánh nghiên cứu là JS-only.
+# ——— Cùng lượt 15/08, đo rồi BỎ:
+# · `carnegie-mec.org` → trang `/middle-east` ra 16 link (biểu thức `/(diwan|research|posts)/`
+#   chạy đúng) nhưng **cả 16 đều ngoài khung 7 ngày**, mà 16 chính là trần `HTML_LINK_CAP` —
+#   tức mỗi lượt quét tốn 16 lượt curl dò ngày để đổi lấy 0 bài. Đắt mà rỗng.
+# · `issafrica.org` → xác nhận lại kết luận 30/07 theo cách khác: nay có ra 3 link
+#   (`/(iss-today|research)/`) nhưng cả 3 không đọc được ngày.
+#
+# ══ VÀ BA CÁI TÔI ĐÃ BỎ SAI — vòng 20-21/08 tìm ra đường, nay ĐANG QUÉT ══
+# Giữ nguyên phần ghi sai bên dưới thay vì xoá, vì cái sai ở đây mới là thứ đáng học: cả ba
+# lần tôi đều dừng ở "đường tôi thử không đi được" rồi ghi thành "nguồn này bỏ" — đúng lỗi mà
+# chính khối 30/07 phía trên đã mắc và tôi vừa sửa cho nó. Ghi sai kiểu này còn tệ hơn không
+# ghi: nó DẶN phiên sau đừng thử, nên tự nó kéo dài tuổi thọ của chính nó.
+# · `jiia.or.jp` — tôi bỏ vì "trang bài không phơi meta ngày nào, `fetch_article_date` trả None
+#   cho toàn bộ 9/9 link". Số đo đúng, kết luận sai: ngày của JIIA nằm trong TÊN FILE
+#   (`/eng/report/2026/08/…html`), và vòng 21/08 lấy nó bằng `ngay_trong_ten_file`. Tôi chỉ dò
+#   ngày ở hai chỗ (khối HTML quanh link, meta trang bài) rồi kết luận là không có ngày.
+# · `africacenter.org` — tôi bỏ vì `/spotlight/` trả 0 byte và `/publications/` chỉ ra bản
+#   tiếng Pháp không đọc được ngày. Đường đúng là `/in-focus/` (xếp theo THỜI GIAN), thứ tôi
+#   không thử. `/publications/` mà tôi thử thì xếp theo CHỦ ĐỀ — cùng bẫy Wilson Center đã ghi.
+# · `ifri.org` — phần tôi ghi vẫn ĐÚNG và vẫn đáng giữ, chỉ là không đủ để kết luận: feed
+#   `/en/rss.xml` trả 200 với 10 item nhưng bài mới nhất **03/06/2022**, tức bỏ hoang hơn 4 năm
+#   (đúng bẫy CACI: feed chết và feed sống cùng trả 200 kèm đủ item, phải đọc `pubDate`).
+#   Nhưng feed chết KHÔNG có nghĩa viện chết — `/en/publications/all` quét HTML được, và vòng
+#   21/08 đã khai. ⛔ Vẫn đừng cắm `/en/rss.xml` vào `THINKTANK_FEEDS`.
 
 # Trần số link BÀI lấy từ mỗi trang danh sách. Trang danh sách xếp bài mới trước, nên cắt ở
 # đây gần như không mất bài trong khung 7 ngày; đổi lại chặn được ca trang lưu trữ trả về
