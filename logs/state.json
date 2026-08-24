@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-24T21:40:31+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "+5 the gioi, +5 My, +2 cap nhat tap tran (5 chu de)",
+    "lastRunAt": "2026-08-25T04:00:49+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-24",
       "sang": "2026-08-24"
-    }
+    },
+    "heartbeat": "2026-08-25T04:00:49+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-24T04:44:01+07:00",
