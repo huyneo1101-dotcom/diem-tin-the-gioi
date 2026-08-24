@@ -1,0 +1,25 @@
+name: Dò API JSON của viện JS-only
+
+# Chạy `scripts/do_api_json.py` trên GitHub runner — đường vào thứ BA sau [RSS] và [HTML],
+# nhắm các viện mà danh sách bài do JavaScript dựng nên `curl` lấy về khung rỗng.
+# Cùng lý do phải chạy ở CI như `do-ung-vien-html.yml`: luồng quét thật chạy ở đó.
+# CHỈ ĐỌC, không commit gì — bảng nguồn là thứ người đọc số rồi tự khai.
+on:
+  workflow_dispatch:
+    inputs:
+      chi:
+        description: "Lọc theo tên viện hoặc domain (bỏ trống = dò cả bảng)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  do:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Dò API JSON
+        run: python3 scripts/do_api_json.py ${{ inputs.chi && format('--chi {0}', inputs.chi) || '' }}
