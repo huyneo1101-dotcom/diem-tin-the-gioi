@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-25T21:20:09+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "phien toi 25/08: +4 worldNews (Uc-BD), +3 usNews (Noi bo My), +0 CNQS (chan boi cong ngay that), +0 Mali, +0 tap tran",
+    "lastRunAt": "2026-08-26T04:00:47+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-25",
       "sang": "2026-08-25"
-    }
+    },
+    "heartbeat": "2026-08-26T04:00:47+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-25T04:39:01+07:00",
