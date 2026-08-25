@@ -22,3 +22,4 @@
 [14:17Z] add_news.py: cong NGAY THAT chan 5 tin (The Hill x2, RealClearDefense x2, war.gov x1 - khong co metadata ngay). Nap lai voi 7 tin con lai: +4 worldNews (Uc-BD), +3 usNews (Noi bo My). CNQS ve 0 trong lo nay. Da ghi logs/loai-tin.md + logs/scan-gaps.json
 [14:19Z] tin_jaylam.py --ghi-loai: khong co tin trung file Jay Lam (id=33). gh workflow run bi chan "requires approval" trong CI nen khong kich duoc telegram-bot.yml de hut file moi
 [14:20Z] DONE web-scan: +4 worldNews, +3 usNews, tong 7 tin
+[14:28Z] START (CI, phien khac) - claim web-scan tra ve exit 10 (DA XONG luc 21:20 VN). Kiem so da gui: co dong [toi] 7 tin luc 21:21:15 VN, cach hien tai ~7 phut => ban tin toi da gui THAT, khong phai co noi doi. SKIP em, khong quet de.
