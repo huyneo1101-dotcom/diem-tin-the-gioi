@@ -201,10 +201,18 @@ def _khong_dau(s):
     return "".join(c for c in s if unicodedata.category(c) != "Mn").replace("đ", "d")
 
 
+# So theo BIÊN TỪ, không so chuỗi con — vá 26/08/2026. Đo trên kho thật hôm đó: tin *"Hải quân
+# Mỹ công bố tên lửa không đối không tầm xa AIM-424 Malice"* bị gán chủ đề Mỹ–Mali vì chuỗi
+# "mali" nằm trong chữ "Malice", rồi bị loại khỏi .docx bản tối theo chỉ thị 05/08/2026 — mất
+# một tin công nghệ quân sự mà không dấu hiệu nào, .docx vẫn đủ mục. Cùng lối đó, "niger" khớp
+# "Nigeria". `scripts/topics.py` vốn đã so bằng biên từ; chỗ này là bản chép lệch còn sót.
+_RE_MALI = tuple(re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)") for k in MALI_KEYS)
+
+
 def la_tin_mali(it):
     kho = _khong_dau(" ".join(str(it.get(k, "")) for k in
                               ("title", "summary", "region", "significance")))
-    return any(k in kho for k in MALI_KEYS)
+    return any(p.search(kho) for p in _RE_MALI)
 
 
 def _kho_chu(it):

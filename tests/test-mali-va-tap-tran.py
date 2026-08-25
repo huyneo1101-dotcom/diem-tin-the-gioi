@@ -198,6 +198,63 @@ def ca_10():
         shutil.rmtree(d, ignore_errors=True)
 
 
+def ca_27():
+    """PHẢI CHẶN — khoá Mali phải khớp theo BIÊN TỪ, ở CẢ BA nơi.
+
+    Đo 26/08/2026 trên kho thật: tin *"Hải quân Mỹ công bố tên lửa không đối không tầm xa
+    AIM-424 Malice"* bị gán chủ đề Mỹ–Mali vì chuỗi "mali" nằm trong chữ "Malice", rồi bị loại
+    khỏi .docx theo chỉ thị 05/08/2026 — mất một tin công nghệ quân sự mà .docx vẫn đủ mục, tức
+    hỏng câm. Cùng lối đó "niger" khớp "Nigeria".
+
+    Ca [09] chỉ so BẢNG KHOÁ giữa ba nơi; bảng giống nhau mà phép so khác nhau thì vẫn lệch —
+    đó là lỗ ca này bịt.
+    """
+    xau = [{"title": "Hải quân Mỹ công bố tên lửa không đối không tầm xa AIM-424 Malice"},
+           {"title": "Nigeria đặt mua drone của Thổ Nhĩ Kỳ"},
+           {"summary": "Bang California siết luật về malicious code"}]
+    for it in xau:
+        assert not MD.la_tin_mali(it), \
+            f"make_docx nhận nhầm tin không phải Sahel: {(it.get('title') or it.get('summary'))!r}"
+    ng_add = ADD_NEWS.read_text(encoding="utf-8")
+    assert "_RE_MALI_ADD" in ng_add and "k in strip_accents(hay).lower()" not in ng_add, \
+        "add_news.py còn so khoá Mali bằng chuỗi con — 'mali' sẽ khớp 'Malice'"
+    assert "RE_MALI.some" in NG_MORNING and "MALI_KEYS.some(k => kho.includes(k))" not in NG_MORNING, \
+        "send-morning-email.js còn so khoá Mali bằng chuỗi con"
+
+
+def ca_28():
+    """Đối chứng — tin Sahel THẬT vẫn phải nhận đủ, cả ba nơi (chống siết quá tay)."""
+    tot = [{"title": "Quân đội Mali giao tranh với JNIM tại Kidal"},
+           {"summary": "Pháp rút quân khỏi Sahel"},
+           {"title": "Niger trục xuất đại sứ Mỹ"},
+           {"summary": "Africa Corps của Nga hiện diện tại Bamako"}]
+    for it in tot:
+        assert MD.la_tin_mali(it), \
+            f"bỏ sót tin Sahel thật: {(it.get('title') or it.get('summary'))!r}"
+
+
+def ca_29():
+    """Đối chứng — `laTinMali` phía JS cũng phải theo BIÊN TỪ (chạy thật bằng `jsc`)."""
+    jsc = ("/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc")
+    if not os.path.exists(jsc):
+        return  # máy không có jsc thì bỏ qua, đừng đỏ oan
+    src = NG_MORNING[NG_MORNING.index("const MALI_KEYS"):NG_MORNING.index("function diffMali")]
+    thu = ('%s\nvar no1 = laTinMali({title:"Hải quân Mỹ công bố tên lửa AIM-424 Malice"});\n'
+           'var no2 = laTinMali({title:"Nigeria mua drone"});\n'
+           'var ok1 = laTinMali({title:"Quân đội Mali giao tranh với JNIM"});\n'
+           'print(no1 + "," + no2 + "," + ok1);' % src)
+    d = pathlib.Path(tempfile.mkdtemp())
+    try:
+        f = d / "thu.js"
+        f.write_text(thu, encoding="utf-8")
+        r = subprocess.run([jsc, str(f)], capture_output=True, text=True)
+        ra = (r.stdout or "").strip()
+        assert ra == "false,false,true", \
+            f"laTinMali phía JS còn so chuỗi con (mong 'false,false,true'): {ra!r}"
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 # ── C. Tập trận động ──────────────────────────────────────────────────────────
 EX_ONGOING = {"name": "Pitch Black 2026 (Úc chủ trì, 20 nước tham gia)",
               "dates": "20/7 – 7/8/2026", "status": "ongoing",
@@ -416,6 +473,9 @@ CA = [
     ("[24] PHẢI CHẶN: lớp Telegram cũng bơm từ khoá", ca_24),
     ("[25] đối chứng: doc_dai_ngay khớp evRange trên khuôn thật", ca_25),
     ("[26] đối chứng: tin RAAF/Biển Đông thuần vẫn ở chủ đề 02", ca_26),
+    ("[27] PHẢI CHẶN: khoá Mali khớp theo BIÊN TỪ ở cả ba nơi ('Malice' không phải Mali)", ca_27),
+    ("[28] đối chứng: tin Sahel thật vẫn nhận đủ", ca_28),
+    ("[29] đối chứng: laTinMali phía JS cũng theo biên từ (jsc thật)", ca_29),
 ]
 
 # (nhãn, (tìm, thay), các ca PHẢI ĐỎ)
@@ -483,6 +543,10 @@ BAN_HONG = [
       "    TOPIC_KEYWORDS_VI[CHU_DE_TAP_TRAN] = "
       "list(TOPIC_KEYWORDS_VI.get(CHU_DE_TAP_TRAN) or []) + list(keys)"),
      [23]),
+    ("khoá Mali quay lại so CHUỖI CON ('mali' khớp 'Malice')",
+     ("    return any(p.search(kho) for p in _RE_MALI)",
+      "    return any(k in kho for k in MALI_KEYS)"),
+     [27]),
     ("nạp tập trận SAU các lớp quét",
      ("    nap_tap_tran_dang_chay(str(today))\n\n    chi_dinh =",
       "    chi_dinh ="),

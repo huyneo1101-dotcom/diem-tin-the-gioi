@@ -282,7 +282,7 @@ def check_neo_chu_de_2(item: dict, ctx: str) -> None:
         return
     # Chủ đề 4 (Mỹ–Mali) cũng có thể nằm ở worldNews — make_docx tách nó ra mục riêng,
     # gom từ CẢ usNews lẫn worldNews. Chặn nó ở đây là chặn oan một chủ đề đang hợp lệ.
-    if any(k in strip_accents(hay).lower() for k in MALI_KEYS_ADD):
+    if any(p.search(strip_accents(hay).lower()) for p in _RE_MALI_ADD):
         return
     raise ValueError(
         f"{ctx}: tin worldNews KHÔNG neo được vào Úc hay Biển Đông — mục 2 chỉ nhận tin "
@@ -299,6 +299,10 @@ def check_neo_chu_de_2(item: dict, ctx: str) -> None:
 # nơi lệch nhau thì tin Sahel bị chặn ở đây trong khi tầng kia vẫn chờ nó.
 MALI_KEYS_ADD = ("mali", "jnim", "bamako", "sahel", "azawad", "niger", "burkina",
                  "africa corps", "sahen")
+# So theo BIÊN TỪ, không so chuỗi con — vá 26/08/2026 cùng lúc với `make_docx.py` và
+# `send-morning-email.js`. Chuỗi con làm "mali" khớp "Malice" và "niger" khớp "Nigeria", tức
+# cổng neo chủ đề 2 mở ngoại lệ cho những tin chẳng dính gì tới Sahel.
+_RE_MALI_ADD = tuple(re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)") for k in MALI_KEYS_ADD)
 
 
 def validate_news_items(items: list, label: str, ref: datetime.date) -> None:

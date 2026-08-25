@@ -177,10 +177,16 @@ function khongDau(s) {
   return String(s == null ? '' : s).toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\u0111/g, 'd');
 }
+// So theo BIÊN TỪ, không so chuỗi con — vá 26/08/2026 cùng lúc với `make_docx.py` và
+// `add_news.py`. Đo hôm đó trên kho thật: tin "AIM-424 Malice" bị nhận là tin Mali vì chuỗi
+// "mali" nằm trong "Malice"; cùng lối đó "niger" khớp "Nigeria". Ba bảng phải khớp nhau CẢ
+// BẢNG KHOÁ LẪN PHÉP SO — bảng giống nhau mà phép so khác nhau thì vẫn lệch, và lệch câm.
+const RE_MALI = MALI_KEYS.map(k =>
+  new RegExp('(?<!\\w)' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?!\\w)'));
 function laTinMali(it) {
   const kho = khongDau(['title', 'summary', 'region', 'significance']
     .map(k => (it && it[k]) || '').join(' '));
-  return MALI_KEYS.some(k => kho.includes(k));
+  return RE_MALI.some(re => re.test(kho));
 }
 
 // Tin Mali MỚI so với bản trước. Cùng khuôn với diffAnalyses, cố ý — hai mục cùng đi một
