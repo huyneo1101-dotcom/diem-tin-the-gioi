@@ -1,1 +1,6 @@
 [21:00Z] START (CI) phien sang som
+[21:04Z] harvest.py + telegram_harvest.py xong, giao 4 agent chu de
+[21:12Z] 4 agent vong 1 xong: NoiBoMy 3, UcBienDong 0, CNQS 8, Mali 0, TapTran 0
+[21:20Z] vong bo sung NoiBoMy+UcBienDong xong
+[21:23Z] add_news.py nap xong (+1 worldNews +7 usNews), cong Bao Mo + Jay Lam xu ly xong, da commit+push web-scan
+[21:23Z] START event-scan (CI, gop vao sang som)
