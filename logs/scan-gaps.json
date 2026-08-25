@@ -1,17 +1,16 @@
 {
-  "date": "2026-08-25",
-  "session": "toi",
+  "date": "2026-08-26",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Quốc hội đang trong kỳ nghỉ tháng 8 (Thượng viện nghỉ tới 14/9, Hạ viện nghỉ tới 31/8) nên nhóm 1 (điều trần + bỏ phiếu) không có gì để vét. Lấy sang nhóm 2-5 nhưng 4/7 ứng viên bị chặn: 2 trùng tin đã nạp cùng ngày (thuế quan Canada 50%, Bessent 'Economic D-Day'), 2 bị cổng NGÀY ĐĂNG THẬT chặn vì trang không có metadata ngày (The Hill 2 bài). Giữ được 3 tin (giám sát Quốc hội với USS Lincoln, SCOTUS bầu cử qua thư, Semafor về thuế quan ảnh hưởng đua Thượng viện)."},
-    {"name":"Úc & Biển Đông","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"Agent đề xuất 8 tin nhưng 2 trùng tin đã nạp từ phiên trước trong ngày (Henderson Defence Precinct, Hunter-class keel-laying), 1 bị loại vì sourceUrl chỉ là trang chủ PR Newswire không phải bài cụ thể, 1 bị cổng NGÀY ĐĂNG THẬT chặn (RealClearDefense không có metadata ngày). Giữ được 4 tin (Ghostwake USV Đài Loan, công trình mới đảo Yagong/Bãi Bạch Quy, Philippines mở rộng drone, Thuỷ quân lục chiến Mỹ staff ride Manila)."},
-    {"name":"Công nghệ quân sự Mỹ","count":0,"target":"5-10","min":5,"thieu":true,
-     "reason":"Cả 5 ứng viên đều bị loại: 3 trùng tin đã nạp từ phiên trước trong ngày (AIM-424 Malice, Matilda tàu đổ bộ, Guetlein cảnh báo Golden Dome), 2 còn lại (xe Ford tự lái diệt drone, đầu tư đất hiếm Serra Verde Brazil) bị cổng NGÀY ĐĂNG THẬT chặn vì war.gov và RealClearDefense không in metadata ngày đọc được. Chủ đề CNQS Mỹ về 0 tin mới trong lô này — cần phiên sau tìm nguồn khác có metadata ngày chuẩn hơn."},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Hạng 1 (điều trần/bỏ phiếu QH) không tìm được tin nào trong khung 25-26/8 dù đã WebSearch riêng — Quốc hội đang trong kỳ nghỉ tháng 8. Nhiều ứng viên hạng 2 tốt (SC Senate runoff, GOP beef tariff pushback, RealClearDefense) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang không có metadata ngày đọc được (The Hill, NBC News, RealClearDefense — không phải lỗi nội dung, chỉ là trang thiếu thẻ ngày máy đọc được). Chỉ 2 tin qua được cổng: thuế trả đũa Canada (NPR) + niềm tin tiêu dùng (Conference Board)."},
+    {"name":"Úc & Biển Đông","count":1,"target":"5-10","min":5,"thieu":true,
+     "reason":"Vòng 1 toàn bộ ứng viên harvest đều trùng bản tin đã nạp 21-25/8 (Henderson Defence Precinct, South China Sea build-up, AUKUS). Vòng 2 WebSearch bổ sung tìm được 3 tin mới nhưng 1 tin (Pacific Angel 26-1, PACOM) bị loại vì agent không xác nhận được URL khớp đúng nội dung; 1 tin (Trung Quốc tập trận Trạm Giang) phải rút khỏi bản tin GỬI vì trùng file Jay Lâm 24/8 (vẫn còn trên web, chỉ ẩn khỏi file Word). Chỉ còn 1 tin thật sự mới: MCA Úc-Philippines-Mỹ lần 10 (navy.mil)."},
+    {"name":"Công nghệ quân sự Mỹ","count":7,"target":"5-10","min":5,"thieu":false,"reason":""},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"Không có sự kiện MỚI nào trong 24-25/8 liên quan Mỹ/JNIM/Africa Corps — các diễn biến an ninh đáng chú ý (Tuareg thả tù binh, TT Mali thăm Algiers) đã nạp từ phiên trước; ứng viên còn lại là tin hội nhập chính trị AES không neo được vào dossier Mỹ-Mali."},
+     "reason":"Đã kiểm toàn bộ ứng viên harvest (39 mục, đa số nhiễu do trùng tên 'Mali' với người/đội bóng) và WebSearch bổ sung riêng — mọi tin JNIM/AFRICOM tìm được đều là nhắc lại tin nền đã biết từ tháng 7 (Mỹ cân nhắc không kích), không có sự kiện MỚI mang ngày thật 25-26/8. Các tin nối tiếp/ngoại giao Mali-Algeria, Sahel Parliament đã nạp trước đó (23-24/8)."},
     {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":1,"thieu":true,
-     "reason":"Ulchi Freedom Shield 2026 đã kết thúc sớm 21/8 (ngoài khung); VIEKAREN XXVI khai mạc 24/8 nhưng chưa có tường thuật xuất bản 24-25/8; MAITREE-XV và SEACAT 2026 không có diễn biến mới trong 24-48h qua."}
+     "reason":"Kiểm từng cuộc đang bám (MAITREE-XV, Ulchi Freedom Shield đã kết thúc sớm 21/8, VIEKAREN XXVI, SEACAT 2026, Diễn tập Hạm đội TBD Nga) — không cuộc nào có diễn biến MỚI mang ngày thật 25-26/8 ngoài tin nền đã có; tin hạm đội Nga chỉ có nguồn TASS/Nga (không đạt thang xác minh cho sự kiện tranh chấp)."}
   ],
-  "note": "Điểm nổi bật của phiên này: cổng NGÀY ĐĂNG THẬT (ngay_that.py) chặn 5/12 tin đề xuất vì trang không có metadata ngày đọc được (chủ yếu The Hill, RealClearDefense, war.gov) — đây là hoạt động ĐÚNG THIẾT KẾ theo chỉ thị 25/08, không phải lỗi. Nhiều ứng viên khác trùng lặp với tin đã nạp từ phiên TRƯỚC TRONG CÙNG NGÀY (Henderson, Hunter-class, AIM-424 Malice, Matilda, Golden Dome/Guetlein, thuế quan Canada, Bessent) — cho thấy các agent quét chưa tự kiểm chéo index.html hiện có trước khi đề xuất, điều phối phải tự grep kiểm trùng thủ công. Xem đầy đủ ở logs/loai-tin.md mục 2026-08-25 (phiên tối CI)."
+  "note": "Cổng Báo Mới: 10 ứng viên, đã xử lý toàn bộ — xem logs/loai-tin.md mục 2026-08-26. 3 nhóm tin trùng file Jay Lâm 24-25/8 (AIM-424 Malice, Canada tariff Bnews, Iran trả đũa x3, tập trận Trạm Giang) bị loại khỏi bản tin gửi hoặc không nạp. Do khối lượng công việc lớn (5 vòng agent + cổng Báo Mới), phiên dừng ở mức chấp nhận được cho phiên sáng — phiên tối bù thêm theo đúng chỉ dẫn 'phiên sáng ~10/mục là đủ, để tối bù'."
 }

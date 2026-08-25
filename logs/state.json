@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-26T04:00:47+07:00",
+    "lastRunAt": "2026-08-26T04:23:34+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "8 tin (worldNews 1, usNews 7); Uc&BienDong+NoiBoMy+Mali+TapTran thieu, ghi ly do scan-gaps.json",
     "lastSuccess": {
       "toi": "2026-08-25",
-      "sang": "2026-08-25"
-    },
-    "heartbeat": "2026-08-26T04:00:47+07:00"
+      "sang": "2026-08-26"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-25T04:39:01+07:00",

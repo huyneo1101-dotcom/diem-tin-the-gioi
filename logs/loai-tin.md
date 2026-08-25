@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-08-26 (phiên sáng sớm CI) — cổng Báo Mới
+
+- [CNQS/BM] "Chưa hoàn thiện tàu sân bay Type 004 đã trở thành chiến hạm lớn nhất của Trung Quốc" (An Ninh Thủ Đô) — về khí tài TRUNG QUỐC, không phải CNQS **Mỹ**, không hợp chủ đề.
+- [US-CT/BM] "Bị áp lệnh trừng phạt, Canada dọa cắt dòng điện xuất khẩu sang Mỹ" (Tiền Phong) — chưa kịp truy nguồn gốc quốc tế trong thời gian phiên, để phiên sau xử lý (không trùng tin đã nạp).
+- [US-CT/BM] "Trung Quốc nêu lập trường sau khi Mỹ triển khai trừng phạt 'không kẽ hở' với Iran" (Tin Tức TTXVN) — góc nhìn là phản ứng của TRUNG QUỐC, không neo được vào "nội bộ Mỹ" thật.
+- [US-CT/BM] "Iran đe dọa trả đũa khi Mỹ mở rộng các biện pháp trừng phạt" (Petrotimes) — TRÙNG file Jay Lâm id=34: "Iran cảnh báo đáp trả mạnh các biện pháp trừng phạt mở rộng của Mỹ, kể cả nước hợp tác với Mỹ" (AP News); cũng là phản ứng Iran, không phải nội bộ Mỹ.
+- [US-CT/BM] "Iran tuyên bố trả đũa sau khi Mỹ mở rộng lệnh trừng phạt" (Tiền Phong) — cùng sự kiện với dòng trên, TRÙNG file Jay Lâm id=34.
+- [US-CT/BM] "Iran cảnh báo trả đũa sau loạt trừng phạt mới của Mỹ" (Hà Nội Mới) — cùng sự kiện, TRÙNG file Jay Lâm id=34.
+- [US-CT/BM] "Mỹ tuyên bố tăng gấp đôi thuế quan đối với ngành ô tô Canada" (Bnews) — TRÙNG tin đã nạp 24/08 "Trump tuyên bố tăng gấp đôi thuế quan ô tô, thép nhập khẩu từ Canada lên 50% từ 1/1/2027", và cũng TRÙNG file Jay Lâm id=34.
+- [CNQS/BM] "Hải quân Mỹ thử nghiệm tên lửa không đối không tầm xa AIM-424 Malice đạt tầm bắn 463 km" (Báo Lâm Đồng) — TRÙNG file Jay Lâm id=33: "Hải quân Mỹ công bố tên lửa không đối không tầm xa AIM-424 Malice".
+- [CNQS/BM] "MiG-19 và F-100: Cuộc đua tiêm kích siêu thanh đầu tiên" (An Ninh Thủ Đô) — bài phân tích/hồi cứu lịch sử, không phải tin thời sự trong khung ngày.
+- [CNQS/BM] "Tên lửa siêu vượt âm giá rẻ Blackbeard của Mỹ tương thích với bệ phóng HIMARS và M270" (Báo Lâm Đồng) — chưa kịp truy nguồn gốc quốc tế trong thời gian phiên, để phiên sau xử lý (không trùng tin đã nạp).
+
 ## 2026-08-21 (phiên tối CI)
 
 - [CNQS/US] "Hải quân Mỹ trao Raytheon hợp đồng 7 năm trị giá 22,9 tỷ USD sản xuất tên lửa Tomahawk" (Defense Daily) — TRÙNG SỰ KIỆN với tin đã có 2026-08-18 "Hải quân Mỹ trao Raytheon hợp đồng 22,9 tỷ USD tăng gấp 16 lần sản lượng tên lửa Tomahawk" (cùng con số 22,9 tỷ USD, cùng ngày, khác nguồn/tiêu đề). Đã nạp nhầm rồi phát hiện qua cảnh báo Jaccard 0.56, dùng prune_news.py xoá ngay.
