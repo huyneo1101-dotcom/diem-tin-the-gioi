@@ -18,3 +18,4 @@
 [21:39Z] START (CI, phien khac) - claim web-scan tra ve exit 10 (DA XONG luc 04:32 VN). Kiem so da gui: co dong [sang] 22 tin luc 04:39:54 VN, cach hien tai <1 phut => ban tin sang som da gui THAT, khong phai co noi doi. SKIP em, khong quet de.
 [14:01Z] START (CI) - phien toi (VN 21:01)
 [14:04Z] harvest.py: 450 ung vien (cai them curl_cffi, cuu 11 nguon .mil/breakingdefense/axios/rappler); telegram_harvest.py xong (Mali 3 bai, tap tran 0)
+[14:14Z] 5 agent Sonnet song song xong: Noi bo My 7 raw, Uc-BD 8 raw, CNQS 5 raw, Mali+Taptran 0, BaoMoi 0. Kiem trung voi index.html: loai 2 Noi bo My (Canada tariff, Bessent Economic D-Day da co), loai 2 Uc-BD (Henderson site, Hunter-class keel da co), loai 3 CNQS (AIM-424 Malice, Matilda, Guetlein Golden Dome da co)
