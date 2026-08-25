@@ -51,6 +51,31 @@ phê, bản tuần, ngoại giao, tin bị loại để rỗng. Đo bằng `--ki
   ⚠️ KHÁC `canary.kiem_web()`, đừng gộp: canary hỏi *bản trên mạng có khớp bản dựng không*,
   phép cân này hỏi *bản dựng có còn gọn không*.
 
+⛔ **NGÀY CỦA TIN LÀ NGÀY ĐĂNG THẬT, ĐO BẰNG CÁCH MỞ BÀI — vá 25/08/2026, đừng gỡ.**
+`check_date_window` chỉ đối chiếu trường `date` trong JSON của lô với ngày batch và với hôm
+nay, mà cả hai vế đều là con số **do chính agent viết ra**: khai `date` bằng ngày quét là lô
+đi qua cổng, dù bài đăng từ bao giờ. Đo thật 25/08 bằng cách mở lại 334 bài đã nạp và đọc
+metadata ngày: lô 15-24/08 có **03/153 bài** ngoài khung (lệch 19 · 12 · 07 ngày), lô đối
+chứng 10-31/07 có **06/164 bài**, nặng nhất là bài South China Morning Post đăng **21/12/2024**
+mang `date` 29/07/2026, lệch 585 ngày. Không phải bệnh của một phiên hay một model: hai lô
+cách nhau một tháng cho cùng tỷ lệ (2,0% và 3,7%), tức lỗ này mở suốt từ đầu.
+- **Cổng mới `scripts/ngay_that.py`**, gọi trong `add_news.py::main` ngay sau các `validate_*`:
+  mở từng `sourceUrl` (đi bằng `harvest.curl`, 08 bài song song), đọc **metadata có cấu trúc**
+  theo thứ tự `datePublished` → `article:published_time` → `<time datetime>` →
+  `citation_publication_date`, rồi so với trần `tran_ngay(category)`.
+- ⛔ **KHÔNG quét ngày trong văn bản tự do.** Bài quân sự nào cũng dày đặc ngày lịch sử; phép
+  bắt ngày trôi nổi từng gán bài 2026 thành 06/06/1944 và loại nhầm 46 bài (QuetThinkTank
+  29/07/2026). Ca 10 của bộ test canh đúng điều này.
+- **Fail-safe theo hướng GIỮ nhưng có tiếng:** không đọc được ngày (không có metadata hoặc bị
+  chặn) thì tin vẫn nạp, kèm dòng `⚠ NGÀY THẬT`. Đo 25/08: **28/181 bài (15%)** rơi vào nhánh
+  này, nên chặn ở đây là giết 15% bản tin mỗi phiên.
+- **Đường thoát hợp lệ khi metadata nguồn ghi sai:** `--bo-cong-ngay-that="lý do"`, lý do bắt
+  buộc và được in ra.
+- **Bộ canh:** `tests/test-cong-ngay-that.py` — **13 ca (06 PHẢI CHẶN · 03 ca đầu-cuối) ·
+  `--tu-kiem` bắt 6/6 bản hỏng**, chạy offline qua seam `NGAYTHAT_KHO_GIA`, đã nạp `BO_TEST`
+  của `HeThong/khoe.py`. Nghiệm thu qua mạng thật 25/08: lô mang đúng URL bài SCMP 2024 bị
+  chặn với thông điệp `bài đăng THẬT ngày 2024-12-21 (đọc bằng datePublished)`.
+
 ## ⚠️ CẬP NHẬT PHẠM VI 2026-07-23 (chỉ thị Huy — GHI ĐÈ các mục "Chỉ tiêu số lượng", "Kiến trúc quét", "Chu kỳ bản tin" bên dưới)
 Bản tin **2 phiên/ngày, CÙNG 5 chủ đề** (chỉ thị Huy 26/07/2026): **TỐI 20:47** và **SÁNG SỚM 03:47**
 (đêm VN = ngày làm việc Mỹ nên nhiều tin mới; cả 2 phiên đều gửi email). Mốc CHÍNH chạy trên **GitHub

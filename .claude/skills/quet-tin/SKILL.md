@@ -115,6 +115,16 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 > **Đã bịt bằng máy 27/07:** `add_news.py` giờ kiểm ngày **hai lớp** — so với `date` batch VÀ so với ngày
 > thật hôm nay (giờ VN). Neo batch về ngày nào cũng vô ích, tin quá 1 ngày tuổi bị CHẶN thẳng. Gặp lỗi
 > "cũ hơn 1 ngày so với HÔM NAY" thì **bỏ tin đó**, TUYỆT ĐỐI đừng lùi ngày batch để lách.
+> ⛔ **LỚP THỨ BA, cắm 25/08/2026: `date` phải là NGÀY ĐĂNG THẬT của bài, và máy nay tự đo.**
+> Hai lớp trên chỉ đối chiếu con số `date` do chính agent viết, nên ghi `date` bằng ngày quét
+> là đi qua sạch. Đo 334 tin đã nạp: 09 bài đăng ngoài khung vẫn nằm trong bản tin, nặng nhất
+> là bài South China Morning Post đăng **21/12/2024** mang `date` 29/07/2026. Nay `add_news.py`
+> **mở từng `sourceUrl` ra đọc metadata ngày** (`scripts/ngay_that.py`) và chặn thẳng bài
+> ngoài khung. Hệ quả với người quét: lấy ngày từ **chính trang bài**, không lấy từ ngày quét,
+> không lấy từ `pubDate` của RSS đăng lại, không lấy từ khối HTML quanh link Google News —
+> khai sai là lô bị chặn và phải quét bù. Trang không có metadata ngày thì tin vẫn nạp, chỉ
+> hiện dòng `⚠ NGÀY THẬT`. Metadata nguồn ghi sai thật thì mở cổng bằng
+> `--bo-cong-ngay-that="lý do"`, KHÔNG lùi ngày batch.
 
 **Báo Mới: được phép quét** — nhưng LỌC chỉ giữ bài hợp 5 chủ đề trên (xem Agent Báo Mới).
 

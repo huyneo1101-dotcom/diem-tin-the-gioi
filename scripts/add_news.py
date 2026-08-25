@@ -188,6 +188,13 @@ def today_vn() -> datetime.date:
     return datetime.datetime.now(zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")).date()
 
 
+def tran_ngay(category: str = "") -> int:
+    """Số ngày được lùi cho một category — MỘT bản gốc, dùng chung cho cổng `date` khai
+    (`check_date_window`) và cổng ngày ĐĂNG THẬT (`ngay_that.kiem_lo`). Hai cổng cùng đo một
+    khung ngày; chép công thức làm hai bản thì lần nới trần sau chỉ sửa được một bên."""
+    return MAX_AGE_DAYS_CNQS if category == "Công nghệ quân sự" else MAX_AGE_DAYS
+
+
 def check_date_window(date_str: str, ref: datetime.date, ctx: str, category: str = "") -> None:
     """Chặn hai lớp: so với `date` batch VÀ so với ngày thật hôm nay.
 
@@ -209,7 +216,7 @@ def check_date_window(date_str: str, ref: datetime.date, ctx: str, category: str
         d = parse_date(date_str)
     except (ValueError, TypeError):
         raise ValueError(f"{ctx}: date không đúng định dạng YYYY-MM-DD: {date_str!r}")
-    limit = MAX_AGE_DAYS_CNQS if category == "Công nghệ quân sự" else MAX_AGE_DAYS
+    limit = tran_ngay(category)
     note = " (nới riêng cho Công nghệ quân sự)" if limit != MAX_AGE_DAYS else ""
     if d > ref:
         raise ValueError(f"{ctx}: date {date_str} ở TƯƠNG LAI so với ngày batch {ref} — nghi sai/bịa")
@@ -846,8 +853,15 @@ def main() -> None:
     # trước khi đếm, kẻo thêm cờ là rơi vào nhánh in hướng dẫn. Cờ này CÓ THẬT và được đọc
     # ở dưới — cờ được quảng cáo trong thông điệp lỗi mà không ai đọc còn tệ hơn không có cờ.
     tham_so, bo_cong_do_gan, co_co = [], "", False
+    bo_cong_ngay_that, co_co_ngay = "", False
     for x in sys.argv[1:]:
-        if x == "--bo-cong-do-gan" or x.startswith("--bo-cong-do-gan="):
+        if x == "--bo-cong-ngay-that" or x.startswith("--bo-cong-ngay-that="):
+            # Đường thoát HỢP LỆ cho trường hợp metadata của nguồn ghi sai ngày (hiếm, nhưng
+            # có): phải kèm lý do và lý do được in ra, để lần sau còn đọc lại được vì sao lô
+            # đó đi qua cổng. Cờ trần không lý do bị từ chối, y như `--bo-cong-do-gan`.
+            co_co_ngay = True
+            bo_cong_ngay_that = x.split("=", 1)[1].strip() if "=" in x else ""
+        elif x == "--bo-cong-do-gan" or x.startswith("--bo-cong-do-gan="):
             # Cờ trần (không `=`) cũng nhận vào đây rồi mới từ chối vì thiếu lý do — để
             # nó rơi vào danh sách tham số thì thông điệp lỗi hoá thành bảng hướng dẫn
             # chung, người dùng đọc không biết mình sai ở chỗ nào.
@@ -855,6 +869,10 @@ def main() -> None:
             bo_cong_do_gan = x.split("=", 1)[1].strip() if "=" in x else ""
         else:
             tham_so.append(x)
+
+    if co_co_ngay and not bo_cong_ngay_that:
+        print("--bo-cong-ngay-that phải kèm LÝ DO: --bo-cong-ngay-that=\"...\"", file=sys.stderr)
+        sys.exit(1)
 
     if co_co and not bo_cong_do_gan:
         print("--bo-cong-do-gan phải kèm LÝ DO: --bo-cong-do-gan=\"...\"", file=sys.stderr)
@@ -864,7 +882,8 @@ def main() -> None:
         print(
             "Dùng: add_news.py <new_items.json>  |  add_news.py --recent-titles [N]"
             "  |  add_news.py --baomoi-pending"
-            "\n      (thêm --bo-cong-do-gan=\"lý do\" để hạ cổng độ gần xuống mức cảnh báo)",
+            "\n      (thêm --bo-cong-do-gan=\"lý do\" để hạ cổng độ gần xuống mức cảnh báo)"
+            "\n      (thêm --bo-cong-ngay-that=\"lý do\" để bỏ cổng ngày đăng thật)",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -887,6 +906,7 @@ def main() -> None:
     if not date:
         raise ValueError("new_items.json thiếu 'date' (YYYY-MM-DD của batch) — cần để kiểm tra khung ngày")
     ref = parse_date(date)
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
     validate_news_items(world_new, "worldNews", ref)
     validate_news_items(us_new, "usNews", ref)
@@ -899,11 +919,34 @@ def main() -> None:
     validate_new_events(new_dip_events, ref)
     validate_new_events(new_exercises, ref, "newExercises", check_dates=False)
 
+    # CỔNG NGÀY ĐĂNG THẬT — mở chính bài ra đo, không tin `date` do agent khai.
+    # Các validate_* ở trên chỉ đối chiếu con số `date` trong JSON với ngày batch và hôm nay;
+    # cả hai vế đều do agent viết ra, nên khai `date` bằng ngày quét là đi qua hết. Đo
+    # 25/08/2026 trên 334 tin đã nạp: 09 bài đăng ngoài khung vẫn nằm trong bản tin, nặng
+    # nhất là bài South China Morning Post đăng 21/12/2024 mang date 29/07/2026 (lệch 585
+    # ngày) và một bài điều trần Thượng viện đăng 05/08 mang date 24/08 (lệch 19 ngày).
+    # Chi tiết cơ chế + vì sao fail-safe theo hướng giữ: `scripts/ngay_that.py`.
+    import ngay_that  # noqa: E402,PLC0415
+    can_do = []
+    for nhan, lo in (("worldNews", world_new), ("usNews", us_new), ("baomoiNews", baomoi_new)):
+        for idx, item in enumerate(lo):
+            if item.get("sourceUrl"):
+                can_do.append({"ctx": f"{nhan}[{idx}]", "url": item["sourceUrl"],
+                               "date": item.get("date"), "category": item.get("category", "")})
+    if can_do and not bo_cong_ngay_that:
+        loi_ngay, canh_bao_ngay = ngay_that.kiem_lo(can_do, ref, tran_ngay)
+        for dong in canh_bao_ngay:
+            print("  " + dong)
+        if loi_ngay:
+            raise ValueError("CỔNG NGÀY ĐĂNG THẬT chặn %d tin:\n  - %s"
+                             % (len(loi_ngay), "\n  - ".join(loi_ngay)))
+    elif can_do:
+        print("  ⚠ CỔNG NGÀY ĐĂNG THẬT bị bỏ qua theo cờ — lý do: %s" % bo_cong_ngay_that)
+
     # CỔNG ĐỘ GẦN — tin từ kênh tuyên truyền (độ gần 4) không được đứng một mình. Logic nằm
     # ở `scripts/do_gan.py`, MỘT hàm kiểm tra duy nhất; chép sang đây thì hai bản tách nhánh
     # ở lần vá sau mà không ai thấy. Cố ý KHÔNG bọc try/except: bảng mất thì phải chặn nạp
     # và kêu, chứ không phải chạy tiếp trong im lặng với cổng đã chết.
-    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
     import do_gan  # noqa: E402
     for dong in do_gan.kiem_lo(new_items, bo_cong_do_gan):
         print("  " + dong)
