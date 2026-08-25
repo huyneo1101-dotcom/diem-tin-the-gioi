@@ -154,6 +154,14 @@ def today_items(cur, kind):
     return [it for it in lst if it.get("_addedDate") == today or it.get("date") == today]
 
 
+def _khoa_tin(it):
+    """Khoá nhận dạng một tin. `sourceUrl` là khoá chính; tin thiếu link (hay gặp ở mục
+    tập trận) lùi về tiêu đề — dùng chuỗi rỗng làm khoá thì mọi tin thiếu link gộp thành
+    một, tức bản tin nuốt mất tin mà không có tiếng kêu."""
+    url = (it.get("sourceUrl") or "").strip()
+    return url or ("T:" + str(it.get("title") or "") + "|" + str(it.get("summary") or "")[:60])
+
+
 def pick_items(cur, prev, kind):
     """Tin của bản tin hôm nay = HỢP của (mới so với commit cha) và (_addedDate/date == generatedAt).
 
@@ -498,6 +506,68 @@ def _url_ca_sang(now):
         return set()
 
 
+def _doc_url_buoi(buoi, ngay):
+    """Tập URL đã gửi ở ĐÚNG một buổi, ĐÚNG một ngày VN — hoặc RỖNG khi không đọc được.
+
+    Một đường đọc sổ duy nhất cho cả `_url_ca_sang` (lọc bản tối) lẫn `gop_tin_ca_toi`
+    (gộp vào bản sáng). Hai nơi tự mở sổ riêng thì lệch nhau âm thầm.
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from so_da_gui import url_da_gui_buoi
+        return url_da_gui_buoi(buoi, ngay) or set()
+    except Exception as e:                  # noqa: BLE001
+        print(f"Không đọc được sổ buổi {buoi} ngày {ngay} ({e}) — không lọc gì.",
+              file=sys.stderr)
+        return set()
+
+
+def gop_tin_ca_toi(items, cur, kind, now):
+    """Bản SÁNG gộp thêm tin quét ở ca TỐI hôm qua (Huy chốt 26/08/2026).
+
+    Nguyên văn: *"từ giờ bản tin 4h sáng hãy gộp cả tin quét được lúc 9h tối vào, nhớ đối
+    chiếu với cả file Jay Lâm gửi để chống trùng lặp"*.
+
+    Vì sao tin ca tối vắng mặt trong bản sáng: `pick_items` lấy HỢP của (mới so với commit
+    cha) và (`_addedDate == generatedAt`). Sáng nay `generatedAt` là ngày MỚI nên tin nạp
+    tối qua không phải "hôm nay", còn commit cha lại chính là commit của lô tối qua nên
+    chúng cũng không "mới" — rơi khỏi cả hai vế, không lệnh nào báo.
+
+    ⚠️ **Chỉ trừ tin đã gửi ở ca SÁNG HÔM QUA, không trừ theo dòng `toi`.** Trừ theo `toi`
+    là xoá đúng nhóm tin vừa được lệnh gộp vào. Nhóm phải loại là bản sáng hôm qua — lặp
+    lại nó nghĩa là đọc cùng một tin hai buổi sáng liền.
+
+    ⚠️ **FAIL VỀ PHÍA GỘP DƯ:** sổ thiếu hoặc đọc hỏng thì không trừ được gì, bản sáng lặp
+    lại tin của bản sáng hôm qua — Huy thấy ngay khi đọc. Hướng ngược lại là mất tin trong
+    im lặng.
+
+    Bản TỐI không gọi hàm này: tin hôm qua đã đi trong bản tin của chính hôm qua.
+    """
+    if la_buoi_toi(now):
+        return items
+    lst = event_items(cur) if kind == "events" else (cur.get(kind, []) or [])
+    hom_qua = (now - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    da_co = {_khoa_tin(it) for it in items}
+    ung_vien = [it for it in lst
+                if _khoa_tin(it) not in da_co
+                and (it.get("_addedDate") or it.get("date")) == hom_qua]
+    if not ung_vien:
+        return items
+    # Đọc sổ CHỈ khi có ứng viên: phiên nào cũng gọi thì log đầy dòng "không đọc được sổ"
+    # của những ngày vốn chẳng có gì để gộp.
+    da_gui_sang = _doc_url_buoi("sang", hom_qua)
+    them = [it for it in ung_vien
+            if (it.get("sourceUrl") or "").strip() not in da_gui_sang]
+    if not them:
+        return items
+    giu = da_co | {_khoa_tin(it) for it in them}
+    out = [it for it in lst if _khoa_tin(it) in giu]
+    print(f"Ca tối {hom_qua}: gộp thêm {len(them)} tin vào bản sáng: "
+          + "; ".join((it.get("title") or it.get("sourceUrl") or "?")[:70] for it in them),
+          file=sys.stderr)
+    return out
+
+
 def loc_bo_tin_ca_sang(items, now):
     """Bỏ khỏi bản TỐI những tin đã gửi ở ca SÁNG cùng ngày (Huy chốt 01/08/2026).
 
@@ -622,6 +692,13 @@ def main(now=None):
     us = loc_bo_tin_ca_sang(pick_items(cur, prev, "usNews"), now)
     world = loc_bo_tin_ca_sang(pick_items(cur, prev, "worldNews"), now)
     events = loc_bo_tin_ca_sang(pick_items(cur, prev, "events"), now)
+
+    # Bản SÁNG gộp thêm tin của ca TỐI hôm qua (Huy chốt 26/08/2026). Đặt SAU
+    # `loc_bo_tin_ca_sang` (hàm đó chỉ chạm bản tối) và TRƯỚC bộ lọc Jay Lâm — tin gộp thêm
+    # phải đi qua bộ lọc ấy, vì file Jay Lâm thường tới SAU bản tin tối.
+    us = gop_tin_ca_toi(us, cur, "usNews", now)
+    world = gop_tin_ca_toi(world, cur, "worldNews", now)
+    events = gop_tin_ca_toi(events, cur, "events", now)
 
     # Bộ lọc Jay Lâm — bỏ tin mình quét được mà anh ta đã có (Huy chốt 01/08/2026).
     # Áp cho CẢ BA mục: cơ chế gây vấp của `loc_bo_tin_ca_sang` bản đầu là chỉ áp 03 mục quét

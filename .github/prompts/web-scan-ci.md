@@ -67,6 +67,7 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
    - Một mục sai là CHẶN CẢ LÔ (mã 1, không ghi gì): sửa mục lỗi rồi chạy lại.
    - ⛔ **Bỏ bước này thì bản tin LẶP tin Jay Lâm đã có** — không mất tin. Quá hạn 21:45 (của RIÊNG phiên tối) thì vẫn chốt bản tin trước; file Jay Lâm còn hiệu lực 3 ngày nên bản sau vẫn lọc được phần còn lại.
    - ✅ **Phiên SÁNG SỚM CŨNG LÀM** — file gửi 21:34 tối qua còn hiệu lực tới bản sáng nay.
+   - ⛔ **PHIÊN SÁNG: phạm vi đối chiếu PHẢI GỒM TIN CA TỐI HÔM QUA** (Huy chốt 26/08/2026 khi ra lệnh *"bản tin 4h sáng gộp cả tin quét được lúc 9h tối vào"*). Từ 26/08 `make_docx.py::gop_tin_ca_toi` gộp tin `_addedDate` = hôm qua vào bản sáng, mà file Jay Lâm thường tới SAU bản tin tối (đo 25/08: bản tối gửi ~22:10, file tới 23:29) — nhóm tin ấy **chưa từng được đối chiếu lần nào**. Bỏ qua nhóm này thì bản sáng in lại đúng tin Jay Lâm đã có, .docx vẫn đủ mục nên không dấu hiệu nào.
 4. Kết thúc — LUÔN một trong ba: `python3 scripts/state.py done web-scan "<tóm tắt>"` (nạp được tin) / `skip` (lô rỗng) / `fail` (lỗi giữa chừng, VẪN push log).
    Commit bản tin đúng mẫu `Cap nhat ban tin DD/MM: +N tin (5 chu de)` — `git add index.html data/ logs/` (phải có logs/state.json) rồi push. Push bị từ chối → `git pull --rebase origin main` rồi push lại; pull báo unstaged changes ở file KHÔNG thuộc lô này thì cứ push, đừng commit hộ file lạ.
 5. Báo cáo cuối NGẮN GỌN: số tin mỗi chủ đề, chủ đề nào thiếu (đã nới 48h chưa), trạng thái push.

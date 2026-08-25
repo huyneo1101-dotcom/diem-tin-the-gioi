@@ -192,6 +192,38 @@ lại tay, hoặc mốc dự phòng chạy bù. Sổ URL thì đúng trong mọi
 | **File `.docx` đính kèm** (`make_docx.py`) | **CÓ, nhưng HẸP** — chỉ bỏ tin của ca SÁNG cùng ngày (`loc_bo_tin_ca_sang`), xem mục ngay dưới | **CÓ** — đây là kênh duy nhất mang nội dung | tin quét TAY giữa ngày không ghi sổ nên vẫn được giữ, đúng chỉ thị *"gửi file word tối nay… thì gộp cả 11 tin hôm nay đó vào"* |
 | **Canary** (`canary.py`) | — chỉ ĐỌC sổ | **CÓ** | công dụng chính của sổ hiện nay: bằng chứng bản tin đã tới tay |
 
+### 🌅 BẢN SÁNG GỘP TIN CA TỐI HÔM QUA (Huy chốt 26/08/2026)
+
+Nguyên văn: *"từ giờ bản tin 4h sáng hãy gộp cả tin quét được lúc 9h tối vào, nhớ đối chiếu với
+cả file Jay Lâm gửi để chống trùng lặp"*.
+
+**Vì sao tin ca tối vắng mặt trong bản sáng trước đó:** `pick_items` lấy HỢP của (mới so với
+commit cha) và (`_addedDate == generatedAt`). Phiên sáng ghi `generatedAt` là ngày MỚI nên tin nạp
+tối qua không phải "hôm nay"; còn commit cha lại chính là commit của lô tối qua nên chúng cũng
+không "mới". Tin rơi khỏi cả hai vế, không lệnh nào báo — .docx vẫn ra đời đủ mục.
+
+| Mảnh | Việc |
+|---|---|
+| `make_docx.py::gop_tin_ca_toi(items, cur, kind, now)` | Bản SÁNG gộp thêm tin có `_addedDate` = HÔM QUA; bản TỐI không gọi |
+| `make_docx.py::_doc_url_buoi(buoi, ngay)` | Một đường đọc sổ đã gửi dùng chung cho cả lọc bản tối lẫn gộp bản sáng |
+| `make_docx.py::_khoa_tin(it)` | Khoá nhận dạng: `sourceUrl`, thiếu link thì lùi về tiêu đề + tóm tắt |
+| `tests/test-gop-tin-ca-toi.py` | **18 ca · `--tu-kiem` bắt 7/7 bản hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py` |
+
+- ⛔ **Chỉ trừ tin đã gửi ở ca SÁNG hôm qua, KHÔNG trừ theo dòng `toi`.** Trừ theo `toi` là xoá
+  đúng nhóm tin vừa được lệnh gộp vào. Nhóm phải loại là bản sáng hôm qua — lặp lại nó nghĩa là
+  đọc cùng một tin hai buổi sáng liền. Ca [07] và [12] canh hai chiều này.
+- ⛔ **Gộp phải đứng TRƯỚC bộ lọc Jay Lâm trong `main()`.** File Jay Lâm thường tới SAU bản tin
+  tối — đo 25/08/2026: bản tối gửi khoảng 22:10, file `ĐTN_M_25.8.2026.docx` tới 23:29 — nên
+  nhóm tin ca tối là nhóm **chưa từng được đối chiếu**, tức nhóm cần lọc nhất. Gộp sau bộ lọc thì
+  chúng đi thẳng vào bản tin, không dấu hiệu nào. Ca [09]-[11] canh đúng chỗ đó.
+- ⚠️ **FAIL VỀ PHÍA GỘP DƯ:** sổ đã gửi thiếu hoặc hỏng ⇒ không trừ được gì, bản sáng lặp lại tin
+  của bản sáng hôm qua — Huy thấy ngay khi đọc. Hướng ngược lại là mất tin trong im lặng.
+- ⚠️ **Khoá nhận dạng không được rỗng.** Tin thiếu link (hay gặp ở mục tập trận) mà cùng mang khoá
+  `""` thì tin ca tối bị coi là đã có rồi rơi khỏi bản tin. Ca [18] là ca duy nhất lộ được lỗi
+  này: phải có tin SÁNG NAY cũng thiếu link thì khoá rỗng mới nằm sẵn trong tập đã-có.
+- ⚠️ **Phiên quét sáng phải đối chiếu Jay Lâm cho CẢ tin ca tối hôm qua**, không chỉ lô vừa nạp —
+  xem bước 3b của `.github/prompts/web-scan-ci.md`.
+
 ### ⛔ BẢN TỐI LẶP NGUYÊN SI TIN CA SÁNG — luật có mà KHÔNG ai thi hành (vá 01/08/2026)
 
 **Huy bắt được:** tin Healio *"Uỷ ban HELP Thượng viện bỏ phiếu thông qua đề cử Giám đốc CDC…"*

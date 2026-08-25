@@ -96,7 +96,7 @@ nào**. Trước khi sửa một mảng thì mở file của mảng đó, đừn
 | Việc đang làm | Mở file | Luật nóng nhất của file đó |
 |---|---|---|
 | Phạm vi quét, chủ đề, khung ngày, kiến trúc agent, khoá phiên, guardrail nạp tin | [`docs/luat/pham-vi-quet.md`](docs/luat/pham-vi-quet.md) | Tin không tự neo được vào chủ đề thì BỎ, cấm dồn vào mục "Úc & Biển Đông"; phiên test hạ tầng phải khai `DIEMTIN_PHIEN_TEST=1` |
-| Khâu gửi: file Word, sổ đã gửi, cổng bắn notify, email | [`docs/luat/gui-ban-tin.md`](docs/luat/gui-ban-tin.md) | Email đã tắt (`GUI_EMAIL='0'`) nên `.docx` là kênh DUY NHẤT mang nội dung; bản tối phải bỏ tin ca sáng cùng ngày; chỉ ca chính thức (`tu_dong=1`) mới được ghi sổ đã gửi |
+| Khâu gửi: file Word, sổ đã gửi, cổng bắn notify, email | [`docs/luat/gui-ban-tin.md`](docs/luat/gui-ban-tin.md) | Email đã tắt (`GUI_EMAIL='0'`) nên `.docx` là kênh DUY NHẤT mang nội dung; bản tối phải bỏ tin ca sáng cùng ngày, bản sáng phải GỘP tin ca tối hôm qua (26/08/2026); chỉ ca chính thức (`tu_dong=1`) mới được ghi sổ đã gửi |
 | Telegram: gửi bản tin, canary, bot hỏi–đáp, đường nhận file của Jay Lâm | [`docs/luat/telegram.md`](docs/luat/telegram.md) | Thiếu secret Telegram là job ĐỎ, cấm thoát êm; canary chỉ nhắn cho Huy; token để NGOÀI repo (`/Users/Huy/Claude/.tg-bot.json`, chmod 600) |
 | Thêm hoặc sửa cổng kiểm, chạy bộ test | [`docs/luat/cong-kiem.md`](docs/luat/cong-kiem.md) | Test xanh chưa đủ — phải chạy `--tu-kiem` chứng minh bắt được bản hỏng; **sửa chính `CLAUDE.md` cũng phải chạy test** vì file này LÀ cấu hình |
 | Nạp tin, tập trận, sự kiện ngoại giao vào kho | [`docs/luat/kho-du-lieu.md`](docs/luat/kho-du-lieu.md) | Sửa `dates`/`status` của cuộc đã nạp phải đi bằng `scripts/sua_thong_tin_tap_tran.py`, cấm sửa tay và cấm bịa ngày kết thúc |
