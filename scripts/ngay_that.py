@@ -19,11 +19,17 @@ thật ở QuetThinkTank 29/07/2026, loại nhầm 46 bài). Bảng mẫu bên d
 `/Users/Huy/Claude/QuetThinkTank/kiem_ngay_that.py::doc_ngay` — chép thay vì import vì máy
 chạy của GitHub Actions KHÔNG có thư mục đó, mà cổng phải sống ở CI trước tiên.
 
-FAIL-SAFE THEO HƯỚNG GIỮ, NHƯNG CÓ TIẾNG: đọc không được ngày (trang không có metadata,
-hoặc bị chặn) thì tin vẫn được nạp, kèm dòng cảnh báo `⚠ NGÀY THẬT`. Chặn theo phía im lặng
-sẽ giết cả lô mỗi khi mạng CI kém; im lặng hẳn thì cổng chết mà không ai biết. Đo 25/08:
-28/181 bài không đọc được metadata (15%), nên đây là nhánh chạy thường xuyên, không phải
-trường hợp hiếm.
+HAI CẢNH KHÔNG ĐỌC ĐƯỢC NGÀY, XỬ KHÁC NHAU (siết 25/08/2026 theo chỉ thị Huy *"trang không
+ghi ngày thì bỏ đi"*):
+  - **Trang mở được nhưng không in ngày** → CHẶN. Không in ngày thì không có cách nào biết
+    bài cũ hay mới, mà tin cũ lọt vào bản tin là hỏng đúng thứ người đọc nhìn thấy. Đo trước
+    khi siết: 20/181 bài lô 15-24/08 và 32/200 bài lô 10-31/07 (11% và 16%).
+  - **Trang không mở được** (bị chặn, mạng hỏng, bản tải về không có nổi thẻ `<title>`) →
+    GIỮ, kèm dòng `⚠ NGÀY THẬT`. Chặn ở đây là để mạng của máy chạy quyết định bản tin có
+    tin hay không, và nguồn nào trả 403 thì mất trắng. Đo 25/08: 8/181 bài (4,4%).
+Ranh giới giữa hai cảnh đo bằng thẻ `<title>`: CNN và CNBC tải về 300 KB mà không có title
+(trang dựng bằng JavaScript hoặc bị chặn), trong khi DVIDS/PACOM/war.gov có title đúng tên
+bài — nhóm sau mới thật sự là "trang không in ngày".
 """
 import datetime
 import pathlib
@@ -55,6 +61,14 @@ def doc_ngay(h):
         thang, ngay, nam = int(m.group(1)), int(m.group(2)), int(m.group(3))
         if 1 <= thang <= 12 and 1 <= ngay <= 31:
             return f'{nam:04d}-{thang:02d}-{ngay:02d}', 'citation_publication_date'
+    # DVIDS: bảng metadata cuối bài — <td>Date Posted:</td><td>08.22.2026 07:35</td>.
+    # Thêm 25/08/2026: DVIDS là nguồn thông cáo quân sự dùng nhiều nhất cho chủ đề CNQS
+    # (07 bài trong lô tháng 7, 02 bài lô tháng 8) và KHÔNG có JSON-LD, không og article,
+    # không thẻ time — bốn mẫu trên trượt sạch. Neo vào NHÃN "Date Posted", không bắt ngày
+    # trôi nổi: cùng trang đó còn "Date Taken" (ngày chụp ảnh, có thể trước hàng tuần).
+    m = re.search(r'Date\s+Posted:\s*</td>\s*<td>\s*(\d{2})\.(\d{2})\.(\d{4})', h, re.I)
+    if m:
+        return f'{int(m.group(3)):04d}-{int(m.group(1)):02d}-{int(m.group(2)):02d}', 'DVIDS Date Posted'
     return None, 'không có metadata ngày'
 
 
@@ -95,7 +109,18 @@ def ngay_dang_that(url, tai=None):
         return None, f'không lấy được ({type(e).__name__})'
     if not h:
         return None, 'không lấy được (rỗng)'
-    return doc_ngay(h)
+    ngay, cach = doc_ngay(h)
+    if ngay:
+        return ngay, cach
+    # Phân biệt hai cảnh KHÁC HẲN NHAU mà nhìn từ ngoài giống nhau: trang thật sự không in
+    # ngày, và trang mình không vào được. Từ 25/08/2026 cảnh thứ nhất bị CHẶN nên xếp nhầm
+    # là loại oan tin. Dấu hiệu đo được: bản tải về của trang bị chặn / trang dựng bằng
+    # JavaScript không có nổi thẻ <title> — đo thật trên CNN và CNBC ngày 25/08, tải về
+    # 300 KB mà không có <title>, trong khi DVIDS/PACOM/war.gov bị xếp cùng nhóm lại có
+    # <title> đúng tên bài, tức chúng mới là "trang không in ngày".
+    if not re.search(r'<title[^>]*>\s*\S', h, re.I):
+        return None, 'không lấy được (bản tải về không có tiêu đề, nghi bị chặn)'
+    return None, cach
 
 
 def kiem_lo(items, ref, tran_theo_cat, tai=None):
@@ -118,7 +143,21 @@ def kiem_lo(items, ref, tran_theo_cat, tai=None):
 
     for it, ngay, cach in ket_qua:
         if not ngay:
-            canh_bao.append(f"⚠ NGÀY THẬT: {it['ctx']} — không đo được ({cach}), tin vẫn nạp: {it['url']}")
+            # CHỈ THỊ HUY 25/08/2026, nguyên văn: "trang không ghi ngày thì bỏ đi". Trang
+            # không in ngày ở đâu cả thì không có cách nào biết bài cũ hay mới, mà bản tin
+            # nhận tin cũ là hỏng thứ Huy đọc. Đo trước khi siết: 20/181 bài lô tháng 8 và
+            # 32/200 bài lô tháng 7 rơi vào nhánh này (11% và 16%) — nguồn hay gặp là DVIDS,
+            # PACOM, war.gov, Xinhua; riêng DVIDS đã đọc được ngày sau khi thêm mẫu bảng
+            # "Date Posted" cùng ngày, nên phần bị loại thật sẽ nhỏ hơn số đo trên.
+            # ⚠ Trang KHÔNG MỞ ĐƯỢC thì vẫn giữ (nhánh dưới): chặn theo mạng là để mạng CI
+            # kém quyết định bản tin có tin hay không, và nguồn nào bị 403 thì mất trắng.
+            if cach.startswith('không lấy được'):
+                canh_bao.append(f"⚠ NGÀY THẬT: {it['ctx']} — {cach}, tin vẫn nạp: {it['url']}")
+            else:
+                loi.append(
+                    f"{it['ctx']}: trang KHÔNG in ngày đăng ở dạng đọc được ({cach}) nên không "
+                    f"kiểm được bài cũ hay mới — bỏ tin này, thay bằng bài có ngày. "
+                    f"URL: {it['url']}")
             continue
         try:
             that = datetime.date.fromisoformat(ngay)

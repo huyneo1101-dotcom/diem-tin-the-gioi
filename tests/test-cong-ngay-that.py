@@ -141,18 +141,23 @@ def ca_06():
 
 
 def ca_07():
-    """CHO QUA + KÊU — trang không có metadata ngày thì tin vẫn nạp, kèm cảnh báo.
+    """PHẢI CHẶN — trang mở được nhưng KHÔNG in ngày ở đâu cả.
 
-    15% số bài đo được rơi vào nhánh này. Chặn ở đây là giết 15% bản tin mỗi phiên.
+    Chỉ thị Huy 25/08/2026: "trang không ghi ngày thì bỏ đi". Không in ngày thì không có
+    cách nào biết bài cũ hay mới. Trang phải có <title> mới tính là "mở được".
     """
-    loi, cb = _do({"https://vd.test/a": "<html><body>không có ngày</body></html>"},
-                  [_it(_ngay(0))])
-    assert not loi, f"chặn oan bài không có metadata: {loi}"
-    assert cb and "không đo được" in cb[0], f"nuốt im lặng, không cảnh báo: {cb}"
+    loi, _ = _do({"https://vd.test/a": "<html><title>Bài không ghi ngày</title>"
+                                       "<body>nội dung</body></html>"}, [_it(_ngay(0))])
+    assert loi, "cổng CHO QUA bài ở trang không in ngày"
+    assert "KHÔNG in ngày" in loi[0], loi[0]
 
 
 def ca_08():
-    """CHO QUA + KÊU — trang bị chặn (tải về rỗng) vẫn nạp được, có cảnh báo."""
+    """CHO QUA + KÊU — trang KHÔNG MỞ ĐƯỢC (tải về rỗng) vẫn nạp được, có cảnh báo.
+
+    Ranh giới với ca 07, và là ranh giới bắt buộc: chặn theo mạng nghĩa là để đường truyền
+    của máy chạy quyết định bản tin có tin hay không, và nguồn nào trả 403 thì mất trắng.
+    """
     loi, cb = _do({}, [_it(_ngay(0))])
     assert not loi, f"chặn oan khi không tải được trang: {loi}"
     assert cb, "không tải được trang mà cổng im lặng hoàn toàn"
@@ -259,6 +264,34 @@ def ca_13():
     assert "metadata nguồn ghi sai" in out2, f"mở cổng mà không in lý do:\n{out2[-800:]}"
 
 
+def ca_14():
+    """CHO QUA + KÊU — bản tải về không có thẻ <title> thì tính là KHÔNG MỞ ĐƯỢC.
+
+    Đo 25/08/2026: CNN và CNBC trả về 300 KB không có nổi <title> (trang dựng bằng
+    JavaScript hoặc bị chặn), trong khi DVIDS/PACOM/war.gov có <title> đúng tên bài. Thiếu
+    lằn ranh này thì mọi trang bị chặn đều bị xử như "trang không in ngày" và bị loại oan.
+    """
+    loi, cb = _do({"https://vd.test/a": "<html><body>" + "x" * 5000 + "</body></html>"},
+                  [_it(_ngay(0))])
+    assert not loi, f"xử trang nghi bị chặn như trang không in ngày: {loi}"
+    assert cb and "nghi bị chặn" in cb[0], f"không nêu lý do nghi bị chặn: {cb}"
+
+
+def ca_15():
+    """Đọc được ngày trong bảng DVIDS (`Date Posted: 08.22.2026`), KHÔNG lấy `Date Taken`.
+
+    DVIDS là nguồn thông cáo quân sự dùng nhiều nhất cho chủ đề Công nghệ quân sự và không
+    có JSON-LD/og/time — thiếu mẫu này là cả nguồn bị loại sạch từ 25/08/2026. `Date Taken`
+    là ngày chụp ảnh, có thể trước ngày đăng hàng tuần, lấy nhầm là chặn oan.
+    """
+    m = mod()
+    html = ("<html><title>DVIDS</title><table>"
+            "<tr><td>Date Taken:</td><td>08.01.2026</td></tr>"
+            "<tr><td>Date Posted:</td><td>08.22.2026 07:35</td></tr></table></html>")
+    ngay, cach = m.doc_ngay(html)
+    assert ngay == "2026-08-22", f"đọc ra {ngay!r} ({cach}) thay vì ngày Date Posted"
+
+
 CAC_CA = [
     (1, "PHẢI CHẶN — bài cũ 19 ngày khai ngày hôm nay", ca_01),
     (2, "PHẢI CHẶN — bài cũ 585 ngày (ca SCMP 2024)", ca_02),
@@ -266,13 +299,15 @@ CAC_CA = [
     (4, "PHẢI CHẶN — CNQS cũ 4 ngày (quá trần nới 3)", ca_04),
     (5, "cho qua — CNQS cũ 3 ngày, đúng phần nới riêng", ca_05),
     (6, "cho qua — bài hôm qua khai đúng hôm qua", ca_06),
-    (7, "cho qua + KÊU — trang không có metadata ngày", ca_07),
-    (8, "cho qua + KÊU — trang tải về rỗng", ca_08),
+    (7, "PHẢI CHẶN — trang mở được nhưng không in ngày", ca_07),
+    (8, "cho qua + KÊU — trang không mở được (tải về rỗng)", ca_08),
     (9, "đọc được cả 04 dạng metadata ngày", ca_09),
     (10, "KHÔNG bắt ngày trôi nổi trong thân bài", ca_10),
     (11, "PHẢI CHẶN (đầu-cuối) — add_news.py gọi cổng thật", ca_11),
     (12, "cho qua (đầu-cuối) — bài đăng hôm nay nạp được", ca_12),
     (13, "cờ mở cổng phải kèm lý do và in lý do ra", ca_13),
+    (14, "cho qua + KÊU — bản tải về không có <title> (nghi bị chặn)", ca_14),
+    (15, "đọc ngày trong bảng DVIDS, không lấy Date Taken", ca_15),
 ]
 
 
@@ -316,11 +351,29 @@ BAN_HONG = [
       "        if False:"),
      [1, 2, 3, 4, 11]),
 
-    ("ngay_that: chặn luôn bài không đọc được metadata (giết 15% bản tin mỗi phiên)",
+    ("ngay_that: cho qua bài ở trang không in ngày (cổng ngừng bắt cả nhóm)",
      "ngay_that",
-     ("            canh_bao.append(f\"⚠ NGÀY THẬT: {it['ctx']} — không đo được ({cach}), tin vẫn nạp: {it['url']}\")\n            continue",
-      "            loi.append(f\"{it['ctx']}: không đo được ngày ({cach})\")\n            continue"),
-     [7, 8]),
+     ("            if cach.startswith('không lấy được'):",
+      "            if True:"),
+     [7]),
+
+    ("ngay_that: xử trang KHÔNG MỞ ĐƯỢC như trang không in ngày (loại oan theo mạng)",
+     "ngay_that",
+     ("            if cach.startswith('không lấy được'):",
+      "            if False:"),
+     [8, 14]),
+
+    ("ngay_that: bỏ mẫu bảng DVIDS (mất sạch một nguồn thông cáo quân sự)",
+     "ngay_that",
+     ("    m = re.search(r'Date\\s+Posted:\\s*</td>\\s*<td>\\s*(\\d{2})\\.(\\d{2})\\.(\\d{4})', h, re.I)",
+      "    m = None"),
+     [15]),
+
+    ("ngay_that: bỏ lằn ranh <title> (trang bị chặn bị xử như trang không in ngày)",
+     "ngay_that",
+     ("    if not re.search(r'<title[^>]*>\\s*\\S', h, re.I):",
+      "    if False:"),
+     [14]),
 
     ("ngay_that: áp trần 1 ngày cho mọi chủ đề (chặn oan Công nghệ quân sự)",
      "ngay_that",
