@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-08-26T04:23:45+07:00",
+    "lastRunAt": "2026-08-26T04:30:14+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "5 bai think-tank; tap tran/su kien khong co tin moi qua duoc kiem chung (xem log)",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-08-25"
-    },
-    "heartbeat": "2026-08-26T04:23:45+07:00"
+      "sang": "2026-08-26"
+    }
   }
 }
