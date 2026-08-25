@@ -19,3 +19,6 @@
 [14:01Z] START (CI) - phien toi (VN 21:01)
 [14:04Z] harvest.py: 450 ung vien (cai them curl_cffi, cuu 11 nguon .mil/breakingdefense/axios/rappler); telegram_harvest.py xong (Mali 3 bai, tap tran 0)
 [14:14Z] 5 agent Sonnet song song xong: Noi bo My 7 raw, Uc-BD 8 raw, CNQS 5 raw, Mali+Taptran 0, BaoMoi 0. Kiem trung voi index.html: loai 2 Noi bo My (Canada tariff, Bessent Economic D-Day da co), loai 2 Uc-BD (Henderson site, Hunter-class keel da co), loai 3 CNQS (AIM-424 Malice, Matilda, Guetlein Golden Dome da co)
+[14:17Z] add_news.py: cong NGAY THAT chan 5 tin (The Hill x2, RealClearDefense x2, war.gov x1 - khong co metadata ngay). Nap lai voi 7 tin con lai: +4 worldNews (Uc-BD), +3 usNews (Noi bo My). CNQS ve 0 trong lo nay. Da ghi logs/loai-tin.md + logs/scan-gaps.json
+[14:19Z] tin_jaylam.py --ghi-loai: khong co tin trung file Jay Lam (id=33). gh workflow run bi chan "requires approval" trong CI nen khong kich duoc telegram-bot.yml de hut file moi
+[14:20Z] DONE web-scan: +4 worldNews, +3 usNews, tong 7 tin
