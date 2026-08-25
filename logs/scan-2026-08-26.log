@@ -8,3 +8,4 @@
 [21:30Z] DONE - phien sang som hoan tat (web-scan + event-scan), da commit+push ca hai
 [21:30Z] SKIP web-scan (local sang-som 04:30 VN) — CI da xong luc 04:23:34, khong lam lai
 [21:45Z] SKIP web-scan (local sang-som 04:45 VN) — CI da xong luc 04:23:34, khong lam lai
+[21:45Z] SKIP web-scan (CI lop vet) — exit 10, kiem ngoai le: so_da_gui co dong 2026-08-26T04:31:06 [sang] 8 tin khop note web-scan "8 tin", ban tin da toi tay. Khong lam lai.
