@@ -61,9 +61,25 @@ def ca_co_ham_nap(html, sw):
 
 
 def ca_goi_o_boot(html, sw):
-    if not re.search(r"^loadAnalyses\(\);", html, re.M):
-        return "không có lời gọi loadAnalyses() ở luồng boot — kho không bao giờ được nạp"
-    return None
+    """Kho think-tank phải được nạp từ luồng boot — gọi thẳng HOẶC qua một hàm bọc.
+
+    ⚠️ Từ commit 704c880 (21/08/2026, "Hoãn 711 KB kho tới lúc thật sự cần") boot KHÔNG còn
+    dòng `loadAnalyses();` ở cấp cao nhất: nó gọi `napKhiRanh()`, và chính hàm đó đẩy
+    `loadKho(); loadAnalyses();` vào `requestIdleCallback`. Bản kiểm cũ neo cứng vào
+    `^loadAnalyses\(\);` nên báo ĐỎ liên tục từ hôm ấy dù web vẫn nạp kho đủ (đo 25/08/2026
+    trên bản đang phục vụ: `data/analyses.json` trả 200 với 824 bài). Ca đỏ trên bản thật làm
+    `--tu-kiem` thoát sớm, nên CẢ 09 ca của bộ này ngừng phát hiện trong im lặng suốt
+    21→25/08/2026 — đúng loại hỏng câm mà bộ ca này sinh ra để bịt.
+
+    Nay nhận cả hai hình dạng, và KHÔNG neo vào tên `napKhiRanh` để đổi tên hàm bọc không làm
+    cổng đỏ oan: tìm mọi lời gọi `<tên>();` ở cấp cao nhất rồi soi thân hàm mang tên đó.
+    """
+    if re.search(r"^loadAnalyses\(\);", html, re.M):
+        return None
+    for ten in re.findall(r"^([A-Za-z_$][\w$]*)\(\);", html, re.M):
+        if ten != "loadAnalyses" and "loadAnalyses()" in _than_ham(html, ten):
+            return None
+    return "không có lời gọi loadAnalyses() ở luồng boot — kho không bao giờ được nạp"
 
 
 def _than_loadAnalyses(html: str) -> str:
@@ -75,7 +91,15 @@ def _than_loadAnalyses(html: str) -> str:
     loadAnalyses mà ca vẫn báo đạt, tức cổng ngừng phát hiện trong im lặng. `--tu-kiem` bắt
     được đúng ca này. Nay cắt ở mốc mở đầu khai báo cấp cao nhất kế tiếp, không neo vào tên.
     """
-    i = html.index("function loadAnalyses(")
+    return _than_ham(html, "loadAnalyses")
+
+
+def _than_ham(html: str, ten: str) -> str:
+    """Thân hàm `ten`, cắt ở mốc mở đầu khai báo cấp cao nhất kế tiếp. Không có hàm thì trả rỗng."""
+    moc = "function %s(" % ten
+    if moc not in html:
+        return ""
+    i = html.index(moc)
     m = re.search(r"\n(?:function |var |/\* )", html[i + 1:])
     return html[i:i + 1 + m.start()] if m else html[i:]
 
@@ -171,8 +195,16 @@ def chay(html=None, sw=None, im=False) -> int:
 # Mỗi bản hỏng gỡ đúng MỘT lớp bảo vệ, và khai ca nào PHẢI đỏ theo. Khai thừa ca là tự bịt
 # mắt mình: `--tu-kiem` sẽ báo trượt vì lý do sai (bài học 29/07 ở QuanSu).
 BAN_HONG = [
-    ("gỡ lời gọi loadAnalyses() ở boot", "html",
-     lambda h: h.replace("\nloadAnalyses();\nloadBaomoi();", "\nloadBaomoi();"),
+    # Hai bản hỏng cho MỘT ca, vì từ 21/08/2026 đường từ boot tới kho có HAI mắt nối tiếp:
+    # boot gọi hàm bọc, hàm bọc gọi loadAnalyses(). Gỡ mắt nào cũng làm kho không bao giờ về,
+    # nên phải chứng minh ca bắt được cả hai — bản hỏng cũ chỉ gỡ dòng `loadAnalyses();` ở cấp
+    # cao nhất, mà dòng ấy đã biến mất từ commit 704c880 nên phép thay thành vô hiệu.
+    ("gỡ loadAnalyses() khỏi hàm nạp-khi-rảnh", "html",
+     lambda h: h.replace("var f=function(){loadKho();loadAnalyses();};",
+                         "var f=function(){loadKho();};", 1),
+     "loadAnalyses() được gọi ở luồng boot"),
+    ("gỡ lời gọi hàm nạp-khi-rảnh ở boot", "html",
+     lambda h: h.replace("\nnapKhiRanh();\nloadBaomoi();", "\nloadBaomoi();", 1),
      "loadAnalyses() được gọi ở luồng boot"),
     ("gỡ if(_firstRun)initSeen() trong loadAnalyses", "html",
      lambda h: h.replace("    commitSeen();\n    if(_firstRun)initSeen();\n    render();",

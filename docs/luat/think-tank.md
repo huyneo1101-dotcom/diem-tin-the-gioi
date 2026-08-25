@@ -18,7 +18,7 @@ chỉ tiết kiệm ~0,2 giây trên đường truyền tốt. Chỗ đáng giá
 | Lớp đọc/ghi cho Python | `scripts/analyses_store.py` (`doc` · `ghi` · `kiem_index_rong`) |
 | Web nạp | `loadAnalyses()` trong index.html, gọi ngay sau `render()` ở luồng boot |
 | Offline | `data/analyses.json` nằm trong `SHELL` của `sw.js` (bump `diemtin-v49`) |
-| Bộ test canh | `tests/test-tach-analyses.py` (9 ca + `--tu-kiem` 4 bản hỏng), đã nạp vào `khoe.py` |
+| Bộ test canh | `tests/test-tach-analyses.py` (9 ca + `--tu-kiem` 6 bản hỏng), đã nạp vào `khoe.py` |
 | Script tách/kiểm | `scripts/tach_analyses.py` (idempotent, `--kiem` chỉ soi) |
 
 ⛔ **`DATA.analyses` trong index.html PHẢI LUÔN RỖNG.** Nó chỉ còn để `DATA.analyses||[]` không vỡ

@@ -109,6 +109,14 @@ DA_DUYET = {
         "khai thiếu nửa: `spf.org` là quỹ mẹ ở Tokyo, `spfusa.org` là Sasakawa Peace Foundation "
         "USA đặt tại Washington DC, hai ban biên tập riêng và hai dòng xuất bản riêng. Nhánh "
         "Nhật đã có trang danh sách IINA trong THINKTANK_HTML; nhánh Mỹ thuộc diện WebSearch.",
+    ("carnegie-mec.org", "carnegieendowment.org", "carnegieeurope.eu"):
+        "Đã soi 25/08/2026 — BA BÍ DANH của cùng một trang, không phải ba nơi xuất bản song "
+        "song: `carnegie-mec.org` trả 308 về `carnegieendowment.org/middle-east` và "
+        "`carnegieeurope.eu` trả 308 về `carnegieendowment.org/europe` (đo bằng `curl -sI`, "
+        "đọc dòng `location:`). Đường quét cho `carnegieendowment.org` đã phủ trọn nội dung "
+        "của cả hai; khai thêm đường cho hai tên miền kia là quét đúng nội dung đó lần thứ "
+        "hai. Giữ cả ba trong THINKTANK_DOMAINS để bài cũ trong kho còn mang url tên miền cũ "
+        "không bị guardrail domain chặn oan — cùng lẽ với cặp agsi.org/agsiw.org.",
     ("agsi.org", "agsiw.org"):
         "Đã soi 06/08/2026 — viện ĐỔI TÊN chứ không phải hai tên miền song song: `agsiw.org` "
         "redirect sang `agsi.org`. Giữ cả hai trong THINKTANK_DOMAINS chỉ để bài cũ trong kho "
