@@ -20,13 +20,14 @@ description: >-
 |---|---|---|
 | **File này** (`.claude/skills/quet-tin/SKILL.md`) | **NỘI DUNG quét**: 5 chủ đề + tiêu chí lọc · kiến trúc agent · thang xác minh · guardrail `add_news.py` · `scan-gaps.json` · phụ lục nguồn | Phiên local (qua `docs/routine-web-scan.md` Bước 2) **và** phiên CI (qua `.github/prompts/web-scan-ci.md`) |
 | `docs/routine-web-scan.md` | **QUY TRÌNH CHẠY**: lịch/mốc giờ · `state.py` claim/beat/done · pull-rebase · commit/push · pipeline `event-scan` phiên sáng | Task local `web-scan-diem-tin` (sáng sớm) + `web-scan-diem-tin-toi` (tối) |
-| `CLAUDE.md` gốc repo | **PHẠM VI + NGUỒN**: bảng nguồn 3 tầng, URL RSS, cấu trúc `DATA`, cơ chế email/Telegram | Tự nạp mọi phiên |
+| `CLAUDE.md` gốc repo | **PHẠM VI + NGUỒN**: bảng nguồn 3 tầng, URL RSS, thang xác minh, bảng độ gần, lịch và phạm vi rút gọn | Tự nạp mọi phiên |
+| `docs/luat/*.md` (xẻ 25/08/2026) | Phần luật đã rời khỏi `CLAUDE.md`: phạm vi đầy đủ · khâu gửi · Telegram · cổng kiểm · kho dữ liệu · think-tank · vận hành | Đọc khi sửa đúng mảng đó, bảng tra ở đầu `CLAUDE.md` |
 
 ⛔ **ĐỪNG rút file này thành stub trỏ sang `routine-web-scan.md`** — file đó **trỏ VÀO đây** ở Bước 2,
 và `.github/prompts/web-scan-ci.md` cũng vậy. Trỏ ngược lại là vòng tròn, cả CI lẫn local mất sạch
 playbook nội dung.
 ⛔ **ĐỪNG chép lịch/mốc giờ vào đây.** Cần biết mốc nào, hạn chót nào → đọc `docs/routine-web-scan.md`.
-📌 Câu *"SKILL.md của các task giờ chỉ là stub"* trong CLAUDE.md nói về **stub của scheduled task**
+📌 Câu *"SKILL.md của các task giờ chỉ là stub"* trong `docs/luat/van-hanh.md` nói về **stub của scheduled task**
 (`~/.claude/scheduled-tasks/*/SKILL.md`, 5 dòng, Read file repo) — **KHÔNG phải file này**.
 
 ## ⭐ PHẠM VI MỚI (2026-07-23 — GHI ĐÈ mọi mô tả 4-chuyên-mục / sàn 15+15 cũ)
@@ -122,9 +123,12 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 > **mở từng `sourceUrl` ra đọc metadata ngày** (`scripts/ngay_that.py`) và chặn thẳng bài
 > ngoài khung. Hệ quả với người quét: lấy ngày từ **chính trang bài**, không lấy từ ngày quét,
 > không lấy từ `pubDate` của RSS đăng lại, không lấy từ khối HTML quanh link Google News —
-> khai sai là lô bị chặn và phải quét bù. Trang không có metadata ngày thì tin vẫn nạp, chỉ
-> hiện dòng `⚠ NGÀY THẬT`. Metadata nguồn ghi sai thật thì mở cổng bằng
-> `--bo-cong-ngay-that="lý do"`, KHÔNG lùi ngày batch.
+> khai sai là lô bị chặn và phải quét bù. ⛔ **Trang KHÔNG in ngày đăng thì BỎ BÀI ĐÓ, chọn
+> bài khác** (chỉ thị Huy 25/08/2026) — không kiểm được ngày thì không biết bài cũ hay mới;
+> nhóm này chiếm 11-16% số bài đo được, nguồn hay dính là DVIDS · PACOM · war.gov · Xinhua.
+> Trang mở không được (bị chặn, bản tải về không có `<title>`) thì tin vẫn nạp kèm dòng
+> `⚠ NGÀY THẬT`. Metadata nguồn ghi sai thật thì mở cổng bằng `--bo-cong-ngay-that="lý do"`,
+> KHÔNG lùi ngày batch.
 
 **Báo Mới: được phép quét** — nhưng LỌC chỉ giữ bài hợp 5 chủ đề trên (xem Agent Báo Mới).
 
@@ -436,7 +440,7 @@ Ghi `logs/scan-gaps.json` (đè bản cũ, dùng tool Write), liệt kê ĐỦ 5
   "Chủ đề thiếu và lý do", KHÔNG gửi thật.
   Bản email (đang tắt, `GUI_EMAIL='0'`): `DRY_RUN=1 node .github/scripts/send-email.js` → ghi
   `/tmp/email-preview.html`. ⚠️ **Máy Huy KHÔNG có `node`** — chỉ chạy được ở nơi có node, hoặc kiểm
-  cú pháp/logic bằng `jsc` với stub `require` (xem CLAUDE.md).
+  cú pháp/logic bằng `jsc` với stub `require` (xem `docs/luat/gui-ban-tin.md`).
 
 ## Bước 4c — CẢ HAI PHIÊN: dùng file Jay Lâm làm BỘ LỌC (đảo nguyên tắc 01/08/2026)
 
@@ -515,8 +519,8 @@ còn hiệu lực 3 ngày nên bản tin sau vẫn lọc được phần còn l�
   → xuất .docx toàn bộ tin vừa quét (đúng format bản tin mẫu) + gửi **Telegram** (`send_telegram.py`).
   KHÔNG cần làm gì thêm trong skill — chỉ cần commit đúng mẫu `Cap nhat ban tin ...`.
   ⚠️ Action còn có **cổng khung giờ**: chỉ bắn ở 03:30–07:00 hoặc ≥20:30 giờ VN. Quét TAY giữa ngày thì
-  Action im, tin nằm chờ ca tối — đó là hành vi ĐÚNG, đừng đi truy bug (chi tiết: CLAUDE.md mục
-  "CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY").
+  Action im, tin nằm chờ ca tối — đó là hành vi ĐÚNG, đừng đi truy bug (chi tiết: `docs/luat/gui-ban-tin.md`
+  mục "CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY").
 - Ghi log `[$T] DONE: ...`. FAIL ở bước nào cũng VẪN push log.
 
 ## Bước 6 — Tóm tắt cuối

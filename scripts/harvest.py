@@ -370,10 +370,15 @@ def feeds_from_claude_md():
     text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     try:
         block = text[text.index("## URL RSS"):]
-        block = block[: block.index("\n## ", 1)]
     except ValueError:
         print("Không tìm thấy mục '## URL RSS' trong CLAUDE.md", file=sys.stderr)
         return []
+    # Mục nguồn là mục CUỐI file thì không còn tiêu đề `##` nào phía sau — lấy tới hết file.
+    # Trước 25/08/2026 chỗ này ném ValueError chung với nhánh trên rồi trả rỗng, tức MỌI feed
+    # biến mất trong im lặng chỉ vì ai đó chuyển mục nguồn xuống cuối. Ca [10] của
+    # tests/test-bang-nguon-claude-md.py canh đúng chiều này.
+    if "\n## " in block[1:]:
+        block = block[: block.index("\n## ", 1)]
     # Bảng "TRANG HTML QUÉT TRỰC TIẾP" nằm cùng mục ## URL RSS nhưng KHÔNG phải feed —
     # cắt ra, nếu không lớp RSS sẽ tốn 8 request vô ích và số feed in ra bị sai (81 -> 89).
     if KEY_BANG_HTML in block:

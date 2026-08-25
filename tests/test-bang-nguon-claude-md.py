@@ -293,6 +293,35 @@ def _c13():
     return "bỏ đúng, không nạp tiêu đề rác"
 
 
+def _cat_sau_bang_nguon(text):
+    """Dựng bản CLAUDE.md mà mục nguồn là mục `##` CUỐI CÙNG — bỏ mọi mục đứng sau nó."""
+    i = text.index("## URL RSS")
+    j = text.index("\n## ", i + 1)
+    return text[: j + 1]
+
+
+@ca(14, "PHẢI CHẶN: mục nguồn đứng CUỐI file -> lớp RSS vẫn phải đọc đủ feed")
+def _c14():
+    # Lỗ câm bắt được 25/08/2026 lúc xẻ CLAUDE.md ra `docs/luat/`: cả ba script bóc bảng đều cắt
+    # khối bảng bằng `block.index("\\n## ", 1)` NẰM TRONG cùng một try/except với phép tìm tiêu đề
+    # mục. Không còn tiêu đề `##` nào phía sau thì ValueError rơi vào nhánh "không tìm thấy mục"
+    # và hàm trả RỖNG — mọi feed biến mất, mà lô tin vẫn ra đời bình thường nên không dấu hiệu nào.
+    _, goc, _ = _do(CLAUDE_THAT)
+    _, cuoi, _ = _do(_cat_sau_bang_nguon(CLAUDE_THAT))
+    assert goc > 50, f"nền sai: bảng thật chỉ ra {goc} feed"
+    assert cuoi == goc, f"mục nguồn đứng cuối làm số feed tụt {goc} -> {cuoi}"
+    return f"{goc} feed, không đổi khi mục nguồn đứng cuối"
+
+
+@ca(15, "đối chứng: mục nguồn đứng CUỐI file -> bảng trang HTML cũng phải còn nguyên")
+def _c15():
+    goc, _, _ = _do(CLAUDE_THAT, la_ci=True)
+    cuoi, _, _ = _do(_cat_sau_bang_nguon(CLAUDE_THAT), la_ci=True)
+    assert cuoi > 20, f"chỉ còn {cuoi} trang"
+    assert cuoi == goc, f"{goc} -> {cuoi}"
+    return f"{goc} trang, không đổi"
+
+
 BAN_HONG = [
     (
         # Phải gỡ CẢ HAI lớp cùng bảo vệ một hành vi (neo tiêu đề + nhánh chọn khối có nhiều
@@ -329,6 +358,15 @@ BAN_HONG = [
         "gỡ phép gộp khoảng trắng trong _lam_sach (tiêu đề <h4> còn nguyên xuống dòng)",
         [('    s = re.sub(r"\\s+", " ", s).strip()\n', "    s = s.strip()\n")],
         [12],
+    ),
+    (
+        # Dựng lại đúng bản CŨ: phép cắt khối nằm chung try/except với phép tìm tiêu đề mục, nên
+        # mục nguồn đứng cuối file là trả rỗng trong im lặng.
+        "lùi về nếp cũ: mục nguồn đứng cuối file thì lớp RSS trả rỗng",
+        [('    if "\\n## " in block[1:]:\n        block = block[: block.index("\\n## ", 1)]\n',
+          '    if "\\n## " not in block[1:]:\n        return []\n'
+          '    block = block[: block.index("\\n## ", 1)]\n')],
+        [14],
     ),
 ]
 

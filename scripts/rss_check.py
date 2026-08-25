@@ -39,10 +39,13 @@ def urls_from_claude_md():
     text = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     try:
         block = text[text.index("## URL RSS") :]
-        block = block[: block.index("\n## ", 1)]
     except ValueError:
         print("Khong tim thay muc '## URL RSS' trong CLAUDE.md", file=sys.stderr)
         return []
+    # Muc nguon la muc CUOI file thi khong con tieu de `##` nao phia sau — lay toi het file
+    # (va 25/08/2026, cung mot lo cam voi harvest.py::feeds_from_claude_md).
+    if "\n## " in block[1:]:
+        block = block[: block.index("\n## ", 1)]
     out, seen = [], set()
     for line in block.split("\n"):
         if not line.startswith("|"):

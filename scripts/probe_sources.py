@@ -118,9 +118,13 @@ def collect_targets():
     cm = (ROOT / "CLAUDE.md").read_text(encoding="utf-8")
     try:
         block = cm[cm.index("## URL RSS"):]
-        block = block[: block.index("\n## ", 1)]
     except ValueError:
         block = ""
+    else:
+        # Mục nguồn là mục CUỐI file thì không còn tiêu đề `##` nào phía sau — lấy tới hết file
+        # (vá 25/08/2026, cùng một lỗ câm với harvest.py::feeds_from_claude_md).
+        if "\n## " in block[1:]:
+            block = block[: block.index("\n## ", 1)]
     for line in block.split("\n"):
         if not line.startswith("|"):
             continue

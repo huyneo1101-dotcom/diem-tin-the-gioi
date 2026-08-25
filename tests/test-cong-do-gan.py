@@ -233,6 +233,27 @@ def _ban_sao_repo() -> pathlib.Path:
     return d
 
 
+def _kho_ngay_gia(d: pathlib.Path, lo: dict) -> pathlib.Path:
+    """Kho HTML giả cho CỔNG NGÀY ĐĂNG THẬT — mọi URL của lô đều khai đăng HÔM NAY.
+
+    Vì sao phải có: cổng ngày (`scripts/ngay_that.py`, dựng 25/08/2026) mở từng `sourceUrl` để
+    đọc metadata ngày, mà URL của bộ này là URL BỊA. Không cắm kho giả thì ca 13-15 đỏ vì cổng
+    NGÀY chặn trước, tức đo nhầm cổng — cổng độ gần có bị gỡ cũng vẫn thấy đỏ. Đây đúng seam
+    `NGAYTHAT_KHO_GIA` mà cổng ngày mở sẵn cho bộ test, không phải đường vòng.
+    """
+    kho = {}
+    for muc in ("usNews", "worldNews", "xNews", "baomoiNews"):
+        for tin in lo.get(muc) or []:
+            u = tin.get("sourceUrl") or tin.get("url")
+            if u:
+                kho[u] = ('<html><head><title>bài thử của bộ test cổng độ gần</title>'
+                          f'<meta property="article:published_time" content="{HOM_NAY}">'
+                          "</head><body>thân bài</body></html>")
+    p = d / "kho-ngay-gia.json"
+    p.write_text(json.dumps(kho, ensure_ascii=False), encoding="utf-8")
+    return p
+
+
 def _chay_add_news(lo: dict, them_co=()) -> tuple:
     d = _ban_sao_repo()
     try:
@@ -240,7 +261,8 @@ def _chay_add_news(lo: dict, them_co=()) -> tuple:
         f.write_text(json.dumps(lo, ensure_ascii=False), encoding="utf-8")
         r = subprocess.run(
             [sys.executable, str(d / "scripts" / "add_news.py"), str(f), *them_co],
-            capture_output=True, text=True)
+            capture_output=True, text=True,
+            env={**os.environ, "NGAYTHAT_KHO_GIA": str(_kho_ngay_gia(d, lo))})
         return r.returncode, (r.stdout + r.stderr)
     finally:
         shutil.rmtree(d, ignore_errors=True)
