@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-26T04:31:25+07:00",
+  "tao_luc": "2026-08-26T04:55:28+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-25",
@@ -409,14 +409,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-26",
-      "tieu_de": "Press Gaggle With Secretary of War Pete Hegseth",
-      "nguon": "DoD News Releases",
-      "url": "https://www.war.gov/News/Releases/Release/Article/4582833/press-gaggle-with-secretary-of-war-pete-hegseth/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-24",
       "tieu_de": "Department of War Announces a $750 Million Investment as Part of a $1.55 Billion Initiative to Secure Critical Rare-Earth Elements From Serra Verde",
       "nguon": "DoD News Releases",
@@ -453,6 +445,14 @@
       "tieu_de": "U.S. Navy Reveals AIM-424 “Malice” Long-Range Air-to-Air Missile",
       "nguon": "The Aviationist",
       "url": "https://theaviationist.com/2026/08/23/us-navy-reveals-aim-424-malice-lraam/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-26",
+      "tieu_de": "Navy reveals its new, low-cost hypersonic missile. Army also expresses interest.",
+      "nguon": "Sandboxx News",
+      "url": "https://www.sandboxx.us/news/navy-reveals-its-new-low-cost-hypersonic-missile-army-also-expresses-interest/"
     },
     {
       "lop": "RSS",
@@ -730,7 +730,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-26",
-      "tieu_de": "Live: Australian private credit fund limits redemptions",
+      "tieu_de": "Live: Private credit fund redemption limits hit Australia",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-08-26/asx-markets-business-live-credit-fund-limits-redemptions/107077366"
     },
@@ -878,15 +878,6 @@
       "tieu_de": "Syria’s economy poised for improvement after US sanctions removal",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/8/25/syrias-economy-poised-for-improvement-after-us-sanctions-removal?traffic_source=rss",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-26",
-      "tieu_de": "Canada hits US with counter-tariffs on more than 700 products",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/economy/2026/8/25/canada-hits-us-with-counter-tariffs-targeting-hundreds-of-products?traffic_source=rss",
       "nhom": 4
     },
     {
@@ -1045,6 +1036,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-26",
+      "tieu_de": "Rubio tells allies U.S. shifting from strikes to sanctions on Iran",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/08/25/rubio-iran-war-hormuz-oil",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-25",
       "tieu_de": "Trump's Iran \"D-Day\" leaves sanctions hammer hanging",
       "nguon": "Axios",
@@ -1113,6 +1113,15 @@
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/cach-iran-co-the-dap-tra-chien-dich-trung-phat-khong-ke-ho-cua-my-20260825205403910.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-26",
+      "tieu_de": "GOP election law expert: Many more ‘low propensity voters in Republican Party’ after Trump mail-in voting ruling",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6050455-trump-mail-voting-order-impacts-gop/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
