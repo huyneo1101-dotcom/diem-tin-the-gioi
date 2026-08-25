@@ -4,3 +4,5 @@
 [21:20Z] vong bo sung NoiBoMy+UcBienDong xong
 [21:23Z] add_news.py nap xong (+1 worldNews +7 usNews), cong Bao Mo + Jay Lam xu ly xong, da commit+push web-scan
 [21:23Z] START event-scan (CI, gop vao sang som)
+[21:30Z] event-scan DONE: +5 bai think-tank; tap tran/su kien khong co tin moi qua kiem chung
+[21:30Z] DONE - phien sang som hoan tat (web-scan + event-scan), da commit+push ca hai
