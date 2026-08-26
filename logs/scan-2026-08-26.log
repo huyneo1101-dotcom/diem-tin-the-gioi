@@ -11,3 +11,6 @@
 [21:45Z] SKIP web-scan (CI lop vet) — exit 10, kiem ngoai le: so_da_gui co dong 2026-08-26T04:31:06 [sang] 8 tin khop note web-scan "8 tin", ban tin da toi tay. Khong lam lai.
 [14:00Z] START (CI) phien toi
 [14:15Z] SKIP web-scan (local toi 21:15 VN) — exit 11, CI phien toi dang chay (bat dau 21:00:41+07, nhip tim 15' truoc). Khong quet chong.
+[14:19Z] 4 agent xong: NoiBoMy 4->3 (1 bi chan cong ngay), UcBienDong 4, CNQS 5->4 (1 bi chan cong ngay), Mali 1, TapTran 0
+[14:25Z] add_news.py nap xong (+4 worldNews +8 usNews), cong Bao Moi (4 ung vien ton) xu ly xong (loai ca 4, ghi loai-tin.md), Jay Lam doi chieu xong (1 tin trung AIM-424 Malice, ghi trung-jaylam.json)
+[14:25Z] DONE - phien toi hoan tat, dang commit+push

@@ -1,16 +1,47 @@
 {
   "date": "2026-08-26",
-  "session": "sang",
+  "session": "toi",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Hạng 1 (điều trần/bỏ phiếu QH) không tìm được tin nào trong khung 25-26/8 dù đã WebSearch riêng — Quốc hội đang trong kỳ nghỉ tháng 8. Nhiều ứng viên hạng 2 tốt (SC Senate runoff, GOP beef tariff pushback, RealClearDefense) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang không có metadata ngày đọc được (The Hill, NBC News, RealClearDefense — không phải lỗi nội dung, chỉ là trang thiếu thẻ ngày máy đọc được). Chỉ 2 tin qua được cổng: thuế trả đũa Canada (NPR) + niềm tin tiêu dùng (Conference Board)."},
-    {"name":"Úc & Biển Đông","count":1,"target":"5-10","min":5,"thieu":true,
-     "reason":"Vòng 1 toàn bộ ứng viên harvest đều trùng bản tin đã nạp 21-25/8 (Henderson Defence Precinct, South China Sea build-up, AUKUS). Vòng 2 WebSearch bổ sung tìm được 3 tin mới nhưng 1 tin (Pacific Angel 26-1, PACOM) bị loại vì agent không xác nhận được URL khớp đúng nội dung; 1 tin (Trung Quốc tập trận Trạm Giang) phải rút khỏi bản tin GỬI vì trùng file Jay Lâm 24/8 (vẫn còn trên web, chỉ ẩn khỏi file Word). Chỉ còn 1 tin thật sự mới: MCA Úc-Philippines-Mỹ lần 10 (navy.mil)."},
-    {"name":"Công nghệ quân sự Mỹ","count":7,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"Đã kiểm toàn bộ ứng viên harvest (39 mục, đa số nhiễu do trùng tên 'Mali' với người/đội bóng) và WebSearch bổ sung riêng — mọi tin JNIM/AFRICOM tìm được đều là nhắc lại tin nền đã biết từ tháng 7 (Mỹ cân nhắc không kích), không có sự kiện MỚI mang ngày thật 25-26/8. Các tin nối tiếp/ngoại giao Mali-Algeria, Sahel Parliament đã nạp trước đó (23-24/8)."},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":1,"thieu":true,
-     "reason":"Kiểm từng cuộc đang bám (MAITREE-XV, Ulchi Freedom Shield đã kết thúc sớm 21/8, VIEKAREN XXVI, SEACAT 2026, Diễn tập Hạm đội TBD Nga) — không cuộc nào có diễn biến MỚI mang ngày thật 25-26/8 ngoài tin nền đã có; tin hạm đội Nga chỉ có nguồn TASS/Nga (không đạt thang xác minh cho sự kiện tranh chấp)."}
+    {
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 3,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nhóm 1 (điều trần + bỏ phiếu liên bang) = 0: Hạ viện đang trong 'district work period' (nghỉ họp khu vực, dự kiến họp lại 31/08/2026) và Thượng viện nghỉ tới 14/09/2026 — không có hearing/markup/vote nào diễn ra 25-26/08, lý do khách quan lịch nghị trình. Bù bằng 3 tin nhóm 4/5 (bầu cử South Carolina, phân tích trừng phạt Iran, phát ngôn Bessent). 1 tin nhóm 4 khác (The Hill, phản đối data center AI) bị cổng ngày đăng thật chặn vì trang không có metadata ngày đọc được. Do sát hạn chót 21:45 VN nên không mở thêm vòng bổ sung."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "4/8 ứng viên bị loại vì trùng tin đã đăng trong ngày (Henderson AUKUS, Pahlawan Warrior 26 tổng kết muộn) hoặc ngoài khung ngày (Strong Bow Đài Loan đăng thật 24/08). Tin PLA tuần tra Biển Đông chỉ có nguồn Trung Quốc, thiếu nguồn thứ hai độc lập nên bị loại theo thang xác minh. Còn 4 tin đạt chuẩn (2 ngoại giao Úc-Indonesia/Nhật, 2 khí tài AUKUS). Sát hạn chót nên không mở vòng bổ sung."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "1 tin (Serra Verde rare earth, war.gov) bị cổng ngày đăng thật chặn do trang không có metadata ngày. Nhiều ứng viên khác bị loại: NITE-STAR ngoài khung 3 ngày, thuỷ lôi Hormuz không phải tin khí tài cụ thể, IBCS/F-47/M119 không xác minh được ngày sự kiện mới, trang gộp hợp đồng war.gov trả 403 không đọc được để chọn lọc. Còn 4 tin chất lượng cao (AIM-424 Malice, Blackbeard, Liberator, Boeing F-15). Sát hạn chót nên không mở vòng bổ sung."
+    },
+    {
+      "name": "Mỹ – Mali",
+      "count": 1,
+      "target": "2-5",
+      "min": 2,
+      "thieu": true,
+      "reason": "Chỉ tìm được 1 tin đạt chuẩn (Mali áp giới nghiêm vùng San sau vụ JNIM tấn công). Nhiều ứng viên bị loại: 2 tin Nigeria (không phải Mali), báo cáo Africa Corps 'air shadow fleet' ngoài khung (gốc 12-13/08), tin nền 'US weighs strikes' và 'Operation Dougoukoloko' ngoài khung, 2 tin Telegram không đủ liên quan trực tiếp JNIM/Mali. Sát hạn chót nên không mở vòng bổ sung."
+    },
+    {
+      "name": "Tập trận đang diễn ra",
+      "count": 0,
+      "target": "1-2",
+      "min": 1,
+      "thieu": true,
+      "reason": "5 cuộc đang bám (MAITREE-XV, Ulchi Freedom Shield 2026, VIEKAREN XXVI, SEACAT 2026, Diễn tập Hạm đội TBD Nga) đều không có diễn biến MỚI ngoài những gì đã ghi nhận trong DATA — Ulchi Freedom Shield đã kết thúc 21/08, các cuộc còn lại chỉ có tin khai mạc/huấn luyện cũ hơn khung ngày. Trả rỗng thay vì nhồi tin không đạt chuẩn."
+    }
   ],
-  "note": "Cổng Báo Mới: 10 ứng viên, đã xử lý toàn bộ — xem logs/loai-tin.md mục 2026-08-26. 3 nhóm tin trùng file Jay Lâm 24-25/8 (AIM-424 Malice, Canada tariff Bnews, Iran trả đũa x3, tập trận Trạm Giang) bị loại khỏi bản tin gửi hoặc không nạp. Do khối lượng công việc lớn (5 vòng agent + cổng Báo Mới), phiên dừng ở mức chấp nhận được cho phiên sáng — phiên tối bù thêm theo đúng chỉ dẫn 'phiên sáng ~10/mục là đủ, để tối bù'."
+  "note": "Sản lượng phiên tối: +4 worldNews +8 usNews = 12 tin. Xem chi tiết tin bị loại tại logs/loai-tin.md mục '2026-08-26 (phiên tối CI)'. Cổng Báo Mới (4 ứng viên tồn từ trước) đã xử lý dứt điểm — loại cả 4 vì trùng sự kiện hoặc không neo được chủ đề, chi tiết trong loai-tin.md."
 }
