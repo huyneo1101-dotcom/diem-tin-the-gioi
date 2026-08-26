@@ -14,6 +14,13 @@ sha1 kiểu git blob của `index.html` trên github.io so với bản trên `ma
 Bộ canh: `tests/test-canary-web-lech.py` — **10 ca (03 ca PHẢI KÊU) · `--tu-kiem` bắt 5/5 bản
 hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`. Dựng lại tay: `gh workflow run pages.yml`.
 
+⛔ **`workflow_run` KHÔNG ĂN VỚI `claude-web-scan.yml` — vá 26/08/2026, đừng gỡ dòng kích
+thẳng.** Đo `gh api .../pages.yml/runs` nhiều ngày: dựng lại qua `workflow_run` chỉ khớp giờ
+`sync-baomoi`/`sync-preferences`, chưa từng khớp giờ phiên quét tin dù có tên trong danh sách
+nghe — web đứng bản cũ tới khi workflow khác tình cờ chạy qua. Vá: `claude-web-scan.yml` (bước
+"Kích email/push/morning") gọi thêm `gh workflow run pages.yml --ref main`, cùng cơ chế
+`actions: write` đã dùng cho `notify-email.yml`. `workflow_run` giữ làm lưới dự phòng.
+
 ⛔ **TRANG ĐẨY LÊN PAGES LÀ BẢN ĐÃ CẮT — `index.html` TRONG REPO VẪN ĐỦ KHO, ĐỪNG "DỌN".**
 Từ 21/08/2026 `pages.yml` chạy `python3 scripts/cat_nhe_trang.py --tai-cho` ngay trước
 `upload-pages-artifact`: index.html còn **lát đầu** (357.088 byte thô / 108.709 nén, bớt **80%**
