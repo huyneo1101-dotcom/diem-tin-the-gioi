@@ -172,6 +172,17 @@ jobs:
             # claude-event-scan.yml (đã xoá, gộp việc quét vào job này, xem BƯỚC 6 prompt).
             gh workflow run notify-morning.yml -f tu_dong=1
           fi
+          # ⛔ 26/08/2026 — KÍCH THẲNG pages.yml, ĐỪNG CHỈ TRÔNG VÀO `workflow_run`.
+          # Đo nhiều ngày qua `gh api .../pages.yml/runs`: mọi lần pages.yml dựng lại qua
+          # workflow_run đều khớp giờ sync-baomoi/sync-preferences (1-2 lần/ngày), CHƯA TỪNG
+          # MỘT LẦN khớp giờ hoàn tất của chính job quét tin này (2 lần/ngày) — dù workflow
+          # này có tên trong danh sách lắng nghe của pages.yml. Kết quả thật: canary bắt được
+          # bản web đứng yên tới ~50 phút hoặc lâu hơn, chờ MAY RA có sync khác chạy qua thì
+          # trang mới dựng lại. Gọi thẳng dispatch (đã có `actions: write`, đã chứng minh chạy
+          # được ở 3 lệnh `gh workflow run` phía trên) là đường THẤY ĐƯỢC, không phải để may rủi.
+          if [ "$MODE" != "test" ] && { [ "$ban_tin" = "1" ] || [ "$su_kien" = "1" ]; }; then
+            gh workflow run pages.yml --ref main
+          fi
 
       # ĐẶT CUỐI JOB, SAU cả bước kích email — cố ý. Phiên quét này ăn cùng gói Claude
       # với mọi phiên trên máy Mac nhưng bản ghi của nó nằm trên máy GitHub rồi biến mất
