@@ -1,1 +1,2 @@
 04:30 phien sang som (local): claim web-scan OK, bat dau quet
+[21:31Z] SKIP (CI) phien sang som: phat hien phien local (may Huy) da claim web-scan cung slot 'sang' luc 04:30:45 (CI claim 04:30:48, thua 3s), da push commit b876d0a truoc CI. Nhuong lock cho local, CI dung lai de tranh quet/nap tin trung. Khong dung state.py fail/skip vi co the de len tien trinh dang chay cua local.
