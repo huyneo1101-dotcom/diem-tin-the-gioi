@@ -1,18 +1,15 @@
 {
   "date": "2026-08-27",
-  "session": "sang",
+  "session": "toi",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":7,"target":"5-10","min":5,"thieu":false,
-     "reason":"Nhóm 1 (điều trần+bỏ phiếu) = 0 vì Hạ viện đang trong district work period (nghỉ họp khu vực, họp lại 31/08) và Thượng viện nghỉ tới 14/09 — lý do lịch nghị trình, không phải quét thiếu. Đủ số bằng nhóm 2/4/5."},
-    {"name":"Úc & Biển Đông","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"CNQS Mỹ","count":5,"target":"5-10","min":5,"thieu":false,
-     "reason":"Guardrail Ngày Thật chặn 3 bài RealClearDefense/USNI do thiếu metadata ngày, đã loại."},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Nhóm 1 (điều trần + bỏ phiếu Quốc hội Mỹ) = 0 tin trong khung 26-27/08 — không tìm thấy phiên điều trần/bỏ phiếu nào đúng ngày (điều trần Hegseth-Caine và markup KOSA đều diễn ra cuối tháng 7-đầu tháng 8, ngoài khung). Lấy sang nhóm 2/4 (sắc lệnh bưu điện, Fed Lisa Cook, ICC, biểu tình) nhưng cũng bị cổng ngày thật chặn 1 tin (Bloomberg Canada không có metadata ngày)."},
+    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Chỉ 3 tin đạt chuẩn sau khi loại các ứng viên trùng với bản tin gần đây (Five Eyes Sydney, tàu TQ bám sát Philippines/Mỹ/Úc, công trình đảo mới, địa điểm Henderson AUKUS) — không đủ thời gian mở rộng WebSearch do hạn chót 21:45."},
+    {"name":"CNQS Mỹ","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"Agent quét mở rộng (JNIM/Sahel/Wagner-Africa Corps) không tìm được tin đạt chuẩn trong khung 26-27/08; ứng viên gom sẵn đều quá cũ hoặc không xác minh được nguồn."},
-    {"name":"Tập trận đang diễn ra","count":1,"target":"1-2","min":1,"thieu":false,
-     "reason":"MAITREE-XV/VIEKAREN XXVI/SEACAT 2026/Ulchi Freedom Shield không có diễn biến mới ngoài dữ liệu đã có; chỉ Diễn tập Hạm đội Thái Bình Dương Nga có tin mới (nổ bí ẩn Vịnh Peter Đại đế)."},
-    {"name":"Báo Mới","count":0,"target":"best-effort","min":0,"thieu":false,
-     "reason":"3 ứng viên Iran/trừng phạt còn tồn đã xử lý: loại cả 3 vì trùng nội dung với tin đã nạp qua nguồn gốc tốt hơn (Al Jazeera/Africanews), ghi chi tiết trong logs/loai-tin.md."}
+     "reason":"Không tìm được tin Mỹ-Mali/JNIM đúng khung ngày 26-27/08 đạt chuẩn xác minh — 1 tin AFRICOM-Anh được nạp vào mục CNQS/Ngoại giao chung thay vì dossier Mali riêng vì chỉ liên quan Sahel nói chung, không trực tiếp JNIM/Mali. Tin Niger uranium và Libya hostage bị loại vì không neo đủ chặt vào Mali."},
+    {"name":"Tập trận đang diễn ra","count":1,"target":"1-2","min":1,"thieu":false,"reason":"VIEKAREN XXVI có diễn biến mới (Argentina điều 4 tàu tới Puerto Williams)."}
   ],
-  "note": "Chi tiết tin bị loại: logs/loai-tin.md mục 'Phiên SÁNG SỚM 27/08/2026'."
+  "note": "Phiên tối 21:15, hạn chót cứng 22:00. Do sát hạn 21:45, đã CẮT cổng Báo Mới (8 ứng viên còn treo) + cổng bài 👍 (107 bài, nhiều bài sourceUrl dạng calib:xxx không xác minh được + lệch khung ngày) + bước lọc file Jay Lâm — chi tiết trong logs/loai-tin.md. Tổng nạp: +3 worldNews, +8 usNews, +1 tập trận."
 }
