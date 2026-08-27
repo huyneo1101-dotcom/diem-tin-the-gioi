@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-27T21:29:01+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "phien toi: +3 worldNews, +8 usNews, +1 tap tran; cat cong Bao Moi/like/JayLam do sat han 21:45",
+    "lastRunAt": "2026-08-28T04:30:29+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-08-27",
       "sang": "2026-08-27"
-    }
+    },
+    "heartbeat": "2026-08-28T04:44:27+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-08-27T04:53:11+07:00",

@@ -1,15 +1,55 @@
 {
   "date": "2026-08-27",
-  "session": "toi",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"Nhóm 1 (điều trần + bỏ phiếu Quốc hội Mỹ) = 0 tin trong khung 26-27/08 — không tìm thấy phiên điều trần/bỏ phiếu nào đúng ngày (điều trần Hegseth-Caine và markup KOSA đều diễn ra cuối tháng 7-đầu tháng 8, ngoài khung). Lấy sang nhóm 2/4 (sắc lệnh bưu điện, Fed Lisa Cook, ICC, biểu tình) nhưng cũng bị cổng ngày thật chặn 1 tin (Bloomberg Canada không có metadata ngày)."},
-    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Chỉ 3 tin đạt chuẩn sau khi loại các ứng viên trùng với bản tin gần đây (Five Eyes Sydney, tàu TQ bám sát Philippines/Mỹ/Úc, công trình đảo mới, địa điểm Henderson AUKUS) — không đủ thời gian mở rộng WebSearch do hạn chót 21:45."},
-    {"name":"CNQS Mỹ","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"Không tìm được tin Mỹ-Mali/JNIM đúng khung ngày 26-27/08 đạt chuẩn xác minh — 1 tin AFRICOM-Anh được nạp vào mục CNQS/Ngoại giao chung thay vì dossier Mali riêng vì chỉ liên quan Sahel nói chung, không trực tiếp JNIM/Mali. Tin Niger uranium và Libya hostage bị loại vì không neo đủ chặt vào Mali."},
-    {"name":"Tập trận đang diễn ra","count":1,"target":"1-2","min":1,"thieu":false,"reason":"VIEKAREN XXVI có diễn biến mới (Argentina điều 4 tàu tới Puerto Williams)."}
+    {
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Quốc hội phần lớn nghỉ họp trong khung ngày 27-28/08 nên nhóm 1 (điều trần + bỏ phiếu) chỉ có đúng 1 sự kiện đủ chuẩn (Thượng viện thông qua dự luật trừng phạt Nga), nhưng tin đó bị cổng ngày thật chặn vì bài PBS News xác nhận đăng thật từ 07/08, không phải 28/08 như agent khai. Còn lại 4 tin thuộc nhóm 2-5 (sắc lệnh đổi tên hồ Ontario, quy định bỏ phiếu qua thư, thuế bán dẫn, thống đốc Wyoming phản đối quan sát viên DOJ). Một ứng viên khác (Bộ Tư pháp công bố tin tặc Trung Quốc xâm nhập NASA/Fed/Thượng viện, 26/08) bị cổng ngày thật chặn vì đã quá 1 ngày so với hôm nay lúc quét (28/08 giờ VN)."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 2,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Sau khi loại nhiều ứng viên vì cổng ngày thật (ví dụ tin Henderson của Breaking Defense thực đăng 24/08 dù agent khai 27/08) và loại tin nội bộ Nhật/Ấn/Hàn không đủ neo vào Úc/Biển Đông, chỉ còn 2 tin xác minh chắc chắn đúng khung ngày: Đài Loan thông qua ngân sách drone 7,6 tỷ USD (27/08) và Úc chốt sơ đồ mặt bằng Henderson AUKUS (27/08, nguồn khác — Global Defense Corp). Đã chạy 1 vòng bổ sung riêng cho chủ đề này, không tìm thêm được tin đúng ngày."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Hai ứng viên bị loại vì TRÙNG nội dung tin đã có sẵn trong kho từ trước dù khác nguồn báo (X-Bow 11 triệu USD tên lửa đánh chặn — đã có từ 19-20/08; Silent Anvil ngư lôi phóng từ máy bay — đã có từ 25-26/08). Sau khi loại, còn 4 tin thật: GAO báo cáo thiệt hại bảo trì tàu ngầm, Không quân nâng cấp radar B-52, VivSoft nền tảng AI sẵn sàng chiến đấu, Dataminr hợp đồng 318 triệu USD cảnh báo AI. Đã chạy 1 vòng bổ sung riêng, không tìm thêm được tin mới không trùng."
+    },
+    {
+      "name": "Mỹ – Mali",
+      "count": 0,
+      "target": "2-5",
+      "min": 0,
+      "thieu": true,
+      "reason": "Không tìm được tin nào về Mỹ-Mali/JNIM/Sahel đăng thật trong khung 27-28/08. Các ứng viên tìm được đều xác minh ngày đăng thật rơi vào tháng 7 (22/07, 27-28/07), ngoài khung — bỏ theo đúng nguyên tắc thà 0 còn hơn nhồi tin cũ."
+    },
+    {
+      "name": "Tập trận đang diễn ra",
+      "count": 0,
+      "target": "1-2",
+      "min": 0,
+      "thieu": true,
+      "reason": "4 cuộc đang bám (MAITREE-XV, VIEKAREN XXVI, SEACAT 2026, Diễn tập Hạm đội Thái Bình Dương Nga) đều có diễn biến nhưng không tìm được bài cập nhật nào có ngày đăng thật xác minh được đúng 27-28/08 — bài gần nhất kiểm được (MAITREE-XV, uniindia.com) đăng 25/08, ngoài khung. Bỏ theo nguyên tắc thà 0 còn hơn nhồi tin cũ."
+    },
+    {
+      "name": "Báo Mới",
+      "count": 0,
+      "target": "-",
+      "min": 0,
+      "thieu": false,
+      "reason": "8 ứng viên khớp 5 chủ đề đều bị loại: 2 trùng sự kiện tin tặc Trung Quốc (bị cổng ngày thật chặn, bài thật 26/08 đã quá cũ so hôm nay 28/08), 1 trùng tin lò phản ứng hạt nhân đã có, 1 là diễn biến phụ mỏng (ICC), 1 lệch phạm vi (Ukraine dùng Patriot), 1 chưa xác minh kịp nguồn (F-35 tên lửa mới), 1 là bài phân tích không phải sự kiện (Iran sanctions). Chi tiết: logs/loai-tin.md."
+    }
   ],
-  "note": "Phiên tối 21:15, hạn chót cứng 22:00. Do sát hạn 21:45, đã CẮT cổng Báo Mới (8 ứng viên còn treo) + cổng bài 👍 (107 bài, nhiều bài sourceUrl dạng calib:xxx không xác minh được + lệch khung ngày) + bước lọc file Jay Lâm — chi tiết trong logs/loai-tin.md. Tổng nạp: +3 worldNews, +8 usNews, +1 tập trận."
+  "note": "Cổng bài 👍 còn 107 bài chưa nạp, phần lớn sourceUrl dạng 'calib:xxx' (không phải URL thật, nghi dữ liệu mô phỏng) — không xử lý được trong phiên này, cần phiên riêng kiểm tra nguồn gốc dữ liệu trước. Chi tiết: logs/loai-tin.md."
 }
