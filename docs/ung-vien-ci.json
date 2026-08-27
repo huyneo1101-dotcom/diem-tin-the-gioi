@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-27T06:59:08+07:00",
+  "tao_luc": "2026-08-27T08:03:57+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-26",
@@ -634,6 +634,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-26",
+      "tieu_de": "Indonesia’s tightening state grip on the economy",
+      "nguon": "Lowy Interpreter",
+      "url": "https://www.lowyinstitute.org/the-interpreter/indonesia-s-tightening-state-grip-on-the-economy"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-26",
       "tieu_de": "Philippines, Australia, US complete naval exercises in West Philippine Sea",
       "nguon": "Philstar (headlines)",
       "url": "https://www.philstar.com/headlines/2026/08/27/2552090/philippines-australia-us-complete-naval-exercises-west-philippine-sea"
@@ -762,15 +770,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-27",
-      "tieu_de": "US inflation holds at 3.7 percent in July, above Fed target",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/economy/2026/8/26/us-inflation-remains-sticky-in-july?traffic_source=rss",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-26",
       "tieu_de": "Canada announces 'dollar-for-dollar' retaliatory tariffs on US as high as 50%",
       "nguon": "BBC World",
@@ -844,6 +843,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-27",
+      "tieu_de": "Fed governor Lisa Cook: \"No legitimate basis for removal\" on Trump mortgage claims",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/08/26/trump-fed-lisa-cook",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-27",
       "tieu_de": "States renew fight against Trump's mail-in voting rule",
       "nguon": "Axios",
       "url": "https://www.axios.com/2026/08/26/trump-mail-in-voting-postal-service-states-lawsuit",
@@ -870,10 +878,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-26",
-      "tieu_de": "Canada unveils retaliatory tariffs on about $20 billion of U.S. goods",
+      "ngay": "2026-08-27",
+      "tieu_de": "Fed Gov Lisa Cook’s lawyer fires back at Trump's renewed threat to oust her",
       "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/08/25/canada-trump-tariffs-trade-carney-leblanc.html",
+      "url": "https://www.cnbc.com/2026/08/26/trump-lisa-cook-federal-reserve.html",
       "nhom": 4
     },
     {
@@ -1090,6 +1098,15 @@
       "tieu_de": "THUẾ QUAN HOA KỲ: Tạm hoãn thuế 50% với Canada, cân nhắc đình chỉ thuế với Colombia",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/thue-quan-hoa-ky-tam-hoan-thue-50-voi-canada-can-nhac-dinh-chi-thue-voi-colombia-102260819133559716.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-27",
+      "tieu_de": "Mỹ Canada ăn miếng trả miếng thuế quan Đâu chỉ là lưỡng bại câu thương",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/my-canada-an-mieng-tra-mieng-thue-quan-dau-chi-la-luong-bai-cau-thuong-435909.html",
       "nhom": 4
     },
     {
