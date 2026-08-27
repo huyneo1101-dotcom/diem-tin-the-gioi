@@ -1,3 +1,4 @@
 04:30 [local sang som] claim web-scan OK, bat dau quet
 04:44 checkpoint: da nap 1 tin The gioi + 6 tin My (Noi bo My + CNQS), dang bo sung them CNQS va Uc-Bien Dong
 05:06 DONE web-scan: 9 tin (Noi bo My 4, Uc-Bien Dong 2, CNQS My 4, Mali 0, Tap tran 0). DONE event-scan: 6 bai think-tank, 0 su kien/tap tran moi. Ca 2 commit da push, pages.yml + notify-morning.yml da chay xanh.
+23:04Z (06:04 VN) phien CI sang som: state.py claim web-scan tra exit 10 (DA XONG, lastRunAt 04:54:51+07:00). Kiem so_da_gui.py --xem: co dong 2026-08-28T04:55:02+07:00 [sang] 38 tin -> ban tin sang nay DA gui that, khong phai co noi doi. SKIP em, khong quet lai.
