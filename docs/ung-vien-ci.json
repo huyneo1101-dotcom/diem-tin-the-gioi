@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-28T06:02:22+07:00",
+  "tao_luc": "2026-08-28T06:55:25+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-27",
@@ -13,6 +13,14 @@
       "tieu_de": "Singapore has to keep reinventing itself as global environment changes: SM Lee",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/singapore-has-to-keep-reinventing-itself-as-global-environment-changes-sm-lee"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-28",
+      "tieu_de": "China’s super-rich fled Singapore. Now they want to come back",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/08/28/chinas-super-rich-fled-singapore-now-they-want-to-come-back.html"
     },
     {
       "lop": "RSS",
@@ -473,6 +481,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-28",
+      "tieu_de": "Three journalists sue Pentagon after being fired from military news outlet",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/aug/27/journalists-sue-pentagon-stars-and-stripes"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-27",
       "tieu_de": "Iran kêu gọi cộng đồng Hồi giáo đoàn kết, thêm tàu sân bay Mỹ tới Trung Đông",
       "nguon": "VietnamNet",
@@ -617,14 +633,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Taiwan drone strategy caught in legislature's budget battles",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/taiwan-tensions/taiwan-drone-strategy-caught-in-legislature-s-budget-battles"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-27",
       "tieu_de": "Malaysia: Tìm thấy thi thể người trong khoang bánh đáp máy bay từ Nhật Bản",
       "nguon": "Dân Trí",
@@ -634,17 +642,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-28",
-      "tieu_de": "Australia faces 'sliding doors' moment to turn AI boom into local wealth",
+      "tieu_de": "The world wants to build data centres in Australia, but we want something in return",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-08-28/ai-companies-want-to-leverage-australian-data-centres/107086534"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-27",
-      "tieu_de": "Project Noah eyes 150 detention basins to help curb Metro Manila floods",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2293840/project-noah-eyes-150-detention-basins-to-help-curb-metro-manila-floods"
     },
     {
       "lop": "RSS",
@@ -658,7 +658,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-28",
-      "tieu_de": "Australia news live: Labor’s $5m support package for Nepal floods falls far too short, Greens say",
+      "tieu_de": "Australia news live: One Nation announces investment banker as NSW leader ahead of election",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/aug/28/nepal-floods-australians-missing-penny-wong-anthony-albanese-angus-taylor-liberal-party-pauline-hanson-one-nation-ntwnfb"
     },
@@ -751,15 +751,6 @@
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/8/27/trump-executive-order-bans-some-foreign-equipment-in-us-energy-grid?traffic_source=rss",
       "nhom": 2
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-28",
-      "tieu_de": "How California is preparing for Donald Trump’s midterm election scrutiny",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/longform/2026/8/27/how-california-is-preparing-to-fight-trumps-criticisms-of-the-midterm-vote?traffic_source=rss",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -957,15 +948,6 @@
       "tieu_de": "Maine Republican governor nominee requests ICE at polling places during midterms",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/state-watch/6053299-gop-nominee-maine-ice-elections/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-27",
-      "tieu_de": "Judge blocks Democrats’ redistricting push in Maryland",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/regulation/court-battles/6053271-judge-blocks-maryland-redistricting-amendment/",
       "nhom": 5
     },
     {
