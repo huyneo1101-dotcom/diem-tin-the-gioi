@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-28T11:26:58+07:00",
+  "tao_luc": "2026-08-28T12:34:52+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-27",
@@ -45,6 +45,14 @@
       "tieu_de": "Listening for water amid Puerto Rico’s drought",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/573336/listening-water-amid-puerto-ricos-drought"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-28",
+      "tieu_de": "Mizuho files case against Radiant World in Singapore court",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/business/2026/08/28/companies/mizuho-file-case-singapore/"
     },
     {
       "lop": "RSS",
@@ -570,14 +578,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-28",
-      "tieu_de": "‘Everything is covered in ash’: Indonesia wildfires leave people in crisis",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/27/everything-is-covered-in-ash-indonesia-wildfires-leave-people-in-crisis?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-28",
       "tieu_de": "Taiwan lawmakers approve $7.6 billion drone budget as China threat grows",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/taiwan-lawmakers-approve-76-billion-drone-budget-as-china-threat-grows/article71397756.ece"
@@ -666,9 +666,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-28",
-      "tieu_de": "Fear of mass seal deaths triggers Australian withdrawal from remote island",
+      "tieu_de": "First H5N1 bird flu detection confirmed in Australian dolphin",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-28/macquarie-island-scientists-to-be-evacuated-over-bird-flu-fears/107088108"
+      "url": "https://www.abc.net.au/news/2026-08-28/sa-detects-h5n1-bird-flu-in-goolwa-dolphin/107090806"
     },
     {
       "lop": "RSS",
@@ -698,6 +698,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-28",
+      "tieu_de": "How policy choices left Philippines behind Taiwan in global chip race",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/business/2026/08/28/2552418/how-policy-choices-left-philippines-behind-taiwan-global-chip-race"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-28",
       "tieu_de": "26th MEU’s Command Post Exercise 2 | COC Establishment",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1020898/26th-meus-command-post-exercise-2-coc-establishment"
@@ -714,7 +722,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-28",
-      "tieu_de": "Australia news live: Antarctic staff to withdraw from Macquarie Island amid bird flu risk; Virgin’s profit rises despite US-Iran war",
+      "tieu_de": "Australia news live: Antarctic staff withdrawn from Macquarie Island due to ‘psychological stress’ from bird flu risk; dolphin dies from H5",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/aug/28/nepal-floods-australians-missing-penny-wong-anthony-albanese-angus-taylor-liberal-party-pauline-hanson-one-nation-ntwnfb"
     },
@@ -785,29 +793,11 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-28",
-      "tieu_de": "US Postal Service says mail-in ballot restrictions now in effect",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/27/us-postal-service-says-mail-in-ballot-restrictions-now-in-effect?traffic_source=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-27",
       "tieu_de": "Could new US sanctions tear China and Iran apart?",
       "nguon": "Deutsche Welle",
       "url": "https://www.dw.com/en/could-new-us-sanctions-tear-china-and-iran-apart/a-78526205?maca=en-rss-en-world-4025-rdf",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-27",
-      "tieu_de": "Alleged underworld kingpin testifies at S. African commission",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20260827-alleged-underworld-kingpin-testifies-at-s-african-commission",
-      "nhom": 1
     },
     {
       "lop": "RSS",
@@ -834,6 +824,15 @@
       "tieu_de": "US-hosted G20 finance meeting to target growth, imbalances, Iran sanctions, Treasury official says",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/middle-east/us-hosted-g20-finance-meeting-to-target-growth-imbalances-iran-sanctions-treasury-official-says",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-28",
+      "tieu_de": "US visa interviews on hold; China slams fresh sanctions over Iran: SCMP’s 7 highlights",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/china/article/3365519/us-visa-interviews-hold-china-slams-fresh-sanctions-over-iran-scmps-7-highlights?utm_source=rss_feed",
       "nhom": 4
     },
     {
@@ -924,15 +923,6 @@
       "tieu_de": "Can thiệp thị trường trái phiếu khiến Bộ Tài chính Mỹ xung đột với Fed",
       "nguon": "VnEconomy",
       "url": "https://vneconomy.vn/can-thiep-thi-truong-trai-phieu-khien-bo-tai-chinh-my-xung-dot-voi-fed.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-27",
-      "tieu_de": "5 quốc gia có thể chịu ảnh hưởng lớn nhất khi Mỹ siết trừng phạt thương mại Iran",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/5-quoc-gia-co-the-chiu-anh-huong-lon-nhat-khi-my-siet-trung-phat-thuong-mai-iran.htm",
       "nhom": 4
     },
     {
@@ -1113,15 +1103,6 @@
       "tieu_de": "Tổng thống Trump tuyên bố không muốn nói chuyện với Iran tiếp tục ra đòn trừng phạt kinh tế",
       "nguon": "Báo Thế giới & Việt Nam",
       "url": "https://baoquocte.vn/tong-thong-trump-tuyen-bo-khong-muon-noi-chuyen-voi-iran-tiep-tuc-ra-don-trung-phat-kinh-te-437209.html",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-28",
-      "tieu_de": "Mỹ áp trừng phạt thứ cấp lên Iran Trung Quốc chỉ trích tuyên bố sẽ thực hiện mọi biện pháp cần thiết",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/my-ap-trung-phat-thu-cap-len-iran-trung-quoc-chi-trich-tuyen-bo-se-thuc-hien-moi-bien-phap-can-thiet-437149.html",
       "nhom": 4
     },
     {
