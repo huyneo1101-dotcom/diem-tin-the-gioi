@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-08-29T06:13:13+07:00",
+    "lastRunAt": "2026-08-29T06:32:09+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+14 tin (5 chu de, phien sang som)",
     "lastSuccess": {
       "toi": "2026-08-27",
-      "sang": "2026-08-28"
-    },
-    "heartbeat": "2026-08-29T06:13:13+07:00"
+      "sang": "2026-08-29"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-08-28T05:03:28+07:00",

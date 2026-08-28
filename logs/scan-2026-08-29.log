@@ -1,1 +1,6 @@
 [23:13Z] START (CI) phien sang som
+[23:15Z] harvest.py + telegram_harvest.py xong: 373 ung vien RSS/HTML/GNEWS + 19 ung vien Telegram
+[23:25Z] 4 agent Sonnet xong: Noi bo My 6, Uc&BiendDong 4, CNQS My 9, Mali+Tap tran 0+0
+[23:29Z] add_news.py nap xong 14 tin (3 worldNews + 11 usNews = Noi bo My 3 + CNQS My 8); 2 tin bi cong ngay that chan (Durbin statement khong co ngay, Trilogy Metals qua cu)
+[23:31Z] Jay Lam: gh workflow bi chan requires-approval, --liet-ke xac nhan khong co file trong khung -> khong mat buoc loc
+[23:31Z] DONE: +14 tin (Noi bo My 3, Uc&BiendDong 3, CNQS My 8); Mali+Tap tran rong co ly do
