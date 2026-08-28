@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-29T06:10:16+07:00",
+  "tao_luc": "2026-08-29T06:39:49+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-28",
@@ -21,6 +21,14 @@
       "tieu_de": "The Kuril Flashpoint: Putin’s Visit and the Future of Japan-Russia Ties",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/08/the-kuril-flashpoint-putins-visit-and-the-future-of-japan-russia-ties/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Young hawkers bring new life to Singapore food tradition",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/life-arts/life/young-hawkers-bring-new-life-to-singapore-food-tradition"
     },
     {
       "lop": "RSS",
@@ -145,6 +153,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-29",
+      "tieu_de": "Trump says he will observe the 25th anniversary of 9/11 at Pentagon",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/trump-says-he-will-observe-the-25th-anniversary-of-911-at-pentagon/article71402390.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-28",
       "tieu_de": "U.S. judge says Pentagon’s measures against Anthropic were ’illegal and baseless’",
       "nguon": "The Hindu",
@@ -249,6 +265,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-29",
+      "tieu_de": "Trump to give speech at Pentagon for 25th anniversary of 9/11",
+      "nguon": "The Hill — Defense",
+      "url": "https://thehill.com/newsletters/defense-national-security/6058631-trump-speech-pentagon-9-11-defense-newsletter/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-28",
       "tieu_de": "How an inside 'scoop' revealed Pentagon links to pro-Trump influencer",
       "nguon": "The Hill — Defense",
@@ -265,26 +289,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-29",
-      "tieu_de": "US Navy accepts delivery of final Expeditionary Sea Base vessel",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/us-navy-accepts-delivery-of-final-expeditionary-sea-base-vessel/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-26",
       "tieu_de": "Castelion wins $90m US Navy deal for Blackbeard hypersonic missile",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/castelion-blackbeard-us-navy/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-28",
-      "tieu_de": "Marine Corps bets on techy, but human-centric ground warfare for next 15 years",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/08/27/marine-corps-bets-on-techy-but-human-centric-ground-warfare/"
     },
     {
       "lop": "RSS",
@@ -301,14 +309,6 @@
       "tieu_de": "Sonu Shankar appointed as Pentagon principal deputy CIO",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/08/27/sonu-shankar-appointed-pentagon-principal-deputy-cio/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-27",
-      "tieu_de": "Initial Golden Dome tests focused on C2, software",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/08/27/initial-golden-dome-tests-focused-on-c2-software/"
     },
     {
       "lop": "RSS",
@@ -341,6 +341,14 @@
       "tieu_de": "U.S. Navy Accelerates Blackbeard Hypersonic Missile",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/28/us_navy_accelerates_blackbeard_hypersonic_missile_1202950.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-29",
+      "tieu_de": "Initial Golden Dome Tests Focused on C2, Software",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/08/28/initial_golden_dome_tests_focused_on_c2_software_1202986.html"
     },
     {
       "lop": "RSS",
@@ -386,14 +394,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-27",
-      "tieu_de": "AV Nabs $51 Million Switchblade 600 Order With Deliveries To U.S. Army, FMS Customer",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/av-nabs-51-million-switchblade-600-order-with-deliveries-to-u-s-army-fms-customer/army/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-27",
       "tieu_de": "Marine Corps Warfighting Lab Accepts First Aussie-Designed Prototype Surface Craft",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/marine-corps-warfighting-lab-accepts-first-aussie-designed-prototype-surface-craft/navy-usmc/"
@@ -409,42 +409,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-28",
-      "tieu_de": "Space Force Adopts Digital Engineering Tool for NC3 Satellite Program",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/space-force-digital-engineering-tool-nc3-satellite-program/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-29",
-      "tieu_de": "F-35 Price Rising due to New Upgrades, Inflation, More",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/f-35-price-rising-new-upgrades-inflation/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-29",
-      "tieu_de": "New Report: Space Force Spent $124M on Commercial Data, Services over Nearly 3 Years",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/new-watchdog-report-space-force-commercial-data-spending/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-27",
       "tieu_de": "Pentagon upgrades awards for 3 Marines at Abbey Gate attack",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/08/27/pentagon-upgrades-awards-for-3-marines-at-abbey-gate-attack/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-27",
-      "tieu_de": "US Army taps 5 firms to build on-base microreactors in nuclear energy push",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/industry/techwatch/2026/08/26/us-army-taps-5-firms-to-build-on-base-microreactors-in-nuclear-energy-push/"
     },
     {
       "lop": "RSS",
@@ -625,26 +593,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-28",
-      "tieu_de": "Việt Nam phản đối Trung Quốc xây dựng trái phép tại Hoàng Sa",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/viet-nam-phan-doi-trung-quoc-xay-dung-trai-phep-tai-hoang-sa-5114678.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "Australia's Pacific rivalry with China heats up after Beijing's ICBM test",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/spotlight/policy-asia/australia-s-pacific-rivalry-with-china-heats-up-after-beijing-s-icbm-test"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Philippines hikes rates to manage Iran energy shock inflation",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/markets/philippines-hikes-rates-to-manage-iran-energy-shock-inflation"
     },
     {
       "lop": "RSS",
@@ -673,26 +625,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-29",
-      "tieu_de": "Indonesia’s First Aircraft Carrier Is On Its Way From Italy",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/news-features/indonesias-first-aircraft-carrier-is-on-its-way-from-italy"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-28",
       "tieu_de": "26th MEU’s Command Post Exercise 2 | COC Establishment",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1020898/26th-meus-command-post-exercise-2-coc-establishment"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-28",
-      "tieu_de": "On islands key to Taiwan’s defense, troops prepare for a Chinese first strike",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/08/28/asia-pacific/taiwan-defense-chinese-strike-prepare/"
     },
     {
       "lop": "RSS",
@@ -709,14 +645,6 @@
       "tieu_de": "Taiwan approves $7 billion drone budget",
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/08/27/2026/taiwan-approves-7-billion-drone-budget"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Mọi hoạt động của nước ngoài tại quần đảo Hoàng Sa là hoàn toàn phi pháp và vô giá trị",
-      "nguon": "Báo Chính phủ",
-      "url": "https://baochinhphu.vn/moi-hoat-dong-cua-nuoc-ngoai-tai-quan-dao-hoang-sa-la-hoan-toan-phi-phap-va-vo-gia-tri-10226082820194442.htm"
     },
     {
       "lop": "RSS",
