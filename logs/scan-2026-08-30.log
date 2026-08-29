@@ -9,3 +9,4 @@
 [18:05Z] add_analyses.py nap 5 bai think-tank + set_analysis_concepts.py gan 4 khai niem
 [18:07Z] Chu Nhat: weekly_context.py + agent Opus + add_weekly.py xong (My/Trung/Nga)
 [18:07Z] DONE event-scan: +5 bai think-tank, bao cao tuan
+[18:09Z] SKIP (CI) phien sang som moi goi: state.py claim web-scan tra exit 10 (DA XONG luc 00:56:04+07). Kiem so_da_gui --xem thay dong [sang] 9 tin luc 01:08:53+07 (~1 phut truoc) -> co that, khong phai co noi doi. SKIP em dung luat, khong quet lai.
