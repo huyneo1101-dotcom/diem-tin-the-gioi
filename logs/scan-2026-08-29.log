@@ -9,3 +9,4 @@
 [23:39Z] +6 bai think-tank (ASPI, RUSI, Fulcrum x2, War on the Rocks, Riddle Russia) + khai niem
 [23:39Z] DONE event-scan: +2 tap tran moi, +6 bai think-tank; khong phai Chu nhat nen bo qua bao cao tuan
 [02:55Z] SKIP web-scan (lan goi 09:55 VN): state.py claim tra exit 10 (phien sang da DONE luc 06:32 VN). Kiem so_da_gui.py --xem: co du dong [sang] 16 tin va [sukien] 2 tin luc 06:40:42/43 VN hom nay -> ban tin da toi tay that, khong phai co noi doi. Ket thuc em, khong quet lai.
+[03:22Z] SKIP web-scan (lan goi 10:22 VN): state.py claim lai tra exit 10 (phien sang van DONE luc 06:32 VN). so_da_gui.py --xem van co du dong [sang] 16 tin va [sukien] 2 tin luc 06:40:42/43 VN -> ban tin da gui, khong phai co noi doi. Ket thuc em.
