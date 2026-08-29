@@ -4,3 +4,8 @@
 [17:48Z] Bao Moi truy nguon (7 ung vien) + 2 vong bo sung Uc&BD/CNQS xong
 [17:53Z] add_news.py nap thanh cong: 8 tin (3 worldNews, 5 usNews). scan-gaps.json + loai-tin.md da ghi
 [17:56Z] DONE web-scan: +8 tin (5 chu de). Tiep tuc Buoc 6 (event-scan) vi la phien sang som
+[17:56Z] START event-scan (CI, gop vao sang som)
+[17:58Z] do_tap_tran_thieu.py xong: 4 co ten rieng, 19 khong ten. Agent su kien/tap tran: 0 su kien, 0 tap tran (tat ca ung vien bi loai vi ngoai khung hoac da co)
+[18:05Z] add_analyses.py nap 5 bai think-tank + set_analysis_concepts.py gan 4 khai niem
+[18:07Z] Chu Nhat: weekly_context.py + agent Opus + add_weekly.py xong (My/Trung/Nga)
+[18:07Z] DONE event-scan: +5 bai think-tank, bao cao tuan
