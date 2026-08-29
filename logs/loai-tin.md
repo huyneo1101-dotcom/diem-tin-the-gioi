@@ -951,3 +951,23 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
   - Agent Tập trận: 6/9 cuộc trong danh sách "đang bám" (Pitch Black, PANAMAX, Baltic Trust, Hán Quang 42, Falcon Strike, Swift Eagle) xác minh qua WebSearch là ĐÃ KẾT THÚC trước 28/08 dù DATA.exercises còn ghi "ongoing" — không có gì để cập nhật. MAITREE-XV (cập nhật gần nhất xác minh 21/08) và Diễn tập Hạm đội TBD Nga (cập nhật gần nhất 27/08) đều ngoài khung nghiêm ngặt 28-29/08. Trả rỗng.
   - Cổng bài 👍 (107 bài, không đổi từ phiên trước) — vẫn phần lớn sourceUrl dạng "calib:xxx" không xác minh được, và các mục còn lại đều ngày 26/08 trở về trước, ngoài khung phiên này (28-29/08). KHÔNG xử lý phiên này, vẫn cần phiên riêng đánh giá nguồn "calib:xxx".
   - Cổng Báo Mới (2 ứng viên CNQS Mỹ): "S-500 có thể đối phó vũ khí siêu vượt âm đến đâu?" — về hệ thống Nga, không thuộc CNQS Mỹ, loại. "Phân tích kỹ thuật tên lửa AIM-424 LRAAM..." — sự kiện gốc (công bố tại Tailhook) diễn ra 22/08, ngoài khung 3 ngày cho phép (26-29/08) dù Báo Mới đăng lại 28/08, không tìm được góc tin mới trong khung. Loại cả hai.
+
+## Phiên TỐI 29/08/2026 (mốc local 21:15)
+  - [Nội bộ Mỹ] "US House Passes Bill Allowing Year-Round Sales of E15 Gasoline" — sự kiện thật diễn ra 13/05/2026, không phải 28-29/08. GNEWS gán sai ngày. Loại.
+  - [Nội bộ Mỹ] "US Senate passes $70 billion funding for ICE, Border Patrol" — sự kiện thật diễn ra 04-05/06/2026. Loại.
+  - [Nội bộ Mỹ] "US House passes bill reversing postal service changes" — mọi bài khớp từ khoá tìm được đều từ 2020 (thời DeJoy), không có sự kiện tương ứng 2026. Loại.
+  - [Nội bộ Mỹ] "Senate Passes Russia Sanctions Bill After Zelenskyy Visit" — sự kiện thật diễn ra 28/07/2026, không phải 28/08. Loại.
+  - [Nội bộ Mỹ] "Ranking Member Cantwell Opening Statement at Markup of KOSA" (commerce.senate.gov) — phiên markup thật diễn ra 05/08/2026, ngoài khung 24-48h. Loại.
+  - [Nội bộ Mỹ] "Trump administration appeals mail-in voting block" (The Hill) — cổng ngày thật chặn: trang không lộ metadata ngày đọc được dù nội dung có vẻ đúng khung (TRO của thẩm phán Talwani 27/08, kháng cáo theo sau). Loại theo cổng, không lách.
+  - [Nội bộ Mỹ] "Seneca Nation requests reversal on Lake America order" (The Hill) — cùng lý do: cổng ngày thật không đọc được metadata. Loại.
+  - [Úc & Biển Đông] "Teodoro urges youth to view West Philippine Sea..." (Manila Bulletin) — cổng ngày thật không đọc được metadata trang mb.com.ph. Loại.
+  - [Úc & Biển Đông] "Australia's Pacific rivalry with China heats up after Beijing's ICBM test" (Nikkei Asia) — bài đăng thật ngày 27/08, ngoài khung so với batch 29/08. Loại.
+  - [Úc & Biển Đông] "Indonesia sắp nhận tàu sân bay đầu tiên" (VnExpress) — trùng sự kiện tin đã có "Tàu sân bay đầu tiên của Indonesia rời Ý...". Loại.
+  - [Úc & Biển Đông] "Chinese construction on disputed South China Sea islet draws Vietnam's ire" (Baird Maritime) — bài gốc tìm được là chiều ngược (TQ phản đối VN xây ở Bãi Ba Đầu), đăng 19/02/2025, không khớp. Loại.
+  - [Úc & Biển Đông] "Declare July 12 as West Philippine Sea Victory Day" (Rappler) — nội dung thật gắn mốc kỷ niệm phán quyết Biển Đông khoảng 2021, không khớp 28-29/08; Rappler chặn WebFetch không xác minh lại được. Loại.
+  - [Úc & Biển Đông] "US imposes sanctions on China's CNOOC over South China Sea" (GNEWS) — mọi kết quả tìm được là sự kiện năm 2021, không có bằng chứng sự kiện mới 2026. Loại.
+  - [Mỹ–Mali] "West Africa: Faye, Diop Set Ecowas Agenda" (AllAfrica) — chỉ nói ECOWAS chung, không nhắc JNIM/Africa Corps/Mỹ. Loại.
+  - [Mỹ–Mali] "Satan's Chariot: Mercenary Trouble in Mali" (Atlantic Council podcast) — bình luận về sự kiện cũ tháng 4/2026, không phải diễn biến mới. Loại.
+  - [Mỹ–Mali] Tin binh biến/đảo chính Niger (nhiều nguồn: Reuters, France 24, SCMP, Africanews...) — SỰ KIỆN LỚN trong ngày nhưng KHÔNG thuộc dossier "Mỹ–Mali" (nước khác, không có bằng chứng vai trò Mỹ/JNIM/Mali). Không nạp vào chủ đề này; ngoài phạm vi 5 chủ đề nên cũng không có chủ đề khác để nạp.
+  - [war.gov Contracts] Trang war.gov/News/Contracts — bị cổng ngày thật chặn (không đọc được metadata), dù trong bài có ghi rõ "Contracts for Aug. 28, 2026" ở tiêu đề. Loại theo cổng máy, không lách bằng cờ bỏ cổng vì thời gian phiên có hạn.
+  - Trigger Jay Lâm bot (`gh workflow run telegram-bot.yml`) thành công, chờ xong rồi `tin_jaylam.py --liet-ke` → exit 10, không có file trong khung ngày. Không có bước lọc trùng cần làm.
