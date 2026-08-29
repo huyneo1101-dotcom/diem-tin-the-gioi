@@ -12,3 +12,4 @@
 [18:09Z] SKIP (CI) phien sang som moi goi: state.py claim web-scan tra exit 10 (DA XONG luc 00:56:04+07). Kiem so_da_gui --xem thay dong [sang] 9 tin luc 01:08:53+07 (~1 phut truoc) -> co that, khong phai co noi doi. SKIP em dung luat, khong quet lai.
 [21:30Z] SKIP (local 04:30) web-scan: state.py claim tra exit 10 (DA XONG luc 00:56:04+07, phien toi chay bu sang som). Dung theo luat Buoc 0, khong dieu tra them.
 [21:45Z] SKIP (local 04:45) web-scan: state.py claim tra exit 10 (DA XONG luc 00:56:04+07, phien toi chay bu sang som). Dung theo luat Buoc 0, khong dieu tra them.
+[22:49Z] SKIP (CI) web-scan goi lai: state.py claim tra exit 10 (DA XONG luc 00:56:04+07). Kiem lai so_da_gui --xem: dong [sang] 9 tin luc 01:08:53+07 van con -> ban tin sang nay da toi tay, khong phai co noi doi. SKIP em dung luat.
