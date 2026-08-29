@@ -1,1 +1,6 @@
 [17:24Z] START (CI) phien sang som
+[17:30Z] harvest.py + telegram_harvest.py xong: 288 ung vien RSS/GNEWS + 23 TG
+[17:40Z] 5 agent chu de xong (round 1): Noi bo My 5, Uc&BD 1, CNQS My 2, Mali 0, Tap tran 1
+[17:48Z] Bao Moi truy nguon (7 ung vien) + 2 vong bo sung Uc&BD/CNQS xong
+[17:53Z] add_news.py nap thanh cong: 8 tin (3 worldNews, 5 usNews). scan-gaps.json + loai-tin.md da ghi
+[17:56Z] DONE web-scan: +8 tin (5 chu de). Tiep tuc Buoc 6 (event-scan) vi la phien sang som

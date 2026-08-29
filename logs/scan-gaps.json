@@ -1,16 +1,17 @@
 {
-  "date": "2026-08-29",
-  "session": "toi",
+  "date": "2026-08-30",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Không có phiên điều trần/bỏ phiếu nào trong khung 28-29/8 (Hạ nghị viện nghỉ hè). Nhiều ứng viên GNEWS/Telegram tra ra là tin cũ bị gán sai ngày (E15 gasoline, ICE funding, Russia sanctions đều là tin từ tháng 5-7/2026). Các trang Thượng/Hạ viện (senate.gov/house.gov) không mở được từ máy local tối nay. Chỉ nạp được 2 tin nhóm 2 (sắc lệnh Học viện Không gian, đính chính vụ tin tặc DOJ); 2 ứng viên khác (Seneca Nation, kháng cáo bỏ phiếu qua thư The Hill) bị cổng NGÀY THẬT chặn vì trang không lộ metadata ngày."},
-    {"name":"Úc & Biển Đông","count":1,"target":"5-10","min":5,"thieu":true,
-     "reason":"Chỉ 1 tin (Harpoon Đài Loan) qua được cổng ngày thật. 2 ứng viên khác bị chặn: Manila Bulletin (không có metadata ngày đọc được), Nikkei Asia (bài đăng thật 27/8, ngoài khung so với batch 29/8). Thời gian phiên tối có hạn (deadline 22:00) không đủ để tìm thêm nguồn thay thế."},
-    {"name":"Công nghệ quân sự Mỹ","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Nhóm 1 (điều trần+bỏ phiếu) = 0: Quốc hội đang trong kỳ nghỉ (district work period), xác nhận qua congress.gov floor schedule không có hearing/vote nào 29-30/08. 3 tin lấy từ nhóm 2/4/5 (bầu cử, kinh tế). Đã chạy 2 vòng bổ sung; nhiều ứng viên hợp nội dung (Seneca Nation, thoả thuận dầu Venezuela, Bộ Tài chính trừng phạt Banque Misr) bị cổng ngày thật của add_news.py chặn vì sự kiện thật là 28/08, ngoài khung hôm nay(30/08)+hôm qua(29/08) — cuối tuần Mỹ ít tin chính thức mới."},
+    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Đã chạy 3 vòng agent (gồm 2 vòng bổ sung riêng). Phần lớn sự kiện đáng chú ý trong tuần (Pitch Black kết thúc, MMCA 19-25/8, drone breach Williamtown, CNOOC sanctions...) đã có trong bản tin từ trước hoặc ngày sự kiện thật ngoài khung 29-30/08. Cuối tuần Chủ Nhật ở khu vực Ấn Độ Dương-TBD cũng ít tin chính thức mới."},
+    {"name":"Công nghệ quân sự Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Đã chạy 2 vòng (khung nới 3 ngày 27-30/08). Một ứng viên (báo cáo GAO bảo trì tàu ngầm) bị guardrail chặn vì URL đã trùng tin đã nạp từ phiên trước; một ứng viên khác (Dataminr AI 318 triệu USD) trùng tin đã có sẵn trong kho. Còn lại nhiều ứng viên harvest là hợp đồng nhỏ hoặc khí tài không phải của Mỹ."},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,
-     "reason":"Không có tin Mỹ-Mali/JNIM/Sahel nào trong khung 28-29/8 đạt chuẩn. Tin nóng nhất tối nay là binh biến/đảo chính ở NIGER (không phải Mali) — không thuộc phạm vi dossier này trừ khi có vai trò Mỹ/JNIM rõ, không có bằng chứng đó. AllAfrica/Atlantic Council có bài nhưng không phải diễn biến mới trong khung ngày."},
-    {"name":"Tập trận đang diễn ra","count":1,"target":"1-2","min":0,"thieu":false,
-     "reason":"MAITREE-XV (Ấn Độ-Thái Lan) cập nhật diễn biến huấn luyện 28/8. SEACAT 2026 và Diễn tập Hạm đội TBD Nga không có diễn biến mới trong khung ngày."}
+     "reason":"Không có diễn biến Mali/JNIM/Africa Corps gắn vai trò Mỹ nào trong khung 29-30/08. Sự kiện lớn nhất trong khu vực Sahel hôm nay là binh biến/nổi dậy ở NIGER (không phải Mali) — không đủ bằng chứng liên quan Mali/JNIM/Mỹ để xếp vào dossier này, đã loại theo đúng luật (xem logs/loai-tin.md)."},
+    {"name":"Tập trận","count":0,"target":"1-2","min":0,"thieu":true,
+     "reason":"Cập nhật MAITREE-XV tìm được có ngày sự kiện thật 28/08, bị cổng ngày thật chặn vì ngoài khung hôm nay+hôm qua (30/08+29/08) — phiên tối 29/08 trước đó đã nạp cập nhật MAITREE-XV khác cùng ngày rồi. Các cuộc khác 'ongoing' trong DATA.exercises (Pitch Black, PANAMAX, Hán Quang 42, Falcon Strike, Swift Eagle, Baltic Trust, Hạm đội TBD Nga) đã xác minh kết thúc từ trước hoặc không có diễn biến mới đúng ngày."}
   ],
-  "note": "Phiên tối chạy trong hạn chót 22:00 (mốc local 21:15). Nhiều ứng viên GNEWS bị cổng ngày-thật (ngay_that.py) chặn vì trang thiếu metadata ngày đọc được hoặc bài thực tế cũ hơn khung — xem logs/loai-tin.md. Không tìm được file Jay Lâm trong khung ngày (tin_jaylam.py --liet-ke exit 10) nên không có bước lọc trùng."
+  "note": "Phiên sáng sớm 30/08: tổng 8 tin nạp (3 worldNews Úc&BĐ, 5 usNews Nội bộ Mỹ+CNQS). Cổng bài 👍 (107+ bài, phần lớn item_id dạng 'calib:xxx' — dữ liệu test/calibration lẫn vào preferences.json, không có sourceUrl thật để xác minh, đã ghi nhận từ phiên trước, cần đánh giá riêng) và cổng Báo Mới (7 ứng viên, xử lý xong: 3 nạp/4 loại) — xem logs/loai-tin.md."
 }
