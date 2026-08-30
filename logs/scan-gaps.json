@@ -1,17 +1,17 @@
 {
-  "date": "2026-08-30",
+  "date": "2026-08-31",
   "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Nhóm 1 (điều trần+bỏ phiếu) = 0: Quốc hội đang trong kỳ nghỉ (district work period), xác nhận qua congress.gov floor schedule không có hearing/vote nào 29-30/08. 3 tin lấy từ nhóm 2/4/5 (bầu cử, kinh tế). Đã chạy 2 vòng bổ sung; nhiều ứng viên hợp nội dung (Seneca Nation, thoả thuận dầu Venezuela, Bộ Tài chính trừng phạt Banque Misr) bị cổng ngày thật của add_news.py chặn vì sự kiện thật là 28/08, ngoài khung hôm nay(30/08)+hôm qua(29/08) — cuối tuần Mỹ ít tin chính thức mới."},
-    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Đã chạy 3 vòng agent (gồm 2 vòng bổ sung riêng). Phần lớn sự kiện đáng chú ý trong tuần (Pitch Black kết thúc, MMCA 19-25/8, drone breach Williamtown, CNOOC sanctions...) đã có trong bản tin từ trước hoặc ngày sự kiện thật ngoài khung 29-30/08. Cuối tuần Chủ Nhật ở khu vực Ấn Độ Dương-TBD cũng ít tin chính thức mới."},
-    {"name":"Công nghệ quân sự Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Đã chạy 2 vòng (khung nới 3 ngày 27-30/08). Một ứng viên (báo cáo GAO bảo trì tàu ngầm) bị guardrail chặn vì URL đã trùng tin đã nạp từ phiên trước; một ứng viên khác (Dataminr AI 318 triệu USD) trùng tin đã có sẵn trong kho. Còn lại nhiều ứng viên harvest là hợp đồng nhỏ hoặc khí tài không phải của Mỹ."},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Quốc hội đang trong kỳ nghỉ Lễ Lao Động (pro forma session 30-31/08) nên nhóm 1 (điều trần+bỏ phiếu) = 0, đã xác nhận qua congress.gov, không phải bỏ sót. 3 tin ứng viên khác (Seneca Nation, GM-Canada, RFK Jr.-Shapiro) có ngày sự kiện thật 29/08, ngoài khung 30-31/08 nên bị loại. Chỉ còn 2 tin đạt chuẩn: Banque Misr sanctions, Trump-Welker/Treasury G20 (gộp)."},
+    {"name":"Úc & Biển Đông","count":0,"target":"5-10","min":5,"thieu":true,
+     "reason":"2 tin tìm được đều bị cổng ngày thật chặn: One Nation Tây Úc (ABC News AU) có datePublished thật 29/08 dù nội dung ghi 30/08; Đài Loan PLA Activity (mnd.gov.tw) mở được nhưng không có metadata ngày đọc được. Sau 2 vòng agent, các diễn biến Biển Đông khác xác minh được đều ngoài khung (24-28/08) hoặc trùng tin đã có."},
+    {"name":"CNQS Mỹ","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Khung 3 ngày (29-31/08) trùng cuối tuần Lễ Lao Động Mỹ nên sản lượng tin quốc phòng thấp: war.gov/Contracts không có trang mới, các RSS chuyên ngành dừng ở 27-28/08. Chỉ 2 tin đạt chuẩn: MCRIG (Thủy quân lục chiến), Minuteman III PCB (Không quân)."},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,
-     "reason":"Không có diễn biến Mali/JNIM/Africa Corps gắn vai trò Mỹ nào trong khung 29-30/08. Sự kiện lớn nhất trong khu vực Sahel hôm nay là binh biến/nổi dậy ở NIGER (không phải Mali) — không đủ bằng chứng liên quan Mali/JNIM/Mỹ để xếp vào dossier này, đã loại theo đúng luật (xem logs/loai-tin.md)."},
-    {"name":"Tập trận","count":0,"target":"1-2","min":0,"thieu":true,
-     "reason":"Cập nhật MAITREE-XV tìm được có ngày sự kiện thật 28/08, bị cổng ngày thật chặn vì ngoài khung hôm nay+hôm qua (30/08+29/08) — phiên tối 29/08 trước đó đã nạp cập nhật MAITREE-XV khác cùng ngày rồi. Các cuộc khác 'ongoing' trong DATA.exercises (Pitch Black, PANAMAX, Hán Quang 42, Falcon Strike, Swift Eagle, Baltic Trust, Hạm đội TBD Nga) đã xác minh kết thúc từ trước hoặc không có diễn biến mới đúng ngày."}
+     "reason":"Sự kiện lớn trong ngày (binh biến/Africa Corps) là ở NIGER, không phải Mali — không có bằng chứng liên quan Mali/JNIM/Mỹ nên không nạp theo đúng luật đã chốt. Tin Mali thật gần nhất (Tuareg đổi tù binh) là 27/08, ngoài khung và không có góc Mỹ."},
+    {"name":"Tập trận","count":2,"target":"1-2","min":0,"thieu":false,
+     "reason":"MAITREE-XV (giai đoạn cao điểm trước bế mạc 31/08) và REPMUS 26/Dynamic Messenger 26 (khai mạc 31/08) đủ chỉ tiêu. Diễn tập Hạm đội TBD Nga xác nhận đã kết thúc từ 12/08 nên loại khỏi vòng bám; SEACAT 2026 không có diễn biến mới trong khung."}
   ],
-  "note": "Phiên sáng sớm 30/08: tổng 8 tin nạp (3 worldNews Úc&BĐ, 5 usNews Nội bộ Mỹ+CNQS). Cổng bài 👍 (107+ bài, phần lớn item_id dạng 'calib:xxx' — dữ liệu test/calibration lẫn vào preferences.json, không có sourceUrl thật để xác minh, đã ghi nhận từ phiên trước, cần đánh giá riêng) và cổng Báo Mới (7 ứng viên, xử lý xong: 3 nạp/4 loại) — xem logs/loai-tin.md."
+  "note": "Tổng 6 tin (2 Nội bộ Mỹ + 2 CNQS Mỹ + 2 cập nhật tập trận) + 0 Úc&BĐ + 0 Mali. Sản lượng thấp do trùng cuối tuần Lễ Lao Động Mỹ (Quốc hội nghỉ, ít hợp đồng/thông cáo) và cổng ngày thật chặn đúng 2 tin Úc&BĐ đã tìm được. Chi tiết từng tin bị loại: logs/loai-tin.md mục 'Phiên SÁNG SỚM 31/08/2026 (CI)'. Cổng bài 👍 (107 mục calib:xxx) và cổng Báo Mới (68 ứng viên, không bài nào hợp chủ đề) đã kiểm nhưng không có gì để nạp."
 }
