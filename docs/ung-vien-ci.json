@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-08-31T01:11:38+07:00",
+  "tao_luc": "2026-08-31T04:31:17+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-30",
@@ -42,22 +42,6 @@
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-08-30",
-      "tieu_de": "Dozens of soldiers arrested after apparent coup attempt in Niger’s capital",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/30/dozens-of-soldiers-arrested-after-apparent-coup-attempt-in-nigers-capital?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-08-30",
-      "tieu_de": "Niger’s military-led government says it contained mutiny: What next?",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/30/nigers-military-led-government-says-it-contained-mutiny-what-next?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-08-30",
       "tieu_de": "Russia says it helped to repel Niger attempted coup",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c5ye8egg596o?at_medium=RSS&at_campaign=rss"
@@ -90,6 +74,14 @@
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-08-30",
+      "tieu_de": "Dozens of soldiers arrested in Niger after attempted mutiny",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/08/30/dozens-of-soldiers-arrested-in-niger-after-attempted-mutiny/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-08-30",
       "tieu_de": "Niger kiểm soát tình hình sau vụ nổi loạn của một nhóm binh sỹ tại thủ đô",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/niger-kiem-soat-tinh-hinh-sau-vu-noi-loan-cua-mot-nhom-binh-sy-tai-thu-do-post1133354.vnp"
@@ -109,6 +101,14 @@
       "tieu_de": "F-35 lifetime price tag dips beneath $2 trillion even as buying costs rise",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/08/f-35-lifetime-price-tag-dips-beneath-2-trillion-even-as-buying-costs-rise/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-08-31",
+      "tieu_de": "Air Force ‘immediately’ stops use of Minuteman III communications testers after chemical exposure",
+      "nguon": "Task & Purpose",
+      "url": "https://taskandpurpose.com/news/air-force-icbm-pcbs-communication-kit/"
     },
     {
       "lop": "RSS",
@@ -289,14 +289,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-30",
-      "tieu_de": "Marine Corps stands up group to train all its Marines on drone and counter-drone systems",
-      "nguon": "Sandboxx News",
-      "url": "https://www.sandboxx.us/news/marine-corps-stands-up-group-to-train-all-its-marines-on-drone-and-counter-drone-systems/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-29",
       "tieu_de": "Kentucky National Guard Lakotas bring aviation rescue capability to Patriot ’26 at Volk Field, Fort McCoy",
       "nguon": "DVIDS (toàn bộ)",
@@ -393,10 +385,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-30",
-      "tieu_de": "Why did Australia give visas to Israeli soldiers but not Bassem Youssef?",
+      "ngay": "2026-08-31",
+      "tieu_de": "Video: Raging floodwaters sweep away lorry in the Philippines",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/30/30-08-sydney-marathon-israeli-soldiers-idf-fm?traffic_source=rss"
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/8/30/video-raging-floodwaters-sweep-away-lorry-in-the-philippines?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -413,6 +405,14 @@
       "tieu_de": "Pacific Summit opens amid Taiwan row",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/pacific-summit-opens-amid-taiwan-row"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Australia navigates anxiety and relief as housing prices dip",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/markets/trading-asia/australia-navigates-anxiety-and-relief-as-housing-prices-dip"
     },
     {
       "lop": "RSS",
@@ -437,14 +437,6 @@
       "tieu_de": "Suzuki launches 'kei'-sized model in Brunei, made in Pakistan",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/automobiles/suzuki-launches-kei-sized-model-in-brunei-made-in-pakistan"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-30",
-      "tieu_de": "Hundreds lost in Nepal mourned in vigils across Australia",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-31/hundreds-attend-vigils-for-nepal/107095694"
     },
     {
       "lop": "RSS",
@@ -477,6 +469,14 @@
       "tieu_de": "Old Australian courthouse finds new life as Nihon University facility",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/08/30/japan/australia-court-nihon-university/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-08-31",
+      "tieu_de": "Australian boxing great Tony Mundine dies aged 75",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/sport/2026/aug/31/australian-boxing-great-tony-mundine-dies-aged-75-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -554,15 +554,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-30",
-      "tieu_de": "Banque Misr, Egypt’s second-largest, hit by US sanctions: What to know",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/8/30/banque-misr-egypts-second-largest-hit-by-us-sanctions-what-to-know?traffic_source=rss",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-30",
       "tieu_de": "US Treasury's Bessent faces G20 diplomacy test amid tariffs, Iran war, bond turmoil",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/united-states/us-treasurys-bessent-faces-g20-diplomacy-test-amid-tariffs-iran-war-bond-turmoil",
@@ -584,15 +575,6 @@
       "tieu_de": "Trump steps up stunts as US midterms loom",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3365723/trump-steps-stunts-us-midterms-loom?utm_source=rss_feed",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-08-30",
-      "tieu_de": "Trump criticizes NBC over election comment as Treasury denies some NYT, WSJ and Bloomberg reporters G20 credentials",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/08/30/trump-nbc-election-comment-treasury-g20-reporter-access.html",
       "nhom": 5
     },
     {
@@ -661,10 +643,28 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-31",
+      "tieu_de": "Michigan GOP gubernatorial candidate says state’s elections are ‘ground zero for this republic’",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/6059821-john-james-michigan-election/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-08-30",
       "tieu_de": "GOP gambles on midterm dividends from RFK Jr.’s MAHA",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/healthcare/6058532-trump-maha-midterm-impact/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-08-31",
+      "tieu_de": "Trump Will Hang GOP Out To Dry in Midterms",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/2026/08/28/trump_will_hang_gop_out_to_dry_in_midterms_709334.html",
       "nhom": 5
     },
     {
