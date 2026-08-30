@@ -3,3 +3,7 @@
 [17:47Z] cai curl_cffi, chay harvest.py: 225 ung vien (5 chu de) + telegram_harvest.py: 20 ung vien TG
 [17:59Z] doc SKILL.md, kiem baomoi-pending (khong bai hop 5 chu de) + cong 👍 (107 bai calib:xxx test data, ngoai khung, khong xu ly - giong tien le phien truoc)
 [18:00Z] giao 4 agent song song (round 1): Noi bo My 5, Uc&BD 1, CNQS My 2, Mali 0, Tap tran 2 (MAITREE-XV, REPMUS 26)
+[18:03Z] vong bo sung: Uc&BD +1, CNQS My +0, Noi bo My +0 (2 tin bi loai vi ngoai khung)
+[18:18Z] add_news.py: loai 3 tin qua cong ngay that (Seneca, One Nation, MND Dai Loan), gop 2 tin CNBC trung URL. Nap thanh cong: 4 usNews + 2 exerciseUpdates (MAITREE-XV, REPMUS 26)
+[18:18Z] ghi scan-gaps.json + loai-tin.md. state.py done web-scan: +6 tin. Commit + push OK (pull --rebase 1 lan do harvest-ci commit xen)
+[18:18Z] DONE web-scan. Tiep tuc Buoc 6 (event-scan) vi la phien sang som. claim event-scan OK
