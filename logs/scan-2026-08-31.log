@@ -10,3 +10,4 @@
 [18:20Z] do_tap_tran_thieu.py: 1 co ten (NATO Spring Drill - xac minh la bai cu, bo) + 9 khong ten. Agent su kien/tap tran: 0 su kien, 0 cap nhat tap tran (khong tim duoc dien bien moi trong khung 30-31/08 cho cac cuoc dang chay)
 [18:24Z] add_analyses.py: nap 5 bai think-tank (Timbuktu Niger, ORF Phap, ORF TQ bat dong san, Carnegie My Latin, CSIS Thai Lan). set_analysis_concepts.py gan 11 khai niem
 [18:24Z] Khong phai Chu Nhat (thu 2), bo qua bao cao tuan. DONE event-scan: +5 bai think-tank
+[18:26Z] SKIP - lan goi moi: state.py claim web-scan exit 10 (phien sang som DA XONG luc 01:14:32). Kiem so_da_gui --xem: co dong 2026-08-31T01:25:31 [sang] 5 tin + [sukien] 1 tin -> ban tin sang da toi tay that, khong phai co noi doi. Ket thuc em, khong quet lai.
