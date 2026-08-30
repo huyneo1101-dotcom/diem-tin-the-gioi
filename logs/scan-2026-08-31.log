@@ -7,3 +7,6 @@
 [18:18Z] add_news.py: loai 3 tin qua cong ngay that (Seneca, One Nation, MND Dai Loan), gop 2 tin CNBC trung URL. Nap thanh cong: 4 usNews + 2 exerciseUpdates (MAITREE-XV, REPMUS 26)
 [18:18Z] ghi scan-gaps.json + loai-tin.md. state.py done web-scan: +6 tin. Commit + push OK (pull --rebase 1 lan do harvest-ci commit xen)
 [18:18Z] DONE web-scan. Tiep tuc Buoc 6 (event-scan) vi la phien sang som. claim event-scan OK
+[18:20Z] do_tap_tran_thieu.py: 1 co ten (NATO Spring Drill - xac minh la bai cu, bo) + 9 khong ten. Agent su kien/tap tran: 0 su kien, 0 cap nhat tap tran (khong tim duoc dien bien moi trong khung 30-31/08 cho cac cuoc dang chay)
+[18:24Z] add_analyses.py: nap 5 bai think-tank (Timbuktu Niger, ORF Phap, ORF TQ bat dong san, Carnegie My Latin, CSIS Thai Lan). set_analysis_concepts.py gan 11 khai niem
+[18:24Z] Khong phai Chu Nhat (thu 2), bo qua bao cao tuan. DONE event-scan: +5 bai think-tank
