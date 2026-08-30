@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-08-31T05:54:34+07:00",
+  "tao_luc": "2026-08-31T06:44:53+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-30",
     "2026-08-31"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-08-31",
+      "tieu_de": "Singapore tackles finances and culture to avert a demographic crisis",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/08/31/singapore-ndr-childcare-incentives-demographic-crisis-.html"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -441,14 +449,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-08-31",
-      "tieu_de": "The gift card scam hidden on Australian supermarket shelves",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-08-31/inside-the-gift-card-tampering-scam-spreading-nationally/107074588"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-08-30",
       "tieu_de": "The nuclear triangle in South Asia and Australia’s opening",
       "nguon": "Lowy Interpreter",
@@ -637,24 +637,6 @@
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/iran-nhan-nhu-cac-nuoc-khong-thuc-thi-lenh-trung-phat-cua-my-100260828202530273.htm",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Ông Trump úp mở khả năng trừng phạt ngân hàng Trung Quốc có quan hệ với Iran",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/ong-trump-up-mo-kha-nang-trung-phat-ngan-hang-trung-quoc-co-quan-he-voi-iran-100260828134724761.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Từ sắc lệnh 'hồ Mỹ' của ông Trump, nhìn lại ‘cuộc đời’ hàng thế kỷ của hồ Ontario",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/tu-sac-lenh-ho-my-cua-ong-trump-nhin-lai-cuoc-doi-hang-the-ky-cua-ho-ontario-100260828124739153.htm",
-      "nhom": 2
     },
     {
       "lop": "RSS",
