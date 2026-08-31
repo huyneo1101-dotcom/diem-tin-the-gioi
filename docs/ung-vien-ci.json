@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-01T02:36:12+07:00",
+  "tao_luc": "2026-09-01T03:19:25+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-08-31",
@@ -121,6 +121,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-01",
+      "tieu_de": "US Air Force chief of staff discusses ‘regional situation’ with Israeli military officials",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/news/your-military/2026/08/31/us-air-force-chief-of-staff-discusses-regional-situation-with-israeli-military-officials/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-31",
       "tieu_de": "Space Force struggling to integrate commercial space data: Officials",
       "nguon": "Breaking Defense",
@@ -137,6 +145,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-01",
+      "tieu_de": "Pentagon brings on Grok and ChatGPT for military use",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/6061714-pentagon-adds-grok-chatgpt-ai/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-30",
       "tieu_de": "The Pentagon’s new nuclear doctrine needs congressional guardrails",
       "nguon": "The Hill",
@@ -145,18 +161,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Pentagon brings on Grok and ChatGPT for military use",
-      "nguon": "The Hill — Defense",
-      "url": "https://thehill.com/policy/defense/6061714-pentagon-adds-grok-chatgpt-ai/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-08-29",
       "tieu_de": "Trump to give speech at Pentagon for 25th anniversary of 9/11",
       "nguon": "The Hill — Defense",
       "url": "https://thehill.com/newsletters/defense-national-security/6058631-trump-speech-pentagon-9-11-defense-newsletter/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-01",
+      "tieu_de": "Japan’s First Dedicated Missile Defense Warship Is A Monster",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/news-features/japans-first-dedicated-missile-defense-warship-is-a-monster"
     },
     {
       "lop": "RSS",
@@ -213,6 +229,14 @@
       "tieu_de": "Contracts for Aug. 28, 2026",
       "nguon": "DoD Contracts",
       "url": "https://www.war.gov/News/Contracts/Contract/Article/4585867/contracts-for-aug-28-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-01",
+      "tieu_de": "U.S. Department of War Invests in National STEM Program to Bolster Defense Workforce Readiness",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4586953/us-department-of-war-invests-in-national-stem-program-to-bolster-defense-workfo/"
     },
     {
       "lop": "RSS",
@@ -442,6 +466,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
+      "tieu_de": "First responders awarded decades after Australia's worst rail crash",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-01/bravery-awards-for-granvile-rail-disaster-first-responders/107098438"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-01",
       "tieu_de": "China warns Pacific nations of 'consequences' for Taiwan forum invite",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-01/china-warns-of-consequences-over-taiwan-attendance/107100296"
@@ -533,6 +565,15 @@
       "tieu_de": "Thủ tướng Australia Anthony Albanese mong chờ đón Tổng Bí thư, Chủ tịch nước Tô Lâm",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/thu-tuong-australia-mong-doi-don-tong-bi-thu-chu-tich-nuoc-to-lam-102260806161006973.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-01",
+      "tieu_de": "Top US general says no plans to send troops to polls for November elections",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/8/31/top-us-general-says-no-plans-to-send-troops-to-polls-for-november-elections?traffic_source=rss",
+      "nhom": 5
     },
     {
       "lop": "RSS",
