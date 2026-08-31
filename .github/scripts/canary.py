@@ -270,6 +270,28 @@ def ban_mong_doi(trong_repo) -> tuple[bytes, str]:
         return raw, "bản thô (không dựng lại được)"
 
 
+def ngoai_khung_gio(o: str, luc: str) -> str:
+    """Lần gửi này có nằm ngoài khung giờ của ca không. Chuỗi rỗng = đúng giờ.
+
+    Không đọc được (thiếu mốc, state.py đổi) thì trả rỗng: canary kêu oan vài lần là hết ai
+    đọc, mà lớp `tests/test-do-gio-ban-tin.py` trong bảng khám đã canh đúng chỗ này.
+    """
+    try:
+        import importlib.util
+        sp = importlib.util.spec_from_file_location("st", ROOT / "scripts" / "state.py")
+        m = importlib.util.module_from_spec(sp)
+        sp.loader.exec_module(m)
+        dau, cuoi = m.KHUNG_GIO[o]
+        t = datetime.datetime.fromisoformat(luc).astimezone(VN)
+    except Exception:                                             # noqa: BLE001
+        return ""
+    phut = t.hour * 60 + t.minute
+    if dau <= phut <= cuoi:
+        return ""
+    return (f"gửi lúc {t:%H:%M}, ngoài khung {dau // 60:02d}:{dau % 60:02d}-"
+            f"{cuoi // 60:02d}:{cuoi % 60:02d} giờ VN của ca `{o}`")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--ca", required=True, choices=list(CA))
@@ -311,6 +333,18 @@ def main() -> int:
     # --- Ca sang/toi: bằng chứng là SỔ ĐÃ GỬI ---
     lan = da_gui(o, ngay)
     if lan:
+        # ⛔ CÓ GỬI CHƯA ĐỦ — PHẢI HỎI GỬI LÚC MẤY GIỜ (vá 31/08/2026).
+        # Sáng 31/08 bản tin gửi lúc 01:25 (cron GitHub trễ 4h nên mốc TỐI tự nhận nhầm
+        # thành ca sáng); canary chạy 06:15 thấy sổ CÓ dòng [sang] ngày 31/08 nên im lặng
+        # tuyệt đối. Huy là người phát hiện, không phải máy. Khung giờ lấy từ
+        # `scripts/state.py::KHUNG_GIO` — một bản gốc, không chép số sang đây.
+        sai_gio = ngoai_khung_gio(o, lan.get("luc"))
+        if sai_gio:
+            print(f"::warning::canary {args.ca}: {sai_gio}")
+            return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng SAI GIỜ.\n\n"
+                       f"{sai_gio}\n\nBản tin vẫn tới tay nên mọi phép đo quy trình đều "
+                       f"báo đạt; chỉ giờ nhận là sai.\n\n"
+                       f"Soi: python3 scripts/do_gio_ban_tin.py") + loi_web
         print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get('luc')} "
               f"({len(lan.get('urls') or [])} tin) — im lặng.")
         return loi_web

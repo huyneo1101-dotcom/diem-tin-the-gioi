@@ -171,10 +171,35 @@ def _():
     return keu(out), out
 
 
-@ca('6. Ca TỐI: sổ chỉ có bản tin SÁNG cùng ngày → PHẢI KÊU (buổi khác không tính)')
+@ca('6. Ca TỐI: sổ chỉ có bản tin SÁNG cùng ngày → PHẢI KÊU THIẾU (buổi khác không tính)')
 def _():
+    # Đòi đúng LOẠI tiếng kêu, không chỉ đòi "có kêu": từ 31/08/2026 canary còn một tiếng
+    # kêu thứ hai (SAI GIỜ), và nếu ca này nhận bừa tiếng nào cũng được thì bản hỏng "sổ nào
+    # cũng tính là đã gửi" lọt lưới — tự kiểm đã bắt đúng chỗ đó.
     ma, out = chay("toi", so=so_gui("sang", "2026-07-29T05:20:00+07:00"), state=state())
-    return keu(out), out
+    return keu(out) and "CHƯA có" in out, out
+
+
+@ca('6b. HỒI QUY 31/08: bản tin SÁNG có gửi nhưng lúc 01:25 → PHẢI KÊU SAI GIỜ')
+def _():
+    # Sự cố thật: cron GitHub trễ 4h, mốc TỐI nổ lúc 00:46 rồi tự nhận là ca sáng và gửi
+    # lúc 01:25. Canary cũ chỉ hỏi "có gửi không" nên im tuyệt đối; Huy là người phát hiện.
+    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T01:25:00+07:00"),
+                   state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
+    return keu(out) and "SAI GIỜ" in out and "01:25" in out, out
+
+
+@ca('6c. Chống kêu oan: bản tin sáng gửi 04:41 (trong khung) → phải IM')
+def _():
+    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:41:00+07:00"),
+                   state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
+    return im(out) and ma == 0, out
+
+
+@ca('6d. Ca TỐI gửi 23:50 (quá khung 23:30) → PHẢI KÊU SAI GIỜ')
+def _():
+    ma, out = chay("toi", so=so_gui("toi", "2026-07-29T23:50:00+07:00"), state=state())
+    return keu(out) and "SAI GIỜ" in out, out
 
 
 @ca('7. Sổ HỎNG (JSON vỡ) → PHẢI KÊU, canary không được chết câm vì file rác')

@@ -32,14 +32,71 @@ Bốn kiểu hỏng CÂM đã lường và cách bịt:
 import argparse
 import datetime
 import json
+import os
+import socket
 import subprocess
 import sys
 import time
 import zoneinfo
 
-GH = "/opt/homebrew/bin/gh"
+GH = os.environ.get("KICHCI_GH") or "/opt/homebrew/bin/gh"   # env: seam CHỈ dùng cho bộ test
 REPO = "huyneo1101-dotcom/diem-tin-the-gioi"
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
+
+# ── MẤT MẠNG THÌ CHỜ MẠNG VỀ, ĐỪNG BỎ LƯỢT (vá 31/08/2026) ───────────────────────────
+# Sự cố thật tối 30/08/2026: job nổ ĐÚNG giờ 21:00 và 22:00 (log ghi "lệch 0'"), nhưng cả
+# 06 lần gọi đều trả `error connecting to api.github.com` — mạng nhà rớt. Script thử 03
+# lần trong 04 phút rồi dừng hẳn, nên bản tin TỐI mất trắng chỉ vì bốn phút đó; mạng về
+# lúc nào cũng không còn ai kích lại. Phiên local 21:15 cùng lúc cũng chết vì DNS.
+# Lằn ranh: lỗi MẠNG thì chờ (mạng là thứ tự khỏi), lỗi khác — sai quyền, hết hạn đăng
+# nhập, workflow không tồn tại — thì báo động NGAY, chờ chỉ tổ giấu lỗi.
+MAU_LOI_MANG = (
+    "error connecting to",
+    "could not resolve",
+    "nodename nor servname",
+    "network is unreachable",
+    "no route to host",
+    "temporary failure in name resolution",
+    "connection refused",
+    "i/o timeout",
+    "dial tcp",
+)
+TRAN_CHO_MANG_PHUT = int(os.environ.get("KICHCI_TRAN_CHO_PHUT") or 45)
+NHIP_DO_MANG_GIAY = int(os.environ.get("KICHCI_NHIP_GIAY") or 90)
+
+
+def la_loi_mang(text: str) -> bool:
+    """Lỗi này có phải do mất mạng không? Không đọc được thì trả False (fail về phía KÊU)."""
+    t = (text or "").lower()
+    return any(m in t for m in MAU_LOI_MANG)
+
+
+def co_mang(timeout=5) -> bool:
+    """Ra được api.github.com chưa. Seam KICHCI_MANG_GIA chỉ dùng cho bộ test."""
+    gia = (os.environ.get("KICHCI_MANG_GIA") or "").strip()
+    if gia:
+        return gia == "1"
+    try:
+        socket.create_connection(("api.github.com", 443), timeout=timeout).close()
+        return True
+    except OSError:
+        return False
+
+
+def cho_mang_ve(log_fn) -> bool:
+    """Chờ tới khi ra được mạng, trần TRAN_CHO_MANG_PHUT phút. True = mạng đã về."""
+    han = TRAN_CHO_MANG_PHUT * 60
+    da_cho = 0
+    log_fn(f"   📡 MẤT MẠNG — chờ mạng về, trần {TRAN_CHO_MANG_PHUT}', đo mỗi "
+           f"{NHIP_DO_MANG_GIAY}s (KHÔNG bỏ lượt)")
+    while da_cho < han:
+        time.sleep(NHIP_DO_MANG_GIAY)
+        da_cho += NHIP_DO_MANG_GIAY
+        if co_mang():
+            log_fn(f"   📡 mạng đã về sau {da_cho // 60}' — kích lại")
+            return True
+    log_fn(f"   📡 hết trần {TRAN_CHO_MANG_PHUT}' mà mạng vẫn chưa về")
+    return False
 
 # (giờ, phút) -> [workflow cần kích]. Phải KHỚP với StartCalendarInterval trong plist
 # `com.huy.diemtin-kich-ci` — sửa một bên mà quên bên kia thì script fire nhưng không khớp
@@ -90,14 +147,24 @@ def dem_run(wf):
         return None
 
 
-def kich(wf) -> bool:
-    """Kích + XÁC MINH đã có run mới. Trả True nếu chắc chắn ăn."""
+def kich(wf, _da_cho_mang=False) -> bool:
+    """Kích + XÁC MINH đã có run mới. Trả True nếu chắc chắn ăn.
+
+    _da_cho_mang: đã chờ mạng một vòng rồi — không chờ vòng thứ hai (chống lặp vô hạn).
+    """
     for lan in range(1, SO_LAN_THU + 1):
         truoc = dem_run(wf)
         p = subprocess.run([GH, "workflow", "run", wf, "--repo", REPO],
                            capture_output=True, text=True, timeout=120)
         if p.returncode != 0:
-            log(f"   ❌ lần {lan}/{SO_LAN_THU} {wf}: {(p.stderr or p.stdout).strip()[:160]}")
+            loi = (p.stderr or p.stdout).strip()
+            log(f"   ❌ lần {lan}/{SO_LAN_THU} {wf}: {loi[:160]}")
+            # Mất mạng KHÔNG tính là một lần thử hỏng: chờ mạng về rồi thử lại từ đầu.
+            # Bỏ lượt ở đây là mất nguyên một bản tin (sự cố tối 30/08/2026).
+            if la_loi_mang(loi):
+                if cho_mang_ve(log):
+                    return kich(wf, _da_cho_mang=True) if not _da_cho_mang else False
+                return False
             time.sleep(CHO_GIUA_HAI_LAN)
             continue
         # GitHub cần vài giây mới hiện run trong danh sách.
