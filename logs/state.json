@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-01T03:51:07+07:00",
+    "lastRunAt": "2026-09-01T04:02:46+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+2 su kien/tap tran (Achilles Shield, Freedom Edge), +3 bai think-tank, +4 background tap tran",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-08-31"
-    },
-    "heartbeat": "2026-09-01T03:51:07+07:00"
+      "sang": "2026-09-01"
+    }
   }
 }

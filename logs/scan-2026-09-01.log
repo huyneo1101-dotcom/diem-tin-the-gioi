@@ -4,3 +4,4 @@
 [20:50Z] add_news.py xong: nap 13 tin (Noi bo My 5, Uc&BD 3, CNQS My 4, tap tran 1; Mali rong). Cong ngay that chan 4 URL thieu metadata (wjtv, 2x war.gov), da thay bang nguon khac cung su kien. tin_jaylam.py: khong co file trong khung. state.py done web-scan.
 [20:50Z] DONE web-scan, chuan bi commit "Cap nhat ban tin"
 [20:51Z] START event-scan (CI, gop vao sang som)
+[21:02Z] event-scan xong: +1 su kien ngoai giao (Hy Lap-Israel Achilles Shield) + 1 cap nhat tap tran (Freedom Edge, TT phan ung KCNA) + 4 background/khai niem tap tran con thieu + 3 bai think-tank rong (ASPI Dai Loan drone, Fulcrum Indonesia-US, CEPA AI-vu khi sinh hoc; da loai 1 ban trung ngon ngu Phap cua bai Niger da co san). do_tap_tran_thieu: khong co cuoc moi that su can nap. state.py done event-scan.
