@@ -10,10 +10,14 @@ Không phép đo nào hỏi câu duy nhất đáng hỏi — **bản tin tới t
 
 Nguồn sự thật là `logs/da-gui-email.json` (sổ đã gửi), vì đó là chỗ ghi lại lần gửi THẬT tới
 mọi kênh, không phải cờ tiến trình. Phép đo hỏi đúng 03 câu:
-  (i)  ca `sang` hôm nay có gửi không, và gửi trong 03:00-09:00 giờ VN không;
-  (ii) ca `toi` hôm qua có gửi không, và gửi trong 19:30-23:30 không;
+  (i)  ca `sang` hôm nay có gửi không, và có kịp HẠN CHÓT 04:30 giờ VN không;
+  (ii) ca `toi` hôm qua có gửi không, và có kịp hạn 22:00 không;
   (iii) có ca nào vắng mặt hẳn không.
-Khung giờ lấy đúng bảng `KHUNG_GIO` của `scripts/state.py` — MỘT bản gốc, không chép số.
+Cạnh dưới lấy từ `state.py::KHUNG_GIO`, cạnh trên lấy từ `state.py::HAN_CHOT` — MỘT bản
+gốc cho mỗi số, không chép số sang đây. Hai cạnh hai nguồn là cố ý: khung khởi động rộng
+để lớp chạy bù còn làm được việc, còn hạn chót là cam kết với người đọc.
+
+⛔ HẠN CHÓT CA SÁNG 04:30 do Huy chốt 31/08/2026, đừng nới cho vừa lịch chạy.
 
 Vì sao ca `toi` xét NGÀY HÔM QUA: chạy phép đo lúc 08:00 sáng thì ca tối của hôm nay còn
 chưa tới giờ, hỏi nó là kêu oan mỗi sáng.
@@ -43,12 +47,12 @@ VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 CA_XET = ("sang", "toi")
 
 
-def khung_gio() -> dict:
-    """Đọc KHUNG_GIO từ chính state.py — một bản gốc, cấm chép số sang đây."""
+def bang_gio() -> tuple[dict, dict]:
+    """(KHUNG_GIO, HAN_CHOT) đọc từ chính state.py — một bản gốc, cấm chép số sang đây."""
     sp = importlib.util.spec_from_file_location("st", ROOT / "scripts" / "state.py")
     m = importlib.util.module_from_spec(sp)
     sp.loader.exec_module(m)
-    return dict(m.KHUNG_GIO)
+    return dict(m.KHUNG_GIO), dict(m.HAN_CHOT)
 
 
 def doc_so(duong_dan: pathlib.Path) -> list:
@@ -79,7 +83,7 @@ def do(duong_dan=None, bay_gio=None) -> dict:
     duong_dan = pathlib.Path(duong_dan or SO_MAC_DINH)
     bay_gio = bay_gio or datetime.datetime.now(VN)
     lan_gui = doc_so(duong_dan)
-    khung = khung_gio()
+    khung, han = bang_gio()
     hom_nay = bay_gio.date()
     hom_qua = hom_nay - datetime.timedelta(days=1)
 
@@ -87,17 +91,19 @@ def do(duong_dan=None, bay_gio=None) -> dict:
     for ca in CA_XET:
         # Ca `toi` xét hôm qua: lúc chạy phép đo (sáng) ca tối hôm nay chưa tới giờ.
         ngay = (hom_qua if ca == "toi" else hom_nay).isoformat()
-        dau, cuoi = khung[ca]
+        # Cạnh dưới lấy từ khung khởi động, cạnh trên là HẠN CHÓT — bản tin tới SỚM hơn
+        # khung là chuyện tốt nhưng vẫn bất thường (đúng cảnh 01:25 sáng 31/08), tới MUỘN
+        # hơn hạn là vỡ cam kết. Hai cạnh, hai nguồn, cố ý.
+        dau = khung[ca][0]
+        cuoi = han[ca]
         t = lan_gui_cua(lan_gui, ca, ngay)
         if t is None:
-            # Ca sáng chưa tới hết khung thì chưa kết luận vắng — nó còn có thể tới.
+            # Chưa tới hạn thì chưa kết luận vắng — bản tin còn có thể tới.
             phut_gio = bay_gio.hour * 60 + bay_gio.minute
-            if ca == "sang" and phut_gio <= cuoi:
-                ket.append({"ca": ca, "ngay": ngay, "trang_thai": "CHUA_TOI_GIO",
-                            "gio": None, "khung": [dau, cuoi]})
-            else:
-                ket.append({"ca": ca, "ngay": ngay, "trang_thai": "VANG",
-                            "gio": None, "khung": [dau, cuoi]})
+            chua_toi_han = phut_gio <= cuoi if ca == "sang" else False
+            ket.append({"ca": ca, "ngay": ngay,
+                        "trang_thai": "CHUA_TOI_GIO" if chua_toi_han else "VANG",
+                        "gio": None, "khung": [dau, cuoi]})
             continue
         phut = t.hour * 60 + t.minute
         trong = dau <= phut <= cuoi

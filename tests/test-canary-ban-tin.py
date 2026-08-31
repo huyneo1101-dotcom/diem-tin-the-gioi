@@ -189,16 +189,25 @@ def _():
     return keu(out) and "SAI GIỜ" in out and "01:25" in out, out
 
 
-@ca('6c. Chống kêu oan: bản tin sáng gửi 04:41 (trong khung) → phải IM')
+@ca('6c. Chống kêu oan: bản tin sáng gửi 04:18 (kịp hạn 04:30) → phải IM')
 def _():
-    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:41:00+07:00"),
+    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:18:00+07:00"),
                    state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
     return im(out) and ma == 0, out
 
 
-@ca('6d. Ca TỐI gửi 23:50 (quá khung 23:30) → PHẢI KÊU SAI GIỜ')
+@ca('6d. Ca TỐI gửi 22:40 (quá hạn chót 22:00) → PHẢI KÊU SAI GIỜ')
 def _():
-    ma, out = chay("toi", so=so_gui("toi", "2026-07-29T23:50:00+07:00"), state=state())
+    ma, out = chay("toi", so=so_gui("toi", "2026-07-29T22:40:00+07:00"), state=state())
+    return keu(out) and "SAI GIỜ" in out, out
+
+
+@ca('6e. Bản tin sáng gửi 04:50 (trễ hạn 04:30 chỉ 20 phút) → PHẢI KÊU')
+def _():
+    # Đúng cảnh của lịch CŨ: mốc kích 04:30 + quét 16-21 phút = 04:50, tức LUÔN vỡ hạn mà
+    # không lớp nào kêu. Ca này canh việc ai đó lặng lẽ nới hạn cho vừa lịch chạy.
+    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
+                   state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
     return keu(out) and "SAI GIỜ" in out, out
 
 

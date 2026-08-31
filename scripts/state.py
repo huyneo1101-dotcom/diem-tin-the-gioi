@@ -108,6 +108,16 @@ SLOT_SPLIT_HOUR = 14  # < 14:00 VN = ô "sang"; >= 14:00 = ô "toi"
 #   sang 03:00-09:00 (mốc CI 03:47/04:47 · local 04:30/04:45, trễ 2h vẫn lọt)
 #   toi  19:30-23:30 (mốc CI 20:47/21:47 · local 21:15/22:00)
 KHUNG_GIO = {"sang": (3 * 60, 9 * 60), "toi": (19 * 60 + 30, 23 * 60 + 30)}
+
+# ── HẠN CHÓT BẢN TIN TỚI TAY — khác KHUNG_GIO, đừng gộp ─────────────────────────────
+# KHUNG_GIO trả lời *phiên này có được nhận ca không* (khung KHỞI ĐỘNG, cố ý rộng để lớp
+# chạy bù vẫn làm được việc). HẠN_CHOT trả lời *bản tin phải tới tay chậm nhất lúc mấy
+# giờ* — đó là cam kết với người đọc, không phải điều kiện kỹ thuật.
+# Ca sáng 04:30: Huy chốt 31/08/2026, nguyên văn *"tin buổi sáng bắt buộc phải có lúc 4h30
+# sáng"*. Quét mất 16-21 phút nên lớp cuối còn kịp hạn phải khởi động chậm nhất 04:05;
+# lịch mốc local đã dời theo (xem LICH trong scripts/kich_ci.py và docs/LICH.md).
+# Ca tối 22:00: hạn cũ đã có từ 26/07/2026, chép về đây làm một bản gốc.
+HAN_CHOT = {"sang": 4 * 60 + 30, "toi": 22 * 60}
 CONG_GIO_TAT = "--bo-cong-gio"  # đường thoát KHAI BẰNG LỜI, bắt buộc kèm lý do
 
 

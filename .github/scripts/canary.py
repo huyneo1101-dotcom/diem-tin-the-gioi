@@ -281,7 +281,8 @@ def ngoai_khung_gio(o: str, luc: str) -> str:
         sp = importlib.util.spec_from_file_location("st", ROOT / "scripts" / "state.py")
         m = importlib.util.module_from_spec(sp)
         sp.loader.exec_module(m)
-        dau, cuoi = m.KHUNG_GIO[o]
+        dau = m.KHUNG_GIO[o][0]
+        cuoi = m.HAN_CHOT[o]   # cạnh trên là HẠN CHÓT tới tay, không phải cạnh khung khởi động
         t = datetime.datetime.fromisoformat(luc).astimezone(VN)
     except Exception:                                             # noqa: BLE001
         return ""
@@ -289,7 +290,8 @@ def ngoai_khung_gio(o: str, luc: str) -> str:
     if dau <= phut <= cuoi:
         return ""
     return (f"gửi lúc {t:%H:%M}, ngoài khung {dau // 60:02d}:{dau % 60:02d}-"
-            f"{cuoi // 60:02d}:{cuoi % 60:02d} giờ VN của ca `{o}`")
+            f"{cuoi // 60:02d}:{cuoi % 60:02d} giờ VN của ca `{o}` "
+            f"(hạn chót {cuoi // 60:02d}:{cuoi % 60:02d})")
 
 
 def main() -> int:

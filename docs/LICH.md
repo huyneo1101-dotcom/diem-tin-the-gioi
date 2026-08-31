@@ -19,7 +19,13 @@ nghĩa mà là **phiên sau tính biên thời gian theo mốc đã chết** —
 | Phiên | Lớp 1 (CI) | Lớp 2 (local) | Lớp 3 (CI) | Lớp 4 (local) | Hạn chót |
 |---|---|---|---|---|---|
 | **TỐI** | 20:47 | **21:15** ← lớp cuối còn kịp hạn | 21:47 = lớp VÉT (đã trễ hạn) | — | email **22:00** |
-| **SÁNG SỚM** | 03:47 | 04:30 | 04:47 | **04:45** (không còn 05:30) | không có |
+| **SÁNG SỚM** | local 04:00 ← lớp CHÍNH | **local 04:05** ← lớp cuối còn kịp hạn | CI 03:47/04:47 (trễ 2-4h, lưới) | local 04:35/04:40 = lớp VÉT (đã trễ hạn) | tới tay **04:30** |
+
+⛔ **HẠN CHÓT CA SÁNG LÀ 04:30 — Huy chốt 31/08/2026**, nguyên văn *"tin buổi sáng bắt buộc
+phải có lúc 4h30 sáng"*. Hằng số ở `scripts/state.py::HAN_CHOT`, phép đo ở
+`scripts/do_gio_ban_tin.py`, canary soi cùng số đó. Quét đo được 16-21 phút nên mốc kích
+chính phải là **04:00** (trước là 04:30, tức bản tin sớm nhất cũng 04:50 — LUÔN vỡ hạn).
+Đừng nới hạn cho vừa lịch; muốn đổi lịch thì đổi mốc kích, không đổi hạn.
 
 `harvest-ci.yml` chạy **trước mỗi mốc CI ~15 phút** để lô ứng viên còn tươi (`harvest.py` bỏ lô
 quá 4 tiếng). Canary chạy **sau lớp cuối**, không phải sau hạn chót: ca `toi` 22:45 (lớp vét
@@ -64,9 +70,10 @@ pmset đánh thức. **Đổi `pmset repeat` thì phải đổi giờ job đó t
 
 | Task LOCAL (khai tay — xem docstring `kiem_lich.py`) | cron | Giờ VN | Trạng thái | Việc |
 |---|---|---|---|---|
-| `com.huy.routine-diemtin-sang` | `30,45 4 * * *` | 04:30 · 04:45 | bật | dự phòng bản tin SÁNG SỚM + event-scan (Bước 4) — LaunchAgent headless sonnet |
+| `com.huy.routine-diemtin-sang` | `5,35 4 * * *` | 04:05 · 04:35 | bật | dự phòng bản tin SÁNG SỚM + event-scan (Bước 4) — LaunchAgent headless sonnet; dời từ 04:30·04:45 ngày 31/08/2026 vì HẠN CHÓT tới tay là 04:30 (state.py::HAN_CHOT) |
 | `com.huy.routine-diemtin-toi` | `15 21 * * *` | 21:15 | bật | dự phòng bản tin TỐI — lớp CUỐI còn kịp hạn email 22:00 — LaunchAgent headless sonnet |
 | `com.huy.diemtin-giu-thuc-som` | `41 3 * * *` | 03:41 | bật | caffeinate 90' giữ máy thức cho 2 mốc local sáng — CẶP với `pmset repeat` 03:40 |
 | `com.huy.diemtin-giu-thuc` | `26 4 * * *` | 04:26 | bật (lưới 2) | caffeinate 90' — mốc cũ cặp với pmset 04:25 đã đổi, giữ làm lưới thứ hai |
 | `com.huy.diemtin-giu-thuc-toi` | `40 20 * * *` | 20:40 | bật | caffeinate 90' giữ máy thức cho mốc local tối 21:15 |
+| `com.huy.diemtin-kich-ci` | `45 20 * * * | 0 21 * * * | 0 22 * * * | 45 3 * * * | 0 4 * * * | 40 4 * * *` | 20:45 · 21:00 · 22:00 · 03:45 · 04:00 · 04:40 | bật | kích workflow CI ĐÚNG GIỜ từ máy Mac (cron GitHub trễ 2-4h); ba mốc sáng dời từ 04:30 ngày 31/08/2026 để bản tin kịp HẠN CHÓT 04:30 — bảng mốc thật ở kich_ci.py::LICH |
 <!-- LICH:END -->

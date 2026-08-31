@@ -55,7 +55,7 @@ def gui(luc, buoi, n=5):
 
 
 # Sổ "sạch": ca sáng 31/08 gửi 04:41, ca tối 30/08 gửi 21:22.
-SACH = [gui("2026-08-30T21:22:00+07:00", "toi"), gui("2026-08-31T04:41:00+07:00", "sang")]
+SACH = [gui("2026-08-30T21:22:00+07:00", "toi"), gui("2026-08-31T04:18:00+07:00", "sang")]
 # Sổ THẬT hai đêm hỏng: sáng 31/08 gửi 01:25, ca tối 30/08 không có dòng nào.
 HONG_THAT = [gui("2026-08-30T01:08:53+07:00", "sang"), gui("2026-08-31T01:25:31+07:00", "sang")]
 
@@ -95,16 +95,16 @@ def _():
     return r.returncode == KEU and "SAI_GIO" in r.stdout, f"exit={r.returncode} · {r.stdout[:250]}"
 
 
-@ca('04. PHẢI KÊU: ca tối gửi 23:50 (quá khung 23:30) -> SAI_GIO')
+@ca('04. PHẢI KÊU: ca tối gửi 22:40 (quá hạn chót 22:00) -> SAI_GIO')
 def _():
-    with so_gia([gui("2026-08-30T23:50:00+07:00", "toi"),
-                 gui("2026-08-31T04:41:00+07:00", "sang")]) as s:
+    with so_gia([gui("2026-08-30T22:40:00+07:00", "toi"),
+                 gui("2026-08-31T04:18:00+07:00", "sang")]) as s:
         r = chay(s, "2026-08-31T12:00:00+07:00", ["--json"])
     tt = {k["ca"]: k["trang_thai"] for k in json.loads(r.stdout)["ket"]}
     return tt.get("toi") == "SAI_GIO", f"{tt}"
 
 
-@ca('05. PHẢI KÊU: ca sáng vắng hẳn và đã quá 09:00 -> VANG, không chờ nữa')
+@ca('05. PHẢI KÊU: ca sáng vắng hẳn và đã quá hạn 04:30 -> VANG, không chờ nữa')
 def _():
     with so_gia([gui("2026-08-30T21:22:00+07:00", "toi")]) as s:
         r = chay(s, "2026-08-31T12:00:00+07:00", ["--json"])
@@ -126,7 +126,7 @@ def _():
         f"sổ hỏng exit={r.returncode} · sổ thiếu exit={thieu.returncode}"
 
 
-@ca('07. PHẢI KÊU: khung giờ phải LẤY TỪ state.py, không chép số (đổi state.py là đổi theo)')
+@ca('07. PHẢI KÊU: cạnh dưới lấy KHUNG_GIO, cạnh trên lấy HAN_CHOT của state.py, không chép số')
 def _():
     with so_gia(SACH) as s:
         r = chay(s, "2026-08-31T12:00:00+07:00", ["--json"])
@@ -135,23 +135,24 @@ def _():
     sp = importlib.util.spec_from_file_location("st", REPO / "scripts" / "state.py")
     m = importlib.util.module_from_spec(sp)
     sp.loader.exec_module(m)
-    mong = {c: list(v) for c, v in m.KHUNG_GIO.items()}
+    # Cạnh dưới từ KHUNG_GIO, cạnh trên từ HAN_CHOT — hai bảng, hai vai trò.
+    mong = {c: [m.KHUNG_GIO[c][0], m.HAN_CHOT[c]] for c in khung}
     return khung == mong, f"phép đo dùng {khung} · state.py khai {mong}"
 
 
 # ═══════════ ca chống kêu oan ═══════════
 
-@ca('08. Sổ sạch (sáng 04:41 · tối 21:22) -> mã 0, im lặng')
+@ca('08. Sổ sạch (sáng 04:18 · tối 21:22) -> mã 0, im lặng')
 def _():
     with so_gia(SACH) as s:
         r = chay(s, "2026-08-31T12:00:00+07:00")
     return r.returncode == DAT, f"exit={r.returncode} · {r.stdout.strip()[:250]}"
 
 
-@ca('09. Chống kêu oan: 06:00 sáng, ca sáng chưa gửi nhưng còn trong khung -> CHUA_TOI_GIO')
+@ca('09. Chống kêu oan: 04:10, ca sáng chưa gửi nhưng CHƯA tới hạn 04:30 -> CHUA_TOI_GIO')
 def _():
     with so_gia([gui("2026-08-30T21:22:00+07:00", "toi")]) as s:
-        r = chay(s, "2026-08-31T06:00:00+07:00", ["--json"])
+        r = chay(s, "2026-08-31T04:10:00+07:00", ["--json"])
     tt = {k["ca"]: k["trang_thai"] for k in json.loads(r.stdout)["ket"]}
     return tt.get("sang") == "CHUA_TOI_GIO", f"{tt}"
 
@@ -164,13 +165,13 @@ def _():
     return (ngay.get("toi") == "2026-08-30" and ngay.get("sang") == "2026-08-31"), f"{ngay}"
 
 
-@ca('11. Biên khung: sáng 03:00 và 09:00 đạt · 02:59 và 09:01 kêu')
+@ca('11. Biên: sáng 03:00 và 04:30 đạt · 02:59 và 04:31 kêu (hạn chót Huy chốt)')
 def _():
     xau = []
     for luc, mong in (("2026-08-31T03:00:00+07:00", "DUNG_GIO"),
-                      ("2026-08-31T09:00:00+07:00", "DUNG_GIO"),
+                      ("2026-08-31T04:30:00+07:00", "DUNG_GIO"),
                       ("2026-08-31T02:59:00+07:00", "SAI_GIO"),
-                      ("2026-08-31T09:01:00+07:00", "SAI_GIO")):
+                      ("2026-08-31T04:31:00+07:00", "SAI_GIO")):
         with so_gia([gui("2026-08-30T21:22:00+07:00", "toi"), gui(luc, "sang")]) as s:
             r = chay(s, "2026-08-31T12:00:00+07:00", ["--json"])
         tt = {k["ca"]: k["trang_thai"] for k in json.loads(r.stdout)["ket"]}
@@ -190,10 +191,10 @@ def _():
 def _():
     with so_gia([gui("2026-08-30T21:22:00+07:00", "toi"),
                  gui("2026-08-31T01:25:00+07:00", "sang"),
-                 gui("2026-08-31T04:41:00+07:00", "sang")]) as s:
+                 gui("2026-08-31T04:18:00+07:00", "sang")]) as s:
         r = chay(s, "2026-08-31T12:00:00+07:00", ["--json"])
     k = {x["ca"]: x for x in json.loads(r.stdout)["ket"]}["sang"]
-    return (k["gio"] == "04:41" and k["trang_thai"] == "DUNG_GIO"), f"{k}"
+    return (k["gio"] == "04:18" and k["trang_thai"] == "DUNG_GIO"), f"{k}"
 
 
 # ═══════════════════════════ tự kiểm: bản hỏng ═══════════════════════════
@@ -204,8 +205,8 @@ BAN_HONG = [
      [2, 3, 4, 11]),
     ("do_gio_ban_tin.py: ca vắng mặt bị nuốt thành đạt",
      DO_THAT, "DO_GIO_PY", "do_gio_ban_tin.py",
-     ('                ket.append({"ca": ca, "ngay": ngay, "trang_thai": "VANG",',
-      '                ket.append({"ca": ca, "ngay": ngay, "trang_thai": "DUNG_GIO",'),
+     ('                        "trang_thai": "CHUA_TOI_GIO" if chua_toi_han else "VANG",',
+      '                        "trang_thai": "DUNG_GIO",'),
      [2, 5]),
     ("do_gio_ban_tin.py: mã thoát luôn 0 (kêu trên màn hình mà máy đọc thấy đạt)",
      DO_THAT, "DO_GIO_PY", "do_gio_ban_tin.py",
@@ -219,7 +220,8 @@ BAN_HONG = [
      [6]),
     ("do_gio_ban_tin.py: chép cứng khung giờ thay vì đọc state.py",
      DO_THAT, "DO_GIO_PY", "do_gio_ban_tin.py",
-     ("    return dict(m.KHUNG_GIO)", '    return {"sang": (0, 1439), "toi": (0, 1439)}'),
+     ("    return dict(m.KHUNG_GIO), dict(m.HAN_CHOT)",
+      '    return {"sang": (0, 1439), "toi": (0, 1439)}, {"sang": 1439, "toi": 1439}'),
      [2, 3, 4, 5, 7, 11]),
     ("do_gio_ban_tin.py: ca tối hỏi ngày HÔM NAY (kêu oan mỗi sáng)",
      DO_THAT, "DO_GIO_PY", "do_gio_ban_tin.py",

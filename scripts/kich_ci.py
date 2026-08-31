@@ -101,14 +101,21 @@ def cho_mang_ve(log_fn) -> bool:
 # (giờ, phút) -> [workflow cần kích]. Phải KHỚP với StartCalendarInterval trong plist
 # `com.huy.diemtin-kich-ci` — sửa một bên mà quên bên kia thì script fire nhưng không khớp
 # mốc nào và im lặng không kích gì.
+# ⏱️ DỜI LỊCH CA SÁNG 31/08/2026 — hạn chót bản tin sáng là 04:30 (Huy chốt, nguyên văn
+# *"tin buổi sáng bắt buộc phải có lúc 4h30 sáng"*; hằng số ở `state.py::HAN_CHOT`).
+# Mốc cũ kích lúc 04:30 nên bản tin sớm nhất cũng 04:50, tức LUÔN trễ hạn. Quét đo được
+# 16-21 phút, cộng jitter launchd 2-4 phút ⇒ lớp cuối còn kịp hạn phải kích 04:00.
+# Máy thức lúc 03:40 (pmset wakepoweron) và job giữ thức nổ cùng mốc đó, nên 03:35 là
+# sớm nhất còn an toàn cho harvest.
 LICH = {
     (20, 45): ["harvest-ci.yml"],
     (21, 0): ["claude-web-scan.yml"],
     (22, 0): ["claude-web-scan.yml"],          # lớp vét
-    (4, 30): ["harvest-ci.yml", "claude-web-scan.yml"],
+    (3, 45): ["harvest-ci.yml"],               # gom ứng viên trước mốc quét sáng
+    (4, 0): ["claude-web-scan.yml"],           # mốc CHÍNH ca sáng — xong ~04:20, kịp hạn 04:30
+    (4, 40): ["claude-web-scan.yml"],          # lớp VÉT, đã trễ hạn nhưng còn hơn mất bản tin
     # (8, 45) claude-event-scan.yml đã BỎ 28/07/2026: pipeline event-scan nay chạy gộp
-    # trong CHÍNH job claude-web-scan.yml của phiên sáng sớm (04:00/05:00), không còn
-    # mốc riêng để kích.
+    # trong CHÍNH job claude-web-scan.yml của phiên sáng sớm, không còn mốc riêng.
 }
 DUNG_SAI_PHUT = 20
 SO_LAN_THU = 3
