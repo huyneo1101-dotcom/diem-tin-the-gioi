@@ -218,6 +218,35 @@ def da_xong_hom_nay(o_khoa: str) -> bool:
     return xong == hom_nay
 
 
+def dang_chay() -> bool:
+    """Có phiên quét đang sống không (đọc state.json trên origin).
+
+    Cần từ 31/08/2026, khi mốc kiểm chéo kéo về 04:15: mốc chính 04:00 quét 16-21 phút nên
+    04:15 rơi vào GIỮA lúc nó đang chạy. Không hỏi câu này thì kiểm chéo thấy "chưa xong" và
+    bấm thêm một lượt thừa mỗi ngày — lượt đó tự SKIP ở `state.py claim` (exit 11) nên không
+    hỏng gì, nhưng vẫn tốn một run và làm log đọc ra như đang có sự cố.
+    Đọc không được thì trả False — thà bấm thừa còn hơn bỏ lượt.
+    """
+    root = "/Users/Huy/Claude/diem-tin-the-gioi"
+    p = subprocess.run(["git", "-C", root, "show", "origin/main:logs/state.json"],
+                       capture_output=True, text=True, timeout=60)
+    if p.returncode != 0:
+        return False
+    try:
+        e = json.loads(p.stdout).get("web-scan") or {}
+    except ValueError:
+        return False
+    if e.get("lastStatus") != "RUNNING":
+        return False
+    # Nhịp tim cũ quá thì phiên đó đã chết, đừng nhường mãi. Cùng ngưỡng LOCK_STALE_MIN=30'
+    # của state.py; đọc không được mốc thì coi như còn sống (thà bấm thiếu còn hơn bấm chồng).
+    try:
+        nhip = datetime.datetime.fromisoformat(e.get("heartbeat") or e.get("lastRunAt"))
+        return (datetime.datetime.now(VN) - nhip).total_seconds() / 60 < 30
+    except (TypeError, ValueError):
+        return True
+
+
 def che_do_kiem() -> int:
     """KIỂM CHÉO — chạy sau mốc chính. Chưa có bản tin thì kích lại.
 
@@ -229,6 +258,9 @@ def che_do_kiem() -> int:
     log(f"KIỂM CHÉO ô `{o}`")
     if da_xong_hom_nay(o):
         log("   ✅ đã có bản tin hôm nay — không cần kích lại.")
+        return 0
+    if dang_chay():
+        log("   ⏳ phiên quét ĐANG CHẠY — không bấm chồng, để nó làm nốt.")
         return 0
     log("   ⚠️  CHƯA có bản tin — kích lại claude-web-scan.yml")
     if kich("claude-web-scan.yml"):

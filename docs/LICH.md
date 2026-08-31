@@ -76,4 +76,5 @@ pmset đánh thức. **Đổi `pmset repeat` thì phải đổi giờ job đó t
 | `com.huy.diemtin-giu-thuc` | `26 4 * * *` | 04:26 | bật (lưới 2) | caffeinate 90' — mốc cũ cặp với pmset 04:25 đã đổi, giữ làm lưới thứ hai |
 | `com.huy.diemtin-giu-thuc-toi` | `40 20 * * *` | 20:40 | bật | caffeinate 90' giữ máy thức cho mốc local tối 21:15 |
 | `com.huy.diemtin-kich-ci` | `45 20 * * * | 0 21 * * * | 0 22 * * * | 45 3 * * * | 0 4 * * * | 40 4 * * *` | 20:45 · 21:00 · 22:00 · 03:45 · 04:00 · 04:40 | bật | kích workflow CI ĐÚNG GIỜ từ máy Mac (cron GitHub trễ 2-4h); ba mốc sáng dời từ 04:30 ngày 31/08/2026 để bản tin kịp HẠN CHÓT 04:30 — bảng mốc thật ở kich_ci.py::LICH |
+| `com.huy.diemtin-kiem-ci` | `35 21 * * * | 15 4 * * *` | 21:35 · 04:15 | bật | kiểm chéo `kich_ci.py --kiem`: chưa có bản tin thì bấm lại. Mốc sáng kéo từ 05:15 về 04:15 ngày 31/08/2026 để còn cứu được TRONG hạn 04:30, không chỉ cứu khỏi mất hẳn |
 <!-- LICH:END -->
