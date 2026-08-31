@@ -58,8 +58,9 @@ LOCAL_KHAI_TAY = [
      "dời từ 04:30·04:45 ngày 31/08/2026 vì HẠN CHÓT tới tay là 04:30 (state.py::HAN_CHOT)"),
     ("com.huy.routine-diemtin-toi", "15 21 * * *", "21:15", "bật",
      "dự phòng bản tin TỐI — lớp CUỐI còn kịp hạn email 22:00 — LaunchAgent headless sonnet"),
-    ("com.huy.diemtin-giu-thuc-som", "41 3 * * *", "03:41", "bật",
-     "caffeinate 90' giữ máy thức cho 2 mốc local sáng — CẶP với `pmset repeat` 03:40"),
+    ("com.huy.diemtin-giu-thuc-som", "40 3 * * *", "03:40", "bật",
+     "caffeinate 90' giữ máy thức cho các mốc local sáng — CẶP với `pmset repeat` 03:40. "
+     "Bảng này từng khai 03:41 trong khi plist thật khai 03:40; đo lại 31/08/2026, sửa theo plist"),
     ("com.huy.diemtin-giu-thuc", "26 4 * * *", "04:26", "bật (lưới 2)",
      "caffeinate 90' — mốc cũ cặp với pmset 04:25 đã đổi, giữ làm lưới thứ hai"),
     ("com.huy.diemtin-giu-thuc-toi", "40 20 * * *", "20:40", "bật",
