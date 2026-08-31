@@ -3,3 +3,4 @@
 [20:36Z] harvest.py + telegram_harvest.py xong: 277 ung vien RSS/HTML/GNEWS + 11 ung vien TG (cai curl_cffi de cuu 10 nguon)
 [20:50Z] add_news.py xong: nap 13 tin (Noi bo My 5, Uc&BD 3, CNQS My 4, tap tran 1; Mali rong). Cong ngay that chan 4 URL thieu metadata (wjtv, 2x war.gov), da thay bang nguon khac cung su kien. tin_jaylam.py: khong co file trong khung. state.py done web-scan.
 [20:50Z] DONE web-scan, chuan bi commit "Cap nhat ban tin"
+[20:51Z] START event-scan (CI, gop vao sang som)
