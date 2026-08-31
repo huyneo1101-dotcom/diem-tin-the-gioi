@@ -1,17 +1,17 @@
 {
-  "date": "2026-08-31",
+  "date": "2026-09-01",
   "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Quốc hội đang trong kỳ nghỉ Lễ Lao Động (pro forma session 30-31/08) nên nhóm 1 (điều trần+bỏ phiếu) = 0, đã xác nhận qua congress.gov, không phải bỏ sót. 3 tin ứng viên khác (Seneca Nation, GM-Canada, RFK Jr.-Shapiro) có ngày sự kiện thật 29/08, ngoài khung 30-31/08 nên bị loại. Chỉ còn 2 tin đạt chuẩn: Banque Misr sanctions, Trump-Welker/Treasury G20 (gộp)."},
-    {"name":"Úc & Biển Đông","count":0,"target":"5-10","min":5,"thieu":true,
-     "reason":"2 tin tìm được đều bị cổng ngày thật chặn: One Nation Tây Úc (ABC News AU) có datePublished thật 29/08 dù nội dung ghi 30/08; Đài Loan PLA Activity (mnd.gov.tw) mở được nhưng không có metadata ngày đọc được. Sau 2 vòng agent, các diễn biến Biển Đông khác xác minh được đều ngoài khung (24-28/08) hoặc trùng tin đã có."},
-    {"name":"CNQS Mỹ","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Khung 3 ngày (29-31/08) trùng cuối tuần Lễ Lao Động Mỹ nên sản lượng tin quốc phòng thấp: war.gov/Contracts không có trang mới, các RSS chuyên ngành dừng ở 27-28/08. Chỉ 2 tin đạt chuẩn: MCRIG (Thủy quân lục chiến), Minuteman III PCB (Không quân)."},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":5,"target":"5-10","min":5,"thieu":false,
+     "reason":"Vét nhóm 1 (điều trần+bỏ phiếu) = 0, Quốc hội mới họp lại 01/09 sau kỳ nghỉ, chưa có phiên/bỏ phiếu nào xác nhận trong khung. Đạt tối thiểu 5 tin từ nhóm 3-5 (biểu tình, kinh tế/trừng phạt, bầu cử giữa kỳ)."},
+    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Sau agent chính + 1 vòng bổ sung (~20 lượt WebSearch), chỉ 3 tin đạt chuẩn ngày sự kiện thật 31/08-01/09 (Super Garuda Shield khai mạc, Trung Quốc cảnh báo về Đài Loan tại PIF Palau, bản đồ đáy Biển Đông của TQ). Các ứng viên khác đều ngoài khung (24-30/08: USS Abraham Lincoln qua Malacca, AUKUS Pillar 3, AIM-260, Evolved Cape-class...) hoặc trùng sự kiện đã đưa tin trước đó."},
+    {"name":"CNQS Mỹ","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Khung nới 3 ngày (29/08-01/09). Đạt 4 tin từ nguồn tầng 1 (2× war.gov qua nguồn thay thế có ngày rõ, Military/Army Times, Breaking Defense). Nhiều ứng viên GNEWS bị loại vì kiểm chéo cho thấy ngày sự kiện thật ngoài khung (AIM-424 Malice, DARPA hypersonic, Harpoon test, Dataminr contract) hoặc sai lệch (USS Ted Stevens biên chế thực tế tháng 10)."},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,
-     "reason":"Sự kiện lớn trong ngày (binh biến/Africa Corps) là ở NIGER, không phải Mali — không có bằng chứng liên quan Mali/JNIM/Mỹ nên không nạp theo đúng luật đã chốt. Tin Mali thật gần nhất (Tuareg đổi tù binh) là 27/08, ngoài khung và không có góc Mỹ."},
-    {"name":"Tập trận","count":2,"target":"1-2","min":0,"thieu":false,
-     "reason":"MAITREE-XV (giai đoạn cao điểm trước bế mạc 31/08) và REPMUS 26/Dynamic Messenger 26 (khai mạc 31/08) đủ chỉ tiêu. Diễn tập Hạm đội TBD Nga xác nhận đã kết thúc từ 12/08 nên loại khỏi vòng bám; SEACAT 2026 không có diễn biến mới trong khung."}
+     "reason":"Sự kiện lớn trong khung (binh biến/Africa Corps) là ở NIGER, không phải Mali — không đủ bằng chứng liên quan Mali/JNIM/Bamako nên không nạp theo đúng luật dossier. Tin JNIM/Mali xác minh được (GSIM convoy ambush, JNIM ở Burkina Faso) đều có ngày thật trước 17/08, ngoài khung."},
+    {"name":"Tập trận","count":1,"target":"1-2","min":0,"thieu":false,
+     "reason":"Chỉ có 1 update (Super Garuda Shield 2026 chính thức khai mạc tại Bandung 31/08) — REPMUS 26/Dynamic Messenger 26 và SEACAT 2026 không có diễn biến/khoa mục cụ thể nào mới trong khung ngoài mốc khai mạc chung đã dùng."}
   ],
-  "note": "Tổng 6 tin (2 Nội bộ Mỹ + 2 CNQS Mỹ + 2 cập nhật tập trận) + 0 Úc&BĐ + 0 Mali. Sản lượng thấp do trùng cuối tuần Lễ Lao Động Mỹ (Quốc hội nghỉ, ít hợp đồng/thông cáo) và cổng ngày thật chặn đúng 2 tin Úc&BĐ đã tìm được. Chi tiết từng tin bị loại: logs/loai-tin.md mục 'Phiên SÁNG SỚM 31/08/2026 (CI)'. Cổng bài 👍 (107 mục calib:xxx) và cổng Báo Mới (68 ứng viên, không bài nào hợp chủ đề) đã kiểm nhưng không có gì để nạp."
+  "note": "Tổng 13 tin nạp được (5 Nội bộ Mỹ + 3 Úc&Biển Đông + 4 CNQS Mỹ + 1 cập nhật tập trận) + 0 Mỹ-Mali. Cổng ngày thật (ngay_that.py) chặn 4 ứng viên do trang không có metadata ngày đọc được (wjtv.com, 2× war.gov/News/Releases) — đã tìm bài THAY THẾ cùng sự kiện có metadata sạch (local10.com, unionleader.com, armytimes.com) thay vì bỏ tin, và chặn 1 ứng viên do lệch ngày thật (Middle East Eye, đọc ra 30/08 thay vì 31/08 như agent khai). Chi tiết từng tin bị loại: logs/loai-tin.md mục 'Phiên SÁNG SỚM 01/09/2026 (CI)'. Cổng bài 👍 (107 mục calib:xxx, dữ liệu test/hiệu chuẩn) và cổng Báo Mới (77 ứng viên, không bài nào hợp chủ đề ngoài 1 bài trùng Super Garuda Shield đã nạp) đã kiểm nhưng không có gì thêm để nạp."
 }

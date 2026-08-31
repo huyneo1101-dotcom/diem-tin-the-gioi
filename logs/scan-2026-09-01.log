@@ -1,2 +1,5 @@
 [19:42Z] SKIP (CI) — exit 12 SAI GIO: 02:42 nam NGOAI khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. Khong dung --bo-cong-gio de lach.
 [20:23Z] START (CI) phien sang som — claim web-scan OK (03:23 gio VN)
+[20:36Z] harvest.py + telegram_harvest.py xong: 277 ung vien RSS/HTML/GNEWS + 11 ung vien TG (cai curl_cffi de cuu 10 nguon)
+[20:50Z] add_news.py xong: nap 13 tin (Noi bo My 5, Uc&BD 3, CNQS My 4, tap tran 1; Mali rong). Cong ngay that chan 4 URL thieu metadata (wjtv, 2x war.gov), da thay bang nguon khac cung su kien. tin_jaylam.py: khong co file trong khung. state.py done web-scan.
+[20:50Z] DONE web-scan, chuan bi commit "Cap nhat ban tin"
