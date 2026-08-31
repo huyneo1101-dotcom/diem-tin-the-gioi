@@ -184,6 +184,8 @@ vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc
   **KHÔNG gọi `state.py skip/fail`** (ghi đè RUNNING + nhả khoá của phiên đang chạy), `reset --hard
   origin/main` rồi commit riêng dòng log.
   `SKIP` (exit 10) → buổi này đã quét xong · `SKIP` (exit 11) → **có phiên khác đang chạy**, không quét
+  · `SKIP` (exit 12) → **SAI GIỜ**: phiên nổ ngoài khung của ca (`sang` 03:00-09:00 · `toi` 19:30-23:30
+  giờ VN) do cron GitHub trễ. Ghi log rồi KẾT THÚC, cấm lách bằng `--bo-cong-gio`
   chồng. Cả hai: ghi log `SKIP`, push log, KẾT THÚC. `RUN` (exit 0) → đã giữ khoá, quét tiếp.
   Cờ theo BUỔI: `state.py` TỰ suy ô từ giờ VN lúc chạy (trước 14:00 = `sang`, từ 14:00 = `toi`) —
   routine KHÔNG phải truyền gì thêm. Mốc nào của phiên nào, mốc nào là dự phòng: **`docs/routine-web-scan.md`**

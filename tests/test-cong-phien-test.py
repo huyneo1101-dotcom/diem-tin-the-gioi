@@ -59,8 +59,13 @@ O = ["--slot", "toi"]   # ép ô để ca thử không phụ thuộc giờ chạ
 
 
 def chay(kho: pathlib.Path, args, phien_test=None):
-    """Gọi state.py trong một 'repo' giả. phien_test=None => phiên THẬT."""
-    env = dict(os.environ, STATE_LOGS_DIR=str(kho))
+    """Gọi state.py trong một 'repo' giả. phien_test=None => phiên THẬT.
+
+    ⏱️ Ghim giờ 21:00 bằng seam STATE_GIO_GIA (cắm 31/08/2026): từ khi state.py có CỔNG
+    KHUNG GIỜ, phiên thật claim ngoài khung ca sẽ trả exit 12. Bộ test này ép ô `toi` nên
+    phải chạy được cả ban ngày — không ghim giờ thì ca 2 và 7 đỏ oan.
+    """
+    env = dict(os.environ, STATE_LOGS_DIR=str(kho), STATE_GIO_GIA="21:00")
     env.pop("DIEMTIN_PHIEN_TEST", None)
     if phien_test is not None:
         env["DIEMTIN_PHIEN_TEST"] = phien_test

@@ -53,7 +53,8 @@ mở thì còn tệ hơn không có khoá (mất luôn bản tin của buổi đ
 LOCK_STALE_MIN phút -> coi như phiên đã chết, cho phiên mới giành khoá.
 
 Dùng:
-  python3 scripts/state.py claim web-scan       # GIÀNH khoá + kiểm tra; 0 = quét đi, 10 = xong rồi, 11 = đang chạy
+  python3 scripts/state.py claim web-scan       # GIÀNH khoá + kiểm tra; 0 = quét đi, 10 = xong rồi,
+                                                #   11 = đang chạy, 12 = SAI GIỜ (ngoài khung ca, xem KHUNG_GIO)
   python3 scripts/state.py beat web-scan        # nhịp tim — gọi ở MỖI checkpoint, nếu không khoá sẽ tự hết hạn
   python3 scripts/state.py check web-scan       # CHỈ hỏi, không giành khoá (dùng để chẩn đoán)
   python3 scripts/state.py show                 # in toàn bộ trạng thái
@@ -92,6 +93,52 @@ TEST_ON = ("1", "true", "yes", "on", "co")
 PIPELINES = ("drive-import", "web-scan", "event-scan")
 SLOTS = ("sang", "toi")
 SLOT_SPLIT_HOUR = 14  # < 14:00 VN = ô "sang"; >= 14:00 = ô "toi"
+
+# ── CỔNG KHUNG GIỜ — phiên khởi động sai giờ thì KHÔNG được nhận ô nào ────────────────
+# Sự cố thật (Huy kêu sáng 31/08/2026 "sao điểm tin sáng nay vẫn chạy 1h sáng"):
+# cron GitHub trễ BẤT ĐỊNH 2-4 tiếng (đo 6 ngày liền: mốc 13:47Z chạy lúc 17:23-18:11Z).
+# Mốc CI TỐI 20:47 VN vì thế nổ lúc 00:46 VN hôm sau; `current_slot()` chỉ hỏi đồng hồ
+# nên thấy 00:46 < 14:00 và gán ngay ô "sang" -> phiên tối biến thành phiên sáng, quét và
+# GỬI bản tin lúc 01:25 sáng, đồng thời chiếm mất ô "sang" khiến mốc sáng thật (local
+# 04:30, CI 03:47/04:47) đều SKIP. Ô "toi" hôm đó không còn ai chạy nên bản tin TỐI mất
+# hẳn: sổ đã gửi trống dòng [toi] cả 30/08 lẫn 31/08, lần cuối là 29/08 21:30.
+# Vá: đồng hồ KHÔNG đủ để nhận ca. Phiên phải rơi vào khung giờ của ca thì mới được claim;
+# ngoài khung là SKIP êm (exit 12), nhường lại cho mốc đúng giờ (local `kich_ci.py`).
+# Khung nới rộng hơn lịch thật để không chặn oan jitter và mốc vét:
+#   sang 03:00-09:00 (mốc CI 03:47/04:47 · local 04:30/04:45, trễ 2h vẫn lọt)
+#   toi  19:30-23:30 (mốc CI 20:47/21:47 · local 21:15/22:00)
+KHUNG_GIO = {"sang": (3 * 60, 9 * 60), "toi": (19 * 60 + 30, 23 * 60 + 30)}
+CONG_GIO_TAT = "--bo-cong-gio"  # đường thoát KHAI BẰNG LỜI, bắt buộc kèm lý do
+
+
+# STATE_GIO_GIA: seam CHỈ dùng cho bộ test (tests/test-cong-khung-gio.py) — ghim giờ hiện
+# tại dạng "HH:MM" để ca thử không phải chờ tới 1h sáng. Vận hành thật KHÔNG đặt biến này.
+GIO_GIA_ENV = "STATE_GIO_GIA"
+
+
+def gio_hien_tai():
+    """Giờ dùng để soi khung. Seam test hỏng thì ném lỗi, KHÔNG lặng lẽ rơi về giờ thật."""
+    gia = (os.environ.get(GIO_GIA_ENV) or "").strip()
+    if not gia:
+        return datetime.now()
+    gio, phut = gia.split(":")
+    return datetime.now().replace(hour=int(gio), minute=int(phut))
+
+
+def ngoai_khung(slot: str, now=None) -> str:
+    """Trả về lý do nếu giờ hiện tại NGOÀI khung của ô; chuỗi rỗng nếu hợp lệ.
+
+    Lỗi đọc bảng khung phải fail về phía KÊU (chặn), không phải phía im.
+    """
+    now = now or gio_hien_tai()
+    phut = now.hour * 60 + now.minute
+    dau, cuoi = KHUNG_GIO[slot]  # KeyError = ô lạ -> ném ra, không nuốt
+    if dau <= phut <= cuoi:
+        return ""
+    return (
+        f"{now:%H:%M} nam NGOAI khung cua o \"{slot}\" "
+        f"({dau // 60:02d}:{dau % 60:02d}-{cuoi // 60:02d}:{cuoi % 60:02d} gio VN)"
+    )
 
 # NHÃN in ra cho từng ô của từng pipeline. Chỉ ảnh hưởng chữ hiển thị, KHÔNG ảnh hưởng logic khoá.
 # web-scan/event-scan mỗi ngày chỉ 1 phiên nên ô còn lại chính là ô CHẠY BÙ (máy ngủ, chạy trễ sang
@@ -268,6 +315,15 @@ def main() -> None:
     force = "--force" in args
     if force:
         args.remove("--force")
+    bo_cong_gio = ""
+    if CONG_GIO_TAT in args:
+        i = args.index(CONG_GIO_TAT)
+        bo_cong_gio = args[i + 1] if i + 1 < len(args) else ""
+        if not bo_cong_gio.strip():
+            print(f"{CONG_GIO_TAT} phai kem LY DO (vd: {CONG_GIO_TAT} \"chay bu tay\")",
+                  file=sys.stderr)
+            sys.exit(2)
+        del args[i : i + 2]
     as_json = "--json" in args
     if as_json:
         args.remove("--json")
@@ -328,6 +384,19 @@ def main() -> None:
 
     if cmd in ("check", "claim"):
         entry = load().get(pipeline, {})
+        # CỔNG KHUNG GIỜ đứng TRƯỚC mọi phép khác: sai giờ thì không được đụng vào ô nào,
+        # kể cả để đọc. Phiên test bỏ qua (phải chạy lại được bất kể giờ nào).
+        if pipeline in ("web-scan", "event-scan") and not la_phien_test():
+            ly_do = ngoai_khung(use_slot)
+            if ly_do and not bo_cong_gio:
+                print(
+                    f"SKIP — {ly_do}. Cron GitHub tre bat dinh 2-4h nen phien nay khong "
+                    f"phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. "
+                    f"Chay bu tay: them {CONG_GIO_TAT} \"<ly do>\"."
+                )
+                sys.exit(12)
+            if ly_do and bo_cong_gio:
+                print(f"⚠️  BO CONG GIO ({ly_do}) — ly do: {bo_cong_gio}")
         if la_phien_test():
             # (a) KHÔNG xét lastSuccess thật -> phiên test không bao giờ exit 10 vì bản tin thật
             #     đã xong. Test phải chạy lại được bất kể giờ nào, đó là công dụng của nó.

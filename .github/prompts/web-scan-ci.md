@@ -21,6 +21,7 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
 ## QUY TRÌNH BẮT BUỘC (khung, chi tiết theo SKILL)
 1. `git pull --rebase origin main` rồi `python3 scripts/state.py claim web-scan`.
    - exit 10 (tối nay đã có bản tin) hoặc exit 11 (phiên khác đang chạy — có thể là bản local trên máy Huy): ghi 1 dòng SKIP + lý do vào log, commit + push log, KẾT THÚC ÊM. Đây là kết quả HỢP LỆ, không phải lỗi.
+   - **exit 12 (SAI GIỜ — cron GitHub trễ, phiên này không phải ca thật)**: ghi 1 dòng SKIP + nguyên văn thông điệp vào log, commit + push log, KẾT THÚC ÊM. ⛔ **TUYỆT ĐỐI KHÔNG thêm `--bo-cong-gio` để lách.** Đúc 31/08/2026 sau sự cố thật: mốc CI TỐI 20:47 nổ lúc 00:46 giờ VN, tự nhận là phiên sáng, gửi bản tin lúc 01:25 sáng rồi chiếm mất ô `sang` khiến mọi mốc sáng thật SKIP và bản tin TỐI mất hẳn hai đêm liền. Mốc đúng giờ (`kich_ci.py` trên máy Mac) sẽ làm phần việc này.
    - exit 0: đã giữ khoá, quét tiếp.
    - ⛔ **NGOẠI LỆ DUY NHẤT của exit 10 — CỜ ĐÃ XONG NHƯNG SỔ ĐÃ GỬI CHƯA CÓ DÒNG CỦA CA NÀY** (đúc 29/07/2026, sự cố thật; luật song sinh với `docs/routine-web-scan.md` mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" điều 3 — bản local đã áp từ trước, nay áp cho CI vì mốc **CI vét 21:47 là lớp CUỐI** và khi máy Mac ngủ thì không còn ai đứng sau nó). Gặp exit 10 thì làm ĐỦ 3 lệnh phẳng này trước khi SKIP:
      ```
