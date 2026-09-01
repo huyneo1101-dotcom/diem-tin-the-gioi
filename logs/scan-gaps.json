@@ -1,17 +1,17 @@
 {
   "date": "2026-09-01",
-  "session": "toi",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":6,"target":"5-10","min":5,"thieu":false,
-     "reason":"Nhóm 1 (điều trần/bỏ phiếu) chưa vét được bài nào đúng khung 31/08-01/09; 6 bài giữ lại thuộc nhóm 2/4/5 (Driscoll từ chức, DHS điều tra gian lận cử tri, USPS whistleblower, đua Thượng viện Texas)."},
-    {"name":"Úc & Biển Đông","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"Thiếu 1 bài so với sàn 5: tin 'AFP 56 tàu Trung Quốc' (GMA News) bị cổng ngày đăng thật chặn (bài thật đăng 2024, không phải 2026), không kịp tìm bài thay thế do phiên quét trễ hạn chót 22:00."},
-    {"name":"Công nghệ quân sự Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"3/6 bài agent tìm được bị cổng ngày đăng thật chặn vì thiếu metadata ngày đọc được (war.gov, afnwc.af.mil, Army Recognition — cùng bệnh nguồn .mil/.gov đã ghi nhận trước đó). Không kịp tìm nguồn thay thế cùng sự kiện do đã quá hạn chót."},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Đã chạy 2 vòng agent (bao gồm vòng bổ sung tập trung nhóm 1/3/5). Nhóm 1 chỉ vét được 2 bài (Hạ viện thông qua ngân sách tạm thời + bỏ phiếu khiển trách nghị sĩ Chuck Edwards); không tìm thêm được điều trần/bỏ phiếu nào khác trong khung 01-02/09 dù đã WebSearch congress.gov/uỷ ban. Ngày khan vì cuối tuần Lễ Lao Động vừa qua, Quốc hội vừa họp lại."},
+    {"name":"Úc & Biển Đông (+ Anh)","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Đã chạy 2 vòng agent. Nhiều ứng viên bị cổng ngày đăng thật chặn vì thiếu metadata (Manila Bulletin gốc, Army Recognition) — đã thay 1 bằng nguồn khác (BusinessWorld) nhưng 1 phải loại hẳn (Arleigh Burke Flight III — thuộc CNQS chứ không phải mục này, xem dòng dưới). Vòng bổ sung không tìm thêm được tin Biển Đông/Úc mới, chỉ cứu thêm Philippines/BRP Sierra Madre và Starmer (Anh)."},
+    {"name":"CNQS Mỹ","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"5 bài ban đầu nhưng 1 bài (Hải quân đóng tàu Arleigh Burke Flight III tới 2040, nguồn Army Recognition) bị cổng ngày đăng thật chặn do trang thiếu metadata ngày đọc được; không tìm được nguồn khác đưa cùng sự kiện có metadata sạch trong thời gian cho phép nên loại hẳn, còn 4 bài."},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":false,
-     "reason":"Không xác nhận được tin Mali/JNIM/Sahel nào mới trong khung 31/08-01/09; ứng viên gần nhất là tin cũ đăng lại hoặc thuộc Niger (không phải Mali)."},
-    {"name":"Tập trận","count":3,"target":"1-2","min":1,"thieu":false,
-     "reason":"3 cập nhật: Super Garuda Shield 2026 (khoa mục huấn luyện), REPMUS 26/Dynamic Messenger 26 (khai mạc), Freedom Edge 2026 (phản ứng Hàn Quốc trước chỉ trích Triều Tiên)."}
+     "reason":"Không xác nhận được tin Mali/JNIM/Bamako/Sahel nào mới trong khung 01-02/09/2026. Ứng viên gần nhất tìm được là binh biến Niger (không phải Mali, không có bằng chứng liên quan JNIM/Mali/Mỹ theo đúng luật Niger≠Mali) nên loại. Chủ đề này thường về 0."},
+    {"name":"Tập trận","count":0,"target":"1-2","min":0,"thieu":false,
+     "reason":"Kiểm REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Super Garuda Shield 2026 (đã có update từ phiên trước), PANAMAX 2026, Hán Quang 42, Freedom Edge 2026 (chưa bắt đầu, khai mạc 07/09), Diễn tập Hạm đội TBD Nga (đã kết thúc) — không tìm được diễn biến MỚI nào trong khung 01-02/09 ngoài các update đã có sẵn trong DATA từ phiên trước."}
   ],
-  "note": "Phiên TỐI 01/09 nổ đúng hạn chót 22:00 giờ VN (khoá cũ của 2 lượt trước đó — CI 20:56 và local 21:15 — đều đã thối >30' không nhịp). Do quá hạn nên chỉ nạp MỘT lô rồi chốt ngay, không chạy vòng bổ sung, không chạy cổng bài 👍/cổng Báo Mới/tin_jaylam.py. Chi tiết tin bị loại: logs/loai-tin.md mục 'Phiên TỐI 01/09/2026 (CI)'."
+  "note": "Phiên sáng sớm 02/09/2026 (CI). Cổng ngày đăng thật chặn 4 tin ban đầu (Manila Bulletin, Warren/banking.senate.gov, Bloomberg gallium, Army Recognition) — 3 tìm được nguồn thay thế có metadata sạch (BusinessWorld, Washington Post cho tin khác cùng nhóm Nội bộ Mỹ, MINING.COM), 1 phải loại hẳn. File Jay Lâm (ĐTN_M_01.9.2026, 27 tin) đã đối chiếu — không có tin nào của phiên này trùng sự kiện với file. `gh workflow run telegram-bot.yml` bị chặn 'requires approval' trong môi trường CI này (đúng như các phiên trước), đã bỏ qua bước kích bot, dùng thẳng `tin_jaylam.py --liet-ke` (thấy sẵn 1 file đã trích trong hàng chờ)."
 }
