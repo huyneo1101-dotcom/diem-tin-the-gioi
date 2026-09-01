@@ -437,8 +437,50 @@ NHẬN file (không đổi) và ba lệnh mới của `tin_jaylam.py`.
 | `scripts/tin_jaylam.py --ghi` | Lưu **BẢNG ĐỐI CHIẾU** trích từ file Jay vào cột `tom_tat` (JSON), đặt `da_xu_ly=true`. Guardrail: id ngoài khung/trùng · `tin` rỗng · tiêu đề ngoài 10-200 · cảnh báo TRÍCH SÓT |
 | `scripts/tin_jaylam.py --ghi-loai` | Ghi sổ `logs/trung-jaylam.json` — tin **CỦA MÌNH** bị bỏ. Guardrail: url phải http(s) · `tieu_de` 10-300 · **`trung_voi` bắt buộc** · `id_jay` bắt buộc. Dedupe theo url, giữ `GIU_NGAY = 7` |
 | `.github/scripts/make_docx.py` | `doc_url_trung_jaylam()` đọc sổ, `loc_bo_trung_jaylam()` bỏ tin khỏi **CẢ BA** mục (`usNews`/`worldNews`/`events`), CẢ HAI buổi. Không còn chạm Supabase |
+| `scripts/tin_jaylam.py --nap-file` | Nạp một file `.docx` **CỤC BỘ** (xem mục ngay dưới) |
 | `tests/test-tin-jaylam-xu-ly.py` | **39 ca · `--tu-kiem` bắt 19/19 bản hỏng** |
+| `tests/test-nap-file-coquan.py` | **35 ca (13 PHẢI CHẶN) · `--tu-kiem` bắt 11/11 bản hỏng** |
 | `tests/test-tin-jaylam-trong-docx.py` | **20 ca · `--tu-kiem` bắt 11/11 bản hỏng** |
+
+### 📎 Đường thứ hai: file `.docx` cơ quan gửi thẳng cho Huy (dựng 01/09/2026)
+
+⛔ **`--liet-ke` CHỈ THẤY FILE ĐI QUA BOT TELEGRAM. File Huy nhận rồi quăng vào khung chat thì
+không có cửa nào vào sổ chống trùng.** Đo thật 01/09/2026: file `ĐTN_M_01.9.2026.docx` cơ quan
+gửi nằm ở `~/Downloads/`, `doc_hang_cho()` đọc Supabase nên không thấy gì, và 27 đường dẫn
+trong đó phải bóc bằng tay rồi tự soạn `logs/trung-jaylam.json`. Làm tay bắt được 05 tin trùng;
+cùng file đó chạy bằng lệnh mới bắt **06** — tin sót là Super Garuda Shield 2026
+(`id.usembassy.gov`). Đó là thước đo của nhánh này: mắt người bỏ sót, phép so đường dẫn thì không.
+
+```
+python3 scripts/tin_jaylam.py --nap-file ~/Downloads/ĐTN_M_01.9.2026.docx [--nhan <id>] [--thu]
+```
+
+| Bước | Việc |
+|---|---|
+| bóc | Link lấy theo **HAI đường**: `w:hyperlink` trỏ vào `word/_rels/document.xml.rels`, **và** link dán trần trong chữ. Bỏ đường thứ hai là mất câm những đoạn người soạn dán vội |
+| tiêu đề | Chữ của chính đoạn chứa link, đã gỡ phần link dính đuôi. Đoạn không có chữ vẫn **GIỮ** tin, gắn nhãn `⚠ đoạn không có chữ` — bỏ nó là để lọt đúng tin phải cắt |
+| sổ đối chiếu | `logs/bang-doi-chieu-coquan.json`, dedupe theo **nhãn**, cắt theo `GIU_NGAY = 7` |
+| lọc | Tin của mình trùng **ĐÚNG ĐƯỜNG DẪN** (sau `chuan_url`) tự vào `logs/trung-jaylam.json`, `id_jay` là nhãn file |
+| `--thu` | Xem trước, không chạm sổ nào |
+
+⛔ **`chuan_url()` chuẩn hoá HẸP, đừng nới.** Nó bỏ đúng chừng này: scheme, `www.`, `/` cuối,
+mảnh `#`, thứ tự tham số, và danh sách tham số theo dõi ở `THAM_SO_BO`. **Cắt sạch chuỗi truy
+vấn là gộp nhầm hai bài khác nhau trên cùng một trang thành một, tức XOÁ OAN một tin khỏi bản
+tin** — hướng lệch tệ hơn hẳn việc bỏ lọt một tin trùng. Ca [17] canh đúng chiều này.
+
+⛔ **Sổ loại giữ `sourceUrl` NGUYÊN VĂN, không giữ bản chuẩn hoá.**
+`make_docx.loc_bo_trung_jaylam()` so nguyên văn; ghi bản chuẩn hoá vào sổ là sổ đầy mà không
+lọc được dòng nào — hỏng câm. Ca [22] canh chỗ đó.
+
+⚠️ **Nhánh này CHỈ bắt trùng ĐƯỜNG DẪN, và không thay được phép đối chiếu theo SỰ KIỆN.** File
+cơ quan dẫn thẳng nguồn gốc nên link ăn (6/25 tin, đo 01/09); file Jay Lâm viết lại bằng tiếng
+Việt từ nguồn khác nên **0/12 tin trùng link mà 03 tin trùng sự kiện** (đo 01/08). Vì thế bảng
+nạp vào vẫn được in trong `--liet-ke` — agent đọc hiểu rồi khai tiếp qua `--ghi-loai`, lấy
+**NHÃN** file làm `id_jay`. Nhãn bịa bị CHẶN: `trung_voi` trỏ vào hư không thì không ai soi
+ngược được vì sao một tin biến mất.
+
+⚠️ `--liet-ke` nay trả **mã 0** khi hàng chờ Supabase rỗng nhưng sổ cục bộ còn file; mã 10 chỉ
+còn nghĩa "không có gì để đối chiếu ở CẢ HAI nguồn".
 
 ⚠️ **Sổ `logs/trung-jaylam.json` phải `git add logs/` cùng bản tin** — không thì `make_docx.py`
 chạy trong workflow không thấy sổ và bản .docx vẫn lặp tin. Thiếu sổ là **fail-open CÓ TIẾNG**:

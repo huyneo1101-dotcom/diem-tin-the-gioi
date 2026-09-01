@@ -471,6 +471,15 @@ python3 scripts/tin_jaylam.py --ghi-loai /tmp/loai-jaylam.json # (3) khai tin c�
 Không gọi được `gh` (phiên CI hay bị chặn *requires approval*) thì **ghi một dòng vào log rằng chưa
 kích được bot** rồi đi tiếp — fail-open CÓ TIẾNG.
 
+📎 **File `.docx` Huy quăng thẳng vào khung chat KHÔNG đi qua bot, `--liet-ke` không thấy.** Gặp một
+file như thế thì nạp trước rồi mới chạy tiếp — nó tự bóc link, ghi bảng đối chiếu, và tự loại tin của
+mình trùng ĐÚNG ĐƯỜNG DẪN:
+```
+python3 scripts/tin_jaylam.py --nap-file "<đường dẫn .docx>"      # thêm --thu để xem trước
+```
+Sau đó `--liet-ke` in cả bảng của file này ra. Phần còn lại vẫn là việc đọc hiểu: tin trùng SỰ KIỆN mà
+khác link thì khai qua `--ghi-loai`, lấy **NHÃN** file (tên file bỏ đuôi) làm `id_jay`.
+
 ### (2) `--ghi` — trích BẢNG ĐỐI CHIẾU từ file Jay Lâm
 `--liet-ke` in TOÀN VĂN với file chưa trích, in BẢNG GỌN với file đã trích. Đọc toàn văn rồi nộp:
 `[{"id": <id>, "tin": [{"tieu_de": "...", "url": "https://..."}, ...]}]`

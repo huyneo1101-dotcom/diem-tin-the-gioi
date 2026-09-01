@@ -45,6 +45,12 @@ sys.path.insert(0, str(SC))
 import tin_jaylam as TJ          # noqa: E402
 
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
+
+# ⛔ Ghim luôn sổ đối chiếu CỤC BỘ (`--nap-file`, dựng 01/09/2026) sang một đường dẫn không tồn
+# tại. `in_hang_cho()` nay in cả sổ đó, nên để nguyên sổ thật thì bộ test xanh hay đỏ tuỳ theo
+# hôm ấy Huy có nạp file cơ quan nào chưa — đúng kiểu ca test tự tắt mà bảng vẫn xanh mà lớp
+# `SoGia` phía dưới sinh ra để chặn.
+TJ.SO_COQUAN = pathlib.Path(tempfile.mkdtemp(prefix="so-coquan-rong-")) / "khong-co.json"
 NOW = datetime.datetime(2026, 8, 2, 21, 0, tzinfo=VN)
 
 CA = []
@@ -350,7 +356,7 @@ kiem("[35] file gửi 2 ngày trước VẪN trong khung (khung rộng 3 ngày, 
      ma == 0 and "CHƯA TRÍCH" in out and not patch)
 
 ma, out, err, patch = chay_liet_ke([])
-kiem("[36] hàng chờ rỗng -> mã 10", ma == 10)
+kiem("[36] hàng chờ rỗng VÀ sổ cục bộ rỗng -> mã 10 (có sổ cục bộ thì trả 0)", ma == 10)
 
 HONG = dong(1, "2026-08-02T03:00:00Z", noi_dung="TOAN VAN FILE JAY",
             da_xu_ly=True, tom_tat="{ khong phai json")
@@ -446,9 +452,12 @@ BAN_HONG = [
     ("bỏ phép cắt GIU_NGAY -> sổ không bao giờ dọn",
      '    giu = [r for r in theo_url.values() if (r.get("ngay") or "") >= han]',
      "    giu = list(theo_url.values())"),
+    # Neo vào THÂN `han_giu_so()`, không neo vào chỗ gọi: từ 01/09/2026 có ba sổ cùng gọi
+    # phép này (sổ loại · sổ đối chiếu cục bộ · phần in ra), neo vào chỗ gọi là khớp 3 chỗ và
+    # bản hỏng mất chỗ bám.
     ("cắt sổ theo hạn 0 ngày -> xoá luôn dòng còn hiệu lực",
-     '    han = (now.date() - datetime.timedelta(days=GIU_NGAY)).isoformat()',
-     "    han = now.date().isoformat()"),
+     '    return (now.date() - datetime.timedelta(days=GIU_NGAY)).isoformat()',
+     "    return now.date().isoformat()"),
     # Dựng lại đúng hành vi trước 01/08/2026: hàng chờ lọc `da_xu_ly=eq.false`, tức file đã
     # trích biến mất khỏi bộ lọc ngay sau phiên đầu — đúng cái làm bản tin sau lặp tin.
     ("hàng chờ lọc lại `da_xu_ly=eq.false` -> file chỉ làm bộ lọc được ĐÚNG MỘT phiên",
