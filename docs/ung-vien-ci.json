@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-02T00:25:10+07:00",
+  "tao_luc": "2026-09-02T00:56:59+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-01",
@@ -133,14 +133,6 @@
       "tieu_de": "Pentagon brings on Grok and ChatGPT for military use",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/defense/6061714-pentagon-adds-grok-chatgpt-ai/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Lockheed tests low-cost rocket for HIMARS training",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/lockheed-tests-low-cost-rocket-for-himars-training/"
     },
     {
       "lop": "RSS",
@@ -410,14 +402,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
-      "tieu_de": "UN sounds climate alarm as China-Taiwan row threatens to overshadow forum",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/1/un-sounds-climate-alarm-as-china-taiwan-row-threatens-to-overshadow-forum?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
       "tieu_de": "Blockade succeeds where sanctions failed as Iran oil exports stall",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/middle-east/blockade-succeeds-where-sanctions-failed-as-iran-oil-exports-stall"
@@ -445,6 +429,22 @@
       "tieu_de": "China warns of 'consequences' for Taiwan after Taipei envoys attend Pacific leaders summit",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/china-warns-of-consequences-for-taiwan-after-taipei-envoys-attend-pacific-leaders-summit/article71416780.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-01",
+      "tieu_de": "China Wants to Push Taiwan out of the Pacific",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/09/china-wants-to-push-taiwan-out-of-the-pacific/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-01",
+      "tieu_de": "Taiwan Finally Passed Its 2026 Budget. What Got Cut?",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/09/taiwan-finally-passed-its-2026-budget-what-got-cut/"
     },
     {
       "lop": "RSS",
@@ -650,6 +650,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
+      "tieu_de": "Private equity keeps picking off London-listed firms – and Westminster barely notices | Nils Pratley",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/business/nils-pratley-on-finance/2026/sep/01/bodycote-private-equity-london-takeover-spree-politicians-ignore"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-01",
       "tieu_de": "Burnham’s ambitious plans need room to breathe – and Westminster suffocates change | Rafael Behr",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/commentisfree/2026/sep/01/andy-burnham-plans-westminster-change-summer-prime-minister"
@@ -693,14 +701,6 @@
       "tieu_de": "N. Korea downgrades diplomatic mission to London in protest of British sanctions over children's camp",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260901009000315"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Private equity keeps picking off London-listed firms – and Westminster barely notices",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/nils-pratley-on-finance/2026/sep/01/bodycote-private-equity-london-takeover-spree-politicians-ignore"
     },
     {
       "lop": "RSS",
@@ -789,15 +789,6 @@
       "tieu_de": "Cựu Thủ tướng Anh Keir Starmer từ bỏ ghế nghị sĩ",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/cuu-thu-tuong-anh-keir-starmer-tu-bo-ghe-nghi-si-2551208.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Why China will not comply with US sanctions on Iran",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/opinions/2026/9/1/why-china-will-not-comply-with-us-sanctions-on-iran?traffic_source=rss",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -996,6 +987,15 @@
       "nguon": "Uỷ ban Tư pháp Thượng viện",
       "url": "https://www.judiciary.senate.gov/press/dem/releases/durbin-statement-on-supreme-courts-temporary-order-on-president-trumps-attempted-mail-in-voting-restrictions",
       "nhom": 5
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-01",
+      "tieu_de": "Warren Presses Pulte, Turner on Their Failure to Follow Through on President Trump's Executive Order to Curb Wall Street Ownership of Single-Family Housing",
+      "nguon": "Uỷ ban Ngân hàng Thượng viện",
+      "url": "https://www.banking.senate.gov/newsroom/minority/warren-presses-pulte-turner-on-their-failure-to-follow-through-on-president-trumps-executive-order-to-curb-wall-street-ownership-of-single-family-housing",
+      "nhom": 2
     },
     {
       "lop": "HTML",
