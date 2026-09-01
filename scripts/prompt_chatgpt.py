@@ -62,8 +62,9 @@ CHU_DE = {
 - **Hạng 2 — bốn nhóm NGANG HÀNG nhau, chỉ lấy khi nhóm (1) đã cạn:** (2) sáng kiến/chiến lược chính quyền công bố trên kênh chính thống các bộ (sắc lệnh, memorandum, chiến lược quốc gia, fact sheet, thông cáo bộ) · (3) biểu tình/tuần hành/đình công · (4) kinh tế Mỹ (Fed, thuế quan, trừng phạt, số liệu) + động thái khác của Nhà Trắng/nội các · (5) bầu cử (giữa kỳ, sơ bộ, tranh cử, thăm dò, quy định cử tri, kiểm phiếu, redistricting, đua ghế Thượng viện/Hạ viện/thống đốc).
 ⚠️ Phải là chuyện NỘI BỘ MỸ. Tin protest/tariff/election của nước khác thì BỎ.
 Báo lại: đã cạn nhóm (1) chưa, và mỗi nhóm được mấy bài."""),
-    "uc": ("Úc & Biển Đông", """**Úc & Biển Đông** → `worldNews`, BẮT BUỘC có `region`.
+    "uc": ("Úc & Biển Đông", """**Úc, ANH & Biển Đông** → `worldNews`, BẮT BUỘC có `region`.
 - Úc: AUKUS, quốc phòng/khí tài Úc, ADF, quan hệ an ninh Úc–Mỹ/Nhật/Anh, chính sách Thái Bình Dương → `region: "Ấn Độ Dương - Thái Bình Dương"`.
+- **ANH (mở phạm vi 01/09/2026)**: tin đáng chú ý về nước Anh, KHÔNG riêng quốc phòng — quốc phòng/khí tài (Royal Navy, RAF, Bộ Quốc phòng Anh, tàu Type 23/26/45), kinh tế (Ngân hàng Anh, số liệu kinh tế Anh), chính trường (Thủ tướng, Quốc hội, Công đảng, thăm dò), đối ngoại (trừng phạt, viện trợ, triển khai ra nước ngoài) → `region: "Châu Âu/NATO"`.
 - Biển Đông: chủ quyền, đụng độ/tuần tra, phán quyết, tập trận; gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, Philippines, hoạt động của Nhật/Ấn/Hàn tại vùng biển này, đàm phán COC ASEAN–Trung Quốc, các thực thể Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong → `region: "Đông Á"`.
 ⛔ "tại vùng biển này" là ĐIỀU KIỆN: tin quốc phòng NỘI BỘ Nhật/Ấn/Hàn/Trung Quốc (phóng thử tên lửa, ký hợp đồng đóng tàu, luật quốc phòng trong nước) KHÔNG thuộc chủ đề này. Mỗi tin phải tự neo được vào Úc/AUKUS, vào vùng biển & thực thể Biển Đông, hoặc vào một nước ven biển đó — `add_news.py` chặn cứng tin không neo được."""),
     "cnqs": ("CNQS Mỹ", """**Công nghệ quân sự Mỹ** → `usNews`, category `Công nghệ quân sự`, KHÔNG có `region`.
@@ -231,7 +232,7 @@ Thà trả về 3 tin sạch còn hơn 8 tin có 1 tin bịa. Được phép tr�
 
 ## PHẠM VI — {('CHỈ chủ đề "' + ten_cd + '"') if ten_cd else '5 CHỦ ĐỀ'} (ngoài phạm vi này thì BỎ, kể cả tin hay)
 {luat_cd if luat_cd else '''1. **Nội bộ Mỹ** → `usNews`, category `Chính trị` (hoặc `Kinh tế` nếu đúng nội dung). Vét cạn hạng 1 trước — (1) **toàn bộ phiên điều trần + toàn bộ kết quả bỏ phiếu thông qua dự luật**. Thiếu mới lấy sang 4 nhóm NGANG HÀNG: (2) sáng kiến/chiến lược chính quyền trên kênh chính thống các bộ · (3) biểu tình/tuần hành/đình công · (4) kinh tế Mỹ (Fed, thuế quan, trừng phạt, số liệu) + động thái Nhà Trắng/nội các · (5) bầu cử (giữa kỳ, sơ bộ, thăm dò, quy định cử tri, redistricting). Phải là chuyện NỘI BỘ MỸ.
-2. **Úc & Biển Đông** → `worldNews`. AUKUS/quốc phòng Úc (`region: "Ấn Độ Dương - Thái Bình Dương"`) + chủ quyền/tuần tra/tập trận Biển Đông (`region: "Đông Á"`), gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, COC ASEAN–Trung Quốc, Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong.
+2. **Úc, ANH & Biển Đông** → `worldNews`. AUKUS/quốc phòng Úc (`region: "Ấn Độ Dương - Thái Bình Dương"`) + **tin đáng chú ý về nước Anh — quốc phòng, kinh tế, chính trường, đối ngoại** (`region: "Châu Âu/NATO"`, mở phạm vi 01/09/2026) + chủ quyền/tuần tra/tập trận Biển Đông (`region: "Đông Á"`), gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, COC ASEAN–Trung Quốc, Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong.
 3. **CNQS Mỹ** → `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống CỤ THỂ của Mỹ. Khí tài nước khác KHÔNG thuộc mục này.
 4. **Mỹ – Mali** → `usNews`. Mỹ cân nhắc/triển khai quân sự ở Sahel nhắm JNIM; phản ứng của Mali/Nga/JNIM. (Từ 05/08/2026 tin Mali KHÔNG vào file Word bản tin nữa mà đi ở bản sáng 🎖️ — nhưng vẫn quét và vẫn nạp `usNews` y như cũ.)
 5. **Tập trận đang diễn ra** → `exerciseUpdates`. Tên cuộc lấy ĐÚNG từ mục Tập trận trong lô ứng viên bên dưới, sao y không sửa một ký tự.'''}
@@ -259,7 +260,7 @@ Nhắm **{ {'mali': '2–5 tin', 'taptran': '1–2 tin cập nhật'}.get(key, '
 {{
   "date": "{hom_nay}",
   "worldNews": [
-    {{"date":"YYYY-MM-DD","category":"<{CATEGORY}>","title":"...","summary":"2-4 câu, tiếng Việt, nêu dữ kiện cụ thể (con số, tên khí tài, địa danh, ai làm gì)","sourceName":"...","sourceUrl":"https://...","significance":"1-2 câu Ý NGHĨA chiến lược — vì sao tin này đáng đọc","region":"<{REGION}>"}}
+    {{"date":"YYYY-MM-DD","category":"<{CATEGORY}>","title":"...","summary":"ĐÚNG 01 câu tiếng Việt, 35-50 chữ, nêu dữ kiện cụ thể (con số, tên khí tài, địa danh, ai làm gì). KHÔNG mở bằng \"Ngày dd/mm/yyyy,\" — file Word tự chèn ngày","sourceName":"...","sourceUrl":"https://...","significance":"1-2 câu Ý NGHĨA chiến lược — vì sao tin này đáng đọc","region":"<{REGION}>"}}
   ],
   "usNews": [
     {{"date":"YYYY-MM-DD","category":"...","title":"...","summary":"...","sourceName":"...","sourceUrl":"https://...","significance":"..."}}
@@ -269,6 +270,9 @@ Nhắm **{ {'mali': '2–5 tin', 'taptran': '1–2 tin cập nhật'}.get(key, '
   ]
 }}
 ```
+⛔ **`summary` = ĐÚNG 01 CÂU, 35-50 chữ** (chỉ thị Huy 01/09/2026, sau khi đối chiếu mẫu file Word của cơ quan: mẫu trung vị 41 chữ/tin, bản mình khi đó 86 chữ/tin — gấp đôi, làm bản 4 trang phình thành 7). Câu phải TỰ ĐỦ: ai · làm gì · ở đâu · hệ quả ngắn. Hết chỗ thì bỏ chi tiết phụ, KHÔNG viết câu thứ hai. Ràng buộc này áp cho cả `worldNews`, `usNews` lẫn `exerciseUpdates`.
+⛔ **KHÔNG mở `summary` bằng "Ngày dd/mm/yyyy,"** — `make_docx.py` tự chèn tiền tố `Ngày d.M.yyyy,` theo trường `date`, viết thêm là bản tin ra hai lần ngày.
+
 Quy tắc field: `date` của MỖI tin là ngày sự kiện (trong khung trên). `date` ngoài cùng = ngày TIN MỚI NHẤT trong lô. `category` chỉ 4 giá trị đã nêu. `region` CHỈ dùng cho `worldNews`. Mảng nào không có tin thì để `[]`. Tiếng Việt tự nhiên, không dịch máy, không sáo rỗng ("đánh dấu bước ngoặt", "cho thấy tầm quan trọng" — cấm).
 
 Sau khối JSON, thêm một khối riêng: {'chủ đề này' if ten_cd else 'chủ đề nào'} có đủ tin không, và nếu thiếu thì LÝ DO THẬT (nguồn cạn / tin ngoài khung ngày / trùng sự kiện đã có / không mở được bài). Ghi cụ thể, đừng viết "không tìm được tin" — tao phải dán lý do đó vào bản kê gửi kèm bản tin.

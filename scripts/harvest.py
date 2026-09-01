@@ -90,6 +90,17 @@ GNEWS_QUERIES = {
         '"South China Sea" "maritime militia" OR "China Coast Guard" OR "land reclamation"',
         # Quân sự Úc nói chung, ngoài AUKUS và ngoài Biển Đông (chỉ thị Huy 02/08/2026)
         'Australia military OR defence exercise OR deployment OR "defence budget"',
+        # ── NƯỚC ANH (mở phạm vi 01/09/2026, Huy chốt sau khi đưa mẫu file Word của cơ quan
+        # có hẳn tiểu mục "Anh"). Mẫu 01/09 gồm cả tin quốc phòng (radar tàu Type 23, HMS
+        # Tamar thăm Ream), kinh tế (Thống đốc Ngân hàng Anh cảnh báo bong bóng AI), chính
+        # trường (Thủ tướng, Công đảng, thăm dò) và đối ngoại (đội phản ứng nhanh tới Nepal)
+        # — nên phạm vi là "tin đáng chú ý về nước Anh", không riêng quốc phòng.
+        # ⛔ MỖI TRUY VẤN PHẢI TỰ NEO VÀO ANH. "Royal Navy" để trần thì được (đặc chỉ Anh),
+        # nhưng "Labour Party" hay "Treasury" để trần là kéo về cả Úc lẫn Mỹ.
+        '"Royal Navy" OR "Royal Air Force" OR "UK Ministry of Defence" OR "British Army"',
+        '"UK government" OR "British Prime Minister" OR "Downing Street" OR Westminster politics',
+        '"Bank of England" OR "UK economy" OR "British economy"',
+        '"UK foreign policy" OR "Britain sanctions" OR "British foreign secretary"',
     ],
     "CNQS Mỹ": [
         '"U.S. Air Force" OR "U.S. Navy" OR Pentagon missile OR hypersonic OR "Space Force"',

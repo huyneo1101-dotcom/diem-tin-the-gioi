@@ -121,6 +121,21 @@ TIN_UC_QUAN_SU = tin("RAAF tiếp nhận thêm máy bay tiếp dầu KC-30A cho 
 # ── đối chứng: vùng xám ở BIỂN KHÁC — phải CHẶN, kẻo mục 2 lại thành cái thùng ──
 TIN_VUNG_XAM_BALTIC = tin("NATO cảnh báo hoạt động vùng xám của Nga nhắm cáp ngầm ở biển Baltic",
                           summary="Gray zone, cắt cáp, vòi rồng — nhưng ở Baltic.")
+# ── MỞ PHẠM VI SANG ANH 01/09/2026 (Huy chốt, sau khi đưa mẫu file Word của cơ quan có hẳn
+#    tiểu mục "Anh"). Chủ đề 2 nay gồm tin đáng chú ý về nước Anh — KHÔNG riêng quốc phòng:
+#    mẫu 01/09 có cả Ngân hàng Anh cảnh báo bong bóng AI, Thủ tướng Anh, thăm dò Công đảng.
+# ⚠ Ba tin dưới CỐ Ý mỗi tin chỉ mang MỘT loại neo Anh, để gỡ một dòng bảng neo là có ca đỏ
+#   ngay; gộp nhiều neo vào một tin thì neo này gánh cho neo kia và cổng mất răng trong im lặng.
+TIN_ANH_QP = tin("Bộ Quốc phòng Anh trao hợp đồng radar dẫn đường mới cho tàu hộ vệ Type 23",
+                 summary="Hợp đồng thay thiết bị cũ đã mất hỗ trợ kỹ thuật.")
+TIN_ANH_KT = tin("Thống đốc Bank of England cảnh báo làn sóng đầu tư AI có thể gây điều chỉnh mạnh",
+                 summary="Kỳ vọng vượt quá giá trị thực của doanh nghiệp.", category="Kinh tế")
+TIN_ANH_CT = tin("Downing Street nêu chủ trương đưa thêm dịch vụ thiết yếu về quản lý nhà nước",
+                 summary="Chủ trương nhằm thúc đẩy tăng trưởng.", category="Chính trị")
+# ── đối chứng chống NỚI TAY khi mở sang Anh: tin CHÂU ÂU không dính Anh phải CHẶN như cũ ──
+TIN_CHAU_AU_KHONG_ANH = tin("Đức và Ba Lan ký thoả thuận phòng không chung tại Berlin",
+                            summary="Hai nước lập lá chắn phòng không dọc sườn đông NATO.")
+
 # ── tin usNews / baomoiNews: cổng CHỈ áp cho worldNews ────────────────────────
 TIN_US = tin("Hạ viện Mỹ thông qua dự luật ngân sách quốc phòng NDAA", category="Chính trị")
 TIN_BAOMOI = tin("Fed giữ nguyên lãi suất trong cuộc họp tháng 8", category="Kinh tế",
@@ -296,14 +311,68 @@ def _():
     return (not loi_import) and "from topics import neo_uc_bien_dong" in src, r.stderr[-600:]
 
 
+@ca('20. MỞ PHẠM VI: tin quốc phòng Anh (Type 23, Bộ Quốc phòng Anh) → phải CHO QUA')
+def _():
+    chan, msg = nap_world(TIN_ANH_QP)
+    return not chan, msg
+
+
+@ca('21. MỞ PHẠM VI: tin KINH TẾ Anh (Bank of England) → phải CHO QUA — mẫu 01/09 có tin này')
+def _():
+    chan, msg = nap_world(TIN_ANH_KT)
+    return not chan, msg
+
+
+@ca('22. MỞ PHẠM VI: tin CHÍNH TRỊ Anh (Downing Street) → phải CHO QUA')
+def _():
+    chan, msg = nap_world(TIN_ANH_CT)
+    return not chan, msg
+
+
+@ca('23. ĐỐI CHỨNG chống nới tay: tin Đức–Ba Lan (châu Âu, KHÔNG dính Anh) → PHẢI CHẶN')
+def _():
+    # Mở sang Anh KHÔNG có nghĩa là mở sang châu Âu. Bỏ ca này thì bảng neo cứ nới dần
+    # theo từng tin bị chê oan, và mục 3 lại thành cái thùng — đúng lỗi Huy bắt 01/08.
+    chan, msg = nap_world(TIN_CHAU_AU_KHONG_ANH)
+    return chan, msg
+
+
+@ca('24. Dựng file: 03 tin Anh vào ĐÚNG tiểu mục "Anh" của mục địa bàn')
+def _():
+    muc, err = dung_muc(world=[TIN_ANH_QP, TIN_ANH_KT, TIN_ANH_CT, TIN_AUKUS])
+    ds = muc.get(MD.MUC_DIA_BAN, [])
+    return (all(t["title"] in ds for t in (TIN_ANH_QP, TIN_ANH_KT, TIN_ANH_CT))
+            and "KHÔNG neo được" not in err), f"{ds} || {err}"
+
+
+@ca('25. PHẢI CHẶN: tin Anh xếp tiểu mục "Anh", tin AUKUS xếp "Australia" (thứ tự giành)')
+def _():
+    # Tin AUKUS mang CẢ hai neo (Úc + chuỗi cung ứng Anh); Úc phải giành trước, nếu không
+    # mọi tin AUKUS rơi xuống tiểu mục "Anh".
+    return (MD.tieu_muc_dia_ban(TIN_ANH_QP) == MD.TM_ANH
+            and MD.tieu_muc_dia_ban(TIN_ANH_KT) == MD.TM_ANH
+            and MD.tieu_muc_dia_ban(TIN_AUKUS) == MD.TM_UC), \
+        [MD.tieu_muc_dia_ban(t) for t in (TIN_ANH_QP, TIN_ANH_KT, TIN_AUKUS)]
+
+
 # ═══════════════════════════ tự kiểm: bản hỏng ═══════════════════════════
 # (nhãn · file · phép thay trong mã nguồn · các ca BẮT BUỘC phải đỏ)
 BAN_HONG = [
+    # ⛔ Bản hỏng của lượt MỞ PHẠM VI 01/09/2026: nối bảng Anh SAU dòng biên dịch `_RE_NEO`.
+    # Đây là cách hỏng dễ mắc nhất và câm hoàn toàn — mã trông đúng, `NEO_UC_BIEN_DONG` đọc
+    # ra vẫn có đủ từ khoá Anh, mà cổng nạp vẫn chặn sạch tin Anh vì `_RE_NEO` giữ bản cũ.
+    ("topics: nối bảng Anh SAU khi biên dịch _RE_NEO (mở phạm vi mà cổng vẫn chặn)",
+     "topics",
+     ("NEO_UC_BIEN_DONG = NEO_UC_BIEN_DONG + NEO_ANH\n\n_RE_NEO",
+      "_RE_NEO"),
+     [20, 21, 22, 24]),
+
     ("make_docx: trả mục 2 về 'mọi worldNews trừ Mali' (dựng lại cái thùng)",
      "make_docx",
-     ("    sec2 = [it for it in world                                        # 2. Úc & Biển Đông\n"
-      "            if khong_phai_mali(it) and la_uc_bien_dong(it)]",
-      "    sec2 = [it for it in world if khong_phai_mali(it)]"),
+     ("    sec3 = [dict(it, **{KHOA_TIEU_MUC: tieu_muc_dia_ban(it)})         # 3. Địa bàn (03 tiểu mục)\n"
+      "            for it in world if khong_phai_mali(it) and la_uc_bien_dong(it)]",
+      "    sec3 = [dict(it, **{KHOA_TIEU_MUC: tieu_muc_dia_ban(it)})\n"
+      "            for it in world if khong_phai_mali(it)]"),
      [11, 13]),
 
     ("add_news: gỡ lời gọi cổng khỏi validate_news_items (cổng sống, không ai gọi)",
@@ -336,7 +405,11 @@ BAN_HONG = [
 
     ("add_news: gỡ ngoại lệ Mali (chặn oan chủ đề 4)",
      "add_news",
-     ("    if any(k in strip_accents(hay).lower() for k in MALI_KEYS_ADD):\n        return",
+     # ⚠ Neo cũ ("k in strip_accents(...)") đã lỗi thời từ lượt vá BIÊN TỪ 26/08/2026 —
+     # phát hiện 01/09/2026 khi chạy tự kiểm. Tự kiểm trượt kiểu này KHÔNG kêu "cổng hỏng"
+     # mà kêu "mã nguồn đã đổi", nên rất dễ bị bỏ qua: bộ test vẫn 25/25 xanh trong khi
+     # bản hỏng này chưa từng được thử lại suốt 6 ngày.
+     ("    if any(p.search(strip_accents(hay).lower()) for p in _RE_MALI_ADD):\n        return",
       "    pass"),
      [7]),
 
@@ -348,9 +421,9 @@ BAN_HONG = [
 
     ("make_docx: gộp lại một dòng cảnh báo chung (mất chỉ dẫn 'lỗi TẦNG QUÉT')",
      "make_docx",
-     ('        if lac_muc2:\n            print(f"⚠️  {len(lac_muc2)} tin worldNews KHÔNG neo '
+     ('        if lac_dia_ban:\n            print(f"⚠️  {len(lac_dia_ban)} tin worldNews KHÔNG neo '
       'được vào Úc/Biển Đông -> "',
-      '        if False:\n            print(f"⚠️  {len(lac_muc2)} tin worldNews KHÔNG neo '
+      '        if False:\n            print(f"⚠️  {len(lac_dia_ban)} tin worldNews KHÔNG neo '
       'được vào Úc/Biển Đông -> "'),
      [13]),
 
@@ -362,9 +435,21 @@ BAN_HONG = [
      [19]),
     ("topics: bỏ neo Không quân Úc (dựng lại lỗ làm sót tin Pitch Black 31/07)",
      "topics",
-     ('    "raaf", "royal australian air force", "pitch black", "talisman sabre",\n    "tindal", "amberley",',
+     # ⚠ Chuỗi này nay khớp HAI chỗ (bảng lớn `NEO_UC_BIEN_DONG` và bảng con `NEO_UC` tách
+     # 01/09/2026 để chia tiểu mục), nên phải neo vào bảng LỚN bằng dòng chú thích đứng trên
+     # nó — bảng con không có dòng ấy. Neo bằng chuỗi trần là phép thay khớp 2 chỗ và tự kiểm
+     # trượt với thông điệp "mã nguồn đã đổi", che mất việc cổng vẫn còn răng hay không.
+     ('    # tin "KC-30A của Úc lần đầu tiếp dầu Rafale Ấn Độ tại Pitch Black" (Janes 31/07):\n'
+      '    # bảng chỉ có Hải quân, còn "australian" thì không khớp chuỗi viết tắt "RAAF".\n'
+      '    "raaf", "royal australian air force", "pitch black", "talisman sabre",\n'
+      '    "tindal", "amberley",',
       '    '),
-     [18]),
+     # ⚠ KHAI "CHET_NAP", KHÔNG khai [18] — đo 01/09/2026: gỡ neo Không quân Úc khỏi bảng LỚN
+     # nay bị chặn SỚM HƠN cả ca 18, ngay lúc nạp module, bởi phép kiểm tập con
+     # `NEO_UC ⊆ NEO_UC_BIEN_DONG` (dựng cùng lượt tách bảng con để chia tiểu mục). Chặn sớm
+     # là ĐÚNG — hỏng phải kêu ngay chứ không chờ ai chạy test — nhưng lúc đó không ca nào kịp
+     # chạy, nên chấm theo ca đỏ sẽ đọc thành "test không bắt được lỗi". Xem nhánh CHET_NAP.
+     "CHET_NAP"),
     ("topics: nới bảng neo, thêm thẳng japan/korea/china (mục 2 lại thành thùng)",
      "topics",
      ('    # -- Úc\n    "uc", "australia",',
@@ -375,7 +460,7 @@ BAN_HONG = [
 
     ("make_docx: bỏ luôn lưới an toàn (tin rớt biến mất khỏi file, im lặng)",
      "make_docx",
-     ("        sec1 = sec1 + roi", "        sec1 = sec1"),
+     ("        sec2 = sec2 + roi", "        sec2 = sec2"),
      [12]),
 ]
 
@@ -432,6 +517,24 @@ def tu_kiem() -> int:
                   f"cú pháp/nạp module, sửa lại phép thay.")
             hong += 1
             continue
+        # Bản hỏng khai "CHET_NAP": phải bị chặn NGAY LÚC NẠP MODULE, trước khi ca nào
+        # kịp chạy. Dựng 01/09/2026 cho lớp bảo vệ nằm ở tầng import (phép kiểm tập con
+        # `NEO_UC ⊆ NEO_UC_BIEN_DONG` trong `topics.py`). Không có nhánh này thì mọi cổng
+        # đặt ở tầng nạp đều bị tự kiểm chấm là "không bắt được lỗi" — và người sửa sẽ đi
+        # gỡ chính cái cổng đang làm đúng việc.
+        if ca_phai_do == "CHET_NAP":
+            ok_nap = r.returncode != 0 and not do and "tập con" in (r.stderr or "")
+            print(f"  {'✓' if ok_nap else '✗'} {nhan}")
+            print(f"        │ chết ngay tầng nạp: mã thoát {r.returncode}, "
+                  f"{len(do)} ca kịp chạy, stderr "
+                  + ("CÓ" if "tập con" in (r.stderr or "") else "KHÔNG có")
+                  + " thông điệp phép kiểm tập con")
+            if not ok_nap:
+                hong += 1
+                print("        │ ⚠ bản hỏng KHÔNG bị chặn ở tầng nạp → phép kiểm tập con "
+                      "trong topics.py đã mất tác dụng.")
+            continue
+
         thieu = set(ca_phai_do) - do
         thua = do - set(ca_phai_do)
         ok = not thieu

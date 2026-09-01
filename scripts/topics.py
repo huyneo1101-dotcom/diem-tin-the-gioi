@@ -44,6 +44,10 @@ TOPIC_KEYWORDS_VI = {
         "vùng xám", "vòi rồng", "đâm va", "chiếu laser", "cắt cáp", "bồi đắp",
         "quân sự hoá", "phong toả", "raaf", "không quân hoàng gia úc", "pitch black",
         "talisman sabre", "tàu ngầm aukus",
+        # NƯỚC ANH (mở phạm vi 01/09/2026) — bảng GỢI Ý nên được rộng hơn bảng NEO. Cấm để
+        # "anh" trần: trong tiếng Việt đó là đại từ, khớp bậy khắp nơi.
+        "nước anh", "vương quốc anh", "chính phủ anh", "thủ tướng anh", "quốc hội anh",
+        "bộ quốc phòng anh", "ngân hàng anh", "hải quân hoàng gia anh", "công đảng anh",
     ],
     "CNQS Mỹ": [
         "lầu năm góc", "không quân mỹ", "hải quân mỹ", "lục quân mỹ", "thủy quân lục chiến",
@@ -147,6 +151,10 @@ TOPIC_KEYWORDS_EN = {
         "gray zone", "grey zone", "water cannon", "ramming", "cable cutting",
         "land reclamation", "militarisation", "blockade", "raaf",
         "royal australian air force", "pitch black", "talisman sabre",
+        # NƯỚC ANH (mở phạm vi 01/09/2026)
+        "royal navy", "royal air force", "british army", "uk ministry of defence",
+        "downing street", "westminster", "whitehall", "bank of england",
+        "united kingdom", "britain", "british", "hms", "type 23 frigate", "type 26 frigate",
     ],
     "CNQS Mỹ": [
         "pentagon", "u.s. air force", "us air force", "u.s. navy", "us navy", "u.s. army",
@@ -237,27 +245,6 @@ NEO_UC_BIEN_DONG = [
     #    người, Perth còn ở Scotland — neo phải chỉ đích danh nước hoặc vùng biển.
 ]
 
-_RE_NEO = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE)
-           for k in NEO_UC_BIEN_DONG]
-
-
-def bo_dau(s) -> str:
-    """Bỏ dấu tiếng Việt để so khớp. `đ` -> `d` (unicodedata không tách được chữ này)."""
-    s = unicodedata.normalize("NFD", str(s or "").lower())
-    return "".join(c for c in s if unicodedata.category(c) != "Mn").replace("đ", "d")
-
-
-def neo_uc_bien_dong(text) -> bool:
-    """Văn bản có tự neo được vào Úc hoặc Biển Đông không?
-
-    Đây là HÀM KIỂM TRA DUY NHẤT của chủ đề 2 — `add_news.py` (cổng nạp) và
-    `.github/scripts/make_docx.py` (cổng dựng file Word) đều GỌI nó, không bên nào chép
-    lại bảng. Hai bản chép sẽ tách nhánh ở lần vá sau mà không ai thấy.
-    """
-    hay = bo_dau(text)
-    return any(p.search(hay) for p in _RE_NEO)
-
-
 # ═══════════════ NEO RIÊNG TỪNG TIỂU MỤC — chỉ dùng để CHIA, không dùng để CHẶN ═══════════
 # File Word từ 01/09/2026 in mục địa bàn thành 03 tiểu mục (Anh · Australia · Biển Đông), nên
 # cần biết một tin ĐÃ ĐƯỢC NHẬN thuộc nhánh nào. Ba bảng dưới đây KHÔNG tham gia cổng nạp
@@ -314,6 +301,33 @@ if _thieu:
     raise AssertionError(
         f"NEO_UC không còn là tập con của NEO_UC_BIEN_DONG — lệch {_thieu}. "
         "Sửa bảng lớn thì sửa cả bảng con, nếu không tin Úc sẽ rơi xuống tiểu mục Biển Đông.")
+
+
+# ⛔ NỐI `NEO_ANH` VÀO BẢNG LỚN — đây là chỗ MỞ PHẠM VI sang Anh (Huy chốt 01/09/2026).
+# Phải nối TRƯỚC dòng biên dịch `_RE_NEO` ngay dưới: nối sau thì bảng regex vẫn là bản cũ,
+# cổng nạp tiếp tục chặn tin Anh, và KHÔNG có lỗi nào bật lên — đúng lối hỏng câm mà
+# `nap_tu_khoa_tap_tran` đã vấp một lần (ghi ở chú thích hàm đó).
+NEO_UC_BIEN_DONG = NEO_UC_BIEN_DONG + NEO_ANH
+
+_RE_NEO = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE)
+           for k in NEO_UC_BIEN_DONG]
+
+
+def bo_dau(s) -> str:
+    """Bỏ dấu tiếng Việt để so khớp. `đ` -> `d` (unicodedata không tách được chữ này)."""
+    s = unicodedata.normalize("NFD", str(s or "").lower())
+    return "".join(c for c in s if unicodedata.category(c) != "Mn").replace("đ", "d")
+
+
+def neo_uc_bien_dong(text) -> bool:
+    """Văn bản có tự neo được vào Úc hoặc Biển Đông không?
+
+    Đây là HÀM KIỂM TRA DUY NHẤT của chủ đề 2 — `add_news.py` (cổng nạp) và
+    `.github/scripts/make_docx.py` (cổng dựng file Word) đều GỌI nó, không bên nào chép
+    lại bảng. Hai bản chép sẽ tách nhánh ở lần vá sau mà không ai thấy.
+    """
+    hay = bo_dau(text)
+    return any(p.search(hay) for p in _RE_NEO)
 
 
 def _compile(table):

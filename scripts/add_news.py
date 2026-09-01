@@ -254,7 +254,14 @@ def check_x_id(url: str, ctx: str) -> None:
 
 
 def check_neo_chu_de_2(item: dict, ctx: str) -> None:
-    """Tin vào `worldNews` phải tự neo được vào Úc / Biển Đông — hoặc là tin Mali (chủ đề 4).
+    """Tin `worldNews` phải tự neo được vào Úc / ANH / Biển Đông — hoặc là tin Mali (chủ đề 4).
+
+    ⚠️ MỞ PHẠM VI SANG ANH 01/09/2026 (Huy chốt, sau khi đưa mẫu file Word của cơ quan có
+    hẳn tiểu mục "Anh"). Bảng neo `topics.NEO_ANH` được NỐI vào `NEO_UC_BIEN_DONG` — hàm
+    này không đổi một dòng nào. Phạm vi Anh là "tin đáng chú ý về nước Anh", không riêng
+    quốc phòng: mẫu 01/09 có cả Ngân hàng Anh cảnh báo bong bóng AI và thăm dò Công đảng.
+    ⛔ Mở sang Anh KHÔNG phải mở sang châu Âu — tin Đức/Ba Lan/Pháp không dính Anh vẫn bị
+    chặn; ca 23 của `tests/test-cong-uc-bien-dong.py` canh đúng chiều nới tay này.
 
     ⚠️ VÌ SAO CÓ (Huy bắt 01/08/2026: *"hàn quốc liên quan đ gì đến biển đông và Úc mà cứ
     cho vào???"*): chủ đề 2 khai *"hoạt động của Nhật/Ấn/Hàn TẠI VÙNG BIỂN NÀY"*. Mệnh đề
@@ -285,8 +292,9 @@ def check_neo_chu_de_2(item: dict, ctx: str) -> None:
     if any(p.search(strip_accents(hay).lower()) for p in _RE_MALI_ADD):
         return
     raise ValueError(
-        f"{ctx}: tin worldNews KHÔNG neo được vào Úc hay Biển Đông — mục 2 chỉ nhận tin "
-        f"gắn Úc/AUKUS, gắn vùng biển & thực thể Biển Đông, hoặc gắn nước ven biển này. "
+        f"{ctx}: tin worldNews KHÔNG neo được vào Úc, Anh hay Biển Đông — mục 2 chỉ nhận "
+        f"tin gắn Úc/AUKUS, gắn NƯỚC ANH (mở phạm vi 01/09/2026), gắn vùng biển & thực thể "
+        f"Biển Đông, hoặc gắn nước ven biển này. "
         f"Tin quốc phòng Nhật/Hàn/Ấn/Trung Quốc CHỈ vào mục 2 khi có neo đó "
         f"(chủ đề khai: 'hoạt động của Nhật/Ấn/Hàn TẠI VÙNG BIỂN NÀY'). "
         f"Thuộc chủ đề khác -> chuyển sang usNews; ngoài 5 chủ đề -> bỏ, ghi "

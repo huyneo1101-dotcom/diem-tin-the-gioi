@@ -279,14 +279,12 @@ def _la_day_con(nho, lon):
     return all(x in it for x in nho)
 
 
-# ⚠️ Đo DÃY CON theo thứ tự, KHÔNG đo bằng đủ 03 nhãn: tiểu mục "Anh" hiện LUÔN RỖNG vì
-# chủ đề 2 chưa mở phạm vi sang Anh — cổng nạp `add_news.py::check_neo_chu_de_2` chặn tin
-# thuần Anh, và trong lô giả tin HMS Tamar vì thế bị lưới an toàn dồn sang "Nội bộ Mỹ"
-# (đọc dòng ⚠️ ở stderr). Bắt đủ 03 nhãn là ca này đỏ vĩnh viễn vì PHẠM VI QUÉT chứ không
-# vì form, và người sửa sẽ đi nới cổng nạp cho hết đỏ — quyết định đó thuộc về Huy.
-kiem("[16] PHẢI CHẶN: mục địa bàn chia tiểu mục ĐẬM, đúng thứ tự Anh · Australia · Biển Đông",
-     NHAN_TIEU_MUC and _la_day_con(NHAN_TIEU_MUC, list(MD.THU_TU_TIEU_MUC)),
-     NHAN_TIEU_MUC)
+# ⚠️ TỪ 01/09/2026 BẮT ĐỦ 03 NHÃN, không còn đo dãy con. Trước khi Huy chốt mở phạm vi
+# quét sang Anh (cùng ngày, muộn hơn vài giờ) thì tiểu mục "Anh" LUÔN RỖNG và ca này chỉ
+# đo được dãy con; nay `topics.NEO_ANH` đã nối vào `NEO_UC_BIEN_DONG` nên tin Anh qua được
+# cổng nạp, và một tiểu mục Anh rỗng lại có nghĩa là ĐƯỜNG QUÉT ANH ĐÃ ĐỨT — phải đỏ.
+kiem("[16] PHẢI CHẶN: mục địa bàn chia ĐỦ 03 tiểu mục ĐẬM, đúng thứ tự Anh · Australia · Biển Đông",
+     NHAN_TIEU_MUC == list(MD.THU_TU_TIEU_MUC), NHAN_TIEU_MUC)
 
 kiem("[17] PHẢI CHẶN: tin xếp ĐÚNG tiểu mục — HMS Tamar về 'Anh', không rơi xuống 'Biển Đông'",
      MD.tieu_muc_dia_ban(DATA_GIA["worldNews"][0]) == MD.TM_ANH

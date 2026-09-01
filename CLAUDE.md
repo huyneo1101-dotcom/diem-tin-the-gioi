@@ -132,7 +132,7 @@ không biến lớp vét 21:47 thành mốc chính.
 | # | Chủ đề | Nạp vào | Khung ngày |
 |---|---|---|---|
 | 1 | **Nội bộ Mỹ** — hạng 1: **toàn bộ điều trần + toàn bộ kết quả bỏ phiếu**; hạng 2 (ngang hàng nhau, chỉ lấy khi hạng 1 đã cạn): sáng kiến và chiến lược chính quyền trên kênh chính thống của các bộ · biểu tình · kinh tế Mỹ và động thái bộ sậu · bầu cử | `usNews`, cat `Chính trị` (nhóm kinh tế có thể là `Kinh tế`) | hôm nay + hôm qua |
-| 2 | **Úc & Biển Đông** — mọi tin quân sự liên quan tới Úc, cả ba quân chủng; hoạt động quân sự và chiến tranh vùng xám ở Biển Đông; các nước ven vùng biển đó | `worldNews` | hôm nay + hôm qua |
+| 2 | **Úc, ANH & Biển Đông** — mọi tin quân sự liên quan tới Úc, cả ba quân chủng; **tin đáng chú ý về nước Anh: quốc phòng, kinh tế, chính trường, đối ngoại (mở phạm vi 01/09/2026, `region: "Châu Âu/NATO"` — mở sang ANH chứ KHÔNG mở sang châu Âu)**; hoạt động quân sự và chiến tranh vùng xám ở Biển Đông; các nước ven vùng biển đó | `worldNews` | hôm nay + hôm qua |
 | 3 | **CNQS Mỹ** — khí tài, hệ thống, hợp đồng | `usNews`, cat `Công nghệ quân sự` | **lùi tới 3 ngày** |
 | 4 | **Mỹ – Mali** — Mỹ cân nhắc hoặc không kích JNIM ở Sahel | `usNews`, dossier `🟤 Mỹ – Mali` | hôm nay + hôm qua |
 | 5 | **Tập trận đang diễn ra** | `exerciseUpdates`, `name` khớp đúng tên trong `DATA.exercises` | hôm nay + hôm qua |
@@ -372,6 +372,11 @@ nguồn xem Phụ lục trong `.claude/skills/quet-tin/SKILL.md`.
 | ABC News AU (world) | https://www.abc.net.au/news/feed/51120/rss.xml | 25 item |
 | Lowy Interpreter | https://www.lowyinstitute.org/the-interpreter/rss.xml | 50 item |
 | AMTI/CSIS (Biển Đông) | https://amti.csis.org/feed/ | 10 item |
+| **UK Defence Journal** | https://ukdefencejournal.org.uk/feed/ | 10 item, mới 7h (đo 01/09/2026) |
+| **Navy Lookout (Hải quân Anh)** | https://navylookout.com/feed/ | 9 item, mới 16h (đo 01/09/2026) |
+| **GOV.UK — Bộ Quốc phòng Anh** | https://www.gov.uk/search/news-and-communications.atom?organisations%5B%5D=ministry-of-defence | 20 item Atom, mới 13h (đo 01/09/2026) |
+| **BBC News UK** | https://feeds.bbci.co.uk/news/uk/rss.xml | 28 item, mới 7h (đo 01/09/2026) |
+| **The Guardian — Politics (Anh)** | https://www.theguardian.com/politics/rss | 21 item, mới 7h (đo 01/09/2026) |
 | Rappler | https://www.rappler.com/feed/ | 10 item |
 | Philstar (headlines) | https://www.philstar.com/rss/headlines | 10 item |
 | Inquirer | https://www.inquirer.net/fullfeed/ | 20 item |

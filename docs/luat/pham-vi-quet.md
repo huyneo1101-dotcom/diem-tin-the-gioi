@@ -58,7 +58,23 @@ bài, khung 24 GIỜ gần nhất — nới 48h nếu chủ đề đó thiếu (
    ⚠️ Từ khoá nhóm 3–4 rất chung (protest, tariff, inflation) nên **phải neo vào ngữ cảnh Mỹ**: đã cưỡng
    bức bằng `WEAK_NEED_US` trong `scripts/topics.py` (thực tế lọt: nghị sĩ Philippines mặc đồ đen phản
    đối, chính sách tiền tệ Singapore, chi tiêu vốn Nhật Bản).
-2. **Úc & Biển Đông** — AUKUS/QP Úc (region IPAC) + chủ quyền/tuần tra/tập trận Biển Đông (region Đông Á),
+2. **Úc, ANH & Biển Đông** — AUKUS/QP Úc (region IPAC) + chủ quyền/tuần tra/tập trận Biển Đông (region Đông Á),
+   **MỞ SANG NƯỚC ANH 01/09/2026 (chỉ thị Huy, sau khi đưa mẫu file Word của cơ quan có hẳn
+   tiểu mục "Anh"):** tin đáng chú ý về nước Anh, **KHÔNG riêng quốc phòng** — quốc phòng/khí
+   tài (Royal Navy, RAF, Bộ Quốc phòng Anh, tàu Type 23/26/45), kinh tế (Ngân hàng Anh, số
+   liệu kinh tế Anh), chính trường (Thủ tướng, Quốc hội, Công đảng, thăm dò), đối ngoại
+   (trừng phạt, viện trợ, triển khai ra nước ngoài) → `region: "Châu Âu/NATO"`.
+   ⛔ **MỞ SANG ANH KHÔNG PHẢI MỞ SANG CHÂU ÂU.** Tin Đức/Pháp/Ba Lan không dính Anh vẫn bị
+   `check_neo_chu_de_2` chặn như cũ — ca 23 của `tests/test-cong-uc-bien-dong.py` canh đúng
+   chiều nới tay này. Nới bảng neo theo từng tin bị chê oan là mục 3 lại thành cái thùng.
+   ⚙️ Cắm ở 04 chỗ, **thiếu chỗ nào cũng hỏng CÂM**: (i) `topics.NEO_ANH` **nối vào**
+   `NEO_UC_BIEN_DONG` — phải nối **TRƯỚC** dòng biên dịch `_RE_NEO`, nối sau thì cổng nạp vẫn
+   chặn sạch tin Anh mà bảng đọc ra vẫn thấy đủ từ khoá (bản hỏng `CHET_NAP` canh); (ii) từ
+   khoá Anh trong `TOPIC_KEYWORDS_VI/EN` để phân loại ứng viên; (iii) 04 truy vấn Google News
+   trong `harvest.GNEWS_QUERIES`; (iv) 05 nguồn RSS Anh trong bảng nguồn của `CLAUDE.md`
+   (UK Defence Journal · Navy Lookout · GOV.UK Bộ Quốc phòng Anh · BBC News UK · Guardian
+   Politics — đo thật 01/09/2026, cả 05 đều trả item mới trong ngày).
+   Phần Úc/Biển Đông giữ nguyên:
    **MỞ RỘNG 02/08/2026 (chỉ thị Huy):** chủ đề này còn gồm **(a) mọi tin QUÂN SỰ liên quan tới Úc**,
    không riêng AUKUS — ngân sách quốc phòng, mua sắm khí tài, tập trận do Úc chủ trì hay tham gia,
    triển khai lực lượng, cả ba quân chủng (⚠️ trước 02/08 bảng neo chỉ có Hải quân, nên tin của
