@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-02T05:51:09+07:00",
+    "lastRunAt": "2026-09-02T06:05:37+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "0 su kien/tap tran moi; sua status Super Garuda Shield 2026 tu upcoming sang ongoing (dates 31/8-11/9, da xac minh khai mac that)",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-01"
-    },
-    "heartbeat": "2026-09-02T05:51:09+07:00"
+      "sang": "2026-09-02"
+    }
   }
 }
