@@ -1045,3 +1045,21 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
   - Cổng Báo Mới: không có mục nào hợp 5 chủ đề trong `--baomoi-pending` (rà qua các mục Chính trị/Công nghệ quân sự/Kinh tế/Ngoại giao — toàn Trung Đông, kinh tế trong nước VN, khí tài Nga/Trung không liên quan Mỹ). Không dùng agent Báo Mới riêng phiên này.
   - `tin_jaylam.py --liet-ke`: có 1 file đã trích sẵn trong hàng chờ local (`ĐTN_M_01.9.2026`, 27 tin, nạp 01/09/2026). Đối chiếu 8 tin usNews + 4 tin worldNews của phiên này với toàn bộ 27 tin trong file — KHÔNG phát hiện trùng sự kiện nào (các tin trùng-tiềm-năng như Driscoll từ chức, PAC-3/THAAD, Grok GenAI.mil, bản đồ đáy Biển Đông, Super Garuda Shield đều là tin ĐàC nạp bởi phiên tối 01/09 trước đó, không phải tin của phiên này). Không cần `--ghi-loai`.
   - `gh workflow run telegram-bot.yml` bị chặn "requires approval" ở môi trường CI này (đúng như mọi phiên trước) — không thử lại, chạy thẳng `tin_jaylam.py --liet-ke`.
+
+# Tin bị loại — phiên sáng sớm 2026-09-02 (local, bổ sung sau CI)
+
+⚠️ RACE 2 PHIÊN: CI (claim 04:35:17 VN) và local (claim 04:35:27 VN) cùng chiếm được khoá web-scan cách nhau 10 giây (heartbeat vừa hết hạn). Cả hai quét độc lập và mỗi bên có tin trùng lẫn nhau. Đã đối chiếu tiêu đề/sự kiện của toàn bộ tin local tìm được với index.html sau khi CI push, chỉ nạp bổ sung phần không trùng.
+
+[Nội bộ Mỹ] Người tố giác USPS xây hệ thống kiểm phiếu vội vàng (NPR) — TRÙNG tin CI đã nạp cùng ngày 01/09, không nạp lại.
+[Úc & Biển Đông] Downing Street bác bỏ phát biểu Trump về Falklands (Manila Times) — GẦN TRÙNG tin đã có sẵn từ 31/08 + TRÙNG với nội dung file Jay Lâm (ĐTN_M_01.9.2026) — đã ghi vào logs/trung-jaylam.json, không nạp.
+[Nội bộ Mỹ] Hạ viện Mỹ thông qua CR tránh đóng cửa chính phủ (Government Executive) — TRÙNG tin CI đã nạp cùng sự kiện, không nạp lại.
+[Úc & Biển Đông] Cựu TT Anh Keir Starmer từ chức nghị sĩ (Al Jazeera) — TRÙNG tin CI đã nạp cùng sự kiện, không nạp lại.
+[Úc & Biển Đông] Ireland đàm phán gia nhập JEF+ do Anh dẫn dắt (TheJournal.ie) — TRÙNG tin CI đã nạp cùng sự kiện, không nạp lại.
+[CNQS Mỹ] Rheinmetall/GD giao mẫu thử thay thế Bradley (TWZ) — TRÙNG tin CI đã nạp cùng sự kiện, không nạp lại.
+[CNQS Mỹ] GE Aerospace bay thử bệ thử HyCAT 2028 (Defense Daily) — TRÙNG tin CI đã nạp cùng sự kiện, không nạp lại.
+[CNQS Mỹ] Hải quân Mỹ trao hợp đồng in 3D drone (Naval Technology) — TRÙNG tin CI đã nạp cùng sự kiện, không nạp lại.
+[CNQS Mỹ] Hải quân Mỹ đóng Arleigh Burke Flight III tới 2040 (RealClearDefense) — cổng NGÀY THẬT chặn ở cả 2 phiên (trang không có metadata ngày đọc được).
+[Nội bộ Mỹ] Warren chất vấn FHFA/HUD (banking.senate.gov) — cổng NGÀY THẬT chặn: trang .senate.gov không có metadata ngày đọc được.
+[Nội bộ Mỹ] Abdul El-Sayed: Trump biến tôi thành nhân vật chính bầu cử (The Hill) — cổng NGÀY THẬT chặn: trang không có metadata ngày đọc được.
+[Nội bộ Mỹ] Schumer trình dự luật chống thuế quan Canada (RealClearPolitics) — cổng NGÀY THẬT chặn (CI sau đó nạp được sự kiện tương tự qua nguồn khác).
+[Úc & Biển Đông] Quân đội Philippines: 56 tàu Trung Quốc quanh Biển Tây Philippines (GMA News) — cổng NGÀY THẬT chặn: bài thực đăng 2024-08-20, Google News gắn nhãn ngày mới sai.
