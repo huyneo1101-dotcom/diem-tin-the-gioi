@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-02T03:46:24+07:00",
+  "tao_luc": "2026-09-02T05:45:30+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-01",
@@ -37,14 +37,6 @@
       "tieu_de": "Quan hệ Việt Nam - Australia đang ở giai đoạn phát triển năng động nhất",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/quan-he-viet-nam-australia-dang-o-giai-doan-phat-trien-nang-dong-nhat-102260807201838607.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-09-01",
-      "tieu_de": "Niger's thwarted mutiny highlights junta's dependence on Russia",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/africa/20260901-what-russia-helping-niger-junta-stop-mutiny-means-for-its-sovereignty"
     },
     {
       "lop": "HTML",
@@ -115,24 +107,16 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "Pentagon brings on Grok and ChatGPT for military use",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6061714-pentagon-adds-grok-chatgpt-ai/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "US Navy awards CCI contract for integrated 3D-printed UAV structures",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/us-navy-continuous-composites/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "Competing Bradley Fighting Vehicle Replacement Prototypes Delivered To The U.S. Army",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/land/competing-bradley-fighting-vehicle-replacement-prototypes-delivered-to-the-u-s-army"
+      "ngay": "?",
+      "tieu_de": "Hawks lament Pentagon ‘churn’ after Army secretary’s resignation",
+      "nguon": "Roll Call",
+      "url": "https://rollcall.com/2026/09/01/hawks-lament-pentagon-churn-after-army-secretarys-resignation/"
     },
     {
       "lop": "RSS",
@@ -157,6 +141,14 @@
       "tieu_de": "Grok and ChatGPT join Gemini in Pentagon’s enterprise genAI portal",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/08/31/grok-chatgpt-added-to-genai-mil/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Sentinel AETC FTU Groundbreaking Ceremony at Vandenberg SFB",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/573725/sentinel-aetc-ftu-groundbreaking-ceremony-vandenberg-sfb"
     },
     {
       "lop": "RSS",
@@ -213,6 +205,14 @@
       "tieu_de": "Pentagon Awards $318M Contract for Dataminr Tech",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/31/pentagon_awards_318m_contract_for_dataminr_tech_1203398.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Contracts for Sept. 1, 2026",
+      "nguon": "DoD Contracts",
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4588178/contracts-for-sept-1-2026/"
     },
     {
       "lop": "RSS",
@@ -297,26 +297,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "GE Aerospace Plans to Flight Test HyCAT Hypersonic Test Bed in 2028",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/ge-aerospace-plans-to-flight-test-hycat-hypersonic-test-bed-in-2028/pentagon/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "GD Signs Framework Deals With Pentagon To Boost PAC-3 MSE, THAAD Component Production",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/gd-signs-framework-deals-with-pentagon-to-boost-pac-3-mse-thaad-component-production/pentagon/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "Pentagon Issues Contracts to Boost Manufacturing Capacity for Space Systems",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/pentagon-contracts-boost-space-systems-manufacturing-capacity/"
     },
     {
       "lop": "RSS",
@@ -442,14 +426,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
-      "tieu_de": "Russia slams Japanese drills with US and Australia, says US Typhon missile systems pose threat",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/russia-slams-japanese-drills-with-us-and-australia-says-us-typhon-missile-systems-pose-threat"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
       "tieu_de": "China warns of 'consequences' for Taiwan after Taipei envoys attend Pacific leaders summit",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/china-warns-of-consequences-for-taiwan-after-taipei-envoys-attend-pacific-leaders-summit/article71416780.ece"
@@ -461,14 +437,6 @@
       "tieu_de": "China Wants to Push Taiwan out of the Pacific",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/09/china-wants-to-push-taiwan-out-of-the-pacific/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Taiwan Finally Passed Its 2026 Budget. What Got Cut?",
-      "nguon": "The Diplomat",
-      "url": "https://thediplomat.com/2026/09/taiwan-finally-passed-its-2026-budget-what-got-cut/"
     },
     {
       "lop": "RSS",
@@ -530,17 +498,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-02",
-      "tieu_de": "Weather quiz: Rank Australia's hottest, coldest and wettest places this winter",
+      "tieu_de": "Australia's $600 million scheme to stop drug smuggling through the Pacific",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-02/weather-more-or-less-quiz/106981826"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Ireland in talks to join British-led naval alliance",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/ireland-in-talks-to-join-british-led-naval-alliance/"
+      "url": "https://www.abc.net.au/news/2026-09-02/australia-to-fund-scheme-to-tackle-pacific-drug-smuggling/107104900"
     },
     {
       "lop": "RSS",
@@ -786,24 +746,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "House passes funding stopgap, averting government shutdown in October",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/house-passes-funding-stopgap-averting-government-shutdown-in-october/",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "AI data centers become surprise issue in US midterm elections",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/ai-data-centers-become-surprise-issue-in-us-midterm-elections",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-02",
       "tieu_de": "China’s Xi arrives in Egypt as US sanctions threat looms over Iran links",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/middle-east/chinas-xi-lands-in-egypt-as-iran-war-reshapes-middle-east-alliances",
@@ -825,15 +767,6 @@
       "tieu_de": "Majority of Americans oppose Trump's new Canada tariffs, renaming Lake Ontario, Reuters/Ipsos poll finds",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/majority-of-americans-oppose-trumps-new-canada-tariffs-renaming-lake-ontario-reuters/ipsos-poll",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Iran says it has enough foreign currency despite US sanctions",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/middle-east/iran-says-it-has-enough-foreign-currency-despite-us-sanctions",
       "nhom": 4
     },
     {
@@ -912,6 +845,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
+      "tieu_de": "Hemp ban set to be delayed a month after House passes funding bill",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/healthcare/6064552-hemp-ban-delayed-house-funding-bill/",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
       "tieu_de": "El-Sayed says Trump is making him ‘main character of the midterms’",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/campaign/6063937-el-sayed-trump-main-character-midterms/",
@@ -925,15 +867,6 @@
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/healthcare/6062042-judge-pauses-mifepristone-lawsuit/",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Republicans will pay for Trump’s tariffs in the midterms",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/opinion/campaign/6061519-gop-vulnerable-trade-war-costs/",
-      "nhom": 4
     },
     {
       "lop": "RSS",
