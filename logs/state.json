@@ -19,7 +19,7 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-02T04:37:49+07:00",
+    "lastRunAt": "2026-09-02T05:51:09+07:00",
     "lastSlot": "sang",
     "lastStatus": "RUNNING",
     "note": "dang quet",
@@ -27,6 +27,6 @@
       "toi": "2026-07-24",
       "sang": "2026-09-01"
     },
-    "heartbeat": "2026-09-02T04:37:49+07:00"
+    "heartbeat": "2026-09-02T05:51:09+07:00"
   }
 }
