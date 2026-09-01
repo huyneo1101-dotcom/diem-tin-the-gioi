@@ -464,7 +464,8 @@ nhìn như đang chạy đúng — không lỗi, không cảnh báo.
 ```
 gh workflow run telegram-bot.yml --repo huyneo1101-dotcom/diem-tin-the-gioi
 gh run watch <id> --exit-status --interval 15    # ~2 phút
-python3 scripts/tin_jaylam.py --liet-ke          # mã 10 = không có file nào -> bỏ qua bước này
+python3 scripts/tin_jaylam.py --liet-ke          # mã 10 = KHÔNG có file ở CẢ HAI nguồn -> bỏ qua bước này
+                                                # mã 0 = có file (hàng chờ Supabase và/hoặc sổ cục bộ .docx)
 python3 scripts/tin_jaylam.py --ghi /tmp/bang-jaylam.json      # (2) lưu bảng đối chiếu
 python3 scripts/tin_jaylam.py --ghi-loai /tmp/loai-jaylam.json # (3) khai tin của mình bị bỏ
 ```
