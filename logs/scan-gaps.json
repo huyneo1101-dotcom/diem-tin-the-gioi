@@ -1,17 +1,17 @@
 {
   "date": "2026-09-01",
-  "session": "sang",
+  "session": "toi",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":5,"target":"5-10","min":5,"thieu":false,
-     "reason":"Vét nhóm 1 (điều trần+bỏ phiếu) = 0, Quốc hội mới họp lại 01/09 sau kỳ nghỉ, chưa có phiên/bỏ phiếu nào xác nhận trong khung. Đạt tối thiểu 5 tin từ nhóm 3-5 (biểu tình, kinh tế/trừng phạt, bầu cử giữa kỳ)."},
-    {"name":"Úc & Biển Đông","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Sau agent chính + 1 vòng bổ sung (~20 lượt WebSearch), chỉ 3 tin đạt chuẩn ngày sự kiện thật 31/08-01/09 (Super Garuda Shield khai mạc, Trung Quốc cảnh báo về Đài Loan tại PIF Palau, bản đồ đáy Biển Đông của TQ). Các ứng viên khác đều ngoài khung (24-30/08: USS Abraham Lincoln qua Malacca, AUKUS Pillar 3, AIM-260, Evolved Cape-class...) hoặc trùng sự kiện đã đưa tin trước đó."},
-    {"name":"CNQS Mỹ","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"Khung nới 3 ngày (29/08-01/09). Đạt 4 tin từ nguồn tầng 1 (2× war.gov qua nguồn thay thế có ngày rõ, Military/Army Times, Breaking Defense). Nhiều ứng viên GNEWS bị loại vì kiểm chéo cho thấy ngày sự kiện thật ngoài khung (AIM-424 Malice, DARPA hypersonic, Harpoon test, Dataminr contract) hoặc sai lệch (USS Ted Stevens biên chế thực tế tháng 10)."},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,
-     "reason":"Sự kiện lớn trong khung (binh biến/Africa Corps) là ở NIGER, không phải Mali — không đủ bằng chứng liên quan Mali/JNIM/Bamako nên không nạp theo đúng luật dossier. Tin JNIM/Mali xác minh được (GSIM convoy ambush, JNIM ở Burkina Faso) đều có ngày thật trước 17/08, ngoài khung."},
-    {"name":"Tập trận","count":1,"target":"1-2","min":0,"thieu":false,
-     "reason":"Chỉ có 1 update (Super Garuda Shield 2026 chính thức khai mạc tại Bandung 31/08) — REPMUS 26/Dynamic Messenger 26 và SEACAT 2026 không có diễn biến/khoa mục cụ thể nào mới trong khung ngoài mốc khai mạc chung đã dùng."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":6,"target":"5-10","min":5,"thieu":false,
+     "reason":"Nhóm 1 (điều trần/bỏ phiếu) chưa vét được bài nào đúng khung 31/08-01/09; 6 bài giữ lại thuộc nhóm 2/4/5 (Driscoll từ chức, DHS điều tra gian lận cử tri, USPS whistleblower, đua Thượng viện Texas)."},
+    {"name":"Úc & Biển Đông","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Thiếu 1 bài so với sàn 5: tin 'AFP 56 tàu Trung Quốc' (GMA News) bị cổng ngày đăng thật chặn (bài thật đăng 2024, không phải 2026), không kịp tìm bài thay thế do phiên quét trễ hạn chót 22:00."},
+    {"name":"Công nghệ quân sự Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"3/6 bài agent tìm được bị cổng ngày đăng thật chặn vì thiếu metadata ngày đọc được (war.gov, afnwc.af.mil, Army Recognition — cùng bệnh nguồn .mil/.gov đã ghi nhận trước đó). Không kịp tìm nguồn thay thế cùng sự kiện do đã quá hạn chót."},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":false,
+     "reason":"Không xác nhận được tin Mali/JNIM/Sahel nào mới trong khung 31/08-01/09; ứng viên gần nhất là tin cũ đăng lại hoặc thuộc Niger (không phải Mali)."},
+    {"name":"Tập trận","count":3,"target":"1-2","min":1,"thieu":false,
+     "reason":"3 cập nhật: Super Garuda Shield 2026 (khoa mục huấn luyện), REPMUS 26/Dynamic Messenger 26 (khai mạc), Freedom Edge 2026 (phản ứng Hàn Quốc trước chỉ trích Triều Tiên)."}
   ],
-  "note": "Tổng 13 tin nạp được (5 Nội bộ Mỹ + 3 Úc&Biển Đông + 4 CNQS Mỹ + 1 cập nhật tập trận) + 0 Mỹ-Mali. Cổng ngày thật (ngay_that.py) chặn 4 ứng viên do trang không có metadata ngày đọc được (wjtv.com, 2× war.gov/News/Releases) — đã tìm bài THAY THẾ cùng sự kiện có metadata sạch (local10.com, unionleader.com, armytimes.com) thay vì bỏ tin, và chặn 1 ứng viên do lệch ngày thật (Middle East Eye, đọc ra 30/08 thay vì 31/08 như agent khai). Chi tiết từng tin bị loại: logs/loai-tin.md mục 'Phiên SÁNG SỚM 01/09/2026 (CI)'. Cổng bài 👍 (107 mục calib:xxx, dữ liệu test/hiệu chuẩn) và cổng Báo Mới (77 ứng viên, không bài nào hợp chủ đề ngoài 1 bài trùng Super Garuda Shield đã nạp) đã kiểm nhưng không có gì thêm để nạp."
+  "note": "Phiên TỐI 01/09 nổ đúng hạn chót 22:00 giờ VN (khoá cũ của 2 lượt trước đó — CI 20:56 và local 21:15 — đều đã thối >30' không nhịp). Do quá hạn nên chỉ nạp MỘT lô rồi chốt ngay, không chạy vòng bổ sung, không chạy cổng bài 👍/cổng Báo Mới/tin_jaylam.py. Chi tiết tin bị loại: logs/loai-tin.md mục 'Phiên TỐI 01/09/2026 (CI)'."
 }
