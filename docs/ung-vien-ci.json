@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-02T00:56:59+07:00",
+  "tao_luc": "2026-09-02T03:46:24+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-01",
@@ -40,35 +40,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-09-01",
-      "tieu_de": "Nghị quyết số 25 về chiến lược công tác tư tưởng trong giai đoạn mới",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/nghi-quyet-so-25-ve-chien-luoc-cong-tac-tu-tuong-trong-giai-doan-moi-438789.html"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-09-01",
       "tieu_de": "Niger's thwarted mutiny highlights junta's dependence on Russia",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/africa/20260901-what-russia-helping-niger-junta-stop-mutiny-means-for-its-sovereignty"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-09-01",
-      "tieu_de": "As capital goes back to normal, Niger downplays soldiers' mutiny",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20260901-as-capital-goes-back-to-normal-niger-downplays-soldiers-mutiny"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-09-01",
-      "tieu_de": "Niger: Niger's Failed Coup Exposes Cracks in the Military",
-      "nguon": "AllAfrica",
-      "url": "https://allafrica.com/stories/202609010068.html"
     },
     {
       "lop": "HTML",
@@ -85,6 +61,14 @@
       "tieu_de": "US Air Force chief of staff discusses ‘regional situation’ with Israeli military officials",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/news/your-military/2026/08/31/us-air-force-chief-of-staff-discusses-regional-situation-with-israeli-military-officials/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "ROK Navy Selects GE Aerospace to Power New KDDX Destroyer",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/09/rok-navy-selects-ge-aerospace-to-power-new-kddx-destroyer/"
     },
     {
       "lop": "RSS",
@@ -178,22 +162,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Marine Corps Develops Plan to Grow Force by More Than 6,500",
+      "tieu_de": "U.S. Army Corps of Engineers announces temporary road closure related to the Fargo-Moorhead diversion project",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/573681/marine-corps-develops-plan-grow-force-more-than-6500"
+      "url": "https://www.dvidshub.net/news/573721/us-army-corps-engineers-announces-temporary-road-closure-related-fargo-moorhead-diversion-project"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Paws, Patriotism and Prizes: Exchange Reveals Patriot Pet Contest Winners",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/573661/paws-patriotism-and-prizes-exchange-reveals-patriot-pet-contest-winners"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
+      "ngay": "2026-09-02",
       "tieu_de": "U.S. Navy to Build Arleigh Burke Flight III Destroyers Into 2040",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/01/us_navy_to_build_arleigh_burke_flight_iii_destroyers_into_2040_1203477.html"
@@ -201,7 +177,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
+      "ngay": "2026-09-02",
       "tieu_de": "U.S. Army Debuts New Ammo Packaging System",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/01/us_army_debuts_new_ammo_packaging_system_1203615.html"
@@ -209,10 +185,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
+      "ngay": "2026-09-02",
       "tieu_de": "U.S. Moves to Triple Patriot PAC-3 and Quadruple THAAD Production",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/01/us_moves_to_triple_patriot_pac-3_and_quadruple_thaad_production_1203554.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "More High-Profile Pentagon Exits Expected After Driscoll",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/01/more_high-profile_pentagon_exits_expected_after_driscoll_1203680.html"
     },
     {
       "lop": "RSS",
@@ -229,14 +213,6 @@
       "tieu_de": "Pentagon Awards $318M Contract for Dataminr Tech",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/31/pentagon_awards_318m_contract_for_dataminr_tech_1203398.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-08-30",
-      "tieu_de": "U.S. Military Uses Laser to Shoot Down 3 Cartel Drones: Pentagon",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/08/28/us_military_uses_laser_to_shoot_down_3_cartel_drones_pentagon_1203036.html"
     },
     {
       "lop": "RSS",
@@ -313,10 +289,42 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "DARPA Plans Another Heavy Lift Challenge With Added Difficulty",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/darpa-plans-another-heavy-lift-challenge-with-added-difficulty/advanced-transformational-technology/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "GE Aerospace Plans to Flight Test HyCAT Hypersonic Test Bed in 2028",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/ge-aerospace-plans-to-flight-test-hycat-hypersonic-test-bed-in-2028/pentagon/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "GD Signs Framework Deals With Pentagon To Boost PAC-3 MSE, THAAD Component Production",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/gd-signs-framework-deals-with-pentagon-to-boost-pac-3-mse-thaad-component-production/pentagon/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Pentagon Issues Contracts to Boost Manufacturing Capacity for Space Systems",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/pentagon-contracts-boost-space-systems-manufacturing-capacity/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "US Army soldiers across the world earn Danish ruck ribbon",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/09/01/us-army-soldiers-across-the-world-earn-danish-ruck-ribbon/"
     },
     {
       "lop": "RSS",
@@ -349,6 +357,22 @@
       "tieu_de": "The military’s ChatGPT is now live via the Pentagon’s GenAI platform",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/industry/techwatch/2026/08/31/the-militarys-chatgpt-is-now-live-via-the-pentagons-genai-platform/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "American Rheinmetall Delivers First Lynx XM30 Combat Vehicle Prototype to US Army",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/09/01/american-rheinmetall-delivers-first-lynx-xm30-combat-vehicle-prototype-to-us-army/?utm_source=rss&utm_medium=rss&utm_campaign=american-rheinmetall-delivers-first-lynx-xm30-combat-vehicle-prototype-to-us-army"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Marine Corps Develops Plan to Grow Force by More Than 6,500",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/573681/marine-corps-develops-plan-grow-force-more-than-6500"
     },
     {
       "lop": "RSS",
@@ -505,34 +529,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Former British PM Keir Starmer to leave politics",
+      "ngay": "2026-09-02",
+      "tieu_de": "Weather quiz: Rank Australia's hottest, coldest and wettest places this winter",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-01/keir-starmer-to-stand-down-as-mp/107104952"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Partner of missing Australian in Nepal says waiting for news has been 'hell'",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-01/families-refuse-to-give-up-on-loved-ones-missing-in-nepal/107104082"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Missing Australian found in Tibet was not in flood zone, China says",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-01/missing-australian-found-alive-in-tibet-floods-nepal/107104646"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Authorities investigate reports former ADF soldier killed in Ukraine",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-01/australian-soldier-killed-ukraine-mozzie/107104370"
+      "url": "https://www.abc.net.au/news/2026-09-02/weather-more-or-less-quiz/106981826"
     },
     {
       "lop": "RSS",
@@ -642,14 +642,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
-      "tieu_de": "Almost half of terrorism arrests in Great Britain since 9/11 have been in past year",
-      "nguon": "**The Guardian — Politics (Anh)**",
-      "url": "https://www.theguardian.com/politics/2026/sep/01/almost-half-of-terrorism-arrests-in-great-britain-since-911-have-been-in-past-year"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
       "tieu_de": "Private equity keeps picking off London-listed firms – and Westminster barely notices | Nils Pratley",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/business/nils-pratley-on-finance/2026/sep/01/bodycote-private-equity-london-takeover-spree-politicians-ignore"
@@ -666,14 +658,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
-      "tieu_de": "Metro Manila areas still at ‘acutely’ unhealthy air quality level",
+      "tieu_de": "POCO F9 Series debuts in the Philippines with flagship power and 185FPS gaming",
       "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2296688/metro-manila-areas-still-at-acutely-unhealthy-air-quality-level"
+      "url": "https://technology.inquirer.net/148907/poco-f9-series-debuts-in-the-philippines-with-flagship-power-and-185fps-gaming"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
+      "ngay": "2026-09-02",
       "tieu_de": "Taiwan's Drone Realism",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/01/taiwans_drone_realism_1203560.html"
@@ -681,7 +673,7 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
+      "ngay": "2026-09-02",
       "tieu_de": "How To Unblock Britain's Economic Arteries",
       "nguon": "RealClearWorld",
       "url": "https://www.realclearworld.com/2026/09/01/how_to_unblock_britains_economic_arteries_1203646.html"
@@ -793,6 +785,33 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "House passes funding stopgap, averting government shutdown in October",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/09/house-passes-funding-stopgap-averting-government-shutdown-in-october/",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "AI data centers become surprise issue in US midterm elections",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/ai-data-centers-become-surprise-issue-in-us-midterm-elections",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "China’s Xi arrives in Egypt as US sanctions threat looms over Iran links",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/middle-east/chinas-xi-lands-in-egypt-as-iran-war-reshapes-middle-east-alliances",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "Carney’s Liberals win 3 special elections to keep majority as Canada confronts Trump threats",
       "nguon": "The Straits Times",
@@ -892,6 +911,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "El-Sayed says Trump is making him ‘main character of the midterms’",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/6063937-el-sayed-trump-main-character-midterms/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "Federal judge delays a mifepristone lawsuit until after midterms",
       "nguon": "The Hill",
@@ -910,6 +938,51 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Shutdown threat possibly lifted as House passes stopgap spending bill",
+      "nguon": "Government Executive",
+      "url": "https://www.govexec.com/management/2026/09/shutdown-threat-lifted-house-passes-stopgap-spending-bill/415753/",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Schumer Takes Aim at Trump's Tariffs With New Bill",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/2026/09/01/schumer_takes_aim_at_trumps_tariffs_with_new_bill_709649.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "China Is Building AI Models of American Voters. Why?",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/2026/09/01/china_is_building_ai_models_of_american_voters_why_709688.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "House passes funding bill to avert government shutdown",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/09/01/house-passes-funding-bill-to-avert-government-shutdown/",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "What the US executive order on bulk-power systems gets right—and what’s missing",
+      "nguon": "Atlantic Council",
+      "url": "https://www.atlanticcouncil.org/blogs/energysource/what-the-us-executive-order-on-bulk-power-systems-gets-right-and-whats-missing/",
+      "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "Echoes of cold war as US accused of meddling in another Brazilian election",
       "nguon": "The Guardian — World",
@@ -920,10 +993,10 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "‘Start being serious’: Canada’s Carney hits back at US officials as tariff talks stall – live",
+      "tieu_de": "‘Dangerous power grab’: top Democrats decry USPS system that could thwart mail-in voting – live",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/live/2026/sep/01/house-vote-stopgap-funding-bill-us-federal-government-shutdown-mike-johnson-trump-ballroom-politics-latest-news-updates",
-      "nhom": 4
+      "nhom": 5
     },
     {
       "lop": "RSS",
