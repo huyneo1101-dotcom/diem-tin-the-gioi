@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-01T22:20:04+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "phien toi 01/09: +4 worldNews, +7 usNews, +3 cap nhat tap tran (5 chu de), qua han chot 22:00 nen chot gon",
+    "lastRunAt": "2026-09-02T04:00:38+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-01",
       "sang": "2026-09-01"
-    }
+    },
+    "heartbeat": "2026-09-02T04:00:38+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-01T04:02:46+07:00",
