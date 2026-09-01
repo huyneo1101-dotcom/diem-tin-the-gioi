@@ -220,10 +220,10 @@ def _():
     return not chan, msg
 
 
-@ca('11. Dựng file: 03 tin sai KHÔNG được vào mục "Úc và Biển Đông" → PHẢI CHẶN')
+@ca('11. Dựng file: 03 tin sai KHÔNG được vào mục địa bàn (Úc/Anh/Biển Đông) → PHẢI CHẶN')
 def _():
     muc, _ = dung_muc(world=[TIN_NHAT, TIN_TQ, TIN_HAN, TIN_AUKUS])
-    sec2 = muc["Úc và Biển Đông"]
+    sec2 = muc[MD.MUC_DIA_BAN]
     return sec2 == [TIN_AUKUS["title"]], f"mục 2 đang có: {sec2}"
 
 
@@ -258,7 +258,7 @@ def _():
     muc, err = dung_muc(world=[TIN_MALI, TIN_AUKUS])
     return ("Mỹ – Mali" not in muc
             and all(TIN_MALI["title"] not in ds for ds in muc.values())
-            and muc["Úc và Biển Đông"] == [TIN_AUKUS["title"]]
+            and muc[MD.MUC_DIA_BAN] == [TIN_AUKUS["title"]]
             and "KHÔNG neo được" not in err), f"{muc} || {err}"
 
 

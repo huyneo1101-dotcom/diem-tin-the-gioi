@@ -229,9 +229,13 @@ kiem("[18] tin SÁNG NAY thiếu link không được nuốt mất tin CA TỐI 
      "ngân sách sáng nay" in van and "xe tự hành chống drone tối qua" in van)
 
 van, err = chay()
+# ⚠️ Neo vào GIỮA câu, không neo chữ đầu: từ form 01/09/2026 mỗi tin mở bằng
+# "Ngày d.M.yyyy, " nên chữ đầu của tóm tắt bị hạ nếu là từ chức năng
+# (`make_docx.TU_HA_CHU_DAU`) — "Phiên điều trần…" ra "phiên điều trần…". Neo cả chữ đầu
+# thì ca này đỏ vì CHÍNH TẢ chứ không vì tin lặp, đúng lối làm cổng kiểm mất răng.
 kiem("[16] không tin nào lặp hai lần trong file",
      van.count("Thượng viện bỏ phiếu tối qua") == 1
-     and van.count("Phiên điều trần ngân sách sáng nay") == 1)
+     and van.count("điều trần ngân sách sáng nay") == 1)
 
 DATA_RONG = {"generatedAt": HOM_NAY, "usNews": [], "worldNews": [], "exercises": []}
 van, err = chay(data=DATA_RONG)

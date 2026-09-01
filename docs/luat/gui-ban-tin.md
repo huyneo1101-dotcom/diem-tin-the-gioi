@@ -3,6 +3,55 @@
 > Xẻ từ `CLAUDE.md` ngày 25/08/2026 để bản thi hành gọn lại (luật mục 31 của `~/.claude/CLAUDE.md`).
 > **Nội dung giữ NGUYÊN VĂN, không cắt chữ nào** — chỉ đổi chỗ ở. Bản thi hành: [`../../CLAUDE.md`](../../CLAUDE.md).
 
+## 📄 FORM FILE WORD = MẪU CỦA CƠ QUAN (chỉ thị Huy 01/09/2026)
+
+> Nguyên văn: *"từ bây giờ các kết quả quét tin xuất file docx phải theo form như file tao
+> đính kèm."* File mẫu: `ĐTN_M_01.9.2026.docx`.
+
+**04 mục, đánh số trong ngoặc đơn** — thay cho 03 mục kiểu `1. Nội bộ Mỹ` dùng tới 31/08/2026:
+
+| # | Mục | Nguồn tin |
+|---|---|---|
+| (1) | **Đối ngoại Mỹ** | `usNews` không khí tài, không Mali, có neo nước ngoài (`la_doi_ngoai_my`) |
+| (2) | **Nội bộ Mỹ** | `usNews` không khí tài, không Mali, phần còn lại |
+| (3) | **Địa bàn Australia và Anh, Biển Đông** | `worldNews` neo được Úc/Biển Đông, chia 03 **tiểu mục** đậm không đánh số: Anh · Australia · Biển Đông |
+| (4) | **KHCN-QS** | `usNews` cat `Công nghệ quân sự` + item tập trận/sự kiện mới |
+
+⚠️ **THỨ TỰ IN KHÁC THỨ TỰ GIÀNH ở mục (3).** In theo mẫu: Anh · Australia · Biển Đông. Giành
+thì **Úc trước Anh** — tin dính CẢ HAI nước gần như luôn là AUKUS hoặc tập trận do Úc chủ trì
+có Anh dự, thuộc về Úc; đảo lại là mọi tin AUKUS rơi xuống tiểu mục "Anh".
+
+⛔ **TIỂU MỤC "Anh" HIỆN LUÔN RỖNG — đó là hiện trạng, không phải lỗi.** Chủ đề 2 chưa mở phạm
+vi sang Anh nên cổng nạp `add_news.py::check_neo_chu_de_2` vẫn chặn tin thuần Anh, và tin Anh
+lọt vào lô sẽ bị lưới an toàn dồn sang "Nội bộ Mỹ" kèm dòng ⚠️ ở stderr. Bảng neo `topics.NEO_ANH`
+đã dựng sẵn; mở phạm vi chỉ là nối nó vào `NEO_UC_BIEN_DONG` — **quyết định đó thuộc về Huy**,
+kèm việc thêm truy vấn nguồn Anh vào `harvest.py`.
+
+⛔ **05 điểm định dạng, mỗi điểm là một chỗ dễ "sửa cho gọn" rồi lệch mẫu** (đo bằng cách bóc
+`word/document.xml` của chính file mẫu, không lấy theo trí nhớ):
+- **KHÔNG** in dòng tiêu đề `ĐIỂM TIN NGÀY d.M.yyyy` — vào thẳng mục (1). Ngày nằm ở tên file.
+- Tin **không** mở bằng gạch đầu dòng; mở bằng `Ngày d.M.yyyy,` — **ngày CÓ số 0 dẫn, tháng KHÔNG**
+  (`01.9.2026`, `31.8.2026`). Tầng quét tự viết `Ngày 31/8/2026,` trong `summary` thì phải CẮT.
+- **Link nằm CÙNG đoạn** với nội dung, cách một dấu trắng. Tách ra dòng riêng là bản 4 trang
+  phình thành 7.
+- Khuôn đoạn: thụt dòng đầu **720 twips** (0,5") · giãn dòng **`line=360 lineRule="exact"`** ·
+  cách đoạn **120 twips** (6pt) · căn đều. `exact` chứ không phải `auto`.
+- Khổ **A4**, lề **1440 twips** (1,0") cả bốn phía — bản cũ để 1,25" trái/phải.
+
+⚠️ **Chữ đầu tóm tắt chỉ HẠ khi là từ chức năng** (`make_docx.TU_HA_CHU_DAU`): mẫu ghi
+*"Ngày 31.8.2026, tại Hội nghị…"* nhưng *"Ngày 31.8.2026, Đại tướng Dan Caine…"* và
+*"…, Quân đội Mỹ và Indonesia…"*. Cấm đưa vào bảng những chữ vừa mở câu vừa mở **chức danh**
+hoặc **tên cơ quan**.
+
+⛔ **Bảng `NEO_DOI_NGOAI`: CẤM để tên nước tiếng Việt một âm tiết ở dạng trần.** Đo ngay lượt
+chạy thử đầu 01/09/2026: neo `"duc"` khớp chữ **"tình dục"**, đẩy tin *"Hạ viện Mỹ thông qua
+Đạo luật Kayleigh"* — tin nội bộ thuần — sang mục "Đối ngoại Mỹ". Cùng lối đó `"phap"` khớp
+"biện pháp"/"tư pháp", `"nga"` khớp "ngã". Biên từ không cứu được vì sau khi bỏ dấu chúng là
+từ trọn vẹn. Dùng cụm tự neo: `nuoc duc`, `germany`, `berlin`.
+
+**Bộ canh:** `tests/test-form-docx-mau.py` — **28 ca (25 ca PHẢI CHẶN) · `--tu-kiem` bắt
+12/12 bản hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`.
+
 ## 📵 ĐÃ TẮT EMAIL — TELEGRAM LÀ KÊNH DUY NHẤT (chỉ thị Huy 27/07/2026)
 
 > Nguyên văn: *"từ giờ không cần gửi email cho ai nữa, gửi telegram thôi."*

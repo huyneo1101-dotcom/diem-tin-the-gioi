@@ -5,15 +5,26 @@ Tạo file .docx "ĐIỂM TIN NGÀY d.M.yyyy" chứa các tin VỪA QUÉT ĐƯ�
 Cách xác định "tin mới của lần quét": diff DATA trong index.html (HEAD) với bản trước
 (git show HEAD~1:index.html) — URL nào chưa có ở bản trước là tin của lần quét này.
 
-BÁM CHẶT format FILE MẪU buổi tối Huy gửi (Diem-tin-ngay-2026-07-23.docx — 5 chủ đề). Đó là
-tên file MẪU, KHÔNG phải tên file script này xuất ra — tên xuất ra do `ten_file()` đặt:
-  1. Nội bộ Mỹ        -> usNews category "Chính trị", KHÔNG phải chuyện Mali (điều trần + bỏ phiếu)
-  2. Úc và Biển Đông  -> worldNews, trừ tin Mali
-  3. QS-KHCN          -> usNews còn lại (CNQS Mỹ) + item tập trận/sự kiện mới (gồm Predator's Run)
-                         — mục DUY NHẤT ghi kèm ngày tin, vì chỉ nó được nới khung 3 ngày
-  4. Mỹ – Mali        -> tin Mali/Sahel gom từ CẢ usNews lẫn worldNews (tách riêng 27/07/2026
-                         sau khi Huy bắt lỗi tin Mali lòi ra giữa mục QS-KHCN)
-(Đã BỎ mục Mạng xã hội (X) — ngoài phạm vi.)
+⛔ BÁM CHẶT FORM MẪU CỦA CƠ QUAN — file `ĐTN_M_01.9.2026.docx` Huy gửi ngày 01/09/2026, chỉ
+thị nguyên văn: *"từ bây giờ các kết quả quét tin xuất file docx phải theo form như file tao
+đính kèm."* Đó là tên file MẪU, KHÔNG phải tên file script này xuất ra (`ten_file()` đặt).
+
+04 mục, đánh số trong ngoặc đơn:
+  (1) Đối ngoại Mỹ  -> usNews không khí tài, không Mali, có neo nước ngoài (`la_doi_ngoai_my`)
+  (2) Nội bộ Mỹ     -> usNews không khí tài, không Mali, phần còn lại
+  (3) Địa bàn Australia và Anh, Biển Đông -> worldNews neo được Úc/Biển Đông, chia 03 TIỂU MỤC
+                       đậm không đánh số: Anh · Australia · Biển Đông (`tieu_muc_dia_ban`).
+                       ⚠️ Tiểu mục "Anh" hiện LUÔN RỖNG — chủ đề 2 chưa mở phạm vi sang Anh,
+                       cổng nạp `add_news.py::check_neo_chu_de_2` vẫn chặn tin thuần Anh.
+  (4) KHCN-QS       -> usNews category "Công nghệ quân sự" + item tập trận/sự kiện mới
+(Đã BỎ mục Mạng xã hội (X) và mục Mỹ – Mali — ngoài phạm vi / đi ở bản sáng.)
+
+⛔ 05 điểm của form mẫu, mỗi điểm đều là chỗ dễ "sửa cho gọn" rồi lệch mẫu:
+  - KHÔNG có dòng tiêu đề "ĐIỂM TIN NGÀY …" — vào thẳng mục (1).
+  - Tin KHÔNG mở bằng gạch đầu dòng; mở bằng "Ngày d.M.yyyy," (ngày có số 0 dẫn, tháng không).
+  - Link nằm CÙNG đoạn với nội dung, cách một dấu trắng — không xuống dòng riêng.
+  - Mỗi đoạn: thụt dòng đầu 0,5"; giãn dòng CHÍNH XÁC 18pt (`line=360 exact`); cách đoạn 6pt.
+  - Khổ A4, lề 1,0" cả bốn phía (bản cũ để 1,25" trái/phải).
 
 ⛔ MỤC 5 "Tin Jay Lâm gửi" ĐÃ BỎ HẲN 01/08/2026 — Huy đảo nguyên tắc: *"file của Jay Lâm gửi
 chỉ là để so sánh xem có tin nào mày quét được mà bị trùng với tin trong file đó không thôi"*
@@ -25,13 +36,15 @@ Việc đối chiếu cần đọc hiểu theo SỰ KIỆN nên thuộc về PHI
 `scripts/tin_jaylam.py --ghi-loai`, và file này chỉ việc đọc sổ rồi bỏ tin — xem
 `doc_url_trung_jaylam()` / `loc_bo_trung_jaylam()`. Vì thế file này KHÔNG còn chạm Supabase.
 
-Định dạng khớp mẫu:
-  - Chữ: Times New Roman 14pt toàn bộ.
-  - Tiêu đề "ĐIỂM TIN NGÀY d.M.yyyy": căn giữa, đậm, 14pt.
-  - Đầu mục "N. <tên>": căn đều (justify), đậm, 14pt.
-  - Mỗi tin: MỘT đoạn "- <nội dung>" (CHỈ summary — đã bỏ significance từ 27/07/2026), căn đều, 14pt, chữ thường
-    (không đậm/nghiêng); dòng dưới là link nguồn (hyperlink xanh gạch chân).
-  - Lề: trái/phải 1.25 inch, trên/dưới 1.0 inch.
+Định dạng khớp mẫu (đo bằng cách bóc `word/document.xml` của chính file mẫu):
+  - Chữ: Times New Roman 14pt toàn bộ, khai ở CẢ style Normal lẫn từng run.
+  - Đầu mục "(N) <tên>": căn đều, đậm, thụt dòng đầu 0,5", giãn dòng auto 276.
+  - Tiểu mục (chỉ mục 3): "Anh"/"Australia"/"Biển Đông" — đậm, cùng khuôn đoạn với tin.
+  - Mỗi tin: MỘT đoạn "Ngày d.M.yyyy, <nội dung>. <link>" (CHỈ summary — đã bỏ significance
+    từ 27/07/2026), căn đều, thụt dòng đầu 0,5", giãn dòng exact 360, cách đoạn 6pt;
+    link là hyperlink xanh gạch chân nằm cuối chính đoạn đó.
+  - Một dòng trống sau mỗi mục.
+  - Khổ A4; lề 1,0 inch cả bốn phía.
 Xuất ra đường dẫn in ở stdout (dòng cuối "DOCX=<path>"). Rỗng (không có tin) -> in "DOCX=".
 Tên file GỌI THEO BUỔI (chỉ thị Huy 28/07/2026): /tmp/Diem-tin-sang-som-5h-<ngày>.docx hoặc
 /tmp/Diem-tin-toi-21h-<ngày>.docx — xem hàm `ten_file()`.
@@ -231,7 +244,7 @@ def _kho_chu(it):
 # thùng chứa — đúng thứ đang đi vá. File mất thì có tiếng kêu; file sai nội dung thì không.
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "scripts"))
-from topics import neo_uc_bien_dong  # noqa: E402
+from topics import neo_uc_bien_dong, neo_uc, neo_anh  # noqa: E402
 
 
 def la_uc_bien_dong(it):
@@ -291,9 +304,111 @@ def is_noibo_my(it):
     return (it.get("region") or "") in REGION_NOI_BO
 
 
-# Mục DUY NHẤT ghi kèm ngày tin trong .docx. Phải khớp ĐÚNG tên mục ở build_sections —
-# đổi tên mục mà quên sửa đây thì ngày lặng lẽ biến mất, không có lỗi nào bật lên.
-MUC_GHI_NGAY = "QS-KHCN"
+# ═══════════════════ TÊN MỤC — khai MỘT chỗ, mọi nơi khác tham chiếu ═══════════════════
+# ⛔ Bộ test PHẢI import các hằng này, CẤM chép chuỗi tên mục vào test. Chép chuỗi thì lần
+# đổi tên mục sau đây bộ test đỏ vì tên chứ không vì hành vi, và người sửa sẽ sửa test cho
+# hết đỏ thay vì soi hành vi — đúng lối làm cổng kiểm mất răng.
+MUC_DOI_NGOAI = "Đối ngoại Mỹ"
+MUC_NOI_BO = "Nội bộ Mỹ"
+MUC_DIA_BAN = "Địa bàn Australia và Anh, Biển Đông"
+MUC_KHCN = "KHCN-QS"
+
+# Tiểu mục của mục địa bàn — mẫu Huy gửi 01/09/2026 in chúng thành 03 dòng đậm không đánh số.
+TM_ANH = "Anh"
+TM_UC = "Australia"
+TM_BIEN_DONG = "Biển Đông"
+THU_TU_TIEU_MUC = (TM_ANH, TM_UC, TM_BIEN_DONG)
+
+# Khoá gắn tạm lên từng tin của mục địa bàn để `main()` biết in nó dưới tiểu mục nào.
+# Cố ý gắn lên chính dict tin (bản sao) thay vì đổi kiểu trả về của `build_sections`:
+# 03 bộ test hiện có đọc `[(tên_mục, [tin])]`, đổi kiểu là chúng vỡ vì hình dạng dữ liệu
+# chứ không vì hành vi phân mục.
+KHOA_TIEU_MUC = "_tieuMuc"
+
+# ⛔ MỌI tin trong file .docx nay đều mở bằng "Ngày d.M.yyyy," (form mẫu 01/09/2026), nên
+# KHÔNG còn mục nào được ghi ngày riêng. Hằng cũ `MUC_GHI_NGAY` đã bỏ — trước đây chỉ mục
+# QS-KHCN ghi ngày vì chỉ nó được nới khung 3 ngày; nay khung ngày không đổi, chỉ cách in đổi.
+
+
+# Từ khoá neo tin `usNews` vào mục "Đối ngoại Mỹ" (tách khỏi "Nội bộ Mỹ" theo mẫu
+# 01/09/2026). Viết KHÔNG DẤU vì so sau khi bỏ dấu, và so theo BIÊN TỪ.
+#
+# ⚠️ Bảng này định nghĩa DƯƠNG cho mục 1, còn mục 2 "Nội bộ Mỹ" là phần `usNews` còn lại.
+# Đó là ngoại lệ có chủ ý so với nguyên tắc "mọi mục định nghĩa dương" ở `is_noibo_my`:
+# hai mục này chia đôi CÙNG một tập (`usNews` không phải khí tài, không phải Mali), nên
+# phần còn lại ở đây là một tập ĐÃ ĐÓNG, không phải cái thùng hứng mọi thứ rơi.
+#
+# ⛔ KHÔNG thêm tên hãng tin ("reuters", "bbc") — tin nội bộ nào cũng dẫn nguồn nước ngoài.
+# ⛔ KHÔNG thêm "trung dong"/"chau au" trần: quá rộng, và tin nội bộ hay nhắc để lấy bối cảnh.
+#
+# ⛔ TÊN NƯỚC TIẾNG VIỆT MỘT ÂM TIẾT PHẢI ĐI KÈM "nuoc"/"tong thong"/… — CẤM để trần.
+#    Đo thật 01/09/2026 ngay lượt chạy thử đầu: neo `"duc"` (Đức) khớp chữ **"tình dục"** của
+#    tin *"Hạ viện Mỹ thông qua Đạo luật Kayleigh"*, đẩy một tin nội bộ thuần sang mục
+#    "Đối ngoại Mỹ". Cùng lối đó `"phap"` khớp "biện pháp"/"tư pháp"/"pháp luật" — thứ có
+#    trong gần như MỌI tin lập pháp Mỹ, và `"nga"` khớp "ngã". Biên từ KHÔNG cứu được ở đây
+#    vì sau khi bỏ dấu chúng là từ trọn vẹn. Đây đúng lớp lỗi "mali khớp Malice" đã vá
+#    26/08/2026, chỉ khác bảng.
+NEO_DOI_NGOAI = (
+    # -- nước & vùng lãnh thổ hay dính chính sách đối ngoại Mỹ
+    "iran", "nuoc nga", "lien bang nga", "tong thong nga", "russia", "russian",
+    "moscow", "putin", "ukraine", "kyiv",
+    "trung quoc", "china", "chinese", "bac kinh", "beijing",
+    "israel", "gaza", "bo tay", "west bank", "palestine",
+    "trieu tien", "north korea", "binh nhuong", "pyongyang",
+    "venezuela", "cuba", "mexico", "canada", "panama", "greenland",
+    "nuoc anh", "vuong quoc anh", "united kingdom", "britain", "british", "london",
+    "argentina", "falkland",
+    "nuoc phap", "france", "french", "paris",
+    "nuoc duc", "germany", "german", "berlin", "ba lan", "poland",
+    "nhat ban", "japan", "han quoc", "south korea", "dai loan", "taiwan",
+    "an do", "india", "pakistan", "afghanistan", "iraq", "syria", "yemen", "houthi",
+    "saudi", "qatar", "uae", "tho nhi ky", "turkey", "ai cap", "egypt",
+    "brazil", "colombia",
+    # -- cơ chế đa phương
+    "nato", "g20", "g7", "lien hop quoc", "united nations", "lien minh chau au",
+    "european union", "opec", "asean", "imf", "world bank",
+    # -- công cụ đối ngoại
+    "trung phat", "sanction", "cam van", "embargo", "thue quan", "tariff",
+    "vien tro nuoc ngoai", "foreign aid", "hiep dinh", "dam phan thuong mai",
+    "dai su", "ambassador", "ngoai truong", "secretary of state",
+)
+_RE_DOI_NGOAI = tuple(re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)")
+                      for k in NEO_DOI_NGOAI)
+
+
+def la_doi_ngoai_my(it):
+    """Tin `usNews` này nói chuyện Mỹ với BÊN NGOÀI hay chuyện trong nước?
+
+    Hai đường vào: category `Ngoại giao` (tầng quét đã phân), hoặc câu chữ tự neo được vào
+    một nước/cơ chế/công cụ đối ngoại. Đường thứ hai là cần thiết vì phần lớn tin đối ngoại
+    trong kho mang category `Chính trị` hoặc `Kinh tế` — đo trên kho 01/09/2026: tin trừng
+    phạt Iran của Bộ Tài chính Mỹ mang cat `Kinh tế`, tin G20 mời Nga cũng vậy.
+    """
+    if (it.get("category") or "") == "Ngoại giao":
+        return True
+    kho = _khong_dau(_kho_chu(it))
+    return any(p.search(kho) for p in _RE_DOI_NGOAI)
+
+
+def tieu_muc_dia_ban(it):
+    """Tin của mục địa bàn thuộc tiểu mục nào: Anh · Australia · Biển Đông.
+
+    ⚠️ THỨ TỰ GIÀNH KHÁC THỨ TỰ IN. In theo mẫu: Anh · Australia · Biển Đông
+    (`THU_TU_TIEU_MUC`). Giành thì **Úc trước Anh**, vì tin dính CẢ HAI nước gần như luôn là
+    AUKUS hoặc tập trận do Úc chủ trì có Anh dự — thuộc về Úc, chủ đề gốc của mảng; Anh mới
+    là phần thêm 01/09/2026. Đảo lại thì mọi tin AUKUS rơi xuống tiểu mục "Anh".
+    Tin Anh thuần vẫn về đúng chỗ: *"HMS Tamar thăm Căn cứ Ream/Campuchia"* không có neo Úc
+    nào, nên nó qua nhánh Úc rồi rơi đúng vào nhánh Anh.
+
+    Không khớp Úc lẫn Anh thì về "Biển Đông" — đây là phần còn lại của một tập ĐÃ ĐÓNG
+    (tin đã qua cổng `la_uc_bien_dong`), không phải thùng rác.
+    """
+    kho = _kho_chu(it)
+    if neo_uc(kho):
+        return TM_UC
+    if neo_anh(kho):
+        return TM_ANH
+    return TM_BIEN_DONG
 
 
 def build_sections(us, world, events):
@@ -342,14 +457,16 @@ def build_sections(us, world, events):
     def khong_phai_mali(it):
         return it.get("sourceUrl") not in mali_urls
 
-    sec1 = [it for it in us if is_noibo_my(it)]                       # 1. Nội bộ Mỹ
-    sec2 = [it for it in world                                        # 2. Úc & Biển Đông
-            if khong_phai_mali(it) and la_uc_bien_dong(it)]
-    sec3 = [it for it in us                                           # 3. CNQS Mỹ (+ Predator)
+    my = [it for it in us if is_noibo_my(it)]           # usNews không khí tài, không Mali
+    sec1 = [it for it in my if la_doi_ngoai_my(it)]                   # 1. Đối ngoại Mỹ
+    sec2 = [it for it in my if not la_doi_ngoai_my(it)]               # 2. Nội bộ Mỹ
+    sec3 = [dict(it, **{KHOA_TIEU_MUC: tieu_muc_dia_ban(it)})         # 3. Địa bàn (03 tiểu mục)
+            for it in world if khong_phai_mali(it) and la_uc_bien_dong(it)]
+    sec4 = [it for it in us                                           # 4. KHCN-QS (+ tập trận)
             if la_qs_khcn(it) and khong_phai_mali(it)]
 
     # LƯỚI AN TOÀN — không được để tin nào rơi ra ngoài mọi mục.
-    da_xep = urls_of(sec1) | urls_of(sec2) | urls_of(sec3) | mali_urls
+    da_xep = urls_of(sec1) | urls_of(sec2) | urls_of(sec3) | urls_of(sec4) | mali_urls
     roi = [it for it in us + world
            if it.get("sourceUrl") and it.get("sourceUrl") not in da_xep]
     if roi:
@@ -359,26 +476,34 @@ def build_sections(us, world, events):
         # không phải sửa phân loại ở đây. Gộp chung một dòng cảnh báo thì hai nguyên nhân
         # khác nhau ra cùng một câu chữ, và người đọc sẽ đi sửa nhầm chỗ.
         world_urls = urls_of(world)
-        lac_muc2 = [it for it in roi if it.get("sourceUrl") in world_urls]
-        if lac_muc2:
-            print(f"⚠️  {len(lac_muc2)} tin worldNews KHÔNG neo được vào Úc/Biển Đông -> "
-                  f"tạm dồn vào 'Nội bộ Mỹ' để không mất tin. Đây là lỗi TẦNG QUÉT, "
+        lac_dia_ban = [it for it in roi if it.get("sourceUrl") in world_urls]
+        if lac_dia_ban:
+            print(f"⚠️  {len(lac_dia_ban)} tin worldNews KHÔNG neo được vào Úc/Biển Đông -> "
+                  f"tạm dồn vào {MUC_NOI_BO!r} để không mất tin. Đây là lỗi TẦNG QUÉT, "
                   f"không phải lỗi phân loại: "
-                  + " | ".join((it.get("title") or "")[:45] for it in lac_muc2[:5]),
+                  + " | ".join((it.get("title") or "")[:45] for it in lac_dia_ban[:5]),
                   file=sys.stderr)
         con_lai = [it for it in roi if it.get("sourceUrl") not in world_urls]
         if con_lai:
-            print(f"⚠️  {len(con_lai)} tin không khớp mục nào -> dồn vào 'Nội bộ Mỹ'. "
+            print(f"⚠️  {len(con_lai)} tin không khớp mục nào -> dồn vào {MUC_NOI_BO!r}. "
                   f"Xem lại phân loại: "
                   + " | ".join(f"[{it.get('category')}] {(it.get('title') or '')[:45]}"
                                for it in con_lai[:5]), file=sys.stderr)
-        sec1 = sec1 + roi
+        # ⛔ LƯỚI DỒN VÀO "Nội bộ Mỹ", TUYỆT ĐỐI KHÔNG DỒN VÀO MỤC ĐỊA BÀN — thử đổi lúc dựng
+        # form mới 01/09/2026 và ca 11 của `tests/test-cong-uc-bien-dong.py` bắt ngay. Lý do
+        # ca đó tồn tại (Huy bắt 01/08/2026): mục địa bàn từng là cái THÙNG, tin thế giới nào
+        # lọt tầng quét cũng được dán nhãn "Úc và Biển Đông". Dồn lưới vào đúng mục ấy là
+        # dựng lại cái thùng, chỉ khác là có thêm dòng kêu — mà dòng kêu nằm ở stderr của CI,
+        # còn nhãn sai thì nằm trong bản tin Huy đọc. Tin thế giới nằm dưới nhãn "Nội bộ Mỹ"
+        # trông CHƯỚNG, và chính chỗ chướng đó là tín hiệu để đi sửa tầng quét.
+        sec2 = sec2 + roi
 
     # ⛔ KHÔNG thêm lại `("Mỹ – Mali", mali)` vào đây — xem docstring. Tin Mali đi ở bản sáng.
     return [
-        ("Nội bộ Mỹ", sec1),
-        ("Úc và Biển Đông", sec2),
-        (MUC_GHI_NGAY, sec3 + list(events)),
+        (MUC_DOI_NGOAI, sec1),
+        (MUC_NOI_BO, sec2),
+        (MUC_DIA_BAN, sec3),
+        (MUC_KHCN, sec4 + list(events)),
     ]
 
 
@@ -438,35 +563,144 @@ def item_body(it):
 
 
 def ngay_ngan(s):
-    """'2026-07-24' -> '24/07'. Không parse được thì trả nguyên chuỗi (còn hơn nuốt mất)."""
+    """'2026-07-24' -> '24/07'. Không parse được thì trả nguyên chuỗi (còn hơn nuốt mất).
+
+    Giữ lại dù form 01/09/2026 không còn dùng: `send_telegram.py` và bộ test gọi nó.
+    """
     s = str(s or "").strip()
     m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", s)
     return f"{m.group(3)}/{m.group(2)}" if m else s
 
 
-def add_item(doc, it, ghi_ngay=False):
-    """Một tin trong .docx: đoạn '- <tóm tắt>' rồi dòng link nguồn.
+def ngay_form(s):
+    """'2026-09-01' -> '01.9.2026' — ĐÚNG khuôn mẫu Huy gửi 01/09/2026.
 
-    `ghi_ngay=True` chèn '(dd/mm) ' vào ĐẦU đoạn — bật cho mục QS-KHCN (chỉ thị Huy
-    27/07/2026). Chỉ mục này cần vì nó là mục DUY NHẤT được nới khung ngày: CNQS Mỹ lấy
-    lùi tới 3 ngày (`MAX_AGE_DAYS_CNQS` trong add_news.py, `CNQS_LOOKBACK_DAYS` trong
-    harvest.py), nên bản tin ngày 27 có thể chứa tin ngày 24 — không ghi ngày thì người
-    đọc mặc định hiểu là tin hôm nay. Bốn mục còn lại chỉ có hôm nay + hôm qua nên ghi
-    ngày vào đó chỉ làm rối.
+    ⚠️ Ngày GIỮ số 0 dẫn, tháng KHÔNG — đo trên mẫu: `Ngày 01.9.2026` và `Ngày 31.8.2026`.
+    Đừng "cho đều" thành `01.09.2026`: đó là khuôn khác, và mẫu là thứ đang phải bám.
+    Không parse được thì trả rỗng — thà không có tiền tố ngày còn hơn in ra một chuỗi lạ.
     """
-    body = item_body(it)
+    m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", str(s or "").strip())
+    return f"{m.group(3)}.{int(m.group(2))}.{m.group(1)}" if m else ""
+
+
+# Từ mở đầu câu phải HẠ chữ hoa khi bị đẩy vào sau "Ngày d.M.yyyy, ". Chỉ gồm trạng ngữ và
+# từ chức năng — CỐ Ý không đụng tới chức danh ("Bộ trưởng", "Tổng thống", "Thủ tướng"):
+# mẫu 01/09/2026 giữ hoa chúng ngay sau dấu phẩy (*"Ngày 31.8.2026, Bộ trưởng Tài chính…"*),
+# đúng lối văn bản hành chính Việt Nam.
+# ⛔ CẤM đưa vào đây những chữ vừa mở câu vừa mở CHỨC DANH hoặc TÊN CƠ QUAN — đo trên chính
+#    mẫu: *"Đại tướng Dan Caine"* · *"Quân đội Mỹ và Indonesia"* · *"Lực lượng Không gian Mỹ"*
+#    · *"Chính phủ Anh"* đều viết HOA ngay sau dấu phẩy. Bốn chữ "đại", "quân", "lực",
+#    "chính" vì thế đã bị gỡ khỏi bảng sau lượt chạy thử 01/09/2026.
+TU_HA_CHU_DAU = frozenset((
+    "tại", "theo", "trong", "trước", "sau", "trên", "dưới", "giữa", "ngay",
+    "một", "hai", "ba", "nhiều", "các", "những", "hàng", "khoảng", "gần", "hơn",
+    "truyền", "khảo", "cuộc", "hoạt", "phát", "bang", "tàu", "máy", "đoàn",
+    "phía", "phe", "số", "tỷ", "tình", "thị", "giá", "dự", "nhóm", "hãng",
+    "báo", "tin", "nguồn", "cả", "toàn", "việc", "phiên", "kỳ", "vòng", "đợt",
+))
+
+
+def _noi_sau_ngay(body):
+    """Hạ chữ đầu của `body` khi nó sắp đứng sau 'Ngày d.M.yyyy, '.
+
+    Chỉ hạ khi từ đầu nằm trong `TU_HA_CHU_DAU`. Danh sách DƯƠNG chứ không phải phép đoán
+    "chữ nào không phải tên riêng": đoán sai theo chiều hạ nhầm là viết thường tên người,
+    tên nước — lỗi đập vào mắt ngay dòng đầu bản tin, mà không cổng nào bắt được.
+    """
+    tu = body.split(" ", 1)[0]
+    return body[0].lower() + body[1:] if tu.lower() in TU_HA_CHU_DAU else body
+
+
+# Tiền tố ngày mà chính tầng quét đã tự viết vào `summary` ("Ngày 31/8/2026, …"). Phải cắt
+# rồi ghép lại theo khuôn mẫu, nếu không bản tin ra "Ngày 31.8.2026, Ngày 31/8/2026, …".
+_RE_TIEN_TO_NGAY = re.compile(
+    r"^\s*ngày\s+\d{1,2}\s*[./-]\s*\d{1,2}\s*[./-]\s*\d{4}\s*[,:]?\s*", re.IGNORECASE)
+
+
+def than_tin(it):
+    """Thân đoạn tin theo form mẫu: 'Ngày d.M.yyyy, <nội dung>'.
+
+    Ngày lấy từ trường `date` của tin — KHÔNG lấy ngày mà tầng quét viết trong `summary`:
+    `date` là con số đã qua cổng `scripts/ngay_that.py` (đối chiếu metadata trang gốc), còn
+    ngày trong câu chữ là thứ agent tự gõ. Hai nguồn lệch nhau thì tin `date`.
+    Không có `date` hợp lệ thì in thân tin trần, không bịa ngày.
+    """
+    body = _RE_TIEN_TO_NGAY.sub("", item_body(it)).strip()
+    d = ngay_form(it.get("date"))
+    return f"Ngày {d}, {_noi_sau_ngay(body)}" if (d and body) else body
+
+
+def _dinh_dang_doan(p, dam=False):
+    """Khuôn đoạn của mẫu: thụt dòng đầu 0,5\"; giãn dòng CHÍNH XÁC 18pt; cách đoạn 6pt.
+
+    `w:line=360 w:lineRule="exact"` — mẫu dùng `exact`, không phải `auto`. Đổi sang `auto`
+    là mỗi trang co lại vài dòng và bản in lệch hẳn so với bản của cơ quan.
+    """
+    p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    pf = p.paragraph_format
+    pf.first_line_indent = Inches(0.5)
+    pf.space_after = Pt(6) if not dam else Pt(0)
+    # ⚠️ KHÔNG đặt `space_before` — mẫu không khai `w:before`, và python-docx ghi ra
+    # `w:before="0"` khi được gán, tức thêm một thuộc tính mẫu không có.
+    ppr = p._p.get_or_add_pPr()
+    spc = ppr.find(qn("w:spacing"))
+    if spc is None:
+        spc = OxmlElement("w:spacing")
+        ppr.append(spc)
+    spc.set(qn("w:line"), "360")
+    spc.set(qn("w:lineRule"), "exact")
+    return p
+
+
+def add_dau_muc(doc, chu):
+    """Đầu mục '(N) Tên mục' — đậm, thụt dòng đầu, giãn dòng 1,15 (auto 276) như mẫu."""
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    p.paragraph_format.space_after = Pt(2)
-    d = ngay_ngan(it.get("date")) if ghi_ngay else ""
-    set_font(p.add_run(f"- ({d}) {body}" if d else "- " + body), size=SIZE)
+    p.paragraph_format.first_line_indent = Inches(0.5)
+    ppr = p._p.get_or_add_pPr()
+    spc = OxmlElement("w:spacing")
+    spc.set(qn("w:line"), "276")
+    spc.set(qn("w:lineRule"), "auto")
+    ppr.append(spc)
+    set_font(p.add_run(chu), size=SIZE, bold=True)
+    return p
 
+
+def add_tieu_muc(doc, chu):
+    """Tiểu mục 'Anh' / 'Australia' / 'Biển Đông' — đậm, cùng khuôn đoạn với tin."""
+    p = _dinh_dang_doan(doc.add_paragraph())
+    p.paragraph_format.space_after = Pt(6)
+    set_font(p.add_run(chu), size=SIZE, bold=True)
+    return p
+
+
+def add_dong_trong(doc):
+    p = doc.add_paragraph()
+    p.paragraph_format.first_line_indent = Inches(0.5)
+    ppr = p._p.get_or_add_pPr()
+    spc = OxmlElement("w:spacing")
+    spc.set(qn("w:line"), "276")
+    spc.set(qn("w:lineRule"), "auto")
+    ppr.append(spc)
+    return p
+
+
+def add_item(doc, it):
+    """Một tin = MỘT đoạn duy nhất: 'Ngày d.M.yyyy, <nội dung>. <link>'.
+
+    ⚠️ Link nằm CÙNG đoạn với nội dung, cách một dấu trắng — không xuống dòng riêng như bản
+    trước 01/09/2026. Đây là điểm dễ "sửa cho gọn" nhất và cũng là điểm mẫu khác rõ nhất:
+    tách link ra dòng riêng thì mỗi tin chiếm gấp đôi số dòng và bản 4 trang phình thành 7.
+    """
+    body = than_tin(it)
+    p = _dinh_dang_doan(doc.add_paragraph())
+    if body:
+        if not body.rstrip().endswith((".", "!", "?", ":")):
+            body = body.rstrip() + "."
+        set_font(p.add_run(body + " "), size=SIZE)
     url = it.get("sourceUrl")
     if url:
-        pu = doc.add_paragraph()
-        pu.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-        pu.paragraph_format.space_after = Pt(8)
-        add_hyperlink(pu, url, url)
+        add_hyperlink(p, url, url)
 
 
 def loc_chua_gui(items):
@@ -725,40 +959,48 @@ def main(now=None):
         return
 
     gen = cur.get("generatedAt", "")
-    try:
-        y, m, d = gen.split("-")
-        title_date = f"{int(d)}.{int(m)}.{y}"
-    except Exception:
-        title_date = gen
 
     doc = Document()
-    # Lề khớp mẫu: trái/phải 1.25", trên/dưới 1.0"
+    # Khổ A4 + lề 1,0" cả bốn phía — đo trên mẫu 01/09/2026 (pgSz 11909x16834 twips,
+    # pgMar 1440 cả bốn). python-docx mặc định khổ Letter, không đặt là bản in lệch.
     for s in doc.sections:
-        s.left_margin = Inches(1.25)
-        s.right_margin = Inches(1.25)
+        s.page_width = Inches(8.27)
+        s.page_height = Inches(11.69)
+        s.left_margin = Inches(1.0)
+        s.right_margin = Inches(1.0)
         s.top_margin = Inches(1.0)
         s.bottom_margin = Inches(1.0)
 
-    # Tiêu đề căn giữa, đậm, 14pt
-    pt = doc.add_paragraph()
-    pt.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    pt.paragraph_format.space_after = Pt(10)
-    set_font(pt.add_run(f"ĐIỂM TIN NGÀY {title_date}"), size=SIZE, bold=True)
+    # Style Normal: Times New Roman 14pt — mẫu khai ở style chứ không chỉ ở từng run, nên
+    # đoạn nào lỡ quên `set_font` vẫn ra đúng chữ thay vì rơi về Calibri 11.
+    st = doc.styles["Normal"]
+    st.font.name = FONT
+    st.font.size = Pt(SIZE)
+    st.element.rPr.rFonts.set(qn("w:eastAsia"), FONT)
 
+    # ⛔ KHÔNG in dòng tiêu đề "ĐIỂM TIN NGÀY d.M.yyyy" — mẫu 01/09/2026 vào THẲNG mục (1).
+    # Ngày của bản tin nằm ở TÊN FILE (`ten_file`), nên bỏ dòng này không mất thông tin nào.
+    # Thêm lại là lệch mẫu ngay dòng đầu tiên, chỗ người duyệt nhìn trước nhất.
     idx = 0
     for name, items in sections:
         if not items:
             continue
         idx += 1
-        ph = doc.add_paragraph()
-        ph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-        ph.paragraph_format.space_before = Pt(8)
-        ph.paragraph_format.space_after = Pt(4)
-        set_font(ph.add_run(f"{idx}. {name}"), size=SIZE, bold=True)
-        # QS-KHCN là mục duy nhất được nới khung ngày (tới 3 ngày) -> phải ghi rõ ngày tin.
-        ghi_ngay = name == MUC_GHI_NGAY
-        for it in items:
-            add_item(doc, it, ghi_ngay=ghi_ngay)
+        add_dau_muc(doc, f"({idx}) {name}")
+        if name == MUC_DIA_BAN:
+            # Mục địa bàn in theo 03 tiểu mục; tiểu mục rỗng thì bỏ hẳn nhãn, không in
+            # nhãn trống (mẫu không có nhãn nào đứng một mình).
+            for tm in THU_TU_TIEU_MUC:
+                nhom = [it for it in items if it.get(KHOA_TIEU_MUC) == tm]
+                if not nhom:
+                    continue
+                add_tieu_muc(doc, tm)
+                for it in nhom:
+                    add_item(doc, it)
+        else:
+            for it in items:
+                add_item(doc, it)
+        add_dong_trong(doc)
 
     out = f"/tmp/{ten_file(gen, now)}"
     doc.save(out)

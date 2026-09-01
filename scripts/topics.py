@@ -258,6 +258,64 @@ def neo_uc_bien_dong(text) -> bool:
     return any(p.search(hay) for p in _RE_NEO)
 
 
+# ═══════════════ NEO RIÊNG TỪNG TIỂU MỤC — chỉ dùng để CHIA, không dùng để CHẶN ═══════════
+# File Word từ 01/09/2026 in mục địa bàn thành 03 tiểu mục (Anh · Australia · Biển Đông), nên
+# cần biết một tin ĐÃ ĐƯỢC NHẬN thuộc nhánh nào. Ba bảng dưới đây KHÔNG tham gia cổng nạp
+# `add_news.py::check_neo_chu_de_2` — cổng đó vẫn hỏi đúng một câu qua `neo_uc_bien_dong`.
+#
+# ⛔ `NEO_UC` phải là TẬP CON của `NEO_UC_BIEN_DONG`, cưỡng bức bằng phép kiểm ở cuối file.
+#   Chép lệch một từ thì tin Úc rơi xuống tiểu mục "Biển Đông" mà không có lỗi nào bật lên.
+NEO_UC = [
+    "uc", "australia", "australian", "canberra", "aukus", "adf",
+    "royal australian navy", "collins-class", "hmas",
+    "raaf", "royal australian air force", "pitch black", "talisman sabre",
+    "tindal", "amberley",
+]
+
+# ⚠️ BẢNG NÀY CHƯA ĐƯỢC CỔNG NẠP DÙNG — tin thuần Anh hiện vẫn bị `check_neo_chu_de_2` chặn
+# vì chủ đề 2 chưa mở sang Anh (xem `docs/luat/pham-vi-quet.md`). Vì vậy tiểu mục "Anh" sẽ
+# RỖNG cho tới khi phạm vi quét được mở. Bảng dựng sẵn ở đây để lúc mở chỉ phải nối nó vào
+# `NEO_UC_BIEN_DONG`, không phải đi dựng lại bảng giữa lúc vá.
+#
+# ⛔ KHÔNG lấy "anh" trần: tiếng Việt "anh" là đại từ, khớp bậy khắp nơi. Dùng "nuoc anh",
+#    "chinh phu anh", "thu tuong anh" — cụm tự neo được.
+# ⛔ KHÔNG lấy "uk" trần trong văn bản đã bỏ dấu: nó khớp trong "ukraine"? Không (biên từ
+#    chặn), nhưng vẫn giữ cả dạng "united kingdom" cho chắc.
+NEO_ANH = [
+    "nuoc anh", "vuong quoc anh", "united kingdom", "britain", "british",
+    "chinh phu anh", "thu tuong anh", "quoc hoi anh", "bo quoc phong anh",
+    "ngan hang anh", "bank of england", "downing street", "westminster", "whitehall",
+    "royal navy", "hai quan hoang gia anh", "royal air force", "raf",
+    "hms", "type 23", "type 26", "type 45", "astute-class", "dreadnought-class",
+    "cong dang", "labour party", "bao thu anh", "tory",
+]
+
+_RE_UC = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in NEO_UC]
+_RE_ANH = [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in NEO_ANH]
+
+
+def neo_uc(text) -> bool:
+    """Văn bản có tự neo được vào Úc không? (chia tiểu mục, KHÔNG phải cổng chặn)"""
+    hay = bo_dau(text)
+    return any(p.search(hay) for p in _RE_UC)
+
+
+def neo_anh(text) -> bool:
+    """Văn bản có tự neo được vào Anh không? (chia tiểu mục, KHÔNG phải cổng chặn)"""
+    hay = bo_dau(text)
+    return any(p.search(hay) for p in _RE_ANH)
+
+
+# Cưỡng bức quan hệ tập con NGAY LÚC NẠP MODULE, không đợi bộ test: hai bảng lệch nhau là
+# lỗi câm (tin Úc lặng lẽ xuống tiểu mục "Biển Đông"), mà module này nằm trên đường đi của
+# cả cổng nạp lẫn file Word nên hỏng phải kêu ngay chứ không chờ ai chạy test.
+_thieu = [k for k in NEO_UC if k not in NEO_UC_BIEN_DONG]
+if _thieu:
+    raise AssertionError(
+        f"NEO_UC không còn là tập con của NEO_UC_BIEN_DONG — lệch {_thieu}. "
+        "Sửa bảng lớn thì sửa cả bảng con, nếu không tin Úc sẽ rơi xuống tiểu mục Biển Đông.")
+
+
 def _compile(table):
     return {
         topic: [re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)", re.IGNORECASE) for k in kws]
