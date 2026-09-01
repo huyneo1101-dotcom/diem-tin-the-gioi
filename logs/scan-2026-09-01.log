@@ -10,3 +10,4 @@
 [00:47Z] SKIP (CI) - lan kich moi (gio VN 07:47, cach lan xong ~3h57'). state.py claim web-scan van tra exit 10 (phien sang som ngay 2026-09-01 DA XONG, lastRunAt 03:50:30+07). Kiem lai ngoai le: so_da_gui --xem van co dong "2026-09-01T04:03:57+07:00 [sang] 13 tin" dung ngay + tag [sang] -> ban tin da toi tay, khong phai co gia. event-scan cung DONE cung phien (04:02:46+07). Khong quet lai, khong sua state.json.
 [13:56Z] START (CI) phien toi — claim web-scan OK (20:56 gio VN)
 [14:15Z] START (local 21:15) phien toi - claim web-scan OK, giu khoa (lastSuccess toi van la 2026-08-29, CI 20:56 chua done). Han chot email 22:00, qua 21:45 chua xong thi chot lo dang co.
+[15:00Z] START (CI) phien toi - claim web-scan OK (22:00 gio VN, DA QUA han chot 22:00). Khoa cu (local 21:15 hoac CI 20:56) da thoi (>30' khong nhip) nen chiem lai duoc. lastSuccess toi van 2026-08-29 - qua gio nhung chua co ban tin toi nao, quet GON va CHOT NGAY, khong vong bo sung.
