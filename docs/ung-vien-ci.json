@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-03T00:16:10+07:00",
+  "tao_luc": "2026-09-03T01:01:02+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-02",
@@ -237,14 +237,6 @@
       "tieu_de": "Justice Department defends Pentagon’s proposed firings of Stars and Stripes staffers",
       "nguon": "The Hill",
       "url": "https://thehill.com/regulation/court-battles/6066488-doj-defends-pentagon-dismissals/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Pentagon brings on Grok and ChatGPT for military use",
-      "nguon": "The Hill — Defense",
-      "url": "https://thehill.com/policy/defense/6061714-pentagon-adds-grok-chatgpt-ai/"
     },
     {
       "lop": "RSS",
@@ -650,14 +642,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
-      "tieu_de": "More countries embrace Australia's social media ban",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/spotlight/podcasts/podcast-tech-latest/more-countries-embrace-australia-s-social-media-ban"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
       "tieu_de": "HMS Bulwark to transfer to Brazilian Navy as UK turns to future of amphibious ships",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
       "url": "https://www.gov.uk/government/news/hms-bulwark-to-transfer-to-brazilian-navy-as-uk-turns-to-future-of-amphibious-ships"
@@ -737,10 +721,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-02",
+      "ngay": "2026-09-03",
       "tieu_de": "Missing British trekker's body found in Pakistan",
       "nguon": "**BBC News UK**",
       "url": "https://www.bbc.co.uk/news/articles/c23x478r3g5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
+      "tieu_de": "The Guardian view on Israeli settlements: Britain can no longer look away | Editorial",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/02/the-guardian-view-on-israeli-settlements-britain-can-no-longer-look-away"
     },
     {
       "lop": "RSS",
@@ -749,6 +741,14 @@
       "tieu_de": "Thames Water, I refuse to pay the sewage charge in my bill while you pollute Britain’s rivers and coastlines | Jenny Jones",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/commentisfree/2026/sep/02/thames-water-sewage-charge-bill-pollute-britain-river-coastline"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
+      "tieu_de": "Ben Jennings on the rise of datacentres in Britain – cartoon",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/commentisfree/picture/2026/sep/02/ben-jennings-rise-datacentres-britain-ai-government-cartoon"
     },
     {
       "lop": "RSS",
@@ -876,6 +876,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-03",
+      "tieu_de": "Trump aides seek 'quiet' in Iran war, but say attacks may intensify after November midterm elections: report",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/trump-aides-seek-quiet-in-iran-war-but-say-attacks-may-intensify-after-november-midterm-elections-report/article71420569.ece",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
       "tieu_de": "Lake Ontario: the lake Donald Trump wants to rename ‘Lake America’ amid tariff woes with Canada",
       "nguon": "The Hindu",
@@ -889,6 +898,24 @@
       "tieu_de": "Bank of Canada mulls Trump tariff shock as it holds interest rates",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/09/02/bank-canada-rate-decision-trump-tariffs.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "From Partnership to Penalty: US Tariffs Shadow India Trade Deal",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/09/from-partnership-to-penalty-us-tariffs-shadow-india-trade-deal/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Why Pakistan Is Shrugging Off Trump’s Latest Iran Sanctions",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/09/why-pakistan-is-shrugging-off-trumps-latest-iran-sanctions/",
       "nhom": 4
     },
     {
@@ -913,7 +940,16 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "House GOP campaign arm distributes 2,000+ tickets for midterm convention in Texas",
+      "tieu_de": "Pro-Trump group releases first general election midterm ad",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/6066844-pro-trump-group-releases-first-general-election-midterm-ad/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-03",
+      "tieu_de": "House GOP campaign arm distributes more than 2,000 tickets for midterm convention in Texas",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/campaign/6066614-texas-gop-midterms-convention-dallas/",
       "nhom": 5
@@ -931,18 +967,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Trump seeks affordability wins down midterm homestretch",
+      "tieu_de": "Lame-duck agenda balloons as Congress punts priorities until after election",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6064533-trump-affordability-midterms/",
+      "url": "https://thehill.com/homenews/senate/6064611-gop-punted-lame-duck-agenda/",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Lame-duck agenda balloons as Congress punts priorities until after election",
+      "tieu_de": "Trump seeks affordability wins down midterm homestretch",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6064611-gop-punted-lame-duck-agenda/",
+      "url": "https://thehill.com/homenews/administration/6064533-trump-affordability-midterms/",
       "nhom": 5
     },
     {
