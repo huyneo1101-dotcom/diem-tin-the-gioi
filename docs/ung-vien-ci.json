@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-03T05:48:07+07:00",
+  "tao_luc": "2026-09-03T06:33:02+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-02",
@@ -253,14 +253,6 @@
       "tieu_de": "Justice Department defends Pentagon’s proposed firings of Stars and Stripes staffers",
       "nguon": "The Hill",
       "url": "https://thehill.com/regulation/court-battles/6066488-doj-defends-pentagon-dismissals/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "Hawks lament Pentagon ‘churn’ after Army secretary’s resignation",
-      "nguon": "Roll Call",
-      "url": "https://rollcall.com/2026/09/01/hawks-lament-pentagon-churn-after-army-secretarys-resignation/"
     },
     {
       "lop": "RSS",
@@ -873,6 +865,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
+      "tieu_de": "Metro Manila eyes underground cisterns at 5 priority flood projects",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/09/03/2553556/metro-manila-eyes-underground-cisterns-5-priority-flood-projects"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-02",
       "tieu_de": "NBA and Salmon announce multi-year collaboration to deepen fan engagement in the Philippines",
       "nguon": "Inquirer",
@@ -890,7 +890,15 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-03",
-      "tieu_de": "Australia news live: Chalmers concedes ‘softness’ in housing market; teen charged after ‘near complete amputation’ of boy’s hand in Sydney",
+      "tieu_de": "Taiwan needs a new deterrence strategy",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/commentary/2026/09/03/world/taiwan-deterrence-strategy/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
+      "tieu_de": "Australia news live: Marles and Hegseth meet in Washington; teen charged after ‘near complete amputation’ of boy’s hand",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/sep/03/anthony-albanese-one-nation-jim-chalmers-labor-liberal-angus-taylor-tobacco-plan-ntwnfb"
     },
@@ -1035,6 +1043,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-03",
+      "tieu_de": "Bessent rallies support for Trump agenda at G20",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/newsletters/business-economy/6067771-bessent-trump-agenda-g20-finance/",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-03",
       "tieu_de": "Trump under pressure to contain Iran fighting as midterms near",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/defense/6067742-trump-iran-strikes-escalation-midterms/",
@@ -1071,9 +1088,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Lame-duck agenda balloons as Congress punts priorities until after election",
+      "tieu_de": "Trump seeks affordability wins down midterm homestretch",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6064611-gop-punted-lame-duck-agenda/",
+      "url": "https://thehill.com/homenews/administration/6064533-trump-affordability-midterms/",
       "nhom": 5
     },
     {
@@ -1089,9 +1106,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Trump seeks affordability wins down midterm homestretch",
+      "tieu_de": "Lame-duck agenda balloons as Congress punts priorities until after election",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6064533-trump-affordability-midterms/",
+      "url": "https://thehill.com/homenews/senate/6064611-gop-punted-lame-duck-agenda/",
       "nhom": 5
     },
     {
@@ -1129,15 +1146,6 @@
       "nguon": "RealClearPolitics",
       "url": "https://www.realclearpolitics.com/2026/09/02/tariffs_will_hurt_republicans_in_the_midterms_709645.html",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "Reviled in the U.S., data centers win support in Brazil’s presidential election",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/business/2026/09/02/tech/data-centers-us-brazil-election/",
-      "nhom": 5
     },
     {
       "lop": "RSS",
