@@ -1063,3 +1063,10 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 [Nội bộ Mỹ] Abdul El-Sayed: Trump biến tôi thành nhân vật chính bầu cử (The Hill) — cổng NGÀY THẬT chặn: trang không có metadata ngày đọc được.
 [Nội bộ Mỹ] Schumer trình dự luật chống thuế quan Canada (RealClearPolitics) — cổng NGÀY THẬT chặn (CI sau đó nạp được sự kiện tương tự qua nguồn khác).
 [Úc & Biển Đông] Quân đội Philippines: 56 tàu Trung Quốc quanh Biển Tây Philippines (GMA News) — cổng NGÀY THẬT chặn: bài thực đăng 2024-08-20, Google News gắn nhãn ngày mới sai.
+
+[Úc & Biển Đông] Triều Tiên hạ cấp phái đoàn ngoại giao tại London để phản đối lệnh trừng phạt của Anh (Yonhap, 2026-09-01) — bị add_news.py chặn: không neo được vào Úc/AUKUS/Anh/Biển Đông (chủ thể chính là Triều Tiên phản ứng, không phải sự kiện của Anh).
+
+[Úc & Biển Đông] Quân đội Philippines: 56 tàu Trung Quốc hiện diện ở Biển Tây Philippines trong tháng 8 (Manila Bulletin, 2026-09-01) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được (không có metadata ngày).
+[Nội bộ Mỹ] Hạ viện Mỹ thông qua Đạo luật NDO Fairness Act (House Judiciary Committee/protectprivacynow.org, 2026-09-01) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
+[Nội bộ Mỹ] Hạ viện Mỹ bỏ phiếu thông qua nghị quyết lên án chủ nghĩa xã hội (The Hill, 2026-09-01) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
+[Nội bộ Mỹ] Thượng nghị sĩ Elizabeth Warren tố FHFA/HUD không thực thi sắc lệnh Phố Wall (Uỷ ban Ngân hàng Thượng viện, 2026-09-01) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
