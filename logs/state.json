@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-02T21:38:28+07:00",
-    "lastSlot": "toi",
-    "lastStatus": "DONE",
-    "note": "Phien toi 02/09: +3 worldNews (Uc/BD) + 3 usNews (1 Chinh tri, 2 CNQS) + 1 exercise update. Thieu do het gio (han 21:45): cong ngay that chan 4 tin, trung Jay Lam 3 tin.",
+    "lastRunAt": "2026-09-03T04:05:29+07:00",
+    "lastSlot": "sang",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-02",
       "sang": "2026-09-02"
-    }
+    },
+    "heartbeat": "2026-09-03T04:05:29+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-02T06:05:37+07:00",
