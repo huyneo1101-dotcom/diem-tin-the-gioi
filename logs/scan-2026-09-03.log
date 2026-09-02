@@ -4,3 +4,4 @@
 [21:05Z] START (local) phien sang som 04:30 - da claim khoa web-scan (RUN, ghi de RUNNING cu cua CI 04:00 vi CI khong nhip tiep). Quet 5 chu de.
 [21:08Z] SKIP (local, tu nhuong) - gh run list phat hien run 33682605875 (claude-web-scan.yml) dang in_progress, khoi dong 04:00 VN cung slot sang. Day la race claim da biet (26/07): CI claim cuc bo truoc nhung chua push khoa len remote kip luc local pull 04:05 nen local claim() tra RUN. De tranh quet chong/trung tin, local tu SKIP, nha khoa, KHONG lam Buoc 1b tro di. CI se tu hoan tat.
 [21:35Z] DONE web-scan phien sang som (CI): +16 tin (Noi bo My 6, Uc/Anh/Bien Dong 6, CNQS My 3, Mali 1, Tap tran 0). 1 tin bi rut vi trung file Jay Lam (GenAI.mil Grok). Chuan bi commit.
+[21:35Z] START event-scan (CI, gop vao sang som) - da claim khoa.
