@@ -2,3 +2,4 @@
 [18:04Z] SKIP (exit 12) — 01:04 gio VN nam NGOAI khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. KHONG dung --bo-cong-gio de lach (dung luat CLAUDE.md dot 31/08/2026).
 [21:00Z] START (CI) phien sang som - da claim khoa web-scan thanh cong.
 [21:05Z] START (local) phien sang som 04:30 - da claim khoa web-scan (RUN, ghi de RUNNING cu cua CI 04:00 vi CI khong nhip tiep). Quet 5 chu de.
+[21:08Z] SKIP (local, tu nhuong) - gh run list phat hien run 33682605875 (claude-web-scan.yml) dang in_progress, khoi dong 04:00 VN cung slot sang. Day la race claim da biet (26/07): CI claim cuc bo truoc nhung chua push khoa len remote kip luc local pull 04:05 nen local claim() tra RUN. De tranh quet chong/trung tin, local tu SKIP, nha khoa, KHONG lam Buoc 1b tro di. CI se tu hoan tat.
