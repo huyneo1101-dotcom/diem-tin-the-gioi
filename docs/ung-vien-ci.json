@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-03T03:46:44+07:00",
+  "tao_luc": "2026-09-03T05:48:07+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-02",
@@ -154,25 +154,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "US Navy RFI Details Plans for Carrier-Based Collaborative Combat Aircraft (CCA)",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/09/us-navy-rfi-carrier-based-collaborative-combat-aircraft-cca/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-02",
       "tieu_de": "ROK Navy Selects GE Aerospace to Power New KDDX Destroyer",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/09/rok-navy-selects-ge-aerospace-to-power-new-kddx-destroyer/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
-      "tieu_de": "GE wins deals for F/A-18 engine parts, hypersonic test",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/ge-wins-deals-for-f-a-18-engine-parts-hypersonic-test/"
     },
     {
       "lop": "RSS",
@@ -322,6 +306,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
+      "tieu_de": "First Blue Tape Ceremony connects Guardian selects with Space Force mentors",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/573843/first-blue-tape-ceremony-connects-guardian-selects-with-space-force-mentors"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-03",
       "tieu_de": "U.S. Army Yuma Proving Ground hosts Arizona Commanders Summit",
       "nguon": "DVIDS news (tập trận)",
       "url": "https://www.dvidshub.net/news/573816/us-army-yuma-proving-ground-hosts-arizona-commanders-summit"
@@ -385,10 +377,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "Contracts for Sept. 1, 2026",
+      "ngay": "2026-09-03",
+      "tieu_de": "Contracts for Sept. 2, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4588178/contracts-for-sept-1-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4589493/contracts-for-sept-2-2026/"
     },
     {
       "lop": "RSS",
@@ -397,6 +389,14 @@
       "tieu_de": "Contracts for Aug. 31, 2026",
       "nguon": "DoD Contracts",
       "url": "https://www.war.gov/News/Contracts/Contract/Article/4586879/contracts-for-aug-31-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-03",
+      "tieu_de": "One Year In, U.S. Space Command Headquarters Relocation Moving Expeditiously to 'Rocket City, USA'",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4589725/one-year-in-us-space-command-headquarters-relocation-moving-expeditiously-to-ro/"
     },
     {
       "lop": "RSS",
@@ -506,6 +506,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
+      "tieu_de": "US Army awards $192M to Palantir, Anduril for TITAN production",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/industry/techwatch/2026/09/02/us-army-awards-192m-to-palantir-anduril-for-titan-production/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-03",
       "tieu_de": "Marine Corps to add 6,500 billets in force expansion",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/09/02/marine-corps-to-add-6500-billets-in-force-expansion/"
@@ -537,18 +545,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Lockheed Martin, General Dynamics get framework deals to surge Patriot, THAAD production",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/industry/techwatch/2026/08/31/lockheed-martin-general-dynamics-get-framework-deals-to-surge-patriot-thaad-production/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "U.S. Army 'Tell Your Formation' Resource Promotional Graphic",
+      "tieu_de": "U.S. Army 'Tell Your Formation' Resource Graphic",
       "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9907218/us-army-tell-your-formation-resource-promotional-graphic"
+      "url": "https://www.dvidshub.net/image/9907218/us-army-tell-your-formation-resource-graphic"
     },
     {
       "lop": "RSS",
@@ -729,6 +729,30 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
+      "tieu_de": "Golfers despair as rabbits damage one of Australia's best courses",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-03/rabbits-plague-albany-golf-course-biocontrol-resistant/107089352"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
+      "tieu_de": "Live: Hegseth thanks Australia for 'matched' defence capabilities",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-03/federal-politics-live-blog-coaltion-tobacco-excise/107107398"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
+      "tieu_de": "Australia is facing a 'looming crisis' as people enter retirement as lifelong renters",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-03/forever-renters-entering-retirement-need-larger-nest-egg/107090618"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "HMS Bulwark to transfer to Brazilian Navy as UK turns to future of amphibious ships",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
@@ -818,6 +842,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-03",
+      "tieu_de": "I inadvertently misled parliament over a British nuclear scandal. Now I’m calling for justice | Tobias Ellwood",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/02/british-nuclear-tests-compensation-for-veterans"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
       "tieu_de": "The Guardian view on Israeli settlements: Britain can no longer look away | Editorial",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/commentisfree/2026/sep/02/the-guardian-view-on-israeli-settlements-britain-can-no-longer-look-away"
@@ -850,14 +882,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-02",
-      "tieu_de": "UK confirms sale of HMS Bulwark to Brazil, prepares next-gen ship fleet",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/hms-bulwark-uk-brazil-sale/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-02",
       "tieu_de": "How a middling Chinese guided-missile frigate unnerves Japan, Taiwan and the US",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/global/asia-pacific/2026/09/02/how-a-middling-chinese-guided-missile-frigate-unnerves-japan-taiwan-and-the-us/"
@@ -865,18 +889,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-02",
-      "tieu_de": "Palestinian Australian sues NSW police claiming he was punched at Herzog rally when helping prayer group",
+      "ngay": "2026-09-03",
+      "tieu_de": "Australia news live: Chalmers concedes ‘softness’ in housing market; teen charged after ‘near complete amputation’ of boy’s hand in Sydney",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/sep/03/palestinian-australian-eyad-shadid-sues-nsw-police-punched-at-herzog-rally-ntwnfb"
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/03/anthony-albanese-one-nation-jim-chalmers-labor-liberal-angus-taylor-tobacco-plan-ntwnfb"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-02",
-      "tieu_de": "We’re purchasing EVs instead of holidaying in Europe – and what else we learned from Australia’s national accounts",
+      "tieu_de": "Palestinian Australian sues NSW police, claiming he was punched at Herzog rally when helping prayer group",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/2026/sep/03/australia-national-accounts-abs-economic-growth-evs-europe-holidays"
+      "url": "https://www.theguardian.com/australia-news/2026/sep/03/palestinian-australian-eyad-shadid-sues-nsw-police-punched-at-herzog-rally-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -948,33 +972,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "Trump says he will make 'a lot of stops' ahead of midterm elections",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/trump-says-he-will-make-a-lot-of-stops-ahead-of-midterm-elections",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "Trump aides, fearing a midterm rout, push to keep Iran war ‘quiet’ for now",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/trump-aides-fearing-a-midterm-rout-push-to-keep-iran-war-quiet-for-now",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-03",
-      "tieu_de": "U.S. Fed says 'positive' economic outlook facing heightened uncertainty",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/us-fed-says-positive-economic-outlook-facing-heightened-uncertainty/article71421214.ece",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-03",
       "tieu_de": "Trump aides seek 'quiet' in Iran war, but say attacks may intensify after November midterm elections: report",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/trump-aides-seek-quiet-in-iran-war-but-say-attacks-may-intensify-after-november-midterm-elections-report/article71420569.ece",
@@ -1038,6 +1035,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-03",
+      "tieu_de": "Trump under pressure to contain Iran fighting as midterms near",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/6067742-trump-iran-strikes-escalation-midterms/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-03",
       "tieu_de": "Pro-Trump group releases first general election midterm ad",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/campaign/6066844-pro-trump-group-releases-first-general-election-midterm-ad/",
@@ -1065,18 +1071,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "The Memo: Bond market turmoil heightens midterm risks for Trump and GOP",
+      "tieu_de": "Lame-duck agenda balloons as Congress punts priorities until after election",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/analysis/6064555-us-debt-concerns-market-instability/",
+      "url": "https://thehill.com/homenews/senate/6064611-gop-punted-lame-duck-agenda/",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Lame-duck agenda balloons as Congress punts priorities until after election",
+      "tieu_de": "The Memo: Bond market turmoil heightens midterm risks for Trump and GOP",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6064611-gop-punted-lame-duck-agenda/",
+      "url": "https://thehill.com/homenews/analysis/6064555-us-debt-concerns-market-instability/",
       "nhom": 5
     },
     {
@@ -1096,15 +1102,6 @@
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/house/6064837-democrats-vote-denounce-socialism/",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "Hemp ban set to be delayed a month after House passes funding bill",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/policy/healthcare/6064552-hemp-ban-delayed-house-funding-bill/",
-      "nhom": 1
     },
     {
       "lop": "RSS",
