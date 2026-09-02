@@ -1,19 +1,11 @@
 {
-  "tao_luc": "2026-09-02T06:30:43+07:00",
+  "tao_luc": "2026-09-02T20:46:56+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-01",
     "2026-09-02"
   ],
   "ung_vien": [
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-09-01",
-      "tieu_de": "Magsaysay honour for Singapore lawyer, Bangladeshi aid giver, Myanmar activist",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/magsaysay-honour-for-singapore-lawyer-bangladeshi-aid-giver-myanmar-activist/article71412430.ece"
-    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -34,9 +26,17 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "?",
-      "tieu_de": "Indonesia-US military exercises include 15 nations, test China ties",
+      "tieu_de": "The cost of Indonesia's economic overreach",
       "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/defense/indonesia-us-military-exercises-include-15-nations-test-china-ties"
+      "url": "https://asia.nikkei.com/spotlight/comment/the-cost-of-indonesia-s-economic-overreach"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-02",
+      "tieu_de": "UAV Nga ồ ạt tập kích Kiev: Giai đoạn nguy hiểm mới trong xung đột Ukraine",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/uav-nga-o-at-tap-kich-kiev-giai-doan-nguy-hiem-moi-trong-xung-dot-ukraine-20260902165351652.htm"
     },
     {
       "lop": "RSS",
@@ -69,6 +69,14 @@
       "tieu_de": "Indonesia nâng cảnh báo núi lửa Sinabung, sơ tán dân hai ngôi làng",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/indonesia-nang-canh-bao-nui-lua-sinabung-so-tan-dan-hai-ngoi-lang-post1133677.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-02",
+      "tieu_de": "Tham vọng chiến lược và năng lực thực tế trong kế hoạch ngân sách của EU",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/tham-vong-chien-luoc-va-nang-luc-thuc-te-trong-ke-hoach-ngan-sach-cua-eu-post985876.html"
     },
     {
       "lop": "RSS",
@@ -119,6 +127,14 @@
       "url": "https://baochinhphu.vn/quan-he-viet-nam-australia-dang-o-giai-doan-phat-trien-nang-dong-nhat-102260807201838607.htm"
     },
     {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-09-02",
+      "tieu_de": "Burkina Faso farmers growing pineapples amid push for self-sufficiency",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/09/02/burkina-faso-farmers-growing-pineapples-amid-push-for-self-sufficiency/"
+    },
+    {
       "lop": "HTML",
       "chu_de": "Mỹ – Mali",
       "ngay": "?",
@@ -133,6 +149,14 @@
       "tieu_de": "US Air Force chief of staff discusses ‘regional situation’ with Israeli military officials",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/news/your-military/2026/08/31/us-air-force-chief-of-staff-discusses-regional-situation-with-israeli-military-officials/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "US Navy RFI Details Plans for Carrier-Based Collaborative Combat Aircraft (CCA)",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/09/us-navy-rfi-carrier-based-collaborative-combat-aircraft-cca/"
     },
     {
       "lop": "RSS",
@@ -161,10 +185,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "US army secretary resigns after months of tension",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/czjz31dk1xmo?at_medium=RSS&at_campaign=rss"
+      "ngay": "2026-09-02",
+      "tieu_de": "Trump taps Hung Cao for Navy secretary amid Pentagon turmoil",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/trump-taps-hung-cao-for-navy-secretary-amid-pentagon-turmoil"
     },
     {
       "lop": "RSS",
@@ -177,10 +201,58 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "After 286 days at sea, U.S. aircraft carrier arrives in Thailand",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/after-286-days-at-sea-usaircraft-carrier-arrives-in-thailand/article71418222.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "U.S. Army Secretary Driscoll submits resignation: White House",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/us-army-secretary-driscoll-submits-resignation-white-house/article71413517.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Pentagon turmoil deepens as Hegseth consolidates control",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/09/02/hegseth-defense-pentagon-driscoll-iran-war"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Tàu sân bay Mỹ hoen rỉ, tróc sơn khi trở về từ Trung Đông",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/tau-san-bay-my-hoen-ri-troc-son-khi-tro-ve-tu-trung-dong-5115840.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Tổng thống Trump đề cử ông Hùng Cao làm Bộ trưởng Hải quân Mỹ",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/tong-thong-trump-de-cu-ong-hung-cao-lam-bo-truong-hai-quan-my-5115760.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "?",
+      "tieu_de": "Thái Lan truy quét mại dâm ở Pattaya khi đón 5.000 lính Mỹ tàu sân bay USS Abraham Lincoln",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/thai-lan-truy-quet-mai-dam-o-pattaya-khi-don-5000-linh-my-tau-san-bay-uss-abraham-lincoln-100260902120640349.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "NATO, EU kêu gọi đồng minh gửi tên lửa Patriot sắp hết niên hạn cho Ukraine",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/nato-eu-keu-goi-dong-minh-gui-ten-lua-patriot-sap-het-nien-han-cho-ukraine-20260901221023216.htm"
     },
     {
       "lop": "RSS",
@@ -197,6 +269,14 @@
       "tieu_de": "Hawks lament Pentagon ‘churn’ after Army secretary’s resignation",
       "nguon": "Roll Call",
       "url": "https://rollcall.com/2026/09/01/hawks-lament-pentagon-churn-after-army-secretarys-resignation/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "US Navy considers overseas-built frigates in major policy shift",
+      "nguon": "**Navy Lookout (Hải quân Anh)**",
+      "url": "https://www.navylookout.com/us-navy-considers-overseas-built-frigates-in-major-policy-shift/"
     },
     {
       "lop": "RSS",
@@ -226,41 +306,41 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Sentinel AETC FTU Groundbreaking Ceremony at Vandenberg SFB",
+      "tieu_de": "U.S. Army Japan demonstrates disaster response capabilities in Big Rescue Kanagawa 2026",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/573725/sentinel-aetc-ftu-groundbreaking-ceremony-vandenberg-sfb"
+      "url": "https://www.dvidshub.net/news/573739/us-army-japan-demonstrates-disaster-response-capabilities-big-rescue-kanagawa-2026"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Sentinel Samurai strengthens joint EOD readiness at Kadena",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/573731/sentinel-samurai-strengthens-joint-eod-readiness-kadena"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-02",
       "tieu_de": "U.S. Army Corps of Engineers announces temporary road closure related to the Fargo-Moorhead diversion project",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/573721/us-army-corps-engineers-announces-temporary-road-closure-related-fargo-moorhead-diversion-project"
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/295033/u_s_army_corps_of_engineers_announces_temporary_road_closure_related_to_the_fargo_moorhead_diversion_project"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "U.S. Navy to Build Arleigh Burke Flight III Destroyers Into 2040",
+      "tieu_de": "Navy Opens Race for First Carrier-Based Loyal Wingman Combat Aircraft",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/09/01/us_navy_to_build_arleigh_burke_flight_iii_destroyers_into_2040_1203477.html"
+      "url": "https://www.realcleardefense.com/2026/09/02/navy_opens_race_for_first_carrier-based_loyal_wingman_combat_aircraft_1203826.html"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "U.S. Army Debuts New Ammo Packaging System",
+      "tieu_de": "U.S. Yet to Fully Field Hypersonic Weapon, But Progress Continues",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/09/01/us_army_debuts_new_ammo_packaging_system_1203615.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "U.S. Moves to Triple Patriot PAC-3 and Quadruple THAAD Production",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/09/01/us_moves_to_triple_patriot_pac-3_and_quadruple_thaad_production_1203554.html"
+      "url": "https://www.realcleardefense.com/2026/09/02/us_yet_to_fully_field_hypersonic_weapon_but_progress_continues_1203848.html"
     },
     {
       "lop": "RSS",
@@ -273,7 +353,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
+      "ngay": "2026-09-02",
       "tieu_de": "Pentagon Scraps Public Weapons Testing",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/31/pentagon_scraps_public_weapons_testing_1203394.html"
@@ -281,7 +361,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-01",
+      "ngay": "2026-09-02",
       "tieu_de": "Pentagon Awards $318M Contract for Dataminr Tech",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/08/31/pentagon_awards_318m_contract_for_dataminr_tech_1203398.html"
@@ -434,9 +514,25 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-02",
+      "tieu_de": "Interview: US Army 1st Lt. Ashley Duke discusses her experience treating patients during Burundi MEDREX",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1021530/interview-us-army-1st-lt-ashley-duke-discusses-her-experience-treating-patients-during-burundi-medrex"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
       "tieu_de": "Koa Moana 26: U.S. Navy Sailors with 1st MLG provide dental care to locals",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/573685/koa-moana-26-us-navy-sailors-with-1st-mlg-provide-dental-care-locals"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Sentinel AETC FTU Groundbreaking Ceremony at Vandenberg SFB",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/573725/sentinel-aetc-ftu-groundbreaking-ceremony-vandenberg-sfb"
     },
     {
       "lop": "RSS",
@@ -473,6 +569,30 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Hanwha Aerospace showcases K9 production plant to U.S. Army delegation",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260902003400320"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Driscoll’s departure leaves another hole at Pentagon",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/09/02/2026/driscolls-departure-leaves-another-hole-at-pentagon"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Trump’s Venezuela deal draws scrutiny of obscure Pentagon office",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/09/02/2026/trumps-venezuela-deal-draws-scrutiny-of-obscure-pentagon-office"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-01",
       "tieu_de": "Không có lá chắn phòng thủ tên lửa, Ukraine săn lùng bệ phóng của Nga",
       "nguon": "VietnamNet",
@@ -497,18 +617,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Blockade succeeds where sanctions failed as Iran oil exports stall",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/middle-east/blockade-succeeds-where-sanctions-failed-as-iran-oil-exports-stall"
+      "ngay": "2026-09-02",
+      "tieu_de": "How a middling Chinese guided-missile frigate unnerves Japan, Taiwan and the US",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/global/asia-pacific/2026/09/02/how-a-middling-chinese-guided-missile-frigate-unnerves-japan-taiwan-and-the-us/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Former British PM Starmer steps down from Parliament",
+      "ngay": "2026-09-02",
+      "tieu_de": "King Charles and France's Macron to view Bayeux Tapestry at the British Museum",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/former-british-pm-starmer-steps-down-from-parliament"
+      "url": "https://www.straitstimes.com/world/europe/king-charles-and-frances-macron-to-view-bayeux-tapestry-at-the-british-museum"
     },
     {
       "lop": "RSS",
@@ -517,6 +637,14 @@
       "tieu_de": "China warns of 'consequences' for Taiwan after Taipei envoys attend Pacific leaders summit",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/china-warns-of-consequences-for-taiwan-after-taipei-envoys-attend-pacific-leaders-summit/article71416780.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-02",
+      "tieu_de": "Australia posts second-quarter growth of 2.1%, beating expectations",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/02/australia-gdp-q2-middle-east-rba.html"
     },
     {
       "lop": "RSS",
@@ -533,6 +661,14 @@
       "tieu_de": "Báo Nhật: Văn phòng đại diện Nhật Bản tại Đài Loan lắp hầm trú ẩn hạt nhân",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/bao-nhat-van-phong-dai-dien-nhat-ban-tai-dai-loan-lap-ham-tru-an-hat-nhan-100260901141127556.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "China threatens boycott of South Korean art exhibition over Taiwan",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/politics/international-relations/china-threatens-boycott-of-south-korean-art-exhibition-over-taiwan"
     },
     {
       "lop": "RSS",
@@ -565,30 +701,6 @@
       "tieu_de": "More countries embrace Australia's social media ban",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/spotlight/podcasts/podcast-tech-latest/more-countries-embrace-australia-s-social-media-ban"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-02",
-      "tieu_de": "'Meteorwrongs' and murder at sea: Meet the next generation of Australian artists",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-02/primavera-art-exhibition-young-artists/107096604"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-02",
-      "tieu_de": "Australia's $600 million scheme to stop drug smuggling through the Pacific",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-02/australia-to-fund-scheme-to-tackle-pacific-drug-smuggling/107104900"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "British warship currently defending airspace over Ireland",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/british-warship-currently-defending-airspace-over-ireland/"
     },
     {
       "lop": "RSS",
@@ -673,6 +785,30 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-02",
+      "tieu_de": "Missing British trekker's body found in Pakistan",
+      "nguon": "**BBC News UK**",
+      "url": "https://www.bbc.co.uk/news/articles/c23x478r3g5o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-02",
+      "tieu_de": "Fake 10 Downing Street listing exposes 'unfit' Booking.com, says consumer group",
+      "nguon": "**BBC News UK**",
+      "url": "https://www.bbc.co.uk/news/articles/cly4e0wn452o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-02",
+      "tieu_de": "Thames Water, I refuse to pay the sewage charge in my bill while you pollute Britain’s rivers and coastlines | Jenny Jones",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/02/thames-water-sewage-charge-bill-pollute-britain-river-coastline"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
       "tieu_de": "Private equity keeps picking off London-listed firms – and Westminster barely notices | Nils Pratley",
       "nguon": "**The Guardian — Politics (Anh)**",
@@ -689,34 +825,34 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "Metro Manila areas still at ‘acutely’ unhealthy air quality level",
+      "ngay": "2026-09-02",
+      "tieu_de": "NBA and Salmon announce multi-year collaboration to deepen fan engagement in the Philippines",
       "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2296688/metro-manila-areas-still-at-acutely-unhealthy-air-quality-level"
+      "url": "https://business.inquirer.net/608669/nba-and-salmon-announce-multi-year-collaboration-to-deepen-fan-engagement-in-the-philippines"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-02",
-      "tieu_de": "Taiwan's Drone Realism",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/09/01/taiwans_drone_realism_1203560.html"
+      "tieu_de": "Pacific Partnership 2026 arrives in Malaysia for disaster response preparedness mission",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/573736/pacific-partnership-2026-arrives-malaysia-disaster-response-preparedness-mission"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-02",
-      "tieu_de": "How To Unblock Britain's Economic Arteries",
-      "nguon": "RealClearWorld",
-      "url": "https://www.realclearworld.com/2026/09/01/how_to_unblock_britains_economic_arteries_1203646.html"
+      "tieu_de": "U.S., Brunei Airmen Strengthen Cooperation Through PACIFIC ANGEL 26-1",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/573735/us-brunei-airmen-strengthen-cooperation-through-pacific-angel-26-1"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-01",
-      "tieu_de": "China voices angst over Taiwan as Pacific Island leaders meet",
+      "ngay": "2026-09-02",
+      "tieu_de": "Australia and U.S. commit $580 million to support Pacific island nations",
       "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/09/01/asia-pacific/politics/china-taiwan-pacific-island-leaders/"
+      "url": "https://www.japantimes.co.jp/news/2026/09/02/asia-pacific/politics/australia-us-pacific-island-nations/"
     },
     {
       "lop": "RSS",
@@ -733,6 +869,14 @@
       "tieu_de": "British aid worker mistakenly identified as a survivor of Nepal-Tibet disaster",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/sep/01/briton-among-119-more-people-rescued-in-nepal-after-flash-floods"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-02",
+      "tieu_de": "Thủ tướng Anh cam kết tăng cường kiểm soát công đối với các dịch vụ thiết yếu",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/thu-tuong-anh-cam-ket-tang-cuong-kiem-soat-cong-doi-voi-cac-dich-vu-thiet-yeu-post1133850.vnp"
     },
     {
       "lop": "RSS",
@@ -769,22 +913,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Phát triển quan hệ Việt Nam-Australia toàn diện, thực chất, hiệu quả hơn",
-      "nguon": "Báo Chính phủ",
-      "url": "https://baochinhphu.vn/phat-trien-quan-he-viet-nam-australia-toan-dien-thuc-chat-hieu-qua-hon-102260807105543674.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Thủ tướng Australia Anthony Albanese mong chờ đón Tổng Bí thư, Chủ tịch nước Tô Lâm",
-      "nguon": "Báo Chính phủ",
-      "url": "https://baochinhphu.vn/thu-tuong-australia-mong-doi-don-tong-bi-thu-chu-tich-nuoc-to-lam-102260806161006973.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-01",
       "tieu_de": "Cựu Thủ tướng Anh Keir Starmer từ bỏ ghế nghị sĩ",
       "nguon": "VietnamNet",
@@ -794,37 +922,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "US House passes funding bill to avert government shutdown ahead of midterms",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/9/1/us-house-passes-funding-bill-to-avert-government-shutdown-ahead-of-midterms?traffic_source=rss",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "China’s Xi arrives in Egypt as US sanctions threat looms over Iran links",
+      "tieu_de": "Trump aides, fearing a midterm rout, push to keep Iran war ‘quiet’ for now",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/middle-east/chinas-xi-lands-in-egypt-as-iran-war-reshapes-middle-east-alliances",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Carney’s Liberals win 3 special elections to keep majority as Canada confronts Trump threats",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/carneys-liberals-win-3-special-elections-to-keep-majority-as-canada-confronts-trump-threats",
+      "url": "https://www.straitstimes.com/world/united-states/trump-aides-fearing-a-midterm-rout-push-to-keep-iran-war-quiet-for-now",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Majority of Americans oppose Trump's new Canada tariffs, renaming Lake Ontario, Reuters/Ipsos poll finds",
+      "ngay": "2026-09-02",
+      "tieu_de": "Nicaraguan Congress passes Ortega-backed reform excluding opposition from elections",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/majority-of-americans-oppose-trumps-new-canada-tariffs-renaming-lake-ontario-reuters/ipsos-poll",
-      "nhom": 4
+      "url": "https://www.straitstimes.com/world/nicaraguan-congress-passes-ortega-backed-reform-excluding-opposition-from-elections",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -847,10 +957,19 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Indian Prime Minister Modi asks Putin to end Ukraine war amid U.S. tariff threat on Russian oil",
+      "ngay": "2026-09-02",
+      "tieu_de": "Lake Ontario: the lake Donald Trump wants to rename ‘Lake America’ amid tariff woes with Canada",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/lake-ontario-lake-trump-wants-to-rename-lake-america-amid-canada-tariff-row/article71391380.ece",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Bank of Canada mulls Trump tariff shock as it readies interest rates decision",
       "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/01/russia-india-ukraine-war-oil-modi-putin.html",
+      "url": "https://www.cnbc.com/2026/09/02/bank-canada-rate-decision-trump-tariffs.html",
       "nhom": 4
     },
     {
@@ -875,15 +994,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
-      "tieu_de": "Nhà Trắng xáo trộn nhân sự lớn ngay trước bầu cử giữa kỳ",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/nha-trang-xao-tron-nhan-su-lon-ngay-truoc-bau-cu-giua-ky-100260831115421024.htm",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
       "tieu_de": "US, China debate 'nonsensitive' tariff cuts ahead of Trump-Xi summit",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/spotlight/trump-xi-summit/us-china-debate-nonsensitive-tariff-cuts-ahead-of-trump-xi-summit",
@@ -897,6 +1007,33 @@
       "nguon": "VnEconomy",
       "url": "https://vneconomy.vn/tong-thong-trump-kinh-te-my-co-the-tang-20-ma-fed-van-khong-can-tang-lai-suat.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Trump seeks affordability wins down midterm homestretch",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6064533-trump-affordability-midterms/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "The Memo: Bond market turmoil heightens midterm risks for Trump and GOP",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/analysis/6064555-us-debt-concerns-market-instability/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Lame-duck agenda balloons as Congress punts priorities until after election",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/6064611-gop-punted-lame-duck-agenda/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -928,15 +1065,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Federal judge delays a mifepristone lawsuit until after midterms",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/policy/healthcare/6062042-judge-pauses-mifepristone-lawsuit/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
       "tieu_de": "Shutdown threat possibly lifted as House passes stopgap spending bill",
       "nguon": "Government Executive",
@@ -947,18 +1075,27 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Schumer Takes Aim at Trump's Tariffs With New Bill",
+      "tieu_de": "House Passes Funding Bill To Avert Government Shutdown",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/02/house_passes_funding_bill_to_avert_government_shutdown_1203839.html",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-02",
+      "tieu_de": "Tariffs Will Hurt Republicans in the Midterms",
       "nguon": "RealClearPolitics",
-      "url": "https://www.realclearpolitics.com/2026/09/01/schumer_takes_aim_at_trumps_tariffs_with_new_bill_709649.html",
+      "url": "https://www.realclearpolitics.com/2026/09/01/tariffs_will_hurt_republicans_in_the_midterms_709645.html",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "China Is Building AI Models of American Voters. Why?",
-      "nguon": "RealClearPolitics",
-      "url": "https://www.realclearpolitics.com/2026/09/01/china_is_building_ai_models_of_american_voters_why_709688.html",
+      "tieu_de": "Reviled in the U.S., data centers win support in Brazil’s presidential election",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/business/2026/09/02/tech/data-centers-us-brazil-election/",
       "nhom": 5
     },
     {
@@ -977,15 +1114,6 @@
       "tieu_de": "Echoes of cold war as US accused of meddling in another Brazilian election",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/sep/01/us-trump-rubio-meddling-brazil-election",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "‘Dangerous power grab’: top Democrats decry USPS system that could thwart mail-in voting – live",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/live/2026/sep/01/house-vote-stopgap-funding-bill-us-federal-government-shutdown-mike-johnson-trump-ballroom-politics-latest-news-updates",
       "nhom": 5
     },
     {
@@ -1010,19 +1138,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-02",
-      "tieu_de": "Bầu cử giữa kỳ Mỹ: Cử tri Dân chủ hào hứng hơn đảng Cộng hòa",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/bau-cu-giua-ky-my-cu-tri-dan-chu-hao-hung-hon-dang-cong-hoa-post1133736.vnp",
+      "tieu_de": "ICE says it now has enough body cameras. And, Congress averts shutdown before midterms",
+      "nguon": "NPR — World",
+      "url": "https://www.npr.org/2026/09/02/g-s1-141513/up-first-newsletter-iran-war-ice-body-cameras-massachusetts-ed-markey-government-shutdown",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-01",
-      "tieu_de": "Nhật Bản đề xuất ngân sách quốc phòng kỷ lục, chú trọng AI",
+      "ngay": "2026-09-02",
+      "tieu_de": "Bầu cử giữa kỳ Mỹ: Cử tri Dân chủ hào hứng hơn đảng Cộng hòa",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/nhat-ban-de-xuat-ngan-sach-quoc-phong-ky-luc-chu-trong-ai-post1133564.vnp",
-      "nhom": 1
+      "url": "https://www.vietnamplus.vn/bau-cu-giua-ky-my-cu-tri-dan-chu-hao-hung-hon-dang-cong-hoa-post1133736.vnp",
+      "nhom": 5
     },
     {
       "lop": "RSS",
