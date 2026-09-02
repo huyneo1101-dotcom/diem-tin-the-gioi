@@ -1,19 +1,5 @@
 [
  {
-  "url": "https://www.chiangraitimes.com/crime/china-south-china-sea-drills/",
-  "tieu_de": "Trung Quốc tập trận bắn đạn thật 5 ngày ngoài khơi bán đảo Lôi Châu, sát eo biển Quỳnh Châu",
-  "trung_voi": "Cục An toàn Hàng hải Trạm Giang thông báo tập trận bắn đạn thật Biển Đông 24-28/8",
-  "id_jay": 33,
-  "ngay": "2026-08-26"
- },
- {
-  "url": "https://www.naval-technology.com/news/us-navy-aim-424-missile/",
-  "tieu_de": "Hải quân Mỹ công bố tên lửa không đối không tầm siêu xa AIM-424 \"Malice\"",
-  "trung_voi": "Hải quân Mỹ phát triển tên lửa không đối không tầm xa Malice, tầm hơn 463 km, do Raytheon thiết kế",
-  "id_jay": 34,
-  "ngay": "2026-08-26"
- },
- {
   "url": "https://www.globaldefensecorp.com/2026/08/27/australia-unveils-site-layout-for-shipyard-for-aukus-submarine/",
   "tieu_de": "Úc chốt sơ đồ mặt bằng nhà máy đóng tàu Henderson phục vụ tàu ngầm AUKUS",
   "trung_voi": "Albanese và Marles công bố vị trí Trung tâm Quốc phòng Henderson tại Tây Australia phục vụ AUKUS (https://www.pm.gov.au/media/press-conference-henderson-wa)",
@@ -63,13 +49,6 @@
   "ngay": "2026-09-01"
  },
  {
-  "url": "https://defensescoop.com/2026/08/31/grok-chatgpt-added-to-genai-mil/",
-  "tieu_de": "Lầu Năm Góc tích hợp Grok và ChatGPT vào nền tảng AI quân sự GenAI.mil",
-  "trung_voi": "Ngày 31.8.2026, Bộ Chiến tranh Mỹ đưa Grok for Government lên nền tảng GenAI.mil, cho phép sử dụng mô hình AI đối với dữ liệu không mật nhạy cảm ở cấp Impact Level 5",
-  "id_jay": "ĐTN_M_01.9.2026",
-  "ngay": "2026-09-02"
- },
- {
   "url": "https://www.investing.com/news/commodities-news/bessent-says-us-likely-to-announce-iran-bank-sanctions-this-week-4884250",
   "tieu_de": "Bộ trưởng Tài chính Mỹ Bessent: sẽ công bố trừng phạt ngân hàng Iran ngay trong tuần này",
   "trung_voi": "Ngày 31.8.2026, Bộ trưởng Tài chính Mỹ Scott Bessent cho biết Washington dự kiến trừng phạt thêm một ngân hàng trong tuần này nhằm tiếp tục siết các giao dịch tài chính của Iran",
@@ -82,5 +61,12 @@
   "trung_voi": "Ngày 31.8.2026, Bộ Chiến tranh Mỹ ký các thỏa thuận khung 7 năm với General Dynamics và Lockheed Martin nhằm tăng công suất sản xuất tên lửa đánh chặn PAC-3 MSE của hệ thống Patriot gấp ba và THAAD gấ",
   "id_jay": "ĐTN_M_01.9.2026",
   "ngay": "2026-09-02"
+ },
+ {
+  "url": "https://defensescoop.com/2026/08/31/grok-chatgpt-added-to-genai-mil/",
+  "tieu_de": "Lầu Năm Góc bổ sung ChatGPT và Grok vào cổng AI thế hệ mới GenAI.mil, cạnh Gemini",
+  "trung_voi": "Ngày 31.8.2026, Bộ Chiến tranh Mỹ đưa Grok for Government lên nền tảng GenAI.mil, cho phép sử dụng mô hình AI đối với dữ liệu không mật nhạy cảm ở cấp Impact Level 5.",
+  "id_jay": "ĐTN_M_01.9.2026",
+  "ngay": "2026-09-03"
  }
 ]

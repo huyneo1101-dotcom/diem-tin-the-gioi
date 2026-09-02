@@ -1070,3 +1070,21 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 [Nội bộ Mỹ] Hạ viện Mỹ thông qua Đạo luật NDO Fairness Act (House Judiciary Committee/protectprivacynow.org, 2026-09-01) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
 [Nội bộ Mỹ] Hạ viện Mỹ bỏ phiếu thông qua nghị quyết lên án chủ nghĩa xã hội (The Hill, 2026-09-01) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
 [Nội bộ Mỹ] Thượng nghị sĩ Elizabeth Warren tố FHFA/HUD không thực thi sắc lệnh Phố Wall (Uỷ ban Ngân hàng Thượng viện, 2026-09-01) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
+
+# Tin bị loại — phiên sáng sớm 2026-09-03 (CI)
+
+[Nội bộ Mỹ] Hạ viện Mỹ thông qua nghị quyết lên án chủ nghĩa xã hội, 8 nghị sĩ Dân chủ "phá lệ" (CBS News, ngày sự kiện 2026-09-01) — bị cổng ngày: cũ hơn 1 ngày so với hôm nay (2026-09-03), ngoài khung 02-03/09.
+[Úc & Biển Đông] Australia trở thành khách hàng nước ngoài đầu tiên mua AIM-260 JATM (Breaking Defense) — agent tự khai date 2026-08-06 trong JSON trả về (rõ ràng quá cũ so với khung 02-03/09) — loại trước khi nạp.
+[Úc & Biển Đông] Australia chọn liên doanh Amentum/Laing O'Rourke xây nhà máy tàu ngầm AUKUS tại Osborne (Naval Technology) — bị cổng ngày đăng thật chặn: metadata ghi 2026-08-19, cũ hơn 3 ngày so với batch 2026-09-02.
+[Nội bộ Mỹ] Biến động thị trường trái phiếu làm tăng rủi ro bầu cử giữa kỳ (The Hill) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
+[Nội bộ Mỹ] Siêu PAC MAGA Inc. tung quảng cáo tổng tuyển cử đầu tiên (The Hill) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
+[Nội bộ Mỹ] NRCC phát hơn 2.000 vé dự đại hội giữa kỳ ở Texas (The Hill) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
+[CNQS Mỹ] Lầu Năm Góc công bố loạt hợp đồng ngày 1/9, hợp đồng Raytheon/Collins Aerospace (war.gov/News/Contracts) — bị cổng ngày đăng thật chặn: trang không in ngày đăng ở dạng đọc được.
+[CNQS Mỹ] Lầu Năm Góc bổ sung ChatGPT và Grok vào cổng AI GenAI.mil (DefenseScoop, 2026-08-31) — NẠP THÀNH CÔNG qua add_news.py nhưng sau đó bị RÚT khỏi bản tin: trùng sự kiện với file Jay Lâm ĐTN_M_01.9.2026 (đã có tin "Bộ Chiến tranh Mỹ đưa Grok for Government lên nền tảng GenAI.mil", cùng ngày 31/8). Ghi vào logs/trung-jaylam.json.
+[Úc & Biển Đông] NATO thử hệ thống cứu hộ tàu ngầm 3 nước Anh-Pháp-Na Uy, Exercise Flying Fish (GOV.UK, ngày sự kiện 2026-09-01) — loại trước khi nạp: ngoài khung 02-03/09 (cách hôm nay 2 ngày).
+[Tập trận] Không tìm được diễn biến MỚI nào trong khung 02-03/09 cho Super Garuda Shield 2026 (HADR TTX, nhảy dù chung TNI-Mỹ, huấn luyện rừng — đều có ngày sự kiện thật 31/08-01/09, ngoài khung 1 ngày của exerciseUpdates), REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội TBD Nga. Chủ đề về 0.
+[Mỹ – Mali] Nga tăng chuyến bay Moscow-Bamako hỗ trợ quân sự chính quyền Mali trong tháng 8 (Telegram @rnintel) — không xác nhận độc lập được qua WebSearch (báo cáo C4ADS tổng hợp không khớp số liệu claim "3 chuyến trong tháng 8"), kênh OSINT cần nguồn thứ hai — bỏ.
+[Mỹ – Mali] "Niger's failed coup is a warning to the Sahel's military rulers" (theconversation.com) — bài phân tích rộng, không phải tin sự kiện Mali cụ thể; nội dung trùng với tin "Nga cứu chính quyền Niger... phơi bày giới hạn Africa Corps ở Mali" đã có trong bản tin 02/09.
+- Cổng bài 👍: KHÔNG kiểm lại phiên này (đã xác nhận nhiều phiên liên tiếp là 107 mục `calib:xxx` test/calibration ngày 26/08, cần Huy xác nhận nguồn gốc dữ liệu trước khi xử lý đúng luật).
+- Cổng Báo Mới: rà `--baomoi-pending` không có ứng viên nào hợp 5 chủ đề trong khung ngày (đa số Kinh tế/Trung Đông chung trong nước VN, hoặc trùng sự kiện đã nạp 01/09 — Hung Cao Bộ trưởng Hải quân, CR tránh đóng cửa chính phủ, Starmer từ chức).
+- `gh workflow run telegram-bot.yml` bị chặn "requires approval" ở môi trường CI này — không thử lại, chạy thẳng `tin_jaylam.py --liet-ke` (file local ĐTN_M_01.9.2026 vẫn còn hiệu lực trong khung 3 ngày).

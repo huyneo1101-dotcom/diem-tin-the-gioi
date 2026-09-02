@@ -9,13 +9,13 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-03T04:08:19+07:00",
+    "lastRunAt": "2026-09-03T04:34:16+07:00",
     "lastSlot": "sang",
-    "lastStatus": "SKIP",
-    "note": "Nhuong CI: phat hien run 33682605875 dang in_progress cung slot sang (gh run list), la race claim da biet (26/07) - CI claim cuc bo truoc nhung chua push khoa kip luc local pull. Local KHONG quet de tranh trung tin/xung dot git.",
+    "lastStatus": "DONE",
+    "note": "phien sang som: +16 tin (Noi bo My 6, Uc/Anh/Bien Dong 6, CNQS My 3, Mali 1, Tap tran 0). Local (04:30) tu nhuong khi phat hien CI dang chay (run 33682605875), khong quet.",
     "lastSuccess": {
       "toi": "2026-09-02",
-      "sang": "2026-09-02"
+      "sang": "2026-09-03"
     }
   },
   "event-scan": {
