@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-04T04:00:38+07:00",
+    "lastRunAt": "2026-09-04T04:24:01+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+8 tin (Noi bo My 4, Uc/Anh/BD 2, CNQS My 5, Mali 0, Tap tran 0)",
     "lastSuccess": {
       "toi": "2026-09-03",
-      "sang": "2026-09-03"
-    },
-    "heartbeat": "2026-09-04T04:00:38+07:00"
+      "sang": "2026-09-04"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-03T04:43:42+07:00",

@@ -1,15 +1,16 @@
 {
   "date": "2026-09-03",
-  "session": "toi",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":8,"target":"5-10","min":5,"thieu":false,
-     "reason":"Nhóm 1 (điều trần/bỏ phiếu) chỉ có 2 bài (SCOTUS 9 thẩm phán, luật khai khoáng FAST-41) — WebSearch site:armedservices.house.gov, judiciary.senate.gov, banking.senate.gov không ra điều trần mới trong khung 02-03/09; lấy sang nhóm 4 (kinh tế/Nhà Trắng) và nhóm 5 (bầu cử) để đủ chỉ tiêu. 1 tin (Trump ký luật ngân sách tạm thời) bị bỏ vì The Hill chặn bot PerimeterX, không kịp tìm nguồn thay trước hạn."},
-    {"name":"Úc, Anh & Biển Đông","count":7,"target":"5-10","min":5,"thieu":false,
-     "reason":"Lệch về Anh (5/7) do UK Defence Journal/GOV.UK/Navy Lookout đang dày tin; Biển Đông/Đài Loan chỉ 2 tin sau khi bỏ 1 tin trùng URL (VN phản đối Hoàng Sa, đã có sẵn trong DATA) và 1 tin trùng sự kiện (frigate TQ Type 054A, đã có trong DATA từ trước)."},
-    {"name":"Công nghệ quân sự Mỹ","count":10,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,
-     "reason":"Không có RSS nào ra tin Mali/JNIM/Sahel trong khung 02-03/09; 2 tin radar Telegram @rnintel (phục kích FAMa gần Bamako, Nga tăng chuyến bay quân sự Moscow-Bamako) không WebSearch xác nhận được qua Reuters/AP/AFP/Jeune Afrique/RFI/AFRICOM — bỏ, ghi logs/loai-tin.md."},
-    {"name":"Tập trận (Super Garuda Shield 2026)","count":2,"target":"1-2","min":1,"thieu":false,"reason":""}
+    {"name":"Nội bộ Mỹ (5 nhóm, 2 hạng)","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"Vét cạn nhóm 1 (điều trần + bỏ phiếu): chỉ 2 sự kiện đạt chuẩn trong khung 03-04/09 (BDS bill floor vote 237-169, Leon Black subpoena/Uỷ ban Giám sát). Nhóm 5 (bầu cử): 1 tin Musk PAC chi tiết theo cuộc đua. Nhóm 4 (kinh tế): 1 tin. 3 ứng viên khác bị Cổng NGÀY ĐĂNG THẬT chặn vì trang không có metadata ngày đọc được (Arnold&Porter, The Hill testosterone rescind) hoặc ngoài khung (Danbury protest) — xem logs/loai-tin.md."},
+    {"name":"Úc, Anh & Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Chỉ 2 tin đạt chuẩn xác minh trong khung 03-04/09 (RAF boom refueling - The Aviationist, và 1 tin Biển Đông bị Cổng NGÀY ĐĂNG THẬT chặn nên đã bỏ hẳn - PNA không có metadata ngày). Phần lớn ứng viên GOV.UK Anh trùng tin đã nạp phiên trước (radar DARC, RAF Fylingdales, HMS Bulwark, £8.4bn nuclear deterrent...). WebSearch không ra thêm diễn biến Biển Đông mới trong khung hẹp 2 ngày."},
+    {"name":"CNQS Mỹ","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
+     "reason":"Duy nhất ứng viên đạt chuẩn (dự luật Panetta H.R.10195 về chiến lược an ninh Mali) có ngày sự kiện thật 02/09, ngoài khung 1 ngày cho phép (category Ngoại giao không được nới 3 ngày như CNQS). Không tìm được tin nào khác đạt chuẩn xác minh trong khung 03-04/09."},
+    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":1,"thieu":true,
+     "reason":"4 cuộc đang bám (Super Garuda Shield 2026, REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội TBD Nga): duy nhất ứng viên tìm được (DVIDS wildfire safeguards, Super Garuda Shield) đã có sẵn trong DATA từ phiên trước — trùng URL. Không có diễn biến mới nào khác trong khung 03-04/09."}
   ],
-  "note": "5 tin bị NẠP RỒI GỠ vì trùng sự kiện/URL với tin đã có trong DATA (phát hiện sau khi add_news.py chạy, gỡ bằng script đọc-sửa-ghi DATA, không hand-edit nội dung): PAC-3/THAAD war.gov, tàu khinh hạm Navy Lookout, VN phản đối Hoàng Sa SCMP, frigate TQ Defense News, Project PANOPTES UK Defence Journal (trùng bản GOV.UK đã nạp 02/09) — xem logs/loai-tin.md phiên tối 03/09. Cổng ngày đăng thật mở 3 lần bằng --bo-cong-ngay-that cho Fed Waller/war.gov PAC-3-THAAD/war.gov gallium sau khi kiểm tay bằng harvest.curl xác nhận trang có ngày thật hiển thị khớp date khai (script chỉ không đọc được metadata có cấu trúc datePublished/article:published_time). Cổng Báo Mới xử lý đủ 6/6 ứng viên: 2 nạp qua nguồn gốc (F/A-XX 19FortyFive, EU Patriot Euronews) + 1 nạp qua nguồn gốc (Venezuela Voz.us), 1 nạp rồi bị gỡ vì bài gốc navy.mil cũ 7 ngày (USS Ted Stevens), 2 loại (S-500 Ấn Độ không có nội dung Mỹ, Physics AI dịch sai thành 'vũ khí siêu vượt âm' trong khi gốc nói về động cơ đẩy tàu vũ trụ) — chi tiết logs/loai-tin.md. Đối chiếu Jay Lâm (ĐTN_M_01.9.2026, còn hiệu lực tới 03/09, 27 tin): không tin nào trong batch cuối cùng trùng sự kiện — tin trùng duy nhất (PAC-3/THAAD) đã tự phát hiện độc lập qua đối chiếu DATA và gỡ trước khi soi Jay Lâm."
+  "note": "Cài curl_cffi giữa phiên (thiếu sẵn ở CI) mới gỡ chặn được 10 nguồn TLS-fingerprint của harvest.py (465→471 ứng viên). Cổng NGÀY ĐĂNG THẬT chặn 4/11 tin nháp ban đầu vì thiếu metadata ngày (không phải do nội dung sai) — đã đổi nguồn được 1 (BDS bill sang Straits Times), bỏ 3. 4 ứng viên Cổng Báo Mới còn lại: 1 ngoài phạm vi 5 chủ đề (TQ kêu gọi Mỹ dỡ trừng phạt), 3 trùng sự kiện tin đã có sẵn (2 trùng tin cũ trong DATA, 1 trùng với tin Musk PAC vừa nạp qua nguồn NBC News). Chi tiết: logs/loai-tin.md mục 'Phiên SÁNG SỚM 04/09/2026'."
 }
