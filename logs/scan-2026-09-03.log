@@ -9,3 +9,4 @@
 [21:43Z] DONE event-scan phien sang som (CI): 0 su kien/tap tran moi (da kiem Orient Shield - chua khai mac, Pukpuk - khong phai tap tran); +5 bai think-tank (ASPI x2, GMF x2, CEPA x1) + 11 khai niem. Khong phai Chu nhat, bo qua bao cao tuan.
 [21:49Z] SKIP (phien sang som moi, CI) - state.py claim web-scan tra exit 10 (DA XONG, lastRunAt 04:34:16+07:00). Kiem ngoai le theo CLAUDE.md: so_da_gui.py --xem CO dong "2026-09-03T04:45:11+07:00 [sang] 27 tin" - ban tin sang nay da toi tay that. KHONG quet de, KET THUC em.
 [14:00Z] START (CI) phien toi - da claim khoa web-scan thanh cong (RUN, chua xong). Quet 5 chu de.
+[14:15Z] START (local 21:15 VN) phien toi - truoc claim, pull --rebase gap CONFLICT o logs/state.json voi commit local cu ca3fcd1 (17:01 VN hom nay, chua tung push, du lieu index.html/log CU HON remote hien tai). rebase --skip de bo commit stale do, khong mat viec gi (remote da tien xa hon qua CI 20:47). Sau do claim RUN thanh cong, tiep tuc quet.
