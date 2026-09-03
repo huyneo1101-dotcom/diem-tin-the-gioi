@@ -1,3 +1,4 @@
 [17:16Z] SKIP (CI) — state.py claim web-scan exit 12 (SAI GIO): 00:16 gio VN nam ngoai khung o "sang" (03:00-09:00). Cron GitHub tre bat dinh, phien nay khong phai ca that. KHONG claim, KHONG quet, KHONG dung --bo-cong-gio de lach. Moc dung gio se tu lam viec nay.
 [18:04Z] SKIP (CI) — state.py claim web-scan exit 12 (SAI GIO): 01:04 gio VN nam ngoai khung o "sang" (03:00-09:00). Cron GitHub tre bat dinh 2-4h, phien nay khong phai ca that. KHONG claim, KHONG quet, KHONG dung --bo-cong-gio de lach. Moc dung gio se tu lam viec nay.
 [21:03Z] START (CI) phien sang som (04:00 gio VN). state.py claim web-scan exit 0, giu khoa. harvest.py: 471 ung vien (da cai curl_cffi, 10 nguon vuot bang van tay TLS). telegram_harvest.py OK, manh nhat CNQS My + Uc/Bien Dong.
+[04:05 VN] SKIP (local 04:30) - state.py claim web-scan exit 11 (PHIEN KHAC DANG CHAY). CI da giu khoa tu 04:00, nhip tim 5' truoc luc claim. Khong quet chong, KET THUC.
