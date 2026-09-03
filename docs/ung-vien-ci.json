@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-04T00:07:54+07:00",
+  "tao_luc": "2026-09-04T01:00:08+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-03",
@@ -141,6 +141,14 @@
       "tieu_de": "Mali: Mariam Bagayoko continues to impress on stage aged 88",
       "nguon": "Africanews",
       "url": "http://www.africanews.com/2026/09/02/mali-mariam-bagayoko-continues-to-impress-on-stage-aged-88/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-09-04",
+      "tieu_de": "West Africa: Pullout of Niger, Burkina Faso, Mali From Ecowas Blunted Integration Protocols - - Dare",
+      "nguon": "AllAfrica",
+      "url": "https://allafrica.com/stories/202609030586.html"
     },
     {
       "lop": "HTML",
@@ -370,14 +378,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "Basketball Camp with Christain Taylor aboard Marine Corps Logistics Base Barstow, California, August 1.",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/573879/basketball-camp-with-christain-taylor-aboard-marine-corps-logistics-base-barstow-california-august-1"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
       "tieu_de": "U.S. Army Yuma Proving Ground hosts Arizona Commanders Summit",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/295060/u_s_army_yuma_proving_ground_hosts_arizona_commanders_summit"
@@ -397,6 +397,14 @@
       "tieu_de": "U.S. Army medic supports global health engagement in Panama",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/295073/u_s_army_medic_supports_global_health_engagement_in_panama"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Senior AFGSC leaders see Sentinel program advancements",
+      "nguon": "Không quân Mỹ — Air Force Link News",
+      "url": "https://www.af.mil/News/Article-Display/Article/4590404/senior-afgsc-leaders-see-sentinel-program-advancements/"
     },
     {
       "lop": "RSS",
@@ -818,6 +826,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-03",
+      "tieu_de": "Australia’s Broken Hill: Where Children Are Sacrificed to Mining Interests",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/09/australias-broken-hill-where-children-are-sacrificed-to-mining-interests/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-03",
       "tieu_de": "UNHCR Says It Is Not Involved in Malaysia’s Planned Repatriation of Refugees to Myanmar",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/09/unhcr-says-it-is-not-involved-in-malaysias-planned-repatriation-of-refugees-to-myanmar/"
@@ -1049,14 +1065,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-03",
-      "tieu_de": "Wife of British man at risk of deportation from Sweden calls on Burnham to intervene",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/sep/03/wife-of-british-man-at-risk-of-deportation-from-sweden-calls-on-burnham-to-intervene"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "Truyền thông khu vực: Tuyển Việt Nam vượt trội, Xuân Son tạo bước ngoặt trước Malaysia",
       "nguon": "Báo Chính phủ",
@@ -1107,6 +1115,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "US slaps new sanctions on Raul Castro's grandson, Cuban companies",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/us-slaps-new-sanctions-on-raul-castros-grandson-cuban-companies",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-03",
       "tieu_de": "US House passes bill to crack down on university boycotts of Israel",
       "nguon": "The Straits Times",
@@ -1121,15 +1138,6 @@
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/new-us-tariffs-on-drones-take-effect",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-03",
-      "tieu_de": "Trump signs Bill to avert government shutdown before mid-term elections",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/trump-signs-bill-to-avert-government-shutdown-before-mid-term-elections",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1264,15 +1272,6 @@
       "tieu_de": "Pro-Trump group releases first general election midterm ad",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/campaign/6066844-pro-trump-group-releases-first-general-election-midterm-ad/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-03",
-      "tieu_de": "House GOP campaign arm distributes more than 2,000 tickets for midterm convention in Texas",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6066614-texas-gop-midterms-convention-dallas/",
       "nhom": 5
     },
     {
