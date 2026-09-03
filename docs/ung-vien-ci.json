@@ -1,11 +1,27 @@
 {
-  "tao_luc": "2026-09-04T01:00:08+07:00",
+  "tao_luc": "2026-09-04T03:46:30+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-03",
     "2026-09-04"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-04",
+      "tieu_de": "Singapore Lays Keel for Third Multi-Role Combat Vessel",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/09/singapore-lays-keel-for-third-multi-role-combat-vessel/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-04",
+      "tieu_de": "Leaders of Thailand and Singapore perform Beatles song, “Let It Be”",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/3/leaders-of-thailand-and-singapore-perform-beatles-song-let-it?traffic_source=rss"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -29,14 +45,6 @@
       "tieu_de": "Hơn 500 học sinh Indonesia nhập viện, lại nghi ngộ độc từ 'bữa ăn miễn phí'",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/hon-500-hoc-sinh-indonesia-nhap-vien-lai-nghi-ngo-doc-tu-bua-an-mien-phi-100260902193349121.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "The cost of Indonesia's economic overreach",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/spotlight/comment/the-cost-of-indonesia-s-economic-overreach"
     },
     {
       "lop": "RSS",
@@ -186,7 +194,7 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "Oshkosh dangles JLTV bridge option for Marine Corps, but the deadline to take it is looming",
+      "tieu_de": "Oshkosh dangles JLTV bridge option for Marine Corps, but the deadline is looming",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/09/oshkosh-dangles-jltv-bridge-option-for-marine-corps-but-the-deadline-to-take-it-is-looming/"
     },
@@ -265,6 +273,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Những lý do khiến siêu tàu sân bay Mỹ hoen rỉ, bong tróc",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/nhung-ly-do-khien-sieu-tau-san-bay-my-hoen-ri-bong-troc-5116145.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
       "tieu_de": "Niềm vui của thủy thủ tàu sân bay Mỹ khi được 'xả hơi' ở Thái Lan",
       "nguon": "VnExpress",
@@ -325,6 +341,14 @@
       "tieu_de": "NATO, EU kêu gọi đồng minh gửi tên lửa Patriot sắp hết niên hạn cho Ukraine",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/nato-eu-keu-goi-dong-minh-gui-ten-lua-patriot-sap-het-nien-han-cho-ukraine-20260901221023216.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Pentagon temporarily rescinds mandatory testosterone testing guidance",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/6069728-pentagon-temporarily-rescinds-testosterone-guidance/"
     },
     {
       "lop": "RSS",
@@ -409,7 +433,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
+      "ngay": "2026-09-04",
       "tieu_de": "U.S. To Equip F-35 Fighter Jets With Starshield SATCOM",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/03/us_to_equip_f-35_fighter_jets_with_starshield_satcom_1204038.html"
@@ -417,7 +441,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
+      "ngay": "2026-09-04",
       "tieu_de": "U.S. Navy Seeks 'Seabed Superiority'",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/03/us_navy_seeks_seabed_superiority_1204054.html"
@@ -425,7 +449,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
+      "ngay": "2026-09-04",
       "tieu_de": "U.S. Navy Approves Rolls-Royce Engines for Drone Ships",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/03/us_navy_approves_rolls-royce_engines_for_drone_ships_1204044.html"
@@ -433,7 +457,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
+      "ngay": "2026-09-04",
       "tieu_de": "Marine Corps To Add 6,500 Billets in Force Expansion",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/03/marine_corps_to_add_6500_billets_in_force_expansion_1204053.html"
@@ -441,10 +465,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
+      "ngay": "2026-09-04",
       "tieu_de": "The Pentagon's Public Disclosures Need a Mosaic Test",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/03/the_pentagons_public_disclosures_need_a_mosaic_test_1204098.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Tillis Wants Hegseth Fired. Is the Pentagon Chief in Trouble?",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/03/tillis_wants_hegseth_fired_is_the_pentagon_chief_in_trouble_1204152.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Pentagon Puts $131B Price Tag on 1970s-Era Fighter",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/03/pentagon_puts_131b_price_tag_on_1970s-era_fighter_1204155.html"
     },
     {
       "lop": "RSS",
@@ -474,14 +514,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "More High-Profile Pentagon Exits Expected After Driscoll",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/09/01/more_high-profile_pentagon_exits_expected_after_driscoll_1203680.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-03",
       "tieu_de": "Contracts for Sept. 2, 2026",
       "nguon": "DoD Contracts",
       "url": "https://www.war.gov/News/Contracts/Contract/Article/4589493/contracts-for-sept-2-2026/"
@@ -493,6 +525,14 @@
       "tieu_de": "Contracts for Aug. 31, 2026",
       "nguon": "DoD Contracts",
       "url": "https://www.war.gov/News/Contracts/Contract/Article/4586879/contracts-for-aug-31-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Department of War Launches Secure Space Network to Break Down Barriers to Classified Defense Work",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4590688/department-of-war-launches-secure-space-network-to-break-down-barriers-to-class/"
     },
     {
       "lop": "RSS",
@@ -593,10 +633,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Schiess Sworn in as New Space Force Chief: ‘We Must Grow with Intention’",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/schiess-new-chief-of-space-operations-space-force/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-03",
       "tieu_de": "AFRL Seeks Payload-Agnostic, Affordable Hypersonic Cruise Missile",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/afrl-payload-agnostic-affordable-hypersonic-cruise-missile/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "US Army launches laser production with $465M contract award",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/industry/techwatch/2026/09/03/us-army-launches-laser-production-with-465m-contract-award/"
     },
     {
       "lop": "RSS",
@@ -625,10 +681,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-02",
-      "tieu_de": "US Army soldiers across the world earn Danish ruck ribbon",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/09/01/us-army-soldiers-across-the-world-earn-danish-ruck-ribbon/"
+      "ngay": "2026-09-04",
+      "tieu_de": "US Army Awards $13M Contract to Global Military Products for Scorpion Light Mobile Mortar Systems Integrated on Infantry Squad Vehicles",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/09/03/us-army-awards-13m-contract-to-global-military-products-for-scorpion-light-mobile-mortar-systems-integrated-on-infantry-squad-vehicles/?utm_source=rss&utm_medium=rss&utm_campaign=us-army-awards-13m-contract-to-global-military-products-for-scorpion-light-mobile-mortar-systems-integrated-on-infantry-squad-vehicles"
     },
     {
       "lop": "RSS",
@@ -645,6 +701,14 @@
       "tieu_de": "Field Tested, Future Ready: New U.S. Army Campaign Shows the Power of Real-World Training",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/09/03/field-tested-future-ready-new-u-s-army-campaign-shows-the-power-of-real-world-training/?utm_source=rss&utm_medium=rss&utm_campaign=field-tested-future-ready-new-u-s-army-campaign-shows-the-power-of-real-world-training"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-04",
+      "tieu_de": "Schiess sworn in as the Space Force’s highest ranking uniformed leader",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1021753/schiess-sworn-space-forces-highest-ranking-uniformed-leader"
     },
     {
       "lop": "RSS",
@@ -777,6 +841,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-04",
+      "tieu_de": "Data centres are booming in Australia - but at what cost?",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cgl3we7wdr3o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-03",
       "tieu_de": "Malaysia's middle path between China and US faces new tests",
       "nguon": "Deutsche Welle",
@@ -785,10 +857,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-03",
-      "tieu_de": "France's Macron meets UK PM Burnham at Downing Street",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20260903-france-s-macron-meets-uk-pm-burnham-at-downing-street"
+      "ngay": "2026-09-04",
+      "tieu_de": "Trump says Britain 'on the edge of disaster,' citing immigration and energy concerns",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/trump-says-britain-on-the-edge-of-disaster-citing-immigration-and-energy-concerns"
     },
     {
       "lop": "RSS",
@@ -905,10 +977,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-03",
-      "tieu_de": "Embattled childcare chain shuts another Canberra centre",
+      "ngay": "2026-09-04",
+      "tieu_de": "Girls will 'lose out' if Canberra Catholic school becomes co-ed, students say",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-03/edge-charnwood-childcare-centre-closes/107109240"
+      "url": "https://www.abc.net.au/news/2026-09-04/proposal-for-canberra-catholic-school-to-become-co-ed/107113784"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-04",
+      "tieu_de": "Economy won't improve until Australia climbs productivity mountain",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-04/productivity-housing-migration-jim-chalmers-economists-growth/107097652"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-04",
+      "tieu_de": "Australia's housing problems will take 'generation' to fix, NAB economist warns",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-04/housing-problems-will-take-a-generation-to-fix-nab-economist/107111144"
     },
     {
       "lop": "RSS",
@@ -1009,6 +1097,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-04",
+      "tieu_de": "British army told to stop non-essential training exercises to save money",
+      "nguon": "**BBC News UK**",
+      "url": "https://www.bbc.co.uk/news/articles/cvgyqey6rlyo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-03",
       "tieu_de": "I inadvertently misled parliament over a British nuclear scandal. Now I’m calling for justice | Tobias Ellwood",
       "nguon": "**The Guardian — Politics (Anh)**",
@@ -1029,6 +1125,14 @@
       "tieu_de": "Ben Jennings on the rise of datacentres in Britain – cartoon",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/commentisfree/picture/2026/sep/02/ben-jennings-rise-datacentres-britain-ai-government-cartoon"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-04",
+      "tieu_de": "B-52s Deploy for Bomber Task Force to Australia’s New BUFF Base",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/b-52-bomber-task-force-australia-raaf-base-tindal/"
     },
     {
       "lop": "RSS",
@@ -1134,19 +1238,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "New US tariffs on drones take effect",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/new-us-tariffs-on-drones-take-effect",
-      "nhom": 4
+      "tieu_de": "Trump to speak on both nights of Republican midterm convention amid turnout concerns",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3366163/trump-speak-both-nights-republican-midterm-convention-amid-turnout-concerns?utm_source=rss_feed",
+      "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-03",
-      "tieu_de": "Trump to speak on both nights of Republican midterm convention amid turnout concerns",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3366163/trump-speak-both-nights-republican-midterm-convention-amid-turnout-concerns?utm_source=rss_feed",
-      "nhom": 5
+      "tieu_de": "New U.S. tariffs on drones take effect",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/new-us-tariffs-on-drones-take-effect/article71423348.ece",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1268,10 +1372,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-03",
-      "tieu_de": "Pro-Trump group releases first general election midterm ad",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6066844-pro-trump-group-releases-first-general-election-midterm-ad/",
+      "ngay": "2026-09-04",
+      "tieu_de": "Trump's Midterm Plan Includes Heavy Emphasis on Himself",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/2026/09/03/trumps_midterm_plan_includes_heavy_emphasis_on_himself_709921.html",
       "nhom": 5
     },
     {
@@ -1282,15 +1386,6 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/sep/03/iran-targets-us-bases-as-israel-warns-sanctions-could-drive-tehran-to-desperate-steps",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-03",
-      "tieu_de": "US House passes bill penalizing universities that participate in boycott of Israel",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/sep/03/israel-boycott-university-ban-bill",
-      "nhom": 1
     },
     {
       "lop": "RSS",
