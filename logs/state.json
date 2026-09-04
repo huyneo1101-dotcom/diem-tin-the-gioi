@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-05T04:04:10+07:00",
+    "lastRunAt": "2026-09-05T04:13:01+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran moi (Veer Guardian 2026), +4 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-04"
-    },
-    "heartbeat": "2026-09-05T04:04:10+07:00"
+      "sang": "2026-09-05"
+    }
   }
 }
