@@ -1,16 +1,15 @@
 {
-  "date": "2026-09-03",
-  "session": "sang",
+  "date": "2026-09-05",
+  "session": "toi",
   "topics": [
-    {"name":"Nội bộ Mỹ (5 nhóm, 2 hạng)","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"Vét cạn nhóm 1 (điều trần + bỏ phiếu): chỉ 2 sự kiện đạt chuẩn trong khung 03-04/09 (BDS bill floor vote 237-169, Leon Black subpoena/Uỷ ban Giám sát). Nhóm 5 (bầu cử): 1 tin Musk PAC chi tiết theo cuộc đua. Nhóm 4 (kinh tế): 1 tin. 3 ứng viên khác bị Cổng NGÀY ĐĂNG THẬT chặn vì trang không có metadata ngày đọc được (Arnold&Porter, The Hill testosterone rescind) hoặc ngoài khung (Danbury protest) — xem logs/loai-tin.md."},
-    {"name":"Úc, Anh & Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Chỉ 2 tin đạt chuẩn xác minh trong khung 03-04/09 (RAF boom refueling - The Aviationist, và 1 tin Biển Đông bị Cổng NGÀY ĐĂNG THẬT chặn nên đã bỏ hẳn - PNA không có metadata ngày). Phần lớn ứng viên GOV.UK Anh trùng tin đã nạp phiên trước (radar DARC, RAF Fylingdales, HMS Bulwark, £8.4bn nuclear deterrent...). WebSearch không ra thêm diễn biến Biển Đông mới trong khung hẹp 2 ngày."},
-    {"name":"CNQS Mỹ","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Đã nới 48h. Nhóm 1 (điều trần+bỏ phiếu) cạn hoàn toàn trong khung 04-05/09 — Thượng viện chỉ họp phiên hình thức, không có bỏ phiếu/điều trần thật; nhóm 5 (bầu cử) chỉ có tin Missouri map và Cuba nhưng cả hai đúng ngày 03/09, ngoài khung nên bị loại. Chỉ nạp được 3 tin nhóm 2/4 (sắc lệnh chăn nuôi bò, đe doạ thương mại với Fed, trừng phạt ngân hàng Thổ vì Iran)."},
+    {"name":"Úc & Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Đã nới 48h. Phần lớn ứng viên RSS Bộ QP Anh (gov.uk) đăng cuối tháng 8, ngoài khung; tin Duterte của Báo Mới bị loại vì không neo được vào Úc/AUKUS/Biển Đông (chính trị nội bộ Philippines thuần túy). Chỉ nạp được 2 tin (AUKUS Marles, tàu khảo sát TQ ở Scarborough)."},
+    {"name":"CNQS Mỹ","count":9,"target":"5-10","min":5,"thieu":false,"reason":""},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"Duy nhất ứng viên đạt chuẩn (dự luật Panetta H.R.10195 về chiến lược an ninh Mali) có ngày sự kiện thật 02/09, ngoài khung 1 ngày cho phép (category Ngoại giao không được nới 3 ngày như CNQS). Không tìm được tin nào khác đạt chuẩn xác minh trong khung 03-04/09."},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":1,"thieu":true,
-     "reason":"4 cuộc đang bám (Super Garuda Shield 2026, REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội TBD Nga): duy nhất ứng viên tìm được (DVIDS wildfire safeguards, Super Garuda Shield) đã có sẵn trong DATA từ phiên trước — trùng URL. Không có diễn biến mới nào khác trong khung 03-04/09."}
+     "reason":"Không tìm được tin Mỹ-Mali/JNIM/Sahel nào đăng trong khung 04-05/09; ứng viên Google News toàn bài phân tích/kinh tế không đúng chủ đề. Chủ đề về 0."},
+    {"name":"Tập trận đang diễn ra","count":2,"target":"1-2","min":1,"thieu":false,"reason":"Super Garuda Shield 2026 — 2 diễn biến mới (medevac, bay đêm Apache)."}
   ],
-  "note": "Cài curl_cffi giữa phiên (thiếu sẵn ở CI) mới gỡ chặn được 10 nguồn TLS-fingerprint của harvest.py (465→471 ứng viên). Cổng NGÀY ĐĂNG THẬT chặn 4/11 tin nháp ban đầu vì thiếu metadata ngày (không phải do nội dung sai) — đã đổi nguồn được 1 (BDS bill sang Straits Times), bỏ 3. 4 ứng viên Cổng Báo Mới còn lại: 1 ngoài phạm vi 5 chủ đề (TQ kêu gọi Mỹ dỡ trừng phạt), 3 trùng sự kiện tin đã có sẵn (2 trùng tin cũ trong DATA, 1 trùng với tin Musk PAC vừa nạp qua nguồn NBC News). Chi tiết: logs/loai-tin.md mục 'Phiên SÁNG SỚM 04/09/2026'."
+  "note": "Báo Mới: 9 ứng viên khớp chủ đề, xử lý xong toàn bộ — 1 nạp (LOCUST X3, truy về nguồn gốc AeroVironment), 8 loại (2 trùng tin đã có, 5 ngoài khung ngày 03/09, 1 gộp trùng với ứng viên khác). Chi tiết: logs/loai-tin.md. Phiên chạy bù lúc 03:xx sáng cho ô 'toi' của ngày 2026-09-05 (state.py claim trả RUN, nhãn 'phien toi CHAY BU sang som')."
 }
