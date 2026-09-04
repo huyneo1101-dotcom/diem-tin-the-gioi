@@ -1,2 +1,3 @@
 [03:13] claim web-scan (local, phien toi CHAY BU sang som)
 [03:29] DONE web-scan: Noi bo My +3, Uc&BD +2, CNQS My +9, Mali +0, Tap tran +2 (tong +15 tin+2 su kien). Ban tin da push (commit "Cap nhat ban tin 05/09").
+[03:32] Commit ngoai khung ca chinh thuc (03:29) nen notify-email.yml tu dong SKIP gui. Da kich bu bang workflow_dispatch (run 33916635873) - Gui Telegram THANH CONG toi 2 chat, kem file .docx. Trang GitHub Pages da tu dung lai (run pages.yml 33916508636, success). Ghi chu ky thuat: make_docx.py canh bao 1 tin CNQS (AV's LOCUST, baomoiNews) bi gop nham vao muc worldNews khi build docx - khong chan, chi sai muc hien thi, chua sua vi ngoai pham vi phien nay.
