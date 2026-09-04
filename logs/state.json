@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-05T03:13:35+07:00",
+    "lastRunAt": "2026-09-05T04:03:40+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "Vá lỗi: phiên local đã quét xong luc 03:13-03:32 (Cap nhat ban tin 05/09: +15 tin, Telegram thanh cong, Pages da dung lai) nhung khong push duoc logs/state.json nen co RUNNING/stale. CI khong quet lai, chi sua co cho dung thuc te.",
     "lastSuccess": {
       "toi": "2026-09-03",
-      "sang": "2026-09-04"
-    },
-    "heartbeat": "2026-09-05T03:25:11+07:00"
+      "sang": "2026-09-05"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-04T04:31:15+07:00",
