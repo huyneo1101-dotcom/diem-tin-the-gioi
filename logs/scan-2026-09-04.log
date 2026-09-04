@@ -7,3 +7,4 @@
 [21:31Z] event-scan: do_tap_tran_thieu.py phat hien Yama Sakura 91 (My-Nhat-Uc, khai mac 2/9) -> da nap the tap tran moi qua add_news.py --newExercises (2 item). add_analyses.py: nap 4/5 bai think-tank (Brookings x2, USSC, Egmont) - NBR bi chan 403, bo. Khong phai Chu nhat (thu Sau) nen bo qua bao cao tuan. Sap commit + push rieng.
 [22:52Z] SKIP (CI) phien sang som moi - state.py claim web-scan exit 10 (DA XONG luc 04:24 VN). Kiem ngoai le: so_da_gui.py --xem co dong "2026-09-04T04:32:07+07:00 [sang] 28 tin" khop dung ngay hom nay -> ban tin da toi tay that, khong phai co noi doi. KET THUC EM, khong quet lai.
 [08:20 VN] SKIP (local 04:30/05:30) - state.py claim web-scan exit 10 (DA XONG luc 04:24 VN). Ban tin sang da gui that. KET THUC, khong quet lai.
+[14:00Z] START (CI) phien toi (21:00 gio VN). state.py claim web-scan exit 0, giu khoa. Bat dau harvest.
