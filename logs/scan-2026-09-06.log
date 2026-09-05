@@ -1,3 +1,4 @@
 [21:00Z] START (CI) phien sang som
 [21:05Z] SKIP (local 04:30) web-scan - phien khac dang chay (nhip tim 5' truoc, bat dau 04:00:35), khong quet chong
 [21:35Z] CLAIM (local 04:35) web-scan - RUN, giu khoa, bat dau quet phien sang som
+[21:58Z] CI phien nay (start 21:00Z/04:00 VN) bi mat khoa web-scan giua chung: chay 6 vong agent (4 chu de + 3 vong bo sung) khong beat kip trong luc cho agent lau (>15 phut), khoa thoi sau 30 phut. Session "local" cuop khoa luc 04:35 VN, hoan tat + gui ban tin "Cap nhat ban tin 06/09: +11 tin" (da xac nhan qua state.json/git log). Theo dung CLAUDE.md: KHONG goi state.py skip/fail, da `git reset --hard origin/main` de nhuong ban da gui, KHONG quet chong. Chuyen sang lam event-scan (chua co ai claim hom nay).
