@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-06T04:00:35+07:00",
+    "lastRunAt": "2026-09-06T04:53:52+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "worldNews +4 (Anh), usNews +7 (bau cu/CENTCOM/CNQS/Mali); Uc & Bien Dong thieu sang, xem scan-gaps.json",
     "lastSuccess": {
       "toi": "2026-09-05",
-      "sang": "2026-09-05"
-    },
-    "heartbeat": "2026-09-06T04:00:35+07:00"
+      "sang": "2026-09-06"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-04T04:31:15+07:00",

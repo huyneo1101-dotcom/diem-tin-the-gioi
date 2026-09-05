@@ -1,16 +1,55 @@
 {
-  "date": "2026-09-05",
-  "session": "toi",
+  "date": "2026-09-06",
+  "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Hạng 1 (điều trần/bỏ phiếu Quốc hội) không có ứng viên đạt chuẩn trong 24h qua; chỉ nạp được 2 tin hạng 2 (phán quyết SCOTUS về giá quảng cáo bầu cử, cam kết chi 400-500tr USD của Trump cho bầu cử giữa kỳ). 2 tin khác đã soạn xong (Fed chấm dứt chế tài ngân hàng, Mỹ trừng phạt Cuba) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang federalreserve.gov/upi.com không có metadata ngày đọc được trong lượt fetch này — không kịp tìm nguồn thay thế trước hạn 21:45."},
-    {"name":"Úc & Biển Đông","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"CNQS Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"3 hợp đồng CNQS khác đã soạn xong (General Dynamics SLCM-N, GE Aerospace Derecho, Oshkosh JLTV) bị CỔNG NGÀY ĐĂNG THẬT chặn (globalsecurity.org, breakingdefense.com không đọc được metadata ngày trong lượt fetch này) — không kịp tìm nguồn thay thế trước hạn 21:45."},
-    {"name":"Mỹ – Mali","count":1,"target":"5-10","min":5,"thieu":true,
-     "reason":"Chủ đề khan tin như thường lệ; 1 tin đạt chuẩn (Niger cáo buộc Pháp kích động binh biến, Straits Times). Tin đáng chú ý khác (Mali kết án cựu đại tá 20 năm tù) có ngày sự kiện thật 2026-09-03, ngoài khung hôm nay+hôm qua nên phải loại."},
-    {"name":"Tập trận đang diễn ra","count":3,"target":"1-2","min":1,"thieu":false,
-     "reason":"3 cập nhật cho Super Garuda Shield 2026 (VBSS, nhảy dù 5 nước, diễn tập HADR)."}
+    {
+      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
+      "count": 6,
+      "target": "5-10",
+      "min": 5,
+      "thieu": false,
+      "reason": "Không có ứng viên hạng 1 (điều trần/bỏ phiếu Quốc hội) đạt chuẩn trong khung 05-06/09; nạp được 6 tin hạng 2-5 (Paxton PAC, CENTCOM-Iran, MQ-9 Reaper, Patriot PAC-3, F-35 stains, Niger/France + Africa Corps qua dossier Mali). Vài ứng viên khác (RNC message, Trump RNC night one, UN vote LHQ — loại vì không neo được vào 5 nhóm Nội bộ Mỹ, Iran-midterm Al Jazeera — quá cũ, AIM-424 — quá cũ) bị loại, chi tiết trong logs/loai-tin.md."
+    },
+    {
+      "name": "Úc & Biển Đông",
+      "count": 4,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Chỉ nạp được 4 tin, toàn bộ thuộc nhánh Anh (Shadow Mk2, việc làm tiêm kích, chiến dịch chống chịu quốc gia, Challenger 3). Nhánh Úc: 2 ứng viên (nhiên liệu ADF, phát biểu Keating) đều bị Cổng ngày thật chặn (thiếu metadata / bài quá cũ 04/09). Nhánh Biển Đông: 0 ứng viên nào đạt chuẩn dù đã chạy 4 vòng WebSearch bổ sung (Scarborough, Second Thomas, Vanguard Bank, Taiwan Strait, Malaysia/Indonesia patrol) — tin mới nhất tìm được đều cũ hơn khung hoặc đã có trong DATA từ bản tin trước."
+    },
+    {
+      "name": "CNQS Mỹ",
+      "count": 3,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nạp được 3 tin (MQ-9 Reaper, Patriot PAC-3, F-35 stains) tính riêng theo category — cộng thêm CENTCOM-Iran (đếm vào Nội bộ Mỹ ở trên do bối cảnh Trung Đông). Ứng viên AIM-424 Malice (Naval News) bị Cổng ngày thật chặn vì bài thật đăng 23/08, quá cũ so với khung 05-06/09."
+    },
+    {
+      "name": "Mỹ – Mali",
+      "count": 2,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nạp 2 tin (Pháp bác cáo buộc kích động binh biến Niger — Al Jazeera; Africa Corps Nga bảo vệ chính quyền Sahel — BBC/Yahoo). Ứng viên 'Mali kết án 20 năm tù cựu đại tá' (The Africa Report) bị Cổng ngày thật chặn (không đọc được metadata ngày); vài ứng viên khác (Egypt-Mali, Mali-Burkina hạn chế nhập cảnh) bị loại vì nghi là tin cũ lập chỉ mục lại."
+    },
+    {
+      "name": "Tập trận đang diễn ra",
+      "count": 0,
+      "target": "1-2",
+      "min": 1,
+      "thieu": true,
+      "reason": "Ứng viên duy nhất đủ chuẩn (diễn tập nhảy dù 5 nước tại Baturaja, Super Garuda Shield 2026, ANTARA) trùng URL với tin đã nạp trong bản tin 05/09 — loại trùng. Không tìm được diễn biến MỚI nào cho 4 cuộc tập trận đang bám (Super Garuda Shield, REPMUS 26/Dynamic Messenger, SEACAT, Hạm đội TBD Nga) trong khung 05-06/09."
+    },
+    {
+      "name": "Báo Mới",
+      "count": 0,
+      "target": "best-effort",
+      "min": 0,
+      "thieu": false,
+      "reason": "8 ứng viên Báo Mới đã lọc sẵn theo 5 chủ đề — TẤT CẢ trùng sự kiện đã nạp từ nguồn gốc tốt hơn (CENTCOM/DVIDS cho tin Iran tanker x3, CNN/Paxton cho tin bầu cử x2, tập trận Indonesia đã có trong DATA) hoặc quá cũ (Trump/nhà báo NBC, ngân hàng Thổ Nhĩ Kỳ nghi trùng tin cũ). Không có bài nào đủ khác biệt để nạp thêm."
+    }
   ],
-  "note": "Phiên TỐI 05/09/2026 chạy sát hạn 22:00 (bắt đầu 21:00 VN do phiên trước đó đã dùng slot 'sáng' cho bản tin catch-up của tối 04/09, xem logs/scan-2026-09-05.log). CHƯA xử lý cổng Báo Mới (9 ứng viên còn treo từ phiên trước) và CHƯA chạy bước Jay Lâm (bước 4c) vì hết giờ trước hạn 21:45 — chốt lô đang có theo đúng chỉ dẫn CLAUDE.md khi sát hạn chót. Phát hiện thêm: 1 tin thuần Anh (Lục quân Anh tạm dừng tập trận, Stars & Stripes) bị cổng neo chủ đề 2 chặn dù nội dung đúng phạm vi đã mở 01/09/2026 — do bảng NEO_ANH (topics.py) thiếu từ khoá 'luc quan anh'/'quan doi anh', nên tin chỉ nhắc 'Lục quân Anh' không tự neo được dù NEO_ANH đã nối vào NEO_UC_BIEN_DONG đúng cách. Cần bổ sung từ khoá vào bảng NEO_ANH ở phiên sau."
+  "note": "Phiên SÁNG SỚM 06/09 — nhánh Úc và Biển Đông (chủ đề 2) hụt sàn 2 tin/nhánh dù đã chạy nhiều vòng WebSearch bổ sung; đây là phiên KHÔNG có hạn chót cứng nên đã cố gắng tối đa trong giới hạn thời gian hợp lý trước khi chốt lô. Phiên TỐI nên ưu tiên tìm bù 2 nhánh này."
 }
