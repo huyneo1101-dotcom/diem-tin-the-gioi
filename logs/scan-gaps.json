@@ -36,11 +36,11 @@
     },
     {
       "name": "Tập trận đang diễn ra",
-      "count": 0,
+      "count": 1,
       "target": "1-2",
       "min": 1,
-      "thieu": true,
-      "reason": "Ứng viên duy nhất đủ chuẩn (diễn tập nhảy dù 5 nước tại Baturaja, Super Garuda Shield 2026, ANTARA) trùng URL với tin đã nạp trong bản tin 05/09 — loại trùng. Không tìm được diễn biến MỚI nào cho 4 cuộc tập trận đang bám (Super Garuda Shield, REPMUS 26/Dynamic Messenger, SEACAT, Hạm đội TBD Nga) trong khung 05-06/09."
+      "thieu": false,
+      "reason": "Nạp 1 tin (DVIDS, xác nhận Date Posted 05/09): lính dù 7 nước nhảy dù chung mở màn huấn luyện thực địa Super Garuda Shield 2026 tại Baturaja. Đã kiểm 11 cuộc tập trận đang bám: SEACAT 2026, REPMUS 26/Dynamic Messenger 26 (còn ở giai đoạn staging, tin cụ thể chỉ có từ 19/9), Yama Sakura 91, Freedom Edge 2026 (chưa khai mạc, dự kiến 07/9), Tarang Shakti 2026 (chưa khai mạc, dời sang 26/9-12/10, đã kiểm không nhầm với Veer Guardian song phương Ấn-Nhật cùng diễn ra tại Jodhpur), PANAMAX 2026, Baltic Trust 26, MAITREE-XV, Diễn tập Hạm đội TBD Nga và Hán Quang 42 (ba cuộc cuối đã kết thúc, không có tin bế mạc/hậu kỳ mới) — không có diễn biến MỚI nào khác đạt chuẩn ngoài Super Garuda Shield."
     },
     {
       "name": "Báo Mới",
@@ -51,5 +51,5 @@
       "reason": "8 ứng viên Báo Mới đã lọc sẵn theo 5 chủ đề — TẤT CẢ trùng sự kiện đã nạp từ nguồn gốc tốt hơn (CENTCOM/DVIDS cho tin Iran tanker x3, CNN/Paxton cho tin bầu cử x2, tập trận Indonesia đã có trong DATA) hoặc quá cũ (Trump/nhà báo NBC, ngân hàng Thổ Nhĩ Kỳ nghi trùng tin cũ). Không có bài nào đủ khác biệt để nạp thêm."
     }
   ],
-  "note": "Phiên SÁNG SỚM 06/09 — nhánh Úc và Biển Đông (chủ đề 2) hụt sàn 2 tin/nhánh dù đã chạy nhiều vòng WebSearch bổ sung; đây là phiên KHÔNG có hạn chót cứng nên đã cố gắng tối đa trong giới hạn thời gian hợp lý trước khi chốt lô. Phiên TỐI nên ưu tiên tìm bù 2 nhánh này."
+  "note": "Phiên SÁNG SỚM 06/09 — nhánh Úc và Biển Đông (chủ đề 2) hụt sàn 2 tin/nhánh dù đã chạy nhiều vòng WebSearch bổ sung; đây là phiên KHÔNG có hạn chót cứng nên đã cố gắng tối đa trong giới hạn thời gian hợp lý trước khi chốt lô. Phiên TỐI nên ưu tiên tìm bù 2 nhánh này. Sự kiện ngoại giao: đã kiểm 20 sự kiện đang có trong hệ thống + tìm hiệp ước/thoả thuận MỚI trong 48h qua (04-06/09) — không có gì đạt chuẩn (ứng viên gần nhất, Ấn Độ-Bỉ ký thoả thuận quốc phòng, xảy ra 03/09, ngoài khung 1 ngày); không thêm dipEventUpdates."
 }
