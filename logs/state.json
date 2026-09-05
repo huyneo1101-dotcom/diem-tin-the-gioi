@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-06T04:58:34+07:00",
+    "lastRunAt": "2026-09-06T04:58:18+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "khong co tap tran/su kien moi; +5 bai think-tank (Carnegie x2, Timbuktu, EUISS, USSC) -- local hoan tat truoc, CI claim 04:58:38 sau khi viec da xong, huy RUNNING cua CI",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-04"
-    },
-    "heartbeat": "2026-09-06T04:58:34+07:00"
+      "sang": "2026-09-06"
+    }
   }
 }
