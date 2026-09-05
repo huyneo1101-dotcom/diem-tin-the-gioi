@@ -2,14 +2,15 @@
   "date": "2026-09-05",
   "session": "toi",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Đã nới 48h. Nhóm 1 (điều trần+bỏ phiếu) cạn hoàn toàn trong khung 04-05/09 — Thượng viện chỉ họp phiên hình thức, không có bỏ phiếu/điều trần thật; nhóm 5 (bầu cử) chỉ có tin Missouri map và Cuba nhưng cả hai đúng ngày 03/09, ngoài khung nên bị loại. Chỉ nạp được 3 tin nhóm 2/4 (sắc lệnh chăn nuôi bò, đe doạ thương mại với Fed, trừng phạt ngân hàng Thổ vì Iran)."},
-    {"name":"Úc & Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"Đã nới 48h. Phần lớn ứng viên RSS Bộ QP Anh (gov.uk) đăng cuối tháng 8, ngoài khung; tin Duterte của Báo Mới bị loại vì không neo được vào Úc/AUKUS/Biển Đông (chính trị nội bộ Philippines thuần túy). Chỉ nạp được 2 tin (AUKUS Marles, tàu khảo sát TQ ở Scarborough)."},
-    {"name":"CNQS Mỹ","count":9,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"Không tìm được tin Mỹ-Mali/JNIM/Sahel nào đăng trong khung 04-05/09; ứng viên Google News toàn bài phân tích/kinh tế không đúng chủ đề. Chủ đề về 0."},
-    {"name":"Tập trận đang diễn ra","count":2,"target":"1-2","min":1,"thieu":false,"reason":"Super Garuda Shield 2026 — 2 diễn biến mới (medevac, bay đêm Apache)."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Hạng 1 (điều trần/bỏ phiếu Quốc hội) không có ứng viên đạt chuẩn trong 24h qua; chỉ nạp được 2 tin hạng 2 (phán quyết SCOTUS về giá quảng cáo bầu cử, cam kết chi 400-500tr USD của Trump cho bầu cử giữa kỳ). 2 tin khác đã soạn xong (Fed chấm dứt chế tài ngân hàng, Mỹ trừng phạt Cuba) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang federalreserve.gov/upi.com không có metadata ngày đọc được trong lượt fetch này — không kịp tìm nguồn thay thế trước hạn 21:45."},
+    {"name":"Úc & Biển Đông","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"CNQS Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"3 hợp đồng CNQS khác đã soạn xong (General Dynamics SLCM-N, GE Aerospace Derecho, Oshkosh JLTV) bị CỔNG NGÀY ĐĂNG THẬT chặn (globalsecurity.org, breakingdefense.com không đọc được metadata ngày trong lượt fetch này) — không kịp tìm nguồn thay thế trước hạn 21:45."},
+    {"name":"Mỹ – Mali","count":1,"target":"5-10","min":5,"thieu":true,
+     "reason":"Chủ đề khan tin như thường lệ; 1 tin đạt chuẩn (Niger cáo buộc Pháp kích động binh biến, Straits Times). Tin đáng chú ý khác (Mali kết án cựu đại tá 20 năm tù) có ngày sự kiện thật 2026-09-03, ngoài khung hôm nay+hôm qua nên phải loại."},
+    {"name":"Tập trận đang diễn ra","count":3,"target":"1-2","min":1,"thieu":false,
+     "reason":"3 cập nhật cho Super Garuda Shield 2026 (VBSS, nhảy dù 5 nước, diễn tập HADR)."}
   ],
-  "note": "Báo Mới: 9 ứng viên khớp chủ đề, xử lý xong toàn bộ — 1 nạp (LOCUST X3, truy về nguồn gốc AeroVironment), 8 loại (2 trùng tin đã có, 5 ngoài khung ngày 03/09, 1 gộp trùng với ứng viên khác). Chi tiết: logs/loai-tin.md. Phiên chạy bù lúc 03:xx sáng cho ô 'toi' của ngày 2026-09-05 (state.py claim trả RUN, nhãn 'phien toi CHAY BU sang som')."
+  "note": "Phiên TỐI 05/09/2026 chạy sát hạn 22:00 (bắt đầu 21:00 VN do phiên trước đó đã dùng slot 'sáng' cho bản tin catch-up của tối 04/09, xem logs/scan-2026-09-05.log). CHƯA xử lý cổng Báo Mới (9 ứng viên còn treo từ phiên trước) và CHƯA chạy bước Jay Lâm (bước 4c) vì hết giờ trước hạn 21:45 — chốt lô đang có theo đúng chỉ dẫn CLAUDE.md khi sát hạn chót. Phát hiện thêm: 1 tin thuần Anh (Lục quân Anh tạm dừng tập trận, Stars & Stripes) bị cổng neo chủ đề 2 chặn dù nội dung đúng phạm vi đã mở 01/09/2026 — do bảng NEO_ANH (topics.py) thiếu từ khoá 'luc quan anh'/'quan doi anh', nên tin chỉ nhắc 'Lục quân Anh' không tự neo được dù NEO_ANH đã nối vào NEO_UC_BIEN_DONG đúng cách. Cần bổ sung từ khoá vào bảng NEO_ANH ở phiên sau."
 }

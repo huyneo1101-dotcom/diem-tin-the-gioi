@@ -9,12 +9,12 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-05T04:36:59+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "FAIL",
-    "note": "repo co viec do chua commit: docs/ung-vien-ci.json, logs/state.json (NONG <90 phut, pull --rebase bi chan, khong dam tu y bo)",
+    "lastRunAt": "2026-09-05T21:23:06+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "DONE",
+    "note": "Uc&BD +6, Noi bo My +2, CNQS My +3, Mali +1, Tap tran +3 (tong +15 tin/cap nhat). Cong ngay-that chan 5 tin da soan (Fed/Cuba/SLCM-N/Derecho/JLTV). Chua xu ly Bao Moi/Jay Lam do sat han 21:45.",
     "lastSuccess": {
-      "toi": "2026-09-03",
+      "toi": "2026-09-05",
       "sang": "2026-09-05"
     }
   },
