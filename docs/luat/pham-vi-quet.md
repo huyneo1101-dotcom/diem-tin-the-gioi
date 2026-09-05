@@ -570,3 +570,46 @@ HAI song song: hai phiên cùng quét, cùng push, tốn token đôi, đụng nh
 Khoá dùng **heartbeat** chứ không phải hạn giờ cứng — phiên chết mà khoá không tự mở thì còn tệ hơn
 không có khoá (mất luôn bản tin của buổi đó). Không có nhịp nào trong `LOCK_STALE_MIN` = 30 phút →
 coi phiên đã chết, phiên mới giành được khoá. Biết chắc phiên cũ đã chết thì `claim --force`.
+
+## ⛔ SÀN CỨNG 02 TIN MỖI MỤC — chỉ thị Huy 05/09/2026
+
+Nguyên văn Huy, nhắc ba lần trong một lượt: *"tối thiểu mỗi mục phải quét cho tao 2 tin"* ·
+*"phải cho tao mỗi mục tối thiểu 2 tin"* · *"nhiều tin thì càng tốt"*. Đây là **sàn**, không phải chỉ
+tiêu: vượt bao nhiêu cũng tốt, dưới là hụt.
+
+**ĐẾM THEO 07 ĐƠN VỊ CỦA BẢN TIN, KHÔNG THEO 05 CHỦ ĐỀ QUÉT.** Đây là chỗ dễ làm sai nhất và cũng
+chính là chỗ lỗi lọt sáng 05/09/2026: mục "Địa bàn Australia và Anh, Biển Đông" hôm đó có 02 tin nên
+đếm theo chủ đề thì "đủ sàn", trong khi tiểu mục **Anh bằng 0** — đúng thứ Huy hỏi. Mục Huy nhìn thấy
+là mục trong file Word, nên sàn phải áp ở đúng đơn vị ấy:
+
+| Đơn vị | Sàn | Nguồn tin |
+|---|---|---|
+| 1. Đối ngoại Mỹ | 2 | chủ đề 1, nhánh có neo đối ngoại |
+| 2. Nội bộ Mỹ | 2 | chủ đề 1, phần còn lại |
+| 3a. Địa bàn › Anh | 2 | chủ đề 2, nhánh Anh |
+| 3b. Địa bàn › Australia | 2 | chủ đề 2, nhánh Úc |
+| 3c. Địa bàn › Biển Đông | 2 | chủ đề 2, phần còn lại |
+| 4. KHCN-QS | 2 | chủ đề 3 + diễn biến tập trận |
+
+Ranh giới mục là ranh giới của `make_docx.build_sections` — cổng đo đi bằng chính hàm đó, không chép
+lại phép chia, vì mục mà cổng đếm phải là đúng mục Huy đọc.
+
+**Chủ đề 4 (Mỹ – Mali) và chủ đề 5 (Tập trận) KHÔNG mang sàn này, cố ý.** Từ 05/08/2026 tin Mali đã
+bỏ khỏi file Word bản tối và đi ở bản sáng 🎖️ Sự kiện & Tập trận, còn tập trận thì mục tiêu vốn là
+01–02 diễn biến mỗi phiên. Áp sàn 02 cho chúng là kêu gần như mỗi ngày (đo 18 ngày tới 05/09: Mali
+bằng 0 ở 11 ngày) — mà cảnh báo kêu oan vài lần là hết ai đọc, lúc đó cổng chết thật. Huy muốn siết
+thêm hai chủ đề này thì nói, sửa `SAN_MOI_MUC`/`dem_muc` là đủ.
+
+**Sàn KHÔNG mở đường lách.** Khung ngày (hôm nay + hôm qua) và thang xác minh đứng TRÊN sàn: thiếu tin
+thì đi thêm nguồn, tuyệt đối không nạp tin ngoài khung hay tin một nguồn chưa đủ tư cách để cho đủ số.
+Đi hết nguồn mà vẫn hụt thì ghi vào `logs/scan-gaps.json` kèm lý do — cổng sẽ nhắn Telegram, và lý do
+ghi ở đó chính là câu trả lời cho tin nhắn ấy.
+
+**Số đo lúc chốt sàn** (18 ngày 18/08–05/09/2026, đếm theo `_addedDate` trên kho): mục Đối ngoại Mỹ
+dưới sàn 02 ngày · Nội bộ Mỹ 04 ngày · KHCN-QS 01 ngày · tiểu mục Úc 06 ngày · Biển Đông 01 ngày ·
+**tiểu mục Anh 14/18 ngày** (phạm vi Anh chỉ mở 01/09/2026, và 05/09 rỗng vì hai lỗi câm của
+`harvest.py`). Tức sàn này là một yêu cầu SIẾT THÊM chứ không phải mô tả hiện trạng — những ngày đầu
+cổng sẽ kêu, và tiếng kêu ấy là việc phải làm chứ không phải nhiễu.
+
+Cổng canh: `scripts/soi_muc_cam.py` (soi tay bằng `--san`), cắm trong `.github/scripts/canary.py`.
+Luật của cổng ở [`docs/luat/cong-kiem.md`](cong-kiem.md).

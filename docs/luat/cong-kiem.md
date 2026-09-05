@@ -157,3 +157,69 @@ bẩn** — retry chỉ chữa được lỗi *tạm thời* (mạng), không ch
 - **Lỗi này ngủ yên rất lâu rồi thức dậy vì lịch đổi**: trước 28/07 hai workflow cách nhau ~4
   tiếng, gộp phiên xong mới còn 7 giây. **Dồn hai việc vào cùng một mốc thì phải soi lại xem
   chúng có ghi chung file nào không** — đừng chỉ nghĩ về thời lượng.
+
+## 🕳 CỔNG «MỤC CÂM» — hỏi câu mà ba cổng cũ không cổng nào hỏi (dựng 05/09/2026)
+
+**Cơ chế gây vấp.** Sáng 05/09/2026 Huy hỏi *"sao điểm tin sáng nay không có tin của Anh vậy?"*. Hai
+lỗi câm trong `harvest.py` (ngày Atom `+01:00` bị cắt cụt · gán cứng chủ đề chỉ tra theo tên feed) đã
+sống từ 01/09 tới 05/09, qua ít nhất 08 phiên quét. Không cổng nào kêu, và cả ba cổng đều KHÔNG SAI —
+chúng chỉ hỏi câu khác:
+
+| Cổng | Câu nó hỏi | Trả lời hôm đó |
+|---|---|---|
+| `.github/scripts/canary.py` | bản tin có dựng ra và tới nơi không · web có lệch bản không | đạt |
+| `scripts/rss_check.py` | feed còn item không · bài mới nhất cách bao lâu | đạt (gov.uk 20 item, mới 13h) |
+| `HeThong/khoe.py` | routine có chạy không | đạt |
+
+Cả ba đo **quy trình** và đo **sự tồn tại**. Không cổng nào đo **nội dung đến được tay Huy**, nên một
+nguồn sống nhăn răng mà không đóng góp nổi một tin thì im lặng tuyệt đối. Người phát hiện là Huy, không
+phải máy — đó mới là lỗi cần vá, chứ không phải hai dòng mã kia.
+
+**Phép đo:** `scripts/soi_muc_cam.py`, cắm vào `canary.py` (hàm `canh_bao_muc_cam`), nhắn Telegram bằng
+đúng đường sẵn có. Tắt bằng `CANARY_BO_SOI_MUC=1` (chỉ dùng cho test offline).
+
+**BA LỚP, CỐ Ý RỜI NHAU** — chúng trả lời ba câu khác nhau, gộp lại là mất khả năng chẩn đoán:
+
+| Lớp | Đo gì | Kêu khi | Chạy ở ca |
+|---|---|---|---|
+| SÀN | bản tin ĐÃ GỬI, đếm theo 07 đơn vị của file Word | mục nào dưới `SAN_MOI_MUC` = 2 | `toi` + `sang` |
+| NGUỒN | mỗi feed trong bảng `CLAUDE.md`: tỷ lệ đọc được ngày · tỷ lệ neo chủ đề | feed ≥3 item mà 0 đọc được ngày · feed bảng KHAI chủ đề mà 0 item neo | `sang` (gọi mạng ~40s) |
+| GÁN CỨNG | khoá `FORCE_TOPIC`/`FORCE_TOPIC_URL` còn khớp feed nào không | có khoá mồ côi | mọi ca (offline) |
+
+⚠️ **Lớp GÁN CỨNG không thừa, đừng gộp vào lớp NGUỒN.** Nó bắt đúng kiểu hồi quy mà lớp đo mạng KHÔNG
+bắt được: gỡ gán cứng của gov.uk thì feed ấy vẫn còn 8/20 item tự neo bằng từ khoá, tức tỷ lệ neo không
+về 0 và không dòng nào kêu — trong khi 12/20 item đã rơi câm. Khoá mồ côi sinh ra khi sửa URL trong
+bảng, đổi tên nguồn, hay xoá nhầm một dòng; cả ba đều im lặng.
+
+**Bằng chứng lấy từ SỔ ĐÃ GỬI, không lấy từ `scan-gaps.json`.** Sổ gaps do chính agent quét tự khai —
+lời tự khai không phải phép đo, cùng lớp lỗi với trường `date` mà cổng `ngay_that.py` đã phải dựng
+riêng để chặn. Phép chia mục đi bằng chính `make_docx.build_sections`, không chép lại: mục mà cổng đếm
+phải là đúng mục Huy đọc trong file Word.
+
+**HAI CHỖ CỐ Ý KHÔNG KÊU** (siết thêm là biến cổng thành nguồn nhiễu, mà cảnh báo kêu oan vài lần là
+hết ai đọc):
+- Feed mà bảng nguồn đã ghi rõ **`(feed không ghi ngày)`** — Tuổi Trẻ · Báo Chính phủ · Nikkei Asia
+  (đo 05/09: 0/50 item có thẻ ngày, XML không có thẻ nào). Muốn tắt tiếng kêu thì phải GHI sự thật ấy
+  vào bảng trong `CLAUDE.md` — nơi người đọc nhìn thấy — chứ không phải nhét tên vào một danh sách
+  trắng trong mã.
+- Feed KHÔNG khai chủ đề ở bảng mà hôm nay 0 item neo được: BBC World, Africanews… vốn là nguồn rộng,
+  kêu vào đó là hàng chục dòng mỗi ngày.
+Và **đo không được thì im**: feed tải hỏng là việc của `kiem_nguon.py`/`rss_check.py`; sổ chưa có dòng
+gửi là việc của chính canary ở lớp một.
+
+**LƯỢT ĐO ĐẦU TIÊN ĐÃ TRẢ TIỀN NGAY (05/09/2026, 88 feed).** Bắt được 05 nguồn CHÍNH THỨC MỸ nằm trong
+bảng từ 27/07/2026 mà **chưa từng đóng góp một ứng viên nào**: Nhà Trắng Presidential Actions (30 item)
+· SEC (25) · FTC (10) · USTR (10) · BEA (11) — tổng 86 item sống, ngày đọc được 86/86, mà 0 item neo
+được chủ đề. Nguyên nhân giống hệt gov.uk: tiêu đề thông cáo không tự nhắc tên nước (*"Supporting
+America's Ranchers"*, *"GDP (Second Estimate) and Corporate Profits"*). Đã vá bằng 05 dòng
+`FORCE_TOPIC_URL` → `Nội bộ Mỹ`, tức đúng chủ đề mà `scan-gaps.json` hôm ấy đang báo thiếu (3/5 tin).
+
+**Bộ canh:** `tests/test-cong-muc-cam.py` — **22 ca (08 ca PHẢI CHẶN · 03 ca đầu-cuối) · `--tu-kiem`
+bắt 14/14 bản hỏng**, chạy hoàn toàn offline (feed giả bơm qua tham số `tai`, bảng nguồn giả qua
+`khai`, kho tin giả qua `data`), đã nạp `BO_TEST` của `HeThong/khoe.py`.
+
+⚠️ **Bẫy bắt được ngay lúc dựng, ghi ra để đừng vấp lại:** phép khẳng định trần `assert "Anh" in keu[0]`
+ĐẬU NHẦM, vì tên mục gộp là *"Địa bàn Australia và Anh, Biển Đông"* — nó chứa sẵn cả chuỗi `"Anh"` lẫn
+`"Biển Đông"`. Ca 05 lẽ ra phải đỏ trên bản hỏng "hạ sàn về 1 tin" mà vẫn xanh; chính `--tu-kiem` lôi
+ra. Nay mọi ca neo bằng `_neo(tm)` = `"› <tiểu mục>:"`. Bài học chung: tên mục dài chứa tên tiểu mục
+thì mọi phép khớp chuỗi con đều mất răng.

@@ -410,6 +410,32 @@ tiêu đề nghi trùng.
 - Chủ đề nào **<5 bài trong 24h** → giao thêm agent cho riêng chủ đề đó với khung **48h**; vẫn thiếu thì
   CHẤP NHẬN (ghi rõ trong tóm tắt), KHÔNG bịa/nhồi. Không lặp vô hạn — 1–2 vòng bổ sung là đủ.
 
+⛔ **SÀN CỨNG 02 TIN MỖI MỤC — chỉ thị Huy 05/09/2026**, nguyên văn: *"tối thiểu mỗi mục phải quét cho
+tao 2 tin"*, *"nhiều tin thì càng tốt"*. Đây là SÀN chứ không phải chỉ tiêu: vượt bao nhiêu cũng tốt,
+dưới là hụt. Câu *"vẫn thiếu thì CHẤP NHẬN"* ở gạch đầu dòng trên nay CHỈ còn áp cho khoảng 2→5 bài;
+**dưới 02 tin thì chưa được chấp nhận**, phải đi thêm một vòng nguồn nữa trước khi chốt lô.
+
+**Đếm theo 07 ĐƠN VỊ của bản tin Huy đọc, không phải theo 05 chủ đề quét** — vì mục Huy nhìn thấy là
+mục trong file Word, và chính chỗ lệch ấy làm lỗi lọt sáng 05/09/2026: mục "Địa bàn" hôm đó có 02 tin
+nên đếm theo chủ đề thì "đủ", trong khi tiểu mục **Anh bằng 0** — đúng thứ Huy hỏi.
+
+| Đơn vị | Sàn | Lấy tin từ đâu |
+|---|---|---|
+| 1. Đối ngoại Mỹ | 2 | chủ đề 1 (usNews không khí tài, có neo đối ngoại) |
+| 2. Nội bộ Mỹ | 2 | chủ đề 1 (phần còn lại) |
+| 3a. Địa bàn › **Anh** | 2 | chủ đề 2, nhánh Anh — quốc phòng · kinh tế · chính trường · đối ngoại |
+| 3b. Địa bàn › **Australia** | 2 | chủ đề 2, nhánh Úc |
+| 3c. Địa bàn › **Biển Đông** | 2 | chủ đề 2, phần còn lại |
+| 4. KHCN-QS | 2 | chủ đề 3 + diễn biến tập trận |
+
+- Ranh giới mục là ranh giới của `make_docx.build_sections`, không phải cảm tính: soi thử bằng
+  `python3 scripts/soi_muc_cam.py --san --buoi toi` (hoặc `--buoi sang`) sau khi đã `add_news.py`.
+- Mục nào vẫn dưới sàn sau vòng bổ sung thì **ghi rõ vào `logs/scan-gaps.json`** với `min` của chính
+  mục đó và `reason` nêu đã đi những nguồn nào — cổng canary sẽ nhắn Telegram, nên lý do ghi ở đây là
+  thứ trả lời cho tin nhắn ấy.
+- ⛔ Sàn KHÔNG mở đường lách khung ngày hay thang xác minh. Thiếu tin thì đi thêm nguồn, tuyệt đối
+  không nạp tin ngoài khung hay tin một nguồn chưa đủ tư cách để cho đủ số.
+
 ## Bước 4b — Ghi `logs/scan-gaps.json` (BẮT BUỘC — bản tin gửi đi lấy mục "Chủ đề thiếu và lý do" từ đây)
 Chỉ thị Huy 25/07/2026: **bản tin gửi đi phải ghi cả chủ đề thiếu VÀ lý do**. Lý do là kiến thức của
 phiên quét, GitHub Action không tự suy ra được → phiên quét phải ghi ra file, khâu gửi đọc file đó và

@@ -186,6 +186,20 @@ FORCE_TOPIC_URL = {
     "gov.uk/search/news-and-communications.atom": "Úc & Biển Đông",
     "ukdefencejournal.org.uk": "Úc & Biển Đông",
     "navylookout.com": "Úc & Biển Đông",
+    # ── 05 NGUỒN CHÍNH THỨC MỸ, thêm 05/09/2026 sau khi `scripts/soi_muc_cam.py` đo lần
+    # đầu và bắt được đúng hình dạng câm đã tả ở trên. Số đo hôm ấy: Nhà Trắng 30 item ·
+    # SEC 25 · FTC 10 · USTR 10 · BEA 11 — tổng 86 item sống, ngày đọc được 86/86, mà
+    # **0 item neo được chủ đề nào**, tức 05 nguồn tầng 1 nằm trong bảng từ 27/07/2026 mà
+    # chưa từng đóng góp một ứng viên nào. Nguyên nhân giống hệt gov.uk: tiêu đề thông cáo
+    # không tự nhắc tên nước ("Supporting America's Ranchers", "SEC Charges San Francisco
+    # Bay Area Private Fund Executives", "GDP (Second Estimate) and Corporate Profits").
+    # Cả 05 đều là feed của MỘT cơ quan liên bang Mỹ, mọi item đều là hành động của chính
+    # quyền Mỹ — đúng điều kiện "chuyên một chủ đề" nói ở trên, không phải feed trộn.
+    "whitehouse.gov/presidential-actions": "Nội bộ Mỹ",
+    "sec.gov/news/pressreleases": "Nội bộ Mỹ",
+    "ftc.gov/feeds/press-release": "Nội bộ Mỹ",
+    "ustr.gov/rss.xml": "Nội bộ Mỹ",
+    "bea.gov/news/rss": "Nội bộ Mỹ",
 }
 
 

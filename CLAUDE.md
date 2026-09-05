@@ -94,6 +94,19 @@ cách nhau một tháng cho cùng tỷ lệ (2,0% và 3,7%), tức lỗ này m�
   của `HeThong/khoe.py`. Nghiệm thu qua mạng thật 25/08: lô mang đúng URL bài SCMP 2024 bị
   chặn với thông điệp `bài đăng THẬT ngày 2024-12-21 (đọc bằng datePublished)`.
 
+⛔ **SÀN 02 TIN MỖI MỤC + CỔNG «MỤC CÂM» — chốt 05/09/2026, đừng gỡ.** Huy: *"tối thiểu mỗi mục
+phải quét cho tao 2 tin"*, *"nhiều tin thì càng tốt"*. Đếm theo **07 đơn vị của file Word**, không
+theo 05 chủ đề: Đối ngoại Mỹ · Nội bộ Mỹ · Địa bàn ›Anh · ›Australia · ›Biển Đông · KHCN-QS (Mali và
+Tập trận cố ý không mang sàn). Đếm gộp mục Địa bàn là che đúng lỗi sáng 05/09: mục đủ 02 tin mà tiểu
+mục **Anh bằng 0**. Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì đi thêm nguồn, hết
+nguồn thì ghi `logs/scan-gaps.json`.
+Cổng: `scripts/soi_muc_cam.py` (soi tay `--san` · `--feed`), cắm trong `.github/scripts/canary.py`.
+Ba lớp: SÀN (bản tin đã gửi) · NGUỒN (feed sống mà mọi item ra ngày `?`, hoặc bảng khai chủ đề mà 0
+item neo) · GÁN CỨNG (khoá `FORCE_TOPIC*` mồ côi). Lượt đo đầu bắt 05 nguồn chính thức Mỹ nằm trong
+bảng từ 27/07 mà chưa từng cho một ứng viên nào. Bộ canh `tests/test-cong-muc-cam.py` — **22 ca (08
+PHẢI CHẶN) · `--tu-kiem` bắt 14/14 bản hỏng**, đã nạp `BO_TEST`. Đầy đủ: `docs/luat/cong-kiem.md` và
+`docs/luat/pham-vi-quet.md`.
+
 ## 🗺️ LUẬT ĐÃ XẺ RA 07 FILE — mở đúng file trước khi sửa (xẻ 25/08/2026)
 
 File này là **bản thi hành**: chỉ giữ luật phải-làm, đường dẫn, ngưỡng số, và bảng nguồn mà máy đọc.
@@ -105,7 +118,7 @@ nào**. Trước khi sửa một mảng thì mở file của mảng đó, đừn
 | Phạm vi quét, chủ đề, khung ngày, kiến trúc agent, khoá phiên, guardrail nạp tin | [`docs/luat/pham-vi-quet.md`](docs/luat/pham-vi-quet.md) | Tin không tự neo được vào chủ đề thì BỎ, cấm dồn vào mục "Úc & Biển Đông"; phiên test hạ tầng phải khai `DIEMTIN_PHIEN_TEST=1` |
 | Khâu gửi: file Word, sổ đã gửi, cổng bắn notify, email | [`docs/luat/gui-ban-tin.md`](docs/luat/gui-ban-tin.md) | **FORM .docx bám mẫu cơ quan `ĐTN_M_01.9.2026.docx` (01/09/2026): 04 mục `(N) …`, mục 3 chia 03 tiểu mục, tin mở bằng `Ngày d.M.yyyy,`, link CÙNG đoạn, khổ A4 lề 1,0"**; email đã tắt (`GUI_EMAIL='0'`) nên `.docx` là kênh DUY NHẤT mang nội dung; bản tối phải bỏ tin ca sáng cùng ngày, bản sáng phải GỘP tin ca tối hôm qua (26/08/2026) |
 | Telegram: gửi bản tin, canary, bot hỏi–đáp, đường nhận file của Jay Lâm | [`docs/luat/telegram.md`](docs/luat/telegram.md) | Thiếu secret Telegram là job ĐỎ, cấm thoát êm; canary chỉ nhắn cho Huy; token để NGOÀI repo (`/Users/Huy/Claude/.tg-bot.json`, chmod 600) |
-| Thêm hoặc sửa cổng kiểm, chạy bộ test | [`docs/luat/cong-kiem.md`](docs/luat/cong-kiem.md) | Test xanh chưa đủ — phải chạy `--tu-kiem` chứng minh bắt được bản hỏng; **sửa chính `CLAUDE.md` cũng phải chạy test** vì file này LÀ cấu hình |
+| Thêm hoặc sửa cổng kiểm, chạy bộ test | [`docs/luat/cong-kiem.md`](docs/luat/cong-kiem.md) | Cổng «mục câm» đo NỘI DUNG tới tay Huy, ba cổng cũ chỉ đo quy trình; test xanh chưa đủ — phải chạy `--tu-kiem` chứng minh bắt được bản hỏng; **sửa chính `CLAUDE.md` cũng phải chạy test** vì file này LÀ cấu hình |
 | Nạp tin, tập trận, sự kiện ngoại giao vào kho | [`docs/luat/kho-du-lieu.md`](docs/luat/kho-du-lieu.md) | Sửa `dates`/`status` của cuộc đã nạp phải đi bằng `scripts/sua_thong_tin_tap_tran.py`, cấm sửa tay và cấm bịa ngày kết thúc |
 | Nguồn think-tank, kho `analyses`, cân đối khu vực, dò feed còn thiếu | [`docs/luat/think-tank.md`](docs/luat/think-tank.md) | `DATA.analyses` trong `index.html` phải LUÔN RỖNG (kho thật ở `data/analyses.json`); feed sống và feed chết cùng trả mã 200, phải đọc `pubDate` mới phân biệt |
 | Log, tự phục hồi, Báo Mới, cổng bài được 👍, Google Drive, tab Cà phê | [`docs/luat/van-hanh.md`](docs/luat/van-hanh.md) | Tin Báo Mới phải truy ngược về nguồn gốc trước khi nạp |
@@ -340,7 +353,7 @@ này (server trả gzip, parse ra nhị phân). Đừng gạch một nguồn khi
 ### ĐÃ SỬA URL — URL cũ trong bảng này trả 404 / XML rỗng
 | Nguồn | URL cũ (SAI) | URL ĐÚNG | Kiểm 22/07 |
 |---|---|---|---|
-| Nikkei Asia | `https://asia.nikkei.com/rss` → 404 | https://asia.nikkei.com/rss/feed/nar | 50 item |
+| Nikkei Asia | `https://asia.nikkei.com/rss` → 404 | https://asia.nikkei.com/rss/feed/nar | 50 item (feed không ghi ngày) |
 | VnEconomy | `https://vneconomy.vn/rss/home.rss` → XML rỗng | https://vneconomy.vn/tin-moi.rss | 50 item, mới 4h |
 | Dân Trí | `http://dantri.com.vn/Thegioi.rss` → 404 | https://dantri.com.vn/rss/the-gioi.rss | 100 item, mới 2h |
 
@@ -660,9 +673,8 @@ trong bảng, trang trả 200, mà nó không bao giờ đóng góp một ứng 
   lại** ghi chú cũ "uỷ ban Thượng viện 403, chỉ WebSearch được" — sai vì chỉ đo ở local.
 - **3 domain CHỈ local đọc được** (CI bị 403): `axios.com`, `flightglobal.com`, `rappler.com` → phiên CI
   sẽ hụt 3 nguồn này, bù bằng Google News/local.
-- ~~**16 domain cả hai chịu**~~ → **CON SỐ NÀY SAI, xem mục đo lại ngay dưới.** Danh sách cũ:
-  bls.gov, commerce.gov, defense.gov, dhs.gov, eda.gov, nsa.gov, ntia.gov, transportation.gov,
-  usda.gov, senate.gov, và 6 trang quân chủng navy/marines/centcom/pacom/jcs/uscg.
+- ~~**16 domain cả hai chịu**~~ → **CON SỐ NÀY SAI**, xem mục đo lại ngay dưới (danh sách cũ đã bỏ:
+  nó dựng bằng curl trần nên phóng đại 403, và 06 trang quân chủng trong đó nay đã vào bảng HTML).
 
 #### 🔄 ĐO LẠI 30/07/2026 BẰNG CÔNG CỤ ĐÃ VÁ — bảng số trên dựng bằng curl TRẦN nên phóng đại "403"
 Toàn bộ ảnh chụp 27/07 ở trên đo bằng `curl` trần, tức nó **không phân biệt được nguồn bị chặn THẬT

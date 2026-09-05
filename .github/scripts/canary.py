@@ -270,6 +270,64 @@ def ban_mong_doi(trong_repo) -> tuple[bytes, str]:
         return raw, "bản thô (không dựng lại được)"
 
 
+# ---------------------------------------------------------------------------
+# LỚP ĐO THỨ BA (05/09/2026): MỤC CÂM — "mục này đáng lẽ có tin, sao rỗng?"
+# ---------------------------------------------------------------------------
+# Vì sao phải có: hai lớp trên hỏi bản tin CÓ TỚI NƠI KHÔNG, không lớp nào hỏi TRONG BẢN TIN
+# CÓ GÌ. Sáng 05/09/2026 Huy hỏi "sao điểm tin sáng nay không có tin của Anh vậy?" — hai lỗi
+# câm trong harvest.py (ngày Atom `+01:00` bị cắt cụt · gán cứng chủ đề chỉ tra theo tên feed)
+# đã sống từ 01/09, qua ít nhất 08 phiên quét, mà canary im, rss_check im, khoe.py im: cả ba
+# đều báo đạt vì cả ba đều đúng phạm vi của mình. Người phát hiện là Huy, không phải máy.
+# Phép đo và toàn bộ lý lẽ nằm ở `scripts/soi_muc_cam.py` — ở đây CHỈ gọi, không chép logic.
+# Hỏng trong lớp này KHÔNG được làm canary chết: nó là lớp thêm, còn hai lớp kia là lý do
+# canary tồn tại. Tắt bằng CANARY_BO_SOI_MUC=1 (dùng cho test offline).
+
+
+def _soi_muc():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import soi_muc_cam  # noqa: PLC0415
+    return soi_muc_cam
+
+
+def canh_bao_muc_cam(ca: str, o: str, lan: dict | None) -> list:
+    """Dòng cảnh báo của lớp MỤC CÂM. Rỗng = không có gì để kêu.
+
+    Lớp SÀN chỉ chạy khi sổ ĐÃ có dòng gửi: bản tin chưa đi thì canary đã kêu ở lớp một rồi,
+    kêu thêm "mọi mục 0 tin" là hai tin nhắn cho cùng một sự cố.
+    Lớp NGUỒN gọi mạng ~40 giây nên chỉ chạy ca `sang`, một lượt mỗi ngày — feed hỏng cách
+    hôm nay vài giờ hay vài chục giờ thì cũng cùng một việc phải làm, không đáng ba lượt.
+    """
+    if os.environ.get("CANARY_BO_SOI_MUC") == "1":
+        return []
+    ra = []
+    try:
+        S = _soi_muc()
+    except Exception as e:                                             # noqa: BLE001
+        print(f"[canary] không nạp được soi_muc_cam ({e}) — bỏ lớp mục câm", file=sys.stderr)
+        return []
+    if lan is not None:
+        try:
+            dem = S.dem_muc(lan.get("urls") or [])
+            print("[canary] sàn mục: "
+                  + " · ".join(f"{t.split('› ')[-1]}={n}" for t, n in dem))
+            ra += S.keu_san(dem)
+        except Exception as e:                                         # noqa: BLE001
+            print(f"[canary] lớp sàn hỏng ({e}) — bỏ qua", file=sys.stderr)
+    try:
+        ra += S.khai_gan_cung_tuot()
+    except Exception as e:                                             # noqa: BLE001
+        print(f"[canary] lớp gán cứng hỏng ({e}) — bỏ qua", file=sys.stderr)
+    if ca == "sang":
+        try:
+            kq = S.soi_feed()
+            print(f"[canary] soi {len(kq)} feed "
+                  f"(tải được {sum(1 for r in kq if not r['loi'] and r['n'])})")
+            ra += S.keu_feed(kq)
+        except Exception as e:                                         # noqa: BLE001
+            print(f"[canary] lớp nguồn hỏng ({e}) — bỏ qua", file=sys.stderr)
+    return ra
+
+
 def ngoai_khung_gio(o: str, luc: str) -> str:
     """Lần gửi này có nằm ngoài khung giờ của ca không. Chuỗi rỗng = đúng giờ.
 
@@ -348,8 +406,19 @@ def main() -> int:
                        f"báo đạt; chỉ giờ nhận là sai.\n\n"
                        f"Soi: python3 scripts/do_gio_ban_tin.py") + loi_web
         print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get('luc')} "
-              f"({len(lan.get('urls') or [])} tin) — im lặng.")
-        return loi_web
+              f"({len(lan.get('urls') or [])} tin).")
+        # Bản tin tới nơi CHƯA CÓ NGHĨA LÀ ĐỦ — soi tiếp từng mục (xem `canh_bao_muc_cam`).
+        canh = canh_bao_muc_cam(args.ca, o, lan)
+        if not canh:
+            print("[canary] mọi mục đủ sàn — im lặng.")
+            return loi_web
+        for c in canh:
+            print(f"::warning::canary mục câm: {c.splitlines()[0]}")
+        return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng CÓ MỤC HỤT.\n\n"
+                   + "\n\n".join(canh)
+                   + f"\n\nSàn Huy chốt 05/09/2026: mỗi mục tối thiểu "
+                     f"{_soi_muc().SAN_MOI_MUC} tin.\n"
+                     f"Soi: python3 scripts/soi_muc_cam.py") + loi_web
 
     xong, mota = trang_thai_quet(pipeline, o, ngay)
     if xong:
