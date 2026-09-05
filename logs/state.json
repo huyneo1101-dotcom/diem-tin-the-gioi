@@ -9,23 +9,23 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-05T04:03:40+07:00",
+    "lastRunAt": "2026-09-05T04:36:59+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "Vá lỗi: phiên local đã quét xong luc 03:13-03:32 (Cap nhat ban tin 05/09: +15 tin, Telegram thanh cong, Pages da dung lai) nhung khong push duoc logs/state.json nen co RUNNING/stale. CI khong quet lai, chi sua co cho dung thuc te.",
+    "lastStatus": "FAIL",
+    "note": "repo co viec do chua commit: docs/ung-vien-ci.json, logs/state.json (NONG <90 phut, pull --rebase bi chan, khong dam tu y bo)",
     "lastSuccess": {
       "toi": "2026-09-03",
       "sang": "2026-09-05"
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-05T04:13:01+07:00",
+    "lastRunAt": "2026-09-04T04:31:15+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "+1 tap tran moi (Veer Guardian 2026), +4 bai think-tank",
+    "note": "+1 tap tran moi (Yama Sakura 91), +4 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-05"
+      "sang": "2026-09-04"
     }
   }
 }
