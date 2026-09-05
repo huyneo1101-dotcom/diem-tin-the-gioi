@@ -170,6 +170,35 @@ FORCE_TOPIC = {
     "DoD News Releases": "CNQS Mỹ",
 }
 
+# Gán cứng chủ đề theo URL feed — cho những nguồn mà MỌI bài đều thuộc một chủ đề,
+# nhưng tiêu đề không tự nhắc tên nước nên `match_topic` không neo được.
+# ⛔ Vá 05/09/2026, đừng gỡ. Đo thật trên feed Atom Bộ Quốc phòng Anh: 20 item, chỉ 8
+# item có chữ "UK"/"British"/"Royal Navy" ngay trong tiêu đề, 12 item còn lại rơi câm
+# ("Key milestone reached for future Navy support ship", "Fast-paced funding for
+# force-protection innovation", "CDLS Industry Commendations 2026"...). Đây là cùng một
+# bệnh đã bắt được ở feed DoD Contracts ("Contracts for July 24, 2026" không chứa từ
+# khoá nào) — chữa bằng cùng một thuốc. Tra theo URL chứ không theo tên vì tên trong
+# bảng CLAUDE.md có đánh dấu in đậm, sửa bảng là hỏng câm.
+# ⚠️ CHỈ nguồn chuyên một chủ đề mới được vào đây. BBC News UK và Guardian Politics
+# CỐ Ý đứng ngoài: hai feed đó trộn thể thao, tội phạm địa phương, giải trí — gán cứng
+# là kéo cả rác vào chủ đề.
+FORCE_TOPIC_URL = {
+    "gov.uk/search/news-and-communications.atom": "Úc & Biển Đông",
+    "ukdefencejournal.org.uk": "Úc & Biển Đông",
+    "navylookout.com": "Úc & Biển Đông",
+}
+
+
+def forced_topic(name: str, url: str):
+    """Chủ đề gán cứng cho một feed, tra theo tên trước rồi tới URL."""
+    t = FORCE_TOPIC.get(name)
+    if t:
+        return t
+    for manh, chu_de in FORCE_TOPIC_URL.items():
+        if manh in (url or ""):
+            return chu_de
+    return None
+
 
 def _daykey(s: str) -> int:
     """'2026-07-27' -> 20260727 để sắp xếp; '?' -> 0."""
@@ -415,15 +444,33 @@ def feeds_from_claude_md():
 
 
 def parse_date(raw: str):
+    """Ngày đăng của một item feed, quy về múi giờ VN.
+
+    ⛔ KHÔNG CẮT CHUỖI THEO ĐỘ DÀI CỐ ĐỊNH — đã vá 05/09/2026, đừng đưa lại.
+    Bản cũ cắt `raw[:24]` theo mẫu `2026-07-27T00:00:00+0000` rồi mới đưa vào
+    `strptime`. Múi giờ Atom viết dạng có dấu hai chấm (`+01:00`) dài 25 ký tự,
+    nên bị cắt cụt thành `...+01:0` và `%z` trượt → hàm trả None. Hậu quả đo được
+    05/09/2026: toàn bộ 20 item của feed Atom Bộ Quốc phòng Anh (gov.uk) — nguồn
+    chính thức tầng 1 của tin nước Anh — luôn ra ngày "?", nên mọi phiên quét đều
+    coi là không rõ ngày rồi loại; chủ đề "Úc, Anh & Biển Đông" mất nguồn Anh
+    chính thức mà không phát ra tiếng nào. Đường đúng: `fromisoformat` trước
+    (Python 3.11+ đọc được cả `Z` lẫn `+01:00`), `strptime` chỉ còn làm lưới hứng.
+    """
     if not raw:
         return None
+    raw = raw.strip()
     try:
         return email.utils.parsedate_to_datetime(raw).astimezone(VN).date()
     except Exception:
         pass
+    try:
+        d = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00"))
+        return d.astimezone(VN).date() if d.tzinfo else d.date()
+    except Exception:
+        pass
     for fmt in ("%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%d"):
         try:
-            d = datetime.datetime.strptime(raw.strip()[:len("2026-07-27T00:00:00+0000")], fmt)
+            d = datetime.datetime.strptime(raw[:len("2026-07-27T00:00:00+0000")], fmt)
             if d.tzinfo:
                 return d.astimezone(VN).date()
             return d.date()
@@ -614,7 +661,7 @@ def harvest_rss(window):
     feeds = feeds_from_claude_md()
     print(f"[RSS] quét {len(feeds)} feed từ bảng trong CLAUDE.md...", file=sys.stderr)
     for name, url in feeds:
-        forced = FORCE_TOPIC.get(name)
+        forced = forced_topic(name, url)
         raw = items_of(curl(url))
         # Đếm item THÔ, trước mọi bộ lọc. Phân biệt hai chuyện khác hẳn nhau mà nhìn kết
         # quả cuối thì giống hệt: feed CHẾT (0 item) khác feed sống mà hôm nay không có

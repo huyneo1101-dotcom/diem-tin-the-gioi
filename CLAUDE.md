@@ -377,6 +377,21 @@ nguồn xem Phụ lục trong `.claude/skills/quet-tin/SKILL.md`.
 | **GOV.UK — Bộ Quốc phòng Anh** | https://www.gov.uk/search/news-and-communications.atom?organisations%5B%5D=ministry-of-defence | 20 item Atom, mới 13h (đo 01/09/2026) |
 | **BBC News UK** | https://feeds.bbci.co.uk/news/uk/rss.xml | 28 item, mới 7h (đo 01/09/2026) |
 | **The Guardian — Politics (Anh)** | https://www.theguardian.com/politics/rss | 21 item, mới 7h (đo 01/09/2026) |
+
+⛔ **TIN NƯỚC ANH TỪNG RỖNG CÂM VÌ HAI LỖI CHỒNG NHAU — vá 05/09/2026, đừng gỡ.** Huy hỏi
+*"sao điểm tin sáng nay không có tin của Anh vậy?"*: bản tin sáng 05/09 mục chủ đề 2 có 02 tin,
+không tin nào về Anh, trong khi cùng lúc đo được 06 ứng viên Anh ngày 04/09 hợp khung.
+(i) `harvest.parse_date` cắt chuỗi theo độ dài cố định 24 ký tự theo mẫu `+0000`, nên múi giờ
+Atom viết có dấu hai chấm (`+01:00`, dài 25) bị cụt và `%z` trượt — **20/20 item của feed Bộ
+Quốc phòng Anh ra ngày `?`** rồi bị agent loại vì không rõ ngày, phiên nào cũng vậy. Vá bằng
+`fromisoformat` đứng trước, `strptime` lùi xuống làm lưới hứng. (ii) Gán cứng chủ đề chỉ tra
+theo TÊN feed nên 12/20 item gov.uk không tự nhắc "UK"/"British" trong tiêu đề thì rơi hẳn
+(*"Key milestone reached for future Navy support ship"*, *"CDLS Industry Commendations 2026"*)
+— vá bằng `FORCE_TOPIC_URL` tra theo URL cho 03 nguồn chuyên tin Anh (gov.uk MoD · UK Defence
+Journal · Navy Lookout). ⚠️ **BBC News UK và Guardian Politics CỐ Ý đứng ngoài bảng gán cứng**
+— hai feed đó trộn thể thao, tội phạm địa phương, giải trí; gán cứng là kéo rác vào chủ đề.
+Bộ canh: `tests/test-ngay-feed-va-gan-chu-de.py` — **14 ca (07 ca PHẢI CHẶN) · `--tu-kiem` bắt
+6/6 bản hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`.
 | Rappler | https://www.rappler.com/feed/ | 10 item |
 | Philstar (headlines) | https://www.philstar.com/rss/headlines | 10 item |
 | Inquirer | https://www.inquirer.net/fullfeed/ | 20 item |
