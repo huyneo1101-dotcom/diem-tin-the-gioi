@@ -234,6 +234,77 @@ def ca_10():
         f"chủ đề in ra bảng mà chưa khai thứ tự: {sorted(in_bang - set(HV.UU_TIEN_CHU_DE))}"
 
 
+def _uv_ngay(chu_de, ngay, tieu_de, url=None):
+    return {"lop": "RSS", "chu_de": chu_de, "ngay": ngay, "tieu_de": tieu_de,
+            "nguon": "X", "url": url or f"https://x.test/{abs(hash(tieu_de))}"}
+
+
+def ca_11():
+    """PHẢI CHẶN — tin ngày `?` KHÔNG được leo lên đầu danh sách in cho agent.
+
+    Lỗi thật 05/09/2026: `sorted(lst, key=lambda x: x["ngay"], reverse=True)` sắp theo CHUỖI,
+    mà `?` (0x3F) > `2` (0x32) nên mọi tin không đọc được ngày đứng TRƯỚC mọi tin có ngày —
+    đúng nhóm agent loại thẳng. Đo trên lô thật phiên tối 05/09: 13/20 slot của chủ đề 2 bị
+    tin ngày `?` chiếm, chỉ còn 07 slot cho tin có ngày thật.
+    """
+    lo = [_uv_ngay("CNQS Mỹ", "?", f"Tin khong ro ngay {i}") for i in range(5)]
+    lo += [_uv_ngay("CNQS Mỹ", "2026-09-05", "Tin hom nay"),
+           _uv_ngay("CNQS Mỹ", "2026-09-04", "Tin hom qua")]
+    od = HV.sap_ung_vien("CNQS Mỹ", lo)
+    assert od[0]["ngay"] == "2026-09-05" and od[1]["ngay"] == "2026-09-04", \
+        f"tin có ngày phải đứng trước, đang là {[h['ngay'] for h in od[:3]]}"
+    assert all(h["ngay"] == "?" for h in od[-5:]), [h["ngay"] for h in od]
+
+
+def ca_12():
+    """PHẢI CHẶN — nhánh Anh thưa tin không được nhánh Biển Đông đăng dày dìm khỏi trần in.
+
+    Sửa phép sắp xếp thôi KHÔNG cứu: đo lại lô thật 05/09 sau khi chỉ sửa sort, hai bài UK
+    Defence Journal chỉ nhích từ hạng 37-38 lên 24-25/46 — vẫn ngoài trần `PER_TOPIC_CAP`.
+    Ca dựng đúng hình dạng đó: 30 tin Biển Đông hôm nay, 02 tin Anh hôm qua.
+    """
+    lo = [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05",
+                   f"Philippines patrol in South China Sea number {i}") for i in range(30)]
+    lo += [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-04", "British aircraft carrier deploys"),
+           _uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-04", "Royal Navy warship fires near Falklands")]
+    od = HV.sap_ung_vien(HV.CHU_DE_DIA_BAN, lo)
+    hang = [i for i, h in enumerate(od[:HV.PER_TOPIC_CAP])
+            if HV.nhanh_dia_ban(h["tieu_de"]) == "Anh"]
+    assert len(hang) == 2, \
+        f"02 tin Anh phải lọt trần in {HV.PER_TOPIC_CAP}, chỉ lọt {len(hang)} — agent không "
+    "nhìn thấy thì không có cách nào nạp, và sàn 02 tin mỗi mục đổ ngay tại đây"
+
+
+def ca_13():
+    """Đối chứng — hạn ngạch KHÔNG được lật ngược thành nhánh thưa chiếm hết chỗ.
+
+    Nhánh cạn bài phải tự nhường phần còn lại, không cấp phát cứng: lô chỉ có 01 tin Anh thì
+    19 slot còn lại vẫn thuộc về hai nhánh kia.
+    """
+    lo = [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05", f"South China Sea patrol {i}")
+          for i in range(30)]
+    lo += [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05", "British carrier deploys")]
+    od = HV.sap_ung_vien(HV.CHU_DE_DIA_BAN, lo)[:HV.PER_TOPIC_CAP]
+    assert sum(1 for h in od if HV.nhanh_dia_ban(h["tieu_de"]) == "Anh") == 1, \
+        "chỉ có 01 tin Anh mà chiếm hơn 01 slot"
+    assert len(od) == HV.PER_TOPIC_CAP, f"mất slot: {len(od)}"
+
+
+def ca_14():
+    """Nhánh địa bàn dùng CHUNG phép neo với tầng xuất bản, Úc giành trước Anh.
+
+    Tin AUKUS dính cả hai nước phải về nhánh Australia — y hệt `make_docx.tieu_muc_dia_ban`.
+    Lệch nhau thì hạn ngạch ở tầng quét cấp cho một nhánh, còn file Word in ra nhánh khác.
+    """
+    # Fixture PHẢI khớp cả hai phép neo, nếu không ca mất răng: "UK" trần KHÔNG khớp
+    # `neo_anh` (cố ý — hai chữ đó khớp bậy khắp nơi), nên câu có "UK" mà không có
+    # "Britain"/"British" chỉ khớp nhánh Úc và đảo thứ tự giành cũng ra cùng kết quả.
+    # `--tu-kiem` bắt đúng chỗ này lúc dựng: bản hỏng đảo thứ tự vẫn để ca 14 xanh.
+    assert HV.nhanh_dia_ban("Australia and Britain sign AUKUS submarine deal") == "Australia"
+    assert HV.nhanh_dia_ban("Royal Navy frigate visits Cambodia") == "Anh"
+    assert HV.nhanh_dia_ban("Chinese coast guard at Scarborough Shoal") == "Biển Đông"
+
+
 CA = [
     ("[01] PHẢI CHẶN: tin Pitch Black không bị chủ đề 02 ăn mất", ca_01),
     ("[02] sort ổn định trong cùng chủ đề", ca_02),
@@ -245,6 +316,10 @@ CA = [
     ("[08] PHẢI CHẶN: mọi chủ đề có truy vấn đều đã khai thứ tự", ca_08),
     ("[09] đối chứng: tin Biển Đông thuần vẫn ở chủ đề 02", ca_09),
     ("[10] PHẢI CHẶN: tên chủ đề khớp bảng in cuối main()", ca_10),
+    ("[11] PHẢI CHẶN: tin ngày '?' không leo lên đầu danh sách in", ca_11),
+    ("[12] PHẢI CHẶN: nhánh Anh thưa tin vẫn lọt trần in", ca_12),
+    ("[13] đối chứng: nhánh cạn bài tự nhường slot, không cấp phát cứng", ca_13),
+    ("[14] nhánh địa bàn dùng chung phép neo với tầng xuất bản", ca_14),
 ]
 
 
@@ -252,6 +327,20 @@ CA = [
 # Mỗi dòng: (nhãn, (chuỗi tìm, chuỗi thay), các ca PHẢI ĐỎ).
 # Neo kèm dòng liền kề để không khớp nhầm chỗ khác trong harvest.py.
 BAN_HONG = [
+    ("sắp ứng viên theo CHUỖI ngày như bản cũ (tin ngày '?' leo lên đầu)",
+     ('    return sorted(lst, key=lambda x: (x["ngay"] == "?", -_daykey(x["ngay"])))',
+      '    return sorted(lst, key=lambda x: x["ngay"], reverse=True)'),
+     [11]),
+    ("bỏ hạn ngạch nhánh địa bàn, xếp thuần theo ngày (nhánh Anh bị dìm)",
+     ("    if topic == CHU_DE_DIA_BAN:\n        theo_nhanh = {n: [] for n in NHANH_DIA_BAN}",
+      "    if False:\n        theo_nhanh = {n: [] for n in NHANH_DIA_BAN}"),
+     [12]),
+    ("nhánh địa bàn giành Anh TRƯỚC Úc (lệch tầng xuất bản, tin AUKUS rơi nhánh Anh)",
+     ('    if neo_uc(tieu_de):\n        return "Australia"\n'
+      '    if neo_anh(tieu_de):\n        return "Anh"',
+      '    if neo_anh(tieu_de):\n        return "Anh"\n'
+      '    if neo_uc(tieu_de):\n        return "Australia"'),
+     [14]),
     ("gỡ lời gọi uu_tien_chu_de khỏi main()",
      ("    hits = uu_tien_chu_de(hits)\n    out, seen = [], set()",
       "    out, seen = [], set()"),

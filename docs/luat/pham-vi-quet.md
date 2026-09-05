@@ -613,3 +613,52 @@ cổng sẽ kêu, và tiếng kêu ấy là việc phải làm chứ không ph�
 
 Cổng canh: `scripts/soi_muc_cam.py` (soi tay bằng `--san`), cắm trong `.github/scripts/canary.py`.
 Luật của cổng ở [`docs/luat/cong-kiem.md`](cong-kiem.md).
+
+## ⛔ THỨ TỰ IN ỨNG VIÊN QUYẾT ĐỊNH AGENT NHÌN THẤY GÌ — vá 05/09/2026, đừng gỡ
+
+Huy hỏi: *"sao nhiều tin vậy mà mày lấy có 1 tin"* (mục Anh bản tin tối 05/09 có 01 tin, trong khi UK
+Defence Journal có 10/10 bài trong khung ngày). Truy ra: **agent chưa từng nhìn thấy hai bài đó.** Không
+phải agent bỏ tin, mà danh sách ứng viên không đưa tới. Ba tầng chồng nhau, tầng gốc là một dòng sắp xếp.
+
+**Tầng 1 — sắp theo CHUỖI ngày đẩy tin ngày `?` LÊN ĐẦU.** Bản cũ:
+`sorted(lst, key=lambda x: x["ngay"], reverse=True)`. `ngay` là chuỗi, tin không đọc được ngày mang giá
+trị `"?"`, mà `?` (0x3F) lớn hơn `2` (0x32) — nên `reverse=True` xếp toàn bộ tin ngày `?` trước mọi tin
+có ngày thật. Đo trên lô ứng viên thật phiên tối 05/09 (`docs/ung-vien-ci.json`, chủ đề 2 có 46 bài):
+**13/20 slot** bị tin ngày `?` chiếm — 08 bài gov.uk (agent loại thẳng vì không rõ ngày) cộng 05 bài rác
+thuần (bóng đá Xuân Son, El Nino Malaysia, *"Top 10 movies set in Australia's creepy outback"*). Chỉ còn
+**07 slot** cho tin có ngày thật. Hỏng câm hoàn hảo: bảng vẫn in đủ 20 dòng.
+
+**Tầng 2 — trần `PER_TOPIC_CAP` = 20 cắt phần còn lại.** Hai bài UK Defence Journal ngày 04/09 xếp hạng
+**37 và 38/46**.
+
+**Tầng 3 — sàn đo theo CHỦ ĐỀ gộp.** `scan-gaps.json` tối đó ghi chủ đề 2: `count 6, min 5, thieu:false`
+⇒ phiên quét đóng chủ đề, không ai hỏi trong 06 tin ấy có mấy tin Anh. Tầng này đã vá bằng sàn 07 đơn vị
+ở mục trên.
+
+**SỬA PHÉP SẮP XẾP THÔI KHÔNG ĐỦ.** Đo lại cùng lô sau khi chỉ sửa sort: tin ngày `?` về 0/20, nhưng hai
+bài UKDJ chỉ nhích lên **24-25/46** — vẫn ngoài trần — và số nguồn Anh có ngày thật lọt tầm nhìn vẫn là
+**0**. Nguyên nhân: chủ đề 2 gộp ba địa bàn có sản lượng lệch hẳn nhau (tin Biển Đông · Philippines ·
+Đài Loan đăng dày mỗi ngày; tin Anh thưa và hay rơi vào ngày hôm qua), nên xếp thuần theo ngày là nhánh
+thưa bị dìm **có hệ thống**, ngày nào cũng vậy. Đây đúng cơ chế mà chính `harvest.py` đã phải vá cho
+chủ đề "Nội bộ Mỹ" từ 27/07 (*"xếp thuần theo ngày cũng hỏng: nhóm đăng dày chiếm hết chỗ"*) — cùng một
+con lỗi, chỉ khác mảng, và bản vá cũ không được mang sang.
+
+**Bản vá:** `harvest.sap_ung_vien(topic, lst)` — một hàm duy nhất cho mọi chủ đề, thay hai nhánh rời
+trong `main()`.
+- Mọi chủ đề: sắp bằng `_daykey` chứ không bằng chuỗi, và tin ngày `?` **xuống cuối**.
+- Chủ đề 2: chia 03 nhánh bằng `nhanh_dia_ban()` rồi **trộn luân phiên** theo thứ tự Australia · Anh ·
+  Biển Đông. Nhánh cạn bài tự nhường phần còn lại — luân phiên chứ không cấp phát cứng, nên lô chỉ có
+  01 tin Anh thì 19 slot kia vẫn thuộc hai nhánh khác.
+- `nhanh_dia_ban()` dùng CHUNG `topics.neo_uc`/`neo_anh` với `make_docx.tieu_muc_dia_ban`, và giữ đúng
+  thứ tự giành **Úc trước Anh**. Lệch nhau thì hạn ngạch ở tầng quét cấp cho một nhánh còn file Word in
+  ra nhánh khác.
+
+**Đo sau vá, cùng lô đó:** tin ngày `?` trong top-20 = **0** · phân bố 20 slot = Australia 7 · Anh 7 ·
+Biển Đông 6 · hai bài UKDJ hạng **17 và 20**, tức lọt vào tầm nhìn agent.
+
+⚠️ **Sàn 02 tin mỗi mục đứng hay đổ ở chính hàm này.** Agent không nhìn thấy bài thì không có cách nào
+nạp, và mọi cổng phía sau chỉ đo được cái đã nạp. Nới trần `PER_TOPIC_CAP` là cách chữa SAI: nó đổ thêm
+context cho agent mà vẫn để nhánh thưa nằm cuối.
+
+**Bộ canh:** `tests/test-uu-tien-chu-de.py` — nay **14 ca**, ca 11-12 là ca PHẢI CHẶN cho đúng hai tầng
+trên, ca 13-14 là đối chứng chống nới tay; `--tu-kiem` bắt **10/10 bản hỏng**.

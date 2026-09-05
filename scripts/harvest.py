@@ -59,7 +59,7 @@ import zoneinfo
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import topics  # noqa: E402
 import tap_tran  # noqa: E402
-from topics import match_topic, us_subgroup, us_rank  # noqa: E402
+from topics import match_topic, us_subgroup, us_rank, neo_uc, neo_anh  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
@@ -932,6 +932,70 @@ def nap_tap_tran_dang_chay(hom_nay, im=False):
     return dang
 
 
+CHU_DE_DIA_BAN = "Úc & Biển Đông"
+# Ba nhánh của chủ đề 2, ĐÚNG thứ tự giành của `make_docx.tieu_muc_dia_ban` (Úc trước Anh:
+# tin dính cả hai gần như luôn là AUKUS, thuộc về Úc). Dùng chung `neo_uc`/`neo_anh` của
+# `topics.py` — cùng một phép neo với tầng xuất bản, nên hạn ngạch ở đây khớp đúng với tiểu
+# mục người đọc thấy trong file Word.
+NHANH_DIA_BAN = ("Australia", "Anh", "Biển Đông")
+
+
+def nhanh_dia_ban(tieu_de: str) -> str:
+    if neo_uc(tieu_de):
+        return "Australia"
+    if neo_anh(tieu_de):
+        return "Anh"
+    return "Biển Đông"
+
+
+def sap_ung_vien(topic: str, lst: list) -> list:
+    """Thứ tự in ứng viên của MỘT chủ đề — quyết định 20 bài nào agent được nhìn thấy.
+
+    ⛔ KHÔNG SẮP THEO CHUỖI NGÀY — đã vá 05/09/2026, đừng đưa lại. Bản cũ dùng
+    `sorted(lst, key=lambda x: x["ngay"], reverse=True)`, mà `ngay` là CHUỖI và tin không
+    đọc được ngày mang giá trị `"?"`. Ký tự `?` (0x3F) lớn hơn `2` (0x32), nên `reverse=True`
+    đẩy TOÀN BỘ tin ngày `?` lên ĐẦU danh sách — đúng nhóm tin mà agent loại thẳng vì không
+    rõ ngày. Đo trên lô ứng viên thật phiên tối 05/09/2026: **13/20 slot** của chủ đề 2 bị
+    tin ngày `?` chiếm (08 bài gov.uk cộng 05 bài rác thuần: bóng đá, El Nino, phim outback),
+    chỉ còn 07 slot cho tin có ngày thật. Hỏng câm hoàn hảo: danh sách vẫn đủ 20 dòng.
+
+    ⛔ VÀ PHẢI CẤP HẠN NGẠCH CHO TỪNG NHÁNH ĐỊA BÀN. Sửa phép sắp xếp thôi KHÔNG đủ — đo lại
+    cùng lô đó: hai bài UK Defence Journal có ngày thật (*"British aircraft carrier deploying
+    to deter Russia"*, *"British warship fires gun near Falklands"*) chỉ nhích từ hạng 37-38
+    lên **24-25/46**, vẫn nằm ngoài trần 20, và số nguồn Anh có ngày thật lọt tầm nhìn vẫn là
+    **0**. Nguyên nhân: chủ đề 2 gộp ba địa bàn có sản lượng lệch hẳn nhau — tin Biển Đông,
+    Philippines, Đài Loan đăng dày mỗi ngày, tin Anh thưa và hay rơi vào ngày hôm qua — nên
+    xếp thuần theo ngày là nhánh thưa bị dìm có hệ thống. Đây đúng cơ chế mà chính hàm này
+    đã phải vá cho "Nội bộ Mỹ" (xem chú thích dưới: *"nhóm đăng dày chiếm hết chỗ"*), chỉ
+    khác mảng. Trộn LUÂN PHIÊN theo nhánh thì nhánh nào cũng có chỗ, và nhánh cạn bài thì tự
+    nhường phần còn lại — không phải cấp phát cứng.
+
+    Sàn 02 tin mỗi mục (Huy chốt 05/09/2026) đứng hay đổ ở chính hàm này: agent không nhìn
+    thấy bài thì không có cách nào nạp, và mọi cổng phía sau chỉ đo được cái đã nạp.
+    """
+    if topic == "Nội bộ Mỹ":
+        # Xếp theo HẠNG ưu tiên trước, ngày sau. Huy chốt 27/07: vét cạn nhóm (1) điều trần
+        # + bỏ phiếu rồi mới tới các nhóm còn lại — và bốn nhóm còn lại NGANG NHAU
+        # (2 sáng kiến/chiến lược · 3 biểu tình · 4 kinh tế+nội các · 5 bầu cử), nên xếp
+        # theo `us_rank` chứ KHÔNG theo số nhóm; xếp theo số nhóm sẽ dìm bầu cử xuống cuối.
+        # Xếp thuần theo ngày cũng hỏng: nhóm đăng dày (biểu tình/bầu cử/thuế quan) chiếm hết chỗ.
+        for h in lst:
+            h["nhom"] = us_subgroup(h["tieu_de"])
+        return sorted(lst, key=lambda x: (us_rank(x["nhom"]), x["ngay"] == "?",
+                                          -_daykey(x["ngay"])))
+    if topic == CHU_DE_DIA_BAN:
+        theo_nhanh = {n: [] for n in NHANH_DIA_BAN}
+        for h in sorted(lst, key=lambda x: (x["ngay"] == "?", -_daykey(x["ngay"]))):
+            theo_nhanh[nhanh_dia_ban(h["tieu_de"])].append(h)
+        ra = []
+        for i in range(max(len(v) for v in theo_nhanh.values()) if lst else 0):
+            for n in NHANH_DIA_BAN:
+                if i < len(theo_nhanh[n]):
+                    ra.append(theo_nhanh[n][i])
+        return ra
+    return sorted(lst, key=lambda x: (x["ngay"] == "?", -_daykey(x["ngay"])))
+
+
 def uu_tien_chu_de(hits):
     """Sắp lô ứng viên theo UU_TIEN_CHU_DE trước khi khử trùng URL.
 
@@ -1015,20 +1079,13 @@ def main():
         print(f"\n-- {topic} ({len(lst)} bài{extra}) --")
         if not lst:
             print("   (không có ứng viên nào trong khung hôm nay + hôm qua)")
+        ordered = sap_ung_vien(topic, lst)
         if topic == "Nội bộ Mỹ":
-            # Xếp theo HẠNG ưu tiên trước, ngày sau. Huy chốt 27/07: vét cạn nhóm (1) điều trần
-            # + bỏ phiếu rồi mới tới các nhóm còn lại — và bốn nhóm còn lại NGANG NHAU
-            # (2 sáng kiến/chiến lược · 3 biểu tình · 4 kinh tế+nội các · 5 bầu cử), nên xếp
-            # theo `us_rank` chứ KHÔNG theo số nhóm; xếp theo số nhóm sẽ dìm bầu cử xuống cuối.
-            # Xếp thuần theo ngày cũng hỏng: nhóm đăng dày (biểu tình/bầu cử/thuế quan) chiếm hết chỗ.
-            for h in lst:
-                h["nhom"] = us_subgroup(h["tieu_de"])
-            ordered = sorted(
-                lst, key=lambda x: (us_rank(x["nhom"]), x["ngay"] == "?", -_daykey(x["ngay"])))
             print("   (hạng 1 = nhóm 1 điều trần+bỏ phiếu, vét trước; "
                   "nhóm 2/3/4/5 NGANG NHAU, xếp theo ngày)")
-        else:
-            ordered = sorted(lst, key=lambda x: x["ngay"], reverse=True)
+        elif topic == CHU_DE_DIA_BAN:
+            print("   (trộn LUÂN PHIÊN 03 nhánh Australia · Anh · Biển Đông để nhánh thưa "
+                  "không bị nhánh đăng dày dìm khỏi trần in — sàn 02 tin mỗi mục)")
         for h in ordered[:PER_TOPIC_CAP]:
             nhom = f"[nhóm {h['nhom']}]" if h.get("nhom") and h["nhom"] != 9 else ""
             print(f"   [{h['lop']}][{h['ngay']}]{nhom} {h['tieu_de'][:100]}")

@@ -100,6 +100,11 @@ theo 05 chủ đề: Đối ngoại Mỹ · Nội bộ Mỹ · Địa bàn ›An
 Tập trận cố ý không mang sàn). Đếm gộp mục Địa bàn là che đúng lỗi sáng 05/09: mục đủ 02 tin mà tiểu
 mục **Anh bằng 0**. Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì đi thêm nguồn, hết
 nguồn thì ghi `logs/scan-gaps.json`.
+⛔ Đi kèm: **thứ tự in ứng viên** (`harvest.sap_ung_vien`) — sắp theo `_daykey`, tin ngày `?` xuống
+CUỐI (sắp theo chuỗi thì `?` > `2` nên chúng leo lên đầu: đo 05/09, 13/20 slot chủ đề 2), và chủ đề 2
+trộn LUÂN PHIÊN 03 nhánh Australia · Anh · Biển Đông. Không có hạn ngạch nhánh thì nhánh thưa bị dìm
+mỗi ngày và agent không bao giờ thấy bài Anh. Canh: `tests/test-uu-tien-chu-de.py` (14 ca · 10/10 bản
+hỏng bị bắt).
 Cổng: `scripts/soi_muc_cam.py` (soi tay `--san` · `--feed`), cắm trong `.github/scripts/canary.py`.
 Ba lớp: SÀN (bản tin đã gửi) · NGUỒN (feed sống mà mọi item ra ngày `?`, hoặc bảng khai chủ đề mà 0
 item neo) · GÁN CỨNG (khoá `FORCE_TOPIC*` mồ côi). Lượt đo đầu bắt 05 nguồn chính thức Mỹ nằm trong
@@ -368,8 +373,8 @@ này (server trả gzip, parse ra nhị phân). Đừng gạch một nguồn khi
 | Báo Mới | Đã có `baomoi_sync.py` + `baomoi_topics.py` |
 | ~~Thế giới & Việt Nam~~ | ⚠️ **Đảo lại 25/07/2026** — URL thử hồi đó (`/rss/the-gioi.rss`) sai; feed thật `baoquocte.vn/rss_feed/` chạy tốt, xem bảng "Gộp từ kho tư liệu cũ" |
 
-⚠️ **Fortune** (https://content.fortune.com/feed/) parse được 30 item nhưng bài mới nhất **120h (5 ngày)
-trước** — feed thật nhưng gần như đứng. Ưu tiên thấp, đừng trông vào nó cho tin trong ngày.
+⚠️ **Fortune** (https://content.fortune.com/feed/) parse được 30 item nhưng bài mới nhất **120h trước**
+— feed thật nhưng gần như đứng, đừng trông vào cho tin trong ngày.
 
 **Cách kiểm lại về sau:** `scripts/rss_check.py` (đọc thẳng bảng này trong CLAUDE.md rồi fetch từng URL).
 
@@ -694,11 +699,10 @@ còn lại chỉ 03 domain: `commerce.gov`, `eda.gov`, `flightglobal.com`.
 nhóm này và vào bảng "🕸️ TRANG HTML QUÉT TRỰC TIẾP". Đừng đọc lại danh sách gạch ngang ở trên như
 danh sách còn hiệu lực.
 
-⚠️ **Đọc số liệu dò cẩn thận:** dò 288 URL bằng nhiều luồng dễ bị **rate-limit tạm** — lần này
-`thehill.com` trả 429 và `thediplomat.com` trả 000 ở local dù bình thường vẫn chạy tốt. Thấy một nguồn
-đang dùng được bỗng báo hỏng thì **kiểm lại lẻ một lần** trước khi kết luận, đừng gạch tên ngay.
-Từ 30/07 script **tự làm việc này**: sau vòng đa luồng nó đo LẠI LẺ, TUẦN TỰ mọi nguồn bị chấm hỏng và
-đánh dấu `da_thu_2_lan` — vòng lẻ ở CI 30/07 cứu được 0/10, tức 10 nguồn đó hỏng thật.
+⚠️ **Đọc số liệu dò cẩn thận:** dò 288 URL nhiều luồng dễ bị **rate-limit tạm** (`thehill.com` trả 429,
+`thediplomat.com` trả 000 ở local dù vẫn chạy tốt). Nguồn đang dùng bỗng báo hỏng thì **kiểm lẻ một
+lần** trước khi gạch tên. Từ 30/07 script tự đo LẠI LẺ, TUẦN TỰ mọi nguồn bị chấm hỏng rồi đánh dấu
+`da_thu_2_lan` — vòng lẻ ở CI 30/07 cứu được 0/10, tức 10 nguồn đó hỏng thật.
 Dò lại về sau: `python3 scripts/probe_sources.py --json /tmp/probe-local.json` (local) và workflow
 `probe-sources.yml` (CI, ghi `docs/probe-ci.json`). **Cả hai nơi đều cần `curl_cffi`** — thiếu thì
 script vẫn chạy nhưng KÊU ra danh sách domain chưa kết luận được, đừng bỏ qua dòng đó.
