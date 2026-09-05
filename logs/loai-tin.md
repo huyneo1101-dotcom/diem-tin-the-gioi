@@ -1121,3 +1121,15 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 [CNQS Mỹ] Báo Mới "Lựa chọn mới của quân đội Mỹ: Dùng vũ khí laser giá rẻ đối phó bầy đàn UAV" + "Quân đội Mỹ chi 464,8 triệu USD mua LOCUST X3" — cùng một hợp đồng AeroVironment E-HEL 464,8 triệu USD (02/09) — đã gộp thành 1 tin, nạp theo nguồn gốc AeroVironment vào baomoiNews.
 [Nội bộ Mỹ] Cổng ngày thật chặn "Báo cáo việc làm tháng 8/2026" (BLS, bls.gov/news.release/empsit.nr0.htm) — trang không có metadata ngày đọc được — bỏ theo đúng luật "trang không in ngày thì bỏ".
 [CNQS Mỹ] Cổng ngày thật chặn "Không quân Mỹ đẩy nhanh thay thế MQ-9 Reaper" (Military Times) — trang không có metadata ngày đọc được — bỏ.
+
+## Phiên TỐI 05/09/2026 (CI)
+[Úc, Anh & Biển Đông] "Lục quân Anh tạm dừng loạt tập trận quy mô lớn để tiết kiệm 30 triệu bảng" (Stars and Stripes) — nội dung đúng phạm vi Anh đã mở 01/09/2026, nhưng bị cổng neo chủ đề 2 (`check_neo_chu_de_2`) chặn: bảng `NEO_ANH` trong `topics.py` đã nối đúng vào `NEO_UC_BIEN_DONG` nhưng thiếu từ khoá "luc quan anh"/"quan doi anh" — tin chỉ nhắc "Lục quân Anh" không tự neo được. Loại vì hết giờ không kịp sửa mã nguồn giữa phiên; cần bổ sung từ khoá ở phiên sau (đã ghi vào logs/scan-gaps.json).
+[Nội bộ Mỹ] Cổng ngày thật chặn "Cục Dự trữ Liên bang Mỹ chấm dứt biện pháp chế tài với ba tổ chức tín dụng" (federalreserve.gov/newsevents/pressreleases/enforcement20260904a.htm) — trang không có metadata ngày đọc được — bỏ.
+[Nội bộ Mỹ] Cổng ngày thật chặn "Mỹ áp lệnh trừng phạt mới lên cháu trai ông Raul Castro và 5 công ty nhà nước Cuba" (UPI) — trang không có metadata ngày đọc được — bỏ.
+[CNQS Mỹ] Cổng ngày thật chặn "General Dynamics nhận hợp đồng 194 triệu USD cho tên lửa hành trình SLCM-N" (globalsecurity.org) — trang không có metadata ngày đọc được — bỏ.
+[CNQS Mỹ] Cổng ngày thật chặn "GE Aerospace nhận hợp đồng phát triển phương tiện thử siêu vượt âm 'Derecho'" (Breaking Defense) — trang không có metadata ngày đọc được — bỏ.
+[CNQS Mỹ] Cổng ngày thật chặn "Oshkosh đề nghị làm cầu nối sản xuất JLTV" (Breaking Defense) — trang không có metadata ngày đọc được — bỏ.
+[Mỹ – Mali] "Mali kết án 20 năm tù cựu đại tá vì cuốn sách chỉ trích quân đội" (APAnews) — sự kiện thật, tuyên án ngày 03/09, ngoài khung 04-05/09 (category Chính trị, không được nới 3 ngày như CNQS) — loại.
+[Tập trận] "Thủy quân lục chiến 4 nước diễn tập bắn đạn thật tại Lampung" (Super Garuda Shield 2026, ANTARA) — sự kiện thật ngày 03/09, ngoài khung 04-05/09 — loại.
+[Nội bộ Mỹ] "Đại hội đồng LHQ thông qua bản đồ thế giới mới, Mỹ là nước duy nhất bỏ phiếu chống" (NPR) — không neo được vào 5 nhóm "Nội bộ Mỹ" (không phải điều trần/bỏ phiếu Quốc hội, sáng kiến chính quyền trên kênh các bộ, biểu tình, kinh tế/Fed, hay bầu cử — đây là phiếu của phái đoàn Mỹ tại LHQ, thuộc đối ngoại) — loại khỏi lô, không nạp.
+⚠️ Cổng Báo Mới (9 ứng viên treo từ phiên trước, chủ yếu tin Duterte/Trump-Fed/TITAN) và bước Jay Lâm (4c) CHƯA xử lý phiên này — hết giờ trước hạn 21:45, xem logs/scan-gaps.json mục "note".
