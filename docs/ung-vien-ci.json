@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-09-07T00:19:17+07:00",
+  "tao_luc": "2026-09-07T03:46:39+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-06",
     "2026-09-07"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-07",
+      "tieu_de": "Indonesia volcano eruption disrupts hundreds of flights",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/6/indonesia-volcano-eruption-disrupts-hundreds-of-flights?traffic_source=rss"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -85,14 +93,6 @@
       "tieu_de": "Núi lửa phun trào, nhiều khách hàng không Indonesia bị mắc kẹt",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/nui-lua-phun-trao-nhieu-khach-hang-khong-indonesia-bi-mac-ket-20260906172855072.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-09-06",
-      "tieu_de": "Flights to and from Indonesia's capital suspended after volcanic eruption",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-06/indonesia-volcano-mount-anak-krakatau-eruption-flights-suspended/107121302"
     },
     {
       "lop": "RSS",
@@ -505,22 +505,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-06",
-      "tieu_de": "What the US militarisation of Latin America could look like",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/opinions/2026/9/6/what-the-us-militarisation-of-latin-america-could-look-like?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-06",
-      "tieu_de": "Reform UK says Britain is broken. Birmingham tells another story",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/opinions/2026/9/6/reform-uk-says-britain-is-broken-birmingham-tells-another-story?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "BRICS Summit, Okinawa election, Philippines AI plan",
       "nguon": "Nikkei Asia",
@@ -549,30 +533,6 @@
       "tieu_de": "America owes the Philippines more than empty praise",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/opinion/america-owes-the-philippines-more-than-empty-praise"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-06",
-      "tieu_de": "Vietnam wants to grow dental tourism. It has Australian dentists worried",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-06/dental-tourism-australians-travel-to-vietnam-for-treatment/107061322"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-06",
-      "tieu_de": "50 years of spotting southern right whales off Great Australian Bight",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-06/southern-right-whale-count-great-australian-bight-50-years/106802582"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-06",
-      "tieu_de": "Sweeny exits US Open to end Australia's singles chances",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-06/us-open-australia-dane-sweeny-eliminated-new-york/107121304"
     },
     {
       "lop": "RSS",
@@ -682,6 +642,22 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-07",
+      "tieu_de": "The US now has access to more than half Australia’s military bases – could it drag the country unwillingly into war?",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/ng-interactive/2026/sep/07/us-military-bases-in-australia-map-list-spy-satellite-pine-gap"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-07",
+      "tieu_de": "Woman laid to rest in coffin made from mushrooms in Australian first",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/07/australian-woman-buried-in-mushroom-coffin-blue-mountains"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-07",
       "tieu_de": "Malaysia đảm bảo nguồn cung nhiên liệu và lương thực trước sức ép toàn cầu",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/malaysia-dam-bao-nguon-cung-nhien-lieu-va-luong-thuc-truoc-suc-ep-toan-cau-post1134555.vnp"
@@ -717,6 +693,15 @@
       "tieu_de": "Tuyên bố chung Việt Nam-Australia thể hiện tin cậy chiến lược sâu sắc, lợi ích hội tụ và tầm nhìn đồng điệu giữa hai nước",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/tuyen-bo-chung-viet-nam-australia-the-hien-tin-cay-chien-luoc-sau-sac-loi-ich-hoi-tu-va-tam-nhin-dong-dieu-102260813084723779.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-07",
+      "tieu_de": "Trump administration appeals again to US Supreme Court over mail-in voting",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/6/trump-administration-appeals-again-to-us-supreme-court-over-mail-in-voting?traffic_source=rss",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -775,19 +760,19 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-06",
-      "tieu_de": "GOP Bets on Trumpapalooza To Defy Midterm History",
+      "ngay": "2026-09-07",
+      "tieu_de": "Does Trump Even Care About the Midterms?",
       "nguon": "RealClearPolitics",
-      "url": "https://www.realclearpolitics.com/articles/2026/09/06/gop_bets_on_trumpapalooza_to_defy_midterm_history_154479.html",
+      "url": "https://www.realclearpolitics.com/2026/09/06/does_trump_even_care_about_the_midterms_710076.html",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-06",
-      "tieu_de": "Trump’s embrace of AI data centers adds to GOP’s midterm peril",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/09/06/world/politics/trump-ai-data-centers-gop-midterms/",
+      "ngay": "2026-09-07",
+      "tieu_de": "GOP Bets on Trumpapalooza To Defy Midterm History",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/articles/2026/09/06/gop_bets_on_trumpapalooza_to_defy_midterm_history_154479.html",
       "nhom": 5
     },
     {
@@ -806,15 +791,6 @@
       "tieu_de": "Trump again asks supreme court to restrict mail-in voting as midterms loom",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/2026/sep/06/trump-administration-supreme-court-mail-in-voting",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-06",
-      "tieu_de": "More voters identifying as Democrats and not calling themselves Republican",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/sep/05/us-voters-democrats-republicans",
       "nhom": 5
     },
     {
