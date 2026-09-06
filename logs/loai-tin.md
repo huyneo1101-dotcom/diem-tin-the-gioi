@@ -1152,3 +1152,16 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 [CNQS Mỹ] Báo Mới "Mỹ đại tu giếng phóng nhằm duy trì 400 tên lửa liên lục địa Minuteman III trực chiến" (Báo Lâm Đồng) — cùng sự kiện/chuỗi tin với "Không quân Mỹ lần đầu tháo dỡ, đại tu và lắp lại toàn bộ hệ thống treo tên lửa Minuteman III" (DVIDS) đã nạp trong lô này — loại trùng.
 [CNQS Mỹ] Báo Mới "Vũ khí siêu vượt âm là gì? Tại sao không có hệ thống phòng thủ nào chặn được?" (VietnamNet) — bài giải thích khái niệm chung, không phải tin sự kiện có ngày — loại.
 ⚠️ Bước Jay Lâm (4c) CHƯA xử lý phiên này vì `gh workflow run` cần quyền duyệt riêng trong môi trường CI hiện tại — ghi nhận fail-open, xem logs/scan-gaps.json mục "note".
+
+## Phiên SÁNG SỚM 07/09/2026 (local)
+[CNQS Mỹ] Báo Mới "Tàu sân bay Mỹ né tránh thành công loạt tên lửa đạn đạo Iran" (An Ninh Thủ Đô) — cùng sự kiện đã nạp qua nguồn Stars and Stripes/CENTCOM trong lô này — loại trùng.
+[CNQS Mỹ] Báo Mới "Hải quân Mỹ tăng tốc đưa tên lửa AGM-88G lên tiêm kích tàng hình F-35" (An Ninh Thủ Đô) — bài gốc armyrecognition.com bị Cổng NGÀY THẬT chặn (không đọc được metadata ngày đăng) — loại, không tìm được nguồn thay thế trong thời gian phiên.
+[CNQS Mỹ] Báo Mới "Tàu sân bay hạt nhân Mỹ Abraham Lincoln rời Thái Lan sau 5 ngày cập cảng" (VietTimes) — bài gốc USNI News thực đăng 02/09, ngoài khung 3 ngày (04-07/09) của chủ đề CNQS Mỹ — loại vì quá cũ.
+[CNQS Mỹ] Báo Mới "Không quân Mỹ tìm 'lớp khiên' mới cho các căn cứ ở nước ngoài" (An Ninh Thủ Đô) — bài gốc The War Zone đã có sẵn trong DATA (nạp từ phiên trước) — loại trùng URL.
+[Úc & Biển Đông] Báo Mới "Malaysia tìm cách khai thông nguồn vốn tư nhân vào khu vực ASEAN" (VietnamPlus) — tin kinh tế ASEAN thuần, không neo được vào Úc/Anh/Biển Đông — loại.
+[CNQS Mỹ] "Space Force BMT graduate" (DVIDS) — bài gốc thực đăng 10/08/2026 (Date Posted), ngoài khung 3 ngày — loại, Cổng NGÀY THẬT chặn.
+[CNQS Mỹ] "Blackbeard hypersonic missile" (MiGFlug) và "AGM-88G" bản đầu (armyrecognition.com) — cả hai bị Cổng NGÀY THẬT chặn vì trang không in metadata ngày đọc được — loại, đã thử tìm nguồn thay thế nhưng hết thời gian phiên.
+[Nội bộ Mỹ] "Zelensky kỳ vọng Mỹ sớm thông qua gói trừng phạt mới nhắm vào Nga" (Kyiv Post) — agent dẫn nhầm URL, bài thật tại link đó đăng 29/07/2026 (quá cũ) — loại vì Cổng NGÀY THẬT chặn, không kịp tìm lại URL đúng trong phiên.
+[Nội bộ Mỹ] Nhóm 1 (điều trần + bỏ phiếu Quốc hội) KHÔNG có ứng viên hợp khung 06-07/09 — hai ngày rơi vào cuối tuần dịp Lễ Lao Động, Quốc hội không họp; đã thử WebSearch bổ sung riêng cho nhóm biểu tình/sắc lệnh/bầu cử/kinh tế nội địa, không ra thêm tin nào đạt chuẩn ngoài 2 tin đã nạp (đều thiên về đối ngoại: kiện bỏ phiếu qua thư, trừng phạt Iran).
+[Úc & Biển Đông] Nhánh Biển Đông — 0 tin phiên này dù đã chạy riêng 1 vòng WebSearch bổ sung (Scarborough, Second Thomas, Natuna, COC, Malaysia/Indonesia/Brunei) — không tìm được diễn biến MỚI ngoài các tin đã có trong DATA từ 03-04/09.
+[Mỹ – Mali] "Mali kết án đại tá Alpha Yaya Sangaré 20 năm tù" (The Africa Report) — bài đăng thật 03/09/2026, ngoài khung hôm nay+hôm qua (06-07/09) của chủ đề Mali — loại vì quá cũ.

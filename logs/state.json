@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-07T04:00:35+07:00",
+    "lastRunAt": "2026-09-07T04:52:59+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "Da nap: worldNews +4 (Anh 2, Australia 2), usNews +5 (Chinh tri 2, Kinh te 1, CNQS 2), tap tran +1 (Freedom Edge 2026). Bien Dong va nhieu nhom Noi bo My duoi san, xem scan-gaps.json",
     "lastSuccess": {
       "toi": "2026-09-06",
-      "sang": "2026-09-06"
-    },
-    "heartbeat": "2026-09-07T04:00:35+07:00"
+      "sang": "2026-09-07"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-06T05:24:25+07:00",
