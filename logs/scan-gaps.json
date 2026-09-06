@@ -1,55 +1,16 @@
 {
   "date": "2026-09-06",
-  "session": "sang",
+  "session": "toi",
   "topics": [
-    {
-      "name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)",
-      "count": 6,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": "Không có ứng viên hạng 1 (điều trần/bỏ phiếu Quốc hội) đạt chuẩn trong khung 05-06/09; nạp được 6 tin hạng 2-5 (Paxton PAC, CENTCOM-Iran, MQ-9 Reaper, Patriot PAC-3, F-35 stains, Niger/France + Africa Corps qua dossier Mali). Vài ứng viên khác (RNC message, Trump RNC night one, UN vote LHQ — loại vì không neo được vào 5 nhóm Nội bộ Mỹ, Iran-midterm Al Jazeera — quá cũ, AIM-424 — quá cũ) bị loại, chi tiết trong logs/loai-tin.md."
-    },
-    {
-      "name": "Úc & Biển Đông",
-      "count": 4,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Chỉ nạp được 4 tin, toàn bộ thuộc nhánh Anh (Shadow Mk2, việc làm tiêm kích, chiến dịch chống chịu quốc gia, Challenger 3). Nhánh Úc: 2 ứng viên (nhiên liệu ADF, phát biểu Keating) đều bị Cổng ngày thật chặn (thiếu metadata / bài quá cũ 04/09). Nhánh Biển Đông: 0 ứng viên nào đạt chuẩn dù đã chạy 4 vòng WebSearch bổ sung (Scarborough, Second Thomas, Vanguard Bank, Taiwan Strait, Malaysia/Indonesia patrol) — tin mới nhất tìm được đều cũ hơn khung hoặc đã có trong DATA từ bản tin trước."
-    },
-    {
-      "name": "CNQS Mỹ",
-      "count": 3,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Nạp được 3 tin (MQ-9 Reaper, Patriot PAC-3, F-35 stains) tính riêng theo category — cộng thêm CENTCOM-Iran (đếm vào Nội bộ Mỹ ở trên do bối cảnh Trung Đông). Ứng viên AIM-424 Malice (Naval News) bị Cổng ngày thật chặn vì bài thật đăng 23/08, quá cũ so với khung 05-06/09."
-    },
-    {
-      "name": "Mỹ – Mali",
-      "count": 2,
-      "target": "5-10",
-      "min": 5,
-      "thieu": true,
-      "reason": "Nạp 2 tin (Pháp bác cáo buộc kích động binh biến Niger — Al Jazeera; Africa Corps Nga bảo vệ chính quyền Sahel — BBC/Yahoo). Ứng viên 'Mali kết án 20 năm tù cựu đại tá' (The Africa Report) bị Cổng ngày thật chặn (không đọc được metadata ngày); vài ứng viên khác (Egypt-Mali, Mali-Burkina hạn chế nhập cảnh) bị loại vì nghi là tin cũ lập chỉ mục lại."
-    },
-    {
-      "name": "Tập trận đang diễn ra",
-      "count": 1,
-      "target": "1-2",
-      "min": 1,
-      "thieu": false,
-      "reason": "Nạp 1 tin (DVIDS, xác nhận Date Posted 05/09): lính dù 7 nước nhảy dù chung mở màn huấn luyện thực địa Super Garuda Shield 2026 tại Baturaja. Đã kiểm 11 cuộc tập trận đang bám: SEACAT 2026, REPMUS 26/Dynamic Messenger 26 (còn ở giai đoạn staging, tin cụ thể chỉ có từ 19/9), Yama Sakura 91, Freedom Edge 2026 (chưa khai mạc, dự kiến 07/9), Tarang Shakti 2026 (chưa khai mạc, dời sang 26/9-12/10, đã kiểm không nhầm với Veer Guardian song phương Ấn-Nhật cùng diễn ra tại Jodhpur), PANAMAX 2026, Baltic Trust 26, MAITREE-XV, Diễn tập Hạm đội TBD Nga và Hán Quang 42 (ba cuộc cuối đã kết thúc, không có tin bế mạc/hậu kỳ mới) — không có diễn biến MỚI nào khác đạt chuẩn ngoài Super Garuda Shield."
-    },
-    {
-      "name": "Báo Mới",
-      "count": 0,
-      "target": "best-effort",
-      "min": 0,
-      "thieu": false,
-      "reason": "8 ứng viên Báo Mới đã lọc sẵn theo 5 chủ đề — TẤT CẢ trùng sự kiện đã nạp từ nguồn gốc tốt hơn (CENTCOM/DVIDS cho tin Iran tanker x3, CNN/Paxton cho tin bầu cử x2, tập trận Indonesia đã có trong DATA) hoặc quá cũ (Trump/nhà báo NBC, ngân hàng Thổ Nhĩ Kỳ nghi trùng tin cũ). Không có bài nào đủ khác biệt để nạp thêm."
-    }
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":0,"target":"5-10","min":5,"thieu":true,
+     "reason":"Không tìm được điều trần/bỏ phiếu Quốc hội nào diễn ra 05-06/09/2026 (cuối tuần Mỹ, Quốc hội không họp phiên toàn thể); ứng viên GNEWS/HTML soi được đều trùng sự kiện đã nạp từ 03/09 hoặc bị Cổng ngày thật chặn (The Hill 'Trump to speak night one' — không mở được metadata ngày). Nhóm 2-5 nạp được 4 tin (2 Đối ngoại: Witkoff/Kushner gặp Putin rồi Zelensky; 2 Nội bộ: Fed/Warsh, RNC convention — nhưng RNC convention sau đó cũng bị Cổng ngày thật chặn nên chỉ còn 1 tin nhóm 'Nội bộ Mỹ' thuần). Đã chạy 2 vòng bổ sung tìm thêm tin nội bộ thuần, không ra kết quả (Dan Driscoll resignation là tin 01/09, quá cũ)."},
+    {"name":"Công nghệ quân sự Mỹ","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"2 hợp đồng chính thức war.gov (M1156 862,8tr USD ngày 03/09; loạt hợp đồng MDA/CVN82/MUOS ngày 04/09) bị CỔNG NGÀY THẬT chặn vì trang war.gov/News/Contracts không in metadata ngày ở dạng đọc được — theo đúng luật 'trang không ghi ngày thì bỏ đi' (không dùng cờ mở cổng vì đây không phải ca metadata ghi sai). Còn lại Tomahawk (Naval News) + Minuteman III (DVIDS) đạt chuẩn; cộng 1 tin tập trận Super Garuda Shield để tính vào mục KHCN-QS của sàn 2 tin/mục."},
+    {"name":"Úc & Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Chỉ đạt 2 tin, cả hai đều thuộc nhánh Anh (35 universities defence alliance, tập trận Bắc Cực ba bên). Nhánh Australia và Biển Đông đều 0 tin sau 2 vòng WebSearch mở rộng (15+ lượt): 05-06/09 là thứ Bảy-Chủ Nhật ở Úc/ASEAN nên hầu như không có thông cáo chính thức mới; sự kiện lớn nhất trong tuần (Marles-Hegseth 02/09, B-52 Tindal 01/09, tàu khảo sát Scarborough 25 ngày, khu trục hạm Guilin Trung Quốc đầu tháng 9) đều ngoài khung nghiêm ngặt hoặc trùng tin đã có sẵn trong DATA. Một ứng viên Australia (nâng cấp xưởng đóng tàu ngầm Osborne) bị loại chủ động vì rủi ro cao — mô tả tiến độ dự án cũ, không phải sự kiện mới độc lập, ngày cập nhật không rõ ràng."},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":false,
+     "reason":"Ứng viên duy nhất trong khung (Niger cáo buộc Pháp kích động binh biến, sự kiện 04/09) rơi ngoài khung hôm nay+hôm qua (05-06/09) nên loại theo đúng luật '48h = hôm nay+hôm qua'. Không có sàn cứng cho mục này (không vào file Word bản tin tối, chỉ vào bản sáng Sự kiện & Tập trận)."},
+    {"name":"Tập trận đang diễn ra","count":1,"target":"1-2","min":0,"thieu":false,"reason":""}
   ],
-  "note": "Phiên SÁNG SỚM 06/09 — nhánh Úc và Biển Đông (chủ đề 2) hụt sàn 2 tin/nhánh dù đã chạy nhiều vòng WebSearch bổ sung; đây là phiên KHÔNG có hạn chót cứng nên đã cố gắng tối đa trong giới hạn thời gian hợp lý trước khi chốt lô. Phiên TỐI nên ưu tiên tìm bù 2 nhánh này. Sự kiện ngoại giao: đã kiểm 20 sự kiện đang có trong hệ thống + tìm hiệp ước/thoả thuận MỚI trong 48h qua (04-06/09) — không có gì đạt chuẩn (ứng viên gần nhất, Ấn Độ-Bỉ ký thoả thuận quốc phòng, xảy ra 03/09, ngoài khung 1 ngày); không thêm dipEventUpdates."
+  "note": "Sàn 02 tin/mục (chốt 05/09/2026): 'Nội bộ Mỹ' (1/2), 'Địa bàn›Australia' (0/2), 'Địa bàn›Biển Đông' (0/2) đều DƯỚI SÀN sau vòng bổ sung — lý do chi tiết ở trên. 'Đối ngoại Mỹ' (2 — Witkoff/Kushner gặp Putin rồi Zelensky), 'Địa bàn›Anh' (2), 'KHCN-QS' (3, gồm CNQS+tập trận) đều ĐẠT sàn. Bước Jay Lâm (4c): không kích được telegram-bot.yml qua `gh` (lệnh bị chặn 'requires approval' trong phiên CI này) — file Jay Lâm gần nhất tìm thấy trong hàng chờ cục bộ (nhãn ĐTN_M_01.9.2026, nạp 01/09) đã quá hạn hiệu lực 3 ngày và không chứa tin nào trùng lô 05-06/09 hôm nay nên không cần lọc gì thêm. Cổng Báo Mới: 7 ứng viên còn treo, đã xử lý và loại hết (lý do chi tiết trong logs/loai-tin.md, phiên TỐI 06/09/2026), không có bài nào đủ chuẩn/khác biệt để nạp thêm. Cổng bài 👍: sạch, không có bài chờ."
 }

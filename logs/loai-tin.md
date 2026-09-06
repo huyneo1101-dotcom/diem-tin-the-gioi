@@ -1142,3 +1142,13 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 [Mỹ – Mali] Cổng ngày thật chặn "Mali kết án 20 năm tù cựu đại tá" (The Africa Report, không có metadata ngày đọc được) — loại (trùng hướng với ca đã loại tối 05/09 vì lý do khác).
 [Tập trận] "Diễn tập nhảy dù 5 nước tại Baturaja" (ANTARA) — URL đã có sẵn trong DATA từ bản tin 05/09 — loại trùng.
 [Báo Mới] 8 ứng viên còn treo (CENTCOM Iran tankers x3 bản trùng sự kiện đã nạp qua DVIDS; bầu cử giữa kỳ x2 bản trùng hướng nhóm 5 đã nạp qua CNN/Paxton; Trump/nhà báo NBC đã loại tối 05/09 vì quá cũ; "Năm nước diễn tập đổ bộ đường không" trùng tập trận đã có; "Mỹ trừng phạt ngân hàng Thổ Nhĩ Kỳ" nghi trùng tin đã đăng trước đó) — TẤT CẢ loại, không có bài nào đủ khác biệt để nạp thêm.
+
+## Phiên TỐI 06/09/2026 (CI)
+[CNQS Mỹ] Báo Mới "Iran nã tên lửa vào tàu sân bay, tàu khu trục Mỹ" (VietnamNet) — chuyện xung đột Mỹ-Iran ở Trung Đông, ngoài phạm vi 5 chủ đề (không phải khí tài cụ thể); sự kiện gốc cũng đã có trong DATA qua tin CENTCOM đánh chìm tàu chở dầu Iran — loại.
+[Úc & Biển Đông] Báo Mới "Tu-142 và tàu ngầm hạt nhân Mỹ: Cuộc săn đuổi dưới đại dương" (An Ninh Thủ Đô) — bài dạng phân tích/hồi ức lịch sử, không phải sự kiện có ngày cụ thể, không neo được vào Úc/Anh/Biển Đông — loại.
+[Úc & Biển Đông] Báo Mới "Phó Tổng thống Philippines Sara Duterte nộp tiền bảo lãnh sau lệnh bắt" (Nhà báo và Công luận) — chuyện pháp lý/chính trị nội bộ Philippines (án ICC), không liên quan chủ quyền/hoạt động Biển Đông — loại.
+[Úc & Biển Đông] Báo Mới "Hải quân Mỹ gặp rắc rối lớn khi chậm trễ loại biên tàu ngầm hạt nhân" (An Ninh Thủ Đô) — nội dung thực chất là CNQS Mỹ (khí tài Mỹ), không tự neo được vào Úc/Anh/Biển Đông theo đúng chủ đề 2; hết giờ phiên (hạn 21:45) không kịp thẩm định lại để chuyển nhóm — loại, cân nhắc lại phiên sau nếu còn thời sự.
+[Úc & Biển Đông] Báo Mới "PMI ngành sản xuất Việt Nam tụt xuống vị trí thứ 4 trong ASEAN" (Doanh Nhân VN) — tin kinh tế thuần, không phải chủ quyền/quân sự Biển Đông — loại.
+[CNQS Mỹ] Báo Mới "Mỹ đại tu giếng phóng nhằm duy trì 400 tên lửa liên lục địa Minuteman III trực chiến" (Báo Lâm Đồng) — cùng sự kiện/chuỗi tin với "Không quân Mỹ lần đầu tháo dỡ, đại tu và lắp lại toàn bộ hệ thống treo tên lửa Minuteman III" (DVIDS) đã nạp trong lô này — loại trùng.
+[CNQS Mỹ] Báo Mới "Vũ khí siêu vượt âm là gì? Tại sao không có hệ thống phòng thủ nào chặn được?" (VietnamNet) — bài giải thích khái niệm chung, không phải tin sự kiện có ngày — loại.
+⚠️ Bước Jay Lâm (4c) CHƯA xử lý phiên này vì `gh workflow run` cần quyền duyệt riêng trong môi trường CI hiện tại — ghi nhận fail-open, xem logs/scan-gaps.json mục "note".

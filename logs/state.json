@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-06T21:09:52+07:00",
+    "lastRunAt": "2026-09-06T21:32:45+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+8 tin (Anh 2, doi ngoai/noi bo My 5, tap tran 1); Uc+Bien Dong+Mali duoi san, xem scan-gaps.json",
     "lastSuccess": {
-      "toi": "2026-09-05",
+      "toi": "2026-09-06",
       "sang": "2026-09-06"
-    },
-    "heartbeat": "2026-09-06T21:09:52+07:00"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-06T05:24:25+07:00",
