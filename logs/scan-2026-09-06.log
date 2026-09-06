@@ -9,3 +9,4 @@
 [22:23Z] CI: chuan bi commit rieng cho bao cao tuan (tach khoi commit tap tran vi khac muc dich hien thi/thong bao). Sap ket thuc task "su kien & tap tran" cua phien sang som CI.
 [22:25Z] SKIP (CI, task moi) web-scan phien sang som 06/09 - claim tra exit 10 (DA XONG, lastRunAt 04:53:52+07). Kiem ngoai le bat buoc: so_da_gui.py --xem CO dong 2026-09-06T04:54:25+07:00 [sang] 11 tin va dong 2026-09-06T05:25:13+07:00 [sukien] 0 tin - co da khong noi doi, ban tin va su kien da toi tay that. Khong quet lai, ket thuc em.
 [14:09Z] START (CI) phien toi - claim web-scan tra exit 0, giu khoa, bat dau quet.
+[14:24Z] SKIP (local 21:15) web-scan phien toi - claim exit 11, CI dang chay (nhip tim 14' truoc, bat dau 21:09:52 VN). Khong quet chong, ket thuc.
