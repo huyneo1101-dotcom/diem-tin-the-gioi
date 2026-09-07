@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-07T21:00:47+07:00",
+    "lastRunAt": "2026-09-07T21:27:09+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+12 tin (5 chu de): +7 worldNews (Anh 3, Australia 2, Bien Dong 3), +4 usNews (Noi bo My 1, Doi ngoai My 3), +1 CNQS My, +2 tap tran. Noi bo My duoi san (1/2) vi cuoi tuan Labor Day My.",
     "lastSuccess": {
-      "toi": "2026-09-06",
+      "toi": "2026-09-07",
       "sang": "2026-09-07"
-    },
-    "heartbeat": "2026-09-07T21:00:47+07:00"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-07T05:06:02+07:00",
