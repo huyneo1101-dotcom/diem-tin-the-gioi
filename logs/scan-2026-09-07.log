@@ -11,3 +11,4 @@
 [22:23Z] SKIP web-scan (CI, phien sang som, lan kiem lai) — exit 10, da DONE luc 04:46:45 VN. Kiem ngoai le exit10 lai lan nua: so_da_gui --xem co dong 2026-09-07T04:50:42+07:00 [sang] 10 tin dung ngay dung nhan, event-scan cung da DONE (sukien 05:07:25, +1 tin). Ca hai pipeline cua phien sang som hom nay da hoan tat that, khong phai co noi doi. KHONG quet lai, KET THUC em.
 [23:10Z] SKIP web-scan (CI, phien sang som, lan goi lai) — exit 10, van DONE luc 04:46:45 VN (06:10 VN hien tai). Kiem ngoai le exit10 lan thu ba: so_da_gui --xem van co dong 2026-09-07T04:50:42+07:00 [sang] 10 tin, event-scan van DONE (sukien 05:07:25, +1 tin). Khong gi thay doi so voi lan kiem 22:23Z. KHONG quet lai, KET THUC em.
 [14:00Z] START (CI) web-scan phien toi — claim RUN, ngay 07/09 chua co ban tin toi.
+[14:15Z] SKIP web-scan (local 21:15) — exit 11 PHIEN KHAC DANG CHAY: CI dang giu khoa (bat dau 21:00:47 VN), nhip tim 15' truoc. Khong quet chong, KET THUC ngay.
