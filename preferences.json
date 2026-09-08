@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T05:00:13Z",
+  "generatedAt": "2026-09-08T04:57:50Z",
   "source": "supabase vote_stats + vote_items + vote_thich_theo_bai (auto by GitHub Action)",
   "stats": [
     {
@@ -4087,11 +4087,11 @@
   ],
   "liked": [
     {
-      "item_id": "calib:021",
-      "title": "Na Uy và Đức đặt chung sáu tàu ngầm lớp 212CD, tiêu chuẩn hóa hạm đội tàu ngầm Bắc Âu",
-      "category": "Công nghệ quân sự",
-      "region": "Châu Âu/NATO",
-      "source": "Naval News",
+      "item_id": "https://tribune.net.ph/2026/07/22/phl-australian-armies-launch-exercise-carabaroo-2026",
+      "title": "Lục quân Philippines và Australia khởi động Exercise Carabaroo 2026 trong khuôn khổ Predator's Run",
+      "category": null,
+      "region": null,
+      "source": "Daily Tribune",
       "n": 1,
       "updated_at": "2026-08-26T04:06:25.35955+00:00"
     },
@@ -4389,15 +4389,6 @@
       "category": "Công nghệ quân sự",
       "region": "Đông Á",
       "source": "Taipei Times",
-      "n": 1,
-      "updated_at": "2026-08-26T04:06:25.35955+00:00"
-    },
-    {
-      "item_id": "https://tribune.net.ph/2026/07/22/phl-australian-armies-launch-exercise-carabaroo-2026",
-      "title": "Lục quân Philippines và Australia khởi động Exercise Carabaroo 2026 trong khuôn khổ Predator's Run",
-      "category": null,
-      "region": null,
-      "source": "Daily Tribune",
       "n": 1,
       "updated_at": "2026-08-26T04:06:25.35955+00:00"
     },
@@ -5293,13 +5284,13 @@
       "updated_at": "2026-08-26T04:06:25.35955+00:00"
     },
     {
-      "item_id": "https://baomoi.com/hang-tram-uav-ukraine-lao-vao-moscow-nga-lap-tuc-dap-tra-bang-ten-lua-dan-dao-c55844993.epi",
-      "title": "Hàng trăm UAV Ukraine lao vào Moscow, Nga lập tức đáp trả bằng tên lửa đạn đạo",
+      "item_id": "calib:021",
+      "title": "Na Uy và Đức đặt chung sáu tàu ngầm lớp 212CD, tiêu chuẩn hóa hạm đội tàu ngầm Bắc Âu",
       "category": "Công nghệ quân sự",
-      "region": "Nga–Ukraine",
-      "source": "VietTimes",
+      "region": "Châu Âu/NATO",
+      "source": "Naval News",
       "n": 1,
-      "updated_at": "2026-08-17T07:08:03.751+00:00"
+      "updated_at": "2026-08-26T04:06:25.35955+00:00"
     }
   ]
 }
