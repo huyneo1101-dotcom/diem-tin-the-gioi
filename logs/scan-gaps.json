@@ -1,16 +1,18 @@
 {
-  "date": "2026-09-08",
-  "session": "toi",
+  "date": "2026-09-09",
+  "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":0,"target":"5-10","min":2,"thieu":true,
-     "reason":"Sát hạn chót 21:45 nên phiên chỉ kịp nạp 2 tin Nội bộ Mỹ thuần nội bộ (thuế Canada-Bombardier, bầu cử sơ bộ NH/RI); ứng viên đối ngoại Mỹ tìm được (dự báo Fed của UBS qua Investing.com — aggregator không truy được bài gốc Reuters; đại hội RNC Dallas qua The Hill — nội dung không khớp chắc chắn với tiêu đề gốc) bị loại vì chưa đạt thang xác minh, không kịp thay thế trước hạn."},
-    {"name":"Nội bộ Mỹ","count":2,"target":"5-10","min":2,"thieu":false,"reason":""},
+    {"name":"Đối ngoại Mỹ","count":2,"target":"5-10","min":2,"thieu":false,
+     "reason":"Trừng phạt hàng không Iran (CNBC/OFAC) + phát biểu Rubio về thương mại Colombia-Peru-Ecuador (Straits Times)."},
+    {"name":"Nội bộ Mỹ","count":4,"target":"5-10","min":2,"thieu":false,
+     "reason":"Sắc lệnh cựu chiến binh, sắc lệnh Đạo luật Sản xuất Quốc phòng, tranh chấp SAVE database tại SCOTUS, Alabama gửi phiếu bầu qua thư. Quốc hội trong tình trạng nghỉ/pro forma sau Labor Day nên KHÔNG có điều trần/bỏ phiếu committee-floor nào trong khung 08-09/09 (nhóm 1 coi như cạn thật, không phải do thiếu tìm kiếm)."},
     {"name":"Địa bàn › Anh","count":3,"target":"2+","min":2,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":0,"target":"2+","min":2,"thieu":true,
-     "reason":"3 ứng viên tìm được (tàu khu trục Anzac-class, Naval Today; nhà máy tàu ngầm Osborne, Construction Review; hội nghị lập kế hoạch Talisman Sabre 2027, Mirage News) đều bị CỔNG NGÀY ĐĂNG THẬT chặn (trang không in metadata ngày đọc được: datePublished/article:published_time/<time>). Không đủ thời gian tìm nguồn thay thế (defence.gov.au/ASPI) trước hạn chót 21:45."},
+    {"name":"Địa bàn › Australia","count":1,"target":"2+","min":2,"thieu":true,
+     "reason":"Chỉ có 1 tin (Tư lệnh Hải quân Ấn Độ thăm Úc/NZ). Đã tìm nhiều vòng qua defence.gov.au, AUKUS, ADF, Marles, Pitch Black/Talisman Sabre nhưng không ra tin Úc thuần tuý mới trong khung 08-09/09/2026 — ứng viên AIM-260 JATM hoá ra là tin cũ (công bố 06/08, bài MiGFlug chỉ đăng lại muộn)."},
     {"name":"Địa bàn › Biển Đông","count":1,"target":"2+","min":2,"thieu":true,
-     "reason":"Chỉ có 1 tin (Tô Lâm thăm Nga-Pháp giữa căng thẳng Biển Đông, SCMP). Ứng viên thứ hai (Bộ trưởng QP Philippines chỉ trích TQ tại Diễn đàn Seoul, Bloomberg) bị CỔNG NGÀY ĐĂNG THẬT chặn. Hết thời gian tìm thay thế trước hạn 21:45."},
-    {"name":"KHCN-QS","count":3,"target":"2+","min":2,"thieu":false,"reason":"1 tin CNQS Mỹ (hợp đồng MDA-Northrop Grumman 508,5 triệu USD) + 2 tin cập nhật tập trận Super Garuda Shield 2026 (Baturaja, Lampung)."}
+     "reason":"Chỉ có 1 tin (Bộ trưởng QP Philippines chỉ trích TQ tại Diễn đàn Seoul, Yonhap). Ứng viên thứ hai (Tô Lâm thăm Nga-Pháp, SCMP) bị chặn vì URL đã có sẵn trong DATA (trùng, nạp từ phiên trước); ứng viên khác (Anh/Pháp/Canada trừng phạt Israel, Guardian) bị chặn vì là trang live-blog không phải bài viết cố định. Hết thời gian tìm bài thay thế."},
+    {"name":"KHCN-QS","count":4,"target":"2+","min":2,"thieu":false,
+     "reason":"2 tin CNQS Mỹ (pháo phòng không căn cứ hải ngoại, Space Force chi 17 tỷ USD phóng vệ tinh) + 2 tin cập nhật tập trận (Freedom Edge — Triều Tiên phản đối, Super Garuda Shield — diễn tập bắn đạn thật)."}
   ],
-  "note": "Phiên tối 08/09 chạy sát hạn chót 21:45 — nhiều ứng viên hợp lệ về nội dung (Naval Today, Bloomberg, RealClearDefense, Naval News, Sandoval Signpost, Mirage News, Army Recognition) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang không in metadata ngày đọc được bằng công cụ tự động, không phải vì tin sai/cũ. Xem logs/loai-tin.md để biết chi tiết từng tin bị loại. Cổng Báo Mới: 3 ứng viên còn lại đều bị loại có lý do (2 CNQS quá khung 3 ngày, 1 kinh tế nội địa VN gán nhầm chủ đề). Chưa kịp kích bot Telegram Jay Lâm (gh workflow) do sát hạn chót — xem log phiên."
+  "note": "Mali: 0 tin — mọi ứng viên GNEWS/WebSearch về JNIM-Mali-Sahel là bài phân tích mô tả sự kiện cũ (tháng 4-8/2026), không qua được cổng ngày đăng thật; bài 'US weighs Kinetic Action in Mali' không mở được để xác minh ngày. Nhiều ứng viên khác bị CỔNG NGÀY ĐĂNG THẬT chặn (trang không in metadata ngày đọc được): khảo sát cử tri Latinh (The Hill), hội nghị Trumpapalooza (RealClearPolitics), thử nghiệm DASH AI (spaceforce.mil), mạng cáp ngầm Sentinel ICBM (RealClearDefense), SIFOREX Argentina (argentina.gob.ar, ngoài khung 1 ngày so với batch). Không kích được bot Telegram Jay Lâm bằng gh workflow run (cần quyền duyệt riêng trong môi trường CI, fail-open có tiếng); kiểm `tin_jaylam.py --liet-ke` vẫn cho mã 10 (không có file nào trong hàng chờ) nên bước 4c không có gì để lọc phiên này."
 }

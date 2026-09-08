@@ -2,3 +2,4 @@
 [18:06Z] SKIP web-scan (CI) — exit 12 SAI GIO: 01:05 gio VN nam ngoai khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Khong dung --bo-cong-gio de lach (dung chi thi CLAUDE.md).
 [21:00Z] START (CI) phien sang som — claim OK, quet di.
 [04:05 VN] SKIP web-scan (local) — CI run 34278040719 dang in_progress (bat dau 04:00 VN, dung mocket cua phien nay). claim() cua local tra RUN vi state.json remote chua kip cap nhat (khoa chua push kip) nhung gh run list xac nhan CI dang chay that. Da revert claim gia (checkout -- logs/state.json), KHONG push, KHONG quet chong. Nhuong CI.
+[21:23Z] web-scan xong: +5 tin worldNews, +8 tin usNews, +2 tin cap nhat tap tran (Freedom Edge, Super Garuda Shield). Thieu san: Australia 1/2, Bien Dong 1/2 (xem scan-gaps.json). Chuan bi commit.
