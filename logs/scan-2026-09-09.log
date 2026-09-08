@@ -6,3 +6,4 @@
 [21:24Z] START event-scan (CI, gop vao sang som) — claim OK.
 [21:32Z] event-scan xong: do_tap_tran_thieu 0 cuoc co ten moi. dipEvents/exerciseUpdates bo sung: khong co gi dat chuan (da thu SIFOREX, Freedom Edge, CJLOTS, UNGA, To Lam tham Nga/Phap - toan bo bi chan 403 hoac trung tin da co). Think-tank: +5 bai (ASPI x2, War on the Rocks, ORF, CEPA) + 11 khai niem. Chuan bi commit rieng.
 [21:34Z] SKIP web-scan (CI) — claim tra exit 10 (phien sang som DA XONG luc 04:23:39 VN). Kiem ngoai le: so_da_gui.py --xem co dong 2026-09-09T04:33:59+07:00 [sang] 13 tin — ban tin da toi tay that. Khong quet lai.
+[04:35 VN] SKIP web-scan (local) — claim tra exit 10, phien sang som DA XONG luc 04:23:39 VN (log CI 21:34Z da xac nhan so da-gui-email.json co dong that). Khong quet lai.
