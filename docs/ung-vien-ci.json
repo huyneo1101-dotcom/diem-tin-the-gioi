@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-09T05:55:42+07:00",
+  "tao_luc": "2026-09-09T06:35:50+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-08",
@@ -177,14 +177,6 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-09-08",
-      "tieu_de": "EU công bố gói đầu tư 200 triệu euro dành cho Greenland",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/eu-cong-bo-goi-dau-tu-200-trieu-euro-danh-cho-greenland-post1134805.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
       "ngay": "2026-09-09",
       "tieu_de": "Mở đường cho giai đoạn hợp tác kinh tế-thương mại-đầu tư mang tính đột phá và thực chất Việt Nam-Pháp",
       "nguon": "Nhân Dân",
@@ -197,6 +189,14 @@
       "tieu_de": "Thủ tướng Lê Minh Hưng sắp tham dự Hội nghị thượng đỉnh BRICS và làm việc song phương tại Ấn Độ",
       "nguon": "Nhân Dân",
       "url": "https://nhandan.vn/thu-tuong-le-minh-hung-sap-tham-du-hoi-nghi-thuong-dinh-brics-va-lam-viec-song-phuong-tai-an-do-post987189.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-08",
+      "tieu_de": "EU công bố gói đầu tư 200 triệu euro dành cho Greenland",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/eu-cong-bo-goi-dau-tu-200-trieu-euro-danh-cho-greenland-post987049.html"
     },
     {
       "lop": "RSS",
@@ -293,6 +293,14 @@
       "tieu_de": "Marine Corps offering up to $15,000 for enlisting in electronic, cyber fields",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/news/marines-corps-cyber-crypto-enlistment-bonus/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Hegseth is shaking up the Pentagon as the US wages war - but at what cost?",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cd94j8e9n12o?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -521,22 +529,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "How the Pentagon is undermining Trump executive orders",
-      "nguon": "Federal News Network — Defense",
-      "url": "https://federalnewsnetwork.com/commentary/2026/09/how-the-pentagon-is-undermining-trump-executive-orders/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "Pentagon finds ID problems affecting 215,000 troops",
-      "nguon": "Federal News Network — Defense",
-      "url": "https://federalnewsnetwork.com/defense-main/2026/09/pentagon-finds-id-problems-affecting-215000-troops/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "Pentagon searching medical records to identify transgender troops",
       "nguon": "Federal News Network — Defense",
@@ -594,15 +586,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-08",
-      "tieu_de": "Trial over killing of Australian surfer brothers and US friend starts in Mexico",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/crernpv433vo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
-      "tieu_de": "Middle East live: Israel to close British consulate in Jerusalem after sanctions on settlements",
+      "tieu_de": "Israel to close British consulate in Jerusalem after sanctions on settlements",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/middle-east/20260908-middle-east-live-israel-to-close-british-consulate-in-jerusalem-after-sanctions-on-settlements"
     },
@@ -906,6 +890,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-09",
+      "tieu_de": "5 người thiệt mạng trong vụ rơi trực thăng tại Malaysia",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/5-nguoi-thiet-mang-trong-vu-roi-truc-thang-tai-malaysia-post1135014.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
       "tieu_de": "Trực thăng chở 5 người gặp nạn tại Malaysia",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/truc-thang-cho-5-nguoi-gap-nan-tai-malaysia-post1134969.vnp"
@@ -1035,19 +1027,19 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "Canada's retaliatory tariffs worth CA$27.6 billion take effect as trade rift with U.S. deepens",
+      "ngay": "2026-09-08",
+      "tieu_de": "UK announces new Israeli settlement sanctions, despite U.S. warning of economic consequences",
       "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/08/canada-retaliatory-tariffs.html",
+      "url": "https://www.cnbc.com/2026/09/08/uk-israel-sanctions-miliband-florida-trump.html",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-08",
-      "tieu_de": "UK announces new Israeli settlement sanctions, despite U.S. warning of economic consequences",
+      "ngay": "2026-09-09",
+      "tieu_de": "Canada's retaliatory tariffs worth CA$27.6 billion take effect as trade rift with U.S. deepens",
       "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/08/uk-israel-sanctions-miliband-florida-trump.html",
+      "url": "https://www.cnbc.com/2026/09/08/canada-retaliatory-tariffs.html",
       "nhom": 4
     },
     {
