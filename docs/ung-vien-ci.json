@@ -1,19 +1,11 @@
 {
-  "tao_luc": "2026-09-09T03:46:53+07:00",
+  "tao_luc": "2026-09-09T05:55:42+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-08",
     "2026-09-09"
   ],
   "ung_vien": [
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-09-09",
-      "tieu_de": "Rubio says US wants to wrap trade deals with Colombia, Peru, Ecuador soon",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/rubio-says-us-wants-to-wrap-trade-deals-with-colombia-peru-ecuador-soon"
-    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -45,6 +37,14 @@
       "tieu_de": "Indonesia Reopens Airports After Suspension Due to Volcanic Eruption",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/09/hold-indonesia-reopens-airports-after-suspension-due-to-volcanic-eruption/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-09",
+      "tieu_de": "Greenland 'biến nguy thành cơ' sau lời đe dọa của ông Trump",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/greenland-bien-nguy-thanh-co-sau-loi-de-doa-cua-ong-trump-5117697.html"
     },
     {
       "lop": "RSS",
@@ -109,14 +109,6 @@
       "tieu_de": "Trump posts map with American flag emblazoned over Canada, Greenland, Mexico",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/administration/6075255-trump-map-territorial-ambitions/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-09-08",
-      "tieu_de": "Indonesian, U.S. forces conduct combined joint land strike during Super Garuda Shield",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295141/indonesian_u_s_forces_conduct_combined_joint_land_strike_during_super_garuda_shield"
     },
     {
       "lop": "RSS",
@@ -250,9 +242,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-09",
-      "tieu_de": "US Air Force seeks air-defense guns to protect overseas bases",
+      "tieu_de": "Ukraine contracting around 1,000 Patriot missiles from allies, defense chief says",
       "nguon": "Defense News",
-      "url": "https://www.defensenews.com/news/your-military/2026/09/08/us-air-force-seeks-air-defense-guns-to-protect-overseas-bases/"
+      "url": "https://www.defensenews.com/flashpoints/ukraine/2026/09/08/ukraine-contracting-around-1000-patriot-missiles-from-allies-defense-chief-says/"
     },
     {
       "lop": "RSS",
@@ -273,10 +265,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-07",
+      "tieu_de": "North Korea Commissions Second Choe Hyon-Class Guided-Missile Destroyer",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/09/north-korea-commissions-second-choe-hyon-class-destroyer-kang-kon/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "Sweden signs HIMARS deal, forges rocket artillery pact with Finland",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/09/sweden-signed-himars-deal-forges-rocket-artillery-pact-with-finland/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "After heavy Reaper drone loses in Iran, Air Force accelerates affordable future replacement",
+      "nguon": "Defense One",
+      "url": "https://www.defenseone.com/technology/2026/09/after-heavy-reaper-drone-loses-iran-air-force-accelerates-affordable-future-replacement/415852/"
     },
     {
       "lop": "RSS",
@@ -466,9 +474,25 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-09",
-      "tieu_de": "Space Force Expects to Spend $17B More on Launch as Demand Soars",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/space-force-expects-to-spend-17b-more-on-launch-as-demand-soars/"
+      "tieu_de": "Contracts for Sept. 8, 2026",
+      "nguon": "DoD Contracts",
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4592905/contracts-for-sept-8-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "US Air Force seeks air-defense guns to protect overseas bases",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/09/08/us-air-force-seeks-air-defense-guns-to-protect-overseas-bases/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Germany’s First F-35 Has Flown",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/09/08/germanys-first-f-35-has-flown/"
     },
     {
       "lop": "RSS",
@@ -493,6 +517,22 @@
       "tieu_de": "PPP floor leader to seek ways to bolster nuclear deterrence against N.K. threats",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260908004600315"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "How the Pentagon is undermining Trump executive orders",
+      "nguon": "Federal News Network — Defense",
+      "url": "https://federalnewsnetwork.com/commentary/2026/09/how-the-pentagon-is-undermining-trump-executive-orders/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Pentagon finds ID problems affecting 215,000 troops",
+      "nguon": "Federal News Network — Defense",
+      "url": "https://federalnewsnetwork.com/defense-main/2026/09/pentagon-finds-id-problems-affecting-215000-troops/"
     },
     {
       "lop": "RSS",
@@ -533,6 +573,14 @@
       "tieu_de": "Chairman Babin Issues Statement on New Glenn Incident at Cape Canaveral Space Force Station",
       "nguon": "Uỷ ban Khoa học Hạ viện",
       "url": "https://science.house.gov/press-releases?ID=52612EE3-D235-4B86-9426-482AD63D5606"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "Paul Adams: British-Israeli relations at lowest ebb in decades",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/c5ydlex9yn3o?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -658,7 +706,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-09",
-      "tieu_de": "Foreign 'AI slopaganda' network targets Australian politicians",
+      "tieu_de": "Foreign 'AI slopaganda' network deepfakes dozens of Australian politicians",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-09/foreign-ai-network-deepfaking-australian-politicians/107129044"
     },
@@ -669,14 +717,6 @@
       "tieu_de": "Can Australia produce another outback film classic?",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-09/regional-filmmaking-a-boon-for-australian-economy/107127700"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-09",
-      "tieu_de": "Dreadnought sea trial timing kept quiet due to security",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/dreadnought-sea-trial-timing-kept-quiet-due-to-security/"
     },
     {
       "lop": "RSS",
@@ -701,14 +741,6 @@
       "tieu_de": "Forces yet to decide rehab staffing increases for major war",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/forces-yet-to-decide-rehab-staffing-increases-for-major-war/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-09",
-      "tieu_de": "UK brigade held ready to repel Russian attack",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/uk-brigade-held-ready-to-repel-russian-attack/"
     },
     {
       "lop": "RSS",
@@ -753,16 +785,8 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
-      "tieu_de": "UK pledges winter air defence package to boost Ukraine's defences",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/uk-pledges-winter-air-defence-package-to-boost-ukraines-defences"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-09",
-      "tieu_de": "Burnham says Britain will ‘continue to act in support of our values’ after UK launches sanctions on Israel – UK politics live",
+      "tieu_de": "Burnham says Britain will ‘continue to act in support of our values’ after UK launches sanctions on Israel – as it happened",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/politics/live/2026/sep/08/uk-us-trade-israel-sanctions-labour-ed-miliband-farage-latest-news-updates"
     },
@@ -794,9 +818,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-08",
-      "tieu_de": "(LEAD) Philippine defense chief slams China over audience note on South China Sea at Seoul forum",
+      "tieu_de": "Philippine defense chief slams China over audience note on South China Sea at Seoul forum",
       "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260908006551315"
+      "url": "https://en.yna.co.kr/view/AEN20260908006500315"
     },
     {
       "lop": "RSS",
@@ -817,10 +841,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "Berlin Is Shedding Light on the Gray Zone",
+      "nguon": "Foreign Policy",
+      "url": "https://foreignpolicy.com/2026/09/08/germany-russia-drones-gray-zone-hybrid-warfare-putin/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-08",
       "tieu_de": "‘I heard a lot of noise’: trial begins in Mexico for alleged killers of Australian surfers and American friend",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/sep/07/alleged-killers-of-australian-surfers-and-american-friend-go-on-trial-in-mexico"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "Australian politics live: Albanese makes ‘no apology’ for $6m golf club grant in own electorate; Victorian bills may rise by $100 under Coalition",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/09/coalition-victoria-energy-bills-labor-one-nation-super-digital-duty-of-care-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -960,6 +1000,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-09",
+      "tieu_de": "Albania protests against Trump-linked development turn violent after 100th day",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/europe/article/3366838/albania-protests-against-trump-linked-development-turn-violent-after-100th-day?utm_source=rss_feed",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
       "tieu_de": "US targets Iran’s airlines with sweeping new sanctions",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/middle-east/article/3366828/us-targets-irans-airlines-sweeping-new-sanctions?utm_source=rss_feed",
@@ -999,15 +1048,6 @@
       "tieu_de": "UK announces new Israeli settlement sanctions, despite U.S. warning of economic consequences",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/09/08/uk-israel-sanctions-miliband-florida-trump.html",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "U.S. sanctions Iranian airlines in aim to tighten economic squeeze as war spreads, oil rises",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/08/us-sanctions-iran-airlines-oil-economy-war.html",
       "nhom": 4
     },
     {
@@ -1063,6 +1103,24 @@
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/thue-quan-tra-dua-cua-canada-co-hieu-luc-thuong-chien-voi-my-nong-len-20260908143643337.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Kavanaugh won’t revive Missouri’s GOP-friendly congressional map for midterms",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/regulation/court-battles/6077470-supreme-court-missouri-congressional-map/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Trump leans into trolling critics as GOP midterm anxiety grows",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6077459-new-mexico-name-controversy/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1131,18 +1189,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-09",
-      "tieu_de": "Accelerating Access To Veterans’ Benefits And Employment Opportunities",
+      "tieu_de": "Modifying the Scope of Products of Canada Subject to the Additional Duties Imposed to Offset Canadian Discrimination Against the United States with Respect to Motor Vehicles",
       "nguon": "Nhà Trắng — Presidential Actions",
-      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/accelerating-access-to-veterans-benefits-and-employment-opportunities/",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/modifying-the-scope-of-products-of-canada-subject-to-the-additional-duties-imposed-to-offset-canadian-discrimination-against-the-united-states-with-respect-to-motor-vehicles/",
       "nhom": 9
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-09",
-      "tieu_de": "Adjusting Certain Delegations Under the Defense Production Act",
+      "tieu_de": "Excluding Certain Canadian Alcoholic Beverages from Importation into the United States in Response to Continued Discrimination Against the Commerce of the United States with Respect to Alcoholic Beverages",
       "nguon": "Nhà Trắng — Presidential Actions",
-      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/adjusting-certain-delegations-under-the-defense-production-act-e2de/",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/excluding-certain-canadian-alcoholic-beverages-from-importation-into-the-united-states-in-response-to-continued-discrimination-against-the-commerce-of-the-united-states-with-respect-to-alcoholic-bever/",
       "nhom": 9
     },
     {
@@ -1184,6 +1242,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "US supreme court rejects Missouri Republicans’ appeal to use Trump-backed congressional map in midterms – live",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/live/2026/sep/08/new-hampshire-rhode-island-vote-state-primaries-trump-canada-us-politics-latest-news-updates",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "Republican exploits divided field in Montana Senate race",
       "nguon": "Semafor",
@@ -1206,15 +1273,6 @@
       "tieu_de": "GOP to host unusual midterm convention. And, Canada's retaliatory tariffs take effect",
       "nguon": "NPR — World",
       "url": "https://www.npr.org/2026/09/08/g-s1-142302/up-first-newsletter-trumpapalooza-amazon-cargo-plane-crash-canada-tariffs",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "Mỹ áp lệnh trừng phạt toàn bộ ngành hàng không Iran",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/my-ap-lenh-trung-phat-toan-bo-nganh-hang-khong-iran-post1135002.vnp",
       "nhom": 4
     },
     {
