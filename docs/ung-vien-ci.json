@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-09T00:22:03+07:00",
+  "tao_luc": "2026-09-09T01:03:10+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-08",
@@ -241,6 +241,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "US Air Force seeks air-defense guns to protect overseas bases",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/news/your-military/2026/09/08/us-air-force-seeks-air-defense-guns-to-protect-overseas-bases/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "Sweden to buy HIMARS rocket artillery for around $730 million",
       "nguon": "Defense News",
@@ -433,14 +441,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "US Air Force seeks air-defense guns to protect overseas bases",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/09/08/us-air-force-seeks-air-defense-guns-to-protect-overseas-bases/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "Drone Round Counter-UAS Ammunition Integrated Into Marine Corps Indoor Simulated Marksmanship Trainer",
       "nguon": "Soldier Systems Daily",
@@ -538,7 +538,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-08",
-      "tieu_de": "Israel's foreign minister says it is closing British consulate in East Jerusalem",
+      "tieu_de": "Israel to close British consulate in East Jerusalem after UK, France and Canada ban imports from West Bank settlements",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/israels-foreign-minister-says-it-is-closing-british-consulate-in-east-jerusalem"
     },
@@ -629,22 +629,6 @@
       "tieu_de": "Malaysia's Anwar targets cost-of-living woes after election setbacks",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/politics/malaysia-s-anwar-targets-cost-of-living-woes-after-election-setbacks"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "BRICS Summit, Okinawa election, Philippines AI plan",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/spotlight/your-week-in-asia/brics-summit-okinawa-election-philippines-ai-plan"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Taiwan's mortgage curbs squeeze middle class, spare cash-rich buyers",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/markets/property/taiwan-s-mortgage-curbs-squeeze-middle-class-spare-cash-rich-buyers"
     },
     {
       "lop": "RSS",
@@ -741,6 +725,14 @@
       "tieu_de": "UK pledges winter air defence package to boost Ukraine's defences",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
       "url": "https://www.gov.uk/government/news/uk-pledges-winter-air-defence-package-to-boost-ukraines-defences"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "The Guardian view on Britain’s new Middle East policy: an unlawful occupation must carry a price | Editorial",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/08/the-guardian-view-on-britains-new-middle-east-policy-an-unlawful-occupation-must-carry-a-price"
     },
     {
       "lop": "RSS",
@@ -981,7 +973,7 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "U.S. sanctions Iranian airlines in aim to tighten economic squeeze as war spreads, oil rises",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/09/08/us-sanctions-iran-airlines-oil-economy-war.html",
@@ -1039,6 +1031,15 @@
       "tieu_de": "Thuế quan trả đũa của Canada có hiệu lực, thương chiến với Mỹ nóng lên",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/thue-quan-tra-dua-cua-canada-co-hieu-luc-thuong-chien-voi-my-nong-len-20260908143643337.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "US issues sweeping sanctions against Iranian airlines, foreign businesses",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6076934-trump-sanctions-iran-airlines/",
       "nhom": 4
     },
     {
