@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-08T04:32:22+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "Nội bộ Mỹ 3, Anh 2, Uc 0, Bien Dong 0, CNQS 4, Mali 0, tap tran 2 cap nhat (Ample Strike, Freedom Edge). Thieu san Doi ngoai My/Uc/Bien Dong do cong ngay dang that chan (xem scan-gaps.json).",
+    "lastRunAt": "2026-09-08T20:56:06+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-07",
       "sang": "2026-09-08"
-    }
+    },
+    "heartbeat": "2026-09-08T20:56:06+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-08T04:43:07+07:00",
