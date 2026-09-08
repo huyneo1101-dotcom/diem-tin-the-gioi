@@ -7,3 +7,4 @@
 [23:00Z] SKIP web-scan (CI) — lai mot lan nua exit 10, cron GitHub no lai cho cung phien "sang" (06:00 gio VN). Kiem lai dung 3 lenh: state.py show van DONE lastRunAt 04:32:22+07:00; so_da_gui.py --xem van CO dong [sang] ngay 2026-09-08. Khong gi doi khac so voi dong log truoc, SKIP hop le, khong claim, khong quet lai.
 [23:45Z] SKIP web-scan (CI) — lai mot lan nua exit 10, cron GitHub no lai cho cung phien "sang" (06:45 gio VN). Kiem lai dung 3 lenh: state.py show van DONE lastRunAt 04:32:22+07:00; so_da_gui.py --xem van CO dong [sang] ngay 2026-09-08 (04:32:31 va 04:55:05). Khong gi doi khac, SKIP hop le, khong claim, khong quet lai.
 [13:56Z] START web-scan (CI) phien toi, 20:56 gio VN, claim OK.
+[21:15] SKIP web-scan (local, phien toi) — exit 11, phien CI dang chay (bat dau 20:56, nhip tim 19' truoc luc claim). Khong quet chong, KET THUC ngay theo dung luat.
