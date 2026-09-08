@@ -1,55 +1,16 @@
 {
   "date": "2026-09-08",
-  "session": "sang",
+  "session": "toi",
   "topics": [
-    {
-      "name": "Đối ngoại Mỹ",
-      "count": 0,
-      "target": "2",
-      "min": 2,
-      "thieu": true,
-      "reason": "Không tìm được tin đối ngoại Mỹ nào xác nhận đúng ngày sự kiện 07-08/09/2026 qua nguồn đủ chuẩn. Ứng viên duy nhất tìm được (Ngoại trưởng Rubio công du Colombia/Ecuador/Peru, state.gov) bị cổng ngày đăng thật chặn vì trang chính thức không in metadata ngày ở dạng đọc được nhưng đã MỞ ĐƯỢC (có tiêu đề thật), nên không đủ điều kiện override — đúng luật 25/08/2026 'trang không in ngày thì bỏ, chọn bài khác'. Đã thử 2 vòng WebSearch (điều trần, Witkoff/Kushner tiếp diễn, cuộc gọi Trump-Putin-Zelensky dự kiến 07/9 — chỉ là kế hoạch chưa xác nhận đã diễn ra) không ra thêm ứng viên đạt chuẩn."
-    },
-    {
-      "name": "Nội bộ Mỹ",
-      "count": 3,
-      "target": "2-5",
-      "min": 2,
-      "thieu": false,
-      "reason": "Đạt sàn. Đã vét cạn HẠNG 1 (điều trần/bỏ phiếu) — không có phiên nào ngày 07-08/9 vì Quốc hội nghỉ tuần lễ Ngày Lao Động. Lấy đủ 3 tin hạng 2 (nhóm 2 sáng kiến chính quyền: H-1B; nhóm 5 bầu cử: công kích Dân chủ + SAVE America Act)."
-    },
-    {
-      "name": "Địa bàn › Anh",
-      "count": 2,
-      "target": "2-5",
-      "min": 2,
-      "thieu": false,
-      "reason": "Đạt sàn (Bộ Quốc phòng Anh về nợ công, điện đàm Burnham-Kristersson về JEF)."
-    },
-    {
-      "name": "Địa bàn › Australia",
-      "count": 0,
-      "target": "2",
-      "min": 2,
-      "thieu": true,
-      "reason": "Không tìm được tin Úc nào xác nhận đúng ngày 07-08/09/2026. Ứng viên duy nhất (diễn tập Pozieres Run, GlobalSecurity.org/Bộ Quốc phòng Úc) bị cổng ngày đăng thật chặn — trang mở được (có tiêu đề thật) nhưng không có metadata ngày, không đủ điều kiện override. Tin khác tìm được (Marles-Hegseth thoả thuận căn cứ) có ngày sự kiện thật 02-03/9, ngoài khung. Đã thử hơn 15 lượt WebSearch qua ABC News AU, defence.gov.au, Lowy, ASPI không ra thêm ứng viên đạt chuẩn."
-    },
-    {
-      "name": "Địa bàn › Biển Đông",
-      "count": 0,
-      "target": "2",
-      "min": 2,
-      "thieu": true,
-      "reason": "Không tìm được tin Biển Đông nào xác nhận đúng ngày 07-08/09/2026. Ứng viên duy nhất (Đài Loan báo cáo hoạt động PLA hằng ngày, mnd.gov.tw) bị cổng ngày đăng thật chặn — trang mở được nhưng ngày chỉ nằm trong đoạn mô tả tự do ('1.Date: 6 a.m. Sep...'), không phải metadata chuẩn mà ngay_that.py nhận diện được; cần bổ sung mẫu doc_ngay riêng cho mnd.gov.tw, đã ghi vào SO-VIEC-CHO-NGOAI-GIO.md. Vụ Trung Quốc điều JL-10 chặn máy bay Philippines ở Scarborough Shoal xác minh được qua SCMP/Manila Times nhưng ngày sự kiện thật là 02/9, ngoài khung."
-    },
-    {
-      "name": "KHCN-QS",
-      "count": 4,
-      "target": "5-10",
-      "min": 2,
-      "thieu": false,
-      "reason": "Đạt sàn (USS Pinckney NASSCO, AI tác chiến điện tử Không quân, Thuỵ Điển mua HIMARS, F-35B luân phiên Nhật Bản)."
-    }
+    {"name":"Đối ngoại Mỹ","count":0,"target":"5-10","min":2,"thieu":true,
+     "reason":"Sát hạn chót 21:45 nên phiên chỉ kịp nạp 2 tin Nội bộ Mỹ thuần nội bộ (thuế Canada-Bombardier, bầu cử sơ bộ NH/RI); ứng viên đối ngoại Mỹ tìm được (dự báo Fed của UBS qua Investing.com — aggregator không truy được bài gốc Reuters; đại hội RNC Dallas qua The Hill — nội dung không khớp chắc chắn với tiêu đề gốc) bị loại vì chưa đạt thang xác minh, không kịp thay thế trước hạn."},
+    {"name":"Nội bộ Mỹ","count":2,"target":"5-10","min":2,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":3,"target":"2+","min":2,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":0,"target":"2+","min":2,"thieu":true,
+     "reason":"3 ứng viên tìm được (tàu khu trục Anzac-class, Naval Today; nhà máy tàu ngầm Osborne, Construction Review; hội nghị lập kế hoạch Talisman Sabre 2027, Mirage News) đều bị CỔNG NGÀY ĐĂNG THẬT chặn (trang không in metadata ngày đọc được: datePublished/article:published_time/<time>). Không đủ thời gian tìm nguồn thay thế (defence.gov.au/ASPI) trước hạn chót 21:45."},
+    {"name":"Địa bàn › Biển Đông","count":1,"target":"2+","min":2,"thieu":true,
+     "reason":"Chỉ có 1 tin (Tô Lâm thăm Nga-Pháp giữa căng thẳng Biển Đông, SCMP). Ứng viên thứ hai (Bộ trưởng QP Philippines chỉ trích TQ tại Diễn đàn Seoul, Bloomberg) bị CỔNG NGÀY ĐĂNG THẬT chặn. Hết thời gian tìm thay thế trước hạn 21:45."},
+    {"name":"KHCN-QS","count":3,"target":"2+","min":2,"thieu":false,"reason":"1 tin CNQS Mỹ (hợp đồng MDA-Northrop Grumman 508,5 triệu USD) + 2 tin cập nhật tập trận Super Garuda Shield 2026 (Baturaja, Lampung)."}
   ],
-  "note": "Phiên SÁNG SỚM 08/09/2026 (local). Đã chạy 2 vòng agent (5 luồng ban đầu + 1 luồng bổ sung riêng Đối ngoại Mỹ/Úc/Biển Đông) và tự tay kiểm URL bằng lay_trang.py trước khi nạp. 03 mục dưới sàn đều do CỔNG NGÀY ĐĂNG THẬT chặn (trang mở được, tiêu đề thật, nhưng thiếu metadata ngày chuẩn) — không phải do thiếu tin, mà do thiếu bằng chứng ngày đủ chuẩn máy đọc được; ứng viên nội dung đã có trong tay nhưng không đạt được cổng. Phiên tối 08/09 nên ưu tiên bù 3 mục này trước, và nếu gặp lại mnd.gov.tw/globalsecurity.org/state.gov thì cân nhắc thêm mẫu doc_ngay hoặc override có lý do rõ khi xác nhận chéo được qua nguồn thứ hai."
+  "note": "Phiên tối 08/09 chạy sát hạn chót 21:45 — nhiều ứng viên hợp lệ về nội dung (Naval Today, Bloomberg, RealClearDefense, Naval News, Sandoval Signpost, Mirage News, Army Recognition) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang không in metadata ngày đọc được bằng công cụ tự động, không phải vì tin sai/cũ. Xem logs/loai-tin.md để biết chi tiết từng tin bị loại. Cổng Báo Mới: 3 ứng viên còn lại đều bị loại có lý do (2 CNQS quá khung 3 ngày, 1 kinh tế nội địa VN gán nhầm chủ đề). Chưa kịp kích bot Telegram Jay Lâm (gh workflow) do sát hạn chót — xem log phiên."
 }

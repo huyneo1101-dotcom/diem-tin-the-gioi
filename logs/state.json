@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-08T20:56:06+07:00",
+    "lastRunAt": "2026-09-08T21:30:18+07:00",
     "lastSlot": "toi",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+9 tin (5 chu de) - phien toi sat han",
     "lastSuccess": {
-      "toi": "2026-09-07",
+      "toi": "2026-09-08",
       "sang": "2026-09-08"
-    },
-    "heartbeat": "2026-09-08T20:56:06+07:00"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-08T04:43:07+07:00",
