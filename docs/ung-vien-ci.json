@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-09-09T01:03:10+07:00",
+  "tao_luc": "2026-09-09T03:46:53+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-08",
     "2026-09-09"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-09",
+      "tieu_de": "Rubio says US wants to wrap trade deals with Colombia, Peru, Ecuador soon",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/rubio-says-us-wants-to-wrap-trade-deals-with-colombia-peru-ecuador-soon"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -121,7 +129,7 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "The Strategic Importance of Greenland",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/08/the_strategic_importance_of_greenland_1204751.html"
@@ -265,14 +273,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-07",
-      "tieu_de": "North Korea Commissions Second Choe Hyon-Class Guided-Missile Destroyer",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/09/north-korea-commissions-second-choe-hyon-class-destroyer-kang-kon/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "Sweden signs HIMARS deal, forges rocket artillery pact with Finland",
       "nguon": "Breaking Defense",
@@ -329,10 +329,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Oil rises to $99 on report Iran launched second undisclosed attack on U.S. Navy ships",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/08/oil-prices-today-brent-wti-hormuz-iran-war.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "Japan and South Korea Face Off Again in the US Navy’s Frigate Search",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/09/japan-and-south-korea-face-off-again-in-the-us-navys-frigate-search/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Mẫu tên lửa đạn đạo Iran buộc tàu sân bay Mỹ cơ động né tránh",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/mau-ten-lua-dan-dao-iran-buoc-tau-san-bay-my-co-dong-ne-tranh-5117714.html"
     },
     {
       "lop": "RSS",
@@ -349,14 +365,6 @@
       "tieu_de": "'Cửa ải' ông Hùng Cao phải vượt qua để làm Bộ trưởng Hải quân Mỹ",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/cua-ai-ong-hung-cao-phai-vuot-qua-de-lam-bo-truong-hai-quan-my-5116824.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-06",
-      "tieu_de": "Tàu sân bay Mỹ 'né tránh thành công' loạt tên lửa đạn đạo Iran",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/tau-san-bay-my-ne-tranh-thanh-cong-loat-ten-lua-dan-dao-iran-5117025.html"
     },
     {
       "lop": "RSS",
@@ -385,23 +393,15 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-08",
-      "tieu_de": "33rd Range and Aggressor Squadron Supports Advanced Cyber Training at Patrick Space Force Base",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574071/33rd-range-and-aggressor-squadron-supports-advanced-cyber-training-patrick-space-force-base"
+      "ngay": "2026-09-09",
+      "tieu_de": "DAF accelerates joint C2 with AI, Space Force integration in latest DASH experiment",
+      "nguon": "Lực lượng Không gian Mỹ",
+      "url": "https://www.spaceforce.mil/News/Article-Display/Article/4592644/daf-accelerates-joint-c2-with-ai-space-force-integration-in-latest-dash-experim/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-08",
-      "tieu_de": "DAF Accelerates Joint C2 with AI, Space Force Integration in Latest DASH Experiment",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574070/daf-accelerates-joint-c2-with-ai-space-force-integration-latest-dash-experiment"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "U.S. Navy Accelerates Tomahawk Production",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/08/us_navy_accelerates_tomahawk_production_1204710.html"
@@ -409,7 +409,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "U.S. Navy Trials Robotic Towed Connector to Refuel USV",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/08/us_navy_trials_robotic_towed_connector_to_refuel_usv_1204690.html"
@@ -417,7 +417,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "U.S. Navy, Quad partners move to 'fingerprint' dark fleets in the Pacific",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/08/us_navy_quad_partners_move_to_fingerprint_dark_fleets_in_the_pacific_1204716.html"
@@ -425,7 +425,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "U.S. Plans $2B Underground Network for New LGM-35A Sentinel ICBM",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/08/us_plans_2b_underground_network_for_new_lgm-35a_sentinel_icbm_1204640.html"
@@ -433,10 +433,42 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "Pentagon Options To Cover Mounting FY26 Operational Costs",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/08/pentagon_options_to_cover_mounting_fy26_operational_costs_1204734.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Air Force Speeds Reaper Successor Timeline After Iran Losses",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/08/air_force_speeds_reaper_successor_timeline_after_iran_losses_1204863.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "AI Giants Work Hand-in-Hand With Pentagon, Contracts Reveal",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/08/ai_giants_work_hand-in-hand_with_pentagon_contracts_reveal_1204865.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Ukraine Asks EU to Fund First Patriot Missiles Buy",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/08/ukraine_asks_eu_to_fund_first_patriot_missiles_buy_1204867.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Space Force Expects to Spend $17B More on Launch as Demand Soars",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/space-force-expects-to-spend-17b-more-on-launch-as-demand-soars/"
     },
     {
       "lop": "RSS",
@@ -505,15 +537,7 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
-      "tieu_de": "The shift in British policy on Israel is palpable",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/opinions/2026/9/8/the-shift-in-british-policy-on-israel-is-palpable?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "British widow faces deportation from Sweden after 22 years",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c62k0d4px6ro?at_medium=RSS&at_campaign=rss"
@@ -633,18 +657,42 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
-      "tieu_de": "Australia records worst-ever maths and reading scores in global test",
+      "ngay": "2026-09-09",
+      "tieu_de": "Foreign 'AI slopaganda' network targets Australian politicians",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-08/australia-records-worst-ever-reading-and-maths-results-pisa/107101504"
+      "url": "https://www.abc.net.au/news/2026-09-09/foreign-ai-network-deepfaking-australian-politicians/107129044"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
-      "tieu_de": "Australian found safe in Nepal",
+      "ngay": "2026-09-09",
+      "tieu_de": "Can Australia produce another outback film classic?",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-08/australian-found-safe-after-nepal-tibet-flood-disaster/107130470"
+      "url": "https://www.abc.net.au/news/2026-09-09/regional-filmmaking-a-boon-for-australian-economy/107127700"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "Dreadnought sea trial timing kept quiet due to security",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/dreadnought-sea-trial-timing-kept-quiet-due-to-security/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "MOD details fate of nine removed Chinook helicopters",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/mod-details-fate-of-nine-removed-chinook-helicopters/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "Programme GRIFFIN leads UK work on NATO medical readiness",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/programme-griffin-leads-uk-work-on-nato-medical-readiness/"
     },
     {
       "lop": "RSS",
@@ -706,25 +754,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-08",
-      "tieu_de": "Army associations told to review private club links",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/army-associations-told-to-review-private-club-links/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
-      "tieu_de": "Veterans strategy linked to future Armed Forces recruitment",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/veterans-strategy-linked-to-future-armed-forces-recruitment/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
       "tieu_de": "UK pledges winter air defence package to boost Ukraine's defences",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
       "url": "https://www.gov.uk/government/news/uk-pledges-winter-air-defence-package-to-boost-ukraines-defences"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-09",
+      "tieu_de": "Burnham says Britain will ‘continue to act in support of our values’ after UK launches sanctions on Israel – UK politics live",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/politics/live/2026/sep/08/uk-us-trade-israel-sanctions-labour-ed-miliband-farage-latest-news-updates"
     },
     {
       "lop": "RSS",
@@ -745,7 +785,7 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-08",
+      "ngay": "2026-09-09",
       "tieu_de": "In the South China Sea: 'Not One Square Inch'",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/08/in_the_south_china_sea_not_one_square_inch_1204718.html"
@@ -883,6 +923,24 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Canada PM stands his ground as Ottawa's retaliatory tariffs on US goods take effect",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/tv-shows/business/20260908-canada-pm-stands-his-ground-as-ottawa-s-retaliatory-tariffs-on-us-goods-take-effect",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Canada will move faster from US reliance as tariffs take effect and Trump response looms",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/canada-will-move-faster-from-us-reliance-as-tariffs-take-effect-and-trump-response-looms",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "'US Midterm elections tend to be referendums on the unpopularity of the president'",
       "nguon": "France 24",
@@ -893,37 +951,10 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-08",
-      "tieu_de": "Canada's counter-tariffs take effect as trade war with US heats up",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20260908-canada-s-counter-tariffs-take-effect-as-trade-war-with-us-heats-up",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-08",
       "tieu_de": "‘Fighting for our life’: Canadian businesses reel from US tariff shock",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/fighting-for-our-life-canadian-businesses-reel-from-us-tariff-shock",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-08",
-      "tieu_de": "Republicans are making Muslims a campaign issue in the 2026 US midterms",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/republicans-are-making-muslims-a-campaign-issue-in-the-2026-us-midterms",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-08",
-      "tieu_de": "Explainer-What to know about Trump's unusual midterm convention",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/explainer-what-to-know-about-trumps-unusual-midterm-convention",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1037,6 +1068,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-09",
+      "tieu_de": "Sapporo to move some beer production from Canada to US after tariffs",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/business/6077248-sapporo-moves-production-us-canada/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
       "tieu_de": "US issues sweeping sanctions against Iranian airlines, foreign businesses",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/administration/6076934-trump-sanctions-iran-airlines/",
@@ -1090,11 +1130,47 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Accelerating Access To Veterans’ Benefits And Employment Opportunities",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/accelerating-access-to-veterans-benefits-and-employment-opportunities/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Adjusting Certain Delegations Under the Defense Production Act",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/adjusting-certain-delegations-under-the-defense-production-act-e2de/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-08",
       "tieu_de": "FTC Takes Action Against Payment Processor Humboldt Merchant Services for Knowingly Facilitating Payment Processing for Sham Merchants",
       "nguon": "FTC",
       "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/ftc-takes-action-against-payment-processor-humboldt-merchant-services-knowingly-facilitating-payment",
       "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Trump and GOP Kick Off Midterm Show in Dallas",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/articles/2026/09/08/trump_and_the_gop_take_their_midterm_show_to_dallas_154480.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "Senate GOP Leaders Dropped Inflation Ball 5 Months Ago",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/video/2026/09/06/sen_john_kennedy_senate_republican_leaders_dropped_the_ball_on_inflation_five_months_ago.html",
+      "nhom": 4
     },
     {
       "lop": "RSS",
