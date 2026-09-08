@@ -5,3 +5,4 @@
 [21:23Z] web-scan xong: +5 tin worldNews, +8 tin usNews, +2 tin cap nhat tap tran (Freedom Edge, Super Garuda Shield). Thieu san: Australia 1/2, Bien Dong 1/2 (xem scan-gaps.json). Chuan bi commit.
 [21:24Z] START event-scan (CI, gop vao sang som) — claim OK.
 [21:32Z] event-scan xong: do_tap_tran_thieu 0 cuoc co ten moi. dipEvents/exerciseUpdates bo sung: khong co gi dat chuan (da thu SIFOREX, Freedom Edge, CJLOTS, UNGA, To Lam tham Nga/Phap - toan bo bi chan 403 hoac trung tin da co). Think-tank: +5 bai (ASPI x2, War on the Rocks, ORF, CEPA) + 11 khai niem. Chuan bi commit rieng.
+[21:34Z] SKIP web-scan (CI) — claim tra exit 10 (phien sang som DA XONG luc 04:23:39 VN). Kiem ngoai le: so_da_gui.py --xem co dong 2026-09-09T04:33:59+07:00 [sang] 13 tin — ban tin da toi tay that. Khong quet lai.
