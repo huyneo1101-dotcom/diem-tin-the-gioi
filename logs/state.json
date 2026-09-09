@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-10T04:31:48+07:00",
+    "lastRunAt": "2026-09-10T04:36:56+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran moi (Samudra Laksamana), +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-09"
-    },
-    "heartbeat": "2026-09-10T04:31:48+07:00"
+      "sang": "2026-09-10"
+    }
   }
 }
