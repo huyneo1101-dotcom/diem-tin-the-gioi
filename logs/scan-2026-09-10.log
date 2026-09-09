@@ -1,3 +1,4 @@
 [17:18Z] SKIP (CI) — exit 12 tu state.py claim web-scan: SKIP — 00:18 nam NGOAI khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. Chay bu tay: them --bo-cong-gio "<ly do>". Khong lach bang --bo-cong-gio theo dung luat.
 [17:59Z] SKIP (CI) — exit 12 tu state.py claim web-scan: SKIP — 01:00 nam NGOAI khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. Chay bu tay: them --bo-cong-gio "<ly do>". Khong lach bang --bo-cong-gio theo dung luat.
 [21:00Z] START (CI) phien sang som — claim web-scan OK (exit 0)
+[21:05Z] SKIP (local 04:05 VN) — exit 11 tu state.py claim web-scan: phien CI dang giu khoa web-scan (nhip tim 5' truoc, bat dau 2026-09-10T04:00:35+07:00). Khong quet chong len.
