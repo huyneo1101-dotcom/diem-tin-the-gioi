@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-10T05:42:51+07:00",
+  "tao_luc": "2026-09-10T06:29:11+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-09",
@@ -601,6 +601,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-10",
+      "tieu_de": "Marine Corps sends F-35Bs to Japan to expose unit to the rigors of the Indo-Pacific",
+      "nguon": "Sandboxx News",
+      "url": "https://www.sandboxx.us/news/marine-corps-sends-f-35bs-to-japan-to-expose-unit-to-the-rigors-of-the-indo-pacific/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-09",
       "tieu_de": "Military tests innovative way to deploy Tomahawk missiles by packing them inside containers",
       "nguon": "Sandboxx News",
@@ -753,14 +761,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-09",
-      "tieu_de": "LA Rams President Kevin Demoff touts Australia push ahead of historic NFL game",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/09/la-rams-kevin-demoff-australia.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "Úc công bố dự luật cho người dùng mạng xã hội quyền tắt thuật toán",
       "nguon": "Tuổi Trẻ",
@@ -805,14 +805,6 @@
       "tieu_de": "Aging Australia's parallels with fallen Test giant too close for comfort",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-10/cricket-australia-similarities-west-indies-aging-analysis/107128736"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-10",
-      "tieu_de": "Australia's love for coastal living faces $850b reckoning",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-10/sea-level-rise-threatens-267000-properties/107131270"
     },
     {
       "lop": "RSS",
@@ -948,7 +940,7 @@
       "ngay": "2026-09-09",
       "tieu_de": "U.S. and British Army leaders commemorate the 82nd anniversary of the Battle of Osowe Grzędy in Poland",
       "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9919649/us-and-british-army-leaders-commemorate-82nd-anniversary-battle-osowe-grzedy-poland"
+      "url": "https://www.dvidshub.net/image/9919636/us-and-british-army-leaders-commemorate-82nd-anniversary-battle-osowe-grzedy-poland"
     },
     {
       "lop": "RSS",
@@ -994,7 +986,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-10",
-      "tieu_de": "Australia politics live: Hastie ‘not after legal action’ following One Nation ‘traitor’ cartoon citing Rinehart backing party",
+      "tieu_de": "Australia politics live: furious Lambie warns Hastie cartoon shows Hanson’s ‘true colours’; ‘no graver accusation’ than traitor, Paterson says",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/sep/10/anthony-albanese-labor-uk-west-bank-trade-ban-kevin-rudd-diplomacy-one-nation-pauline-hanson-liberal-party-angus-taylor-ntwnfb"
     },
@@ -1029,14 +1021,6 @@
       "tieu_de": "Tỷ lệ từ chối visa du học Australia tăng hơn 3 lần, cao nhất trong 10 năm qua",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/ty-le-tu-choi-visa-du-hoc-australia-tang-hon-3-lan-cao-nhat-trong-10-nam-qua-post1135116.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-09",
-      "tieu_de": "Việt Nam và Australia đẩy mạnh hiện thực hóa các thỏa thuận cấp cao",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/viet-nam-va-australia-day-manh-hien-thuc-hoa-cac-thoa-thuan-cap-cao-post1135074.vnp"
     },
     {
       "lop": "RSS",
@@ -1077,6 +1061,15 @@
       "tieu_de": "Vietnam Education Publishing House expands Vietnam–Malaysia educational publishing cooperation on digital innovation and AI application",
       "nguon": "Báo Thế giới & Việt Nam",
       "url": "https://en.baoquocte.vn/vietnam-education-publishing-house-expands-vietnam-malaysia-educational-publishing-cooperation-on-digital-innovation-and-ai-application-441997.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-10",
+      "tieu_de": "Iran war looms over Trump at Republican midterm convention in Dallas",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/9/iran-war-looms-over-trump-at-republican-midterm-convention-in-dallas?traffic_source=rss",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1226,6 +1219,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-10",
+      "tieu_de": "Fetterman appears in video praising McCormick at GOP midterm convention",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/6080435-fetterman-mccormick-trump-gop-midterm-convention-dallas/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-10",
       "tieu_de": "Trump admits Iran war will not end before midterms",
       "nguon": "The Hill",
       "url": "https://thehill.com/newsletters/defense-national-security/6080270-trump-admits-iran-war-will-not-end-before-midterms/",
@@ -1297,6 +1299,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-10",
+      "tieu_de": "Patriot Day 2026, The 25th Anniversary of the September 11 Terrorist Attacks",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/patriot-day-2026-the-25th-anniversary-of-the-september-11-terrorist-attacks/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-09",
       "tieu_de": "Modifying the Scope of Products of Canada Subject to the Additional Duties Imposed to Offset Canadian Discrimination Against the United States with Respect to Motor Vehicles",
       "nguon": "Nhà Trắng — Presidential Actions",
@@ -1361,9 +1372,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-10",
-      "tieu_de": "Republicans’ midterm convention kicks off as national party chair says event will be about ‘defying history’ – live",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/live/2026/sep/09/donald-trump-rnc-republican-national-convention-jd-vance-midterms-latest-news-updates",
+      "tieu_de": "Republicans kick off 'Trump-a-Palooza' midterm convention",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/09/09/2026/republicans-kick-off-trump-a-palooza-midterm-convention",
       "nhom": 5
     },
     {
@@ -1401,6 +1412,15 @@
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/thue-quan-hoa-ky-tam-hoan-thue-50-voi-canada-can-nhac-dinh-chi-thue-voi-colombia-102260819133559716.htm",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-10",
+      "tieu_de": "Ông Trump nói xung đột với Iran sẽ kết thúc sau bầu cử giữa kỳ Mỹ",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/ong-trump-noi-xung-dot-voi-iran-se-ket-thuc-sau-bau-cu-giua-ky-my-2553678.html",
+      "nhom": 5
     },
     {
       "lop": "RSS",
