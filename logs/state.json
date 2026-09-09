@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-10T04:00:35+07:00",
+    "lastRunAt": "2026-09-10T04:30:36+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+19 tin (5 chu de: 6 the gioi, 13 My, 1 tap tran)",
     "lastSuccess": {
       "toi": "2026-09-08",
-      "sang": "2026-09-09"
-    },
-    "heartbeat": "2026-09-10T04:00:35+07:00"
+      "sang": "2026-09-10"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-09T04:32:56+07:00",
