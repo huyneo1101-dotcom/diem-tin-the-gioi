@@ -7,3 +7,6 @@
 [21:26Z] gh workflow run telegram-bot.yml BI CHAN (requires approval) - CHUA KICH duoc bot. tin_jaylam.py --liet-ke tra ma 10 (khong co file Jay Lam trong khung ngay) -> BO QUA buoc loc Jay Lam, khong mat tin.
 [21:31Z] DONE web-scan, push OK (commit 3f8bdf0). gh workflow run pages.yml BI CHAN (requires approval trong moi truong nay) - khong kich thang duoc, trong cho workflow_run/notify-email.yml lam luoi du phong nhu CLAUDE.md da ta.
 [21:31Z] START event-scan (CI, gop vao sang som) - claim OK (exit 0)
+[21:33Z] do_tap_tran_thieu.py: 17 ung vien, chon 1 cuoc co ten rieng (Samudra Laksamana An Do-Malaysia, INS Mysore tai Lumut) nap qua --newExercises; bo Big Rescue Kanagawa vi da ket thuc tu 01/09.
+[21:36Z] add_analyses.py: nap 5 bai think-tank (Brookings My-Trung, Timbuktu Institute AI trong xung dot Mali, Carnegie hat nhan Saudi, MP-IDSA an ninh bien Somalia, CSIS AI My-An) + 8 khai niem. Khong phai Chu nhat (thu 5) nen bo qua bao cao tuan.
+[21:37Z] DONE event-scan, push OK (commit 120e4cf). KET THUC PHIEN SANG SOM 10/09/2026.
