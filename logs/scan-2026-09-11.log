@@ -2,3 +2,4 @@
 [17:53Z] SKIP web-scan (CI) — exit 12 SAI GIO: SKIP — 00:53 nam NGOAI khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. Chay bu tay: them --bo-cong-gio "<ly do>".
 [21:00Z] START web-scan (CI) phien sang som
 [21:31Z] DONE web-scan: +3 tin worldNews (Anh 2, Australia 1), +11 tin usNews (Noi bo My 4, Doi ngoai My 2, CNQS 6 - trung 1 khoi Chinh tri/Kinh te). Bien Dong 0, Mali 0, Tap tran 0 - ghi ly do vao scan-gaps.json.
+[21:31Z] START event-scan (CI, gop vao sang som)
