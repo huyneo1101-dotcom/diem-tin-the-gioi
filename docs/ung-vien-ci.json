@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-11T03:46:28+07:00",
+  "tao_luc": "2026-09-11T05:46:16+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-10",
@@ -17,10 +17,26 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
+      "ngay": "2026-09-11",
+      "tieu_de": "Peru joins US-led ‘Shield of the Americas’ security alliance",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/10/peru-joins-us-led-shield-of-the-americas-security-alliance?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
       "ngay": "2026-09-10",
       "tieu_de": "Pilot warned Amazon cargo plane going too fast before deadly crash, data shows",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cj4jynv59ddo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-11",
+      "tieu_de": "China rebuts top US diplomat Marco Rubio over ‘Communist Party-backed projects’ in Peru",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/us/article/3367108/china-rebuts-top-us-diplomat-marco-rubio-over-communist-party-backed-projects-peru?utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -201,14 +217,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "US Navy Selects L3Harris VAMPIRE for Littoral Counter-Drone Defense",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/09/us-navy-l3harris-vampire-counter-drone/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "Why the Pentagon picked an Indiana Navy base to host a nuclear microreactor",
       "nguon": "Breaking Defense",
@@ -229,14 +237,6 @@
       "tieu_de": "General Atomics unveils ‘Wildfire’ drone to replace Reaper",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/09/general-atomics-unveils-wildfire-drone-to-replace-reaper/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "Pentagon’s $1.5B reprogramming would shift money to AI center, MV-75 tiltrotor",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/pentagons-1-5b-reprogramming-would-shift-money-to-ai-center-mv-75-tiltrotor/"
     },
     {
       "lop": "RSS",
@@ -353,14 +353,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Navy Destroyer Packs New ‘Piggy-Backed’ Point Defense System That Combines 30mm And .50 Cal Guns",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/sea/navy-destroyer-packs-new-piggy-backed-point-defense-system-that-combines-30mm-and-50-cal-guns"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-09",
       "tieu_de": "Everything We Know About The U.S. Navy’s Submersible Drone Iran Just Captured",
       "nguon": "The War Zone (TWZ)",
@@ -409,22 +401,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "US Space Force selects Texas as preferred location for third DARC site",
-      "nguon": "Lực lượng Không gian Mỹ",
-      "url": "https://www.spaceforce.mil/News/Article-Display/Article/4592096/us-space-force-selects-texas-as-preferred-location-for-third-darc-site/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "DAF accelerates joint C2 with AI, Space Force integration in latest DASH experiment",
-      "nguon": "Lực lượng Không gian Mỹ",
-      "url": "https://www.spaceforce.mil/News/Article-Display/Article/4592644/daf-accelerates-joint-c2-with-ai-space-force-integration-in-latest-dash-experim/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-10",
       "tieu_de": "U.S. Army Futures and Concepts Command: An Overview",
       "nguon": "Lục quân Mỹ",
@@ -445,6 +421,14 @@
       "tieu_de": "U.S. Army Yuma Proving Ground commander holds strategic collaboration with key personnel",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/295207/u_s_army_yuma_proving_ground_commander_holds_strategic_collaboration_with_key_personnel"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-09",
+      "tieu_de": "DAF accelerates joint C2 with AI, Space Force integration in latest DASH experiment",
+      "nguon": "Không quân Mỹ — Air Force Link News",
+      "url": "https://www.af.mil/News/Article-Display/Article/4592564/daf-accelerates-joint-c2-with-ai-space-force-integration-in-latest-dash-experim/"
     },
     {
       "lop": "RSS",
@@ -489,10 +473,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Contracts for Sept. 9, 2026",
+      "ngay": "2026-09-11",
+      "tieu_de": "Contracts for Sept. 10, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4594054/contracts-for-sept-9-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4596373/contracts-for-sept-10-2026/"
     },
     {
       "lop": "RSS",
@@ -517,6 +501,14 @@
       "tieu_de": "United States Department of War and Mongolia's Ministry of Defense Conduct Bilateral Defense Framework",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4593737/united-states-department-of-war-and-mongolias-ministry-of-defense-conduct-bilat/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-11",
+      "tieu_de": "Interview with William “Mac” McAuley, Branch Chief of Integrated Air and Missile Defense/Counter-Unmanned Systems, USAFRICOM, on C-UAS",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/interview-with-william-mac-mcauley-branch-chief-of-integrated-air-and-missile-defense-counter-unmanned-systems-usafricom-on-c-uas/unmanned-systems/"
     },
     {
       "lop": "RSS",
@@ -578,7 +570,7 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-10",
-      "tieu_de": "Tomahawk Performance Introduces The New Standard In Tactical Performance",
+      "tieu_de": "Tomahawk Performance Introduces the Next Standard: The Tactical T-Shirt SS",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/09/10/tomahawk-performance-introduces-the-new-standard-in-tactical-performance/?utm_source=rss&utm_medium=rss&utm_campaign=tomahawk-performance-introduces-the-new-standard-in-tactical-performance"
     },
@@ -671,14 +663,6 @@
       "url": "https://federalnewsnetwork.com/defense-main/2026/09/pentagon-searching-medical-records-to-identify-transgender-troops/"
     },
     {
-      "lop": "HTML",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
-      "tieu_de": "Chairman Babin Issues Statement on New Glenn Incident at Cape Canaveral Space Force Station",
-      "nguon": "Uỷ ban Khoa học Hạ viện",
-      "url": "https://science.house.gov/press-releases?ID=52612EE3-D235-4B86-9426-482AD63D5606"
-    },
-    {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-10",
@@ -761,18 +745,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Japan, India and Australia hedge against a US Quad retreat",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/indo-pacific/japan-india-and-australia-hedge-against-a-us-quad-retreat"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-10",
       "tieu_de": "Rosatom và Petrovietnam ký thỏa thuận thành lập Trung tâm công nghệ bồi đắp tại Việt Nam",
       "nguon": "VnEconomy",
       "url": "https://vneconomy.vn/rosatom-va-petrovietnam-ky-thoa-thuan-thanh-lap-trung-tam-cong-nghe-boi-dap-tai-viet-nam.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-11",
+      "tieu_de": "Live: Rivals Rams and 49ers meet for historic first NFL match in Australia",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-11/nfl-melbourne-la-rams-san-francisco-49ers-mcg/107134236"
     },
     {
       "lop": "RSS",
@@ -898,6 +882,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-11",
+      "tieu_de": "Could target gold haul bring Asian Games back to Manila?",
+      "nguon": "Inquirer",
+      "url": "https://sports.inquirer.net/694564/could-target-gold-haul-bring-asiad-back-to-manila"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-11",
       "tieu_de": "The Taiwan Readiness Trap",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/10/the_taiwan_readiness_trap_1205300.html"
@@ -953,6 +945,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-11",
+      "tieu_de": "Australia news live: John Howard says Australia joining US in Afghanistan after 9/11 was the ‘right thing’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/11/anthony-albanese-september-11-aged-care-labor-coalition-angus-taylor-one-nation-pauline-hanson-andrew-hastie-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-10",
       "tieu_de": "Cháy phà tại Philippines khiến ít nhất 5 người thiệt mạng, 87 người mất tích",
       "nguon": "VietnamPlus (TTXVN)",
@@ -978,18 +978,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-11",
-      "tieu_de": "The Trump-to-Mamdani voter is real. How does the trend affect the midterms?",
+      "tieu_de": "Republican midterm convention live: Trump, Vance headline day two in Dallas",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/features/longform/2026/9/10/the-trump-to-mamdani-voter-is-real-how-does-the-trend-affect-the-midterms?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/liveblog/2026/9/10/republican-midterm-convention-live-trump-headlines-day-2-of-dallas-rally?traffic_source=rss",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Trump’s Iran war now has a midterm election problem",
+      "ngay": "2026-09-11",
+      "tieu_de": "The Trump-to-Mamdani voter is real. How does the trend affect the midterms?",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/9/10/trumps-iran-war-now-has-a-midterm-election-problem?traffic_source=rss",
+      "url": "https://www.aljazeera.com/features/longform/2026/9/10/the-trump-to-mamdani-voter-is-real-how-does-the-trend-affect-the-midterms?traffic_source=rss",
       "nhom": 5
     },
     {
@@ -1000,15 +1000,6 @@
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c5ydld0gykpo?at_medium=RSS&at_campaign=rss",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Muted US response to UK's West Bank sanctions may reflect simmering frustration",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cevw2lxnwk9o?at_medium=RSS&at_campaign=rss",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1059,15 +1050,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-10",
-      "tieu_de": "US producer inflation tops expectations as diesel costs jump",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-producer-inflation-tops-expectations-as-diesel-costs-jump",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-10",
       "tieu_de": "A year after Charlie Kirk's death, Turning Point USA grows but Trump slips with young voters",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/a-year-after-charlie-kirks-death-turning-point-usa-grows-but-trump-slips-with-young-voters",
@@ -1077,10 +1059,10 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-10",
-      "tieu_de": "Trump says Iran war to end after US midterm vote, Houthis close in on key Strait, sources say",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/middle-east/trump-says-iran-war-to-end-after-us-midterm-elections-threatens-to-attack-pickaxe-mountain",
-      "nhom": 5
+      "tieu_de": "US producer inflation tops expectations as energy costs jump amid Iran war",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3367099/us-producer-inflation-tops-expectations-energy-costs-jump-amid-iran-war?utm_source=rss_feed",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1392,9 +1374,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-11",
-      "tieu_de": "Missouri election officials order restoration of old congressional maps after supreme court ruling – US politics live",
+      "tieu_de": "JD Vance to address Republican midterm convention after Trump’s $5,000 offer sparks bribery claims – live",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/live/2026/sep/10/donald-trump-republican-midterm-convention-dividend-offer-5000-vance-latest-news-updates",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-11",
+      "tieu_de": "US supreme court again rejects Missouri maps drawn to boost Republicans in midterms",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/sep/10/missouri-redistricting-map-supreme-court-rejection",
       "nhom": 5
     },
     {
