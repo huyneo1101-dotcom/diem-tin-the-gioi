@@ -1,18 +1,18 @@
 {
-  "date": "2026-09-09",
+  "date": "2026-09-11",
   "session": "sang",
   "topics": [
     {"name":"Đối ngoại Mỹ","count":2,"target":"5-10","min":2,"thieu":false,
-     "reason":"Trừng phạt hàng không Iran (CNBC/OFAC) + Trump cấm rượu/sữa Canada, tăng thuế 50% đáp trả (SCMP, phiên này)."},
-    {"name":"Nội bộ Mỹ","count":3,"target":"5-10","min":2,"thieu":false,
-     "reason":"Sắc lệnh cựu chiến binh (phiên trước) + Sununu-Pappas thắng sơ bộ NH, Trump khai mạc hội nghị GOP Dallas (phiên này). Nhóm 1 (điều trần/bỏ phiếu) không có diễn biến mới trong khung 09-10/09; 2 ứng viên khác (Kavanaugh/Missouri redistricting, khảo sát cử tri Latinh) bị cổng ngày đăng thật chặn vì sự kiện thật xảy ra 08/09, ngoài khung — đã bỏ, không lùi ngày để lách."},
-    {"name":"Địa bàn › Anh","count":3,"target":"2+","min":2,"thieu":false,
-     "reason":"Phiên trước có 1 (Hải quân Anh giữ kín Dreadnought); phiên này thêm 2 (Anh công bố chi tiết 16 tỷ bảng hỗ trợ Ukraine, Bộ Quốc phòng Anh công bố chiến lược vốn tư nhân)."},
-    {"name":"Địa bàn › Australia","count":3,"target":"2+","min":2,"thieu":false,
-     "reason":"Phiên trước có 1 (Tư lệnh Hải quân Ấn Độ thăm Úc/NZ); phiên này thêm 2 (Lockheed Martin hợp đồng AIR6500 950 triệu USD, NASAMS đạt năng lực vận hành đầy đủ) — bù đủ sàn sau khi phiên trước báo thiếu."},
-    {"name":"Địa bàn › Biển Đông","count":2,"target":"2+","min":2,"thieu":false,
-     "reason":"Phiên này thêm 2 (BrahMos Mỹ-Philippines huấn luyện mô phỏng, TQ mở rộng tuần tra hải cảnh đông Đài Loan) — bù đủ sàn sau khi phiên trước chỉ có 1."},
-    {"name":"KHCN-QS","count":7,"target":"2+","min":2,"thieu":false,"reason":""}
+     "reason":"Trừng phạt mạng lưới hỗ trợ Hezbollah (Treasury/OFAC) + phản ứng dè dặt của Trump/Rubio trước lệnh trừng phạt của Anh-Pháp-Canada nhắm vào khu định cư Israel (CNN)."},
+    {"name":"Nội bộ Mỹ","count":4,"target":"5-10","min":2,"thieu":false,
+     "reason":"Không có điều trần/bỏ phiếu Quốc hội liên bang mới trong khung 09-10/09-11 — lấy sang nhóm bầu cử/tòa án (SCOTUS chặn bản đồ Missouri lần 2, tòa phúc thẩm bác đề nghị USPS mail-in của Trump) và kinh tế (PPI tăng vì giá diesel)."},
+    {"name":"Địa bàn › Anh","count":2,"target":"2+","min":2,"thieu":false,
+     "reason":"GCAP (khoang vũ khí gấp đôi F-35) + Anh chi gần 40 triệu USD cho SpaceX Starshield/Starlink."},
+    {"name":"Địa bàn › Australia","count":1,"target":"2+","min":2,"thieu":true,
+     "reason":"Chỉ có 1 tin (vụ án gián điệp AUKUS Csergo tại Sydney). 2 ứng viên ban đầu (hợp đồng bảo trì tàu Anzac với Babcock, hợp đồng ngư lôi MK48 AUKUS) đều bị cổng kiểm ngày đăng thật (đọc metadata bài) bác bỏ vì sự kiện thật xảy ra 08/09 và 03/09 — ngoài khung 09-10/09-11. Đã dò thêm qua defence.gov.au, AUKUS submarine news, KPMG review, Space Vision Statement Úc-NZ, Solomon Islands, Cambodia HMAS Kuttabul — không có tin nào khác khớp khung ngày."},
+    {"name":"Địa bàn › Biển Đông","count":0,"target":"2+","min":2,"thieu":true,
+     "reason":"Cả 2 nguồn ban đầu về vụ note ngoại giao Manila-Bắc Kinh (SCMP, sau đó Manila Bulletin thay thế) đều có ngày đăng thật là 09/09 hoặc bị Cloudflare chặn không đọc được (mb.com.ph trả trang 'Just a moment...' có <title>, bị cổng ngày thật coi là 'mở được nhưng không có ngày' nên chặn thẳng, không phải diện 'không mở được' được giữ lại). Đã dò thêm Vietnam, Indonesia/Natuna, Malaysia, Taiwan, Scarborough/Second Thomas Shoal, vụ JL-10 — mọi sự kiện thật đều rơi vào 02-08/09, ngoài khung. Sẽ bù ở phiên tối."},
+    {"name":"KHCN-QS","count":6,"target":"2+","min":2,"thieu":false,"reason":""}
   ],
-  "note": "Mỹ–Mali (không mang sàn): 3 tin phiên này (liên minh JNIM-FLA, các nhánh IS liên kết Sahel, JNIM xâm nhập Bắc Benin) — đi ở bản sáng 🎖️ Sự kiện & Tập trận theo chỉ thị Huy 05/08/2026, không vào .docx bản tin chính. ⚠️ GHI NHẬN: không tìm thấy commit 'Cap nhat ban tin' nào cho phiên TỐI 09/09/2026 (khoảng trống từ 06:40 tới 24:18 giờ VN ngày 09/09 chỉ có các dòng log SKIP 'sai gio' do cron trễ, không có START/DONE nào cho ca tối) — có thể phiên tối hôm đó đã không chạy; phiên sáng sớm 10/09 này bù thêm dữ liệu vào CÙNG batch ngày 2026-09-09 (do còn sớm, chưa có tin nào đăng ngày 10/09). Cổng Báo Mới: 6 ứng viên đều bị loại (2 trùng vòng trừng phạt hàng không Iran đã nạp 08/09, 1 khí tài Nhật không phải Mỹ, 3 quá cũ cuối tháng 8/đầu tháng 9) — xem logs/loai-tin.md mục 'Phiên SÁNG SỚM 10/09/2026 (CI)'. Không kích được telegram-bot.yml (gh bị chặn requires approval) nhưng tin_jaylam.py --liet-ke tự trả mã 10 (không có file Jay Lâm trong khung ngày) nên bỏ qua bước lọc mà không mất tin nào."
+  "note": "Mỹ–Mali: 0 tin — ứng viên duy nhất đạt thẩm định nội dung (Timbuktu Institute, AI trong chiến tranh thông tin Mali, Africanews) có ngày đăng thật 09/09, ngoài khung 09-10/09-11 (nới 48h = hôm nay+hôm qua, không lùi thêm). Tập trận: 0 cập nhật — không có diễn biến nào của Veer Guardian 2026/Super Garuda Shield 2026/Arctic Shield 2026/Yama Sakura 91 rơi đúng khung ngày thật sau khi mở bài kiểm. Cổng Báo Mới: 5 ứng viên đều bị loại (3 trùng sự kiện/chủ đề đã nạp, 1 ngoài phạm vi — đầu tư nông nghiệp Sơn La, 1 không kiểm được ngày sự kiện) — xem logs/loai-tin.md mục 'Phiên SÁNG SỚM 11/09/2026 (CI)'. Không kích được telegram-bot.yml (gh bị chặn requires-approval trong phiên CI); tin_jaylam.py --liet-ke báo không có file Jay Lâm nào đang chờ nên bỏ qua bước lọc trùng, không mất tin nào. 4 tin usNews (Treasury sanctions, war.gov contracts JASSM/LRASM, spaceforce.mil DARC + DASH) dùng cờ --bo-cong-ngay-that vì trang dùng thẻ <time datetime=\"Sept. X, 2026\"> không phải ISO 8601 nên máy không tự đọc được — đã tự kiểm tay bằng curl_cffi, ngày hiển thị khớp đúng ngày khai."
 }
