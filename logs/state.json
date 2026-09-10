@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-11T04:31:38+07:00",
+    "lastRunAt": "2026-09-11T04:41:28+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "1 cap nhat tap tran, 6 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-10"
-    },
-    "heartbeat": "2026-09-11T04:31:38+07:00"
+      "sang": "2026-09-11"
+    }
   }
 }
