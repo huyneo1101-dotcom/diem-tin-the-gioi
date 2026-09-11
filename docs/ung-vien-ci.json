@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-12T00:06:12+07:00",
+  "tao_luc": "2026-09-12T00:52:31+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-11",
@@ -45,6 +45,14 @@
       "tieu_de": "Why Singapore ministers are paid so much — and why it's going up",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-11/singapore-ministers-get-pay-rise/107138426"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-11",
+      "tieu_de": "Amazon seeks to expand UK drone deliveries",
+      "nguon": "**BBC News UK**",
+      "url": "https://www.bbc.co.uk/news/articles/c07lv3er1v1o?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -117,6 +125,14 @@
       "tieu_de": "Why Japan’s Industry is Pulling Back from the U.S. Navy Frigate Plan",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/features/2026/09/japan-industry-pulling-back-us-navy-frigate-plan/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-12",
+      "tieu_de": "Support for Patriot air-and-missile defense is a case study for the industrial base",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/09/support-for-patriot-air-and-missile-defense-is-a-case-study-for-the-industrial-base/"
     },
     {
       "lop": "RSS",
@@ -377,6 +393,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-12",
+      "tieu_de": "Yardley Creates U.S. Army's First Cryptographic Bureau (10 JUN 1917)",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/574436/yardley-creates-us-armys-first-cryptographic-bureau-10-jun-1917"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "Red River honors 25 years of remembrance at Patriot Day Ceremony",
       "nguon": "DVIDS news (tập trận)",
@@ -393,22 +417,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-11",
-      "tieu_de": "Francisco Molina Retired from the U.S. Air Force after 28 Years",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574415/francisco-molina-retired-us-air-force-after-28-years"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-11",
-      "tieu_de": "U.S. Army Soldiers commemorate 25 years since 9/11 at Padova ceremony",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574412/us-army-soldiers-commemorate-25-years-since-9-11-padova-ceremony"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-10",
       "tieu_de": "U.S. Army Yuma Proving Ground commander holds strategic collaboration with key personnel",
       "nguon": "Lục quân Mỹ",
@@ -421,6 +429,14 @@
       "tieu_de": "25 Years Later: Bell Tolls as U.S. Army Japan Honors 9/11 Victims",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/295239/25_years_later_bell_tolls_as_u_s_army_japan_honors_911_victims"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-11",
+      "tieu_de": "U.S. Army Soldiers commemorate 25 years since 9/11 at Padova ceremony",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/295260/u_s_army_soldiers_commemorate_25_years_since_911_at_padova_ceremony"
     },
     {
       "lop": "RSS",
@@ -545,6 +561,22 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-12",
+      "tieu_de": "Pentagon looks to AI to identify space and missile threats",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/industry/techwatch/2026/09/11/pentagon-looks-to-ai-to-identify-space-and-missile-threats/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-12",
+      "tieu_de": "Iran used Claude to target US Navy in Middle East, Anthropic says",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-navy/2026/09/11/iran-used-claude-to-target-us-navy-in-middle-east-anthropic-says/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "She was in the Pentagon daycare on 9/11. Now she is running 2,977 miles, one for every life lost.",
       "nguon": "Military Times",
@@ -557,14 +589,6 @@
       "tieu_de": "US Navy’s next-generation fighter decision to be unveiled soon, sources say",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/09/09/us-navys-next-generation-fighter-decision-to-be-unveiled-soon-sources-say/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-09",
-      "tieu_de": "US Air Force seeks ‘rapidly deployable’ drone swarms for base security",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/09/09/us-air-force-seeks-rapidly-deployable-drone-swarms-for-base-security/"
     },
     {
       "lop": "RSS",
@@ -936,6 +960,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-12",
+      "tieu_de": "US lawmakers urge secretive British court to open up about Apple case",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/sep/11/congress-uk-court-apple-encrypted-data-case"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "Republican midterm message: Democrats are the threat",
@@ -1004,6 +1036,15 @@
       "tieu_de": "Five big takeaways from Trump's midterm convention",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/five-big-takeaways-from-trumps-midterm-convention",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-12",
+      "tieu_de": "Vance assails Democratic 'hatred' in fiery U.S. midterm pitch",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/vance-assails-democratic-hatred-in-fiery-us-midterm-pitch/article71457667.ece",
       "nhom": 5
     },
     {
