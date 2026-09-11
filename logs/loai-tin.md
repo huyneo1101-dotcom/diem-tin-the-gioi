@@ -1205,3 +1205,8 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 [Úc & Biển Đông] Báo Mới "Nhà đầu tư Úc nghiên cứu phát triển vùng nguyên liệu việt quất tại Sơn La" (Báo Sơn La) — đầu tư nông nghiệp dân sự, khớp từ khoá "Úc" nhưng không liên quan AUKUS/quốc phòng/Biển Đông — loại, ngoài phạm vi 5 chủ đề.
 ⚠️ Nhánh Biển Đông và Australia trong mục Địa bàn dưới sàn phiên này (Biển Đông 0/2, Australia 1/2) — agent đã dò 2 vòng (WebSearch mở rộng Vietnam/Indonesia/Malaysia/Taiwan/Scarborough cho Biển Đông; defence.gov.au/AUKUS/KPMG/Space Vision/Solomon Islands cho Australia) nhưng mọi ứng viên xác nhận ngày thật đều rơi vào 02-08/09/2026, ngoài khung 09-10/09/2026. Ghi vào scan-gaps.json.
 ⚠️ Nhánh Mỹ–Mali: 0 tin. Ứng viên duy nhất qua được thẩm định nội dung (Timbuktu Institute — AI trong chiến tranh thông tin Mali) có ngày đăng thật 09/09/2026, ngoài khung 09-10/09/2026 theo luật "48h = hôm nay+hôm qua" — loại. Chủ đề Tập trận: 0 cập nhật, không có diễn biến nào của các cuộc đang bám (Veer Guardian, Super Garuda Shield, Arctic Shield...) rơi đúng khung ngày sau khi kiểm ngày thật.
+
+[Nội bộ Mỹ] Mỹ phản ứng thận trọng trước lệnh trừng phạt mới nhằm vào Israel (Bao Moi/CNN, 2026-09-12) — bài gốc CNN đăng thật 2026-09-10, ngoài khung hôm nay(09-12)+hôm qua(09-11); bỏ.
+[Nội bộ Mỹ] Ông Trump nói Mỹ không tấn công Iran toàn diện vì bầu cử giữa nhiệm kỳ (Bao Moi/CNN, 2026-09-12) — bài gốc CNN đăng thật 2026-09-09, ngoài khung; bỏ.
+
+[CNQS Mỹ] Rào cản khiến ông Hùng Cao chưa thể làm Bộ trưởng Hải quân Mỹ (Bao Moi, 2026-09-12) — sự kiện gốc (USNI News/Military Times) đưa tin 07-08/09/2026, ngoài khung 09-11/09-12; không tìm được diễn biến mới trong khung. Bỏ.
