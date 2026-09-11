@@ -7,3 +7,4 @@
 [21:35Z] event-scan: khong co tap tran moi can lap the (do_tap_tran_thieu.py: 0 co ten rieng). +5 bai think-tank (CIMSEC, MWI, Timbuktu, CEPA, RUSI) + 10 khai niem. Khong phai Chu nhat, bo qua bao cao tuan.
 [21:37Z] SKIP (CI) — state.py claim web-scan exit 10, da kiem ngoai le: so_da_gui --xem co dong 2026-09-12T04:36:39+07:00 [sang] 20 tin, khop +20 tin trong state.json. Ban tin sang da toi tay that, khong quet lai.
 [22:48Z] SKIP (CI) - lan goi lai (claim web-scan lai ra exit 10). Kiem lai ngoai le: so_da_gui --xem van thay dong 2026-09-12T04:36:39+07:00 [sang] 20 tin khop state.json. Ban tin da gui that, khong quet lai lan nua.
+[23:31Z] SKIP (CI) - lan goi lai thu 3 (claim web-scan lai ra exit 10). Kiem lai ngoai le: so_da_gui --xem van thay dong 2026-09-12T04:36:39+07:00 [sang] 20 tin khop state.json. Ban tin da gui that, khong quet lai lan nua.
