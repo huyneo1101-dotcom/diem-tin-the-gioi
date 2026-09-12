@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-12T04:29:16+07:00",
-    "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+20 tin (Doi ngoai My 3, Noi bo My 2, Anh 2, Australia 1, Bien Dong 3, KHCN-QS 7, Mali 2)",
+    "lastRunAt": "2026-09-12T23:30:40+07:00",
+    "lastSlot": "toi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-08",
       "sang": "2026-09-12"
-    }
+    },
+    "heartbeat": "2026-09-12T23:30:40+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-12T04:35:44+07:00",
