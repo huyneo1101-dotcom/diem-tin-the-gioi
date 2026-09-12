@@ -1,14 +1,13 @@
 {
   "date": "2026-09-12",
-  "session": "sang",
+  "session": "toi",
   "topics": [
     {"name":"Đối ngoại Mỹ","count":3,"target":"5-10","min":2,"thieu":false,"reason":""},
-    {"name":"Nội bộ Mỹ","count":2,"target":"5-10","min":2,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Anh","count":2,"target":"2+","min":2,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":1,"target":"2+","min":2,"thieu":true,
-     "reason":"Chỉ có 1 tin (Shephard Media, ngành công nghiệp Úc mở chương trình bảo trì tàu ngầm Virginia AUKUS). 2 ứng viên khác (FlightGlobal RAAF AGM-158C/158B, ADF NASAMS) bị cổng ngày thật chặn (trang không in metadata ngày đọc được) hoặc trùng tin đã nạp trước đó. Đã dò thêm 4 vòng WebSearch (Marles-Hegseth Washington: sự kiện thật 02/09 ngoài khung; Lockheed AIR6500 950 triệu USD: đã trùng tin cũ; vụ Greens/tàu ngầm Iran: sự kiện gốc tháng 3/2026) không tìm được tin Australia mới nào trong khung 11-12/09 chưa trùng."},
-    {"name":"Địa bàn › Biển Đông","count":3,"target":"2+","min":2,"thieu":false,"reason":""},
-    {"name":"KHCN-QS","count":7,"target":"5-10","min":2,"thieu":false,"reason":""}
+    {"name":"Nội bộ Mỹ","count":4,"target":"5-10","min":2,"thieu":false,"reason":"Quốc hội nghỉ họp 11-12/9 để tưởng niệm 9/11 nên hạng 1 (điều trần + bỏ phiếu) chỉ có 1 bài (Ủy ban Quy tắc chuẩn bị họp thứ Hai cho dự luật trừng phạt Nga-Graham); phần còn lại lấy từ hạng 2 (kinh tế Mỹ, Nhà Trắng/nội các, bầu cử)."},
+    {"name":"Địa bàn › Anh","count":6,"target":"2+","min":2,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":3,"target":"2+","min":2,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Biển Đông","count":4,"target":"2+","min":2,"thieu":false,"reason":""},
+    {"name":"KHCN-QS","count":13,"target":"5-10","min":2,"thieu":false,"reason":""}
   ],
-  "note": "Báo Mới: 3/7 ứng viên nạp được (📌 đã lưu: Hùng Cao/Bahrain-Al Jazeera, CPI-CBS News, diesel-NPR); 3 ứng viên còn lại loại vì bài gốc (CNN) có ngày đăng thật 09-09/09-10, ngoài khung 09-11/09-12 (2 tin: phản ứng Mỹ với trừng phạt Anh-Israel, Trump nói không tấn công Iran toàn diện) hoặc do agent xử lý đánh giá thủ tục xác nhận Hùng Cao đã đưa tin từ 07-08/09 (1 tin) — chi tiết logs/loai-tin.md. Tập trận: 0 cập nhật — UNITAS 2026 có tin khai mạc tại Callao nhưng ngày thật (Rio Times) là 10/9, ngoài khung; không cuộc nào khác (Arctic Shield/Veer Guardian/REPMUS 26/Ample Strike/SEACAT) có diễn biến mới đúng khung sau khi mở bài kiểm ngày. Mỹ–Mali: 2 tin (JNIM chiếm Dioura — African Insider; Áo tin đáng khích lệ giải cứu con tin Niger — Straits Times), đủ sàn 2-5. 1 ứng viên Mali khác (Thủ tướng Algeria thăm Bamako) bị cổng ngày thật chặn (thật 09/09, ngoài khung)."
+  "note": "Phiên quét chạy trễ (bắt đầu 23:30 giờ VN, sau hạn chót 22:00 của SKILL.md — web-scan phien toi đã không chạy được suốt 09-11/9, đây là lần chạy bù đầu tiên) — đã chốt lô ngay khi đạt sàn thay vì vòng bổ sung thêm. Đếm số ở trên GỘP cả tin nạp hôm nay lẫn tin từ phiên trước còn trong khung 24-48h (đúng cách người đọc thấy trong file Word). 6 ứng viên Báo Mới khớp từ khoá chủ đề nhưng đọc kỹ thì lệch phạm vi thật (Zelensky/Ukraine không phải CNQS Mỹ, quốc phòng NỘI BỘ Nhật Bản không neo được vào Úc/Biển Đông, đầu tư hạ tầng Ba Lan-Mỹ không phải khí tài cụ thể, đầu tư Gia Lai-Đài Loan là kinh tế trong nước không phải Biển Đông) — bỏ cả 6, xem logs/loai-tin.md. 3 tin bị Cổng NGÀY ĐĂNG THẬT chặn (Bộ Tài chính Mỹ GloBE, General Dynamics NGEAU qua thedefensewatch.com, Manila Bulletin BRP Sierra Madre) vì trang không lộ metadata ngày đọc được — theo luật 'trang không ghi ngày thì bỏ đi', đã bỏ; xem logs/loai-tin.md. 2 tin bị chặn vì bài đăng thật ngoài khung (SCMP 'Beijing tells Manila stop lying' thật 09-09; SEC Ponzi thật 09-10). Tập trận: chỉ UNITAS 2026 (Peru) đạt chuẩn; ứng viên Veer Guardian 2026 bị chặn vì trùng URL với tin đã có sẵn trong DATA."
 }
