@@ -69,6 +69,18 @@ def doc_ngay(h):
     m = re.search(r'Date\s+Posted:\s*</td>\s*<td>\s*(\d{2})\.(\d{2})\.(\d{4})', h, re.I)
     if m:
         return f'{int(m.group(3)):04d}-{int(m.group(1)):02d}-{int(m.group(2)):02d}', 'DVIDS Date Posted'
+    # Trang quân chủng Mỹ dùng chung CMS DNN/ArticleCS (navy.mil, army.mil, marines.mil,
+    # af.mil, pacom.mil, centcom.mil, jcs.mil, news.uscg.mil...) — không JSON-LD, không og
+    # article, không thẻ time, bốn mẫu trên trượt sạch. Neo vào class "press-briefing__date"
+    # (đo thật 13/09/2026 trên navy.mil: `class="press-briefing__date">10 September 2026`,
+    # khớp đúng "Sept. 10" trong og:description cùng trang).
+    m = re.search(r'class="press-briefing__date">\s*(\d{1,2})\s+(' + '|'.join(THANG) + r')\s+(\d{4})',
+                  h, re.I)
+    if m:
+        ngay, thang_ten, nam = int(m.group(1)), m.group(2), int(m.group(3))
+        thang = THANG.get(thang_ten.capitalize())
+        if thang:
+            return f'{nam:04d}-{thang:02d}-{ngay:02d}', 'press-briefing__date'
     return None, 'không có metadata ngày'
 
 

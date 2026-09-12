@@ -1,13 +1,18 @@
 {
-  "date": "2026-09-12",
-  "session": "toi",
+  "date": "2026-09-13",
+  "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":3,"target":"5-10","min":2,"thieu":false,"reason":""},
-    {"name":"Nội bộ Mỹ","count":4,"target":"5-10","min":2,"thieu":false,"reason":"Quốc hội nghỉ họp 11-12/9 để tưởng niệm 9/11 nên hạng 1 (điều trần + bỏ phiếu) chỉ có 1 bài (Ủy ban Quy tắc chuẩn bị họp thứ Hai cho dự luật trừng phạt Nga-Graham); phần còn lại lấy từ hạng 2 (kinh tế Mỹ, Nhà Trắng/nội các, bầu cử)."},
-    {"name":"Địa bàn › Anh","count":6,"target":"2+","min":2,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":3,"target":"2+","min":2,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Biển Đông","count":4,"target":"2+","min":2,"thieu":false,"reason":""},
-    {"name":"KHCN-QS","count":13,"target":"5-10","min":2,"thieu":false,"reason":""}
+    {"name":"Đối ngoại Mỹ","count":1,"target":"5-10","min":2,"thieu":true,
+     "reason":"Chỉ 1 tin mới (Trump/giá dầu-Iran, CNBC) xếp vào mục này qua từ khoá 'Iran'. Không xác nhận được phiên điều trần/bỏ phiếu Quốc hội nào diễn ra đúng ngày 12-13/9."},
+    {"name":"Nội bộ Mỹ","count":0,"target":"5-10","min":2,"thieu":true,
+     "reason":"0 tin thuần nội bộ (không nhắc nước ngoài) đạt chuẩn. Ứng viên tốt nhất (tranh chấp bản đồ bầu cử Missouri - usnews.com, tin '$5.000 dividend' - newsweek.com) đều có ngày đăng THẬT là 10/9, ngoài khung hôm nay(13/9)+hôm qua(12/9) — đã kiểm bằng cách mở bài đọc metadata, không phải suy đoán. Đã đi 2 vòng WebSearch riêng cho nhánh này không ra bản cập nhật mới hơn."},
+    {"name":"Địa bàn › Anh","count":2,"target":"2+","min":2,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":0,"target":"2+","min":2,"thieu":true,
+     "reason":"0 tin MỚI phiên này. Ứng viên tốt nhất (AUKUS 5 năm - AAP, tàu khu trục Mogami - Naval Institute) đều có ngày đăng thật 11/9, ngoài khung. Data 2 ngày gần nhất trong DATA vẫn đủ sàn hiển thị (soi_muc_cam.py --san vẫn xanh) nên mục không trống trên bản tin, nhưng phiên này không đóng góp gì mới."},
+    {"name":"Địa bàn › Biển Đông","count":0,"target":"2+","min":2,"thieu":true,
+     "reason":"0 tin MỚI phiên này. 2 ứng viên tìm được (Đại sứ quán TQ/Sierra Madre - Manila Bulletin, DFA/Vành Khăn-Xu Bi - Philstar) đều bị chặn: Manila Bulletin do trang không lộ metadata ngày, Philstar do trùng URL với tin đã nạp ở phiên tối 12/09 trước đó. Không mất tin (đã có trong DATA)."},
+    {"name":"KHCN-QS","count":1,"target":"5-10","min":2,"thieu":false,
+     "reason":"Nạp 3 tin CNQS (DIU AI, Space Force DARC, USS Kilmer) nhưng phát hiện 2 trong đó (DIU AI, DARC) trùng sự kiện với tin đã có sẵn trong DATA (cùng câu chuyện đưa lại lần hai) nên đã XOÁ ngay sau khi phát hiện — còn 1 tin CNQS thật sự mới. Rheinmetall và General Dynamics NGEAU bị Cổng NGÀY THẬT chặn vì trang không lộ metadata ngày."}
   ],
-  "note": "Phiên quét chạy trễ (bắt đầu 23:30 giờ VN, sau hạn chót 22:00 của SKILL.md — web-scan phien toi đã không chạy được suốt 09-11/9, đây là lần chạy bù đầu tiên) — đã chốt lô ngay khi đạt sàn thay vì vòng bổ sung thêm. Đếm số ở trên GỘP cả tin nạp hôm nay lẫn tin từ phiên trước còn trong khung 24-48h (đúng cách người đọc thấy trong file Word). 6 ứng viên Báo Mới khớp từ khoá chủ đề nhưng đọc kỹ thì lệch phạm vi thật (Zelensky/Ukraine không phải CNQS Mỹ, quốc phòng NỘI BỘ Nhật Bản không neo được vào Úc/Biển Đông, đầu tư hạ tầng Ba Lan-Mỹ không phải khí tài cụ thể, đầu tư Gia Lai-Đài Loan là kinh tế trong nước không phải Biển Đông) — bỏ cả 6, xem logs/loai-tin.md. 3 tin bị Cổng NGÀY ĐĂNG THẬT chặn (Bộ Tài chính Mỹ GloBE, General Dynamics NGEAU qua thedefensewatch.com, Manila Bulletin BRP Sierra Madre) vì trang không lộ metadata ngày đọc được — theo luật 'trang không ghi ngày thì bỏ đi', đã bỏ; xem logs/loai-tin.md. 2 tin bị chặn vì bài đăng thật ngoài khung (SCMP 'Beijing tells Manila stop lying' thật 09-09; SEC Ponzi thật 09-10). Tập trận: chỉ UNITAS 2026 (Peru) đạt chuẩn; ứng viên Veer Guardian 2026 bị chặn vì trùng URL với tin đã có sẵn trong DATA."
+  "note": "Đã vá scripts/ngay_that.py thêm mẫu đọc ngày cho trang quân chủng Mỹ dùng CMS DNN/ArticleCS (navy.mil/army.mil/marines.mil/af.mil/pacom.mil...), neo vào class=\"press-briefing__date\" — cứu tin 'Hải quân Mỹ đặt sống tàu khu trục USS John E. Kilmer' (navy.mil) khỏi bị chặn oan bởi Cổng NGÀY ĐĂNG THẬT. Đã chạy tests/test-cong-ngay-that.py + --tu-kiem sau khi vá: vẫn 15/15 ca đạt và 9/9 bản hỏng bị bắt. Mỹ–Mali và Tập trận đang diễn ra: 0 tin mới, ứng viên duy nhất mỗi bên (Timbuktu Institute JNIM/AI, UNITAS 2026 khai mạc) đều có ngày đăng thật ngoài khung 1-2 ngày. Chi tiết từng tin bị loại: logs/loai-tin.md mục '## Phiên SÁNG SỚM 13/09/2026 (CI)'. Nguyên nhân xuyên suốt phiên này: rất nhiều ứng viên nội dung tốt bị Cổng NGÀY ĐĂNG THẬT (ngay_that.py) chặn vì (a) ngày đăng thật lệch 1-3 ngày so với ngày agent khai ban đầu, hoặc (b) trang không lộ metadata ngày ở 4 dạng chuẩn — đã đi đúng luật 'trang không ghi ngày thì bỏ đi' thay vì lách."
 }
