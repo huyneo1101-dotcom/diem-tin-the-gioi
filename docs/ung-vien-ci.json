@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-13T03:47:05+07:00",
+  "tao_luc": "2026-09-13T05:30:04+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-12",
@@ -529,6 +529,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Nước Anh vẫn n&oacute;i kh&ocirc;ng với trợ tử",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/nuoc-anh-van-noi-khong-voi-tro-tu-185260912220155707.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "?",
       "tieu_de": "Japan's Sekisui Chemical to buy Australian builder, eyeing modular homes",
       "nguon": "Nikkei Asia",
@@ -546,17 +554,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-13",
-      "tieu_de": "Nick Rogers's leafy suburb is ground zero in Australia's battle over trees",
+      "tieu_de": "Australia needs more homes. But what happens to our trees?",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-13/housing-crisis-trees-collateral-damage/107137146"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-13",
-      "tieu_de": "Type 31 schedule challenges being monitored",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/type-31-schedule-challenges-being-monitored/"
     },
     {
       "lop": "RSS",
@@ -573,14 +573,6 @@
       "tieu_de": "Private finance for the defence estate to be studied",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/private-finance-for-the-defence-estate-to-be-studied/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "British Army seeks suppliers for FPV drone training",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/british-army-seeks-suppliers-for-fpv-drone-training/"
     },
     {
       "lop": "RSS",
@@ -621,6 +613,14 @@
       "tieu_de": "Chinooks deploy police in Scottish training exercise",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/chinooks-deploy-police-in-scottish-training-exercise/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Free rail travel expanded to bereaved veteran families this Remembrance weekend",
+      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
+      "url": "https://www.gov.uk/government/news/free-rail-travel-expanded-to-bereaved-veteran-families-this-remembrance-weekend"
     },
     {
       "lop": "RSS",
@@ -703,15 +703,6 @@
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/us-house-of-representatives-to-take-up-russia-sanctions-bill-next-week/article71461175.ece",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-13",
-      "tieu_de": "Trump sees Iran war ending soon after midterm elections, predicts oil prices will then fall sharply",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/12/trump-sees-iran-war-ending-very-soon-oil-prices-then-falling.html",
-      "nhom": 5
     },
     {
       "lop": "RSS",
