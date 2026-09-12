@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-13T05:30:04+07:00",
+  "tao_luc": "2026-09-13T06:17:38+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-12",
@@ -496,6 +496,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-13",
+      "tieu_de": "Chiến hạm hạt nhân khổng lồ chuyên săn tàu sân bay Mỹ",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/chien-ham-hat-nhan-khong-lo-chuyen-san-tau-san-bay-my-2554252.html"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-12",
       "tieu_de": "Death toll from Philippines ferry fire rises to 76, with more still missing",
@@ -549,14 +557,6 @@
       "tieu_de": "'He just disappeared': After a trip to Australia, this man never came home",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-13/rami-naimi-family-plea-for-help-after-detention-in-saudi-arabia/107140454"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-13",
-      "tieu_de": "Australia needs more homes. But what happens to our trees?",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-13/housing-crisis-trees-collateral-damage/107137146"
     },
     {
       "lop": "RSS",
@@ -661,6 +661,14 @@
       "tieu_de": "Death toll from Philippines ferry fire rises to 35, as officials warn toll will grow",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/sep/12/death-toll-from-philippines-ferry-fire-rises-to-35-as-officials-warn-toll-will-grow"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Australia news live: escalating Middle East conflict will see prices rise again, Chris Bowen says",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/13/australia-news-live-chris-bowen-middle-east-fuel-petrol-prices-anika-wells-social-media-algorithm-andrew-hastie-pauline-hanson-one-nation-albanese-labor-coalition-liberal-ntwnfb"
     },
     {
       "lop": "RSS",
