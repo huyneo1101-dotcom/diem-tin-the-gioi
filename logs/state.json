@@ -20,14 +20,13 @@
     "heartbeat": "2026-09-14T04:39:22+07:00"
   },
   "event-scan": {
-    "lastRunAt": "2026-09-14T04:47:22+07:00",
+    "lastRunAt": "2026-09-14T04:59:05+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-13"
-    },
-    "heartbeat": "2026-09-14T04:56:52+07:00"
+      "sang": "2026-09-14"
+    }
   }
 }
