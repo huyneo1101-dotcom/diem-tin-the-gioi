@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-14T03:46:48+07:00",
+  "tao_luc": "2026-09-14T05:33:58+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-13",
@@ -17,10 +17,10 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-09-13",
-      "tieu_de": "Peruvian Army hosts U.S., Chile, Argentina for SV26 in the Amazon Jungle",
+      "ngay": "2026-09-14",
+      "tieu_de": "153rd Public Affairs Detachment Arrives in Peru, Participates in Southern Vanguard 26",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574562/peruvian-army-hosts-us-chile-argentina-sv26-amazon-jungle"
+      "url": "https://www.dvidshub.net/news/574585/153rd-public-affairs-detachment-arrives-peru-participates-southern-vanguard-26"
     },
     {
       "lop": "RSS",
@@ -211,7 +211,7 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "Trump, Hegseth tie Iran war to 9/11 in speeches at Pentagon",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6084687-trump-hegseth-iran-war-september-11/"
     },
     {
@@ -425,6 +425,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-14",
+      "tieu_de": "Pro-Palestine protest demands Australia increases pressure on Israel",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/13/pro-palestine-protest-demands-australia-increases-pressure-on-israel?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-13",
       "tieu_de": "Indonesia: Second ferry disaster in five days",
       "nguon": "France 24",
@@ -489,14 +497,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Japan's Sekisui Chemical to buy Australian builder, eyeing modular homes",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/business-deals/japan-s-sekisui-chemical-to-buy-australian-builder-eyeing-modular-homes"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-13",
       "tieu_de": "Mỹ áp thuế tới 170% với hàng năng lượng mặt trời nhập khẩu từ Ấn Độ, Indonesia và Lào",
       "nguon": "VnEconomy",
@@ -522,9 +522,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-14",
-      "tieu_de": "Australia's troubled new warships are starting to take shape. Will they be worth it?",
+      "tieu_de": "Australia's 'incognito' nuclear reactor marks 20 years of innovation",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-14/federal-politics-australia-billions-spent-on-three-warships/107132330"
+      "url": "https://www.abc.net.au/news/2026-09-14/ansto-opal-nuclear-reactor-celebrates-20-years/107132928"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-14",
+      "tieu_de": "Australia's most expensive bull could earn $1m from semen sales",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-14/selling-the-semen-of-australias-most-expensive-bull-wyatt/107142278"
     },
     {
       "lop": "RSS",
@@ -553,18 +561,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-13",
-      "tieu_de": "Gibo to reserve force: Protect Philippines land, maritime domain",
-      "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/09/14/2556068/gibo-reserve-force-protect-philippines-land-maritime-domain"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-14",
-      "tieu_de": "Asia Society Philippines to take travelers on cultural journey through Ilocos",
-      "nguon": "Inquirer",
-      "url": "https://business.inquirer.net/610791/asia-society-philippines-to-take-travelers-on-cultural-journey-through-ilocos"
+      "tieu_de": "Pacific Partnership 2026 Concludes Fourth Mission Stop in Kota Kinabalu, Malaysia",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/574586/pacific-partnership-2026-concludes-fourth-mission-stop-kota-kinabalu-malaysia"
     },
     {
       "lop": "RSS",
@@ -594,25 +594,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-13",
-      "tieu_de": "Crossbench MPs launch push to stop Australian military exports being used in human rights breaches",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/sep/14/crossbench-mps-launch-push-to-stop-australian-military-exports-being-used-in-human-rights-breaches"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-13",
       "tieu_de": "First H5 bird flu death of endangered Australian sea lion recorded amid fears for small population",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/2026/sep/13/first-h5-bird-flu-death-of-endangered-australian-sea-lion-kangaroo-island"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-13",
-      "tieu_de": "First case of bird flu in endangered Australian sea lion confirmed – as it happened",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/live/2026/sep/13/australia-news-live-chris-bowen-middle-east-fuel-petrol-prices-anika-wells-social-media-algorithm-andrew-hastie-pauline-hanson-one-nation-albanese-labor-coalition-liberal-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -658,6 +642,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-14",
+      "tieu_de": "US will scrap Irish whisky tariff, Trump says",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/13/trump-says-he-plans-to-remove-a-15-tariff-on-irish-whisky?traffic_source=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-14",
       "tieu_de": "Trump says he will remove all Irish whiskey tariffs as he ends two-day visit",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cx2z79n0eeno?at_medium=RSS&at_campaign=rss",
@@ -688,6 +681,15 @@
       "tieu_de": "U.S. House of Representatives to take up Russia sanctions bill next week",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/us-house-of-representatives-to-take-up-russia-sanctions-bill-next-week/article71461175.ece",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-14",
+      "tieu_de": "Trump says he plans to lift tariffs on Irish whiskey",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/business/6087112-trump-to-lift-irish-whiskey-tariffs/",
       "nhom": 4
     },
     {
