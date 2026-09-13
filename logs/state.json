@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-13T04:46:01+07:00",
+    "lastRunAt": "2026-09-14T04:00:40+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+5 tin (5 chu de, con thieu Uc/BienDong/Mali/TapTran - xem scan-gaps.json)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-09-13"
-    }
+    },
+    "heartbeat": "2026-09-14T04:00:40+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-13T05:04:54+07:00",
