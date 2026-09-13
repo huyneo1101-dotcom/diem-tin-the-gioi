@@ -1,26 +1,34 @@
 {
-  "tao_luc": "2026-09-13T06:17:38+07:00",
+  "tao_luc": "2026-09-14T00:02:52+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
-    "2026-09-12",
-    "2026-09-13"
+    "2026-09-13",
+    "2026-09-14"
   ],
   "ung_vien": [
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "Ý nghĩa to lớn của đối ngoại địa phương trong giai đoạn mới",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/y-nghia-to-lon-cua-doi-ngoai-dia-phuong-trong-giai-doan-moi-100260911154553211.htm"
+      "ngay": "2026-09-13",
+      "tieu_de": "Cayetanos back from Singapore",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/09/14/2556073/cayetanos-back-singapore"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-09-12",
-      "tieu_de": "Peruvian Army hosts U.S., Chile, Argentina for Amazon Jungle exercise",
+      "ngay": "2026-09-13",
+      "tieu_de": "Peruvian Army hosts U.S., Chile, Argentina for SV26 in the Amazon Jungle",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574519/peruvian-army-hosts-us-chile-argentina-amazon-jungle-exercise"
+      "url": "https://www.dvidshub.net/news/574562/peruvian-army-hosts-us-chile-argentina-sv26-amazon-jungle"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-13",
+      "tieu_de": "Quan hệ Việt-Pháp bước vào giai đoạn “tăng tốc lịch sử”",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/quan-he-viet-phap-buoc-vao-giai-doan-tang-toc-lich-su-post1135849.vnp"
     },
     {
       "lop": "RSS",
@@ -56,11 +64,11 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-09-12",
-      "tieu_de": "Niger: Kafra oil block could hold 2.5 billion barrels",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20260912-niger-kafra-oil-block-could-hold-2-5-billion-barrels"
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-13",
+      "tieu_de": "Việt Nam đề xuất 3 định hướng lớn để BRICS phát huy vai trò trong giai đoạn tới",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/viet-nam-de-xuat-3-dinh-huong-lon-de-brics-phat-huy-vai-tro-trong-giai-doan-toi-443469.html"
     },
     {
       "lop": "HTML",
@@ -69,14 +77,6 @@
       "tieu_de": "Chairman Babin, Ranking Member Lofgren Request GAO Review of NOAA Weather Satellites",
       "nguon": "Uỷ ban Khoa học Hạ viện",
       "url": "https://science.house.gov/press-releases?ID=479C5D39-F9DC-4DC8-BA34-57F5CE480123"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Why Japan’s Industry is Pulling Back from the U.S. Navy Frigate Plan",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/features/2026/09/japan-industry-pulling-back-us-navy-frigate-plan/"
     },
     {
       "lop": "RSS",
@@ -129,22 +129,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "With reconciliation uncertain, Pentagon eyeing plan to retool   FY27 priorities with Congress",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/with-reconciliation-uncertain-pentagon-eyeing-plan-to-retool-fy27-priorities-with-congress/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "General Atomics unveils ‘Wildfire’ drone to replace Reaper",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/general-atomics-unveils-wildfire-drone-to-replace-reaper/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "The Pentagon is using polygraphs to hunt leakers, but the tests are more theater than fact",
       "nguon": "Defense One",
@@ -170,17 +154,17 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-12",
-      "tieu_de": "F-22 pilot made a safe belly landing after wheel fell off",
+      "tieu_de": "Air Force pilot receives top safety award for saving F-22",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/news/f-22-pilot-safety-koren-kolligian-trophy/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Pentagon’s top weapons buyer says Congress must act on munitions",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/pentagons-top-weapons-buyer-says-congress-must-act-on-munitions"
+      "ngay": "2026-09-13",
+      "tieu_de": "Mỹ có thể đã đốt hơn nửa tỷ USD cho trận 'Patriot bắn như súng máy'",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/my-co-the-da-dot-hon-nua-ty-usd-cho-tran-patriot-ban-nhu-sung-may-5119680.html"
     },
     {
       "lop": "RSS",
@@ -201,14 +185,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Tàu sân bay Mỹ tận dụng mọi khoảng trống để chứa đồ trước khi tới Trung Đông",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/tau-san-bay-my-tan-dung-moi-khoang-trong-de-chua-do-truoc-khi-toi-trung-dong-5118846.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "Tập kích tàu sân bay Mỹ cách 500km, Iran tung \"lá bài\" đáng gờm mới?",
       "nguon": "Dân Trí",
@@ -217,26 +193,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Iran từng tập kích tàu sân bay Mỹ cách 500km, cảnh báo đanh thép đối thủ",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/iran-tung-tap-kich-tau-san-bay-my-cach-500km-canh-bao-danh-thep-doi-thu-20260910081938449.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "Trump, Hegseth tie Iran war to 9/11 in speeches at Pentagon",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/defense/6084687-trump-hegseth-iran-war-september-11/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-11",
-      "tieu_de": "Watch live: Trump commemorates 25 years since 9/11 at Pentagon",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/video-clips/6083859-watch-live-donald-trump-pentagon-september-11-attacks-25th-anniversary/"
     },
     {
       "lop": "RSS",
@@ -257,14 +217,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Pentagon to install first nuclear micro reactor in Indiana by 2028",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/us-dow-nuclear-micro-reactor/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-11",
       "tieu_de": "Decades of delayed maintenance has left Pentagon networks in ‘potential peril’ for the AI age, cyber defense commander says: ‘no more.’",
       "nguon": "DefenseScoop",
@@ -273,42 +225,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Pentagon pores over heaps of industry feedback on CMMC reform",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/09/09/pentagon-pores-over-heaps-of-industry-feedback-on-cmmc-reform/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-11",
-      "tieu_de": "U.S. Army Soldiers commemorate 25 years since 9/11 at Padova ceremony",
+      "ngay": "2026-09-13",
+      "tieu_de": "Kentucky Guard strengthens emergency response abilities during exercise Patriot 2026",
       "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295260/u_s_army_soldiers_commemorate_25_years_since_911_at_padova_ceremony"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-11",
-      "tieu_de": "Red River honors 25 years of remembrance at Patriot Day Ceremony",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295265/red_river_honors_25_years_of_remembrance_at_patriot_day_ceremony"
+      "url": "https://www.army.mil/article/295292/kentucky_guard_strengthens_emergency_response_abilities_during_exercise_patriot_2026"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-12",
-      "tieu_de": "25 years later: Pentagon survivor, others remember 9/11 and unexpected heroism",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295278/25_years_later_pentagon_survivor_others_remember_911_and_unexpected_heroism"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Jackson marks 25-year anniversary of 9/11 with Patriot Day wreath laying",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295281/jackson_marks_25_year_anniversary_of_911_with_patriot_day_wreath_laying"
+      "tieu_de": "Why Japan is Pulling Back From the U.S. Navy Frigate Plan",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/11/why_japan_is_pulling_back_from_the_us_navy_frigate_plan_1205550.html"
     },
     {
       "lop": "RSS",
@@ -325,14 +253,6 @@
       "tieu_de": "Contracts for Sept. 11, 2026",
       "nguon": "DoD Contracts",
       "url": "https://www.war.gov/News/Contracts/Contract/Article/4599224/contracts-for-sept-11-2026/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "National 9/11 Pentagon Memorial Temporary Closure",
-      "nguon": "DoD News Releases",
-      "url": "https://www.war.gov/News/Releases/Release/Article/4595549/national-911-pentagon-memorial-temporary-closure/"
     },
     {
       "lop": "RSS",
@@ -361,22 +281,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Army To Field Joint Laser Weapon System By July 2028, Pentagon’s Critical Tech Lead Says",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/army-to-field-joint-laser-weapon-system-by-july-2028-pentagons-critical-tech-lead-says/army/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "‘Experimentation Fatigue’ Cited As Issue for Industry and Pentagon",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/experimentation-fatigue-cited-as-issue-for-industry-and-pentagon/pentagon/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-12",
       "tieu_de": "At Pentagon, Trump Leads 9/11 Commemoration on 25th Anniversary",
       "nguon": "Air & Space Forces Magazine",
@@ -393,18 +297,34 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Pentagon codifies fitness standards across branches",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/09/09/pentagon-codifies-fitness-standards-across-branches/"
+      "ngay": "2026-09-13",
+      "tieu_de": "American Rheinmetall Selected to Support US Marine Corps with Advanced Mission Master SP Autonomous Unmanned Ground Vehicles",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/09/13/american-rheinmetall-selected-to-support-us-marine-corps-with-advanced-mission-master-sp-autonomous-unmanned-ground-vehicles/?utm_source=rss&utm_medium=rss&utm_campaign=american-rheinmetall-selected-to-support-us-marine-corps-with-advanced-mission-master-sp-autonomous-unmanned-ground-vehicles"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "Marine Corps sends F-35Bs to Japan to expose unit to the rigors of the Indo-Pacific",
-      "nguon": "Sandboxx News",
-      "url": "https://www.sandboxx.us/news/marine-corps-sends-f-35bs-to-japan-to-expose-unit-to-the-rigors-of-the-indo-pacific/"
+      "ngay": "2026-09-13",
+      "tieu_de": "2026 US Army Best Squad Competition: Competition Prep Highlight Reel",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1022831/2026-us-army-best-squad-competition-competition-prep-highlight-reel"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-12",
+      "tieu_de": "Jackson marks 25-year anniversary of 9/11 with Patriot Day wreath laying",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/574479/jackson-marks-25-year-anniversary-9-11-with-patriot-day-wreath-laying"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-12",
+      "tieu_de": "25 years later: Pentagon survivor, others remember 9/11 and unexpected heroism",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/574475/25-years-later-pentagon-survivor-others-remember-9-11-and-unexpected-heroism"
     },
     {
       "lop": "RSS",
@@ -465,34 +385,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "U.S. Army Yuma Proving Ground commander holds strategic collaboration with key personnel",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/574219/us-army-yuma-proving-ground-commander-holds-strategic-collaboration-with-key-personnel"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "First Response: Military Heroes of the Pentagon",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/video/1022377/first-response-military-heroes-pentagon"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "U.S. Army Yuma Proving Ground remembers 25 years since 9/11 attacks",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/574205/us-army-yuma-proving-ground-remembers-25-years-since-9-11-attacks"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-10",
-      "tieu_de": "The Pentagon is collecting more information about the effects of blast exposure",
-      "nguon": "Federal News Network — Defense",
-      "url": "https://federalnewsnetwork.com/defense-main/2026/09/the-pentagon-is-collecting-more-information-about-the-effects-of-blast-exposure/"
+      "ngay": "2026-09-13",
+      "tieu_de": "Iran đổi cách đánh, tìm &amp;apos;gót chân Achilles&amp;apos; của Không quân Mỹ",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/iran-doi-cach-danh-tim-got-chan-achilles-cua-khong-quan-my-2554747.html"
     },
     {
       "lop": "RSS",
@@ -505,10 +401,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Death toll from Philippines ferry fire rises to 76, with more still missing",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cwyz755yeg9o?at_medium=RSS&at_campaign=rss"
+      "ngay": "2026-09-13",
+      "tieu_de": "Philippines set for historic vote in Bangsamoro after decades of conflict",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/9/13/philippines-set-for-historic-vote-in-bangsamoro-after-decades-of-conflict?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Indonesia: Second ferry disaster in five days",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/indonesia-second-ferry-disaster-in-five-days"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Indonesia says six killed, 130 missing after ferry capsizes off Java",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/indonesia-passenger-vessel-with-243-people-reportedmissing-agency-says/article71462492.ece"
     },
     {
       "lop": "RSS",
@@ -521,18 +433,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Philippines begins identifying victims from ferry fire as dozens still missing",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/philippines-begins-identifying-victims-from-ferry-fire-as-dozens-still-missing/article71459549.ece"
+      "ngay": "2026-09-13",
+      "tieu_de": "Lật phà chở hơn 240 người ngoài khơi Indonesia",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/lat-pha-cho-hon-240-nguoi-ngoai-khoi-indonesia-5119804.html"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "'Canh bạc' đông lạnh thi thể chờ hồi sinh giá 150.000 USD ở Australia",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/canh-bac-dong-lanh-thi-the-cho-hoi-sinh-gia-150-000-usd-o-australia-5119265.html"
+      "ngay": "2026-09-13",
+      "tieu_de": "Ph&agrave; chở 243 người ch&igrave;m ở Indonesia",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/pha-cho-243-nguoi-chim-o-indonesia-185260913161858794.htm"
     },
     {
       "lop": "RSS",
@@ -546,6 +458,22 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
+      "tieu_de": "Thủ tướng Malaysia hát tình ca Bollywood tại Ấn Độ",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/thu-tuong-malaysia-hat-tinh-ca-bollywood-tai-an-do-100260913184738705.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Tàu chở 243 người gặp nạn ở Indonesia, 140 người mất tích",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/tau-cho-243-nguoi-gap-nan-o-indonesia-140-nguoi-mat-tich-100260913122743208.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
       "tieu_de": "Japan's Sekisui Chemical to buy Australian builder, eyeing modular homes",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/business-deals/japan-s-sekisui-chemical-to-buy-australian-builder-eyeing-modular-homes"
@@ -554,65 +482,25 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-13",
-      "tieu_de": "'He just disappeared': After a trip to Australia, this man never came home",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-13/rami-naimi-family-plea-for-help-after-detention-in-saudi-arabia/107140454"
+      "tieu_de": "Mỹ áp thuế tới 170% với hàng năng lượng mặt trời nhập khẩu từ Ấn Độ, Indonesia và Lào",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/my-ap-thue-toi-170-voi-hang-nang-luong-mat-troi-nhap-khau-tu-an-do-indonesia-va-lao.htm"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "War Books to be rewritten by the end of this year",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/war-books-to-be-rewritten-by-the-end-of-this-year/"
+      "ngay": "2026-09-13",
+      "tieu_de": "Indonesia tìm kiếm 140 người còn mất tích sau vụ đắm tàu",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/indonesia-tim-kiem-140-nguoi-con-mat-tich-sau-vu-dam-tau-20260913155448464.htm"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Private finance for the defence estate to be studied",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/private-finance-for-the-defence-estate-to-be-studied/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Direct award planned for helicopter load equipment deal",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/direct-award-planned-for-helicopter-load-equipment-deal/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Officials knock down reports of Russian build-up in Belarus",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/officials-knock-down-reports-of-russian-build-up-in-belarus/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Laser weapons could go on a range of platforms, MP told",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/laser-weapons-could-go-on-a-range-of-platforms-mp-told/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Split of hybrid navy money to be worked out with industry",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/split-of-hybrid-navy-money-to-be-worked-out-with-industry/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Chinooks deploy police in Scottish training exercise",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/chinooks-deploy-police-in-scottish-training-exercise/"
+      "ngay": "2026-09-13",
+      "tieu_de": "Tàu chở 240 người bất ngờ mất liên lạc giữa biển, Indonesia hối hả tìm kiếm",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/tau-cho-240-nguoi-bat-ngo-mat-lien-lac-giua-bien-indonesia-hoi-ha-tim-kiem-20260913110115938.htm"
     },
     {
       "lop": "RSS",
@@ -625,83 +513,116 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Why big supermarkets still see plenty of room outside Metro Manila",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/business/why-big-supermarkets-expand-outside-metro-manila-robinsons-supermarket-panglao/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Robinsons Land, MMDA enhance mobility across key Metro Manila routes",
+      "ngay": "2026-09-13",
+      "tieu_de": "Palace: Indian firms to expand in Philippines",
       "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/09/13/2555952/robinsons-land-mmda-enhance-mobility-across-key-metro-manila-routes"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Philippines Intelligence Agency Subordinated to War Department (18 JUN 1902)",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/574442/philippines-intelligence-agency-subordinated-war-department-18-jun-1902"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "S. Korean container ship arrives in Britain via Arctic route in 21 days",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260912002100320"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Death toll from Philippines ferry fire rises to 35, as officials warn toll will grow",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/sep/12/death-toll-from-philippines-ferry-fire-rises-to-35-as-officials-warn-toll-will-grow"
+      "url": "https://www.philstar.com/headlines/2026/09/14/2556067/palace-indian-firms-expand-philippines"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-13",
-      "tieu_de": "Australia news live: escalating Middle East conflict will see prices rise again, Chris Bowen says",
+      "tieu_de": "Gibo to reserve force: Protect Philippines land, maritime domain",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/09/14/2556068/gibo-reserve-force-protect-philippines-land-maritime-domain"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "British Sovereignty Is Non-Negotiable",
+      "nguon": "RealClearPolitics",
+      "url": "https://www.realclearpolitics.com/2026/09/13/british_sovereignty_is_non-negotiable_710827.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "As Japan’s yen peaks, is the era of budget-friendly trips coming to an end for Australian travellers?",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/14/as-japans-yen-peaks-is-the-era-of-budget-friendly-trips-coming-to-an-end-for-australian-travellers"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Crossbench MPs launch push to stop Australian military exports being used in human rights breaches",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/14/crossbench-mps-launch-push-to-stop-australian-military-exports-being-used-in-human-rights-breaches"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "First H5 bird flu death of endangered Australian sea lion recorded amid fears for small population",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/13/first-h5-bird-flu-death-of-endangered-australian-sea-lion-kangaroo-island"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "First case of bird flu in endangered Australian sea lion confirmed – as it happened",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/sep/13/australia-news-live-chris-bowen-middle-east-fuel-petrol-prices-anika-wells-social-media-algorithm-andrew-hastie-pauline-hanson-one-nation-albanese-labor-coalition-liberal-ntwnfb"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Jeremy Thomas, British producer of The Last Emperor and Sexy Beast, dies aged 77",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/film/2026/sep/12/jeremy-thomas-producer-the-last-emperor-sexy-beast-dies"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-12",
-      "tieu_de": "Cháy phà ngoài khơi Philippines: 35 người thiệt mạng, 54 người mất tích",
+      "ngay": "2026-09-13",
+      "tieu_de": "Indonesia: Tìm thấy tàu chở khách mất liên lạc trên biển, cứu hơn 100 người",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/chay-pha-ngoai-khoi-philippines-35-nguoi-thiet-mang-54-nguoi-mat-tich-post1135702.vnp"
+      "url": "https://www.vietnamplus.vn/indonesia-tim-thay-tau-cho-khach-mat-lien-lac-tren-bien-cuu-hon-100-nguoi-post1135886.vnp"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-13",
-      "tieu_de": "Newry Farm and the investment story of Vietnamese enterprises in Northern Territory Australia",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://en.baoquocte.vn/newry-farm-and-the-investment-story-of-vietnamese-enterprises-in-northern-territory-australia-443201.html"
+      "tieu_de": "Cháy phà tại Philippines: 76 người thiệt mạng, 13 người mất tích",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/chay-pha-tai-philippines-76-nguoi-thiet-mang-13-nguoi-mat-tich-post1135884.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Giới chức Australia siết thời lượng dùng thiết bị điện tử tại trường học",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/gioi-chuc-australia-siet-thoi-luong-dung-thiet-bi-dien-tu-tai-truong-hoc-post1135854.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-14",
+      "tieu_de": "Vụ chìm tàu ở Indonesia: Trục vớt 6 thi thể hành khách, vẫn còn khoảng 130 người mất tích",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/vu-chim-tau-o-indonesia-truc-vot-6-thi-the-hanh-khach-van-con-khoang-130-nguoi-mat-tich-post988276.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-13",
+      "tieu_de": "Indonesia gấp rút tìm kiếm tàu chở hàng trăm khách mất tích trên biển",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/indonesia-gap-rut-tim-kiem-tau-cho-hang-tram-khach-mat-tich-tren-bien-2554762.html"
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Brazil's Eduardo Bolsonaro to push for U.S. sanctions against Supreme Court Justice during Washington visit",
+      "ngay": "2026-09-13",
+      "tieu_de": "Ahead of Fed meeting, Trump says US should have world’s lowest interest rate",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/brazils-eduardo-bolsonaro-to-push-for-u-s-sanctions-against-supreme-court-justice-during-washington",
+      "url": "https://www.straitstimes.com/world/united-states/ahead-of-fed-meeting-trump-says-us-should-have-worlds-lowest-interest-rate",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-13",
+      "tieu_de": "Trump reiterates that he sees Iran war ending after U.S. midterm elections",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/trump-reiterates-that-he-sees-iran-war-ending-after-us-midterm-elections/article71463852.ece",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -715,28 +636,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Russia, Trump and a battle over welfare loom over Sweden’s election",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/12/sweden-election-russia-trump-welfare-defense.html",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Bộ trưởng Mỹ: Khoản 5.000 USD cho mỗi người dân sẽ không lấy từ tiền thuế",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/bo-truong-my-khoan-5-000-usd-cho-moi-nguoi-dan-se-khong-lay-tu-tien-thue-5119536.html",
-      "nhom": 9
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Ông Trump hứa tặng mỗi người Mỹ 5.000 USD sau bầu cử, hợp pháp không?",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/ong-trump-hua-tang-moi-nguoi-my-5000-usd-sau-bau-cu-hop-phap-khong-100260911083116774.htm",
+      "ngay": "2026-09-13",
+      "tieu_de": "Republicans cast Muslim Democrats as chief enemies in ‘dangerous’ midterm pitch",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/6085055-gop-cruz-muslim-democrats-midterms/",
       "nhom": 5
     },
     {
@@ -760,37 +663,37 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Trump pledges $5K checks if Republicans do well in the midterms. Can he legally do that?",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6085556-trump-midterm-dividend-legal-questions/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Juror says testimony by Lindsay Clancy’s ex-husband influenced her",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/state-watch/6085067-lindsay-clancy-juror-influenced-by-patrick-clancy-mistrial-massachusetts/",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "Supreme Court Hands Republicans a Decisive Midterm Loss",
+      "ngay": "2026-09-13",
+      "tieu_de": "Vance Previews Republicans' Nasty Midterm Smears",
       "nguon": "RealClearPolitics",
-      "url": "https://www.realclearpolitics.com/2026/09/12/supreme_court_hands_republicans_a_decisive_midterm_loss_710625.html",
+      "url": "https://www.realclearpolitics.com/2026/09/12/vance_previews_republicans_nasty_midterm_smears_710762.html",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-12",
-      "tieu_de": "At Dallas convention, some loyalists question Trump-centric midterms strategy",
+      "ngay": "2026-09-13",
+      "tieu_de": "Trump’s army of election deniers is a problem on many levels",
       "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/09/12/world/politics/trump-loyalists-midterm-strategy/",
+      "url": "https://www.japantimes.co.jp/commentary/2026/09/13/world/trumps-army-of-election-deniers/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-13",
+      "tieu_de": "1st U.S. investment project under tariff agreement nears deal but needs further negotiations: minister",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260913002700315",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-13",
+      "tieu_de": "Trump reiterates $5,000 ‘dividend’ pledge if Republicans win midterms",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/sep/13/trump-5000-dividend-pledge",
       "nhom": 5
     },
     {
