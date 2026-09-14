@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-15T04:19:17+07:00",
+    "lastRunAt": "2026-09-15T04:27:04+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "phien sang som: +1 su kien ngoai giao moi (Artemis), +1 tap tran (REPMUS26), +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-14"
-    },
-    "heartbeat": "2026-09-15T04:19:17+07:00"
+      "sang": "2026-09-15"
+    }
   }
 }
