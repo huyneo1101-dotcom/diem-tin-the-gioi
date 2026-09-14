@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-14T05:20:51+07:00",
+    "lastRunAt": "2026-09-15T03:56:52+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "phien local nhuong: CI da hoan tat +11 tin luc 04:44 VN, email/telegram da gui thanh cong 04:59:58 VN (run 34785445726). Phien local (claim 04:35 vi tuong CI treo qua han nhip tim) khong nap gi them de tranh trung/gui lai ban tin.",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-09-14"
-    }
+    },
+    "heartbeat": "2026-09-15T03:56:52+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-14T04:59:05+07:00",
