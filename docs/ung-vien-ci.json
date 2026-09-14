@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-15T01:50:07+07:00",
+  "tao_luc": "2026-09-15T02:34:53+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-14",
@@ -201,6 +201,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-15",
+      "tieu_de": "Meet a Deployer: U.S. Air Force Master Sgt. Dominique Johnson Air Force Mortuary Affairs Operations Religious Affairs Airman",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/574634/meet-deployer-us-air-force-master-sgt-dominique-johnson-air-force-mortuary-affairs-operations-religious-affairs-airman"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-13",
       "tieu_de": "Kentucky Guard strengthens emergency response abilities during exercise Patriot 2026",
       "nguon": "Lục quân Mỹ",
@@ -345,10 +353,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-13",
-      "tieu_de": "American Rheinmetall Selected to Support US Marine Corps with Advanced Mission Master SP Autonomous Unmanned Ground Vehicles",
+      "ngay": "2026-09-15",
+      "tieu_de": "US Navy Awards Aware $10M Sole-Source Program of Record",
       "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/09/13/american-rheinmetall-selected-to-support-us-marine-corps-with-advanced-mission-master-sp-autonomous-unmanned-ground-vehicles/?utm_source=rss&utm_medium=rss&utm_campaign=american-rheinmetall-selected-to-support-us-marine-corps-with-advanced-mission-master-sp-autonomous-unmanned-ground-vehicles"
+      "url": "https://soldiersystems.net/2026/09/14/us-navy-awards-aware-10m-sole-source-program-of-record/?utm_source=rss&utm_medium=rss&utm_campaign=us-navy-awards-aware-10m-sole-source-program-of-record"
     },
     {
       "lop": "RSS",
@@ -365,14 +373,6 @@
       "tieu_de": "2026 US Army Best Squad Competition: Board and In-Brief",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1022904/2026-us-army-best-squad-competition-board-and-brief"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-14",
-      "tieu_de": "U.S. Army Lt. Col. Jack Lehneman Promoted to Colonel",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9932530/us-army-lt-col-jack-lehneman-promoted-colonel"
     },
     {
       "lop": "RSS",
@@ -674,14 +674,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-14",
-      "tieu_de": "Westminster’s time is coming to an end, say first ministers of UK’s Celtic nations",
-      "nguon": "**The Guardian — Politics (Anh)**",
-      "url": "https://www.theguardian.com/politics/2026/sep/14/westminster-first-ministers-uk-celtic-nations-wales-northern-ireland-scotland"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-14",
       "tieu_de": "Monarchs, MPs and merchants: the register laying bare Britain’s slave-trading past",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/uk-news/ng-interactive/2026/sep/14/register-british-slave-traders"
@@ -967,6 +959,15 @@
       "nguon": "Roll Call",
       "url": "https://rollcall.com/2026/09/14/pre-election-agenda-may-prove-too-ambitious-for-congress/",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-15",
+      "tieu_de": "Nominations Sent to the Senate",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/nominations-sent-to-the-senate-9fc3/",
+      "nhom": 9
     },
     {
       "lop": "RSS",
