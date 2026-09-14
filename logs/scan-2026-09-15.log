@@ -4,3 +4,5 @@
 [21:07Z] checkpoint: harvest.py + telegram_harvest.py xong (383 ung vien 5 chu de + 8 TG). Cai them curl_cffi + python-docx.
 [21:18Z] checkpoint: 4 agent song song (Noi bo My, Uc&BienDong+Anh, CNQS My, Mali+Tap tran) + 1 agent Bao Moi xong. add_news.py nap +6 the gioi/+10 My/+3 tap tran. Cong ngay that chan 7 tin (khong lach). Xoa tay 1 tin trung (LRASM/JASSM Uc) sau canh bao Jaccard. Ghi scan-gaps.json + loai-tin.md.
 [21:18Z] DONE web-scan. Chuan bi commit ban tin, sau do lam Buoc 6 (event-scan: tap tran thieu + think-tank).
+[21:19Z] Da push commit ban tin len main.
+[21:20Z] START event-scan (CI, gop vao sang som) — claim OK, giu khoa.
