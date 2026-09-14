@@ -1,18 +1,20 @@
 {
-  "date": "2026-09-14",
+  "date": "2026-09-15",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":2,"target":"5-10","min":2,"thieu":false,
-     "reason":""},
-    {"name":"Nội bộ Mỹ","count":1,"target":"5-10","min":2,"thieu":true,
-     "reason":"Chỉ 1 tin thuần nội bộ (Trump/Fed lãi suất) đạt chuẩn. Ứng viên hạng 1 duy nhất tìm được (Thượng viện bỏ phiếu cloture thẩm phán Matthew Byrne, 14/9, nguồn dailypress.senate.gov) bị Cổng NGÀY ĐĂNG THẬT chặn vì trang ghi datePublished=2026-09-08 (trang lịch làm việc tuần, không cập nhật lại ngày cho từng mục con) — nội dung đúng nhưng cơ chế đo ngày của cổng không phân biệt được. Quốc hội Mỹ vừa nghỉ cuối tuần tưởng niệm 9/11 nên phiên điều trần/bỏ phiếu trong khung 13-14/9 rất ít."},
-    {"name":"Địa bàn › Anh","count":1,"target":"2+","min":2,"thieu":true,
-     "reason":"Chỉ 1 tin mới (lãnh đạo Scotland/Wales/Bắc Ireland ký tuyên bố Cardiff đòi trưng cầu độc lập). Đã đi 2 vòng bổ sung tìm thêm góc độ quốc phòng (Type 83/32, AUKUS subs delay, HMS QE NATO command) nhưng các ứng viên đều có ngày sự kiện thật 11-12/9, ngoài khung 13-14/9. Vòng bổ sung thứ 2 chỉ tìm ra bài khác nguồn cho CÙNG sự kiện Cardiff (không phải tin mới)."},
-    {"name":"Địa bàn › Australia","count":2,"target":"2+","min":2,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Biển Đông","count":1,"target":"2+","min":2,"thieu":true,
-     "reason":"Chỉ 1 tin mới (Bộ trưởng QP Philippines kêu gọi lực lượng dự bị bảo vệ vùng biển). Đã đi 2 vòng bổ sung (Việt Nam, Malaysia/Indonesia/Brunei, Đài Loan, Trung Quốc, WebSearch trực tiếp) nhưng không tìm được sự kiện Biển Đông thứ hai có ngày sự kiện thật rơi đúng khung 13-14/9 — ứng viên gần nhất (AMTI/CSIS về hoạt động TQ ở Philippine Sea) là báo cáo tháng 8 được đăng lại, sự kiện Teodoro/Seoul Defense Dialogue là 8/9."},
-    {"name":"KHCN-QS","count":1,"target":"5-10","min":2,"thieu":true,
-     "reason":"Nạp ban đầu 4 tin CNQS (DARC Texas-Breaking Defense, DIU AI-Defense Daily, Rheinmetall UGV, NGEAU-war.gov) nhưng phát hiện 2 tin (DARC Texas, DIU AI) TRÙNG sự kiện với tin đã có sẵn trong DATA từ phiên trước (cùng câu chuyện đưa lại lần hai qua nguồn khác) nên đã XOÁ ngay sau khi phát hiện; 1 tin (NGEAU war.gov) bị Cổng NGÀY THẬT chặn vì trang không lộ metadata ngày đọc được. Chỉ còn 1 tin CNQS thật sự mới (Rheinmetall). Đã đi 1 vòng bổ sung + tự tìm thêm qua WebSearch (globalsecurity.org mirror hợp đồng, Army Recognition, Naval News) nhưng không tìm được tin CNQS thứ hai có ngày sự kiện thật trong khung 11-14/9 mà không trùng tin đã có."}
+    {"name":"Đối ngoại Mỹ","count":2,"target":"5-10","min":2,"thieu":false,"reason":""},
+    {"name":"Nội bộ Mỹ","count":2,"target":"5-10","min":2,"thieu":false,
+     "reason":"Nhóm 1 (điều trần+bỏ phiếu) trắng trong khung: ứng viên duy nhất (markup Uỷ ban Thương mại Thượng viện 16/9) là lịch tương lai, không phải hearing/vote đã diễn ra nên đã bỏ, không nạp gượng. Đủ sàn nhờ nhóm 5 (bầu cử/tư pháp) + nhóm 4 (kinh tế/Fed); 6 ứng viên khác bị Cổng NGÀY THẬT chặn (xem logs/loai-tin.md), không lách bằng --bo-cong-ngay-that."},
+    {"name":"Địa bàn › Anh","count":2,"target":"2+","min":2,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":1,"target":"2+","min":2,"thieu":true,
+     "reason":"Nạp ban đầu 2 tin (AUKUS 5 năm + LRASM/JASSM-ER IOC) nhưng tin thứ hai (Naval News) phát hiện TRÙNG sự kiện đã đăng 11/9/2026 qua nguồn khác (RAAF/The Aviationist) — đã XOÁ tay ngay sau cảnh báo Jaccard của add_news.py. Agent gốc đã báo khó tìm tin Úc mới trong khung ngày (nhiều ứng viên là op-ed/bình luận: Independent Australia, Crikey, Global Times); đã thử WebSearch thêm sau khi xoá nhưng không ra tin thay thế đạt chuẩn xác minh."},
+    {"name":"Địa bàn › Biển Đông","count":2,"target":"2+","min":2,"thieu":false,
+     "reason":"Đủ sàn (Đài Loan mở văn phòng Cebu + Malaysia tàu tuần tra MMEA) nhưng 1 ứng viên thứ ba (Pacific Partnership Malaysia, DVIDS) bị Cổng NGÀY THẬT chặn vì ngày đăng thật 13/9, ngoài khung 1 ngày so với batch 15/9."},
+    {"name":"KHCN-QS","count":5,"target":"5-10","min":2,"thieu":false,"reason":""},
+    {"name":"Mỹ–Mali","count":1,"target":"2-5","min":2,"thieu":true,
+     "reason":"Ứng viên GNEWS chủ đề Mali gần như toàn nhiễu (kết quả bóng đá đội tuyển Mali). Chỉ 1 tin an ninh thật đạt chuẩn (nhà báo Mali bị kết án vì phát ngôn về JNIM tại Kidal). Vụ tập kích JNIM vào căn cứ Dioura (hàng chục binh sĩ + lính đánh thuê Nga thiệt mạng) xảy ra 10/9, ngoài khung 24-48h nên không nạp riêng."},
+    {"name":"Tập trận đang diễn ra","count":3,"target":"1-2","min":1,"thieu":false,
+     "reason":"3 cập nhật: Veer Guardian 2026 (Ấn-Nhật, F-2 JASDF tới Jodhpur), UNITAS 2026 (P-8A Mỹ tới Peru), Super Garuda Shield 2026 (TQLC Hàn Quốc, qua cổng Báo Mới truy gốc Korea Times)."}
   ],
-  "note": "Đã XOÁ tay 2 tin trùng sự kiện phát hiện SAU KHI add_news.py đã nạp (DARC Texas và DIU AI Space Threat Engine, cả hai đã có sẵn trong DATA từ phiên trước dưới nguồn khác) — dùng Edit trực tiếp trên index.html vì add_news.py không có lệnh xoá; đã kiểm bằng add_news.py --recent-titles sau khi xoá để xác nhận JSON còn hợp lệ. Cổng Báo Mới: 1 ứng viên 'Mỹ đốt hơn nửa tỷ USD Patriot tại Jordan' (VnExpress/baomoi) bị loại vì sự kiện thật xảy ra 8-9/9, ngoài khung CNQS 3 ngày (11-14/9) — xác nhận qua WebSearch nhiều nguồn (Clash Report, Defense Express, TheDefenseWatch). Mỹ–Mali: 0 tin mới, toàn bộ ứng viên tự động (từ khoá 'Mali') là tin thể thao/không liên quan; tin Niger duy nhất có thật đã trùng với tin đã nạp 12/9. Tập trận: chỉ Southern Vanguard 2026 có cập nhật (DVIDS), không tìm được cập nhật mới cho UNITAS 2026/Arctic Shield/Veer Guardian trong khung ngày."
+  "note": "7 tin bị Cổng NGÀY ĐĂNG THẬT chặn ở vòng nạp đầu (chi tiết logs/loai-tin.md) — chủ yếu trang war.gov/state.gov/thehill/bbc không in metadata ngày đọc được hoặc ngày sự kiện thật cũ hơn khung 1 ngày; không dùng --bo-cong-ngay-that để lách, đã bù bằng ứng viên khác. Sau khi nạp, phát hiện 1 tin TRÙNG sự kiện đã có (LRASM/JASSM-ER Úc) qua cảnh báo Jaccard — đã XOÁ tay bằng Edit trực tiếp trên index.html (add_news.py không có lệnh xoá), kiểm lại bằng add_news.py --recent-titles để xác nhận JSON còn hợp lệ; hệ quả nhánh Australia hụt xuống 1 tin, dưới sàn. Cổng Báo Mới: nạp 2/9 ứng viên (Korea Times TQLC Hàn Quốc → tập trận; Reuters rủi ro trái phiếu Mỹ → Nội bộ Mỹ), loại 7/9 (1 ngoài phạm vi 5 chủ đề — Phần Lan-Pháp hạt nhân; 6 khác sai chủ đề/ngoài khung ngày/không phải sự kiện mới, chi tiết logs/loai-tin.md). gh CLI bị chặn approval trong sandbox CI nên không kích được telegram-bot.yml trước khi đọc file Jay Lâm — đọc trực tiếp Supabase queue thấy không có file nào chờ; fail-open có tiếng."
 }

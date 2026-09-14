@@ -1243,3 +1243,25 @@ Giữ 14 tin: worldNews 3 (Úc-Biển Đông 2, Mali 1) · usNews 7 (Nội bộ 
 [worldNews-Anh] "Britain scraps Type 83 and Type 32 warship concepts", "Labour won't order new nuclear submarines until 2028" (No2NuclearPower/Telegraph, sự kiện 12/9), "A shambles: UK delays decision on AUKUS subs" — đều có ngày sự kiện thật 11-12/9, ngoài khung 13-14/9 dù nội dung tốt. Bỏ, ghi vào scan-gaps.json.
 [worldNews-Biển Đông] "China's Coercion Includes Interdicting Nearly 200 Ships In Philippine Sea" (Eurasia Review/Indo-Pacific Defense Forum, đăng lại 13/9) — mở bài đọc kỹ: nội dung dựa trên báo cáo AMTI/CSIS công bố THÁNG 8/2026 về hoạt động tháng 6-8, không phải sự kiện mới ngày 13/9; đây đúng bẫy "ngày đăng lại ≠ ngày sự kiện". Bỏ.
 ⚠️ Sau khi `add_news.py` nạp xong lô, phát hiện 2 tin TRÙNG sự kiện với tin đã có sẵn trong DATA từ phiên trước (không phải tin nối tiếp — cùng một câu chuyện đưa lại qua nguồn khác): "Space Force chọn Texas... DARC" (Breaking Defense, dup với bản spaceforce.mil đã nạp trước) và "Đơn vị Đổi mới Quốc phòng Mỹ tìm hệ thống AI dự đoán mối đe doạ..." (Defense Daily, dup với bản Military Times đã nạp 11/9). Cả hai đã XOÁ tay khỏi `index.html` ngay sau khi phát hiện (add_news.py không có lệnh xoá), kiểm lại bằng `add_news.py --recent-titles` để xác nhận JSON còn hợp lệ.
+
+## Phiên SÁNG SỚM 15/09/2026 (CI)
+Cổng NGÀY THẬT chặn 7 tin ở vòng nạp đầu, không lách bằng --bo-cong-ngay-that:
+[Nội bộ Mỹ] "Mỹ trừng phạt VTB Nga vì Iran" (state.gov) — trang không lộ metadata ngày đọc được. Bỏ.
+[Nội bộ Mỹ] "Đảng Cộng hòa mâu thuẫn chiến lược kinh tế trước bầu cử" (thehill.com) — trang không lộ metadata ngày đọc được. Bỏ.
+[Nội bộ Mỹ] "Thăm dò CBS: cử tri Dân chủ đi bầu để chặn Trump" (thehill.com) — trang không lộ metadata ngày đọc được. Bỏ.
+[Nội bộ Mỹ] "Trump bỏ thuế whisky Ireland" (bbc.co.uk) — ngày đăng thật 2026-09-13, ngoài khung 1 ngày so với batch 09-15. Bỏ.
+[CNQS Mỹ] "Bộ Chiến tranh Mỹ ban hành miễn trừ UAP/PURSUE" (war.gov) — trang không lộ metadata ngày đọc được. Bỏ.
+[CNQS Mỹ] "Bộ Chiến tranh Mỹ đầu tư 450tr USD Elmet tungsten" (war.gov) — trang không lộ metadata ngày đọc được. Bỏ.
+[Biển Đông] "Pacific Partnership 2026 kết thúc chặng Malaysia" (dvidshub.net) — ngày đăng thật đọc bằng DVIDS Date Posted là 2026-09-13, ngoài khung 1 ngày. Bỏ.
+
+Sau khi nạp, phát hiện tin "Không quân Úc đạt IOC cho tên lửa LRASM và JASSM-ER" (Naval News) TRÙNG sự kiện đã đăng 2026-09-11 (RAAF/The Aviationist) — không phải tin nối tiếp, cùng câu chuyện đưa lại từ nguồn khác. Đã XOÁ tay khỏi `index.html` ngay sau khi phát hiện qua cảnh báo Jaccard của `add_news.py`. Hệ quả: nhánh Australia của mục Địa bàn chỉ còn 1 tin (AUKUS 5 năm) — dưới sàn 2, ghi vào `scan-gaps.json`. Đã thử tìm thay thế qua WebSearch nhưng không ra tin Úc mới nào khác đạt chuẩn xác minh trong khung 09-14/09-15.
+
+Cổng Báo Mới — loại 6/9 ứng viên (đã xử lý qua agent riêng, truy nguyên gốc):
+[CNQS Mỹ] "Phần Lan tham gia dự án răn đe hạt nhân của Pháp" — xác minh đúng (Euronews) nhưng đây là chương trình Pháp-Phần Lan-châu Âu, KHÔNG phải khí tài/CNQS của Mỹ — ngoài phạm vi cả 5 chủ đề. Bỏ.
+[Úc & Biển Đông] "Philippines tổ chức bầu cử quốc hội miền Nam" (BARMM) — xác minh đúng (Rappler) nhưng là bầu cử nội bộ Bangsamoro, không neo được vào an ninh/quân sự Biển Đông theo tinh thần chủ đề dù kỹ thuật khớp từ khoá "Philippines". Bỏ theo hướng siết chất lượng.
+[CNQS Mỹ] "AI Mỹ bị đối thủ tận dụng phát triển vũ khí" — sự kiện gốc (báo cáo Anthropic) công bố 10/9, ngoài khung 48h dù Báo Mới đăng lại muộn. Bỏ.
+[CNQS Mỹ] "Chiến hạm Liên Xô 90 năm tuổi sát cánh tàu khu trục Triều Tiên" — tin lịch sử/trưng bày (lễ hạ thủy Kang Kon thực tế 6/9), không phải sự kiện tin tức mới trong 48h. Bỏ.
+[CNQS Mỹ] "Thổ Nhĩ Kỳ mở rộng dòng tên lửa siêu thanh" — xác minh đúng nhưng là CNQS Thổ Nhĩ Kỳ (Roketsan), không phải CNQS Mỹ. Bỏ.
+[Úc & Biển Đông] "Việt Nam đăng cai Hội nghị Khoa học Chăn nuôi Á-Úc" — hội nghị nông nghiệp, không có góc quốc phòng; sự kiện thật diễn ra 28-31/10, ngoài khung. Bỏ.
+Nạp 3/9: "Thủy quân lục chiến Hàn Quốc tại Super Garuda Shield 2026" (Korea Times, vào exerciseUpdates) · "Rủi ro trái phiếu Mỹ nếu Fed không tăng lãi suất" (Reuters/investing.com, vào usNews) · "Phần Lan-Pháp hạt nhân" bị loại như trên nên thực chỉ 2/9 vào bản tin, xem chi tiết ở trên.
+⚠️ gh CLI bị chặn "requires approval" trong sandbox CI phiên này — KHÔNG kích được `telegram-bot.yml` trước khi đọc `tin_jaylam.py --liet-ke`. Đã thử đọc trực tiếp: không có file Jay Lâm nào trong hàng chờ Supabase tại thời điểm kiểm (có thể do chưa kích được bot). Fail-open có tiếng, đi tiếp.
