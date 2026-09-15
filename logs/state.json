@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-16T04:42:41+07:00",
+    "lastRunAt": "2026-09-16T04:50:39+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "phien sang som 16/09: +1 su kien ngoai giao moi (Thai Lan-Campuchia), +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-15"
-    },
-    "heartbeat": "2026-09-16T04:42:41+07:00"
+      "sang": "2026-09-16"
+    }
   }
 }
