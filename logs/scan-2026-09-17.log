@@ -12,3 +12,4 @@
 [21:31Z] Agent su kien ngoai giao + tap tran: khong tim duoc ung vien dat chuan trong khung 48h (da kiem gan het 20 cuoc active) - tra ve rong, hop le.
 [21:36Z] add_analyses.py nap 5 bai think-tank (USSC AUKUS, ISW Trung Quoc-Dai Loan, MP-IDSA ASEAN-Quad, CEPA Nga, ASPI bau cu My) + set_analysis_concepts.py gan 7 khai niem. Khong phai Chu nhat (thu 5) nen bo qua bao cao tuan. DONE event-scan.
 [04:35] SKIP (local sang) - state.py claim web-scan exit 10: da xong (CI 04:28:15 VN). event-scan van dang RUNNING (heartbeat 04:28:38, con song) nen khong claim tiep. Khong lam gi them.
+[21:40Z] SKIP (CI) - state.py claim web-scan exit 10: da xong (lan chay cuoi 04:28:15 VN). Kiem theo ngoai le muc 1: so_da_gui.py --xem CO dong ngay 2026-09-17 [sang] 17 tin (04:37:55) va [sukien] 1 tin (04:38:06), ca hai truoc thoi diem hien tai chi vai phut. Ban tin sang nay da toi tay that su. SKIP em, khong quet chong.
