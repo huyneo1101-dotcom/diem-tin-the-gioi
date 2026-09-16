@@ -4,3 +4,4 @@
 [21:04Z] harvest.py OK (472 ung vien, cai them curl_cffi) + telegram_harvest.py OK (11 bai TG). Chuan bi giao agent 5 chu de.
 [21:05Z] Doc xong SKILL.md, chuan bi giao 5 luong agent (A Noi bo My, B Uc&BD, C CNQS, D Mali+Tap tran, BM Bao Moi).
 [04:05] SKIP (local sang) - state.py claim web-scan exit 11: phien khac dang chay (CI 04:00 VN, nhip tim con song). Khong quet chong.
+[21:26Z] 5 agent xong. add_news.py nap: +6 worldNews, +10 usNews, +1 tap tran (sau khi sua loi neo Anh, bo 5 tin bi cong ngay that chan, bo 1 tin trung URL). soi_muc_cam --san: KHONG muc cam, ca 6 don vi dat san. Da ghi loai-tin.md + scan-gaps.json.
