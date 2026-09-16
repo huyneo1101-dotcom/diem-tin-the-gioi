@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-17T00:43:05+07:00",
+  "tao_luc": "2026-09-17T01:23:30+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-16",
@@ -65,10 +65,10 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-09-16",
-      "tieu_de": "109th Airlift Wing completes 2026 Greenland season in August",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574865/109th-airlift-wing-completes-2026-greenland-season-august"
+      "ngay": "2026-09-17",
+      "tieu_de": "Amazon raises starting pay to $20 an hour and adds Whole Foods discount",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/technology/2026/sep/16/amazon-minimum-wage-whole-foods-benefit"
     },
     {
       "lop": "RSS",
@@ -249,15 +249,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Iran war has led to US munitions shortfalls, Pentagon inspector confirms",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c9gk58xgng0vo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
+      "ngay": "2026-09-17",
       "tieu_de": "Pentagon CTO says U.S. government shouldn't take stakes in tech giants, questions adding AI rules",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/09/16/emil-michael-ai-regulation-trump.html"
@@ -409,6 +401,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Space Force announces commercial solutions opening strategy for Satellite Communications Augmentation Resource program",
+      "nguon": "Lực lượng Không gian Mỹ",
+      "url": "https://www.spaceforce.mil/News/Article-Display/Article/4602934/space-force-announces-commercial-solutions-opening-strategy-for-satellite-commu/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-16",
       "tieu_de": "Chief of Space Operations Schiess outlines priorities to strengthen Space Force combat power",
       "nguon": "Lực lượng Không gian Mỹ",
@@ -505,6 +505,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-16",
+      "tieu_de": "Contracts for Sept. 15, 2026",
+      "nguon": "DoD Contracts",
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4602178/contracts-for-sept-15-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-15",
       "tieu_de": "Deputy Secretary of War Directs Actions to Foster One Strong Industrial Base",
       "nguon": "DoD News Releases",
@@ -557,14 +565,6 @@
       "tieu_de": "Budget Impasse Will Stall 10 Percent of Space Force Programs, Officials Warn",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/budget-impasse-cr-space-force-programs/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Space Force Accepting Applications for Interservice Transfers Until Oct. 2",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/space-force-accepting-applications-interservice-transfers-2027/"
     },
     {
       "lop": "RSS",
@@ -881,14 +881,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Australia's One Nation party seeks to slash immigrant population by 750,000",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/australia-s-one-nation-party-seeks-to-slash-immigrant-population-by-750-000"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-16",
       "tieu_de": "Cựu Tổng thống Philippines Duterte lần đầu xuất hiện trực tiếp tại Tòa ICC",
       "nguon": "Dân Trí",
@@ -946,6 +938,38 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-17",
+      "tieu_de": "New Canadian rifle shown in Britain for the first time",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/new-canadian-rifle-shown-in-britain-for-the-first-time/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Large drone lands on tank trail in Korean demonstration",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/large-drone-lands-on-tank-trail-in-korean-demonstration/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Air defence turret shown on Boxer for the first time",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/air-defence-turret-shown-on-boxer-for-the-first-time/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Babcock to explore building Ukraine-proven ground robots",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/babcock-to-explore-building-ukraine-proven-ground-robots/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
       "tieu_de": "Aircraft carrier arrives at on the Clyde in Scotland",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/aircraft-carrier-arrives-at-on-the-clyde-in-scotland/"
@@ -989,14 +1013,6 @@
       "tieu_de": "Italy’s new Teseo missile completes 20-minute test flight",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/italys-new-teseo-missile-completes-20-minute-test-flight/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-16",
-      "tieu_de": "Belfast yard installs new cranes for support ship build",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/belfast-yard-installs-new-cranes-for-support-ship-build/"
     },
     {
       "lop": "RSS",
@@ -1129,10 +1145,36 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Vietnam Australia Forum Strengthening cooperation on leadership and public governance",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://en.baoquocte.vn/vietnam-australia-forum-strengthening-cooperation-on-leadership-and-public-governance-444841.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-16",
       "tieu_de": "Việt Nam Australia tăng cường hợp tác về năng lực lãnh đạo và quản trị công",
       "nguon": "Báo Thế giới & Việt Nam",
       "url": "https://baoquocte.vn/viet-nam-australia-tang-cuong-hop-tac-ve-nang-luc-lanh-dao-va-quan-tri-cong-444741.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Belarus frees 25 political prisoners in return for US sanctions relief",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/16/belarus-frees-25-political-prisoners-in-return-for-us-sanctions-relief?traffic_source=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "South Africa slams planned US sanctions over alleged racial discrimination",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/16/south-africa-slam-planned-us-sanctions-over-alleged-racial-discrimination?traffic_source=rss",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1164,10 +1206,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Belarus Frees 25 More Political Prisoners in Return for U.S. Sanctions Relief",
-      "nguon": "The Moscow Times",
-      "url": "https://www.themoscowtimes.com/2026/09/16/belarus-frees-25-more-political-prisoners-in-return-for-us-sanctions-relief-a93723",
+      "ngay": "2026-09-17",
+      "tieu_de": "US Federal Reserve raises interest rates for first time in 3 years, risking Trump’s ire",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3367774/us-federal-reserve-raises-interest-rates-first-time-3-years-risking-trumps-ire?utm_source=rss_feed",
       "nhom": 4
     },
     {
@@ -1263,6 +1305,24 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Federal Reserve issues FOMC statement",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Federal Reserve Board and Federal Open Market Committee release economic projections from the September 15-16 FOMC meeting",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916b.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-16",
       "tieu_de": "SEC Proposes Rescission of Shareholder Proposal Rule and Reforms to Proxy Solicitation Process",
       "nguon": "SEC",
@@ -1354,7 +1414,16 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "Reader Q&A: how united are the Democrats ahead of the US midterms? Live now",
+      "tieu_de": "Federal Reserve raises interest rates for first time since July 2023 – live",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/business/live/2026/sep/16/federal-reserve-interest-rate-increase-live-updates",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "‘An antidote to Trumpism’: Our politics team answered your questions on Democrats’ midterms hopes",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/community/live/2026/sep/15/reader-qa-how-united-are-the-democrats-ahead-of-the-midterms-post-your-questions-now",
       "nhom": 5
