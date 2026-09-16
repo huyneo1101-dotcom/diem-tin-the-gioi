@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-17T06:13:16+07:00",
+  "tao_luc": "2026-09-17T06:48:01+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-16",
@@ -394,14 +394,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-15",
-      "tieu_de": "US Army, Angolan forces conclude medical readiness exercise in Luanda",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295348/us_army_angolan_forces_conclude_medical_readiness_exercise_in_luanda"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
       "tieu_de": "U.S. Army War College Hosts Annual Mark Clark Lecture, Highlighting U.S.–Brazil Strategic Partnership",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/295357/u_s_army_war_college_hosts_annual_mark_clark_lecture_highlighting_u_s_brazil_strategic_partnership"
@@ -429,22 +421,6 @@
       "tieu_de": "U.S. Army and City of Ansbach sign mutual aid agreement",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/295387/u_s_army_and_city_of_ansbach_sign_mutual_aid_agreement"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
-      "tieu_de": "USAF assembles inert Sentinel missile, moving with pace toward flight testing",
-      "nguon": "Không quân Mỹ — Air Force Link News",
-      "url": "https://www.af.mil/News/Article-Display/Article/4600446/usaf-assembles-inert-sentinel-missile-moving-with-pace-toward-flight-testing/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-14",
-      "tieu_de": "Air Force dubs Collaborative Combat Aircraft FQ-42 Vengeance, FQ-44 Fury",
-      "nguon": "Không quân Mỹ — Air Force Link News",
-      "url": "https://www.af.mil/News/Article-Display/Article/4600199/air-force-dubs-collaborative-combat-aircraft-fq-42-vengeance-fq-44-fury/"
     },
     {
       "lop": "RSS",
@@ -626,6 +602,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-15",
+      "tieu_de": "US Army, Angolan forces conclude medical readiness exercise in Luanda",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/574381/us-army-angolan-forces-conclude-medical-readiness-exercise-luanda"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-15",
       "tieu_de": "Meet a Deployer: U.S. Air Force Master Sgt. Dominique Johnson Air Force Mortuary Affairs Operations Religious Affairs Airman",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/574634/meet-deployer-us-air-force-master-sgt-dominique-johnson-air-force-mortuary-affairs-operations-religious-affairs-airman"
@@ -713,10 +697,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-16",
-      "tieu_de": "Malaysia offers to invite Myanmar leader in Rohingya repatriation push",
+      "ngay": "2026-09-17",
+      "tieu_de": "US military claims Strait of Hormuz remains open amid ongoing blockade",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/9/16/malaysia-offers-to-invite-myanmar-leader-in-rohingya-repatriation-push?traffic_source=rss"
+      "url": "https://www.aljazeera.com/news/2026/9/16/us-military-claims-strait-of-hormuz-remains-open-amid-ongoing-blockade?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -1098,6 +1082,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
+      "tieu_de": "What to know about US Federal Reserve’s first interest rate hike in 3 years",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/9/16/what-to-know-about-us-federal-reserves-first-interest-rate-hike-in-3-years?traffic_source=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
       "tieu_de": "US Fed raises interest rates for first time in three years",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/economy/2026/9/16/us-fed-raises-interest-rates-as-inflation-weighs-on-economy?traffic_source=rss",
@@ -1125,10 +1118,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "Trump says rates should be ‘1% or less’ after Fed hike",
+      "tieu_de": "Trump lashes out at Fed after Warsh backs rate hike, says rates should be ‘1% or less’",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/trump-says-rates-should-be-1-or-less-after-fed-hike",
+      "url": "https://www.straitstimes.com/world/united-states/trump-lashes-out-at-fed-after-warsh-backs-rate-hike-says-rates-should-be-1-or-less",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "U.S. House passes Russia sanctions bill seeking to impose up to 100% tariffs on India, others",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-house-passes-russia-sanctions-bill-india-tariffs/article71474350.ece",
+      "nhom": 1
     },
     {
       "lop": "RSS",
@@ -1206,6 +1208,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
+      "tieu_de": "Trump blames Fed board, not Warsh, for rate hikes",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6094303-trump-blames-fed-rate-hike/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
       "tieu_de": "House passes Russia sanctions bill, sending it to Trump’s desk",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/house/6093976-house-russia-sanctions-bill-passes-trump/",
@@ -1273,6 +1284,15 @@
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/house/6090848-graham-russia-sanctions-bill-house-advances/",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-16",
+      "tieu_de": "Behind the Byline — Trump and the Republican midterm convention",
+      "nguon": "Roll Call",
+      "url": "https://rollcall.com/2026/09/16/behind-the-byline-trump-and-the-republican-midterm-convention/",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1435,6 +1455,15 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/2026/sep/16/republicans-iran-war-midterm-elections",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Trump blasts interest rate uptick and claims ‘hostile’ Federal Reserve board made decision ‘only for political reasons’ – live",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
+      "nhom": 4
     },
     {
       "lop": "RSS",
