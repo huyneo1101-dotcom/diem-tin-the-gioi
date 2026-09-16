@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-09-17T03:47:04+07:00",
+  "tao_luc": "2026-09-17T06:13:16+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-16",
     "2026-09-17"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-17",
+      "tieu_de": "Handbags, jewels, watches: Inside Singapore's dirty money auction",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/videos/cmew984dq92lo?at_medium=RSS&at_campaign=rss"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -111,22 +119,6 @@
       "url": "https://allafrica.com/stories/202609160173.html"
     },
     {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-09-16",
-      "tieu_de": "“A Recurring Pattern”: Civilians Paying the Price in Mali’s Drone Campaign",
-      "nguon": "Bellingcat",
-      "url": "https://www.bellingcat.com/news/2026/09/16/drone-strike-civilians-killed-aes-sahel-mali-russia-africa-corps-guilt-by-location-jeune-afrique/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Mỹ – Mali",
-      "ngay": "2026-09-16",
-      "tieu_de": "Al-Qaida and IS-linked violence in Africa’s Sahel belt set to hit record levels this year",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/sep/16/al-qaida-and-is-linked-violence-in-africas-sahel-belt-set-to-hit-record-levels-this-year"
-    },
-    {
       "lop": "HTML",
       "chu_de": "Mỹ – Mali",
       "ngay": "?",
@@ -137,26 +129,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Israel’s SPICE 1000 bombs can soon drop from F-35 fighters",
-      "nguon": "Defense News",
-      "url": "https://www.defensenews.com/global/mideast-africa/2026/09/16/israels-spice-1000-bombs-can-soon-drop-from-f-35-fighters/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-16",
       "tieu_de": "Germany, US to expand shared production of Patriot interceptors, strike missiles",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/global/europe/2026/09/16/germany-us-to-expand-shared-production-of-patriot-interceptors-strike-missiles/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "First Virginia Payload Module (VPM) Spotted for U.S. Navy’s Block V Submarines",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/09/slug-first-virginia-payload-module-vpm-spotted-block-v-submarines/"
     },
     {
       "lop": "RSS",
@@ -173,14 +149,6 @@
       "tieu_de": "Hanwha Ocean to Conduct ROK Navy’s First Outsourced Destroyer Overhaul",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/09/hanwha-ocean-roks-sejong-the-great-overhaul/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Space Force’s GMTI program gets a name, with Northrop as prime: General",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/space-forces-gmti-program-gets-a-name-with-northrop-as-prime-general/"
     },
     {
       "lop": "RSS",
@@ -213,14 +181,6 @@
       "tieu_de": "The Pentagon must prepare for battles around the moon: Joint Chiefs chair",
       "nguon": "Defense One",
       "url": "https://www.defenseone.com/threats/2026/09/pentagon-battles-moon-joint-chiefs-chairman/416021/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "‘It was time’ to admit US has weapons in orbit, Space Force’s new leader says",
-      "nguon": "Defense One",
-      "url": "https://www.defenseone.com/threats/2026/09/orbit-weapons-space-force-leader/415999/"
     },
     {
       "lop": "RSS",
@@ -497,6 +457,22 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-16",
+      "tieu_de": "Contracts for Sept. 15, 2026",
+      "nguon": "DoD Contracts",
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4602178/contracts-for-sept-15-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-16",
+      "tieu_de": "Readout of Secretary of War Pete Hegseth's Meeting With the Federal Minister of Defense of Germany, Boris Pistorius",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4602863/readout-of-secretary-of-war-pete-hegseths-meeting-with-the-federal-minister-of/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-15",
       "tieu_de": "Deputy Secretary of War Directs Actions to Foster One Strong Industrial Base",
       "nguon": "DoD News Releases",
@@ -545,10 +521,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Budget Impasse Will Stall 10 Percent of Space Force Programs, Officials Warn",
+      "ngay": "2026-09-17",
+      "tieu_de": "How the Space Force Is Preparing for Its New Moving Target Missions",
       "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/budget-impasse-cr-space-force-programs/"
+      "url": "https://www.airandspaceforces.com/how-space-force-is-preparing-new-moving-target-missions/"
     },
     {
       "lop": "RSS",
@@ -577,14 +553,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
-      "tieu_de": "US Air Force secretary reveals deployment of on-orbit space control weapons",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/09/14/us-air-force-secretary-reveals-deployment-of-on-orbit-space-control-weapons/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-17",
       "tieu_de": "U.S. Air Force Expanding C-40 VIP Fleet with Boeing 737 MAX",
       "nguon": "The Aviationist",
@@ -609,14 +577,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "HII to Advance Airdrop Technologies for US Army Soldier Sustainment",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/09/16/hii-to-advance-airdrop-technologies-for-us-army-soldier-sustainment/?utm_source=rss&utm_medium=rss&utm_campaign=hii-to-advance-airdrop-technologies-for-us-army-soldier-sustainment"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-17",
       "tieu_de": "Faces of the Blue Diamond: U.S. Navy Petty Officer 2nd Class Josue Romero",
       "nguon": "DVIDS (toàn bộ)",
@@ -634,14 +594,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-16",
-      "tieu_de": "934th Civil Engineer Squadron hosts training with U.S. Navy Reservist",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/574746/934th-civil-engineer-squadron-hosts-training-with-us-navy-reservist"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
       "tieu_de": "Interview: US Army Capt. Justina Sharp discusses service, medical readiness",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1023118/interview-us-army-capt-justina-sharp-discusses-service-medical-readiness"
@@ -653,14 +605,6 @@
       "tieu_de": "2026 U.S. Army Best Squad Competition: Map Resection and Weapons Assembly",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1023140/2026-us-army-best-squad-competition-map-resection-and-weapons-assembly"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "U.S. Navy HM3 Wyatt Foreman supports 2nd Bn., 1st Marines during AFX 4-26",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/video/1023108/us-navy-hm3-wyatt-foreman-supports-2nd-bn-1st-marines-during-afx-4-26"
     },
     {
       "lop": "RSS",
@@ -793,6 +737,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Canada applies to join British-led military coalition",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/canada-applies-to-join-uk-led-military-coalition"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-16",
       "tieu_de": "US court dismisses 4chan’s case against Britain’s media regulator",
       "nguon": "The Straits Times",
@@ -857,14 +809,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Historic vote in southern Philippines set to deliver hung parliament",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/historic-vote-in-southern-philippines-set-to-deliver-hung-parliament"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-16",
       "tieu_de": "Australia chia sẻ kinh nghiệm vận hành chính quyền địa phương hai cấp",
       "nguon": "VnEconomy",
@@ -906,9 +850,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-17",
-      "tieu_de": "Australian wheelchairs donated to Gaza stuck in Jordan warehouse",
+      "tieu_de": "Family members pay tribute to Qld woman who died in Indonesia fall",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-17/australian-wheelchairs-for-gaza-stuck-in-jordan-warehouse/107054534"
+      "url": "https://www.abc.net.au/news/2026-09-17/brianna-cronin-indonesia-bali-fall-tribute-fundraiser/107162210"
     },
     {
       "lop": "RSS",
@@ -1002,14 +946,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-16",
-      "tieu_de": "UK National Armaments Director warns of ‘grave risk’ of war by 2030",
-      "nguon": "**Navy Lookout (Hải quân Anh)**",
-      "url": "https://www.navylookout.com/uk-national-armaments-director-warns-of-grave-risk-of-war-by-2030/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-16",
       "tieu_de": "Ministry of Defence confirms the death of Major Paul Wilks",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
       "url": "https://www.gov.uk/government/fatalities/ministry-of-defence-confirms-the-death-of-major-paul-wilks"
@@ -1021,22 +957,6 @@
       "tieu_de": "Statements following the conclusion of Colonel Shepherd and Major Hook's Court Martial",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
       "url": "https://www.gov.uk/government/news/statements-following-the-conclusion-of-colonel-shepherd-and-major-hooks-court-martial"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-16",
-      "tieu_de": "Minister for Defence Readiness and Industry Luke Pollard MP's speech at DVD 2026",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/speeches/minister-for-defence-readiness-and-industry-luke-pollard-mps-speech-at-dvd-2026"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-16",
-      "tieu_de": "New 'spy' drones to give Army greater powers on the battlefield",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/new-spy-drones-to-give-army-greater-powers-on-the-battlefield"
     },
     {
       "lop": "RSS",
@@ -1106,9 +1026,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-17",
-      "tieu_de": "Australia politics live: Labor to reveal new immigration rules; PM hails narrowing of gender gap",
+      "tieu_de": "Australian politics live: Joyce dubs Burke ‘greatest no-show since Amelia Earhart’; Canavan defends Brethren church election involvement",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/live/2026/sep/17/labor-immigration-policy-tony-burke-anthony-albanese-one-nation-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "IMF downgrades Australian economic forecast amid fears of interest rate hike",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/17/imf-downgrades-australian-economic-forecast-amid-fears-of-interest-rate-hike"
     },
     {
       "lop": "RSS",
@@ -1117,6 +1045,14 @@
       "tieu_de": "Is EU’s offer to Canada a blueprint for Britain – or a reminder it is out in the cold?",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/sep/16/eu-offer-canada-blueprint-britain-brexit"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Việt Nam và Indonesia mở rộng dư địa hợp tác Đối tác Chiến lược Toàn diện",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/viet-nam-va-indonesia-mo-rong-du-dia-hop-tac-doi-tac-chien-luoc-toan-dien-post1136617.vnp"
     },
     {
       "lop": "RSS",
@@ -1179,26 +1115,26 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "US House expected to pass Russia sanctions bill backed by late Senator Graham",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/us-house-takes-up-russia-sanctions-bill-backed-by-late-senator-graham",
+      "ngay": "2026-09-17",
+      "tieu_de": "US Federal Reserve defies Trump with interest rate hike",
+      "nguon": "France 24",
+      "url": "http://www.france24.com/en/us-federal-reserve-defies-trump-with-interest-rate-hike",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Trump seeks to rebuild support among 2024 voters in North Carolina",
+      "ngay": "2026-09-17",
+      "tieu_de": "Trump says rates should be ‘1% or less’ after Fed hike",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/trump-seeks-to-rebuild-support-among-2024-voters-in-north-carolina",
-      "nhom": 5
+      "url": "https://www.straitstimes.com/world/united-states/trump-says-rates-should-be-1-or-less-after-fed-hike",
+      "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "Federal Reserve hikes key rate for first time in three years, defying Trump demands for cut",
+      "tieu_de": "Federal Reserve hikes key rate to tackle ‘too high’ inflation, defying Trump demands for cut",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/federal-reserve-hikes-key-rate-for-first-time-in-three-years-defying-trump-demands-for-cut/article71474094.ece",
       "nhom": 4
@@ -1211,6 +1147,24 @@
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/russia-sanctions-bill-advances-in-us-house-india-tariffs-final-vote/article71470872.ece",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Trump says he still has confidence in Fed Chair Warsh, demands 1% or lower interest rates",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/16/trump-fed-interest-rate-warsh.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "House passes sweeping Russia sanctions bill honoring Lindsey Graham, sends to Trump",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/16/russia-sanctions-bill-lindsey-graham-congress.html",
+      "nhom": 1
     },
     {
       "lop": "RSS",
@@ -1233,11 +1187,65 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Hạ viện Mỹ th&uacute;c đẩy dự luật cấm vận năng lượng Nga",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/ha-vien-my-thuc-day-du-luat-cam-van-nang-luong-nga-185260916195550621.htm",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
       "tieu_de": "Hãm phanh AI: Mặt trận mới trong bầu cử giữa kỳ Mỹ",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/ham-phanh-ai-mat-tran-moi-trong-bau-cu-giua-ky-my-100260915151059728.htm",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "House passes Russia sanctions bill, sending it to Trump’s desk",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/house/6093976-house-russia-sanctions-bill-passes-trump/",
+      "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Federal Reserve delivers unwelcome news to Trump",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6094047-warsh-defies-trump-rate-cut/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Kiley says he won’t caucus with GOP next year if reelected",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/house/6094063-kiley-to-leave-gop-caucus/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Watch live: Trump rallies support for Whatley in North Carolina",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/video-clips/6093648-watch-live-donald-trump-michael-whatley-north-carolina-senate-race-rally/",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Trump offers fiery response to Federal Reserve rate hike",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6093973-trump-demands-lower-rates-federal-reserve/",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1269,19 +1277,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Senate Democrats press Patel on elections, journalist subpoenas: 5 takeaways",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6091335-fbi-kash-patel-senate-judiciary-takeaways/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "US Fed hikes interest rates to curb inflation in move likely to rile Trump",
+      "tieu_de": "Live: US policymakers expect Fed to raise rates again this year",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-17/us-fed-raises-interest-rates-to-curb-inflation-trump/107162150",
+      "url": "https://www.abc.net.au/news/2026-09-17/asx-markets-business-live-news-september-19-2026/107162296",
       "nhom": 4
     },
     {
@@ -1404,6 +1403,24 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "The Graham sanctions act is a chance to punish Putin. Here’s what the White House should do next.",
+      "nguon": "Atlantic Council",
+      "url": "https://www.atlanticcouncil.org/dispatches/the-graham-sanctions-act-is-a-chance-to-punish-putin-heres-what-the-white-house-should-do-next/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "The Fed Bucks Trump and Raises Interest Rates",
+      "nguon": "Foreign Policy",
+      "url": "https://foreignpolicy.com/2026/09/16/fed-interest-rate-hike-increase-trump-inflation/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-16",
       "tieu_de": "Trump Picks the Wrong Beef Before Midterms",
       "nguon": "Foreign Policy",
@@ -1423,15 +1440,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-16",
-      "tieu_de": "Kiley says he won’t caucus with Republicans if reelected",
-      "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/09/16/2026/kiley-says-he-wont-caucus-with-republicans-if-reelected",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
       "tieu_de": "The US Federal Reserve is expected to raise rates today",
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/09/16/2026/the-us-federal-reserve-is-expected-to-raise-rates-today",
@@ -1445,6 +1453,15 @@
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/09/16/2026/congress-eyes-final-legislative-push-before-midterms",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Hạ viện Mỹ giới hạn quyền của Tổng thống trong hoạt động quân sự với Iran",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/ha-vien-my-gioi-han-quyen-cua-tong-thong-trong-hoat-dong-quan-su-voi-iran-post1136614.vnp",
+      "nhom": 9
     },
     {
       "lop": "RSS",
