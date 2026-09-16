@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-17T01:23:30+07:00",
+  "tao_luc": "2026-09-17T03:47:04+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-16",
@@ -61,14 +61,6 @@
       "tieu_de": "Amazon increases minimum starting pay, adds new discount for employees",
       "nguon": "The Hill",
       "url": "https://thehill.com/business/6092725-amazon-increases-minimum-starting-pay-adds-new-discount-for-employees/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-09-17",
-      "tieu_de": "Amazon raises starting pay to $20 an hour and adds Whole Foods discount",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/technology/2026/sep/16/amazon-minimum-wage-whole-foods-benefit"
     },
     {
       "lop": "RSS",
@@ -181,6 +173,14 @@
       "tieu_de": "Hanwha Ocean to Conduct ROK Navy’s First Outsourced Destroyer Overhaul",
       "nguon": "Naval News",
       "url": "https://www.navalnews.com/naval-news/2026/09/hanwha-ocean-roks-sejong-the-great-overhaul/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Space Force’s GMTI program gets a name, with Northrop as prime: General",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/09/space-forces-gmti-program-gets-a-name-with-northrop-as-prime-general/"
     },
     {
       "lop": "RSS",
@@ -305,14 +305,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "At least five Reform councillors joined Facebook group linked to far-right Patriot Platform",
-      "nguon": "**The Guardian — Politics (Anh)**",
-      "url": "https://www.theguardian.com/politics/2026/sep/16/reform-councillors-patriot-platform-facebook-group"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-15",
       "tieu_de": "Castelion bags US Navy order for Blackbeard hypersonic missiles",
       "nguon": "Naval Technology",
@@ -325,6 +317,14 @@
       "tieu_de": "Boeing wins $562m US Navy production contract for MQ-25A Stingray",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/boeing-mq-25a-us-navy/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "How The USAF Is Preparing For European Allies To Join The Collaborative Combat Aircraft Club",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/air/how-the-air-force-is-preparing-for-allied-ccas-to-join-the-fight"
     },
     {
       "lop": "RSS",
@@ -393,16 +393,16 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-14",
-      "tieu_de": "Meink: Space Force has deployed space control weapons to orbit",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/09/14/meink-space-force-has-deployed-space-control-weapons-to-orbit/"
+      "ngay": "2026-09-17",
+      "tieu_de": "Marine Forces Reserve Hosts the 2026 Senior Personnel Administration Training Symposium at Marine Corps Support Facility New Orleans",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/574923/marine-forces-reserve-hosts-2026-senior-personnel-administration-training-symposium-marine-corps-support-facility-new-orleans"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "Space Force announces commercial solutions opening strategy for Satellite Communications Augmentation Resource program",
+      "tieu_de": "Space Force announces Commercial Solutions Opening strategy for Satellite Communications Augmentation Resource program",
       "nguon": "Lực lượng Không gian Mỹ",
       "url": "https://www.spaceforce.mil/News/Article-Display/Article/4602934/space-force-announces-commercial-solutions-opening-strategy-for-satellite-commu/"
     },
@@ -489,26 +489,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
+      "ngay": "2026-09-17",
       "tieu_de": "Marine Corps Tests New Robot Boat To Hunt Underwater Mines",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/16/marine_corps_tests_new_robot_boat_to_hunt_underwater_mines_1206409.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
-      "tieu_de": "In Hegseth's Pentagon, Top Leaders Battle Turmoil",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/09/14/in_hegseths_pentagon_top_leaders_battle_turmoil_1205962.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Contracts for Sept. 15, 2026",
-      "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4602178/contracts-for-sept-15-2026/"
     },
     {
       "lop": "RSS",
@@ -601,10 +585,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
-      "tieu_de": "‘It’s not science fiction’: US Air Force must build trust in AI, says expert",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/air/2026/09/14/its-not-science-fiction-us-air-force-must-build-trust-in-ai-says-expert/"
+      "ngay": "2026-09-17",
+      "tieu_de": "U.S. Air Force Expanding C-40 VIP Fleet with Boeing 737 MAX",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/09/16/usaf-expanding-vip-fleet-737-max/"
     },
     {
       "lop": "RSS",
@@ -629,6 +613,14 @@
       "tieu_de": "HII to Advance Airdrop Technologies for US Army Soldier Sustainment",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/09/16/hii-to-advance-airdrop-technologies-for-us-army-soldier-sustainment/?utm_source=rss&utm_medium=rss&utm_campaign=hii-to-advance-airdrop-technologies-for-us-army-soldier-sustainment"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Faces of the Blue Diamond: U.S. Navy Petty Officer 2nd Class Josue Romero",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/image/9941649/faces-blue-diamond-us-navy-petty-officer-2nd-class-josue-romero"
     },
     {
       "lop": "RSS",
@@ -873,10 +865,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Australian tungsten miner joins US efforts to rebuild supply chain",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/spotlight/supply-chain/australian-tungsten-miner-joins-us-efforts-to-rebuild-supply-chain"
+      "ngay": "2026-09-16",
+      "tieu_de": "Australia chia sẻ kinh nghiệm vận hành chính quyền địa phương hai cấp",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/australia-chia-se-kinh-nghiem-van-hanh-chinh-quyen-dia-phuong-hai-cap.htm"
     },
     {
       "lop": "RSS",
@@ -913,18 +905,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-16",
-      "tieu_de": "Australia's 43-year MotoGP streak continues with Senna Agius signing",
+      "ngay": "2026-09-17",
+      "tieu_de": "Australian wheelchairs donated to Gaza stuck in Jordan warehouse",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-16/senna-agius-to-race-in-motogp-next-year-with-ktm-tech3/107161508"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-16",
-      "tieu_de": "Alex de Minaur readies for Davis Cup tie between Australia and Poland",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-16/alex-de-minaur-davis-cup-australia-poland/107161398"
+      "url": "https://www.abc.net.au/news/2026-09-17/australian-wheelchairs-for-gaza-stuck-in-jordan-warehouse/107054534"
     },
     {
       "lop": "RSS",
@@ -1057,6 +1041,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "British soldier who died in Ukraine road accident named by MoD",
+      "nguon": "**BBC News UK**",
+      "url": "https://www.bbc.co.uk/news/articles/c5n4k0npdyj4o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-16",
       "tieu_de": "Big-money donations poison British politics. We can stop the mega-rich buying access and influence | Gordon Brown",
       "nguon": "**The Guardian — Politics (Anh)**",
@@ -1077,14 +1069,6 @@
       "tieu_de": "UK confirms SSN-AUKUS will start production in 2027",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/uk-confirms-ssn-aukus-will-start-production-in-2027/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-17",
-      "tieu_de": "33rd Multinational Military Medical Engagement in United Kingdom challenges NATO and partner nations to implement solutions",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574879/33rd-multinational-military-medical-engagement-united-kingdom-challenges-nato-and-partner-nations-implement-solutions"
     },
     {
       "lop": "RSS",
@@ -1117,6 +1101,22 @@
       "tieu_de": "Slave-trade wealth was embedded in Britain’s financial system, research finds",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/uk-news/ng-interactive/2026/sep/16/slave-trade-wealth-britain-financial-system-bank-of-england-enslaved-africans"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Australia politics live: Labor to reveal new immigration rules; PM hails narrowing of gender gap",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/17/labor-immigration-policy-tony-burke-anthony-albanese-one-nation-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-17",
+      "tieu_de": "Is EU’s offer to Canada a blueprint for Britain – or a reminder it is out in the cold?",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/world/2026/sep/16/eu-offer-canada-blueprint-britain-brexit"
     },
     {
       "lop": "RSS",
@@ -1162,6 +1162,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
+      "tieu_de": "US Fed raises interest rates for first time in three years",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/9/16/us-fed-raises-interest-rates-as-inflation-weighs-on-economy?traffic_source=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
       "tieu_de": "Belarus frees 25 political prisoners in return for US sanctions relief",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/9/16/belarus-frees-25-political-prisoners-in-return-for-us-sanctions-relief?traffic_source=rss",
@@ -1170,26 +1179,8 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "South Africa slams planned US sanctions over alleged racial discrimination",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/9/16/south-africa-slam-planned-us-sanctions-over-alleged-racial-discrimination?traffic_source=rss",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-16",
-      "tieu_de": "Why are election officials in the US preparing for chaos before midterms?",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/9/16/why-are-election-officials-in-the-us-preparing-for-chaos-before-midterms?traffic_source=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "US House takes up Russia sanctions bill backed by late senator Graham",
+      "tieu_de": "US House expected to pass Russia sanctions bill backed by late Senator Graham",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/us-house-takes-up-russia-sanctions-bill-backed-by-late-senator-graham",
       "nhom": 4
@@ -1207,9 +1198,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "US Federal Reserve raises interest rates for first time in 3 years, risking Trump’s ire",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3367774/us-federal-reserve-raises-interest-rates-first-time-3-years-risking-trumps-ire?utm_source=rss_feed",
+      "tieu_de": "Federal Reserve hikes key rate for first time in three years, defying Trump demands for cut",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/federal-reserve-hikes-key-rate-for-first-time-in-three-years-defying-trump-demands-for-cut/article71474094.ece",
       "nhom": 4
     },
     {
@@ -1252,15 +1243,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-16",
-      "tieu_de": "Bloomberg: Mỹ và Trung Quốc thảo luận về giảm thuế quan nông sản và năng lượng",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/bloomberg-my-va-trung-quoc-thao-luan-ve-giam-thue-quan-nong-san-va-nang-luong.htm",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
       "tieu_de": "Watch: Trump’s pick for surgeon general faces Senate confirmation hearing",
       "nguon": "The Hill",
       "url": "https://thehill.com/video-clips/6092356-watch-live-nicole-saphier-donald-trump-surgeon-general-senate-confirmation-hearing/",
@@ -1296,11 +1278,47 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "Republicans may gain nothing from redistricting: DDHQ",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/state-watch/6090677-ddhq-forecast-democrats-house-majority/",
-      "nhom": 5
+      "ngay": "2026-09-17",
+      "tieu_de": "US Fed hikes interest rates to curb inflation in move likely to rile Trump",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-17/us-fed-raises-interest-rates-to-curb-inflation-trump/107162150",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Restoring Reciprocity in Government Procurement",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/restoring-reciprocity-in-government-procurement/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Providing Meaningful Water Quality Improvements Through Collaboration and Oversight of Federal Support",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/providing-meaningful-water-quality-improvements-through-collaboration-and-oversight-of-federal-support/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "Constitution Day, Citizenship Day, and Constitution Week, 2026",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/constitution-day-citizenship-day-and-constitution-week-2026/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "National POW/MIA Recognition Day, 2026",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/09/national-pow-mia-recognition-day-2026/",
+      "nhom": 9
     },
     {
       "lop": "RSS",
@@ -1378,15 +1396,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-16",
-      "tieu_de": "U.S. and China discuss cutting some tariffs as leaders prepare to meet",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/business/2026/09/16/economy/us-china-tariffs-leaders-meet/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-16",
       "tieu_de": "Parliamentary committee adopts confirmation hearing report for Supreme Court justice nominee",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260916003600315",
@@ -1408,24 +1417,6 @@
       "tieu_de": "More Republicans are turning on Iran war as midterms come into view",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/2026/sep/16/republicans-iran-war-midterm-elections",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Federal Reserve raises interest rates for first time since July 2023 – live",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/live/2026/sep/16/federal-reserve-interest-rate-increase-live-updates",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "‘An antidote to Trumpism’: Our politics team answered your questions on Democrats’ midterms hopes",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/community/live/2026/sep/15/reader-qa-how-united-are-the-democrats-ahead-of-the-midterms-post-your-questions-now",
       "nhom": 5
     },
     {
@@ -1454,6 +1445,15 @@
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/09/16/2026/congress-eyes-final-legislative-push-before-midterms",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-16",
+      "tieu_de": "Mỹ và Trung Quốc đàm phán giảm thuế quan đối với nông sản và năng lượng",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/my-va-trung-quoc-dam-phan-giam-thue-quan-doi-voi-nong-san-va-nang-luong-post988796.html",
+      "nhom": 4
     },
     {
       "lop": "RSS",
