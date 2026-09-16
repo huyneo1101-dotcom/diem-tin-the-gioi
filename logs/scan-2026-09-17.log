@@ -7,3 +7,4 @@
 [21:26Z] 5 agent xong. add_news.py nap: +6 worldNews, +10 usNews, +1 tap tran (sau khi sua loi neo Anh, bo 5 tin bi cong ngay that chan, bo 1 tin trung URL). soi_muc_cam --san: KHONG muc cam, ca 6 don vi dat san. Da ghi loai-tin.md + scan-gaps.json.
 [21:34Z] gh workflow run telegram-bot.yml bi chan "requires approval" trong sandbox CI. tin_jaylam.py --liet-ke: khong co file Jay Lam nao trong hang cho. Fail-open co tieng, di tiep buoc 4c.
 [21:28Z] DONE web-scan (phien sang som). Chuan bi commit "Cap nhat ban tin 17/09: +16 tin (5 chu de)".
+[21:28Z] START event-scan (CI, gop vao sang som) - claim OK.
