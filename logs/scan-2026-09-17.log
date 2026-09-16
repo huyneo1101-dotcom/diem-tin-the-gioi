@@ -2,3 +2,4 @@
 [18:26Z] SKIP (CI) - state.py claim web-scan exit 12: SKIP — 01:26 nam NGOAI khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. Chay bu tay: them --bo-cong-gio "<ly do>".
 [21:00Z] START (CI) phien sang som - claim web-scan OK (04:00 VN, dung khung)
 [21:04Z] harvest.py OK (472 ung vien, cai them curl_cffi) + telegram_harvest.py OK (11 bai TG). Chuan bi giao agent 5 chu de.
+[21:05Z] Doc xong SKILL.md, chuan bi giao 5 luong agent (A Noi bo My, B Uc&BD, C CNQS, D Mali+Tap tran, BM Bao Moi).
