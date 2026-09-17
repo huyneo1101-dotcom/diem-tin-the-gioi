@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-18T06:00:59+07:00",
+  "tao_luc": "2026-09-18T06:38:54+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-17",
@@ -141,6 +141,14 @@
       "tieu_de": "F-35 engine upgrade clears key design review, Pratt says",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/09/f-35-engine-upgrade-clears-key-design-review-pratt-says/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Space Force braces for stalled progress amid lack of full funding",
+      "nguon": "Defense One",
+      "url": "https://www.defenseone.com/threats/2026/09/space-force-braces-stalled-progress-amid-lack-full-funding/416070/"
     },
     {
       "lop": "RSS",
@@ -453,6 +461,14 @@
       "tieu_de": "Contracts for Sept. 17, 2026",
       "nguon": "DoD Contracts",
       "url": "https://www.war.gov/News/Contracts/Contract/Article/4604536/contracts-for-sept-17-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Statement by Chief Pentagon Spokesman, Sean Parnell, on the Clinical Guidance for Testosterone Deficiency in the Male Service Member",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4604584/statement-by-chief-pentagon-spokesman-sean-parnell-on-the-clinical-guidance-for/"
     },
     {
       "lop": "RSS",
@@ -914,6 +930,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-18",
+      "tieu_de": "UK seeks allies for space-based missile warning network",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/uk-seeks-allies-for-space-based-missile-warning-network/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-18",
       "tieu_de": "Royal Navy gives no dates for key Hybrid Navy design stages",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/royal-navy-gives-no-dates-for-key-hybrid-navy-design-stages/"
@@ -978,17 +1002,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-17",
-      "tieu_de": "UK again rules out compulsory military service",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/uk-again-rules-out-compulsory-military-service/"
+      "tieu_de": "Battle for the Atlantic",
+      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
+      "url": "https://www.gov.uk/government/speeches/battle-for-the-atlantic"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-17",
-      "tieu_de": "Battle for the Atlantic",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/speeches/battle-for-the-atlantic"
+      "ngay": "2026-09-18",
+      "tieu_de": "Find a credible plan for British Steel, ministers told as ‘startling’ costs soar",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/business/2026/sep/18/british-steel-mps-labour-spending-watchdog-pac"
     },
     {
       "lop": "RSS",
@@ -1281,6 +1305,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
+      "tieu_de": "Trump gains a tariff weapon against China and India. Will he use it?",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/09/17/trump-russia-sanctions-india-china-oil-tariffs.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
       "tieu_de": "Trump says he told Warsh to vote for hike with the rest of Fed board: 'It's not going to matter'",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/09/16/trump-fed-interest-rate-warsh.html",
@@ -1442,24 +1475,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Trump blames Fed board, not Warsh, for rate hikes",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6094303-trump-blames-fed-rate-hike/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "After Senate passes bill, will 2026 barangay, SK polls be postponed?",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/newsbreak/explainers/senate-passes-bill-2026-barangay-sk-election-postponement/",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-18",
       "tieu_de": "RESTORING AMERICAN SALTWATER ANGLING AND RECREATION",
       "nguon": "Nhà Trắng — Presidential Actions",
@@ -1551,15 +1566,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "FTC Takes Historic Action Against Multilevel Marketing Operator Amway  for Unfair and Deceptive Business Practices",
-      "nguon": "FTC",
-      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/ftc-takes-historic-action-against-multilevel-marketing-operator-amway-unfair-deceptive-business",
-      "nhom": 9
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
       "tieu_de": "FleetCor Agrees to Pay $100 Million to Resolve Administrative Action After Federal Court Finds that It Violated the FTC Act by Charging Unauthorized Fees",
       "nguon": "FTC",
       "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/fleetcor-agrees-pay-100-million-resolve-administrative-action-after-federal-court-finds-it-violated",
@@ -1572,6 +1578,15 @@
       "tieu_de": "FTC Announces Additional Payments to Consumers Stemming from FTC’s Amazon Prime Settlement",
       "nguon": "FTC",
       "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/ftc-announces-additional-payments-consumers-stemming-ftcs-amazon-prime-settlement",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "FTC Takes Historic Action Against Multilevel Marketing Operator Amway  for Unfair and Deceptive Business Practices",
+      "nguon": "FTC",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/ftc-takes-historic-action-against-multilevel-marketing-operator-amway-unfair-deceptive-business",
       "nhom": 9
     },
     {
@@ -1672,6 +1687,15 @@
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/ha-vien-my-gioi-han-quyen-cua-tong-thong-trong-hoat-dong-quan-su-voi-iran-post1136614.vnp",
       "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Nga cảnh báo trừng phạt mới của Mỹ sẽ cản trở đàm phán Ukraine",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/nga-canh-bao-trung-phat-moi-cua-my-se-can-tro-dam-phan-ukraine-2556350.html",
+      "nhom": 4
     },
     {
       "lop": "RSS",
