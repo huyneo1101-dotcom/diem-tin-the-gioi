@@ -104,7 +104,7 @@ def _():
     return tt.get("toi") == "SAI_GIO", f"{tt}"
 
 
-@ca('05. PHẢI KÊU: ca sáng vắng hẳn và đã quá hạn 04:30 -> VANG, không chờ nữa')
+@ca('05. PHẢI KÊU: ca sáng vắng hẳn và đã quá hạn 04:45 -> VANG, không chờ nữa')
 def _():
     with so_gia([gui("2026-08-30T21:22:00+07:00", "toi")]) as s:
         r = chay(s, "2026-08-31T12:00:00+07:00", ["--json"])
@@ -149,7 +149,7 @@ def _():
     return r.returncode == DAT, f"exit={r.returncode} · {r.stdout.strip()[:250]}"
 
 
-@ca('09. Chống kêu oan: 04:10, ca sáng chưa gửi nhưng CHƯA tới hạn 04:30 -> CHUA_TOI_GIO')
+@ca('09. Chống kêu oan: 04:10, ca sáng chưa gửi nhưng CHƯA tới hạn 04:45 -> CHUA_TOI_GIO')
 def _():
     with so_gia([gui("2026-08-30T21:22:00+07:00", "toi")]) as s:
         r = chay(s, "2026-08-31T04:10:00+07:00", ["--json"])
@@ -165,13 +165,13 @@ def _():
     return (ngay.get("toi") == "2026-08-30" and ngay.get("sang") == "2026-08-31"), f"{ngay}"
 
 
-@ca('11. Biên: sáng 03:00 và 04:30 đạt · 02:59 và 04:31 kêu (hạn chót Huy chốt)')
+@ca('11. Biên: sáng 03:00 và 04:45 đạt · 02:59 và 04:46 kêu (hạn chót Huy chốt)')
 def _():
     xau = []
     for luc, mong in (("2026-08-31T03:00:00+07:00", "DUNG_GIO"),
-                      ("2026-08-31T04:30:00+07:00", "DUNG_GIO"),
+                      ("2026-08-31T04:45:00+07:00", "DUNG_GIO"),
                       ("2026-08-31T02:59:00+07:00", "SAI_GIO"),
-                      ("2026-08-31T04:31:00+07:00", "SAI_GIO")):
+                      ("2026-08-31T04:46:00+07:00", "SAI_GIO")):
         with so_gia([gui("2026-08-30T21:22:00+07:00", "toi"), gui(luc, "sang")]) as s:
             r = chay(s, "2026-08-31T12:00:00+07:00", ["--json"])
         tt = {k["ca"]: k["trang_thai"] for k in json.loads(r.stdout)["ket"]}

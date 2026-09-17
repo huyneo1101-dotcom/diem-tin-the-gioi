@@ -113,11 +113,12 @@ KHUNG_GIO = {"sang": (3 * 60, 9 * 60), "toi": (19 * 60 + 30, 23 * 60 + 30)}
 # KHUNG_GIO trả lời *phiên này có được nhận ca không* (khung KHỞI ĐỘNG, cố ý rộng để lớp
 # chạy bù vẫn làm được việc). HẠN_CHOT trả lời *bản tin phải tới tay chậm nhất lúc mấy
 # giờ* — đó là cam kết với người đọc, không phải điều kiện kỹ thuật.
-# Ca sáng 04:30: Huy chốt 31/08/2026, nguyên văn *"tin buổi sáng bắt buộc phải có lúc 4h30
-# sáng"*. Quét mất 16-21 phút nên lớp cuối còn kịp hạn phải khởi động chậm nhất 04:05;
-# lịch mốc local đã dời theo (xem LICH trong scripts/kich_ci.py và docs/LICH.md).
+# Ca sáng 04:45: Huy chốt 31/08/2026 ở mốc 04:30 (nguyên văn *"tin buổi sáng bắt buộc phải có
+# lúc 4h30 sáng"*), Huy nới sang 04:45 ngày 17/09/2026. Lịch mốc kích (local/CI) không đổi
+# theo — đổi mốc kích thì sửa ở LICH trong scripts/kich_ci.py và docs/LICH.md, đừng suy diễn
+# từ số hạn chót này.
 # Ca tối 22:00: hạn cũ đã có từ 26/07/2026, chép về đây làm một bản gốc.
-HAN_CHOT = {"sang": 4 * 60 + 30, "toi": 22 * 60}
+HAN_CHOT = {"sang": 4 * 60 + 45, "toi": 22 * 60}
 CONG_GIO_TAT = "--bo-cong-gio"  # đường thoát KHAI BẰNG LỜI, bắt buộc kèm lý do
 
 

@@ -10,14 +10,14 @@ Không phép đo nào hỏi câu duy nhất đáng hỏi — **bản tin tới t
 
 Nguồn sự thật là `logs/da-gui-email.json` (sổ đã gửi), vì đó là chỗ ghi lại lần gửi THẬT tới
 mọi kênh, không phải cờ tiến trình. Phép đo hỏi đúng 03 câu:
-  (i)  ca `sang` hôm nay có gửi không, và có kịp HẠN CHÓT 04:30 giờ VN không;
+  (i)  ca `sang` hôm nay có gửi không, và có kịp HẠN CHÓT 04:45 giờ VN không;
   (ii) ca `toi` hôm qua có gửi không, và có kịp hạn 22:00 không;
   (iii) có ca nào vắng mặt hẳn không.
 Cạnh dưới lấy từ `state.py::KHUNG_GIO`, cạnh trên lấy từ `state.py::HAN_CHOT` — MỘT bản
 gốc cho mỗi số, không chép số sang đây. Hai cạnh hai nguồn là cố ý: khung khởi động rộng
 để lớp chạy bù còn làm được việc, còn hạn chót là cam kết với người đọc.
 
-⛔ HẠN CHÓT CA SÁNG 04:30 do Huy chốt 31/08/2026, đừng nới cho vừa lịch chạy.
+⛔ HẠN CHÓT CA SÁNG 04:45 (chốt 31/08/2026 ở 04:30, nới 17/09/2026), đừng nới cho vừa lịch chạy.
 
 Vì sao ca `toi` xét NGÀY HÔM QUA: chạy phép đo lúc 08:00 sáng thì ca tối của hôm nay còn
 chưa tới giờ, hỏi nó là kêu oan mỗi sáng.

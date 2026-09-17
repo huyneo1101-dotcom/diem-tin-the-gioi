@@ -19,13 +19,13 @@ nghĩa mà là **phiên sau tính biên thời gian theo mốc đã chết** —
 | Phiên | Lớp 1 (CI) | Lớp 2 (local) | Lớp 3 (CI) | Lớp 4 (local) | Hạn chót |
 |---|---|---|---|---|---|
 | **TỐI** | 20:47 | **21:15** ← lớp cuối còn kịp hạn | 21:47 = lớp VÉT (đã trễ hạn) | — | email **22:00** |
-| **SÁNG SỚM** | local 04:00 ← lớp CHÍNH | **local 04:05** ← lớp cuối còn kịp hạn | CI 03:47/04:47 (trễ 2-4h, lưới) | local 04:35/04:40 = lớp VÉT (đã trễ hạn) | tới tay **04:30** |
+| **SÁNG SỚM** | local 04:00 ← lớp CHÍNH | **local 04:05** ← lớp cuối còn kịp hạn | CI 03:47/04:47 (trễ 2-4h, lưới) | local 04:35/04:40 = lớp VÉT (đã trễ hạn) | tới tay **04:45** |
 
-⛔ **HẠN CHÓT CA SÁNG LÀ 04:30 — Huy chốt 31/08/2026**, nguyên văn *"tin buổi sáng bắt buộc
-phải có lúc 4h30 sáng"*. Hằng số ở `scripts/state.py::HAN_CHOT`, phép đo ở
-`scripts/do_gio_ban_tin.py`, canary soi cùng số đó. Quét đo được 16-21 phút nên mốc kích
-chính phải là **04:00** (trước là 04:30, tức bản tin sớm nhất cũng 04:50 — LUÔN vỡ hạn).
-Đừng nới hạn cho vừa lịch; muốn đổi lịch thì đổi mốc kích, không đổi hạn.
+⛔ **HẠN CHÓT CA SÁNG LÀ 04:45 — Huy chốt 31/08/2026 ở mốc 04:30**, nguyên văn *"tin buổi sáng
+bắt buộc phải có lúc 4h30 sáng"*; **nới sang 04:45 ngày 17/09/2026**. Hằng số ở
+`scripts/state.py::HAN_CHOT`, phép đo ở `scripts/do_gio_ban_tin.py`, canary soi cùng số đó.
+Mốc kích chính vẫn giữ **04:00** (không đổi theo hạn) — quét đo được 16-21 phút nên vẫn còn
+biên. Đừng nới hạn cho vừa lịch; muốn đổi lịch thì đổi mốc kích, không đổi hạn.
 
 `harvest-ci.yml` chạy **trước mỗi mốc CI ~15 phút** để lô ứng viên còn tươi (`harvest.py` bỏ lô
 quá 4 tiếng). Canary chạy **sau lớp cuối**, không phải sau hạn chót: ca `toi` 22:45 (lớp vét
