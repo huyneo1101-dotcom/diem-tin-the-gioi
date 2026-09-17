@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-18T00:43:07+07:00",
+  "tao_luc": "2026-09-18T01:29:46+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-17",
@@ -98,7 +98,7 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-18",
-      "tieu_de": "US Navy should target Chinese aircraft carriers, report says",
+      "tieu_de": "US Navy should target carriers in fight with China, report says",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/news/your-military/2026/09/17/us-navy-should-target-chinese-aircraft-carriers-report-says/"
     },
@@ -197,6 +197,14 @@
       "tieu_de": "Destroyer named for Navy Corpsman who earned Medal of Honor hits milestone",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/news/corpsman-john-kilmer-medal-of-honor/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Trump says progress made toward establishing US Army base in Poland",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/trump-says-progress-made-toward-establishing-us-army-base-in-poland"
     },
     {
       "lop": "RSS",
@@ -321,6 +329,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Space Force advancing on-orbit tracking for airborne and ground-based targets",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/09/17/space-force-advancing-on-orbit-tracking-for-airborne-and-ground-based-targets/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-16",
       "tieu_de": "Pentagon taps USNDA to head its ‘Top Drone’ competitions",
       "nguon": "DefenseScoop",
@@ -333,14 +349,6 @@
       "tieu_de": "Space Force creates office to accelerate innovative tech acquisition",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/09/15/space-force-creates-office-to-accelerate-innovative-tech-acquisition/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
-      "tieu_de": "Pentagon offers new ‘targeted legal relief’ for UAP whistleblowers supporting Trump’s PURSUE work",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/09/14/pentagon-legal-relief-uap-whistleblowers-trump-project/"
     },
     {
       "lop": "RSS",
@@ -389,14 +397,6 @@
       "tieu_de": "Space Force announces interservice transfer opportunities",
       "nguon": "Lực lượng Không gian Mỹ",
       "url": "https://www.spaceforce.mil/News/Article-Display/Article/4601150/space-force-announces-interservice-transfer-opportunities/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "U.S. Army and City of Ansbach sign mutual aid agreement",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295387/u_s_army_and_city_of_ansbach_sign_mutual_aid_agreement"
     },
     {
       "lop": "RSS",
@@ -621,6 +621,14 @@
       "tieu_de": "Three-time Marine Corps Marathon winner is named Marine Corps Male Athlete of the Year",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/image/9941046/three-time-marine-corps-marathon-winner-named-marine-corps-male-athlete-year"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-16",
+      "tieu_de": "Interview: US Army Capt. Justina Sharp discusses service, medical readiness",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1023118/interview-us-army-capt-justina-sharp-discusses-service-medical-readiness"
     },
     {
       "lop": "RSS",
@@ -1001,10 +1009,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-17",
-      "tieu_de": "JV Ejercito: No more delays in NSCR, Metro Manila subway",
+      "ngay": "2026-09-18",
+      "tieu_de": "Philippines vies to be Southeast Asia’s creative economy hub",
       "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2307200/no-more-delays-in-nscr-metro-manila-subway-ejercito"
+      "url": "https://business.inquirer.net/611572/philippines-vies-to-be-southeast-asias-creative-economy-hub"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-18",
+      "tieu_de": "Electrified vehicles take the fast lane in the Philippines",
+      "nguon": "Inquirer",
+      "url": "https://business.inquirer.net/611573/electrified-vehicles-take-the-fast-lane-in-the-philippines"
     },
     {
       "lop": "RSS",
@@ -1013,6 +1029,14 @@
       "tieu_de": "US, Japan, Australia Showcase Strong Partnership at Orient Shield 2026 Opening Ceremony",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/295427/us_japan_australia_showcase_strong_partnership_at_orient_shield_2026_opening_ceremony"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-18",
+      "tieu_de": "33rd Multinational Military Medical Engagement in United Kingdom challenges NATO and partner nations to implement solutions.",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/295458/33rd_multinational_military_medical_engagement_in_united_kingdom_challenges_nato_and_partner_nations_to_implement_solutions"
     },
     {
       "lop": "RSS",
@@ -1101,14 +1125,6 @@
       "tieu_de": "Tăng cường quan hệ giữa Quốc hội nhằm làm sâu sắc hơn quan hệ Đối tác Chiến lược Toàn diện Việt Nam-Australia",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/tang-cuong-quan-he-giua-quoc-hoi-nham-lam-sau-sac-hon-quan-he-doi-tac-chien-luoc-toan-dien-viet-nam-australia-post1136592.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-17",
-      "tieu_de": "Ministry of Foreign Affairs provides information on the rescue of 10 Vietnamese citizens in Malaysia",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://en.baoquocte.vn/ministry-of-foreign-affairs-provides-information-on-the-rescue-of-10-vietnamese-citizens-in-malaysia-445209.html"
     },
     {
       "lop": "RSS",
