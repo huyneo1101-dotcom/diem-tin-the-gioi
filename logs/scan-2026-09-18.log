@@ -1,3 +1,4 @@
 [17:44Z] SKIP web-scan (CI) - exit 12 SAI GIO: 00:45 VN nam ngoai khung o "sang" (03:00-09:00). Cron GitHub tre bat dinh, phien nay khong phai ca that. KHONG claim, KHONG quet. Khong dung --bo-cong-gio de lach. Moc dung gio se tu lam.
 [18:33Z] SKIP web-scan (CI) - exit 12 SAI GIO: 01:33 VN nam ngoai khung cua o "sang" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam.
 [21:00Z] START web-scan (CI) - phien sang som, 04:00 VN, claim OK
+[04:06 sang] FAIL: repo co viec do chua commit: data/analyses.json (bi sua/xoa 5 muc, uncommitted, mtime ~13h). rev-list HEAD..origin/main = 7 (co commit moi thuc). Khong stash/khong commit ho theo luat, KET THUC ngay.
