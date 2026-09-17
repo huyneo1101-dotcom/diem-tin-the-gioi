@@ -4,3 +4,4 @@
 [04:06 sang] FAIL: repo co viec do chua commit: data/analyses.json (bi sua/xoa 5 muc, uncommitted, mtime ~13h). rev-list HEAD..origin/main = 7 (co commit moi thuc). Khong stash/khong commit ho theo luat, KET THUC ngay.
 [04:08 sang] SUA LOI TREN: doc lai logs/state.json thay CI da claim web-scan luc 04:00:35, heartbeat con song (~7 phut). Theo luat "phien khac dang giu khoa" -> DUNG, KHONG goi state.py skip/fail (da checkout -- logs/state.json cuc bo, KHONG push de tranh de len RUNNING cua CI). Da checkout -- 3 file sinh tu dong (baomoi-saved.json, baomoi-topics.json, docs/ung-vien-ci.json). Con lai data/analyses.json van dirty (viec do CAN NGUOI, khong dong) nhung khong con chan pull vi HEAD da khop origin/main qua ghi_log_push. Phien local nhuong CI, KET THUC.
 [21:28Z] add_news OK: +7 the gioi, +14 My, +1 tap tran (UNITAS 2026). Mali 0 tin (nguon ngheo that su). Jay Lam: khong co file (exit 10). Sap commit ban tin.
+[21:29Z] START event-scan (CI, gop vao sang som)
