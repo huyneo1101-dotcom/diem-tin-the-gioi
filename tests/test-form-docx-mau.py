@@ -327,6 +327,27 @@ kiem("[22] đối chứng: tin nội bộ thuần (tướng Caine nói về bầ
      [k for k, p in zip(MD.NEO_DOI_NGOAI, MD._RE_DOI_NGOAI)
       if p.search(MD._khong_dau(MD._kho_chu(DATA_GIA["usNews"][1])))])
 
+# Bug thật sáng 17/09/2026: 3 tin mang region đúng chữ "Mỹ" (điều trần Tổng y sĩ, war powers
+# Iran, trừng phạt Nga-Iran) bị is_noibo_my() từ chối vì REGION_NOI_BO cũ chỉ nhận ""/"Bắc
+# Mỹ"/"Châu Mỹ" — cả ba rơi qua MỌI mục, lưới an toàn dồn vào "Nội bộ Mỹ" nhưng KHÔNG qua
+# la_doi_ngoai_my() trước đó, nên tin trừng phạt (đáng lẽ khớp neo "iran") mất cơ hội vào
+# "Đối ngoại Mỹ" dù nội dung đúng chuẩn. Đối chiếu lại dữ liệu thật (build_sections trên 17
+# tin đã gửi sáng đó): sau khi thêm "Mỹ" vào REGION_NOI_BO, mục "Đối ngoại Mỹ" từ 0 lên 2 tin.
+TIN_REGION_MY = {"category": "Chính trị", "region": "Mỹ",
+                 "title": "Hạ viện Mỹ bỏ phiếu dự luật trừng phạt Iran",
+                 "summary": "Hạ viện Mỹ thông qua dự luật trừng phạt mới nhắm vào Iran.",
+                 "sourceUrl": "https://x.example/region-my-iran"}
+kiem("[29] PHẢI CHẶN: is_noibo_my() phải nhận region đúng chữ 'Mỹ', không chỉ ''/'Bắc Mỹ'/"
+     "'Châu Mỹ' (bug thật 17/09/2026 — 3 tin rơi khỏi mọi mục vì giá trị region này)",
+     MD.is_noibo_my(TIN_REGION_MY), f"region={TIN_REGION_MY['region']!r}")
+
+_KQ_REGION_MY = MD.build_sections([TIN_REGION_MY], [], [])
+kiem("[30] PHẢI CHẶN — kiểm ĐẦU-CUỐI: tin trừng phạt Iran mang region 'Mỹ' phải vào đúng "
+     "mục 'Đối ngoại Mỹ' qua build_sections, không bị lưới an toàn nuốt mất neo đối ngoại",
+     TIN_REGION_MY["sourceUrl"] in {it.get("sourceUrl") for name, items in _KQ_REGION_MY
+                                    for it in items if name == MD.MUC_DOI_NGOAI},
+     [(name, [it.get("sourceUrl") for it in items]) for name, items in _KQ_REGION_MY])
+
 
 # ══════════════════════ (9) hạ chữ đầu ══════════════════════
 kiem("[23] PHẢI CHẶN: CHỨC DANH giữ hoa sau 'Ngày …,' — mẫu ghi 'Đại tướng Dan Caine'",
@@ -395,6 +416,9 @@ BAN_HONG = [
     ("đảo thứ tự tiểu mục: Anh giành trước Úc (tin AUKUS rơi khỏi 'Australia')",
      "    if neo_uc(kho):\n        return TM_UC\n    if neo_anh(kho):\n        return TM_ANH",
      "    if neo_anh(kho):\n        return TM_ANH\n    if neo_uc(kho):\n        return TM_UC"),
+    ("bỏ 'Mỹ' khỏi REGION_NOI_BO (tái sinh bug 17/09: tin region 'Mỹ' rơi khỏi mọi mục)",
+     'REGION_NOI_BO = ("", "Mỹ", "Bắc Mỹ", "Châu Mỹ")',
+     'REGION_NOI_BO = ("", "Bắc Mỹ", "Châu Mỹ")'),
 ]
 
 KHAI_DO = {
@@ -410,6 +434,7 @@ KHAI_DO = {
     "neo nước một âm tiết để trần trở lại ('duc' khớp 'tình dục')": [19, 20],
     "hạ chữ đầu cả CHỨC DANH ('Đại tướng' -> 'đại tướng')": [23],
     "đảo thứ tự tiểu mục: Anh giành trước Úc (tin AUKUS rơi khỏi 'Australia')": [28],
+    "bỏ 'Mỹ' khỏi REGION_NOI_BO (tái sinh bug 17/09: tin region 'Mỹ' rơi khỏi mọi mục)": [29, 30],
 }
 
 

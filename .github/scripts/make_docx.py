@@ -203,7 +203,14 @@ def pick_items(cur, prev, kind):
 MALI_KEYS = ("mali", "jnim", "bamako", "sahel", "azawad", "niger", "burkina",
              "africa corps", "chau phi", "sahen")
 # Region được coi là "trong nước Mỹ". Rỗng cũng tính — xem chú thích trong is_noibo_my.
-REGION_NOI_BO = ("", "Bắc Mỹ", "Châu Mỹ")
+# ⛔ "Mỹ" thêm 17/09/2026: 3 tin sáng 17/09 (điều trần Tổng y sĩ, war powers Iran, trừng
+# phạt Nga-Iran) đều mang region đúng chữ "Mỹ" — giá trị hợp lý agent hay gán cho tin về
+# nước Mỹ, mà REGION_NOI_BO cũ không nhận, nên is_noibo_my() trả False cho cả ba, chúng rơi
+# qua mọi mục (không phải khí tài, không phải Mali, không neo Úc/Biển Đông) và bị lưới an
+# toàn dồn vào "Nội bộ Mỹ" — NHƯNG trước khi bị dồn, chúng chưa từng được đưa qua
+# la_doi_ngoai_my(), nên tin trừng phạt Nga-Iran (đáng lẽ khớp neo "iran"/"trung phat") mất
+# luôn cơ hội vào mục "Đối ngoại Mỹ". Đây là một phần nguyên nhân mục đó rỗng sáng 17/09.
+REGION_NOI_BO = ("", "Mỹ", "Bắc Mỹ", "Châu Mỹ")
 
 
 def _khong_dau(s):
