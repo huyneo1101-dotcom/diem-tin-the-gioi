@@ -5,3 +5,4 @@
 [04:08 sang] SUA LOI TREN: doc lai logs/state.json thay CI da claim web-scan luc 04:00:35, heartbeat con song (~7 phut). Theo luat "phien khac dang giu khoa" -> DUNG, KHONG goi state.py skip/fail (da checkout -- logs/state.json cuc bo, KHONG push de tranh de len RUNNING cua CI). Da checkout -- 3 file sinh tu dong (baomoi-saved.json, baomoi-topics.json, docs/ung-vien-ci.json). Con lai data/analyses.json van dirty (viec do CAN NGUOI, khong dong) nhung khong con chan pull vi HEAD da khop origin/main qua ghi_log_push. Phien local nhuong CI, KET THUC.
 [21:28Z] add_news OK: +7 the gioi, +14 My, +1 tap tran (UNITAS 2026). Mali 0 tin (nguon ngheo that su). Jay Lam: khong co file (exit 10). Sap commit ban tin.
 [21:29Z] START event-scan (CI, gop vao sang som)
+[21:37Z] event-scan OK: +1 su kien ngoai giao (Jordan-Phap ky QP), +0 tap tran moi (UNITAS da nap o web-scan), +6 bai think-tank + 9 khai niem. Typhoon Crossbow: khong tach the moi (don phuong, quy mo nho). Sap commit.
