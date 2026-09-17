@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-17T04:28:15+07:00",
+    "lastRunAt": "2026-09-18T04:00:35+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+16 tin (5 chu de): +6 worldNews (Anh 3/Australia 2/BienDong 2) +10 usNews (NoiboMy 3, CNQS 4, Mali 3) +1 tap tran",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-09-17"
-    }
+    },
+    "heartbeat": "2026-09-18T04:00:35+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-17T04:36:48+07:00",
