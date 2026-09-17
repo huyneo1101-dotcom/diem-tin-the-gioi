@@ -44,6 +44,15 @@ Mỗi phiên **CHỈ quét 5 chủ đề**, **mỗi chủ đề 5–10 bài** (b
    2. **Sáng kiến & chiến lược chính quyền Trump** công bố trên **kênh chính thống của các bộ**: sắc
       lệnh hành pháp, presidential memorandum, chiến lược quốc gia, fact sheet Nhà Trắng, thông cáo
       của State/Treasury/Commerce/DHS…
+      ⛔ **RIÊNG "đối ngoại/ngoại giao" (thông cáo State Dept, phát ngôn viên Bộ Ngoại giao, đàm phán/
+      trừng phạt/cấm vận do Mỹ khởi xướng, chuyến thăm hoặc điện đàm cấp cao) LÀ MỘT NHÁNH BẮT BUỘC
+      PHẢI TỰ TÌM trong nhóm này, không phải chờ "trúng thì lấy"** — vá 17/09/2026 sau khi mục "Đối
+      ngoại Mỹ" của bản tin sáng 17/09 rỗng hoàn toàn (0 tin) mà log không có dòng nào cho thấy đã
+      từng thử tìm rồi loại, tức agent chưa bao giờ tìm. Nguyên nhân gốc: mục "Đối ngoại Mỹ" có sàn
+      riêng 2 tin (Bước 4a) NHƯNG nhóm 2 gộp chung đối ngoại với sắc lệnh/chiến lược nội địa nên agent
+      dừng lại ngay khi nhóm 1 đủ 5-10 bài, không riêng đủ 2 tin đối ngoại. Trước khi báo "đã cạn
+      nhóm 1" và dừng, agent PHẢI tự hỏi: đã có ≥2 tin neo được vào "Đối ngoại Mỹ" chưa — chưa đủ thì
+      chủ động tìm thêm dù nhóm 1 đã đủ chỉ tiêu tổng.
    3. **Biểu tình**: diễn biến biểu tình, tuần hành, đình công.
    4. **Kinh tế Mỹ + động thái bộ sậu**: Fed, thuế quan, trừng phạt, số liệu vĩ mô; và các hoạt động
       khác của Nhà Trắng + nội các (Trump và bộ sậu action).
@@ -263,7 +272,7 @@ Chỉ **5 luồng** cho 5 chủ đề (gộp Mali+Predator vào 1 agent; Báo M�
 
 | Agent | Chủ đề | Sản lượng (24h, nới 48h nếu thiếu) |
 |---|---|---|
-| A | **Nội bộ Mỹ (5 nhóm, 2 hạng)** → `usNews` cat `Chính trị`/`Kinh tế` | **5–10** — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới lấy sang (2) sáng kiến/chiến lược các bộ · (3) biểu tình · (4) kinh tế Mỹ + Nhà Trắng/nội các · (5) bầu cử — bốn nhóm này NGANG HÀNG. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ hai hạng này và bắt agent báo lại đã cạn nhóm 1 chưa + số bài mỗi nhóm. |
+| A | **Nội bộ Mỹ (5 nhóm, 2 hạng)** → `usNews` cat `Chính trị`/`Kinh tế` | **5–10** — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới lấy sang (2) sáng kiến/chiến lược các bộ · (3) biểu tình · (4) kinh tế Mỹ + Nhà Trắng/nội các · (5) bầu cử — bốn nhóm này NGANG HÀNG. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ hai hạng này và bắt agent báo lại đã cạn nhóm 1 chưa + số bài mỗi nhóm. ⛔ Nhóm 2 riêng phải nêu RÕ nhánh "đối ngoại/ngoại giao" là mục tiêu chủ động (không phải may rủi) — mục "Đối ngoại Mỹ" có sàn riêng 2 tin, xem PHẠM VI MỚI mục 1 nhóm 2. |
 | B | **Úc & Biển Đông** → `worldNews` | **5–10** — Úc (region IPAC) + Biển Đông (region Đông Á). |
 | C | **CNQS Mỹ** → `usNews` cat `Công nghệ quân sự` | **5–10** — khí tài/hệ thống cụ thể. |
 | D | **Mỹ–Mali + Predator's Run 2026** | Mali 2–5 (`usNews` dossier) · Predator 1–2 (`exerciseUpdates`). |
