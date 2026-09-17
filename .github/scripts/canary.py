@@ -398,27 +398,40 @@ def main() -> int:
         # thành ca sáng); canary chạy 06:15 thấy sổ CÓ dòng [sang] ngày 31/08 nên im lặng
         # tuyệt đối. Huy là người phát hiện, không phải máy. Khung giờ lấy từ
         # `scripts/state.py::KHUNG_GIO` — một bản gốc, không chép số sang đây.
+        # ⛔ SAI GIỜ và MỤC CÂM là HAI lớp ĐỘC LẬP — trước 17/09/2026 nhánh SAI GIỜ `return`
+        # ngay nên `canh_bao_muc_cam` không bao giờ chạy tới khi gửi trễ giờ. Sự cố thật
+        # 17/09: bản tin sáng gửi 04:37 (trễ hạn 04:30) nên canary chỉ kêu SAI GIỜ, mục "Đối
+        # ngoại Mỹ" 0 tin (mục câm thật) không được soi tới, không ai biết cho tới khi Huy tự
+        # đọc bản tin và hỏi. Nay LUÔN chạy cả hai lớp rồi gộp vào một tin để không kêu hai
+        # lần cho cùng một lần gửi.
         sai_gio = ngoai_khung_gio(o, lan.get("luc"))
         if sai_gio:
             print(f"::warning::canary {args.ca}: {sai_gio}")
-            return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng SAI GIỜ.\n\n"
-                       f"{sai_gio}\n\nBản tin vẫn tới tay nên mọi phép đo quy trình đều "
-                       f"báo đạt; chỉ giờ nhận là sai.\n\n"
-                       f"Soi: python3 scripts/do_gio_ban_tin.py") + loi_web
         print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get('luc')} "
               f"({len(lan.get('urls') or [])} tin).")
         # Bản tin tới nơi CHƯA CÓ NGHĨA LÀ ĐỦ — soi tiếp từng mục (xem `canh_bao_muc_cam`).
         canh = canh_bao_muc_cam(args.ca, o, lan)
-        if not canh:
-            print("[canary] mọi mục đủ sàn — im lặng.")
-            return loi_web
         for c in canh:
             print(f"::warning::canary mục câm: {c.splitlines()[0]}")
-        return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng CÓ MỤC HỤT.\n\n"
-                   + "\n\n".join(canh)
-                   + f"\n\nSàn Huy chốt 05/09/2026: mỗi mục tối thiểu "
-                     f"{_soi_muc().SAN_MOI_MUC} tin.\n"
-                     f"Soi: python3 scripts/soi_muc_cam.py") + loi_web
+        if not sai_gio and not canh:
+            print("[canary] mọi mục đủ sàn, đúng giờ — im lặng.")
+            return loi_web
+        phan = []
+        nhan_loi = []
+        if sai_gio:
+            nhan_loi.append("SAI GIỜ")
+            phan.append(f"SAI GIỜ.\n\n{sai_gio}\n\nBản tin vẫn tới tay nên mọi phép đo quy "
+                        f"trình đều báo đạt; chỉ giờ nhận là sai.\n\n"
+                        f"Soi: python3 scripts/do_gio_ban_tin.py")
+        if canh:
+            nhan_loi.append("CÓ MỤC HỤT")
+            phan.append("CÓ MỤC HỤT.\n\n" + "\n\n".join(canh)
+                       + f"\n\nSàn Huy chốt 05/09/2026: mỗi mục tối thiểu "
+                         f"{_soi_muc().SAN_MOI_MUC} tin.\n"
+                         f"Soi: python3 scripts/soi_muc_cam.py")
+        return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng "
+                   + " + ".join(nhan_loi) + ".\n\n"
+                   + "\n\n---\n\n".join(phan)) + loi_web
 
     xong, mota = trang_thai_quet(pipeline, o, ngay)
     if xong:

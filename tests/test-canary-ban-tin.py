@@ -67,9 +67,15 @@ def ghim_dong_ho(M, luc: str):
     M.datetime = types.SimpleNamespace(datetime=DT, timedelta=datetime.timedelta)
 
 
-def chay(ca, so=None, state=None, luc="2026-07-29 22:45"):
-    """Chạy canary với sổ/state giả và đồng hồ ghim. Trả (mã thoát, đầu ra)."""
+def chay(ca, so=None, state=None, luc="2026-07-29 22:45", vien=None):
+    """Chạy canary với sổ/state giả và đồng hồ ghim. Trả (mã thoát, đầu ra).
+
+    `vien`: hàm nhận module M sau khi nạp, để đắp seam riêng (vd giả lập `canh_bao_muc_cam`)
+    mà không cần index.html thật khớp URL giả — xem ca 6f.
+    """
     M = _nap()
+    if vien is not None:
+        vien(M)
     d = pathlib.Path(tempfile.mkdtemp(prefix="canarytin-"))
     (d / "logs").mkdir()
     if so is not None:
@@ -211,6 +217,22 @@ def _():
     return keu(out) and "SAI GIỜ" in out, out
 
 
+@ca('6f. HỒI QUY 17/09: SAI GIỜ + MỤC CÂM cùng lúc → PHẢI KÊU CẢ HAI, không được nhánh SAI '
+    'GIỜ nuốt mất mục câm')
+def _():
+    # Sự cố thật 17/09/2026: bản tin sáng gửi 04:37 (trễ hạn 04:30) NÊN CŨNG đúng lúc thiếu
+    # hẳn tin "Đối ngoại Mỹ" (mục câm thật). Canary cũ `return` ngay khi thấy SAI GIỜ nên
+    # không bao giờ chạy tới `canh_bao_muc_cam` — Huy phải tự đọc bản tin mới phát hiện.
+    def gia_muc_cam(M):
+        M.canh_bao_muc_cam = lambda ca, o, lan: (
+            ["📉 MỤC DƯỚI SÀN 2 TIN — 1/6 mục:\n  · Đối ngoại Mỹ: 0 tin"])
+    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
+                   state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15",
+                   vien=gia_muc_cam)
+    return (keu(out) and "SAI GIỜ" in out and "MỤC HỤT" in out
+            and "Đối ngoại Mỹ: 0 tin" in out), out
+
+
 @ca('7. Sổ HỎNG (JSON vỡ) → PHẢI KÊU, canary không được chết câm vì file rác')
 def _():
     ma, out = chay("toi", so="{ đây không phải JSON", state=state())
@@ -241,24 +263,35 @@ def _():
 BAN_HONG = [
     ("bỏ phép quy đổi NGÀY CỦA CA (tái sinh bug kêu oan 28/07)",
      ('    if ca == "toi" and luc.hour < 12:', '    if False:'),
-     [4]),
+     ["4"]),
     ("sổ nào cũng tính là đã gửi (canary câm hoàn toàn)",
      ('        if lan.get("buoi") == buoi and ngay_ca_tu_iso(buoi, str(lan.get("luc", ""))) == ngay:',
       '        if True:'),
-     [5, 6]),
+     ["5", "6"]),
     ("bỏ phép kiểm dạng sổ (file rác làm canary chết giữa chừng)",
      ('    if not so or not isinstance(so.get("lan_gui"), list):', '    if False:'),
-     [7, 8]),
+     ["7", "8"]),
     ("phiên quét lúc nào cũng coi là DONE",
      ('    xong = (p.get("lastSuccess") or {}).get(o) == ngay', '    xong = True'),
-     [2, 9]),
+     ["2", "9"]),
     ("nuốt tiếng kêu ở nhánh sáng/tối (biết hụt mà không báo)",
      ('    print(f"::warning::canary {args.ca}: {khau} | {mota}")\n    return gui(text)',
       '    return 0'),
-     [1, 2, 5, 6, 7, 8]),
+     ["1", "2", "5", "6", "7", "8"]),
     ("nhánh 'đã gửi' luôn đúng (im mọi ngày)",
      ('    if lan:', '    if True:'),
-     [1, 2, 5, 6, 7, 8]),
+     ["1", "2", "5", "6", "7", "8"]),
+    ("SAI GIỜ trả về sớm, nuốt mất lớp MỤC CÂM (tái sinh bug 17/09 mất tin Đối ngoại Mỹ)",
+     ('        sai_gio = ngoai_khung_gio(o, lan.get("luc"))\n'
+      '        if sai_gio:\n'
+      '            print(f"::warning::canary {args.ca}: {sai_gio}")\n'
+      '        print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get(\'luc\')} "',
+      '        sai_gio = ngoai_khung_gio(o, lan.get("luc"))\n'
+      '        if sai_gio:\n'
+      '            print(f"::warning::canary {args.ca}: {sai_gio}")\n'
+      '            return gui(f"⚠️ SAI GIỜ") + loi_web\n'
+      '        print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get(\'luc\')} "'),
+     ["6f"]),
 ]
 
 
@@ -284,7 +317,9 @@ def tu_kiem() -> int:
                                capture_output=True, text=True, env=env)
         finally:
             f.unlink(missing_ok=True)
-        do = {int(dong[4:].split(".")[0])
+        # Nhãn ca có thể mang hậu tố chữ (`6b`, `6f`) nên giữ NGUYÊN CHUỖI, không ép `int()` —
+        # ép kiểu là vỡ ngay khi một ca hậu tố chữ đỏ (17/09/2026, thêm ca `6f`).
+        do = {dong[4:].split(".")[0]
               for dong in r.stdout.splitlines() if dong.startswith("  ✗ ")}
         thieu = set(ca_phai_do) - do
         thua = do - set(ca_phai_do)
