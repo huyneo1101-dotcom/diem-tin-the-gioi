@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-18T01:29:46+07:00",
+  "tao_luc": "2026-09-18T03:46:47+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-17",
@@ -137,6 +137,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "US clears $24B F-35 sale for Saudi Arabia",
+      "nguon": "Breaking Defense",
+      "url": "https://breakingdefense.com/2026/09/us-clears-24b-f-35-sale-for-saudi-arabia/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-17",
       "tieu_de": "What the Pentagon is testing along the US-Mexico border",
       "nguon": "Breaking Defense",
@@ -201,14 +209,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-18",
-      "tieu_de": "Trump says progress made toward establishing US Army base in Poland",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/trump-says-progress-made-toward-establishing-us-army-base-in-poland"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-17",
       "tieu_de": "Mỹ từng 'bắn hơn 70 quả THAAD, Patriot' để chặn 20 tên lửa Iran",
       "nguon": "VnExpress",
@@ -266,14 +266,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-15",
-      "tieu_de": "Pentagon tells Congress Iran war cost at least $42B",
-      "nguon": "The Hill — Defense",
-      "url": "https://thehill.com/policy/defense/6090292-pentagon-iran-war-cost-increase/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
       "tieu_de": "Castelion bags US Navy order for Blackbeard hypersonic missiles",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/castelion-us-navy-blackbeard-missile/"
@@ -285,6 +277,14 @@
       "tieu_de": "Boeing wins $562m US Navy production contract for MQ-25A Stingray",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/boeing-mq-25a-us-navy/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "F-35 Sale To Saudi Arabia Approved By State Department",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/air/f-35-sale-to-saudi-arabia-approved-by-state-department"
     },
     {
       "lop": "RSS",
@@ -353,10 +353,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "NSWC Corona commanding officer gives heartfelt remarks at local Patriot Day commemoration",
+      "ngay": "2026-09-18",
+      "tieu_de": "Faces of the Blue Diamond: U.S. Navy Petty Officer 2nd Class Josue Romero",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/574973/nswc-corona-commanding-officer-gives-heartfelt-remarks-local-patriot-day-commemoration"
+      "url": "https://www.dvidshub.net/news/575020/faces-blue-diamond-us-navy-petty-officer-2nd-class-josue-romero"
     },
     {
       "lop": "RSS",
@@ -409,6 +409,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "U.S. Army awards contract to modernize ammunition management",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/295461/u_s_army_awards_contract_to_modernize_ammunition_management"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-15",
       "tieu_de": "USAF assembles inert Sentinel missile, moving with pace toward flight testing",
       "nguon": "Không quân Mỹ — Air Force Link News",
@@ -417,7 +425,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
+      "ngay": "2026-09-18",
       "tieu_de": "U.S. Army Picks VIKING UGV for Autonomous Breaching Trials",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/17/us_army_picks_viking_ugv_for_autonomous_breaching_trials_1206644.html"
@@ -425,7 +433,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
+      "ngay": "2026-09-18",
       "tieu_de": "The MQ-9 Reaper's Proposed Successor Emerges: Meet 'Wildfire'",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/17/the_mq-9_reapers_proposed_successor_emerges_meet_wildfire_1206648.html"
@@ -433,7 +441,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
+      "ngay": "2026-09-18",
       "tieu_de": "Space Force's GMTI Program Gets a Name, With Northrop As Prime",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/17/space_forces_gmti_program_gets_a_name_with_northrop_as_prime_1206669.html"
@@ -441,7 +449,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
+      "ngay": "2026-09-18",
       "tieu_de": "Lockheed Hopes To Sell a New F-16 to U.S. Air Force",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/17/lockheed_hopes_to_sell_a_new_f-16_to_us_air_force_1206666.html"
@@ -449,7 +457,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
+      "ngay": "2026-09-18",
       "tieu_de": "U.S. Marines Demonstrate Rapid HIMARS Insertion Capability",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/17/us_marines_demonstrate_rapid_himars_insertion_capability_1206654.html"
@@ -457,7 +465,7 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
+      "ngay": "2026-09-18",
       "tieu_de": "Nuclear Deterrence: Germany's Options in a Changing Security Order",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/17/nuclear_deterrence_germanys_options_in_a_changing_security_order_1206597.html"
@@ -465,10 +473,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Cheaper Reaper? Swarm Aero Unveils Gamera",
+      "ngay": "2026-09-18",
+      "tieu_de": "Poland Confirms Limited Patriot Missile Transfer to Ukraine",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/2026/09/15/cheaper_reaper_swarm_aero_unveils_gamera_1206211.html"
+      "url": "https://www.realcleardefense.com/2026/09/17/poland_confirms_limited_patriot_missile_transfer_to_ukraine_1206732.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Navy Awards $200M for Blackbeard Hypersonic Missile on Fighters",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/2026/09/17/navy_awards_200m_for_blackbeard_hypersonic_missile_on_fighters_1206736.html"
     },
     {
       "lop": "RSS",
@@ -505,6 +521,22 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Space Force’s SSC Wants Industry Input on High TRL RF Cross Links for SG-XX",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/space-forces-ssc-wants-industry-input-on-high-trl-rf-cross-links-for-sg-xx/space/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Pentagon and Lockheed Martin Enter Agreement to Accelerate JATM Production",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/pentagon-and-lockheed-martin-enter-agreement-to-accelerate-jatm-production/pentagon/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-16",
       "tieu_de": "At Outset Of Epic Fury, Space Force Used Electronic Weapon System To Target Adversary",
       "nguon": "Defense Daily",
@@ -529,10 +561,42 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Pentagon, Lockheed to Expand Production of Secretive New Joint Advanced Tactical Missile",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/pentagon-lockheed-martin-joint-advanced-tactical-missile-production/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-17",
       "tieu_de": "How the Space Force Is Preparing for Its New Moving Target Missions",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/how-space-force-is-preparing-new-moving-target-missions/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "US Air Force to extend service of B-1, B-2 bombers, official says",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/09/17/us-air-force-to-extend-service-of-b-1-b-2-bombers-official-says/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "The US Army is looking for new drones to ferry blood supplies",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/09/17/the-us-army-is-looking-for-new-drones-to-ferry-blood-supplies/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Lockheed Martin gets first batch of Patriot interceptor parts from General Motors",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/industry/2026/09/17/lockheed-martin-gets-first-batch-of-patriot-interceptor-parts-from-general-motors/"
     },
     {
       "lop": "RSS",
@@ -577,10 +641,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-15",
-      "tieu_de": "US Space Force to add 10,000 guardians in next 5 years",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/09/15/us-space-force-to-add-10000-guardians-in-next-5-years/"
+      "ngay": "2026-09-18",
+      "tieu_de": "U.S. Approves F-35 Foreign Military Sale to Saudi Arabia",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/09/17/u-s-approves-f-35-foreign-military-sale-to-saudi-arabia/"
     },
     {
       "lop": "RSS",
@@ -609,10 +673,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Faces of the Blue Diamond: U.S. Navy Petty Officer 2nd Class Josue Romero",
+      "ngay": "2026-09-18",
+      "tieu_de": "U.S. Army Drill Sergeant of the Year Competition 2026",
       "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9941649/faces-blue-diamond-us-navy-petty-officer-2nd-class-josue-romero"
+      "url": "https://www.dvidshub.net/image/9945207/us-army-drill-sergeant-year-competition-2026"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-17",
+      "tieu_de": "NSWC Corona commanding officer gives heartfelt remarks at local Patriot Day commemoration",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/574973/nswc-corona-commanding-officer-gives-heartfelt-remarks-local-patriot-day-commemoration"
     },
     {
       "lop": "RSS",
@@ -637,14 +709,6 @@
       "tieu_de": "2026 U.S. Army Best Squad Competition: Map Resection and Weapons Assembly",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1023140/2026-us-army-best-squad-competition-map-resection-and-weapons-assembly"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-16",
-      "tieu_de": "U.S. Army Drill Sergeant of the Year Competition 2026",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/image/9938035/us-army-drill-sergeant-year-competition-2026"
     },
     {
       "lop": "RSS",
@@ -706,14 +770,6 @@
       "lop": "HTML",
       "chu_de": "CNQS Mỹ",
       "ngay": "?",
-      "tieu_de": "Navy Awards Production Delivery Order for Blackbeard Hypersonic Missile",
-      "nguon": "Hải quân Mỹ",
-      "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/4602377/navy-awards-production-delivery-order-for-blackbeard-hypersonic-missile/"
-    },
-    {
-      "lop": "HTML",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "?",
       "tieu_de": "U.S. Navy Awards Three Prototype Agreements to Accelerate LCU 1700 Production and Strengthen Maritime Industrial Base",
       "nguon": "Hải quân Mỹ",
       "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/4601894/us-navy-awards-three-prototype-agreements-to-accelerate-lcu-1700-production-and/"
@@ -749,6 +805,14 @@
       "tieu_de": "International students, 'visa hoppers' and backpackers targeted in Australia migration crackdown",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cm986j81ky55o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-18",
+      "tieu_de": "Prince Harry makes first public appearances since return to Britain",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/prince-harry-makes-first-public-appearances-since-return-to-uk"
     },
     {
       "lop": "RSS",
@@ -841,18 +905,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Japan's Inpex sees strong interest in Indonesia LNG amid Hormuz closure",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/editor-s-picks/interview/japan-s-inpex-sees-strong-interest-in-indonesia-lng-amid-hormuz-closure"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-17",
       "tieu_de": "Người dân Indonesia kiếm tiền nhờ chụp ảnh động vật hoang dã",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/dt360/nguoi-dan-indonesia-kiem-tien-nho-chup-anh-dong-vat-hoang-da-20260917174711132.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-18",
+      "tieu_de": "From African shepherd to Australia's marathon record holder",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-18/haftu-strintzos-journey-shepherd-to-australia-marathon-record/107160046"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-18",
+      "tieu_de": "Bill Bailey on music, mischief and touring Australia",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-18/bill-bailey-on-music-mischief-and-touring-australia/107154298"
     },
     {
       "lop": "RSS",
@@ -865,18 +937,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-17",
-      "tieu_de": "Police arrest three men in Wadeye over stolen Darwin RAAF base vehicle",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-17/nt-raaf-base-darwin-stolen-vehicle-police-arrest-wadeye/107164646"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-17",
-      "tieu_de": "Reza Pahlavi accepts Coalition invitation to visit Australia",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-17/reza-pahlavi-accepts-coalition-invitation-to-visit-australia/107164084"
+      "ngay": "2026-09-18",
+      "tieu_de": "Ferguson Marine to build tugboats for commercial sale",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/ferguson-marine-to-build-tugboats-for-commercial-sale/"
     },
     {
       "lop": "RSS",
@@ -954,17 +1018,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-17",
-      "tieu_de": "New Canadian rifle shown in Britain for the first time",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/new-canadian-rifle-shown-in-britain-for-the-first-time/"
+      "tieu_de": "Battle for the Atlantic",
+      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
+      "url": "https://www.gov.uk/government/speeches/battle-for-the-atlantic"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-17",
-      "tieu_de": "Battle for the Atlantic",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/speeches/battle-for-the-atlantic"
+      "ngay": "2026-09-18",
+      "tieu_de": "Nato head: Britain must show ‘credible path’ of annual defence budget increases",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/world/2026/sep/17/nato-head-britain-must-show-credible-path-of-annual-defence-budget-increases"
     },
     {
       "lop": "RSS",
@@ -1081,6 +1145,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-18",
+      "tieu_de": "‘I’m genuinely sorry’: Australian Hyrox athlete who soiled herself apologises to China and rivals",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/sport/2026/sep/17/im-genuinely-sorry-australian-hyrox-athlete-who-soiled-herself-apologises-to-china-and-rivals"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-17",
       "tieu_de": "Sway, Mobo-winning British rapper, dies aged 44",
       "nguon": "The Guardian — World",
@@ -1130,18 +1202,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "US tariffs against Russian oil buyers pass: What it means for China, India",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/features/2026/9/17/us-tariffs-against-russian-oil-buyers-pass-what-it-means-for-china?traffic_source=rss",
+      "tieu_de": "India faces 100% tariff threat over Russian oil after US House vote",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/c3lyrn4p870yo?at_medium=RSS&at_campaign=rss",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "India faces 100% tariff threat over Russian oil after US House vote",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c3lyrn4p870yo?at_medium=RSS&at_campaign=rss",
+      "ngay": "2026-09-18",
+      "tieu_de": "India vows to protect energy security after new US tariffs over Russian oil",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/india-vows-to-protect-energy-security-after-new-us-tariffs-over-russian-oil",
       "nhom": 4
     },
     {
@@ -1165,19 +1237,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "As Canadian tariffs bite, Republicans search for a winning message",
+      "ngay": "2026-09-18",
+      "tieu_de": "US sanctions Cuban nickel reserves, military enterprises",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/as-canadian-tariffs-bite-republicans-search-for-a-winning-message",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Russia says new US sanctions, if signed by Trump, would make  Ukraine peace deal harder",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/russia-says-new-us-sanctions-if-signed-by-trump-would-make-ukraine-peace-deal-harder",
+      "url": "https://www.straitstimes.com/world/us-sanctions-cuban-nickel-reserves-military-enterprises",
       "nhom": 4
     },
     {
@@ -1202,19 +1265,19 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-18",
-      "tieu_de": "China opposes U.S. sanctions bill, says will not accept 'long-arm jurisdiction'",
+      "tieu_de": "U.S. House passes Russia sanctions Bill seeking to impose up to 100% tariffs on India, others",
       "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/china-opposes-us-sanctions-bill-says-will-not-accept-long-arm-jurisdiction/article71477998.ece",
-      "nhom": 4
+      "url": "https://www.thehindu.com/news/international/us-house-passes-russia-sanctions-bill-india-tariffs/article71474350.ece",
+      "nhom": 1
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "U.S. House passes Russia sanctions bill seeking to impose up to 100% tariffs on India, others",
+      "ngay": "2026-09-18",
+      "tieu_de": "China opposes U.S. sanctions bill, says will not accept 'long-arm jurisdiction'",
       "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/us-house-passes-russia-sanctions-bill-india-tariffs/article71474350.ece",
-      "nhom": 1
+      "url": "https://www.thehindu.com/news/international/china-opposes-us-sanctions-bill-says-will-not-accept-long-arm-jurisdiction/article71477998.ece",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1399,6 +1462,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-18",
+      "tieu_de": "Missouri GOP lays out map fight in US appeals court as ballot window closes",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/regulation/court-battles/6096498-federal-appeals-court-missouri-congressional-map/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
       "tieu_de": "Florida Republican breaks with Trump on immigration in campaign ad: Latino voters ‘feel betrayed’",
       "nguon": "The Hill",
@@ -1489,11 +1561,11 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "Trump offers fiery response to Federal Reserve rate hike",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6093973-trump-demands-lower-rates-federal-reserve/",
-      "nhom": 4
+      "ngay": "2026-09-18",
+      "tieu_de": "Republican breaks with Trump over immigration crackdown ahead of US midterms",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-18/brk-us-congresswoman-breaks-with-trump/107166918",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1580,6 +1652,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
+      "tieu_de": "FleetCor Agrees to Pay $100 Million to Resolve Administrative Action After Federal Court Finds that It Violated the FTC Act by Charging Unauthorized Fees",
+      "nguon": "FTC",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/fleetcor-agrees-pay-100-million-resolve-administrative-action-after-federal-court-finds-it-violated",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-17",
       "tieu_de": "FTC Announces Additional Payments to Consumers Stemming from FTC’s Amazon Prime Settlement",
       "nguon": "FTC",
       "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/ftc-announces-additional-payments-consumers-stemming-ftcs-amazon-prime-settlement",
@@ -1607,18 +1688,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-17",
-      "tieu_de": "Congress Should Pass the Lindsey Graham Sanctions Act",
-      "nguon": "RealClearWorld",
-      "url": "https://www.realclearworld.com/2026/09/15/congress_should_pass_the_lindsey_graham_sanctions_act_1206227.html",
+      "tieu_de": "India warns U.S. new tariffs to deter buyers of Russian oil could impact ties",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/news/2026/09/17/asia-pacific/politics/india-energy-security-us-tariffs/",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-17",
-      "tieu_de": "India warns U.S. new tariffs to deter buyers of Russian oil could impact ties",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/09/17/asia-pacific/politics/india-energy-security-us-tariffs/",
+      "ngay": "2026-09-18",
+      "tieu_de": "U.S. expected to delay new excess capacity tariff announcement until after Trump-Xi summit: report",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20260918000200315",
       "nhom": 4
     },
     {
