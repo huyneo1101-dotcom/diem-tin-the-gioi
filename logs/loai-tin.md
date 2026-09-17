@@ -1290,3 +1290,28 @@ Nạp 3/9: "Thủy quân lục chiến Hàn Quốc tại Super Garuda Shield 202
 - [Úc & Biển Đông/BM] "Cựu Bộ trưởng Tài chính Indonesia tiết lộ cảm xúc sau khi bị miễn nhiệm" (Tạp chí Mekong Asean, qua Báo Mới) — tin nhân sự nội các thuần túy, không có yếu tố quân sự/AUKUS/Biển Đông nào. Ngoài phạm vi 5 chủ đề. Bỏ.
 
 Cổng Báo Mới: xử lý đủ 4/4 ứng viên khớp chủ đề (1 nạp — SPICE 1000/F-35 Israel qua Defense News, 3 loại như trên).
+
+## 2026-09-18 (phiên sáng sớm CI) — cổng ngày thật + cổng Báo Mới + Mali rỗng + tập trận
+
+- [US-KT] "Fed tăng lãi suất lần đầu sau ba năm" (Cục Dự trữ Liên bang, federalreserve.gov) — trang thông cáo FOMC không có metadata ngày đọc được bằng máy, cổng NGÀY THẬT chặn dù nội dung xác thực 100%. Thay bằng The Hindu (đã nạp, cùng sự kiện).
+- [US-NG] "Mỹ trừng phạt loạt doanh nghiệp Cuba" (Bộ Ngoại giao Mỹ, state.gov) — cùng lý do, trang thông cáo không có metadata ngày đọc được. Không tìm được bài thay thế cùng sự kiện có metadata ngày trong thời gian phiên còn lại. Bỏ.
+- [US-CT] "Nhà Trắng ban hành bản ghi nhớ mua sắm công với Canada" (whitehouse.gov) — cổng đọc được ngày thật là 2026-09-16, cũ hơn 1 ngày so với batch 2026-09-18. Bỏ.
+- [US-CT] "Trump đổ trách nhiệm tăng lãi suất cho hội đồng Fed" / "Nghị sĩ Salazar bất đồng với Trump" (The Hill, cả 2 bài) — trang không có metadata ngày đọc được. Bài Salazar thay bằng ABC News Australia (đã nạp, cùng sự kiện); bài Trump-Fed không tìm được nguồn thay thế có metadata, bỏ.
+- [CNQS] "Space Force công bố kế hoạch tăng gấp đôi quân số" (spaceforce.mil) — trang .mil không có metadata ngày đọc được bằng máy. Bỏ, đã có đủ tin CNQS khác trong lô.
+- [CNQS] "Không quân Mỹ kéo dài phục vụ B-1/B-2" (militarytimes.com) — cùng lý do. Bỏ.
+- [CNQS] "Lục quân Mỹ chọn UGV VIKING" / "MQ-9 kế nhiệm Wildfire" (cả 2 bài RealClearDefense) — trang tổng hợp không có metadata ngày đọc được. Bỏ cả hai, đã có đủ tin CNQS khác.
+- [US-KT] "Trump yêu cầu Fed hạ lãi suất ngay sau quyết định tăng" (Axios) — cổng đọc được ngày thật là 2026-09-16, cũ hơn 1 ngày so với batch 2026-09-18 dù RSS ghi 17/9. Bỏ.
+- [Úc & Biển Đông] "Philippines mở rộng thêm đường băng đảo Thị Tứ/Pag-asa" (Manila Times) — kiểm lại bằng WebSearch: bài thật đăng 07/09/2026, ngoài khung rất xa (agent gán nhầm ngày 18/09). Bỏ.
+- [Úc & Biển Đông] "Toà án Liên bang Australia cho phép vụ kiện phân biệt giới tính ADF tiến hành" (HR Leader/ABC) — sự kiện thật xảy ra 15/09/2026, ngoài khung hôm nay+hôm qua (17-18/09) tính từ 18/09. Bỏ dù nội dung xác thực.
+- [Úc & Biển Đông] "Mỹ tài trợ nghiên cứu cáp ngầm Thái Lan né Biển Đông" (SCMP/Bloomberg, qua USTDA) — sự kiện thật 15/09/2026, ngoài khung. Bỏ.
+- [Mỹ–Mali] Không nạp được tin nào — harvest.py trả 28 "ứng viên" nhưng gần như toàn nhiễu (tên riêng trùng chữ "Mali": cầu thủ, đội bóng, diễn viên...). Đã WebSearch nhiều vòng ("Mali JNIM", "Mali Sahel", "AFRICOM Mali", "Bamako jihadist", "Africa Corps Wagner Mali"): tin Africa Report "US Congress presses Trump on Mali strategy" (qua kênh Telegram @AfricaIntel) xác nhận đăng thật 16/09 nhưng TRÙNG với tin đã có "Quốc hội Mỹ gây sức ép... Mali" (nạp 16/09); "US seals uranium investment in Niger" không nhắc Mali/JNIM nên không neo được; "Nigeria: Army Rescues 22 Kidnap Victims in Niger" không liên quan JNIM/Mali. Mục Mỹ–Mali phiên này 0 tin.
+- [Tập trận] Arctic Shield 2026 (kết thúc đúng hôm nay 18/09), Veer Guardian 2026, REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội TBD Nga 2026 — WebSearch riêng từng cuộc không ra diễn biến mới trong khung 17-18/09. Chỉ UNITAS 2026 có tin mới (đã nạp, nguồn Zona Militar).
+
+Cổng Báo Mới: xử lý đủ 7/7 ứng viên khớp chủ đề — 6 loại (5 trùng/không neo được như dưới, xem chi tiết), 1 đã nạp qua nguồn gốc thay thế (không qua cơ chế Báo Mới trực tiếp):
+- [Nội bộ Mỹ/BM] "Điện Kremlin cảnh báo đòn trừng phạt mới của Mỹ có thể cản trở hòa đàm Ukraine" — nội dung là phản ứng của Nga, không neo được vào "Nội bộ Mỹ". Bỏ.
+- [Nội bộ Mỹ/BM] "Tin thế giới tối 17-9: Mỹ thông qua gói trừng phạt mới nhằm vào Nga" (Báo Gia Lai) — bài tổng hợp nhiều tin trong ngày, không phải bài đơn sự kiện; sự kiện gốc (Hạ viện thông qua luật) đã nạp qua CNBC. Bỏ.
+- [Nội bộ Mỹ/BM] "Giới tỷ phú Mỹ tăng mạnh chi tiêu trước bầu cử" — xác nhận có thật qua WebSearch (Forbes, Fortune, Public Citizen) nhưng là câu chuyện kéo dài nhiều tháng, không có mốc sự kiện cụ thể trong khung 17-18/09. Bỏ.
+- [Nội bộ Mỹ/BM] "Trung Quốc lên tiếng về dự luật trừng phạt Nga của Mỹ" (VietnamNet) — trùng sự kiện luật trừng phạt Nga đã nạp (The Hindu có cùng góc "China opposes"), không phải sự kiện mới độc lập. Bỏ.
+- [Nội bộ Mỹ/BM] "Ông Trump bất ngờ bảo vệ Chủ tịch Fed" — xác nhận có thật qua WebSearch (CNBC, PBS, Townhall: Trump nói vẫn tin tưởng Warsh nhưng vẫn đòi hạ lãi suất về 1%). Góc nhìn khác với tin "đổ trách nhiệm cho hội đồng" đã bị cổng ngày thật chặn ở trên — đáng nạp nhưng lô đã đóng để kịp tiến độ phiên; để bản tối/phiên sau cân nhắc bổ sung nếu còn giá trị.
+- [Nội bộ Mỹ/BM] "Dự luật trừng phạt Nga tạo biến số mới trước thượng đỉnh Mỹ - Trung" (TTXVN) — trùng góc với tin "Ấn Độ đối mặt thuế quan 100%" đã nạp (cùng hệ quả ngoại giao của luật trừng phạt). Bỏ.
+- [Úc & Biển Đông/BM] "Australia: Xem xét cấm kính thông minh tại các cơ quan chính phủ" — ĐÃ NẠP, nhưng qua nguồn gốc trực tiếp ABC News Australia (WebSearch xác nhận cùng sự kiện với bản Bloomberg gốc bị chặn 403), không qua cơ chế `_baomoiUrl`.
