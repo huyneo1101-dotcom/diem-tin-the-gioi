@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-19T05:48:05+07:00",
+  "tao_luc": "2026-09-19T06:32:30+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-18",
@@ -129,6 +129,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-19",
+      "tieu_de": "Cape Canaveral is building up its counter-drone defenses, Space Force says",
+      "nguon": "Defense One",
+      "url": "https://www.defenseone.com/defense-systems/2026/09/cape-canaveral-building-its-counter-drone-defenses-space-force-says/416096/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-18",
       "tieu_de": "Space Force braces for stalled progress amid lack of full funding",
       "nguon": "Defense One",
@@ -178,7 +186,7 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-19",
-      "tieu_de": "US troop deaths during Iran war exceed Pentagon count by at least four, Washington Post reports",
+      "tieu_de": "US troop deaths during Iran war exceed Pentagon count by at least four",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/middle-east/us-troop-deaths-during-iran-war-exceed-pentagon-count-by-at-least-four-washington-post-reports"
     },
@@ -473,10 +481,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-18",
-      "tieu_de": "Contracts for Sept. 17, 2026",
+      "ngay": "2026-09-19",
+      "tieu_de": "Contracts for Sept. 18, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4604536/contracts-for-sept-17-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4605498/contracts-for-sept-18-2026/"
     },
     {
       "lop": "RSS",
@@ -745,14 +753,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-19",
-      "tieu_de": "Space Force looks for service members from across the military to fill its ranks",
-      "nguon": "Federal News Network — Defense",
-      "url": "https://federalnewsnetwork.com/space-operations/2026/09/space-force-looks-for-service-members-from-across-the-military-to-fill-its-ranks/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-16",
       "tieu_de": "Space Force sees new Space Academy as civilian talent pipeline",
       "nguon": "Federal News Network — Defense",
@@ -985,14 +985,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Taiwan confirms new Philippines office in works, China says move 'doomed'",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/taiwan-tensions/taiwan-confirms-new-philippines-office-in-works-china-says-move-doomed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-18",
       "tieu_de": "Cơn sốt AI đẩy đôla Đài Loan và won Hàn Quốc tăng mạnh",
       "nguon": "VnEconomy",
@@ -1010,7 +1002,15 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-19",
-      "tieu_de": "How an abandoned water park became a lightning rod for the Canberra community",
+      "tieu_de": "Maths doesn't add up for Australian parents juggling work and school",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-19/parenthood-maths-aint-mathing/106552344"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-19",
+      "tieu_de": "Why the Canberra community is up in arms over an abandoned water park",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-09-19/canberra-big-splash-water-park-explained/107163890"
     },
@@ -1114,7 +1114,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-18",
-      "tieu_de": "Australia claims it is a global pioneer in preventing online harm - should other countries follow suit?",
+      "tieu_de": "Australia claims it is a global pioneer in preventing online harm – should other countries follow suit?",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/media/2026/sep/19/australia-global-leader-online-safety-big-tech-ai-social-media"
     },
@@ -1309,6 +1309,14 @@
       "tieu_de": "Tổng thống Indonesia chỉ thị cảnh sát điều tra các công ty liên quan cháy rừng",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/tong-thong-indonesia-chi-thi-canh-sat-dieu-tra-cac-cong-ty-lien-quan-chay-rung-post1136849.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-19",
+      "tieu_de": "Dịch vụ chờ hồi sinh sau qua đời &amp;apos;độc, lạ&amp;apos; ở Australia",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/dich-vu-cho-hoi-sinh-sau-qua-doi-doc-la-o-australia-2555336.html"
     },
     {
       "lop": "RSS",
@@ -1576,15 +1584,6 @@
       "tieu_de": "U.S. expected to delay new excess capacity tariff announcement until after Trump-Xi summit: report",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260918000200315",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-19",
-      "tieu_de": "Trump signs bill imposing sanctions on Russia and giving him more power to levy tariffs",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/sep/18/trump-signs-russia-sanctions-bill",
       "nhom": 4
     },
     {
