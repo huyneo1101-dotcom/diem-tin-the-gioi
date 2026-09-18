@@ -2,18 +2,19 @@
   "date": "2026-09-18",
   "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, hạng 1-5)","count":6,"target":"5-10","min":5,"thieu":false,
-     "reason":"6 tin: Hạ viện thông qua luật trừng phạt Nga (nhóm 1), Rubio-Vương Nghị điện đàm + Mỹ trả nợ LHQ (nhóm 2 đối ngoại, đủ sàn ≥2 riêng mục Đối ngoại Mỹ), Fed tăng lãi suất + Ấn Độ đối mặt thuế quan (nhóm 4 kinh tế), nghị sĩ Salazar bất đồng Trump về nhập cư (nhóm 5 bầu cử). Mất nhiều ứng viên tốt vì cổng NGÀY ĐĂNG THẬT chặn (Fed press release gốc federalreserve.gov, Cuba sanctions state.gov, Nhà Trắng procurement memo do ngày thật cũ hơn batch, The Hill x2, Axios) — chi tiết logs/loai-tin.md. Cổng Báo Mới còn 1 ứng viên đáng cân nhắc để dành phiên sau: 'Ông Trump bất ngờ bảo vệ Chủ tịch Fed' (xác nhận thật qua CNBC/PBS)."},
-    {"name":"Úc & Biển Đông (gồm Anh)","count":7,"target":"5-10","min":5,"thieu":false,
-     "reason":"Anh 3 (Navy chief Đại Tây Dương, NATO đòi lộ trình ngân sách QP, RAF diễn tập phòng không) · Australia 2 (cấm kính thông minh, diễn tập Haringaroo với Malaysia) · Biển Đông 2 (Đài Loan tặng tàu tuần tra Philippines, tàu khảo sát TQ trong vùng biển Philippines). Đủ sàn ≥2 mỗi tiểu mục. Mất 3 ứng viên do ngày sự kiện thật ngoài khung khi kiểm lại (Manila Times Pag-asa thật ra đăng 07/09, ADF class action + USTDA cáp ngầm đều xảy ra 15/09, quá 1 ngày so với batch 18/09)."},
-    {"name":"CNQS Mỹ","count":8,"target":"5-10","min":5,"thieu":false,
-     "reason":"8 tin: F-35 Saudi Arabia 24 tỷ USD, JATM/AIM-260, Hammerhead, LCU 1700, tuyên bố Chủ tịch JCS về tác chiến quanh Mặt Trăng, Đức-Mỹ mở rộng sản xuất Patriot, báo cáo nhắm tàu sân bay TQ, hợp đồng quản lý đạn dược Lục quân. Mất 4 ứng viên (Space Force tăng gấp đôi quân số, B-1/B-2 kéo dài phục vụ, UGV VIKING, MQ-9 kế nhiệm Wildfire) do cổng NGÀY ĐĂNG THẬT chặn — các trang .mil/chuyên ngành/tổng hợp không in metadata ngày đọc được bằng máy dù nội dung xác thực."},
-    {"name":"Mỹ–Mali","count":0,"target":"2-5","min":2,"thieu":true,
-     "reason":"0 tin — ứng viên harvest.py hôm nay gần như toàn nhiễu (trùng chữ 'Mali' với tên riêng/đội bóng/diễn viên). WebSearch nhiều vòng ('Mali JNIM', 'Mali Sahel', 'AFRICOM Mali', 'Bamako jihadist') chỉ ra được 1 tin thật (Africa Report, Quốc hội Mỹ ép Trump ra chiến lược Mali) nhưng TRÙNG với tin đã nạp 16/09. Không có diễn biến Sahel/JNIM mới nào trong khung 17-18/09 tìm được."},
-    {"name":"Tập trận đang diễn ra","count":1,"target":"1-2","min":1,"thieu":false,
-     "reason":"1 tin: Thủy quân lục chiến Argentina (IMARA) tham gia UNITAS 2026 tại Peru. Các cuộc khác đang bám (Arctic Shield 2026 — kết thúc đúng hôm nay, Veer Guardian 2026, REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội TBD Nga 2026) không tìm được diễn biến mới trong khung ngày dù đã WebSearch riêng từng cuộc."},
-    {"name":"Báo Mới","count":1,"target":"đúng chủ đề thì nhận hết","min":0,"thieu":false,
-     "reason":"Xử lý đủ 7/7 ứng viên khớp 5 chủ đề: 1 coi như đã xử lý (tin Australia cấm kính thông minh — nạp qua nguồn gốc trực tiếp ABC News Australia, cùng sự kiện với bản Bloomberg Báo Mới dẫn), 6 loại (4 trùng sự kiện/không neo được đúng phạm vi, 1 câu chuyện kéo dài nhiều tháng không có mốc sự kiện cụ thể, 1 đáng cân nhắc để dành phiên sau — 'Trump bảo vệ Chủ tịch Fed'). Chi tiết logs/loai-tin.md."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":0,"target":"5-10","min":5,"thieu":true,
+     "reason":"Hạ viện nghỉ họp 17-21/9 nên không có phiên điều trần/bỏ phiếu nào xác nhận đúng ngày 18-19/9; các ứng viên GNEWS về \"House passes...\" đối chiếu lại đều là sự kiện 16/9 bị báo nhỏ đăng lại chậm, đã loại để tránh nạp tin cũ. Hạng 2 (sáng kiến/kinh tế/bầu cử) đã bù đủ sàn."},
+    {"name":"Đối ngoại Mỹ","count":3,"target":"5","min":5,"thieu":true,
+     "reason":"Đã tra OFAC recent-actions, lịch công khai Bộ Ngoại giao, điện đàm Trump-Tập nhưng chỉ xác nhận chắc chắn 3 sự kiện đối ngoại đúng ngày 18-19/9 (Rubio-Ngoại trưởng Hàn Quốc, OFAC gỡ trừng phạt Eritrea, Trump-Tập điện đàm); còn thiếu 2 tin."},
+    {"name":"Công nghệ quân sự Mỹ","count":7,"target":"6-10","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":3,"target":"3","min":3,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":6,"target":"3","min":3,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":3,"target":"2-5","min":0,"thieu":false,"reason":""},
+    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":true,
+     "reason":"Cuộc đang bám (Veer Guardian, REPMUS/Dynamic Messenger, SEACAT, Diễn tập Hạm đội TBD Nga, UNITAS) chỉ tìm được diễn biến UNITAS ngày 11/9 — ngoài khung 48h, đã bỏ thay vì nạp tin cũ."},
+    {"name":"Báo Mới","count":0,"target":"best-effort","min":0,"thieu":false,
+     "reason":"5 ứng viên khớp chủ đề đều trùng sự kiện F-35 Saudi Arabia (đã nạp bản Breaking Defense tốt hơn) hoặc không neo rõ Biển Đông (tàu sân bay Indonesia) — loại, ghi logs/loai-tin.md."}
   ],
-  "note": "6/6 đơn vị sàn (Đối ngoại Mỹ, Nội bộ Mỹ, Anh, Australia, Biển Đông, KHCN-QS) đều đạt ≥2 tin trong lô phiên này. Riêng Mỹ–Mali (đi ở bản Sự kiện & Tập trận, không phải sàn 6 đơn vị của .docx) dưới sàn 2 tin — nguồn nghèo thật sự hôm nay, không phải do cắt bước. Nguyên nhân mất tin chủ yếu ở 3 chủ đề khác: cổng NGÀY ĐĂNG THẬT chặn nhiều trang .gov/.mil/chuyên ngành không in metadata ngày đọc được bằng máy dù nội dung xác thực (Fed, State Dept, Space Force, Military Times, RealClearDefense, Nhà Trắng, The Hill, Axios) — chi tiết từng ca trong logs/loai-tin.md."
+  "note": "Xem logs/loai-tin.md để biết chi tiết tin bị loại và lý do."
 }

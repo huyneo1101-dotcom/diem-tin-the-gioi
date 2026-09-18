@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-19T04:00:36+07:00",
+    "lastRunAt": "2026-09-19T05:04:03+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+13 world (Anh 3, Australia 6, Bien Dong 5), +25 US (noi bo My 9, doi ngoai 3, CNQS 7, Mali 3), thieu doi ngoai (3/5) va tap tran",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-09-18"
-    },
-    "heartbeat": "2026-09-19T04:04:33+07:00"
+      "sang": "2026-09-19"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-18T04:37:43+07:00",
