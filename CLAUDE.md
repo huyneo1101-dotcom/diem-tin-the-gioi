@@ -1,17 +1,10 @@
 # Điểm Tin Thế Giới — quy tắc quét tin
 
 
-⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026 — MỌI CHỖ DƯỚI ĐÂY NÓI "PHIÊN TỐI" LÀ LỊCH SỬ, KHÔNG PHẢI
-VIỆC ĐANG CHẠY.** Chỉ thị Huy, nguyên văn: *"chỉ cần gửi tin 4h sáng thôi, không phải quét và
-gửi buổi tối nữa đâu"*. Nay **01 phiên/ngày: SÁNG SỚM**. Đã gỡ: 02 cron tối của
-`claude-web-scan.yml` · 02 cron tối của `harvest-ci.yml` · cron canary ca `toi` · 03 mốc tối
-trong `kich_ci.py::LICH`. Phần local của phiên tối đã tắt từ trước (plist nằm trong
-`~/Library/LaunchAgents/_tat-hd-va-diemtin-toi/`).
-Giữ phần chữ về phiên tối vì nó là **nhật ký vấp** — hạn chót cứng, khoá nói dối, lớp vét — và
-những cơ chế ấy vẫn áp cho ca sáng. Đọc chúng như bài học, đừng đọc như lịch.
-⛔ **ĐỪNG CẮM LẠI MỐC TỐI KHI THẤY BẢN SÁNG MỎNG.** Bản mỏng là việc của SÀN và KHUNG NGÀY
-(`scripts/soi_muc_cam.py`), không phải việc của lịch. Cổng canh: `kiem_lich.py` phép đo D chặn
-mọi cron của đường quét rơi vào khung 19:00-23:59 VN.
+⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026** (*"chỉ cần gửi tin 4h sáng thôi"*) — chỗ nào dưới đây nói
+"phiên tối" là nhật ký vấp, không phải việc đang chạy. Đã gỡ những gì: đầu `docs/LICH.md`.
+⛔ Bản sáng mỏng thì chữa bằng SÀN và KHUNG NGÀY, **đừng cắm lại mốc tối** — `kiem_lich.py` phép
+đo D chặn mọi cron của đường quét rơi vào 19:00-23:59 VN.
 
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
@@ -107,15 +100,15 @@ cách nhau một tháng cho cùng tỷ lệ (2,0% và 3,7%), tức lỗ này m�
   của `HeThong/khoe.py`. Nghiệm thu qua mạng thật 25/08: lô mang đúng URL bài SCMP 2024 bị
   chặn với thông điệp `bài đăng THẬT ngày 2024-12-21 (đọc bằng datePublished)`.
 
-⛔ **SÀN 05 TIN MỖI MỤC + CỔNG «MỤC CÂM» — chốt 02 tin ngày 05/09/2026, NÂNG LÊN 05 TIN ngày
-18/09/2026, đừng gỡ.** Nguyên văn lượt nâng: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi
-thành tối thiểu 5 tin"*. Đếm theo **07 đơn vị của file Word**, không
+⛔ **SÀN 05 TIN MỖI MỤC, ĐẾM THEO NGÀY + CỔNG «MỤC CÂM» — chốt 02 tin ngày 05/09/2026, NÂNG LÊN
+05 ngày 18/09/2026, đừng gỡ.** Nguyên văn: *"mỗi mục tối thiểu từ 2 tin đổi thành tối thiểu 5 tin"*
+· *"sàn 5 là sàn theo ngày nhé"* — cộng URL của MỌI lần gửi trong ngày rồi mới so sàn
+(`canary.urls_ngay`), nên phần gửi bù tính vào cùng ngày. Đếm theo **07 đơn vị của file Word**, không
 theo 05 chủ đề: Đối ngoại Mỹ · Nội bộ Mỹ · Địa bàn ›Anh · ›Australia · ›Biển Đông · KHCN-QS (Mali và
 Tập trận cố ý không mang sàn). Đếm gộp mục Địa bàn là che đúng lỗi sáng 05/09: mục đủ 02 tin mà tiểu
-mục **Anh bằng 0**. Sàn nâng kéo theo hai con số khác: chỉ tiêu quét mỗi chủ đề (bảng trong
-`.claude/skills/quet-tin/SKILL.md`) và trần in ứng viên `harvest.PER_TOPIC_CAP` 20 → 36 — trần cũ chỉ
-cho agent thấy ~6-7 ứng viên mỗi nhánh địa bàn, không đủ để chọn ra 05 tin nạp được. Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì đi thêm nguồn, hết
-nguồn thì ghi `logs/scan-gaps.json`.
+mục **Anh bằng 0**. Sàn nâng kéo theo `harvest.PER_TOPIC_CAP` 20 → 36 và chỉ tiêu quét mỗi chủ đề
+(`.claude/skills/quet-tin/SKILL.md`). Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì
+đi thêm nguồn, hết nguồn thì ghi `logs/scan-gaps.json`.
 ⛔ Đi kèm: **thứ tự in ứng viên** (`harvest.sap_ung_vien`) — sắp theo `_daykey`, tin ngày `?` xuống
 CUỐI (sắp theo chuỗi thì `?` > `2` nên chúng leo lên đầu: đo 05/09, 13/20 slot chủ đề 2), và chủ đề 2
 trộn LUÂN PHIÊN 03 nhánh Australia · Anh · Biển Đông. Không có hạn ngạch nhánh thì nhánh thưa bị dìm
@@ -125,8 +118,8 @@ nâng trần.
 Cổng: `scripts/soi_muc_cam.py` (soi tay `--san` · `--feed`), cắm trong `.github/scripts/canary.py`.
 Ba lớp: SÀN (bản tin đã gửi) · NGUỒN (feed sống mà mọi item ra ngày `?`, hoặc bảng khai chủ đề mà 0
 item neo) · GÁN CỨNG (khoá `FORCE_TOPIC*` mồ côi). Lượt đo đầu bắt 05 nguồn chính thức Mỹ nằm trong
-bảng từ 27/07 mà chưa từng cho một ứng viên nào. Bộ canh `tests/test-cong-muc-cam.py` — **22 ca (08
-PHẢI CHẶN) · `--tu-kiem` bắt 14/14 bản hỏng**, đã nạp `BO_TEST`. Đầy đủ: `docs/luat/cong-kiem.md` và
+bảng từ 27/07 mà chưa từng cho một ứng viên nào. Bộ canh `tests/test-cong-muc-cam.py` — **26 ca (12
+PHẢI CHẶN) · `--tu-kiem` bắt 18/18 bản hỏng**, đã nạp `BO_TEST`. Đầy đủ: `docs/luat/cong-kiem.md` và
 `docs/luat/pham-vi-quet.md`.
 
 ## 🗺️ LUẬT ĐÃ XẺ RA 07 FILE — mở đúng file trước khi sửa (xẻ 25/08/2026)
@@ -138,7 +131,7 @@ nào**. Trước khi sửa một mảng thì mở file của mảng đó, đừn
 | Việc đang làm | Mở file | Luật nóng nhất của file đó |
 |---|---|---|
 | Phạm vi quét, chủ đề, khung ngày, kiến trúc agent, khoá phiên, guardrail nạp tin | [`docs/luat/pham-vi-quet.md`](docs/luat/pham-vi-quet.md) | Tin không tự neo được vào chủ đề thì BỎ, cấm dồn vào mục "Úc & Biển Đông"; phiên test hạ tầng phải khai `DIEMTIN_PHIEN_TEST=1` |
-| Khâu gửi: file Word, sổ đã gửi, cổng bắn notify, email | [`docs/luat/gui-ban-tin.md`](docs/luat/gui-ban-tin.md) | **FORM .docx bám mẫu cơ quan `ĐTN_M_01.9.2026.docx` (01/09/2026): 04 mục `(N) …`, mục 3 chia 03 tiểu mục, tin mở bằng `Ngày d.M.yyyy,`, link CÙNG đoạn, khổ A4 lề 1,0"**; email đã tắt (`GUI_EMAIL='0'`) nên `.docx` là kênh DUY NHẤT mang nội dung; bản tối phải bỏ tin ca sáng cùng ngày, bản sáng phải GỘP tin ca tối hôm qua (26/08/2026) |
+| Khâu gửi: file Word, sổ đã gửi, cổng bắn notify, email | [`docs/luat/gui-ban-tin.md`](docs/luat/gui-ban-tin.md) | **FORM .docx bám mẫu cơ quan `ĐTN_M_01.9.2026.docx` (01/09/2026): 04 mục `(N) …`, mục 3 chia 03 tiểu mục, tin mở bằng `Ngày d.M.yyyy,`, link CÙNG đoạn, khổ A4 lề 1,0"**; email đã tắt (`GUI_EMAIL='0'`) nên `.docx` là kênh DUY NHẤT mang nội dung; bản sáng GỘP tin nạp hôm qua chưa gửi (26/08/2026) |
 | Telegram: gửi bản tin, canary, bot hỏi–đáp, đường nhận file của Jay Lâm | [`docs/luat/telegram.md`](docs/luat/telegram.md) | Thiếu secret Telegram là job ĐỎ, cấm thoát êm; canary chỉ nhắn cho Huy; token để NGOÀI repo (`/Users/Huy/Claude/.tg-bot.json`, chmod 600) |
 | Thêm hoặc sửa cổng kiểm, chạy bộ test | [`docs/luat/cong-kiem.md`](docs/luat/cong-kiem.md) | Cổng «mục câm» đo NỘI DUNG tới tay Huy, ba cổng cũ chỉ đo quy trình; test xanh chưa đủ — phải chạy `--tu-kiem` chứng minh bắt được bản hỏng; **sửa chính `CLAUDE.md` cũng phải chạy test** vì file này LÀ cấu hình |
 | Nạp tin, tập trận, sự kiện ngoại giao vào kho | [`docs/luat/kho-du-lieu.md`](docs/luat/kho-du-lieu.md) | Sửa `dates`/`status` của cuộc đã nạp phải đi bằng `scripts/sua_thong_tin_tap_tran.py`, cấm sửa tay và cấm bịa ngày kết thúc |
@@ -155,14 +148,12 @@ nào**. Trước khi sửa một mảng thì mở file của mảng đó, đừn
 chính dòng `cron:`). Lệch nhau thì `LICH.md` thắng. Canh bằng `python3 scripts/kiem_lich.py --kiem`;
 sửa cron thì chạy `--sinh` rồi soi lại mọi chỗ chép.
 
-**Hai phiên mỗi ngày, cùng 5 chủ đề.** Mốc chính chạy trên GitHub Actions `claude-web-scan.yml` (giờ
-VN: tối **20:47** + lớp vét 21:47 · sáng sớm **03:47/04:47**) — máy Mac tắt vẫn ra bản tin; scheduled
-task local là **dự phòng** cho cả hai phiên (tối `web-scan-diem-tin-toi` 21:15 · sáng
-`web-scan-diem-tin` 04:30/05:30). CI đã xong hoặc đang chạy thì local SKIP êm qua khoá `state.py`.
+**01 phiên mỗi ngày, 5 chủ đề.** Mốc chính chạy trên GitHub Actions `claude-web-scan.yml`
+(03:47/04:47 giờ VN) — máy Mac tắt vẫn ra bản tin; LaunchAgent local `com.huy.routine-diemtin-sang`
+là dự phòng. CI đã xong hoặc đang chạy thì local SKIP êm qua khoá `state.py`.
 
-⏰ **Hạn chót bản tin tối là 22:00** nên phiên tối tính ngược từ mốc cuối: quá **21:45** chưa xong thì
-chốt lô đang có, commit ngay, phần thiếu ghi `logs/scan-gaps.json`. Không dời hai lớp đầu trễ hơn,
-không biến lớp vét 21:47 thành mốc chính.
+⏰ **Hạn chót tới tay 04:45** (`scripts/state.py::HAN_CHOT`): sát hạn mà chưa xong thì chốt lô đang
+có, commit ngay, phần thiếu ghi `logs/scan-gaps.json`. Đổi lịch thì đổi mốc kích, đừng đổi hạn.
 
 | # | Chủ đề | Nạp vào | Khung ngày |
 |---|---|---|---|
@@ -503,15 +494,9 @@ trả **200 và thân sạch** khi đi bằng vân tay TLS Chrome, nên cả 06 
 (run 30516868251): PACOM **228.361B** · Navy 114.720B · JCS 74.037B · USCG 68.712B · Marines 65.170B ·
 CENTCOM 46.728B. Ở local, Navy (114.451B) và Marines (65.170B) cũng lấy được; 04 cái còn lại vướng
 **DNS**, không vướng WAF — chi tiết và cách phân nhãn `cả hai`/`CI` ghi ở chính bảng đó.
-- **Cơ chế gây vấp:** `probe_sources.py` chỉ gọi **curl trần**, mà curl trần bị Akamai cắt theo dấu
-  vân tay TLS ⇒ nó chấm `403` ⇒ bảng ghi "403 cả hai nơi" ⇒ `harvest.py` bỏ nguồn. Không lỗi, không
-  cảnh báo, và bảng trông như có căn cứ vì đúng là có số đo — số đo của công cụ sai. Cùng lớp với
-  luật *"đừng chẩn đoán từ output do chính mình cắt"*: ở đây là output do chính công cụ của mình bóp.
-- **Kèm theo, `probe_sources.py` còn có một nhãn CÂM TỪ NGÀY DỰNG:** nhãn `DNS` chỉ khớp khi stderr
-  chứa `Could not resolve host`, nhưng script chạy `curl -s` — cờ đó triệt tiêu luôn thông báo lỗi.
-  Bằng chứng: bản local 27/07 và bản CI 30/07 đều có **đúng 0 mục `DNS`** trên 287 URL, trong khi zone
-  `.mil` thật sự không phân giải được ở local. Tên miền chết bị dồn vào nhãn `LỖI` chung với timeout —
-  hai nguyên nhân khác hẳn nhau và chữa theo hai hướng khác nhau. Đã vá thành `-sS`.
+- **Hai lỗi CÂM của `probe_sources.py`** (curl trần bị cắt theo vân tay TLS nên chấm nhầm 403 ·
+  nhãn `DNS` không bao giờ khớp vì `curl -s` nuốt stderr) — nguyên văn đo đạc và cách vá:
+  [`docs/luat/probe-sources-loi-cam.md`](docs/luat/probe-sources-loi-cam.md). Đã vá thành `-sS`.
 - **DVIDS vẫn giữ** (`dvidshub.net/rss/all`) và feed `war.gov` vẫn giữ: chúng gom tin mọi quân chủng
   nên là lớp phủ rộng, còn 06 trang trên là nguồn tầng 1 theo từng bộ chỉ huy. Hai thứ bổ sung nhau,
   không thay nhau.
