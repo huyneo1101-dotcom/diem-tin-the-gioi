@@ -505,7 +505,9 @@ def main() -> int:
             nhan_loi.append("CÓ MỤC HỤT")
             phan.append("CÓ MỤC HỤT.\n\n" + "\n\n".join(canh)
                        + f"\n\nSàn Huy chốt 05/09/2026, nâng 18/09/2026: mỗi mục tối thiểu "
-                         f"{_soi_muc().SAN_MOI_MUC} tin, ĐẾM GỘP CẢ NGÀY.\n"
+                         f"{_soi_muc().SAN_MOI_MUC} tin (riêng Anh/Australia hạ tối "
+                         f"18/09/2026: {_soi_muc().SAN_RIENG_TIEU_MUC['Anh']} tin), "
+                         f"ĐẾM GỘP CẢ NGÀY.\n"
                          f"Soi: python3 scripts/soi_muc_cam.py")
         return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng "
                    + " + ".join(nhan_loi) + ".\n\n"

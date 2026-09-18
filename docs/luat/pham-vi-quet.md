@@ -595,13 +595,19 @@ là mục trong file Word, nên sàn phải áp ở đúng đơn vị ấy:
 |---|---|---|
 | 1. Đối ngoại Mỹ | 5 | chủ đề 1, nhánh có neo đối ngoại |
 | 2. Nội bộ Mỹ | 5 | chủ đề 1, phần còn lại |
-| 3a. Địa bàn › Anh | 5 | chủ đề 2, nhánh Anh |
-| 3b. Địa bàn › Australia | 5 | chủ đề 2, nhánh Úc |
+| 3a. Địa bàn › Anh | 3 | chủ đề 2, nhánh Anh — hạ từ 5 tối 18/09/2026 |
+| 3b. Địa bàn › Australia | 3 | chủ đề 2, nhánh Úc — hạ từ 5 tối 18/09/2026 |
 | 3c. Địa bàn › Biển Đông | 5 | chủ đề 2, phần còn lại |
 | 4. KHCN-QS | 5 | chủ đề 3 + diễn biến tập trận |
 
 Ranh giới mục là ranh giới của `make_docx.build_sections` — cổng đo đi bằng chính hàm đó, không chép
 lại phép chia, vì mục mà cổng đếm phải là đúng mục Huy đọc.
+
+**⬇ HẠ RIÊNG hai tiểu mục Anh/Australia — Huy chốt TỐI 18/09/2026** (cùng ngày nâng sàn chung lên
+5), nguyên văn: hạ sàn hai tiểu mục Anh và Australia từ 5 xuống 3, hai nhánh này mỏng tin hơn hẳn
+Biển Đông/Nội bộ Mỹ. Bốn mục còn lại (Đối ngoại Mỹ, Nội bộ Mỹ, Địa bàn › Biển Đông, KHCN-QS) VẪN
+GIỮ sàn chung 5, KHÔNG đụng. Khai ở `scripts/soi_muc_cam.py::SAN_RIENG_TIEU_MUC`, tra sàn qua
+`san_cho_muc(tên_mục)` chứ không dùng thẳng `SAN_MOI_MUC` cho mọi mục nữa.
 
 **Chủ đề 4 (Mỹ – Mali) và chủ đề 5 (Tập trận) KHÔNG mang sàn này, cố ý.** Từ 05/08/2026 tin Mali đã
 bỏ khỏi file Word bản tối và đi ở bản sáng 🎖️ Sự kiện & Tập trận, còn tập trận thì mục tiêu vốn là

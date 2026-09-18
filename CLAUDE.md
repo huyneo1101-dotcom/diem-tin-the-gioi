@@ -106,9 +106,11 @@ cách nhau một tháng cho cùng tỷ lệ (2,0% và 3,7%), tức lỗ này m�
 (`canary.urls_ngay`), nên phần gửi bù tính vào cùng ngày. Đếm theo **07 đơn vị của file Word**, không
 theo 05 chủ đề: Đối ngoại Mỹ · Nội bộ Mỹ · Địa bàn ›Anh · ›Australia · ›Biển Đông · KHCN-QS (Mali và
 Tập trận cố ý không mang sàn). Đếm gộp mục Địa bàn là che đúng lỗi sáng 05/09: mục đủ 02 tin mà tiểu
-mục **Anh bằng 0**. Sàn nâng kéo theo `harvest.PER_TOPIC_CAP` 20 → 36 và chỉ tiêu quét mỗi chủ đề
-(`.claude/skills/quet-tin/SKILL.md`). Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì
-đi thêm nguồn, hết nguồn thì ghi `logs/scan-gaps.json`.
+mục **Anh bằng 0**. ⬇ TỐI 18/09/2026 Huy HẠ RIÊNG hai tiểu mục Anh/Australia xuống **3** (bốn mục
+còn lại vẫn giữ 5) — khai ở `soi_muc_cam.SAN_RIENG_TIEU_MUC`, tra qua `san_cho_muc()`. Sàn nâng kéo
+theo `harvest.PER_TOPIC_CAP` 20 → 36 và chỉ tiêu quét mỗi chủ đề (`.claude/skills/quet-tin/SKILL.md`).
+Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì đi thêm nguồn, hết nguồn thì ghi
+`logs/scan-gaps.json`.
 ⛔ Đi kèm: **thứ tự in ứng viên** (`harvest.sap_ung_vien`) — sắp theo `_daykey`, tin ngày `?` xuống
 CUỐI (sắp theo chuỗi thì `?` > `2` nên chúng leo lên đầu: đo 05/09, 13/20 slot chủ đề 2), và chủ đề 2
 trộn LUÂN PHIÊN 03 nhánh Australia · Anh · Biển Đông. Không có hạn ngạch nhánh thì nhánh thưa bị dìm
@@ -205,8 +207,8 @@ tin từ thông cáo riêng của nhà thầu để có URL khác. Đừng bỏ 
 ## 🎯 BẢNG ĐỘ GẦN NGUỒN — cổng chặn tin kênh tuyên truyền đứng một mình (dựng 06/08/2026)
 
 **Dòng khai hiện hành — SỬA ĐÚNG DÒNG NÀY khi bảng đổi, đừng sửa phần nhật ký phía dưới:**
-bảng độ gần đang canh **116 hãng**, dấu vân tay `a883965d0878eeebbb5136df3f8ab81e22e48375`
-(độ gần 1: 20 · 2: 49 · 3: 41 · 4: 6).
+bảng độ gần đang canh **119 hãng**, dấu vân tay `af2bb7713a29aaeaf86fec71f124dd88af21a561`
+(độ gần 1: 20 · 2: 50 · 3: 43 · 4: 6).
 
 ⚠️ **CHỮ "ĐỘ GẦN" LÀ CỐ Ý, KHÔNG PHẢI "TẦNG".** Mục *"Nguồn theo 3 tầng"* ngay bên dưới xếp
 nguồn theo **công dụng** — ở đó tầng 3 là viện nghiên cứu, dùng để neo nhận định, tức vị trí
@@ -460,6 +462,25 @@ phí) · C-SPAN · Defence Connect · ADBR · Philippine News Agency (pna.gov.ph
 · Radio Free Asia (rfa.org) · The Maritime Executive · National Defense Magazine · Jeune Afrique (403) ·
 The Africa Report (403) · RFI (rfi.fr) · ISS Africa → dùng `WebSearch site:domain`.
 
+**Nguồn MỚI cho Đối ngoại Mỹ & Biển Đông — thêm 18/09/2026 tối** (chỉ thị Huy mở từ "tìm
+thêm nguồn Anh–Úc" sang "mục nào hay thiếu tin thì tự tìm thêm nguồn", áp cho cả 5 chủ đề).
+Verify fetch thật cùng ngày:
+| Foreign Policy | https://foreignpolicy.com/feed/ | 25 item, mới <1h |
+| Atlantic Council | https://www.atlanticcouncil.org/feed/ | 100 item, mới <1h |
+| Just Security | https://www.justsecurity.org/feed/ | 10 item, mới <1h |
+| ANTARA News — World | https://en.antaranews.com/rss/world.xml | 50 item, mới <1h |
+
+Foreign Policy/Atlantic Council/Just Security hợp **Đối ngoại Mỹ** (`la_doi_ngoai_my`,
+cần kèm US_CONTEXT — không phải mọi bài đều khớp, chỉ bài có sắc lệnh/trừng phạt/thuế
+quan/điều trần). Just Security còn hợp **Nội bộ Mỹ nhóm 1** (giám sát Quốc hội — ví dụ
+thật 18/09: *"Pay for Play?" Trump's Bosnia Moves Highlighted in U.S. House Probe*).
+ANTARA News hợp **Biển Đông** (Indonesia đã có sẵn trong `NEO_UC_BIEN_DONG`, mở rộng
+27/07). Tên khớp `du-lieu/nguon.json`: Foreign Policy/Just Security tầng 3 (phân tích),
+ANTARA News tầng 2 (hãng tin quốc gia có phóng viên) — 03 tên mới, 116→119 hãng. Domain
+đã thử KHÔNG dùng được: CFR (`cfr.org` — RSS đã bỏ, mọi URL đoán 404/308), Focus Taiwan
+(403, nghi vân tay TLS như `.mil`), Taiwan News/Taipei Times (SPA không có RSS), Bernama
+(404), Lawfare (403), `state.gov` (URL RSS đoán ra redirect về ảnh PNG, không phải feed).
+
 ### Trang CHÍNH THỨC Mỹ có RSS — verify fetch thật 27/07/2026 (đưa `docs/nguon-chinh-thuc-my.md` vào đường quét)
 Huy gửi file `trang chính thống của Mỹ.doc` (199 URL / 85 domain) và bảo kiểm xem đã có chưa. Kết quả
 đối chiếu: **199/199 URL ĐÃ có** trong `docs/nguon-chinh-thuc-my.md` từ 22/07 — nhưng đó chỉ là **danh
@@ -664,49 +685,10 @@ trong bảng, trang trả 200, mà nó không bao giờ đóng góp một ứng 
 - **Nghiệm thu một trang mới thì đếm 3 con số**, đừng dừng ở mã 200: số link qua bộ lọc đường dẫn ·
   số khớp `match_topic` · và độ dài tiêu đề lấy ra. Trang 200 mà 0 link là dòng bảng vô dụng.
 
-#### 📊 Kết quả dò TOÀN BỘ nguồn ở CẢ HAI môi trường (27/07/2026, `scripts/probe_sources.py`)
-288 URL / 154 domain, dò từ máy Mac và từ GitHub runner (Mỹ), rồi so:
-| | local (máy Huy) | CI (Mỹ) |
-|---|---|---|
-| RSS đọc được | 78 domain | 77 |
-| HTML đọc được | 39 | **58** |
-| 403 | 31 | **16** |
-
-- **114 domain cả hai đọc được** — phần lớn bảng nguồn.
-- **21 domain CHỈ CI đọc được** → local mất hẳn. Gồm **TOÀN BỘ uỷ ban THƯỢNG VIỆN** (armed-services,
-  foreign, appropriations, intelligence, judiciary, banking, finance, budget, commerce, energy, hsgac,
-  rules, agriculture, indian, jec, sbc + trang thông cáo chung) và census.gov, occ.treas.gov. Đây **đảo
-  lại** ghi chú cũ "uỷ ban Thượng viện 403, chỉ WebSearch được" — sai vì chỉ đo ở local.
-- **3 domain CHỈ local đọc được** (CI bị 403): `axios.com`, `flightglobal.com`, `rappler.com` → phiên CI
-  sẽ hụt 3 nguồn này, bù bằng Google News/local.
-- ~~**16 domain cả hai chịu**~~ → **CON SỐ NÀY SAI**, xem mục đo lại ngay dưới (danh sách cũ đã bỏ:
-  nó dựng bằng curl trần nên phóng đại 403, và 06 trang quân chủng trong đó nay đã vào bảng HTML).
-
-#### 🔄 ĐO LẠI 30/07/2026 BẰNG CÔNG CỤ ĐÃ VÁ — bảng số trên dựng bằng curl TRẦN nên phóng đại "403"
-Toàn bộ ảnh chụp 27/07 ở trên đo bằng `curl` trần, tức nó **không phân biệt được nguồn bị chặn THẬT
-với nguồn chỉ bị chặn vì công cụ đo** (Akamai/Cloudflare cắt theo dấu vân tay TLS). Sau khi
-`probe_sources.py` được vá để đi bậc 2 bằng `curl_cffi`, đo lại từ CI (run 30516868251, 287 URL):
-
-| | CI 30/07 — curl trần | CI 30/07 — có bậc 2 |
-|---|---|---|
-| RSS | 77 | **82** |
-| HTML | 173 | **195** |
-| **403** | **31** | **6** |
-| LỖI | 6 | 4 |
-
-**27 URL chỉ đọc được nhờ vân tay TLS**, trong đó có cả 06 trang quân chủng ở dòng gạch trên. `403`
-còn lại chỉ 03 domain: `commerce.gov`, `eda.gov`, `flightglobal.com`.
-⛔ **Nhóm "cả hai chịu" nay chỉ còn phần `.gov` chưa đo lại từ local** — 06 trang quân chủng đã RỜI
-nhóm này và vào bảng "🕸️ TRANG HTML QUÉT TRỰC TIẾP". Đừng đọc lại danh sách gạch ngang ở trên như
-danh sách còn hiệu lực.
-
-⚠️ **Đọc số liệu dò cẩn thận:** dò 288 URL nhiều luồng dễ bị **rate-limit tạm** (`thehill.com` trả 429,
-`thediplomat.com` trả 000 ở local dù vẫn chạy tốt). Nguồn đang dùng bỗng báo hỏng thì **kiểm lẻ một
-lần** trước khi gạch tên. Từ 30/07 script tự đo LẠI LẺ, TUẦN TỰ mọi nguồn bị chấm hỏng rồi đánh dấu
-`da_thu_2_lan` — vòng lẻ ở CI 30/07 cứu được 0/10, tức 10 nguồn đó hỏng thật.
-Dò lại về sau: `python3 scripts/probe_sources.py --json /tmp/probe-local.json` (local) và workflow
-`probe-sources.yml` (CI, ghi `docs/probe-ci.json`). **Cả hai nơi đều cần `curl_cffi`** — thiếu thì
-script vẫn chạy nhưng KÊU ra danh sách domain chưa kết luận được, đừng bỏ qua dòng đó.
+#### 📊 Kết quả dò TOÀN BỘ nguồn ở CẢ HAI môi trường — đo 27/07 và 30/07/2026, số liệu
+403/domain-chỉ-CI/chỉ-local đã dời sang [`docs/luat/van-hanh.md`](docs/luat/van-hanh.md).
+Đo lại: `scripts/probe_sources.py --json /tmp/probe-local.json` (local, cần `curl_cffi`)
+hoặc workflow `probe-sources.yml` (CI, ghi `docs/probe-ci.json`).
 
 ### RealClear — verify fetch thật 27/07/2026 (Huy chỉ định thêm)
 | Nguồn | RSS URL | Kiểm 27/07 | Hợp chủ đề |

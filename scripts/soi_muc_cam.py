@@ -24,8 +24,10 @@ HAI LỚP, CỐ Ý RỜI NHAU — đừng gộp, chúng trả lời hai câu kh�
   Mỗi mục của bản tin ĐÃ GỬI phải có tối thiểu `SAN_MOI_MUC` tin. Chỉ thị Huy 05/09/2026,
   nguyên văn: *"tối thiểu mỗi mục phải quét cho tao 2 tin"*, *"nhiều tin thì càng tốt"* —
   tức đây là SÀN, không phải chỉ tiêu; vượt sàn bao nhiêu cũng tốt, dưới sàn là hụt.
-  ⬆ 18/09/2026 Huy NÂNG sàn: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi thành
-  tối thiểu 5 tin"*. Đơn vị đếm và phép chia mục giữ nguyên, chỉ con số đổi 2 → 5.
+  ⬆ 18/09/2026 sáng Huy NÂNG sàn: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi
+  thành tối thiểu 5 tin"*. Đơn vị đếm và phép chia mục giữ nguyên, chỉ con số đổi 2 → 5.
+  ⬇ 18/09/2026 TỐI Huy HẠ RIÊNG hai tiểu mục Anh và Australia xuống 3 (xem
+  `SAN_RIENG_TIEU_MUC`) — mọi mục/tiểu mục khác vẫn giữ 5.
   Bằng chứng lấy từ `logs/da-gui-email.json` (danh sách URL của chính bản tin đã đi), không
   lấy từ `logs/scan-gaps.json`: sổ gaps do CHÍNH agent quét tự khai, mà lời tự khai thì
   không phải phép đo — cùng lớp lỗi với trường `date` mà cổng `ngay_that.py` đã phải dựng
@@ -73,8 +75,17 @@ REPO = pathlib.Path(os.environ.get("SOIMUC_REPO",
                                    pathlib.Path(__file__).resolve().parent.parent))
 
 # ⛔ SÀN DO HUY CHỐT 05/09/2026, NÂNG 2 → 5 ngày 18/09/2026 — không phải con số kỹ
-# thuật, đừng tự nới cũng đừng tự hạ.
+# thuật, đừng tự nới cũng đừng tự hạ. Áp cho MỌI mục/tiểu mục TRỪ hai tiểu mục ở
+# SAN_RIENG_TIEU_MUC ngay dưới.
 SAN_MOI_MUC = 5
+# ⛔ SÀN RIÊNG hai tiểu mục Anh/Australia — Huy chốt TỐI 18/09/2026 (cùng ngày nâng sàn
+# chung lên 5), nguyên văn chốt: hạ sàn hai tiểu mục Anh/Australia từ 5 xuống 3, hai nhánh
+# này mỏng tin hơn hẳn Biển Đông/Nội bộ Mỹ. CÁC MỤC/TIỂU MỤC KHÁC (Đối ngoại Mỹ, Nội bộ Mỹ,
+# Địa bàn › Biển Đông, KHCN-QS) VẪN GIỮ sàn chung (biến `SAN_MOI_MUC` ngay trên) — đừng hạ
+# chung, hạ nhầm là bịt
+# cổng cho đúng mục Huy không yêu cầu. Khoá là TÊN TIỂU MỤC như `dem_muc` ghép vào chuỗi
+# trả về (phần sau dấu "›"), khớp `make_docx.TM_ANH` / `TM_UC`.
+SAN_RIENG_TIEU_MUC = {"Anh": 3, "Australia": 3}
 # Dưới ngưỡng này thì "0 item đọc được ngày" không nói lên gì: một feed đang có 1-2 bài thì
 # hai bài cùng hỏng là chuyện ngẫu nhiên, kêu vào đó là kêu oan.
 NGUONG_ITEM = 3
@@ -251,13 +262,28 @@ def dem_muc(urls, data=None) -> list:
     return ra
 
 
-def keu_san(dem: list, san: int = SAN_MOI_MUC) -> list:
-    """Dòng cảnh báo cho lớp SÀN. Rỗng = mọi mục đủ sàn."""
-    hut = [(t, n) for t, n in dem if n < san]
+def san_cho_muc(ten: str) -> int:
+    """Sàn áp cho MỘT dòng (tên mục/tiểu mục) như `dem_muc` trả về.
+
+    Tiểu mục ghép dạng "{MUC_DIA_BAN} › {tên tiểu mục}" (xem `dem_muc`) — so khớp bằng
+    phần sau dấu "›" để khỏi chép lại `MUC_DIA_BAN` ở đây. Mục không tách tiểu mục (Đối
+    ngoại Mỹ, Nội bộ Mỹ, KHCN-QS) không có dấu "›" nên luôn rơi vào `SAN_MOI_MUC`.
+    """
+    hau_to = ten.rsplit("›", 1)[-1].strip() if "›" in ten else ten
+    return SAN_RIENG_TIEU_MUC.get(hau_to, SAN_MOI_MUC)
+
+
+def keu_san(dem: list) -> list:
+    """Dòng cảnh báo cho lớp SÀN. Rỗng = mọi mục đủ sàn.
+
+    Mỗi mục tự tra sàn riêng qua `san_cho_muc` — Anh/Australia = 3, còn lại = `SAN_MOI_MUC`.
+    """
+    hut = [(t, n, san_cho_muc(t)) for t, n in dem]
+    hut = [(t, n, s) for t, n, s in hut if n < s]
     if not hut:
         return []
-    return [f"📉 MỤC DƯỚI SÀN {san} TIN — {len(hut)}/{len(dem)} mục:\n  · "
-            + "\n  · ".join(f"{t}: {n} tin" for t, n in hut)]
+    return [f"📉 MỤC DƯỚI SÀN — {len(hut)}/{len(dem)} mục:\n  · "
+            + "\n  · ".join(f"{t}: {n} tin (sàn {s})" for t, n, s in hut)]
 
 
 def urls_ngay(ngay: str) -> list | None:
@@ -318,7 +344,8 @@ def main() -> int:
             dem = dem_muc(urls)
             print(f"[sàn] ngày {ngay} — {len(urls)} URL gộp của mọi lần gửi trong ngày")
             for ten, n in dem:
-                print(f"    {'✓' if n >= SAN_MOI_MUC else '✗'} {ten}: {n} tin")
+                s = san_cho_muc(ten)
+                print(f"    {'✓' if n >= s else '✗'} {ten}: {n} tin (sàn {s})")
             canh += keu_san(dem)
 
     if args.feed or ca_hai:

@@ -439,6 +439,36 @@ def ca26():
         os.environ.pop("CANARY_SO", None)
 
 
+def ca27():
+    """[SÀN RIÊNG · PHẢI CHẶN] Anh/Australia đúng 3 tin (sàn riêng) -> ĐẠT, không kêu gì cả.
+
+    Huy chốt TỐI 18/09/2026: hạ sàn hai tiểu mục này từ 5 xuống 3, bốn mục/tiểu mục còn
+    lại (Đối ngoại Mỹ, Nội bộ Mỹ, Địa bàn › Biển Đông, KHCN-QS) vẫn giữ 5.
+    """
+    dem = _dem(NOI_BO, DOI_NGOAI, KHCN, UC[:3], ANH[:3], BIEN_DONG)
+    assert S.keu_san(dem) == [], S.keu_san(dem)
+
+
+def ca28():
+    """[SÀN RIÊNG · PHẢI CHẶN] Anh/Australia chỉ 2 tin -> DƯỚI sàn riêng 3, vẫn KÊU."""
+    dem = _dem(NOI_BO, DOI_NGOAI, KHCN, UC[:2], ANH[:2], BIEN_DONG)
+    keu = S.keu_san(dem)
+    assert keu and f"{_neo(MD.TM_ANH)} 2 tin" in keu[0], keu
+    assert f"{_neo(MD.TM_UC)} 2 tin" in keu[0], keu
+
+
+def ca29():
+    """[SÀN RIÊNG · PHẢI CHẶN] mục KHÔNG nằm trong sàn riêng vẫn dùng sàn chung 5.
+
+    Nội bộ Mỹ 3 tin (dưới sàn chung 5) phải vẫn KÊU — sàn riêng 3 của Anh/Australia
+    không được lây sang mục khác.
+    """
+    dem = _dem(NOI_BO[:3], DOI_NGOAI, KHCN, UC, ANH, BIEN_DONG)
+    keu = S.keu_san(dem)
+    assert keu and "Nội bộ Mỹ: 3 tin" in keu[0], keu
+    assert not any(_neo(MD.TM_ANH) in k for k in keu), keu
+
+
 CA = [
     (1, "[SÀN] đủ tin mọi mục -> im", ca01),
     (2, "[SÀN · PHẢI CHẶN] tiểu mục Anh 1 tin -> KÊU", ca02),
@@ -466,13 +496,30 @@ CA = [
     (24, "[NGÀY · PHẢI CHẶN] hai lần gửi cộng lại vẫn thiếu -> KÊU", ca24),
     (25, "[NGÀY · PHẢI CHẶN] URL trùng giữa hai lần gửi chỉ đếm một", ca25),
     (26, "[NGÀY] bản tối qua nửa đêm thuộc hôm trước; ca sukien không tính", ca26),
+    (27, "[SÀN RIÊNG · PHẢI CHẶN] Anh/Australia 3 tin -> đạt sàn riêng, im", ca27),
+    (28, "[SÀN RIÊNG · PHẢI CHẶN] Anh/Australia 2 tin -> dưới sàn riêng, KÊU", ca28),
+    (29, "[SÀN RIÊNG · PHẢI CHẶN] mục khác không bị lây sàn riêng 3", ca29),
 ]
 
 # ═══════════════════════════ tự kiểm: bản hỏng ═══════════════════════════
 # (nhãn · file · phép thay · các ca BẮT BUỘC phải đỏ)
 BAN_HONG = [
-    ("sàn: hạ sàn về 1 tin (mục 1 tin lọt lưới)",
-     "scripts/soi_muc_cam.py", "SAN_MOI_MUC = 5", "SAN_MOI_MUC = 1", [2, 5, 6]),
+    ("sàn: hạ sàn CHUNG về 1 tin (mục 1 tin lọt lưới; Anh/Australia dùng sàn riêng nên"
+     " không đụng, xem 02 bản hỏng SAN_RIENG_TIEU_MUC ngay dưới)",
+     "scripts/soi_muc_cam.py", "SAN_MOI_MUC = 5", "SAN_MOI_MUC = 1", [5, 6, 29]),
+
+    ("sàn riêng: hạ SAN_RIENG_TIEU_MUC về 1 tin (Anh/Australia lọt lưới)",
+     "scripts/soi_muc_cam.py",
+     '''SAN_RIENG_TIEU_MUC = {"Anh": 3, "Australia": 3}''',
+     '''SAN_RIENG_TIEU_MUC = {"Anh": 1, "Australia": 1}''',
+     [2, 28]),
+
+    ("sàn riêng: gỡ hẳn san_cho_muc, Anh/Australia bị lây sàn chung 5"
+     " (kêu oan đúng ngày Huy đã hạ riêng)",
+     "scripts/soi_muc_cam.py",
+     '''    return SAN_RIENG_TIEU_MUC.get(hau_to, SAN_MOI_MUC)''',
+     '''    return SAN_MOI_MUC''',
+     [27]),
 
     ("sàn: đếm GỘP mục địa bàn, không tách tiểu mục (che đúng lỗi tin Anh)",
      "scripts/soi_muc_cam.py",
@@ -486,9 +533,9 @@ BAN_HONG = [
 
     ("sàn: keu_san luôn trả rỗng (cổng chết, cái gì cũng cho qua)",
      "scripts/soi_muc_cam.py",
-     '''    hut = [(t, n) for t, n in dem if n < san]''',
+     '''    hut = [(t, n, s) for t, n, s in hut if n < s]''',
      '''    hut = []''',
-     [2, 3, 5, 6, 18]),
+     [2, 3, 5, 6, 18, 28]),
 
     ("sàn: rào «đo không được» nới thành bỏ qua cả khi khớp MỘT PHẦN (cổng chết ngày mỏng)",
      "scripts/soi_muc_cam.py",
@@ -555,18 +602,15 @@ BAN_HONG = [
      [17]),
 
     ("ngày: quay về đếm theo TỪNG LẦN GỬI (bỏ chỉ thị «sàn theo ngày»)",
-     "scripts/soi_muc_cam.py",
-     """    lan = can.cac_lan_gui_ngay(ngay)
-    if not lan:
-        return None""",
-     """    lan = can.cac_lan_gui_ngay(ngay)
-    if not lan:
-        return None
-    lan = lan[:1]""",
+     ".github/scripts/canary.py",
+     """    ra, da_thay = [], set()
+    for lan in cac_lan_gui_ngay(ngay):""",
+     """    ra, da_thay = [], set()
+    for lan in cac_lan_gui_ngay(ngay)[:1]:""",
      [23]),
 
     ("ngày: gộp mà KHÔNG khử trùng (tin gửi hai lượt đếm hai lần)",
-     "scripts/soi_muc_cam.py",
+     ".github/scripts/canary.py",
      """            if u not in da_thay:
                 da_thay.add(u)
                 ra.append(u)""",
