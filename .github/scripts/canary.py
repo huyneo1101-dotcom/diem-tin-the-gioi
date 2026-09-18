@@ -60,7 +60,10 @@ import sys
 import zoneinfo
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
-SO = ROOT / "logs" / "da-gui-email.json"
+# Seam để bộ test bơm sổ giả (cùng mẫu với `SOIMUC_REPO`/`MUCCAM_REPO`): ca sàn-theo-ngày phải
+# dựng được nhiều lần gửi trong một ngày, mà sổ thật thì không dựng được điều kiện ấy theo ý
+# muốn. Trên CI không ai đặt biến này nên đường chạy thật không đổi.
+SO = pathlib.Path(os.environ.get("CANARY_SO") or (ROOT / "logs" / "da-gui-email.json"))
 STATE = ROOT / "logs" / "state.json"
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
 
@@ -70,8 +73,13 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from tg_api import call, kiem_cau_hinh  # noqa: E402
 
 # Ca -> (nhãn người đọc, pipeline trong state.json, ô sang/toi của pipeline đó)
+# ⛔ CA `toi` KHÔNG CÒN CRON từ 18/09/2026 — phiên quét buổi tối đã bỏ hẳn theo chỉ thị Huy
+# (*"chỉ cần gửi tin 4h sáng thôi, không phải quét và gửi buổi tối nữa đâu"*). Mã GIỮ LẠI để
+# `workflow_dispatch --ca toi` còn soi được sổ của những đêm trước 13/09, và để sổ đã gửi —
+# vốn mang 42 dòng nhãn `toi` — vẫn đọc ra được. Canh buổi tối thì không: không còn ai quét
+# thì canary sẽ kêu oan mỗi đêm, mà cảnh báo kêu oan vài lần là hết ai đọc.
 CA = {
-    "toi":    ("bản tin TỐI",       "web-scan",   "toi"),
+    "toi":    ("bản tin TỐI (đã bỏ 18/09/2026 — chỉ soi lịch sử)", "web-scan", "toi"),
     "sang":   ("bản tin SÁNG SỚM",  "web-scan",   "sang"),
     "sukien": ("Sự kiện & Tập trận", "event-scan", "sang"),
 }
@@ -123,6 +131,19 @@ def doc_json(p: pathlib.Path):
         return None
 
 
+def lan_gui_trong_so() -> list:
+    """Danh sách lần gửi trong sổ, đã kiểm dạng. Rỗng = sổ thiếu, hỏng, hoặc sai dạng.
+
+    MỘT đường đọc sổ cho cả `da_gui` lẫn `cac_lan_gui_ngay`. Hai nơi tự mở sổ riêng thì phép
+    kiểm dạng nằm hai bản, và bản hỏng của bộ test («bỏ phép kiểm dạng sổ») khớp hai chỗ nên
+    không áp được — tự kiểm mất một phép thử mà không ai thấy. Đo thật 18/09/2026.
+    """
+    so = doc_json(SO)
+    if not so or not isinstance(so.get("lan_gui"), list):
+        return []
+    return so["lan_gui"]
+
+
 def da_gui(buoi: str, ngay: str) -> dict | None:
     """Lần gửi của ca `buoi` trong ngày `ngay`, hoặc None nếu chưa có.
 
@@ -131,13 +152,56 @@ def da_gui(buoi: str, ngay: str) -> dict | None:
     27, đúng như canary đang hỏi. Hai bên dùng CHUNG một hàm quy đổi; đừng để mỗi bên tự
     tính, lệch nhau là canary kêu oan mà không ai hiểu vì sao.
     """
-    so = doc_json(SO)
-    if not so or not isinstance(so.get("lan_gui"), list):
-        return None
-    for lan in so["lan_gui"]:
+    for lan in lan_gui_trong_so():
         if lan.get("buoi") == buoi and ngay_ca_tu_iso(buoi, str(lan.get("luc", ""))) == ngay:
             return lan
     return None
+
+
+def cac_lan_gui_ngay(ngay: str) -> list:
+    """Mọi lần gửi BẢN TIN thuộc NGÀY `ngay`, theo thứ tự trong sổ. Rỗng = ngày đó chưa gửi gì.
+
+    ⛔ SÀN LÀ SÀN THEO NGÀY, KHÔNG PHẢI THEO TỪNG LẦN GỬI — chỉ thị Huy 18/09/2026, nguyên
+    văn: *"sàn 5 là sàn theo ngày nhé"*. Trước đó `canh_bao_muc_cam` đếm `lan["urls"]` của
+    đúng một lần gửi, nên một ngày phải gửi hai lần (bản chính hụt rồi gửi bù, hoặc lớp vét
+    chạy lại) thì mỗi lần đều bị đo riêng và cả hai đều dưới sàn — cổng kêu hai lần cho một
+    ngày vốn đã đủ tin khi cộng lại.
+
+    Gộp CẢ ca `toi` lẫn ca `sang`: phiên tối đã bỏ nên ngày thường chỉ còn một ca, nhưng sổ
+    lịch sử vẫn mang cả hai nhãn và một lần gửi bù buổi tối vẫn phải được cộng vào ngày của nó.
+    Ca `sukien` KHÔNG tính — email 🎖️ sự kiện là kênh khác, không mang tin của 05 chủ đề, cộng
+    vào là đếm thừa đúng những mục mà sàn đang canh.
+
+    Ngày của mỗi lần gửi quy đổi bằng `ngay_ca_tu_iso` của CHÍNH ca ấy: bản tin tối trôi qua
+    nửa đêm vẫn thuộc ca tối hôm trước. Đừng cắt `luc[:10]` cho gọn — lệch đúng nhóm tin mà
+    quy ước này sinh ra để cứu.
+    """
+    return [lan for lan in lan_gui_trong_so()
+            if str(lan.get("buoi") or "") in ("toi", "sang")
+            and ngay_ca_tu_iso(str(lan.get("buoi")), str(lan.get("luc", ""))) == ngay]
+
+
+def urls_ngay(ngay: str) -> list:
+    """URL của MỌI bản tin đã gửi trong NGÀY `ngay` — khử trùng, giữ thứ tự gửi.
+
+    ⛔ PHÉP GỘP NẰM Ở ĐÂY, KHÔNG NẰM Ở `soi_muc_cam` — và đó là chỗ đã vấp lúc dựng
+    18/09/2026. `soi_muc_cam.urls_ngay` nạp `canary.py` thành MỘT MODULE RIÊNG
+    (`_nap("canary_soi", …)`), nên `SO` mà module ấy đọc là sổ THẬT của repo, không phải sổ
+    giả mà bộ test vừa gán vào `M.SO` của module đang chạy. Đo thật: 03 ca của
+    `tests/test-canary-ban-tin.py` đang xanh chuyển sang đỏ vì canary đếm 43 URL của ngày
+    29/07 thật thay vì 12 URL trong sổ giả. Lớp sàn vì vậy gọi thẳng hàm này; bản ở
+    `soi_muc_cam` chỉ là lối vào cho CLI và trỏ ngược về đây.
+
+    Khử trùng vì hai lần gửi trong ngày chồng nhau gần hết: đếm cả bản trùng thì một mục hụt
+    tự "đủ sàn" chỉ nhờ được gửi hai lượt.
+    """
+    ra, da_thay = [], set()
+    for lan in cac_lan_gui_ngay(ngay):
+        for u in (lan.get("urls") or []):
+            if u not in da_thay:
+                da_thay.add(u)
+                ra.append(u)
+    return ra
 
 
 def trang_thai_quet(pipeline: str, o: str, ngay: str) -> tuple[bool, str]:
@@ -289,11 +353,16 @@ def _soi_muc():
     return soi_muc_cam
 
 
-def canh_bao_muc_cam(ca: str, o: str, lan: dict | None) -> list:
+def canh_bao_muc_cam(ca: str, o: str, lan: dict | None, ngay: str) -> list:
     """Dòng cảnh báo của lớp MỤC CÂM. Rỗng = không có gì để kêu.
 
     Lớp SÀN chỉ chạy khi sổ ĐÃ có dòng gửi: bản tin chưa đi thì canary đã kêu ở lớp một rồi,
     kêu thêm "mọi mục 0 tin" là hai tin nhắn cho cùng một sự cố.
+
+    ⛔ `ngay` BẮT BUỘC, không có mặc định — sàn đếm theo NGÀY (chỉ thị Huy 18/09/2026), tức
+    cộng URL của mọi lần gửi trong ngày rồi mới so sàn. Cho `ngay` một giá trị mặc định thì
+    chỗ gọi nào quên truyền sẽ lặng lẽ quay về đếm theo từng lần gửi — cổng vẫn xanh mà đo
+    sai, tức fail về phía IM.
     Lớp NGUỒN gọi mạng ~40 giây nên chỉ chạy ca `sang`, một lượt mỗi ngày — feed hỏng cách
     hôm nay vài giờ hay vài chục giờ thì cũng cùng một việc phải làm, không đáng ba lượt.
     """
@@ -307,8 +376,11 @@ def canh_bao_muc_cam(ca: str, o: str, lan: dict | None) -> list:
         return []
     if lan is not None:
         try:
-            dem = S.dem_muc(lan.get("urls") or [])
-            print("[canary] sàn mục: "
+            # Gộp cả ngày. Sổ không cho gộp được gì thì lùi về URL của chính lần gửi này —
+            # đo hẹp còn hơn tắt lớp đo.
+            urls = urls_ngay(ngay) or (lan.get("urls") or [])
+            dem = S.dem_muc(urls)
+            print(f"[canary] sàn mục (gộp {len(urls)} URL của cả ngày {ngay}): "
                   + " · ".join(f"{t.split('› ')[-1]}={n}" for t, n in dem))
             ra += S.keu_san(dem)
         except Exception as e:                                         # noqa: BLE001
@@ -317,7 +389,13 @@ def canh_bao_muc_cam(ca: str, o: str, lan: dict | None) -> list:
         ra += S.khai_gan_cung_tuot()
     except Exception as e:                                             # noqa: BLE001
         print(f"[canary] lớp gán cứng hỏng ({e}) — bỏ qua", file=sys.stderr)
-    if ca == "sang":
+    # CANARY_BO_SOI_FEED=1 tắt RIÊNG lớp nguồn — lớp DUY NHẤT gọi mạng (88 feed, ~40 giây).
+    # Khác `CANARY_BO_SOI_MUC` vốn tắt sạch cả ba lớp. Dựng 18/09/2026 để ca "phải IM" của
+    # `tests/test-canary-ban-tin.py` chạy được offline: ca ấy canh nhánh SAI GIỜ có kêu oan
+    # không, mà nó lại đi tải 88 nguồn thật rồi đỏ vì "NGUỒN CÂM CHỦ ĐỀ" của hôm chạy test —
+    # một ca đỏ vì lý do chẳng liên quan gì tới thứ nó khẳng định. Tắt cả lớp mục câm thì ca
+    # mất luôn phần canh lớp SÀN, nên seam phải hẹp đúng một lớp.
+    if ca == "sang" and os.environ.get("CANARY_BO_SOI_FEED") != "1":
         try:
             kq = S.soi_feed()
             print(f"[canary] soi {len(kq)} feed "
@@ -410,7 +488,7 @@ def main() -> int:
         print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get('luc')} "
               f"({len(lan.get('urls') or [])} tin).")
         # Bản tin tới nơi CHƯA CÓ NGHĨA LÀ ĐỦ — soi tiếp từng mục (xem `canh_bao_muc_cam`).
-        canh = canh_bao_muc_cam(args.ca, o, lan)
+        canh = canh_bao_muc_cam(args.ca, o, lan, ngay)
         for c in canh:
             print(f"::warning::canary mục câm: {c.splitlines()[0]}")
         if not sai_gio and not canh:
@@ -426,8 +504,8 @@ def main() -> int:
         if canh:
             nhan_loi.append("CÓ MỤC HỤT")
             phan.append("CÓ MỤC HỤT.\n\n" + "\n\n".join(canh)
-                       + f"\n\nSàn Huy chốt 05/09/2026: mỗi mục tối thiểu "
-                         f"{_soi_muc().SAN_MOI_MUC} tin.\n"
+                       + f"\n\nSàn Huy chốt 05/09/2026, nâng 18/09/2026: mỗi mục tối thiểu "
+                         f"{_soi_muc().SAN_MOI_MUC} tin, ĐẾM GỘP CẢ NGÀY.\n"
                          f"Soi: python3 scripts/soi_muc_cam.py")
         return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng "
                    + " + ".join(nhan_loi) + ".\n\n"
@@ -440,8 +518,10 @@ def main() -> int:
     else:
         khau = "Phiên quét CHƯA xong — hỏng ở khâu QUÉT."
 
-    moc = ("CI 21:00 · local 21:15 · vét CI 22:00" if args.ca == "toi"
-           else "CI 04:00 · local 04:30 · CI 05:00 · local 05:30")
+    # Trình tự lớp thật nằm ở docs/LICH.md — chép số ra đây là thứ đã mục một lần rồi
+    # (xem đầu docs/LICH.md). Ca `toi` không còn mốc nào: phiên tối bỏ hẳn 18/09/2026.
+    moc = ("(ca tối đã bỏ 18/09/2026 — không còn mốc nào)" if args.ca == "toi"
+           else "local 04:00 · local 04:05 · CI 03:47/04:47 · local 04:35/04:40")
     text = (f"⚠️ {gio_vn} {ngay_vn} — CHƯA có {nhan}.\n\n"
             f"{khau}\nMọi mốc đã qua: {moc}\n\n"
             f"{mota}\n\n"

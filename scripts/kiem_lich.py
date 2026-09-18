@@ -51,27 +51,29 @@ END = "<!-- LICH:END -->"
 # (`claude -p --model sonnet`), và tới 18/08/2026 `list_scheduled_tasks` trả về RỖNG —
 # không còn task nào trong app. Bảng cũ khai `web-scan-diem-tin` cron `30 4,5` (04:30 · 05:30)
 # là số đã chết: plist thật khai 04:30 VÀ 04:45, không có mốc 05:30 nào.
-# Đo lại bằng: grep -A14 StartCalendarInterval ~/Library/LaunchAgents/com.huy.routine-diemtin-*.plist
+# ⛔ SỬA 18/09/2026 — PHIÊN TỐI BỎ HẲN (chỉ thị Huy). Ba mục tối rời bảng này:
+# `com.huy.routine-diemtin-toi` và `com.huy.diemtin-giu-thuc-toi` (plist đã dời vào
+# `~/Library/LaunchAgents/_tat-hd-va-diemtin-toi/` từ trước), cùng ba mốc tối của
+# `com.huy.diemtin-kich-ci` và mốc 21:35 của `com.huy.diemtin-kiem-ci`.
+# Đo lại bằng: grep -A14 StartCalendarInterval ~/Library/LaunchAgents/com.huy.diemtin-*.plist
 LOCAL_KHAI_TAY = [
     ("com.huy.routine-diemtin-sang", "5,35 4 * * *", "04:05 · 04:35", "bật",
      "dự phòng bản tin SÁNG SỚM + event-scan (Bước 4) — LaunchAgent headless sonnet; "
      "dời từ 04:30·04:45 ngày 31/08/2026 vì HẠN CHÓT tới tay là 04:30 (state.py::HAN_CHOT)"),
-    ("com.huy.routine-diemtin-toi", "15 21 * * *", "21:15", "bật",
-     "dự phòng bản tin TỐI — lớp CUỐI còn kịp hạn email 22:00 — LaunchAgent headless sonnet"),
     ("com.huy.diemtin-giu-thuc-som", "40 3 * * *", "03:40", "bật",
      "caffeinate 90' giữ máy thức cho các mốc local sáng — CẶP với `pmset repeat` 03:40. "
      "Bảng này từng khai 03:41 trong khi plist thật khai 03:40; đo lại 31/08/2026, sửa theo plist"),
     ("com.huy.diemtin-giu-thuc", "26 4 * * *", "04:26", "bật (lưới 2)",
      "caffeinate 90' — mốc cũ cặp với pmset 04:25 đã đổi, giữ làm lưới thứ hai"),
-    ("com.huy.diemtin-giu-thuc-toi", "40 20 * * *", "20:40", "bật",
-     "caffeinate 90' giữ máy thức cho mốc local tối 21:15"),
-    ("com.huy.diemtin-kich-ci", "45 20 * * * | 0 21 * * * | 0 22 * * * | 45 3 * * * | "
-     "0 4 * * * | 40 4 * * *", "20:45 · 21:00 · 22:00 · 03:45 · 04:00 · 04:40", "bật",
+    ("com.huy.diemtin-kich-ci", "45 3 * * * | 0 4 * * * | 40 4 * * *",
+     "03:45 · 04:00 · 04:40", "bật",
      "kích workflow CI ĐÚNG GIỜ từ máy Mac (cron GitHub trễ 2-4h); ba mốc sáng dời từ "
-     "04:30 ngày 31/08/2026 để bản tin kịp HẠN CHÓT 04:30 — bảng mốc thật ở kich_ci.py::LICH"),
-    ("com.huy.diemtin-kiem-ci", "35 21 * * * | 15 4 * * *", "21:35 · 04:15", "bật",
+     "04:30 ngày 31/08/2026 để bản tin kịp HẠN CHÓT — bảng mốc thật ở kich_ci.py::LICH. "
+     "Ba mốc TỐI (20:45 · 21:00 · 22:00) gỡ 18/09/2026 cùng phiên tối"),
+    ("com.huy.diemtin-kiem-ci", "15 4 * * *", "04:15", "bật",
      "kiểm chéo `kich_ci.py --kiem`: chưa có bản tin thì bấm lại. Mốc sáng kéo từ 05:15 về "
-     "04:15 ngày 31/08/2026 để còn cứu được TRONG hạn 04:30, không chỉ cứu khỏi mất hẳn"),
+     "04:15 ngày 31/08/2026 để còn cứu được TRONG hạn, không chỉ cứu khỏi mất hẳn. Mốc tối "
+     "21:35 gỡ 18/09/2026 cùng phiên tối"),
 ]
 # LaunchAgent KHÔNG có jitter như scheduled task của app — nổ đúng giờ MIỄN LÀ máy đang thức.
 # Máy ngủ thì launchd nổ MUỘN lúc máy tình cờ thức (đo 18/08: mốc 04:30 nổ 04:40:12) — đó là
@@ -179,9 +181,38 @@ def do_c_nhac_moc_khac():
     return loi
 
 
+# D — ĐƯỜNG QUÉT KHÔNG ĐƯỢC CÓ MỐC NÀO TRONG KHUNG TỐI.
+# Phiên quét buổi tối bỏ hẳn 18/09/2026 theo chỉ thị Huy (*"chỉ cần gửi tin 4h sáng thôi,
+# không phải quét và gửi buổi tối nữa đâu"*). Cắm lại một mốc tối là quay lại đúng thứ Huy
+# vừa bỏ, mà không phép đo nào cũ bắt được: A/B/C chỉ hỏi số giờ có KHỚP NHAU không, không
+# hỏi mốc ấy có ĐƯỢC PHÉP TỒN TẠI không. Tài liệu repo còn đầy chỗ mô tả phiên tối như việc
+# đang chạy, nên phiên sau đọc rồi "khôi phục cho đủ lớp" là đường vấp thấy trước được.
+# Khung 19:00–23:59 VN: rộng hơn hai mốc cũ (20:47 · 21:47) để mọi biến thể dời giờ đều dính.
+KHUNG_TOI_VN = (19 * 60, 23 * 60 + 59)
+FILE_DUONG_QUET = ("claude-web-scan.yml", "harvest-ci.yml")
+
+
+def do_d_khong_moc_toi():
+    """D — `claude-web-scan.yml`/`harvest-ci.yml` không được có cron nào trong khung tối."""
+    dau, cuoi = KHUNG_TOI_VN
+    loi = []
+    for ten, cron, _ghi, dong in doc_cron_workflow():
+        if ten not in FILE_DUONG_QUET:
+            continue
+        for g in (_gio_vn(cron) or []):
+            phut = int(g[:2]) * 60 + int(g[3:])
+            if dau <= phut <= cuoi:
+                loi.append(f"{ten}:{dong} — cron '{cron}' là {g} giờ VN, nằm trong khung TỐI "
+                           f"{dau // 60:02d}:00-{cuoi // 60:02d}:{cuoi % 60:02d}. Phiên quét "
+                           f"buổi tối đã BỎ HẲN 18/09/2026 (chỉ thị Huy) — xem đầu "
+                           f"docs/LICH.md trước khi cắm lại")
+    return loi
+
+
 PHEP_DO = [("A · chú thích giờ VN khớp cron cùng dòng", do_a_chu_thich_khop_cron),
            ("B · bảng docs/LICH.md khớp cron thật", do_b_bang_khop),
-           ("C · chú thích nhắc mốc CI bằng số còn sống", do_c_nhac_moc_khac)]
+           ("C · chú thích nhắc mốc CI bằng số còn sống", do_c_nhac_moc_khac),
+           ("D · đường quét không còn mốc nào trong khung tối", do_d_khong_moc_toi)]
 
 
 def kiem() -> int:
@@ -233,7 +264,9 @@ def tu_kiem() -> int:
         ("chú thích nhắc mốc CI đã chết",
          "wf", "- cron: '45 15 * * *'   # 22:45 VN — sau lớp vét TỐI (CI 21:00)", "C"),
         ("bảng LICH.md không khớp cron",
-         "md", "| `claude-web-scan.yml` | `47 13 * * *` | 09:99 |", "B"),
+         "md", "| `claude-web-scan.yml` | `47 20 * * *` | 09:99 |", "B"),
+        ("cắm lại mốc TỐI vào đường quét (thứ Huy vừa bỏ 18/09/2026)",
+         "scan", "    - cron: '47 13 * * *'   # 20:47 VN — bản tin TỐI\n", "D"),
     ]
     hong = 0
     for mo_ta, loai, noi_dung, can_keu in ca:
@@ -242,8 +275,11 @@ def tu_kiem() -> int:
             wf = tmp / "workflows"
             wf.mkdir()
             # nền hợp lệ: một mốc web-scan thật + bảng khớp
+            # Nền hợp lệ phải là mốc SÁNG: phép đo D kêu ở mọi mốc tối, nền tối thì D kêu
+            # trong CẢ BA ca kia và bị tính là kêu oan.
             (wf / "claude-web-scan.yml").write_text(
-                "on:\n  schedule:\n    - cron: '47 13 * * *'   # 20:47 VN — TOI\n",
+                "on:\n  schedule:\n    - cron: '47 20 * * *'   # 03:47 VN — SANG\n"
+                + (noi_dung if loai == "scan" else ""),
                 encoding="utf-8")
             globals()["WF_DIR"] = wf
             globals()["LICH_MD"] = tmp / "LICH.md"
@@ -253,7 +289,7 @@ def tu_kiem() -> int:
             io_im(sinh)             # dựng bảng LICH.md khớp nền hợp lệ
             if loai == "md":
                 t = globals()["LICH_MD"].read_text(encoding="utf-8")
-                moi = t.replace("| `claude-web-scan.yml` | `47 13 * * *` | 20:47 |", noi_dung)
+                moi = t.replace("| `claude-web-scan.yml` | `47 20 * * *` | 03:47 |", noi_dung)
                 if moi == t:
                     print("        │ KHÔNG áp được phép thay vào bảng — neo lại chuỗi")
                 globals()["LICH_MD"].write_text(moi, encoding="utf-8")

@@ -197,8 +197,19 @@ def _():
 
 @ca('6c. Chống kêu oan: bản tin sáng gửi 04:18 (kịp hạn 04:45) → phải IM')
 def _():
-    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:18:00+07:00"),
-                   state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
+    # ⚠ TẮT RIÊNG LỚP NGUỒN, KHÔNG TẮT CẢ LỚP MỤC CÂM (vá 18/09/2026, ca này đỏ từ trước đó).
+    # Lớp nguồn là lớp DUY NHẤT gọi mạng: nó tải 88 feed thật rồi kêu "NGUỒN CÂM CHỦ ĐỀ" theo
+    # tình hình feed của đúng hôm chạy test — ca đỏ vì một lý do chẳng liên quan gì tới thứ nó
+    # khẳng định (nhánh SAI GIỜ có kêu oan không), và đỏ hay xanh tuỳ ngày. Dùng
+    # `CANARY_BO_SOI_MUC` thì tắt sạch cả lớp SÀN, tức ca mất luôn phần canh còn lại; vì vậy
+    # canary có seam hẹp riêng cho lớp nguồn. Lớp sàn vẫn chạy thật ở đây: 12 URL giả không
+    # có trong kho nên `dem_muc` trả rỗng và im — đúng rào "đo không được thì im".
+    os.environ["CANARY_BO_SOI_FEED"] = "1"
+    try:
+        ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:18:00+07:00"),
+                       state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
+    finally:
+        os.environ.pop("CANARY_BO_SOI_FEED", None)
     return im(out) and ma == 0, out
 
 
@@ -225,7 +236,7 @@ def _():
     # hẳn tin "Đối ngoại Mỹ" (mục câm thật). Canary cũ `return` ngay khi thấy SAI GIỜ nên
     # không bao giờ chạy tới `canh_bao_muc_cam` — Huy phải tự đọc bản tin mới phát hiện.
     def gia_muc_cam(M):
-        M.canh_bao_muc_cam = lambda ca, o, lan: (
+        M.canh_bao_muc_cam = lambda ca, o, lan, ngay: (
             ["📉 MỤC DƯỚI SÀN 5 TIN — 1/6 mục:\n  · Đối ngoại Mỹ: 0 tin"])
     ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
                    state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15",

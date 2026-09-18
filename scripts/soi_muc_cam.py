@@ -260,6 +260,27 @@ def keu_san(dem: list, san: int = SAN_MOI_MUC) -> list:
             + "\n  · ".join(f"{t}: {n} tin" for t, n in hut)]
 
 
+def urls_ngay(ngay: str) -> list | None:
+    """URL của MỌI bản tin đã gửi trong NGÀY `ngay` — khử trùng, giữ thứ tự gửi.
+    None nếu sổ chưa có lần gửi bản tin nào của ngày đó.
+
+    ⛔ SÀN ĐẾM THEO NGÀY, KHÔNG THEO TỪNG LẦN GỬI (chỉ thị Huy 18/09/2026: *"sàn 5 là sàn
+    theo ngày nhé"*). Ngày nào phải gửi bù — bản chính hụt rồi gửi thêm, hoặc lớp vét chạy
+    lại — thì đo từng lần là đo hai bản tin nửa vời của cùng một ngày, và cổng kêu cả hai
+    lần dù cộng lại đã đủ.
+
+    Khử trùng vì hai lần gửi trong ngày chồng nhau gần hết: đếm cả bản trùng thì một mục
+    hụt tự "đủ sàn" chỉ nhờ được gửi hai lượt — cổng mất răng đúng theo hướng nguy hiểm.
+
+    ⛔ CHỈ LÀ LỐI VÀO CHO CLI — bản gốc của phép gộp nằm ở `canary.urls_ngay`, và lớp sàn
+    của canary gọi thẳng bản ấy chứ không đi vòng qua đây. Lý do ở docstring bên đó: nạp
+    `canary.py` thành module riêng thì nó đọc sổ THẬT, nuốt mất sổ giả mà bộ test vừa gán.
+    Chép lại phép gộp sang đây là để hai bên tính lệch nhau trong im lặng.
+    """
+    can = _nap("canary_soi", REPO / ".github" / "scripts" / "canary.py")
+    return can.urls_ngay(ngay) or None
+
+
 def urls_ban_tin(buoi: str, ngay: str) -> list | None:
     """URL của bản tin ca `buoi` ngày `ngay` theo sổ đã gửi; None nếu sổ chưa có dòng nào.
 
@@ -276,7 +297,9 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Soi mục câm của Điểm Tin")
     ap.add_argument("--san", action="store_true", help="chỉ đo lớp SÀN (đầu ra)")
     ap.add_argument("--feed", action="store_true", help="chỉ đo lớp NGUỒN (gọi mạng)")
-    ap.add_argument("--buoi", default="toi", choices=["toi", "sang"])
+    ap.add_argument("--buoi", default="sang", choices=["toi", "sang"],
+                    help="chỉ dùng để dò NGÀY của lần gửi cuối khi không truyền --ngay; "
+                         "phép đếm luôn GỘP CẢ NGÀY, mọi ca")
     ap.add_argument("--ngay", default="", help="YYYY-MM-DD; mặc định lấy lần gửi cuối của ca")
     args = ap.parse_args()
     ca_hai = not (args.san or args.feed)
@@ -288,12 +311,12 @@ def main() -> int:
             so = json.loads((REPO / "logs" / "da-gui-email.json").read_text(encoding="utf-8"))
             lan = [l for l in so.get("lan_gui", []) if l.get("buoi") == args.buoi]
             ngay = (lan[-1]["luc"][:10] if lan else "")
-        urls = urls_ban_tin(args.buoi, ngay) if ngay else None
+        urls = urls_ngay(ngay) if ngay else None
         if urls is None:
-            print(f"[sàn] sổ chưa có dòng ca «{args.buoi}» ngày {ngay or '?'} — bỏ qua")
+            print(f"[sàn] sổ chưa có lần gửi nào ngày {ngay or '?'} — bỏ qua")
         else:
             dem = dem_muc(urls)
-            print(f"[sàn] bản tin ca «{args.buoi}» {ngay} — {len(urls)} URL trong sổ")
+            print(f"[sàn] ngày {ngay} — {len(urls)} URL gộp của mọi lần gửi trong ngày")
             for ten, n in dem:
                 print(f"    {'✓' if n >= SAN_MOI_MUC else '✗'} {ten}: {n} tin")
             canh += keu_san(dem)

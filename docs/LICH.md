@@ -14,11 +14,22 @@ thật**; sửa cron thì không có gì bắt phải sửa những chỗ chép 
 nghĩa mà là **phiên sau tính biên thời gian theo mốc đã chết** — đúng lỗi đã khiến mốc canary
 `sukien` phải dời hai lần.
 
+⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026** — chỉ thị Huy, nguyên văn: *"chỉ cần gửi tin 4h sáng thôi,
+không phải quét và gửi buổi tối nữa đâu"*. Gỡ cùng lượt: 02 cron tối của `claude-web-scan.yml`
+(20:47 · 21:47) · 02 cron tối của `harvest-ci.yml` (20:32 · 21:32) · cron canary ca `toi`
+(22:45) · 03 mốc tối trong `kich_ci.py::LICH`. Đo trước khi gỡ: sổ `logs/da-gui-email.json`
+không có dòng `[toi]` nào từ 13/09 tới 18/09 — bản tối đã tự chết im 06 đêm liền.
+Phần LOCAL của phiên tối đã tắt từ trước: `com.huy.routine-diemtin-toi.plist` và
+`com.huy.diemtin-giu-thuc-toi.plist` nằm trong `~/Library/LaunchAgents/_tat-hd-va-diemtin-toi/`,
+còn plist `diemtin-kich-ci`/`diemtin-kiem-ci` đo 18/09 cũng chỉ còn mốc sáng — bảng khai tay
+dưới đây đã mục theo và được sửa lại cùng lượt.
+⛔ **ĐỪNG CẮM LẠI MỐC TỐI KHI THẤY BẢN SÁNG MỎNG** — đó là việc của SÀN và KHUNG NGÀY
+(`scripts/soi_muc_cam.py::SAN_MOI_MUC`), không phải việc của lịch.
+
 ## Trình tự các lớp (đọc theo hàng, đây là thứ hay bị tính sai biên)
 
 | Phiên | Lớp 1 (CI) | Lớp 2 (local) | Lớp 3 (CI) | Lớp 4 (local) | Hạn chót |
 |---|---|---|---|---|---|
-| **TỐI** | 20:47 | **21:15** ← lớp cuối còn kịp hạn | 21:47 = lớp VÉT (đã trễ hạn) | — | email **22:00** |
 | **SÁNG SỚM** | local 04:00 ← lớp CHÍNH | **local 04:05** ← lớp cuối còn kịp hạn | CI 03:47/04:47 (trễ 2-4h, lưới) | local 04:35/04:40 = lớp VÉT (đã trễ hạn) | tới tay **04:45** |
 
 ⛔ **HẠN CHÓT CA SÁNG LÀ 04:45 — Huy chốt 31/08/2026 ở mốc 04:30**, nguyên văn *"tin buổi sáng
@@ -28,8 +39,8 @@ Mốc kích chính vẫn giữ **04:00** (không đổi theo hạn) — quét đ
 biên. Đừng nới hạn cho vừa lịch; muốn đổi lịch thì đổi mốc kích, không đổi hạn.
 
 `harvest-ci.yml` chạy **trước mỗi mốc CI ~15 phút** để lô ứng viên còn tươi (`harvest.py` bỏ lô
-quá 4 tiếng). Canary chạy **sau lớp cuối**, không phải sau hạn chót: ca `toi` 22:45 (lớp vét
-21:47 + quét ~20' ⇒ gửi ~22:10) · ca `sang` 06:15 · ca `sukien` 07:00.
+quá 4 tiếng). Canary chạy **sau lớp cuối**, không phải sau hạn chót: ca `sang` 06:15 ·
+ca `sukien` 07:00. Ca `toi` còn chạy tay được (`workflow_dispatch`) để soi lịch sử, không còn cron.
 
 ⚠️ **Lịch mốc LOCAL không đo được tự động** — nó nằm trong plist LaunchAgent chứ không nằm cạnh
 workflow. Phần local trong bảng dưới là **khai tay** trong `LOCAL_KHAI_TAY` của
@@ -53,15 +64,10 @@ pmset đánh thức. **Đổi `pmset repeat` thì phải đổi giờ job đó t
 <!-- LICH:BEGIN — sinh bằng scripts/kiem_lich.py --sinh, ĐỪNG sửa tay -->
 | Workflow CI | cron (UTC) | Giờ VN |
 |---|---|---|
-| `canary.yml` | `45 15 * * *` | 22:45 |
 | `canary.yml` | `15 23 * * *` | 06:15 |
 | `canary.yml` | `0 0 * * *` | 07:00 |
-| `claude-web-scan.yml` | `47 13 * * *` | 20:47 |
-| `claude-web-scan.yml` | `47 14 * * *` | 21:47 |
 | `claude-web-scan.yml` | `47 20 * * *` | 03:47 |
 | `claude-web-scan.yml` | `47 21 * * *` | 04:47 |
-| `harvest-ci.yml` | `32 13 * * *` | 20:32 |
-| `harvest-ci.yml` | `32 14 * * *` | 21:32 |
 | `harvest-ci.yml` | `32 20 * * *` | 03:32 |
 | `harvest-ci.yml` | `32 21 * * *` | 04:32 |
 | `sync-baomoi.yml` | `28 0,12 * * *` | 07:28 · 19:28 |
@@ -71,10 +77,8 @@ pmset đánh thức. **Đổi `pmset repeat` thì phải đổi giờ job đó t
 | Task LOCAL (khai tay — xem docstring `kiem_lich.py`) | cron | Giờ VN | Trạng thái | Việc |
 |---|---|---|---|---|
 | `com.huy.routine-diemtin-sang` | `5,35 4 * * *` | 04:05 · 04:35 | bật | dự phòng bản tin SÁNG SỚM + event-scan (Bước 4) — LaunchAgent headless sonnet; dời từ 04:30·04:45 ngày 31/08/2026 vì HẠN CHÓT tới tay là 04:30 (state.py::HAN_CHOT) |
-| `com.huy.routine-diemtin-toi` | `15 21 * * *` | 21:15 | bật | dự phòng bản tin TỐI — lớp CUỐI còn kịp hạn email 22:00 — LaunchAgent headless sonnet |
 | `com.huy.diemtin-giu-thuc-som` | `40 3 * * *` | 03:40 | bật | caffeinate 90' giữ máy thức cho các mốc local sáng — CẶP với `pmset repeat` 03:40. Bảng này từng khai 03:41 trong khi plist thật khai 03:40; đo lại 31/08/2026, sửa theo plist |
 | `com.huy.diemtin-giu-thuc` | `26 4 * * *` | 04:26 | bật (lưới 2) | caffeinate 90' — mốc cũ cặp với pmset 04:25 đã đổi, giữ làm lưới thứ hai |
-| `com.huy.diemtin-giu-thuc-toi` | `40 20 * * *` | 20:40 | bật | caffeinate 90' giữ máy thức cho mốc local tối 21:15 |
-| `com.huy.diemtin-kich-ci` | `45 20 * * * | 0 21 * * * | 0 22 * * * | 45 3 * * * | 0 4 * * * | 40 4 * * *` | 20:45 · 21:00 · 22:00 · 03:45 · 04:00 · 04:40 | bật | kích workflow CI ĐÚNG GIỜ từ máy Mac (cron GitHub trễ 2-4h); ba mốc sáng dời từ 04:30 ngày 31/08/2026 để bản tin kịp HẠN CHÓT 04:30 — bảng mốc thật ở kich_ci.py::LICH |
-| `com.huy.diemtin-kiem-ci` | `35 21 * * * | 15 4 * * *` | 21:35 · 04:15 | bật | kiểm chéo `kich_ci.py --kiem`: chưa có bản tin thì bấm lại. Mốc sáng kéo từ 05:15 về 04:15 ngày 31/08/2026 để còn cứu được TRONG hạn 04:30, không chỉ cứu khỏi mất hẳn |
+| `com.huy.diemtin-kich-ci` | `45 3 * * * | 0 4 * * * | 40 4 * * *` | 03:45 · 04:00 · 04:40 | bật | kích workflow CI ĐÚNG GIỜ từ máy Mac (cron GitHub trễ 2-4h); ba mốc sáng dời từ 04:30 ngày 31/08/2026 để bản tin kịp HẠN CHÓT — bảng mốc thật ở kich_ci.py::LICH. Ba mốc TỐI (20:45 · 21:00 · 22:00) gỡ 18/09/2026 cùng phiên tối |
+| `com.huy.diemtin-kiem-ci` | `15 4 * * *` | 04:15 | bật | kiểm chéo `kich_ci.py --kiem`: chưa có bản tin thì bấm lại. Mốc sáng kéo từ 05:15 về 04:15 ngày 31/08/2026 để còn cứu được TRONG hạn, không chỉ cứu khỏi mất hẳn. Mốc tối 21:35 gỡ 18/09/2026 cùng phiên tối |
 <!-- LICH:END -->

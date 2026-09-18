@@ -108,10 +108,13 @@ def cho_mang_ve(log_fn) -> bool:
 # 16-21 phút, cộng jitter launchd 2-4 phút ⇒ lớp cuối còn kịp hạn phải kích 04:00.
 # Máy thức lúc 03:40 (pmset wakepoweron) và job giữ thức nổ cùng mốc đó, nên 03:35 là
 # sớm nhất còn an toàn cho harvest.
+# ⛔ BA MỐC TỐI (20:45 harvest · 21:00 quét · 22:00 vét) GỠ 18/09/2026 cùng phiên tối —
+# chỉ thị Huy: *"chỉ cần gửi tin 4h sáng thôi, không phải quét và gửi buổi tối nữa đâu"*.
+# Gỡ ở đây CHƯA ĐỦ: lịch nổ của LaunchAgent nằm trong `~/Library/LaunchAgents/
+# com.huy.diemtin-kich-ci.plist`, phải gỡ `StartCalendarInterval` tương ứng rồi
+# `launchctl bootout/bootstrap` lại, nếu không job vẫn nổ đúng giờ tối và chỉ thấy
+# "không có mốc nào" — tốn một lần đánh thức máy mỗi đêm mà không làm gì.
 LICH = {
-    (20, 45): ["harvest-ci.yml"],
-    (21, 0): ["claude-web-scan.yml"],
-    (22, 0): ["claude-web-scan.yml"],          # lớp vét
     (3, 45): ["harvest-ci.yml"],               # gom ứng viên trước mốc quét sáng
     (4, 0): ["claude-web-scan.yml"],           # mốc CHÍNH ca sáng — xong ~04:20, kịp hạn 04:45
     (4, 40): ["claude-web-scan.yml"],          # lớp VÉT, đã trễ hạn nhưng còn hơn mất bản tin

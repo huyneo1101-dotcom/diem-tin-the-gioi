@@ -302,7 +302,9 @@ def ca18():
     md = _nap("make_docx_e2e", REPO / ".github" / "scripts" / "make_docx.py")
     data = md.extract_data((REPO / "index.html").read_text(encoding="utf-8"))
     mot = next(it["sourceUrl"] for it in data["usNews"] if it.get("sourceUrl"))
-    keu = can.canh_bao_muc_cam("toi", "toi", {"urls": [mot]})
+    # `ngay` là ngày KHÔNG có trong sổ: `urls_ngay` trả None nên canary lùi về URL của chính
+    # lần gửi này. Ca vì thế tất định, và tiện thể canh luôn nhánh lùi ấy còn sống.
+    keu = can.canh_bao_muc_cam("toi", "toi", {"urls": [mot]}, "1999-01-01")
     assert any("DƯỚI SÀN" in k for k in keu), keu
 
 
@@ -311,7 +313,7 @@ def ca19():
     can = _nap("canary_test2", REPO / ".github" / "scripts" / "canary.py")
     os.environ["CANARY_BO_SOI_MUC"] = "1"
     try:
-        assert can.canh_bao_muc_cam("sang", "sang", {"urls": []}) == []
+        assert can.canh_bao_muc_cam("sang", "sang", {"urls": []}, "1999-01-01") == []
     finally:
         os.environ.pop("CANARY_BO_SOI_MUC", None)
 
@@ -323,7 +325,8 @@ def ca20():
     cho cùng một sự cố.
     """
     can = _nap("canary_test3", REPO / ".github" / "scripts" / "canary.py")
-    assert not any("DƯỚI SÀN" in k for k in can.canh_bao_muc_cam("toi", "toi", None))
+    assert not any("DƯỚI SÀN" in k for k in
+               can.canh_bao_muc_cam("toi", "toi", None, "1999-01-01"))
 
 
 def ca21():
@@ -350,6 +353,92 @@ def ca22():
     assert S.keu_san(dem), "mọi mục dưới sàn mà cổng im"
 
 
+# ── sàn theo NGÀY (chỉ thị Huy 18/09/2026: *"sàn 5 là sàn theo ngày nhé"*) ──────────────
+def _so_gia(*lan) -> pathlib.Path:
+    """Ghi một sổ đã gửi giả ra file tạm rồi trỏ `CANARY_SO` vào đó. Trả đường dẫn."""
+    import json as _j
+    d = pathlib.Path(tempfile.mkdtemp(prefix=f"sogia-{os.getpid()}-"))
+    f = d / "da-gui-email.json"
+    f.write_text(_j.dumps({"lan_gui": list(lan)}, ensure_ascii=False), encoding="utf-8")
+    os.environ["CANARY_SO"] = str(f)
+    return f
+
+
+def _lan(buoi, luc, urls):
+    return {"buoi": buoi, "luc": luc, "urls": list(urls)}
+
+
+def ca23():
+    """[NGÀY · PHẢI CHẶN] hai lần gửi, mỗi lần dưới sàn, CỘNG LẠI đủ -> phải IM.
+
+    Đây là chính điều Huy chốt: sàn là sàn của NGÀY. Đếm theo từng lần gửi thì ngày phải gửi
+    bù bị kêu hai lần dù cộng lại đã đủ tin.
+    """
+    _so_gia(_lan("sang", "2026-09-05T04:30:00+07:00", _urls(NOI_BO[:3])),
+            _lan("sang", "2026-09-05T06:10:00+07:00", _urls(NOI_BO[3:])))
+    try:
+        urls = S.urls_ngay("2026-09-05")
+        assert urls is not None and len(urls) == 6, urls
+        assert _do(S.dem_muc(urls, data=DATA_GIA))["Nội bộ Mỹ"] == 6
+    finally:
+        os.environ.pop("CANARY_SO", None)
+
+
+def ca24():
+    """[NGÀY · PHẢI CHẶN] hai lần gửi, CỘNG LẠI vẫn thiếu -> vẫn phải KÊU.
+
+    Canh chiều nới tay của ca 23: gộp cả ngày không được biến thành «gộp thì thôi không kêu».
+    """
+    _so_gia(_lan("sang", "2026-09-05T04:30:00+07:00", _urls(NOI_BO[:2])),
+            _lan("sang", "2026-09-05T06:10:00+07:00", _urls(NOI_BO[2:4])))
+    try:
+        dem = S.dem_muc(S.urls_ngay("2026-09-05"), data=DATA_GIA)
+        assert _do(dem)["Nội bộ Mỹ"] == 4, _do(dem)
+        assert S.keu_san(dem), "cộng cả ngày mới 4 tin, dưới sàn 05, mà cổng im"
+    finally:
+        os.environ.pop("CANARY_SO", None)
+
+
+def ca25():
+    """[NGÀY · PHẢI CHẶN] cùng URL gửi hai lần chỉ được trả về MỘT.
+
+    Hai lần gửi trong ngày chồng nhau gần hết (lần sau là bản gửi lại).
+
+    ⚠ Khẳng định đặt trên chính danh sách `urls_ngay` trả về, KHÔNG đặt trên số đếm cuối:
+    `dem_muc` gom URL vào `set` nên nó đã khử trùng hộ, và ca này đặt ở đó thì bản hỏng «gộp
+    mà không khử trùng» vẫn xanh — đo lúc dựng, ca đỏ 0/1. Hai thứ cần canh ở đây là con số
+    canary IN RA (`gộp N URL của cả ngày`) và cái hợp đồng của hàm, để `dem_muc` sau này đổi
+    cách đếm thì lớp dưới vẫn không nhân đôi tin.
+    """
+    _so_gia(_lan("sang", "2026-09-05T04:30:00+07:00", _urls(NOI_BO[:3])),
+            _lan("sang", "2026-09-05T06:10:00+07:00", _urls(NOI_BO[:3])))
+    try:
+        urls = S.urls_ngay("2026-09-05")
+        assert len(urls) == 3, f"03 tin gửi hai lượt mà gộp ra {len(urls)} URL: {urls}"
+        dem = S.dem_muc(urls, data=DATA_GIA)
+        assert _do(dem)["Nội bộ Mỹ"] == 3, _do(dem)
+        assert S.keu_san(dem), "03 tin dưới sàn 05 mà cổng im"
+    finally:
+        os.environ.pop("CANARY_SO", None)
+
+
+def ca26():
+    """[NGÀY] bản tin tối trôi qua nửa đêm vẫn thuộc NGÀY HÔM TRƯỚC; ca `sukien` không tính.
+
+    Hai quy ước đi kèm nhau: `ngay_ca_tu_iso` lùi ngày cho ca `toi` fire sau nửa đêm, còn
+    email 🎖️ sự kiện là kênh khác, không mang tin của 05 chủ đề nên cộng vào là đếm thừa.
+    """
+    _so_gia(_lan("sang", "2026-09-05T04:30:00+07:00", _urls(NOI_BO[:2])),
+            _lan("toi", "2026-09-06T00:20:00+07:00", _urls(NOI_BO[2:4])),
+            _lan("sukien", "2026-09-05T04:31:00+07:00", _urls(KHCN)))
+    try:
+        urls = S.urls_ngay("2026-09-05")
+        assert len(urls) == 4, urls
+        assert not (set(urls) & set(_urls(KHCN))), "ca sukien bị cộng vào sàn bản tin"
+    finally:
+        os.environ.pop("CANARY_SO", None)
+
+
 CA = [
     (1, "[SÀN] đủ tin mọi mục -> im", ca01),
     (2, "[SÀN · PHẢI CHẶN] tiểu mục Anh 1 tin -> KÊU", ca02),
@@ -373,6 +462,10 @@ CA = [
     (20, "[ĐẦU-CUỐI] chưa gửi thì không kêu oan", ca20),
     (21, "[SÀN] toàn URL lạ -> không đo được thì im", ca21),
     (22, "[SÀN · PHẢI CHẶN] khớp một phần thì vẫn đo, vẫn kêu", ca22),
+    (23, "[NGÀY · PHẢI CHẶN] hai lần gửi cộng lại đủ sàn -> im", ca23),
+    (24, "[NGÀY · PHẢI CHẶN] hai lần gửi cộng lại vẫn thiếu -> KÊU", ca24),
+    (25, "[NGÀY · PHẢI CHẶN] URL trùng giữa hai lần gửi chỉ đếm một", ca25),
+    (26, "[NGÀY] bản tối qua nửa đêm thuộc hôm trước; ca sukien không tính", ca26),
 ]
 
 # ═══════════════════════════ tự kiểm: bản hỏng ═══════════════════════════
@@ -460,6 +553,39 @@ BAN_HONG = [
      '''    "whitehouse.gov/presidential-actions": "Nội bộ Mỹ",''',
      '''''',
      [17]),
+
+    ("ngày: quay về đếm theo TỪNG LẦN GỬI (bỏ chỉ thị «sàn theo ngày»)",
+     "scripts/soi_muc_cam.py",
+     """    lan = can.cac_lan_gui_ngay(ngay)
+    if not lan:
+        return None""",
+     """    lan = can.cac_lan_gui_ngay(ngay)
+    if not lan:
+        return None
+    lan = lan[:1]""",
+     [23]),
+
+    ("ngày: gộp mà KHÔNG khử trùng (tin gửi hai lượt đếm hai lần)",
+     "scripts/soi_muc_cam.py",
+     """            if u not in da_thay:
+                da_thay.add(u)
+                ra.append(u)""",
+     """            if True:
+                da_thay.add(u)
+                ra.append(u)""",
+     [25]),
+
+    ("ngày: cộng luôn cả ca `sukien` vào sàn bản tin",
+     ".github/scripts/canary.py",
+     """            if str(lan.get("buoi") or "") in ("toi", "sang")""",
+     """            if str(lan.get("buoi") or "") in ("toi", "sang", "sukien")""",
+     [26]),
+
+    ("ngày: cắt `luc[:10]` thay vì quy đổi ngày của ca (bản tối qua nửa đêm rơi sang hôm sau)",
+     ".github/scripts/canary.py",
+     """            and ngay_ca_tu_iso(str(lan.get("buoi")), str(lan.get("luc", ""))) == ngay]""",
+     """            and str(lan.get("luc", ""))[:10] == ngay]""",
+     [26]),
 
     ("canary: nuốt lớp mục câm, không gọi phép đo nào",
      ".github/scripts/canary.py",
