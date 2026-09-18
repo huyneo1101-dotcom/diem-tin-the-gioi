@@ -1,2 +1,3 @@
 [21:00Z] START (CI) - phien sang som
 [21:04Z] baseline xong: harvest.py (486 ung vien) + telegram_harvest.py + recent-titles + baomoi-pending. curl_cffi da cai, cuu them 10 nguon bi chan van tay TLS.
+[2026-09-19 04:05] FAIL (local sáng sớm) — repo co viec do chua commit: data/analyses.json, index.html (mtime 17/09, NGUOI nhung thuoc nhom CAN NGUOI nen khong tu dong xu ly); remote co 4 commit moi (rev-list HEAD..origin/main = 4) khong dong bo duoc; khong stash/khong commit ho theo luat, ket thuc phien, cho lop CI du phong xu ly.
