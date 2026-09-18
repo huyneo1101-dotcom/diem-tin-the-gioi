@@ -80,7 +80,7 @@ SAN_MOI_MUC = 5
 NGUONG_ITEM = 3
 # Tên 05 chủ đề như chúng được VIẾT trong cột cuối của bảng nguồn (CLAUDE.md). Dò bằng chuỗi
 # con vì cột đó viết tự do: "3 CNQS Mỹ", "**Nội bộ Mỹ nhóm 1**", "2 Biển Đông".
-TEN_CHU_DE_TRONG_BANG = ("Nội bộ Mỹ", "CNQS Mỹ", "Biển Đông", "Mali", "Tập trận")
+TEN_CHU_DE_TRONG_BANG = ("Nội bộ Mỹ", "CNQS Mỹ", "Biển Đông", "Mali", "Tập trận", "Anh")
 # Dấu hiệu người viết bảng đã XÁC NHẬN feed không ghi ngày (xem docstring).
 DAU_KHONG_NGAY = "không ghi ngày"
 

@@ -167,3 +167,37 @@ khung 2 ngày bị đẩy sang `rejectedNews` thay vì làm hỏng cả lô), r�
 - **Đã thử và KHÔNG khả thi**: dùng `curl` thuần trong Bash để tự kiểm tra link chết (`sourceUrl`) trước khi publish — môi trường chặn `curl`/kết nối HTTPS thô tới domain ngoài ở tầng network policy (chỉ tool WebFetch/WebSearch mới có đường truy cập web được duyệt riêng). Đừng thử lại `curl -I` để check link — sẽ luôn bị từ chối (403 ở tầng proxy). Nếu cần verify link, phải dùng WebFetch (tốn token hơn) — hiện KHÔNG bắt buộc làm bước này, dựa vào quy tắc "không chắc link thì bỏ" là chính.
 
 ---
+
+## Nhật ký đầy đủ — vá `probe_sources.py` bỏ sót chặn vân tay TLS (30/07/2026)
+Dời từ CLAUDE.md khi cắt bù trần phình 18/09/2026, giữ nguyên văn, không cắt chữ nào.
+
+🔄 **ĐẢO LẠI 30/07/2026 — 13 trang THƯỢNG VIỆN chuyển từ `CI` sang `cả hai`.** Nhãn `CI` cũ dựa
+trên phép đo bằng curl trần, mà curl trần thì bị chặn theo **vân tay TLS** chứ không phải theo IP: đã mở
+đủ **13/13** trang bằng trình duyệt tại chính máy này, và `curl_cffi impersonate="chrome"` cũng trả 200
+cho cả 13. Nay `harvest.py` tự đi bậc 2 nên local quét được luôn — đây là **nhóm 1 (điều trần + bỏ
+phiếu)**, nhóm luôn thiếu tin nhất, nên phần chênh này đáng kể.
+⚠️ Giữ `CI` cho `census.gov` và `occ.treas.gov`: hai trang này chặn **cả trình duyệt** tại máy local
+(census trả trang Cloudflare *"Sorry, you have been blocked"*, occ drop im lặng hết 25 giây) — đó mới
+đúng là chặn theo IP, và CI vẫn lấy được.
+
+🔄 **ĐẢO LẠI LẦN HAI, 30/07/2026 — 06 TRANG QUÂN CHỦNG VÀO BẢNG. Trước đó chúng bị xếp "cả hai
+chịu" và bị bỏ hoàn toàn.** Nguyên nhân gốc không nằm ở các trang đó mà ở **công cụ đo**:
+`scripts/probe_sources.py` chỉ gọi **curl trần**, nên mọi trang chặn theo vân tay TLS đều bị nó chấm
+`403` rồi ghi vào bảng thành nguồn chết. Vá công cụ (thêm bậc 2 `curl_cffi`) rồi đo lại từ CI, số
+`403` tụt từ **31 xuống 6** và **27 nguồn** đọc được nhờ vân tay TLS — trong đó có cả 06 trang này.
+Số đo CI 30/07 (run 30516868251): PACOM **228.361B** · JCS 74.037B · USCG 68.712B · CENTCOM 46.728B ·
+Navy 114.720B · Marines 65.170B, tất cả 200 và thân không mang dấu hiệu chặn.
+Giá trị: PACOM và Marines là nguồn **tầng 1** cho chủ đề 2 (Úc & Biển Đông) và chủ đề 5 (Pitch Black
+Run) — hai chủ đề vẫn hay thiếu bài; CENTCOM là tầng 1 cho chủ đề 4 (Mỹ–Mali).
+
+⚠️ **Vì sao Navy/Marines là `cả hai` mà PACOM/CENTCOM/JCS/USCG chỉ `CI`** — khác biệt nằm ở **DNS,
+không phải ở WAF**: zone `.mil` đang lỗi DNSSEC nên `getaddrinfo` ở local trả `gaierror` cho
+`pacom/centcom/jcs/news.uscg` (0/4 lượt), trong khi `navy.mil`/`marines.mil` vẫn phân giải được 4/4
+(184.85.126.103 và 184.85.124.244, node Akamai trong hạ tầng FPT). Local đo được Navy **114.451B** và
+Marines **65.170B** — riêng Marines khít từng byte với số đo CI, tức cùng một nội dung.
+⚠️ **Nhánh DNS này CHẬP CHỜN theo thời điểm, đừng đọc nhãn `CI` thành "local vĩnh viễn không lấy
+được".** Cùng lượt đo 30/07, `www.army.mil` cũng **0/4** dù bảng RSS ghi nó lấy được 43–45 item cùng
+ngày; và một số đo trước đó trong ngày lấy được `pacom.mil` **228.363B** ngay tại local. Nhãn `CI` ở
+đây là **hướng lệch an toàn**: harvest local bỏ qua chúng nên không tốn lượt curl để nhận `gaierror`,
+còn CI thì luôn lấy được. DNS zone `.mil` khoẻ lại thì nâng lên `cả hai`, và phép đo để quyết là
+`getaddrinfo`, không phải `dig`.

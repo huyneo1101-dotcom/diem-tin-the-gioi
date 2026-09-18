@@ -205,8 +205,8 @@ tin từ thông cáo riêng của nhà thầu để có URL khác. Đừng bỏ 
 ## 🎯 BẢNG ĐỘ GẦN NGUỒN — cổng chặn tin kênh tuyên truyền đứng một mình (dựng 06/08/2026)
 
 **Dòng khai hiện hành — SỬA ĐÚNG DÒNG NÀY khi bảng đổi, đừng sửa phần nhật ký phía dưới:**
-bảng độ gần đang canh **109 hãng**, dấu vân tay `1fe3b2dc1b92a8b97f03e106208c98c3857d81ee`
-(độ gần 1: 18 · 2: 44 · 3: 41 · 4: 6).
+bảng độ gần đang canh **116 hãng**, dấu vân tay `a883965d0878eeebbb5136df3f8ab81e22e48375`
+(độ gần 1: 20 · 2: 49 · 3: 41 · 4: 6).
 
 ⚠️ **CHỮ "ĐỘ GẦN" LÀ CỐ Ý, KHÔNG PHẢI "TẦNG".** Mục *"Nguồn theo 3 tầng"* ngay bên dưới xếp
 nguồn theo **công dụng** — ở đó tầng 3 là viện nghiên cứu, dùng để neo nhận định, tức vị trí
@@ -418,6 +418,27 @@ Journal · Navy Lookout). ⚠️ **BBC News UK và Guardian Politics CỐ Ý đ�
 — hai feed đó trộn thể thao, tội phạm địa phương, giải trí; gán cứng là kéo rác vào chủ đề.
 Bộ canh: `tests/test-ngay-feed-va-gan-chu-de.py` — **14 ca (07 ca PHẢI CHẶN) · `--tu-kiem` bắt
 6/6 bản hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`.
+
+**Nguồn MỚI cho Anh & Australia — thêm 18/09/2026** (Huy chốt "tìm thêm nguồn Anh–Úc trước
+khi nới khung ngày"; Anh và Australia là hai nhánh mỏng nhất, chưa ngày nào chạm sàn 05
+tin/ngày — đo `soi_muc_cam.py --san` 15-17/09). Verify fetch thật cùng ngày:
+| Sky News | https://feeds.skynews.com/feeds/rss/uk.xml | 9 item |
+| Bank of England | https://www.bankofengland.co.uk/rss/news | 50 item |
+| HM Treasury | https://www.gov.uk/government/organisations/hm-treasury.atom | 20 item | Anh |
+| ASPI Strategist | https://www.aspistrategist.org.au/feed/ | 100 item |
+| Sydney Morning Herald | https://www.smh.com.au/rss/national.xml | 20 item |
+| ABC News Australia | https://www.abc.net.au/news/feed/51892/rss.xml | 25 item |
+| The Guardian Australia | https://www.theguardian.com/australia-news/rss | 20 item |
+| Australian Financial Review | https://www.afr.com/rss/feed.xml | 20 item |
+
+⚠️ Chỉ HM Treasury khai cột chủ đề "Anh" (100% tin chính phủ Anh, an toàn gán chuyên).
+Bank of England cũng thuần Anh nhưng để trống — 06 báo/viện còn lại là nguồn tổng hợp, CỐ Ý
+đứng ngoài `FORCE_TOPIC_URL` như BBC News UK/Guardian Politics, tránh câm oan kiểu
+RealClearPolitics (0/41 neo, xem lớp NGUỒN). Tên khớp `du-lieu/nguon.json` (bảng độ gần):
+"ASPI Strategist" đã có sẵn (tầng 3, 135 lần dùng), 07 tên còn lại mới thêm 18/09/2026, đều
+tầng 1-2. Domain chưa thử được: defence.gov.au/navy.gov.au/airforce.gov.au (timeout — nghi
+chặn vân tay TLS như `.mil`, để `harvest.py` tự đi thang bậc 2/2b); Defence Connect, RBA,
+news.com.au, ADBR, 9News, UK Parliament: 403/404/domain chết.
 | Rappler | https://www.rappler.com/feed/ | 10 item |
 | Philstar (headlines) | https://www.philstar.com/rss/headlines | 10 item |
 | Inquirer | https://www.inquirer.net/fullfeed/ | 20 item |
@@ -582,36 +603,14 @@ of FY27 NDAA", "House Passes H.R. 9770", "Opening Statement at the FY27 NDAA Mar
 bị chặn (harvest local tự bỏ qua, xem `html_pages_from_claude_md`). Đo bằng `scripts/probe_sources.py`
 chạy ở cả hai nơi (27/07/2026), **đo lại 30/07/2026 bằng `kiem_nguon.py` + trình duyệt**.
 
-🔄 **ĐẢO LẠI 30/07/2026 — 13 trang THƯỢNG VIỆN chuyển từ `CI` sang `cả hai`.** Nhãn `CI` cũ dựa
-trên phép đo bằng curl trần, mà curl trần thì bị chặn theo **vân tay TLS** chứ không phải theo IP: đã mở
-đủ **13/13** trang bằng trình duyệt tại chính máy này, và `curl_cffi impersonate="chrome"` cũng trả 200
-cho cả 13. Nay `harvest.py` tự đi bậc 2 nên local quét được luôn — đây là **nhóm 1 (điều trần + bỏ
-phiếu)**, nhóm luôn thiếu tin nhất, nên phần chênh này đáng kể.
-⚠️ Giữ `CI` cho `census.gov` và `occ.treas.gov`: hai trang này chặn **cả trình duyệt** tại máy local
-(census trả trang Cloudflare *"Sorry, you have been blocked"*, occ drop im lặng hết 25 giây) — đó mới
-đúng là chặn theo IP, và CI vẫn lấy được.
-
-🔄 **ĐẢO LẠI LẦN HAI, 30/07/2026 — 06 TRANG QUÂN CHỦNG VÀO BẢNG. Trước đó chúng bị xếp "cả hai
-chịu" và bị bỏ hoàn toàn.** Nguyên nhân gốc không nằm ở các trang đó mà ở **công cụ đo**:
-`scripts/probe_sources.py` chỉ gọi **curl trần**, nên mọi trang chặn theo vân tay TLS đều bị nó chấm
-`403` rồi ghi vào bảng thành nguồn chết. Vá công cụ (thêm bậc 2 `curl_cffi`) rồi đo lại từ CI, số
-`403` tụt từ **31 xuống 6** và **27 nguồn** đọc được nhờ vân tay TLS — trong đó có cả 06 trang này.
-Số đo CI 30/07 (run 30516868251): PACOM **228.361B** · JCS 74.037B · USCG 68.712B · CENTCOM 46.728B ·
-Navy 114.720B · Marines 65.170B, tất cả 200 và thân không mang dấu hiệu chặn.
-Giá trị: PACOM và Marines là nguồn **tầng 1** cho chủ đề 2 (Úc & Biển Đông) và chủ đề 5 (Pitch Black
-Run) — hai chủ đề vẫn hay thiếu bài; CENTCOM là tầng 1 cho chủ đề 4 (Mỹ–Mali).
-
-⚠️ **Vì sao Navy/Marines là `cả hai` mà PACOM/CENTCOM/JCS/USCG chỉ `CI`** — khác biệt nằm ở **DNS,
-không phải ở WAF**: zone `.mil` đang lỗi DNSSEC nên `getaddrinfo` ở local trả `gaierror` cho
-`pacom/centcom/jcs/news.uscg` (0/4 lượt), trong khi `navy.mil`/`marines.mil` vẫn phân giải được 4/4
-(184.85.126.103 và 184.85.124.244, node Akamai trong hạ tầng FPT). Local đo được Navy **114.451B** và
-Marines **65.170B** — riêng Marines khít từng byte với số đo CI, tức cùng một nội dung.
-⚠️ **Nhánh DNS này CHẬP CHỜN theo thời điểm, đừng đọc nhãn `CI` thành "local vĩnh viễn không lấy
-được".** Cùng lượt đo 30/07, `www.army.mil` cũng **0/4** dù bảng RSS ghi nó lấy được 43–45 item cùng
-ngày; và một số đo trước đó trong ngày lấy được `pacom.mil` **228.363B** ngay tại local. Nhãn `CI` ở
-đây là **hướng lệch an toàn**: harvest local bỏ qua chúng nên không tốn lượt curl để nhận `gaierror`,
-còn CI thì luôn lấy được. DNS zone `.mil` khoẻ lại thì nâng lên `cả hai`, và phép đo để quyết là
-`getaddrinfo`, không phải `dig`.
+🔄 **ĐẢO LẠI 30/07/2026 — 13 trang THƯỢNG VIỆN + 06 trang quân chủng chuyển `CI` → `cả hai`.**
+Nguyên nhân gốc: `probe_sources.py` chỉ gọi curl trần nên mọi trang chặn theo **vân tay TLS**
+(không phải IP) bị chấm nhầm `403`/chết; vá thêm bậc `curl_cffi` rồi đo lại, `403` tụt 31→6.
+`census.gov`/`occ.treas.gov` giữ `CI` vì chặn thật theo IP (cả trình duyệt local cũng chịu).
+PACOM/CENTCOM/JCS/USCG giữ `CI` vì lý do KHÁC — DNSSEC zone `.mil` chập chờn khiến
+`getaddrinfo` local ra `gaierror`, trong khi CI luôn phân giải được; Navy/Marines vẫn `cả hai`
+vì hai domain đó phân giải ổn định qua Akamai. Khoẻ lại thì nâng nhãn, đo bằng `getaddrinfo`
+chứ không phải `dig`. Chi tiết đầy đủ (số đo run CI, IP, byte từng trang): `docs/luat/van-hanh.md`.
 
 | Trang | URL | Chạy ở | Nhóm/chủ đề |
 |---|---|---|---|

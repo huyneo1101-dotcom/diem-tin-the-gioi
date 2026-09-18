@@ -2,14 +2,14 @@
  "_doc": "SINH TỰ ĐỘNG — ĐỪNG SỬA TAY. Sửa bản gốc rồi chạy `python3 scripts/dong_bo_do_gan.py --sinh`.",
  "_ban_goc": "/Users/Huy/Claude/App/RenPhanTich/du-lieu/nguon.json",
  "_sinh_boi": "scripts/dong_bo_do_gan.py",
- "_dau_van_tay": "1fe3b2dc1b92a8b97f03e106208c98c3857d81ee",
+ "_dau_van_tay": "a883965d0878eeebbb5136df3f8ab81e22e48375",
  "_thang": {
   "1": "nguồn gốc chính thức",
   "2": "hãng tin có phóng viên tại chỗ",
   "3": "trang tổng hợp / dẫn lại",
   "4": "kênh tuyên truyền"
  },
- "so_hang": 109,
+ "so_hang": 116,
  "hang": [
   {
    "ten": "@CENTCOM",
@@ -40,6 +40,12 @@
    "do_gan": 1,
    "kenh": "mxh",
    "luu_y": "Tài khoản chính thức của bộ tài chính — thông báo trừng phạt thường lên đây trước."
+  },
+  {
+   "ten": "Bank of England",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Ngân hàng trung ương Anh — gốc cho lãi suất, cảnh báo kinh tế, chính sách tiền tệ."
   },
   {
    "ten": "Bộ Ngoại giao Mỹ",
@@ -88,6 +94,12 @@
    "do_gan": 1,
    "kenh": "web",
    "luu_y": "Cổng công bố văn kiện chính thức của chính phủ Anh."
+  },
+  {
+   "ten": "HM Treasury",
+   "do_gan": 1,
+   "kenh": "web",
+   "luu_y": "Bộ Tài chính Anh — gốc cho ngân sách, thuế, chính sách tài khoá."
   },
   {
    "ten": "Lực lượng Không gian Mỹ",
@@ -150,6 +162,12 @@
    "luu_y": "Tài khoản của một chuyên trang quốc phòng."
   },
   {
+   "ten": "ABC News Australia",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Đài truyền hình công của Úc (Australian Broadcasting Corporation) — đừng nhầm ABC News Mỹ."
+  },
+  {
    "ten": "Air & Space Forces Magazine",
    "do_gan": 2,
    "kenh": "web",
@@ -172,6 +190,12 @@
    "do_gan": 2,
    "kenh": "web",
    "luu_y": "Hãng thông tấn, thường là nguồn đầu tiên được các báo khác dẫn lại."
+  },
+  {
+   "ten": "Australian Financial Review",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Báo kinh tế/tài chính hàng đầu Úc (Nine Entertainment), có phóng viên tại chỗ."
   },
   {
    "ten": "Axios",
@@ -288,6 +312,12 @@
    "luu_y": "Hãng thông tấn có mạng phóng viên rộng, có quy trình đính chính công khai."
   },
   {
+   "ten": "Sky News",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Hãng tin truyền hình lớn của Anh, có phóng viên tại chỗ."
+  },
+  {
    "ten": "South China Morning Post",
    "do_gan": 2,
    "kenh": "web",
@@ -306,6 +336,12 @@
    "luu_y": "Báo của quân đội Mỹ nhưng có ban biên tập độc lập theo luật."
   },
   {
+   "ten": "Sydney Morning Herald",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Nhật báo lớn của Úc (Nine Entertainment), có phóng viên tại chỗ."
+  },
+  {
    "ten": "Taipei Times",
    "do_gan": 2,
    "kenh": "web",
@@ -316,6 +352,12 @@
    "do_gan": 2,
    "kenh": "web",
    "luu_y": "Nhật báo lớn, phần quốc tế chủ yếu dẫn lại."
+  },
+  {
+   "ten": "The Guardian Australia",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Ấn bản Úc của The Guardian, có phóng viên tại chỗ."
   },
   {
    "ten": "The Hill",
