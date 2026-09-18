@@ -21,7 +21,9 @@ ghi lịch CI cũ (21:00 · 22:00 · 04:00 · 05:00) — cả 04 mốc đã dờ
 khi đó không có lưới local nên suýt mất trắng bản tin. **Dời tiếp: cả 04 mốc CI sớm 13 phút** để
 `harvest-ci.yml` (chạy trước 15') kịp xong trước phiên quét. Xen kẽ đầy đủ nay là: **CI 03:47 → local
 04:30 → CI 04:47 → local 05:30**. Local chỉ chạy khi máy đã thức: cần lịch `pmset repeat wakeorpoweron … 04:25`.
-**⏰ HẠN CHÓT EMAIL TỐI 22:00 (chỉ thị Huy 27/07/2026):** email bản tin tối phải tới hộp thư **muộn nhất
+**⏰ HẠN CHÓT EMAIL TỐI 22:00 — ⛔ PHIÊN TỐI BỎ HẲN 18/09/2026, ĐOẠN NÀY LÀ NHẬT KÝ VẤP.**
+Giữ vì cách tính biên NGƯỢC TỪ MỐC CUỐI vẫn áp cho ca sáng (hạn chót tới tay 04:45,
+`scripts/state.py::HAN_CHOT`). Nguyên văn 27/07/2026: email bản tin tối phải tới hộp thư **muộn nhất
 22:00**, nên phiên tối tính NGƯỢC từ mốc cuối chứ không phải mốc đầu — quét ~20' (đo thật 16–21') +
 email ~20 giây ⇒ lớp cuối phải fire chậm nhất **21:15**, và lớp cuối phải là LOCAL vì cron GitHub trễ
 5–20', còn task local đúng giờ hơn. Phiên tối vì thế là **2 lớp TRONG HẠN: CI 20:47 → local 21:15**,
@@ -612,10 +614,21 @@ thì đi thêm nguồn, tuyệt đối không nạp tin ngoài khung hay tin m�
 Đi hết nguồn mà vẫn hụt thì ghi vào `logs/scan-gaps.json` kèm lý do — cổng sẽ nhắn Telegram, và lý do
 ghi ở đó chính là câu trả lời cho tin nhắn ấy.
 
-**Số đo lúc NÂNG sàn lên 05** (18/09/2026, hai bản tin gần nhất): bản tối 12/09 ra 6 · 4 · 5 · 4 · 3 ·
-9 tin — đủ sàn 05 ở 03/06 mục; bản sáng 17/09 ra 2 · 1 · 3 · 2 · 1 · 5 — đủ 01/06 mục. Tức sàn 05 là
-mức phải VƯƠN TỚI, và bản SÁNG (khung tin mỏng, hạn chót 04:30) sẽ là chỗ kêu nhiều nhất; tiếng kêu ấy
-là việc phải làm, cách chữa là đi thêm nguồn chứ không phải hạ sàn.
+**⛔ SÀN ĐẾM THEO NGÀY** — Huy chốt 18/09/2026, nguyên văn: *"sàn 5 là sàn theo ngày nhé"*. Cộng URL
+của MỌI lần gửi trong ngày rồi mới so sàn (`canary.urls_ngay`), nên hôm nào phải gửi bù thì phần bù
+tính vào cùng ngày, không bị đo thành hai bản nửa vời.
+
+**Số đo lúc NÂNG sàn lên 05** (18/09/2026): bản tối 12/09 ra 6 · 4 · 5 · 4 · 3 · 9 tin — đủ sàn 05 ở
+03/06 mục; bản sáng 17/09 ra 2 · 1 · 3 · 2 · 1 · 5 — đủ 01/06 mục.
+
+**⚠️ ĐO LẠI SAU KHI BỎ PHIÊN TỐI (18/09/2026)** — bản tin tối đã chết im từ 13/09 nên 04 bản sáng gần
+nhất chính là số của phiên sáng ĐỨNG MỘT MÌNH, không có tin ca tối gộp vào:
+15/09 ra 2 · 2 · 2 · 1 · 2 · 6 (đủ 01/06 mục) · 16/09 ra 4 · 5 · 3 · 3 · 2 · 10 (đủ 02/06) ·
+17/09 ra 2 · 1 · 3 · 2 · 1 · 5 (đủ 01/06). Tổng 16 · 29 · 17 URL mỗi ngày, trong khi sàn 05 × 06 đơn
+vị đòi tối thiểu 30. Đo bằng `python3 scripts/soi_muc_cam.py --san --ngay YYYY-MM-DD`.
+Chỉ mục KHCN-QS đạt đều, và đó là mục DUY NHẤT được nới khung ngày xuống 03 ngày — tức thứ quyết định
+không phải nguồn mà là KHUNG NGÀY. Sàn 05 là mức phải VƯƠN TỚI; cách chữa là đi thêm nguồn hoặc nới
+khung, không phải hạ sàn, và tuyệt đối không phải cắm lại mốc tối.
 
 **Số đo lúc chốt sàn 02** (18 ngày 18/08–05/09/2026, đếm theo `_addedDate` trên kho): mục Đối ngoại Mỹ
 dưới sàn 02 ngày · Nội bộ Mỹ 04 ngày · KHCN-QS 01 ngày · tiểu mục Úc 06 ngày · Biển Đông 01 ngày ·

@@ -3,8 +3,8 @@ name: quet-tin
 description: >-
   Playbook NỘI DUNG quét bản tin "Điểm Tin Thế Giới" — 5 chủ đề, kiến trúc agent Sonnet, nguồn 3
   tầng, guardrail add_news.py. Dùng khi người dùng yêu cầu "quét tin", "cập nhật bản tin", "scan
-  tin", hoặc khi routine tự động chạy. Bản tin chạy 2 PHIÊN/NGÀY cùng playbook này: TỐI 20:47 +
-  SÁNG SỚM 03:47 (giờ VN — bảng lịch thật: docs/LICH.md). 5 chủ đề: Nội bộ Mỹ (5 nhóm, 2 hạng ưu tiên) · Úc & Biển Đông · CNQS Mỹ ·
+  tin", hoặc khi routine tự động chạy. Bản tin chạy 01 PHIÊN/NGÀY: SÁNG SỚM 03:47 giờ VN
+  (phiên TỐI bỏ hẳn 18/09/2026 — bảng lịch thật: docs/LICH.md). 5 chủ đề: Nội bộ Mỹ (5 nhóm, 2 hạng ưu tiên) · Úc & Biển Đông · CNQS Mỹ ·
   Mỹ–Mali · tập trận Predator's Run 2026. LỊCH/khoá/commit/push KHÔNG nằm ở file này — nguồn sự thật
   là docs/routine-web-scan.md; bảng nguồn/RSS xem CLAUDE.md gốc repo.
 ---
@@ -19,7 +19,7 @@ description: >-
 | Tài liệu | Giữ luật gì | Ai đọc |
 |---|---|---|
 | **File này** (`.claude/skills/quet-tin/SKILL.md`) | **NỘI DUNG quét**: 5 chủ đề + tiêu chí lọc · kiến trúc agent · thang xác minh · guardrail `add_news.py` · `scan-gaps.json` · phụ lục nguồn | Phiên local (qua `docs/routine-web-scan.md` Bước 2) **và** phiên CI (qua `.github/prompts/web-scan-ci.md`) |
-| `docs/routine-web-scan.md` | **QUY TRÌNH CHẠY**: lịch/mốc giờ · `state.py` claim/beat/done · pull-rebase · commit/push · pipeline `event-scan` phiên sáng | Task local `web-scan-diem-tin` (sáng sớm) + `web-scan-diem-tin-toi` (tối) |
+| `docs/routine-web-scan.md` | **QUY TRÌNH CHẠY**: lịch/mốc giờ · `state.py` claim/beat/done · pull-rebase · commit/push · pipeline `event-scan` | LaunchAgent `com.huy.routine-diemtin-sang` |
 | `CLAUDE.md` gốc repo | **PHẠM VI + NGUỒN**: bảng nguồn 3 tầng, URL RSS, thang xác minh, bảng độ gần, lịch và phạm vi rút gọn | Tự nạp mọi phiên |
 | `docs/luat/*.md` (xẻ 25/08/2026) | Phần luật đã rời khỏi `CLAUDE.md`: phạm vi đầy đủ · khâu gửi · Telegram · cổng kiểm · kho dữ liệu · think-tank · vận hành | Đọc khi sửa đúng mảng đó, bảng tra ở đầu `CLAUDE.md` |
 
@@ -177,9 +177,8 @@ Lấy ngày/giờ bằng 2 lệnh riêng `TZ='Asia/Ho_Chi_Minh' date +%F` và `d
 TRỊ THẬT vào các lệnh sau (không dùng `$NGAY`/`$T`). Cần lặp nhiều file → viết N lệnh rời hoặc gói
 vào `python3 -c '...'` (đã allowlist), tuyệt đối không bash for/heredoc.
 - Ghi `[<giờ>Z] START` vào `logs/scan-<ngày VN>.log` (tool Write/Edit) rồi **commit + push NGAY LẬP TỨC**:
-  `git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/ && git -C /Users/Huy/Claude/diem-tin-the-gioi commit -q -m "log: start <ngày> <giờ>Z phien toi" && git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main -q`
-  (Chữ trong log ghi theo phiên mình đang chạy: **"phien toi"** hoặc **"phien sang som"** — biết mình
-  là phiên nào bằng `TZ='Asia/Ho_Chi_Minh' date +%H:%M`, trước 14:00 = sáng sớm, từ 14:00 = tối.)
+  `git -C /Users/Huy/Claude/diem-tin-the-gioi add logs/ && git -C /Users/Huy/Claude/diem-tin-the-gioi commit -q -m "log: start <ngày> <giờ>Z phien sang som" && git -C /Users/Huy/Claude/diem-tin-the-gioi push origin main -q`
+  (Chữ trong log là **"phien sang som"** — từ 18/09/2026 chỉ còn một phiên mỗi ngày.)
   (Session tự động là ephemeral — chết giữa lúc quét mà chưa push thì mất sạch dấu vết.)
 - **Checkpoint sau MỖI mốc lớn** (xong baseline · xong các agent · xong script · trước khi push tin):
   ghi thêm dòng `[<giờ>] <mốc>: <tóm tắt>` vào log, chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat web-scan` rồi
@@ -263,8 +262,8 @@ Feud` và `The Hill — GOP senator ahead of Fauci testimony`, đều từ ngu�
   `harvest.py --gop-ci` để gộp. Nhờ vậy **kể cả khi lớp CI-quét-bằng-Claude chết vì hết quota hay
   GitHub bỏ cron, nguyên liệu vẫn được lấy từ Mỹ** — trước đây phần chênh 15 trang Thượng viện mất trắng.
   Lô CI mang nhãn `[CI-HTML]` / `[CI-RSS]` để phân biệt. Script tự BỎ lô nếu **lệch khung ngày** hoặc
-  **quá 4 tiếng** (khung ngày của mốc sáng và mốc tối cùng ngày là giống hệt nhau, chỉ so khung thì lô
-  04:45 vẫn "hợp lệ" lúc 21:15 và bản tin tối sẽ thiếu sạch tin ban ngày) — thấy dòng `[CI] ... BỎ`
+  **quá 4 tiếng** (khung ngày của hai mốc trong cùng một ngày là giống hệt nhau, chỉ so khung thì
+  một lô cũ vẫn "hợp lệ" nhiều giờ sau và bản tin sẽ thiếu sạch tin mới) — thấy dòng `[CI] ... BỎ`
   trên stderr là bình thường, cứ đi tiếp bằng lô local.
 - `[GNEWS]` chỉ là **RADAR phát hiện đề tài**: link là redirect `news.google.com` (không resolve bằng
   HEAD được, nó redirect bằng JS) và tiêu đề bị rút gọn. **Agent PHẢI tự tìm bài gốc** (WebSearch theo
@@ -433,7 +432,7 @@ tiêu đề nghi trùng.
 
 ⛔ **SÀN CỨNG 05 TIN MỖI MỤC — Huy chốt 02 tin ngày 05/09/2026, NÂNG LÊN 05 ngày 18/09/2026**, nguyên
 văn lượt nâng: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi thành tối thiểu 5 tin"*. Đây là SÀN
-chứ không phải chỉ tiêu: vượt bao nhiêu cũng tốt, dưới là hụt. Câu *"vẫn thiếu thì CHẤP NHẬN"* ở gạch
+chứ không phải chỉ tiêu: vượt bao nhiêu cũng tốt, dưới là hụt. ⛔ **Đơn vị thời gian là NGÀY** (Huy chốt cùng ngày: *"sàn 5 là sàn theo ngày nhé"*) — cổng cộng URL của mọi lần gửi trong ngày rồi mới so sàn, nên hôm nào phải gửi bù thì phần bù được tính vào cùng ngày. Câu *"vẫn thiếu thì CHẤP NHẬN"* ở gạch
 đầu dòng trên chỉ áp cho phần VƯỢT sàn; **dưới 05 tin thì chưa được chấp nhận**, phải đi thêm một vòng
 nguồn nữa trước khi chốt lô.
 
@@ -566,7 +565,7 @@ trùng".
   `make_docx.py` không thấy sổ và bản .docx vẫn lặp tin.
 
 ⚠️ **BỎ BƯỚC NÀY THÌ BẢN TIN LẶP TIN JAY LÂM ĐÃ CÓ** — không mất tin, không lỗi, chỉ là anh ta đọc
-lại thứ đã đọc. Quá hạn 21:45 của phiên tối thì vẫn **chốt bản tin trước**, bỏ bước này; file Jay Lâm
+lại thứ đã đọc. Sát HẠN CHÓT 04:45 thì vẫn **chốt bản tin trước**, bỏ bước này; file Jay Lâm
 còn hiệu lực 3 ngày nên bản tin sau vẫn lọc được phần còn lại.
 ## Bước 5 — Xuất bản + log
 - `git add index.html logs/` phải gồm **`logs/scan-gaps.json`** (cùng `logs/state.json`).
@@ -579,7 +578,7 @@ còn hiệu lực 3 ngày nên bản tin sau vẫn lọc được phần còn l�
   → xuất .docx toàn bộ tin vừa quét (đúng format bản tin mẫu) + gửi **Telegram** (`send_telegram.py`).
   KHÔNG cần làm gì thêm trong skill — chỉ cần commit đúng mẫu `Cap nhat ban tin ...`.
   ⚠️ Action còn có **cổng khung giờ**: chỉ bắn ở 03:30–07:00 hoặc ≥20:30 giờ VN. Quét TAY giữa ngày thì
-  Action im, tin nằm chờ ca tối — đó là hành vi ĐÚNG, đừng đi truy bug (chi tiết: `docs/luat/gui-ban-tin.md`
+  Action im, tin nằm chờ bản sau — đó là hành vi ĐÚNG, đừng đi truy bug (chi tiết: `docs/luat/gui-ban-tin.md`
   mục "CHỈ CÓ 2 CA BẮN EMAIL BẢN TIN MỖI NGÀY").
 - Ghi log `[$T] DONE: ...`. FAIL ở bước nào cũng VẪN push log.
 

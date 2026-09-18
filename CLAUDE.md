@@ -1,5 +1,18 @@
 # Điểm Tin Thế Giới — quy tắc quét tin
 
+
+⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026 — MỌI CHỖ DƯỚI ĐÂY NÓI "PHIÊN TỐI" LÀ LỊCH SỬ, KHÔNG PHẢI
+VIỆC ĐANG CHẠY.** Chỉ thị Huy, nguyên văn: *"chỉ cần gửi tin 4h sáng thôi, không phải quét và
+gửi buổi tối nữa đâu"*. Nay **01 phiên/ngày: SÁNG SỚM**. Đã gỡ: 02 cron tối của
+`claude-web-scan.yml` · 02 cron tối của `harvest-ci.yml` · cron canary ca `toi` · 03 mốc tối
+trong `kich_ci.py::LICH`. Phần local của phiên tối đã tắt từ trước (plist nằm trong
+`~/Library/LaunchAgents/_tat-hd-va-diemtin-toi/`).
+Giữ phần chữ về phiên tối vì nó là **nhật ký vấp** — hạn chót cứng, khoá nói dối, lớp vét — và
+những cơ chế ấy vẫn áp cho ca sáng. Đọc chúng như bài học, đừng đọc như lịch.
+⛔ **ĐỪNG CẮM LẠI MỐC TỐI KHI THẤY BẢN SÁNG MỎNG.** Bản mỏng là việc của SÀN và KHUNG NGÀY
+(`scripts/soi_muc_cam.py`), không phải việc của lịch. Cổng canh: `kiem_lich.py` phép đo D chặn
+mọi cron của đường quét rơi vào khung 19:00-23:59 VN.
+
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
 ⛔ **COMMIT DO ACTIONS ĐẨY KHÔNG TỰ DỰNG LẠI TRANG — đã vá 21/08/2026, đừng gỡ.** GitHub chặn

@@ -1,13 +1,26 @@
 # Routine WEB-SCAN — bản tin 5 chủ đề (NGUỒN SỰ THẬT DUY NHẤT)
 
-> **File này là nguồn sự thật duy nhất về quy trình quét bản tin cho CẢ HAI phiên** (sáng sớm + tối).
+> **File này là nguồn sự thật duy nhất về quy trình quét bản tin.**
+
+⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026 — MỌI CHỖ DƯỚI ĐÂY NÓI "PHIÊN TỐI" LÀ LỊCH SỬ, KHÔNG PHẢI
+VIỆC ĐANG CHẠY.** Chỉ thị Huy, nguyên văn: *"chỉ cần gửi tin 4h sáng thôi, không phải quét và
+gửi buổi tối nữa đâu"*. Nay **01 phiên/ngày: SÁNG SỚM**. Đã gỡ: 02 cron tối của
+`claude-web-scan.yml` · 02 cron tối của `harvest-ci.yml` · cron canary ca `toi` · 03 mốc tối
+trong `kich_ci.py::LICH`. Phần local của phiên tối đã tắt từ trước (plist nằm trong
+`~/Library/LaunchAgents/_tat-hd-va-diemtin-toi/`).
+Giữ phần chữ về phiên tối vì nó là **nhật ký vấp** — hạn chót cứng, khoá nói dối, lớp vét — và
+những cơ chế ấy vẫn áp cho ca sáng. Đọc chúng như bài học, đừng đọc như lịch.
+⛔ **ĐỪNG CẮM LẠI MỐC TỐI KHI THẤY BẢN SÁNG MỎNG.** Bản mỏng là việc của SÀN và KHUNG NGÀY
+(`scripts/soi_muc_cam.py`), không phải việc của lịch. Cổng canh: `kiem_lich.py` phép đo D chặn
+mọi cron của đường quét rơi vào khung 19:00-23:59 VN.
+
 > Dời từ `~/.claude/scheduled-tasks/web-scan-diem-tin/SKILL.md` vào repo ngày 27/07/2026 — vùng `~/.claude/` là sensitive, mọi Edit vào đó đều bị hỏi quyền bất kể allowlist, trong khi file này rất hay phải vá bài học mới. Repo thì Edit/Write đã allow toàn phần + có git history.
 > **Ai đọc file này:** mốc local `com.huy.routine-diemtin-sang` (phiên SÁNG SỚM **04:30 · 04:45**) và mốc local `com.huy.routine-diemtin-toi` (phiên TỐI 21:15) — cả hai là LaunchAgent gọi `claude -p --model sonnet`, KHÔNG còn là scheduled task của app (đổi 06/08, đo lại 18/08/2026) — SKILL.md của 2 task đó giờ chỉ là stub trỏ về đây. **Sửa quy trình thì sửa file này**, đừng sửa stub.
 
 Quét tin và xuất bản bản tin cho web "Điểm Tin Thế Giới" (https://huyneo1101-dotcom.github.io/diem-tin-the-gioi).
 Repo: /Users/Huy/Claude/diem-tin-the-gioi (git remote SSH, push thẳng nhánh `main`).
 
-Bản tin 2 phiên/ngày cùng playbook 5 chủ đề: TỐI (ô khoá `toi`) + SÁNG SỚM (ô khoá `sang`), cả hai đều gửi email + file Word. **Từ 28/07/2026, phiên SÁNG SỚM sau khi xong bản tin 5 chủ đề còn làm TIẾP pipeline `event-scan` (sự kiện/tập trận/think-tank, trước đây là phiên riêng) trong CÙNG session — xem Bước 4.**
+Bản tin **01 phiên/ngày** theo playbook 5 chủ đề: SÁNG SỚM (ô khoá `sang`), gửi email + file Word. (Trước 18/09/2026 còn phiên TỐI ô khoá `toi` — đã bỏ, xem khối đầu file.) **Từ 28/07/2026, phiên SÁNG SỚM sau khi xong bản tin 5 chủ đề còn làm TIẾP pipeline `event-scan` (sự kiện/tập trận/think-tank, trước đây là phiên riêng) trong CÙNG session — xem Bước 4.**
 
 ⚠️ **PHÂN VAI: quy trình dưới đây là CHUNG cho cả hai phiên; mày là phiên nào thì xem stub task đã giao mày việc.** Task `web-scan-diem-tin` lo phiên SÁNG SỚM; task `web-scan-diem-tin-toi` lo phiên TỐI (tách 27/07/2026 vì phiên tối có hạn chót email cứng, cần fire sớm hơn để có biên; một task chỉ nhận một biểu thức cron nên phải tách). Cả hai task **KHÔNG chép lại quy trình** mà cùng Read file này — để hai phiên không bao giờ lệch nhau. Phiên TỐI có thêm mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" ở cuối file.
 
@@ -33,8 +46,9 @@ local mỗi ngày nhân số phiên nhường lên, nên phiên nhường phải
 
 | Phiên | CI chính | local | CI dự phòng | local lưới cuối | Ai chạy phần local |
 |---|---|---|---|---|---|
-| SÁNG SỚM | **03:47** VN | **04:30** | 04:47 | **04:45** | LaunchAgent `com.huy.routine-diemtin-sang` |
-| TỐI | 20:47 VN | 21:15 ← lớp cuối trong hạn | 21:47 = lớp VÉT đã trễ | — | task `web-scan-diem-tin-toi` |
+| SÁNG SỚM | **03:47** VN | **04:05** | 04:47 | **04:35** | LaunchAgent `com.huy.routine-diemtin-sang` |
+
+⛔ Hàng **TỐI** (20:47 · 21:15 · 21:47) gỡ 18/09/2026 cùng phiên tối.
 
 📅 **BẢNG LỊCH ĐẦY ĐỦ + NGUỒN SỰ THẬT: [`docs/LICH.md`](LICH.md)** — sinh từ chính dòng `cron:`
 của workflow bằng `python3 scripts/kiem_lich.py --sinh`. Số giờ ở bảng trên là bản rút gọn cho
@@ -44,7 +58,7 @@ tức lịch đã dời sớm 13 phút mà không ai sửa những chỗ chép l
 
 Nguyên nhân dời CI sáng: mốc CI 04:30 cũ **không nổ** sáng 27/07 (GitHub hay trễ/bỏ cron lúc tải cao) mà phiên sáng khi đó không có lưới local → mất trắng bản tin sáng. CI vì thế lên 04:00 để local 04:30 kịp gánh, rồi **dời tiếp về 03:47** (và cả 04 mốc sớm 13 phút) để `harvest-ci.yml` xong trước khi phiên quét bắt đầu.
 
-⏰ **PHIÊN TỐI CÓ HẠN CHÓT CỨNG: email muộn nhất 22:00** (chỉ thị Huy 27/07/2026): phiên chạy ở mốc tối **quá 21:45 chưa nạp xong thì chốt lô đang có**, `add_news.py` + commit ngay, phần thiếu ghi `scan-gaps.json`; không vòng bổ sung lần 3-4 để gom cho đủ chỉ tiêu. **Phiên SÁNG SỚM KHÔNG có hạn chót này** — cứ quét đủ 5 chủ đề bình thường. Chi tiết phiên tối: mục cuối file.
+⏰ **HẠN CHÓT CỦA PHIÊN TỐI CŨ (bỏ 18/09/2026, giữ làm bài học về cách tính ngược từ mốc cuối): email muộn nhất 22:00** (chỉ thị Huy 27/07/2026): phiên chạy ở mốc tối **quá 21:45 chưa nạp xong thì chốt lô đang có**, `add_news.py` + commit ngay, phần thiếu ghi `scan-gaps.json`; không vòng bổ sung lần 3-4 để gom cho đủ chỉ tiêu. **Phiên SÁNG SỚM KHÔNG có hạn chót này** — cứ quét đủ 5 chủ đề bình thường. Chi tiết phiên tối: mục cuối file.
 
 Cách làm ở MỌI mốc là như nhau: cứ `claim` như thường — CI đã xong/đang chạy thì SKIP êm, CI không quét (trễ/chết/hết quota) thì mày quét đủ 5 chủ đề rồi commit `Cap nhat ban tin ...` (email + .docx do Action `notify-email.yml` tự gửi khi thấy push `index.html` với tiền tố commit đó — local push cũng kích như CI, không phải làm gì thêm). Phiên sáng 10:15 kiểu cũ vẫn bỏ.
 ⚠️ Local chỉ chạy khi app Claude đang mở và máy đã thức — mốc 04:30 phụ thuộc lịch wake của máy (`pmset repeat wakeorpoweron`); máy ngủ thì mốc này im, đó là lý do vẫn giữ CI 03:47/04:47 làm mốc chính.
@@ -371,9 +385,15 @@ Commit message QUYẾT ĐỊNH email sáng riêng (`notify-morning.yml` bắt ti
 Báo cáo cuối (gộp vào báo cáo cuối chung của phiên): số sự kiện mới/cập nhật, số tập trận cập nhật, có
 báo cáo tuần không (nếu CN), trạng thái push của CẢ HAI commit (bản tin + sự kiện).
 
-## PHIÊN TỐI — BỐI CẢNH RIÊNG (task `web-scan-diem-tin-toi`)
+## PHIÊN TỐI — BỐI CẢNH RIÊNG ⛔ ĐÃ BỎ 18/09/2026, GIỮ LÀM NHẬT KÝ VẤP
 
-Phần này chỉ áp cho phiên chạy ở mốc TỐI (dời nguyên văn từ stub task `web-scan-diem-tin-toi` ngày 27/07/2026):
+⛔ **Không còn mốc tối nào chạy.** Giữ nguyên phần này vì bốn cơ chế trong đó vẫn áp cho ca
+sáng và đều là vấp thật: (i) tính biên ngược từ mốc CUỐI chứ không từ mốc đầu · (ii) cờ
+`state.py` nói dối vì nó chỉ biết «đã chạy xong», không biết «đã gửi» · (iii) sổ trống có hai
+nghĩa, phải đọc log run CI trước khi kết luận · (iv) chốt lô đang có khi sát hạn, đừng vòng
+bổ sung. Đọc số giờ ở đây như lịch sử — lịch thật ở [`docs/LICH.md`](LICH.md).
+
+(Dời nguyên văn từ stub task `web-scan-diem-tin-toi` ngày 27/07/2026:)
 
 1. **Task tối là mốc LOCAL 21:15 của phiên TỐI.** Chuỗi phiên tối: CI GitHub 20:47 → **local 21:15** → CI 21:47 (lưới vét đã trễ hạn). Mốc `com.huy.routine-diemtin-sang` lo phiên SÁNG SỚM (04:30 · 04:45), không đụng tới phiên tối.
 

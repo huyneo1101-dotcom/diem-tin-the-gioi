@@ -1,5 +1,17 @@
 # Gửi bản tin — kênh, sổ đã gửi, file Word, kích notify — Điểm Tin Thế Giới
 
+⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026** (chỉ thị Huy: *"chỉ cần gửi tin 4h sáng thôi, không phải quét
+và gửi buổi tối nữa đâu"*). Nay chỉ còn ca `sang`. Phần lớn file này nói về **quan hệ giữa hai
+ca** — bản tối trừ tin ca sáng, bản sáng gộp tin ca tối. Ba điều còn hiệu lực:
+1. **`make_docx.py::gop_tin_ca_toi` GIỮ NGUYÊN, đừng gỡ.** Nó gộp tin có `_addedDate` = hôm qua
+   mà sổ ca sáng hôm qua chưa gửi. Không còn phiên tối thì nhóm ấy nhỏ đi, nhưng vẫn có: tin
+   nạp cuối phiên hôm qua, tin gửi hụt. Gỡ hàm là mất im lặng đúng nhóm tin ấy.
+2. **Cổng khung giờ gửi vẫn giữ cả nhánh `≥ 20:30`** dù không phiên nào chạy giờ đó nữa — đó là
+   đường cho lần gửi BÙ buổi tối. Bịt lại thì bản gửi bù không đi được, mà đúng hôm cần nó nhất.
+3. **Sàn 05 tin mỗi mục ĐẾM THEO NGÀY** (Huy chốt cùng ngày 18/09): cộng URL của mọi lần gửi
+   trong ngày rồi mới so sàn — `canary.urls_ngay`.
+Phần còn lại đọc như nhật ký vấp, đừng đọc như quy trình đang chạy.
+
 > Xẻ từ `CLAUDE.md` ngày 25/08/2026 để bản thi hành gọn lại (luật mục 31 của `~/.claude/CLAUDE.md`).
 > **Nội dung giữ NGUYÊN VĂN, không cắt chữ nào** — chỉ đổi chỗ ở. Bản thi hành: [`../../CLAUDE.md`](../../CLAUDE.md).
 
