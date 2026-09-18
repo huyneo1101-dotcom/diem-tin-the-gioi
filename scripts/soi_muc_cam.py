@@ -24,6 +24,8 @@ HAI LỚP, CỐ Ý RỜI NHAU — đừng gộp, chúng trả lời hai câu kh�
   Mỗi mục của bản tin ĐÃ GỬI phải có tối thiểu `SAN_MOI_MUC` tin. Chỉ thị Huy 05/09/2026,
   nguyên văn: *"tối thiểu mỗi mục phải quét cho tao 2 tin"*, *"nhiều tin thì càng tốt"* —
   tức đây là SÀN, không phải chỉ tiêu; vượt sàn bao nhiêu cũng tốt, dưới sàn là hụt.
+  ⬆ 18/09/2026 Huy NÂNG sàn: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi thành
+  tối thiểu 5 tin"*. Đơn vị đếm và phép chia mục giữ nguyên, chỉ con số đổi 2 → 5.
   Bằng chứng lấy từ `logs/da-gui-email.json` (danh sách URL của chính bản tin đã đi), không
   lấy từ `logs/scan-gaps.json`: sổ gaps do CHÍNH agent quét tự khai, mà lời tự khai thì
   không phải phép đo — cùng lớp lỗi với trường `date` mà cổng `ngay_that.py` đã phải dựng
@@ -70,8 +72,9 @@ sys.dont_write_bytecode = True
 REPO = pathlib.Path(os.environ.get("SOIMUC_REPO",
                                    pathlib.Path(__file__).resolve().parent.parent))
 
-# ⛔ SÀN DO HUY CHỐT 05/09/2026 — không phải con số kỹ thuật, đừng tự nới.
-SAN_MOI_MUC = 2
+# ⛔ SÀN DO HUY CHỐT 05/09/2026, NÂNG 2 → 5 ngày 18/09/2026 — không phải con số kỹ
+# thuật, đừng tự nới cũng đừng tự hạ.
+SAN_MOI_MUC = 5
 # Dưới ngưỡng này thì "0 item đọc được ngày" không nói lên gì: một feed đang có 1-2 bài thì
 # hai bài cùng hỏng là chuyện ngẫu nhiên, kêu vào đó là kêu oan.
 NGUONG_ITEM = 3

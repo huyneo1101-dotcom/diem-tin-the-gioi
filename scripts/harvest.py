@@ -155,7 +155,11 @@ NOISE_PATTERNS = [
 
 # Trần số ứng viên in ra MỖI CHỦ ĐỀ. Không có trần thì một chủ đề nóng (Biển Đông hôm
 # tàu chìm: 110 bài) sẽ nhấn chìm 4 chủ đề còn lại và ngốn hết context của agent.
-PER_TOPIC_CAP = 20
+# ⬆ 20 → 36 ngày 18/09/2026 cùng lượt nâng sàn 2 → 5 tin mỗi mục: chủ đề địa bàn chia
+# 03 nhánh, sàn 05 tin mỗi nhánh cần 15 tin NẠP ĐƯỢC, mà trần 20 chỉ cho agent nhìn
+# thấy ~6-7 ứng viên mỗi nhánh — lọc ngày thật và thang xác minh cắt tiếp thì không
+# còn đủ để chọn. 36 chia hết cho 03 nhánh (12 ứng viên mỗi nhánh).
+PER_TOPIC_CAP = 36
 
 # Nguồn không đủ tư cách làm nguồn tin cho bản tin (mạng xã hội, trang tổng hợp tự động).
 # Google News có index cả post Facebook — đã lọt thật ở lần chạy đầu.
@@ -1085,7 +1089,7 @@ def main():
                   "nhóm 2/3/4/5 NGANG NHAU, xếp theo ngày)")
         elif topic == CHU_DE_DIA_BAN:
             print("   (trộn LUÂN PHIÊN 03 nhánh Australia · Anh · Biển Đông để nhánh thưa "
-                  "không bị nhánh đăng dày dìm khỏi trần in — sàn 02 tin mỗi mục)")
+                  "không bị nhánh đăng dày dìm khỏi trần in — sàn 05 tin mỗi mục)")
         for h in ordered[:PER_TOPIC_CAP]:
             nhom = f"[nhóm {h['nhom']}]" if h.get("nhom") and h["nhom"] != 9 else ""
             print(f"   [{h['lop']}][{h['ngay']}]{nhom} {h['tieu_de'][:100]}")

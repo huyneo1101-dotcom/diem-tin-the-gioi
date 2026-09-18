@@ -182,7 +182,7 @@ phải máy — đó mới là lỗi cần vá, chứ không phải hai dòng m�
 
 | Lớp | Đo gì | Kêu khi | Chạy ở ca |
 |---|---|---|---|
-| SÀN | bản tin ĐÃ GỬI, đếm theo 07 đơn vị của file Word | mục nào dưới `SAN_MOI_MUC` = 2 | `toi` + `sang` |
+| SÀN | bản tin ĐÃ GỬI, đếm theo 07 đơn vị của file Word | mục nào dưới `SAN_MOI_MUC` = 5 (nâng từ 2 ngày 18/09/2026) | `toi` + `sang` |
 | NGUỒN | mỗi feed trong bảng `CLAUDE.md`: tỷ lệ đọc được ngày · tỷ lệ neo chủ đề | feed ≥3 item mà 0 đọc được ngày · feed bảng KHAI chủ đề mà 0 item neo | `sang` (gọi mạng ~40s) |
 | GÁN CỨNG | khoá `FORCE_TOPIC`/`FORCE_TOPIC_URL` còn khớp feed nào không | có khoá mồ côi | mọi ca (offline) |
 

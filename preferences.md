@@ -19,7 +19,7 @@ Dùng `net` (👍−👎) làm điểm. Nếu `stats` rỗng → chưa ai vote, 
 Bảng `votes` trên Supabase lưu MỖI vote kèm `title · category · region · source · v` (RLS theo user). `preferences.json` hiện chỉ mang tổng hợp category/region/source. Nếu về sau muốn phân tích sâu hơn (từ khóa/chủ đề từ tiêu đề, loại nội dung…), làm ở phía server/Action từ bảng `votes` này — KHÔNG cần thêm gì ở giao diện (giao diện chỉ thu vote, không phân tích).
 
 ## Cách áp dụng khi quét (đọc ở Bước 1 của skill)
-- **Điểm dương** chuyên mục/khu vực/nguồn → **tăng** ưu tiên; **điểm âm** → **giảm** (vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào).
+- **Điểm dương** chuyên mục/khu vực/nguồn → **tăng** ưu tiên; **điểm âm** → **giảm** (vẫn giữ sàn `SAN_MOI_MUC` tin mỗi mục — 05 tin từ 18/09/2026, đọc số ở `scripts/soi_muc_cam.py`, không bỏ hẳn mục nào).
 - Đây là **định hướng mềm**, không ghi đè quy tắc chất lượng/nguồn 3 tầng trong CLAUDE.md.
 
 ## PHÁT HIỆN sở thích (cập nhật 18/07/2026 — từ 300 lượt vote, độ tin cậy RẤT CAO, đã BỎ QUA ngày tháng)
@@ -56,7 +56,7 @@ Nguồn: `preferences.json` (`stats` + `items`). 268 👍 / 32 👎 (279 tiêu �
 - **Trong Chính trị:** ưu tiên tin **luật/hiến pháp/ngân sách QP/trừng phạt/chiến lược great-power**; **né** cáo phó, nhân vật/bê bối, đua bầu cử, nội bộ xã hội-tư pháp.
 - **Trong Kinh tế:** ưu tiên vĩ mô/định chế; **né** tin lãi–lỗ công ty đơn lẻ trừ khi gắn chủ đề chiến lược.
 - **Né:** cáo phó nói chung; Nga–Ukraine chiến sự lặp lại. Nguồn Al Jazeera lệch tiêu cực (phần lớn do gắn tin chính trị/nhân vật).
-- Vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào.
+- Vẫn giữ sàn `SAN_MOI_MUC` tin mỗi mục (05 tin từ 18/09/2026), không bỏ hẳn mục nào.
 
 ## Nhật ký cập nhật
 - **20/07/2026 (routine tự động):** SKIP phân tích — `preferences.json` vẫn mốc **18/07** (269👍/32👎, 280 tiêu đề), Action `sync-preferences` chưa ingest vote mới nào kể từ 18/07 → dữ liệu **y hệt** cơ sở phân tích 19/07. Gu giữ nguyên (CNQS 80 · Ngoại giao 60 · Kinh tế 55 · Chính trị-thể chế +12 · X 30). Không phát hiện mới; 5 quy tắc lọc & sắc thái không đổi.

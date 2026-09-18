@@ -11,6 +11,10 @@ nào hỏi *mục này đáng lẽ có tin, sao rỗng*. Người phát hiện l
 Cùng ngày Huy chốt sàn, nguyên văn: *"tối thiểu mỗi mục phải quét cho tao 2 tin"*, *"nhiều
 tin thì càng tốt"*. `scripts/soi_muc_cam.py` là phép đo, file này là cổng nghiệm thu nó.
 
+⬆ 18/09/2026 Huy NÂNG sàn lên 05 tin: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi
+thành tối thiểu 5 tin"*. Kho tin giả vì thế dựng 06 tin mỗi nhóm (trên sàn đúng 01 tin) để ca
+ranh giới còn chỗ cắt, và bản hỏng «hạ sàn về 1 tin» vẫn phải làm đỏ đúng 03 ca cũ.
+
 ⛔ MỌI CA GẮN NHÃN «PHẢI CHẶN» LÀ CA DỰNG ĐÚNG ĐIỀU KIỆN XẤU RỒI KHẲNG ĐỊNH MÃ THẬT SỰ BẮT
 ĐƯỢC. Bộ test chỉ có ca "phải cho qua" là chưa test.
 
@@ -63,19 +67,21 @@ def _tin(url, **kw):
     return d
 
 
+# 06 tin mỗi nhóm = sàn 05 + 01, đủ chỗ cho ca ranh giới cắt xuống dưới sàn.
+_N = 7   # range(1, _N) -> 06 tin
 NOI_BO = [_tin(f"https://a.test/nb{i}", title=f"Hạ viện bỏ phiếu dự luật ngân sách số {i}")
-          for i in range(1, 4)]
+          for i in range(1, _N)]
 DOI_NGOAI = [_tin(f"https://a.test/dn{i}", category="Ngoại giao",
-                  title=f"Ngoại trưởng Mỹ điện đàm lần {i}") for i in range(1, 4)]
+                  title=f"Ngoại trưởng Mỹ điện đàm lần {i}") for i in range(1, _N)]
 KHCN = [_tin(f"https://a.test/kt{i}", category="Công nghệ quân sự",
-             title=f"Lầu Năm Góc trao hợp đồng tên lửa lô {i}") for i in range(1, 4)]
-UC = [_tin(f"https://b.test/uc{i}", title=f"Úc điều tàu tới Darwin đợt {i}") for i in range(1, 4)]
+             title=f"Lầu Năm Góc trao hợp đồng tên lửa lô {i}") for i in range(1, _N)]
+UC = [_tin(f"https://b.test/uc{i}", title=f"Úc điều tàu tới Darwin đợt {i}") for i in range(1, _N)]
 ANH = [_tin(f"https://b.test/anh{i}",
             title=f"Hải quân Hoàng gia Anh triển khai HMS Tamar tới Ream lượt {i}")
-       for i in range(1, 4)]
+       for i in range(1, _N)]
 BIEN_DONG = [_tin(f"https://b.test/bd{i}",
                   title=f"Tàu hải cảnh Trung Quốc ở Bãi Cỏ Mây, Biển Đông ngày {i}")
-             for i in range(1, 4)]
+             for i in range(1, _N)]
 
 DATA_GIA = {"usNews": NOI_BO + DOI_NGOAI + KHCN,
             "worldNews": UC + ANH + BIEN_DONG,
@@ -139,8 +145,8 @@ def _soi(khai):
 def ca01():
     """[SÀN] bản tin đủ tin mọi mục -> KHÔNG kêu."""
     dem = _dem(NOI_BO, DOI_NGOAI, KHCN, UC, ANH, BIEN_DONG)
-    assert _do(dem) == {"Đối ngoại Mỹ": 3, "Nội bộ Mỹ": 3, "Anh": 3,
-                        "Australia": 3, "Biển Đông": 3, "KHCN-QS": 3}, _do(dem)
+    assert _do(dem) == {"Đối ngoại Mỹ": 6, "Nội bộ Mỹ": 6, "Anh": 6,
+                        "Australia": 6, "Biển Đông": 6, "KHCN-QS": 6}, _do(dem)
     assert S.keu_san(dem) == []
 
 
@@ -170,24 +176,25 @@ def ca04():
 
 
 def ca05():
-    """[SÀN · PHẢI CHẶN] mục địa bàn GỘP đủ sàn (3 tin) mà tiểu mục Anh rỗng -> vẫn KÊU.
+    """[SÀN · PHẢI CHẶN] mục địa bàn GỘP đủ sàn (6 tin) mà tiểu mục Anh rỗng -> vẫn KÊU.
 
     Đây là chỗ đếm gộp sẽ che mất lỗi: sáng 05/09 mục địa bàn có 02 tin nên nhìn tổng thì
     "đủ", trong khi tin Anh bằng 0 — đúng thứ Huy bắt được.
     """
-    dem = _dem(NOI_BO, DOI_NGOAI, KHCN, UC[:2], BIEN_DONG[:1])
-    assert sum(n for t, n in dem if any(t.endswith(x) for x in MD.THU_TU_TIEU_MUC)) == 3
+    dem = _dem(NOI_BO, DOI_NGOAI, KHCN, UC[:4], BIEN_DONG[:2])
+    assert sum(n for t, n in dem if any(t.endswith(x) for x in MD.THU_TU_TIEU_MUC)) == 6
     keu = S.keu_san(dem)
     assert keu, keu
     assert f"{_neo(MD.TM_ANH)} 0 tin" in keu[0], keu
-    assert f"{_neo(MD.TM_BIEN_DONG)} 1 tin" in keu[0], keu
+    assert f"{_neo(MD.TM_BIEN_DONG)} 2 tin" in keu[0], keu
 
 
 def ca06():
-    """[SÀN] ranh giới đúng SÀN: 2 tin cho qua, 1 tin bị chặn."""
-    assert S.keu_san([("M", 2)]) == []
+    """[SÀN] ranh giới đúng SÀN: 5 tin cho qua, 4 tin bị chặn."""
+    assert S.keu_san([("M", 5)]) == []
+    assert S.keu_san([("M", 4)]), "4 tin dưới sàn 05 mà cổng im"
     assert S.keu_san([("M", 1)])
-    assert S.SAN_MOI_MUC == 2, "sàn Huy chốt 05/09/2026 là 2 — đổi phải hỏi Huy"
+    assert S.SAN_MOI_MUC == 5, "sàn Huy nâng 18/09/2026 là 5 — đổi phải hỏi Huy"
 
 
 def ca07():
@@ -349,7 +356,7 @@ CA = [
     (3, "[SÀN · PHẢI CHẶN] mục rỗng hẳn -> KÊU", ca03),
     (4, "[SÀN] tách 03 tiểu mục, không đếm gộp", ca04),
     (5, "[SÀN · PHẢI CHẶN] gộp đủ sàn mà tiểu mục rỗng -> vẫn KÊU", ca05),
-    (6, "[SÀN] ranh giới sàn 2: 2 qua, 1 chặn", ca06),
+    (6, "[SÀN] ranh giới sàn 5: 5 qua, 4 chặn", ca06),
     (7, "[SÀN] chỉ đếm tin trong sổ đã gửi", ca07),
     (8, "[NGUỒN · PHẢI CHẶN] feed sống mà mù ngày -> KÊU", ca08),
     (9, "[NGUỒN] bảng đã ghi «feed không ghi ngày» -> im", ca09),
@@ -372,7 +379,7 @@ CA = [
 # (nhãn · file · phép thay · các ca BẮT BUỘC phải đỏ)
 BAN_HONG = [
     ("sàn: hạ sàn về 1 tin (mục 1 tin lọt lưới)",
-     "scripts/soi_muc_cam.py", "SAN_MOI_MUC = 2", "SAN_MOI_MUC = 1", [2, 5, 6]),
+     "scripts/soi_muc_cam.py", "SAN_MOI_MUC = 5", "SAN_MOI_MUC = 1", [2, 5, 6]),
 
     ("sàn: đếm GỘP mục địa bàn, không tách tiểu mục (che đúng lỗi tin Anh)",
      "scripts/soi_muc_cam.py",

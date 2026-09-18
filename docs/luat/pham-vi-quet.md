@@ -317,7 +317,7 @@ của phiên khác.
 2. **Ưu tiên nguồn tiếng Anh** trước nguồn tiếng Việt. Nguồn Việt chỉ dùng bổ sung khi nguồn Anh không đủ tin, hoặc để lấy góc nhìn/tin trong nước.
 3. **Ưu tiên nguồn có RSS feed** trước — nhanh và chính xác hơn tìm kiếm/web scraping thủ công. Nếu nguồn không có RSS hoặc RSS không truy cập được, mới dùng WebSearch/WebFetch.
 4. **Ưu tiên nguồn CHƯA từng được quét trước đó.** Kiểm tra bằng `grep -oE "\"sourceName\":\"[^\"]+\"" index.html | sort | uniq -c` để biết nguồn nào đang bị bỏ sót.
-5. **Điều hướng theo sở thích người đọc.** Người đọc bấm 👍/👎 trên từng tin, đồng bộ lên Supabase (giao diện KHÔNG hiển thị phân tích sở thích — chỉ thu vote; phân tích là việc của quy trình quét). Mỗi lần quét, session **đọc file local `preferences.json`** (gốc repo) để ưu tiên (điểm dương `net`) / giảm ưu tiên (điểm âm) chuyên mục · khu vực · nguồn. File này do **GitHub Action `sync-preferences.yml`** tự cập nhật hằng ngày: Action chạy trên máy GitHub (không bị Cloudflare chặn như môi trường quét), curl view công khai `vote_stats` từ Supabase rồi commit vào `main`. Đây là **định hướng mềm**: vẫn giữ tối thiểu 2 tin/category, không bỏ hẳn mục nào, không ghi đè quy tắc nguồn 3 tầng/chất lượng. (Chi tiết: `preferences.md`. Schema: `docs/supabase-setup.sql`.) LƯU Ý: KHÔNG tự WebFetch `*.supabase.co` khi quét — bị chặn 403 (đã kiểm chứng 12/07), việc lấy dữ liệu đã có Action lo.
+5. **Điều hướng theo sở thích người đọc.** Người đọc bấm 👍/👎 trên từng tin, đồng bộ lên Supabase (giao diện KHÔNG hiển thị phân tích sở thích — chỉ thu vote; phân tích là việc của quy trình quét). Mỗi lần quét, session **đọc file local `preferences.json`** (gốc repo) để ưu tiên (điểm dương `net`) / giảm ưu tiên (điểm âm) chuyên mục · khu vực · nguồn. File này do **GitHub Action `sync-preferences.yml`** tự cập nhật hằng ngày: Action chạy trên máy GitHub (không bị Cloudflare chặn như môi trường quét), curl view công khai `vote_stats` từ Supabase rồi commit vào `main`. Đây là **định hướng mềm**: vẫn giữ sàn `SAN_MOI_MUC` tin mỗi mục (05 tin từ 18/09/2026), không bỏ hẳn mục nào, không ghi đè quy tắc nguồn 3 tầng/chất lượng. (Chi tiết: `preferences.md`. Schema: `docs/supabase-setup.sql`.) LƯU Ý: KHÔNG tự WebFetch `*.supabase.co` khi quét — bị chặn 403 (đã kiểm chứng 12/07), việc lấy dữ liệu đã có Action lo.
 
 ## ~~Chỉ tiêu số lượng (SÀN CỨNG 15+15)~~ — ⚠️ LỖI THỜI 2026-07-23, xem banner đầu file (giờ là 5 chủ đề × 5–10 bài)
 **SÀN CỨNG TỔNG NGÀY (gộp cả phiên sáng + tối): `worldNews` ≥ 15 tin · `usNews` ≥ 15 tin — CHẤT LƯỢNG CAO.**
@@ -571,11 +571,18 @@ Khoá dùng **heartbeat** chứ không phải hạn giờ cứng — phiên ch�
 không có khoá (mất luôn bản tin của buổi đó). Không có nhịp nào trong `LOCK_STALE_MIN` = 30 phút →
 coi phiên đã chết, phiên mới giành được khoá. Biết chắc phiên cũ đã chết thì `claim --force`.
 
-## ⛔ SÀN CỨNG 02 TIN MỖI MỤC — chỉ thị Huy 05/09/2026
+## ⛔ SÀN CỨNG 05 TIN MỖI MỤC — chỉ thị Huy 05/09/2026, NÂNG 18/09/2026
 
-Nguyên văn Huy, nhắc ba lần trong một lượt: *"tối thiểu mỗi mục phải quét cho tao 2 tin"* ·
-*"phải cho tao mỗi mục tối thiểu 2 tin"* · *"nhiều tin thì càng tốt"*. Đây là **sàn**, không phải chỉ
-tiêu: vượt bao nhiêu cũng tốt, dưới là hụt.
+Nguyên văn Huy lúc chốt sàn 05/09, nhắc ba lần trong một lượt: *"tối thiểu mỗi mục phải quét cho tao 2
+tin"* · *"phải cho tao mỗi mục tối thiểu 2 tin"* · *"nhiều tin thì càng tốt"*. Ngày 18/09/2026 Huy nâng
+sàn, nguyên văn: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi thành tối thiểu 5 tin"*. Đây là
+**sàn**, không phải chỉ tiêu: vượt bao nhiêu cũng tốt, dưới là hụt.
+
+**Nâng sàn kéo theo 02 con số khác, đừng sửa lẻ một mình `SAN_MOI_MUC`:** (i) chỉ tiêu quét mỗi chủ đề
+trong `.claude/skills/quet-tin/SKILL.md` — chủ đề 1 lên 12–18 bài, chủ đề 2 lên 15–20 (mỗi nhánh ≥5),
+chủ đề 3 lên 6–10; (ii) trần in ứng viên `harvest.PER_TOPIC_CAP` 20 → 36, vì trần 20 chia cho 03 nhánh
+địa bàn chỉ còn ~6-7 ứng viên mỗi nhánh, mà cổng ngày thật và thang xác minh còn cắt tiếp — agent
+không nhìn thấy thì không có cách nào nạp đủ 05 tin.
 
 **ĐẾM THEO 07 ĐƠN VỊ CỦA BẢN TIN, KHÔNG THEO 05 CHỦ ĐỀ QUÉT.** Đây là chỗ dễ làm sai nhất và cũng
 chính là chỗ lỗi lọt sáng 05/09/2026: mục "Địa bàn Australia và Anh, Biển Đông" hôm đó có 02 tin nên
@@ -584,12 +591,12 @@ là mục trong file Word, nên sàn phải áp ở đúng đơn vị ấy:
 
 | Đơn vị | Sàn | Nguồn tin |
 |---|---|---|
-| 1. Đối ngoại Mỹ | 2 | chủ đề 1, nhánh có neo đối ngoại |
-| 2. Nội bộ Mỹ | 2 | chủ đề 1, phần còn lại |
-| 3a. Địa bàn › Anh | 2 | chủ đề 2, nhánh Anh |
-| 3b. Địa bàn › Australia | 2 | chủ đề 2, nhánh Úc |
-| 3c. Địa bàn › Biển Đông | 2 | chủ đề 2, phần còn lại |
-| 4. KHCN-QS | 2 | chủ đề 3 + diễn biến tập trận |
+| 1. Đối ngoại Mỹ | 5 | chủ đề 1, nhánh có neo đối ngoại |
+| 2. Nội bộ Mỹ | 5 | chủ đề 1, phần còn lại |
+| 3a. Địa bàn › Anh | 5 | chủ đề 2, nhánh Anh |
+| 3b. Địa bàn › Australia | 5 | chủ đề 2, nhánh Úc |
+| 3c. Địa bàn › Biển Đông | 5 | chủ đề 2, phần còn lại |
+| 4. KHCN-QS | 5 | chủ đề 3 + diễn biến tập trận |
 
 Ranh giới mục là ranh giới của `make_docx.build_sections` — cổng đo đi bằng chính hàm đó, không chép
 lại phép chia, vì mục mà cổng đếm phải là đúng mục Huy đọc.
@@ -605,7 +612,12 @@ thì đi thêm nguồn, tuyệt đối không nạp tin ngoài khung hay tin m�
 Đi hết nguồn mà vẫn hụt thì ghi vào `logs/scan-gaps.json` kèm lý do — cổng sẽ nhắn Telegram, và lý do
 ghi ở đó chính là câu trả lời cho tin nhắn ấy.
 
-**Số đo lúc chốt sàn** (18 ngày 18/08–05/09/2026, đếm theo `_addedDate` trên kho): mục Đối ngoại Mỹ
+**Số đo lúc NÂNG sàn lên 05** (18/09/2026, hai bản tin gần nhất): bản tối 12/09 ra 6 · 4 · 5 · 4 · 3 ·
+9 tin — đủ sàn 05 ở 03/06 mục; bản sáng 17/09 ra 2 · 1 · 3 · 2 · 1 · 5 — đủ 01/06 mục. Tức sàn 05 là
+mức phải VƯƠN TỚI, và bản SÁNG (khung tin mỏng, hạn chót 04:30) sẽ là chỗ kêu nhiều nhất; tiếng kêu ấy
+là việc phải làm, cách chữa là đi thêm nguồn chứ không phải hạ sàn.
+
+**Số đo lúc chốt sàn 02** (18 ngày 18/08–05/09/2026, đếm theo `_addedDate` trên kho): mục Đối ngoại Mỹ
 dưới sàn 02 ngày · Nội bộ Mỹ 04 ngày · KHCN-QS 01 ngày · tiểu mục Úc 06 ngày · Biển Đông 01 ngày ·
 **tiểu mục Anh 14/18 ngày** (phạm vi Anh chỉ mở 01/09/2026, và 05/09 rỗng vì hai lỗi câm của
 `harvest.py`). Tức sàn này là một yêu cầu SIẾT THÊM chứ không phải mô tả hiện trạng — những ngày đầu

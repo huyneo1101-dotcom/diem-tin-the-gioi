@@ -32,11 +32,23 @@ playbook nội dung.
 
 ## ⭐ PHẠM VI MỚI (2026-07-23 — GHI ĐÈ mọi mô tả 4-chuyên-mục / sàn 15+15 cũ)
 Bản tin chạy **2 phiên/ngày, CÙNG playbook 5 chủ đề này** (mốc giờ cụ thể: `docs/routine-web-scan.md`).
-Mỗi phiên **CHỈ quét 5 chủ đề**, **mỗi chủ đề 5–10 bài** (best-effort — thiếu thì thôi, KHÔNG bịa):
+Mỗi phiên **CHỈ quét 5 chủ đề**. Sản lượng mỗi chủ đề do **SÀN 05 TIN MỖI MỤC** của bản tin
+quyết định (Huy nâng 2 → 5 ngày 18/09/2026), vì một chủ đề đổ vào nhiều mục của file Word:
+
+| Chủ đề | Bài cần lấy | Vì mục nào |
+|---|---|---|
+| 1. Nội bộ Mỹ | **12–18**, trong đó **≥5 neo được đối ngoại** | hai mục: Đối ngoại Mỹ (5) + Nội bộ Mỹ (5) |
+| 2. Úc & Biển Đông (địa bàn) | **15–20**, **mỗi nhánh ≥5** | ba tiểu mục: Anh · Australia · Biển Đông |
+| 3. CNQS Mỹ | **6–10** | mục KHCN-QS |
+| 4. Mỹ – Mali | 2–5 (không mang sàn) | bản sáng 🎖️ Sự kiện & Tập trận |
+| 5. Tập trận | 1–2 (không mang sàn) | diễn biến tập trận |
+
+Best-effort ở phần VƯỢT sàn — thiếu thì thôi, KHÔNG bịa; nhưng phần DƯỚI sàn thì chưa được chốt lô,
+phải đi thêm một vòng nguồn nữa (xem "SÀN CỨNG 05 TIN MỖI MỤC" ở Bước 4a):
 
 1. **Nội bộ Mỹ — 5 NHÓM, HAI HẠNG ƯU TIÊN** (chỉ thị Huy 27/07/2026, GHI ĐÈ mức "SIẾT" cũ) — `usNews`,
    category `Chính trị` (nhóm 4 có thể `Kinh tế`). **BẮT BUỘC vét cạn nhóm (1) TRƯỚC; chỉ khi chưa đủ
-   chỉ tiêu 5–10 bài mới lấy sang các nhóm còn lại — và (2)(3)(4)(5) NGANG HÀNG, không có thứ tự giữa
+   chỉ tiêu 12–18 bài mới lấy sang các nhóm còn lại — và (2)(3)(4)(5) NGANG HÀNG, không có thứ tự giữa
    chúng.** Đừng nhảy cóc bỏ qua nhóm 1, cũng đừng coi nhóm 2 hơn nhóm 5.
    1. **[HẠNG 1] Điều trần + bỏ phiếu** — liệt kê **TOÀN BỘ phiên điều trần trong ngày** (hearing,
       testimony, mark-up, chất vấn quan chức) + **TOÀN BỘ kết quả** hội đồng/uỷ ban/hai viện **bỏ
@@ -49,9 +61,9 @@ Mỗi phiên **CHỈ quét 5 chủ đề**, **mỗi chủ đề 5–10 bài** (b
       PHẢI TỰ TÌM trong nhóm này, không phải chờ "trúng thì lấy"** — vá 17/09/2026 sau khi mục "Đối
       ngoại Mỹ" của bản tin sáng 17/09 rỗng hoàn toàn (0 tin) mà log không có dòng nào cho thấy đã
       từng thử tìm rồi loại, tức agent chưa bao giờ tìm. Nguyên nhân gốc: mục "Đối ngoại Mỹ" có sàn
-      riêng 2 tin (Bước 4a) NHƯNG nhóm 2 gộp chung đối ngoại với sắc lệnh/chiến lược nội địa nên agent
-      dừng lại ngay khi nhóm 1 đủ 5-10 bài, không riêng đủ 2 tin đối ngoại. Trước khi báo "đã cạn
-      nhóm 1" và dừng, agent PHẢI tự hỏi: đã có ≥2 tin neo được vào "Đối ngoại Mỹ" chưa — chưa đủ thì
+      riêng 05 tin (Bước 4a) NHƯNG nhóm 2 gộp chung đối ngoại với sắc lệnh/chiến lược nội địa nên agent
+      dừng lại ngay khi nhóm 1 đủ chỉ tiêu, không riêng đủ tin đối ngoại. Trước khi báo "đã cạn
+      nhóm 1" và dừng, agent PHẢI tự hỏi: đã có ≥5 tin neo được vào "Đối ngoại Mỹ" chưa — chưa đủ thì
       chủ động tìm thêm dù nhóm 1 đã đủ chỉ tiêu tổng.
    3. **Biểu tình**: diễn biến biểu tình, tuần hành, đình công.
    4. **Kinh tế Mỹ + động thái bộ sậu**: Fed, thuế quan, trừng phạt, số liệu vĩ mô; và các hoạt động
@@ -272,9 +284,9 @@ Chỉ **5 luồng** cho 5 chủ đề (gộp Mali+Predator vào 1 agent; Báo M�
 
 | Agent | Chủ đề | Sản lượng (24h, nới 48h nếu thiếu) |
 |---|---|---|
-| A | **Nội bộ Mỹ (5 nhóm, 2 hạng)** → `usNews` cat `Chính trị`/`Kinh tế` | **5–10** — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới lấy sang (2) sáng kiến/chiến lược các bộ · (3) biểu tình · (4) kinh tế Mỹ + Nhà Trắng/nội các · (5) bầu cử — bốn nhóm này NGANG HÀNG. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ hai hạng này và bắt agent báo lại đã cạn nhóm 1 chưa + số bài mỗi nhóm. ⛔ Nhóm 2 riêng phải nêu RÕ nhánh "đối ngoại/ngoại giao" là mục tiêu chủ động (không phải may rủi) — mục "Đối ngoại Mỹ" có sàn riêng 2 tin, xem PHẠM VI MỚI mục 1 nhóm 2. |
-| B | **Úc & Biển Đông** → `worldNews` | **5–10** — Úc (region IPAC) + Biển Đông (region Đông Á). |
-| C | **CNQS Mỹ** → `usNews` cat `Công nghệ quân sự` | **5–10** — khí tài/hệ thống cụ thể. |
+| A | **Nội bộ Mỹ (5 nhóm, 2 hạng)** → `usNews` cat `Chính trị`/`Kinh tế` | **12–18** (≥5 bài neo đối ngoại) — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới lấy sang (2) sáng kiến/chiến lược các bộ · (3) biểu tình · (4) kinh tế Mỹ + Nhà Trắng/nội các · (5) bầu cử — bốn nhóm này NGANG HÀNG. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ hai hạng này và bắt agent báo lại đã cạn nhóm 1 chưa + số bài mỗi nhóm. ⛔ Nhóm 2 riêng phải nêu RÕ nhánh "đối ngoại/ngoại giao" là mục tiêu chủ động (không phải may rủi) — mục "Đối ngoại Mỹ" có sàn riêng 05 tin, xem PHẠM VI MỚI mục 1 nhóm 2. |
+| B | **Úc & Biển Đông** → `worldNews` | **15–20** — Úc (region IPAC) + Biển Đông (region Đông Á) + Anh. ⛔ Ba nhánh Anh · Australia · Biển Đông mỗi nhánh **≥5 bài**, vì file Word tách thành 03 tiểu mục có sàn riêng. Đủ tổng mà một nhánh thiếu là HỤT. |
+| C | **CNQS Mỹ** → `usNews` cat `Công nghệ quân sự` | **6–10** — khí tài/hệ thống cụ thể. |
 | D | **Mỹ–Mali + Predator's Run 2026** | Mali 2–5 (`usNews` dossier) · Predator 1–2 (`exerciseUpdates`). |
 | BM | **Báo Mới** (nếu `--baomoi-pending` có bài hợp 5 chủ đề) | Bài ĐÃ LƯU: giữ hết (field `baomoiNews`). Ứng viên chuyên mục: **đúng chủ đề là CHO VÀO, không có trần số lượng** (Huy chốt 02/08/2026 — bỏ luật cũ «chọn 3–6 bài hợp gu nhất»), `worldNews`/`usNews` như thường. Không có bài hợp → bỏ qua agent này. |
 
@@ -415,14 +427,15 @@ chủ/live-blog; URL trùng trong batch hoặc đã có trong
 DATA; tên exercise (`exerciseUpdates`) không khớp entry có sẵn. **CẢNH BÁO** (không chặn): nguồn lạ;
 tiêu đề nghi trùng.
 - **KHÔNG còn sàn 15+15.** Dòng script in `SÀN CỨNG … X/15 · Y/15` là DI SẢN cũ — **BỎ QUA nó**. Mục
-  tiêu mới là **mỗi chủ đề 5–10 bài** (tự đếm theo chủ đề, không theo world/us tổng).
-- Chủ đề nào **<5 bài trong 24h** → giao thêm agent cho riêng chủ đề đó với khung **48h**; vẫn thiếu thì
+  tiêu mới đếm theo chủ đề (bảng ở PHẠM VI MỚI), không theo world/us tổng.
+- Chủ đề nào thiếu bài trong 24h → giao thêm agent cho riêng chủ đề đó với khung **48h**; vẫn thiếu thì
   CHẤP NHẬN (ghi rõ trong tóm tắt), KHÔNG bịa/nhồi. Không lặp vô hạn — 1–2 vòng bổ sung là đủ.
 
-⛔ **SÀN CỨNG 02 TIN MỖI MỤC — chỉ thị Huy 05/09/2026**, nguyên văn: *"tối thiểu mỗi mục phải quét cho
-tao 2 tin"*, *"nhiều tin thì càng tốt"*. Đây là SÀN chứ không phải chỉ tiêu: vượt bao nhiêu cũng tốt,
-dưới là hụt. Câu *"vẫn thiếu thì CHẤP NHẬN"* ở gạch đầu dòng trên nay CHỈ còn áp cho khoảng 2→5 bài;
-**dưới 02 tin thì chưa được chấp nhận**, phải đi thêm một vòng nguồn nữa trước khi chốt lô.
+⛔ **SÀN CỨNG 05 TIN MỖI MỤC — Huy chốt 02 tin ngày 05/09/2026, NÂNG LÊN 05 ngày 18/09/2026**, nguyên
+văn lượt nâng: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi thành tối thiểu 5 tin"*. Đây là SÀN
+chứ không phải chỉ tiêu: vượt bao nhiêu cũng tốt, dưới là hụt. Câu *"vẫn thiếu thì CHẤP NHẬN"* ở gạch
+đầu dòng trên chỉ áp cho phần VƯỢT sàn; **dưới 05 tin thì chưa được chấp nhận**, phải đi thêm một vòng
+nguồn nữa trước khi chốt lô.
 
 **Đếm theo 07 ĐƠN VỊ của bản tin Huy đọc, không phải theo 05 chủ đề quét** — vì mục Huy nhìn thấy là
 mục trong file Word, và chính chỗ lệch ấy làm lỗi lọt sáng 05/09/2026: mục "Địa bàn" hôm đó có 02 tin
@@ -430,12 +443,12 @@ nên đếm theo chủ đề thì "đủ", trong khi tiểu mục **Anh bằng 0
 
 | Đơn vị | Sàn | Lấy tin từ đâu |
 |---|---|---|
-| 1. Đối ngoại Mỹ | 2 | chủ đề 1 (usNews không khí tài, có neo đối ngoại) |
-| 2. Nội bộ Mỹ | 2 | chủ đề 1 (phần còn lại) |
-| 3a. Địa bàn › **Anh** | 2 | chủ đề 2, nhánh Anh — quốc phòng · kinh tế · chính trường · đối ngoại |
-| 3b. Địa bàn › **Australia** | 2 | chủ đề 2, nhánh Úc |
-| 3c. Địa bàn › **Biển Đông** | 2 | chủ đề 2, phần còn lại |
-| 4. KHCN-QS | 2 | chủ đề 3 + diễn biến tập trận |
+| 1. Đối ngoại Mỹ | 5 | chủ đề 1 (usNews không khí tài, có neo đối ngoại) |
+| 2. Nội bộ Mỹ | 5 | chủ đề 1 (phần còn lại) |
+| 3a. Địa bàn › **Anh** | 5 | chủ đề 2, nhánh Anh — quốc phòng · kinh tế · chính trường · đối ngoại |
+| 3b. Địa bàn › **Australia** | 5 | chủ đề 2, nhánh Úc |
+| 3c. Địa bàn › **Biển Đông** | 5 | chủ đề 2, phần còn lại |
+| 4. KHCN-QS | 5 | chủ đề 3 + diễn biến tập trận |
 
 - Ranh giới mục là ranh giới của `make_docx.build_sections`, không phải cảm tính: soi thử bằng
   `python3 scripts/soi_muc_cam.py --san --buoi toi` (hoặc `--buoi sang`) sau khi đã `add_news.py`.

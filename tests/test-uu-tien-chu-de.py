@@ -261,10 +261,15 @@ def ca_12():
 
     Sửa phép sắp xếp thôi KHÔNG cứu: đo lại lô thật 05/09 sau khi chỉ sửa sort, hai bài UK
     Defence Journal chỉ nhích từ hạng 37-38 lên 24-25/46 — vẫn ngoài trần `PER_TOPIC_CAP`.
-    Ca dựng đúng hình dạng đó: 30 tin Biển Đông hôm nay, 02 tin Anh hôm qua.
+    Ca dựng đúng hình dạng đó: lô Biển Đông hôm nay DÀY HƠN TRẦN IN, 02 tin Anh hôm qua.
+
+    ⚠ Số tin Biển Đông buộc phải bám `PER_TOPIC_CAP`, không gõ cứng 30: nâng trần 20 → 36
+    (18/09/2026, sàn 05 tin mỗi mục) mà giữ lô 30 thì 02 tin Anh lọt trần kể cả khi hạn
+    ngạch bị gỡ — `--tu-kiem` bắt đúng ca này mất răng lúc nâng trần.
     """
     lo = [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05",
-                   f"Philippines patrol in South China Sea number {i}") for i in range(30)]
+                   f"Philippines patrol in South China Sea number {i}")
+          for i in range(HV.PER_TOPIC_CAP + 10)]
     lo += [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-04", "British aircraft carrier deploys"),
            _uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-04", "Royal Navy warship fires near Falklands")]
     od = HV.sap_ung_vien(HV.CHU_DE_DIA_BAN, lo)
@@ -272,18 +277,21 @@ def ca_12():
             if HV.nhanh_dia_ban(h["tieu_de"]) == "Anh"]
     assert len(hang) == 2, \
         f"02 tin Anh phải lọt trần in {HV.PER_TOPIC_CAP}, chỉ lọt {len(hang)} — agent không "
-    "nhìn thấy thì không có cách nào nạp, và sàn 02 tin mỗi mục đổ ngay tại đây"
+    "nhìn thấy thì không có cách nào nạp, và sàn 05 tin mỗi mục đổ ngay tại đây"
 
 
 def ca_13():
     """Đối chứng — hạn ngạch KHÔNG được lật ngược thành nhánh thưa chiếm hết chỗ.
 
     Nhánh cạn bài phải tự nhường phần còn lại, không cấp phát cứng: lô chỉ có 01 tin Anh thì
-    19 slot còn lại vẫn thuộc về hai nhánh kia.
+    mọi slot còn lại vẫn thuộc về hai nhánh kia.
+
+    ⚠ Lô dựng theo `PER_TOPIC_CAP` chứ không gõ cứng 30 — trần nâng 20 → 36 ngày 18/09/2026
+    (sàn 05 tin mỗi mục) làm ca này đỏ oan vì lô mỏng hơn trần, không phải vì hạn ngạch sai.
     """
-    lo = [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05", f"South China Sea patrol {i}")
-          for i in range(30)]
-    lo += [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05", "British carrier deploys")]
+    lo = [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05", "British carrier deploys")]
+    lo += [_uv_ngay(HV.CHU_DE_DIA_BAN, "2026-09-05", f"South China Sea patrol {i}")
+           for i in range(HV.PER_TOPIC_CAP + 10)]
     od = HV.sap_ung_vien(HV.CHU_DE_DIA_BAN, lo)[:HV.PER_TOPIC_CAP]
     assert sum(1 for h in od if HV.nhanh_dia_ban(h["tieu_de"]) == "Anh") == 1, \
         "chỉ có 01 tin Anh mà chiếm hơn 01 slot"

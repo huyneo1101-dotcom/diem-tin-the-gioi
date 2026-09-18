@@ -226,7 +226,7 @@ def _():
     # không bao giờ chạy tới `canh_bao_muc_cam` — Huy phải tự đọc bản tin mới phát hiện.
     def gia_muc_cam(M):
         M.canh_bao_muc_cam = lambda ca, o, lan: (
-            ["📉 MỤC DƯỚI SÀN 2 TIN — 1/6 mục:\n  · Đối ngoại Mỹ: 0 tin"])
+            ["📉 MỤC DƯỚI SÀN 5 TIN — 1/6 mục:\n  · Đối ngoại Mỹ: 0 tin"])
     ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
                    state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15",
                    vien=gia_muc_cam)

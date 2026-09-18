@@ -94,17 +94,21 @@ cách nhau một tháng cho cùng tỷ lệ (2,0% và 3,7%), tức lỗ này m�
   của `HeThong/khoe.py`. Nghiệm thu qua mạng thật 25/08: lô mang đúng URL bài SCMP 2024 bị
   chặn với thông điệp `bài đăng THẬT ngày 2024-12-21 (đọc bằng datePublished)`.
 
-⛔ **SÀN 02 TIN MỖI MỤC + CỔNG «MỤC CÂM» — chốt 05/09/2026, đừng gỡ.** Huy: *"tối thiểu mỗi mục
-phải quét cho tao 2 tin"*, *"nhiều tin thì càng tốt"*. Đếm theo **07 đơn vị của file Word**, không
+⛔ **SÀN 05 TIN MỖI MỤC + CỔNG «MỤC CÂM» — chốt 02 tin ngày 05/09/2026, NÂNG LÊN 05 TIN ngày
+18/09/2026, đừng gỡ.** Nguyên văn lượt nâng: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi
+thành tối thiểu 5 tin"*. Đếm theo **07 đơn vị của file Word**, không
 theo 05 chủ đề: Đối ngoại Mỹ · Nội bộ Mỹ · Địa bàn ›Anh · ›Australia · ›Biển Đông · KHCN-QS (Mali và
 Tập trận cố ý không mang sàn). Đếm gộp mục Địa bàn là che đúng lỗi sáng 05/09: mục đủ 02 tin mà tiểu
-mục **Anh bằng 0**. Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì đi thêm nguồn, hết
+mục **Anh bằng 0**. Sàn nâng kéo theo hai con số khác: chỉ tiêu quét mỗi chủ đề (bảng trong
+`.claude/skills/quet-tin/SKILL.md`) và trần in ứng viên `harvest.PER_TOPIC_CAP` 20 → 36 — trần cũ chỉ
+cho agent thấy ~6-7 ứng viên mỗi nhánh địa bàn, không đủ để chọn ra 05 tin nạp được. Sàn KHÔNG lách được khung ngày hay thang xác minh — thiếu thì đi thêm nguồn, hết
 nguồn thì ghi `logs/scan-gaps.json`.
 ⛔ Đi kèm: **thứ tự in ứng viên** (`harvest.sap_ung_vien`) — sắp theo `_daykey`, tin ngày `?` xuống
 CUỐI (sắp theo chuỗi thì `?` > `2` nên chúng leo lên đầu: đo 05/09, 13/20 slot chủ đề 2), và chủ đề 2
 trộn LUÂN PHIÊN 03 nhánh Australia · Anh · Biển Đông. Không có hạn ngạch nhánh thì nhánh thưa bị dìm
 mỗi ngày và agent không bao giờ thấy bài Anh. Canh: `tests/test-uu-tien-chu-de.py` (14 ca · 10/10 bản
-hỏng bị bắt).
+hỏng bị bắt) — ⚠ hai ca 12/13 dựng lô theo `PER_TOPIC_CAP`, gõ cứng số bài là ca mất răng ngay lượt
+nâng trần.
 Cổng: `scripts/soi_muc_cam.py` (soi tay `--san` · `--feed`), cắm trong `.github/scripts/canary.py`.
 Ba lớp: SÀN (bản tin đã gửi) · NGUỒN (feed sống mà mọi item ra ngày `?`, hoặc bảng khai chủ đề mà 0
 item neo) · GÁN CỨNG (khoá `FORCE_TOPIC*` mồ côi). Lượt đo đầu bắt 05 nguồn chính thức Mỹ nằm trong
