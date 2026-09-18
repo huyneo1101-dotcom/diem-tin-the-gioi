@@ -9,23 +9,23 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-19T05:04:03+07:00",
+    "lastRunAt": "2026-09-19T04:45:09+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "+13 world (Anh 3, Australia 6, Bien Dong 5), +25 US (noi bo My 9, doi ngoai 3, CNQS 7, Mali 3), thieu doi ngoai (3/5) va tap tran",
+    "note": "+30 tin (5 chu de): 6 Noi bo My, 6 Doi ngoai My, 6 CNQS, 3 Anh, 4 Australia, 5 Bien Dong, 2 Mali",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-09-19"
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-18T04:37:43+07:00",
+    "lastRunAt": "2026-09-19T05:00:06+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "+1 su kien, +6 bai think-tank",
+    "note": "+2 tap tran moi (Agile Tasman, Singaroo), +6 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-18"
+      "sang": "2026-09-19"
     }
   }
 }

@@ -1315,7 +1315,19 @@ Cổng Báo Mới: xử lý đủ 7/7 ứng viên khớp chủ đề — 6 loạ
 - [Nội bộ Mỹ/BM] "Ông Trump bất ngờ bảo vệ Chủ tịch Fed" — xác nhận có thật qua WebSearch (CNBC, PBS, Townhall: Trump nói vẫn tin tưởng Warsh nhưng vẫn đòi hạ lãi suất về 1%). Góc nhìn khác với tin "đổ trách nhiệm cho hội đồng" đã bị cổng ngày thật chặn ở trên — đáng nạp nhưng lô đã đóng để kịp tiến độ phiên; để bản tối/phiên sau cân nhắc bổ sung nếu còn giá trị.
 - [Nội bộ Mỹ/BM] "Dự luật trừng phạt Nga tạo biến số mới trước thượng đỉnh Mỹ - Trung" (TTXVN) — trùng góc với tin "Ấn Độ đối mặt thuế quan 100%" đã nạp (cùng hệ quả ngoại giao của luật trừng phạt). Bỏ.
 - [Úc & Biển Đông/BM] "Australia: Xem xét cấm kính thông minh tại các cơ quan chính phủ" — ĐÃ NẠP, nhưng qua nguồn gốc trực tiếp ABC News Australia (WebSearch xác nhận cùng sự kiện với bản Bloomberg gốc bị chặn 403), không qua cơ chế `_baomoiUrl`.
-- [CNQS Mỹ/BM] "Tin thế giới tối 18-9: Mỹ duyệt thương vụ F-35 24,3 tỷ USD với Saudi Arabia" (Báo Gia Lai) — trùng sự kiện đã nạp bằng bản Breaking Defense (nguồn gốc chính thống, chi tiết hơn). Bỏ.
-- [CNQS Mỹ/BM] "Mỹ duyệt bán 48 tiêm kích F-35 24,3 tỷ USD cho Arab Saudi" (An Ninh Thủ Đô, 2 bản) — cùng sự kiện F-35 Saudi Arabia đã nạp qua Breaking Defense. Bỏ.
-- [CNQS Mỹ/BM] "Bán đảo Triều Tiên: Hàn Quốc thúc đẩy hòa bình, Triều Tiên củng cố răn đe hạt nhân" (Báo Thế Giới & Việt Nam) — bài tổng hợp nhiều sự kiện rời rạc, không neo được vào một khí tài/hệ thống cụ thể theo tiêu chí CNQS Mỹ, và không phải tin về Mỹ. Bỏ.
-- [Úc & Biển Đông/BM] "Tàu sân bay đầu tiên của Indonesia vấp tranh cãi về tham vọng quân sự" (Báo Tin Tức TTXVN) — nội dung là tranh cãi chính trị nội bộ Indonesia về ngân sách/tham vọng quân sự, không neo được vào Úc/AUKUS hay vùng biển & thực thể Biển Đông cụ thể theo tiêu chí siết 01/08/2026. Bỏ.
+
+## 2026-09-19 (phiên sáng sớm CI)
+
+- [CNQS/BM] "Tin thế giới tối 18-9: Mỹ duyệt thương vụ F-35 trị giá 24,3 tỷ USD với Saudi Arabia" (Báo Gia Lai) — TRÙNG tin đã có "Mỹ phê duyệt bán 24 tỷ USD tiêm kích F-35 cho Saudi Arabia" (2026-09-18).
+- [CNQS/BM] "Mỹ duyệt bán 48 tiêm kích F-35 trị giá 24,3 tỷ USD cho Arab Saudi" (An Ninh Thủ Đô) — cùng sự kiện F-35 Saudi Arabia, TRÙNG.
+- [CNQS/BM] "Mỹ phê duyệt thương vụ bán 48 máy bay F-35 trị giá hơn 24 tỷ USD cho Ảrập Xêút" (An Ninh Thủ Đô) — cùng sự kiện F-35 Saudi Arabia, TRÙNG.
+- [Úc & Biển Đông/BM] "Tàu sân bay đầu tiên của Indonesia vấp tranh cãi về tham vọng quân sự" (Báo Tin Tức TTXVN) — TRÙNG, đã nạp cùng sự kiện qua nguồn gốc The Guardian trong lô sáng nay.
+- [CNQS/BM] "Bán đảo Triều Tiên: Hàn Quốc thúc đẩy hòa bình, Triều Tiên tiếp tục củng cố răn đe hạt nhân" (Báo Thế Giới & Việt Nam) — thuần nội bộ liên Triều, không neo được vào 5 chủ đề đang quét (không phải khí tài Mỹ, không phải Úc/Anh/Biển Đông).
+- [Nội bộ Mỹ] "Ngân hàng Trung ương Anh giữ nguyên lãi suất 3,75%" (Bank of England) — cổng NGÀY THẬT phát hiện ngày đăng thật là 2026-09-17 (đọc bằng thẻ time), ngoài khung 1 ngày so với hôm nay 19/09. Bỏ.
+- [Úc & Biển Đông] "Cựu Thủ tướng Úc Paul Keating: AUKUS đang 'khoá' Australia..." (The Guardian Australia) — cổng NGÀY THẬT: ngày đăng thật 2026-09-17 (datePublished), ngoài khung. Bỏ.
+- [Úc & Biển Đông] "Kiến trúc sư AUKUS phía Mỹ Kurt Campbell thừa nhận thỏa thuận khó khăn" (ABC News Australia) — cổng NGÀY THẬT: ngày đăng thật 2026-09-17, ngoài khung. Bỏ.
+- [Úc & Biển Đông] "Hải quân Anh phát triển đội tàu mặt nước không người lái ROMULUS 151" (UK Defence Journal) — nội dung không tự neo được vào nước Anh (chương trình do các công ty Mỹ thực hiện, không rõ khách hàng là Hải quân Hoàng gia Anh), bị cổng neo chủ đề 2 chặn; không đủ thời gian xác minh lại trong phiên nên bỏ thay vì ép nạp.
+- [Nội bộ Mỹ] "Ngoại trưởng Rubio thông báo sẽ tới New York dự Tuần lễ cấp cao Đại hội đồng LHQ" (state.gov) — cổng NGÀY THẬT: trang không có metadata ngày đọc được (không phải trang bị chặn hẳn). Bỏ theo luật "trang không in ngày thì bỏ".
+- [CNQS] "Hải quân Mỹ ký hợp đồng tên lửa siêu vượt âm Blackbeard 200 triệu USD" (USNI News) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [CNQS] "MARTAC mở rộng sản xuất drone hải quân Devil Ray" (Naval Today) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Nội bộ Mỹ] "Mỹ trừng phạt thêm loạt thực thể quốc phòng và niken của Cuba" (UPI) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ (làm mất 1 tin neo "Đối ngoại Mỹ" đã tìm bù, nhưng soi_muc_cam cho thấy mục này vẫn đạt sàn nhờ tin tồn từ hôm qua).

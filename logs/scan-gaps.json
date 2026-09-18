@@ -1,20 +1,15 @@
 {
-  "date": "2026-09-18",
+  "date": "2026-09-19",
   "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":0,"target":"5-10","min":5,"thieu":true,
-     "reason":"Hạ viện nghỉ họp 17-21/9 nên không có phiên điều trần/bỏ phiếu nào xác nhận đúng ngày 18-19/9; các ứng viên GNEWS về \"House passes...\" đối chiếu lại đều là sự kiện 16/9 bị báo nhỏ đăng lại chậm, đã loại để tránh nạp tin cũ. Hạng 2 (sáng kiến/kinh tế/bầu cử) đã bù đủ sàn."},
-    {"name":"Đối ngoại Mỹ","count":3,"target":"5","min":5,"thieu":true,
-     "reason":"Đã tra OFAC recent-actions, lịch công khai Bộ Ngoại giao, điện đàm Trump-Tập nhưng chỉ xác nhận chắc chắn 3 sự kiện đối ngoại đúng ngày 18-19/9 (Rubio-Ngoại trưởng Hàn Quốc, OFAC gỡ trừng phạt Eritrea, Trump-Tập điện đàm); còn thiếu 2 tin."},
-    {"name":"Công nghệ quân sự Mỹ","count":7,"target":"6-10","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Anh","count":3,"target":"3","min":3,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":6,"target":"3","min":3,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":3,"target":"2-5","min":0,"thieu":false,"reason":""},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":true,
-     "reason":"Cuộc đang bám (Veer Guardian, REPMUS/Dynamic Messenger, SEACAT, Diễn tập Hạm đội TBD Nga, UNITAS) chỉ tìm được diễn biến UNITAS ngày 11/9 — ngoài khung 48h, đã bỏ thay vì nạp tin cũ."},
-    {"name":"Báo Mới","count":0,"target":"best-effort","min":0,"thieu":false,
-     "reason":"5 ứng viên khớp chủ đề đều trùng sự kiện F-35 Saudi Arabia (đã nạp bản Breaking Defense tốt hơn) hoặc không neo rõ Biển Đông (tàu sân bay Indonesia) — loại, ghi logs/loai-tin.md."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, hạng 1-5)","count":6,"target":"12-18","min":5,"thieu":false,"reason":""},
+    {"name":"Đối ngoại Mỹ","count":6,"target":"≥5 (trích từ nhóm Nội bộ Mỹ)","min":5,"thieu":false,"reason":"Đủ sàn nhờ gộp cả tin hôm qua chưa gửi; riêng lô sáng nay chỉ thêm được 3 tin mới (Rubio-Cho, Hàn Quốc/Hormuz, Abbas visa) — 2 ứng viên khác (Rubio đi dự UNGA, trừng phạt Cuba) bị cổng NGÀY THẬT chặn vì trang không có metadata ngày đọc được."},
+    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"6-10","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":3,"target":"≥3 (sàn riêng)","min":3,"thieu":false,"reason":"Đạt đúng sàn. Mất 1 ứng viên (ROMULUS 151 drone ships, UK Defence Journal) vì nội dung không tự neo được vào nước Anh theo cổng chủ đề 2, và 1 ứng viên (Bank of England giữ lãi suất) vì cổng NGÀY THẬT phát hiện ngày đăng thật 17/09, ngoài khung 1 ngày."},
+    {"name":"Địa bàn › Australia","count":4,"target":"≥3 (sàn riêng)","min":3,"thieu":false,"reason":"Mất 2 ứng viên tốt (phát biểu Paul Keating và Kurt Campbell nhân 5 năm AUKUS) vì cổng NGÀY THẬT phát hiện ngày đăng thật 17/09, ngoài khung — vẫn đạt sàn nhờ 4 tin còn lại."},
+    {"name":"Địa bàn › Biển Đông","count":5,"target":"≥5","min":5,"thieu":false,"reason":"Đạt đúng sàn."},
+    {"name":"Mỹ – Mali","count":2,"target":"2-5","min":2,"thieu":false,"reason":""},
+    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":true,"reason":"Đã kiểm cả 5 cuộc đang bám (Veer Guardian 2026, REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội Thái Bình Dương Nga 2026, UNITAS 2026) nhưng không tìm được diễn biến MỚI trong khung 18-19/09 — các tin tìm được đều đã có trong bản tin trước hoặc ngoài khung ngày."}
   ],
-  "note": "Xem logs/loai-tin.md để biết chi tiết tin bị loại và lý do."
+  "note": "8 ứng viên chất lượng tốt bị cổng NGÀY ĐĂNG THẬT chặn trong phiên này vì trang không đọc được metadata ngày (state.gov, USNI News, Naval Today, UPI) hoặc ngày đăng thật cũ hơn 1 ngày so với batch dù RSS ghi mới (Bank of England, The Guardian Australia, ABC News Australia) — chi tiết từng ca trong logs/loai-tin.md phần 2026-09-19. 5 ứng viên Báo Mới đều bị loại vì trùng tin đã nạp trong lô này hoặc ngoài phạm vi 5 chủ đề, cũng ghi trong logs/loai-tin.md. Mọi mục sàn (Đối ngoại Mỹ/Nội bộ Mỹ/Anh/Australia/Biển Đông/KHCN-QS) đều đạt sàn nhờ gộp thêm tin hôm qua (18/09) chưa được gửi vào bản tin sáng nay, đúng cơ chế gop_tin_ca_toi."
 }
