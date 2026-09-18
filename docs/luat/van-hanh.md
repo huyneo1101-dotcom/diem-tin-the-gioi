@@ -201,3 +201,50 @@ ngày; và một số đo trước đó trong ngày lấy được `pacom.mil` *
 đây là **hướng lệch an toàn**: harvest local bỏ qua chúng nên không tốn lượt curl để nhận `gaierror`,
 còn CI thì luôn lấy được. DNS zone `.mil` khoẻ lại thì nâng lên `cả hai`, và phép đo để quyết là
 `getaddrinfo`, không phải `dig`.
+
+
+> Dời từ CLAUDE.md ngày 18/09/2026 (cắt bù mục 31 khi thêm nguồn Đối ngoại Mỹ/Biển Đông) — nội dung giữ NGUYÊN VĂN.
+
+#### 📊 Kết quả dò TOÀN BỘ nguồn ở CẢ HAI môi trường (27/07/2026, `scripts/probe_sources.py`)
+288 URL / 154 domain, dò từ máy Mac và từ GitHub runner (Mỹ), rồi so:
+| | local (máy Huy) | CI (Mỹ) |
+|---|---|---|
+| RSS đọc được | 78 domain | 77 |
+| HTML đọc được | 39 | **58** |
+| 403 | 31 | **16** |
+
+- **114 domain cả hai đọc được** — phần lớn bảng nguồn.
+- **21 domain CHỈ CI đọc được** → local mất hẳn. Gồm **TOÀN BỘ uỷ ban THƯỢNG VIỆN** (armed-services,
+  foreign, appropriations, intelligence, judiciary, banking, finance, budget, commerce, energy, hsgac,
+  rules, agriculture, indian, jec, sbc + trang thông cáo chung) và census.gov, occ.treas.gov. Đây **đảo
+  lại** ghi chú cũ "uỷ ban Thượng viện 403, chỉ WebSearch được" — sai vì chỉ đo ở local.
+- **3 domain CHỈ local đọc được** (CI bị 403): `axios.com`, `flightglobal.com`, `rappler.com` → phiên CI
+  sẽ hụt 3 nguồn này, bù bằng Google News/local.
+- ~~**16 domain cả hai chịu**~~ → **CON SỐ NÀY SAI**, xem mục đo lại ngay dưới (danh sách cũ đã bỏ:
+  nó dựng bằng curl trần nên phóng đại 403, và 06 trang quân chủng trong đó nay đã vào bảng HTML).
+
+#### 🔄 ĐO LẠI 30/07/2026 BẰNG CÔNG CỤ ĐÃ VÁ — bảng số trên dựng bằng curl TRẦN nên phóng đại "403"
+Toàn bộ ảnh chụp 27/07 ở trên đo bằng `curl` trần, tức nó **không phân biệt được nguồn bị chặn THẬT
+với nguồn chỉ bị chặn vì công cụ đo** (Akamai/Cloudflare cắt theo dấu vân tay TLS). Sau khi
+`probe_sources.py` được vá để đi bậc 2 bằng `curl_cffi`, đo lại từ CI (run 30516868251, 287 URL):
+
+| | CI 30/07 — curl trần | CI 30/07 — có bậc 2 |
+|---|---|---|
+| RSS | 77 | **82** |
+| HTML | 173 | **195** |
+| **403** | **31** | **6** |
+| LỖI | 6 | 4 |
+
+**27 URL chỉ đọc được nhờ vân tay TLS**, trong đó có cả 06 trang quân chủng ở dòng gạch trên. `403`
+còn lại chỉ 03 domain: `commerce.gov`, `eda.gov`, `flightglobal.com`.
+⛔ **Nhóm "cả hai chịu" nay chỉ còn phần `.gov` chưa đo lại từ local** — 06 trang quân chủng đã RỜI
+nhóm này và vào bảng "🕸️ TRANG HTML QUÉT TRỰC TIẾP". Đừng đọc lại danh sách gạch ngang ở trên như
+danh sách còn hiệu lực.
+
+⚠️ **Đọc số liệu dò cẩn thận:** dò 288 URL nhiều luồng dễ bị **rate-limit tạm** (`thehill.com` trả 429,
+`thediplomat.com` trả 000 ở local dù vẫn chạy tốt). Nguồn đang dùng bỗng báo hỏng thì **kiểm lẻ một
+lần** trước khi gạch tên. Từ 30/07 script tự đo LẠI LẺ, TUẦN TỰ mọi nguồn bị chấm hỏng rồi đánh dấu
+`da_thu_2_lan` — vòng lẻ ở CI 30/07 cứu được 0/10, tức 10 nguồn đó hỏng thật.
+Dò lại về sau: `python3 scripts/probe_sources.py --json /tmp/probe-local.json` (local) và workflow
+`probe-sources.yml` (CI, ghi `docs/probe-ci.json`). **Cả hai nơi đều cần `curl_cffi`** — thiếu thì
+script vẫn chạy nhưng KÊU ra danh sách domain chưa kết luận được, đừng bỏ qua dòng đó.

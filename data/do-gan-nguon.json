@@ -2,14 +2,14 @@
  "_doc": "SINH TỰ ĐỘNG — ĐỪNG SỬA TAY. Sửa bản gốc rồi chạy `python3 scripts/dong_bo_do_gan.py --sinh`.",
  "_ban_goc": "/Users/Huy/Claude/App/RenPhanTich/du-lieu/nguon.json",
  "_sinh_boi": "scripts/dong_bo_do_gan.py",
- "_dau_van_tay": "a883965d0878eeebbb5136df3f8ab81e22e48375",
+ "_dau_van_tay": "af2bb7713a29aaeaf86fec71f124dd88af21a561",
  "_thang": {
   "1": "nguồn gốc chính thức",
   "2": "hãng tin có phóng viên tại chỗ",
   "3": "trang tổng hợp / dẫn lại",
   "4": "kênh tuyên truyền"
  },
- "so_hang": 116,
+ "so_hang": 119,
  "hang": [
   {
    "ten": "@CENTCOM",
@@ -178,6 +178,12 @@
    "do_gan": 2,
    "kenh": "web",
    "luu_y": "Phóng viên tại chỗ mạnh ở Trung Đông; chú ý góc nhìn khu vực khi đọc phần bình luận."
+  },
+  {
+   "ten": "ANTARA News",
+   "do_gan": 2,
+   "kenh": "web",
+   "luu_y": "Hãng thông tấn quốc gia Indonesia, có phóng viên tại chỗ."
   },
   {
    "ten": "AP",
@@ -576,6 +582,12 @@
    "luu_y": "Diễn đàn học thuật về Đông Á."
   },
   {
+   "ten": "Foreign Policy",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Tạp chí đối ngoại Mỹ — phân tích/bình luận chuyên gia, không phải quan sát trực tiếp."
+  },
+  {
    "ten": "Hudson Institute",
    "do_gan": 3,
    "kenh": "web",
@@ -592,6 +604,12 @@
    "do_gan": 3,
    "kenh": "web",
    "luu_y": "Viện nghiên cứu, mạnh mảng Nga và Trung Á."
+  },
+  {
+   "ten": "Just Security",
+   "do_gan": 3,
+   "kenh": "web",
+   "luu_y": "Blog học thuật về an ninh quốc gia/luật Mỹ (NYU) — phân tích chuyên gia, không phải quan sát trực tiếp."
   },
   {
    "ten": "Long War Journal",
