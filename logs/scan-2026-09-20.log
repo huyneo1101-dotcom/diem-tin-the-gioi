@@ -18,3 +18,7 @@
   (lastRunAt 2026-09-20T05:11:08+07:00). Kiem so_da_gui.py --xem: co dong 2026-09-20T05:12:02+07:00
   [sang] 17 tin => ban tin da thuc su toi tay, khong phai co noi doi. event-scan cung DONE (lastRunAt
   05:24:12+07:00, +6 bai think-tank, bao cao tuan). Ket thuc em, khong quet lai.
+
+[23:33Z] SKIP web-scan (CI, phien sang som, lan goi lai) - claim lai van exit 10, ngay 2026-09-20 DA
+  XONG. Kiem lai so_da_gui.py --xem: van co dong 2026-09-20T05:12:02+07:00 [sang] 17 tin => ban tin
+  da toi tay tu truoc, khong phai co noi doi. Trung ket qua voi lan kiem 22:31Z. Ket thuc em.
