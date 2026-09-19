@@ -1,3 +1,9 @@
 [21:00Z] START (CI) - phien sang som web-scan
 [04:05 VN] SKIP (local) - web-scan dang co phien khac chay (nhip tim 3' truoc, bat dau 04:00:32 VN), khong quet chong.
 [04:35 VN] RUN (local) - claim web-scan thanh cong, phien 04:00 chua xong/da het han, giu khoa, bat dau quet.
+[21:41Z] SKIP (CI) - phien CI nay (claim 04:00:32 VN) phat hien phien local da cuop khoa web-scan luc
+  04:35:59 VN (~6 phut truoc, con moi, chua qua han thoi 30'), vi nhip tim cuoi CI push duoc chi toi
+  04:02:31 VN (nhip 04:03/04:39 chua kip push do dang giao 5 agent). CI NHUONG, khong quet chong:
+  reset --hard origin/main, KHONG goi state.py skip/fail (tranh de RUNNING cua phien local). Ket qua
+  5 agent Sonnet (Noi bo My + Uc&Anh&Bien Dong + CNQS My + Mali&tap tran + Bao Moi, da xac minh xong)
+  bi huy theo dung giao thuc chong "hai phien cung quet" (SKILL.md Buoc 0). Phien local tiep tuc.
