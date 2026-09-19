@@ -1331,3 +1331,24 @@ Cổng Báo Mới: xử lý đủ 7/7 ứng viên khớp chủ đề — 6 loạ
 - [CNQS] "Hải quân Mỹ ký hợp đồng tên lửa siêu vượt âm Blackbeard 200 triệu USD" (USNI News) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
 - [CNQS] "MARTAC mở rộng sản xuất drone hải quân Devil Ray" (Naval Today) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
 - [Nội bộ Mỹ] "Mỹ trừng phạt thêm loạt thực thể quốc phòng và niken của Cuba" (UPI) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ (làm mất 1 tin neo "Đối ngoại Mỹ" đã tìm bù, nhưng soi_muc_cam cho thấy mục này vẫn đạt sàn nhờ tin tồn từ hôm qua).
+
+## 2026-09-20 (phiên sáng sớm local, chạy bù)
+
+- [CNQS/BM] "Triều Tiên đưa vũ khí tương tự hệ thống HIMARS Mỹ vào sản xuất" (Báo Sức Khỏe & Đời Sống) — bài gốc (Defence Blog, KCNA/Kim Jong Un thị sát nhà máy 16-18/9) nói về vũ khí NỘI ĐỊA Triều Tiên, chỉ dùng HIMARS Mỹ để so sánh hình dáng bệ phóng — không phải tin về công nghiệp quốc phòng Mỹ, không có bối cảnh Mỹ-Triều rõ ràng. Không hợp chủ đề CNQS Mỹ. Bỏ.
+- [CNQS/BM] "Lý do Israel lo ngại Saudi Arabia mua F-35 của Mỹ" (Báo Tin Tức TTXVN) — trùng sự kiện với tin đã nạp "Israel đòi Mỹ 'bù đắp' vũ khí sau khi Washington duyệt bán F-35 cho Saudi Arabia" (cùng gốc: Mỹ duyệt bán F-35 cho Saudi Arabia và phản ứng của Israel). Bỏ.
+- [Úc & Biển Đông/BM] "Các doanh nghiệp Đài Loan muốn kết nối hợp tác chuỗi cung ứng điện tử với Việt Nam" (Báo VietnamPlus) — tin kinh tế/chuỗi cung ứng điện tử thuần túy, không liên quan quốc phòng/Biển Đông/Anh/Úc. Không hợp 5 chủ đề. Bỏ.
+- [CNQS/BM] "Mỹ ký hợp đồng khủng sản xuất vũ khí chiến lược, 'sát thủ tàu sân bay' ưu việt như thế nào?" (Báo Thế Giới & Việt Nam) — trùng đúng sự kiện với tin đã có trong bản tin "Mỹ ký hợp đồng sản xuất MQ-25A Stingray: Lời đáp trả sát thủ tàu sân bay" (Dân Trí) — cùng hợp đồng Boeing MQ-25A Stingray Lot 1 LRIP 14-15/9/2026. Bỏ.
+- [Nội bộ Mỹ] "Mỹ - Trung nối lại đàm phán thương mại tại New York" (Bloomberg) — cổng NGÀY THẬT: trang không có metadata ngày đọc được (Bloomberg thường chặn bot đọc metadata). Bỏ, mất 1 tin neo Đối ngoại Mỹ đáng lẽ dùng được.
+- [Nội bộ Mỹ] "Ngoại trưởng Rubio lên đường dự UNGA" (state.gov) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ (cùng bệnh đã ghi hôm 19/09 với state.gov).
+- [Nội bộ Mỹ] "Mỹ phê duyệt thương vụ 2,68 tỷ USD bán thiết bị phòng không cho Ukraine" (The Hill) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Nội bộ Mỹ] "Sunday shows: Dân chủ và Cộng hoà đưa lập luận chốt trước bầu cử giữa kỳ" (The Hill) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Nội bộ Mỹ] "Biểu tình tại Indiana phản đối chấm dứt TPS cho người Haiti" (The Bloomingtonian) — cổng NGÀY THẬT: bài đăng thật 2026-09-18, ngoài khung 1 ngày so với batch 2026-09-20. Bỏ.
+- [CNQS] "Chiếc F-35 đầu tiên của Đức xuất xưởng tại Mỹ" (Lockheed Martin News) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [CNQS] "Không gian lực Mỹ đặt tên chương trình RRS-G, chọn Northrop Grumman" (RealClearDefense) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Úc & Biển Đông] "Thủ tướng Anh Andy Burnham chuẩn bị gặp Trump" (Bloomberg) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ, mất 1 tin nhánh Anh (nhánh Anh vẫn đạt sàn nhờ 4 tin UK Defence Journal còn lại).
+- [Úc & Biển Đông] "Đại sứ quán Trung Quốc tại Philippines chỉ trích Đại sứ quán Mỹ về vụ va chạm bãi Sabina" (Global Times qua GlobalSecurity.org) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Úc & Biển Đông] "Hội đồng Hàng hải Quốc gia Philippines cảnh báo không 'bình thường hoá' hành vi gây hấn trên biển" (Manila Bulletin) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Úc & Biển Đông] "Ông Trump tuyên bố lập 'Lực lượng AI' phỏng theo Space Force" (Axios) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Mỹ–Mali] "Điều tra Bellingcat: quân đội Mali oanh kích dân thường theo mô hình 'có tội vì vị trí'" — bài đăng thật 2026-09-16, quá 3 ngày so với batch 2026-09-20 (khung CNQS nới 3 ngày cũng không đủ). Bỏ.
+- [Tập trận] "REPMUS 26/Dynamic Messenger 26 bước vào giai đoạn thử nghiệm chiến thuật" (North.io) — URL trùng với tin đã có sẵn trong DATA (nạp lô trước). Bỏ, không tìm nguồn thay thế trong phiên này.
+- Nhánh Australia (chủ đề Úc & Biển Đông) — CHƯA ĐẠT SÀN dù đã chạy 1 vòng bổ sung riêng: chỉ có 1 tin (Albanese vận động Hội đồng Bảo an). Đã quét defence.gov.au, minister.defence.gov.au, Australian Submarine Agency, ABC News, Defence Connect, AFR — không ra tin AUKUS/ADF mới đúng khung ngày 19-20/09; các ứng viên tìm được đều lệch ngày (18/09 hoặc trước) hoặc trùng tin đã nạp.

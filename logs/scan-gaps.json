@@ -1,15 +1,20 @@
 {
-  "date": "2026-09-19",
+  "date": "2026-09-20",
   "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, hạng 1-5)","count":6,"target":"12-18","min":5,"thieu":false,"reason":""},
-    {"name":"Đối ngoại Mỹ","count":6,"target":"≥5 (trích từ nhóm Nội bộ Mỹ)","min":5,"thieu":false,"reason":"Đủ sàn nhờ gộp cả tin hôm qua chưa gửi; riêng lô sáng nay chỉ thêm được 3 tin mới (Rubio-Cho, Hàn Quốc/Hormuz, Abbas visa) — 2 ứng viên khác (Rubio đi dự UNGA, trừng phạt Cuba) bị cổng NGÀY THẬT chặn vì trang không có metadata ngày đọc được."},
-    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"6-10","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Anh","count":3,"target":"≥3 (sàn riêng)","min":3,"thieu":false,"reason":"Đạt đúng sàn. Mất 1 ứng viên (ROMULUS 151 drone ships, UK Defence Journal) vì nội dung không tự neo được vào nước Anh theo cổng chủ đề 2, và 1 ứng viên (Bank of England giữ lãi suất) vì cổng NGÀY THẬT phát hiện ngày đăng thật 17/09, ngoài khung 1 ngày."},
-    {"name":"Địa bàn › Australia","count":4,"target":"≥3 (sàn riêng)","min":3,"thieu":false,"reason":"Mất 2 ứng viên tốt (phát biểu Paul Keating và Kurt Campbell nhân 5 năm AUKUS) vì cổng NGÀY THẬT phát hiện ngày đăng thật 17/09, ngoài khung — vẫn đạt sàn nhờ 4 tin còn lại."},
-    {"name":"Địa bàn › Biển Đông","count":5,"target":"≥5","min":5,"thieu":false,"reason":"Đạt đúng sàn."},
-    {"name":"Mỹ – Mali","count":2,"target":"2-5","min":2,"thieu":false,"reason":""},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":true,"reason":"Đã kiểm cả 5 cuộc đang bám (Veer Guardian 2026, REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội Thái Bình Dương Nga 2026, UNITAS 2026) nhưng không tìm được diễn biến MỚI trong khung 18-19/09 — các tin tìm được đều đã có trong bản tin trước hoặc ngoài khung ngày."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật, hạng 1-5)","count":9,"target":"12-18","min":5,"thieu":false,
+     "reason":"Nhóm 1 (điều trần+bỏ phiếu) CẠN THẬT: Hạ viện đã rời Washington nghỉ họp, Thượng viện không có phiên/bỏ phiếu cuối tuần 19-20/09. Đã lấy đủ nhóm 2-5. Cổng NGÀY THẬT loại thêm 6 tin đúng chủ đề (Bloomberg, state.gov, The Hill x2, Axios, Lockheed) vì trang không có metadata ngày đọc được — chi tiết logs/loai-tin.md."},
+    {"name":"Đối ngoại Mỹ","count":5,"target":"5+","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":4,"target":"3-5","min":3,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":1,"target":"3-5","min":3,"thieu":true,
+     "reason":"Chỉ có 1 tin (Albanese vận động ghế Hội đồng Bảo an). Đã chạy 1 vòng bổ sung riêng, quét defence.gov.au, minister.defence.gov.au, Australian Submarine Agency, ABC News, Defence Connect, AFR, aspistrategist.org.au — không ra tin AUKUS/ADF mới đúng khung ngày 19-20/09; mọi ứng viên tìm được đều lệch ngày (≤18/09) hoặc trùng tin đã nạp. Ghi vào loai-tin.md."},
+    {"name":"Địa bàn › Biển Đông","count":4,"target":"3-5","min":3,"thieu":false,
+     "reason":"Đạt sàn tối thiểu 3 nhưng dưới mục tiêu 5. Cổng NGÀY THẬT loại 2 tin bổ sung (Global Times/GlobalSecurity.org, Manila Bulletin) vì trang không có metadata ngày đọc được."},
+    {"name":"KHCN-QS","count":7,"target":"6-10","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":1,"target":"2-5","min":0,"thieu":false,
+     "reason":"Tin JNIM tấn công trại quân đội đã nạp. Tin Bellingcat bị cổng ngày thật loại (bài đăng thật 16/09, quá 3 ngày so batch 20/09)."},
+    {"name":"Tập trận","count":1,"target":"1-2","min":0,"thieu":false,
+     "reason":"Veer Guardian 2026 đã nạp. Tin REPMUS 26/Dynamic Messenger bị loại vì URL trùng tin đã có sẵn trong DATA."}
   ],
-  "note": "8 ứng viên chất lượng tốt bị cổng NGÀY ĐĂNG THẬT chặn trong phiên này vì trang không đọc được metadata ngày (state.gov, USNI News, Naval Today, UPI) hoặc ngày đăng thật cũ hơn 1 ngày so với batch dù RSS ghi mới (Bank of England, The Guardian Australia, ABC News Australia) — chi tiết từng ca trong logs/loai-tin.md phần 2026-09-19. 5 ứng viên Báo Mới đều bị loại vì trùng tin đã nạp trong lô này hoặc ngoài phạm vi 5 chủ đề, cũng ghi trong logs/loai-tin.md. Mọi mục sàn (Đối ngoại Mỹ/Nội bộ Mỹ/Anh/Australia/Biển Đông/KHCN-QS) đều đạt sàn nhờ gộp thêm tin hôm qua (18/09) chưa được gửi vào bản tin sáng nay, đúng cơ chế gop_tin_ca_toi."
+  "note": "Cổng NGÀY THẬT (ngay_that.py) chặn tổng cộng 10 tin trong lô vì trang thiếu metadata ngày đọc được (Bloomberg, state.gov, The Hill, Axios, Lockheed Martin News, RealClearDefense, Global Times/GlobalSecurity.org, Manila Bulletin) — theo đúng luật 25/08/2026 'trang không in ngày thì bỏ', không lách bằng --bo-cong-ngay-that. Chi tiết đầy đủ từng tin bị loại: logs/loai-tin.md mục '2026-09-20 (phiên sáng sớm local, chạy bù)'."
 }
