@@ -13,3 +13,8 @@
   tin claim cua chinh minh, revert lai state.json (git checkout --), KHONG quet, KHONG goi
   state.py done/skip/fail (tranh de RUNNING/heartbeat cua phien local bi ghi de). Nhuong tiep cho
   phien local nhu lan truoc.
+
+[22:31Z] SKIP web-scan (CI, phien sang som) - state.py claim exit 10: web-scan ngay 2026-09-20 DA XONG
+  (lastRunAt 2026-09-20T05:11:08+07:00). Kiem so_da_gui.py --xem: co dong 2026-09-20T05:12:02+07:00
+  [sang] 17 tin => ban tin da thuc su toi tay, khong phai co noi doi. event-scan cung DONE (lastRunAt
+  05:24:12+07:00, +6 bai think-tank, bao cao tuan). Ket thuc em, khong quet lai.
