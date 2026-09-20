@@ -5,3 +5,4 @@
 [21:26Z] START event-scan (CI, gop vao sang som)
 [21:34Z] event-scan xong: +1 tap tran moi (Orient Shield 2026, My-Nhat-Uc), +2 bai think-tank (ISW Nga-Ukraine, ASPI khong gian IPAC) + khai niem. Khong co dien bien moi cho tap tran dang co trong DATA, khong co su kien ngoai giao ky ket trong 48h. Khong phai Chu nhat nen bo qua bao cao tuan.
 [2026-09-21 04:35:30] SKIP (local sang) - web-scan da xong luc 04:26:26 (CI), khong lam lai.
+[21:40Z] SKIP (CI) - web-scan exit 10, da xong luc 04:26:26 VN. Kiem so_da_gui.py --xem: co dong 2026-09-21T04:35:24+07:00 [sang] 16 tin, tin da toi tay that. event-scan cung da DONE (+1 tap tran, +2 think-tank). Khong lam lai.
