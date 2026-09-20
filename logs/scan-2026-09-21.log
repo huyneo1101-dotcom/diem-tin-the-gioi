@@ -3,3 +3,4 @@
 [21:26Z] add_news.py OK: +10 worldNews, +5 usNews, +1 exerciseUpdates. Cong NGAY THAT chan 12/29 tin da viet (nghi thieu curl_cffi trong moi truong CI). Sat han chot 04:45 VN nen BO QUA buoc loc trung Jay Lam (buoc 3b), da ghi vao scan-gaps.json. Nhieu muc HUT san 5 tin/ngay: Doi ngoai My 1/5, Noi bo My 1/5, Anh 4/5, Australia 4/5, Bien Dong 2/5, KHCN-QS 4/5. Chi tiet: logs/loai-tin.md muc 2026-09-21.
 [21:26Z] web-scan DONE, da commit + push "Cap nhat ban tin 21/09: +16 tin (5 chu de)".
 [21:26Z] START event-scan (CI, gop vao sang som)
+[21:34Z] event-scan xong: +1 tap tran moi (Orient Shield 2026, My-Nhat-Uc), +2 bai think-tank (ISW Nga-Ukraine, ASPI khong gian IPAC) + khai niem. Khong co dien bien moi cho tap tran dang co trong DATA, khong co su kien ngoai giao ky ket trong 48h. Khong phai Chu nhat nen bo qua bao cao tuan.
