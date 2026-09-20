@@ -225,7 +225,7 @@ Có session Telethon trong môi trường (`TG_API_ID`/`TG_API_HASH`/`TG_SESSION
 ## Bước 2 — Quét
 Đọc TRỰC TIẾP file `/Users/Huy/Claude/diem-tin-the-gioi/.claude/skills/quet-tin/SKILL.md` (tool Skill KHÔNG đăng ký skill này — gọi qua tool sẽ báo "Unknown skill", cứ Read thẳng file) và làm ĐÚNG playbook trong đó (đã cập nhật theo 5 chủ đề). CLAUDE.md gốc repo tự nạp — đọc mục "LỊCH VÀ PHẠM VI QUÉT" trong đó; bản đầy đủ ở `docs/luat/pham-vi-quet.md`.
 🧭 **PHÂN VAI (chốt 29/07/2026) — file kia là playbook NỘI DUNG, file NÀY là quy trình CHẠY.** SKILL.md giữ 5 chủ đề + tiêu chí lọc · kiến trúc agent · thang xác minh · guardrail `add_news.py` · `scan-gaps.json` · phụ lục nguồn. **Lịch/mốc giờ/hạn chót/khoá/commit chỉ được viết ở FILE NÀY** — đừng chép sang SKILL.md. Vì sao: tới 29/07 SKILL.md vẫn ghi "chỉ chạy 1 lần/ngày, TỐI 22:00 (dự phòng 23:00)" trong khi lịch thật đã là 2 phiên/ngày từ 26/07 — hai bộ luật song song thì bộ ít người sửa sẽ mục, mà nó lại là bộ phiên quét đọc trước. Ngược lại **KHÔNG được rút SKILL.md thành stub trỏ về đây**: chính dòng trên bảo đọc nó, trỏ ngược lại là vòng tròn và mất sạch playbook nội dung (cả CI cũng đọc nó qua `.github/prompts/web-scan-ci.md`).
-GIỮ NHỊP TIM: sau mỗi mốc lớn (xong baseline · xong agent · xong script) chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat web-scan` + ghi checkpoint log + push. Khoá hết hạn sau 30' không nhịp.
+GIỮ NHỊP TIM: sau mỗi mốc lớn (xong baseline · xong agent · xong script) chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/beat_push.py web-scan` + ghi checkpoint log. Khoá hết hạn sau 30' không nhịp. ⛔ **DÙNG ĐÚNG `beat_push.py`, KHÔNG gọi `state.py beat` trần** (vá 20/09/2026 — sự cố thật đêm 19/09, `logs/scan-2026-09-19.log` dòng `[21:45Z]`: CI beat cục bộ đúng nhịp nhưng quên đẩy git, máy khác thấy nhịp cũ rồi giành khoá quét chồng, phí ~12 triệu token). `beat_push.py` gộp cứng ghi-nhịp-tim + đẩy git thành một lệnh, tự lo cả pull/rebase an toàn — không cần gọi `push` rời sau đó nữa.
 ⏱️ **BEAT TRƯỚC KHI LÀM VIỆC LÂU, KHÔNG PHẢI SAU KHI XONG** (vá 28/07/2026, đo thật trên CI): "sau mỗi mốc lớn" nghe thì đủ nhưng thực tế nhịp ĐẦU TIÊN chỉ tới khi vòng agent xong — mà đó là chặng dài nhất phiên. Phiên tối CI 28/07: start 21:00 → beat đầu **21:26**, tức 25' không nhịp, cách ngưỡng thối 30' đúng **5 phút**. Agent chậm thêm 5' nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét, mốc kế cướp khoá → **hai phiên cùng quét**, đúng sự cố 26/07. Vì vậy beat thêm ở **(a) ngay sau `harvest.py` + `telegram_harvest.py`** và **(b) ngay TRƯỚC khi giao lô agent**; nguyên tắc chung: **hai nhịp liên tiếp không cách quá ~15 phút**.
 Ràng buộc cứng: KHÔNG dùng Read đọc cả index.html; mọi thao tác chèn tin qua `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py /tmp/new_items.json`; khung 24h (nới 48h nếu thiếu); được trả mảng rỗng, KHÔNG bịa tin/link.
 
@@ -309,7 +309,8 @@ Giao agent (tool Agent, `model: "sonnet"`): nhúng nguyên output
 tìm **sự kiện ngoại giao có ký kết** trong 48h + **diễn biến tập trận** + tin liên quan (`relate`, đăng
 trong 48h). Gộp `/tmp/new_items_event.json` (chỉ khoá `newDipEvents`/`dipEventUpdates`/`newExercises`/
 `exerciseUpdates` + `date`) rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py /tmp/new_items_event.json`.
-Nhịp tim: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py beat event-scan` — beat NGAY
+Nhịp tim: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/beat_push.py event-scan` — ⛔ KHÔNG
+`state.py beat` trần (vá 20/09/2026, xem Bước 2 phía trên). Beat NGAY
 TRƯỚC khi giao agent (không đợi agent xong), hai nhịp liên tiếp không cách quá ~15 phút (cùng bài học
 vá 28/07/2026 đã áp cho pipeline `web-scan` ở Bước 2).
 

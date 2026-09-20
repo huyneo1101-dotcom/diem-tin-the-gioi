@@ -55,7 +55,11 @@ LOCK_STALE_MIN phút -> coi như phiên đã chết, cho phiên mới giành kho
 Dùng:
   python3 scripts/state.py claim web-scan       # GIÀNH khoá + kiểm tra; 0 = quét đi, 10 = xong rồi,
                                                 #   11 = đang chạy, 12 = SAI GIỜ (ngoài khung ca, xem KHUNG_GIO)
-  python3 scripts/state.py beat web-scan        # nhịp tim — gọi ở MỖI checkpoint, nếu không khoá sẽ tự hết hạn
+  python3 scripts/state.py beat web-scan        # nhịp tim CỤC BỘ — CHỈ dùng nội bộ/để test.
+                                                #   Phiên CI/local dùng `scripts/beat_push.py <pipeline>`
+                                                #   (gộp cứng beat + đẩy git, vá 20/09/2026 — beat trần
+                                                #   không đẩy làm máy khác tưởng phiên chết rồi giành khoá,
+                                                #   xem docstring beat_push.py và logs/scan-2026-09-19.log)
   python3 scripts/state.py check web-scan       # CHỈ hỏi, không giành khoá (dùng để chẩn đoán)
   python3 scripts/state.py show                 # in toàn bộ trạng thái
   python3 scripts/state.py done web-scan "+12 tin"   # xong VÀ có nội dung  -> chặn lần fire sau, nhả khoá

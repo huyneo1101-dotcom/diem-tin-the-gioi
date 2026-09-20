@@ -528,7 +528,7 @@ Cờ idempotent theo pipeline (xem mục dưới): `drive-import` và `web-scan`
 
 ```
 python3 scripts/state.py claim web-scan     # giành KHOÁ + kiểm tra: 0=quét đi · 10=xong rồi · 11=đang chạy
-python3 scripts/state.py beat  web-scan     # nhịp tim — gọi ở MỖI checkpoint, nếu không khoá tự hết hạn
+python3 scripts/beat_push.py     web-scan   # nhịp tim + đẩy git gộp 1 lệnh — KHÔNG dùng `state.py beat` trần (vá 20/09/2026, xem scripts/beat_push.py)
 python3 scripts/state.py done  web-scan "+12 tin (TG+5, My+5, X+2)"
 python3 scripts/state.py fail  web-scan "session limit"    # FAIL/SKIP nhả khoá, KHÔNG chặn lần fire sau
 python3 scripts/state.py show                              # xem cả 2 pipeline, cả 2 buổi, trạng thái khoá
