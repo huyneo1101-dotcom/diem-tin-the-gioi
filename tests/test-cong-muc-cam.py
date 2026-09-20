@@ -469,6 +469,12 @@ def ca29():
     assert not any(_neo(MD.TM_ANH) in k for k in keu), keu
 
 
+def ca30():
+    """[GÁN CỨNG · PHẢI CHẶN] Soldier Systems Daily vá 20/09/2026 phải còn trong bảng gán cứng."""
+    H = S._harvest()
+    assert H.FORCE_TOPIC_URL.get("soldiersystems.net/feed") == "CNQS Mỹ", H.FORCE_TOPIC_URL
+
+
 CA = [
     (1, "[SÀN] đủ tin mọi mục -> im", ca01),
     (2, "[SÀN · PHẢI CHẶN] tiểu mục Anh 1 tin -> KÊU", ca02),
@@ -499,6 +505,7 @@ CA = [
     (27, "[SÀN RIÊNG · PHẢI CHẶN] Anh/Australia 3 tin -> đạt sàn riêng, im", ca27),
     (28, "[SÀN RIÊNG · PHẢI CHẶN] Anh/Australia 2 tin -> dưới sàn riêng, KÊU", ca28),
     (29, "[SÀN RIÊNG · PHẢI CHẶN] mục khác không bị lây sàn riêng 3", ca29),
+    (30, "[GÁN CỨNG · PHẢI CHẶN] Soldier Systems Daily còn nguyên", ca30),
 ]
 
 # ═══════════════════════════ tự kiểm: bản hỏng ═══════════════════════════
@@ -600,6 +607,12 @@ BAN_HONG = [
      '''    "whitehouse.gov/presidential-actions": "Nội bộ Mỹ",''',
      '''''',
      [17]),
+
+    ("harvest: gỡ Soldier Systems Daily khỏi gán cứng (mở lại lỗ đo được 20/09)",
+     "scripts/harvest.py",
+     '''    "soldiersystems.net/feed": "CNQS Mỹ",''',
+     '''''',
+     [30]),
 
     ("ngày: quay về đếm theo TỪNG LẦN GỬI (bỏ chỉ thị «sàn theo ngày»)",
      ".github/scripts/canary.py",

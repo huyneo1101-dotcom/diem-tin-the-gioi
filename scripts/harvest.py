@@ -204,6 +204,10 @@ FORCE_TOPIC_URL = {
     "ftc.gov/feeds/press-release": "Nội bộ Mỹ",
     "ustr.gov/rss.xml": "Nội bộ Mỹ",
     "bea.gov/news/rss": "Nội bộ Mỹ",
+    # Soldier Systems Daily, vá 20/09/2026 sau khi soi_muc_cam.py bắt 0/6 neo — chuyên trang
+    # khí tài bộ binh (giống Defense Daily/Air & Space Forces), tiêu đề không tự nhắc "US"/
+    # "military"/tên khí tài dạng match_topic dò được. Đúng điều kiện "chuyên một chủ đề".
+    "soldiersystems.net/feed": "CNQS Mỹ",
 }
 
 
