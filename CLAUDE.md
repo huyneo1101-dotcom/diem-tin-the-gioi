@@ -436,7 +436,8 @@ tin/ngày — đo `soi_muc_cam.py --san` 15-17/09). Verify fetch thật cùng ng
 ⚠️ Chỉ HM Treasury khai cột chủ đề "Anh" (100% tin chính phủ Anh, an toàn gán chuyên).
 Bank of England cũng thuần Anh nhưng để trống — 06 báo/viện còn lại là nguồn tổng hợp, CỐ Ý
 đứng ngoài `FORCE_TOPIC_URL` như BBC News UK/Guardian Politics, tránh câm oan kiểu
-RealClearPolitics (0/41 neo, xem lớp NGUỒN). Tên khớp `du-lieu/nguon.json` (bảng độ gần):
+RealClearPolitics (0/41 neo — nguồn đã gỡ hẳn khỏi bảng 20/09/2026, xem mục RealClear).
+Tên khớp `du-lieu/nguon.json` (bảng độ gần):
 "ASPI Strategist" đã có sẵn (tầng 3, 135 lần dùng), 07 tên còn lại mới thêm 18/09/2026, đều
 tầng 1-2. Domain chưa thử được: defence.gov.au/navy.gov.au/airforce.gov.au (timeout — nghi
 chặn vân tay TLS như `.mil`, để `harvest.py` tự đi thang bậc 2/2b); Defence Connect, RBA,
@@ -694,9 +695,12 @@ hoặc workflow `probe-sources.yml` (CI, ghi `docs/probe-ci.json`).
 | Nguồn | RSS URL | Kiểm 27/07 | Hợp chủ đề |
 |---|---|---|---|
 | RealClearDefense | https://www.realcleardefense.com/index.xml | 126 item, mới trong ngày | 3 CNQS Mỹ · 2 Úc–Biển Đông |
-| RealClearPolitics | https://www.realclearpolitics.com/index.xml | có item mới trong ngày | 1 Nội bộ Mỹ (cả 4 nhóm) |
 | RealClearWorld | https://www.realclearworld.com/index.xml | 200 | chung |
 
+⚠️ **RealClearPolitics gỡ khỏi bảng 20/09/2026** — khai chủ đề "Nội bộ Mỹ" nhưng câm 0/41 neo
+(`soi_muc_cam.py` bắt), mà đây là trang tổng hợp nên KHÔNG gán cứng như 05 nguồn chính phủ Mỹ
+(rủi ro kéo bình luận không liên quan vào chủ đề) — để câm mãi thì vô dụng, nên bỏ hẳn thay vì
+giữ nửa vời. Huy chốt bỏ trang.
 ⚠️ **Chỉ `index.xml` chạy** — `/feed/`, `/politics.xml` và cả trang chủ đều trả **403** với curl. Đừng
 đổi sang dạng khác.
 ⚠️ **RealClear là trang TỔNG HỢP** (giống Báo Mới): phần lớn item là bài **bình luận/phân tích** của
@@ -704,7 +708,7 @@ tác giả khác đăng lại trên tên miền realclear*, link trỏ về chí
 Vì vậy: (a) ưu tiên các item là TIN (vd "Pentagon Awards Largest-Ever F-35 Spare Parts Contract") hơn
 là bài opinion; (b) **truy về bài gốc** như quy tắc Báo Mới — mở bài, tìm nguồn gốc (thông cáo chính
 thức / wire / báo chuyên ngành) rồi lấy link đó; không tìm được thì giữ link realclear nhưng phải ghi
-rõ `sourceName` là RealClearDefense/Politics để người đọc biết đây là trang tổng hợp.
+rõ `sourceName` là RealClearDefense/World để người đọc biết đây là trang tổng hợp.
 
 ### Nguồn CHÍNH THỨC Lầu Năm Góc — verify fetch thật 27/07/2026 (mỏ tin CNQS chưa khai thác)
 `defense.gov` nay **redirect sang `war.gov`** (đổi tên bộ). Trang `war.gov/News/Contracts/` trả 403 với
