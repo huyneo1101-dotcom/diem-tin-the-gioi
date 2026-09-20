@@ -1352,3 +1352,22 @@ Cổng Báo Mới: xử lý đủ 7/7 ứng viên khớp chủ đề — 6 loạ
 - [Mỹ–Mali] "Điều tra Bellingcat: quân đội Mali oanh kích dân thường theo mô hình 'có tội vì vị trí'" — bài đăng thật 2026-09-16, quá 3 ngày so với batch 2026-09-20 (khung CNQS nới 3 ngày cũng không đủ). Bỏ.
 - [Tập trận] "REPMUS 26/Dynamic Messenger 26 bước vào giai đoạn thử nghiệm chiến thuật" (North.io) — URL trùng với tin đã có sẵn trong DATA (nạp lô trước). Bỏ, không tìm nguồn thay thế trong phiên này.
 - Nhánh Australia (chủ đề Úc & Biển Đông) — CHƯA ĐẠT SÀN dù đã chạy 1 vòng bổ sung riêng: chỉ có 1 tin (Albanese vận động Hội đồng Bảo an). Đã quét defence.gov.au, minister.defence.gov.au, Australian Submarine Agency, ABC News, Defence Connect, AFR — không ra tin AUKUS/ADF mới đúng khung ngày 19-20/09; các ứng viên tìm được đều lệch ngày (18/09 hoặc trước) hoặc trùng tin đã nạp.
+
+## 2026-09-21 (phiên sáng sớm CI) — cổng NGÀY ĐĂNG THẬT chặn hàng loạt (nghi thiếu curl_cffi trong môi trường CI)
+
+- [Nội bộ Mỹ] "Trung Quốc phản đối các biện pháp 'trừng phạt thứ cấp' của Mỹ" (china.org.cn, phát ngôn Bộ Thương mại TQ) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ, mất 1 tin neo Đối ngoại Mỹ.
+- [Nội bộ Mỹ] "Ngoại trưởng Rubio tới New York dự UNGA khóa 81" (state.gov) — cổng NGÀY THẬT: trang không có metadata ngày đọc được (cùng bệnh đã ghi 19-20/09 với state.gov). Bỏ.
+- [Nội bộ Mỹ] "Siêu PAC của Trump rót thêm 5 triệu USD vào đua Thượng viện Texas" (The Hill) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Nội bộ Mỹ] "Chương trình truyền hình Chủ nhật bàn lệnh cấm báo chí + bầu cử giữa kỳ" (The Hill) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [CNQS] "Đức nhận chiếc F-35A đầu tiên tại Fort Worth" (Lockheed Martin News) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [CNQS] "Mỹ phê duyệt bán 48 F-35 cho Ả Rập Xê Út" (The War Zone) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [CNQS] "Lầu Năm Góc-Lockheed ký khung thoả thuận AIM-260 JATM" (Defense Daily) — bài đăng thật xác minh 2026-09-17, vượt khung nới 3 ngày cho CNQS (18-21/9). Bỏ.
+- [CNQS] "Không quân Mỹ kéo dài phục vụ B-1/B-2" (Military Times) — bài đăng thật xác minh 2026-09-17, vượt khung nới 3 ngày cho CNQS. Bỏ.
+- [Úc & Biển Đông/Anh] "Uỷ ban Bầu cử Anh xem xét siết quy định tài trợ sau Reform UK nhận 72 triệu bảng" (Bloomberg) — cổng NGÀY THẬT: trang không có metadata ngày đọc được (cùng bệnh Bloomberg đã ghi 20/09). Bỏ.
+- [Úc & Biển Đông/Anh] "TKMS trúng hợp đồng đối kháng ngư lôi cho tàu ngầm hạt nhân Anh" (Zona Militar) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Úc & Biển Đông/Biển Đông] "Mỹ, Canada, EU lên án Hải cảnh TQ đâm va tàu Philippines" (BusinessMirror) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ, mất 1 tin nhánh Biển Đông.
+- [Úc & Biển Đông/Biển Đông] "Đài Loan âm thầm tặng tàu tuần tra cho Cảnh sát biển Philippines" (BusinessMirror) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Úc & Biển Đông/Biển Đông] "Hải cảnh Trung Quốc đổ lỗi cho Philippines trong vụ va chạm" (People's Daily/globalsecurity.org) — cổng NGÀY THẬT: trang không có metadata ngày đọc được. Bỏ.
+- [Mỹ–Mali] Toàn bộ ứng viên Mali/JNIM/Sahel trong khung 20-21/9 đều trùng tin đã có (JNIM army camp attack đã đăng 19/9, Barrick gold mine strikes) hoặc ngoài khung (Ukraine hỗ trợ Sahel insurgents đăng 18/9, BAMEX 2026 là sự kiện tháng 11/2026). Không nạp tin nào cho mục này phiên này.
+- Nhánh Australia — vẫn CHƯA ĐẠT SÀN (4/5) dù chạy 1 vòng bổ sung riêng: bài duy nhất tìm thêm được trùng hoàn toàn với tin "Australia khởi động chiến dịch tranh cử ghế HĐBA" đã có (cùng nguồn ABC News, cùng sự kiện).
+- ⚠️ NHẬN XÉT CHUNG: số lượng tin bị cổng NGÀY THẬT chặn phiên này (12/29, ~41%) cao bất thường so với các phiên trước, tập trung ở đúng nhóm nguồn hay bị chặn vân tay TLS (Bloomberg, state.gov, The Hill, Lockheed newsroom, TWZ, Zona Militar, BusinessMirror) — trùng khớp với cảnh báo "12 nguồn bị chặn mà máy KHÔNG có curl_cffi" từ harvest.py cùng phiên. Nghi môi trường CI phiên này thiếu gói curl_cffi cần cho thang lấy trang bậc 2. Đáng để phiên sau kiểm tra `pip show curl_cffi` trên runner.

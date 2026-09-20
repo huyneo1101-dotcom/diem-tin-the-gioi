@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-21T04:00:31+07:00",
+    "lastRunAt": "2026-09-21T04:26:26+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+16 tin (5 chu de), nhieu muc hut san do cong ngay that",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-09-20"
-    },
-    "heartbeat": "2026-09-21T04:15:05+07:00"
+      "sang": "2026-09-21"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-20T05:24:12+07:00",

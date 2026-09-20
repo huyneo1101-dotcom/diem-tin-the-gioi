@@ -1,2 +1,3 @@
 [21:00Z] START (CI) - phien sang som web-scan
-[04:05] SKIP (local) - web-scan dang co phien khac chay (CI, nhip tim 2' truoc)
+[21:14Z] harvest.py + telegram_harvest.py xong: 297 ung vien harvest + 13 ung vien TG
+[21:26Z] add_news.py OK: +10 worldNews, +5 usNews, +1 exerciseUpdates. Cong NGAY THAT chan 12/29 tin da viet (nghi thieu curl_cffi trong moi truong CI). Sat han chot 04:45 VN nen BO QUA buoc loc trung Jay Lam (buoc 3b), da ghi vao scan-gaps.json. Nhieu muc HUT san 5 tin/ngay: Doi ngoai My 1/5, Noi bo My 1/5, Anh 4/5, Australia 4/5, Bien Dong 2/5, KHCN-QS 4/5. Chi tiet: logs/loai-tin.md muc 2026-09-21.
