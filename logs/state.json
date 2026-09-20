@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-20T05:11:08+07:00",
+    "lastRunAt": "2026-09-21T04:00:31+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+16 tin (5 chủ đề): usNews 9 + worldNews 7 + tập trận 1; Anh 4, Australia 1(dưới sàn), Biển Đông 4",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-09-20"
-    }
+    },
+    "heartbeat": "2026-09-21T04:00:31+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-20T05:24:12+07:00",
