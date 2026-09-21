@@ -611,12 +611,20 @@ cho agent fetch; nguồn không RSS thì dùng WebSearch `site:domain`.
 ### 2. Úc & Biển Đông
 - **Úc chính thức**: defence.gov.au · minister.defence.gov.au · pm.gov.au · dfat.gov.au · aph.gov.au
   (nghị viện). **Phân tích Úc**: ASPI The Strategist (aspistrategist.org.au), Lowy Interpreter
-  (lowyinstitute.org/the-interpreter). **Báo Úc**: ABC News AU (abc.net.au), The Australian, SMH,
-  Defence Connect (defenceconnect.com.au), Australian Defence Magazine, ADBR.
+  (lowyinstitute.org/the-interpreter), Crikey (crikey.com.au — chính trường/AUKUS), The Conversation
+  Úc (theconversation.com/au). **Báo Úc**: ABC News AU (abc.net.au), The Australian, SMH — dùng
+  `/rss/politics/federal.xml` và `/rss/world.xml`, KHÔNG dùng `/rss/national.xml` (thuần tin trong
+  nước, gần như không chạm chủ đề — xem "Nguồn MỚI cho Úc & Biển Đông — thêm 21/09/2026" ở CLAUDE.md),
+  Defence Connect (defenceconnect.com.au — đã thử, RSS chết), Australian Defence Magazine (đã thử,
+  RSS chết), ADBR.
 - **Biển Đông**: AMTI/CSIS (amti.csis.org — bản đồ/phân tích) · Philippine Coast Guard (coastguard.gov.ph) ·
-  Philippine News Agency (pna.gov.ph) · Rappler · Inquirer · Philstar · GMA News · Manila Bulletin ·
-  BenarNews · Radio Free Asia · The Maritime Executive · gCaptain · Naval News · Nikkei Asia · SCMP ·
-  VN: vietnamplus.vn, thanhnien.vn. **TQ (chỉ phát ngôn của họ)**: mod.gov.cn, mfa.gov.cn.
+  Philippine News Agency (pna.gov.ph, đã thử 403) · Rappler · Inquirer · Philstar · GMA News · Manila
+  Bulletin (đã thử 403) · BenarNews (đã thử, RSS chết) · Radio Free Asia (đã thử, RSS chết) · The
+  Maritime Executive · gCaptain · Naval News (đã thử, chặn Cloudflare) · Nikkei Asia (đã thử, feed
+  rỗng) · SCMP · Channel News Asia (channelnewsasia.com, feed Asia) · The Straits Times
+  (straitstimes.com/news/asia) — hai nguồn Singapore này phủ cùng lúc Trung Quốc/Malaysia/Việt Nam/
+  Philippines/Đài Loan, tiêu đề tự nhắc tên nước nên khớp chủ đề ngay. VN: vietnamplus.vn,
+  thanhnien.vn. **TQ (chỉ phát ngôn của họ)**: mod.gov.cn, mfa.gov.cn.
 
 ### 3. CNQS Mỹ
 - **Chính thức**: defense.gov · war.gov/News/Contracts (hợp đồng hằng ngày) · navy.mil · army.mil ·

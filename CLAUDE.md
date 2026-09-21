@@ -482,6 +482,73 @@ ANTARA News tầng 2 (hãng tin quốc gia có phóng viên) — 03 tên mới, 
 (403, nghi vân tay TLS như `.mil`), Taiwan News/Taipei Times (SPA không có RSS), Bernama
 (404), Lawfare (403), `state.gov` (URL RSS đoán ra redirect về ảnh PNG, không phải feed).
 
+**Nguồn MỚI cho Úc & Biển Đông — thêm 21/09/2026** (Huy chỉ định: hai nhánh này hay hụt
+sàn nhiều ngày liền, tìm thêm nguồn mới, không lặp domain đã thử 18/09). Verify fetch thật
+cùng ngày, giờ VN ~20h30:
+| Sydney Morning Herald — Politics/Federal | https://www.smh.com.au/rss/politics/federal.xml | 20 item, mới <1 phút |
+| Sydney Morning Herald — World | https://www.smh.com.au/rss/world.xml | 20 item, mới <1 phút |
+| Crikey (Úc) | https://www.crikey.com.au/feed/ | 10 item, mới 11h |
+| The Conversation (Úc) | https://theconversation.com/au/articles.atom | 50 item, mới 5h |
+| Channel News Asia — Asia | https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6511 | 20 item, mới 16 phút |
+| The Straits Times — Asia | https://www.straitstimes.com/news/asia/rss.xml | 50 item, mới 2 phút |
+
+⚠️ SMH đã có sẵn trong bảng 18/09 dùng `/rss/national.xml` — đối chiếu nội dung thật 21/09
+thì đó gần như toàn tin trong nước (tai nạn xe buýt, cá mập cắn người), 0% chạm chủ đề. Hai
+dòng mới KHÔNG thay dòng cũ mà bù hai lát cắt đang thiếu: `politics/federal.xml` (chính
+trường liên bang, bắt trúng loại tin hợp chủ đề — ví dụ thật 21/09: *"Albanese takes AI
+fight to UN as Australia launches Security Council bid"*) và `world.xml` (đối ngoại/địa
+chính trị qua lăng kính Úc, ví dụ cùng ngày: *"The UN is an abject failure at stopping war.
+Could Australia help it escape Trump's America?"*). Ba masthead cùng mạng Nine — The Age,
+Brisbane Times, WAtoday — dùng `world.xml` **trùng 100% nội dung** với SMH (đã đối chiếu
+tiêu đề từng bài) nên KHÔNG thêm, tránh nạp trùng vô ích.
+Crikey và The Conversation (Úc) là hai nguồn phân tích/bình luận chính trường Úc, mật độ
+tin AUKUS/quốc phòng/đối ngoại cao hơn báo phổ thông — ví dụ thật 21/09: Crikey *"Kevin
+Rudd on AUKUS, his past remarks and how to avoid war"*, Conversation *"As war in the Middle
+East widens, Saudi Arabia's new defence pact could face a major test"*.
+Channel News Asia và Straits Times là hai nguồn Singapore tầng 2, phủ cùng lúc cả Trung
+Quốc/Malaysia/Việt Nam/Philippines/Đài Loan trong một feed, tiêu đề tự nhắc tên nước nên
+`match_topic` neo được ngay — KHÔNG cần gán cứng `FORCE_TOPIC_URL` như feed gov.uk.
+
+**Nguồn MỚI cho nước Anh — thêm 21/09/2026** (rà thêm dù hôm nay đã đủ sàn, theo yêu cầu
+Huy). Verify fetch thật cùng ngày:
+| Financial Times — World | https://www.ft.com/world?format=rss | 25 item, mới 24 phút |
+| Sky News — World | https://feeds.skynews.com/feeds/rss/world.xml | 10 item, mới ~1h30 |
+
+FT World bổ sung góc kinh tế/địa chính trị chất lượng cao mà RSS chỉ trả tiêu đề + tóm tắt
+(không vướng tường phí) — ví dụ 21/09: *"Trump and Xi are the wrong men at the wrong
+time"*, *"Gulf states urge reset with Iran as conflict drags on"*. Sky News World bổ sung
+cho Sky News UK đã có (18/09, chỉ tin nội bộ Anh qua `uk.xml`) một lát cắt quốc tế cùng
+thương hiệu.
+
+⛔ **Domain đã thử KHÔNG dùng được ngày 21/09/2026 — đừng thử lại:**
+- Úc: The New Daily (403) · Australian Defence Magazine (404) · Australian Institute of
+  International Affairs (301) · Parliament of Australia `aph.gov.au` (302, cần đăng nhập) ·
+  PM.gov.au `/rss/media-releases` (404) · Home Affairs (404) · Australian Federal Police
+  (404) · DFAT `rss.xml` (sống nhưng là danh mục tĩnh "Heads of Government" theo từng nước,
+  bài mới nhất 28/10/2025 — không phải feed tin) · 7NEWS `/rss` (sống, 100 item nhưng gần
+  hết thể thao/tội phạm/giải trí, mật độ tin chính trường quá thấp để đáng thêm) · SBS News
+  (timeout) · AAP (404) · Canberra Times mọi biến thể `/rss/*.xml` (404, trang đổi cấu trúc).
+- Biển Đông: Malay Mail (sống nhưng thuần tin nội địa Malaysia) · Bangkok Post topstories
+  (sống nhưng thuần tin nội địa Thái — Thái không phải bên tranh chấp) · Jakarta Post/
+  Jakarta Globe (404) · New Straits Times (404) · BenarNews (400) · Nikkei Asia
+  `asia.nikkei.com/rss/feed/nar` (200 nhưng 0 item, rỗng) · USNI News (403) · Naval News
+  (503, chặn bằng trang kiểm tra Cloudflare) · East Asia Forum (403) · Stimson Center (sống
+  nhưng đứng, bài mới nhất 13 ngày trước lúc đo) · Splash247 (sống nhưng thuần tin thương
+  mại hàng hải, không phải tin an ninh/tranh chấp) · Breaking Defense, Defense News (sống,
+  chất lượng cao nhưng thuộc hẳn chủ đề CNQS Mỹ, không lệch Úc/Biển Đông — chủ đề đó đã đủ
+  nguồn, không thêm để tránh phình bảng).
+- Anh: RUSI (301/404) · IISS (403) · Chatham House (403) · Royal Navy `royalnavy.mod.uk`
+  (403) · UK Parliament Commons Library (sống nhưng thuần chính sách nội địa — thuế, visa,
+  không đụng quốc phòng/đối ngoại) · The Telegraph (402, tường phí) · Reuters UK (401) ·
+  Politico Europe (403) · Sky News Politics (sống nhưng thuần chính trường nội địa Anh,
+  trùng vùng phủ với Guardian Politics đã có).
+
+Tên khớp `du-lieu/nguon.json`: SMH đã có sẵn (chỉ thêm URL feed, không phải hãng mới); Sky
+News đã có sẵn cho `uk.xml` (chỉ thêm URL feed World). 04 tên hãng THẬT SỰ mới — Crikey, The
+Conversation, Channel News Asia, The Straits Times, Financial Times (05 tên) — CHƯA đồng bộ
+vào `data/do-gan-nguon.json` đợt này: file đó sinh tự động từ app Rèn Phân Tích
+(`scripts/dong_bo_do_gan.py --sinh`), ngoài phạm vi sửa của việc này.
+
 ### Trang CHÍNH THỨC Mỹ có RSS — verify fetch thật 27/07/2026 (đưa `docs/nguon-chinh-thuc-my.md` vào đường quét)
 Huy gửi file `trang chính thống của Mỹ.doc` (199 URL / 85 domain) và bảo kiểm xem đã có chưa. Kết quả
 đối chiếu: **199/199 URL ĐÃ có** trong `docs/nguon-chinh-thuc-my.md` từ 22/07 — nhưng đó chỉ là **danh
