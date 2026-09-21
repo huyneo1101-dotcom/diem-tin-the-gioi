@@ -2,22 +2,22 @@
   "date": "2026-09-21",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":1,"target":"5","min":5,"thieu":true,
-     "reason":"3 ứng viên đối ngoại đúng khung 20-21/9 đã viết xong và xác minh nội dung (Trung Quốc phản đối trừng phạt thứ cấp/china.org.cn, Rubio dự UNGA/state.gov) nhưng bị CỔNG NGÀY ĐĂNG THẬT (ngay_that.py) chặn vì trang không trả metadata ngày đọc được trong môi trường CI này — nghi do thiếu curl_cffi (harvest.py cùng phiên báo 12 nguồn bị chặn cùng lý do). Vòng bổ sung riêng không tìm thêm được ứng viên mới nào khác trong khung 2 ngày."},
-    {"name":"Nội bộ Mỹ","count":1,"target":"5","min":5,"thieu":true,
-     "reason":"Nhóm 1 (điều trần+bỏ phiếu) cạn hoàn toàn trong khung 20-21/9 (Chủ nhật, Quốc hội không họp thực chất). 2 tin nhóm khác (MAGA PAC Texas, Sunday shows lệnh cấm báo chí — cả hai từ thehill.com) đã viết xong nhưng bị CỔNG NGÀY ĐĂNG THẬT chặn cùng lý do trên. Vòng bổ sung không tìm thêm được tin nào khác."},
-    {"name":"Địa bàn › Anh","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"8 tin ban đầu qua thẩm định nội dung, nhưng 2 tin (Reform UK donations/Bloomberg, TKMS torpedo/Zona Militar) bị CỔNG NGÀY ĐĂNG THẬT chặn. Còn 4 tin (Merlin helicopter, Rolls-Royce SSN-AUKUS, Streeting Battle of Britain, British tycoons). Hụt 1 bài so với sàn."},
-    {"name":"Địa bàn › Australia","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"Agent gốc chỉ tìm được 4 tin đạt chuẩn sau 3 vòng tìm kiếm (Rolls-Royce SSN-AUKUS, AUKUS Indonesia hearing, Australia UNSC bid, ASPI future warfare). Vòng bổ sung riêng chỉ ra 1 bài trùng lặp hoàn toàn với tin đã có (cùng sự kiện, cùng nguồn ABC News) nên không tính thêm. Đã thử RSS mới (ABC News Australia, SMH, ASPI Strategist) và WebSearch nhiều hướng không ra thêm tin mới đúng khung."},
-    {"name":"Địa bàn › Biển Đông","count":2,"target":"5","min":5,"thieu":true,
-     "reason":"7 tin ban đầu qua thẩm định nội dung quanh vụ Hải cảnh Trung Quốc đâm tàu Philippines gần Palawan, nhưng 3 tin (Mỹ/Canada/EU lên án/BusinessMirror, Đài Loan tặng tàu tuần tra/BusinessMirror, Hải cảnh TQ đổ lỗi Philippines/globalsecurity.org) bị CỔNG NGÀY ĐĂNG THẬT chặn. Còn 2 tin (diễn tập Subic Bay/DVIDS, phát ngôn nhà ngoại giao tại Đài Loan/Nikkei)."},
-    {"name":"KHCN-QS","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"8 tin CNQS ban đầu qua thẩm định, nhưng 4 tin bị loại: 2 vì CỔNG NGÀY ĐĂNG THẬT (Đức nhận F-35A/Lockheed newsroom, F-35 bán Saudi/twz.com), 2 vì ngày đăng thật xác minh là 17/9 — vượt khung nới 3 ngày cho CNQS (18-21/9: B-1/B-2 kéo dài phục vụ/militarytimes, AIM-260 JATM/defensedaily). Còn 3 tin CNQS (GHOST-R, MQ-9 Reaper, RQ-170 Sentinel) + 1 tin tập trận (Veer Guardian 2026) = 4/5."},
+    {"name":"Đối ngoại Mỹ","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Nội bộ Mỹ","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Anh","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Biển Đông","count":4,"target":"5","min":5,"thieu":true,
+     "reason":"Vòng bổ sung (máy Mac, có curl_cffi) cứu được 2/3 tin bị cổng ngày thật chặn oan sáng nay (Mỹ/Canada/EU lên án vụ đâm va Palawan qua BusinessMirror; Trung Quốc đổ lỗi Philippines qua Philippine Canadian Inquirer). Tin thứ 3 (Đài Loan tặng tàu tuần tra) xác minh lại là TRÙNG sự kiện đã có 17/9, không tính. Thử thêm 1 tin mới (Nhật Bản bày tỏ quan ngại, qua Manila Bulletin) nhưng cổng ngày thật không đọc được metadata dù trang mở được — bỏ theo đúng luật 'trang không in ngày thì bỏ'; tìm 3 vòng WebSearch thay thế (FONOP Mỹ, diễn biến Việt Nam/Malaysia/Đài Loan, tuyên bố ASEAN) không ra tin mới nào khác đúng khung 20-21/9 và đúng chủ đề. Hụt 1 tin so với sàn."},
+    {"name":"KHCN-QS","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
     {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":false,
-     "reason":"Không mang sàn. Mọi ứng viên Mali/JNIM/Sahel trong khung 20-21/9 đều trùng tin đã có trên web (JNIM army camp attack đã đăng 19/9, Barrick gold mine strikes) hoặc ngoài khung (Ukraine hỗ trợ Sahel insurgents đăng 18/9, BAMEX 2026 là sự kiện tháng 11/2026). Agent xác nhận đã tìm kỹ qua nhiều nguồn, không có diễn biến mới."},
+     "reason":"Không mang sàn. Mọi ứng viên Mali/JNIM/Sahel trong khung 20-21/9 đều trùng tin đã có trên web hoặc ngoài khung. Agent xác nhận đã tìm kỹ, không có diễn biến mới."},
     {"name":"Tập trận","count":1,"target":"1-2","min":0,"thieu":false,
-     "reason":"Veer Guardian 2026 (bay chung Tejas của tư lệnh không quân Ấn-Nhật) đã nạp. UNITAS/SEACAT/Diễn tập Hạm đội TBD Nga/REPMUS không có diễn biến mới trong khung ngày."}
+     "reason":"Veer Guardian 2026 đã nạp. Các cuộc khác không có diễn biến mới trong khung ngày."}
   ],
-  "note": "PHIÊN SÁNG SỚM 21/09/2026. Nguyên nhân chính gây hụt sàn ở NHIỀU mục cùng lúc: CỔNG NGÀY ĐĂNG THẬT (ngay_that.py) chặn 12/29 tin đã viết xong vì trang không trả về metadata ngày ở dạng đọc được trong môi trường CI này — nghi do thiếu curl_cffi để bỏ qua chặn vân tay TLS (harvest.py cùng phiên báo '12 nguồn bị chặn mà máy KHÔNG có curl_cffi'), khiến nhiều trang tầng-1/uy tín (Bloomberg, State.gov, TheHill, Lockheed Martin newsroom, TWZ, Zona Militar, BusinessMirror x2) bị đọc như 'không có ngày' dù nội dung đã xác minh đúng khung qua WebSearch/agent. Đã chạy 1 vòng bổ sung cho 3 mục hụt nặng nhất (Đối ngoại Mỹ, Nội bộ Mỹ, Australia) nhưng không tìm đủ tin MỚI ngoài số đã bị chặn — không lặp thêm vòng vì đã sát HẠN CHÓT 04:45. Do sát hạn chót, đã BỎ QUA bước lọc trùng Jay Lâm (bước 3b) — file Jay Lâm còn hiệu lực 3 ngày, bản sau sẽ lọc bù phần này. Xem logs/loai-tin.md cho danh sách đầy đủ tin bị loại bởi cổng ngày thật."
+  "note": "VÒNG BỔ SUNG chạy trên máy Mac local (có sẵn curl_cffi) sau khi phiên CI sáng sớm bị cổng NGÀY ĐĂNG THẬT chặn oan 12/29 tin do môi trường CI nghi thiếu curl_cffi (xem bản ghi 04:35 cùng ngày). Cứu lại được 2/4 tin bị chặn oan qua nguồn thay thế có metadata đọc được, và giao 4 việc song song tìm thêm nguồn mới cho 6 mục đang hụt sàn — kết quả +13 tin (worldNews +4, usNews +9), đưa 5/6 mục lên đủ sàn 5 tin/ngày. Chỉ còn 'Địa bàn › Biển Đông' hụt 1 tin (4/5) sau khi đã thử hết các hướng hợp lý trong khung ngày — xem lý do ở dòng riêng. Chi tiết từng tin bị loại (kể cả 5 ứng viên Báo Mới xử lý trong vòng này): logs/loai-tin.md mục '2026-09-21 (vòng bổ sung máy Mac)'."
 }
