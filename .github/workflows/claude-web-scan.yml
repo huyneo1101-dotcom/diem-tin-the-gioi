@@ -97,6 +97,16 @@ jobs:
         with:
           python-version: '3.12'
 
+      # Vân tay TLS Chrome — `harvest.py`/`ngay_that.py` tự dùng khi curl trần bị chặn.
+      # Vá 21/09/2026: workflow này thiếu bước cài trong khi `harvest-ci.yml` và
+      # `probe-sources.yml` đã cài từ trước — phiên sáng 21/09 cổng NGÀY THẬT chặn 12/29
+      # tin (~41%, cao bất thường) đúng vào nhóm nguồn hay chặn vân tay TLS (Bloomberg,
+      # state.gov, The Hill, Lockheed, TWZ, Zona Militar, BusinessMirror). `|| true`: thiếu
+      # gói vẫn chạy tiếp (fail-open CÓ TIẾNG qua VET_NGUON), không phải nuốt lỗi.
+      - name: Cài curl_cffi (giả vân tay TLS Chrome)
+        if: steps.gate.outputs.run == 'true'
+        run: python3 -m pip install --quiet curl_cffi || true
+
       - name: Cài Claude Code
         if: steps.gate.outputs.run == 'true'
         run: npm install -g @anthropic-ai/claude-code
