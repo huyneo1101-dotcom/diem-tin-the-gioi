@@ -6,3 +6,4 @@
 [21:42Z] START event-scan (CI, gop vao sang som)
 [21:54Z] event-scan OK: +1 tap tran moi (SLINEX-26), +4 bai think-tank (USSC/ISW/Brookings/PIIE), +9 khai niem. Khong co bao cao tuan (khong phai CN).
 [21:55Z] Phien moi: state.py claim web-scan -> exit 10 (DA XONG, lastRunAt 2026-09-22T04:40:50+07:00). Kiem ngoai le: so_da_gui --xem co dong "2026-09-22T04:55:26+07:00 [sang] 53 tin" => ban tin da toi tay that. SKIP em, khong quet chong.
+[00:17Z] Phien moi (lap lai): state.py claim web-scan -> exit 10 (DA XONG, lastRunAt 2026-09-22T04:40:50+07:00). Kiem lai ngoai le: so_da_gui --xem van co dong "2026-09-22T04:55:26+07:00 [sang] 53 tin", khong co dong moi hon. Ban tin sang da toi tay that. SKIP em, khong quet chong.
