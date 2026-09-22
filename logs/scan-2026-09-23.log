@@ -2,3 +2,5 @@
 [21:12Z] harvest.py 450 ung vien + telegram_harvest.py 11 ung vien xong, dang giao 5 agent chu de
 [21:33Z] 5 agent xong, tham dinh lai bang ngay_that/curl thu cong, sua 10 tin bi chan cong ngay that
 [21:33Z] add_news.py OK: +14 the gioi, +18 My, +1 tap tran. gh workflow run telegram-bot.yml bi chan quyen (requires approval) -> chua kich duoc bot Jay Lam, ghi fail-open vao scan-gaps.json
+[21:33Z] DONE web-scan. Commit "Cap nhat ban tin 23/09: +32 tin (5 chu de)" da push.
+[21:34Z] START event-scan (CI, gop vao sang som)
