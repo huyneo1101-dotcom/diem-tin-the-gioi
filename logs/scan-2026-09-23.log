@@ -1,2 +1,4 @@
 [21:00Z] START (CI) phien sang som
-[04:05] SKIP (local) - phien khac dang giu khoa web-scan (nhip tim 3' truoc, bat dau 2026-09-23T04:00:40+07:00)
+[21:12Z] harvest.py 450 ung vien + telegram_harvest.py 11 ung vien xong, dang giao 5 agent chu de
+[21:33Z] 5 agent xong, tham dinh lai bang ngay_that/curl thu cong, sua 10 tin bi chan cong ngay that
+[21:33Z] add_news.py OK: +14 the gioi, +18 My, +1 tap tran. gh workflow run telegram-bot.yml bi chan quyen (requires approval) -> chua kich duoc bot Jay Lam, ghi fail-open vao scan-gaps.json

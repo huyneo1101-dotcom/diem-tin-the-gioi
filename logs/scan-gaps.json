@@ -1,23 +1,15 @@
 {
-  "date": "2026-09-22",
+  "date": "2026-09-23",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":3,"target":"5","min":5,"thieu":true,
-     "reason":"3 tin qua được cổng (ICC sanctions, Bessent Iran airlines, Kremlin phản ứng luật trừng phạt). 2 ứng viên khác (Bessent-He Lifeng/CNBC, Xi visit logistics/NPR) bị cổng NGÀY ĐĂNG THẬT chặn — CNBC không trả metadata ngày đọc được, NPR đọc được ngày thật là 17/9 (quá cũ so batch 22/9). Thay thế bằng tin The Hill (tariff cuts, NIH order) cũng bị cổng chặn vì thiếu metadata. Sát hạn chót 04:45 nên không kịp tìm nguồn thứ 3 thay thế."},
-    {"name":"Nội bộ Mỹ","count":3,"target":"5","min":5,"thieu":true,
-     "reason":"3 tin qua được cổng (Fed Goolsbee, NC Senate ad cut, midterm outlook France24). Ứng viên Salazar/CBS bị cổng ngày thật chặn (không đọc được metadata) dù nội dung đã xác minh đúng khung qua WebSearch; agent xác nhận Quốc hội Mỹ không có phiên điều trần/bỏ phiếu nào trong khung 21-22/9 (cả hai viện họp pro forma). Sát hạn chót nên không kịp tìm thêm."},
-    {"name":"Địa bàn › Anh","count":7,"target":"5","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Địa bàn › Australia","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"4 tin qua được cổng (Kevin Rudd/AUKUS, ADF service commitment, Rifle Company Butterworth Malaysia, Plan Tasman hải quân Úc-NZ). Thiếu 1 tin so với sàn — không kịp tìm thêm trước hạn chót."},
-    {"name":"Địa bàn › Biển Đông","count":1,"target":"5","min":5,"thieu":true,
-     "reason":"Chỉ 1 tin (Đài Loan lên án Hải cảnh TQ vụ Palawan) qua được cổng ngày đăng thật. Agent đã tăng nhánh này từ 3 lên 5 ứng viên qua 6 hướng tìm thêm (Rappler/Philstar/Inquirer/AMTI/VN feeds/diễn biến Palawan tiếp theo — Rappler 403, Philstar/Inquirer/AMTI không ra tin an ninh mới trong khung), nhưng cổng NGÀY ĐĂNG THẬT sau đó chặn 3/4 ứng viên (New Zealand navy Taiwan Strait/Japan Times, ADMM-Plus launch/Army Recognition, Teodoro statement/BusinessMirror) vì các trang không trả metadata ngày đọc được. Hụt nặng nhất trong lô, sát hạn chót 04:45 nên chốt lô luôn."},
-    {"name":"KHCN-QS","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"4 tin qua được cổng (PrSM missile contract, Lockheed F-35/Trident, GHOST-R True Anomaly, Space Force growth plan). 2 ứng viên khác bị loại: F-35 Hong Kong Congress investigation (SCMP) trùng URL đã có trong DATA; AI Force Trump (Axios) và F-35-Saudi-China intel warning (Times of Israel, gốc của 1 tin Báo Mới) đều bị cổng ngày thật chặn vì thiếu metadata đọc được."},
-    {"name":"Mỹ – Mali","count":1,"target":"2-5","min":null,"thieu":false,
-     "reason":"Không mang sàn cứng. 1 tin (JNIM giết >100 binh sĩ Mali, lực lượng Nga Africa Corps thương vong) qua được cổng — sự kiện an ninh đáng chú ý nhất trong khung ngày. Các ứng viên khác (Niger/Tiani nội bộ, Libya Africa Corps, Benin JNIM incursion ngày 9/9) không đủ liên hệ trực tiếp Mỹ-Mali/JNIM hoặc ngoài khung ngày."},
-    {"name":"Tập trận","count":0,"target":"1-2","min":null,"thieu":false,
-     "reason":"Không mang sàn cứng. Veer Guardian 2026 và UNITAS 2026 (hai cuộc đang bám) không có diễn biến MỚI thật sự khác biệt so với các cập nhật đã có trong DATA — agent chọn trả mảng rỗng thay vì lặp lại nội dung cũ (bay đội hình Tejas, tàu Peru đổ bộ...) đã đưa tin trước đó."}
+    {"name": "Đối ngoại Mỹ", "count": 9, "target": "5-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Nội bộ Mỹ", "count": 6, "target": "5-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Anh", "count": 4, "target": "3+", "min": 3, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 5, "target": "3+", "min": 3, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Biển Đông", "count": 5, "target": "5+", "min": 5, "thieu": false, "reason": ""},
+    {"name": "KHCN-QS", "count": 8, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Mỹ – Mali", "count": 3, "target": "2-5", "min": 0, "thieu": false, "reason": ""},
+    {"name": "Tập trận", "count": 1, "target": "1-2", "min": 0, "thieu": false, "reason": "Chỉ Veer Guardian 2026 có tin bế mạc xác nhận được nguồn gốc; REPMUS 26/Dynamic Messenger 26, SEACAT 2026 không có ứng viên hợp lệ trong lô quét hôm nay."}
   ],
-  "note": "Cổng NGÀY ĐĂNG THẬT (ngay_that.py) chặn tổng cộng 9 ứng viên trong lô này vì trang không trả metadata ngày đọc được (Japan Times, Army Recognition, BusinessMirror, The Hill x2, CBS, Axios, Times of Israel, và 1 lần vì ngày thật NPR 17/9 quá cũ) — không đồng nghĩa tin sai, chỉ là không đủ thời gian tìm nguồn thay trước hạn chót 04:45 giờ VN. Chi tiết từng tin: logs/loai-tin.md. Do sát hạn chót, các bước Jay Lâm (--liet-ke/--ghi/--ghi-loai) và kích telegram-bot.yml đã BỎ QUA hoàn toàn trong phiên này — file Jay Lâm (nếu có) còn hiệu lực 3 ngày, sẽ lọc ở phiên sau. Trong 6 đơn vị mang sàn 5, chỉ Anh đạt; 5 đơn vị còn lại (Đối ngoại Mỹ, Nội bộ Mỹ, Australia, Biển Đông, KHCN-QS) hụt sàn 1-4 tin do cổng ngày thật siết mạnh hơn dự kiến trong phiên này. Mali và Tập trận không mang sàn cứng nên không tính hụt."
+  "note": "Tất cả 6 đơn vị của file Word đạt sàn riêng của lô sáng nay (kiểm bằng make_docx.la_doi_ngoai_my/tieu_muc_dia_ban trực tiếp trên batch mới vì sổ 'đã gửi' hôm nay còn trống lúc kiểm — sổ chỉ ghi SAU khi gửi). Cổng Báo Mới báo còn 4 ứng viên [EU-Philippines FTA, AUKUS vươn khơi, Hàn Quốc kêu gọi Mỹ nới trừng phạt Triều Tiên, thử thách đối ngoại đầu tiên PM Burnham] — CẢ 4 sự kiện đã được nạp bằng nguồn gốc tốt hơn (VietnamPlus/Navy Lookout/Yonhap/SCMP), không dùng link Báo Mới, nên coi là đã xử lý dù cổng vẫn liệt kê theo URL Báo Mới gốc. Trong quá trình thẩm định đã loại 10 ứng viên qua cổng ngày-đăng-thật: 5 tin có ngày đăng thật 21/09 (ngoài khung 22-23/09: ADF reserve/Defence Connect, Australia-NZ naval/Naval News, Nikkei US-China talks, Meeks Ethiopia EO, Newsweek Trump TV) và 5 tin bị cổng xếp nhầm là 'trang không in ngày' vì trang có <title> của trang chặn/rate-limit thay vì bài thật (The Hill x3 do px-captcha, Federal Reserve, SEC) — đã bỏ thay vì dùng --bo-cong-ngay-that để giữ nguyên độ nghiêm của cổng cho phiên tự động này. Bước Jay Lâm (--liet-ke/--ghi/--ghi-loai) và kích telegram-bot.yml đã BỎ QUA trong phiên này do không gọi được `gh` trong CI — file Jay Lâm (nếu có) còn hiệu lực 3 ngày, phiên sau vẫn lọc được."
 }

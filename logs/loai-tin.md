@@ -1394,3 +1394,23 @@ Bối cảnh: phiên CI sáng nay bị cổng NGÀY ĐĂNG THẬT chặn oan 12/
 - [CNQS Mỹ/BM] "Tình báo Mỹ lo Trung Quốc tiếp cận công nghệ F-35 qua Arab Saudi" (VietTimes, https://baomoi.com/tinh-bao-my-lo-trung-quoc-tiep-can-cong-nghe-f-35-qua-arab-saudi-c56098827.epi) — truy về được bài gốc tiếng Anh (Times of Israel, dẫn cảnh báo của DIA), nhưng cổng NGÀY ĐĂNG THẬT (ngay_that.py) chặn vì trang không trả metadata ngày đọc được. Không đủ thời gian tìm nguồn thay thế trước hạn chót 04:45 — loại phiên này, còn hiệu lực 3 ngày cho phiên sau.
 - [CNQS Mỹ] "Uỷ ban Quân vụ Hạ viện Mỹ xác nhận điều tra vụ linh kiện F-35 chuyển hướng Hong Kong" (SCMP) — URL đã tồn tại trong DATA (trùng tin đã nạp trước đó). Loại, tránh trùng.
 - [Địa bàn Anh/Australia/Biển Đông + Nội bộ Mỹ] Nhiều ứng viên bị cổng NGÀY ĐĂNG THẬT chặn do trang không trả metadata ngày đọc được: New Zealand navy Taiwan Strait transit (Japan Times), ADMM-Plus Subic Bay launch (Army Recognition), Teodoro ADMM-Plus statement (BusinessMirror), Bessent-He Lifeng trade talks (CNBC — cũng quá cũ 17-20/9), tariff cuts (The Hill), NIH executive order (The Hill), Salazar Hispanic voters (CBS), AI Force Trump (Axios). Loại theo cổng, sát hạn chót 04:45 nên không kịp tìm nguồn thay.
+
+## Phiên sáng 23/09/2026 (CI)
+
+- [worldNews] "Quân đội Australia tăng gấp đôi thời gian cam kết dự bị sau xuất ngũ lên 10 năm" (Defence Connect) — cổng NGÀY ĐĂNG THẬT đọc được `datePublished` thật là 21/09/2026, ngoài khung 22-23/09. Loại, tin quá cũ.
+- [worldNews] "Hải quân Hoàng gia Australia và New Zealand siết chặt quan hệ đối tác theo Kế hoạch Tasman" (Naval News) — cổng đọc được ngày thật 21/09/2026, ngoài khung. Loại.
+- [usNews] "Mỹ-Trung ghi nhận tiến triển đàm phán về miễn trừ thuế quan và đối thoại AI" (Nikkei Asia) — cổng đọc được ngày thật 21/09/2026, ngoài khung. Loại.
+- [usNews] "Mỹ để sắc lệnh trừng phạt Ethiopia hết hiệu lực" (House Foreign Affairs Committee Dems) — cổng đọc được ngày thật 21/09/2026, ngoài khung. Loại.
+- [usNews] "Nhà Trắng ra mắt kênh 'Trump TV' 24/7" (Newsweek) — cổng đọc được ngày thật 21/09/2026, ngoài khung. Loại.
+- [usNews] "Lầu Năm Góc chọn Northrop Grumman và True Anomaly chế tạo vệ tinh GHOST-R" (DefenseScoop) — URL đã có sẵn trong DATA (tin trùng, đã nạp ở phiên trước). Loại.
+- [usNews] "Tổng thống Hàn Quốc kêu gọi Mỹ nới lỏng trừng phạt Triều Tiên" (The Hill) — trang trả về trang chặn px-captcha (title "Access to this page has been denied") khiến cổng ngày-thật không đọc được ngày dù trang có `<title>`. THAY bằng nguồn Yonhap cùng sự kiện (ngày đọc được, trong khung) thay vì loại hẳn tin — sự kiện vẫn được nạp.
+- [usNews] "Nhà Trắng bị tố soạn sắc lệnh giành quyền duyệt tài trợ NIH" (The Hill) — cùng lỗi px-captcha như trên, không tìm được nguồn thay thế kịp hạn chót. Loại.
+- [usNews] "Cựu Thống đốc Chris Christie cân nhắc tranh cử 2028" (The Hill) — cùng lỗi px-captcha. Loại.
+- [usNews] "Cục Dự trữ Liên bang phê duyệt sáp nhập BancFirst Corporation" (federalreserve.gov) — trang .gov tải đủ nội dung (83KB, có tiêu đề thật, nội dung xác nhận "on Tuesday" = 22/9) nhưng không có metadata ngày ở định dạng cổng đọc được (datePublished/og:published_time/time-datetime). Không dùng `--bo-cong-ngay-that` để giữ nguyên độ nghiêm ngặt của cổng cho phiên CI tự động — Loại, tin ít quan trọng (phê duyệt ngân hàng thường lệ) nên chấp nhận mất.
+- [usNews] "SEC khiển trách OTC Link vì vi phạm Quy định SCI" (sec.gov) — trang bị rate-limit khi cổng gọi lại (SEC.gov | Request Rate Threshold Exceeded), không đọc được ngày. Loại.
+
+**Cổng Báo Mới — 4 ứng viên add_news.py nhắc, ĐÃ XỬ LÝ bằng nguồn gốc tốt hơn (không dùng link Báo Mới):**
+- [Địa bàn Biển Đông/BM] "EU - Philippines hoàn tất đàm phán về Hiệp định Thương mại Tự do" — nạp bằng VietnamPlus (TTXVN, cùng sự kiện, ngày 22/9 xác nhận).
+- [Địa bàn Anh/BM] "Vũ khí AUKUS lần đầu 'vươn khơi' từ tàu ngầm không người lái" — nạp bằng Navy Lookout (chính là sự kiện phóng ngư lôi Mk48 từ XV Excalibur, ngày 22/9).
+- [Nội bộ Mỹ/BM] "Tổng thống Hàn Quốc kêu gọi Mỹ nới lỏng trừng phạt Triều Tiên" — nạp bằng Yonhap (xem mục The Hill ở trên).
+- [Địa bàn Anh/BM] "Thử thách đối ngoại lớn đầu tiên của Tân thủ tướng Anh Andy Burnham" — nạp bằng South China Morning Post (cuộc gặp Trump-Burnham về Chagos/Falklands, ngày 22/9).
