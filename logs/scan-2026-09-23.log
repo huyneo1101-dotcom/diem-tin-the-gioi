@@ -6,3 +6,4 @@
 [21:34Z] START event-scan (CI, gop vao sang som)
 [21:47Z] do_tap_tran_thieu.py: Exercise Haringaroo da co san trong bulletin (worldNews), khong tao the moi. add_news.py OK: +1 su kien ngoai giao moi (Thoa thuan an ninh My-Dan Mach-Greenland). add_analyses.py OK: +5 bai think-tank + 9 khai niem. Khong tim duoc dien bien tap tran moi hop khung ngay (REPMUS/SEACAT/UNITAS khong co nguon xac thuc 22-23/9).
 [21:49Z] SKIP phien moi (state.py claim web-scan exit 10). Kiem so_da_gui --xem: da co dong "2026-09-23T04:48:51+07:00 [sang] 32 tin" -> ban tin sang nay da toi tay. event-scan cung DONE (lastRunAt 04:47:56, +1 su kien +5 bai think-tank). Ket thuc em, khong quet lai.
+[23:49Z] SKIP phien goi lai lan nua (invocation moi, cung ngay). state.py claim web-scan van tra exit 10, so_da_gui --xem van co dong "2026-09-23T04:48:51+07:00 [sang] 32 tin" -> ban tin da toi tay, khong phai co gia. Ket thuc em, khong quet lai.
