@@ -4,3 +4,4 @@
 [21:33Z] add_news.py OK: +14 the gioi, +18 My, +1 tap tran. gh workflow run telegram-bot.yml bi chan quyen (requires approval) -> chua kich duoc bot Jay Lam, ghi fail-open vao scan-gaps.json
 [21:33Z] DONE web-scan. Commit "Cap nhat ban tin 23/09: +32 tin (5 chu de)" da push.
 [21:34Z] START event-scan (CI, gop vao sang som)
+[04:35] SKIP local (mốc dự phòng 04:35) — CI đã DONE web-scan lúc 04:34:13, exit 10.
