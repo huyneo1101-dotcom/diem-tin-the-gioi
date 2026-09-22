@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-23T03:46:56+07:00",
+  "tao_luc": "2026-09-23T06:12:17+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-22",
@@ -41,18 +41,18 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-09-23",
-      "tieu_de": "Alex Eala all set for Singapore Open showdown vs Russian",
-      "nguon": "Inquirer",
-      "url": "https://sports.inquirer.net/697113/alex-eala-all-set-for-singapore-open-showdown-vs-russian"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
       "ngay": "2026-09-22",
       "tieu_de": "As China tightens its ‘gutter oil’ green fuel processes, where does Singapore fit in the equation?",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/east-asia/from-wok-to-wing-china-tightens-grip-on-gutter-oil-trade-to-fuel-green-flight-ambitions"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-09-23",
+      "tieu_de": "‘Hold us accountable’ on data centers, Amazon sustainability chief says",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/09/22/2026/hold-us-accountable-on-data-centers-amazon-sustainability-chief-says"
     },
     {
       "lop": "RSS",
@@ -121,22 +121,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-23",
-      "tieu_de": "Aussie defense chief confirms missing F-35 parts, says none are ‘sensitive’",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/aussie-defense-chief-confirms-missing-f-35-parts-says-none-are-sensitive/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-23",
-      "tieu_de": "Space Force wants ‘several hundred’ troops from other branches to transfer into its ranks",
-      "nguon": "Task & Purpose",
-      "url": "https://taskandpurpose.com/news/space-force-interservice-transfer-program/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-22",
       "tieu_de": "Pentagon confirms non-hostile death of Army officer in support of Iran war operations",
       "nguon": "Task & Purpose",
@@ -149,6 +133,14 @@
       "tieu_de": "Pentagon invites Paul Brothers, YouTube influencers, to speak to troops",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/culture/paul-brothers-pentagon/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-23",
+      "tieu_de": "Celebrities at the Pentagon: How unusual was the Paul brothers’ visit?",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/economy/2026/9/22/celebrities-at-the-pentagon-how-unusual-was-the-paul-brothers-visit?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -195,7 +187,7 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-22",
       "tieu_de": "Hegseth to chair Pentagon’s new homeland defense panel",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6102879-hegseth-establishes-pentagon-homeland-defense-board/"
     },
     {
@@ -213,6 +205,14 @@
       "tieu_de": "North Korea Tests New Hwasong-11Ma Hypersonic Missile",
       "nguon": "The War Zone (TWZ)",
       "url": "https://www.twz.com/land/north-korea-tests-new-hwasong-11ma-hypersonic-missile"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-23",
+      "tieu_de": "More than 100K personnel use Maven Smart System: Pentagon official",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/09/22/maven-smart-system-ai-james-mazol-cameron-stanley-defensetalks/"
     },
     {
       "lop": "RSS",
@@ -298,14 +298,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-23",
-      "tieu_de": "Honeywell Proposes ‘P40’ Upgrade for F-35’s PTMS",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/honeywell-proposes-p40-upgrade-for-f-35s-ptms/air-force/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-23",
       "tieu_de": "Pentagon Nuclear Review Draws Scrutiny Over Expanded Options",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/pentagon-nuclear-review-draws-scrutiny-over-expanded-options/nuclear-modernization/"
@@ -325,14 +317,6 @@
       "tieu_de": "Pentagon Program Selects 17 Companies To Compete In Drone Bomber Qualifier",
       "nguon": "Defense Daily",
       "url": "https://www.defensedaily.com/pentagon-program-selects-17-companies-to-compete-in-drone-bomber-qualifier/unmanned-systems/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-22",
-      "tieu_de": "Northrop Expands B-21 Production Capacity With New Utah Facility",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/northrop-expands-b-21-production-capacity-with-new-utah-facility/nuclear-modernization/"
     },
     {
       "lop": "RSS",
@@ -370,17 +354,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-23",
-      "tieu_de": "Sentinel ICBM achieves vertical stacking ahead of 2027 initial flight testing",
+      "tieu_de": "Pentagon adds new ‘warfighter’ evaluation for officers seeking first star",
       "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/industry/techwatch/2026/09/22/sentinel-icbm-achieves-vertical-stacking-ahead-of-2027-initial-flight-testing/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-22",
-      "tieu_de": "US Army awards Lockheed Martin $1.2B PrSM contract",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/industry/2026/09/22/us-army-awards-lockheed-martin-12b-prsm-contract/"
+      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/09/22/pentagon-adds-new-warfighter-evaluation-for-officers-seeking-first-star/"
     },
     {
       "lop": "RSS",
@@ -442,6 +418,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-23",
+      "tieu_de": "Rheinmetall at REPMUS26: Interconnected Unmanned Systems for the Protection of Maritime Infrastructure",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/09/22/rheinmetall-at-repmus26-interconnected-unmanned-systems-for-the-protection-of-maritime-infrastructure/?utm_source=rss&utm_medium=rss&utm_campaign=rheinmetall-at-repmus26-interconnected-unmanned-systems-for-the-protection-of-maritime-infrastructure"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-09-23",
       "tieu_de": "Andreas Kiel, Group Director Procurement, on Building Resilient Supply Chains at Mehler Systems",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/09/22/andreas-kiel-group-director-procurement-on-building-resilient-supply-chains-at-mehler-systems/?utm_source=rss&utm_medium=rss&utm_campaign=andreas-kiel-group-director-procurement-on-building-resilient-supply-chains-at-mehler-systems"
@@ -481,10 +465,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-22",
-      "tieu_de": "Lockheed Martin and Department of War to Accelerate Air Dominance Missile Production Under New Agreement",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/09/21/lockheed-martin-and-department-of-war-to-accelerate-air-dominance-missile-production-under-new-agreement/?utm_source=rss&utm_medium=rss&utm_campaign=lockheed-martin-and-department-of-war-to-accelerate-air-dominance-missile-production-under-new-agreement"
+      "ngay": "2026-09-23",
+      "tieu_de": "Air Force wants to extend the service life of B-1 Lancers and B-2 Spirit bombers",
+      "nguon": "Sandboxx News",
+      "url": "https://www.sandboxx.us/news/air-force-wants-to-extend-the-service-life-of-b-1-lancers-and-b-2-spirit-bombers/"
     },
     {
       "lop": "RSS",
@@ -541,14 +525,6 @@
       "tieu_de": "North Korea’s Kim hails ‘new’ weapon thought to be hypersonic missile",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/09/22/asia-pacific/north-korea-hypersonic-missile/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-22",
-      "tieu_de": "Pentagon blacklist of Chinese firms likely agenda item for Trump-Xi summit",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/09/22/world/politics/pentagon-blacklist-trump-xi-ai/"
     },
     {
       "lop": "RSS",
@@ -610,14 +586,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-23",
-      "tieu_de": "Australian MQ-4C Tritons, MC-55A Peregrines reach Initial Operational Capability",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/09/australian-mq-4c-tritons-mc-55a-peregrines-reach-initial-operational-capability/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-23",
       "tieu_de": "Britain will stand firm over Falklands, UK PM Burnham tells Trump",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/britain-will-stand-firm-over-falklands-uk-pm-burnham-tells-trump"
@@ -637,14 +605,6 @@
       "tieu_de": "Iran ready to reopen Strait of Hormuz if US eases military pressure and lifts blockade",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/middle-east/iran-ready-to-reopen-strait-of-hormuz-if-us-eases-military-pressure-and-lifts-blockade"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-23",
-      "tieu_de": "Trump criticises UK’s Chagos deal, says new British PM Burnham will reconsider",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3368438/trump-criticises-uks-chagos-deal-says-new-british-pm-burnham-will-reconsider?utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -685,14 +645,6 @@
       "tieu_de": "Breaking Down the Philippines’ 2027 Budget",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/09/breaking-down-the-philippines-2027-budget/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "Australia điều tra vụ linh kiện F-35 thất lạc sang Hong Kong",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/australia-dieu-tra-vu-linh-kien-f-35-that-lac-sang-hong-kong-5123410.html"
     },
     {
       "lop": "RSS",
@@ -762,17 +714,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-23",
-      "tieu_de": "British backpacker left by Greyhound bus in outback roadhouse",
+      "tieu_de": "No evidence of a 'wage-price spiral' in Australia",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-23/british-backpacker-left-by-greyhound-bus-at-pimba/107165168"
+      "url": "https://www.abc.net.au/news/2026-09-23/no-evidence-of-a-wage-price-spiral-in-australia-rba-iain-ross/107180770"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-23",
-      "tieu_de": "Push for cancer warning labels on alcohol sold in Australia",
+      "tieu_de": "British backpacker left alone at night by Greyhound bus in outback",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/health/2026-09-23/alcoholic-drinks-labelling-overhaul-push/107176258"
+      "url": "https://www.abc.net.au/news/2026-09-23/british-backpacker-left-by-greyhound-bus-at-pimba/107165168"
     },
     {
       "lop": "RSS",
@@ -781,14 +733,6 @@
       "tieu_de": "British drone submarine fires torpedo off Scotland",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/british-drone-submarine-fires-torpedo-off-scotland/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "British robot sailboats test submarine picket line",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/british-robot-sailboats-test-submarine-picket-line/"
     },
     {
       "lop": "RSS",
@@ -810,33 +754,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-22",
-      "tieu_de": "Foreign Office seeks suppliers for global security framework",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/foreign-office-seeks-suppliers-for-global-security-framework/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
       "tieu_de": "US Navy lays keel for new Arleigh Burke destroyer",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/us-navy-lays-keel-for-new-arleigh-burke-destroyer/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "Royal Navy’s autonomous submarine fires heavyweight torpedo in AUKUS trial",
-      "nguon": "**Navy Lookout (Hải quân Anh)**",
-      "url": "https://www.navylookout.com/royal-navys-autonomous-submarine-fires-heavyweight-torpedo-in-aukus-trial/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "UK military support to the Kingdom of Saudi Arabia",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/uk-military-support-to-the-kingdom-of-saudi-arabia"
     },
     {
       "lop": "RSS",
@@ -882,6 +802,22 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-23",
+      "tieu_de": "Australia news LIVE: Joyce says One Nation has discussed supply with senior Liberals ahead of next election; US slams Albanese’s algorithm reforms, says they will lead to censorship",
+      "nguon": "Sydney Morning Herald",
+      "url": "https://www.smh.com.au/national/australia-news-live-joyce-says-one-nation-has-discussed-supply-with-senior-liberals-ahead-of-next-election-us-slams-albanese-s-algorithm-reforms-says-they-will-lead-to-censorship-20260923-p60znp.html?ref=rss&utm_medium=rss&utm_source=rss_national"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
+      "tieu_de": "Australia news live: Joyce says One Nation talking to Coalition about power-sharing agreement; fog causes Sydney airport delays",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/live/2026/sep/23/anthony-albanese-un-assembly-ai-social-media-labor-coalition-abc-four-corners-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
       "tieu_de": "Cost of raising two children in Australia has risen 134% in two decades, study says",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/2026/sep/23/cost-of-raising-two-children-in-australia-has-risen-134-in-two-decades-study-says"
@@ -890,9 +826,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-22",
-      "tieu_de": "US warns Australia that imposing digital duty of care on big tech would be seen as censorship",
+      "tieu_de": "Jim Chalmers on how Australia’s economy can survive in an uncertain world - podcast",
       "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/media/2026/sep/22/us-warns-australia-that-imposing-digital-duty-of-care-on-big-tech-would-be-seen-as-censorship"
+      "url": "https://www.theguardian.com/australia-news/audio/2026/sep/23/jim-chalmers-on-how-australias-economy-can-survive-in-an-uncertain-world-full-story-podcast"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-22",
+      "tieu_de": "Australia investigating how F-35 fighter jet parts bound for US went missing in Hong Kong",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/world/2026/sep/22/australia-investigating-how-f-35-fighter-jet-parts-bound-for-us-went-missing-in-hong-kong"
     },
     {
       "lop": "RSS",
@@ -914,25 +858,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-23",
-      "tieu_de": "Australia’s 10 most powerful people in 2026",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/politics/federal/australia-s-10-most-powerful-people-in-2026-20260923-p60q3f?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-23",
-      "tieu_de": "Australia’s $90m election cap is still too high",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/politics/federal/australia-s-90m-election-cap-is-still-too-high-20260923-p60zez?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-23",
       "tieu_de": "He nailed Trump’s big plan. Now he fears Australia’s China-US squeeze",
       "nguon": "Australian Financial Review",
       "url": "https://www.afr.com/chanticleer/he-nailed-trump-s-big-plan-now-he-fears-australia-s-china-us-squeeze-20260923-p60zhb?ref=rss&utm_medium=rss&utm_source=rss_feed"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
+      "tieu_de": "Australia’s 10 most powerful people in 2026",
+      "nguon": "Australian Financial Review",
+      "url": "https://www.afr.com/politics/federal/australia-s-10-most-powerful-people-in-2026-20260923-p60q3f?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -954,17 +890,25 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-22",
-      "tieu_de": "Philippines developing options on vessel ramming by China",
+      "tieu_de": "Philippines-EU free trade agreement seen next year",
       "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/09/23/2558276/philippines-developing-options-vessel-ramming-china"
+      "url": "https://www.philstar.com/headlines/2026/09/23/2558292/philippines-eu-free-trade-agreement-seen-next-year"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "Philippines-EU free trade agreement seen next year",
-      "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/09/23/2558292/philippines-eu-free-trade-agreement-seen-next-year"
+      "ngay": "2026-09-23",
+      "tieu_de": "5 skin clinics around Metro Manila worth trying right now",
+      "nguon": "Inquirer",
+      "url": "https://lifestyle.inquirer.net/581968/5-skin-clinics-around-metro-manila-worth-trying-right-now/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
+      "tieu_de": "Metro Manila’s traffic crisis",
+      "nguon": "Inquirer",
+      "url": "https://opinion.inquirer.net/194611/metro-manilas-traffic-crisis"
     },
     {
       "lop": "RSS",
@@ -981,6 +925,14 @@
       "tieu_de": "Why this new Ukraine pact is a war game changer for Australia",
       "nguon": "Sydney Morning Herald — Politics/Federal",
       "url": "https://www.smh.com.au/politics/federal/why-this-new-ukraine-pact-is-a-war-game-changer-for-australia-20260922-p60z43.html?ref=rss&utm_medium=rss&utm_source=rss_politics_federal"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
+      "tieu_de": "Albanese defends Australia’s social media crackdown from Trump admin’s ‘censorship’ blast",
+      "nguon": "Sydney Morning Herald — World",
+      "url": "https://www.smh.com.au/world/north-america/us-raises-serious-concerns-about-australia-s-digital-duty-of-care-regime-20260922-p60zmr.html?ref=rss&utm_medium=rss&utm_source=rss_world"
     },
     {
       "lop": "RSS",
@@ -1013,6 +965,22 @@
       "tieu_de": "Australia joins calls for AI guardrails ahead of Trump-Xi meeting",
       "nguon": "Crikey (Úc)",
       "url": "https://www.crikey.com.au/2026/09/22/ai-guardrails-donald-trump-xi-jinping-australian-population-decline/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
+      "tieu_de": "Governments across Australia know how to stop violence against Indigenous women, they just don’t do it",
+      "nguon": "The Conversation (Úc)",
+      "url": "https://theconversation.com/governments-across-australia-know-how-to-stop-violence-against-indigenous-women-they-just-dont-do-it-291976"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
+      "tieu_de": "Australia is responding to domestic violence after the event, not preventing it from happening",
+      "nguon": "The Conversation (Úc)",
+      "url": "https://theconversation.com/australia-is-responding-to-domestic-violence-after-the-event-not-preventing-it-from-happening-292453"
     },
     {
       "lop": "RSS",
@@ -1066,14 +1034,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-22",
-      "tieu_de": "Taiwan minister says he was not 'belittled' on rare trip to China",
-      "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/taiwan-minister-says-he-was-not-belittled-on-rare-trip-to-china"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
       "tieu_de": "Anthropic, OpenAI call for Australia to relax ban on training of AI models",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/australianz/anthropic-openai-call-for-australia-to-relax-ban-on-training-of-ai-models"
@@ -1093,14 +1053,6 @@
       "tieu_de": "Explainer-Why is Taiwan such an important issue for China?",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/explainer-why-is-taiwan-such-an-important-issue-for-china"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "China's Xi expected to press Trump to halt Taiwan arms sales under 1982 agreement, sources say",
-      "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/chinas-xi-expected-to-press-trump-to-halt-taiwan-arms-sales-under-1982-agreement-sources-say"
     },
     {
       "lop": "RSS",
@@ -1153,6 +1105,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-23",
+      "tieu_de": "Joint Press Release: US, Indonesia Co-chair Largest ASEAN Defense Ministers’ Meeting (ADMM)-Plus Exercise in a Decade with the Participation of 2,200 Personnel from 19 Countries",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/575314/joint-press-release-us-indonesia-co-chair-largest-asean-defense-ministers-meeting-admm-plus-exercise-decade-with"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-22",
       "tieu_de": "The LOWDOWN - 22 September 2026 - Sino-Russian Undersea Convergence, the Red Sea Battle, and the Aviation Blockade",
       "nguon": "DVIDS (toàn bộ)",
@@ -1178,17 +1138,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-22",
-      "tieu_de": "Japan, U.S. and South Korea back Taiwan at trilateral meeting",
+      "tieu_de": "China’s Xi expected to press Trump to halt Taiwan arms sales under 1982 agreement",
       "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/09/22/japan/politics/us-japan-south-korea-taiwan/"
+      "url": "https://www.japantimes.co.jp/news/2026/09/22/asia-pacific/politics/china-xi-trump-halt-taiwan-arms-sales/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-23",
-      "tieu_de": "(LEAD) Leaders of S. Korea, Australia agree to boost cooperation for stable energy supply",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260923000351315"
+      "ngay": "2026-09-22",
+      "tieu_de": "Japan, U.S. and South Korea back Taiwan at trilateral meeting",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/news/2026/09/22/japan/politics/us-japan-south-korea-taiwan/"
     },
     {
       "lop": "RSS",
@@ -1210,22 +1170,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-22",
-      "tieu_de": "Australia investigating how F-35 fighter jet parts bound for US went missing in Hong Kong",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/sep/22/australia-investigating-how-f-35-fighter-jet-parts-bound-for-us-went-missing-in-hong-kong"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "AI could be a bubble and is not yet making Australia more productive, Michele Bullock says",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/technology/2026/sep/22/ai-could-be-a-bubble-and-is-not-yet-making-australia-more-productive-michele-bullock-says"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
       "tieu_de": "British banks warned not to invest in planned Israeli settlement before UK trade ban begins",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/politics/2026/sep/22/mps-uk-banks-investment-israeli-settlement-trade-ban"
@@ -1237,14 +1181,6 @@
       "tieu_de": "Mỹ gây sức ép đòi Australia miễn trừ luật mạng xã hội cho các Big Tech",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/my-gay-suc-ep-doi-australia-mien-tru-luat-mang-xa-hoi-cho-cac-big-tech-post1137775.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-22",
-      "tieu_de": "EU và Philippines đạt thỏa thuận cơ bản, mở đường hoàn tất FTA",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/eu-va-philippines-dat-thoa-thuan-co-ban-mo-duong-hoan-tat-fta-post1137737.vnp"
     },
     {
       "lop": "RSS",
@@ -1288,15 +1224,6 @@
       "tieu_de": "Trump, Xi seek trade stability and deals, but AI, tariffs and Iran loom large. What to watch",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/09/21/trump-xi-china-summit-trade-tariffs.html",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Hàn Quốc kêu gọi Mỹ nới lỏng trừng phạt Triều Tiên",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/han-quoc-keu-goi-my-noi-long-trung-phat-trieu-tien-100260922112907745.htm",
       "nhom": 4
     },
     {
@@ -1375,15 +1302,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-22",
-      "tieu_de": "Appeals court reinstates GOP House map in Missouri for November election",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/regulation/court-battles/6102804-mo-court-reinstates-gop-house-map/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-22",
       "tieu_de": "At UN, Trump threatens to ‘annihilate’ Iran but predicts deal after midterms",
       "nguon": "Sydney Morning Herald — World",
       "url": "https://www.smh.com.au/world/north-america/at-un-trump-threatens-to-annihilate-iran-but-predicts-deal-after-midterms-20260923-p60zls.html?ref=rss&utm_medium=rss&utm_source=rss_world",
@@ -1447,15 +1365,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-22",
-      "tieu_de": "Lee calls for U.S. to ease sanctions against N. Korea in return for halting nuke program: report",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20260922004500315",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-22",
       "tieu_de": "Confirmation hearing report adopted for SME minister nominee",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20260922002500315",
@@ -1469,24 +1378,6 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/live/2026/sep/22/middle-east-iran-irgc-donald-trump-mahmoud-mahmoud-pezeshkian-abbas-araqchi-unga-latest-news-updates",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-23",
-      "tieu_de": "WTO chief warns Trump tariff war risks 7% global GDP hit",
-      "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/09/22/2026/wto-chief-warns-trump-tariff-war-risks-7-global-gdp-hit",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-22",
-      "tieu_de": "Senate Democrats press Greer to refund consumers for tariffs",
-      "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/09/22/2026/senate-democrats-press-greer-to-refund-consumers-for-tariffs",
-      "nhom": 4
     },
     {
       "lop": "RSS",
