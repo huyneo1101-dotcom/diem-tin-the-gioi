@@ -132,6 +132,22 @@ def im(out):
     return not keu(out) and "[canary]" in out
 
 
+def im_nhung_ghi_log_sai_gio(out, gio):
+    """SAI GIỜ từ 23/09/2026 KHÔNG nhắn Telegram (Huy bỏ), nhưng vẫn phải để lại `::warning::`
+    trên GitHub — im hẳn cả log thì lần sau cron trễ 4h như 31/08 không còn dấu vết để tra."""
+    return im(out) and "::warning::canary" in out and gio in out
+
+
+@contextlib.contextmanager
+def bo_feed():
+    """Tắt riêng lớp nguồn (lớp duy nhất gọi mạng) — xem ghi chú ca 6c."""
+    os.environ["CANARY_BO_SOI_FEED"] = "1"
+    try:
+        yield
+    finally:
+        os.environ.pop("CANARY_BO_SOI_FEED", None)
+
+
 # ═════════════════════════════ các ca thử ═════════════════════════════
 CA = []
 
@@ -180,19 +196,20 @@ def _():
 @ca('6. Ca TỐI: sổ chỉ có bản tin SÁNG cùng ngày → PHẢI KÊU THIẾU (buổi khác không tính)')
 def _():
     # Đòi đúng LOẠI tiếng kêu, không chỉ đòi "có kêu": từ 31/08/2026 canary còn một tiếng
-    # kêu thứ hai (SAI GIỜ), và nếu ca này nhận bừa tiếng nào cũng được thì bản hỏng "sổ nào
+    # kêu thứ hai (SAI GIỜ, từ 23/09 chỉ còn là log), và nếu ca này nhận bừa tiếng nào cũng được thì bản hỏng "sổ nào
     # cũng tính là đã gửi" lọt lưới — tự kiểm đã bắt đúng chỗ đó.
     ma, out = chay("toi", so=so_gui("sang", "2026-07-29T05:20:00+07:00"), state=state())
     return keu(out) and "CHƯA có" in out, out
 
 
-@ca('6b. HỒI QUY 31/08: bản tin SÁNG có gửi nhưng lúc 01:25 → PHẢI KÊU SAI GIỜ')
+@ca('6b. Bản tin SÁNG gửi lúc 01:25 → KHÔNG nhắn Telegram, nhưng PHẢI ghi log SAI GIỜ')
 def _():
-    # Sự cố thật: cron GitHub trễ 4h, mốc TỐI nổ lúc 00:46 rồi tự nhận là ca sáng và gửi
-    # lúc 01:25. Canary cũ chỉ hỏi "có gửi không" nên im tuyệt đối; Huy là người phát hiện.
-    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T01:25:00+07:00"),
-                   state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
-    return keu(out) and "SAI GIỜ" in out and "01:25" in out, out
+    # Sự cố thật 31/08: cron GitHub trễ 4h, gửi lúc 01:25. Từ 23/09/2026 Huy bỏ tin nhắn SAI
+    # GIỜ (bản tin đã tới tay thì trễ giờ không cần ai làm gì), nhưng log vẫn phải ghi.
+    with bo_feed():
+        ma, out = chay("sang", so=so_gui("sang", "2026-07-29T01:25:00+07:00"),
+                       state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
+    return im_nhung_ghi_log_sai_gio(out, "01:25") and ma == 0, out
 
 
 @ca('6c. Chống kêu oan: bản tin sáng gửi 04:18 (kịp hạn 04:45) → phải IM')
@@ -213,24 +230,24 @@ def _():
     return im(out) and ma == 0, out
 
 
-@ca('6d. Ca TỐI gửi 22:40 (quá hạn chót 22:00) → PHẢI KÊU SAI GIỜ')
+@ca('6d. Ca TỐI gửi 22:40 (quá hạn chót 22:00) → KHÔNG nhắn, PHẢI ghi log SAI GIỜ')
 def _():
     ma, out = chay("toi", so=so_gui("toi", "2026-07-29T22:40:00+07:00"), state=state())
-    return keu(out) and "SAI GIỜ" in out, out
+    return im_nhung_ghi_log_sai_gio(out, "22:40") and ma == 0, out
 
 
-@ca('6e. Bản tin sáng gửi 04:50 (trễ hạn 04:45) → PHẢI KÊU')
+@ca('6e. Bản tin sáng gửi 04:50 (trễ hạn 04:45) → KHÔNG nhắn, PHẢI ghi log SAI GIỜ')
 def _():
-    # Đúng cảnh của lịch CŨ: mốc kích 04:30 + quét 16-21 phút = 04:50, tức LUÔN vỡ hạn mà
-    # không lớp nào kêu. Ca này canh việc ai đó lặng lẽ nới hạn cho vừa lịch chạy — hạn đã
-    # nới sang 04:45 ngày 17/09/2026 nên mốc thử vẫn phải > hạn mới.
-    ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
-                   state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
-    return keu(out) and "SAI GIỜ" in out, out
+    # Ca này canh việc ai đó lặng lẽ nới hạn cho vừa lịch chạy: nới thì log SAI GIỜ biến mất
+    # và ca đỏ. Hạn đã nới sang 04:45 ngày 17/09/2026 nên mốc thử vẫn phải > hạn mới.
+    with bo_feed():
+        ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
+                       state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15")
+    return im_nhung_ghi_log_sai_gio(out, "04:50") and ma == 0, out
 
 
-@ca('6f. HỒI QUY 17/09: SAI GIỜ + MỤC CÂM cùng lúc → PHẢI KÊU CẢ HAI, không được nhánh SAI '
-    'GIỜ nuốt mất mục câm')
+@ca('6f. HỒI QUY 17/09: SAI GIỜ + MỤC CÂM cùng lúc → PHẢI nhắn MỤC HỤT (không kèm SAI GIỜ), '
+    'nhánh SAI GIỜ không được nuốt mất mục câm')
 def _():
     # Sự cố thật 17/09/2026: bản tin sáng gửi 04:37 (trễ hạn 04:30) NÊN CŨNG đúng lúc thiếu
     # hẳn tin "Đối ngoại Mỹ" (mục câm thật). Canary cũ `return` ngay khi thấy SAI GIỜ nên
@@ -241,8 +258,9 @@ def _():
     ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
                    state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15",
                    vien=gia_muc_cam)
-    return (keu(out) and "SAI GIỜ" in out and "MỤC HỤT" in out
-            and "Đối ngoại Mỹ: 0 tin" in out), out
+    tin = out.split("--- DRY_RUN, không gửi ---", 1)[-1]
+    return (keu(out) and "MỤC HỤT" in tin and "SAI GIỜ" not in tin
+            and "Đối ngoại Mỹ: 0 tin" in tin), out
 
 
 @ca('7. Sổ HỎNG (JSON vỡ) → PHẢI KÊU, canary không được chết câm vì file rác')
@@ -293,17 +311,20 @@ BAN_HONG = [
     ("nhánh 'đã gửi' luôn đúng (im mọi ngày)",
      ('    if lan:', '    if True:'),
      ["1", "2", "5", "6", "7", "8"]),
-    ("SAI GIỜ trả về sớm, nuốt mất lớp MỤC CÂM (tái sinh bug 17/09 mất tin Đối ngoại Mỹ)",
-     ('        sai_gio = ngoai_khung_gio(o, lan.get("luc"))\n'
-      '        if sai_gio:\n'
-      '            print(f"::warning::canary {args.ca}: {sai_gio}")\n'
-      '        print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get(\'luc\')} "',
-      '        sai_gio = ngoai_khung_gio(o, lan.get("luc"))\n'
-      '        if sai_gio:\n'
-      '            print(f"::warning::canary {args.ca}: {sai_gio}")\n'
-      '            return gui(f"⚠️ SAI GIỜ") + loi_web\n'
-      '        print(f"[canary] {nhan} {ngay}: đã gửi lúc {lan.get(\'luc\')} "'),
+    ("SAI GIỜ nhắn Telegram lại (tái sinh tin nhắn Huy bỏ 23/09/2026)",
+     ('            print(f"::warning::canary {args.ca}: {sai_gio} (chỉ ghi log, không nhắn)")\n',
+      '            print(f"::warning::canary {args.ca}: {sai_gio} (chỉ ghi log, không nhắn)")\n'
+      '            return gui(f"⚠️ SAI GIỜ.\\n\\n{sai_gio}") + loi_web\n'),
+     ["6b", "6d", "6e", "6f"]),
+    ("SAI GIỜ trả về sớm trong im lặng, nuốt mất lớp MỤC CÂM (tái sinh bug 17/09)",
+     ('            print(f"::warning::canary {args.ca}: {sai_gio} (chỉ ghi log, không nhắn)")\n',
+      '            print(f"::warning::canary {args.ca}: {sai_gio} (chỉ ghi log, không nhắn)")\n'
+      '            return loi_web\n'),
      ["6f"]),
+    ("bỏ luôn log SAI GIỜ (cron trễ 4h như 31/08 không còn dấu vết)",
+     ('            print(f"::warning::canary {args.ca}: {sai_gio} (chỉ ghi log, không nhắn)")\n',
+      '            pass\n'),
+     ["6b", "6d", "6e"]),
 ]
 
 
