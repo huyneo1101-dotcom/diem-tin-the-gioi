@@ -1,15 +1,19 @@
 {
-  "date": "2026-09-23",
+  "date": "2026-09-24",
   "session": "sang",
   "topics": [
-    {"name": "Đối ngoại Mỹ", "count": 9, "target": "5-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Đối ngoại Mỹ", "count": 6, "target": "5-10", "min": 5, "thieu": false, "reason": ""},
     {"name": "Nội bộ Mỹ", "count": 6, "target": "5-10", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Anh", "count": 4, "target": "3+", "min": 3, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Australia", "count": 5, "target": "3+", "min": 3, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Biển Đông", "count": 5, "target": "5+", "min": 5, "thieu": false, "reason": ""},
-    {"name": "KHCN-QS", "count": 8, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Mỹ – Mali", "count": 3, "target": "2-5", "min": 0, "thieu": false, "reason": ""},
-    {"name": "Tập trận", "count": 1, "target": "1-2", "min": 0, "thieu": false, "reason": "Chỉ Veer Guardian 2026 có tin bế mạc xác nhận được nguồn gốc; REPMUS 26/Dynamic Messenger 26, SEACAT 2026 không có ứng viên hợp lệ trong lô quét hôm nay."}
+    {"name": "Địa bàn › Anh", "count": 5, "target": "5+", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 4, "target": "5+", "min": 5, "thieu": true,
+     "reason": "2 ứng viên đủ chất lượng (Hàn Quốc-Australia bên lề UNGA/Korea JoongAng Daily; Mỹ cảnh báo cải cách mạng xã hội Australia/The Hill) bị Cổng ngày đăng thật chặn — một vì ngày thật 22/09 ngoài khung 1 ngày so với batch 24/09, một vì trang không lộ metadata ngày máy đọc được dù nội dung có thật. Sát hạn chót 04:45 nên không kịp tìm bài thay thế. Chi tiết: logs/loai-tin.md."},
+    {"name": "Địa bàn › Biển Đông", "count": 4, "target": "5+", "min": 5, "thieu": true,
+     "reason": "2 ứng viên đủ chất lượng (Mỹ-Indonesia đồng chủ trì Trident Resolve 2026/army.mil; Đài Loan chuyển tàu tuần tra cho Philippines/USNI News) bị Cổng ngày đăng thật chặn vì trang không lộ metadata ngày máy đọc được. Sát hạn chót 04:45 nên không kịp tìm nguồn thay thế cùng sự kiện. Chi tiết: logs/loai-tin.md."},
+    {"name": "KHCN-QS", "count": 10, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Mỹ – Mali", "count": 0, "target": "2-5", "min": 0, "thieu": true,
+     "reason": "38 ứng viên (36 harvest + 2 Telegram) đều trùng tin đã đăng 22/09 (liên minh JNIM-Tuareg, chia rẽ ngoại giao Sahel), sự kiện cũ (thảm sát Dioura 10/09 đã đưa tin), op-ed không có sự kiện cụ thể, hoặc ngoài chủ đề (bóng đá, khai khoáng, cricket Mali). Không tìm được tuyên bố/quyết định mới của Mỹ/AFRICOM về JNIM trong khung 23-24/09."},
+    {"name": "Tập trận", "count": 0, "target": "1-2", "min": 0, "thieu": true,
+     "reason": "Veer Guardian 2026, REPMUS 26/Dynamic Messenger 26 chỉ có nguồn xác nhận đăng 21-22/09 (ngoài khung 1 ngày so với batch 24/09); UNITAS 2026 bế mạc đúng 24/09 nhưng thông cáo chưa lên mạng lúc quét (giờ Peru chậm ~12h); SEACAT 2026 thực đã kết thúc từ tháng 8, không còn 'đang diễn ra'. Một tin Hạm đội TBD Nga (Lenta.ru) bị loại vì xác minh là hoạt động của một biên đội nhỏ khác, không thuộc cuộc tập trận đang bám."}
   ],
-  "note": "Tất cả 6 đơn vị của file Word đạt sàn riêng của lô sáng nay (kiểm bằng make_docx.la_doi_ngoai_my/tieu_muc_dia_ban trực tiếp trên batch mới vì sổ 'đã gửi' hôm nay còn trống lúc kiểm — sổ chỉ ghi SAU khi gửi). Cổng Báo Mới báo còn 4 ứng viên [EU-Philippines FTA, AUKUS vươn khơi, Hàn Quốc kêu gọi Mỹ nới trừng phạt Triều Tiên, thử thách đối ngoại đầu tiên PM Burnham] — CẢ 4 sự kiện đã được nạp bằng nguồn gốc tốt hơn (VietnamPlus/Navy Lookout/Yonhap/SCMP), không dùng link Báo Mới, nên coi là đã xử lý dù cổng vẫn liệt kê theo URL Báo Mới gốc. Trong quá trình thẩm định đã loại 10 ứng viên qua cổng ngày-đăng-thật: 5 tin có ngày đăng thật 21/09 (ngoài khung 22-23/09: ADF reserve/Defence Connect, Australia-NZ naval/Naval News, Nikkei US-China talks, Meeks Ethiopia EO, Newsweek Trump TV) và 5 tin bị cổng xếp nhầm là 'trang không in ngày' vì trang có <title> của trang chặn/rate-limit thay vì bài thật (The Hill x3 do px-captcha, Federal Reserve, SEC) — đã bỏ thay vì dùng --bo-cong-ngay-that để giữ nguyên độ nghiêm của cổng cho phiên tự động này. Bước Jay Lâm (--liet-ke/--ghi/--ghi-loai) và kích telegram-bot.yml đã BỎ QUA trong phiên này do không gọi được `gh` trong CI — file Jay Lâm (nếu có) còn hiệu lực 3 ngày, phiên sau vẫn lọc được."
+  "note": "Cổng ngày đăng thật (ngay_that.py) chặn nhiều tin từ trang .gov/.senate.gov/Axios/ANI News/The Hill/Financial Times/army.mil/USNI News vì không lộ metadata ngày máy đọc được (không phải tin sai, chỉ thiếu metadata) — xem logs/loai-tin.md để biết danh sách đầy đủ. Do sát hạn chót 04:45 VN, phiên chốt lô ở mức Australia và Biển Đông còn 4/5 (dưới sàn 1 tin mỗi nhánh), Mali và Tập trận về 0. Cổng Báo Mới còn 2 ứng viên chưa xử lý kịp (Điện Kremlin/Anh tại UNGA; F-22/B-2 đón Tập Cận Bình) — ghi vào logs/loai-tin.md. Bước Jay Lâm (--liet-ke/--ghi/--ghi-loai) và kích telegram-bot.yml BỎ QUA trong phiên này do sát hạn chót, không có thời gian gọi gh workflow run + chờ 2 phút; file Jay Lâm (nếu có) còn hiệu lực 3 ngày, phiên sau vẫn lọc được."
 }

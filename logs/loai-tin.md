@@ -1414,3 +1414,19 @@ Bối cảnh: phiên CI sáng nay bị cổng NGÀY ĐĂNG THẬT chặn oan 12/
 - [Địa bàn Anh/BM] "Vũ khí AUKUS lần đầu 'vươn khơi' từ tàu ngầm không người lái" — nạp bằng Navy Lookout (chính là sự kiện phóng ngư lôi Mk48 từ XV Excalibur, ngày 22/9).
 - [Nội bộ Mỹ/BM] "Tổng thống Hàn Quốc kêu gọi Mỹ nới lỏng trừng phạt Triều Tiên" — nạp bằng Yonhap (xem mục The Hill ở trên).
 - [Địa bàn Anh/BM] "Thử thách đối ngoại lớn đầu tiên của Tân thủ tướng Anh Andy Burnham" — nạp bằng South China Morning Post (cuộc gặp Trump-Burnham về Chagos/Falklands, ngày 22/9).
+
+## Phiên sáng sớm 24/09/2026
+
+- [Nội bộ Mỹ] "Trump kêu gọi mọi nước rút khỏi ICC tại UNGA" (Foreign Policy) — bài đăng 22/09, ngoài khung 1 ngày so với batch 24/09 (category Ngoại giao không được nới CNQS 3 ngày). Loại.
+- [Địa bàn Anh] "Trump khen Thủ tướng Anh Burnham, chỉ trích Chagos" (Washington Post) — cổng ngày thật đọc được datePublished=2026-09-22, ngoài khung 1 ngày. Loại.
+- [Địa bàn Anh] "FT: bộ máy nhà nước Anh 'tê liệt'" (Financial Times) — trang không in ngày đăng ở dạng đọc được. Loại.
+- [Địa bàn Australia] "Hàn Quốc-Australia họp bên lề UNGA bàn năng lượng" (Korea JoongAng Daily) — ngày thật 22/09, ngoài khung 1 ngày. Loại.
+- [Địa bàn Australia] "Mỹ cảnh báo cải cách mạng xã hội Australia" (The Hill) — trang không in ngày đăng ở dạng đọc được. Loại.
+- [Địa bàn Biển Đông] "Mỹ-Indonesia đồng chủ trì Trident Resolve 2026" (army.mil) — trang không in ngày đăng ở dạng đọc được. Loại.
+- [Địa bàn Biển Đông] "Đài Loan chuyển tàu tuần tra cho Philippines" (USNI News) — trang không in ngày đăng ở dạng đọc được. Loại.
+- [Nội bộ Mỹ] 7 tin bị cổng ngày thật chặn vì trang không in ngày đăng ở dạng máy đọc được: Bộ Tài chính đóng băng hàng không Iran (home.treasury.gov), USTR hạn ngạch đường (ustr.gov), SEC số liệu IPO (sec.gov), điều trần kín Thượng viện về giam giữ oan (foreign.senate.gov), hồ sơ Arctic Frost (judiciary.house.gov), Trump-Rodriguez Venezuela (Axios), Jaishankar-Rubio (ANI News), khảo sát Mỹ-Canada về thuế quan (The Hill) — bỏ theo luật "trang không in ngày thì bỏ", KHÔNG mở `--bo-cong-ngay-that` vì đây là thiếu metadata thật chứ không phải metadata sai.
+- [Nội bộ Mỹ] "Mỹ siết an ninh cho chuyến thăm Tập Cận Bình" (SCMP) — URL đã có sẵn trong DATA (tin trùng phiên trước). Loại.
+- [CNQS Mỹ/BM] "Mỹ huy động F-22/B-2 đón Tập Cận Bình" — không tìm được bài gốc tiếng Anh xác nhận kịp trước hạn chót 04:45. Loại, ghi vào cổng Báo Mới.
+- [Địa bàn Anh/BM] "Điện Kremlin chỉ trích Thủ tướng Anh tại UNGA" — không kịp xác minh trước hạn chót. Loại, ghi vào cổng Báo Mới.
+
+Ghi chú: phần lớn tin loại đợt này do CỔNG NGÀY ĐĂNG THẬT không đọc được metadata ngày trên trang .gov/.senate.gov/Axios/ANI/The Hill dù nội dung có thật — không phải tin sai, chỉ là trang không lộ metadata máy đọc được. Sát hạn chót 04:45 nên không kịp tìm bài thay thế cho từng tin; hệ quả trực tiếp: Địa bàn Australia và Địa bàn Biển Đông còn 4/5 tin, dưới sàn — xem `logs/scan-gaps.json`.

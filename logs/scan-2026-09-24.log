@@ -1,2 +1,4 @@
 [21:00Z] START web-scan (CI, phien sang som)
-[04:05] SKIP web-scan (local) - phien khac dang chay (nhip tim 2' truoc, bat dau 04:00:34)
+[21:16Z] harvest.py + telegram_harvest.py xong: 456 ung vien RSS/GNEWS + 20 ung vien Telegram
+[21:16Z] giao 4 agent song song (Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran)
+[21:25Z] DONE web-scan: +30 tin (usNews 17, worldNews 13). Uc/Bien Dong con 4/5 (duoi san 1 tin/nhanh), Mali va Tap tran ve 0 - xem scan-gaps.json. Bo qua buoc Jay Lam va event-scan (Buoc 6) do sat han chot 04:45.
