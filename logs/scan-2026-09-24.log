@@ -3,3 +3,4 @@
 [21:16Z] giao 4 agent song song (Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran)
 [21:25Z] DONE web-scan: +30 tin (usNews 17, worldNews 13). Uc/Bien Dong con 4/5 (duoi san 1 tin/nhanh), Mali va Tap tran ve 0 - xem scan-gaps.json. Bo qua buoc Jay Lam do sat han chot 04:45.
 [21:26Z] START event-scan (CI, gop vao sang som)
+[21:35Z] SKIP web-scan (local, moc du phong 04:35): CI da xong luc 04:25, khong lam lai
