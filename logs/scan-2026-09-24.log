@@ -6,3 +6,4 @@
 [21:35Z] SKIP web-scan (local, moc du phong 04:35): CI da xong luc 04:25, khong lam lai
 [21:49Z] DONE event-scan: +2 cap nhat tap tran (REPMUS/DM26, Veer Guardian) + background cho 4 cuoc dang bam + 5 bai think-tank kem concepts. Khong phai Chu nhat nen bo qua bao cao tuan.
 [21:50Z] SKIP web-scan (CI, phien sang som du phong 04:50): state.py claim -> exit 10 (da DONE luc 04:25). Kiem so_da_gui --xem: co dong 2026-09-24T04:50:33+07:00 [sang] 32 tin va [sukien] 2 tin -> ban tin da toi tay that. SKIP em, khong quet lai.
+[23:13Z] SKIP web-scan (CI, phien sang som du phong khac 06:13 VN): state.py claim -> exit 10 (da DONE luc 04:25). Kiem lai so_da_gui --xem: van co dong 2026-09-24T04:50:33+07:00 [sang] 32 tin va [sukien] 2 tin -> ban tin da toi tay that, ca event-scan cung DONE (+2 tap tran, +5 bai think-tank luc 04:49:23). SKIP em, khong quet lai.
