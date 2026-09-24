@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-25T04:19:45+07:00",
+    "lastRunAt": "2026-09-25T04:20:18+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "SKIP",
+    "note": "het gio truoc han chot 04:45 - da tieu ton nhieu thoi gian xu ly cong NGAY THAT cua web-scan; ung vien tap tran moi (Varuna 24th, North Korea missile drill) chua kip xac minh nhap nhang giua tap tran that va tap kich; bo qua think-tank/dip-events phien nay",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-09-24"
-    },
-    "heartbeat": "2026-09-25T04:19:45+07:00"
+    }
   }
 }
