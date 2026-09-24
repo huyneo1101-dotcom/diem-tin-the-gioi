@@ -6,3 +6,4 @@
 [21:20Z] SKIP event-scan: het gio truoc han chot 04:45, khong kip xac minh su kien/tap tran/think-tank
 [21:21Z] SKIP (CI, phien khac): web-scan DA XONG (+19 tin, gui 04:21:04 VN, xac nhan qua so_da_gui.py --xem co dong [sang] hom nay). event-scan cung da SKIP hop le boi phien truoc. Khong lam lai.
 [04:32] SKIP (local, phien nay): da tu quet doc lap (+13 the gioi, +19 My) song push bi tu choi vi phien CI khac da DONE+gui ban tin luc 04:19:23 VN truoc. Theo dung Buoc 1/3: reset --hard origin/main, KHONG de len, KHONG goi state.py skip/fail (giu nguyen DONE cua phien CI). Cong viec quet cua phien nay coi nhu du thua, khong len repo.
+[04:35] SKIP (local, phien 04:35): claim tra exit 10, DA XONG (chay cuoi 04:19:23 VN). Ghi log + KET THUC ngay theo Buoc 0.
