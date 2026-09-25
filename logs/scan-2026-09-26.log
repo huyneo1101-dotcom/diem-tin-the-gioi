@@ -9,3 +9,6 @@
 [21:47Z] DONE event-scan: +1 tap tran moi (Exercise Varuna 2026 An Do - Phap, dang dien ra
   tai Toulon toi 29/9), +4 bai think-tank (USSC, ISW, Defense Priorities, PIIE) + 7 khai niem.
   Khong co su kien ngoai giao moi/cap nhat du dieu kien. Hom nay thu Bay, khong lam bao cao tuan.
+[21:48Z] SKIP web-scan (phien moi, CI): state.py claim tra exit 10, da xong luc 04:35:43.
+  Kiem so_da_gui.py --xem: co dong 2026-09-26T04:48:37 [sang] 32 tin - ban tin da toi tay that.
+  Nhay sang claim event-scan theo quy trinh.
