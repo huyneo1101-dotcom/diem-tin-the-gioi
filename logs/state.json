@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-25T04:19:23+07:00",
+    "lastRunAt": "2026-09-26T04:00:41+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+19 tin (5 chu de) - Doi ngoai My/Noi bo My/Anh/Australia/Bien Dong duoi san",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-09-25"
-    }
+    },
+    "heartbeat": "2026-09-26T04:00:41+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-25T04:41:31+07:00",
