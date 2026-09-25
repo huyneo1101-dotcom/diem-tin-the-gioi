@@ -1,3 +1,7 @@
 [21:00Z] START web-scan (CI, phien sang som)
 [04:05] SKIP local sang: phien khac dang giu khoa web-scan (nhip tim 2' truoc, bat dau 04:00:41)
 [04:35] SKIP local sang: phien khac dang giu khoa web-scan (nhip tim 20' truoc, bat dau 04:00:41)
+[21:20Z] harvest.py + telegram_harvest.py xong: 463 ung vien RSS/GNEWS + 12 ung vien Telegram
+[21:36Z] DONE web-scan: nap +31 tin (worldNews 14, usNews 17). Doi ngoai My 5, Noi bo My 5,
+  Anh 6, Australia 4 (san rieng 3), Bien Dong 4 (duoi san 5), CNQS My 7, Mali 0, Tap tran 0.
+  Chi tiet thieu: logs/scan-gaps.json. Sat han chot 04:45 nen chot lo, bo qua Jay Lam (khong co file).

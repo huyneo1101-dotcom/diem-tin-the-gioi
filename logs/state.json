@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-26T04:00:41+07:00",
+    "lastRunAt": "2026-09-26T04:35:43+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+31 tin (5 chu de): Doi ngoai My 5, Noi bo My 5, Anh 6, Australia 4, Bien Dong 4, CNQS My 7, Mali 0, Tap tran 0",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-09-25"
-    },
-    "heartbeat": "2026-09-26T04:14:59+07:00"
+      "sang": "2026-09-26"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-25T04:41:31+07:00",

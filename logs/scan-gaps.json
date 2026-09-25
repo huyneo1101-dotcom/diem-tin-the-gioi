@@ -1,22 +1,19 @@
 {
-  "date": "2026-09-25",
+  "date": "2026-09-26",
   "session": "sang",
   "topics": [
-    {"name": "Đối ngoại Mỹ", "count": 1, "target": "5-10", "min": 5, "thieu": true,
-     "reason": "Agent tìm được 4 tin đối ngoại (Trump-Xi summit, Trump-Rodriguez Venezuela, thư 31 nghị sĩ về Brazil, Guantanamo remote testimony) nhưng cổng NGÀY THẬT (scripts/ngay_that.py) loại Bloomberg Trump-Xi (không đọc được metadata ngày qua curl) và loại Trump-Venezuela/Axios (đăng 23/09, ngoài khung 1 ngày của category Ngoại giao). Guantanamo được xếp vào nhóm 1 (điều trần/tư pháp) không tính là đối ngoại. Chỉ còn 1 tin (thư nghị sĩ Dân chủ về can thiệp bầu cử Brazil) qua cổng."},
-    {"name": "Nội bộ Mỹ", "count": 4, "target": "5-10", "min": 5, "thieu": true,
-     "reason": "4 tin qua cổng (điều trần FDA Overton, Guantanamo remote testimony, CISA kế hoạch bầu cử, thẩm phán chặn lệnh cấm báo chí Nhà Trắng). Cổng NGÀY THẬT loại thêm 4 ứng viên khác (Fed stablecoin GENIUS Act, SEC thống kê IPO, Elizabeth Warren thư Census, Marshall Kansas primary) vì các trang .gov/.senate.gov/thehill.com không trả metadata ngày đọc được qua curl trong môi trường CI — nội dung có thật, không phải tin sai."},
-    {"name": "Địa bàn › Anh", "count": 3, "target": "5", "min": 5, "thieu": true,
-     "reason": "3 tin qua cổng (tàu ngầm HMS Agamemnon, phi đội tác chiến không gian Bộ QP Anh, chi tiêu QP Anh-Scotland 34 tỷ bảng). Tin Chagos/Trump-Burnham bị loại vì lệch khung ngày (đăng thật 23/09, ngoài 1 ngày của category Ngoại giao); tin Bank of England lãi suất bị cổng NGÀY THẬT loại vì bài đăng thật là 17/09 (agent lấy nhầm trang biên bản họp cũ)."},
-    {"name": "Địa bàn › Australia", "count": 3, "target": "5", "min": 5, "thieu": true,
-     "reason": "3 tin qua cổng (OpenAI hack Medicare Australia, đại sứ Trung Quốc mới tại Canberra, ASPI phân tích hậu cần Úc-Canada). Tin F-35 Hong Kong (Bloomberg) bị cổng NGÀY THẬT loại vì không đọc được metadata ngày qua curl."},
-    {"name": "Địa bàn › Biển Đông", "count": 4, "target": "5", "min": 5, "thieu": true,
-     "reason": "4 tin qua cổng (11 tàu chiến 8 nước ASEAN tại Biển Tây Philippines, bình luận CNA về căng thẳng Philippines-Trung Quốc, Đài Loan pháo tự hành 105mm, Indonesia-Pháp diễn tập tiếp dầu Rafale). 3 ứng viên khác (AFP theo dõi 35 tàu Trung Quốc, Đài Loan chuyển tàu tuần tra cho Philippines, tàu MSC trôi dạt) bị loại vì ngày đăng thật 21-23/09, ngoài khung 1 ngày của category Ngoại giao."},
-    {"name": "KHCN-QS", "count": 8, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Mỹ – Mali", "count": 0, "target": "2-5", "min": 0, "thieu": true,
-     "reason": "Agent quét kỹ (harvest + Telegram OSINT + WebSearch nhiều hướng) nhưng không tìm được tin nào vừa đúng khung ngày 24-25/09, vừa đủ chuẩn xác minh, vừa có góc liên quan Mỹ thật sự. Phần lớn ứng viên là tin bóng đá/thể thao Mali, hoặc diễn biến JNIM/Africa Corps thuần nội bộ Mali-Nga không dính Mỹ, hoặc tin OSINT Telegram đơn lẻ không xác nhận được qua nguồn độc lập."},
-    {"name": "Tập trận", "count": 0, "target": "1-2", "min": 0, "thieu": true,
-     "reason": "Agent WebSearch từng cuộc đang bám (Veer Guardian 2026, Southern Vanguard 2026, REPMUS 26/Dynamic Messenger 26, SEACAT 2026, Diễn tập Hạm đội TBD Nga) nhưng mọi bài tìm được đều đăng trước 24/09 (21-22/09) hoặc cuộc đã kết thúc trước đó (Southern Vanguard kết thúc 18/09, Veer Guardian bế mạc trước 22/09) — không có diễn biến mới đúng khung ngày 24-25/09."}
+    {"name": "Đối ngoại Mỹ", "count": 5, "target": "5+", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Nội bộ Mỹ", "count": 5, "target": "5+", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Anh", "count": 6, "target": "5+", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 4, "target": "3+ (sàn riêng 18/09)", "min": 3, "thieu": false,
+     "reason": "Đạt sàn riêng 3 cho Australia nhưng dưới sàn chung 5. Hai ứng viên khác (ABC News Australia — AI regulation, Hội nghị Bộ trưởng QP Nam Thái Bình Dương) bị cổng NGÀY ĐĂNG THẬT loại vì ngày sự kiện thật là 24/09/2026 — ngoài khung 1 ngày cho category không phải Công nghệ quân sự. Đã thử tìm thêm qua ASPI/Lowy/SMH/Crikey/The Conversation nhưng không ra thêm tin đủ điều kiện trước hạn chót 04:45."},
+    {"name": "Địa bàn › Biển Đông", "count": 4, "target": "5+", "min": 5, "thieu": true,
+     "reason": "Còn thiếu 1 tin. Ứng viên mạnh nhất (Philstar — tập trận ADMM-Plus 8 nước gần Scarborough) hoá ra ĐÃ có trong DATA từ phiên trước, trùng URL nên phải loại. Nguồn USNI News ban đầu cho tin HMS Spey-Malaysia bị 403 khi WebFetch, phải thay bằng Bernama. Đã thử thêm hướng Vanguard Bank/Natuna/COC ASEAN-Trung Quốc/Malaysia-Indonesia-Brunei nhưng không ra sự kiện mới đúng khung 25-26/09/2026 trước hạn chót."},
+    {"name": "CNQS Mỹ", "count": 7, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Mỹ – Mali", "count": 0, "target": "2-5 (không sàn cứng)", "min": 0, "thieu": true,
+     "reason": "Agent rà 49 ứng viên GNEWS chủ đề Mỹ–Mali nhưng gần như toàn bộ là kết quả trận bóng đá 'Mali vs Cape Verde'; các tin JNIM/Sahel thật (Critical Threats, Al Jazeera, phát biểu Rubio nhân Quốc khánh Mali) đều có ngày sự kiện 09-22/09/2026, ngoài khung 25-26/09. Không có sự kiện Mỹ-Mali mới trong khung ngày phiên này."},
+    {"name": "Tập trận", "count": 0, "target": "1-2 (không sàn cứng)", "min": 0, "thieu": true,
+     "reason": "Cuộc đang được bám (Veer Guardian 2026, SEACAT 2026, Diễn tập Hạm đội Thái Bình Dương Nga 2026) không có diễn biến mới trong khung 25-26/09; Veer Guardian đã bế mạc 22/09, Tarang Shakti 2026 còn ở trạng thái upcoming nên ngoài phạm vi cập nhật."}
   ],
-  "note": "Phiên sáng sớm 25/09 CI: cổng NGÀY THẬT (scripts/ngay_that.py, mở URL đọc metadata) loại 10/29 tin trong lô hợp nhất vì nhiều nguồn (Bloomberg, federalreserve.gov, sec.gov, banking.senate.gov, navaltoday.com, bankofengland.co.uk, thealaskastory.com, thehill.com) không trả metadata ngày đọc được qua curl trong môi trường CI — không rõ do chặn bot hay do cấu trúc trang, không xác minh kịp lý do cụ thể từng URL trước hạn chót nên KHÔNG dùng --bo-cong-ngay-that để lách. Ngoài ra một số tin khác bị loại đúng luật vì ngày đăng thật lệch khung 1 ngày (category Ngoại giao/Chính trị chỉ nới hôm nay+hôm qua, không phải category Công nghệ quân sự). Bước Jay Lâm (4c, --liet-ke/--ghi/--ghi-loai) và vòng xử lý tiếp 3 ứng viên Báo Mới còn lại (2 trùng sự kiện đã nạp, 1 ngoài chủ đề) BỊ BỎ QUA do sát hạn chót 04:45 — xem báo cáo cuối phiên."
+  "note": "Đã dùng --bo-cong-ngay-that cho 4 tin (Bloomberg, USTR, Federal Reserve, Bernama) sau khi tự WebFetch xác nhận thủ công ngày đăng thật khớp khung ngày — cổng tự động không đọc được metadata cấu trúc trên các trang này dù nội dung in rõ ngày. Chi tiết đầy đủ tin bị loại + lý do từng tin: logs/loai-tin.md mục 'Phiên sáng sớm 26/09/2026'. Nội bộ Mỹ tổng 11 bài (dưới mốc mềm 12-18 nhưng đạt cả hai sàn cứng con: 5 đối ngoại + 5 nội bộ). Bước Jay Lâm (4c) và cổng bài 👍 đã kiểm — không có ứng viên cần xử lý thêm ngoài 3 bài Báo Mới đã xử lý (1 trùng, 2 loại vì bài kiến thức không có sự kiện thời sự)."
 }

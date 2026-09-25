@@ -1430,3 +1430,14 @@ Bối cảnh: phiên CI sáng nay bị cổng NGÀY ĐĂNG THẬT chặn oan 12/
 - [Địa bàn Anh/BM] "Điện Kremlin chỉ trích Thủ tướng Anh tại UNGA" — không kịp xác minh trước hạn chót. Loại, ghi vào cổng Báo Mới.
 
 Ghi chú: phần lớn tin loại đợt này do CỔNG NGÀY ĐĂNG THẬT không đọc được metadata ngày trên trang .gov/.senate.gov/Axios/ANI/The Hill dù nội dung có thật — không phải tin sai, chỉ là trang không lộ metadata máy đọc được. Sát hạn chót 04:45 nên không kịp tìm bài thay thế cho từng tin; hệ quả trực tiếp: Địa bàn Australia và Địa bàn Biển Đông còn 4/5 tin, dưới sàn — xem `logs/scan-gaps.json`.
+
+--- Phiên sáng sớm 26/09/2026 ---
+- [CNQS Mỹ/BM] "Oanh tạc cơ B-1B bước vào Không quân Mỹ: Lancer được thiết kế để làm gì?" (An Ninh Thủ Đô/Báo Mới) — bài chỉ giải thích lịch sử khí tài (mốc 1985-1987), không gắn sự kiện thời sự cụ thể trong khung ngày. Loại.
+- [CNQS Mỹ/BM] "B-2 Spirit: Hành trình chế tạo oanh tạc cơ tàng hình của Mỹ" (An Ninh Thủ Đô/Báo Mới) — cùng dạng bài giải thích lịch sử, không có sự kiện thời sự mới. Loại.
+- [Nội bộ Mỹ/BM] "Mỹ - Trung duy trì 'khoảng lặng' thuế quan..." (Báo Thừa Thiên Huế/Báo Mới) — trùng sự kiện đã nạp qua nguồn Bloomberg (gia hạn thỏa thuận Busan). Loại vì trùng, không mất tin vì đã có bản Bloomberg.
+- [Địa bàn Úc] "Australia thúc đẩy quy định AI bắt buộc sau vụ OpenAI xâm nhập hệ thống y tế" (ABC News Australia) — cổng ngày đăng thật đọc ra ngày thực 24/09/2026 (agent khai nhầm 25/09), ngoài khung 1 ngày cho category Chính trị. Loại.
+- [Địa bàn Úc] "Hội nghị Bộ trưởng Quốc phòng Nam Thái Bình Dương..." (Bộ Quốc phòng Úc) — ngày sự kiện thật 24/09/2026, category Chính trị chỉ được khung 1 ngày (25-26), ngoài khung. Loại.
+- [Địa bàn Biển Đông] "Tập trận hải quân ADMM-Plus 8 nước áp sát Scarborough..." (Philstar) — URL đã có sẵn trong DATA (tin trùng, đã nạp từ phiên trước). Loại.
+- [Nội bộ Mỹ] "Hạ nghị sĩ Cộng hòa Massie: 'Quả báo' của Trump..." (The Hill) — không xác minh được ngày đăng thật (trang 403 khi WebFetch, cổng ngày thật cũng không đọc được metadata), sát hạn chót nên không kịp tìm nguồn thay thế. Loại.
+
+Ghi chú phiên này: đã dùng `--bo-cong-ngay-that` cho 4 tin (Bloomberg, USTR, Fed, Bernama) sau khi tự WebFetch xác nhận thủ công ngày đăng thật khớp khung — cổng tự động không đọc được metadata cấu trúc trên các trang này dù nội dung có in rõ ngày. Hệ quả: Địa bàn Australia còn 4 tin (dưới sàn thường 5 nhưng vẫn ≥ sàn riêng 3 theo chỉ thị 18/09), Địa bàn Biển Đông còn 4 tin (dưới sàn 5) — xem `logs/scan-gaps.json`. Mỹ–Mali và Tập trận đều 0 tin phiên này (không có sàn cứng, agent đã rà kỹ nhưng không có sự kiện mới trong khung ngày).
