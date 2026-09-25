@@ -812,7 +812,7 @@ thật hôm nay còn sống**. Cột "hợp chủ đề" = chủ đề trong 5 c
 | DVIDS (toàn bộ) | https://www.dvidshub.net/rss/all | 419 item, mới 2h | 3 + 5 Pitch Black |
 | Shephard Media | https://www.shephardmedia.com/news/feed/ | 10 item, mới 23h | 3 + 2 Úc |
 | The Japan Times | https://www.japantimes.co.jp/feed/ | 30 item, mới 1h | 2 Biển Đông |
-| Yonhap (Hàn Quốc) | https://en.yna.co.kr/RSS/news.xml | 97 item, mới trong ngày | 2 Biển Đông |
+| Yonhap (Hàn Quốc) | https://en.yna.co.kr/RSS/national.xml | 117 item, 0 thể thao, 2/117 neo (đo 25/09/2026; feed tổng news.xml 60/115 tin Asiad, 0 neo) | 2 Biển Đông |
 | AllAfrica | https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf | 30 item, mới 14h | 4 Mali/Sahel |
 | Federal News Network — Defense | https://federalnewsnetwork.com/category/defense-main/feed/ | 15 item, mới 10h | 1 Nội bộ Mỹ |
 | Atlantic Council | https://www.atlanticcouncil.org/feed/ | 100 item, mới 17h | tầng 3 phân tích |

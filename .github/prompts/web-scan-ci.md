@@ -22,7 +22,7 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
 
 ## QUY TRÌNH BẮT BUỘC (khung, chi tiết theo SKILL)
 1. `git pull --rebase origin main` rồi `python3 scripts/state.py claim web-scan`.
-   - exit 10 (hôm nay đã có bản tin) hoặc exit 11 (phiên khác đang chạy — có thể là bản local trên máy Huy): ghi 1 dòng SKIP + lý do vào log, commit + push log, KẾT THÚC ÊM. Đây là kết quả HỢP LỆ, không phải lỗi.
+   - exit 10 (hôm nay đã có bản tin) hoặc exit 11 (phiên khác đang chạy — có thể là bản local trên máy Huy): ghi 1 dòng SKIP + lý do vào log, commit + push log, rồi **NHẢY THẲNG SANG BƯỚC 6** (claim `event-scan`) — CHỈ kết thúc êm khi BƯỚC 6 cũng trả exit 10/11/12. ⛔ Vá 25/09/2026: phiên gửi bản tin tự SKIP event-scan, mọi mốc sau đó exit 10 ở đây rồi kết thúc luôn nên không lớp nào chạy bù, canary 10:48 kêu «cả 4 mốc không hoàn tất».
    - **exit 12 (SAI GIỜ — cron GitHub trễ, phiên này không phải ca thật)**: ghi 1 dòng SKIP + nguyên văn thông điệp vào log, commit + push log, KẾT THÚC ÊM. ⛔ **TUYỆT ĐỐI KHÔNG thêm `--bo-cong-gio` để lách.** Đúc 31/08/2026 sau sự cố thật: mốc CI TỐI 20:47 nổ lúc 00:46 giờ VN, tự nhận là phiên sáng, gửi bản tin lúc 01:25 sáng rồi chiếm mất ô `sang` khiến mọi mốc sáng thật SKIP và bản tin TỐI mất hẳn hai đêm liền. Mốc đúng giờ (`kich_ci.py` trên máy Mac) sẽ làm phần việc này.
    - exit 0: đã giữ khoá, quét tiếp.
    - ⛔ **NGOẠI LỆ DUY NHẤT của exit 10 — CỜ ĐÃ XONG NHƯNG SỔ ĐÃ GỬI CHƯA CÓ DÒNG CỦA CA NÀY** (đúc 29/07/2026, sự cố thật; luật song sinh với `docs/routine-web-scan.md` mục "PHIÊN TỐI — BỐI CẢNH RIÊNG" điều 3, nay là nhật ký vấp — cơ chế vẫn áp cho ca sáng vì mốc CI 04:47 là lớp cuối và khi máy Mac ngủ thì không còn ai đứng sau nó). Gặp exit 10 thì làm ĐỦ 3 lệnh phẳng này trước khi SKIP:
@@ -88,6 +88,8 @@ Chạy tiếp `python3 scripts/telegram_harvest.py` — lớp `[TG]` từ kênh 
 > phiên này khi mày là ca sáng sớm — không phải một session khác.
 
 **CHỈ làm bước này nếu mày xác định ở Bước 1 mình là phiên SÁNG SỚM** (`TZ='Asia/Ho_Chi_Minh' date +%H:%M` < 14:00). Phiên TỐI dừng ở Bước 5, không đọc tiếp phần này.
+
+⛔ **event-scan KHÔNG CÓ HẠN CHÓT.** `HAN_CHOT` 04:45 (`scripts/state.py`) CHỈ áp cho BẢN TIN ở Bước 1–5; bản tin gửi xong là hạn chót đã qua cửa. event-scan được chạy tới hết khung ca sáng (09:00) và trần job 130 phút. Cấm SKIP event-scan với lý do giờ/hạn chót/"không kịp" — `state.py skip event-scan` TỪ CHỐI (exit 13) mọi ghi chú viện cớ giờ. Vấp thật 25/09/2026: bản tin gửi 04:19, phiên này claim event-scan 04:19:47 rồi 35 giây sau tự SKIP "het gio truoc han chot 04:45"; phiên 04:41 lặp lại đúng lý do đó; không có tin sự kiện/tập trận/think-tank cả ngày. Chữ "sát giờ" ở các bước dưới nghĩa là sát 09:00 hoặc sát trần job, KHÔNG phải 04:45.
 
 Đây là pipeline THỨ HAI, khoá RIÊNG (`event-scan`, khác `web-scan` ở trên) và **commit RIÊNG** — không
 gộp vào commit bản tin, vì `notify-morning.yml` chỉ bắt tiền tố commit của pipeline này (email 🎖️ Sự

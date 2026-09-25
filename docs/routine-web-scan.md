@@ -36,6 +36,9 @@ local mỗi ngày nhân số phiên nhường lên, nên phiên nhường phải
 - **Claim trả SKIP (exit 10 hoặc 11)** → làm đúng 02 việc rồi **KẾT THÚC NGAY**: (i) ghi 1 dòng
   SKIP vào `logs/scan-<ngày VN>.log` bằng tool Write/Edit; (ii) chạy `ghi_log_push.py` cho dòng
   đó. Trả lời đúng một câu. **Toàn phiên SKIP không quá ~7 lượt tool.**
+  ⛔ **Ca SÁNG: trước khi kết thúc, chạy thêm đúng 01 lệnh `state.py claim event-scan`** — exit
+  10/11/12 thì kết thúc như trên; exit 0 thì nhảy sang Bước 4 chạy bù event-scan. Vá 25/09/2026:
+  phiên gửi bản tin tự SKIP event-scan, mọi mốc sau exit 10 rồi kết thúc nên không lớp nào chạy bù.
 - ⛔ **CẤM ở lối SKIP:** `state.py show` · đọc log ngày cũ · `gh run list` · đọc `LICH.md` /
   `CLAUDE.md` repo / skill `quet-tin` · mọi lệnh thăm dò "cho chắc". Khoá heartbeat + mốc dự
   phòng đã lo phần theo dõi (dòng KẾT THÚC ở Bước 1 vẫn nguyên hiệu lực).
@@ -257,6 +260,10 @@ Báo cáo cuối ngắn gọn: số tin mỗi chủ đề (Nội bộ Mỹ / Úc
 
 **CHỈ chạy bước này khi phiên vừa xong ở TRÊN là phiên SÁNG SỚM** (giờ VN lúc bắt đầu < 14:00 —
 đúng ô `state.py` đã tự suy ở Bước 1). Phiên TỐI **KHÔNG** làm bước này, dừng lại ở Bước 3.
+
+⛔ **event-scan KHÔNG CÓ HẠN CHÓT** — `HAN_CHOT` 04:45 chỉ áp cho bản tin; event-scan chạy tới hết
+khung ca sáng (09:00). `state.py skip event-scan` TỪ CHỐI (exit 13) mọi ghi chú viện cớ giờ/hạn chót
+(vấp thật 25/09/2026, bộ test `tests/test-cong-event-han-chot.py`).
 
 Đây là **pipeline THỨ HAI, khoá RIÊNG** (`event-scan`, khác `web-scan` ở Bước 1-3) — vẫn `claim` riêng,
 `done`/`skip`/`fail` riêng, và **commit RIÊNG** (không gộp chung commit bản tin), vì `notify-morning.yml`

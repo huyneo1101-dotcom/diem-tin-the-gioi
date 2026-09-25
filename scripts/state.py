@@ -317,6 +317,19 @@ def should_run(pipeline: str, slot: str = None) -> bool:
     return last_success(load().get(pipeline, {}), slot) != today()
 
 
+_DAU_HAN_CHOT = ("han chot", "het gio", "khong kip", "khong du thoi gian", "khong du de chay",
+                 "sat gio", "04:45", "deadline")
+
+
+def ly_do_han_chot(note: str) -> bool:
+    """Ghi chú SKIP có viện cớ giờ/hạn chót không (so sau khi bỏ dấu, NFC, chữ thường)."""
+    import unicodedata
+    s = unicodedata.normalize("NFD", unicodedata.normalize("NFC", note or "").lower())
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn").replace("đ", "d")
+    import re
+    return any(k in s for k in _DAU_HAN_CHOT) or bool(re.search(r"con ~?\d+ ?phut", s))
+
+
 def main() -> None:
     args = sys.argv[1:]
     slot = None
@@ -459,6 +472,21 @@ def main() -> None:
 
     if cmd in ("done", "skip", "fail"):
         note = args[2] if len(args) > 2 else ""
+        if cmd == "skip" and pipeline == "event-scan" and ly_do_han_chot(note):
+            # CỔNG "event-scan KHÔNG CÓ HẠN CHÓT" (vá 25/09/2026). Sáng 25/09 bản tin gửi
+            # 04:19, phiên CI claim event-scan 04:19:47 rồi 35 giây sau tự SKIP vì "het gio
+            # truoc han chot 04:45"; phiên 04:41 lặp lại đúng lý do đó. HAN_CHOT chỉ áp cho
+            # bản tin, event-scan được chạy tới hết khung ca (09:00) — lý do ấy là tự bịa, và
+            # các lớp sau exit 10 ở web-scan nên không lớp nào chạy bù. Test:
+            # tests/test-cong-event-han-chot.py (kèm --tu-kiem).
+            print(
+                "TU CHOI — event-scan KHONG co han chot: HAN_CHOT 04:45 chi ap cho BAN TIN "
+                "(web-scan). Khung ca sang con toi 09:00 va job CI con tran 130 phut. Chay "
+                "tiep BUOC 6; chi SKIP khi co ly do THAT (mang hong, nguon chet), khong phai "
+                f"ly do gio. Ghi chu bi tu choi: {note!r}",
+                file=sys.stderr,
+            )
+            sys.exit(13)
         e = record(pipeline, cmd.upper(), note, use_slot)
         print(
             f"{pipeline} [{slot_label(pipeline, use_slot)}]: {e['lastStatus']} @ {e['lastRunAt']}"
