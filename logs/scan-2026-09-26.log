@@ -12,3 +12,5 @@
 [21:48Z] SKIP web-scan (phien moi, CI): state.py claim tra exit 10, da xong luc 04:35:43.
   Kiem so_da_gui.py --xem: co dong 2026-09-26T04:48:37 [sang] 32 tin - ban tin da toi tay that.
   Nhay sang claim event-scan theo quy trinh.
+[21:49Z] SKIP event-scan: state.py claim tra exit 10, da xong luc 04:47:34 (+1 tap tran, +4 bai
+  think-tank). Ca hai pipeline cua phien sang som da hoan tat truoc do. KET THUC EM.
