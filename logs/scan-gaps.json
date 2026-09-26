@@ -1,19 +1,18 @@
 {
-  "date": "2026-09-26",
+  "date": "2026-09-27",
   "session": "sang",
   "topics": [
     {"name": "Đối ngoại Mỹ", "count": 5, "target": "5+", "min": 5, "thieu": false, "reason": ""},
     {"name": "Nội bộ Mỹ", "count": 5, "target": "5+", "min": 5, "thieu": false, "reason": ""},
     {"name": "Địa bàn › Anh", "count": 6, "target": "5+", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Australia", "count": 4, "target": "3+ (sàn riêng 18/09)", "min": 3, "thieu": false,
-     "reason": "Đạt sàn riêng 3 cho Australia nhưng dưới sàn chung 5. Hai ứng viên khác (ABC News Australia — AI regulation, Hội nghị Bộ trưởng QP Nam Thái Bình Dương) bị cổng NGÀY ĐĂNG THẬT loại vì ngày sự kiện thật là 24/09/2026 — ngoài khung 1 ngày cho category không phải Công nghệ quân sự. Đã thử tìm thêm qua ASPI/Lowy/SMH/Crikey/The Conversation nhưng không ra thêm tin đủ điều kiện trước hạn chót 04:45."},
-    {"name": "Địa bàn › Biển Đông", "count": 4, "target": "5+", "min": 5, "thieu": true,
-     "reason": "Còn thiếu 1 tin. Ứng viên mạnh nhất (Philstar — tập trận ADMM-Plus 8 nước gần Scarborough) hoá ra ĐÃ có trong DATA từ phiên trước, trùng URL nên phải loại. Nguồn USNI News ban đầu cho tin HMS Spey-Malaysia bị 403 khi WebFetch, phải thay bằng Bernama. Đã thử thêm hướng Vanguard Bank/Natuna/COC ASEAN-Trung Quốc/Malaysia-Indonesia-Brunei nhưng không ra sự kiện mới đúng khung 25-26/09/2026 trước hạn chót."},
-    {"name": "CNQS Mỹ", "count": 7, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 5, "target": "5+ (sàn riêng 3)", "min": 3, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Biển Đông", "count": 3, "target": "5+", "min": 5, "thieu": true,
+     "reason": "Còn thiếu 2 tin. Ứng viên duy nhất tìm được ngoài 3 tin đã nạp (Bernama — HMS Spey/FPDA tại Malaysia) bị cổng NGÀY ĐĂNG THẬT loại vì trang không lộ metadata ngày đọc được. Đã quét thêm feed Channel News Asia (Asia) và Straits Times Asia trong khung 26-27/09/2026, không có diễn biến Biển Đông mới (chủ quyền/tuần tra/tập trận) ngoài tin Philippines đã nạp."},
+    {"name": "CNQS Mỹ", "count": 6, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
     {"name": "Mỹ – Mali", "count": 0, "target": "2-5 (không sàn cứng)", "min": 0, "thieu": true,
-     "reason": "Agent rà 49 ứng viên GNEWS chủ đề Mỹ–Mali nhưng gần như toàn bộ là kết quả trận bóng đá 'Mali vs Cape Verde'; các tin JNIM/Sahel thật (Critical Threats, Al Jazeera, phát biểu Rubio nhân Quốc khánh Mali) đều có ngày sự kiện 09-22/09/2026, ngoài khung 25-26/09. Không có sự kiện Mỹ-Mali mới trong khung ngày phiên này."},
-    {"name": "Tập trận", "count": 0, "target": "1-2 (không sàn cứng)", "min": 0, "thieu": true,
-     "reason": "Cuộc đang được bám (Veer Guardian 2026, SEACAT 2026, Diễn tập Hạm đội Thái Bình Dương Nga 2026) không có diễn biến mới trong khung 25-26/09; Veer Guardian đã bế mạc 22/09, Tarang Shakti 2026 còn ở trạng thái upcoming nên ngoài phạm vi cập nhật."}
+     "reason": "Agent rà toàn bộ ứng viên GNEWS chủ đề Mỹ–Mali nhưng phần lớn là kết quả trận bóng đá 'Mali vs Cape Verde'. Các diễn biến JNIM/Sahel/AFRICOM thật tìm được (phát biểu Niger tại UNGA, kỷ niệm độc lập Mali, video JNIM bắt binh sĩ, tin Mỹ cân nhắc không kích) đều có ngày sự kiện thật từ 19/09 đến 25/09/2026, ngoài khung 26-27/09. Không có diễn biến Mali/JNIM mới trong khung ngày phiên này."},
+    {"name": "Tập trận", "count": 1, "target": "1-2 (không sàn cứng)", "min": 0, "thieu": false,
+     "reason": ""}
   ],
-  "note": "Đã dùng --bo-cong-ngay-that cho 4 tin (Bloomberg, USTR, Federal Reserve, Bernama) sau khi tự WebFetch xác nhận thủ công ngày đăng thật khớp khung ngày — cổng tự động không đọc được metadata cấu trúc trên các trang này dù nội dung in rõ ngày. Chi tiết đầy đủ tin bị loại + lý do từng tin: logs/loai-tin.md mục 'Phiên sáng sớm 26/09/2026'. Nội bộ Mỹ tổng 11 bài (dưới mốc mềm 12-18 nhưng đạt cả hai sàn cứng con: 5 đối ngoại + 5 nội bộ). Bước Jay Lâm (4c) và cổng bài 👍 đã kiểm — không có ứng viên cần xử lý thêm ngoài 3 bài Báo Mới đã xử lý (1 trùng, 2 loại vì bài kiến thức không có sự kiện thời sự)."
+  "note": "Đã dùng --bo-cong-ngay-that cho 3 tin (NATO/Axios/The Hill) sau khi tự curl+regex xác nhận thủ công các trang này chỉ trả về trang chặn bot (PerimeterX/Cloudflare captcha, có <title> nhưng không có metadata ngày chuẩn) trong khi nội dung/ngày sự kiện đã đối chiếu qua URL path và các nguồn khác trong cùng lô. Chi tiết tin bị loại + lý do: logs/loai-tin.md mục 'Phiên sáng 27/09/2026'. Cổng Báo Mới: 6 ứng viên khớp chủ đề — 1 trùng sự kiện đã nạp qua nguồn khác, 2 loại vì trùng tin cũ hoặc ngoài khung ngày, 2 để lại phiên sau (chưa kịp xác minh trước khi kết phiên), 1 chưa xử lý (VH-92A Marine One)."
 }

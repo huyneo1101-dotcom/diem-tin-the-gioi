@@ -1441,3 +1441,13 @@ Ghi chú: phần lớn tin loại đợt này do CỔNG NGÀY ĐĂNG THẬT khô
 - [Nội bộ Mỹ] "Hạ nghị sĩ Cộng hòa Massie: 'Quả báo' của Trump..." (The Hill) — không xác minh được ngày đăng thật (trang 403 khi WebFetch, cổng ngày thật cũng không đọc được metadata), sát hạn chót nên không kịp tìm nguồn thay thế. Loại.
 
 Ghi chú phiên này: đã dùng `--bo-cong-ngay-that` cho 4 tin (Bloomberg, USTR, Fed, Bernama) sau khi tự WebFetch xác nhận thủ công ngày đăng thật khớp khung — cổng tự động không đọc được metadata cấu trúc trên các trang này dù nội dung có in rõ ngày. Hệ quả: Địa bàn Australia còn 4 tin (dưới sàn thường 5 nhưng vẫn ≥ sàn riêng 3 theo chỉ thị 18/09), Địa bàn Biển Đông còn 4 tin (dưới sàn 5) — xem `logs/scan-gaps.json`. Mỹ–Mali và Tập trận đều 0 tin phiên này (không có sàn cứng, agent đã rà kỹ nhưng không có sự kiện mới trong khung ngày).
+
+## Phiên sáng 27/09/2026
+- [Nội bộ Mỹ] Báo Mới "Trump tìm cách giữ lại hơn 800 triệu USD ngân sách đã được Quốc hội phê duyệt" (Tạp chí SaoStar) — sự kiện thật xảy ra 25/09/2026 ("pocket rescission"), ngoài khung 26-27/09. Loại.
+- [Nội bộ Mỹ] Báo Mới "Tòa án tối cao cho phép chính quyền Trump dùng CSDL liên bang kiểm tra cử tri" (Báo Thanh Hóa) — sự kiện thật xảy ra 25/09/2026 (phán quyết SCOTUS "thứ Sáu"), ngoài khung. Loại.
+- [Nội bộ Mỹ] Báo Mới "WSJ: Tổng thống Trump có thể nối lại không kích Iran sau bầu cử giữa nhiệm kỳ" (Báo Tin Tức TTXVN) — TRÙNG sự kiện, đã nạp qua nguồn The Hill trong cùng lô ("Trump bác đề xuất ngừng bắn 7 ngày của Iran..."). Không nạp lại.
+- [Úc & Biển Đông] Báo Mới "Mỹ và Australia điều tra linh kiện F-35 tới Hong Kong" (Báo Thanh Hóa) — trùng tin đã đăng 24/09/2026 ("Lầu Năm Góc xác nhận Trung Quốc vẫn giữ linh kiện F-35 của Australia..."). Loại.
+- [CNQS Mỹ] Báo Mới "Vì sao VH-92A Patriot được chọn làm trực thăng Marine One" (An Ninh Thủ Đô) — chưa xác minh nguồn gốc/ngày trong phiên này (hết thời gian vòng Báo Mới), để lại phiên sau xử lý.
+- [CNQS Mỹ] Báo Mới "Trung Quốc thử nghiệm máy bay siêu thanh, bay Bắc Kinh - Thượng Hải còn 30 phút" (VietnamNet) — chưa xác minh nguồn gốc/ngày trong phiên này, để lại phiên sau xử lý.
+- [Mỹ – Mali] Không có tin nào đạt chuẩn trong khung 26-27/09/2026 — các diễn biến JNIM/Sahel/AFRICOM tìm được (Niger tại UNGA, kỷ niệm độc lập Mali, video JNIM, tin không kích cân nhắc) đều có ngày sự kiện thật từ 19/09 trở về trước hoặc là tin nền cũ, không có diễn biến MỚI trong 2 ngày. Không nạp mục Mali kỳ này (không mang sàn cứng).
+- [Địa bàn Biển Đông] Chỉ đạt 3/5 tin trong khung 26-27/09 — đã quét thêm feed Channel News Asia (Asia) và Straits Times Asia, không tìm được diễn biến Biển Đông mới ngoài 3 tin đã nạp; tin trùng ứng viên UK-Malaysia FPDA (Bernama) bị loại vì trang không lộ metadata ngày.
