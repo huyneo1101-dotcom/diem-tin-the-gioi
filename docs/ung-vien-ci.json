@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-27T06:06:06+07:00",
+  "tao_luc": "2026-09-27T06:47:54+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-26",
@@ -17,18 +17,18 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "Chính sách AI toàn cầu bước vào giai đoạn chặt chẽ hơn",
-      "nguon": "Báo Chính phủ",
-      "url": "https://baochinhphu.vn/chinh-sach-ai-toan-cau-buoc-vao-giai-doan-chat-che-hon-102260922145507501.htm"
+      "ngay": "2026-09-27",
+      "tieu_de": "Đắm chìm trong sắc màu rực rỡ của Trung thu 2026 tại Singapore",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/dam-chim-trong-sac-mau-ruc-ro-cua-trung-thu-2026-tai-singapore-post1138546.vnp"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-09-26",
-      "tieu_de": "Quan hệ Việt Nam Canada bước vào giai đoạn phát triển năng động thực chất",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/quan-he-viet-nam-canada-buoc-vao-giai-doan-phat-trien-nang-dong-thuc-chat-448781.html"
+      "ngay": "?",
+      "tieu_de": "Chính sách AI toàn cầu bước vào giai đoạn chặt chẽ hơn",
+      "nguon": "Báo Chính phủ",
+      "url": "https://baochinhphu.vn/chinh-sach-ai-toan-cau-buoc-vao-giai-doan-chat-che-hon-102260922145507501.htm"
     },
     {
       "lop": "RSS",
@@ -546,14 +546,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-27",
-      "tieu_de": "A gloomy outlook is why Australia can't afford to write off AI",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-09-27/open-ai-medicare-hack-australia-cant-ignore-potential/107197378"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-27",
       "tieu_de": "Shipbuilder HII expands unmanned vessel factory by 25 percent",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/shipbuilder-hii-expands-unmanned-vessel-factory-by-25-percent/"
@@ -633,6 +625,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-27",
+      "tieu_de": "Meet the beauty queen turned freedom fighter who made her home in Australia",
+      "nguon": "Sydney Morning Herald",
+      "url": "https://www.smh.com.au/national/nsw/meet-the-beauty-queen-turned-freedom-fighter-who-made-her-home-in-australia-20260927-p60q73.html?ref=rss&utm_medium=rss&utm_source=rss_national"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-26",
       "tieu_de": "Three decades of work to restore one of Australia's most degraded catchments",
       "nguon": "ABC News Australia",
@@ -642,7 +642,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-27",
-      "tieu_de": "Australia news live: Albanese says announcement of Medicare breach ‘purely in national interest’",
+      "tieu_de": "Australia news live: Marles said OpenAI CEO didn’t tell him about hack at meeting; flight cancellation heartbreak for AFL fans",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/live/2026/sep/27/australia-news-live-anthony-albanese-openai-medicare-hack-united-nations-richard-marles-jane-hume-liberal-coalition-one-nation-pauline-hanson-ntwnfb"
     },
@@ -951,6 +951,15 @@
       "tieu_de": "Lệnh trừng phạt của Mỹ làm gián đoạn dịch vụ ngân hàng tại Iran",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/lenh-trung-phat-cua-my-lam-gian-doan-dich-vu-ngan-hang-tai-iran-2559034.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-27",
+      "tieu_de": "Mỹ và Trung Quốc gật đầu với thỏa thuận cắt giảm thuế quan trị giá 30 tỷ USD thiết lập cơ chế đối thoại về AI",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/my-va-trung-quoc-gat-dau-voi-thoa-thuan-cat-giam-thue-quan-tri-gia-30-ty-usd-thiet-lap-co-che-doi-thoai-ve-ai-448889.html",
       "nhom": 4
     },
     {
