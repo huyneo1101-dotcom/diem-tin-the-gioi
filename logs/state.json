@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-28T04:00:44+07:00",
+    "lastRunAt": "2026-09-28T04:40:17+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+19 tin (5 chu de): usNews 6, worldNews 13. Thieu: doi ngoai My 0/5, noi bo My 3/5, Australia 3/5, CNQS 3/5 (cuoi tuan My + cong ngay that chan nhieu ung vien)",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-09-27"
-    },
-    "heartbeat": "2026-09-28T04:36:30+07:00"
+      "sang": "2026-09-28"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-27T04:44:26+07:00",

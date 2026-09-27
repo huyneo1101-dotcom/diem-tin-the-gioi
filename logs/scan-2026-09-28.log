@@ -1,3 +1,6 @@
 [21:00Z] START (CI) phien sang som web-scan
-[04:05] SKIP (local) web-scan exit 11 - phien khac dang chay (nhip tim 2' truoc, bat dau 04:00:44)
-[04:35] SKIP (local) web-scan exit 11 - phien khac dang chay (nhip tim 0' truoc, bat dau 04:00:44)
+[21:05Z] harvest.py: 265 ung vien; telegram_harvest.py: 15 ung vien. beat 1 da push.
+[21:06Z] gh workflow run telegram-bot.yml bi chan (requires approval) - CHUA kich duoc bot Jay Lam, se thu --liet-ke voi hang cho cu.
+[21:14Z] tin_jaylam --liet-ke: khong co file Jay Lam trong hang cho, bo qua buoc loc.
+[21:40Z] add_news.py OK sau nhieu vong sua (loai 8 tin bi chan cong ngay that/trung URL, thay 6 tin xac minh lai): +19 tin (+13 worldNews, +6 usNews). scan-gaps.json da ghi day du ly do thieu (doi ngoai My, noi bo My, Australia, CNQS deu duoi san 5 vi cuoi tuan My + cong ngay that chan nhieu nguon).
+[21:40Z] DONE web-scan.

@@ -7,6 +7,12 @@
 
 ---
 
+## 2026-09-28 (phiên sáng sớm CI) — cổng Báo Mới
+
+- [CNQS/BM] "Australia sớm loại biên trực thăng Eurocopter Tiger để rảnh tay viện trợ Ukraine?" (An Ninh Thủ Đô) — TRÙNG sự kiện đã nạp 25/09 "Lục quân Australia chính thức loại biên trực thăng tấn công Tiger sau 20 năm", chỉ thêm góc suy đoán viện trợ Ukraine không đủ mới để tách tin riêng.
+- [CNQS/BM] "Ông Trump đã ra 'quyết định cuối cùng' cho Ukraine sản xuất tên lửa Patriot" (An Ninh Thủ Đô) — TRÙNG tin đã nạp 25/09 "Trump xác nhận quyết định cuối cùng cấp giấy phép cho Ukraine tự sản xuất tên lửa Patriot".
+- [CT/BM] "Anh bắt 5 người nghi âm mưu khủng bố gần căn cứ không quân Mỹ" / "Anh: Sự cố nghiêm trọng gần căn cứ Không quân Mỹ dùng để tấn công Iran" / "Cảnh sát Anh sơ tán người dân gần căn cứ không quân Mỹ" (VietnamPlus/Tiền Phong/Tin Tức TTXVN) — KHÔNG loại: đã truy về bài gốc tiếng Anh (NPR, ITV News, Al Jazeera) và nạp vào nhánh Anh của chủ đề Úc & Biển Đông, không dùng link Báo Mới.
+
 ## 2026-08-26 (phiên sáng sớm CI) — cổng Báo Mới
 
 - [CNQS/BM] "Chưa hoàn thiện tàu sân bay Type 004 đã trở thành chiến hạm lớn nhất của Trung Quốc" (An Ninh Thủ Đô) — về khí tài TRUNG QUỐC, không phải CNQS **Mỹ**, không hợp chủ đề.
