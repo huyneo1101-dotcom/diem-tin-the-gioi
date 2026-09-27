@@ -4,3 +4,4 @@
 [21:14Z] tin_jaylam --liet-ke: khong co file Jay Lam trong hang cho, bo qua buoc loc.
 [21:40Z] add_news.py OK sau nhieu vong sua (loai 8 tin bi chan cong ngay that/trung URL, thay 6 tin xac minh lai): +19 tin (+13 worldNews, +6 usNews). scan-gaps.json da ghi day du ly do thieu (doi ngoai My, noi bo My, Australia, CNQS deu duoi san 5 vi cuoi tuan My + cong ngay that chan nhieu nguon).
 [21:40Z] DONE web-scan.
+[21:40Z] START event-scan (CI, gop vao sang som)
