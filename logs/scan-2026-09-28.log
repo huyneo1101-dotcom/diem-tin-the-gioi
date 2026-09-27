@@ -5,3 +5,5 @@
 [21:40Z] add_news.py OK sau nhieu vong sua (loai 8 tin bi chan cong ngay that/trung URL, thay 6 tin xac minh lai): +19 tin (+13 worldNews, +6 usNews). scan-gaps.json da ghi day du ly do thieu (doi ngoai My, noi bo My, Australia, CNQS deu duoi san 5 vi cuoi tuan My + cong ngay that chan nhieu nguon).
 [21:40Z] DONE web-scan.
 [21:40Z] START event-scan (CI, gop vao sang som)
+[21:44Z] do_tap_tran_thieu.py: 26 ung vien, khong co cuoc moi dang chay ngoai Yudh Abhyas 2026 (da co san trong DATA, chi thieu update bemac).
+[21:51Z] Nap +1 tap tran (Yudh Abhyas 2026 bemac 27/09) + 5 bai think-tank (ISW, East Asia Forum, MP-IDSA, Timbuktu Institute, PIIE) + 12 khai niem. dipEvents: khong tim duoc ky ket moi trong 48h. DONE event-scan.
