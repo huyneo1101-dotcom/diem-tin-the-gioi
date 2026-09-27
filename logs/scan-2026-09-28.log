@@ -10,3 +10,4 @@
 [21:53Z] SKIP web-scan exit 10 (phien sang som DA XONG luc 04:40:17). Kiem ngoai le: so_da_gui --xem CO dong 2026-09-28T04:53:32+07:00 [sang] 20 tin -> ban tin da toi tay, SKIP em. event-scan cung da DONE luc 04:51:44 (note: +1 tap tran, +5 bai think-tank) -> khong lam gi them.
 [21:54Z] SKIP event-scan exit 10 (xac nhan lai theo BUOC 6: phien sang DA XONG luc 04:51:44). Khong con viec gi lam trong phien nay. KET THUC EM.
 [23:58Z] Kich lai lan nua (cron lap/retry). claim web-scan -> exit 10. Kiem ngoai le: so_da_gui --xem CO dong 2026-09-28T04:53:32+07:00 [sang] 20 tin -> ban tin da toi tay, SKIP em. Chuyen sang kiem event-scan (BUOC 6).
+[23:59Z] claim event-scan -> exit 10 (DA XONG luc 04:51:44, +1 tap tran + 5 bai think-tank). Khong con viec gi lam trong phien nay. KET THUC EM.
