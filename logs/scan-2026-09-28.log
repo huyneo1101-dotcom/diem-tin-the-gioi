@@ -7,3 +7,4 @@
 [21:40Z] START event-scan (CI, gop vao sang som)
 [21:44Z] do_tap_tran_thieu.py: 26 ung vien, khong co cuoc moi dang chay ngoai Yudh Abhyas 2026 (da co san trong DATA, chi thieu update bemac).
 [21:51Z] Nap +1 tap tran (Yudh Abhyas 2026 bemac 27/09) + 5 bai think-tank (ISW, East Asia Forum, MP-IDSA, Timbuktu Institute, PIIE) + 12 khai niem. dipEvents: khong tim duoc ky ket moi trong 48h. DONE event-scan.
+[21:53Z] SKIP web-scan exit 10 (phien sang som DA XONG luc 04:40:17). Kiem ngoai le: so_da_gui --xem CO dong 2026-09-28T04:53:32+07:00 [sang] 20 tin -> ban tin da toi tay, SKIP em. event-scan cung da DONE luc 04:51:44 (note: +1 tap tran, +5 bai think-tank) -> khong lam gi them.
