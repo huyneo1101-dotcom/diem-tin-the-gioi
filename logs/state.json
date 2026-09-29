@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-09-30T04:21:12+07:00",
+    "lastRunAt": "2026-09-30T04:30:55+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran moi (Nomadic Elephant), +6 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-29"
-    },
-    "heartbeat": "2026-09-30T04:24:51+07:00"
+      "sang": "2026-09-30"
+    }
   }
 }
