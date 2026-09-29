@@ -292,6 +292,62 @@ def ca_15():
     assert ngay == "2026-08-22", f"đọc ra {ngay!r} ({cach}) thay vì ngày Date Posted"
 
 
+# ---------------------------------------------------------------------------
+# Ca 16-20 — LINK ĐỐI CHỨNG (Huy chốt 29/09/2026). Bug thật 28/09: mục Đối ngoại Mỹ về 0
+# vì 03 tin đã xác minh (state.gov, Bloomberg, ABC Australia) ở trang không in ngày.
+# ---------------------------------------------------------------------------
+
+TRANG_KHONG_NGAY = "<html><title>Bài không ghi ngày</title><body>nội dung</body></html>"
+
+
+def _it_dc(dc, url="https://vd.test/a"):
+    it = _it(_ngay(0), url=url)
+    it["proof"] = dc
+    return it
+
+
+def ca_16():
+    """CHO QUA + KÊU — trang bài không in ngày, link đối chứng đăng hôm nay."""
+    loi, cb = _do({"https://vd.test/a": TRANG_KHONG_NGAY,
+                   "https://dc.test/b": _html(_ngay(0))}, [_it_dc("https://dc.test/b")])
+    assert not loi, f"chặn oan tin có link đối chứng hôm nay: {loi}"
+    assert any("đối chứng" in c for c in cb), f"nạp nhờ đối chứng mà không kêu: {cb}"
+
+
+def ca_17():
+    """PHẢI CHẶN — link đối chứng đăng 19 ngày trước: ngày đối chứng cũng phải qua trần."""
+    loi, _ = _do({"https://vd.test/a": TRANG_KHONG_NGAY,
+                  "https://dc.test/b": _html(_ngay(19))}, [_it_dc("https://dc.test/b")])
+    assert loi, "cổng CHO QUA tin mà link đối chứng đăng 19 ngày trước"
+
+
+def ca_18():
+    """PHẢI CHẶN — link đối chứng cũng không in ngày."""
+    loi, _ = _do({"https://vd.test/a": TRANG_KHONG_NGAY,
+                  "https://dc.test/b": TRANG_KHONG_NGAY}, [_it_dc("https://dc.test/b")])
+    assert loi, "cổng CHO QUA tin mà link đối chứng cũng không in ngày"
+
+
+def ca_19():
+    """PHẢI CHẶN — link đối chứng trùng chính link bài (đối chứng giả)."""
+    loi, _ = _do({"https://vd.test/a": TRANG_KHONG_NGAY}, [_it_dc("https://vd.test/a")])
+    assert loi and "trùng" in loi[0], f"không nêu lý do đối chứng trùng link bài: {loi}"
+
+
+def ca_20():
+    """CHO QUA (đầu-cuối) — `add_news.py` chuyển `dateProofUrl` vào cổng.
+
+    Bản hỏng quên chuyển trường này thì luật trong `ngay_that.py` còn nguyên mà không ai dùng.
+    """
+    url, dc = "https://vd.test/kngay", "https://dc.test/cngay"
+    tin = _tin_that(HOM_NAY.isoformat(), url)
+    tin["dateProofUrl"] = dc
+    rc, out = _chay_add_news({"date": HOM_NAY.isoformat(), "usNews": [tin]},
+                             {url: TRANG_KHONG_NGAY, dc: _html(_ngay(0))})
+    assert rc == 0, f"add_news.py chặn tin có link đối chứng hôm nay (rc={rc})\n{out[-1500:]}"
+    assert "đối chứng" in out, f"nạp mà không in dòng đối chứng:\n{out[-1500:]}"
+
+
 CAC_CA = [
     (1, "PHẢI CHẶN — bài cũ 19 ngày khai ngày hôm nay", ca_01),
     (2, "PHẢI CHẶN — bài cũ 585 ngày (ca SCMP 2024)", ca_02),
@@ -308,6 +364,11 @@ CAC_CA = [
     (13, "cờ mở cổng phải kèm lý do và in lý do ra", ca_13),
     (14, "cho qua + KÊU — bản tải về không có <title> (nghi bị chặn)", ca_14),
     (15, "đọc ngày trong bảng DVIDS, không lấy Date Taken", ca_15),
+    (16, "cho qua + KÊU — trang không in ngày, link đối chứng hôm nay", ca_16),
+    (17, "PHẢI CHẶN — link đối chứng đăng 19 ngày trước", ca_17),
+    (18, "PHẢI CHẶN — link đối chứng cũng không in ngày", ca_18),
+    (19, "PHẢI CHẶN — link đối chứng trùng link bài", ca_19),
+    (20, "cho qua (đầu-cuối) — add_news.py chuyển dateProofUrl vào cổng", ca_20),
 ]
 
 
@@ -337,7 +398,7 @@ BAN_HONG = [
      "add_news",
      ("    if can_do and not bo_cong_ngay_that:",
       "    if False:"),
-     [11]),
+     [11, 20]),
 
     ("add_news: cờ mở cổng nhận lý do RỖNG (mở cổng không để lại dấu)",
      "add_news",
@@ -349,13 +410,13 @@ BAN_HONG = [
      "ngay_that",
      ("        if that < gioi_han:",
       "        if False:"),
-     [1, 2, 3, 4, 11]),
+     [1, 2, 3, 4, 11, 17]),
 
     ("ngay_that: cho qua bài ở trang không in ngày (cổng ngừng bắt cả nhóm)",
      "ngay_that",
      ("            if cach.startswith('không lấy được'):",
       "            if True:"),
-     [7]),
+     [7, 18, 19]),
 
     ("ngay_that: xử trang KHÔNG MỞ ĐƯỢC như trang không in ngày (loại oan theo mạng)",
      "ngay_that",
@@ -389,6 +450,30 @@ BAN_HONG = [
       "        return '%04d-%02d-%02d' % (int(m.group(3)), THANG[m.group(1)], int(m.group(2))), 'ngày trôi nổi'\n"
       "    return None, 'không có metadata ngày'"),
      [10]),
+
+    ("ngay_that: bỏ nhánh link đối chứng (mục trống lại như 28/09)",
+     "ngay_that",
+     ("        if not ngay and dc and not cach.startswith('không lấy được'):",
+      "        if False:"),
+     [16, 19, 20]),
+
+    ("ngay_that: tin lời agent thay vì đo ngày trên link đối chứng",
+     "ngay_that",
+     ("            ngay_dc, cach_dc = ngay_dang_that(dc, tai)",
+      "            ngay_dc, cach_dc = it['date'], 'lời agent'"),
+     [17, 18]),
+
+    ("ngay_that: bỏ kiểm link đối chứng trùng link bài",
+     "ngay_that",
+     ("            if dc == it['url']:",
+      "            if False:"),
+     [19]),
+
+    ("add_news: không chuyển dateProofUrl vào cổng",
+     "add_news",
+     ('                               "proof": item.get("dateProofUrl", "")})',
+      '                               "proof": ""})'),
+     [20]),
 ]
 
 

@@ -138,7 +138,8 @@ def ngay_dang_that(url, tai=None):
 def kiem_lo(items, ref, tran_theo_cat, tai=None):
     """Đo cả lô. Trả (loi, canh_bao) — hai danh sách chuỗi.
 
-    `items`: list dict có `ctx`, `url`, `date`, `category`.
+    `items`: list dict có `ctx`, `url`, `date`, `category`, tuỳ chọn `proof` (link đối chứng
+    ngày, chỉ dùng khi trang bài không in ngày).
     `ref`: ngày batch (datetime.date). `tran_theo_cat(category) -> số ngày được lùi`.
     Chặn khi ngày ĐĂNG THẬT cũ hơn `ref - trần`, hoặc ở tương lai so với `ref`.
     """
@@ -148,12 +149,26 @@ def kiem_lo(items, ref, tran_theo_cat, tai=None):
 
     def lam(it):
         ngay, cach = ngay_dang_that(it['url'], tai)
-        return it, ngay, cach
+        # LINK ĐỐI CHỨNG (Huy chốt 29/09/2026): trang bài không in ngày thì được đi qua bằng
+        # một link THỨ HAI đưa cùng sự việc và có ngày đọc được — máy đo ngày trên link đó,
+        # không tin lời agent. Chỉ đo khi cần, để lô thường không tốn thêm lượt tải.
+        dc = (it.get('proof') or '').strip()
+        if not ngay and dc and not cach.startswith('không lấy được'):
+            if dc == it['url']:
+                return it, None, 'link đối chứng trùng chính link bài', None
+            ngay_dc, cach_dc = ngay_dang_that(dc, tai)
+            if not ngay_dc:
+                return it, None, f'{cach}; link đối chứng cũng không đọc được ngày ({cach_dc})', None
+            return it, ngay_dc, f'{cach_dc} trên LINK ĐỐI CHỨNG {dc}', dc
+        return it, ngay, cach, None
 
     with ThreadPoolExecutor(max_workers=SO_LUONG) as ex:
         ket_qua = list(ex.map(lam, items))
 
-    for it, ngay, cach in ket_qua:
+    for it, ngay, cach, dc in ket_qua:
+        if dc and ngay:
+            canh_bao.append(f"⚠ NGÀY THẬT: {it['ctx']} — trang bài không in ngày, nạp nhờ link "
+                            f"đối chứng ({cach}): {it['url']}")
         if not ngay:
             # CHỈ THỊ HUY 25/08/2026, nguyên văn: "trang không ghi ngày thì bỏ đi". Trang
             # không in ngày ở đâu cả thì không có cách nào biết bài cũ hay mới, mà bản tin
@@ -168,7 +183,8 @@ def kiem_lo(items, ref, tran_theo_cat, tai=None):
             else:
                 loi.append(
                     f"{it['ctx']}: trang KHÔNG in ngày đăng ở dạng đọc được ({cach}) nên không "
-                    f"kiểm được bài cũ hay mới — bỏ tin này, thay bằng bài có ngày. "
+                    f"kiểm được bài cũ hay mới — bỏ tin này, thay bằng bài có ngày, hoặc "
+                    f"kèm `dateProofUrl` là link thứ hai đưa cùng sự việc có ngày đọc được. "
                     f"URL: {it['url']}")
             continue
         try:

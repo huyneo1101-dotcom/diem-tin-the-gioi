@@ -944,7 +944,8 @@ def main() -> None:
         for idx, item in enumerate(lo):
             if item.get("sourceUrl"):
                 can_do.append({"ctx": f"{nhan}[{idx}]", "url": item["sourceUrl"],
-                               "date": item.get("date"), "category": item.get("category", "")})
+                               "date": item.get("date"), "category": item.get("category", ""),
+                               "proof": item.get("dateProofUrl", "")})
     if can_do and not bo_cong_ngay_that:
         loi_ngay, canh_bao_ngay = ngay_that.kiem_lo(can_do, ref, tran_ngay)
         for dong in canh_bao_ngay:

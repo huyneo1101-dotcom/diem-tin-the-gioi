@@ -147,6 +147,12 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 > khai sai là lô bị chặn và phải quét bù. ⛔ **Trang KHÔNG in ngày đăng thì BỎ BÀI ĐÓ, chọn
 > bài khác** (chỉ thị Huy 25/08/2026) — không kiểm được ngày thì không biết bài cũ hay mới;
 > nhóm này chiếm 11-16% số bài đo được, nguồn hay dính là DVIDS · PACOM · war.gov · Xinhua.
+> ✅ **NGOẠI LỆ DUY NHẤT — LINK ĐỐI CHỨNG (Huy chốt 29/09/2026):** tin đáng lấy mà trang không
+> in ngày (state.gov, Bloomberg…) thì thêm trường `"dateProofUrl"` là link THỨ HAI, KHÁC link
+> bài, đưa CÙNG sự việc và có ngày đọc được (báo lớn đưa lại thông cáo). Máy tự mở link đó đo
+> ngày, ngoài khung vẫn chặn. Ưu tiên dùng khi mục đang dưới sàn. Bug thật 28/09: mục Đối ngoại
+> Mỹ về 0 vì bỏ đúng 03 tin đã xác minh. ⛔ Link đối chứng phải nói ĐÚNG sự việc đó, cấm lấy
+> một bài mới bất kỳ cùng chủ đề — máy chỉ đo được ngày, không đo được hai link cùng việc.
 > Trang mở không được (bị chặn, bản tải về không có `<title>`) thì tin vẫn nạp kèm dòng
 > `⚠ NGÀY THẬT`. Metadata nguồn ghi sai thật thì mở cổng bằng `--bo-cong-ngay-that="lý do"`,
 > KHÔNG lùi ngày batch.

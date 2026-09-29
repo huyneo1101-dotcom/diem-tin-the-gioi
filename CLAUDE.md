@@ -95,8 +95,11 @@ cách nhau một tháng cho cùng tỷ lệ (2,0% và 3,7%), tức lỗ này m�
   bổ sung vào `doc_ngay`, đừng nới trần ngày.
 - **Đường thoát hợp lệ khi metadata nguồn ghi sai:** `--bo-cong-ngay-that="lý do"`, lý do bắt
   buộc và được in ra.
-- **Bộ canh:** `tests/test-cong-ngay-that.py` — **15 ca (07 PHẢI CHẶN · 03 ca đầu-cuối) ·
-  `--tu-kiem` bắt 9/9 bản hỏng**, chạy offline qua seam `NGAYTHAT_KHO_GIA`, đã nạp `BO_TEST`
+- **Link đối chứng (Huy chốt 29/09/2026):** trang bài không in ngày thì tin mang
+  `dateProofUrl` (link khác, cùng sự việc, có ngày) được nạp; máy đo ngày trên link đó, ngoài
+  khung vẫn chặn. Bug gốc: mục Đối ngoại Mỹ 28/09 về 0 vì 03 tin state.gov/Bloomberg bị bỏ.
+- **Bộ canh:** `tests/test-cong-ngay-that.py` — **20 ca (10 PHẢI CHẶN · 04 ca đầu-cuối) ·
+  `--tu-kiem` bắt 13/13 bản hỏng**, chạy offline qua seam `NGAYTHAT_KHO_GIA`, đã nạp `BO_TEST`
   của `HeThong/khoe.py`. Nghiệm thu qua mạng thật 25/08: lô mang đúng URL bài SCMP 2024 bị
   chặn với thông điệp `bài đăng THẬT ngày 2024-12-21 (đọc bằng datePublished)`.
 
