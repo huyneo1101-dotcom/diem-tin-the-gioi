@@ -4,3 +4,4 @@
 [01:08Z] add_news.py: +16 worldNews +17 usNews (gop RAF Fairford tu Bao Moi), go 1 tin trung that (Kongsberg NSM), tat ca 6 muc/tieu muc dat san
 [01:08Z] gh workflow run telegram-bot.yml bi chan (requires approval) - chua kich duoc bot Jay Lam, tin_jaylam.py --liet-ke exit 10 (khong co file trong khung, bo qua)
 [01:09Z] START event-scan (CI, gop vao sang som)
+[01:14Z] event-scan DONE: +1 tap tran moi (Trident Resolve 2026, ADMM-Plus) kem background+concepts, +5 bai think-tank (ORF/AGSI/MP-IDSA x2/NBR) kem khai niem. Mali/Uc-BD da xu ly trong phien web-scan.
