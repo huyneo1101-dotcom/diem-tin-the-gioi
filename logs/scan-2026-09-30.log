@@ -4,3 +4,4 @@
 [21:40Z] add_news.py nap xong: +9 worldNews +15 usNews (24 tin). Con gap: Doi ngoai My 4/5, Anh 4/5, Australia 3/5, Bien Dong 2/5 (cong ngay that chan nhieu bai tot, sat han chot khong kip tim dateProofUrl). Da ghi scan-gaps.json + loai-tin.md
 [21:21Z] web-scan DONE, da push. Bat dau event-scan (Buoc 6)
 [21:30Z] event-scan: +1 tap tran moi (Nomadic Elephant 2026 An Do-Mong Co) + background; dipEvents/exerciseUpdates rong (khong co gi dat chuan trong khung 48h); +6 bai think-tank (Lowy, ASPI, Atlantic Council, CACI Analyst, RUSI, Fulcrum) + khai niem
+[04:35] SKIP local (phien sang som): claim web-scan exit 10 - da xong luc 04:21, khong lam lai
