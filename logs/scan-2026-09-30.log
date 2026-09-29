@@ -1,2 +1,4 @@
 [21:00Z] START (CI) - phien sang som
-[21:05Z] SKIP local (04:05 VN) - web-scan dang co phien khac chay (nhip tim 2' truoc, CI bat dau 04:00:32 VN)
+[21:20Z] harvest.py + telegram_harvest.py xong: 479 ung vien RSS/GNEWS + 14 telegram
+[21:33Z] 5 agent chu de xong (Noi bo My, Uc&BD, CNQS, Mali+tap tran, Bao Moi) + 1 agent bo sung Uc/BD
+[21:40Z] add_news.py nap xong: +9 worldNews +15 usNews (24 tin). Con gap: Doi ngoai My 4/5, Anh 4/5, Australia 3/5, Bien Dong 2/5 (cong ngay that chan nhieu bai tot, sat han chot khong kip tim dateProofUrl). Da ghi scan-gaps.json + loai-tin.md

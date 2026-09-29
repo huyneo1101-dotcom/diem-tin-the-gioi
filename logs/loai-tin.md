@@ -7,6 +7,19 @@
 
 ---
 
+## 2026-09-30 (phiên sáng sớm CI) — cổng Báo Mới + review nội bộ
+
+- [CNQS/BM] "Tên lửa Hwasong-11Ma-1 bay thấp, hệ thống THAAD sẽ đối phó thế nào?" / "'Sát thần' Hwasong-11Ma-1 thay đổi bài toán phòng thủ tên lửa ở Đông Bắc Á ra sao?" (An Ninh Thủ Đô) — bài phân tích tên lửa TRIỀU TIÊN, THAAD chỉ là điểm tham chiếu phụ, không phải tin khí tài Mỹ cụ thể, không hợp CNQS Mỹ.
+- [US/BM] "Lầu Năm Góc bất ngờ ra chỉ thị quan trọng liên quan đến cuộc bầu cử giữa kỳ" (VietTimes) — TRÙNG sự kiện đã nạp qua nguồn gốc The Hill "Exclusive: Hegseth directs Defense Dept. to fight foreigners who meddle in U.S. elections" (28/9, ngoài khung 2 ngày nên không nạp lại ở đây).
+- [US/BM] "Ông Trump bác tin đề nghị nới lỏng trừng phạt Iran..." (VietnamNet/Tiền Phong/Lào Cai, 3 bài) — TRÙNG sự kiện đã nạp qua nguồn gốc tốt hơn (The Hill, dateProofUrl rte.ie).
+- [TG/BM] "Hàn Quốc coi việc phát triển, sử dụng và vận hành tàu ngầm hạt nhân là chiến lược quốc gia" (Báo TG&VN) — thuần nội bộ Hàn Quốc, không neo được vào Úc/AUKUS/Anh/Biển Đông (siết 01/08/2026).
+- [TG/BM] "Indonesia và KF-21: Vì sao Hàn Quốc muốn đưa Boramae ra thị trường quốc tế?" (An Ninh Thủ Đô) — góc nhìn chiến lược xuất khẩu của HÀN QUỐC, không đủ neo cụ thể vào Indonesia/Biển Đông.
+- [US] "Cựu công tố viên đặc biệt Jack Smith điều trần Thượng viện" (The Hill) — cổng ngày thật chặn (trang không in ngày đọc được, không tìm kịp dateProofUrl trong hạn chót).
+- [US] "Trump ký sắc lệnh đổi tên AI thành 'siêu trí tuệ'" (Breaking Defense) — ngày đăng thật 22/09 (đọc bằng datePublished), ngoài khung 2 ngày.
+- [US] "Toà phúc thẩm từ chối hoãn chế tài luật sư Trump vụ IRS" (Reuters) — cổng ngày thật chặn, không tìm kịp dateProofUrl trong hạn chót.
+- [TG] "Australia công bố cảng nhà mới cho tàu tuần tra Arafura tại Cairns" (Australian Defence Magazine) — cổng ngày thật chặn (trang không in ngày đọc được), không tìm kịp dateProofUrl trong hạn chót; nhánh Australia vì vậy thiếu sàn phiên này.
+- [TG] "Philippines: tuần duyên chặn tàu hải cảnh Trung Quốc gần đảo Cabra, tàu nghiên cứu giả mạo AIS ở Batanes" (Philstar) — TRÙNG URL đã có sẵn trong DATA (nạp từ phiên trước).
+
 ## 2026-09-28 (phiên sáng sớm CI) — cổng Báo Mới
 
 - [CNQS/BM] "Australia sớm loại biên trực thăng Eurocopter Tiger để rảnh tay viện trợ Ukraine?" (An Ninh Thủ Đô) — TRÙNG sự kiện đã nạp 25/09 "Lục quân Australia chính thức loại biên trực thăng tấn công Tiger sau 20 năm", chỉ thêm góc suy đoán viện trợ Ukraine không đủ mới để tách tin riêng.
