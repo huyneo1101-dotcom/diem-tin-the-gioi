@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-09-29T07:30:22+07:00",
+  "tao_luc": "2026-09-29T08:12:49+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-28",
@@ -77,6 +77,14 @@
       "tieu_de": "Niger seeks new investment as it tightens control over uranium sector",
       "nguon": "Africanews",
       "url": "http://www.africanews.com/2026/09/28/niger-seeks-new-investment-as-it-tightens-control-over-uranium-sector/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "2026-09-28",
+      "tieu_de": "Nigeria: Niger Mosque Attacks - 14 Members of My Family in Captivity - Student",
+      "nguon": "AllAfrica",
+      "url": "https://allafrica.com/stories/202609280093.html"
     },
     {
       "lop": "HTML",
@@ -178,22 +186,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-09-29",
-      "tieu_de": "Shipbuilder Behind Failed Constellation Class Wants Back Into The U.S. Navy Frigate Business",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/sea/shipbuilder-behind-failed-constellation-class-wants-back-into-the-u-s-navy-frigate-game"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-29",
-      "tieu_de": "Marine Corps awards Anduril nearly $16M for Pulsar-Lite EW system to counter drones",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/09/28/marine-corps-awards-anduril-nearly-16m-for-pulsar-lite-ew-system-to-counter-drones/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-29",
       "tieu_de": "F-35 Parts Seized on UPS Path to U.S. That Often Stops in China",
       "nguon": "RealClearDefense",
       "url": "https://www.realcleardefense.com/2026/09/28/f-35_parts_seized_on_ups_path_to_us_that_often_stops_in_china_1208594.html"
@@ -253,22 +245,6 @@
       "tieu_de": "Department of War Establishes Force Agility and Streamlining Team to Cut Bureaucracy, Prioritize Warfighters",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4611887/department-of-war-establishes-force-agility-and-streamlining-team-to-cut-bureau/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-29",
-      "tieu_de": "Space Force Interested in Commercial Antennas to Control Satellites",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/space-force-interested-in-commercial-antennas-to-control-satellites/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-29",
-      "tieu_de": "Heavy losses of MQ-9 Reaper to factor in future plans to divest, replace aircraft",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/09/28/heavy-losses-of-mq-9-reaper-to-factor-in-future-plans-to-divest-replace-aircraft/"
     },
     {
       "lop": "RSS",
@@ -474,9 +450,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-28",
-      "tieu_de": "Northern Star shares pop as Australia's largest gold miner rejects $27 billion takeover proposal",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/28/northern-star-shares-gold-fields-takeover-bid.html"
+      "tieu_de": "Is AUKUS Too Big to Fail?",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/09/is-aukus-too-big-to-fail/"
     },
     {
       "lop": "RSS",
@@ -501,14 +477,6 @@
       "tieu_de": "Indonesia Finally Has Its Aircraft Carrier. Now Comes the Hard Part.",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/09/indonesia-finally-has-its-aircraft-carrier-now-comes-the-hard-part/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-28",
-      "tieu_de": "China Conducts Military Exercise in South China Sea After Confrontation at Disputed Shoal",
-      "nguon": "The Diplomat",
-      "url": "https://thediplomat.com/2026/09/china-conducts-military-exercise-in-south-china-sea-after-confrontation-at-disputed-shoal/"
     },
     {
       "lop": "RSS",
@@ -541,6 +509,14 @@
       "tieu_de": "Taiwan doubles space workforce in resilience push: space agency chief",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/editor-s-picks/interview/taiwan-doubles-space-workforce-in-resilience-push-space-agency-chief"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-09-29",
+      "tieu_de": "Chinese-owned firm takes over one of Australia's largest cannabis farms",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-09-29/chinese-company-buys-tasmanian-botanics-cannabis/107206340"
     },
     {
       "lop": "RSS",
@@ -586,14 +562,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-29",
-      "tieu_de": "No uncrewed systems used in warship sinking off Scotland",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/no-uncrewed-systems-used-in-warship-sinking-off-scotland/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
       "tieu_de": "Warship sinking off Scotland was a message to adversaries",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/warship-sinking-off-scotland-was-a-message-to-adversaries/"
@@ -605,14 +573,6 @@
       "tieu_de": "Apprenticeship money arrives as defence hunts for welders",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/apprenticeship-money-arrives-as-defence-hunts-for-welders/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
-      "tieu_de": "Debt costs more than defence, policing and justice combined",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/debt-costs-more-than-defence-policing-and-justice-combined/"
     },
     {
       "lop": "RSS",
@@ -665,14 +625,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
-      "tieu_de": "Royal Navy proves Sea Venom and Naval Strike Missiles in live-fire exercise with US Navy",
-      "nguon": "**Navy Lookout (Hải quân Anh)**",
-      "url": "https://www.navylookout.com/royal-navy-proves-sea-venom-and-naval-strike-missiles-in-live-fire-exercise-with-us-navy/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-28",
       "tieu_de": "Three new floating submarine docks for the Royal Navy to be built in Britain",
       "nguon": "**Navy Lookout (Hải quân Anh)**",
@@ -708,7 +660,7 @@
       "ngay": "2026-09-28",
       "tieu_de": "More overseas firms enticed to buy British",
       "nguon": "HM Treasury",
-      "url": "https://www.gov.uk/government/news/more-overseas-firms-enticed-to-buy-british--2"
+      "url": "https://www.gov.uk/government/news/more-overseas-firms-enticed-to-buy-british"
     },
     {
       "lop": "RSS",
@@ -738,14 +690,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-29",
-      "tieu_de": "Saeid thought he could protest the Iranian regime freely in Australia. He feels like he’s being watched",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/sep/29/iran-protests-australia-surveillance-transnational-repression-foreign-interference-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
       "tieu_de": "British Jews back calls to ban Australian academic Randa Abdel-Fattah",
       "nguon": "Australian Financial Review",
       "url": "https://www.afr.com/world/europe/british-jews-back-calls-to-ban-australian-academic-randa-abdel-fattah-20260929-p6117k?ref=rss&utm_medium=rss&utm_source=rss_feed"
@@ -754,41 +698,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-29",
-      "tieu_de": "Chobani’s new drinks to take on Australia’s biggest dairy producers",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/companies/retail/chobani-challenges-bega-with-push-into-flavoured-milk-market-20260929-p610ym?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
-      "tieu_de": "Electric switch slashes Australia’s energy use by 5pc",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/policy/energy-and-climate/electric-switch-slashes-australia-s-energy-use-by-5pc-20260929-p6112j?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
       "tieu_de": "Manila is a hotbed for chef collaborations and luxe Sunday brunches",
       "nguon": "Inquirer",
       "url": "https://lifestyle.inquirer.net/582459/fb-briefs-mireio-brunch-society-chele-gonzalez-aitor-zabala/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
-      "tieu_de": "‘Project 2028’: Philippines unleashed (2)",
-      "nguon": "Inquirer",
-      "url": "https://opinion.inquirer.net/194741/project-2028-philippines-unleashed-2"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-28",
-      "tieu_de": "Philippines Accuses Chinese Vessel of Spoofing Location in Northern Waters",
-      "nguon": "gCaptain",
-      "url": "https://gcaptain.com/philippines-accuses-chinese-vessel-of-spoofing-location-in-northern-waters/"
     },
     {
       "lop": "RSS",
@@ -829,14 +741,6 @@
       "tieu_de": "Australia’s legacy systems were already a cyber risk. AI agents are raising the stakes",
       "nguon": "Crikey (Úc)",
       "url": "https://www.crikey.com.au/2026/09/29/ai-medicare-breach-artificial-intelligence-openai-legacy-systems-cybersecurity/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-09-29",
-      "tieu_de": "A nation’s morals matter. AUKUS shows pandering to America is our higher priority",
-      "nguon": "Crikey (Úc)",
-      "url": "https://www.crikey.com.au/2026/09/29/aukus-australia-nuclear-waste-us-military-integration/"
     },
     {
       "lop": "RSS",
@@ -1028,7 +932,7 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-28",
+      "ngay": "2026-09-29",
       "tieu_de": "US sanctions on Iran's aviation industry make travel less predictable as countries cancel flights",
       "nguon": "Deutsche Welle",
       "url": "https://www.dw.com/en/us-sanctions-on-iran-s-aviation-industry-make-travel-less-predictable-as-countries-cancel-flights/a-79459140?maca=en-rss-en-world-4025-rdf",
@@ -1114,15 +1018,6 @@
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/09/28/us-china-lower-tariffs-trump-xi-meeting.html",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-28",
-      "tieu_de": "Taxpayer-funded Trump ads draw bipartisan scrutiny ahead of midterms",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/09/27/trump-government-funded-ads-midterms.html",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1271,15 +1166,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-28",
-      "tieu_de": "FTC, States Win Protections to Lower Pesticide Prices for American Farmers in Antitrust Case Against Corteva",
-      "nguon": "FTC",
-      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/09/ftc-states-win-protections-lower-pesticide-prices-american-farmers-antitrust-case-against-corteva",
-      "nhom": 9
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-09-29",
       "tieu_de": "United States and Mexico Announce Successful Resolution of Rapid Response Labor Mechanism Matter at Akwel Juárez México Facility",
       "nguon": "USTR",
@@ -1302,6 +1188,15 @@
       "tieu_de": "U.S. 'D-Day' Sanctions Take Effect Against Iran",
       "nguon": "RealClearWorld",
       "url": "https://www.realclearworld.com/2026/09/24/us_d-day_sanctions_take_effect_against_iran_1208139.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-09-29",
+      "tieu_de": "China and U.S. pledge tariff cuts on $60 billion of goods",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/business/2026/09/29/china-us-tariff-cuts/",
       "nhom": 4
     },
     {
@@ -1348,15 +1243,6 @@
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/nghi-si-my-noi-ve-kha-nang-luan-toi-ong-trump-sau-bau-cu-giua-ky-2559471.html",
       "nhom": 5
-    },
-    {
-      "lop": "HTML",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-09-28",
-      "tieu_de": "Chairmen Jordan, Steil, and Comer Demand Testimony about ActBlue&#039;s Attempt to Cover Up Its Misconduct",
-      "nguon": "Uỷ ban Tư pháp Hạ viện",
-      "url": "https://judiciary.house.gov/media/press-releases/chairmen-jordan-steil-and-comer-demand-testimony-about-actblues-attempt-cover",
-      "nhom": 1
     },
     {
       "lop": "HTML",
