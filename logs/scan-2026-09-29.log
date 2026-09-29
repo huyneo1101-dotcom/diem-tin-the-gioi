@@ -5,3 +5,4 @@
 [01:08Z] gh workflow run telegram-bot.yml bi chan (requires approval) - chua kich duoc bot Jay Lam, tin_jaylam.py --liet-ke exit 10 (khong co file trong khung, bo qua)
 [01:09Z] START event-scan (CI, gop vao sang som)
 [01:14Z] event-scan DONE: +1 tap tran moi (Trident Resolve 2026, ADMM-Plus) kem background+concepts, +5 bai think-tank (ORF/AGSI/MP-IDSA x2/NBR) kem khai niem. Mali/Uc-BD da xu ly trong phien web-scan.
+[01:16Z] SKIP (goi lai) - web-scan claim exit 10, event-scan claim exit 10. Kiem tra so_da_gui.py --xem: da co dong [sang] 08:15:55 34 tin va [sukien] 08:16:00 1 tin, khop lastRunAt cua state.py show. Ca hai pipeline that su da xong, khong quet lai.
