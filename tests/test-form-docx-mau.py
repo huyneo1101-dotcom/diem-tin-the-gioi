@@ -25,6 +25,7 @@ file mẫu, không lấy theo trí nhớ.
 Cộng 02 điểm về PHÂN MỤC mà form mới sinh ra:
   (8) Bảng neo đối ngoại không được chứa tên nước một âm tiết để trần ("duc" khớp "tình dục").
   (9) Chữ đầu tóm tắt chỉ hạ khi là từ chức năng, KHÔNG hạ chức danh ("Đại tướng" giữ hoa).
+  (10) Neo đối ngoại chỉ đọc tít + nhận định + vùng, không đọc tóm tắt (bug thép Iowa 29/09).
 
 Yêu cầu `pip3 install python-docx`.
 """
@@ -308,15 +309,16 @@ kiem("[18] PHẢI CHẶN: tiểu mục RỖNG thì KHÔNG in nhãn trống",
 # ══════════════════════ (8) bảng neo đối ngoại ══════════════════════
 kiem("[19] PHẢI CHẶN: 'tội phạm tình dục' KHÔNG được kéo tin nội bộ sang mục Đối ngoại "
      "(neo 'duc' để trần — cùng lớp lỗi 'Malice/Mali' vá 26/08/2026)",
-     not MD.la_doi_ngoai_my(DATA_GIA["usNews"][2]),
-     [k for k, p in zip(MD.NEO_DOI_NGOAI, MD._RE_DOI_NGOAI)
-      if p.search(MD._khong_dau(MD._kho_chu(DATA_GIA["usNews"][2])))])
+     not MD.la_doi_ngoai_my(DATA_GIA["usNews"][2])
+     # Từ 29/09/2026 neo chỉ đọc tít, nên bẫy phải nằm TRÊN TÍT mới còn răng.
+     and not MD.la_doi_ngoai_my({"category": "Chính trị",
+                                 "title": "Hạ viện Mỹ siết án tội phạm tình dục"}),
+     "neo 'duc' để trần khớp 'tình dục'")
 
 kiem("[20] PHẢI CHẶN: 'biện pháp'/'tư pháp'/'ngã' không được khớp neo nước "
      "(Pháp/Nga để trần)",
-     not MD.la_doi_ngoai_my({"category": "Chính trị", "title": "Toà án Mỹ",
-                             "summary": "Thẩm phán áp dụng biện pháp tư pháp sau khi bị "
-                                        "cáo ngã tại phiên xử."}),
+     not MD.la_doi_ngoai_my({"category": "Chính trị",
+                             "title": "Toà án Mỹ áp biện pháp tư pháp sau khi bị cáo ngã"}),
      "neo nước một âm tiết vẫn để trần")
 
 kiem("[21] đối chứng chống chặn oan: tin Mỹ trừng phạt Iran VẪN vào mục Đối ngoại",
@@ -376,6 +378,28 @@ kiem("[27] PHẢI CHẶN: NEO_UC là tập con của NEO_UC_BIEN_DONG (lệch ->
      "bảng NEO_UC đã tách nhánh khỏi bảng lớn")
 
 
+# Bug thật sáng 29/09/2026: tin nhà máy thép Iowa vào mục Đối ngoại chỉ vì TÓM TẮT nhắc nhà
+# đầu tư "Ấn Độ". Neo đối ngoại nay chỉ đọc tít + nhận định + vùng (`TRUONG_NEO_DOI_NGOAI`).
+TIN_IOWA = {"category": "Chính trị", "region": "Bắc Mỹ",
+            "title": "Trump công bố dự án nhà máy thép 15 tỷ USD tại Iowa trước thềm bầu cử "
+                     "giữa kỳ",
+            "summary": "Tổng thống Trump công bố kế hoạch xây nhà máy thép tại Iowa, do Mesabi "
+                       "Metallics (thuộc tập đoàn Essar Group của Ấn Độ) đầu tư.",
+            "significance": "Thông báo đầu tư được tính thời điểm sát bầu cử giữa kỳ.",
+            "sourceUrl": "https://x.example/iowa-thep"}
+kiem("[31] PHẢI CHẶN: tên nước chỉ nằm trong TÓM TẮT (bối cảnh) không kéo tin nội bộ sang "
+     "mục Đối ngoại (bug thật 29/09/2026, tin thép Iowa nhắc 'Ấn Độ')",
+     not MD.la_doi_ngoai_my(TIN_IOWA), "tin Iowa vẫn vào mục Đối ngoại")
+
+kiem("[32] đối chứng chống chặn oan: tít 'Mỹ - Trung' / 'Tập Cận Bình' VẪN vào mục Đối ngoại "
+     "dù tên nước đầy đủ chỉ nằm trong tóm tắt",
+     MD.la_doi_ngoai_my({"category": "Kinh tế",
+                         "title": "Mỹ - Trung công bố danh sách hàng hoá giảm thuế"})
+     and MD.la_doi_ngoai_my({"category": "Chính trị",
+                             "title": "Tập Cận Bình chuẩn bị thăm cấp nhà nước tới Nhà Trắng"}),
+     "tin Mỹ-Trung rơi khỏi mục Đối ngoại")
+
+
 # ══════════════════════ TỰ KIỂM ══════════════════════
 BAN_HONG = [
     ("thêm lại dòng tiêu đề 'ĐIỂM TIN NGÀY'",
@@ -419,6 +443,12 @@ BAN_HONG = [
     ("bỏ 'Mỹ' khỏi REGION_NOI_BO (tái sinh bug 17/09: tin region 'Mỹ' rơi khỏi mọi mục)",
      'REGION_NOI_BO = ("", "Mỹ", "Bắc Mỹ", "Châu Mỹ")',
      'REGION_NOI_BO = ("", "Bắc Mỹ", "Châu Mỹ")'),
+    ("neo đối ngoại đọc lại cả TÓM TẮT (tái sinh bug 29/09: tin thép Iowa nhắc 'Ấn Độ')",
+     'TRUONG_NEO_DOI_NGOAI = ("title", "significance", "region")',
+     'TRUONG_NEO_DOI_NGOAI = ("title", "summary", "significance", "region")'),
+    ("bỏ neo tít 'Tập Cận Bình'/'Mỹ - Trung' (tin thượng đỉnh Mỹ-Trung rơi sang Nội bộ)",
+     '    "tap can binh", "xi jinping", "my - trung", "my-trung",\n',
+     ''),
 ]
 
 KHAI_DO = {
@@ -435,6 +465,8 @@ KHAI_DO = {
     "hạ chữ đầu cả CHỨC DANH ('Đại tướng' -> 'đại tướng')": [23],
     "đảo thứ tự tiểu mục: Anh giành trước Úc (tin AUKUS rơi khỏi 'Australia')": [28],
     "bỏ 'Mỹ' khỏi REGION_NOI_BO (tái sinh bug 17/09: tin region 'Mỹ' rơi khỏi mọi mục)": [29, 30],
+    "neo đối ngoại đọc lại cả TÓM TẮT (tái sinh bug 29/09: tin thép Iowa nhắc 'Ấn Độ')": [31],
+    "bỏ neo tít 'Tập Cận Bình'/'Mỹ - Trung' (tin thượng đỉnh Mỹ-Trung rơi sang Nội bộ)": [32],
 }
 
 

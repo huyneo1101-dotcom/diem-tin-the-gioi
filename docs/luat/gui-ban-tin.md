@@ -61,8 +61,15 @@ chạy thử đầu 01/09/2026: neo `"duc"` khớp chữ **"tình dục"**, đ�
 "biện pháp"/"tư pháp", `"nga"` khớp "ngã". Biên từ không cứu được vì sau khi bỏ dấu chúng là
 từ trọn vẹn. Dùng cụm tự neo: `nuoc duc`, `germany`, `berlin`.
 
-**Bộ canh:** `tests/test-form-docx-mau.py` — **28 ca (25 ca PHẢI CHẶN) · `--tu-kiem` bắt
-12/12 bản hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`.
+⛔ **Neo đối ngoại CHỈ đọc tít + nhận định + vùng (`TRUONG_NEO_DOI_NGOAI`), KHÔNG đọc tóm
+tắt** (vá 29/09/2026). Tóm tắt nhắc tên nước để lấy bối cảnh: tin *"Trump công bố nhà máy thép
+15 tỷ USD tại Iowa"* vào mục Đối ngoại chỉ vì tóm tắt nhắc nhà đầu tư Ấn Độ. Đo trên kho cùng
+ngày: 47 tin rời mục Đối ngoại (bầu cử, Fed, hợp đồng vũ khí nhắc Iran làm bối cảnh), 0 tin
+đối ngoại thật của Mỹ bị mất. Tin đối ngoại mà tít chỉ ghi tên lãnh đạo/cặp quan hệ thì thêm
+neo tít (`tap can binh`, `my - trung`), đừng mở lại tóm tắt.
+
+**Bộ canh:** `tests/test-form-docx-mau.py` — **32 ca · `--tu-kiem` bắt 15/15 bản hỏng**, đã
+nạp `BO_TEST` của `HeThong/khoe.py`.
 
 ## 📵 ĐÃ TẮT EMAIL — TELEGRAM LÀ KÊNH DUY NHẤT (chỉ thị Huy 27/07/2026)
 

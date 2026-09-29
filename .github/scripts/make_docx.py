@@ -378,9 +378,18 @@ NEO_DOI_NGOAI = (
     "trung phat", "sanction", "cam van", "embargo", "thue quan", "tariff",
     "vien tro nuoc ngoai", "foreign aid", "hiep dinh", "dam phan thuong mai",
     "dai su", "ambassador", "ngoai truong", "secretary of state",
+    # -- lãnh đạo/cặp quan hệ hay đứng một mình trên TÍT (neo chỉ còn đọc tít, xem dưới)
+    "tap can binh", "xi jinping", "my - trung", "my-trung",
 )
 _RE_DOI_NGOAI = tuple(re.compile(r"(?<!\w)" + re.escape(k) + r"(?!\w)")
                       for k in NEO_DOI_NGOAI)
+
+# ⛔ NEO CHỈ ĐỌC TÍT + NHẬN ĐỊNH + VÙNG, KHÔNG ĐỌC TÓM TẮT (vá 29/09/2026). Tóm tắt dẫn tên
+# nước để lấy BỐI CẢNH, không phải vì tin nói chuyện Mỹ với bên ngoài. Bug thật sáng 29/09:
+# *"Trump công bố dự án nhà máy thép 15 tỷ USD tại Iowa"* vào mục Đối ngoại vì tóm tắt nhắc
+# nhà đầu tư "Ấn Độ". Đo trên kho cùng ngày: 50/381 tin xếp Đối ngoại chỉ nhờ neo trong tóm
+# tắt, khoảng 45 tin là bầu cử, Fed, hợp đồng vũ khí (tóm tắt nhắc Iran/Israel làm bối cảnh).
+TRUONG_NEO_DOI_NGOAI = ("title", "significance", "region")
 
 
 def la_doi_ngoai_my(it):
@@ -393,7 +402,7 @@ def la_doi_ngoai_my(it):
     """
     if (it.get("category") or "") == "Ngoại giao":
         return True
-    kho = _khong_dau(_kho_chu(it))
+    kho = _khong_dau(" ".join(str(it.get(k, "")) for k in TRUONG_NEO_DOI_NGOAI))
     return any(p.search(kho) for p in _RE_DOI_NGOAI)
 
 
