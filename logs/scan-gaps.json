@@ -1,71 +1,15 @@
 {
-  "date": "2026-09-28",
+  "date": "2026-09-29",
   "session": "sang",
   "topics": [
-    {
-      "name": "Đối ngoại Mỹ",
-      "count": 0,
-      "target": "5",
-      "min": 5,
-      "thieu": true,
-      "reason": "27-28/09/2026 là cuối tuần Mỹ (Chủ nhật - đầu tuần), Bộ Ngoại giao/Nhà Trắng gần như không ra thông cáo mới. Tìm được 3 ứng viên tốt (Rubio chúc Quốc khánh Turkmenistan qua state.gov, thoả thuận thuế quan+đối thoại AI Mỹ-Trung sau thượng đỉnh Trump-Tập qua ABC News Australia, phát ngôn Đại sứ Mỹ Perdue về chính sách Đài Loan qua Bloomberg) nhưng cả 3 bị cổng NGÀY ĐĂNG THẬT chặn vì trang không lộ metadata ngày cho scraper (state.gov/bloomberg.com không có datePublished/article:published_time đọc được) dù nội dung đã xác minh thật qua WebSearch/WebFetch. Không tìm được thay thế có metadata sạch trong thời gian phiên."
-    },
-    {
-      "name": "Nội bộ Mỹ",
-      "count": 3,
-      "target": "5",
-      "min": 5,
-      "thieu": true,
-      "reason": "Chủ Nhật 27/09 Quốc hội Mỹ không họp nên nhóm 1 (điều trần/bỏ phiếu) = 0, đã tra clerk.house.gov/armed-services.senate.gov/judiciary.senate.gov không thấy phiên nào trong khung. Chỉ nạp được 3 tin nhóm 5 (bầu cử: Susan Collins, LaCivita) và nhóm 3 (biểu tình ICE Broadview). Ứng viên khác (SEIU Oregon strike, Nevada election observers, Iraq/Iran sanctions exemption) bị loại vì kiểm lại nội dung không khớp ngày agent nêu (SEIU thực ra hẹn họp 24/9 không phải 27/9) hoặc ngày đăng thật ngoài khung (Iraq/Iran 26/09)."
-    },
-    {
-      "name": "Địa bàn › Anh",
-      "count": 5,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Địa bàn › Australia",
-      "count": 3,
-      "target": "5",
-      "min": 5,
-      "thieu": true,
-      "reason": "Đã tìm nhiều nguồn (ASPI Strategist, Crikey, SMH politics/federal, ABC News AU, defence.gov.au, minister.defence.gov.au) nhưng phần lớn tin Australia đúng ngày 27-28/09 hoặc TRÙNG tin đã nạp trước đó trong ngày (add_news.py chặn trùng URL 2 lần liên tiếp: 'Ghost Bat AI chỉ huy silicon' và 'RASWDC'-tương-tự) hoặc không neo đủ rõ vào Úc/AUKUS (ASPI bài về Nhật-Đài Loan). Còn 3 tin: triệu tập OpenAI/Anthropic ra Quốc hội (Straits Times), hợp tác quân sự Australia-Bangladesh, giáo sĩ cực đoan kêu gọi 'cầm vũ khí' (SMH)."
-    },
-    {
-      "name": "Địa bàn › Biển Đông",
-      "count": 5,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "KHCN-QS",
-      "count": 3,
-      "target": "5",
-      "min": 5,
-      "thieu": true,
-      "reason": "0 diễn biến tập trận để cộng vào mục này (xem chủ đề Tập trận, cũng 0). Nạp được 3 tin CNQS Mỹ (DC Circuit giữ nguyên lệnh cấm Anthropic của Lầu Năm Góc; Thủy quân lục chiến lắp jammer Anduril Pulsar-L cho xe đổ bộ ACV; NORTHCOM thử chống drone đô thị lần đầu). Nhiều ứng viên khác (tên lửa siêu vượt âm Blackbeard, RASWDC, hợp đồng Lockheed qua war.gov, laser Cape Canaveral) bị loại: 2 TRÙNG tin đã có trong DATA, 2 bị cổng ngày đăng thật chặn (war.gov không lộ metadata; Defense One — agent ghi ngày 26/09 nhưng kiểm lại bài đăng thật 18/09, quá cũ)."
-    },
-    {
-      "name": "Mỹ – Mali",
-      "count": 0,
-      "target": "2-5",
-      "min": 0,
-      "thieu": false,
-      "reason": "Không mang sàn. 21 ứng viên GNEWS chủ đề Mỹ-Mali đều lạc đề (Barrick Mining gold deal, bóng đá Transfermarkt, chính trị nội bộ Niger/Burkina Faso không liên quan Mỹ). WebSearch bổ sung tìm được diễn biến JNIM/Sahel thật (tấn công Sévaré 20/09, phong toả nhiên liệu Bamako) nhưng đều ngoài khung 27-28/09 và không có góc Mỹ (không kích/AFRICOM/CENTCOM)."
-    },
-    {
-      "name": "Tập trận",
-      "count": 0,
-      "target": "1-2",
-      "min": 0,
-      "thieu": false,
-      "reason": "Không mang sàn. Toàn bộ 15 cuộc tập trận 'ongoing' trong DATA.exercises thực ra đã kết thúc trước 25/09 (đã dò lại từng cuộc bằng WebSearch). Phát hiện phụ: Yudh Abhyas 2026 (Mỹ-Ấn, bế mạc 28/09) đang thật sự diễn ra nhưng CHƯA có tên trong DATA.exercises — cần event-scan hoặc do_tap_tran_thieu.py xử lý bổ sung cuộc này ở bước sau."
-    }
+    {"name": "Đối ngoại Mỹ", "count": 5, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Nội bộ Mỹ", "count": 7, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Anh", "count": 5, "target": "3", "min": 3, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 7, "target": "3", "min": 3, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Biển Đông", "count": 5, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "KHCN-QS", "count": 5, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Mỹ – Mali", "count": 0, "target": "2-5", "min": 0, "thieu": false, "reason": "Không mang sàn. 45 ứng viên harvest hầu hết là tranh chấp lao động mỏ vàng Barrick/thể thao/ngoại giao chung không liên quan quân sự; không tìm được diễn biến Mỹ cân nhắc/triển khai quân sự nhắm JNIM trong khung 28-29/09."},
+    {"name": "Tập trận đang diễn ra", "count": 0, "target": "1-2", "min": 0, "thieu": false, "reason": "Không mang sàn. 4 cuộc đang bám (Varuna 2026, Veer Guardian 2026, SEACAT 2026, diễn tập Hạm đội Thái Bình Dương Nga) nhưng không có diễn biến MỚI đạt chuẩn xác minh trong khung 28-29/09."}
   ],
-  "note": "Nguyên nhân xuyên suốt: 27-28/09/2026 rơi vào cuối tuần Mỹ (Chủ Nhật + đầu tuần) nên nguồn chính thức Mỹ (Quốc hội, State Dept, DoD) gần như im ắng; nhiều ứng viên GNEWS/agent đề xuất bị cổng NGÀY ĐĂNG THẬT (ngay_that.py) chặn vì trang không lộ metadata ngày cho scraper (state.gov, bloomberg.com, war.gov) hoặc agent tự ghi sai ngày thực (đã kiểm lại bằng WebFetch/WebSearch trước khi nạp, không lùi ngày batch để lách). Xem logs/loai-tin.md mục 2026-09-28 cho chi tiết 3 tin Báo Mới trùng đã loại + 3 tin RAF Fairford đã xử lý qua nguồn gốc thật (không dùng link Báo Mới). Item TWZ 'Anduril Pulsar-L cho ACV' bị add_news.py cảnh báo nghi trùng (Jaccard 0.69) với tin đã có 'Thuỷ quân lục chiến Mỹ chọn Anduril...Pulsar-L' — có thể là cùng sự kiện diễn đạt lại, Huy nên xem lại nếu thấy lặp trên web."
+  "note": "Tất cả 6 mục/tiểu mục có sàn cứng đều đạt hoặc vượt sàn (đo bằng make_docx.build_sections trên dữ liệu thật vừa nạp). Trong lúc chèn lô, add_news.py chặn 9 tin qua CỔNG NGÀY ĐĂNG THẬT (7 trang không lộ metadata ngày cho scraper — axios.com, timesofisrael.com, sec.gov, thehill.com x2, ustr.gov, rtx.com — đã tìm nguồn thay thế cùng sự kiện có metadata sạch cho phần lớn, bỏ hẳn 2 tin ít thiết yếu SEC Zoe Financial và USTR-Mexico; 2 tin worldNews ASPI/Conversation có ngày đăng thật là 27/09, ngoài khung, đã thay bằng 2 bài khác cùng nguồn/chủ đề đúng ngày). Sau khi nạp, cảnh báo Jaccard phát hiện 1 tin TRÙNG THẬT (Kongsberg NSM 404 triệu USD trùng contract đã đăng 25/09 qua defence-blog.com) — đã gỡ khỏi index.html. Cổng Báo Mới xử lý đủ 6/6 ứng viên: 1 tin (RAF Fairford) truy về gốc thành công qua Counter Terrorism Policing UK; 5 tin còn lại loại có lý do (2 bài giải thích lịch sử khí tài VH-92A/SR-71 không gắn sự kiện, 2 bản trùng tin Nga-Nhật cảnh báo Typhon không neo được vào 5 chủ đề đang quét, 1 tin Đài Loan không xác minh được ngày trong khung) — chi tiết logs/loai-tin.md mục 'Phiên sáng sớm 29/09/2026'."
 }

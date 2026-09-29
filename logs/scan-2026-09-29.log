@@ -1,1 +1,5 @@
 [00:36Z] START (CI) - phien sang som web-scan
+[00:40Z] harvest.py: 426 ung vien, telegram_harvest.py OK
+[01:02Z] agent 5 chu de xong: Noi bo My 12, Uc&BD&Anh 17, CNQS 6, Mali 0, Tap tran 0
+[01:08Z] add_news.py: +16 worldNews +17 usNews (gop RAF Fairford tu Bao Moi), go 1 tin trung that (Kongsberg NSM), tat ca 6 muc/tieu muc dat san
+[01:08Z] gh workflow run telegram-bot.yml bi chan (requires approval) - chua kich duoc bot Jay Lam, tin_jaylam.py --liet-ke exit 10 (khong co file trong khung, bo qua)
