@@ -1477,3 +1477,26 @@ Ghi chú phiên này: đã dùng `--bo-cong-ngay-that` cho 4 tin (Bloomberg, UST
 - [CNQS Mỹ/BM] "Nga cảnh báo hậu quả nếu Nhật (Bản) không rút các hệ thống tên lửa Mỹ sau tập trận" (VietnamNet + TTXVN, 2 bản trùng sự kiện) — xác minh: sự kiện gốc là phát ngôn Thứ trưởng Ngoại giao Nga Rudenko (qua Tass/RT) về việc Nhật không rút hệ thống Typhon khỏi Kyushu sau diễn tập chung với Mỹ. KHÔNG neo được vào 5 chủ đề đang quét (không phải Nội bộ Mỹ, không phải Úc/Anh/Biển Đông — Kyushu không thuộc vùng biển này, đây là tranh chấp Nga-Nhật thuần tuý; không phải CNQS Mỹ vì trọng tâm là phản ứng ngoại giao Nga chứ không phải khí tài). Nguồn chính cũng chỉ có Tass/RT/Tasnim (truyền thông nhà nước Nga/Iran) không có nguồn độc lập thứ hai xác nhận diễn biến mới nhất 28/09. Loại cả hai bản.
 - [Úc & Biển Đông/BM] "Đài Loan xây 'bãi thử' để công nghệ nhanh ra thị trường" (TTXVN/Báo Mới) — không tìm được bài gốc tiếng Anh xác nhận đúng ngày; nguồn gần nhất tìm được (Digitimes — Taiwan Innotech Expo, drone dual-track growth) đăng 17/09 và 21/09/2026, ngoài khung 28-29/09. Loại.
 - [Địa bàn Anh/BM] "Anh: 5 nghi phạm khủng bố gần căn cứ không quân Mỹ đều là người London" (VietnamPlus/Báo Mới) — TRUY VỀ GỐC THÀNH CÔNG: nạp qua nguồn chính thức Counter Terrorism Policing UK (thông cáo cập nhật điều tra RAF Fairford 28/09/2026), kèm `_baomoiUrl` trỏ về bài Báo Mới gốc.
+
+## Phiên sáng sớm 2026-10-01 (CI)
+- [Nội bộ Mỹ] "Thượng viện điều trần khủng hoảng chính trị Nicaragua" (foreign.senate.gov) — CỔNG NGÀY THẬT chặn: trang không lộ metadata ngày đọc được. Chưa kịp tìm dateProofUrl trước hạn chót 04:45.
+- [Nội bộ Mỹ] "Ngoại trưởng Rubio thăm Ecuador" (state.gov) — cùng lý do: thiếu metadata ngày.
+- [Nội bộ Mỹ] "Modi điện đàm Trump" (Bloomberg) — cùng lý do: thiếu metadata ngày (khả năng do paywall chặn bot đọc metadata).
+- [Nội bộ Mỹ] "Uỷ ban Tư pháp Thượng viện điều trần đề cử thẩm phán" (judiciary.senate.gov) — cùng lý do: thiếu metadata ngày.
+- [Nội bộ Mỹ] "Trump công du vận động Alaska trước bầu cử" (thehill.com) — cùng lý do: thiếu metadata ngày.
+- [Nội bộ Mỹ] "Sắc lệnh đổi tên AI thành Siêu trí tuệ" (whitehouse.gov) — CỔNG NGÀY THẬT chặn: ngày thật 29/9, cũ hơn 1 ngày so batch 1/10.
+- [Địa bàn Anh] "Hải quân Anh phóng ngư lôi từ UUV XV Excalibur" (Naval News) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày.
+- [Địa bàn Anh] "Bộ Quốc phòng Anh trao hợp đồng OSI Maritime" (UK Defence Journal) — TRÙNG URL đã có sẵn trong DATA từ phiên trước, bỏ khỏi lô lần này.
+- [Địa bàn Anh] "Bộ Quốc phòng Anh: vũ khí hạt nhân không gian vi phạm luật quốc tế" (UK Defence Journal) — CỔNG NGÀY THẬT chặn: ngày thật 29/9, cũ hơn 1 ngày so batch.
+- [Địa bàn Australia] "Chính phủ Úc rà soát an ninh mạng sau vụ AI OpenAI xâm nhập Medicare" (ABC News) — CỔNG NGÀY THẬT chặn: ngày thật 29/9, cũ hơn 1 ngày so batch.
+- [Địa bàn Australia] "DNV khai trương Trung tâm Hải quân ANZ" (Australian Defence Magazine) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày.
+- [Địa bàn Australia] "ASPI: năng lực rà phá thuỷ lôi Úc suy yếu" (ASPI Strategist) — CỔNG NGÀY THẬT chặn: ngày thật 29/9, cũ hơn 1 ngày so batch.
+- [Địa bàn Biển Đông] "Philippines rà soát an ninh nội bộ sau rò rỉ tin Bãi Cỏ Mây" (Manila Bulletin) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày.
+- [Địa bàn Biển Đông] "Philippines nghi Trung Quốc giả mạo thư Bộ trưởng Teodoro" (BusinessMirror) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày.
+- [Địa bàn Biển Đông] "Philippines xua đuổi dân quân biển TQ gần đảo Kota" (Philstar) — CỔNG NGÀY THẬT chặn: ngày thật 29/9, cũ hơn 1 ngày so batch.
+- [Mỹ – Mali] "Amnesty International: quân đội Mali/Wagner phạm tội ác chiến tranh" (amnesty.org) — CỔNG NGÀY THẬT chặn: ngày thật 29/9, ngoài khung hôm nay+hôm qua (2 ngày).
+- [CNQS Mỹ/BM] "VH-92A Patriot mạnh đến đâu so với S-92" (An Ninh Thủ Đô/Báo Mới) — bài so sánh kỹ thuật, không có sự kiện để neo. Loại.
+- [CNQS Mỹ/BM] "Mỹ: Lạm phát lõi chạm 3%, Fed có thể nâng lãi suất" (VietnamPlus/Báo Mới) — bài gốc BEA.gov CỔNG NGÀY THẬT chặn (thiếu metadata ngày). Không kịp tìm dateProofUrl trước hạn chót.
+- [Địa bàn Anh/BM] "Thủ tướng Anh để ngỏ tái gia nhập EU" (Mekong Asean/Báo Mới) — TRÙNG sự kiện với bản đã nạp qua CP24 (dẫn AP), giữ 1 bản. Loại bản Mekong Asean.
+- [CNQS Mỹ/BM] "Hàn Quốc ra mắt tàu khu trục Aegis Gwanggaeto-III Batch-II" (VietnamPlus/Báo Mới) — kiểm nội dung: dự án tự thiết kế/tự chế tạo của Hàn Quốc, không có góc công nghệ/hợp tác Mỹ. Không neo được CNQS Mỹ. Loại.
+- [CNQS Mỹ/BM] "Maroc tăng tốc hiện đại hoá không quân với tên lửa Mỹ" (TTXVN/Báo Mới) — bài gốc Morocco World News xác nhận hợp đồng AMRAAM nhưng ngày ký thật là 22/9/2026, quá cũ so khung CNQS 3 ngày (28/9-1/10). Loại.

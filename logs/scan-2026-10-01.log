@@ -1,2 +1,5 @@
 [21:00Z] START (CI) phien sang som
-[04:05] SKIP (local) web-scan - phien khac dang chay (nhip tim 2' truoc, bat dau 2026-10-01T04:00:44+07:00)
+[21:07Z] harvest.py + telegram_harvest.py xong: 571 ung vien harvest + 13 ung vien telegram
+[21:12Z] giao 5 agent song song (Noi bo My, Uc & Bien Dong, CNQS My, Mali+tap tran, Bao Moi)
+[21:27Z] ca 5 agent xong, review + gop ket qua
+[21:31Z] add_news.py: +8 the gioi, +11 My, +1 tap tran. Cong NGAY THAT chan 15/29 tin dot dau. Sat han chot 04:45 -> chot lo dang co

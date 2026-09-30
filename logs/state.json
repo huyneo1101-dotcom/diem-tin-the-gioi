@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-01T04:00:44+07:00",
+    "lastRunAt": "2026-10-01T04:31:56+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+19 tin (5 chu de), Nga Uc Anh Bien Dong Noi bo My duoi san do cong ngay that",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-09-30"
-    },
-    "heartbeat": "2026-10-01T04:17:50+07:00"
+      "sang": "2026-10-01"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-09-30T04:30:55+07:00",
