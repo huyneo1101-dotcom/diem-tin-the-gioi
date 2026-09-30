@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-10-01T04:32:10+07:00",
+    "lastRunAt": "2026-10-01T04:38:33+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran moi (KAZIND-2026), +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-09-30"
-    },
-    "heartbeat": "2026-10-01T04:38:00+07:00"
+      "sang": "2026-10-01"
+    }
   }
 }
