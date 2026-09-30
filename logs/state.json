@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-09-30T04:21:00+07:00",
+    "lastRunAt": "2026-10-01T04:00:44+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+24 tin (5 chu de): +9 the gioi +15 My. Gap: Doi ngoai My/Anh/Australia/Bien Dong duoi san do cong ngay that",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-09-30"
-    }
+    },
+    "heartbeat": "2026-10-01T04:00:44+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-09-30T04:30:55+07:00",
