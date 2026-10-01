@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-01T07:06:18+07:00",
+  "tao_luc": "2026-10-01T07:46:54+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-09-30",
@@ -201,14 +201,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-29",
-      "tieu_de": "Trung Quốc thu được gì từ lô linh kiện F-35 thất lạc ở Hong Kong",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/trung-quoc-thu-duoc-gi-tu-lo-linh-kien-f-35-that-lac-o-hong-kong-5125380.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "?",
       "tieu_de": "Ông Hegseth sắp cắt 20% sĩ quan cấp tướng trong quân đội Mỹ",
       "nguon": "Tuổi Trẻ",
@@ -309,14 +301,6 @@
       "tieu_de": "Pentagon task force, Army announce billions in counter-drone tech awards",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/09/29/pentagon-task-force-army-announce-billions-in-counter-drone-tech-awards/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-09-29",
-      "tieu_de": "Medical Readiness Command – Europe civilian honored with 2026 Spirit of Hope Award at Pentagon Ceremony",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/295748/medical_readiness_command_europe_civilian_honored_with_2026_spirit_of_hope_award_at_pentagon_ceremony"
     },
     {
       "lop": "RSS",
@@ -849,6 +833,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-01",
+      "tieu_de": "Thủ tướng Anh: Iran liên quan nghi án tấn công căn cứ không quân",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/thu-tuong-anh-iran-lien-quan-nghi-an-tan-cong-can-cu-khong-quan-5126865.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-09-30",
       "tieu_de": "Indonesia rúng động vì bê bối 'buồng giam như biệt thự'",
       "nguon": "VnExpress",
@@ -1122,7 +1114,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-01",
-      "tieu_de": "Call for big tech to pay for Australian-made AI",
+      "tieu_de": "AI leaders warn US 'tech bros' must be forced to invest in Australia",
       "nguon": "ABC News Australia",
       "url": "https://www.abc.net.au/news/2026-10-01/unions-want-big-tech-to-pay-levy-to-build-australian-owned-ai/107207158"
     },
@@ -1154,7 +1146,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-01",
-      "tieu_de": "Australia news live: ATO finds one-quarter of big firms pay zero tax; almost one in two homebuyers using 5% deposit scheme",
+      "tieu_de": "Australia news live: Shoebridge welcomes Faruqi working outside Greens leadership team; recruitment for Antarctic jobs opens",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/live/2026/oct/01/labor-anthony-albanese-ato-ndis-thriving-kids-coalition-greens-leader-david-shoebridge-ntwnfb"
     },
@@ -1229,6 +1221,14 @@
       "tieu_de": "Can Burnham save Britain? Finally, he reveals his plans – with one glaring omission",
       "nguon": "Sydney Morning Herald — World",
       "url": "https://www.smh.com.au/world/europe/can-burnham-save-britain-finally-he-reveals-his-plans-with-one-glaring-omission-20260930-p611kb.html?ref=rss&utm_medium=rss&utm_source=rss_world"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-01",
+      "tieu_de": "What Ireland’s cautionary tale on data centres can teach Australia",
+      "nguon": "Crikey (Úc)",
+      "url": "https://www.crikey.com.au/2026/10/01/data-centre-australia-ireland-energy-use-electricity-bill/"
     },
     {
       "lop": "RSS",
@@ -1341,6 +1341,14 @@
       "tieu_de": "Pahang’s ‘piranha’ mystery: Unconfirmed reports trigger public alarm in Malaysia",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/se-asia/unconfirmed-pahang-piranha-sightings-spark-public-alarm-concerns-over-invasive-species"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-01",
+      "tieu_de": "Philippines central bank braces for ‘Godzilla’ El Niño",
+      "nguon": "Financial Times — World",
+      "url": "https://www.ft.com/content/390fafe6-88bf-4564-978d-4774e2b75e8d?syn-25a6b1a6=1"
     },
     {
       "lop": "RSS",
@@ -1717,6 +1725,24 @@
       "tieu_de": "SEC Proposes Amendments to Expand Responsible Retailization of Private Markets",
       "nguon": "SEC",
       "url": "https://www.sec.gov/newsroom/press-releases/2026-96-sec-proposes-amendments-expand-responsible-retailization-private-markets",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-01",
+      "tieu_de": "Ambassador Greer's Opening Remarks at the G20 Trade Ministerial",
+      "nguon": "USTR",
+      "url": "https://ustr.gov/about/policy-offices/press-office/speeches-and-remarks/2026/september/ambassador-greers-opening-remarks-g20-trade-ministerial",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-01",
+      "tieu_de": "September",
+      "nguon": "USTR",
+      "url": "https://ustr.gov/about/policy-offices/press-office/speeches-and-remarks/2026/september",
       "nhom": 9
     },
     {
