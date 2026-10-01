@@ -13,6 +13,12 @@
 - [US/BM] "Lầu Năm Góc bất ngờ ra chỉ thị quan trọng liên quan đến cuộc bầu cử giữa kỳ" (VietTimes) — TRÙNG sự kiện đã nạp qua nguồn gốc The Hill "Exclusive: Hegseth directs Defense Dept. to fight foreigners who meddle in U.S. elections" (28/9, ngoài khung 2 ngày nên không nạp lại ở đây).
 - [US/BM] "Ông Trump bác tin đề nghị nới lỏng trừng phạt Iran..." (VietnamNet/Tiền Phong/Lào Cai, 3 bài) — TRÙNG sự kiện đã nạp qua nguồn gốc tốt hơn (The Hill, dateProofUrl rte.ie).
 - [TG/BM] "Hàn Quốc coi việc phát triển, sử dụng và vận hành tàu ngầm hạt nhân là chiến lược quốc gia" (Báo TG&VN) — thuần nội bộ Hàn Quốc, không neo được vào Úc/AUKUS/Anh/Biển Đông (siết 01/08/2026).
+
+## 2026-10-02 (phiên sáng sớm local) — cổng Báo Mới
+
+- [CNQS/BM] "Elon Musk tái xuất chính quyền Trump, cùng Lầu Năm Góc định hình chiến tranh tương lai" (VietTimes) — TRÙNG sự kiện đã nạp qua nguồn gốc tốt hơn ("Hegseth công bố lập Bộ Chỉ huy Chiến tranh Tự hành 4 sao, giao Musk-Luckey-Gingrich nghiên cứu chiến tranh tương lai", bài phát biểu Quantico 29-30/9).
+- [TG/BM] "Kim ngạch xuất nhập khẩu Việt Nam - Malaysia tăng trưởng ấn tượng" (Báo Tin Tức TTXVN) — tin thương mại song phương VN-Malaysia, không neo được vào Úc/AUKUS/Anh/vùng biển & thực thể Biển Đông (siết 01/08/2026) — chỉ là số liệu xuất nhập khẩu, không liên quan an ninh/chủ quyền.
+- [CNQS/BM] "Trung Quốc mô phỏng công nghệ laser phát hiện tiêm kích F-35 từ xa" (Tạp chí Điện tử & Ứng dụng) — chủ đề CNQS Mỹ chỉ nhận khí tài/hệ thống CỦA MỸ; đây là công nghệ đối phó của Trung Quốc, không phải khí tài Mỹ — ngoài phạm vi chủ đề 3.
 - [TG/BM] "Indonesia và KF-21: Vì sao Hàn Quốc muốn đưa Boramae ra thị trường quốc tế?" (An Ninh Thủ Đô) — góc nhìn chiến lược xuất khẩu của HÀN QUỐC, không đủ neo cụ thể vào Indonesia/Biển Đông.
 - [US] "Cựu công tố viên đặc biệt Jack Smith điều trần Thượng viện" (The Hill) — cổng ngày thật chặn (trang không in ngày đọc được, không tìm kịp dateProofUrl trong hạn chót).
 - [US] "Trump ký sắc lệnh đổi tên AI thành 'siêu trí tuệ'" (Breaking Defense) — ngày đăng thật 22/09 (đọc bằng datePublished), ngoài khung 2 ngày.

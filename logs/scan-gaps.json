@@ -1,15 +1,20 @@
 {
-  "date": "2026-10-01",
+  "date": "2026-10-02",
   "session": "sang",
   "topics": [
-    {"name": "Đối ngoại Mỹ", "count": 3, "target": "5", "min": 5, "thieu": true, "reason": "Ba tin đủ điều kiện thật (Nicaragua hearing, Rubio-Ecuador, Modi-Trump) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang gốc (foreign.senate.gov, state.gov, bloomberg.com) không lộ metadata ngày đọc được, và chưa kịp tìm dateProofUrl trước hạn chót 04:45. Chỉ 3 tin (thuế quan, OFAC, Nga sanctions) qua được nhờ neo từ khoá đối ngoại."},
-    {"name": "Nội bộ Mỹ", "count": 1, "target": "5", "min": 5, "thieu": true, "reason": "Cùng nguyên nhân cổng ngày thật: Judiciary hearing (judiciary.senate.gov), Trump Alaska (thehill.com) và Super Intelligence EO (whitehouse.gov, ngày thật 29/9 cũ hơn 1 ngày so batch) đều bị chặn. Chỉ còn tin Powell/Fed (CNBC) qua được."},
-    {"name": "Địa bàn › Anh", "count": 3, "target": "5", "min": 5, "thieu": true, "reason": "Tin XV Excalibur (Naval News) bị chặn vì thiếu metadata ngày; tin vũ khí hạt nhân không gian (UK Defence Journal) bị chặn vì ngày thật 29/9, cũ hơn 1 ngày so batch; tin OSI Maritime (UK Defence Journal) trùng URL đã có sẵn trong DATA từ phiên trước. Còn 3 tin (RAF Fairford, Ngân hàng Anh, Burnham/EU)."},
-    {"name": "Địa bàn › Australia", "count": 3, "target": "5", "min": 5, "thieu": true, "reason": "Tin Medicare/OpenAI breach và ASPI rà phá thuỷ lôi bị chặn vì ngày thật 29/9 (cũ hơn 1 ngày so batch 1/10); tin DNV ANZ Naval Centre bị chặn vì thiếu metadata ngày. Còn 3 tin (Marles interview, RAAF Williamtown, ATO tax)."},
-    {"name": "Địa bàn › Biển Đông", "count": 2, "target": "5", "min": 5, "thieu": true, "reason": "Tin Manila Bulletin và BusinessMirror bị chặn vì thiếu metadata ngày; tin Philstar (đảo Kota) bị chặn vì ngày thật 29/9. Còn 2 tin (AFP Trinidad, GMA Batanes)."},
-    {"name": "KHCN-QS", "count": 6, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Mỹ – Mali", "count": 1, "target": "2-5", "min": 0, "thieu": false, "reason": "1 tin JNIM/Africa Corps nạp được; tin Amnesty International (tội ác chiến tranh Mali/Wagner) bị loại vì ngày thật 29/9, cách hôm nay (1/10) 2 ngày, ngoài khung hôm nay+hôm qua."},
-    {"name": "Tập trận đang diễn ra", "count": 1, "target": "1-2", "min": 0, "thieu": false, "reason": ""}
+    {"name": "Đối ngoại Mỹ", "count": 3, "target": "5", "min": 5, "thieu": true,
+     "reason": "Sau 2 vòng bổ sung, nhiều tin đối ngoại Mỹ đạt chuẩn nội dung (họp kín Venezuela của Ủy ban Đối ngoại Thượng viện, điều trần Ủy ban Ngân hàng) bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang gốc (notus.org, banking.senate.gov, thenationalnews.com, thehill.com) không lộ metadata ngày đọc được hoặc ngày thật lệch khung. Chỉ 3 tin (trừng phạt ô tô/đường sắt Iran, ICC/bảo hiểm Pháp, USTR-Nga) qua cổng."},
+    {"name": "Nội bộ Mỹ", "count": 5, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Anh", "count": 7, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 4, "target": "5", "min": 5, "thieu": true,
+     "reason": "Sau 1 vòng bổ sung, thêm được 3 tin đạt chuẩn (QinetiQ/Excalibur AUKUS, Úc-Ấn đàm phán quân sự, Wantok Warrior PNG) nhưng tin Wantok Warrior lại bị cổng ngày thật chặn vì agent dẫn nhầm URL trang cũ (defence.gov.au, 25/6). Còn 4 tin: 2 tin cũ (Marles SRF-West, RAAF Williamtown) + 2 tin mới (EU envoy, QinetiQ/Excalibur)."},
+    {"name": "Địa bàn › Biển Đông", "count": 3, "target": "5", "min": 5, "thieu": true,
+     "reason": "Mở 2 vòng tìm thêm (WebSearch trực tiếp UNGA/Scarborough/COC/các nước ven biển) nhưng phần lớn ứng viên hoặc trùng sự kiện đã nạp (Batanes, UNGA, Scarborough) hoặc có ngày thật ngoài khung (nhiều bài South China Sea tái dùng tiêu đề của năm 2024/2025). Còn 3 tin: Philippines-Batanes, UNGA Philippines-TQ, TQ tuần tra Scarborough."},
+    {"name": "KHCN-QS", "count": 7, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Mỹ – Mali", "count": 1, "target": "2-5", "min": 0, "thieu": false,
+     "reason": "1 tin (Ukraine drone/FLA tại Mali) nạp được; tin Amnesty International (tội ác chiến tranh Mali/Africa Corps) bị cổng ngày thật chặn vì ngày thật 29/9, cách hôm nay (2/10) 3 ngày, ngoài khung hôm nay+hôm qua."},
+    {"name": "Tập trận đang diễn ra", "count": 0, "target": "1-2", "min": 0, "thieu": false,
+     "reason": "Hai diễn biến tìm được (KAZIND-2026 ngày 28/9, Nomadic Elephant 2026 ngày 26/9) đều ngoài khung hôm nay+hôm qua (quá cũ 4-6 ngày) nên không nạp; mục này trống là đúng theo quy tắc không bịa tin ngoài khung."}
   ],
-  "note": "Phiên chạm CỔNG NGÀY ĐĂNG THẬT rất nặng tay: lô đầu 29 tin bị chặn 15 (10 tin do trang không lộ metadata ngày readable — nhiều nguồn .gov/.senate.gov/Bloomberg không có og:published_time hay <time datetime>; 5 tin do ngày thật cũ hơn 1 ngày so batch dù ngày agent khai ban đầu nằm trong khung). Đáng lẽ nên bổ sung `dateProofUrl` cho nhóm thiếu metadata thay vì bỏ thẳng, nhưng sát hạn chót 04:45 nên chốt lô đã qua cổng, ghi gap ở đây thay vì trễ bản tin. Chi tiết tin bị loại: logs/loai-tin.md. Cổng Báo Mới còn 5 ứng viên CHƯA xử lý (VH-92A Patriot — không có sự kiện để neo; PCE lạm phát lõi — bị chặn cổng ngày thật cùng đợt; Burnham/EU bản Mekong Asean — trùng bản đã nạp qua CP24; tàu khu trục Hàn Quốc Gwanggaeto-III — không neo được CNQS Mỹ vì thuần nội bộ Hàn; Maroc AMRAAM — ngày hợp đồng thật 22/9 quá cũ) — để lại cho phiên sau trong hạn hiệu lực 3 ngày."
+  "note": "Phiên chạm CỔNG NGÀY ĐĂNG THẬT nặng tay giống hệt mẫu hình phiên 01/10: nhiều nguồn .gov/.senate.gov/notus.org/thehill.com/thenationalnews.com không lộ metadata ngày đọc được (og:published_time/<time datetime>), bị chặn dù nội dung đúng và đúng khung ngày theo RSS. Đã chạy 2 vòng bổ sung agent (chuẩn theo SKILL.md 'không lặp vô hạn, 1-2 vòng là đủ') trước khi chốt lô. Cổng Báo Mới: 3 ứng viên đã xử lý — Elon Musk Pentagon (TRÙNG tin Hegseth/Bộ Chỉ huy Chiến tranh Tự hành đã nạp) · Kim ngạch VN-Malaysia (không neo được chủ đề 2) · TQ laser chống F-35 (không phải khí tài Mỹ, ngoài phạm vi CNQS Mỹ) — cả 3 loại, ghi logs/loai-tin.md. Cổng bài 👍: không có bài nào cần xử lý."
 }
