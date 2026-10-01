@@ -1500,3 +1500,17 @@ Ghi chú phiên này: đã dùng `--bo-cong-ngay-that` cho 4 tin (Bloomberg, UST
 - [Địa bàn Anh/BM] "Thủ tướng Anh để ngỏ tái gia nhập EU" (Mekong Asean/Báo Mới) — TRÙNG sự kiện với bản đã nạp qua CP24 (dẫn AP), giữ 1 bản. Loại bản Mekong Asean.
 - [CNQS Mỹ/BM] "Hàn Quốc ra mắt tàu khu trục Aegis Gwanggaeto-III Batch-II" (VietnamPlus/Báo Mới) — kiểm nội dung: dự án tự thiết kế/tự chế tạo của Hàn Quốc, không có góc công nghệ/hợp tác Mỹ. Không neo được CNQS Mỹ. Loại.
 - [CNQS Mỹ/BM] "Maroc tăng tốc hiện đại hoá không quân với tên lửa Mỹ" (TTXVN/Báo Mới) — bài gốc Morocco World News xác nhận hợp đồng AMRAAM nhưng ngày ký thật là 22/9/2026, quá cũ so khung CNQS 3 ngày (28/9-1/10). Loại.
+- [CNQS Mỹ/BM] "Elon Musk tái xuất chính quyền Trump, cùng Lầu Năm Góc định hình chiến tranh tương lai" (VietTimes/Báo Mới) — TRÙNG sự kiện với tin đã nạp 30/9 "Hegseth công bố lập Bộ Chỉ huy Chiến tranh Tự hành 4 sao, giao Musk-Luckey-Gingrich nghiên cứu chiến tranh tương lai". Loại.
+- [Địa bàn/BM] "Kim ngạch xuất nhập khẩu Việt Nam - Malaysia tăng trưởng ấn tượng" (Báo Tin Tức TTXVN/Báo Mới) — thuần thương mại song phương VN-Malaysia, không neo được an ninh/quốc phòng/Biển Đông theo phạm vi chủ đề 2. Loại.
+- [CNQS Mỹ/BM] "Trung Quốc mô phỏng công nghệ laser phát hiện tiêm kích F-35 từ xa" (Tạp chí Điện tử & Ứng dụng/Báo Mới) — khí tài/công nghệ của TRUNG QUỐC, không phải của MỸ nên không thuộc phạm vi "CNQS Mỹ". Loại.
+- [Nội bộ Mỹ] "Trump sắc lệnh đổi tên AI thành Super Intelligence" (whitehouse.gov) — CỔNG NGÀY THẬT chặn: ngày thật 29/9, cũ hơn 1 ngày so batch 2/10.
+- [Nội bộ Mỹ] "Dự báo bầu cử giữa nhiệm kỳ Decision Desk HQ" (The Hill) — CỔNG NGÀY THẬT chặn: ngày thật 30/9, cũ hơn 1 ngày so batch.
+- [Đối ngoại Mỹ] "Mỹ mở Operation Economic Outcast trừng phạt mạng lưới né cấm vận Iran" (state.gov) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Đối ngoại Mỹ] "Ngoại trưởng Rubio công du Iceland, Hy Lạp, Bồ Đào Nha" (state.gov) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Nội bộ Mỹ] "Uỷ ban Đối ngoại Thượng viện họp kín tình hình Venezuela" (foreign.senate.gov) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Nội bộ Mỹ] "Trump không loại trừ viện dẫn Đạo luật Chống nổi loạn quanh bầu cử" (thehill.com) — CỔNG NGÀY THẬT chặn: thehill.com không lộ metadata ngày cho cổng đọc.
+- [Nội bộ Mỹ] "Phó Chủ tịch Fed Jefferson: cần thêm thời gian trước khi nâng lãi suất" (thehill.com) — CỔNG NGÀY THẬT chặn: cùng lý do thehill.com.
+- [Nội bộ Mỹ] "Trump: chiến tranh Iran có thể khiến ông mất phiếu giữa nhiệm kỳ" (thehill.com) — CỔNG NGÀY THẬT chặn: cùng lý do thehill.com.
+- [Nội bộ Mỹ] "Brit Hume: Cộng hoà không có nhiều lợi thế trước bầu cử giữa nhiệm kỳ" (thehill.com) — CỔNG NGÀY THẬT chặn: cùng lý do thehill.com.
+- [CNQS Mỹ] "Northrop Grumman phát triển động cơ ramjet XRC chống drone" (news.northropgrumman.com) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Địa bàn Australia] "ASPI Fault Lines: Taiwan's arms hopes, Indonesia's carrier, Fiji's chiefs" (ASPI Strategist) — CỔNG NGÀY THẬT chặn: ngày thật 30/9, cũ hơn 1 ngày so batch 2/10.
