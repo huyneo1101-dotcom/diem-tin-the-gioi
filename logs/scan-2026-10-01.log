@@ -6,3 +6,4 @@
 [21:32Z] START event-scan (CI, gop vao sang som)
 [21:38Z] event-scan xong: +1 tap tran moi (KAZIND-2026 An Do-Kazakhstan), +5 bai think-tank (CSIS/Brookings/Wilson Center/CNAS/MP-IDSA), khong co su kien ngoai giao moi, khong co cap nhat tap tran dang chay. Khong phai Chu nhat nen bo qua bao cao tuan.
 [21:40Z] SKIP phien moi (CI) - web-scan claim exit 10 (DA XONG lan cuoi 04:31:56+07). Kiem ngoai le: so_da_gui --xem co dong 2026-10-01T04:39:19+07:00 [sang] 20 tin -> ban tin da toi tay that, khong phai co noi doi. event-scan claim exit 10 (DA XONG lan cuoi 04:38:33+07). Ca hai pipeline da hoan tat, ket thuc em.
+[00:11Z] SKIP phien moi lan 2 (CI, 07:11 gio VN) - web-scan claim exit 10 (DA XONG lan cuoi 04:31:56+07). so_da_gui --xem van thay dong 2026-10-01T04:39:19+07:00 [sang] 20 tin -> ban tin da toi tay that. event-scan claim exit 10 (DA XONG lan cuoi 04:38:33+07). Ca hai pipeline van da hoan tat, ket thuc em.
