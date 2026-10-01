@@ -1,2 +1,6 @@
 [21:00Z] START (CI) - phien sang som
 [21:05Z] claim web-scan (local) - RUN, giu khoa, quet tiep
+[21:20Z] DONE: +14 the gioi +15 My (5 chu de). Anh 5/Australia 4/BienDong 5, CNQS 9, Mali 2, tap tran 0. CI hoan tat va ghi state.json DONE truoc; neu phien local van dang quet thi claim ke tiep cua no se thay DONE va tu dung (exit 10).
+[21:22Z] START event-scan (CI, gop vao sang som)
+[21:27Z] DONE event-scan: +1 tap tran (Exercise Varuna 2026), +6 bai think-tank (ASPI/CEPA x2/Long War Journal/Jamestown/Lowy), 6/6 khai niem. Khong co su kien ngoai giao moi, khong phai Chu Nhat nen khong bao cao tuan.
+[21:28Z] web-scan claim (phien moi) -> exit 10 (DA XONG, lastRunAt 04:20:17+07). Kiem ngoai le: so_da_gui --xem co dong 2026-10-02T04:28:20+07 [sang] 30 tin + [sukien] 1 tin -> ban tin DA gui thuc. SKIP em, chuyen sang kiem event-scan (BUOC 6).
