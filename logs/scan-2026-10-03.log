@@ -10,3 +10,4 @@
 [21:37Z] NOTE: phat hien phien local cung claim event-scan luc ~21:35Z (state.json RUNNING) trong khi CI da DONE truoc do - giu nguyen ket qua CI (da xac minh, khong trung lap voi gi), merge log. Phien local se thay DONE va tu dung khi pull lai.
 [21:41Z] SKIP web-scan (CI moi): claim exit 10, da xong luc 04:27:58. Kiem so_da_gui --xem: co dong 2026-10-03T04:40:41+07:00 [sang] 33 tin, khop voi lastRunAt. Ban tin da toi tay thuc su, khong phai co noi doi.
 [21:41Z] CHUYEN SANG BUOC 6: claim event-scan.
+[21:41Z] SKIP event-scan (CI moi): claim exit 10, da xong luc 04:36:44 (+6 bai think-tank). Ca web-scan va event-scan hom nay deu da hoan tat thuc su. KET THUC EM.
