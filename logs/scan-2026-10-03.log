@@ -1,2 +1,4 @@
 [21:00Z] START (CI) - phien sang som
-[21:05Z] SKIP (local 04:05) - web-scan dang co phien khac chay (CI, nhip tim 1' truoc, bat dau 04:00:34)
+[22:15Z] WARN: khong kich duoc telegram-bot.yml (gh bi chan requires approval), di tiep voi du lieu Jay Lam co san
+[21:28Z] tin_jaylam --liet-ke: exit 10, khong co file Jay Lam, bo qua buoc loc
+[21:28Z] DONE web-scan: +33 tin (5 chu de) - doi ngoai My 5, noi bo My 6, Anh 6, Uc 4 (thieu, da ghi scan-gaps.json), Bien Dong 6, KHCN-QS 7, tap tran 1, Mali 0. Da phat hien va go 3 tin trung (XV Excalibur, Oklahoma, PrSM) sau khi nap - xem loai-tin.md
