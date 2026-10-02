@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-02T04:20:17+07:00",
+    "lastRunAt": "2026-10-03T04:00:34+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+14 the gioi +15 My (5 chu de) - Anh/Australia/BienDong 5/4/5, CNQS 9, Mali 2",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-02"
-    }
+    },
+    "heartbeat": "2026-10-03T04:00:34+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-02T04:27:23+07:00",
