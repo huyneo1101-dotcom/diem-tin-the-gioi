@@ -3,3 +3,4 @@
 [21:28Z] tin_jaylam --liet-ke: exit 10, khong co file Jay Lam, bo qua buoc loc
 [21:28Z] DONE web-scan: +33 tin (5 chu de) - doi ngoai My 5, noi bo My 6, Anh 6, Uc 4 (thieu, da ghi scan-gaps.json), Bien Dong 6, KHCN-QS 7, tap tran 1, Mali 0. Da phat hien va go 3 tin trung (XV Excalibur, Oklahoma, PrSM) sau khi nap - xem loai-tin.md
 [21:28Z] START event-scan (CI, gop vao sang som)
+[21:35Z] SKIP web-scan (local 04:35): CI da xong luc 04:27, claim exit 10. Khong lam lai.
