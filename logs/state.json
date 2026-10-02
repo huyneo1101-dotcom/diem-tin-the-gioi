@@ -19,10 +19,10 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-10-03T04:36:44+07:00",
+    "lastRunAt": "2026-10-03T04:51:43+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "+6 bai think-tank, 0 su kien/tap tran moi",
+    "note": "CI +6 bai think-tank (ORF, ISW, Carnegie, Egmont, USSC, PIIE); local bo sung +2 tap tran moi (Keen Sword 26, Interaction-2026 CSTO) + background cho 5 cuoc + 5 bai think-tank khac (Lowy, Atlantic Council, ASPI, Jamestown, Arms Control Association) + khai niem. Hai phien chay trung gio (xem loai-tin.md / log), khong trung noi dung.",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-10-03"
