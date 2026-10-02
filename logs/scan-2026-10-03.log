@@ -8,3 +8,5 @@
 [21:35Z] SKIP web-scan (local 04:35): CI da xong luc 04:27, claim exit 10. Khong lam lai.
 [21:36Z] DONE event-scan: +6 bai think-tank (ORF, ISW, Carnegie, Egmont, USSC, PIIE), +11 khai niem. Khong phai Chu nhat (thu 6), bo qua bao cao tuan.
 [21:37Z] NOTE: phat hien phien local cung claim event-scan luc ~21:35Z (state.json RUNNING) trong khi CI da DONE truoc do - giu nguyen ket qua CI (da xac minh, khong trung lap voi gi), merge log. Phien local se thay DONE va tu dung khi pull lai.
+[21:41Z] SKIP web-scan (CI moi): claim exit 10, da xong luc 04:27:58. Kiem so_da_gui --xem: co dong 2026-10-03T04:40:41+07:00 [sang] 33 tin, khop voi lastRunAt. Ban tin da toi tay thuc su, khong phai co noi doi.
+[21:41Z] CHUYEN SANG BUOC 6: claim event-scan.
