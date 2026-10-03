@@ -1526,3 +1526,20 @@ Ghi chú phiên này: đã dùng `--bo-cong-ngay-that` cho 4 tin (Bloomberg, UST
 - [Úc & Biển Đông] "XV Excalibur phóng ngư lôi AUKUS" (Zona Militar) — TRÙNG sự kiện đã nạp 23/9 từ Navy Lookout (cùng thử nghiệm 13/9), chỉ là bài đăng lại. Đã nạp nhầm rồi tự phát hiện và gỡ khỏi index.html ngay trong phiên.
 - [Nội bộ Mỹ] "Trump mở chiến dịch vận động tranh cử Oklahoma" (The Hill) — TRÙNG sự kiện đã nạp 1/10 "Trump khởi động chiến dịch vận động giữa nhiệm kỳ tại Texas và Oklahoma" (cùng ngày 1/10, cùng chuyến). Đã nạp nhầm rồi tự phát hiện và gỡ khỏi index.html ngay trong phiên.
 - [CNQS Mỹ] "Lục quân Mỹ chọn 5 công ty phát triển PrSM tầm xa trên biển" (USNI News) — TRÙNG sự kiện đã nạp 2/10 "Lục quân Mỹ chọn 5 công ty phát triển tên lửa PrSM thế hệ mới" (Military Times, cùng 5 công ty, cùng chương trình PrSM Increment 4). Đã nạp nhầm rồi tự phát hiện và gỡ khỏi index.html ngay trong phiên.
+- [Úc & Biển Đông] "BĐ Wes Streeting: Iran có ý định thù địch với Anh" (Bloomberg) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Úc & Biển Đông] "Thống đốc BoE cảnh báo bong bóng AI" (Bloomberg) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Úc & Biển Đông] "Dự báo nguồn điện Úc AEMO" (ABC News Australia) — ngày thật 2/10, cũ hơn 1 ngày so batch 4/10.
+- [Úc & Biển Đông] "AUKUS Pillar II 5 năm" (Shephard Media) — ngày thật đọc được là 2023, bài evergreen cũ, không phải tin thời sự.
+- [Úc & Biển Đông] "Malaysia hạ thuỷ tàu mẹ 3.300 tấn" (Defence Security Asia) — ngày thật đọc được 23/7/2026, quá cũ.
+- [Nội bộ Mỹ] "Mỹ trừng phạt mạng lưới tài trợ Hamas" (state.gov) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Nội bộ Mỹ] "Thượng viện dự kiến bỏ phiếu hạt nhân Saudi" (spokesman.com) — ngày thật 2/10, cũ hơn 1 ngày so batch.
+- [Nội bộ Mỹ] "G20 lên án vũ khí hoá lương thực" (USTR) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Nội bộ Mỹ] "Biểu tình phản đối nhập cư" (ABC News) — URL thật là bài 2017, agent dẫn nhầm link cũ. Loại.
+- [Nội bộ Mỹ] "Tài xế xe tải ngừng việc phản đối giá diesel" (WSWS) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Nội bộ Mỹ] "Trump có thể dự ASEAN Summit Philippines" (SCMP/Báo Mới) — ngày thật 2/10, cũ hơn 1 ngày so batch.
+- [CNQS Mỹ] "Space Force chọn 2 công ty vệ tinh space-to-space" (Military Times) — TRÙNG URL đã có sẵn trong DATA.
+- [Úc & Biển Đông/BM] "Tiêm kích Australia lần đầu lộ diện với tên lửa bí mật của Mỹ" (Báo Tin Tức TTXVN/Báo Mới) — sát hạn chót 04:45, chưa kịp truy ngược nguồn gốc/kiểm trùng với tin AIM-260 JATM đã có. Chưa xử lý, để lại cho phiên sau.
+- [CNQS Mỹ/BM] "Mỹ triển khai thêm 2 khẩu đội Patriot tới Saudi Arabia và Qatar" (Báo Thanh Hóa/Báo Mới) — sát hạn chót, nghi TRÙNG tin "Mỹ điều thêm tổ hợp Patriot tới Saudi Arabia/Qatar" đã có. Chưa xử lý.
+- [CNQS Mỹ/BM] "Sức mạnh tàu sân bay USS Theodore Roosevelt tiến về Iran" (An Ninh Thủ Đô/Báo Mới) — sát hạn chót, nghi TRÙNG tin tàu sân bay thứ 3 tới Trung Đông đã có. Chưa xử lý.
+- [CNQS Mỹ/BM] "B-21 Raider ra đời: vì sao Mỹ cần oanh tạc cơ tàng hình mới?" (An Ninh Thủ Đô/Báo Mới) — sát hạn chót, bài phân tích không rõ dữ kiện mới. Chưa xử lý.
+- [CNQS Mỹ/BM] "Tiêm kích J-20 Trung Quốc vượt trội hơn F-22 Mỹ?" (Báo Sức Khỏe & Đời Sống/Báo Mới) — bài phân tích so sánh khí tài TQ, không phải khí tài Mỹ cụ thể, không hợp phạm vi CNQS Mỹ. Loại.
