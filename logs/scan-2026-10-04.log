@@ -3,3 +3,5 @@
 [21:20Z] gh workflow run telegram-bot.yml bi chan "requires approval" - KHONG kich duoc bot Jay Lam, di tiep (fail-open co tieng)
 [21:21Z] tin_jaylam --liet-ke: khong co file Jay Lam trong hang cho
 [21:27Z] add_news.py OK: +10 worldNews, +10 usNews (5 chu de). Nhieu ung vien bi CONG NGAY THAT chan (Bloomberg/state.gov/USTR thieu metadata, hoac ngay thuc qua cu) -> Doi ngoai My/Anh/Australia/Bien Dong duoi san 5. Ghi scan-gaps.json + loai-tin.md. Mali=0, Tap tran=0 (khong mang san). DONE web-scan.
+[21:28Z] git merge origin/main: conflict trong index.html vi phien Mac dia phuong (SKIP web-scan, chuyen sang event-scan) da commit "Cap nhat su kien 04/10" truoc khi minh push. Resolve: lay ban origin lam goc (git checkout --theirs), chay lai add_news.py de nap batch len tren. Push thanh cong.
+[21:29Z] claim event-scan: exit 10, DA XONG boi phien khac (lan chay cuoi 04:25:44 VN). SKIP. Phien nay ket thuc.
