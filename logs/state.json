@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-10-04T04:06:09+07:00",
+    "lastRunAt": "2026-10-04T04:25:44+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+2 tap tran moi (Center-2026, Power of Unity-2026), +1 su kien ngoai giao moi (Sudan-Belarus), +5 bai think-tank, bao cao tuan 3 nuoc",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-10-03"
-    },
-    "heartbeat": "2026-10-04T04:18:46+07:00"
+      "sang": "2026-10-04"
+    }
   }
 }
