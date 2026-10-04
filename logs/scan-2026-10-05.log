@@ -9,4 +9,6 @@
 [22:52Z] Commit 8848a68 "Cap nhat ban tin 05/10: +15 tin" push thanh cong (fast-forward tu 9b705c1), xac nhan 0 muc nao cua phien kia bi mat.
 [22:53Z] event-scan: claim tra exit 10 (DA XONG boi phien local luc 04:19, da gui email su kien - xem commit 728e144). SKIP dung, khong lam lai.
 [22:53Z] END phien.
+[22:54Z] Phien moi (05:54 VN): web-scan claim tra exit 10 (DA XONG, lan chay cuoi 05:52:32 VN). Kiem so_da_gui --xem: co 2 dong [sang] hom nay (15 tin 05:00, 30 tin 05:54) nen co da-xong la THAT, khong phai noi doi. SKIP dung.
+[22:54Z] event-scan claim cung tra exit 10 (DA XONG luc 04:19:19 VN, 1 su kien + 6 bai think-tank). SKIP dung. END phien.
 
