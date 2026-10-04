@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-04T06:17:22+07:00",
+  "tao_luc": "2026-10-04T07:00:10+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-03",
@@ -514,6 +514,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-01",
+      "tieu_de": "CPE ST3 civilians selected for U.S. Army War College resident program advancing Army civilian workforce development",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/576047/cpe-st3-civilians-selected-us-army-war-college-resident-program-advancing-army-civilian-workforce-development"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-01",
       "tieu_de": "US Army MPs celebrate 85 years of protecting the force",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/news/576020/us-army-mps-celebrate-85-years-protecting-force"
@@ -669,14 +677,6 @@
       "tieu_de": "El Nino dries Kalimantan rivers, hits coal shipments in Indonesia",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/markets/commodities/el-nino-dries-kalimantan-rivers-hits-coal-shipments-in-indonesia"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-04",
-      "tieu_de": "Call for witnesses after two government buildings damaged in Canberra",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-10-04/call-witnesses-two-government-buildings-damaged-canberra/107226604"
     },
     {
       "lop": "RSS",
@@ -866,6 +866,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-04",
+      "tieu_de": "Earthquake of magnitude 5.9 strikes Indonesia’s Sumbawa region: GFZ",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/se-asia/earthquake-of-magnitude-5-9-strikes-indonesias-sumbawa-region-gfz"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-04",
       "tieu_de": "‘Blessing in disguise’: Malaysia's Transport Minister Loke sees silver lining despite setbacks for his DAP",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/se-asia/blessing-in-disguise-malaysias-transport-minister-loke-sees-silver-lining-despite-setbacks-for-his"
@@ -933,6 +941,14 @@
       "tieu_de": "OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-04",
+      "tieu_de": "Thúc đẩy hợp tác đào tạo, nghiên cứu lý luận giữa Việt Nam và Vương quốc Anh",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/thuc-day-hop-tac-dao-tao-nghien-cuu-ly-luan-giua-viet-nam-va-vuong-quoc-anh-post1139905.vnp"
     },
     {
       "lop": "RSS",
@@ -1138,6 +1154,15 @@
       "tieu_de": "Mỹ-Trung duy trì 'khoảng lặng' thuế quan, tạo tín hiệu tích cực cho thương mại toàn cầu",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/my-trung-duy-tri-khoang-lang-thue-quan-tao-tin-hieu-tich-cuc-cho-thuong-mai-toan-cau-102260925091456863.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-04",
+      "tieu_de": "Sức ép thuế quan Mỹ trở thành động lực tăng trưởng mới cho các doanh nghiệp Canada",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/suc-ep-thue-quan-my-tro-thanh-dong-luc-tang-truong-moi-cho-cac-doanh-nghiep-canada-451749.html",
       "nhom": 4
     },
     {
