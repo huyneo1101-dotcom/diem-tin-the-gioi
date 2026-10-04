@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-05T03:47:02+07:00",
+  "tao_luc": "2026-10-05T06:31:03+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-04",
@@ -105,18 +105,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-04",
-      "tieu_de": "Pentagon increases combat pay as war with Iran continues",
-      "nguon": "Task & Purpose",
-      "url": "https://taskandpurpose.com/news/pentagon-combat-pay-raise-iran-war/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-03",
-      "tieu_de": "Navy sending aircraft carrier to Middle East with extra food and supplies",
-      "nguon": "Task & Purpose",
-      "url": "https://taskandpurpose.com/news/navy-roosevelt-long-deployment-supplies/"
+      "ngay": "2026-10-05",
+      "tieu_de": "US Air Force removes all bombers from UK airbase targeted by suspected terror attack",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/europe/article/3369734/us-air-force-removes-all-bombers-uk-airbase-targeted-suspected-terror-attack?utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -153,9 +145,17 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-05",
+      "tieu_de": "Pentagon pulls B-1 bombers from UK base following alleged terror threat",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/international/6128663-us-bombers-withdraw-uk-base/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-02",
       "tieu_de": "Pentagon clears way for anti-drone tech: Hegseth memo",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6125703-pentagon-clears-way-for-anti-drone-tech-hegseth-memo/"
     },
     {
@@ -165,22 +165,6 @@
       "tieu_de": "Pentagon sending more than 4,000 Marines, sailors to Middle East as buildup ramps up",
       "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6124637-pentagon-deploys-marines-middle-east/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-03",
-      "tieu_de": "Hunt For MQ-9 Reaper Successor Surprisingly Includes Exotic Aircraft Manufacturer Otto Aerospace",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/news-features/hunt-for-mq-9-reaper-successor-surprisingly-includes-exotic-aircraft-manufacturer-otto-aerospace"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-03",
-      "tieu_de": "Space Force laying groundwork to connect future satellite ‘enclaves’ as it prepares for additional launches",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/10/02/space-force-laying-groundwork-to-connect-future-satellite-enclaves/"
     },
     {
       "lop": "RSS",
@@ -450,6 +434,30 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-05",
+      "tieu_de": "US withdraws all B-1 bombers from British military base RAF Fairford",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/europe/20261004-us-bombers-raf-fairford-uk-pentagon"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-05",
+      "tieu_de": "Britain set to levy tariffs on Chinese electric cars: Report",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/britain-set-to-levy-tariffs-on-chinese-electric-cars-report"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-05",
+      "tieu_de": "US removes B-1 bombers from British base amid security concerns",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/us-removes-b-1-bombers-from-uk-base-amid-security-concerns"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-05",
       "tieu_de": "Britain's Green Party votes to class Zionism as a form of racism",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/britains-green-party-votes-to-class-zionism-as-a-form-of-racism"
@@ -461,6 +469,14 @@
       "tieu_de": "Britain scraps heavily criticised plans to curb jury trials after backlash",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/britain-scraps-heavily-criticised-plans-to-curb-jury-trials-after-backlash"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-05",
+      "tieu_de": "U.S. Air Force removes all bombers from British air base targeted by a suspected terror attack",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-air-force-removes-all-bombers-from-british-air-base-targeted-by-a-suspected-terror-attack/article71544899.ece"
     },
     {
       "lop": "RSS",
@@ -485,6 +501,14 @@
       "tieu_de": "Mỹ sắp đưa tên lửa chống hạm chủ lực đến đảo của  Nhật, sát Đài Loan",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/my-sap-dua-ten-lua-chong-ham-chu-luc-den-dao-cua-nhat-sat-dai-loan-100261003220114535.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Australia gas producers fume over domestic supply mandate",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/energy/australia-gas-producers-fume-over-domestic-supply-mandate"
     },
     {
       "lop": "RSS",
@@ -529,18 +553,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-05",
-      "tieu_de": "Australia's oldest man celebrates 113th birthday with ride in vintage car",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-10-05/australias-oldest-man-ken-weeks-celebrates-113th-birthday/107221240"
+      "ngay": "2026-10-04",
+      "tieu_de": "Indonesia’s new foreign minister inherits the bill",
+      "nguon": "Lowy Interpreter",
+      "url": "https://www.lowyinstitute.org/the-interpreter/indonesia-s-new-foreign-minister-inherits-the-bill"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-05",
-      "tieu_de": "Australia's fossil fuel expansion 'slap in the face' to Pacific nations",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-10-05/pre-cop31-australia-challenged-over-fossil-fuel-expansion/107220650"
+      "tieu_de": "American bomber fleet departs Britain",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/american-bomber-fleet-departs-britain/"
     },
     {
       "lop": "RSS",
@@ -642,14 +666,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-05",
-      "tieu_de": "‘Rest day’ protest set at Manila ports",
-      "nguon": "Inquirer",
-      "url": "https://business.inquirer.net/614215/rest-day-protest-set-at-manila-ports"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-05",
       "tieu_de": "New research looks at how screens are actually being used in Australian classrooms – the results may surprise you",
       "nguon": "The Conversation (Úc)",
       "url": "https://theconversation.com/new-research-looks-at-how-screens-are-actually-being-used-in-australian-classrooms-the-results-may-surprise-you-290255"
@@ -661,6 +677,22 @@
       "tieu_de": "BYD is reshaping Australia’s car market. How did it get here?",
       "nguon": "The Conversation (Úc)",
       "url": "https://theconversation.com/byd-is-reshaping-australias-car-market-how-did-it-get-here-292778"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-05",
+      "tieu_de": "Indonesia’s new peatland agency to get greater powers, but more work needed to stop forest fires",
+      "nguon": "Channel News Asia — Asia",
+      "url": "https://www.channelnewsasia.com/asia/indonesias-new-peatland-agency-get-greater-powers-more-work-needed-stop-forest-fires-6426601"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-05",
+      "tieu_de": "Commentary: Malaysia has diplomatic leverage in tackling transboundary haze",
+      "nguon": "Channel News Asia — Asia",
+      "url": "https://www.channelnewsasia.com/commentary/haze-malaysia-indonesia-emergency-asean-6427126"
     },
     {
       "lop": "RSS",
@@ -701,14 +733,6 @@
       "tieu_de": "Baby among four killed in multi-vehicle crash on Malaysia’s East-West Highway",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/se-asia/baby-among-four-killed-in-multi-vehicle-crash-on-malaysias-east-west-highway"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-04",
-      "tieu_de": "Philippines accuses Chinese coast guard of blocking law enforcement mission near Thitu",
-      "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/philippines-accuses-chinese-coast-guard-of-blocking-law-enforcement-mission-near-thitu"
     },
     {
       "lop": "RSS",
@@ -765,14 +789,6 @@
       "tieu_de": "Flydubai co-pilot: Australian links probed after 'axe attack' on captain",
       "nguon": "Sky News — World",
       "url": "https://news.sky.com/story/flydubai-co-pilot-australian-links-probed-after-axe-attack-on-captain-13595012"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-04",
-      "tieu_de": "Taiwan Receives First Two New-Build F-16C Block 70 Fighters After Years of Delays",
-      "nguon": "The Aviationist",
-      "url": "https://theaviationist.com/2026/10/04/taiwan-receives-first-new-f-16c-block-70/"
     },
     {
       "lop": "RSS",
@@ -841,10 +857,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-04",
-      "tieu_de": "FIFA ASEAN Cup 2026 Việt Nam quyết đấu Malaysia ở trận tranh hạng Ba",
+      "ngay": "2026-10-05",
+      "tieu_de": "Nhận định trận đấu Việt Nam vs Malaysia Vượt khó giành hạng Ba FIFA ASEAN Cup 2026",
       "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/fifa-asean-cup-2026-viet-nam-quyet-dau-malaysia-o-tran-tranh-hang-ba-452081.html"
+      "url": "https://baoquocte.vn/nhan-dinh-tran-dau-viet-nam-vs-malaysia-vuot-kho-gianh-hang-ba-fifa-asean-cup-2026-452137.html"
     },
     {
       "lop": "RSS",
@@ -895,6 +911,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-05",
+      "tieu_de": "Trump takes red state midterm blitz to Nebraska as GOP frets over Senate race",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/6127091-trump-nebraska-senate-rally-ricketts-osborn/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-05",
       "tieu_de": "Trump’s 2024 support from Hispanic voters dips in new poll",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/administration/6128414-trump-hispanic-support-plummeted/",
@@ -930,15 +955,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-05",
-      "tieu_de": "ASX to rise; Trump aide says Powell should ‘move on’ from Fed board",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/markets/equity-markets/asx-to-rise-trump-aide-says-powell-should-move-on-from-fed-board-20261005-p612t1?ref=rss&utm_medium=rss&utm_source=rss_feed",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-04",
       "tieu_de": "Japan PM protests to US after Marine arrested on murder suspicion in Okinawa",
       "nguon": "The Straits Times — Asia",
@@ -957,28 +973,19 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-04",
-      "tieu_de": "Trump tariffs a mixed bag for U.S. auto industry",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/business/2026/10/04/companies/trump-tariffs-us-auto-industry/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-04",
-      "tieu_de": "Brazil goes to polls in decisive election for future of Latin America",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/oct/04/brazil-presidential-election-lula-flavio-bolsonaro",
+      "ngay": "2026-10-05",
+      "tieu_de": "Brazilians vote in election that could reshape US ties",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/10/04/2026/brazilians-vote-in-election-that-could-reshape-us-ties",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-05",
-      "tieu_de": "After a deadly paper mill explosion, a community in Washington state looks to a key House race",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/oct/04/washington-state-marie-gluesenkamp-perez-democrat-congress",
+      "tieu_de": "Brazil's election could shift its ties with the U.S. and China",
+      "nguon": "NPR — World",
+      "url": "https://www.npr.org/2026/10/04/nx-s1-5989593/brazils-election-could-shift-its-ties-with-the-u-s-and-china",
       "nhom": 5
     },
     {
@@ -988,6 +995,15 @@
       "tieu_de": "For some Brazilians, this election is a vote on Trump",
       "nguon": "NPR — World",
       "url": "https://www.npr.org/2026/10/03/nx-s1-5989699/for-some-brazilians-this-election-is-a-vote-on-trump",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-05",
+      "tieu_de": "Bầu cử giữa kỳ Mỹ 2026: Cử tri gốc Latinh chuyển hướng sang đảng Dân chủ",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/bau-cu-giua-ky-my-2026-cu-tri-goc-latinh-chuyen-huong-sang-dang-dan-chu-post1140024.vnp",
       "nhom": 5
     },
     {
