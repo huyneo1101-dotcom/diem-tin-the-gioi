@@ -6,4 +6,7 @@
 [22:45Z] PHAT HIEN QUET CHONG: git log cho thay phien "claude-scan-local" da claim web-scan luc 04:36 VN (sau khi beat_push cua phien nay khong day nhip tim moi >30 phut), chay xong va GUI bulletin "+15 tin" luc 04:59-05:00 VN (commit f898d80 + 9b705c1). Working tree cua phien nay bi LECH GOC (thieu 14 muc cua phien kia) do index.html duoc sua truoc khi git pull kip merge day du.
 [22:50Z] KHOI PHUC: git checkout HEAD -- index.html de lay dung goc, doi chieu tung URL voi diff cua f898d80, loai 5 tin TRUNG su kien (Ohio rally x2, Ted Stevens, MQ-9 Otto Aerospace, Scarborough+Thi Tu). Nap lai 10 worldNews + 5 usNews CON LAI, xac nhan 0 muc nao bi mat so voi HEAD.
 [22:52Z] DONE THAT: +15 tin rieng cua phien nay (khong trung voi lo da gui). Ghi scan-gaps.json + loai-tin.md day du. Can bao Huy va vo beat_push.py.
+[22:52Z] Commit 8848a68 "Cap nhat ban tin 05/10: +15 tin" push thanh cong (fast-forward tu 9b705c1), xac nhan 0 muc nao cua phien kia bi mat.
+[22:53Z] event-scan: claim tra exit 10 (DA XONG boi phien local luc 04:19, da gui email su kien - xem commit 728e144). SKIP dung, khong lam lai.
+[22:53Z] END phien.
 
