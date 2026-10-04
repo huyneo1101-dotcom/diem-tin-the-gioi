@@ -1,21 +1,24 @@
 {
-  "date": "2026-10-04",
+  "date": "2026-10-05",
   "session": "sang",
   "topics": [
-    {"name": "Đối ngoại Mỹ", "count": 1, "target": "12-18", "min": 5, "thieu": true,
-     "reason": "5 ứng viên đối ngoại (Hamas sanctions/state.gov, G20 USTR, Saudi nuclear vote/spokesman.com, ASEAN Trump/SCMP) đều bị CỔNG NGÀY THẬT chặn (thiếu metadata ngày hoặc ngày thật 2/10, ngoài khung 1 ngày). Sát hạn chót 04:45 không kịp tìm thay thế. Phiên sau cần ưu tiên nguồn .gov/.mil có metadata ngày rõ hoặc kèm dateProofUrl."},
-    {"name": "Nội bộ Mỹ", "count": 9, "target": "12-18", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Anh", "count": 4, "target": "5", "min": 5, "thieu": true,
-     "reason": "6 ứng viên ban đầu, 2 bị CỔNG NGÀY THẬT chặn (Bloomberg không lộ metadata ngày: phát ngôn Streeting về Iran, cảnh báo bong bóng AI của BoE). Còn 4 tin (HMS Agamemnon, hợp đồng CBRN, huấn luyện Royal Marines, tuyên bố JEF Iceland)."},
-    {"name": "Địa bàn › Australia", "count": 3, "target": "5", "min": 5, "thieu": true,
-     "reason": "Dự báo điện AEMO và bài AUKUS Pillar II (Shephard) bị CỔNG NGÀY THẬT chặn (ngày thật đọc được là 2/10 và 2023, quá cũ so khung). Còn 3 tin (Hegseth/tàu ngầm, Flydubai/ASIO, Chalmers Tokyo). Ứng viên Báo Mới 'Tiêm kích Australia tên lửa bí mật' chưa kịp xử lý trước hạn, để lại phiên sau."},
-    {"name": "Địa bàn › Biển Đông", "count": 3, "target": "5", "min": 5, "thieu": true,
-     "reason": "Tin Malaysia hạ thuỷ tàu mẹ bị CỔNG NGÀY THẬT chặn (ngày thật đọc được 23/7/2026, quá cũ). Còn 3 tin (HMAS Sydney/Stuart diễn tập, tàu Đài Loan tặng Philippines, Pratas water cannon). Sát hạn chót không kịp tìm thêm 2 tin thay thế."},
-    {"name": "KHCN-QS", "count": 9, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Mỹ – Mali", "count": 0, "target": "2-5", "min": 0, "thieu": false,
-     "reason": "Toàn bộ ứng viên harvest.py cho Mali là tin thể thao (bóng đá/bóng rổ), không liên quan quân sự. Agent WebSearch mở rộng (AFRICOM, JNIM, Sahel, Long War Journal) không tìm được tin nào đăng đúng 2026-10-03/04. Không mang sàn, chấp nhận 0 theo luật."},
-    {"name": "Tập trận đang diễn ra", "count": 0, "target": "1-2", "min": 0, "thieu": false,
-     "reason": "Các cuộc đang bám (KAZIND, Nomadic Elephant, Orient Shield, Arctic Shield, Yama Sakura...) không có diễn biến MỚI đăng đúng ngày 2026-10-03/04 qua xác minh ngày thật; Orient Shield và Arctic Shield xác nhận đã kết thúc trước đó. Không mang sàn, chấp nhận 0."}
+    {"name":"Đối ngoại Mỹ","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Vòng đầu tìm được 4 tin (Trại David, Bộ trưởng Năng lượng, Đài Loan thúc vũ khí, Hegseth rút quân châu Âu) nhưng cổng NGÀY ĐĂNG THẬT chặn 2/4 (Bloomberg/Washington Times không in metadata ngày đọc được, không có dateProofUrl). Vòng bổ sung tìm thêm 1 tin (state.gov về Ethiopia-Eritrea) nhưng ngày sự kiện thật là 03/10, ngoài khung 48h nên không nạp được. Đã thử WebSearch nhiều hướng (Venezuela, Cuba, Iran, trừng phạt ICC) không ra thêm tin đạt cả 2 điều kiện (đúng khung + có ngày đọc được)."},
+    {"name":"Nội bộ Mỹ (ngoài đối ngoại)","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"3 tin nạp được (Lực lượng Siêu trí tuệ AI, thuế quan ô tô, Trump vận động Ohio). 4 ứng viên khác (KKK, Nebraska, khảo sát Thượng viện, Norfolk 250 năm Hải quân) bị cổng ngày thật chặn vì nguồn (Al Jazeera video, The Hill, WTKR) không in metadata ngày đọc được qua kiểm tự động, dù nội dung đúng khung ngày — không kịp bổ sung dateProofUrl trong phiên này."},
+    {"name":"Địa bàn › Anh","count":2,"target":"3-5","min":3,"thieu":true,
+     "reason":"2 tin nạp được (Chính phủ Anh bỏ hạn chế bồi thẩm đoàn, Badenoch đại hội đảng). Tin thứ 3 (Bảo thủ cam kết Heathrow) bị cổng ngày thật chặn vì Bloomberg không lộ metadata ngày. Vòng bổ sung tìm thêm 3 tin (Faslane tàu ngầm, JEF Iceland) nhưng ngày sự kiện thật là 03/10 — ngoài khung 48h — và JEF Iceland trùng tin đã gửi trước đó."},
+    {"name":"Địa bàn › Australia","count":1,"target":"3-5","min":3,"thieu":true,
+     "reason":"Chỉ 1 tin nạp được (lãnh đạo Thái Bình Dương chỉ trích Australia mở rộng nhiên liệu hoá thạch). Một ứng viên khác về chi phí hội nghị tiền-COP31 bị cổng chặn vì URL là trang live-blog. Vòng bổ sung tìm được tin ADF kéo dài cam kết phục vụ nhưng ngày hiệu lực thật là 01/10 (công bố từ 22/09) — ngoài khung."},
+    {"name":"Địa bàn › Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"2 tin nạp được (Philippines-Thị Tứ, J-16 áp sát Scarborough). Vòng bổ sung tìm thêm tin Philippines-Batanes/Đài Loan nhưng ngày sự kiện thật là 01/10 — ngoài khung 48h nên không nạp."},
+    {"name":"KHCN-QS","count":5,"target":"6-10","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,
+     "reason":"Ứng viên Google News cho từ khoá Mali gần như toàn bộ là tin bóng đá (giao hữu Morocco vs Mali). Ứng viên thật duy nhất (FT: Sahel juntas launch TV channel) có ngày sự kiện thật 30/09, ngoài khung. WebSearch thêm AFRICOM/state.gov/Reuters không ra tin Mỹ-Mali/JNIM nào trong khung 04-05/10."},
+    {"name":"Tập trận","count":0,"target":"1-2","min":0,"thieu":true,
+     "reason":"KAZIND-2026 đang diễn ra nhưng mọi tin tìm được chỉ là tin khởi động (28-30/09, đã cũ). Không có diễn biến mới (khoa mục, bài bắn) trong khung 04-05/10 cho KAZIND-2026, SEACAT 2026, hay Diễn tập Hạm đội TBD Nga 2026. Veer Guardian 2026 đã kết thúc 21/9."},
+    {"name":"Báo Mới","count":0,"target":"-","min":0,"thieu":false,
+     "reason":"3 ứng viên khớp 5 chủ đề đều bị loại: tin SM-6 Raytheon trùng tin đã gửi 02/10; tin Triều Tiên thử tên lửa siêu vượt âm trùng tin event-scan đã nạp sáng nay; tin Indonesia-Timor-Leste là chủ đề Kinh tế, ngoài phạm vi 5 chủ đề."}
   ],
-  "note": "Phiên sáng chạy dưới áp lực hạn chót 04:45 (claim khoá lúc 04:00, chỉ còn ~40 phút): nhiều ứng viên hợp lệ về nội dung bị CỔNG NGÀY THẬT (ngay_that.py) chặn vì trang nguồn (Bloomberg, state.gov, USTR, spokesman.com, SCMP) không lộ metadata ngày đọc được qua curl, hoặc ngày thật đo được cũ hơn khung cho phép (2 ngày với usNews/worldNews thường, 3 ngày với CNQS). KHÔNG dùng --bo-cong-ngay-that để lách — chấp nhận mất tin thay vì mở cổng. 6 ứng viên Báo Mới còn tồn đọng chưa xử lý kịp, xem logs/loai-tin.md. Các mục dưới sàn (Đối ngoại Mỹ, Anh, Australia, Biển Đông) cần vòng bổ sung ở phiên kế tiếp — đã ghi rõ ứng viên cụ thể bị chặn để phiên sau không lặp lại tìm kiếm vô ích."
+  "note": "Nguyên nhân hụt sàn chủ yếu là cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn nhiều nguồn lớn (Bloomberg, Washington Times, The Hill, Al Jazeera video, WTKR) vì trang không lộ metadata ngày đọc được qua kiểm tự động — không phải do thiếu tin thật. Chi tiết tin bị loại: logs/loai-tin.md."
 }

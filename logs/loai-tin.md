@@ -7,6 +7,26 @@
 
 ---
 
+## 2026-10-05 (phiên sáng sớm, local, lưới cuối) — cổng Báo Mới + cổng ngày thật
+
+- [CNQS/BM] "Tên lửa SM-6 có gì mà buộc Hải quân Mỹ phải chi ra khoản tiền 'khủng' 24,4 tỷ USD?" (An Ninh Thủ Đô) — TRÙNG sự kiện đã nạp 02/10 qua nguồn gốc RealClearDefense "U.S. Navy Awards Raytheon $24.4B for SM-6 Missiles".
+- [CNQS/BM] "Triều Tiên thử tên lửa siêu vượt âm nằm ngoài khả năng theo dõi của Hàn Quốc, Nhật Bản" (Tiền Phong) — TRÙNG tin đã nạp qua pipeline event-scan sáng nay (04:20, xem logs/scan-2026-10-05.log dòng [04:20]).
+- [TG/BM] "Indonesia và Timor-Leste phát huy các dư địa hợp tác kinh tế mới" (VietnamPlus) — category Kinh tế, không thuộc 5 chủ đề đang quét.
+- [US] "Đài Loan thúc Washington đẩy nhanh gói vũ khí 14 tỷ USD còn treo" (Bloomberg) — bị cổng NGÀY ĐĂNG THẬT chặn: trang không lộ metadata ngày đọc được qua kiểm tự động, không kèm dateProofUrl.
+- [US] "Bộ trưởng Quốc phòng Mỹ hé lộ khả năng rút quân khỏi châu Âu" (Washington Times) — cùng lý do, không có metadata ngày.
+- [US] "Cố vấn kinh tế Nhà Trắng kêu gọi Powell rời ghế Fed" (Bloomberg) — cùng lý do.
+- [US] "Trump và Hegseth chủ trì lễ kỷ niệm 250 năm Hải quân tại Norfolk" (WTKR) — cùng lý do.
+- [US] "Thủ lĩnh Ku Klux Klan tuyên bố ủng hộ tăng trước bầu cử" (Al Jazeera video) — cùng lý do.
+- [US] "Trump vận động tại Nebraska" + "Khảo sát 5 cuộc đua Thượng viện thu hẹp" (The Hill, 2 bài) — cùng lý do.
+- [US] "Hải quân Mỹ hoàn tất đại tu USS Florida" (Army Recognition) — cùng lý do.
+- [US] "Lực lượng Không gian Mỹ lập khung hợp đồng 981 triệu USD" (Military Aerospace) — cổng NGÀY THẬT phát hiện bài đăng THẬT từ 03/08/2026, lô khai nhầm ngày 02/10 — tin đã cũ 2 tháng, loại hẳn.
+- [TG] "Đảng Bảo thủ cam kết Heathrow" (Bloomberg) — cổng ngày thật chặn, không metadata.
+- [TG] "Hai tàu ngầm hạt nhân Mỹ-Anh cùng cập cảng Clyde" (UK Defence Journal) + "Tuyên bố chung JEF tại Iceland" (GOV.UK) — ngày sự kiện thật 02-03/10, ngoài khung 48h (JEF Iceland cũng đã có trong bản tin trước).
+- [TG] "Australia kéo dài cam kết phục vụ tân binh lên 10 năm" (ABC News) — hiệu lực từ 01/10 nhưng công bố thật từ 22/09, ngoài khung.
+- [TG] "Philippines điều tàu tuần duyên lớn nhất xua tàu khảo sát TQ gần Batanes" (Jakarta Post) — ngày sự kiện thật 01/10 (báo cáo), ngoài khung 48h.
+- [US/Mali] Toàn bộ ~50 ứng viên Google News "Mali" là tin bóng đá (Morocco vs Mali) — không liên quan chủ đề Mỹ-Mali/JNIM.
+- [Tập trận] Mọi tin KAZIND-2026 tìm được chỉ là tin khởi động 28-30/09 — không có diễn biến mới trong khung 04-05/10.
+
 ## 2026-09-30 (phiên sáng sớm CI) — cổng Báo Mới + review nội bộ
 
 - [CNQS/BM] "Tên lửa Hwasong-11Ma-1 bay thấp, hệ thống THAAD sẽ đối phó thế nào?" / "'Sát thần' Hwasong-11Ma-1 thay đổi bài toán phòng thủ tên lửa ở Đông Bắc Á ra sao?" (An Ninh Thủ Đô) — bài phân tích tên lửa TRIỀU TIÊN, THAAD chỉ là điểm tham chiếu phụ, không phải tin khí tài Mỹ cụ thể, không hợp CNQS Mỹ.
