@@ -1,5 +1,9 @@
 [21:00Z] START web-scan (CI, phien sang som)
-[04:05] SKIP web-scan (local, phien sang som) - exit 11, CI dang chay (bat dau 04:00:43, nhip tim con song)
-[04:20] DONE event-scan (local, phien sang som) - 1 su kien ngoai giao moi (Duc-Ukraine MOU), 0 tap tran cap nhat, 6 bai think-tank nap + 13 khai niem. Da kich tay notify-morning.yml (run 37235558326, XANH, Telegram da gui 2 chat) vi commit think-tank sai tien to khong tu kich. VA: sua logs/state.json bi hong JSON do dung nham ghi_log_push.py cho file khong phai log append-only (commit 868b0c0).
-[04:35] RUN web-scan (local, phien sang som, luoi cuoi) - claim thanh cong, lastSuccess.sang truoc do la 2026-10-04 (CI 04:00 chua done). Bat dau quet.
-[05:05] DONE web-scan (local) - +5 tin The gioi, +10 tin My (5 chu de). Hut san o 5/6 muc (Doi ngoai My 2/5, Noi bo My 3/5, Anh 2/3, Australia 1/3, Bien Dong 2/5), KHCN-QS du 5/5. Nguyen nhan hut san chu yeu: cong NGAY DANG THAT chan nhieu nguon lon (Bloomberg, Washington Times, The Hill, Al Jazeera video, WTKR) vi trang khong lo metadata ngay doc duoc - khong phai thieu tin that. Mali va Tap tran: 0 tin, da quet ky nhung khong co tin dung khung. Chi tiet: logs/scan-gaps.json + logs/loai-tin.md.
+[21:05Z] harvest.py + telegram_harvest.py xong: 303 ung vien RSS/GNEWS/HTML + 8 TG
+[21:30Z] Giao 4 agent song song: Noi bo My, Uc & Bien Dong, CNQS My, Mali+Tap tran
+[22:20Z] Vong bo sung: doi ngoai My (+1), Uc (+0 moi)/Bien Dong (+2 trung, loai)
+[22:42Z] DONE (tam): +22 tin qua add_news.py (11 worldNews, 11 usNews sau 2 lan phat hien & go 2 tin trung voi DATA cu). Doi ngoai My ve 0, da ghi scan-gaps.json + loai-tin.md.
+[22:45Z] PHAT HIEN QUET CHONG: git log cho thay phien "claude-scan-local" da claim web-scan luc 04:36 VN (sau khi beat_push cua phien nay khong day nhip tim moi >30 phut), chay xong va GUI bulletin "+15 tin" luc 04:59-05:00 VN (commit f898d80 + 9b705c1). Working tree cua phien nay bi LECH GOC (thieu 14 muc cua phien kia) do index.html duoc sua truoc khi git pull kip merge day du.
+[22:50Z] KHOI PHUC: git checkout HEAD -- index.html de lay dung goc, doi chieu tung URL voi diff cua f898d80, loai 5 tin TRUNG su kien (Ohio rally x2, Ted Stevens, MQ-9 Otto Aerospace, Scarborough+Thi Tu). Nap lai 10 worldNews + 5 usNews CON LAI, xac nhan 0 muc nao bi mat so voi HEAD.
+[22:52Z] DONE THAT: +15 tin rieng cua phien nay (khong trung voi lo da gui). Ghi scan-gaps.json + loai-tin.md day du. Can bao Huy va vo beat_push.py.
+

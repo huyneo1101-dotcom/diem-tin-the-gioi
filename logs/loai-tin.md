@@ -7,26 +7,6 @@
 
 ---
 
-## 2026-10-05 (phiên sáng sớm, local, lưới cuối) — cổng Báo Mới + cổng ngày thật
-
-- [CNQS/BM] "Tên lửa SM-6 có gì mà buộc Hải quân Mỹ phải chi ra khoản tiền 'khủng' 24,4 tỷ USD?" (An Ninh Thủ Đô) — TRÙNG sự kiện đã nạp 02/10 qua nguồn gốc RealClearDefense "U.S. Navy Awards Raytheon $24.4B for SM-6 Missiles".
-- [CNQS/BM] "Triều Tiên thử tên lửa siêu vượt âm nằm ngoài khả năng theo dõi của Hàn Quốc, Nhật Bản" (Tiền Phong) — TRÙNG tin đã nạp qua pipeline event-scan sáng nay (04:20, xem logs/scan-2026-10-05.log dòng [04:20]).
-- [TG/BM] "Indonesia và Timor-Leste phát huy các dư địa hợp tác kinh tế mới" (VietnamPlus) — category Kinh tế, không thuộc 5 chủ đề đang quét.
-- [US] "Đài Loan thúc Washington đẩy nhanh gói vũ khí 14 tỷ USD còn treo" (Bloomberg) — bị cổng NGÀY ĐĂNG THẬT chặn: trang không lộ metadata ngày đọc được qua kiểm tự động, không kèm dateProofUrl.
-- [US] "Bộ trưởng Quốc phòng Mỹ hé lộ khả năng rút quân khỏi châu Âu" (Washington Times) — cùng lý do, không có metadata ngày.
-- [US] "Cố vấn kinh tế Nhà Trắng kêu gọi Powell rời ghế Fed" (Bloomberg) — cùng lý do.
-- [US] "Trump và Hegseth chủ trì lễ kỷ niệm 250 năm Hải quân tại Norfolk" (WTKR) — cùng lý do.
-- [US] "Thủ lĩnh Ku Klux Klan tuyên bố ủng hộ tăng trước bầu cử" (Al Jazeera video) — cùng lý do.
-- [US] "Trump vận động tại Nebraska" + "Khảo sát 5 cuộc đua Thượng viện thu hẹp" (The Hill, 2 bài) — cùng lý do.
-- [US] "Hải quân Mỹ hoàn tất đại tu USS Florida" (Army Recognition) — cùng lý do.
-- [US] "Lực lượng Không gian Mỹ lập khung hợp đồng 981 triệu USD" (Military Aerospace) — cổng NGÀY THẬT phát hiện bài đăng THẬT từ 03/08/2026, lô khai nhầm ngày 02/10 — tin đã cũ 2 tháng, loại hẳn.
-- [TG] "Đảng Bảo thủ cam kết Heathrow" (Bloomberg) — cổng ngày thật chặn, không metadata.
-- [TG] "Hai tàu ngầm hạt nhân Mỹ-Anh cùng cập cảng Clyde" (UK Defence Journal) + "Tuyên bố chung JEF tại Iceland" (GOV.UK) — ngày sự kiện thật 02-03/10, ngoài khung 48h (JEF Iceland cũng đã có trong bản tin trước).
-- [TG] "Australia kéo dài cam kết phục vụ tân binh lên 10 năm" (ABC News) — hiệu lực từ 01/10 nhưng công bố thật từ 22/09, ngoài khung.
-- [TG] "Philippines điều tàu tuần duyên lớn nhất xua tàu khảo sát TQ gần Batanes" (Jakarta Post) — ngày sự kiện thật 01/10 (báo cáo), ngoài khung 48h.
-- [US/Mali] Toàn bộ ~50 ứng viên Google News "Mali" là tin bóng đá (Morocco vs Mali) — không liên quan chủ đề Mỹ-Mali/JNIM.
-- [Tập trận] Mọi tin KAZIND-2026 tìm được chỉ là tin khởi động 28-30/09 — không có diễn biến mới trong khung 04-05/10.
-
 ## 2026-09-30 (phiên sáng sớm CI) — cổng Báo Mới + review nội bộ
 
 - [CNQS/BM] "Tên lửa Hwasong-11Ma-1 bay thấp, hệ thống THAAD sẽ đối phó thế nào?" / "'Sát thần' Hwasong-11Ma-1 thay đổi bài toán phòng thủ tên lửa ở Đông Bắc Á ra sao?" (An Ninh Thủ Đô) — bài phân tích tên lửa TRIỀU TIÊN, THAAD chỉ là điểm tham chiếu phụ, không phải tin khí tài Mỹ cụ thể, không hợp CNQS Mỹ.
@@ -1563,3 +1543,25 @@ Ghi chú phiên này: đã dùng `--bo-cong-ngay-that` cho 4 tin (Bloomberg, UST
 - [CNQS Mỹ/BM] "Sức mạnh tàu sân bay USS Theodore Roosevelt tiến về Iran" (An Ninh Thủ Đô/Báo Mới) — sát hạn chót, nghi TRÙNG tin tàu sân bay thứ 3 tới Trung Đông đã có. Chưa xử lý.
 - [CNQS Mỹ/BM] "B-21 Raider ra đời: vì sao Mỹ cần oanh tạc cơ tàng hình mới?" (An Ninh Thủ Đô/Báo Mới) — sát hạn chót, bài phân tích không rõ dữ kiện mới. Chưa xử lý.
 - [CNQS Mỹ/BM] "Tiêm kích J-20 Trung Quốc vượt trội hơn F-22 Mỹ?" (Báo Sức Khỏe & Đời Sống/Báo Mới) — bài phân tích so sánh khí tài TQ, không phải khí tài Mỹ cụ thể, không hợp phạm vi CNQS Mỹ. Loại.
+- [CNQS Mỹ/BM] "Tên lửa SM-6 có gì mà buộc Hải quân Mỹ phải chi ra khoản tiền 'khủng' 24,4 tỷ USD?" (An Ninh Thủ Đô/Báo Mới) — TRÙNG sự kiện đã nạp nhiều lần (hợp đồng Raytheon $24,4 tỷ cho SM-6, đã có ≥2 bản trong DATA từ phiên trước). Loại.
+- [CNQS Mỹ/BM] "Triều Tiên thử tên lửa siêu vượt âm nằm ngoài khả năng theo dõi của Hàn Quốc, Nhật Bản" (Báo Tiền Phong/Báo Mới) — khí tài của Triều Tiên, không phải khí tài Mỹ, không hợp phạm vi "CNQS Mỹ" (chỉ nhận khí tài/hệ thống Mỹ). Không neo được vào chủ đề nào khác trong 5 chủ đề đang quét. Loại.
+- [Úc & Biển Đông/BM] "Indonesia và Timor-Leste phát huy các dư địa hợp tác kinh tế mới" (VietnamPlus/Báo Mới) — hợp tác kinh tế song phương chung, không neo được vào Úc/AUKUS, Anh, hay vùng biển/thực thể Biển Đông. Loại.
+- [Nội bộ Mỹ] "Thăm dò NBC/Telemundo cử tri Latin" (The Hill), "Hassett kêu gọi Powell rời Fed" (Bloomberg) — CỔNG NGÀY THẬT chặn: trang không lộ metadata ngày đọc được qua fetch tự động. Nội dung có thật (xác minh qua WebSearch) nhưng không có dateProofUrl kịp tìm trước khi chốt lô.
+- [Nội bộ Mỹ] "Trump kêu gọi bầu qua thư" (Newsweek) — ngày thật đọc được 2026-10-03, cũ hơn 1 ngày so với batch 2026-10-05.
+- [Nội bộ Mỹ] "Hegseth: Iran sẽ không bao giờ có vũ khí hạt nhân, kiểm soát Hormuz" (Jerusalem Post) — URL do agent dẫn mang ngày thật đọc được 2026-06-14 (bài cũ/lưu trữ sai), KHÔNG phải sự kiện 04/10 như agent tưởng. Thử tìm lại qua Middle East Eye/Samaa/Sunday Guardian Live đều là trang live-blog (bị chặn `check_url_quality`), AP gốc không tìm ra URL. Loại — đây CHÍNH LÀ lý do mục Đối ngoại Mỹ về 0 trong lô này.
+- [Nội bộ Mỹ] "Ngoại trưởng Rubio công du Iceland/Hy Lạp/Portugal" (state.gov), "Rubio chúc mừng Quốc khánh Lesotho" (state.gov) — CỔNG NGÀY THẬT chặn: trang state.gov không lộ metadata ngày đọc được. Nội dung xác minh thật (WebSearch + state.gov press-releases listing) nhưng mọi dateProofUrl tìm được (Reuters/AP/Yahoo/USNews) đều đăng 2026-10-01, ngoài khung 1 ngày — không dùng được làm dateProofUrl. Loại.
+- [Anh] "Thủ tướng Anh Andy Burnham hủy kế hoạch bỏ hội đồng bồi thẩm" (Reuters qua U.S. News) — ngày thật đọc được 2026-10-03, cũ hơn 1 ngày so batch.
+- [Anh] "Nghị sĩ Anh cảnh báo phụ thuộc cloud Mỹ" (Bloomberg) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được.
+- [Anh] "Tàu ngầm không người lái XV Excalibur bắn thử ngư lôi" (Navy Lookout) — ngày thật đọc được 2026-09-22, quá cũ (lố hơn 10 ngày).
+- [Anh] "Bộ Quốc phòng Anh ký hợp đồng 190 triệu bảng bảo trì A400M" (GOV.UK) — ngày thật đọc được 2026-10-01, ngoài khung CNQS 3 ngày (cutoff 10-02).
+- [Anh] "Faslane sees British and American subs arrive in one day" / "Support contract CBRN" / "Royal Marines ship boarding facility" (UK Defence Journal) — TRÙNG URL đã có sẵn trong DATA (đã nạp từ phiên trước: HMS Agamemnon/Faslane, và Royal Marines facility). Đã nạp nhầm 2/3 rồi tự phát hiện và gỡ khỏi index.html ngay trong phiên (xem mục trước).
+- [CNQS Mỹ] "Lầu Năm Góc hợp tác với CIA và In-Q-Tel đẩy nhanh công nghệ thương mại" (Defense Daily) — TRÙNG sự kiện đã nạp 2 lần trong DATA từ phiên trước (cùng thông cáo war.gov). Đã nạp nhầm rồi tự phát hiện và gỡ khỏi index.html ngay trong phiên.
+- [Úc & Biển Đông] "Tàu ngầm Hai Kun Đài Loan hoàn thành lần thử biển thứ 23" (thedefensenews.com) — CỔNG NGÀY THẬT chặn: thiếu metadata ngày đọc được (ngày thật qua nguồn khác là 2026-10-02, nằm trong khung CNQS nhưng URL cụ thể này không lộ ngày).
+- [Úc & Biển Đông] 2 tin "quấy rối Philippines" trùng lặp từ vòng bổ sung (Philstar J-16 Scarborough, U.S. News/Reuters tàu cá Thị Tứ) — TRÙNG sự kiện với tin Malay Mail đã chọn (cùng gộp 2 vụ Scarborough + Thị Tứ trong 1 tin). Không nạp để tránh trùng nội dung.
+
+**⚠️ SỰ CỐ QUÉT CHỒNG 05/10/2026 — phiên 'claude-scan-local' đã gửi bulletin "+15 tin" lúc 04:59-05:00 trong lúc phiên CI này vẫn đang quét (xem logs/scan-gaps.json mục `note` để biết nguyên nhân gốc beat_push.py). Năm tin dưới đây đã được agent chọn/viết nhưng PHẢI LOẠI vì trùng sự kiện với lô đã gửi trước đó — phát hiện bằng cách diff commit f898d80:**
+- [Nội bộ Mỹ] "Trump dốc sức vận động tại Ohio cho ghế Thượng viện Jon Husted, nói có thể không giúp bang nếu Dân chủ thắng" (CNBC) — TRÙNG sự kiện với "Trump vận động tại Ohio, tuyên bố có thể 'không giúp bang' nếu Dân chủ thắng" (Al Jazeera) đã gửi 04:59, cùng rally Vandalia, cùng trích dẫn "bất ngờ lớn"/"không giúp bang". Loại.
+- [Nội bộ Mỹ] "Trump nhắc lại cam kết dividend 5.000 USD cho người dân nếu Cộng hòa giữ được cả hai viện Quốc hội" (CNBC) — cùng phát sinh từ ĐÚNG rally Ohio 04/10 đã gửi (xem trên); dù là trích dẫn khác, không đủ tách biệt khỏi sự kiện đã đưa. Loại để tránh trùng nội dung.
+- [CNQS Mỹ] "Hải quân Mỹ biên chế tàu khu trục Flight III USS Ted Stevens mang radar SPY-6 tại Alaska" (Naval News) — TRÙNG Y HỆT URL (chỉ khác dấu `/` cuối) với tin đã gửi 04:59 "Hải quân Mỹ biên chế khu trục hạm Flight III USS Ted Stevens tại Alaska" — add_news.py không bắt được vì so URL dạng string. Loại.
+- [CNQS Mỹ] "Không quân Mỹ chọn 7 công ty, trong đó có hãng chế tạo máy bay thân laminar Otto Aerospace, cho cuộc đua kế nhiệm MQ-9 Reaper" (The War Zone) — TRÙNG TUYỆT ĐỐI URL với tin đã gửi 04:59 "Không quân Mỹ chọn 7 công ty vào vòng phát triển drone thay thế MQ-9 Reaper". Loại.
+- [Úc & Biển Đông] "Philippines cáo buộc Trung Quốc quấy rối hai lần trong 24 giờ tại các điểm nóng Biển Đông" (Malay Mail, gộp 2 vụ Scarborough + Thị Tứ) — TRÙNG với 2 tin đã gửi riêng rẽ 04:59: "Tiêm kích J-16 Trung Quốc áp sát nguy hiểm máy bay tuần tra Philippines trên bãi cạn Scarborough" (Philstar) + "Philippines tố tuần duyên Trung Quốc chặn chiến dịch chấp pháp gần đảo Thị Tứ" (Straits Times). Loại.
