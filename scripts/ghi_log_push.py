@@ -59,6 +59,14 @@ def hop_nhat_dong(dong_cua_minh):
 def ghi_va_push(rel, nhan="", vong=gsp.VONG_MAC_DINH, ngu=None):
     """Đẩy phần log của phiên mình lên `main`. Trả 0 = xong, 1 = hết vòng chưa push được."""
     p = ROOT / rel
+    # Sự cố 05/10/2026 04:19: script này bị dùng nhầm cho logs/state.json. `hop_nhat_dong` ghép
+    # theo DÒNG nên với file JSON nó chèn dòng cũ/mới xen nhau, state.json hỏng JSON tới
+    # 04:20:16 và mọi lời gọi beat_push trong khoảng đó thấy sổ rỗng. Chỉ file nối đuôi `.log`
+    # mới hợp nhất theo dòng được; file khác phải kêu to thay vì ghi hỏng.
+    if p.suffix != ".log":
+        print(f"::error::{rel} khong phai file .log noi duoi — ghi_log_push.py ghep theo DONG, "
+              "se lam hong file co cau truc (state.json dung state.py / ghi_so_push.py)")
+        return 3
     if not p.exists():
         print(f"::error::khong co file {rel} — phien phai ghi log TRUOC khi goi script nay")
         return 2

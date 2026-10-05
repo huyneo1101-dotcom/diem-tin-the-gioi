@@ -202,6 +202,36 @@ def ca_07_khong_de_index_html(ma=None):
     return True, "index.html của phiên mình còn nguyên"
 
 
+def ca_08_tu_choi_file_khong_phai_log(ma=None):
+    """PHẢI CHẶN · hồi quy 05/10/2026 04:19: dùng nhầm cho logs/state.json (JSON) ⇒ file hỏng JSON.
+
+    Script ghép theo DÒNG, với file có cấu trúc nó làm hỏng. Phải từ chối: mã ≠ 0 + `::error::`,
+    file local và file trên remote KHÔNG bị đụng.
+    """
+    with tempfile.TemporaryDirectory() as t:
+        bare, A, _ = _dung_san(t, ma)
+        rel = "logs/state.json"
+        goc = '{\n  "claims": {}\n}\n'
+        (pathlib.Path(A) / rel).write_text(goc, encoding="utf-8")
+        _git(A, "add", rel)
+        _git(A, "commit", "-q", "-m", "state")
+        _git(A, "push", "-q", "origin", "HEAD:main")
+        (pathlib.Path(A) / rel).write_text('{\n  "claims": {"x": 1}\n}\n', encoding="utf-8")
+        r = subprocess.run([sys.executable, str(pathlib.Path(A) / "scripts" / "ghi_log_push.py"),
+                            "--file", rel, "--nhan", "log: nham"],
+                           cwd=str(A), capture_output=True, text=True)
+        out = (r.stdout or "") + (r.stderr or "")
+        if r.returncode == 0:
+            return False, f"nhận file JSON, trả 0\n{out}"
+        if "::error::" not in out:
+            return False, f"không in ::error::\n{out}"
+        tren = subprocess.run(["git", "-C", str(bare), "show", f"main:{rel}"],
+                              capture_output=True, text=True).stdout
+        if tren != goc:
+            return False, f"file trên remote bị đụng:\n{tren}"
+    return True, "từ chối file không phải .log, remote nguyên vẹn"
+
+
 CAC_CA = [
     ("[01] CA CHÍNH · hai phiên ghi cùng log → giữ đủ cả hai dòng", ca_01_giu_du_hai_dong),
     ("[02] PHẢI CHẶN · chạy lại không nhân đôi dòng", ca_02_khong_nhan_doi),
@@ -210,6 +240,7 @@ CAC_CA = [
     ("[05] ĐỐI CHỨNG · không ai chen thì chạy trơn", ca_05_khong_ai_chen),
     ("[06] PHẢI KÊU · thiếu file log → mã ≠ 0 + ::error::", ca_06_thieu_file_phai_keu),
     ("[07] ĐỐI CHỨNG · index.html không bị đè", ca_07_khong_de_index_html),
+    ("[08] PHẢI CHẶN · file không phải .log (state.json) bị từ chối", ca_08_tu_choi_file_khong_phai_log),
 ]
 
 
@@ -244,6 +275,11 @@ BAN_HONG = [
      "        return 2",
      "        return 0",
      ["[06] PHẢI KÊU · thiếu file log → mã ≠ 0 + ::error::"]),
+
+    ("nhận mọi loại file, không chặn đuôi ≠ .log",
+     '    if p.suffix != ".log":',
+     '    if False:',
+     ["[08] PHẢI CHẶN · file không phải .log (state.json) bị từ chối"]),
 ]
 
 
