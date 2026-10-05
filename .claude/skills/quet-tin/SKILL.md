@@ -12,16 +12,7 @@ description: >-
 # Skill: Quét tin "Điểm Tin Thế Giới" (bản TẬP TRUNG 5 chủ đề — chỉ thị Huy 2026-07-23)
 
 ## 🧭 PHÂN VAI — file này là gì, KHÔNG phải gì (chốt 29/07/2026)
-> Ba tài liệu, **mỗi luật chỉ được viết ở ĐÚNG MỘT chỗ**. Sửa nhầm chỗ là đẻ ra hai bộ luật song
-> song, và hai bộ luật song song chắc chắn lệch — đúng bệnh đã bắt được ngày 29/07 (file này còn
-> ghi "chỉ chạy 1 lần/ngày, TỐI 22:00" trong khi lịch thật đã là 2 phiên/ngày từ 26/07).
-
-| Tài liệu | Giữ luật gì | Ai đọc |
-|---|---|---|
-| **File này** (`.claude/skills/quet-tin/SKILL.md`) | **NỘI DUNG quét**: 5 chủ đề + tiêu chí lọc · kiến trúc agent · thang xác minh · guardrail `add_news.py` · `scan-gaps.json` · phụ lục nguồn | Phiên local (qua `docs/routine-web-scan.md` Bước 2) **và** phiên CI (qua `.github/prompts/web-scan-ci.md`) |
-| `docs/routine-web-scan.md` | **QUY TRÌNH CHẠY**: lịch/mốc giờ · `state.py` claim/beat/done · pull-rebase · commit/push · pipeline `event-scan` | LaunchAgent `com.huy.routine-diemtin-sang` |
-| `CLAUDE.md` gốc repo | **PHẠM VI + NGUỒN**: bảng nguồn 3 tầng, URL RSS, thang xác minh, bảng độ gần, lịch và phạm vi rút gọn | Tự nạp mọi phiên |
-| `docs/luat/*.md` (xẻ 25/08/2026) | Phần luật đã rời khỏi `CLAUDE.md`: phạm vi đầy đủ · khâu gửi · Telegram · cổng kiểm · kho dữ liệu · think-tank · vận hành | Đọc khi sửa đúng mảng đó, bảng tra ở đầu `CLAUDE.md` |
+> Ba tài liệu, **mỗi luật chỉ được viết ở ĐÚNG MỘT chỗ** (hai bộ luật song song chắc chắn lệch — đã bắt được 29/07). File này giữ **NỘI DUNG quét** (5 chủ đề, tiêu chí lọc, kiến trúc agent, thang xác minh, guardrail `add_news.py`, `scan-gaps.json`); `docs/routine-web-scan.md` giữ **QUY TRÌNH CHẠY** (lịch, `state.py`, commit/push, event-scan); `CLAUDE.md` gốc giữ **PHẠM VI + NGUỒN**; `docs/luat/*.md` là phần luật xẻ khỏi `CLAUDE.md` (đọc khi sửa đúng mảng đó).
 
 ⛔ **ĐỪNG rút file này thành stub trỏ sang `routine-web-scan.md`** — file đó **trỏ VÀO đây** ở Bước 2,
 và `.github/prompts/web-scan-ci.md` cũng vậy. Trỏ ngược lại là vòng tròn, cả CI lẫn local mất sạch
@@ -334,34 +325,7 @@ cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhan
   RealClear*, Investing.com, Yahoo/AOL/MSN) → BẮT BUỘC truy về bài gốc, không ra gốc thì cần 2 nguồn
   độc lập, không thì bỏ; **link không mở được bằng tool** (403/302) KHÔNG phải lý do bỏ nếu nội dung đã
   xác nhận được qua đường khác. Đừng bỏ tin tầng 1 chỉ vì chưa thấy báo nào đưa lại.
-- **⛔ DÍNH PAYWALL THÌ ĐỌC THỬ BẰNG `darkread.io` TRƯỚC KHI BỎ TIN** (chỉ thị Huy 05/08/2026: *"thêm
-  vào quy trình quét tin: dính paywall thì đọc thử bằng darkread.io"*).
-  **Cơ chế gây vấp:** thang lấy trang (`congcu/lay_trang.py`) chỉ được `harvest.py` gọi tới khi thân
-  trả về mang **dấu hiệu chặn** (403, "just a moment"…). Bài paywall thì ngược lại — máy chủ trả
-  **200 kèm vài đoạn đầu**, không dấu hiệu nào, nên thang KHÔNG kích và bài lặng lẽ bị bỏ với lý do
-  "không đọc được nội dung". Đây là bước của **agent/người quét**, không phải của script.
-  ```bash
-  python3 /Users/Huy/Claude/congcu/lay_trang.py <url>
-  ```
-  Thang nay đi lần lượt `curl_cffi → thu_lai → ua_bot → wayback → darkread`; muốn thử riêng một
-  bậc thì thêm `--duong=ua_bot` hoặc `--duong=darkread`.
-  - **`ua_bot` = đổi User-Agent sang bot tìm kiếm/mạng xã hội** (Huy chốt 05/08/2026). Đo cùng
-    ngày: Japan Times từ **403 → 200 kèm trọn thân bài**; Economist trả thêm khối bài mà trình
-    duyệt thường không có (mới là phần đầu); WSJ vẫn 401, FT vẫn ra trang "Subscribe to read".
-    ⚠️ Đây là **giả danh bot** — nhiều báo cấm trong điều khoản, lạm dụng thì bị chặn IP; nên nó
-    đứng sau các đường thường, đừng gọi thẳng `--duong=ua_bot` cho cả lô.
-  - **`archive.today` là công cụ mạnh nhất cho báo trả tiền nhưng KHÔNG tự động hoá được** — script
-    nhận 429, trình duyệt trong app đòi bấm duyệt từng thao tác. Mở tay được, đừng cắm vào quy trình.
-  - **Khai đúng mức, đừng kỳ vọng sai:** darkread KHÔNG vượt paywall cứng. Đo 05/08/2026 trên 06 bài:
-    ăn `japantimes.co.jp` (729 chữ, thang vốn trượt hoàn toàn) · `asia.nikkei.com` chỉ ra phần lead
-    (494 chữ) · trượt hẳn ở `wsj.com` · `ft.com` · `economist.com` · `38north.org`. Coi nó là **một
-    lượt thử thêm**, không phải cửa mở.
-  - **Bản lấy về là BẢN READER RÚT GỌN, có thể chỉ là phần miễn phí** — dùng để đối chiếu dữ kiện thì
-    được, nhưng `sourceUrl` vẫn phải là **URL gốc**, tuyệt đối không ghi link `darkread.io` vào tin.
-  - ⚠️ **CHỈ chạy được ở phiên LOCAL** — CI checkout đúng repo này, không có `~/Claude/congcu`. Phiên
-    CI gặp paywall thì xử như cũ: xác nhận nội dung qua nguồn thứ hai, không được thì bỏ tin.
-  - Đo được một tên miền mới đi lọt bằng đường này thì **ghi vào `congcu/bang-tra-web.json`** (khoá
-    `duong` thêm `"darkread"`), kẻo phiên sau đo lại từ số không.
+- **⛔ DÍNH PAYWALL (bài 200 nhưng chỉ có vài đoạn đầu) THÌ ĐỌC THỬ TRƯỚC KHI BỎ TIN** (chỉ thị Huy 05/08/2026): `python3 /Users/Huy/Claude/congcu/lay_trang.py <url>` (thang `curl_cffi → thu_lai → ua_bot → wayback → darkread`). `sourceUrl` vẫn phải là URL gốc, không ghi link `darkread.io`; chỉ chạy được ở phiên LOCAL (CI không có `~/Claude/congcu`: xác nhận qua nguồn thứ hai, không được thì bỏ). Cơ chế, số đo từng trang, giới hạn: [`docs/lay-trang-paywall.md`](../../../docs/lay-trang-paywall.md).
 - **Ràng buộc chất lượng**: (a) `date` đúng khung 24h/48h; (b) `sourceUrl` trỏ THẲNG 1 bài cụ thể,
   KHÔNG trang chủ/"live"/live-blog/tổng hợp, link KHỚP nội dung; (c) `sourceName` trong danh sách nguồn
   được giao HOẶC nguồn chính thức phù hợp; (d) thà ÍT còn hơn sai — được phép trả mảng rỗng.
@@ -434,7 +398,9 @@ tiêu đề nghi trùng.
 - **KHÔNG còn sàn 15+15.** Dòng script in `SÀN CỨNG … X/15 · Y/15` là DI SẢN cũ — **BỎ QUA nó**. Mục
   tiêu mới đếm theo chủ đề (bảng ở PHẠM VI MỚI), không theo world/us tổng.
 - Chủ đề nào thiếu bài trong 24h → giao thêm agent cho riêng chủ đề đó với khung **48h**; vẫn thiếu thì
-  CHẤP NHẬN (ghi rõ trong tóm tắt), KHÔNG bịa/nhồi. Không lặp vô hạn — 1–2 vòng bổ sung là đủ.
+  CHẤP NHẬN (ghi rõ trong tóm tắt), KHÔNG bịa/nhồi. Không lặp vô hạn — **TỐI ĐA 01 vòng bổ sung** (xem TRẦN AGENT CON ngay dưới).
+
+⛔ **TRẦN AGENT CON CỦA PHIÊN QUÉT — vá 05/10/2026.** Cả phiên giao **tối đa 06 lần agent con**: 05 luồng gốc (A · B · C · D · BM) + **01 agent bổ sung duy nhất**, giao MỘT lần, gộp mọi mục còn dưới sàn vào cùng một prompt. Sau vòng đó mục nào vẫn hụt sàn thì **CHỐT**: `add_news.py`, ghi `scan-gaps.json` (`reason` nêu đã đi những nguồn nào), commit; **KHÔNG giao vòng thứ hai**. Mục hụt vì cổng NGÀY ĐĂNG THẬT (`scripts/ngay_that.py` chặn bài mở được nhưng không in ngày) thì không giao lại cho đúng nguồn lớn đó: agent mới nhặt cùng nguồn rồi bị cổng chặn lần nữa, tốn token mà sàn không nhích. **Cơ chế gây vấp:** sáng 05/10/2026 phiên local 04:35 giành khoá quét lại khi CI vẫn chạy, dùng 06 agent con và hai vòng bổ sung (~11 triệu token quy đổi, chung ví hạn mức với CI) mà vẫn hụt sàn ở 5/6 mục vì cổng ngày thật vẫn chặn các nguồn lớn. Bộ canh nội dung luật này: `tests/test-tran-agent-quet.py`.
 
 ⛔ **SÀN CỨNG 05 TIN MỖI MỤC — Huy chốt 02 tin ngày 05/09/2026, NÂNG LÊN 05 ngày 18/09/2026**, nguyên
 văn lượt nâng: *"quét tin hàng ngày: mỗi mục tối thiểu từ 2 tin đổi thành tối thiểu 5 tin"*. Đây là SÀN
@@ -599,119 +565,6 @@ mọi lần rút gọn quy trình dù vì lý do gì (Huy giục nhanh, sát h�
 liệt kê thẳng **bước bị bỏ + vì sao + hệ quả** thành một dòng riêng. Huy bác bỏ cũng được, nhưng phải
 được biết mà bác — im lặng cắt bước là thứ Huy không có cách nào phát hiện.
 
-## Phụ lục — NGUỒN MỞ RỘNG theo 5 chủ đề (bổ sung 25/07/2026)
-Agent điều phối chọn vài nguồn hợp chủ đề rồi nhúng vào prompt agent (đừng dán cả phụ lục). Ưu tiên
-tầng 1 (chính thức, link thẳng) → wire (Reuters/AP/AFP) → chuyên ngành. Nguồn có RSS thì đưa thẳng URL
-cho agent fetch; nguồn không RSS thì dùng WebSearch `site:domain`.
+## Phụ lục — NGUỒN MỞ RỘNG theo 5 chủ đề + RSS đã verify → [`docs/nguon-mo-rong-quet.md`](../../../docs/nguon-mo-rong-quet.md)
 
-### 1. Nội bộ Mỹ (điều trần + bỏ phiếu thông qua)
-- **Bản ghi bỏ phiếu chính thức**: clerk.house.gov/Votes · senate.gov/legislative/LIS/roll_call_lists ·
-  congress.gov (tra bill + trạng thái). GovTrack/govtrack.us chỉ để TRA, link bài báo kèm.
-- **Uỷ ban** (lịch điều trần + thông cáo): armedservices.house.gov · appropriations.house.gov ·
-  foreignaffairs.house.gov · armed-services.senate.gov · appropriations.senate.gov · foreign.senate.gov ·
-  banking.senate.gov · intelligence.senate.gov (đủ 101 uỷ ban trong `docs/nguon-chinh-thuc-my.md`).
-- **Video/tường thuật**: C-SPAN (c-span.org). **Báo chuyên Quốc hội**: The Hill, Politico, Roll Call,
-  Punchbowl News, NOTUS (notus.org), CQ. **Cơ quan liên bang**: Government Executive (govexec.com),
-  Federal News Network. **Phân tích luật**: CRS (crsreports.congress.gov).
-
-### 2. Úc & Biển Đông
-- **Úc chính thức**: defence.gov.au · minister.defence.gov.au · pm.gov.au · dfat.gov.au · aph.gov.au
-  (nghị viện). **Phân tích Úc**: ASPI The Strategist (aspistrategist.org.au), Lowy Interpreter
-  (lowyinstitute.org/the-interpreter), Crikey (crikey.com.au — chính trường/AUKUS), The Conversation
-  Úc (theconversation.com/au). **Báo Úc**: ABC News AU (abc.net.au), The Australian, SMH — dùng
-  `/rss/politics/federal.xml` và `/rss/world.xml`, KHÔNG dùng `/rss/national.xml` (thuần tin trong
-  nước, gần như không chạm chủ đề — xem "Nguồn MỚI cho Úc & Biển Đông — thêm 21/09/2026" ở CLAUDE.md),
-  Defence Connect (defenceconnect.com.au — đã thử, RSS chết), Australian Defence Magazine (đã thử,
-  RSS chết), ADBR.
-- **Biển Đông**: AMTI/CSIS (amti.csis.org — bản đồ/phân tích) · Philippine Coast Guard (coastguard.gov.ph) ·
-  Philippine News Agency (pna.gov.ph, đã thử 403) · Rappler · Inquirer · Philstar · GMA News · Manila
-  Bulletin (đã thử 403) · BenarNews (đã thử, RSS chết) · Radio Free Asia (đã thử, RSS chết) · The
-  Maritime Executive · gCaptain · Naval News (đã thử, chặn Cloudflare) · Nikkei Asia (đã thử, feed
-  rỗng) · SCMP · Channel News Asia (channelnewsasia.com, feed Asia) · The Straits Times
-  (straitstimes.com/news/asia) — hai nguồn Singapore này phủ cùng lúc Trung Quốc/Malaysia/Việt Nam/
-  Philippines/Đài Loan, tiêu đề tự nhắc tên nước nên khớp chủ đề ngay. VN: vietnamplus.vn,
-  thanhnien.vn. **TQ (chỉ phát ngôn của họ)**: mod.gov.cn, mfa.gov.cn.
-
-### 3. CNQS Mỹ
-- **Chính thức**: defense.gov · war.gov/News/Contracts (hợp đồng hằng ngày) · navy.mil · army.mil ·
-  af.mil · spaceforce.mil · dvidshub.net · DARPA (darpa.mil) · Missile Defense Agency (mda.mil) ·
-  DIU (diu.mil) · NAVSEA. **Chuyên ngành**: Defense News, Breaking Defense, Defense One, Naval News,
-  USNI News, C4ISRNet, SpaceNews, Air & Space Forces Magazine, DefenseScoop, The War Zone, National
-  Defense Magazine (nationaldefensemagazine.org), Defense Daily, Inside Defense, Aviation Week, Naval
-  Technology. **Nhà thầu (thông báo của họ)**: Lockheed Martin, RTX, Boeing, Northrop Grumman, General
-  Dynamics. *Kiểm chứng thêm*: Janes, SIPRI, Army Recognition (chỉ tham khảo).
-
-### 4. Mỹ–Mali (JNIM/Sahel)
-- **Chính thức**: africom.mil (AFRICOM — chính) · defense.gov · state.gov · centcom.mil. **Theo dõi
-  khủng bố/JNIM**: FDD Long War Journal (longwarjournal.org) · Jamestown Foundation (Terrorism Monitor /
-  Militant Leadership Monitor) · Critical Threats (criticalthreats.org — AEI). **Dữ liệu xung đột**:
-  ACLED (acleddata.com). **Phân tích Phi**: ISS Africa (issafrica.org) · Africa Center for Strategic
-  Studies (africacenter.org). **Báo**: Reuters, AP, AFP, WaPo, France24/RFI, Al Jazeera, Jeune Afrique,
-  The Africa Report, BBC Africa.
-
-### 5. Predator's Run 2026 (Mỹ–Úc–Philippines)
-- **Chính thức**: pacom.mil (INDOPACOM) · usarpac.army.mil (US Army Pacific) · marines.mil / III MEF ·
-  army.mil · defence.gov.au · army.gov.au (Australian Army, 1st Division) · dvidshub.net (thông cáo +
-  ảnh diễn tập). **Philippines**: Philippine Army, AFP (armedforces). **Báo**: ABC News AU, Defence
-  Connect, ADBR, The Townsville Bulletin (địa phương), Naval News. Từ khoá WebSearch: "Predator's Run
-  2026", "Exercise Carabaroo 2026".
-
-### ✅ RSS nguồn mở rộng — ĐÃ VERIFY BẰNG FETCH THẬT 25/07/2026
-Chạy tốt (đưa THẲNG URL cho agent):
-| Nguồn | RSS URL | item |
-|---|---|---|
-| The Hill (chung) | https://thehill.com/feed/ | 100 |
-| The Hill — Defense | https://thehill.com/policy/defense/feed/ | 15 |
-| Roll Call | https://rollcall.com/feed/ | 10 |
-| Government Executive | https://www.govexec.com/rss/all/ | 22 |
-| ABC News AU (world) | https://www.abc.net.au/news/feed/51120/rss.xml | 25 |
-| Lowy Interpreter | https://www.lowyinstitute.org/the-interpreter/rss.xml | 50 |
-| AMTI/CSIS (Biển Đông) | https://amti.csis.org/feed/ | 10 |
-| Rappler | https://www.rappler.com/feed/ | 10 |
-| Philstar (headlines) | https://www.philstar.com/rss/headlines | 10 |
-| Inquirer | https://www.inquirer.net/fullfeed/ | 20 |
-| gCaptain | https://gcaptain.com/feed/ | 12 |
-| Naval Technology | https://www.naval-technology.com/feed/ | 10 |
-| The War Zone (TWZ) | https://www.twz.com/feed | 44 |
-| DefenseScoop | https://defensescoop.com/feed/ | 10 |
-| Aviation Week | https://aviationweek.com/rss.xml | 10 |
-| Long War Journal (Mali/JNIM) | https://www.longwarjournal.org/feed | 30 |
-| DVIDS news (Predator) | https://www.dvidshub.net/rss/news | 20 |
-
-Bổ sung 25/07/2026 — gộp từ kho tư liệu `docs/diemtin-*-sources.md`, đã fetch thật cùng ngày:
-| Nguồn | RSS URL | item | Chủ đề |
-|---|---|---|---|
-| Defense Daily | https://www.defensedaily.com/feed/ | 50 | 3 |
-| Air & Space Forces Magazine | https://www.airandspaceforces.com/feed/ | 9 | 3 |
-| Military Times | https://www.militarytimes.com/arc/outboundfeeds/rss/ | 25 | 3 |
-| FlightGlobal | https://www.flightglobal.com/rss/ | 10 | 3 |
-| The Aviationist | https://theaviationist.com/feed/ | 15 | 3 |
-| Soldier Systems Daily | https://soldiersystems.net/feed/ | 6 | 3 |
-| Sandboxx News | https://www.sandboxx.us/news/feed/ | 15 | 3 |
-| DVIDS (toàn bộ, rộng hơn /rss/news) | https://www.dvidshub.net/rss/all | 419 | 3 + 5 |
-| Shephard Media | https://www.shephardmedia.com/news/feed/ | 10 | 3 + 2 |
-| The Japan Times | https://www.japantimes.co.jp/feed/ | 30 | 2 |
-| Yonhap | https://en.yna.co.kr/RSS/news.xml | 97 | 2 |
-| AllAfrica | https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf | 30 | 4 |
-| Federal News Network — Defense | https://federalnewsnetwork.com/category/defense-main/feed/ | 15 | 1 |
-| Atlantic Council | https://www.atlanticcouncil.org/feed/ | 100 | phân tích |
-| Foreign Policy | https://foreignpolicy.com/feed/ | 25 | phân tích |
-| Bellingcat | https://www.bellingcat.com/feed/ | 10 | OSINT |
-| The Guardian — World | https://www.theguardian.com/world/rss | 45 | chung |
-| Semafor | https://www.semafor.com/rss.xml | 261 | chung |
-| NPR — World | https://feeds.npr.org/1004/rss.xml | 10 | chung |
-| VietnamPlus (TTXVN) | https://www.vietnamplus.vn/rss/thegioi.rss | 50 | 2 · VN |
-| Nhân Dân | https://nhandan.vn/rss/thegioi-1231.rss | 50 | VN |
-| Báo Chính phủ | https://baochinhphu.vn/quoc-te.rss | 50 | VN |
-| VietnamNet | https://vietnamnet.vn/rss/the-gioi.rss | 1000 | VN |
-| Báo Thế giới & Việt Nam | https://baoquocte.vn/rss_feed/ | 25 | VN ngoại giao |
-
-Nguồn VN là **ưu tiên #2** (tiếng Anh trước) — dùng khi cần góc trong nước hoặc tin Biển Đông.
-**Feed CHẾT, đừng thử lại:** CSIS `csis.org/rss.xml` (bài mới nhất 2016) · War on the Rocks (403) ·
-DARPA `darpa.mil/rss.xml` (không phân giải tên miền) → WebSearch `site:...`.
-
-KHÔNG có RSS dùng được → **WebSearch `site:domain`** (đã thử, 403/404/0-item 25/07): NOTUS
-(notus.org) · Punchbowl (trả phí) · C-SPAN · Defence Connect · ADBR · Philippine News Agency
-(pna.gov.ph) · Manila Bulletin (mb.com.ph) · Radio Free Asia (rfa.org) · The Maritime Executive ·
-National Defense Magazine · Jeune Afrique · The Africa Report · RFI (rfi.fr) · ISS Africa (issafrica.org).
-Nguồn chính thức (.gov/.mil/committee) vốn ít RSS ổn định — mặc định WebSearch `site:...`.
+Read file đó KHI giao agent cho một chủ đề (chọn vài nguồn hợp chủ đề rồi nhúng vào prompt agent, đừng dán cả phụ lục).

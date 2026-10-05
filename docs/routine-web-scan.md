@@ -2,17 +2,8 @@
 
 > **File này là nguồn sự thật duy nhất về quy trình quét bản tin.**
 
-⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026 — MỌI CHỖ DƯỚI ĐÂY NÓI "PHIÊN TỐI" LÀ LỊCH SỬ, KHÔNG PHẢI
-VIỆC ĐANG CHẠY.** Chỉ thị Huy, nguyên văn: *"chỉ cần gửi tin 4h sáng thôi, không phải quét và
-gửi buổi tối nữa đâu"*. Nay **01 phiên/ngày: SÁNG SỚM**. Đã gỡ: 02 cron tối của
-`claude-web-scan.yml` · 02 cron tối của `harvest-ci.yml` · cron canary ca `toi` · 03 mốc tối
-trong `kich_ci.py::LICH`. Phần local của phiên tối đã tắt từ trước (plist nằm trong
-`~/Library/LaunchAgents/_tat-hd-va-diemtin-toi/`).
-Giữ phần chữ về phiên tối vì nó là **nhật ký vấp** — hạn chót cứng, khoá nói dối, lớp vét — và
-những cơ chế ấy vẫn áp cho ca sáng. Đọc chúng như bài học, đừng đọc như lịch.
-⛔ **ĐỪNG CẮM LẠI MỐC TỐI KHI THẤY BẢN SÁNG MỎNG.** Bản mỏng là việc của SÀN và KHUNG NGÀY
-(`scripts/soi_muc_cam.py`), không phải việc của lịch. Cổng canh: `kiem_lich.py` phép đo D chặn
-mọi cron của đường quét rơi vào khung 19:00-23:59 VN.
+⛔ **PHIÊN TỐI BỎ HẲN 18/09/2026 — chữ nào dưới đây nói "phiên tối" là LỊCH SỬ.** Nay **01 phiên/ngày: SÁNG SỚM**. Chỉ thị Huy: *"chỉ cần gửi tin 4h sáng thôi, không phải quét và gửi buổi tối nữa đâu"*. Lịch sử và 04 cơ chế vấp còn áp: [`nhat-ky-vap-phien-toi.md`](nhat-ky-vap-phien-toi.md).
+⛔ **ĐỪNG CẮM LẠI MỐC TỐI KHI THẤY BẢN SÁNG MỎNG.** Bản mỏng là việc của SÀN và KHUNG NGÀY (`scripts/soi_muc_cam.py`), không phải việc của lịch. Cổng canh: `kiem_lich.py` phép đo D chặn mọi cron của đường quét rơi vào khung 19:00-23:59 VN.
 
 > Dời từ `~/.claude/scheduled-tasks/web-scan-diem-tin/SKILL.md` vào repo ngày 27/07/2026 — vùng `~/.claude/` là sensitive, mọi Edit vào đó đều bị hỏi quyền bất kể allowlist, trong khi file này rất hay phải vá bài học mới. Repo thì Edit/Write đã allow toàn phần + có git history.
 > **Ai đọc file này:** mốc local `com.huy.routine-diemtin-sang` (phiên SÁNG SỚM **04:30 · 04:45**) và mốc local `com.huy.routine-diemtin-toi` (phiên TỐI 21:15) — cả hai là LaunchAgent gọi `claude -p --model sonnet`, KHÔNG còn là scheduled task của app (đổi 06/08, đo lại 18/08/2026) — SKILL.md của 2 task đó giờ chỉ là stub trỏ về đây. **Sửa quy trình thì sửa file này**, đừng sửa stub.
@@ -58,10 +49,6 @@ của workflow bằng `python3 scripts/kiem_lich.py --sinh`. Số giờ ở bả
 tiện đọc; **lệch nhau thì `LICH.md` thắng**. Cổng `kiem_lich.py --kiem` canh việc này (dựng
 30/07/2026 sau khi bắt được **47 chỗ** trong tài liệu còn ghi lịch CI cũ 21:00/22:00/04:00/05:00,
 tức lịch đã dời sớm 13 phút mà không ai sửa những chỗ chép lại).
-
-Nguyên nhân dời CI sáng: mốc CI 04:30 cũ **không nổ** sáng 27/07 (GitHub hay trễ/bỏ cron lúc tải cao) mà phiên sáng khi đó không có lưới local → mất trắng bản tin sáng. CI vì thế lên 04:00 để local 04:30 kịp gánh, rồi **dời tiếp về 03:47** (và cả 04 mốc sớm 13 phút) để `harvest-ci.yml` xong trước khi phiên quét bắt đầu.
-
-⏰ **HẠN CHÓT CỦA PHIÊN TỐI CŨ (bỏ 18/09/2026, giữ làm bài học về cách tính ngược từ mốc cuối): email muộn nhất 22:00** (chỉ thị Huy 27/07/2026): phiên chạy ở mốc tối **quá 21:45 chưa nạp xong thì chốt lô đang có**, `add_news.py` + commit ngay, phần thiếu ghi `scan-gaps.json`; không vòng bổ sung lần 3-4 để gom cho đủ chỉ tiêu. **Phiên SÁNG SỚM KHÔNG có hạn chót này** — cứ quét đủ 5 chủ đề bình thường. Chi tiết phiên tối: mục cuối file.
 
 Cách làm ở MỌI mốc là như nhau: cứ `claim` như thường — CI đã xong/đang chạy thì SKIP êm, CI không quét (trễ/chết/hết quota) thì mày quét đủ 5 chủ đề rồi commit `Cap nhat ban tin ...` (email + .docx do Action `notify-email.yml` tự gửi khi thấy push `index.html` với tiền tố commit đó — local push cũng kích như CI, không phải làm gì thêm). Phiên sáng 10:15 kiểu cũ vẫn bỏ.
 ⚠️ Local chỉ chạy khi app Claude đang mở và máy đã thức — mốc 04:30 phụ thuộc lịch wake của máy (`pmset repeat wakeorpoweron`); máy ngủ thì mốc này im, đó là lý do vẫn giữ CI 03:47/04:47 làm mốc chính.
@@ -230,6 +217,7 @@ Có session Telethon trong môi trường (`TG_API_ID`/`TG_API_HASH`/`TG_SESSION
 🧭 **PHÂN VAI (chốt 29/07/2026) — file kia là playbook NỘI DUNG, file NÀY là quy trình CHẠY.** SKILL.md giữ 5 chủ đề + tiêu chí lọc · kiến trúc agent · thang xác minh · guardrail `add_news.py` · `scan-gaps.json` · phụ lục nguồn. **Lịch/mốc giờ/hạn chót/khoá/commit chỉ được viết ở FILE NÀY** — đừng chép sang SKILL.md. Vì sao: tới 29/07 SKILL.md vẫn ghi "chỉ chạy 1 lần/ngày, TỐI 22:00 (dự phòng 23:00)" trong khi lịch thật đã là 2 phiên/ngày từ 26/07 — hai bộ luật song song thì bộ ít người sửa sẽ mục, mà nó lại là bộ phiên quét đọc trước. Ngược lại **KHÔNG được rút SKILL.md thành stub trỏ về đây**: chính dòng trên bảo đọc nó, trỏ ngược lại là vòng tròn và mất sạch playbook nội dung (cả CI cũng đọc nó qua `.github/prompts/web-scan-ci.md`).
 GIỮ NHỊP TIM: sau mỗi mốc lớn (xong baseline · xong agent · xong script) chạy `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/beat_push.py web-scan` + ghi checkpoint log. Khoá hết hạn sau 30' không nhịp. ⛔ **DÙNG ĐÚNG `beat_push.py`, KHÔNG gọi `state.py beat` trần** (vá 20/09/2026 — sự cố thật đêm 19/09, `logs/scan-2026-09-19.log` dòng `[21:45Z]`: CI beat cục bộ đúng nhịp nhưng quên đẩy git, máy khác thấy nhịp cũ rồi giành khoá quét chồng, phí ~12 triệu token). `beat_push.py` gộp cứng ghi-nhịp-tim + đẩy git thành một lệnh, tự lo cả pull/rebase an toàn — không cần gọi `push` rời sau đó nữa.
 ⏱️ **BEAT TRƯỚC KHI LÀM VIỆC LÂU, KHÔNG PHẢI SAU KHI XONG** (vá 28/07/2026, đo thật trên CI): "sau mỗi mốc lớn" nghe thì đủ nhưng thực tế nhịp ĐẦU TIÊN chỉ tới khi vòng agent xong — mà đó là chặng dài nhất phiên. Phiên tối CI 28/07: start 21:00 → beat đầu **21:26**, tức 25' không nhịp, cách ngưỡng thối 30' đúng **5 phút**. Agent chậm thêm 5' nữa là khoá tự mở TRONG LÚC phiên vẫn đang quét, mốc kế cướp khoá → **hai phiên cùng quét**, đúng sự cố 26/07. Vì vậy beat thêm ở **(a) ngay sau `harvest.py` + `telegram_harvest.py`** và **(b) ngay TRƯỚC khi giao lô agent**; nguyên tắc chung: **hai nhịp liên tiếp không cách quá ~15 phút**.
+⛔ **TRẦN AGENT CON: tối đa 06 lần giao agent cả phiên (05 luồng gốc + 01 agent bổ sung duy nhất, giao một lần); hụt sàn sau đó thì CHỐT, không vòng thứ hai** (vá 05/10/2026, chi tiết ở SKILL.md Bước 3-4).
 Ràng buộc cứng: KHÔNG dùng Read đọc cả index.html; mọi thao tác chèn tin qua `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py /tmp/new_items.json`; khung 24h (nới 48h nếu thiếu); được trả mảng rỗng, KHÔNG bịa tin/link.
 
 ## Bước 2b — CẢ HAI PHIÊN: dùng file Jay Lâm làm BỘ LỌC (đảo nguyên tắc 01/08/2026)
@@ -249,227 +237,25 @@ Email + file Word tự gửi lamgiaphat1603@gmail.com qua GitHub Action notify-e
 Báo cáo cuối ngắn gọn: số tin mỗi chủ đề (Nội bộ Mỹ / Úc-Biển Đông / CNQS Mỹ / Mali / Tập trận), chủ đề nào thiếu (đã nới 48h chưa), trạng thái push.
 📌 **Tin Mali từ 05/08/2026 KHÔNG vào file Word bản tin nữa** (chỉ thị Huy) — vẫn quét, vẫn nạp `usNews`, nhưng đi ở **bản sáng 🎖️ Sự kiện & Tập trận**. Phiên quét không phải làm gì thêm; `make_docx.py` in một dòng ghi vết mỗi lần bỏ. Vẫn ghi mục Mali vào `scan-gaps.json` như thường.
 
-## Bước 4 — CHỈ PHIÊN SÁNG SỚM: gộp thêm sự kiện + tập trận + think-tank (gộp 28/07/2026)
+## Bước 4 — CHỈ PHIÊN SÁNG SỚM: gộp thêm sự kiện + tập trận + think-tank (nội dung dời sang [`quy-trinh-event-scan.md`](quy-trinh-event-scan.md) 05/10/2026)
 
-> **Chỉ thị Huy 28/07/2026:** *"sự kiện sáng thì quét gộp với quét tin 4h sáng cũng được."* Trước đây
-> đây là pipeline `event-scan` RIÊNG (CI `claude-event-scan.yml` 08:45/09:45 + task local
-> `event-scan-diem-tin` 09:15/10:15) — 3 lần quét thật/ngày. Từ 28/07/2026 chỉ còn **2 lần quét
-> thật/ngày**: phiên TỐI (bản tin 5 chủ đề) và phiên SÁNG SỚM (bản tin 5 chủ đề **+ sự kiện/tập
-> trận/think-tank ngay trong CÙNG một phiên**). `claude-event-scan.yml` và task `event-scan-diem-tin`
-> đã bị xoá/tắt — ĐỪNG dựng lại, đừng kích tay chúng.
+Làm khi (i) vừa xong bản tin 5 chủ đề ở phiên SÁNG SỚM (giờ VN lúc bắt đầu < 14:00), hoặc (ii) lối SKIP ở Bước 0 mà `state.py claim event-scan` trả exit 0. **Đến lúc đó mới Read `docs/quy-trinh-event-scan.md`** (đừng đọc trước: 12 KB chỉ dùng một lần ở cuối phiên). Phiên nhường/SKIP exit 10-11-12 không đọc file ấy. Phiên TỐI (đã bỏ) không làm bước này.
 
-**CHỈ chạy bước này khi phiên vừa xong ở TRÊN là phiên SÁNG SỚM** (giờ VN lúc bắt đầu < 14:00 —
-đúng ô `state.py` đã tự suy ở Bước 1). Phiên TỐI **KHÔNG** làm bước này, dừng lại ở Bước 3.
+## PHIÊN TỐI — BỐI CẢNH RIÊNG ⛔ ĐÃ BỎ 18/09/2026 (bản đầy đủ: [`nhat-ky-vap-phien-toi.md`](nhat-ky-vap-phien-toi.md))
 
-⛔ **event-scan KHÔNG CÓ HẠN CHÓT** — `HAN_CHOT` 04:45 chỉ áp cho bản tin; event-scan chạy tới hết
-khung ca sáng (09:00). `state.py skip event-scan` TỪ CHỐI (exit 13) mọi ghi chú viện cớ giờ/hạn chót
-(vấp thật 25/09/2026, bộ test `tests/test-cong-event-han-chot.py`).
+⛔ **Không còn mốc tối nào chạy.** Điều 1-4 (mốc 21:15, hạn chót 22:00, SKIP êm, sổ đã gửi) là lịch sử, đã dời sang file nhật ký; chỉ mở khi cần biết *vì sao* một luật ra đời. Bốn cơ chế vẫn áp cho ca sáng: (i) tính biên ngược từ mốc CUỐI chứ không từ mốc đầu · (ii) cờ `state.py` nói dối vì chỉ biết «đã chạy xong», không biết «đã gửi» · (iii) sổ trống có hai nghĩa · (iv) chốt lô đang có khi sát hạn, đừng vòng bổ sung.
 
-Đây là **pipeline THỨ HAI, khoá RIÊNG** (`event-scan`, khác `web-scan` ở Bước 1-3) — vẫn `claim` riêng,
-`done`/`skip`/`fail` riêng, và **commit RIÊNG** (không gộp chung commit bản tin), vì `notify-morning.yml`
-chỉ bắt tiền tố commit của pipeline này. Lý do giữ tách: `state.py`/`canary.py`/`notify-morning.yml`
-đều phân biệt hai pipeline theo tên — gộp làm một sẽ vỡ cả khoá idempotent lẫn cổng gửi email/Telegram
-sự kiện riêng (🎖️ khác 📰). Chỉ có **nơi kích** là gộp lại (chung 1 phiên/session), không phải **cơ chế**.
+**Điều 3 còn hiệu lực — SỔ ĐÃ GỬI TRỐNG CÓ HAI NGHĨA, phiên LOCAL đọc log run CI trước khi kết luận** (áp mọi phiên; phiên local gọi được `gh`, phiên CI thì không):
+| Sổ trống vì | Dấu hiệu | Làm gì |
+|---|---|---|
+| Bản tin **thật sự chưa gửi** | không có run `notify-email.yml` nào, hoặc run ĐỎ | QUÉT THẬT |
+| **Khâu GHI SỔ hỏng**, bản tin ĐÃ tới tay | run `notify-email.yml` XANH + log có dòng `Đã gửi … file .docx tới <chat>` | **KHÔNG quét lại.** Ghi bù sổ bằng `python3 .github/scripts/so_da_gui.py --ghi --buoi sang\|toi` rồi commit |
 
-### 4.1 — Đồng bộ + giành khoá pipeline `event-scan`
 ```
-git -C /Users/Huy/Claude/diem-tin-the-gioi pull --rebase origin main
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py claim event-scan
+gh run list -R huyneo1101-dotcom/diem-tin-the-gioi --workflow notify-email.yml --limit 2 --json databaseId,createdAt,conclusion --jq '.[] | [.databaseId, .createdAt, .conclusion] | @tsv'
+gh run view <id> -R huyneo1101-dotcom/diem-tin-the-gioi --log | grep -iE 'Da gui|GUI_EMAIL|khong push duoc so'
 ```
-⛔ `cannot pull with rebase: You have unstaged changes` → xử theo đúng bảng ở **Bước 1** (fetch +
-`rev-list --count HEAD..origin/main`; ra 0 thì ĐI TIẾP). Đừng dừng phiên, đừng stash, đừng commit hộ.
-SKIP exit 10 = sáng nay đã xong (có thể do CI/local khác vừa chạy) — ghi 1 dòng SKIP vào log, commit +
-push log, DỪNG bước này (phiên vẫn coi là hoàn tất bình thường, vì bản tin 5 chủ đề ở Bước 1-3 đã xong).
-SKIP exit 11 = phiên khác đang giữ khoá `event-scan` — cũng SKIP êm, không chờ, không Monitor.
-RUN exit 0 = giữ khoá, làm tiếp.
-
-### 4.2a — Dò cuộc tập trận CÒN THIẾU trong `DATA.exercises` (thêm 07/08/2026)
-```
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/do_tap_tran_thieu.py
-```
-**Vì sao phải có bước này, và vì sao nó đứng TRƯỚC 4.2:** bước 4.2 giao agent tìm *"diễn biến tập
-trận"*, mà `tap_tran.py` sinh từ khoá từ chính `DATA.exercises` — tức chỉ đi tìm tin cho cuộc ĐÃ CÓ
-TÊN. Cuộc chưa có trong danh sách thì không ai tìm, không ai tìm thì không bao giờ vào danh sách. Đo
-07/08/2026: `DATA.exercises` có 10 cuộc, một lượt đọc tay tìm ra **14 cuộc thiếu, 04 cuộc đang chạy
-đúng hôm đó**. Script này hỏi ngược lại — *"tháng này Nhật và Philippines có tập chung gì không"* —
-nên bắt được cả cuộc chưa ai đặt tên vào danh sách.
-
-Đầu ra **02 nhóm**, xử lý khác nhau:
-- **★ CÓ TÊN RIÊNG** → xác minh nguồn rồi nạp thẻ mới bằng `add_news.py` khoá `newExercises`, gộp
-  luôn vào `/tmp/new_items_event.json` của bước 4.2.
-- **○ KHÔNG TÊN CHUỖI** → hoạt động chung ngắn ngày (tuần tra ba bên, diễn tập hàng hải một lượt).
-  Đọc tay: đáng thành thẻ thì nạp, không thì bỏ qua. **Đây là nhóm mà bảng chuỗi tập trận vốn mù**,
-  đừng bỏ qua cả nhóm cho nhanh.
-
-⚠️ **Chạy ~3–4 phút (28 truy vấn Google News), KHÔNG phải cổng chặn.** Script luôn trả mã 0; hỏng thì
-in cảnh báo rồi thôi. Quá giờ hoặc mạng trục trặc thì bỏ bước này, ghi một dòng vào log, đi tiếp 4.2 —
-mất một bước phụ còn hơn trễ bản tin.
-⚠️ **Tin về cuộc ĐÃ CÓ mà tiêu đề không nêu tên cuộc sẽ rơi vào nhóm ○** (ví dụ *"S. Korean Air Force
-joins multinational exercise in Australia"* là Pitch Black). Đây là giới hạn đã biết của phép khớp
-theo tên, không phải lỗi — đọc thấy thì bỏ qua.
-⚠️ Sổ `logs/tap-tran-da-soi.json` giữ 14 ngày để khỏi báo lại tin đã đọc; muốn xem lại từ đầu thì
-thêm `--khong-so`. **Phải `git add logs/` cùng lô** như mọi sổ khác.
-
-### 4.2 — Quét sự kiện + tập trận
-Giao agent (tool Agent, `model: "sonnet"`): nhúng nguyên output
-`python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py --recent-titles 20` để chống trùng;
-tìm **sự kiện ngoại giao có ký kết** trong 48h + **diễn biến tập trận** + tin liên quan (`relate`, đăng
-trong 48h). Gộp `/tmp/new_items_event.json` (chỉ khoá `newDipEvents`/`dipEventUpdates`/`newExercises`/
-`exerciseUpdates` + `date`) rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_news.py /tmp/new_items_event.json`.
-Nhịp tim: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/beat_push.py event-scan` — ⛔ KHÔNG
-`state.py beat` trần (vá 20/09/2026, xem Bước 2 phía trên). Beat NGAY
-TRƯỚC khi giao agent (không đợi agent xong), hai nhịp liên tiếp không cách quá ~15 phút (cùng bài học
-vá 28/07/2026 đã áp cho pipeline `web-scan` ở Bước 2).
-
-### 4.3 — Bối cảnh + khái niệm tập trận
-Với **mỗi cuộc tập trận MỚI vừa tạo** (`newExercises`) VÀ **mỗi cuộc đang diễn ra CHƯA có `background`**,
-giao agent Sonnet viết `background` (2–4 câu bối cảnh chiến lược, nhiều đoạn ngăn `\n`) + `concepts`
-(3–6 thuật ngữ, `[{term,def}]`, def 1 câu). Ghi `/tmp/briefing.json` =
-`[{"name":"<khớp đúng name>","background":"...","concepts":[...]}]` rồi
-`python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/set_exercise_briefing.py /tmp/briefing.json`.
-Không viết lại cho cuộc đã có background trừ khi diễn biến đổi bối cảnh lớn.
-
-### 4.4 — Bài phân tích think-tank (mỗi phiên sáng sớm, không chỉ Chủ nhật)
-Mục 🧠 Phân tích → 🏛️ Think-tank (`DATA.analyses`).
-1. `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_analyses.py --candidates` — ứng viên
-   **hai lớp**, xếp theo khu vực: `[RSS]` 27 viện có feed, rồi `[HTML]` 10 viện không có feed nhưng
-   quét được trang danh sách (thêm 30/07/2026 — đo lần đầu: 159 + 44 ứng viên). Dòng cuối in vùng
-   **vẫn** phải bù bằng `WebSearch site:<domain>`, đã trừ sẵn nguồn hai lớp trên đã phủ.
-   - Thấy dòng ⚠️ *"Trang HTML KHÔNG ra link bài nào"* → viện đó đổi giao diện, biểu thức đường dẫn
-     đã chết. Chạy `add_analyses.py --kiem-html` để soi rồi sửa `THINKTANK_HTML`; **đừng đọc thành
-     "hôm nay viện không ra bài"**, hai ca đó khác nhau và script đã tách riêng thông điệp.
-   - Ứng viên `[HTML]` có ngày lấy từ trang danh sách hoặc từ meta trang bài. Vẫn phải MỞ ĐỌC như
-     mọi ứng viên khác ở bước 2 — bước đó tự xác nhận lại ngày.
-2. Giao agent Sonnet chọn **4–6 bài**, phủ **ít nhất 2–3 khu vực khác nhau** (1–2 bài trọng tâm cũ:
-   Úc/AUKUS · Biển Đông · răn đe hạt nhân/CNQS · Mỹ–Trung–Đài Loan · Mali/Sahel; 1–2 bài vùng khác
-   đang có chuyện). LOẠI: chính trị xã hội nội bộ Mỹ, quảng bá viện, điểm sách, điểm báo. Agent phải
-   MỞ ĐỌC từng bài (WebFetch) rồi viết tiếng Việt đủ field (`title`/`summary`/`takeaway`/`topic`/
-   `region`/`author`/`outlet`/`date`). Số liệu mập mờ/lỗi ký tự → BỎ, không đoán.
-3. Ghi `/tmp/analyses.json` = `{"date":"<hôm nay VN>","analyses":[...]}` rồi
-   `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_analyses.py /tmp/analyses.json`.
-4. **SINH KHÁI NIỆM cho đúng những bài vừa nạp** (thêm 29/07/2026, chỉ thị Huy) — mục 📚 Khái niệm
-   gom khái niệm từ CẢ tập trận lẫn think-tank, mà bài viện nghiên cứu mới là chỗ thuật ngữ lạ dày
-   nhất. Với mỗi bài vừa nạp, rút **1–3 thuật ngữ** người đọc phổ thông không hiểu ngay (học thuyết,
-   cơ chế, hiệp định, khí tài, chiến thuật), viết định nghĩa **tiếng Việt 1–3 câu tự nó đứng được**
-   — đọc riêng dòng đó vẫn hiểu, không cần mở bài. Ghi `/tmp/kn-analyses.json`:
-   ```
-   [{"url":"<url ĐÚNG như vừa nạp>","concepts":[{"term":"...","def":"..."}]}]
-   ```
-   rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/set_analysis_concepts.py /tmp/kn-analyses.json`.
-   - **Bài không có thuật ngữ nào đáng lưu thì BỎ QUA bài đó** — sổ tay là để lọc, nhồi cho đủ số là
-     làm hỏng chính tác dụng của nó. Guardrail chặn lô rỗng nên đừng khai `"concepts":[]`, cứ bỏ hẳn
-     mục đó ra khỏi mảng.
-   - Guardrail CHẶN: url không có trong DATA · thiếu `term`/`def` · `def` dưới 40 ký tự · `term` quá
-     90 ký tự · hai `term` trùng nhau trong cùng bài · quá 6 khái niệm/bài. Đọc lỗi rồi sửa JSON.
-   - Trùng khái niệm với bài khác hoặc với tập trận thì **KHÔNG sao** — web dùng chung kho
-     `dt.concepts` và tự khử trùng theo tên đã bỏ dấu.
-   - Kiểm còn bài nào chưa có: `python3 .../set_analysis_concepts.py --kiem`.
-
-### 4.5 — Chủ nhật: báo cáo tuần Mỹ-Trung-Nga
-Chỉ khi `TZ='Asia/Ho_Chi_Minh' date +%u` in ra `7`:
-```
-python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/weekly_context.py --out /tmp/weekly_ctx.json
-```
-Giao 1 agent **model: "opus"** (BẮT BUỘC Opus): đọc `/tmp/weekly_ctx.json`, viết nhận định tuần 3 nước
-(mỗi nước lede + 3–5 luận điểm, mỗi luận điểm 1–3 link nội dòng markdown `[cụm chữ](url-thật-trong-ngữ-liệu)`
-— không bịa url). Ghi `/tmp/weekly.json` đúng schema `scripts/add_weekly.py` (thứ tự us→cn→ru, KHÔNG
-kèm `generatedAt`) rồi `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/add_weekly.py /tmp/weekly.json`.
-
-### 4.6 — Kết thúc pipeline `event-scan` (LUÔN một trong ba)
-- Nạp được: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py done event-scan "<tóm tắt>"`
-- Rỗng: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py skip event-scan "<lý do>"`
-- Lỗi: `python3 /Users/Huy/Claude/diem-tin-the-gioi/scripts/state.py fail event-scan "<lý do>"` (vẫn push log)
-
-Commit message QUYẾT ĐỊNH email sáng riêng (`notify-morning.yml` bắt tiền tố — KHÁC tiền tố
-`Cap nhat ban tin` của Bước 3):
-- Có sự kiện/tập trận: `Cap nhat su kien DD/MM: +N su kien/tap tran[, +M bai think-tank][, bao cao tuan]`
-- CHỈ báo cáo tuần: `Dang bao cao tuan DD/MM`
-- CHỈ think-tank: vẫn `Cap nhat su kien DD/MM: +M bai think-tank` — đã tính vào gate email sáng.
-- Rỗng thật: message tự do, KHÔNG dùng 2 tiền tố trên.
-
-`git -C /Users/Huy/Claude/diem-tin-the-gioi add index.html data/ logs/` (phải có `logs/state.json`; **`data/` là BẮT BUỘC** — bài think-tank nằm ở `data/analyses.json` từ 30/07/2026, bỏ sót thì bài nạp xong KHÔNG lên web mà cũng không có lỗi nào) → commit
-**RIÊNG với commit bản tin của Bước 3** → push. Bị từ chối → `pull --rebase` rồi push lại.
-
-Báo cáo cuối (gộp vào báo cáo cuối chung của phiên): số sự kiện mới/cập nhật, số tập trận cập nhật, có
-báo cáo tuần không (nếu CN), trạng thái push của CẢ HAI commit (bản tin + sự kiện).
-
-## PHIÊN TỐI — BỐI CẢNH RIÊNG ⛔ ĐÃ BỎ 18/09/2026, GIỮ LÀM NHẬT KÝ VẤP
-
-⛔ **Không còn mốc tối nào chạy.** Giữ nguyên phần này vì bốn cơ chế trong đó vẫn áp cho ca
-sáng và đều là vấp thật: (i) tính biên ngược từ mốc CUỐI chứ không từ mốc đầu · (ii) cờ
-`state.py` nói dối vì nó chỉ biết «đã chạy xong», không biết «đã gửi» · (iii) sổ trống có hai
-nghĩa, phải đọc log run CI trước khi kết luận · (iv) chốt lô đang có khi sát hạn, đừng vòng
-bổ sung. Đọc số giờ ở đây như lịch sử — lịch thật ở [`docs/LICH.md`](LICH.md).
-
-(Dời nguyên văn từ stub task `web-scan-diem-tin-toi` ngày 27/07/2026:)
-
-1. **Task tối là mốc LOCAL 21:15 của phiên TỐI.** Chuỗi phiên tối: CI GitHub 20:47 → **local 21:15** → CI 21:47 (lưới vét đã trễ hạn). Mốc `com.huy.routine-diemtin-sang` lo phiên SÁNG SỚM (04:30 · 04:45), không đụng tới phiên tối.
-
-2. **HẠN CHÓT CỨNG: email bản tin tối phải tới hộp thư MUỘN NHẤT 22:00** (chỉ thị Huy 27/07/2026). Mốc local 21:15 là **lớp cuối cùng còn kịp hạn** — mốc CI 21:47 sau đó chạy xong thì email đã ~22:10, tức đã trễ. Đừng ỷ vào nó.
-   - Quét mất ~20 phút (đo thật: CI 26/07 hết 20m45s, local 27/07 hết 16'), email gửi ~20 giây sau commit.
-   - Mốc 21:15 cho biên ~15 phút phòng lúc fire trễ. Lý do có biên này: tối 26/07 mốc local 21:30 mãi 21:41 mới `claim` xong (jitter + khởi động session + `git pull --rebase` timeout 2 phút) — trễ 11 phút chứ không phải 3,5 phút jitter.
-   - **Quá 21:45 mà chưa nạp xong thì CHỐT lô đang có**: chạy `add_news.py` với những tin đã gom được, ghi phần thiếu vào `logs/scan-gaps.json`, commit + push NGAY. Thà 3 tin sạch gửi lúc 21:50 còn hơn 8 tin gửi lúc 22:20.
-   - Vì vậy: quét gọn, KHÔNG vòng bổ sung lần 3-4 để gom cho đủ chỉ tiêu, KHÔNG đi tìm thêm khi đã có tin dùng được.
-
-3. **`claim` trả SKIP thì dừng hẳn ngay** (exit 10 = CI 20:47 đã xong, exit 11 = CI đang chạy): ghi 1 dòng SKIP vào `logs/scan-<ngày VN>.log`, commit + push log, KẾT THÚC. Không gắn Monitor, không chờ, không điều tra thêm.
-
-   ⛔ **NGOẠI LỆ DUY NHẤT của điều 3 — exit 10 mà SỔ ĐÃ GỬI CHƯA CÓ DÒNG CỦA CA NÀY** (đúc 29/07/2026, sự cố thật). Trước khi SKIP êm ở **mốc LOCAL 21:15** (lớp cuối còn kịp hạn), đọc `logs/da-gui-email.json` và soi dòng cuối cùng có `buoi == "toi"`:
-   | Sổ có dòng `toi` ngày hôm nay | Làm gì |
-   |---|---|
-   | **CÓ** | SKIP êm theo đúng điều 3. Bản tin đã tới tay, không quét lại |
-   | **KHÔNG** | Cờ `lastSuccess` đang NÓI DỐI → **QUÉT THẬT**, commit tiền tố `Cap nhat ban tin` như thường |
-
-   **Cơ chế gây vấp:** `state.py` chỉ ghi nhận *"pipeline đã chạy xong"*, nó **không biết bản tin có được GỬI hay không** — hai chuyện khác nhau. Tối 29/07 một **phiên TEST hạ tầng CI** (`MODE=test`, quét nhẹ 1 agent, nạp đúng +1 tin) chạy lúc **17:34** và gọi `state.py done web-scan`, chiếm luôn ô `toi` của ngày. Commit của nó rơi **ngoài khung giờ gửi** (cổng 2 của `notify-email.yml` đòi ≥20:30) nên không kích email/Telegram. Hậu quả dây chuyền: CI (khi đó 21:00, nay 20:47) → exit 10 SKIP · local 21:15 → exit 10 SKIP · CI vét → cũng sẽ SKIP. **Cả bốn lớp im lặng, không lớp nào hỏng, mà bản tin tối mất trắng.** Canary 22:45 có kêu nhưng lúc đó đã quá hạn 22:00.
-
-   ⛔ **NHƯNG SỔ TRỐNG CÓ HAI NGHĨA — phiên LOCAL phải đọc log run CI trước khi kết luận** (đúc
-   30/07/2026, sự cố thật ở phiên SÁNG SỚM; **áp cho CẢ hai phiên**, không riêng phiên tối):
-   | Sổ trống vì | Dấu hiệu | Làm gì |
-   |---|---|---|
-   | Bản tin **thật sự chưa gửi** | không có run `notify-email.yml` nào, hoặc run ĐỎ | QUÉT THẬT theo bảng trên |
-   | **Khâu GHI SỔ hỏng**, bản tin ĐÃ tới tay | run `notify-email.yml` XANH + log có dòng `Đã gửi … file .docx tới <chat>` | **KHÔNG quét lại.** Ghi bù sổ bằng `python3 .github/scripts/so_da_gui.py --ghi --buoi sang\|toi` rồi commit |
-
-   ✅ **VÁ GỐC — ĐÃ LÀM 30/07/2026.** Luật hợp nhất sổ dời vào **`.github/scripts/ghi_so_push.py`**
-   (dùng chung cho cả hai workflow): sổ là dữ liệu **append-only** nên không `pull --rebase` nữa mà
-   *lấy sổ mới nhất của remote rồi ghi lại dòng của mình*, thử lại trên đỉnh mới nếu bị chen ⇒ không
-   còn xung đột để mà hỏng. Chi tiết + 04 cái bẫy kèm theo: mục "🔀 HAI WORKFLOW GHI CÙNG SỔ" trong
-   `CLAUDE.md`. Bộ test canh `tests/test-ghi-so-push.py` (10 ca · `--tu-kiem` bắt 6/6 bản hỏng, riêng
-   bản hỏng "dùng lại `pull --rebase`" làm 6/10 ca đỏ), đã nạp vào `khoe.py`.
-   ⚠️ **NHƯNG BẢNG KIỂM Ở TRÊN VẪN CẦN, ĐỪNG GỠ** — cùng lý do với cổng phiên test: vá gốc chỉ bịt
-   đường *race giữa hai workflow*, còn các ca khác làm sổ trống (workflow bị huỷ giữa bước ghi, mất
-   mạng cả 5 vòng, người bấm tay gửi bù) thì phép đọc `gh run list` vẫn là thứ duy nhất phân biệt được
-   "chưa gửi thật" với "khâu ghi sổ hỏng".
-
-   **Cơ chế gây vấp:** sáng 30/07 bước *"Ghi sổ đã gửi"* của `notify-email.yml` rebase hỏng
-   (`could not apply … (sang)`) vì `notify-morning.yml` ghi cùng file `logs/da-gui-email.json`
-   **trước đó 7 giây** — hệ quả dây chuyền của việc gộp `event-scan` vào cùng session sáng
-   (28/07). Bản tin đã gửi lúc 04:28 mà sổ trống, nên: canary ca `sang` kêu oan và nhắn Telegram,
-   còn hai phiên CI dự phòng (05:00 · 05:37) kết luận "mất bản tin" rồi chạy lại vòng quét bổ sung
-   tốn token. Chúng không sai về lập luận — chúng **không đọc được `gh run list`** (bị chặn
-   *requires approval* trong CI) nên thiếu đúng mảnh bằng chứng quyết định.
-
-   ⇒ **Phiên LOCAL chạy trên máy Huy GỌI ĐƯỢC `gh`, đó là lợi thế phải dùng**, đừng bỏ qua rồi
-   suy đoán như phiên CI:
-   ```
-   gh run list -R huyneo1101-dotcom/diem-tin-the-gioi --workflow notify-email.yml --limit 2 --json databaseId,createdAt,conclusion --jq '.[] | [.databaseId, .createdAt, .conclusion] | @tsv'
-   gh run view <id> -R huyneo1101-dotcom/diem-tin-the-gioi --log | grep -iE 'Da gui|GUI_EMAIL|khong push duoc so'
-   ```
-   ⚠️ **`Đã gửi 0 message + file .docx` là BÌNH THƯỜNG, không phải hỏng** — `msgs=[]` trong
-   `send_telegram.py` là cố ý (chỉ thị Huy 27/07: *"chỉ gửi file word thôi"*). Thấy `0 message`
-   rồi kết luận kênh câm là đọc nhầm; bằng chứng gửi được nằm ở cụm `+ file .docx tới <chat>`.
-
-   Vì sao phải kiểm bằng SỔ chứ không bằng `state.json`: sổ đã gửi được ghi ở **bước CUỐI sau khi đã gửi xong mọi kênh**, nên nó là dấu vết việc-đã-làm; còn `lastSuccess` chỉ là lời tự khai của một phiên. Đây đúng nguyên tắc số 1 của canary — **kiểm ĐẦU RA, không kiểm quy trình** — nay áp luôn cho chính phiên quét.
-
-   ⛔ **KHÔNG sửa `logs/state.json` để lách.** `--force` chỉ cướp khoá `RUNNING`, không bỏ qua cờ đã-xong, và đó là **đúng thiết kế** — đừng thêm cờ mới. Không cần sửa gì cả: cổng gửi của `notify-email.yml` xét **commit message + khung giờ VN**, hoàn toàn không xét khoá, nên cứ quét rồi commit là email/Telegram vẫn đi. Mốc CI vét (21:47) sau đó vẫn thấy exit 10 và SKIP nên **không có nguy cơ quét chồng** (exit 10 khác exit 11: 10 = đã xong, 11 = đang chạy — chỉ 11 mới là dấu hiệu có phiên sống).
-
-   ⚠️ **Ghi rõ vào `scan-gaps.json` (mục `note`) và vào log** rằng phiên này quét đè lên cờ đã-xong, kèm lý do — để người đọc sau không tưởng có hai phiên tranh nhau.
-
-   ✅ **Vá gốc — ĐÃ LÀM 29/07/2026.** Nhánh `MODE=test` của `claude-web-scan.yml` nay chạy với biến môi trường **`DIEMTIN_PHIEN_TEST=1`** (đặt ở tầng `env:` của step quét, nên `claude -p` và mọi lệnh Bash con đều thừa hưởng — cơ chế, không phải lời hứa trong prompt). `state.py` thấy biến đó thì chuyển toàn bộ đường ghi sang `logs/state-test.json` (đã `.gitignore`): phiên test vẫn nghiệm thu được trọn pipeline `claim → beat → done`, chỉ là ghi vào sổ riêng, **không chiếm được ô khoá thật**. Nó vẫn đọc `logs/state.json` để nhường phiên THẬT đang chạy (exit 11), và **không bao giờ exit 10** vì cờ thật đã xong — test phải chạy lại được bất kể giờ nào. Ý định khai bằng lời, không suy từ `MODE`/tên workflow: mặc định là phiên THẬT, quên đặt biến thì hành vi y như cũ chứ không tạo vùng câm mới (cùng bài học với `tu_dong=1` và `TELEGRAM_BAT_BUOC`). Bộ test canh: `tests/test-cong-phien-test.py` (11 ca, 5 bản hỏng đều bị `--tu-kiem` bắt).
-
-   ⚠️ **Nhưng ngoại lệ ở trên VẪN CẦN, đừng gỡ.** Vá gốc chỉ bịt đường `MODE=test`; đường **bấm tay `workflow_dispatch` mode=normal giữa ngày** thì vẫn `done` và chiếm ô khoá đúng như cũ, trong khi commit của nó rơi ngoài khung giờ gửi nên không kích email. Phép kiểm sổ là thứ duy nhất bắt được ca đó.
-
-   🔁 **Từ 29/07/2026 phép kiểm này áp cho CẢ PHIÊN CI** (`.github/prompts/web-scan-ci.md` BƯỚC 1) — vì mốc **CI vét 21:47 là lớp CUỐI**, máy Mac ngủ thì không còn ai đứng sau nó. Bản CI có thêm một chốt chống kêu oan mà bản local không cần: **`lastRunAt` cách hiện tại < 20 phút thì cứ SKIP êm** — phiên anh em vừa xong, `notify-email.yml` còn đang chạy, mà sổ chỉ được ghi ở bước CUỐI nên chưa kịp hiện. Bản local 21:15 không dính ca này vì lúc đó CI 20:47 còn `RUNNING` (exit 11, không phải 10).
-
-4. Ghi log dùng chữ **"phien toi"**. Giờ VN lúc chạy là 21:15 nên `state.py` tự chọn ô `toi`, không cần truyền gì thêm.
+`Đã gửi 0 message + file .docx` là BÌNH THƯỜNG (chỉ thị Huy 27/07: chỉ gửi file word); bằng chứng gửi được là cụm `+ file .docx tới <chat>`. ⛔ KHÔNG sửa `logs/state.json` để lách cờ đã-xong: cổng gửi email xét commit message + khung giờ VN, không xét khoá.
 
 5. **DÙNG FILE JAY LÂM LÀM BỘ LỌC — làm SAU khi đã nạp tin quét, TRƯỚC khi commit** (đảo nguyên tắc 01/08/2026).
 

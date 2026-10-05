@@ -12,6 +12,10 @@ quét chồng (19/09 và 05/10: ~11 triệu quy đổi, CI dùng chung ví hạn
 hạn mà `gh run list --status in_progress` của `claude-web-scan.yml` còn run (trừ run của mình,
 trần 135 phút) thì vẫn exit 11; không hỏi được GitHub thì kêu ở stderr. Bộ canh:
 `tests/test-cong-ci-song.py` (09 ca · 06 bản hỏng), đã nạp `khoe.py`.
+Cùng ngày: trần agent con cả phiên = 06 lần (05 luồng + 01 bổ sung, hụt sàn thì chốt;
+`tests/test-tran-agent-quet.py`) · `ghi_log_push.py` từ chối file không phải `.log`
+(từng làm hỏng JSON của `state.json` 04:19) · hai file quy trình cắt 134 → ~100 KB, phần cắt
+nằm ở `docs/{nhat-ky-vap-phien-toi,quy-trinh-event-scan,nguon-mo-rong-quet,lay-trang-paywall}.md`.
 
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
