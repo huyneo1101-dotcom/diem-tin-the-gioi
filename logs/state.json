@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-05T05:52:32+07:00",
+    "lastRunAt": "2026-10-06T04:00:51+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+15 tin rieng (10 the gioi, 5 My) sau khi loai 5 tin trung voi phien 'claude-scan-local' da gui 04:59 (xem scan-gaps.json). Noi bo My 3, Doi ngoai 0, Anh 3, Australia 3, Bien Dong 4, KHCN-QS 2 (tong ngay da vuot san nho cong ca 2 phien)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-05"
-    }
+    },
+    "heartbeat": "2026-10-06T04:00:51+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-05T04:19:19+07:00",
