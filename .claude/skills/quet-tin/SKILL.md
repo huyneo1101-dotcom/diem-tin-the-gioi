@@ -81,6 +81,10 @@ phải đi thêm một vòng nguồn nữa (xem "SÀN CỨNG 05 TIN MỖI MỤC"
    vào vùng biển & thực thể Biển Đông, hoặc vào một nước ven biển đó. **`add_news.py` nay CHẶN CỨNG
    tin `worldNews` không neo được** — nạp vào sẽ báo lỗi, không phải cảnh báo suông. Tin thuộc chủ đề
    khác thì chuyển sang `usNews`; ngoài 5 chủ đề thì bỏ, ghi `logs/loai-tin.md`.
+   Lọt thật tối 28/07 (Korea Herald: Hàn Quốc luật hoá cam kết phi hạt nhân cho dự án tàu ngầm hạt
+   nhân, không một chữ Biển Đông): từ khoá trần `"nuclear submarine"` trong `scripts/topics.py` khớp
+   mọi nước có tàu ngầm hạt nhân nên đã bỏ; cùng bẫy với `"scarborough"` khớp thị trấn Scarborough.
+   Chuẩn nhận là neo vào một quốc gia ven Biển Đông hoặc chính vùng biển, không neo vào loại khí tài.
 3. **CNQS Mỹ** — `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống cụ thể: tên lửa, phòng không,
    hải quân, không gian/Space Force, laser, AI quân sự, tàu ngầm, drone, siêu vượt âm.
    ⏳ **KHUNG NGÀY NỚI RIÊNG CHO CHỦ ĐỀ NÀY: lùi tới 3 ngày** (chỉ thị Huy 27/07/2026 — "quét ngày 27
