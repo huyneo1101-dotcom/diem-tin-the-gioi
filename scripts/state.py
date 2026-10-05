@@ -73,6 +73,7 @@ Bộ test canh cổng này: tests/test-cong-phien-test.py (kèm --tu-kiem).
 """
 import json
 import os
+import subprocess
 import sys
 import tempfile
 import time
@@ -168,6 +169,55 @@ PRIMARY_SLOT = {"web-scan": "toi", "event-scan": "sang"}
 # Không có nhịp tim trong ngần này phút -> coi phiên đang chạy là đã chết, cho giành lại khoá.
 # Đặt 30': phiên khoẻ ghi checkpoint dày hơn thế nhiều (sau baseline, sau agent, sau script).
 LOCK_STALE_MIN = 30
+
+# ── LỚP 2 CỦA KHOÁ: HỎI GITHUB XEM RUN CI CÒN SỐNG KHÔNG (vá 05/10/2026) ────────────
+# Nhịp tim chỉ là TIN ĐỒN về việc CI còn sống: CI chờ agent con 30 phút không nhịp là khoá hết
+# hạn dù run vẫn chạy. Đã vấp HAI lần: 19/09 (CI chờ 5 agent, nhịp cuối 04:04, local 04:36 giành
+# khoá) và 05/10 (CI 04:00 nhịp cuối 04:04:34, local 04:35 giành khoá, quét chồng ~11 triệu
+# quy đổi trong ví của Huy; CI báo `beat_push.py` im sau 04:04). Vá ở `beat_push.py` hai lần
+# vẫn hở vì phụ thuộc phiên CI nhớ gọi nhịp. Nguồn SỰ THẬT về "CI còn chạy" là chính GitHub:
+# run `in_progress` của claude-web-scan.yml. Khoá hết hạn mà còn run sống (không phải run của
+# chính mình) ⇒ vẫn exit 11. Không hỏi được GitHub ⇒ giữ luật nhịp tim cũ nhưng KÊU to (stderr),
+# không im. Trần CI_TRAN_PHUT lớn hơn `timeout-minutes: 130` của job: run kẹt cũng tự hết.
+CI_WORKFLOW = "claude-web-scan.yml"
+CI_REPO = "huyneo1101-dotcom/diem-tin-the-gioi"  # --repo tường minh: local chạy từ thư mục nào cũng được
+CI_TRAN_PHUT = 135
+CI_RUNS_ENV = "DIEMTIN_CI_RUNS_FILE"  # seam CHỈ dùng cho bộ test: file JSON thay cho `gh run list`
+
+
+def ci_dang_song():
+    """Danh sách run CI quét tin đang chạy (trừ run của chính mình), mỗi mục (id, số phút đã chạy).
+
+    Trả None khi KHÔNG hỏi được GitHub — người gọi phải coi là "không biết", đừng coi là "không có".
+    """
+    try:
+        gia = os.environ.get(CI_RUNS_ENV)
+        if gia:
+            raw = Path(gia).read_text(encoding="utf-8")
+        else:
+            r = subprocess.run(
+                ["gh", "run", "list", "--repo", os.environ.get("GITHUB_REPOSITORY") or CI_REPO,
+                 "--workflow", CI_WORKFLOW, "--status", "in_progress",
+                 "--json", "databaseId,startedAt", "--limit", "10"],
+                capture_output=True, text=True, timeout=25)
+            if r.returncode != 0:
+                raise RuntimeError((r.stderr or r.stdout).strip()[:200] or f"gh exit {r.returncode}")
+            raw = r.stdout
+        rows = json.loads(raw)
+    except Exception as loi:  # noqa: BLE001 — KÊU, không nuốt
+        print(f"⚠️ khong hoi duoc GitHub run CI con song khong ({loi.__class__.__name__}: {loi}) — "
+              f"dung luat nhip tim cu, CO THE quet chong len CI dang chay.", file=sys.stderr)
+        return None
+    cua_minh = os.environ.get("GITHUB_RUN_ID", "")
+    song = []
+    for row in rows:
+        if str(row.get("databaseId")) == cua_minh:
+            continue
+        tuoi = minutes_since(row.get("startedAt", ""))
+        if tuoi is not None and tuoi < CI_TRAN_PHUT:
+            song.append((row.get("databaseId"), round(tuoi)))
+    return song
+
 
 # ── CỜ "PHIÊN NÀY ĐÃ NẠP" — cho bước kích notify của claude-web-scan.yml ─────────────
 # Vì sao cần (sự cố thật tối 31/07/2026, Huy nhận HAI bản tin lúc 21:24 và 21:26): bước kích
@@ -452,6 +502,18 @@ def main() -> None:
                 f"them --force."
             )
             sys.exit(11)
+        # LỚP 2: khoá trông như đã chết (RUNNING mà nhịp cũ) nhưng GitHub nói run CI còn sống
+        # ⇒ vẫn là phiên sống, không giành khoá (xem chú thích CI_WORKFLOW).
+        if (entry.get("lastStatus") == "RUNNING" and not is_running(entry) and not force
+                and not la_phien_test() and pipeline in ("web-scan", "event-scan")):
+            song = ci_dang_song()
+            if song:
+                print(
+                    f"SKIP — {pipeline}: nhip tim da cu ({minutes_since(entry.get('heartbeat', '')) or 0:.0f}') "
+                    f"NHUNG run CI {song[0][0]} con dang chay ({song[0][1]}' truoc) — khong giam "
+                    f"khoa, khong quet chong. Neu chac chan run do ket: them --force."
+                )
+                sys.exit(11)
         if cmd == "claim":
             record(pipeline, "RUNNING", "dang quet", use_slot)
             extra = " (da CUOP khoa bang --force)" if force and is_running(entry) else ""

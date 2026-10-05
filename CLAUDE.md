@@ -6,6 +6,13 @@
 ⛔ Bản sáng mỏng thì chữa bằng SÀN và KHUNG NGÀY, **đừng cắm lại mốc tối** — `kiem_lich.py` phép
 đo D chặn mọi cron của đường quét rơi vào 19:00-23:59 VN.
 
+⛔ **KHOÁ QUÉT CÓ LỚP 2: HỎI GITHUB RUN CI CÒN SỐNG — vá 05/10/2026, đừng gỡ.** Nhịp tim chỉ là
+tin đồn: CI chờ agent con quá 30 phút không nhịp thì `state.py claim` tưởng CI chết, giành khoá,
+quét chồng (19/09 và 05/10: ~11 triệu quy đổi, CI dùng chung ví hạn mức của Huy). Nay khoá hết
+hạn mà `gh run list --status in_progress` của `claude-web-scan.yml` còn run (trừ run của mình,
+trần 135 phút) thì vẫn exit 11; không hỏi được GitHub thì kêu ở stderr. Bộ canh:
+`tests/test-cong-ci-song.py` (09 ca · 06 bản hỏng), đã nạp `khoe.py`.
+
 Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi push vào `main`.
 
 ⛔ **COMMIT DO ACTIONS ĐẨY KHÔNG TỰ DỰNG LẠI TRANG — đã vá 21/08/2026, đừng gỡ.** GitHub chặn
