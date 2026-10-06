@@ -1,3 +1,8 @@
 [21:03Z] START (CI) - phien sang som web-scan
-[04:05] SKIP (local) - exit 11, phien khac dang chay (nhip tim 2' truoc, bat dau 04:03:20)
-[04:37] SKIP (local) - phien khac (CI) dang chay, heartbeat 04:19:47 moi 17' truoc, KHONG quet chong
+[21:03Z] harvest.py + telegram_harvest.py xong: 456 ung vien RSS/GNEWS + 12 TG
+[21:03Z] beat round 1/5 truoc khi giao agent
+[21:45Z] 5 agent goc (A-Noi bo My, B-Uc&BD, C-CNQS, D-Mali+tap tran, BM-Bao Moi) xong + 1 agent bo sung (doi ngoai My + Bien Dong) - da dung het tran 6/6
+[21:45Z] dieu phoi vien tu WebSearch/WebFetch truc tiep (khong tinh vao tran agent) de kiem ngay that + lap gap: +2 tin Noi bo My, loai 4 tin ngoai khung sau khi kiem lai
+[21:45Z] chua kich duoc bot telegram-bot.yml (gh bi chan "requires approval") - khong co file Jay Lam nao trong hang cho Supabase (tin_jaylam.py --liet-ke)
+[21:45Z] add_news.py nap thanh cong lo chinh: worldNews 13, usNews 17, exerciseUpdates 2 cap nhat
+[21:45Z] scan-gaps.json + loai-tin.md ghi xong: hut san Doi ngoai My (3/5), Bien Dong (2/5), Anh (4/5 - hut nhe)
