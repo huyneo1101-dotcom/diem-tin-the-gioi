@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-06T08:24:16+07:00",
+  "tao_luc": "2026-10-06T08:51:57+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-05",
@@ -13,14 +13,6 @@
       "tieu_de": "Chính sách AI toàn cầu bước vào giai đoạn chặt chẽ hơn",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/chinh-sach-ai-toan-cau-buoc-vao-giai-doan-chat-che-hon-102260922145507501.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-10-05",
-      "tieu_de": "Bộ Ngoại giao và TP Đồng Nai ký Quy chế phối hợp về đối ngoại và hội nhập quốc tế giai đoạn 2026 2030",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/bo-ngoai-giao-va-tp-dong-nai-ky-quy-che-phoi-hop-ve-doi-ngoai-va-hoi-nhap-quoc-te-giai-doan-2026-2030-452429.html"
     },
     {
       "lop": "RSS",
@@ -362,6 +354,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-06",
+      "tieu_de": "Trump approves firing-squad execution of Fort Hood shooter, Pentagon says",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/oct/05/trump-fort-hood-shooter-execution"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-06",
       "tieu_de": "Tàu sân bay USS George H.W. Bush sẽ trở lại khu vực Trung Đông",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/tau-san-bay-uss-george-hw-bush-se-tro-lai-khu-vuc-trung-dong-post1140215.vnp"
@@ -421,14 +421,6 @@
       "tieu_de": "British security adviser visited Israel in bid to keep Jerusalem consulate open, sources say",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/uk-security-adviser-visited-israel-in-bid-to-keep-jerusalem-consulate-open-sources-say"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-05",
-      "tieu_de": "Switzerland set for referendum on Malaysia trade deal",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/switzerland-set-for-referendum-on-malaysia-trade-deal"
     },
     {
       "lop": "RSS",
@@ -698,17 +690,25 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-06",
-      "tieu_de": "OpenAI to reiterate apology to Australia over Medicare hack as inquiry told artists risk becoming ‘roadkill’",
+      "tieu_de": "Australian Army soldier killed and five others injured in training exercise in the Northern Territory",
       "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/media/2026/oct/06/openai-australia-parliament-inquiry-jason-kwon"
+      "url": "https://www.theguardian.com/australia-news/2026/oct/06/australian-defence-force-soldier-killed-five-injuried-mount-bundey-training-northern-territory"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-06",
-      "tieu_de": "Australian soldier killed and five others injured in training exercise in the Northern Territory",
+      "tieu_de": "Angus Taylor vows ‘biggest’ cut to migration in Australia’s history, slashing 650,000 temporary visas",
       "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/06/australian-defence-force-soldier-killed-five-injuried-mount-bundey-training-northern-territory"
+      "url": "https://www.theguardian.com/australia-news/2026/oct/06/coalition-immigration-policy-angus-taylor-one-nation-labor-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-06",
+      "tieu_de": "OpenAI to reiterate apology to Australia over Medicare hack as inquiry told artists risk becoming ‘roadkill’",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/media/2026/oct/06/openai-australia-parliament-inquiry-jason-kwon"
     },
     {
       "lop": "RSS",
@@ -834,17 +834,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-05",
-      "tieu_de": "Indonesia’s new peatland agency to get greater powers, but more work needed to stop forest fires",
+      "tieu_de": "Commentary: Malaysia has diplomatic leverage in tackling transboundary haze",
       "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/indonesia-forest-fire-new-peatland-agency-haze-6426601"
+      "url": "https://www.channelnewsasia.com/commentary/haze-malaysia-indonesia-emergency-asean-6427126"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-05",
-      "tieu_de": "Commentary: Malaysia has diplomatic leverage in tackling transboundary haze",
+      "tieu_de": "Indonesia’s new peatland agency to get greater powers, but more work needed to stop forest fires",
       "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/commentary/haze-malaysia-indonesia-emergency-asean-6427126"
+      "url": "https://www.channelnewsasia.com/asia/indonesia-forest-fire-new-peatland-agency-haze-6426601"
     },
     {
       "lop": "RSS",
@@ -1134,6 +1134,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-06",
+      "tieu_de": "Trump caves on taxpayer-funded ads, rages about coverage of rally crowds",
+      "nguon": "Sydney Morning Herald — World",
+      "url": "https://www.smh.com.au/world/north-america/trump-caves-on-taxpayer-funded-ads-rages-about-coverage-of-rally-crowds-20261006-p6135o.html?ref=rss&utm_medium=rss&utm_source=rss_world",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-06",
       "tieu_de": "Trump eases red diesel limits in attempt to quell fuel inflation",
       "nguon": "Financial Times — World",
       "url": "https://www.ft.com/content/8a733f73-d506-49ae-9030-2bbf0987bc8d?syn-25a6b1a6=1",
@@ -1156,6 +1165,15 @@
       "nguon": "Nhà Trắng — Presidential Actions",
       "url": "https://www.whitehouse.gov/presidential-actions/2026/10/emergency-tax-relief-on-diesel-fuel/",
       "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-06",
+      "tieu_de": "Federal Reserve Board announces approval of application by Isabella Bank Corporation",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/orders20261005a.htm",
+      "nhom": 4
     },
     {
       "lop": "RSS",
