@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-07T04:45:27+07:00",
+    "lastRunAt": "2026-10-08T04:00:36+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+32 tin (5 chu de): Noi bo My 8 (doi ngoai 3/5 hut), Uc&BD 13 (Anh 4/5 hut, Australia 7, Bien Dong 2/5 hut), CNQS 8, Mali 1, tap tran 2 cap nhat",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-07"
-    }
+    },
+    "heartbeat": "2026-10-08T04:00:36+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-07T04:55:53+07:00",
