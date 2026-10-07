@@ -14,3 +14,12 @@
 [22:10Z] gh workflow run telegram-bot.yml bi chan "requires approval" trong phien nay -> chua kich duoc bot
 [22:10Z] tin_jaylam.py --liet-ke: exit 10, khong co file Jay Lam trong hang cho -> bo qua buoc 4c
 [21:44Z] START event-scan (CI, gop vao sang som)
+[21:44Z] do_tap_tran_thieu.py: tim duoc 2 ung vien co ten rieng (Bersama Lima 2026, Indestructible Brotherhood-2026)
+[21:48Z] giao 1 agent quet su kien+tap tran, xac minh 2 ung vien + tim dien bien moi
+[21:52Z] agent xong: xac nhan 2 tap tran moi THAT, 0 dien bien moi cho tap tran dang chay (da co trong ban tin/da qua), 1 cap nhat dipEvent (Hy Lap-My chi tiet 3 thoa thuan)
+[21:55Z] add_news.py /tmp/new_items_event.json OK: +2 TAP TRAN MOI, +1 su kien ngoai giao
+[21:56Z] add_analyses.py --candidates: 279 ung vien think-tank
+[21:58Z] giao 1 agent viet 6 bai think-tank (Belfer, ORF, CNAS, Timbuktu, Brookings, ISEAS)
+[22:01Z] add_analyses.py OK: +6 bai. set_analysis_concepts.py OK: 12 khai niem/6 bai
+[22:02Z] set_exercise_briefing.py OK: 2/2 tap tran moi co bois canh+khai niem
+[22:03Z] state.py done event-scan
