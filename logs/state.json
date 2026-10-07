@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-08T04:00:36+07:00",
+    "lastRunAt": "2026-10-08T04:44:27+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+27 tin (5 chu de): usNews 12, worldNews 14, tap tran 1. Hut san Doi ngoai My 3/5 va Bien Dong 4/5",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-10-07"
-    },
-    "heartbeat": "2026-10-08T04:44:04+07:00"
+      "sang": "2026-10-08"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-10-07T04:55:53+07:00",

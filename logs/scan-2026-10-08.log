@@ -1,3 +1,15 @@
 [21:00Z] START (CI) phien sang som 2026-10-08
-[04:07] SKIP (local) web-scan dang co phien khac chay (nhip tim 5' truoc, bat dau 04:00:36)
-[04:35] SKIP (local) web-scan dang co phien khac chay (nhip tim 8' truoc, bat dau 04:00:36)
+[21:05Z] harvest.py + telegram_harvest.py xong: 469 ung vien 5 chu de + 10 ung vien Telegram
+[21:12Z] giao 4 agent chu de (A Noi bo My, B Uc&BienDong, C CNQS My, D Mali+Tap tran) song song
+[21:35Z] 4 agent xong. Noi bo My 8 tin (2 doi ngoai) · Uc&BD 15 tin (Anh6/Au4/BD5) · CNQS 9 tin · Mali 0/Tap tran 1
+[21:37Z] giao 1 agent bo sung (gop Doi ngoai My + Australia) - dung het tran 5/6 agent
+[21:45Z] agent bo sung xong: +1 doi ngoai, +2 australia
+[21:50Z] bien dich /tmp/new_items.json, sua 2 item khong neo duoc Anh (bo tran "Anh"), bo 1 item ngoai khung ngay
+[21:52Z] chay add_news.py: cong NGAY DANG THAT chan 6 tin (3 sai that, 3 thieu metadata)
+[21:58Z] WebFetch xac nhan tay 3 bai thieu metadata deu dung 07/10 -> dung --bo-cong-ngay-that; bo 3 bai sai ngay that
+[22:00Z] add_news.py OK: +14 worldNews +15 usNews +1 tap tran. Phat hien 3 tin CNQS TRUNG su kien voi tin da gui 07/10 (HACM Australia, Anduril Arsenal-2, 4 he thong nang luong dinh huong) -> go khoi index.html, ghi loai-tin.md
+[22:03Z] sua region sai cua 1 tin (demarche Nga) de phan loai dung muc Doi ngoai My
+[22:05Z] WebSearch truc tiep cua dieu phoi tim them cho Doi ngoai My/Bien Dong/CNQS - khong du, chot lo
+[22:08Z] ghi scan-gaps.json: Doi ngoai My 3/5, Bien Dong 4/5 (hut san); Noi bo My 5/5, Anh 5/5, Australia 5/5, KHCN-QS 5/5 (du)
+[22:10Z] gh workflow run telegram-bot.yml bi chan "requires approval" trong phien nay -> chua kich duoc bot
+[22:10Z] tin_jaylam.py --liet-ke: exit 10, khong co file Jay Lam trong hang cho -> bo qua buoc 4c
