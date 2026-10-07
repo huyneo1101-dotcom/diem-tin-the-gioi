@@ -23,3 +23,4 @@
 [22:01Z] add_analyses.py OK: +6 bai. set_analysis_concepts.py OK: 12 khai niem/6 bai
 [22:02Z] set_exercise_briefing.py OK: 2/2 tap tran moi co bois canh+khai niem
 [22:03Z] state.py done event-scan
+[22:01Z] phien moi kich (05:00 VN): web-scan claim exit 10 (DA XONG 04:44:27), so_da_gui --xem co dong 2026-10-08 [sang] 29 tin + [sukien] 3 tin -> ban tin da toi tay, SKIP em dung. event-scan claim exit 10 (DA XONG 04:58:01) -> SKIP em. Khong quet lai.
