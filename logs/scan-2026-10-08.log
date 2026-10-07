@@ -13,3 +13,4 @@
 [22:08Z] ghi scan-gaps.json: Doi ngoai My 3/5, Bien Dong 4/5 (hut san); Noi bo My 5/5, Anh 5/5, Australia 5/5, KHCN-QS 5/5 (du)
 [22:10Z] gh workflow run telegram-bot.yml bi chan "requires approval" trong phien nay -> chua kich duoc bot
 [22:10Z] tin_jaylam.py --liet-ke: exit 10, khong co file Jay Lam trong hang cho -> bo qua buoc 4c
+[21:44Z] START event-scan (CI, gop vao sang som)
