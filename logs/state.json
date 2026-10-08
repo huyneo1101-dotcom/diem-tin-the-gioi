@@ -20,13 +20,13 @@
     "heartbeat": "2026-10-09T04:07:18+07:00"
   },
   "event-scan": {
-    "lastRunAt": "2026-10-08T04:58:01+07:00",
+    "lastRunAt": "2026-10-09T04:26:26+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "+2 tap tran moi (Bersama Lima 2026, Indestructible Brotherhood-2026), +1 su kien ngoai giao (Hy Lap-My chi tiet), +6 bai think-tank",
+    "note": "CI: +2 tap tran moi, +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-10-08"
+      "sang": "2026-10-09"
     }
   }
 }
