@@ -1,2 +1,4 @@
 [21:05Z] START (CI) - phien sang som, claim web-scan OK
-[21:05Z] SKIP (local) - web-scan dang co phien khac chay (nhip tim 0' truoc, bat dau 04:05 VN), khong quet chong
+[21:05Z] harvest.py: 521 ung vien (Uc&BD 214, Noi bo My 158, CNQS 100, Mali 25, Tap tran 24)
+[21:06Z] telegram_harvest.py: 22 ung vien TG
+[21:08Z] beat #1 OK, chuan bi giao 4 agent chu de (A/B/C/D)
