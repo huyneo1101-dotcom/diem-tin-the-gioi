@@ -6,3 +6,4 @@
 [21:13Z] START event-scan (CI, gop vao sang som)
 [21:26Z] event-scan: +2 tap tran moi (Steadfast Noon 2026, Steadfast Duel 26) + background/concepts; +5 bai think-tank (Belfer/Wilson/ORF/Egmont x2) + 8 khai niem; khong co dip event moi (chi tim thay 1 ung vien, trung tin da co). DONE event-scan.
 [04:35 VN] SKIP web-scan (local, moc 04:35) - phien khac dang chay (nhip tim 28' truoc, bat dau 04:05:06 VN) - khong quet chong
+[21:42Z] RESUME web-scan (CI) - phien truoc stall sau beat #1 (21:08Z), khoa thoi, da claim lai luc 04:40 VN. Chay lai harvest.py (525 ung vien) + telegram_harvest.py (lo moi) de lam tuoi du lieu, chuan bi giao agent chu de.
