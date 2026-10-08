@@ -25,4 +25,4 @@
 [22:03Z] state.py done event-scan
 [22:01Z] phien moi kich (05:00 VN): web-scan claim exit 10 (DA XONG 04:44:27), so_da_gui --xem co dong 2026-10-08 [sang] 29 tin + [sukien] 3 tin -> ban tin da toi tay, SKIP em dung. event-scan claim exit 10 (DA XONG 04:58:01) -> SKIP em. Khong quet lai.
 [00:25Z] phien moi kich (07:25 VN): web-scan claim exit 10 (DA XONG 04:44:27), so_da_gui --xem co dong 2026-10-08 [sang] 29 tin -> ban tin da toi tay, SKIP em dung. event-scan claim exit 10 (DA XONG 04:58:01) -> SKIP em ca hai pipeline. Ket thuc em.
-[01:19Z] phien moi kich (08:19 VN): web-scan claim exit 10 (DA XONG 04:44:27), so_da_gui --xem co dong 2026-10-08 [sang] 29 tin + [sukien] 3 tin -> ban tin da toi tay, SKIP em dung.
+[01:19Z] phien moi kich (08:19 VN): web-scan claim exit 10 (DA XONG 04:44:27), so_da_gui --xem co dong 2026-10-08 [sang] 29 tin + [sukien] 3 tin -> ban tin da toi tay, SKIP em dung. event-scan claim exit 10 (DA XONG 04:58:01) -> SKIP em ca hai pipeline. Ket thuc em.
