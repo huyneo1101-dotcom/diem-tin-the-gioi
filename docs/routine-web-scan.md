@@ -24,6 +24,8 @@ tiếp phần còn lại nếu được quét. Vì sao: đo 7 ngày cuối 07/20
 (xem log cũ, show trạng thái, đọc thêm tài liệu) trong khi kết cục đã định là SKIP. Ba lớp CI +
 local mỗi ngày nhân số phiên nhường lên, nên phiên nhường phải rẻ như một cú gõ cửa.
 
+**Từ 10/10/2026 phiên LOCAL còn được script kiểm khoá trước khi mở:** `routine-claude-headless.py` (HeThong) chạy `state.py check web-scan` + `check event-scan` trên `logs/state.json` của `origin/main`; cả hai trả 10/11/12 thì BỎ LƯỢT, không mở phiên Claude nên KHÔNG có dòng SKIP trong `logs/scan-*.log` và không có commit nào (nhật ký ở `HeThong/nhat-ky-routine-headless.log`, cụm «BỎ LƯỢT TRƯỚC KHI MỞ PHIÊN»). Lỗi bất kỳ ở bước kiểm thì mở phiên như cũ, nên khối này vẫn là đường chính khi phiên được mở.
+
 - **Claim trả SKIP (exit 12 — SAI GIỜ)** → ghi 1 dòng SKIP vào log, commit + push, **KẾT THÚC NGAY**. Cổng khung giờ (`KHUNG_GIO` trong `scripts/state.py`, cắm 31/08/2026): ca `sang` chỉ nhận 03:00-09:00, ca `toi` chỉ nhận 19:30-23:30 giờ VN. ⛔ **KHÔNG lách bằng `--bo-cong-gio`.** Sự cố gốc: cron GitHub trễ 4 tiếng, mốc TỐI nổ lúc 00:46 giờ VN, tự nhận là phiên sáng, gửi bản tin lúc 01:25 sáng rồi chiếm ô `sang` — bản tin TỐI mất hẳn 30/08 và 31/08. Bộ canh: `tests/test-cong-khung-gio.py`.
 - **Claim trả SKIP (exit 10 hoặc 11)** → làm đúng 02 việc rồi **KẾT THÚC NGAY**: (i) ghi 1 dòng
   SKIP vào `logs/scan-<ngày VN>.log` bằng tool Write/Edit; (ii) chạy `ghi_log_push.py` cho dòng
