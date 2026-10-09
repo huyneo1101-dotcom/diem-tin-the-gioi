@@ -14,6 +14,12 @@
 - [US/BM] "Ông Trump bác tin đề nghị nới lỏng trừng phạt Iran..." (VietnamNet/Tiền Phong/Lào Cai, 3 bài) — TRÙNG sự kiện đã nạp qua nguồn gốc tốt hơn (The Hill, dateProofUrl rte.ie).
 - [TG/BM] "Hàn Quốc coi việc phát triển, sử dụng và vận hành tàu ngầm hạt nhân là chiến lược quốc gia" (Báo TG&VN) — thuần nội bộ Hàn Quốc, không neo được vào Úc/AUKUS/Anh/Biển Đông (siết 01/08/2026).
 
+## 2026-10-10 (phiên sáng sớm CI) — cổng Báo Mới
+
+- [TG/BM] "Siêu tàu ngầm hạt nhân USS Jimmy Carter của Mỹ dài hơn 30 m để làm gì?" (Chuyên trang An Ninh Thủ Đô) — bài giải thích khí tài Mỹ chung, không neo được sự kiện thời sự mới trong khung ngày 09-10/10; không phải tin về Úc/Anh/Biển Đông.
+- [CNQS/BM] "Hạm đội khổng lồ của Trịnh Hòa đã đi đâu sau chuyến hải trình cuối cùng?" (Báo Tri thức & Cuộc sống) — bài lịch sử về hạm đội nhà Minh thế kỷ 15, không phải tin thời sự quân sự.
+- [CNQS/BM] "Linh kiện F-35 lạc đến Hong Kong 'vì nhân viên UPS bỏ sót email'" (Chuyên trang An Ninh Thủ Đô) — ĐÃ NẠP qua nguồn gốc tốt hơn: Military.com "Missed Email Revealed As Cause of F-35 Fighter Jet Parts Diverted to Hong Kong" (09/10), không nạp lại link Báo Mới để tránh trùng.
+
 ## 2026-10-02 (phiên sáng sớm local) — cổng Báo Mới
 
 - [CNQS/BM] "Elon Musk tái xuất chính quyền Trump, cùng Lầu Năm Góc định hình chiến tranh tương lai" (VietTimes) — TRÙNG sự kiện đã nạp qua nguồn gốc tốt hơn ("Hegseth công bố lập Bộ Chỉ huy Chiến tranh Tự hành 4 sao, giao Musk-Luckey-Gingrich nghiên cứu chiến tranh tương lai", bài phát biểu Quantico 29-30/9).

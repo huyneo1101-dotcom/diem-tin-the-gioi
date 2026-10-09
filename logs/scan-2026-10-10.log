@@ -1,1 +1,6 @@
 [21:00Z] START (CI) phien sang som web-scan
+[21:02Z] harvest.py + telegram_harvest.py xong: 486 + 14 ung vien
+[21:30Z] 4 agent chu de (A nhoi bo My, B Uc&BienDong+Anh, C CNQS My, D Mali+tap tran) giao song song
+[22:00Z] gom ket qua agent xong, kiem lai URL/ngay bang curl_cffi+doc_ngay, phat hien nhieu tin sai ngay/trung tin
+[22:03Z] giao 1 agent bo sung (dung tran) lap khoang thieu sau loc ngay
+[22:05Z] add_news.py OK: +16 worldNews, +19 usNews, tong cong +35 tin (5 chu de). Da xu ly cong Bao Moi (2 loai, 1 nap qua nguon khac)
