@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-09T05:24:51+07:00",
+    "lastRunAt": "2026-10-10T04:00:50+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+33 tin (5 chu de, Noi bo My 5+5 Doi ngoai, Uc/Anh/BD 5/5/5, CNQS 7, Mali 1)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-09"
-    }
+    },
+    "heartbeat": "2026-10-10T04:00:50+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-09T04:26:26+07:00",
