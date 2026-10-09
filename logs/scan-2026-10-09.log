@@ -12,3 +12,4 @@
 [22:25Z] state.py done web-scan OK, commit+push "Cap nhat ban tin 09/10: +33 tin (5 chu de)" thanh cong.
 [22:26Z] Buoc 6: claim event-scan -> SKIP (exit 10), da DONE tu truoc (04:26 VN, +2 tap tran moi + 5 bai think-tank, xem commit 932f325). Khong lam lai. KET THUC PHIEN.
 [00:41Z] Phien kich lai (07:41 VN) - web-scan claim -> SKIP (exit 10, lastRunAt 05:24:51 VN). Kiem so_da_gui.py --xem: co dong "2026-10-09T05:26:16+07:00 [sang] 33 tin" - ban tin da toi tay thuc. SKIP hop le, nhay sang Buoc 6. event-scan claim -> SKIP (exit 10, lastRunAt 04:26:26 VN, da co +2 tap tran +5 bai think-tank). Khong co viec gi moi. KET THUC PHIEN.
+[01:27Z] Phien kich lai khac (08:26 VN) - web-scan claim -> SKIP (exit 10, lastRunAt 05:24:51 VN). so_da_gui.py --xem van co dong "2026-10-09T05:26:16+07:00 [sang] 33 tin" - ban tin da toi tay thuc, SKIP hop le, nhay sang Buoc 6. event-scan claim -> SKIP (exit 10, lastRunAt 04:26:26 VN). Khong co viec gi moi. KET THUC PHIEN.
