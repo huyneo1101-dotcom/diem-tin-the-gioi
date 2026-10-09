@@ -140,8 +140,12 @@ jobs:
           TOOLS="Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(sleep *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite"
           # --max-turns 700 (trước 500): phiên SÁNG SỚM từ 28/07/2026 gộp thêm pipeline
           # event-scan (BƯỚC 6 trong $PROMPT_FILE) ngay trong job này, cần thêm lượt.
-          claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 700 \
-            || { echo "claude -p lỗi (mạng/server?) — retry sau 60s"; sleep 60; claude -p "$(cat $PROMPT_FILE)" --allowedTools "$TOOLS" --max-turns 700; }
+          # --model sonnet (thêm 10/10/2026, Huy chốt "tiết kiệm limit quét 4h sáng"): CI không đọc
+          # ~/.claude/settings.json của máy nên trước đó lấy model mặc định của gói; quét theo
+          # playbook là việc theo khuôn (mục 23). Khâu cần Opus (nhận định tuần) đã tự khai
+          # model "opus" ở agent con trong $PROMPT_FILE nên không bị ảnh hưởng.
+          claude -p "$(cat $PROMPT_FILE)" --model sonnet --allowedTools "$TOOLS" --max-turns 700 \
+            || { echo "claude -p lỗi (mạng/server?) — retry sau 60s"; sleep 60; claude -p "$(cat $PROMPT_FILE)" --model sonnet --allowedTools "$TOOLS" --max-turns 700; }
 
       - name: Kích email/push/morning nếu có bản tin hoặc sự kiện mới
         if: steps.gate.outputs.run == 'true'

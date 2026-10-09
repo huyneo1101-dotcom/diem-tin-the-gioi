@@ -7,6 +7,7 @@
 
 > Dời từ `~/.claude/scheduled-tasks/web-scan-diem-tin/SKILL.md` vào repo ngày 27/07/2026 — vùng `~/.claude/` là sensitive, mọi Edit vào đó đều bị hỏi quyền bất kể allowlist, trong khi file này rất hay phải vá bài học mới. Repo thì Edit/Write đã allow toàn phần + có git history.
 > **Ai đọc file này:** mốc local `com.huy.routine-diemtin-sang` (phiên SÁNG SỚM **04:30 · 04:45**) và mốc local `com.huy.routine-diemtin-toi` (phiên TỐI 21:15) — cả hai là LaunchAgent gọi `claude -p --model sonnet`, KHÔNG còn là scheduled task của app (đổi 06/08, đo lại 18/08/2026) — SKILL.md của 2 task đó giờ chỉ là stub trỏ về đây. **Sửa quy trình thì sửa file này**, đừng sửa stub.
+> **Model (10/10/2026):** cả phiên local lẫn phiên CI (`claude-web-scan.yml`) đều chạy `--model sonnet`; CI phải khai cờ tường minh vì không đọc cấu hình máy. Agent con chỉ khai `opus` ở khâu nhận định tuần. Cổng canh: `tests/test-model-web-scan-ci.py`.
 
 Quét tin và xuất bản bản tin cho web "Điểm Tin Thế Giới" (https://huyneo1101-dotcom.github.io/diem-tin-the-gioi).
 Repo: /Users/Huy/Claude/diem-tin-the-gioi (git remote SSH, push thẳng nhánh `main`).
