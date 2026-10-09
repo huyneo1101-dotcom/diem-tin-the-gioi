@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-09T07:35:53+07:00",
+  "tao_luc": "2026-10-09T08:22:09+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-08",
@@ -101,6 +101,14 @@
       "tieu_de": "German pilots prepare for CH‑47F fleet with US Army flight simulator",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/news/your-military/2026/10/08/german-pilots-prepare-for-ch47f-fleet-with-us-army-flight-simulator/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-07",
+      "tieu_de": "Anduril, U.S. Navy Invest $6.6 Billion to Expand America’s Submarine Industrial Base",
+      "nguon": "Naval News",
+      "url": "https://www.navalnews.com/naval-news/2026/10/anduril-u-s-navy-invest-6-6-billion-to-expand-americas-submarine-industrial-base/"
     },
     {
       "lop": "RSS",
@@ -698,6 +706,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-09",
+      "tieu_de": "U.S. East Asian envoy says investors are overpricing Taiwan risk, calls Xi a 'very rational actor'",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/10/09/taiwan-trump-china-militia-boat-tsmc-.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-09",
       "tieu_de": "America shut out Chinese EVs. Britain welcomed them — and now faces a difficult choice",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/10/08/autos-china-evs-uk-tariffs-hybrid-cars.html"
@@ -749,14 +765,6 @@
       "tieu_de": "Australia's AirTrunk to triple Japan data center investment to up to $30bn",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/editor-s-picks/interview/australia-s-airtrunk-to-triple-japan-data-center-investment-to-up-to-30bn"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Indonesia's new labor law soothes workers, worries businesses",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/indonesia-s-new-labor-law-soothes-workers-worries-businesses2"
     },
     {
       "lop": "RSS",
@@ -874,7 +882,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-09",
-      "tieu_de": "Australia news LIVE: Trump rules out fresh strikes; Christa Pike ‘up and walking’; closing statements in murder of Perth brothers in Mexico",
+      "tieu_de": "Australia news LIVE: Chalmers speaks after ATO credit card backflip; Christa Pike ‘up and walking’; closing statements in murder of Perth brothers in Mexico",
       "nguon": "Sydney Morning Herald",
       "url": "https://www.smh.com.au/national/australia-news-live-trump-rules-out-fresh-strikes-christa-pike-up-and-walking-closing-statements-in-murder-of-perth-brothers-in-mexico-20261009-p61431.html?ref=rss&utm_medium=rss&utm_source=rss_national"
     },
@@ -889,34 +897,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-09",
+      "tieu_de": "Why does Australia have a productivity problem? - podcast",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/audio/2026/oct/09/why-does-australia-have-a-productivity-problem-australian-politics-podcast"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-08",
       "tieu_de": "One Nation’s AI video is vile and tired – but the ensloppification of Australian politics doesn’t stop there",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/2026/oct/09/one-nations-ai-video-is-vile-and-tired-but-the-ensloppification-of-australian-politics-doesnt-stop-there-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-08",
-      "tieu_de": "OpenAI used AI to help write email warning Australian government AI had hacked its websites",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/08/openai-used-ai-to-help-write-email-warning-australian-government-ai-had-hacked-its-websites"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-09",
-      "tieu_de": "How to land corporate Australia’s hottest $1.2m role",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/work-and-careers/careers/how-to-land-corporate-australia-s-hottest-1-2m-role-20261009-p60o0l?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-08",
-      "tieu_de": "Senate ratifies Philippines-France visiting forces agreement",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/philippines/senate-ratifies-france-visiting-forces-agreement/"
     },
     {
       "lop": "RSS",
@@ -946,6 +938,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-09",
+      "tieu_de": "Is Australia saving too much for retirement?",
+      "nguon": "Sydney Morning Herald — Politics/Federal",
+      "url": "https://www.smh.com.au/politics/federal/is-australia-saving-too-much-for-retirement-20261009-p613tt.html?ref=rss&utm_medium=rss&utm_source=rss_politics_federal"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-09",
       "tieu_de": "Australia’s AI dependence leaves us exposed to geopolitical storms. We need alternatives, and fast",
       "nguon": "Crikey (Úc)",
       "url": "https://www.crikey.com.au/2026/10/09/ai-artificial-intelligence-joint-select-committee-openai-chatgpt-medicare-hack/"
@@ -957,6 +957,14 @@
       "tieu_de": "Canberra is ‘drinking the Kool-Aid’ on AI. Where will it take us?",
       "nguon": "Crikey (Úc)",
       "url": "https://www.crikey.com.au/2026/10/08/ai-policy-australia-artificial-intelligence-openai-anthropic-amodei-altman/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-09",
+      "tieu_de": "Once the envy of the world, where has Australia’s batting talent gone?",
+      "nguon": "The Conversation (Úc)",
+      "url": "https://theconversation.com/once-the-envy-of-the-world-where-has-australias-batting-talent-gone-291873"
     },
     {
       "lop": "RSS",
@@ -1013,6 +1021,14 @@
       "tieu_de": "Malaysia budget 2027: Anwar faces balancing act on cost-of-living relief as general election looms",
       "nguon": "Channel News Asia — Asia",
       "url": "https://www.channelnewsasia.com/asia/malaysia-budget-anwar-ibrahim-balancing-act-election-6438551"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-09",
+      "tieu_de": "Giant Taiwan flag flies from helicopter for national day, defying Beijing",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/giant-taiwan-flag-flies-from-helicopter-for-national-day-defying-beijing"
     },
     {
       "lop": "RSS",
@@ -1349,15 +1365,6 @@
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/administration/6134758-trump-midterm-dividend-tariffs/",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-09",
-      "tieu_de": "Alan Jones on Trial: The youngest complainant's testimony | Week 9 – video",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/video/2026/oct/09/alan-jones-on-trial-the-youngest-complainants-testimony-week-9-video-ntwnfb",
-      "nhom": 1
     },
     {
       "lop": "RSS",
