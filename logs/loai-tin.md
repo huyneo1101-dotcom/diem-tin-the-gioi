@@ -1620,3 +1620,11 @@ Sau vòng bổ sung + nhiều lượt WebSearch trực tiếp của phiên đi�
 - [CNQS Mỹ] "Đòn tập kích của Iran khiến quân đội Mỹ bỏ lại căn cứ ở Kuwait" (baomoi.com, Báo Tin Tức TTXVN) — bài hồi tưởng sự kiện tháng 3/2026 (ảnh minh hoạ ghi rõ 25/3/2026), không phải diễn biến mới trong khung ngày; nguồn trích Press TV (Iran, nhà nước) không có xác nhận độc lập. Loại vì ngoài khung + thiếu xác minh.
 - [CNQS Mỹ] "Tàu sân bay hạt nhân Charles de Gaulle bốc cháy khi bảo dưỡng" (baomoi.com, An Ninh Thủ Đô/Báo CAND) — tàu của HẢI QUÂN PHÁP, sự cố bảo dưỡng nội bộ, không liên quan khí tài/hệ thống quân sự Mỹ. Loại vì sai chủ đề.
 - [Mỹ – Mali] "Shein dần trở nên yếu thế trước thị trường cạnh tranh gắt gao" (baomoi.com, Tạp chí VnEconomy) — xác nhận là bài kinh doanh thời trang (Shein/Zara/Asos), hoàn toàn không liên quan Mali/JNIM/Sahel; false-positive của bộ lọc từ khoá. Loại chắc chắn.
+
+## 11/10/2026 phiên sáng sớm (local)
+- [Nội bộ Mỹ] Toà liên bang chặn Bộ Tư pháp dùng danh sách cử tri (The Hill, 10/10) — cổng NGÀY ĐĂNG THẬT: trang không in ngày đọc được
+- [Nội bộ Mỹ] Giáo hoàng Leo lên án án tử hình, Lầu Năm Góc định phát trực tiếp vụ xử bắn (Straits Times, 10/10) — cổng NGÀY ĐĂNG THẬT
+- [Anh] Marshall Aerospace bị quỹ AURELIUS mua (UK Defence Journal, 10/10) — không neo được quốc phòng/đối ngoại/chính trường Anh theo cổng chủ đề 2
+- [Úc] Úc lắp điện mặt trời mái nhà kỷ lục (Guardian Australia, 11/10) — ngoài 5 chủ đề, bỏ
+- [Nội bộ Mỹ] Tin Venezuela/Rubio (France 24, 09/10) và liveblog Al Jazeera về Trump-Houthi — ngoài khung / link liveblog
+- [Báo Mới] 7 ứng viên chưa xử lý (sát hạn 04:45): diesel Nga, Dân chủ tự tin giữa kỳ, phòng không tàu ngầm Anh, UAV Rostov, Trump-Iran trước giữa kỳ, vaccine dịch tả lợn, PAC-3 Edge
