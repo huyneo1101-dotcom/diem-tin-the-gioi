@@ -3,3 +3,4 @@
 [21:21Z] DONE (local): +40 tin (Doi ngoai My 8 · Noi bo My 8 · Anh 5 · Uc 6 · Bien Dong 6 · CNQS 7 · Mali 0 · tap tran 0). Cat: Bao Moi (7 ung vien), loc Jay Lam (thieu SUPABASE key local)
 [21:27Z] DONE event-scan (local): 0 su kien/tap tran moi, +6 bai think-tank, bao cao tuan CN
 [21:57Z] SKIP (CI) — phien local da claim RUN 21:07Z va DONE ca web-scan+event-scan truoc khi CI push duoc khoa (CI quen push logs/state.json ngay sau claim 21:03Z, dung lai lo + du lieu mat 21:03-21:55Z). Da reset --hard origin/main de khong ghi de cong viec hop le cua local. KHONG goi state.py skip/fail. Ket thuc em.
+[21:59Z] SKIP (CI, lan goi trung) web-scan+event-scan ngay 11/10: claim ca hai deu tra exit 10 (DA XONG, lan chay cuoi 04:21Z/04:27Z VN cua phien local). So da-gui da co dong [sang] hom nay (nhieu lan, lan cuoi 04:58Z 39 tin). Khong co gi de lam lai, khong commit du lieu. Ket thuc em.
