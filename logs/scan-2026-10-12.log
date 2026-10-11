@@ -1,2 +1,9 @@
 [21:03Z] START (CI) phien sang som
-[21:05Z] SKIP (local 04:05 VN) claim web-scan exit 11: CI dang chay (nhip tim 2' truoc)
+[22:40Z] harvest.py (--gop-ci, 283 ung vien) + telegram_harvest.py (21 ung vien) xong
+[22:40Z] giao 5 luong agent (A Noi bo My, B Uc & Bien Dong, C CNQS My, D Mali+Tap tran, BM Bao Moi) + 1 vong bo sung (dung tran 6 lan/phien)
+[22:40Z] add_news.py nap xong: +13 worldNews, +4 usNews (lan 1); +2 worldNews, +8 usNews (lan bo sung) = tong +15 worldNews, +12 usNews
+[22:40Z] phat hien + go 1 tin trung (HIMARS Australia) truoc khi commit
+[22:40Z] chua kich duoc bot telegram-bot.yml (gh requires approval) - fail-open co tieng
+[22:40Z] thieu SUPABASE_ANON_KEY/DT_BOT_KEY trong phien nay - khong doc duoc file Jay Lam, bo qua buoc loc (ban tin co the lap tin Jay Lam da co)
+[22:17Z] phat hien 3 file data/analyses.json, logs/da-gui-email.json, logs/tap-tran-da-soi.json trong working tree CU HON HEAD (phien local da chay event-scan 12/10 04:11 +0700, commit 30f849a/1e9b7c9) - da checkout lai dung ban HEAD, KHONG commit ban cu de lam
+[22:17Z] DONE web-scan: +15 worldNews, +12 usNews (2 vong). Chuan bi commit + push
