@@ -7,3 +7,5 @@
 [22:40Z] thieu SUPABASE_ANON_KEY/DT_BOT_KEY trong phien nay - khong doc duoc file Jay Lam, bo qua buoc loc (ban tin co the lap tin Jay Lam da co)
 [22:17Z] phat hien 3 file data/analyses.json, logs/da-gui-email.json, logs/tap-tran-da-soi.json trong working tree CU HON HEAD (phien local da chay event-scan 12/10 04:11 +0700, commit 30f849a/1e9b7c9) - da checkout lai dung ban HEAD, KHONG commit ban cu de lam
 [22:17Z] DONE web-scan: +15 worldNews, +12 usNews (2 vong). Chuan bi commit + push
+[22:18Z] SKIP event-scan (exit 10) - phien sang 12/10 DA XONG (phien local, lan chay cuoi 04:11:06+07:00): +1 su kien ngoai giao, +3 tap tran moi, +1 cap nhat CSTO, +6 bai think-tank. Khong lam lai.
+[22:18Z] KET THUC phien sang som (CI)
