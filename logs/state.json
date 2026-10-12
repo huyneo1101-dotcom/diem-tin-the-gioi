@@ -20,13 +20,13 @@
     "heartbeat": "2026-10-13T04:05:05+07:00"
   },
   "event-scan": {
-    "lastRunAt": "2026-10-12T04:11:06+07:00",
+    "lastRunAt": "2026-10-13T04:10:30+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "+1 su kien ngoai giao moi (El-Sisi-Indonesia), +3 tap tran moi (Konkan, INDRA, Karakoram), +1 cap nhat CSTO, +6 bai think-tank",
+    "note": "2 tap tran moi (INDRA-2026, KONKAN-26), 2 cap nhat (CSTO, Ibsamar IX), 0 su kien ngoai giao, 6 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-10-12"
+      "sang": "2026-10-13"
     }
   }
 }
