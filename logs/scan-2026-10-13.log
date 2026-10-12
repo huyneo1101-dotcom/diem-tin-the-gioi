@@ -3,3 +3,4 @@
 [22:12Z] 5 agent con da xong (A Noi bo My, B Uc&BD, C CNQS, D Mali+Tap tran, bo sung Australia+Mali) - da dung het tran 06
 [22:12Z] add_news.py nap xong: +13 worldNews, +16 usNews, +1 exerciseUpdates; phat hien va go 1 tin trung (Pulido Vargas/Maduro) truoc khi commit
 [22:12Z] qua han chot 04:45 VN (chot luc 05:10) - cat vong Jay Lam/Bao Mo chuyen muc, ghi logs/scan-gaps.json + logs/loai-tin.md
+[22:14Z] SKIP event-scan: da xong (lan chay cuoi 2026-10-13T04:10:30+07:00, phien khac/truoc da lam) - khong lam lai
