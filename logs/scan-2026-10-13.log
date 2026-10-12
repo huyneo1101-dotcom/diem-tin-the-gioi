@@ -4,3 +4,4 @@
 [22:12Z] add_news.py nap xong: +13 worldNews, +16 usNews, +1 exerciseUpdates; phat hien va go 1 tin trung (Pulido Vargas/Maduro) truoc khi commit
 [22:12Z] qua han chot 04:45 VN (chot luc 05:10) - cat vong Jay Lam/Bao Mo chuyen muc, ghi logs/scan-gaps.json + logs/loai-tin.md
 [22:14Z] SKIP event-scan: da xong (lan chay cuoi 2026-10-13T04:10:30+07:00, phien khac/truoc da lam) - khong lam lai
+[22:15Z] Phien moi (sang som): web-scan claim exit10. Kiem ngoai le: so_da_gui --xem co dong 2026-10-13T05:15:29+07:00 [sang] 28 tin, khop lastRunAt 05:12:16 -> co thuc, SKIP em. event-scan claim cung exit10 (lastRunAt 04:10:30). Ca hai pipeline da DONE ngay 2026-10-13, khong quet lai. KET THUC EM.
