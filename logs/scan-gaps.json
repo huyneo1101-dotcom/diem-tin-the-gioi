@@ -1,18 +1,18 @@
 {
-  "date": "2026-10-11",
+  "date": "2026-10-13",
   "session": "sang",
   "topics": [
     {
       "name": "Đối ngoại Mỹ",
       "count": 4,
-      "target": "5",
+      "target": "5-10",
       "min": 5,
       "thieu": true,
-      "reason": "Hụt 1/5. Đã nạp 4 tin neo đối ngoại (Trump tuyên bố ngừng bắn năng lượng Nga-Ukraine, 6 thượng nghị sĩ lưỡng đảng phản đối thoả thuận diesel Nga, doanh nhân Colombia liên quan mạng lưới Maduro bị bắt, biểu tình đòi cấm vận vũ khí Israel ở Capitol). Đã dùng hết trần 06 lần giao agent/phiên (05 luồng gốc + 01 bổ sung duy nhất theo luật 05/10/2026) nên CHỐT không giao vòng thứ hai. Nhiều ứng viên khác bị loại vì cổng ngày đăng thật (Rubio-Nhật/state.gov không in ngày đọc được; Tillis/The Hill không in ngày; Houthi-Trump/NPR và rally Clarksville/TheGrio đăng thật 10/10, ngoài khung 1 ngày)."
+      "reason": "4 bài neo đối ngoại (bắt doanh nhân Colombia liên quan Maduro, nới trừng phạt dầu diesel Nga, điện đàm Rubio-Colombia, đàm phán USMCA Mexico). Thiếu 1 bài: đã thử tìm thêm (Rubio-Houthi/Saudi bị cổng ngày thật chặn vì bài đăng thật 11/10 quá cũ; Rubio-Greece Strategic Dialogue là tin cũ 07/10 đã gửi trước) nhưng không ra sự kiện đối ngoại Mỹ mới nào trong khung 12-13/10 có nguồn đọc được ngày."
     },
     {
       "name": "Nội bộ Mỹ",
-      "count": 5,
+      "count": 12,
       "target": "5-10",
       "min": 5,
       "thieu": false,
@@ -20,7 +20,7 @@
     },
     {
       "name": "Địa bàn › Anh",
-      "count": 7,
+      "count": 6,
       "target": "5",
       "min": 5,
       "thieu": false,
@@ -28,24 +28,25 @@
     },
     {
       "name": "Địa bàn › Australia",
-      "count": 7,
+      "count": 6,
       "target": "5",
       "min": 5,
       "thieu": false,
-      "reason": ""
+      "reason": "Đạt sàn theo đo bằng từ khoá neo, nhưng 1 trong 6 bài (khuyến cáo công dân Umrah của Malaysia/Indonesia/Việt Nam/Australia) chính nội dung là Biển Đông/Trung Đông, chỉ nhắc Australia một câu phụ."
     },
     {
       "name": "Địa bàn › Biển Đông",
-      "count": 5,
+      "count": 2,
       "target": "5",
       "min": 5,
-      "thieu": false,
-      "reason": ""
+      "thieu": true,
+      "reason": "Chỉ giữ được 2 bài chắc (Philippines xua tàu nghiên cứu Trung Quốc ở Bãi Hubo; Đài Loan theo sát diễn tập PLA). Cổng NGÀY ĐĂNG THẬT chặn 2 ứng viên tốt vì trang không in ngày đọc được và không tìm kịp link đối chứng hợp khung (Marcos/COC — Manila Bulletin; Philippines-Mỹ lên án TQ tại Bãi Cỏ Mây — Eurasia Review, sự kiện gốc hoá ra từ tháng 7-9 nên dateProofUrl tìm được đều ngoài khung). Đã dùng hết trần 06 lần giao agent/phiên (05 luồng gốc + 01 bổ sung duy nhất), vòng bổ sung ưu tiên bù nhánh Australia nên không còn dư để đi thêm nguồn Biển Đông.",
+      "_nguonDaDi": "Rappler, Inquirer, Philstar, Channel News Asia, The Straits Times Asia, ANTARA News, Manila Bulletin, Eurasia Review, WebSearch nhiều vòng"
     },
     {
       "name": "KHCN-QS",
-      "count": 12,
-      "target": "5",
+      "count": 9,
+      "target": "5-10",
       "min": 5,
       "thieu": false,
       "reason": ""
@@ -56,16 +57,16 @@
       "target": "2-5",
       "min": 0,
       "thieu": true,
-      "reason": "Không tìm được diễn biến mới neo rõ vai trò Mỹ/JNIM/Africa Corps trong khung 10-12/10/2026. Sự kiện lớn nhất tuần (Africa Corps tái chiếm Kidal) đã xảy ra và đưa tin xong trước 10/10. Một tin UNHCR về di dời ở Trung Sahel (AllAfrica, 10/10) bị loại vì ngoài khung 1 ngày khi kiểm lại nghiêm ngặt. Chủ đề không mang sàn cứng, chấp nhận 0 tin phiên này."
+      "reason": "2 vòng tìm kiếm (agent D + agent bổ sung) đều không ra tin JNIM/Bamako/Sahel mới trong khung 12-13/10. 2 lead Telegram (@AfricaIntel) về Libya/Haftar và CAR/Touadéra bị loại vì không gắn Mali cụ thể. Chủ đề không mang sàn cứng, chấp nhận 0 tin phiên này."
     },
     {
       "name": "Tập trận đang diễn ra (không mang sàn)",
-      "count": 0,
+      "count": 1,
       "target": "1-2",
       "min": 0,
-      "thieu": true,
-      "reason": "Không tìm được diễn biến mới trong khung 11-12/10/2026 cho 5 cuộc tập trận đang bám (Exercise Ibsamar IX, Steadfast Duel 26, Mountain Guardian 2026, SEACAT 2026, Diễn tập Hạm đội Thái Bình Dương Nga). Ứng viên tốt nhất (Ibsamar IX khai mạc, Mountain Guardian) đều có ngày đăng thật lệch khung 1 ngày (09-10/10) khi kiểm bằng WebFetch. Chủ đề không mang sàn cứng, chấp nhận 0 tin phiên này."
+      "thieu": false,
+      "reason": "1 diễn biến: Mountain Guardian 2026 (Ấn Độ-UAE), diễn tập chiến thuật ngày 12/10 tại Chaubatia."
     }
   ],
-  "note": "Phiên sáng sớm 12/10/2026 (CI). harvest.py (--gop-ci, 283 ứng viên) + telegram_harvest.py (21 ứng viên) chạy trước khi giao 05 luồng agent song song (A Nội bộ Mỹ · B Úc & Biển Đông · C CNQS Mỹ · D Mali+Tập trận · BM Báo Mới) + 01 agent bổ sung duy nhất (đúng trần 06 lần/phiên). Tự phát hiện và gỡ 1 tin trùng sự kiện (HIMARS Australia, lọt qua CẢNH BÁO Jaccard của add_news.py) trước khi commit. Cổng Báo Mới: xử lý đủ 7/7 ứng viên, tất cả bị loại sau khi truy gốc/kiểm ngày thật. Tin bị loại: logs/loai-tin.md."
+  "note": "Phiên sáng sớm 13/10/2026 (CI). harvest.py (423 ứng viên) + telegram_harvest.py chạy trước khi giao 04 luồng agent song song (A Nội bộ Mỹ · B Úc & Biển Đông · C CNQS Mỹ · D Mali+Tập trận; Báo Mới gộp trực tiếp vào A/B/C qua cổng --recent-titles) + 01 agent bổ sung duy nhất (bù Australia + thử thêm Mali — đúng trần 06 lần/phiên tính luôn 4 luồng gốc). Cổng NGÀY ĐĂNG THẬT (`scripts/ngay_that.py`) chặn nhiều ứng viên ban đầu (CNN/Bloomberg/Axios/state.gov/dhs.gov/royalnavy.mod.uk/australiandefence.com.au/mb.com.ph/eurasiareview.com không in ngày đọc được) — đã vá bằng `dateProofUrl` cho 6 tin, loại hẳn các tin không tìm được link đối chứng hợp khung. Phát hiện 1 tin TRÙNG sự kiện (vụ bắt Alvaro Pulido Vargas liên quan Maduro, đã có bản WSLS từ 11/10) SAU KHI add_news.py đã nạp — --recent-titles 20 không bắt được vì sự kiện nằm ngoài top-20 gần nhất; đã gỡ tay khỏi index.html ngay trong phiên trước khi commit. Vòng Jay Lâm/Báo Mới chuyên mục bị CẮT vì phiên chạm hạn chót 04:45 (thực tế chốt lúc ~05:10) — cổng Báo Mới còn 9 ứng viên khớp chủ đề chưa xử lý, để phiên sau. Tin bị loại: logs/loai-tin.md."
 }

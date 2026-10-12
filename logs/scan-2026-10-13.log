@@ -1,2 +1,5 @@
 [21:00Z] START (CI) - phien sang som web-scan
-[21:05Z] SKIP (local 04:05 VN) - claim web-scan exit 11: CI dang chay (bat dau 04:00 VN), nhuong
+[21:00Z] harvest.py: 423 ung vien (Noi bo My 142, Uc&BD 150, CNQS 77, Mali 29, Tap tran 25); telegram_harvest.py chay xong
+[22:12Z] 5 agent con da xong (A Noi bo My, B Uc&BD, C CNQS, D Mali+Tap tran, bo sung Australia+Mali) - da dung het tran 06
+[22:12Z] add_news.py nap xong: +13 worldNews, +16 usNews, +1 exerciseUpdates; phat hien va go 1 tin trung (Pulido Vargas/Maduro) truoc khi commit
+[22:12Z] qua han chot 04:45 VN (chot luc 05:10) - cat vong Jay Lam/Bao Mo chuyen muc, ghi logs/scan-gaps.json + logs/loai-tin.md
