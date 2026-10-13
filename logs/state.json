@@ -20,13 +20,13 @@
     "heartbeat": "2026-10-14T04:08:00+07:00"
   },
   "event-scan": {
-    "lastRunAt": "2026-10-13T04:10:30+07:00",
+    "lastRunAt": "2026-10-14T04:11:26+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "2 tap tran moi (INDRA-2026, KONKAN-26), 2 cap nhat (CSTO, Ibsamar IX), 0 su kien ngoai giao, 6 bai think-tank",
+    "note": "tap tran: +1 the moi (ban dan that doc bo bien TQ), +1 cap nhat Steadfast Noon; ngoai giao 0 (khong co ky ket moi); think-tank +5 bai (+10 khai niem); Ibsamar bo vi ngoai khung 48h",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-10-13"
+      "sang": "2026-10-14"
     }
   }
 }
