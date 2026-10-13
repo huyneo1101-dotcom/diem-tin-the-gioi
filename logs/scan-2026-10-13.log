@@ -7,3 +7,4 @@
 [22:15Z] Phien moi (sang som): web-scan claim exit10. Kiem ngoai le: so_da_gui --xem co dong 2026-10-13T05:15:29+07:00 [sang] 28 tin, khop lastRunAt 05:12:16 -> co thuc, SKIP em. event-scan claim cung exit10 (lastRunAt 04:10:30). Ca hai pipeline da DONE ngay 2026-10-13, khong quet lai. KET THUC EM.
 [02:15Z] Phien moi: TZ VN 09:15, ngoai khung "sang" (03:00-09:00). web-scan claim tra exit12 (SAI GIO - cron tre). KHONG dung --bo-cong-gio de lach. Ghi log SKIP, chuyen sang claim event-scan o Buoc 6.
 [02:16Z] event-scan claim cung tra exit12 (09:16 ngoai khung sang). Ca hai pipeline da tra exit 10/11/12. KET THUC EM, khong quet.
+[02:43Z] Phien moi: TZ VN 09:43, ngoai khung "sang" (03:00-09:00). web-scan claim tra exit12 (SAI GIO - cron tre). KHONG dung --bo-cong-gio de lach. event-scan claim cung tra exit12. Ca hai pipeline da tra exit12. KET THUC EM, khong quet.
