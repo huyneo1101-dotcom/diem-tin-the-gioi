@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-13T05:12:16+07:00",
+    "lastRunAt": "2026-10-14T04:03:02+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+29 tin (5 chu de): worldNews 13, usNews 16, tap tran 1",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-13"
-    }
+    },
+    "heartbeat": "2026-10-14T04:03:02+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-13T04:10:30+07:00",
