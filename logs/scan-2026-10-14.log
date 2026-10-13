@@ -4,3 +4,5 @@
 [21:34Z] 5 agent con (A Noi bo My, B Uc/Anh/Bien Dong, C CNQS My, D Mali+Tap tran, BM Bao Moi) da xong. add_news.py nhieu vong sua loi NGAY THAT + TRUNG URL. Ket qua: +15 the gioi, +18 My, +1 tap tran.
 [21:34Z] tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY, khong doc duoc file Jay Lam. Bo qua buoc nay (fail-open).
 [21:34Z] scan-gaps.json + loai-tin.md da ghi. San 7 don vi: Doi ngoai My 5, Noi bo My 5, Anh 5, Australia 5, Bien Dong 5, KHCN-QS 7, Mali 2. Tat ca dat san.
+[21:34Z] Commit "Cap nhat ban tin 14/10: +33 tin" da push (bd2ca46).
+[21:40Z] Buoc 6: state.py claim event-scan -> exit 10, DA XONG (lan chay cuoi 04:11:26+07:00, phien local/khac da chay event-scan roi, thay 3 commit "Cap nhat su kien 14/10: +2 su kien/tap tran, +5 bai think-tank" trong git log). SKIP, khong lam lai. KET THUC PHIEN.
