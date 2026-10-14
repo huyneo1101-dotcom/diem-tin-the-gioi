@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-15T04:00:34+07:00",
+    "lastRunAt": "2026-10-15T04:35:22+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+21 tin (5 chu de), san thieu o 4 muc",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-10-14"
-    },
-    "heartbeat": "2026-10-15T04:35:11+07:00"
+      "sang": "2026-10-15"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-10-15T04:11:50+07:00",

@@ -1,71 +1,19 @@
 {
-  "date": "2026-10-14",
-  "session": "sang",
-  "topics": [
-    {
-      "name": "Đối ngoại Mỹ",
-      "count": 5,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Nội bộ Mỹ",
-      "count": 5,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": "Đúng sàn, không dư. 2 tin ban đầu (FEMA judge Comans, Schumer letter — cả hai The Hill) và 1 tin trùng URL (Nate Silver forecast, đã có trong DATA) bị loại sau cổng guardrail; không còn thời gian tìm thêm nguồn thay thế trong trần 06 agent."
-    },
-    {
-      "name": "Địa bàn › Anh",
-      "count": 5,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": "Đúng sàn, không dư. 2 tin ban đầu (RAF Fairford/UK Defence Journal — ngày đăng thật 12/10 quá cũ; HMS Queen Elizabeth/royalnavy.mod.uk — trùng URL đã có trong DATA) bị loại, thay bằng tin Anh trừng phạt 2 công dân Iran (24NewsHD) và tin công ty Leeds Vương quốc Anh ra mắt giải pháp AI kill-switch (UK Defence Journal)."
-    },
-    {
-      "name": "Địa bàn › Australia",
-      "count": 5,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": "Đúng sàn, không dư. Tin Quốc vương Jordan thăm Úc (pm.gov.au) bị loại vì cổng ngày-thật đọc thẻ <time> ra ngày đăng thật 11/10 (thông cáo đăng trước ngày thăm), ngoài khung 1 ngày; dateProofUrl không áp dụng được vì trang chính đã tự có ngày đọc được."
-    },
-    {
-      "name": "Địa bàn › Biển Đông",
-      "count": 5,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": "Đúng sàn, không dư. Tin USNI News (đụng độ Scarborough/Bãi Cỏ Mây) không đọc được ngày, thay bằng tin AFP giám sát 27 tàu Trung Quốc ở Biển Tây Philippines (BusinessMirror, dateProofUrl rmn.ph)."
-    },
-    {
-      "name": "KHCN-QS",
-      "count": 7,
-      "target": "5-10",
-      "min": 5,
-      "thieu": false,
-      "reason": "6 tin CNQS Mỹ + 1 diễn biến tập trận (Steadfast Noon 2026). 3 tin ban đầu (Bath Iron Works/war.gov, SSN(X)/RealClearDefense — không đọc được ngày; LRASM-B52/Naval News — trùng URL đã có trong DATA) bị loại."
-    },
-    {
-      "name": "Mỹ – Mali (không mang sàn)",
-      "count": 2,
-      "target": "2-5",
-      "min": 0,
-      "thieu": false,
-      "reason": "2 tin: ISSP tuyên bố thắng JNIM tại Burkina Faso (BISI) và AfDB/IMF rà soát kinh tế Mali (AllAfrica)."
-    },
-    {
-      "name": "Tập trận đang diễn ra (không mang sàn)",
-      "count": 1,
-      "target": "1-2",
-      "min": 0,
-      "thieu": false,
-      "reason": "1 diễn biến: NATO khởi động Steadfast Noon 2026 tại Italy, 17 nước, 13/10 (Stars and Stripes). Exercise Ibsamar IX bị loại vì bài tìm được đăng 12/10, ngoài khung 1 ngày của exerciseUpdates."
-    }
-  ],
-  "note": "Phiên sáng sớm 14/10/2026 (CI). harvest.py (445 ứng viên) + telegram_harvest.py (17 ứng viên) chạy trước khi giao 05 luồng agent song song (A Nội bộ Mỹ · B Úc/Anh/Biển Đông · C CNQS Mỹ · D Mali+Tập trận · BM Báo Mới) — còn 01 agent bổ sung trong trần nhưng KHÔNG cần dùng vì mọi mục đã đạt sàn sau khi tự sửa ở bước review. Cổng NGÀY ĐĂNG THẬT (`scripts/ngay_that.py`) chặn khoảng 11 tin qua các vòng chạy `add_news.py` (trang không in ngày đọc được: USTR/Axios/war.gov/RealClearDefense/The Hill/natesilver.net-style hoặc ngày đăng thật ngoài khung: pm.gov.au 11/10, UK Defence Journal RAF Fairford 12/10, BusinessMirror). Cứu được 5 tin bằng `dateProofUrl` (USTR Mexico → einpresswire.com; Netanyahu-Trump/Axios → themedialine.org; Guilfoyle/Axios → pbs.org; AFP 27 tàu TQ/BusinessMirror → rmn.ph) và thay thế các tin không cứu được bằng ứng viên khác cùng nhánh. Cổng TRÙNG URL bắt được 3 tin đã có sẵn trong DATA từ phiên trước (Type 93 Chariot/Navy Lookout, Nate Silver forecast, LRASM-B52/Naval News) — đã loại thay bằng tin khác. Cổng Báo Mới: 3 ứng viên khớp chủ đề đều ĐÃ xử lý (truy gốc) nhưng bị loại sau khi xét — 1 vì ngày đăng thật quá cũ (Malaysia LCS-1, gốc 09/10), 1 vì không neo được 5 chủ đề (Pháp chặn tàu Nga, không có yếu tố Mỹ/CNQS), 1 vì ngày đăng thật ngoài khung (bầu cử Mỹ siết quy định, gốc AP 12/10). Chi tiết từng tin: logs/loai-tin.md mục 'Phiên sáng sớm 14/10/2026'."
+ "date": "2026-10-15",
+ "session": "sang",
+ "topics": [
+  {"name":"Đối ngoại Mỹ","count":2,"target":"5","min":5,"thieu":true,
+   "reason":"Chỉ nạp được 2/5 (Rubio công du Uzbekistan/Ấn Độ; vòng đàm phán hoà giải Venezuela). Agent gốc + 1 vòng bổ sung tìm được thêm 4 tin (Rubio-Ethiopia, Nicaragua, Rubio-Bukele, Cartel del Noreste) nhưng: Rubio-Ethiopia bị cổng ngày thật chặn (URL mang ngày thật 2026-03-12, lệch hẳn); Rubio-Bukele và Cartel del Noreste trùng tin đã có sẵn trong DATA từ hôm trước; Nicaragua đúng nội dung nhưng ngày thật 2026-10-13, ngoài khung 1 ngày so với hôm nay 2026-10-15. Đã tự tìm thêm bằng WebSearch (ngoài vòng agent) nhưng không ra ứng viên mới nào khớp khung ngày + có nguồn xác minh được. Đã dùng hết 1 vòng bổ sung agent theo trần, không giao vòng thứ hai."},
+  {"name":"Nội bộ Mỹ","count":2,"target":"5","min":5,"thieu":true,
+   "reason":"Chỉ nạp được 2/5 (Bộ Tư pháp doạ kiện California về cử tri; CPI tháng 9 tăng 3,7%). Agent gốc tìm được thêm 4 tin (Lisa Cook/Fed, Elon Musk 366 triệu USD, khảo sát Fox News, Mỹ bỏ quan sát viên bầu cử quốc tế) nhưng tất cả bị cổng ngày thật chặn: Lisa Cook có ngày thật 2026-10-13 (ngoài khung); 3 tin còn lại trang không in ngày đọc được và không tìm được link đối chứng cùng sự việc có ngày đúng 14-15/10 (các nguồn thay thế đều cho thấy sự kiện gốc diễn ra sớm hơn, khoảng 06-13/10). Agent xác nhận ĐÃ VÉT CẠN nhóm 1 (điều trần + bỏ phiếu) — không có phiên điều trần/kết quả bỏ phiếu nào trong khung ngày vì Thượng viện chỉ họp phiên pro-forma."},
+  {"name":"Địa bàn › Anh","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+  {"name":"Địa bàn › Australia","count":3,"target":"5","min":5,"thieu":true,
+   "reason":"Chỉ nạp được 3/5 (hợp đồng HII 56 triệu USD thiết kế tàu ngầm AUKUS; thiết bị quay lén trên HMAS Leeuwin; bài Crikey chỉ trích quản lý AUKUS). Tin Keris Woomera 26 (khai mạc) bị bỏ vì thực chất trùng sự kiện đã nạp hôm 13/10. Đã tự tìm thêm bằng WebSearch qua nhiều nguồn (defence.gov.au, minister.defence.gov.au, ASPI Strategist, ABC News Australia) nhưng mọi thông cáo/bài mới nhất tìm được đều có ngày thật 2026-10-01 đến 2026-10-12, ngoài khung 14-15/10. Đã dùng hết 1 vòng bổ sung agent theo trần."},
+  {"name":"Địa bàn › Biển Đông","count":1,"target":"5","min":5,"thieu":true,
+   "reason":"Chỉ nạp được 1/5 (Trung Quốc cảnh báo Đài Loan vụ vòi rồng gần đảo Pratas). Ba tin ban đầu agent tìm được (BRP Rajah Humabon, Philippines đình chỉ liên lạc TQ, 27 tàu TQ ở Biển Tây Philippines) đều có ngày thật 2026-10-13 — ngoài khung 1 ngày so với hôm nay; tin COC ASEAN-TQ bị loại vì sourceUrl là trang danh mục chứ không phải bài cụ thể (lỗi khi tổng hợp). Thêm 1 tin về PLA quanh Đài Loan ngày 14/10 (xác minh trực tiếp qua WebFetch tới air.mnd.gov.tw) nhưng không tìm được link đối chứng đáng tin cậy — mọi bản tin thứ cấp tìm thấy mang cùng con số thống kê (9 lượt máy bay, 6 tàu) nhưng của NGÀY KHÁC (vd 28/05, 12/08), rủi ro trích sai nên đã bỏ thay vì liều. Nhiều tin thời sự Biển Đông đáng chú ý trong tuần (CCG đâm va tàu Philippines 12/10, giao tranh Thitu Island) đều rơi đúng 2-3 ngày trước, ngoài khung cứng 24-48h."},
+  {"name":"CNQS Mỹ + Tập trận (KHCN-QS)","count":7,"target":"5","min":5,"thieu":false,"reason":""},
+  {"name":"Mỹ – Mali","count":1,"target":"2-5","min":2,"thieu":true,
+   "reason":"Chỉ nạp được 1 tin (Mali tiếp nhận hơn 322.000 người tị nạn, UNHCR). Tin thứ hai (2.400 tân binh FAMa) bị cổng ngày thật chặn vì ngày thật 2026-10-13, ngoài khung 1 ngày so với hôm nay. Mali không mang sàn cứng nên không bắt buộc, nhưng ghi nhận thiếu."}
+ ],
+ "note": "Nguyên nhân gốc của phần lớn khoảng thiếu phiên này: cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn khá nhiều tin mà agent thu thập được vì (a) trang chính thức (state.gov/war.gov/spaceforce.mil/treasury.gov) không in ngày ở dạng đọc được và không tìm kịp link đối chứng phù hợp, hoặc (b) ngày sự kiện thật lệch 1-2 ngày so với ngày agent gán (agent nhầm giữa ngày công bố và ngày bài báo đăng lại). Đã xử lý bằng link đối chứng (dateProofUrl) cho 3 tin cứu được (Rubio-Uzbekistan/Ấn Độ, Venezuela, CPI); phần còn lại không tìm kịp nguồn đối chứng an toàn trong thời gian cho phép của phiên. Xem logs/loai-tin.md để biết chi tiết từng tin bị loại."
 }
