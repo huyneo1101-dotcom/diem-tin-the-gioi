@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-14T06:49:56+07:00",
+  "tao_luc": "2026-10-14T07:32:37+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-13",
@@ -57,10 +57,26 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
+      "ngay": "2026-10-14",
+      "tieu_de": "Singapore third-quarter GDP growth softens from four-year high but beats estimates",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/10/14/singapore-gdp-q3.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
       "ngay": "2026-10-13",
       "tieu_de": "'Boring is not bad': CEO of Southeast Asia's largest bank pitches Singapore as a haven amid global turmoil",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/10/13/singapore-war-geopolitics-dbs-bank-ceo.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Singapore Q3 GDP grows 5.4% on sustained AI-driven demand",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/economy/singapore-q3-gdp-grows-5.4-on-sustained-ai-driven-demand"
     },
     {
       "lop": "RSS",
@@ -410,6 +426,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-14",
+      "tieu_de": "Space Force Activates Component Under Special Forces Command",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/space-force-activates-special-forces-command-component/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-14",
       "tieu_de": "Air Force Tests New Sentinel Reentry Vehicle",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/air-force-test-launches-new-sentinel-icbm-nuclear-reentry-vehicle/"
@@ -554,6 +578,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-14",
+      "tieu_de": "AI to cut headcount at more than half of British firms, CFOs say",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/ai-to-cut-headcount-at-more-than-half-of-british-firms-cfos-say"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-14",
       "tieu_de": "Zelenskiy visits Britain as Burnham pledges fresh support for Ukraine",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/zelenskiy-visits-britain-as-burnham-pledges-fresh-support-for-ukraine"
@@ -650,7 +682,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-14",
-      "tieu_de": "'Sluggish' Australia joins criticism of Trump administration's ICC attack",
+      "tieu_de": "Australia belatedly joins criticism of US sanctions designed to cripple ICC",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-10-14/australia-joins-criticism-of-trump-administration-assault-on-icc/107262112"
     },
@@ -661,14 +693,6 @@
       "tieu_de": "Police say group was throwing rocks at cars before stabbing in Canberra's north",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-10-14/police-say-person-stabbed-during-incident-in-belconnen/107263192"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-14",
-      "tieu_de": "Selection critics silenced as Australia's old guard wins first Test",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-10-14/australia-has-silenced-critics-of-its-test-selection-strategy/107259814"
     },
     {
       "lop": "RSS",
@@ -762,7 +786,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-14",
-      "tieu_de": "Australian politics live: Hanson dismisses ‘shamed and stoned’ remark as ‘heat of moment’; PM extends ‘thoughts and prayers’ to pope",
+      "tieu_de": "Australian politics live: Hanson dismisses ‘shamed and stoned’ remark; PM and king of Jordan shake hands on defence and security",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/live/2026/oct/14/treasurer-jim-chalmers-labor-one-nation-pauline-hanson-one-nation-gas-reservation-scheme-ntwnfb"
     },
@@ -1036,6 +1060,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-14",
+      "tieu_de": "US fines Bank of America US$1.2 billion, says it violated money laundering, sanctions laws",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3370791/us-fines-bank-america-us12-billion-says-it-violated-money-laundering-sanctions-laws?utm_source=rss_feed",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-13",
       "tieu_de": "Elon Musk becomes biggest known donor in US midterms to boost Republicans",
       "nguon": "South China Morning Post",
@@ -1103,6 +1136,15 @@
       "tieu_de": "Tỉ ph&uacute; Musk g&oacute;p gần 280 triệu USD trước thềm bầu cử giữa nhiệm kỳ Mỹ",
       "nguon": "Thanh Niên",
       "url": "https://thanhnien.vn/ti-phu-musk-gop-gan-280-trieu-truoc-them-bau-cu-giua-nhiem-ky-my-185261013080816608.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Ông Trump cảnh cáo Houthi, hẹn xử lý sau bầu cử giữa kỳ",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/ong-trump-canh-cao-houthi-hen-xu-ly-sau-bau-cu-giua-ky-100261014064455413.htm",
       "nhom": 5
     },
     {
@@ -1329,24 +1371,6 @@
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/my-trung-duy-tri-khoang-lang-thue-quan-tao-tin-hieu-tich-cuc-cho-thuong-mai-toan-cau-102260925091456863.htm",
       "nhom": 4
-    },
-    {
-      "lop": "HTML",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "October 13, 2026 Shaheen, Bipartisan Senators Call on Trump to Rescind Russian Diesel Deal and Implement Sanctions Authorized by Congress Last Month on Enablers of Putin’s War Against Ukraine",
-      "nguon": "Uỷ ban Đối ngoại Thượng viện",
-      "url": "https://www.foreign.senate.gov/press/dem/release/shaheen-bipartisan-senators-call-on-trump-to-rescind-russian-diesel-deal-and-implement-sanctions-authorized-by-congress-last-month-on-enablers-of-putins-war-against-ukraine",
-      "nhom": 4
-    },
-    {
-      "lop": "HTML",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Senate Passes Protect College Sports Act 77-22",
-      "nguon": "Uỷ ban Thương mại Thượng viện",
-      "url": "https://www.commerce.senate.gov/press/dem/release/senate-passes-protect-college-sports-act-77-22/",
-      "nhom": 1
     }
   ]
 }
