@@ -4,3 +4,4 @@
 [21:06Z] tin_jaylam.py --liet-ke: exit 10 (khong co file trong khung ngay) - bo qua buoc loc trung
 [21:35Z] 5 agent con (4 goc + 1 bo sung) xong. add_news.py nap +9 worldNews, +10 usNews, +2 tap tran.
 [21:35Z] Thieu san: Doi ngoai My 2/5, Noi bo My 2/5, Australia 3/5, Bien Dong 1/5 - chi tiet logs/scan-gaps.json
+[21:36Z] Cap nhat ban tin 15/10 da push (f44cb1f). event-scan claim: exit 10 (DA XONG boi phien khac, 04:11:50) - SKIP, ket thuc phien.
