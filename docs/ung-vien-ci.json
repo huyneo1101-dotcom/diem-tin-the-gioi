@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-16T06:13:15+07:00",
+  "tao_luc": "2026-10-16T06:47:33+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-15",
@@ -225,6 +225,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Pentagon plans to hold report on Iran school strike past November midterms",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/pentagon-plans-to-hold-report-on-iran-school-strike-past-november-midterms"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-15",
       "tieu_de": "Mỹ cân nhắc nới lỏng trừng phạt \"hạm đội bóng đêm\" chuyên chở dầu mỏ?",
       "nguon": "Dân Trí",
@@ -266,7 +274,7 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "4 GOP senators join letter demanding Pentagon IG investigation of Ukraine’s Starlink outage",
+      "tieu_de": "4 GOP senators join letter demanding Pentagon inspector general investigation of Ukraine’s Starlink outage",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/senate/6152642-defense-inspector-general-ukraine-starlink-senators/"
     },
@@ -397,6 +405,14 @@
       "tieu_de": "Contracts for Oct. 15, 2026",
       "nguon": "DoD Contracts",
       "url": "https://www.war.gov/News/Contracts/Contract/Article/4626623/contracts-for-oct-15-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Readout of Secretary of War Pete Hegseth's Meeting With the United Kingdom's Secretary of State for Defence Wes Streeting",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4626961/readout-of-secretary-of-war-pete-hegseths-meeting-with-the-united-kingdoms-secr/"
     },
     {
       "lop": "RSS",
@@ -682,7 +698,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "An Australian band’s ‘unreal’ journey to break a gig world record",
+      "tieu_de": "Watch: Australian band breaks world record for most gigs in 12 hours",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/videos/c62keqn7wpwdo?at_medium=RSS&at_campaign=rss"
     },
@@ -693,14 +709,6 @@
       "tieu_de": "British comedian Russell Brand’s accuser told police she blamed herself for alleged rape",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/uk-comedian-russell-brands-accuser-told-police-she-blamed-herself-for-alleged-rape"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Prince Harry and wife Meghan make first joint appearance since return to Britain",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/prince-harry-and-wife-meghan-make-first-joint-appearance-since-uk-return"
     },
     {
       "lop": "RSS",
@@ -797,6 +805,14 @@
       "tieu_de": "Australia điều tra vụ camera nghi quay lén phòng tắm nữ trên tàu hải quân",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/australia-dieu-tra-vu-camera-nghi-quay-len-phong-tam-nu-tren-tau-hai-quan-20261015073916007.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Live: Nationals senator says Coalition will oppose Australia–EU free trade agreement",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-16/federal-politics-live-blog-greens/107273514"
     },
     {
       "lop": "RSS",
@@ -941,14 +957,6 @@
       "tieu_de": "Back to basics: Why English school kids outperform Australian",
       "nguon": "Australian Financial Review",
       "url": "https://www.afr.com/world/europe/facts-over-feelings-english-school-kids-outperform-australian-20261016-p615zu?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Trump shares AI video of himself wrestling tiger that killed British man at zoo",
-      "nguon": "Sydney Morning Herald — World",
-      "url": "https://www.smh.com.au/world/north-america/trump-shares-ai-video-of-himself-wrestling-tiger-that-killed-british-man-at-zoo-20261015-p615oi.html?ref=rss&utm_medium=rss&utm_source=rss_world"
     },
     {
       "lop": "RSS",
@@ -1584,15 +1592,6 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/business/2026/oct/15/tech-market-sell-off-deepens-amid-fears-over-us-inflation-and-ai-debt",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "FBI investigates letters with ‘unknown substance’ sent to US election officials",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/oct/15/fbi-usps-letters-unknown-substance-election",
-      "nhom": 5
     },
     {
       "lop": "RSS",
