@@ -4,3 +4,4 @@
 [21:40Z] START event-scan (CI, gop vao sang som)
 [21:46Z] DONE event-scan: +1 su kien ngoai giao (Pakistan-Oman), +4 bai think-tank (Brookings, SIPRI, SWP Berlin, Carnegie), 0 tap tran moi/cap nhat (Steadfast Noon/Ibsamar da co tin truoc do trong cung lo).
 [21:51Z] SKIP (CI) - phien moi: web-scan claim exit 10, so_da_gui --xem thay dong 2026-10-16T04:47:46+07:00 [sang] 26 tin da co. event-scan claim exit 10, lastRunAt 2026-10-16T04:46:43+07:00 DONE. Ban tin + su kien/tap tran/think-tank sang nay da toi tay, khong quet lai.
+[23:52Z] SKIP (CI) - phien goi lai: web-scan claim exit 10 (lastRunAt 2026-10-16T04:40:02+07:00), so_da_gui --xem van thay dong 2026-10-16T04:47:46+07:00 [sang] 26 tin. event-scan claim cung DONE lastRunAt 04:46:43+07:00. Dung ket luan nhu dong log truoc, khong quet lai.
