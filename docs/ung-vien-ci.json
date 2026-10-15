@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-15T06:23:32+07:00",
+  "tao_luc": "2026-10-15T07:03:07+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-14",
@@ -85,14 +85,6 @@
       "tieu_de": "Stephen A. Smith says Trump’s financial pledges aren’t winning over Americans at NewsNation town hall",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/administration/6147662-trump-economic-messaging-critique/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-10-14",
-      "tieu_de": "The new Western Sydney international airport is about to open. Will it be cheaper to get to and fly from?",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/15/the-new-western-sydney-international-airport-is-about-to-open-will-it-be-cheaper-to-get-to-and-fly-from"
     },
     {
       "lop": "RSS",
@@ -522,6 +514,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-15",
+      "tieu_de": "Army Hosts International Signing Ceremony for UAS and Counter-UAS Marketplaces at AUSA 2026",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/10/15/army-hosts-international-signing-ceremony-for-uas-and-counter-uas-marketplaces-at-ausa-2026/?utm_source=rss&utm_medium=rss&utm_campaign=army-hosts-international-signing-ceremony-for-uas-and-counter-uas-marketplaces-at-ausa-2026"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-15",
       "tieu_de": "Arkeus’ Warden Hyperspectral Optical Radar Enters Australian Army Service",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/10/14/arkeus-warden-hyperspectral-optical-radar-enters-australian-army-service/?utm_source=rss&utm_medium=rss&utm_campaign=arkeus-warden-hyperspectral-optical-radar-enters-australian-army-service"
@@ -557,14 +557,6 @@
       "tieu_de": "IAI and SIG SAUER Announce Successful Firing Test of FIRE STORM 250 Airborne Machine Gun",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/10/14/iai-and-sig-sauer-announce-successful-firing-test-of-fire-storm-250-airborne-machine-gun/?utm_source=rss&utm_medium=rss&utm_campaign=iai-and-sig-sauer-announce-successful-firing-test-of-fire-storm-250-airborne-machine-gun"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-14",
-      "tieu_de": "Future Focused: Vice Chief of Staff of the Army Details Army Autonomy Advancements",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/14/future-focused-vice-chief-of-staff-of-the-army-details-army-autonomy-advancements/?utm_source=rss&utm_medium=rss&utm_campaign=future-focused-vice-chief-of-staff-of-the-army-details-army-autonomy-advancements"
     },
     {
       "lop": "RSS",
@@ -922,9 +914,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-15",
-      "tieu_de": "Australian politics live: Butler tables unchanged private health bill as Coalition calls it ‘cruel’ and Greens withhold support",
+      "tieu_de": "Australian politics live: Labor and Coalition reject bill to stop incarcerated women being shackled in childbirth; Wells tables social media reform",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/live/2026/oct/15/anthony-albanese-labor-pauline-hanson-monoculture-victorian-election-coalition-angus-taylor-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-15",
+      "tieu_de": "Illegal tobacco increasingly hard to spot, with some fakes featuring Australian health warnings",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/2026/oct/15/black-market-tobacco-fakes-australian-health-warning"
     },
     {
       "lop": "RSS",
@@ -937,10 +937,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-14",
-      "tieu_de": "Australian industry reliant on gas for ‘foreseeable future’, resources minister tells press club",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/14/australia-reliant-on-gas-for-foreseeable-future-madeleine-king-press-club"
+      "ngay": "2026-10-15",
+      "tieu_de": "Winery becomes Australia’s first restaurant to win two Michelin stars",
+      "nguon": "Australian Financial Review",
+      "url": "https://www.afr.com/life-and-luxury/food-and-wine/south-australia-makes-history-with-nation-s-first-michelin-stars-20261014-p615o8?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -981,6 +981,14 @@
       "tieu_de": "Trump shares AI video of himself wrestling tiger that killed British man at zoo",
       "nguon": "Sydney Morning Herald — World",
       "url": "https://www.smh.com.au/world/north-america/trump-shares-ai-video-of-himself-wrestling-tiger-that-killed-british-man-at-zoo-20261015-p615oi.html?ref=rss&utm_medium=rss&utm_source=rss_world"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-15",
+      "tieu_de": "Australian detainee ‘under duress’ when he signed document shielding Iraq from liability, lawyers say",
+      "nguon": "Crikey (Úc)",
+      "url": "https://www.crikey.com.au/2026/10/15/robert-pether-iraq-detention-waiver-human-rights/"
     },
     {
       "lop": "RSS",
@@ -1093,6 +1101,14 @@
       "tieu_de": "Regional haze: Malaysia’s school closures leave parents frazzled as exams draw near",
       "nguon": "Channel News Asia — Asia",
       "url": "https://www.channelnewsasia.com/asia/malaysia-haze-school-closures-parents-exams-6455371"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-15",
+      "tieu_de": "Video recording device found on Australian navy ship",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/australianz/video-recording-device-found-on-australian-navy-ship"
     },
     {
       "lop": "RSS",
@@ -1268,15 +1284,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-14",
-      "tieu_de": "Ohio's working-class voters rethink support for Trump and the Republican Party",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/ohios-working-class-voters-rethink-support-for-trump-and-the-republican-party",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-15",
       "tieu_de": "US stocks drop to their worst day since July as inflation worsens",
       "nguon": "South China Morning Post",
@@ -1448,15 +1455,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-14",
-      "tieu_de": "Treasury fines Bank of America $1.2B for violating money laundering, sanctions law",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/business/6146632-bank-america-treasury-fine/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-15",
       "tieu_de": "Live: ASX opens lower following losses on Wall Street as US inflation data is released",
       "nguon": "ABC News AU (world)",
@@ -1471,15 +1469,6 @@
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/us-news/video/2026/oct/14/decoding-america-everything-you-need-to-know-about-the-midterms-video",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "ASX falls amid US tech slump; WiseTech rallies after ASIC pivot",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/markets/equity-markets/asx-to-open-slightly-down-us-cpi-worsens-fuelling-fed-rate-hike-bets-20261015-p615of?ref=rss&utm_medium=rss&utm_source=rss_feed",
-      "nhom": 3
     },
     {
       "lop": "RSS",
