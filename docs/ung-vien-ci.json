@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-17T05:58:28+07:00",
+  "tao_luc": "2026-10-17T06:48:47+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-16",
@@ -202,6 +202,14 @@
       "lop": "HTML",
       "chu_de": "Mỹ – Mali",
       "ngay": "?",
+      "tieu_de": "Chairman Babin Responds to GAO Report on NOAA's Next-Generation Weather Satellite Program",
+      "nguon": "Uỷ ban Khoa học Hạ viện",
+      "url": "https://science.house.gov/press-releases?ID=10D35766-FBBA-42A3-9606-7556238A302C"
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "Mỹ – Mali",
+      "ngay": "?",
       "tieu_de": "Chairman Babin, Ranking Member Lofgren Request GAO Review of NOAA Weather Satellites",
       "nguon": "Uỷ ban Khoa học Hạ viện",
       "url": "https://science.house.gov/press-releases?ID=479C5D39-F9DC-4DC8-BA34-57F5CE480123"
@@ -346,17 +354,17 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Hegseth ramps up US troops in Panama as Pentagon expands war on drug cartels",
+      "tieu_de": "GOP senators press Pentagon over Ukraine’s loss of Starshield data",
       "nguon": "The Hill",
-      "url": "https://thehill.com/policy/defense/6152622-us-jungle-warfare-training-latin-america/"
+      "url": "https://thehill.com/homenews/senate/6152690-senators-demand-starshield-probe/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "GOP senators press Pentagon over Ukraine’s loss of Starshield data",
+      "tieu_de": "Hegseth ramps up US troops in Panama as Pentagon expands war on drug cartels",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6152690-senators-demand-starshield-probe/"
+      "url": "https://thehill.com/policy/defense/6152622-us-jungle-warfare-training-latin-america/"
     },
     {
       "lop": "RSS",
@@ -421,14 +429,6 @@
       "tieu_de": "MQ-72C Cargo Helicopter Drone Capabilities Demonstrated For U.S. Army",
       "nguon": "The War Zone (TWZ)",
       "url": "https://www.twz.com/air/mq-72c-cargo-helicopter-drone-capabilities-demonstrated-for-u-s-army"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "US Navy deploys unmanned maritime drone to support carrier strike group in historic first",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/10/16/us-navy-deploys-unmanned-maritime-drone-to-support-carrier-strike-group-in-historic-first/"
     },
     {
       "lop": "RSS",
@@ -553,14 +553,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "F-35 Drops 8 Bombs in Quick Succession During ‘Ripple’ Test",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/f-35-drops-8-bombs-in-quick-succession-during-ripple-test/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-17",
       "tieu_de": "Meet the Task Force Trying to Turn Golden Dome Into Reality",
       "nguon": "Air & Space Forces Magazine",
@@ -645,14 +637,6 @@
       "tieu_de": "F-22 Controls Collaborative Combat Aircraft In Flight For The First Time",
       "nguon": "The Aviationist",
       "url": "https://theaviationist.com/2026/10/17/f-22-controls-cca-first-time/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "U.S. Navy Receives First C-130J-30 for TACAMO Program",
-      "nguon": "The Aviationist",
-      "url": "https://theaviationist.com/2026/10/16/us-navy-receives-first-c-130j-30-for-tacamo-program/"
     },
     {
       "lop": "RSS",
@@ -858,6 +842,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-17",
+      "tieu_de": "The status of the U.S. blockade on Cuba",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/the-status-of-the-us-blockade-on-cuba/article71552949.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-17",
       "tieu_de": "Philippines protests Chinese envoy's remarks, calling them a 'thinly veiled threat'",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/philippines-protests-chinese-envoys-remarks-calling-them-a-thinly-veiled-threat/article71594014.ece"
@@ -869,30 +861,6 @@
       "tieu_de": "U.S. accuses California woman of spying for China, surveilling Taiwan leader's son",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/us-accuses-california-woman-of-spying-for-china-surveilling-taiwan-leaders-son/article71545758.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
-      "tieu_de": "British Airways London-Chicago flight declares ‘emergency’ mid air; makes U-turn after take-off",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/british-airways-london-chicago-flight-declares-emergency-mid-air-makes-u-turn-after-take-off/article71548161.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
-      "tieu_de": "U.S. Air Force removes all bombers from British air base targeted by a suspected terror attack",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/us-air-force-removes-all-bombers-from-british-air-base-targeted-by-a-suspected-terror-attack/article71544899.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
-      "tieu_de": "Four killed in Indonesia battling fires causing toxic haze",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/four-killed-in-indonesia-battling-fires-causing-toxic-haze/article71591244.ece"
     },
     {
       "lop": "RSS",
@@ -941,14 +909,6 @@
       "tieu_de": "Tập đoàn tư vấn hàng đầu nước Anh muốn đóng góp phát triển hạ tầng đô thị TP.HCM",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/tap-doan-tu-van-hang-dau-nuoc-anh-muon-dong-gop-phat-trien-ha-tang-do-thi-tphcm-100261016142559682.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Đại sứ Trung Quốc nói sẽ 'thắng dễ' Philippines, Manila phản ứng",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/dai-su-trung-quoc-noi-se-thang-de-philippines-manila-phan-ung-100261016114930449.htm"
     },
     {
       "lop": "RSS",
@@ -1010,6 +970,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-17",
+      "tieu_de": "Centcom commander says naval blockade cost Iran $25B in oil revenue",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/newsletters/defense-national-security/6155474-centcom-commander-says-naval-blockade-cost-iran-25b-in-oil-revenue/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-17",
       "tieu_de": "Canberra businesses battling 'multi-agency maze' to stay open, report finds",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-10-17/act-insufficient-relief-businesses-affected-civic-construction/107277900"
@@ -1029,14 +997,6 @@
       "tieu_de": "World’s first fielded laser downs drones in Korea test",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/worlds-first-fielded-laser-downs-drones-in-korea-test/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
-      "tieu_de": "Britain studies US autonomous warfare command for lessons",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/britain-studies-us-autonomous-warfare-command-for-lessons/"
     },
     {
       "lop": "RSS",
@@ -1098,14 +1058,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "UK defends US reliance on F-35A and PrSM",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/uk-defends-us-reliance-on-f-35a-and-prsm/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
       "tieu_de": "France considers extending the life of its aircraft carrier",
       "nguon": "**Navy Lookout (Hải quân Anh)**",
       "url": "https://www.navylookout.com/france-considers-extending-the-life-of-its-aircraft-carrier/"
@@ -1138,14 +1090,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "UK and Germany strengthen defence ties in London talks",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/uk-and-germany-strengthen-defence-ties-in-london-talks"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
       "tieu_de": "British man fined for causing death of his two-year-old son in Cyprus",
       "nguon": "Sky News",
       "url": "https://news.sky.com/story/british-father-fined-for-causing-death-of-his-two-year-old-son-in-cyprus-13599857"
@@ -1169,18 +1113,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
-      "tieu_de": "EVs are holding value better than expected – and it has a lot to do with Australia’s cost of living",
+      "ngay": "2026-10-17",
+      "tieu_de": "Mortgage repayments are now cheaper than rent in some Australian suburbs. Is yours among them?",
       "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/environment/2026/oct/17/second-hand-electric-vehicles-ev-value-australia-petrol-prices"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
-      "tieu_de": "Pools, palm trees and pulling a caravan: Australian retro holidays – in pictures",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/travel/gallery/2026/oct/17/australian-retro-holidays-in-pictures"
+      "url": "https://www.theguardian.com/australia-news/2026/oct/17/buying-a-home-cheaper-than-renting-in-some-australian-suburbs"
     },
     {
       "lop": "RSS",
@@ -1306,17 +1242,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-17",
-      "tieu_de": "Haze chokes Malaysia’s farmers, families and businesses as economic costs mount",
+      "tieu_de": "Indonesia tests a new weapon against forest fires. Does it work?",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/haze-chokes-malaysias-farmers-families-and-businesses-as-economic-costs-mount"
+      "url": "https://www.straitstimes.com/asia/se-asia/indonesia-tests-a-new-weapon-against-forest-fires-does-it-work"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-17",
-      "tieu_de": "Indonesia tests a new weapon against forest fires. Does it work?",
+      "tieu_de": "Haze chokes Malaysia’s farmers, families and businesses as economic costs mount",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/indonesia-tests-a-new-weapon-against-forest-fires-does-it-work"
+      "url": "https://www.straitstimes.com/asia/se-asia/haze-chokes-malaysias-farmers-families-and-businesses-as-economic-costs-mount"
     },
     {
       "lop": "RSS",
@@ -1521,15 +1457,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "US issues new Iran-related sanctions against 16 individuals, 11 entities",
-      "nguon": "Africanews",
-      "url": "http://www.africanews.com/2026/10/16/us-issues-new-iran-related-sanctions-against-16-individuals-11-entities/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-16",
       "tieu_de": "Democrats post \"mind-blowing\" numbers ahead of 2026 midterms",
       "nguon": "Axios",
       "url": "https://www.axios.com/2026/10/16/democrats-midterms-fundraising-senate",
@@ -1723,6 +1650,15 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/live/2026/oct/16/trump-texas-senate-race-midterms-paxton-talarico-zacharia-ukraine-starlink-diesel-oregon-latest-news-updates",
       "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "Trump in Georgia falsely claims election of Jon Ossoff was illegitimate",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/oct/16/trump-georgia-rally-jon-ossoff",
+      "nhom": 5
     },
     {
       "lop": "RSS",
