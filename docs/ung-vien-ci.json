@@ -1,47 +1,87 @@
 {
-  "tao_luc": "2026-10-16T06:47:33+07:00",
+  "tao_luc": "2026-10-17T05:58:28+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
-    "2026-10-15",
-    "2026-10-16"
+    "2026-10-16",
+    "2026-10-17"
   ],
   "ung_vien": [
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
+      "ngay": "2026-10-17",
+      "tieu_de": "Italy probes Israel’s Katz over abuse, sexual assault of flotilla activists",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/10/16/italy-probes-israels-katz-over-abuse-sexual-assault-of-flotilla-activists?traffic_source=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
       "ngay": "2026-10-16",
-      "tieu_de": "Venezuela's Nicolas Maduro and wife Cilia Flores deny US torture charges as 'false accusations'",
+      "tieu_de": "Italy cuts air traffic in half amid data transmission issue",
+      "nguon": "Deutsche Welle",
+      "url": "https://www.dw.com/en/italy-cuts-air-traffic-in-half-amid-data-transmission-issue/a-79678133?maca=en-rss-en-world-4025-rdf"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-16",
+      "tieu_de": "Italy prolongs Schengen suspension with Spain, talks loom",
       "nguon": "France 24",
-      "url": "https://www.france24.com/en/americas/20261015-venezuela-s-nicolas-maduro-and-wife-cilia-flores-deny-us-torture-charges-as-false-accusations"
+      "url": "https://www.france24.com/en/video/20261016-italy-prolongs-schengen-suspension-with-spain-talks-loom"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "Estonia fears Russia will erode Western support for Ukraine, minister says",
+      "ngay": "2026-10-17",
+      "tieu_de": "Putin agrees to cooperate with Pope Leo's plea for aid for Ukrainian town",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/estonia-fears-russia-will-erode-western-support-for-ukraine-minister-says"
+      "url": "https://www.straitstimes.com/world/europe/putin-agrees-to-cooperate-with-pope-leos-plea-for-aid-for-ukrainian-town"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "Venezuela’s Maduro says new US torture allegations are ‘false’",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/americas/article/3371060/venezuelas-maduro-says-new-us-torture-allegations-are-false?utm_source=rss_feed"
+      "ngay": "2026-10-16",
+      "tieu_de": "Italy names senior Israelis, Katz in probe over Gaza flotilla activists",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/italy-names-senior-israelis-katz-in-probe-over-gaza-flotilla-activists"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "Canada, Singapore reaffirm China trade ties amid global push for self-sufficiency",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/economy/global-economy/article/3370999/canada-singapore-reaffirm-china-trade-ties-amid-global-push-self-sufficiency?utm_source=rss_feed"
+      "ngay": "2026-10-16",
+      "tieu_de": "Putin Hands Control of 5 Western Firms to Ukraine War Veteran",
+      "nguon": "The Moscow Times",
+      "url": "https://www.themoscowtimes.com/2026/10/16/putin-hands-control-of-5-western-firms-to-ukraine-war-veteran-a93998"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
+      "ngay": "2026-10-16",
+      "tieu_de": "South Africa: Rescuing and relocating wild honeybees in Cape Town",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/10/16/south-africa-rescuing-and-relocating-wild-honeybees-in-cape-town/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-16",
+      "tieu_de": "Italy: Nationwide air traffic control issues disrupt flights at Rome airport",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/10/16/italy-nationwide-air-traffic-control-issues-disrupt-flights-at-rome-airport/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-16",
+      "tieu_de": "Western Sahara: Polisario front challenges UN Envoy as MINURSO mandate vote nears",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/10/16/western-sahara-polisario-front-challenges-un-envoy-as-minurso-mandate-vote-nears/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-16",
       "tieu_de": "Indonesia's skies turn apocalyptic orange as smoke blankets Singapore",
       "nguon": "Africanews",
       "url": "http://www.africanews.com/2026/10/15/indonesias-skies-turn-apocalyptic-orange-as-smoke-blankets-singapore/"
@@ -49,50 +89,66 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "As Indonesian Fires Continue, Singapore Records Highest Air Pollution Reading Since 2015",
-      "nguon": "The Diplomat",
-      "url": "https://thediplomat.com/2026/10/as-indonesian-fires-continue-singapore-records-highest-air-pollution-reading-since-2015/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "Singapore residence provider Ascott bets on Tokyo Station area",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/editor-s-picks/interview/singapore-residence-provider-ascott-bets-on-tokyo-station-area"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "Thị trường căn hộ TP.Hồ Chí Minh đang trải qua giai đoạn tái định hình mạnh mẽ",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/thi-truong-can-ho-tpho-chi-minh-dang-trai-qua-giai-doan-tai-dinh-hinh-manh-me.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "Talarico debates Texas voters in town hall amid tight Senate race",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6149733-texas-talarico-town-hall/"
+      "ngay": "2026-10-16",
+      "tieu_de": "One Singapore ship was sunk, but here's why others are still transiting the Strait of Hormuz",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/10/16/strait-hormuz-singapore-ships-attacked.html"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-10-16",
-      "tieu_de": "Town's only unleaded service station cuts fuel supply over rising costs",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-10-16/fuel-supply-stopped-birchip-unleaded-diesel-shortage/107268688"
+      "tieu_de": "Gasping for clean air: Singapore battles relentless haze as Prime Minister Wong warns of action",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/10/16/singapore-haze-wong-warning-indonesia.html"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "Trump takes midterm campaign to western states",
-      "nguon": "Sydney Morning Herald — World",
-      "url": "https://www.smh.com.au/world/trump-takes-midterm-campaign-to-western-states-20261015-p615p2.html?ref=rss&utm_medium=rss&utm_source=rss_world"
+      "ngay": "?",
+      "tieu_de": "Editor's Choice: In divided world, Western schools bring classrooms closer to Asian students",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/editor-s-picks/editor-in-chief-s-picks/editor-s-choice-in-divided-world-western-schools-bring-classrooms-closer-to-asian-students"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-17",
+      "tieu_de": "Mine owner convinced tiny town's lead poisoning concerns are unfounded",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-17/ipc-hearing-on-bowdens-silver-mine-concludes/107274218"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-17",
+      "tieu_de": "Global Strike leaders held Missile Community Cancer Study Town Hall",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/577179/global-strike-leaders-held-missile-community-cancer-study-town-hall"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-16",
+      "tieu_de": "Can this new party win seats off Labor in Melbourne’s neglected western suburbs?",
+      "nguon": "Crikey (Úc)",
+      "url": "https://www.crikey.com.au/2026/10/16/can-new-west-party-beat-labor-and-one-nation-in-victoria-state-election/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-17",
+      "tieu_de": "Italy secures EU deal to lower its electricity prices",
+      "nguon": "Financial Times — World",
+      "url": "https://www.ft.com/content/d2928f6b-b8f2-4651-ac9a-9fc4d8653608?syn-25a6b1a6=1"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-16",
+      "tieu_de": "Nicolas Maduro and wife deny new torture charges as 'false accusations'",
+      "nguon": "Sky News — World",
+      "url": "https://news.sky.com/story/venezuelas-nicolas-maduro-and-wife-deny-new-torture-charges-as-false-accusations-13599870"
     },
     {
       "lop": "RSS",
@@ -105,34 +161,42 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "US ‘economic supremacy’ key in the Western Hemisphere, top US Army general says",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/10/14/us-economic-supremacy-key-in-the-western-hemisphere-top-us-army-general-says/"
+      "ngay": "2026-10-16",
+      "tieu_de": "Singapore probing firms over haze-causing Indonesian fires",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/news/2026/10/16/asia-pacific/science-health/singapore-probe-haze-firms/"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-15",
-      "tieu_de": "Nicolás Maduro tells New York court new torture allegations are ‘false’",
+      "ngay": "2026-10-16",
+      "tieu_de": "Future of western security is at stake in Yemen civil war, says country’s former PM",
       "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/oct/15/nicolas-maduro-torture-allegations-cilia-flores"
+      "url": "https://www.theguardian.com/world/2026/oct/16/future-western-security-at-stake-yemen-civil-war-former-pm"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "Chính sách AI toàn cầu bước vào giai đoạn chặt chẽ hơn",
-      "nguon": "Báo Chính phủ",
-      "url": "https://baochinhphu.vn/chinh-sach-ai-toan-cau-buoc-vao-giai-doan-chat-che-hon-102260922145507501.htm"
+      "ngay": "2026-10-16",
+      "tieu_de": "Việt Nam và Singapore thúc đẩy hợp tác kênh Đảng",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/viet-nam-va-singapore-thuc-day-hop-tac-kenh-dang-post1142328.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-16",
+      "tieu_de": "Thủ đô Italy nỗ lực giải quyết vấn đề du lịch quá tải",
+      "nguon": "Nhân Dân",
+      "url": "https://nhandan.vn/thu-do-italy-no-luc-giai-quyet-van-de-du-lich-qua-tai-post995699.html"
     },
     {
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
-      "ngay": "2026-10-15",
-      "tieu_de": "Algeria Sets Its Sights on the Sahel",
-      "nguon": "Foreign Policy",
-      "url": "https://foreignpolicy.com/2026/10/14/algeria-sahel-african-politics-security/"
+      "ngay": "2026-10-16",
+      "tieu_de": "Al-Qaeda and IS rivalry sparks fierce fighting across Sahel",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/10/16/rival-jnim-and-islamic-state-jihadists-clash-in-intensifying-sahel-turf-war/"
     },
     {
       "lop": "HTML",
@@ -141,6 +205,14 @@
       "tieu_de": "Chairman Babin, Ranking Member Lofgren Request GAO Review of NOAA Weather Satellites",
       "nguon": "Uỷ ban Khoa học Hạ viện",
       "url": "https://science.house.gov/press-releases?ID=479C5D39-F9DC-4DC8-BA34-57F5CE480123"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Blood supplies, autonomous systems shape US Army’s Indo-Pacific combat care plans",
+      "nguon": "Defense News",
+      "url": "https://www.defensenews.com/news/your-military/2026/10/14/blood-supplies-autonomous-systems-shape-us-armys-indo-pacific-combat-care-plans/"
     },
     {
       "lop": "RSS",
@@ -161,26 +233,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "US Army aspires to create Indo-Pacific manufacturing hub in Korea",
-      "nguon": "Defense News",
-      "url": "https://www.defensenews.com/global/asia-pacific/2026/10/13/us-army-aspires-to-create-indo-pacific-manufacturing-hub-in-korea/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-15",
       "tieu_de": "NORTHCOM’s Joint Task Force-Gold to coordinate cyber warfare for Golden Dome",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/10/northcoms-joint-task-force-gold-to-coordinate-cyber-warfare-for-golden-dome/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "US Army to stage counter-drug training exercises in South America",
-      "nguon": "Defense One",
-      "url": "https://www.defenseone.com/threats/2026/10/us-army-stage-counter-drug-training-exercises-south-america/416548/"
     },
     {
       "lop": "RSS",
@@ -209,26 +265,42 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Retired US generals call on Pentagon to cancel 'barbaric' execution livestream",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cmp3gnngv3e9o?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Hypersonic missiles highlight arms race on Korean Peninsula",
-      "nguon": "Deutsche Welle",
-      "url": "https://www.dw.com/en/hypersonic-missiles-highlight-arms-race-on-korean-peninsula/a-79667084?maca=en-rss-en-world-4025-rdf"
+      "ngay": "2026-10-16",
+      "tieu_de": "Quân đội Mỹ nguy cơ đói tên lửa Patriot, THAAD suốt nhiều năm",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/quan-doi-my-nguy-co-doi-ten-lua-patriot-thaad-suot-nhieu-nam-5133254.html"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Pentagon plans to hold report on Iran school strike past November midterms",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/pentagon-plans-to-hold-report-on-iran-school-strike-past-november-midterms"
+      "tieu_de": "Triều Tiên đặt nghi vấn về tên lửa siêu vượt âm Hàn Quốc",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/trieu-tien-dat-nghi-van-ve-ten-lua-sieu-vuot-am-han-quoc-5133084.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Ukraine đã 'vét cạn' kho tên lửa Patriot",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/ukraine-da-vet-can-kho-ten-lua-patriot-5132987.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "?",
+      "tieu_de": "Washington Post: Ukraine chỉ còn đúng 2 quả tên lửa Patriot",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/washington-post-ukraine-chi-con-dung-2-qua-ten-lua-patriot-100261016183137041.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Ukraine cạn kiệt tên lửa Patriot: Tình hình phòng không nguy cấp",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/ukraine-can-kiet-ten-lua-patriot-tinh-hinh-phong-khong-nguy-cap-20261016104623876.htm"
     },
     {
       "lop": "RSS",
@@ -265,10 +337,34 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "Thủy thủ bí ẩn khiến ông Trump muốn hủy công nghệ tỷ USD trên tàu sân bay",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/thuy-thu-bi-an-khien-ong-trump-muon-huy-cong-nghe-ty-usd-tren-tau-san-bay-20261013144113269.htm"
+      "ngay": "2026-10-17",
+      "tieu_de": "Bipartisan senators ask Pentagon to answer for Ukraine Starlink restrictions",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/newsletters/technology/6155378-gop-senators-press-pentagon-starlink-newsletter/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Hegseth ramps up US troops in Panama as Pentagon expands war on drug cartels",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/defense/6152622-us-jungle-warfare-training-latin-america/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "GOP senators press Pentagon over Ukraine’s loss of Starshield data",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/6152690-senators-demand-starshield-probe/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Pentagon’s school system director stepping down",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/newsletters/defense-national-security/6152767-pentagon-school-director-paul-craft-resigns/"
     },
     {
       "lop": "RSS",
@@ -299,16 +395,8 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-15",
       "tieu_de": "Tillis calls on Pentagon inspector general to investigate Ukraine’s Starshield loss",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6150025-thom-tillis-pentagon-ig-ukraine-starlink-limits/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-14",
-      "tieu_de": "Pentagon taps DOD public affairs official as Stars and Stripes publisher",
       "nguon": "The Hill — Defense",
-      "url": "https://thehill.com/policy/defense/6147373-pentagon-appoints-acting-stars-stripes-publisher/"
+      "url": "https://thehill.com/homenews/senate/6150025-thom-tillis-pentagon-ig-ukraine-starlink-limits/"
     },
     {
       "lop": "RSS",
@@ -321,10 +409,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "Bath Iron Works cleared by Pentagon for second DDG-51 in FY2027",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/us-dow-ddg-51-destroyer/"
+      "ngay": "2026-10-17",
+      "tieu_de": "F-22 Pilot Controls FQ-44 Fighter Drone From The Cockpit For The First Time",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/air/f-22-pilot-controls-fq-44-fighter-drone-from-the-cockpit-for-the-first-time"
     },
     {
       "lop": "RSS",
@@ -337,10 +425,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "Drones Are Creating New Opportunities For The U.S. Army To Deceive Its Enemies",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/news-features/drones-are-creating-new-opportunities-for-the-u-s-army-to-deceive-its-enemies"
+      "ngay": "2026-10-17",
+      "tieu_de": "US Navy deploys unmanned maritime drone to support carrier strike group in historic first",
+      "nguon": "DefenseScoop",
+      "url": "https://defensescoop.com/2026/10/16/us-navy-deploys-unmanned-maritime-drone-to-support-carrier-strike-group-in-historic-first/"
     },
     {
       "lop": "RSS",
@@ -354,9 +442,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Marine Corps Makes History as 1st Battalion, 10th Marines Re-Designates as First Medium Missile Battalion",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/577052/marine-corps-makes-history-1st-battalion-10th-marines-re-designates-first-medium-missile-battalion"
+      "tieu_de": "Seoul dismisses Pyongyang’s scepticism over hypersonic weapon test",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/east-asia/north-korea-missile-chief-questions-south-korea-hypersonic-glide-vehicle-test"
     },
     {
       "lop": "RSS",
@@ -369,14 +457,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "Space Force launches Guardian Spark outreach program to inspire students nationwide",
-      "nguon": "Lực lượng Không gian Mỹ",
-      "url": "https://www.spaceforce.mil/News/Article-Display/Article/4624333/space-force-launches-guardian-spark-outreach-program-to-inspire-students-nation/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-15",
       "tieu_de": "U.S. Army officials at the Iowa Army Ammunition Plant will host a public open house on Oct. 15th",
       "nguon": "Lục quân Mỹ",
@@ -385,26 +465,42 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "F-35C Lands for the First Time on a Ford-Class Aircraft Carrier",
-      "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/us-navy/links/f-35c-lands-for-the-first-time-on-a-ford-class-aircraft-carrier-2026-10-15"
+      "ngay": "2026-10-17",
+      "tieu_de": "F-22 directs Collaborative Combat Aircraft in airborne tactical-control demonstration",
+      "nguon": "Không quân Mỹ — Air Force Link News",
+      "url": "https://www.af.mil/News/Article-Display/Article/4627579/f-22-directs-collaborative-combat-aircraft-in-airborne-tactical-control-demonst/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "The Space Force Showed Us Its Weapons Used in Iran and Venezuela",
+      "tieu_de": "U.S. Army Now Three Years Late Fielding Hypersonic Missile",
       "nguon": "RealClearDefense",
-      "url": "https://www.realcleardefense.com/space-warfare/links/the-space-force-showed-us-its-weapons-used-in-iran-and-venezuela-2026-10-15"
+      "url": "https://www.realcleardefense.com/us-army/links/us-army-now-three-years-late-fielding-hypersonic-missile-2026-10-16"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Contracts for Oct. 15, 2026",
+      "tieu_de": "The Pentagon’s New ‘Distinguished Military Colleges’",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/pentagon/links/the-pentagons-new-distinguished-military-colleges-2026-10-16"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "Contracts for Oct. 16, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4626623/contracts-for-oct-15-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4627497/contracts-for-oct-16-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "DOT, DoW, DHS Join Forces to Protect Southern Border Airspace",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4627569/dot-dow-dhs-join-forces-to-protect-southern-border-airspace/"
     },
     {
       "lop": "RSS",
@@ -413,6 +509,22 @@
       "tieu_de": "Readout of Secretary of War Pete Hegseth's Meeting With the United Kingdom's Secretary of State for Defence Wes Streeting",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4626961/readout-of-secretary-of-war-pete-hegseths-meeting-with-the-united-kingdoms-secr/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "BAE Systems Receives Space Force Contract For Small RF Terminals",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/bae-systems-receives-space-force-contract-for-small-rf-terminals/space/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "U.S. Space Force Forecasts Buy of 32 to 56 Meadowlands Jammers",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/u-s-space-force-forecasts-buy-of-32-to-56-meadowlands-jammers/space/"
     },
     {
       "lop": "RSS",
@@ -445,6 +557,46 @@
       "tieu_de": "F-35 Drops 8 Bombs in Quick Succession During ‘Ripple’ Test",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/f-35-drops-8-bombs-in-quick-succession-during-ripple-test/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "Meet the Task Force Trying to Turn Golden Dome Into Reality",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/task-force-turning-golden-dome-into-reality/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "F-22 Pilot Directs CCA in Flight as ‘Airborne QB’",
+      "nguon": "Air & Space Forces Magazine",
+      "url": "https://www.airandspaceforces.com/f-22-pilot-directs-cca-in-flight-as-airborne-qb/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "US Army’s 8th Psychological Operations Group inactivated",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/10/16/us-armys-8th-psychological-operations-group-inactivated/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Recap: Autonomy dominates the US Army’s 2026 conference in Washington",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/recap/ausa/2026/10/16/recap-autonomy-dominates-the-us-armys-2026-conference-in-washington/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "What is the US Army doing in Panama? A bit of everything.",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/your-military/2026/10/14/what-is-the-us-army-doing-in-panama-a-bit-of-everything/"
     },
     {
       "lop": "RSS",
@@ -489,18 +641,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Acting US Army secretary creates task force for HVAC repairs",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/10/15/acting-us-army-secretary-creates-task-force-for-hvac-repairs/"
+      "ngay": "2026-10-17",
+      "tieu_de": "F-22 Controls Collaborative Combat Aircraft In Flight For The First Time",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/10/17/f-22-controls-cca-first-time/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Disrupt, Strike, Assault and Endure: The 4 pillars of the US Army’s new warfare guidance",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/10/14/disrupt-strike-assault-and-endure-the-4-pillars-of-the-us-armys-new-warfare-guidance/"
+      "ngay": "2026-10-16",
+      "tieu_de": "U.S. Navy Receives First C-130J-30 for TACAMO Program",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/10/16/us-navy-receives-first-c-130j-30-for-tacamo-program/"
     },
     {
       "lop": "RSS",
@@ -513,50 +665,50 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "Bridge Defense Awarded CodeBridge Agreement with up to $63 Million in First-YEAR Ordering Capacity to Accelerate Mission Software Delivery Across the Department of War",
+      "ngay": "2026-10-17",
+      "tieu_de": "GA-ASI Completes Flight Test of New ESM System on Gray Eagle UAS",
       "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/15/bridge-defense-awarded-codebridge-agreement-with-up-to-63-million-in-first-year-ordering-capacity-to-accelerate-mission-software-delivery-across-the-department-of-war/?utm_source=rss&utm_medium=rss&utm_campaign=bridge-defense-awarded-codebridge-agreement-with-up-to-63-million-in-first-year-ordering-capacity-to-accelerate-mission-software-delivery-across-the-department-of-war"
+      "url": "https://soldiersystems.net/2026/10/16/ga-asi-completes-flight-test-of-new-esm-system-on-gray-eagle-uas/?utm_source=rss&utm_medium=rss&utm_campaign=ga-asi-completes-flight-test-of-new-esm-system-on-gray-eagle-uas"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "Save The Date: SWAP MEAT 2026 – Presented By Spiritus Systems, Aberdeen, NC",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/10/16/save-the-date-swap-meat-2026-presented-by-spiritus-systems-aberdeen-nc/?utm_source=rss&utm_medium=rss&utm_campaign=save-the-date-swap-meat-2026-presented-by-spiritus-systems-aberdeen-nc"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Hegseth: Autonomous Warfare Command Has Always Been End State",
+      "tieu_de": "Strider Solutions MultiCam 2-in-1 Balaclava",
       "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/15/hegseth-autonomous-warfare-command-has-always-been-end-state/?utm_source=rss&utm_medium=rss&utm_campaign=hegseth-autonomous-warfare-command-has-always-been-end-state"
+      "url": "https://soldiersystems.net/2026/10/16/strider-solutions-multicam-2-in-1-balaclava/?utm_source=rss&utm_medium=rss&utm_campaign=strider-solutions-multicam-2-in-1-balaclava"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "TacJobs – Buyer / Planner & Tech Support Rep at Lumenier",
+      "tieu_de": "G-TEAD USAREUR-AF ACE 27-02: Spectrum Enabled Warfare Powered by xTech",
       "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/15/tacjobs-buyer-planner-tech-support-rep-at-lumenier/?utm_source=rss&utm_medium=rss&utm_campaign=tacjobs-buyer-planner-tech-support-rep-at-lumenier"
+      "url": "https://soldiersystems.net/2026/10/16/g-tead-usareur-af-ace-27-02-spectrum-enabled-warfare-powered-by-xtech/?utm_source=rss&utm_medium=rss&utm_campaign=g-tead-usareur-af-ace-27-02-spectrum-enabled-warfare-powered-by-xtech"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "AV and Thunder Tiger Sign MOU to Explore Uncrewed Systems Integration and Co-Production in Taiwan",
+      "ngay": "2026-10-16",
+      "tieu_de": "FirstSpear Friday Focus: RAGNAR Stretch Carbine 3 Magazine Pocket",
       "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/15/av-and-thunder-tiger-sign-mou-to-explore-uncrewed-systems-integration-and-co-production-in-taiwan/?utm_source=rss&utm_medium=rss&utm_campaign=av-and-thunder-tiger-sign-mou-to-explore-uncrewed-systems-integration-and-co-production-in-taiwan"
+      "url": "https://soldiersystems.net/2026/10/16/firstspear-friday-focus-ragnar-stretch-carbine-3-magazine-pocket/?utm_source=rss&utm_medium=rss&utm_campaign=firstspear-friday-focus-ragnar-stretch-carbine-3-magazine-pocket"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Springfield Armory Announces Launch of Echelon Pro 9mm Pistols",
+      "ngay": "2026-10-16",
+      "tieu_de": "You Never Know Where They’ll Show Up",
       "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/15/springfield-armory-announces-launch-of-echelon-pro-9mm-pistols/?utm_source=rss&utm_medium=rss&utm_campaign=springfield-armory-announces-launch-of-echelon-pro-9mm-pistols"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Reptilia Introduces Q-Sert Versions of TORCH Light Body and SOCKET QD Sling Mount",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/15/reptilia-introduces-q-sert-versions-of-torch-light-body-and-socket-qd-sling-mount/?utm_source=rss&utm_medium=rss&utm_campaign=reptilia-introduces-q-sert-versions-of-torch-light-body-and-socket-qd-sling-mount"
+      "url": "https://soldiersystems.net/2026/10/16/you-never-know-where-theyll-show-up-496/?utm_source=rss&utm_medium=rss&utm_campaign=you-never-know-where-theyll-show-up-496"
     },
     {
       "lop": "RSS",
@@ -601,10 +753,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-13",
-      "tieu_de": "Patriot Wing highlights awareness, support during Domestic Violence Awareness month",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/576809/patriot-wing-highlights-awareness-support-during-domestic-violence-awareness-month"
+      "ngay": "2026-10-16",
+      "tieu_de": "US Army pursues commercial routes to modernise cannon and mortar manufacturing",
+      "nguon": "Shephard Media",
+      "url": "https://www.shephardmedia.com/news/landwarfareintl/us-army-pursues-commercial-routes-to-modernise-cannon-and-mortar-manufacturing/"
     },
     {
       "lop": "RSS",
@@ -621,6 +773,14 @@
       "tieu_de": "AUSA 2026: XM30 competitors keep their cards close as US Army decision approaches",
       "nguon": "Shephard Media",
       "url": "https://www.shephardmedia.com/news/landwarfareintl/ausa-2026-xm30-gdls-rheinmetall-us-army/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Pyongyang rejects Seoul's hypersonic test claims, justifies own arms buildup",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20261016009300320"
     },
     {
       "lop": "RSS",
@@ -656,91 +816,83 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "Pentagon says Trump and Hegseth ‘completely aligned’ on decision to cancel livestream of firing squad execution – live",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/live/2026/oct/15/donald-trump-midterms-rallies-iran-ukraine-starlink-intelligence-fuel-gas-cost-of-living-latest-news-updates"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Hàn Quốc dự kiến triển khai vũ khí lượn siêu thanh trong 3-4 năm tới",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/han-quoc-du-kien-trien-khai-vu-khi-luon-sieu-thanh-trong-3-4-nam-toi-post1142097.vnp"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-16",
-      "tieu_de": "AV and Thunder Tiger Sign MOU to Explore Uncrewed Systems Integration and Co-Production in Taiwan",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/10/av-and-thunder-tiger-sign-mou-to-explore-uncrewed-systems-integration-and-co-production-in-taiwan/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Shield AI Delivers First V-BAT to Taiwan Coast Guard",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/10/shield-ai-delivers-first-v-bat-to-taiwan-coast-guard/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australian woman charged with lacing colleague's curry with snail poison",
+      "ngay": "2026-10-17",
+      "tieu_de": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
       "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cmp3gnep35gko?at_medium=RSS&at_campaign=rss"
+      "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Watch: Australian band breaks world record for most gigs in 12 hours",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/videos/c62keqn7wpwdo?at_medium=RSS&at_campaign=rss"
+      "tieu_de": "Indonesia's forest fires spark public health crisis across Southeast Asia",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/tv-shows/access-asia/20261016-indonesia-s-forest-fires-spark-public-health-crisis-across-southeast-asia"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "British comedian Russell Brand’s accuser told police she blamed herself for alleged rape",
+      "ngay": "2026-10-16",
+      "tieu_de": "British police assess Palestine Action post by national security adviser’s wife",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/uk-comedian-russell-brands-accuser-told-police-she-blamed-herself-for-alleged-rape"
+      "url": "https://www.straitstimes.com/world/europe/uk-police-assess-palestine-action-post-by-national-security-advisers-wife"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Earthquake of magnitude 5.9 strikes Indonesia's Sumbawa region, GFZ says",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/earthquake-strikes-indonesia-sumbawa-region-updates/article71542528.ece"
+      "tieu_de": "Iran ships some LPG, jet fuel despite US blockade, data shows",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/middle-east/iran-ships-some-lpg-jet-fuel-despite-us-blockade-data-shows"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "'Severe drought' declared in parts of United Kingdom",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/severe-drought-declared-in-parts-of-united-kingdom/article71588927.ece"
+      "ngay": "2026-10-17",
+      "tieu_de": "Paraguay’s tech minister defies Beijing sanctions, says Taiwan ties ‘not up for negotiation’",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/china/article/3371214/paraguays-tech-minister-defies-beijing-sanctions-says-taiwan-ties-not-negotiation?utm_source=rss_feed"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Nine injured in Australia as car crashes into crowd north of Sydney",
+      "ngay": "2026-10-17",
+      "tieu_de": "Philippines protests Chinese envoy's remarks, calling them a 'thinly veiled threat'",
       "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/car-drives-into-a-crowd-near-newcastle-north-of-sydney-australia/article71539520.ece"
+      "url": "https://www.thehindu.com/news/international/philippines-protests-chinese-envoys-remarks-calling-them-a-thinly-veiled-threat/article71594014.ece"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia: Bali fuel supply delays spark panic buying and hours-long queues",
-      "nguon": "Africanews",
-      "url": "http://www.africanews.com/2026/10/14/indonesia-bali-fuel-supply-delays-spark-panic-buying-and-hours-long-queues/"
+      "ngay": "2026-10-16",
+      "tieu_de": "U.S. accuses California woman of spying for China, surveilling Taiwan leader's son",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-accuses-california-woman-of-spying-for-china-surveilling-taiwan-leaders-son/article71545758.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "British Airways London-Chicago flight declares ‘emergency’ mid air; makes U-turn after take-off",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/british-airways-london-chicago-flight-declares-emergency-mid-air-makes-u-turn-after-take-off/article71548161.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "U.S. Air Force removes all bombers from British air base targeted by a suspected terror attack",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-air-force-removes-all-bombers-from-british-air-base-targeted-by-a-suspected-terror-attack/article71544899.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Four killed in Indonesia battling fires causing toxic haze",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/four-killed-in-indonesia-battling-fires-causing-toxic-haze/article71591244.ece"
     },
     {
       "lop": "RSS",
@@ -749,6 +901,62 @@
       "tieu_de": "China’s Rare Earth Strategy and the Future of the South China Sea",
       "nguon": "The Diplomat",
       "url": "https://thediplomat.com/2026/10/chinas-rare-earth-strategy-and-the-future-of-the-south-china-sea/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Malaysia ngày càng bất bình vì khói mù từ Indonesia",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/malaysia-ngay-cang-bat-binh-vi-khoi-mu-tu-indonesia-5133313.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Australia trao trả tượng Phật bí ẩn cho Trung Quốc",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/australia-trao-tra-tuong-phat-bi-an-cho-trung-quoc-5133004.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Trung Quốc n&oacute;i kh&ocirc;ng chọn vũ lực để giải quyết tranh chấp với Philippines",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/trung-quoc-noi-khong-chon-vu-luc-de-giai-quyet-tranh-chap-voi-philippines-185261016092706215.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Sức mạnh tàu ngầm hạt nhân Nga phóng tên lửa từ dưới nước, đánh mục tiêu cách 1.200km",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/suc-manh-tau-ngam-hat-nhan-nga-phong-ten-lua-tu-duoi-nuoc-danh-muc-tieu-cach-1200-km-100261016135317667.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Tập đoàn tư vấn hàng đầu nước Anh muốn đóng góp phát triển hạ tầng đô thị TP.HCM",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/tap-doan-tu-van-hang-dau-nuoc-anh-muon-dong-gop-phat-trien-ha-tang-do-thi-tphcm-100261016142559682.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Đại sứ Trung Quốc nói sẽ 'thắng dễ' Philippines, Manila phản ứng",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/dai-su-trung-quoc-noi-se-thang-de-philippines-manila-phan-ung-100261016114930449.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Bí ẩn tượng Phật 500 tuổi từ thời nhà Minh bị chôn ven đường ở Úc",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/bi-an-tuong-phat-500-tuoi-tu-thoi-nha-minh-bi-chon-ven-duong-o-uc-100261016113128769.htm"
     },
     {
       "lop": "RSS",
@@ -762,9 +970,25 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
-      "tieu_de": "Tàu chiến Úc dừng hoạt động vì nghi vấn lắp camera giấu kín trong phòng tắm nữ",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/tau-chien-uc-dung-hoat-dong-vi-nghi-van-lap-camera-giau-kin-trong-phong-tam-nu-100261015110745191.htm"
+      "tieu_de": "Indonesia stocks post largest drop in 28 years after MSCI warns of downgrade",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/markets/indonesia-stocks-post-largest-drop-in-28-years-after-msci-warns-of-downgrade"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "China's BYD turns to local assembler in Malaysia after shelving plant plan",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/automobiles/electric-vehicles/china-s-byd-turns-to-local-assembler-in-malaysia-after-shelving-plant-plan"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "Australian lithium miner PLS green-lights expansion",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/markets/commodities/australian-lithium-miner-pls-green-lights-expansion"
     },
     {
       "lop": "RSS",
@@ -777,111 +1001,127 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Toyota rolls out jeepney version of Tamaraw in Philippines",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/automobiles/toyota-rolls-out-jeepney-version-of-tamaraw-in-philippines"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Taiwan and Trump confirm plans for Alaska LNG cooperation",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/taiwan-tensions/taiwan-and-trump-confirm-plans-for-alaska-lng-cooperation"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Indonesia fuel shortages spread to Bali, other regions as prices climb",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/energy/indonesia-fuel-shortages-spread-to-bali-other-regions-as-prices-climb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australia điều tra vụ camera nghi quay lén phòng tắm nữ trên tàu hải quân",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/the-gioi/australia-dieu-tra-vu-camera-nghi-quay-len-phong-tam-nu-tren-tau-hai-quan-20261015073916007.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Live: Nationals senator says Coalition will oppose Australia–EU free trade agreement",
+      "tieu_de": "MSCI đề xuất hạ xếp hạng Indonesia xuống nhóm thị trường độc lập",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/msci-de-xuat-ha-xep-hang-indonesia-xuong-nhom-thi-truong-doc-lap.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-17",
+      "tieu_de": "Canberra businesses battling 'multi-agency maze' to stay open, report finds",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-10-16/federal-politics-live-blog-greens/107273514"
+      "url": "https://www.abc.net.au/news/2026-10-17/act-insufficient-relief-businesses-affected-civic-construction/107277900"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-17",
+      "tieu_de": "Proteas urged to wear down Australia's bowling machines in second Test",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-17/proteas-urged-wear-down-australias-bowlers-in-second-test/107278752"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Defence writes off millions owed since the seventies",
+      "tieu_de": "World’s first fielded laser downs drones in Korea test",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/defence-writes-off-millions-owed-since-the-seventies/"
+      "url": "https://ukdefencejournal.org.uk/worlds-first-fielded-laser-downs-drones-in-korea-test/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Britain to fit its own kit to Ukraine donated weapons",
+      "tieu_de": "Britain studies US autonomous warfare command for lessons",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/britain-to-fit-its-own-kit-to-ukraine-donated-weapons/"
+      "url": "https://ukdefencejournal.org.uk/britain-studies-us-autonomous-warfare-command-for-lessons/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Nuclear spending committee still due by end of year",
+      "tieu_de": "American attack helicopters open fire in Korea",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/nuclear-spending-committee-still-due-by-end-of-year/"
+      "url": "https://ukdefencejournal.org.uk/american-attack-helicopters-open-fire-in-korea/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Britain funds Chornobyl repairs after Russian drone hit",
+      "tieu_de": "Bear crash and drone strike cost Russia three more aircraft",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/britain-funds-chornobyl-repairs-after-russian-drone-hit/"
+      "url": "https://ukdefencejournal.org.uk/bear-crash-and-drone-strike-cost-russia-three-more-aircraft/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "New joint venture targets Army light vehicle programme",
+      "ngay": "2026-10-16",
+      "tieu_de": "Defence to automate a fifth of its back-office functions",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/new-joint-venture-targets-army-light-vehicle-programme/"
+      "url": "https://ukdefencejournal.org.uk/defence-to-automate-a-fifth-of-its-back-office-functions/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Scotland to match funding for two defence skills colleges",
+      "ngay": "2026-10-16",
+      "tieu_de": "Leonardo DRS wins place on US counter drone contract",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/scotland-to-match-funding-for-two-defence-skills-colleges/"
+      "url": "https://ukdefencejournal.org.uk/leonardo-drs-wins-place-on-us-counter-drone-contract/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Fewer than one in thirty reservists deployed last year",
+      "ngay": "2026-10-16",
+      "tieu_de": "Saab to build new flight control computer for Gripen",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/fewer-than-one-in-thirty-reservists-deployed-last-year/"
+      "url": "https://ukdefencejournal.org.uk/saab-to-build-new-flight-control-computer-for-gripen/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Veterans groups asked for views on fireworks rules",
+      "ngay": "2026-10-16",
+      "tieu_de": "Britain too slow to blame Russia for attacks",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/veterans-groups-asked-for-views-on-fireworks-rules/"
+      "url": "https://ukdefencejournal.org.uk/britain-too-slow-to-blame-russia-for-attacks/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
+      "ngay": "2026-10-16",
+      "tieu_de": "No answer on school funding for Royal Fleet Auxiliary",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/no-answer-on-school-funding-for-royal-fleet-auxiliary/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "UK defends US reliance on F-35A and PrSM",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/uk-defends-us-reliance-on-f-35a-and-prsm/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "France considers extending the life of its aircraft carrier",
+      "nguon": "**Navy Lookout (Hải quân Anh)**",
+      "url": "https://www.navylookout.com/france-considers-extending-the-life-of-its-aircraft-carrier/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Why navies are rediscovering guns and fire-control systems to counter aerial threats",
+      "nguon": "**Navy Lookout (Hải quân Anh)**",
+      "url": "https://www.navylookout.com/why-navies-are-rediscovering-guns-and-fire-control-systems-to-counter-aerial-threats/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
       "tieu_de": "Andy Lord appointed Interim Chair of NAD Group Advisory Board",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
       "url": "https://www.gov.uk/government/news/andy-lord-appointed-interim-chair-of-nad-group-advisory-board"
@@ -889,98 +1129,114 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "First World War Soldier of the West Yorkshire Regiment Buried in France more than a century after his death",
+      "ngay": "2026-10-16",
+      "tieu_de": "Douglas Alexander welcomes defence skills investment boost",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/first-world-war-soldier-of-the-west-yorkshire-regiment-buried-in-france-more-than-a-century-after-his-death"
+      "url": "https://www.gov.uk/government/news/douglas-alexander-welcomes-defence-skills-investment-boost"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Britain funds critical repairs to Chornobyl nuclear power plant damaged by Russian drone attack",
-      "nguon": "HM Treasury",
-      "url": "https://www.gov.uk/government/news/britain-funds-critical-repairs-to-chornobyl-nuclear-power-plant-damaged-by-russian-drone-attack"
+      "ngay": "2026-10-16",
+      "tieu_de": "UK and Germany strengthen defence ties in London talks",
+      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
+      "url": "https://www.gov.uk/government/news/uk-and-germany-strengthen-defence-ties-in-london-talks"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Not just immigrant numbers: the issue is also where Australia needs workers",
+      "ngay": "2026-10-16",
+      "tieu_de": "British man fined for causing death of his two-year-old son in Cyprus",
+      "nguon": "Sky News",
+      "url": "https://news.sky.com/story/british-father-fined-for-causing-death-of-his-two-year-old-son-in-cyprus-13599857"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Australian research needs to be protected like critical infrastructure",
       "nguon": "ASPI Strategist",
-      "url": "https://www.aspistrategist.org.au/not-just-immigrant-numbers-the-issue-is-also-where-australia-needs-workers/"
+      "url": "https://www.aspistrategist.org.au/australian-research-needs-to-be-protected-like-critical-infrastructure/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-17",
+      "tieu_de": "Sentence looms for three men convicted of killing Australian men on surf trip",
+      "nguon": "Sydney Morning Herald",
+      "url": "https://www.smh.com.au/national/sentence-looms-for-three-men-convicted-of-killing-australian-men-on-surf-trip-20261017-p616by.html?ref=rss&utm_medium=rss&utm_source=rss_national"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Australia news LIVE: Wells says gender ‘debates’ would not be policed in reforms; Trump administration will not livestream firing squad execution",
-      "nguon": "Sydney Morning Herald",
-      "url": "https://www.smh.com.au/national/australia-news-live-wells-says-gender-debates-would-not-be-policed-in-reforms-trump-administration-will-not-livestream-firing-squad-execution-20261016-p61611.html?ref=rss&utm_medium=rss&utm_source=rss_national"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Which city pours Australia’s most expensive pints? Take the Brisbane Times Quiz",
-      "nguon": "Sydney Morning Herald",
-      "url": "https://www.smh.com.au/national/queensland/which-city-pours-australia-s-most-expensive-pints-take-the-brisbane-times-quiz-20261015-p615hl.html?ref=rss&utm_medium=rss&utm_source=rss_national"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "China 'dumped' aluminium windows and doors in Australia, report finds",
-      "nguon": "ABC News Australia",
-      "url": "https://www.abc.net.au/news/2026-10-15/chinese-aluminium-windows-doors-imports-trade-remedies-report/107264752"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "‘He’d take boys down to the chicken shed’: survivors share harrowing allegations of rape in Canberra youth detention",
+      "tieu_de": "EVs are holding value better than expected – and it has a lot to do with Australia’s cost of living",
       "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/ng-interactive/2026/oct/16/survivors-harrowing-allegations-sexual-abuse-quamby-youth-detention-centre-canberra-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "ADF member ‘person of interest’ after ‘despicable betrayal of trust’ on Navy ship where camera found in women’s shower – as it happened",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/live/2026/oct/15/anthony-albanese-labor-pauline-hanson-monoculture-victorian-election-coalition-angus-taylor-ntwnfb"
+      "url": "https://www.theguardian.com/environment/2026/oct/17/second-hand-electric-vehicles-ev-value-australia-petrol-prices"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
-      "tieu_de": "Back to basics: Why English school kids outperform Australian",
+      "tieu_de": "Pools, palm trees and pulling a caravan: Australian retro holidays – in pictures",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/travel/gallery/2026/oct/17/australian-retro-holidays-in-pictures"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Only productivity, not populism, will rescue Australia: Cormann",
       "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/world/europe/facts-over-feelings-english-school-kids-outperform-australian-20261016-p615zu?ref=rss&utm_medium=rss&utm_source=rss_feed"
+      "url": "https://www.afr.com/politics/federal/only-productivity-not-populism-will-rescue-australia-cormann-20261016-p6161x?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "The Snoop: TikTok schmoozes Canberra, Tony Abbott and Jacinda Ardern team up, and more",
-      "nguon": "Crikey (Úc)",
-      "url": "https://www.crikey.com.au/2026/10/15/tiktok-digital-duty-of-care-treaty-fremantle-dockers-tony-abbott-jacinda-ardern/"
+      "ngay": "2026-10-16",
+      "tieu_de": "Michelin eyes the rest of Australia, one destination at a time",
+      "nguon": "Australian Financial Review",
+      "url": "https://www.afr.com/life-and-luxury/food-and-wine/michelin-eyes-the-rest-of-australia-one-destination-at-a-time-20261016-p615s0?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australian detainee ‘under duress’ when he signed document shielding Iraq from liability, lawyers say",
-      "nguon": "Crikey (Úc)",
-      "url": "https://www.crikey.com.au/2026/10/15/robert-pether-iraq-detention-waiver-human-rights/"
+      "ngay": "2026-10-16",
+      "tieu_de": "JAZA: Does the Philippines have what it takes to win big investments?",
+      "nguon": "Rappler",
+      "url": "https://www.rappler.com/newsbreak/inside-track/jaime-augusto-zobel-de-ayala-philippine-investments-makati-business-club/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "The cracks in Australia’s defence policy: For us, deterrence isn’t about waving a big stick",
+      "ngay": "2026-10-16",
+      "tieu_de": "Philippines beaches, Palawan on Conde Nast spotlight",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/10/17/2563730/philippines-beaches-palawan-conde-nast-spotlight"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Indonesia, Islamic nations decry Colombia's embassy move to Jerusalem",
+      "nguon": "ANTARA News — World",
+      "url": "https://en.antaranews.com/news/435989/indonesia-islamic-nations-decry-colombias-embassy-move-to-jerusalem"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Indonesia maps regulatory readiness for CPTPP accession",
+      "nguon": "ANTARA News — World",
+      "url": "https://en.antaranews.com/news/435897/indonesia-maps-regulatory-readiness-for-cptpp-accession"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "‘My teenage sons had become men’: Australian man freed from detention in Iraq after five years on how he survived, and what he missed",
       "nguon": "Crikey (Úc)",
-      "url": "https://www.crikey.com.au/2026/10/15/australia-defence-policy-deterrence-us-china/"
+      "url": "https://www.crikey.com.au/2026/10/16/robert-pether-interview-iraq-arbitrary-detention/"
     },
     {
       "lop": "RSS",
@@ -1017,194 +1273,138 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australia’s ‘digital duty of care’ was just introduced to parliament. So what’s in the bill?",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/australias-digital-duty-of-care-was-just-introduced-to-parliament-so-whats-in-the-bill-294464"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Unemployment in Australia hits a five-year high of 4.7%, making a rates hike less likely",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/unemployment-in-australia-hits-a-five-year-high-of-4-7-making-a-rates-hike-less-likely-294463"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Michelin came for the food. It found what makes South Australia special",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/michelin-came-for-the-food-it-found-what-makes-south-australia-special-294155"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "What was Australia’s first novel?",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/what-was-australias-first-novel-293206"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australian scavengers don’t just eat everything and slink away. They approach a carcass like a buffet",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/australian-scavengers-dont-just-eat-everything-and-slink-away-they-approach-a-carcass-like-a-buffet-292605"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australia urgently needs a national bushfire database. Here’s what it could look like",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/australia-urgently-needs-a-national-bushfire-database-heres-what-it-could-look-like-292119"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australia has 3 competing migration policies. The problem? None are based in evidence",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/australia-has-3-competing-migration-policies-the-problem-none-are-based-in-evidence-293945"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia disaster chief's brother among five suspects in alleged corruption case",
+      "ngay": "2026-10-16",
+      "tieu_de": "Malaysia's palm oil industry steps up fire prevention efforts as 'Godzilla' El Nino fuels haze woes",
       "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/indonesia-corruption-disaster-agency-funds-6461676"
+      "url": "https://www.channelnewsasia.com/asia/haze-malaysia-indonesia-palm-oil-plantation-fires-el-nino-6465896"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia appoints new disaster agency head in President Prabowo's third reshuffle in a month",
+      "ngay": "2026-10-16",
+      "tieu_de": "Philippines eyes billions in investment from Pax Silica tech hub, but farmers fear for their livelihoods",
       "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/indonesia-disaster-agency-head-cabinet-reshuffle-prabowo-6461641"
+      "url": "https://www.channelnewsasia.com/asia/philippines-pax-silica-tech-hub-investment-farmers-fear-livelihoods-6465486"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia to use dry ice to clear haze from forest fires",
+      "ngay": "2026-10-16",
+      "tieu_de": "Malaysia's economy grows 5.3% year-on-year in Q3: Advance estimate",
       "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/indonesia-test-dry-ice-seeding-combat-haze-air-quality-visibility-6461586"
+      "url": "https://www.channelnewsasia.com/business/malaysia-economy-growth-q3-official-advance-estimate-6464966"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "'Very dangerous': Timor-Leste shuts schools over Indonesia haze",
+      "ngay": "2026-10-16",
+      "tieu_de": "China says can 'easily win' confrontation with Philippines",
       "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/timor-leste-shuts-schools-indonesia-haze-6461526"
+      "url": "https://www.channelnewsasia.com/east-asia/china-easily-win-confrontation-philippines-6464791"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Malaysia raises threshold for haze-related school closures",
-      "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/malaysia-raises-limits-school-closure-haze-api-6460991"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Why a remote Philippine island chain near Taiwan is drawing China’s attention",
-      "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/east-asia/batanes-philippines-china-taiwan-maritime-tensions-6458206"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Malaysia has no plans to take legal action or issue diplomatic note over haze, says foreign minister",
+      "ngay": "2026-10-17",
+      "tieu_de": "Haze chokes Malaysia’s farmers, families and businesses as economic costs mount",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/malaysia-has-no-plans-to-take-legal-action-or-issue-diplomatic-note-over-haze-says-foreign-minister"
+      "url": "https://www.straitstimes.com/asia/se-asia/haze-chokes-malaysias-farmers-families-and-businesses-as-economic-costs-mount"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia ready to accept foreign firefighting assistance on haze, says foreign minister",
+      "ngay": "2026-10-17",
+      "tieu_de": "Indonesia tests a new weapon against forest fires. Does it work?",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/indonesia-ready-to-accept-foreign-firefighting-assistance-on-haze-says-foreign-minister"
+      "url": "https://www.straitstimes.com/asia/se-asia/indonesia-tests-a-new-weapon-against-forest-fires-does-it-work"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Malaysia’s haze frustration boils over school closures as calls grow to hold polluters to account",
+      "ngay": "2026-10-16",
+      "tieu_de": "Haze in Malaysia: Schools to close, public gatherings halted if API exceeds 200",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/malaysias-haze-frustration-boils-over-as-calls-grow-to-hold-polluters-to-account"
+      "url": "https://www.straitstimes.com/asia/se-asia/haze-in-malaysia-schools-to-close-public-gatherings-halted-if-api-exceeds-200"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Philippines hits onion cartel with record fine for price surge",
+      "ngay": "2026-10-16",
+      "tieu_de": "Haze: Fires in Indonesia are outside Malaysian firms’ areas, says minister",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/philippines-hits-onion-cartel-with-record-fine-for-price-surge"
+      "url": "https://www.straitstimes.com/asia/se-asia/haze-fires-in-indonesia-are-outside-malaysian-firms-areas-says-minister"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia blames peatland degradation for raging fires, vows restoration",
+      "ngay": "2026-10-16",
+      "tieu_de": "Taiwan to curb AI chip exports to China as part of US trade deal",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/indonesia-blames-peatland-degradation-for-raging-fires-vows-restoration"
+      "url": "https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Taiwan President calls for Micron workers to negotiate ‘sincerely’ ahead of possible strike",
+      "ngay": "2026-10-16",
+      "tieu_de": "Protests spread in Indonesia as anger mounts over forest fires and haze",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/east-asia/taiwan-president-calls-for-micron-workers-to-negotiate-sincerely-ahead-of-possible-strike"
+      "url": "https://www.straitstimes.com/asia/se-asia/protests-spread-in-indonesia-as-anger-mounts-over-forest-fires-and-haze"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia swops out electricity chief after 16-hour Batam blackout",
+      "ngay": "2026-10-16",
+      "tieu_de": "Philippines hits back at Chinese envoy over 'thinly veiled threat' of force",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/indonesia-swops-out-electricity-chief-after-16-hour-batam-blackout"
+      "url": "https://www.straitstimes.com/asia/philippines-hits-back-at-chinese-envoy-over-thinly-veiled-threat-of-force"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia rescues starved orang utan from fires: Officials",
+      "ngay": "2026-10-16",
+      "tieu_de": "Taiwan blocks Coinbase, Kalshi over suspected election bets",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/indonesia-rescues-starved-orangutan-from-fires-officials"
+      "url": "https://www.straitstimes.com/asia/east-asia/taiwan-blocks-coinbase-kalshi-over-suspected-election-bets"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australia says it won’t let big tech have ‘unfettered’ access to kids",
+      "ngay": "2026-10-16",
+      "tieu_de": "Fiji to deploy solar-powered Australian military drones at sea",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/australianz/australia-says-it-wont-let-big-tech-have-unfettered-access-to-kids"
+      "url": "https://www.straitstimes.com/asia/australianz/fiji-to-deploy-solar-powered-australian-military-drones-at-sea"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Prabowo replaces Indonesia disaster chief a day after brother’s graft arrest",
+      "ngay": "2026-10-16",
+      "tieu_de": "Haze in Malaysia: Air quality in Johor’s Pasir Gudang hits ‘very unhealthy’ levels",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/indonesias-disaster-chiefs-brother-among-five-arrested-over-alleged-graft-amid-haze-crisis"
+      "url": "https://www.straitstimes.com/asia/se-asia/haze-in-malaysia-air-quality-in-johors-pasir-gudang-hits-very-unhealthy-levels"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Australia navy investigating video camera found in ship bathroom",
+      "ngay": "2026-10-16",
+      "tieu_de": "Haze or not, it’s work as usual for some in Malaysia",
       "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/australianz/video-recording-device-found-on-australian-navy-ship"
+      "url": "https://www.straitstimes.com/asia/se-asia/haze-or-not-its-work-as-usual-for-some-in-malaysia"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Taiwan tells its people to shun Chinese anniversary events for revolutionary hero",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/east-asia/taiwan-tells-its-people-to-shun-chinese-anniversary-events-for-revolutionary-hero"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-16",
+      "tieu_de": "Britain's Economy Is Living on Borrowed Time",
+      "nguon": "RealClearWorld",
+      "url": "https://www.realclearworld.com/2026/10/16/britains_economy_is_living_on_borrowed_time_1212007.html"
     },
     {
       "lop": "RSS",
@@ -1225,6 +1425,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-17",
+      "tieu_de": "Defense Watch: RTX C-UAS Award, MQ-25 Software Test, PrSM Inc. 4, Taiwan V-BAT, Autonomous Black Hawk",
+      "nguon": "Defense Daily",
+      "url": "https://www.defensedaily.com/defense-watch-rtx-c-uas-award-mq-25-software-test-prsm-inc-4-taiwan-v-bat-autonomous-black-hawk/defense-watch/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-16",
       "tieu_de": "HII Wins $56 Million Navy Contract For AUKUS Submarine Design Work",
       "nguon": "Defense Daily",
@@ -1233,42 +1441,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Official: Army Awarding CAML Medium Platform Soon, Plans CAML Light Effort With Australia",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/official-army-awarding-caml-medium-platform-soon-plans-caml-light-effort-with-australia/army/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Taiwan Signs Agreement To Co-Produce MARTAC Devil Ray T24 USVs",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/taiwan-signs-agreement-to-co-produce-martac-devil-ray-t24-usvs/international/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Haze turns Indonesia skies orange, shuts schools in East Timor",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/10/15/asia-pacific/indonesia-wildfires-haze/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Indonesia fights fire with dry ice as toxic haze spreads across region",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/oct/15/indonesia-fires-dry-ice-dropped-toxic-haze-spreads"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-15",
-      "tieu_de": "Việt Nam-Australia chuyển động lực thành hợp tác thực chất",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/viet-nam-australia-chuyen-dong-luc-thanh-hop-tac-thuc-chat-post1142134.vnp"
+      "ngay": "2026-10-16",
+      "tieu_de": "Tàu ngầm hạt nhân Nga phóng tên lửa vào các mục tiêu khi đang lặn",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/tau-ngam-hat-nhan-nga-phong-ten-lua-vao-cac-muc-tieu-khi-dang-lan-2565301.html"
     },
     {
       "lop": "HTML",
@@ -1281,28 +1457,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "Trump administration sues California over noncitizens on voter rolls",
+      "ngay": "2026-10-17",
+      "tieu_de": "How Iran messaging highlights cost of war ahead of US midterm elections",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/10/15/trump-administration-sues-california-over-noncitizens-on-voter-rolls?traffic_source=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "ICE tactics spark debate before pivotal US midterm elections",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/10/15/ice-tactics-spark-debate-before-pivotal-us-midterm-elections?traffic_source=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "Ahead of US midterms, voters are frustrated with Trump, want change: Poll",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/10/15/ahead-of-us-midterms-voters-are-frustrated-with-trump-want-change-poll?traffic_source=rss",
+      "url": "https://www.aljazeera.com/news/2026/10/16/how-iran-messaging-highlights-cost-of-war-ahead-of-us-midterm-elections?traffic_source=rss",
       "nhom": 5
     },
     {
@@ -1317,109 +1475,82 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "How backlash against data centres could shape the US midterm elections",
+      "ngay": "2026-10-17",
+      "tieu_de": "What we learned from heated US midterm Senate debates",
       "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/c0rezqpnekro?at_medium=RSS&at_campaign=rss",
+      "url": "https://www.bbc.co.uk/news/articles/cqly03y3zg7lo?at_medium=RSS&at_campaign=rss",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "Zelensky rallies European allies as US support for Ukraine wanes",
+      "ngay": "2026-10-17",
+      "tieu_de": "Trump Vs Zelensky, From the Screen to the Streets, Gen Z protests from Paris to Dehli",
       "nguon": "France 24",
-      "url": "https://www.france24.com/en/europe/20261015-zelensky-rallies-european-allies-as-us-support-for-ukraine-wanes",
+      "url": "https://www.france24.com/en/tv-shows/the-world-this-week/20261016-trump-vs-zelensky-from-the-screen-to-the-streets-gen-z-protests-from-paris-to-dehli",
       "nhom": 3
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Fake AI images of protester go viral after woman punched at Trump's Ohio rally",
+      "tieu_de": "'Thanks a lot, Trump': Wyoming conservatives divided ahead of US midterms",
       "nguon": "France 24",
-      "url": "https://www.france24.com/en/fake-ai-images-of-protester-go-viral-after-woman-punched-at-trump-s-ohio-rally",
-      "nhom": 3
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "Why have US-Ukraine relations soured ahead of the midterms?",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/europe/20261015-why-have-us-ukraine-relations-soured-ahead-of-the-midterms",
+      "url": "https://www.france24.com/en/tv-shows/reporters/20261016-thanks-a-lot-trump-wyoming-conservatives-divided-ahead-us-midterms",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "2026 Midterms: Georgia's Ossof-Collins showdown lies at the heart of the battle for US Senate",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20261015-2026-midterms-georgia-s-ossof-collins-showdown-lies-at-the-heart-of-the-battle-for-us-senate",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "US consumer inflation hotter than expected as midterms loom",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/video/20261015-us-consumer-inflation-hotter-than-expected-as-midterms-loom",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Zelensky rallies European allies as Trump ties slump",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/zelensky-rallies-european-allies-as-trump-ties-slump",
-      "nhom": 3
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "US stocks drop to their worst day since July as inflation worsens",
+      "tieu_de": "EU rallies around Zelensky as rift widens with Trump over Russia energy strikes",
       "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/united-states-canada/article/3370922/us-stocks-drop-their-worst-day-july-inflation-worsens?utm_source=rss_feed",
+      "url": "https://www.scmp.com/news/world/europe/article/3371174/european-leaders-back-zelensky-ukraine-us-ties-fray-over-trumps-russia-sanctions-lift?utm_source=rss_feed",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "U.S. midterms — Donald Trump’s test, India’s stakes",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/opinion/op-ed/us-midterms-donald-trumps-test-indias-stakes/article71593689.ece",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "US issues new Iran-related sanctions against 16 individuals, 11 entities",
+      "nguon": "Africanews",
+      "url": "http://www.africanews.com/2026/10/16/us-issues-new-iran-related-sanctions-against-16-individuals-11-entities/",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Frustrated with Trump, voters overwhelmingly want change in Washington, an AP-NORC poll finds",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/frustrated-with-trump-voters-overwhelmingly-want-change-in-washington-an-ap-norc-poll-finds/article71589722.ece",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "U.S. lawmaker concerned over India’s actions to 'purge 130 million people’ from voter rolls",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/us-lawmaker-pramila-jayapal-concerned-over-sir-voter-rolls-deletions/article71585479.ece",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "America's wits' end election approaches",
+      "tieu_de": "Democrats post \"mind-blowing\" numbers ahead of 2026 midterms",
       "nguon": "Axios",
-      "url": "https://www.axios.com/2026/10/15/americas-wits-end-election-approaches",
+      "url": "https://www.axios.com/2026/10/16/democrats-midterms-fundraising-senate",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Bộ Tư pháp Mỹ ra tối hậu thư với California trước bầu cử giữa kỳ",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/bo-tu-phap-my-ra-toi-hau-thu-voi-california-truoc-bau-cu-giua-ky-5132579.html",
+      "ngay": "2026-10-16",
+      "tieu_de": "Trump sues California to prevent counting 20,000 voters' ballots",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/10/15/trump-doj-california-voters-ballots-lawsuit",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "Why Trump and the GOP's billion-dollar midterm blitz isn’t working",
+      "nguon": "CNBC",
+      "url": "https://www.cnbc.com/2026/10/16/republicans-midterms-spending-trump-musk-2026.html",
       "nhom": 5
     },
     {
@@ -1434,10 +1565,55 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Cử tri nghi không mang quốc tịch Mỹ: Bộ Tư pháp ra tối hậu thư 48 giờ, California phản ứng gắt",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/cu-tri-nghi-khong-mang-quoc-tich-my-bo-tu-phap-ra-toi-hau-thu-48-gio-california-phan-ung-gat-100261015162832286.htm",
+      "ngay": "2026-10-16",
+      "tieu_de": "Mỹ cân nhắc gỡ trừng phạt một số \"tàu bóng tối” để hạ cước vận tải",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/my-can-nhac-go-trung-phat-mot-so-tau-bong-toi-de-ha-cuoc-van-tai.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Vợ chồng cựu Tổng thống Bill Clinton tái xuất trước bầu cử giữa kỳ Mỹ",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/vo-chong-cuu-tong-thong-bill-clinton-tai-xuat-truoc-bau-cu-giua-ky-my-20261016134056394.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Ông Trump đáp trả gay gắt ông Zelensky, hối thúc Ukraine tổ chức bầu cử",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/ong-trump-dap-tra-gay-gat-ong-zelensky-hoi-thuc-ukraine-to-chuc-bau-cu-20261016094517422.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Are dark days ahead for Republicans after the midterm elections?",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/opinion/campaign/6152116-trump-midterms-republican-turnout/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Trump’s final insult to Republican voters",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/opinion/campaign/6151541-gop-candidate-quality-decline/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Trump wins elections but fails at governing",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/opinion/white-house/6150148-trump-policies-backfire-voters/",
       "nhom": 5
     },
     {
@@ -1462,171 +1638,117 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "Trump to campaign in Iowa twice before Election Day",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6151685-trump-iowa-senate-race-hinson-turkek-2026-midterms/",
+      "tieu_de": "‘Scrappy’ conference chair helped shape GOP midterm message",
+      "nguon": "Roll Call",
+      "url": "https://rollcall.com/2026/10/16/scrappy-conference-chair-helped-shape-gop-midterm-message/",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-16",
-      "tieu_de": "India’s US ambassador blasts Jayapal’s statement on voter rolls purge",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/policy/international/6151128-india-ambassador-slams-jayapal/",
+      "tieu_de": "‘Should be shot’: Trump intensifies midterms messaging",
+      "nguon": "Roll Call",
+      "url": "https://rollcall.com/2026/10/16/should-be-shot-trump-intensifies-midterms-messaging/",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Watch live: Vance to rally GOP voters in Michigan",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/video-clips/6150089-watch-live-jd-vance-gop-campaign-rally-midterms-michigan/",
+      "ngay": "2026-10-16",
+      "tieu_de": "As Trump chaos builds ahead of the midterms, Albanese must tread carefully | Tom McIlroy",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/commentisfree/2026/oct/17/trump-chaos-us-midterms-albanese-must-tread-carefully",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "US Fed’s Kevin Warsh surprised by world economy’s ‘resilience’",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/se-asia/ai-most-consequential-change-to-economy-in-my-lifetime-feds-kevin-warsh",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Trump has failed to listen to voters on inflation",
+      "nguon": "Financial Times — World",
+      "url": "https://www.ft.com/content/a0a143ac-6a48-410a-b121-92f293b0ad6d",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Federal Reserve Board announces termination of enforcement actions with Gardner Bancshares, Inc. and Small Business Bank",
+      "nguon": "Cục Dự trữ Liên bang",
+      "url": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20261016a.htm",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Governments and Faith Communities: Supporting the Economic Fundamentals of “The Good Life”",
+      "nguon": "USTR",
+      "url": "https://ustr.gov/about/policy-offices/press-office/speeches-and-remarks/2026/october/governments-and-faith-communities-supporting-economic-fundamentals-good-life",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "October",
+      "nguon": "USTR",
+      "url": "https://ustr.gov/about/policy-offices/press-office/speeches-and-remarks/2026/october",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Russia, China and Iran Harness AI for U.S. Midterm Disinformation",
+      "nguon": "RealClearDefense",
+      "url": "https://www.realcleardefense.com/china/links/russia-china-and-iran-harness-ai-for-us-midterm-disinformation-2026-10-16",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-17",
+      "tieu_de": "Trump’s appearance at Georgia rally disrupted by anti-ICE protesters – US politics live",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/live/2026/oct/16/trump-texas-senate-race-midterms-paxton-talarico-zacharia-ukraine-starlink-diesel-oregon-latest-news-updates",
       "nhom": 3
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Former Cruz spokesperson: ‘It’s going to be a bad night’ for Republicans in midterms",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6151052-rick-tyler-predicts-bad-republican-night/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Democrats hold 3-point lead on generic ballot: AARP poll",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6149212-democrats-republicans-generic-ballot-aarp-poll/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Judge extends block on taxpayer-funded Trump ads until after midterms",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/regulation/court-battles/6150263-donald-trump-taxpayer-funded-ads-block-extended/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Trump’s new sanctions could dismantle the International Criminal Court",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/opinion/criminal-justice/6148562-trump-administration-icc-sanctions-lawsuit/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Democrats must not take their opportunity to win the midterms for granted",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/opinion/campaign/6148408-dnc-midterm-turnout-plan/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Trump’s flood-the-zone strategy drowns state-specific midterm messaging",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/campaign/6149466-donald-trump-midterm-economic-initiatives-rallies/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "UK Tightens Russian Oil Sanctions as U.S. Weighs Relief",
-      "nguon": "gCaptain",
-      "url": "https://gcaptain.com/uk-tightens-russian-oil-sanctions-as-u-s-weighs-relief/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Trump Weighs Lifting Shadow Fleet Sanctions as Tanker Rates Soar",
-      "nguon": "gCaptain",
-      "url": "https://gcaptain.com/trump-weighs-lifting-shadow-fleet-sanctions-as-tanker-rates-soar/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Trump’s Midterm Strategy Harks Back to 1970",
-      "nguon": "Foreign Policy",
-      "url": "https://foreignpolicy.com/2026/10/15/trump-midterm-strategy-positive-polarization/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Rising inflation piles pressure on US voters ahead of midterm elections",
-      "nguon": "Financial Times — World",
-      "url": "https://www.ft.com/content/f344bdb0-7bc9-43ab-804e-88990d59091e?syn-25a6b1a6=1",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Parliamentary committee adopts confirmation hearing report for SCIA chief nominee",
-      "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20261015007000315",
-      "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Tech market sell-off deepens amid fears over US inflation and AI debt",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/business/2026/oct/15/tech-market-sell-off-deepens-amid-fears-over-us-inflation-and-ai-debt",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Iran ramps up ship strikes in Hormuz ahead of US midterms",
+      "ngay": "2026-10-17",
+      "tieu_de": "Tariffs pose a risk to US-India relationship",
       "nguon": "Semafor",
-      "url": "https://www.semafor.com/article/10/14/2026/iran-ramps-up-ship-strikes-in-hormuz-ahead-of-us-midterms",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Mỹ dỡ bỏ lệnh trừng phạt Chủ tịch Quốc hội Venezuela",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/my-do-bo-lenh-trung-phat-chu-tich-quoc-hoi-venezuela-post1142128.vnp",
+      "url": "https://www.semafor.com/article/10/16/2026/tariffs-pose-a-risk-to-us-india-relationship",
       "nhom": 4
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Bầu cử Mỹ: Hai đảng tăng tốc vận động trong những tuần cuối",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/bau-cu-my-hai-dang-tang-toc-van-dong-trong-nhung-tuan-cuoi-post1142092.vnp",
+      "ngay": "2026-10-16",
+      "tieu_de": "US Chamber of Commerce makes midterm moves",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/10/16/2026/us-chamber-of-commerce-makes-midterm-moves",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Lạm phát Mỹ tăng vượt dự báo, gia tăng sức ép lên chính sách lãi suất",
+      "ngay": "2026-10-16",
+      "tieu_de": "Mỹ áp đặt các biện pháp trừng phạt mới liên quan đến Iran và Cuba",
       "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/lam-phat-my-tang-vuot-du-bao-gia-tang-suc-ep-len-chinh-sach-lai-suat-post1142070.vnp",
+      "url": "https://www.vietnamplus.vn/my-ap-dat-cac-bien-phap-trung-phat-moi-lien-quan-den-iran-va-cuba-post1142296.vnp",
       "nhom": 4
     },
     {
@@ -1641,10 +1763,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-15",
-      "tieu_de": "Những &amp;apos;điểm nóng&amp;apos; toàn cầu khiến ông Trump thêm đau đầu trước bầu cử giữa kỳ Mỹ",
+      "ngay": "2026-10-16",
+      "tieu_de": "Ông Trump chỉ trích Tổng thống Ukraine, kêu gọi Kiev tổ chức bầu cử",
       "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/nhung-diem-nong-toan-cau-khien-ong-trump-them-dau-dau-truoc-bau-cu-giua-ky-my-2564648.html",
+      "url": "https://vietnamnet.vn/ong-trump-chi-trich-tong-thong-ukraine-keu-goi-kiev-to-chuc-bau-cu-2565364.html",
       "nhom": 5
     },
     {
