@@ -5,3 +5,4 @@
 [21:38Z] DONE web-scan, commit 7362ae5 da push.
 [21:39Z] START event-scan (CI, gop vao sang som)
 [21:50Z] do_tap_tran_thieu.py: khong co cuoc tap tran moi du chuan (toan tin le/da ket thuc). Agent su kien ngoai giao: +1 (Kazakhstan-Campuchia). Agent think-tank: +6 bai, 8 khai niem cho 3 bai. Chu nhat -> agent Opus bao cao tuan: +1 (3 nuoc, 10 luan diem).
+[21:52Z] SKIP web-scan + event-scan (phien moi, exit 10 ca hai) - phien sang som da DONE luc 04:38:54/04:50:51 VN hom nay, so_da_gui.py --xem xac nhan dong [sang] 20 tin va [sukien] 0 tin da ghi luc 04:51 VN. Khong quet lai.
