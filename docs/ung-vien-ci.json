@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-10-18T03:46:37+07:00",
+  "tao_luc": "2026-10-18T05:34:33+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-17",
     "2026-10-18"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-18",
+      "tieu_de": "Cost of living protests hit Belgium, Italy, Portugal and France",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/10/17/cost-of-living-protests-hit-belgium-italy-portugal-and-france?traffic_source=rss"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -66,6 +74,14 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-10-18",
+      "tieu_de": "Basque migrants transformed town and left behind heritage handball court",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-18/trebonne-heritage-listed-basque-handball-court/107217934"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-18",
       "tieu_de": "Forget stadium concerts, there’s a seriously cool music revolution happening in western Sydney",
       "nguon": "Sydney Morning Herald",
       "url": "https://www.smh.com.au/national/nsw/forget-stadium-concerts-there-s-a-seriously-cool-music-revolution-happening-in-western-sydney-20261018-p613va.html?ref=rss&utm_medium=rss&utm_source=rss_national"
@@ -85,14 +101,6 @@
       "tieu_de": "Days before opening, Western Sydney Airport announces first lounge",
       "nguon": "Australian Financial Review",
       "url": "https://www.afr.com/life-and-luxury/travel/days-before-opening-western-sydney-airport-announces-first-lounge-20261018-p616d3?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-10-18",
-      "tieu_de": "Fire rages at town hall in France's Limoges after protests",
-      "nguon": "Inquirer",
-      "url": "https://globalnation.inquirer.net/342336/fire-rages-at-town-hall-in-frances-limoges-after-protests"
     },
     {
       "lop": "RSS",
@@ -283,16 +291,8 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-16",
       "tieu_de": "Hegseth ramps up US troops in Panama as Pentagon expands war on drug cartels",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6152622-us-jungle-warfare-training-latin-america/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-16",
-      "tieu_de": "GOP senators press Pentagon over Ukraine’s loss of Starshield data",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/senate/6152690-senators-demand-starshield-probe/"
     },
     {
       "lop": "RSS",
@@ -333,14 +333,6 @@
       "tieu_de": "NAWCAD tests GPS-free drone landings on moving US Navy ships",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/nawcad-drone-test-navy-ships/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "F-22 Pilot Controls FQ-44 Fighter Drone From The Cockpit For The First Time",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/air/f-22-pilot-controls-fq-44-fighter-drone-from-the-cockpit-for-the-first-time"
     },
     {
       "lop": "RSS",
@@ -401,22 +393,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "BAE Systems Receives Space Force Contract For Small RF Terminals",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/bae-systems-receives-space-force-contract-for-small-rf-terminals/space/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "U.S. Space Force Forecasts Buy of 32 to 56 Meadowlands Jammers",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/u-s-space-force-forecasts-buy-of-32-to-56-meadowlands-jammers/space/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-15",
       "tieu_de": "NORTHCOM’s JTF-Gold Helping Set Up Defensive Cyber for Golden Dome",
       "nguon": "Defense Daily",
@@ -437,14 +413,6 @@
       "tieu_de": "Air Force May Buy Land for 120 New Sentinel ICBM Silos",
       "nguon": "Air & Space Forces Magazine",
       "url": "https://www.airandspaceforces.com/air-force-may-buy-land-for-120-new-sentinel-icbm-silos/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "Meet the Task Force Trying to Turn Golden Dome Into Reality",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/task-force-turning-golden-dome-into-reality/"
     },
     {
       "lop": "RSS",
@@ -817,22 +785,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "No estimate given for Achilles delay after dock fire",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/no-estimate-given-for-achilles-delay-after-dock-fire/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Iron Duke refit cost a hundred million before withdrawal",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/iron-duke-refit-cost-a-hundred-million-before-withdrawal/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-17",
       "tieu_de": "Britain puts stealth fighters to sea in the High North",
       "nguon": "**UK Defence Journal**",
@@ -881,30 +833,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-17",
-      "tieu_de": "Independent Scotland would leave UK forces their kit",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/independent-scotland-would-leave-uk-forces-their-kit/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-17",
-      "tieu_de": "HMS Prince of Wales sails tomorrow for second phase of NATO northern flank mission",
-      "nguon": "**Navy Lookout (Hải quân Anh)**",
-      "url": "https://www.navylookout.com/hms-prince-of-wales-sails-tomorrow-for-second-phase-of-nato-northern-flank-mission/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-17",
-      "tieu_de": "Brexit’s back – but are British voters ready to contemplate a reversal?",
-      "nguon": "**The Guardian — Politics (Anh)**",
-      "url": "https://www.theguardian.com/politics/2026/oct/17/brexit-back-british-voters-ready-contemplate-reversal"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
       "tieu_de": "Why no number of new migrants will ever satisfy Australian-born citizens",
       "nguon": "Sydney Morning Herald",
@@ -937,6 +865,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-18",
+      "tieu_de": "Big bank CEOs to be grilled by Canberra over gouging borrowers",
+      "nguon": "Australian Financial Review",
+      "url": "https://www.afr.com/companies/financial-services/big-bank-ceos-to-be-grilled-by-canberra-over-gouging-borrowers-20261018-p6166y?ref=rss&utm_medium=rss&utm_source=rss_feed"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-17",
       "tieu_de": "As Asia grays, can an aging Philippines avoid its neighbors’ fate?",
       "nguon": "Rappler",
@@ -949,6 +885,14 @@
       "tieu_de": "Inside story: Politician behind 521-kilo shabu shipment bound for Manila",
       "nguon": "Rappler",
       "url": "https://www.rappler.com/philippines/inside-story-politician-shabu-laos-manila/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-18",
+      "tieu_de": "Development banks pledge support in 1st Manila meeting",
+      "nguon": "Inquirer",
+      "url": "https://newsinfo.inquirer.net/2325777/development-banks-pledge-support-in-1st-manila-meeting"
     },
     {
       "lop": "RSS",
@@ -1061,6 +1005,15 @@
       "tieu_de": "U.S. Navy and AUKUS Partners Launch Landmark Maritime Big Play Pacific Demonstration",
       "nguon": "Hải quân Mỹ",
       "url": "https://www.navy.mil/Press-Office/Press-Releases/display-pressreleases/Article/4620986/us-navy-and-aukus-partners-launch-landmark-maritime-big-play-pacific-demonstrat/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-18",
+      "tieu_de": "Photos: No Kings rallies in US urge midterm voters to cast ballots early",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/gallery/2026/10/17/photos-no-kings-rallies-in-us-urge-midterm-voters-to-cast-ballots-early?traffic_source=rss",
+      "nhom": 3
     },
     {
       "lop": "RSS",
@@ -1308,6 +1261,24 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-18",
+      "tieu_de": "Sunday shows preview: Trump-Zelensky feud escalates; Controversies hit White House before midterms",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/sunday-talk-shows/6156133-trump-russia-sanctions-backlash/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-18",
+      "tieu_de": "Concerning economic data pose issues for GOP down midterm stretch",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/business/6155023-inflation-midterm-elections-republicans/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-17",
       "tieu_de": "Trump: California officials will ‘go to jail’ if state ignores DOJ voter roll suit",
       "nguon": "The Hill",
@@ -1345,19 +1316,10 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-18",
-      "tieu_de": "Farmers loyal to Trump turn on him as crucial elections approach",
+      "tieu_de": "Trump policies come home to roost as farmers turn backs ahead of midterms",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-10-18/farmers-turn-against-donald-trump-ahead-of-midterms/107265122",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-18",
-      "tieu_de": "Trump halts new Russia sanctions as Ukraine stoush deepens",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/politics/federal/trump-halts-new-russia-energy-sanctions-as-ukraine-stoush-deepens-20261018-p616f3?ref=rss&utm_medium=rss&utm_source=rss_feed",
-      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1426,6 +1388,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-17",
+      "tieu_de": "Trump waives new Russia sanctions as Ukraine ties slump",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/news/2026/10/17/world/politics/trump-waives-russia-sanctions/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-17",
       "tieu_de": "Russia is using an army of bots to push fake U.S. election videos",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/10/17/world/russia-disinformation-bots-us-midterms/",
@@ -1479,10 +1450,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "Ông Trump tạm hoãn các biện pháp trừng phạt mới đối với Nga",
+      "ngay": "2026-10-18",
+      "tieu_de": "Tin tức Thế giới 18/10: Ông Trump tạm hoãn các biện pháp trừng phạt mới với Nga",
       "nguon": "VietnamNet",
-      "url": "https://vietnamnet.vn/ong-trump-tam-hoan-cac-bien-phap-trung-phat-moi-doi-voi-nga-2565686.html",
+      "url": "https://vietnamnet.vn/tin-tuc-the-gioi-18-10-ong-trump-tam-hoan-cac-bien-phap-trung-phat-moi-voi-nga-2565810.html",
       "nhom": 4
     },
     {
