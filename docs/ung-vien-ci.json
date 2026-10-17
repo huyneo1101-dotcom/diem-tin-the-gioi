@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-18T05:34:33+07:00",
+  "tao_luc": "2026-10-18T06:21:02+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-17",
@@ -682,6 +682,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
+      "tieu_de": "'Severe drought' declared in parts of United Kingdom",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/severe-drought-declared-in-parts-of-united-kingdom/article71588927.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-18",
       "tieu_de": "Trump says Taiwan to buy 30% of gas from Alaska pipeline",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/trump-says-taiwan-to-buy-30-of-gas-from-alaska-pipeline/article71582181.ece"
@@ -693,14 +701,6 @@
       "tieu_de": "Zelenskyy to visit Britain as Burnham pledges fresh support for Ukraine",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/zelenskyy-to-visit-britain-as-burnham-pledges-fresh-support-for-ukraine/article71581319.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-17",
-      "tieu_de": "Australia will do ‘anything we can’ to stop U.S. execution being shown online: PM Albanese",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/australia-will-do-anything-we-can-to-stop-us-execution-being-shown-online-pm-albanese/article71578210.ece"
     },
     {
       "lop": "RSS",
@@ -857,14 +857,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-17",
-      "tieu_de": "Mexican judge sentences three men to 158 years in prison for murders of Australian and US surfers​",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/17/mexican-judge-sentences-three-men-to-158-years-in-prison-for-murders-of-australian-and-us-surfers-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
       "tieu_de": "Big bank CEOs to be grilled by Canberra over gouging borrowers",
       "nguon": "Australian Financial Review",
@@ -986,6 +978,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-17",
+      "tieu_de": "Mexican judge sentences three men to 158 years in prison for murders of Australian and US surfers​",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/oct/17/mexican-judge-sentences-three-men-to-158-years-in-prison-for-murders-of-australian-and-us-surfers-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-17",
       "tieu_de": "Mortgage repayments are now cheaper than rent in some Australian suburbs. Is yours among them?",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/2026/oct/17/buying-a-home-cheaper-than-renting-in-some-australian-suburbs"
@@ -1100,6 +1100,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-18",
+      "tieu_de": "Frustrated with Trump, voters overwhelmingly want change in Washington, an AP-NORC poll finds",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/frustrated-with-trump-voters-overwhelmingly-want-change-in-washington-an-ap-norc-poll-finds/article71589722.ece",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-18",
       "tieu_de": "U.S. lawmaker concerned over India’s actions to 'purge 130 million people’ from voter rolls",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/us-lawmaker-pramila-jayapal-concerned-over-sir-voter-rolls-deletions/article71585479.ece",
@@ -1113,15 +1122,6 @@
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/zelenskyy-says-trump-could-lift-more-russia-sanctions/article71597822.ece",
       "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "Musk has spent $276 million on midterms to help Republicans retain control of Congress",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/musk-has-spent-276-million-on-midterms-to-help-republicans-retain-control-of-congress/article71577755.ece",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1185,6 +1185,15 @@
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/tong-thong-my-ky-sac-lenh-mien-loat-trung-phat-voi-nga-5133471.html",
       "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-18",
+      "tieu_de": "B&agrave;n cờ thế giới trước hệ quả từ bầu cử giữa kỳ tại Mỹ",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/ban-co-the-gioi-truoc-he-qua-tu-bau-cu-giua-ky-tai-my-185261017202210576.htm",
+      "nhom": 5
     },
     {
       "lop": "RSS",
