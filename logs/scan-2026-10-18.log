@@ -2,3 +2,5 @@
 [21:08Z] harvest.py OK (426 ung vien) + telegram_harvest.py OK (21 ung vien TG)
 [21:09Z] gh workflow run telegram-bot.yml bi chan approval - chua kich duoc bot, di tiep
 [21:38Z] da giao 5 luong agent (A noi bo My, B Uc&BienDong, C CNQS, D Mali+tap tran, BM BaoMoi) + 1 agent bo sung (du 6/6 tran). add_news.py nap +8 worldNews, +12 usNews, +2 exerciseUpdates. 4/6 don vi hut san sau vong bo sung (Doi ngoai My 4/5, Noi bo My 2/5, Australia 0/5, Bien Dong 2/5) - xem logs/scan-gaps.json. tin_jaylam.py: thieu SUPABASE_ANON_KEY trong CI, khong doc duoc file Jay Lam.
+[21:38Z] DONE web-scan, commit 7362ae5 da push.
+[21:39Z] START event-scan (CI, gop vao sang som)
