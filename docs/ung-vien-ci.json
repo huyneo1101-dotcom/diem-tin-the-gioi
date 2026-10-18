@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-19T03:46:33+07:00",
+  "tao_luc": "2026-10-19T05:33:37+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-18",
@@ -537,6 +537,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-19",
+      "tieu_de": "Tim Winton reveals the story behind the nation's favourite Australian book",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-19/cloudstreet-tim-winton-wins-top-100-australian-books/107275314"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
       "tieu_de": "East African oil could loosen Asia’s grip on Australia’s fuel supply",
       "nguon": "Lowy Interpreter",
@@ -626,38 +634,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
-      "tieu_de": "‘Many family stories’: Tim Winton’s Cloudstreet takes out ABC radio poll of top 100 Australian books",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/books/2026/oct/18/tim-winton-cloudstreet-abc-poll-top-100-australian-books"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-19",
-      "tieu_de": "Short selling the latest blood sport at the Australian Club",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/rear-window/short-selling-the-latest-blood-sport-at-the-australian-club-20261019-p6165i?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Microsoft axes major Nscale deal in blow to Australian AI entrepreneur",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/technology/microsoft-axes-major-nscale-deal-in-blow-to-australian-ai-entrepreneur-20261019-p616jh?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Australian consumer confidence falls faster than almost anywhere",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/policy/economy/australian-consumer-confidence-falls-faster-than-almost-anywhere-20261018-p615eu?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
       "tieu_de": "Oil stockpiling deal eyed between Philippines, United States",
       "nguon": "Philstar (headlines)",
       "url": "https://www.philstar.com/headlines/2026/10/19/2564128/oil-stockpiling-deal-eyed-between-philippines-united-states"
@@ -735,6 +711,14 @@
       "url": "https://www.straitstimes.com/asia/se-asia/malaysia-exploring-using-drones-to-deliver-critical-cargo-to-remote-communities"
     },
     {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-18",
+      "tieu_de": "‘Many family stories’: Tim Winton’s Cloudstreet takes out ABC radio poll of top 100 Australian books",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/books/2026/oct/18/tim-winton-cloudstreet-abc-poll-top-100-australian-books"
+    },
+    {
       "lop": "HTML",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
@@ -754,11 +738,11 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-18",
-      "tieu_de": "Why is Trump now encouraging mail-in voting?",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/18/why-is-trump-now-encouraging-mail-in-voting?traffic_source=rss",
-      "nhom": 5
+      "ngay": "2026-10-19",
+      "tieu_de": "Trump says suspension of Russia sanctions is to keep peace negotiations going",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/c9p8gz7zx4peo?at_medium=RSS&at_campaign=rss",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -767,6 +751,15 @@
       "tieu_de": "Trump waives several Russia sanctions as row with Zelensky intensifies",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cxr5yvzv7rp0o?at_medium=RSS&at_campaign=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-19",
+      "tieu_de": "Trump defends Russia sanctions relief, accuses Zelensky of rejecting peace",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/europe/20261018-ukraine-zelensky-war-trump-peace-russia-sanctions",
       "nhom": 4
     },
     {
@@ -800,27 +793,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-18",
-      "tieu_de": "Across the US, ‘No Kings’ events seek to boost early voting for midterms",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/across-the-us-no-kings-events-seek-to-boost-early-voting-for-midterms",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-18",
       "tieu_de": "Trump’s Russia sanctions waiver called mistake by Republican Party allies",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/united-states/trumps-russia-sanctions-waiver-called-mistake-by-republican-party-allies",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-18",
-      "tieu_de": "Zelensky criticises Trump’s waiver of sanctions on Russia as ‘wrong’",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/zelenskiy-criticizes-trumps-waiver-of-sanctions-on-russia-as-wrong",
       "nhom": 4
     },
     {
@@ -840,6 +815,24 @@
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/middle-east/article/3371326/trump-endorses-ally-netanyahu-israeli-election-praising-great-warrior-prime-minister?utm_source=rss_feed",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-18",
+      "tieu_de": "Across US, ‘No Kings’ events seek to boost early voting and thwart Trump",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3371279/across-us-no-kings-events-seek-boost-early-voting?utm_source=rss_feed",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-19",
+      "tieu_de": "Zelenskyy says Trump could lift more Russia sanctions",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/zelenskyy-says-trump-could-lift-more-russia-sanctions/article71597822.ece",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -953,6 +946,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-19",
+      "tieu_de": "Bessent says there was no sanctions relief for Russia after U.S. diesel deal",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6156573-bessent-refutes-sanctions-relief/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-19",
       "tieu_de": "Newsom campaigns with New Hampshire Democrats ahead of midterms",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/campaign/6156885-newsom-nh-campaign-stops/",
@@ -989,7 +991,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-18",
-      "tieu_de": "Sunday shows preview: Trump-Zelensky feud escalates; Controversies hit White House before midterms",
+      "tieu_de": "Sunday shows preview: Trump-Zelensky feud escalates; controversies hit White House before midterms",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/sunday-talk-shows/6156133-trump-russia-sanctions-backlash/",
       "nhom": 5
@@ -1006,11 +1008,11 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-19",
-      "tieu_de": "Macron vows crackdown after protests; Trump endorses Netanyahu in election",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/politics/federal/france-counts-cost-of-worst-unrest-in-years-20261019-p616ji?ref=rss&utm_medium=rss&utm_source=rss_feed",
-      "nhom": 3
+      "ngay": "2026-10-18",
+      "tieu_de": "Zelenskyy criticizes Trump’s waiver of sanctions on Russia as ‘wrong’",
+      "nguon": "Rappler",
+      "url": "https://www.rappler.com/world/europe/ukraine-zelenskyy-criticism-trump-waiver-russia-sanctions/",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1028,15 +1030,6 @@
       "tieu_de": "Could Republicans prove the pollsters wrong in the midterms?",
       "nguon": "Financial Times — World",
       "url": "https://www.ft.com/content/b2299174-fb78-4edf-a358-8cae837f8d7b?syn-25a6b1a6=1",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-18",
-      "tieu_de": "Is American democracy safe? Martin Wolf on the US midterms",
-      "nguon": "Financial Times — World",
-      "url": "https://www.ft.com/content/747f16db-17fd-49d0-b109-981274333feb?syn-25a6b1a6=1",
       "nhom": 5
     },
     {
