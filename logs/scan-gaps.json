@@ -1,17 +1,15 @@
 {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"4/5. Đã nới thêm vòng agent bổ sung (RFE/RL phản ứng Nga+Quốc hội, Al Jazeera Rubio-Uzbekistan). Các ứng viên khác (Caribbean Dialogue state.gov, Rubio-Milei call state.gov, Zelensky statement qua The Hill) đều bị cổng ngày đăng thật chặn (trang không in ngày đọc được, hoặc ngày thật ngoài khung). Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô."},
-    {"name":"Nội bộ Mỹ","count":2,"target":"5-13","min":5,"thieu":true,
-     "reason":"2/5. Quốc hội Mỹ đang trong kỳ nghỉ (pro forma session) nên nhóm 1 (điều trần+bỏ phiếu, hạng ưu tiên cao nhất) hoàn toàn trống trong khung 17-18/10. Tin Trump vận động Kentucky (Washington Times) bị cổng ngày thật chặn (không có metadata ngày đọc được); tin biểu tình thay thế (Fox News) bị chặn vì URL live-blog. Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô."},
+    {"name":"Đối ngoại Mỹ","count":2,"target":"5","min":5,"thieu":true,
+     "reason":"2/5. Cổng NGÀY ĐĂNG THẬT chặn hầu hết ứng viên đối ngoại (Rubio/state.gov không có metadata ngày đọc được; Pence/thehill không có metadata ngày; Bessent/CNBC không lấy được tiêu đề trang khi máy mở lại). Chỉ giữ được 2 tin đối ngoại qua cổng (Rubio thăm Trung Á né điểm nóng - PBS; Trump ủng hộ Netanyahu tái cử - PBS). Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô."},
+    {"name":"Nội bộ Mỹ","count":10,"target":"5-13","min":5,"thieu":false,"reason":""},
     {"name":"Địa bàn › Anh","count":6,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":0,"target":"5","min":5,"thieu":true,
-     "reason":"0/5 — gap toàn bộ. Hai luồng (agent B + agent bổ sung) cùng tìm nhưng mọi ứng viên đều bị cổng ngày đăng thật chặn vì đăng thật ngoài khung 17-18/10 dù URL/agent khai đúng ngày (Tomahawk sale/Janes thật đăng 09/10; HMAS Leeuwin camera thật đăng 15/10; thăm dò Labor/ABC thật đăng 16/10; FTA EU-Australia Senate thật đăng 16/10). Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô — cần phiên sau tiếp tục tìm nguồn Úc có ngày đăng mới hơn."},
-    {"name":"Địa bàn › Biển Đông","count":2,"target":"5","min":5,"thieu":true,
-     "reason":"2/5. Ứng viên bổ sung (USNI News tập trận 5 nước + phao Scarborough, kế hoạch Chuỗi đảo 1 của Lục quân Mỹ, tàu sân bay Liêu Ninh) đều bị cổng ngày đăng thật chặn vì đăng thật 14-16/10/2026 dù URL/agent khai 17/10. Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô."},
-    {"name":"KHCN-QS","count":8,"target":"5-10","min":5,"thieu":false,"reason":"6 tin CNQS Mỹ + 2 cập nhật tập trận (INDRA 2026, Mountain Guardian 2026)."}
+    {"name":"Địa bàn › Australia","count":4,"target":"5","min":5,"thieu":true,
+     "reason":"4/5. Nhiều ứng viên bị cổng ngày đăng thật chặn vì bài thật đăng cũ hơn khung (Bersama Lima FPDA thật đăng 07/10, Maritime Big Play Pacific thật đăng 07/10, Keris Woomera thật đăng 13/10, StrikeMaster/Australian Defence Magazine không có metadata ngày đọc được). Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô."},
+    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"KHCN-QS","count":6,"target":"5-10","min":5,"thieu":false,"reason":"4 tin CNQS Mỹ + 2 cập nhật tập trận (INDRA 2026, Keen Sword 26)."}
   ],
-  "note": "Phiên sáng sớm 18/10: dùng đủ 6/6 agent con cho phép (5 luồng gốc A·B·C·D·BM + 1 agent bổ sung). 4/6 đơn vị hụt sàn sau vòng bổ sung — nguyên nhân chính là cổng NGÀY ĐĂNG THẬT chặn nhiều ứng viên có vẻ đúng ngày nhưng metadata thật cũ hơn 1-9 ngày, và Quốc hội Mỹ đang nghỉ họp (nhóm 1 trống). Theo luật TRẦN AGENT CON (vá 05/10/2026), không giao vòng thứ hai. Chi tiết từng tin bị loại: logs/loai-tin.md."
+  "note": "Mỹ-Mali (không mang sàn): 0/5 — 31 ứng viên GNEWS đều là rác trùng từ khoá 'Mali' (cricket/thể thao/tin Ấn Độ) hoặc tin ECOWAS-Sahel không có góc Mỹ, không nạp được tin nào qua cổng. Cổng Báo Mới: 6 ứng viên trùng sự kiện Trump-Russia-sanctions đã nạp qua nguồn gốc, bỏ hết (xem logs/loai-tin.md). VẤP QUY TRÌNH: agent bổ sung (vòng duy nhất, trần agent con) chạy ~72 phút thay vì vài phút như các agent chính, khiến phiên vượt HẠN CHÓT 04:45 tới khoảng 05:35 trước khi commit được — bản tin vẫn đủ nội dung nhưng trễ giờ gửi."
 }

@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-19T04:03:08+07:00",
+    "lastRunAt": "2026-10-19T05:36:46+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+28 tin (5 chu de, Doi ngoai My va Australia duoi san)",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-10-18"
-    },
-    "heartbeat": "2026-10-19T04:19:34+07:00"
+      "sang": "2026-10-19"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-10-18T04:50:51+07:00",

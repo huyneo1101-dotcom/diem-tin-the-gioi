@@ -1,1 +1,7 @@
 [21:03Z] START (CI) phien sang som
+[21:08Z] harvest.py: 351 ung vien. telegram_harvest.py: ~17 ung vien (TG radar).
+[21:08Z] gh workflow run telegram-bot.yml bi chan (requires approval) - khong kich duoc bot, bo qua buoc Jay Lam o dau, se thu lai sau khi nap tin.
+[21:13Z] 4 agent chinh (A Noi bo My, B Uc-Anh-Bien Dong, C CNQS My, D Mali+tap tran) xong, dang review+gop.
+[21:19Z] agent bo sung (1/1 cho phep) giao: muc tieu Doi ngoai My + CNQS My + Uc/Anh/Bien Dong con thieu san.
+[22:36Z] agent bo sung xong SAU ~72 phut (bat thuong, cac agent chinh truoc do chi mat 3-6 phut) - vuot han chot 04:45 VN toi ~05:35 VN. Da nap xong: +9 the gioi, +4 My (lo 1) roi +7 the gioi, +8 My (lo bo sung) = tong +16 worldNews, +12 usNews, +2 tap tran (INDRA 2026, Keen Sword 26). Ghi scan-gaps.json: Doi ngoai My 2/5, Noi bo My 10 (du), Anh 6 (du), Australia 4/5, Bien Dong 5 (du), KHCN-QS 6 (du). Mali 0/5 (khong mang san, toan rac tu khoa). Cong Bao Moi: 6 ung vien trung su kien da nap, bo het.
+[22:36Z] CHOT lo do vuot han chot nghiem trong - khong giao them agent, commit ngay.
