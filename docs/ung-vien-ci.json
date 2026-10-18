@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-10-19T05:33:37+07:00",
+  "tao_luc": "2026-10-19T06:34:43+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-18",
     "2026-10-19"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-18",
+      "tieu_de": "Dozens of critically endangered orangutans saved from rampant wildfires in Indonesia",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/environment/20261018-dozens-of-critically-endangered-orangutans-saved-from-rampant-wildfires-in-indonesia"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -21,6 +29,22 @@
       "tieu_de": "Italy prolongs Schengen suspension with Spain, talks loom",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/italy-prolongs-schengen-suspension-with-spain-talks-loom/article71594031.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Khói mù từ Indonesia lan rộng, ASEAN cảnh báo mức cao nhất",
+      "nguon": "Tuổi Trẻ",
+      "url": "https://tuoitre.vn/khoi-mu-tu-indonesia-lan-rong-asean-canh-bao-muc-cao-nhat-100261017142657498.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Indonesia stocks post largest drop in 28 years after MSCI warns of downgrade",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/markets/indonesia-stocks-post-largest-drop-in-28-years-after-msci-warns-of-downgrade"
     },
     {
       "lop": "RSS",
@@ -53,6 +77,22 @@
       "tieu_de": "Western brands under pressure as 'pre-owned' luxury booms in China",
       "nguon": "Channel News Asia — Asia",
       "url": "https://www.channelnewsasia.com/east-asia/western-brands-under-pressure-pre-owned-luxury-booms-in-china-6469201"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-18",
+      "tieu_de": "Indonesia drops 2.4 tonnes of dry ice over South Sumatra to tackle haze",
+      "nguon": "Channel News Asia — Asia",
+      "url": "https://www.channelnewsasia.com/asia/indonesia-drops-24-tonnes-dry-ice-over-south-sumatra-tackle-haze-6469171"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-18",
+      "tieu_de": "Dozens of orang utans saved from Indonesia blazes",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/se-asia/dozens-of-orang-utans-saved-from-indonesia-blazes"
     },
     {
       "lop": "RSS",
@@ -93,22 +133,6 @@
       "tieu_de": "Ukrainian officials blame Pentagon for withholding life-saving intel from Kyiv",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/global/2026/10/15/ukrainian-officials-blame-pentagon-for-withholding-life-saving-intel-from-kyiv/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-18",
-      "tieu_de": "Pentagon’s wireless services left locations, data exposed, watchdog finds",
-      "nguon": "Task & Purpose",
-      "url": "https://taskandpurpose.com/news/pentagon-wireless-location-services-exposed/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "Marine Corps establishes its first medium-range missile battalion",
-      "nguon": "Task & Purpose",
-      "url": "https://taskandpurpose.com/news/marine-corps-first-missile-battatlion/"
     },
     {
       "lop": "RSS",
@@ -269,14 +293,6 @@
       "tieu_de": "Readout of Secretary of War Pete Hegseth's Meeting With the United Kingdom's Secretary of State for Defence Wes Streeting",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4626961/readout-of-secretary-of-war-pete-hegseths-meeting-with-the-united-kingdoms-secr/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-17",
-      "tieu_de": "F-22 Pilot Directs CCA in Flight as ‘Airborne QB’",
-      "nguon": "Air & Space Forces Magazine",
-      "url": "https://www.airandspaceforces.com/f-22-pilot-directs-cca-in-flight-as-airborne-qb/"
     },
     {
       "lop": "RSS",
@@ -449,14 +465,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Dozens of critically endangered orangutans saved from rampant wildfires in Indonesia",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/environment/20261018-dozens-of-critically-endangered-orangutans-saved-from-rampant-wildfires-in-indonesia"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-19",
       "tieu_de": "Taiwan says drives away 16 Chinese ships involved in 'maritime harassment'",
       "nguon": "The Hindu",
@@ -477,14 +485,6 @@
       "tieu_de": "Philippines protests Chinese envoy's remarks, calling them a 'thinly veiled threat'",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/philippines-protests-chinese-envoys-remarks-calling-them-a-thinly-veiled-threat/article71594014.ece"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Khói mù từ Indonesia lan rộng, ASEAN cảnh báo mức cao nhất",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/khoi-mu-tu-indonesia-lan-rong-asean-canh-bao-muc-cao-nhat-100261017142657498.htm"
     },
     {
       "lop": "RSS",
@@ -514,14 +514,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
-      "tieu_de": "Indonesia stocks post largest drop in 28 years after MSCI warns of downgrade",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/markets/indonesia-stocks-post-largest-drop-in-28-years-after-msci-warns-of-downgrade"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
       "tieu_de": "China's BYD turns to local assembler in Malaysia after shelving plant plan",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/automobiles/electric-vehicles/china-s-byd-turns-to-local-assembler-in-malaysia-after-shelving-plant-plan"
@@ -537,26 +529,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-19",
-      "tieu_de": "Tim Winton reveals the story behind the nation's favourite Australian book",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-10-19/cloudstreet-tim-winton-wins-top-100-australian-books/107275314"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
       "tieu_de": "East African oil could loosen Asia’s grip on Australia’s fuel supply",
       "nguon": "Lowy Interpreter",
       "url": "https://www.lowyinstitute.org/the-interpreter/east-african-oil-could-loosen-asia-s-grip-on-australia-s-fuel-supply"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Britain yet to fill twenty-seven posts at Norfolk command",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/britain-yet-to-fill-twenty-seven-posts-at-norfolk-command/"
     },
     {
       "lop": "RSS",
@@ -570,14 +546,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
-      "tieu_de": "Warrior disposal dates withheld on security grounds",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/warrior-disposal-dates-withheld-on-security-grounds/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
       "tieu_de": "Firms queue for Ukraine’s captured Russian weapons data",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/firms-queue-for-ukraines-captured-russian-weapons-data/"
@@ -586,25 +554,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
-      "tieu_de": "Indian frigate trains with Royal Navy, German and Norwegian warships off Plymouth",
-      "nguon": "**Navy Lookout (Hải quân Anh)**",
-      "url": "https://www.navylookout.com/indian-frigate-trains-with-royal-navy-german-and-norwegian-warships-off-plymouth/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
       "tieu_de": "Reform activist suspended after reportedly saying Muslims cannot be British",
       "nguon": "**BBC News UK**",
       "url": "https://www.bbc.co.uk/news/articles/cr3elnevylywo?at_medium=RSS&at_campaign=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Aspiring Reform MP who said ‘you cannot be Muslim and British’ suspended",
-      "nguon": "**The Guardian — Politics (Anh)**",
-      "url": "https://www.theguardian.com/politics/2026/oct/18/aspiring-reform-mp-cannot-be-muslim-and-british-suspended"
     },
     {
       "lop": "RSS",
@@ -629,14 +581,6 @@
       "tieu_de": "Bill Lark is the godfather of Australian whisky but he has never seen times like these",
       "nguon": "ABC News Australia",
       "url": "https://www.abc.net.au/news/2026-10-18/global-whisky-downturn-distillery-impact-tasmania-industry/107237870"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Oil stockpiling deal eyed between Philippines, United States",
-      "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/10/19/2564128/oil-stockpiling-deal-eyed-between-philippines-united-states"
     },
     {
       "lop": "RSS",
@@ -682,25 +626,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-18",
-      "tieu_de": "Indonesia drops 2.4 tonnes of dry ice over South Sumatra to tackle haze",
-      "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/indonesia-drops-24-tonnes-dry-ice-over-south-sumatra-tackle-haze-6469171"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
       "tieu_de": "Haze in Malaysia: Schools in Selangor, Negeri Sembilan, Melaka, Pahang, Penang to reopen on Oct 19",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/se-asia/haze-in-malaysia-schools-in-kuala-lumpur-to-remain-open-on-oct-19-outdoor-activities-suspended"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-18",
-      "tieu_de": "Dozens of orang utans saved from Indonesia blazes",
-      "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/dozens-of-orang-utans-saved-from-indonesia-blazes"
     },
     {
       "lop": "RSS",
@@ -757,7 +685,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-19",
-      "tieu_de": "Trump defends Russia sanctions relief, accuses Zelensky of rejecting peace",
+      "tieu_de": "Trump defends Russia sanctions relief, blasts Zelensky on peace",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/europe/20261018-ukraine-zelensky-war-trump-peace-russia-sanctions",
       "nhom": 4
@@ -779,24 +707,6 @@
       "nguon": "France 24",
       "url": "https://www.france24.com/en/europe/20261018-live-vance-blames-immigration-for-violence-during-protests-in-france",
       "nhom": 3
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-18",
-      "tieu_de": "Trump paused Russia sanctions to ‘analyse’ impact on global economy: Rubio",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/trump-paused-russia-sanctions-to-analyse-impact-on-global-economy-rubio",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-18",
-      "tieu_de": "Trump’s Russia sanctions waiver called mistake by Republican Party allies",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/trumps-russia-sanctions-waiver-called-mistake-by-republican-party-allies",
-      "nhom": 4
     },
     {
       "lop": "RSS",
