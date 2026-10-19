@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-10-19T05:47:13+07:00",
+    "lastRunAt": "2026-10-20T04:33:13+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+1 tap tran moi (Keris Woomera 26), +1 cap nhat tap tran (Keen Sword), +6 bai think-tank",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-10-19"
-    }
+    },
+    "heartbeat": "2026-10-20T04:33:13+07:00"
   }
 }

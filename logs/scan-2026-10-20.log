@@ -5,3 +5,4 @@
 [21:57Z] giao 1 agent bo sung (6/6, het tran) tim dateProofUrl cho cac tin bi chan
 [21:32Z] add_news.py OK: +15 worldNews, +14 usNews, +2 tap tran (sat han chot 04:45 VN)
 [21:32Z] DONE web-scan, ghi scan-gaps.json (3 muc hut san: Doi ngoai My 2/5, Noi bo My 4/5, Bien Dong 4/5), commit + push "Cap nhat ban tin 20/10: +29 tin (5 chu de)"
+[21:33Z] START event-scan (CI, gop vao sang som)
