@@ -9,13 +9,13 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-19T05:36:46+07:00",
+    "lastRunAt": "2026-10-20T04:32:30+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "+28 tin (5 chu de, Doi ngoai My va Australia duoi san)",
+    "note": "+29 tin (worldNews 15, usNews 14, tap tran 2); thieu san Doi ngoai My (2/5), Noi bo My (4/5), Bien Dong (4/5) - ghi scan-gaps.json",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-10-19"
+      "sang": "2026-10-20"
     }
   },
   "event-scan": {

@@ -1,1 +1,7 @@
 [21:00Z] START (CI) - phien sang som, khoa web-scan da giu
+[21:40Z] harvest.py + telegram_harvest.py xong: 513 RSS/GNEWS + 15 TG ung vien
+[21:50Z] giao 5 agent (Noi bo My, Uc&BienDong, CNQS My, Mali+tap tran, Bao Moi) song song
+[21:56Z] 5 agent xong, review + merge, phat hien nhieu tin bi cong ngay_that chan (The Hill/war.gov/SEC.gov khong co metadata ngay doc duoc)
+[21:57Z] giao 1 agent bo sung (6/6, het tran) tim dateProofUrl cho cac tin bi chan
+[21:32Z] add_news.py OK: +15 worldNews, +14 usNews, +2 tap tran (sat han chot 04:45 VN)
+[21:32Z] DONE web-scan, ghi scan-gaps.json (3 muc hut san: Doi ngoai My 2/5, Noi bo My 4/5, Bien Dong 4/5), commit + push "Cap nhat ban tin 20/10: +29 tin (5 chu de)"
