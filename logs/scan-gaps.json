@@ -1,15 +1,18 @@
 {
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":2,"target":"5","min":5,"thieu":true,
-     "reason":"2/5. Cổng NGÀY ĐĂNG THẬT chặn hầu hết ứng viên đối ngoại (Rubio/state.gov không có metadata ngày đọc được; Pence/thehill không có metadata ngày; Bessent/CNBC không lấy được tiêu đề trang khi máy mở lại). Chỉ giữ được 2 tin đối ngoại qua cổng (Rubio thăm Trung Á né điểm nóng - PBS; Trump ủng hộ Netanyahu tái cử - PBS). Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô."},
-    {"name":"Nội bộ Mỹ","count":10,"target":"5-13","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Anh","count":6,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"4/5. Nhiều ứng viên bị cổng ngày đăng thật chặn vì bài thật đăng cũ hơn khung (Bersama Lima FPDA thật đăng 07/10, Maritime Big Play Pacific thật đăng 07/10, Keris Woomera thật đăng 13/10, StrikeMaster/Australian Defence Magazine không có metadata ngày đọc được). Đã dùng hết 6/6 agent con cho phép của phiên, chốt lô."},
-    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"KHCN-QS","count":6,"target":"5-10","min":5,"thieu":false,"reason":"4 tin CNQS Mỹ + 2 cập nhật tập trận (INDRA 2026, Keen Sword 26)."}
+    {"name": "Đối ngoại Mỹ", "count": 2, "target": "5", "min": 5, "thieu": true,
+     "reason": "Nhóm 'phản ứng Quốc hội với sắc lệnh miễn trừng phạt Nga' (Max Miller, Bill Cassidy, Mick Mulvaney, Scott Bessent) chỉ có nguồn The Hill — cổng ngày thật (ngay_that.py) không đọc được metadata ngày trên The Hill. Agent bổ sung tìm dateProofUrl: với Bessent/Mulvaney link đối chứng xác nhận ngày đăng THẬT là 18/10 (ngoài khung 1 ngày) nên vẫn bị chặn; Miller/Cassidy không tìm được link đối chứng nào. Chỉ giữ được 2/5 (USTR/Alimentos Grole, Johnson warns — cứu bằng dateProofUrl). Đã thử thay bằng tin Bloomberg Trump-Putin-Xi summit nhưng không xác minh được metadata ngày, không đủ thời gian xác minh thêm trước hạn chót 04:45."},
+    {"name": "Nội bộ Mỹ", "count": 4, "target": "5", "min": 5, "thieu": true,
+     "reason": "Mulvaney/Wiles (The Hill) bị cổng ngày thật chặn, link đối chứng Yahoo xác nhận ngày đăng thật 18/10 (ngoài khung). 4 tin còn lại (DOJ truy tố cử tri, khảo sát Trump 31%, SEC AI roundtable, phân tích Federal News Network về cơ chế bầu cử) đều qua cổng."},
+    {"name": "Địa bàn › Anh", "count": 6, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 5, "target": "5", "min": 5, "thieu": false,
+     "reason": "Đạt đúng sàn — tin 'Maritime Big Play Pacific' (navy.mil) bị cổng ngày thật loại vì ngày đăng thật là 07/10 (quá cũ so với khung); AUSTRAHIND 2026 cứu được nhờ dateProofUrl (ianslive.in)."},
+    {"name": "Địa bàn › Biển Đông", "count": 4, "target": "5", "min": 5, "thieu": true,
+     "reason": "Tin 'Taiwan đẩy lùi 16 tàu Trung Quốc' (The Hindu) bị cổng ngày thật chặn — ngày đăng thật xác nhận là 18/10, ngoài khung 1 ngày. Tìm thay thế (báo cáo MND Đài Loan) nhưng cổng không đọc được metadata ngày trên trang mnd.gov.tw và không có thời gian tìm link đối chứng thay thế trước hạn chót 04:45. Còn 4/5: Washington Guard-Malaysia, Trung Quốc nói quan hệ Philippines ở 'thời điểm quan trọng', Taiwan-Philippines hợp tác hàng hải, Philippines triệu đại sứ TQ (cứu bằng dateProofUrl tribune.net.ph)."},
+    {"name": "KHCN-QS", "count": 8, "target": "5-10", "min": 5, "thieu": false,
+     "reason": "6 tin CNQS Mỹ (Exail USV, B-21 wingspan, MQ-25 carrier control, BAE counter-drone, HACM hypersonic test, Zumwalt CPS) + 2 cập nhật tập trận (Keen Sword 26, Steadfast Noon 2026). Đã loại E-130J Phoenix II (trùng sự kiện 2 nguồn, cả hai bị cổng ngày thật chặn vì ngày đăng thật 15-16/10 ngoài khung CNQS 3 ngày) và Space Force SPACEFOR-SOC (ngày đăng thật 15/10, ngoài khung)."}
   ],
-  "note": "Mỹ-Mali (không mang sàn): 0/5 — 31 ứng viên GNEWS đều là rác trùng từ khoá 'Mali' (cricket/thể thao/tin Ấn Độ) hoặc tin ECOWAS-Sahel không có góc Mỹ, không nạp được tin nào qua cổng. Cổng Báo Mới: 6 ứng viên trùng sự kiện Trump-Russia-sanctions đã nạp qua nguồn gốc, bỏ hết (xem logs/loai-tin.md). VẤP QUY TRÌNH: agent bổ sung (vòng duy nhất, trần agent con) chạy ~72 phút thay vì vài phút như các agent chính, khiến phiên vượt HẠN CHÓT 04:45 tới khoảng 05:35 trước khi commit được — bản tin vẫn đủ nội dung nhưng trễ giờ gửi."
+  "note": "Cổng Báo Mới còn 6 ứng viên chưa xử lý hết: C-130J/E-130J (trùng, đã loại ở trên), PAC-3 Edge và M250A1 bị cổng ngày thật chặn (ngày đăng thật 09/10 và 13/10 — ngoài khung CNQS 3 ngày), 2 tin bầu cử/Trump-Netanyahu trùng sự kiện đã đăng, 1 tin Việt Úc nuôi tôm không hợp chủ đề — BỊ CẮT VÌ SÁT HẠN CHÓT 04:45. Nguyên nhân chung các khoảng thiếu: cổng ngày thật (ngay_that.py) không đọc được metadata ngày trên The Hill/war.gov/SEC.gov/Washington Times/mnd.gov.tw — không phải tin sai, chỉ là trang không lộ metadata theo 4 mẫu máy đọc được; agent bổ sung (lượt cuối, đã dùng hết 6/6 agent con của phiên) tìm dateProofUrl cứu được 6/11 tin, phần còn lại ngoài khung thật hoặc không tìm được link đối chứng kịp giờ."
 }
