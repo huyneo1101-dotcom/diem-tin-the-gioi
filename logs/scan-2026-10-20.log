@@ -6,3 +6,4 @@
 [21:32Z] add_news.py OK: +15 worldNews, +14 usNews, +2 tap tran (sat han chot 04:45 VN)
 [21:32Z] DONE web-scan, ghi scan-gaps.json (3 muc hut san: Doi ngoai My 2/5, Noi bo My 4/5, Bien Dong 4/5), commit + push "Cap nhat ban tin 20/10: +29 tin (5 chu de)"
 [21:33Z] START event-scan (CI, gop vao sang som)
+[21:40Z] DONE event-scan: +1 su kien ngoai giao (Thai-Campuchia hoa giai), +1 tap tran (Keen Sword 26), +6 bai think-tank + 12 khai niem. Khong co newExercises moi (do_tap_tran_thieu.py: 0 cuoc co ten rieng). Khong phai Chu nhat nen bo qua bao cao tuan. commit + push "Cap nhat su kien 20/10: +1 su kien/tap tran, +6 bai think-tank"
