@@ -14,3 +14,4 @@
 [21:49Z] set_exercise_briefing.py: gan background+concepts cho AUSTRAHIND 2026
 [21:50Z] DONE event-scan: +1 tap tran moi, +5 bai think-tank, 0 su kien ngoai giao moi (khong phai Chu nhat nen khong co bao cao tuan)
 [21:52Z] SKIP (CI, phien khac): state.py claim web-scan tra exit 10 - web-scan DA DONE 04:42:49. Kiem so_da_gui.py --xem: co dong 2026-10-21T04:51:38 [sang] 33 tin - ban tin da toi tay, khong phai co noi doi. state.py claim event-scan cung tra exit 10 (DA XONG 04:50:49). Ca hai buoc SKIP hop le, ket thuc em phien nay.
+[23:26Z] SKIP (CI, phien goi lai lan 2): claim web-scan lai tra exit 10 (web-scan DA DONE 04:42:49). Kiem lai so_da_gui.py --xem: dong 2026-10-21T04:51:38 [sang] 33 tin van dung, ban tin da toi tay. Khong claim lai event-scan vi git log xac nhan commit "Cap nhat su kien 21/10" + dong log 21:50Z da DONE event-scan trong cung phien nay. Ket thuc em, khong co gi lam them.
