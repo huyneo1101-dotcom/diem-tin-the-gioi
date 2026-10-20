@@ -7,3 +7,9 @@
 [21:40Z] tin_jaylam.py --liet-ke: khong co file (exit 10). gh workflow run telegram-bot.yml bi chan "requires approval" - CHUA KICH DUOC BOT, ghi nhan fail-open
 [21:42Z] DONE: tong +16 the gioi, +16 My, +2 cap nhat tap tran. Chuan bi commit.
 [21:43Z] START event-scan (CI, gop vao sang som)
+[21:44Z] do_tap_tran_thieu.py: them tap tran moi AUSTRAHIND 2026 (An Do - Australia, ky thu 5), nguon The Tribune
+[21:45Z] giao 2 agent song song (su kien+tap tran cap nhat, think-tank)
+[21:48Z] agent su kien: khong tim duoc cap nhat moi dat chuan (da co san Keen Sword + AUSTRAHIND), tra rong - dung
+[21:49Z] add_analyses.py: +5 bai think-tank (38 North, AGSI, Carnegie, ORF, MP-IDSA), phu 4 khu vuc; set_analysis_concepts.py: +9 khai niem
+[21:49Z] set_exercise_briefing.py: gan background+concepts cho AUSTRAHIND 2026
+[21:50Z] DONE event-scan: +1 tap tran moi, +5 bai think-tank, 0 su kien ngoai giao moi (khong phai Chu nhat nen khong co bao cao tuan)

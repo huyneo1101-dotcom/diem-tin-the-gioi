@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-10-21T04:42:59+07:00",
+    "lastRunAt": "2026-10-21T04:50:49+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran moi, +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-10-20"
-    },
-    "heartbeat": "2026-10-21T04:50:14+07:00"
+      "sang": "2026-10-21"
+    }
   }
 }
