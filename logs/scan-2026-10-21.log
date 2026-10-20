@@ -13,4 +13,4 @@
 [21:49Z] add_analyses.py: +5 bai think-tank (38 North, AGSI, Carnegie, ORF, MP-IDSA), phu 4 khu vuc; set_analysis_concepts.py: +9 khai niem
 [21:49Z] set_exercise_briefing.py: gan background+concepts cho AUSTRAHIND 2026
 [21:50Z] DONE event-scan: +1 tap tran moi, +5 bai think-tank, 0 su kien ngoai giao moi (khong phai Chu nhat nen khong co bao cao tuan)
-[21:52Z] SKIP (CI, phien khac): state.py claim web-scan tra exit 10 - web-scan DA DONE 04:42:49. Kiem so_da_gui.py --xem: co dong 2026-10-21T04:51:38 [sang] 33 tin - ban tin da toi tay, khong phai co noi doi. event-scan cung da DONE 04:50:49. Khong quet lai, ket thuc em.
+[21:52Z] SKIP (CI, phien khac): state.py claim web-scan tra exit 10 - web-scan DA DONE 04:42:49. Kiem so_da_gui.py --xem: co dong 2026-10-21T04:51:38 [sang] 33 tin - ban tin da toi tay, khong phai co noi doi. state.py claim event-scan cung tra exit 10 (DA XONG 04:50:49). Ca hai buoc SKIP hop le, ket thuc em phien nay.
