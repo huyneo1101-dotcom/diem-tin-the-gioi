@@ -1,18 +1,16 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "session": "sang",
   "topics": [
-    {"name": "Đối ngoại Mỹ", "count": 2, "target": "5", "min": 5, "thieu": true,
-     "reason": "Nhóm 'phản ứng Quốc hội với sắc lệnh miễn trừng phạt Nga' (Max Miller, Bill Cassidy, Mick Mulvaney, Scott Bessent) chỉ có nguồn The Hill — cổng ngày thật (ngay_that.py) không đọc được metadata ngày trên The Hill. Agent bổ sung tìm dateProofUrl: với Bessent/Mulvaney link đối chứng xác nhận ngày đăng THẬT là 18/10 (ngoài khung 1 ngày) nên vẫn bị chặn; Miller/Cassidy không tìm được link đối chứng nào. Chỉ giữ được 2/5 (USTR/Alimentos Grole, Johnson warns — cứu bằng dateProofUrl). Đã thử thay bằng tin Bloomberg Trump-Putin-Xi summit nhưng không xác minh được metadata ngày, không đủ thời gian xác minh thêm trước hạn chót 04:45."},
-    {"name": "Nội bộ Mỹ", "count": 4, "target": "5", "min": 5, "thieu": true,
-     "reason": "Mulvaney/Wiles (The Hill) bị cổng ngày thật chặn, link đối chứng Yahoo xác nhận ngày đăng thật 18/10 (ngoài khung). 4 tin còn lại (DOJ truy tố cử tri, khảo sát Trump 31%, SEC AI roundtable, phân tích Federal News Network về cơ chế bầu cử) đều qua cổng."},
+    {"name": "Đối ngoại Mỹ", "count": 7, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Nội bộ Mỹ", "count": 9, "target": "5", "min": 5, "thieu": false,
+     "reason": "Nhóm 1 (điều trần + bỏ phiếu) không có ứng viên nào đạt khung ngày 20-21/10 trong lô harvest — lấy sang nhóm 2-5 (sắc lệnh/kinh tế/bầu cử) để đủ sàn, không phải bỏ qua nhóm 1 mà là nhóm 1 cạn thật."},
     {"name": "Địa bàn › Anh", "count": 6, "target": "5", "min": 5, "thieu": false, "reason": ""},
     {"name": "Địa bàn › Australia", "count": 5, "target": "5", "min": 5, "thieu": false,
-     "reason": "Đạt đúng sàn — tin 'Maritime Big Play Pacific' (navy.mil) bị cổng ngày thật loại vì ngày đăng thật là 07/10 (quá cũ so với khung); AUSTRAHIND 2026 cứu được nhờ dateProofUrl (ianslive.in)."},
-    {"name": "Địa bàn › Biển Đông", "count": 4, "target": "5", "min": 5, "thieu": true,
-     "reason": "Tin 'Taiwan đẩy lùi 16 tàu Trung Quốc' (The Hindu) bị cổng ngày thật chặn — ngày đăng thật xác nhận là 18/10, ngoài khung 1 ngày. Tìm thay thế (báo cáo MND Đài Loan) nhưng cổng không đọc được metadata ngày trên trang mnd.gov.tw và không có thời gian tìm link đối chứng thay thế trước hạn chót 04:45. Còn 4/5: Washington Guard-Malaysia, Trung Quốc nói quan hệ Philippines ở 'thời điểm quan trọng', Taiwan-Philippines hợp tác hàng hải, Philippines triệu đại sứ TQ (cứu bằng dateProofUrl tribune.net.ph)."},
-    {"name": "KHCN-QS", "count": 8, "target": "5-10", "min": 5, "thieu": false,
-     "reason": "6 tin CNQS Mỹ (Exail USV, B-21 wingspan, MQ-25 carrier control, BAE counter-drone, HACM hypersonic test, Zumwalt CPS) + 2 cập nhật tập trận (Keen Sword 26, Steadfast Noon 2026). Đã loại E-130J Phoenix II (trùng sự kiện 2 nguồn, cả hai bị cổng ngày thật chặn vì ngày đăng thật 15-16/10 ngoài khung CNQS 3 ngày) và Space Force SPACEFOR-SOC (ngày đăng thật 15/10, ngoài khung)."}
+     "reason": "Đạt đúng sàn sau khi phải bỏ 1 tin ban đầu (navy.mil 'Maritime Big Play', cổng ngày thật đo được bài đăng thật 07/10, ngoài khung) và giao 1 agent bổ sung tìm thay thế (Exercise Keris Woomera 26 kết thúc, defence.gov.au, đăng thật 20/10)."},
+    {"name": "Địa bàn › Biển Đông", "count": 5, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "KHCN-QS", "count": 7, "target": "5-10", "min": 5, "thieu": false,
+     "reason": "5 tin CNQS Mỹ (Golden Dome, F-22/YFQ-44A Fury, Gecko Robotics AI, SLCM-N/General Dynamics, đạn pháo XM1180) + 2 cập nhật tập trận Keen Sword 26 (elephant walk Futenma, Trung Quốc điều tàu/drone bám theo). Đã bỏ 1 tin (USS Carney/Army Recognition — cổng ngày thật không đọc được metadata, không kịp tìm link đối chứng) nhưng vẫn đủ sàn."}
   ],
-  "note": "Cổng Báo Mới còn 6 ứng viên chưa xử lý hết: C-130J/E-130J (trùng, đã loại ở trên), PAC-3 Edge và M250A1 bị cổng ngày thật chặn (ngày đăng thật 09/10 và 13/10 — ngoài khung CNQS 3 ngày), 2 tin bầu cử/Trump-Netanyahu trùng sự kiện đã đăng, 1 tin Việt Úc nuôi tôm không hợp chủ đề — BỊ CẮT VÌ SÁT HẠN CHÓT 04:45. Nguyên nhân chung các khoảng thiếu: cổng ngày thật (ngay_that.py) không đọc được metadata ngày trên The Hill/war.gov/SEC.gov/Washington Times/mnd.gov.tw — không phải tin sai, chỉ là trang không lộ metadata theo 4 mẫu máy đọc được; agent bổ sung (lượt cuối, đã dùng hết 6/6 agent con của phiên) tìm dateProofUrl cứu được 6/11 tin, phần còn lại ngoài khung thật hoặc không tìm được link đối chứng kịp giờ."
+  "note": "Mỹ-Mali: 1 tin (thảm sát của nhóm liên kết Islamic State tại Ménaka, AP/ABC News, 20/10) — mục này không mang sàn, phần lớn ứng viên GNEWS khác trùng đúng vụ này hoặc là tin JNIM đã có trong DATA từ trước. Cổng Báo Mới còn 2 ứng viên: 'Mỹ tính nới trừng phạt đội tàu bóng tối' — truy được bài gốc tiếng Anh (gCaptain) nhưng cổng ngày thật đo bài đăng thật 19/10, ngoài khung 1 ngày cho category Kinh tế, BỎ; 'Iran tuyên bố bắn hạ UAV MQ-9 Reaper thứ 54' — là tuyên bố đơn phương của Iran (bên đối địch) về thiệt hại khí tài Mỹ, không tìm được xác nhận độc lập từ CENTCOM/Reuters/AP, BỎ theo thang xác minh. Chi tiết đầy đủ: logs/loai-tin.md."
 }

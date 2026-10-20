@@ -1,1 +1,8 @@
 [21:03Z] START (CI) - phien sang som 2026-10-21
+[21:03Z] harvest.py: 507 ung vien (Noi bo My 175, Uc&BienDong 171, CNQS 83, Mali 47, Tap tran 31); telegram_harvest.py: 14 bai trong khung
+[21:08Z] giao 4 agent song song (A=Noi bo My, B=Uc&BienDong, C=CNQS My, D=Mali+Tap tran)
+[21:20Z] gop ket qua 4 agent, add_news.py lo 1: +15 the gioi, +14 My, +2 tap tran (Keen Sword 26); 5 tin bi chan boi cong NGAY DANG THAT, da sua/xoa (xem logs/loai-tin.md)
+[21:30Z] giao 1 agent bo sung (Doi ngoai My + Australia) - dung dung 5/6 agent con cho phep ca phien
+[21:38Z] add_news.py lo 2: +1 the gioi, +2 My. Tat ca 6 don vi (Doi ngoai My, Noi bo My, Anh, Australia, Bien Dong, KHCN-QS) da dat san 5
+[21:40Z] tin_jaylam.py --liet-ke: khong co file (exit 10). gh workflow run telegram-bot.yml bi chan "requires approval" - CHUA KICH DUOC BOT, ghi nhan fail-open
+[21:42Z] DONE: tong +16 the gioi, +16 My, +2 cap nhat tap tran. Chuan bi commit.
