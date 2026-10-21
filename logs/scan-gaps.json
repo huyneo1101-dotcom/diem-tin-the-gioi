@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "session": "sang",
   "topics": [
-    {"name": "Đối ngoại Mỹ", "count": 7, "target": "5", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Nội bộ Mỹ", "count": 9, "target": "5", "min": 5, "thieu": false,
-     "reason": "Nhóm 1 (điều trần + bỏ phiếu) không có ứng viên nào đạt khung ngày 20-21/10 trong lô harvest — lấy sang nhóm 2-5 (sắc lệnh/kinh tế/bầu cử) để đủ sàn, không phải bỏ qua nhóm 1 mà là nhóm 1 cạn thật."},
+    {"name": "Đối ngoại Mỹ", "count": 8, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Nội bộ Mỹ", "count": 3, "target": "5", "min": 5, "thieu": true,
+     "reason": "13 ứng viên bị cổng NGÀY ĐĂNG THẬT chặn vì trang mở được nhưng không đọc được metadata ngày chuẩn (state.gov, washingtontimes.com x2, reuters.com x2, axios.com, rfdtv.com, thehill.com x2, war.gov x2, news.usni.org) — các domain này không khớp 5 mẫu metadata mà `ngay_that.py` nhận (JSON-LD/meta/time/citation/DVIDS/press-briefing). Đã giao đủ 1 agent bổ sung (trần agent con của phiên) tìm thêm nguồn tầng 1/wire lớn, tìm được 3 tin Đối ngoại Mỹ (đẩy mục đó vượt sàn) nhưng chỉ 2 tin thực sự thuần nội bộ (SCOTUS, SEIU strike) cộng 3 tin bị thuật toán phân mục tự động (la_doi_ngoai_my) xếp nhầm vào Đối ngoại vì title/significance chứa từ khoá 'trừng phạt'/'Canada'/'ngoại trưởng' dù nội dung chính là chuyện trong nước (Wittman phản đối Trump, vụ kiện thuế quan Mục 338, Rubio C5+1). Đã chạm trần 6 agent con cả phiên (05 luồng gốc + 01 bổ sung) nên KHÔNG giao vòng thứ hai theo luật. Xem logs/loai-tin.md."},
     {"name": "Địa bàn › Anh", "count": 6, "target": "5", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Australia", "count": 5, "target": "5", "min": 5, "thieu": false,
-     "reason": "Đạt đúng sàn sau khi phải bỏ 1 tin ban đầu (navy.mil 'Maritime Big Play', cổng ngày thật đo được bài đăng thật 07/10, ngoài khung) và giao 1 agent bổ sung tìm thay thế (Exercise Keris Woomera 26 kết thúc, defence.gov.au, đăng thật 20/10)."},
-    {"name": "Địa bàn › Biển Đông", "count": 5, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Australia", "count": 5, "target": "5", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Địa bàn › Biển Đông", "count": 4, "target": "5", "min": 5, "thieu": true,
+     "reason": "Nhiều ứng viên hợp lệ bị loại: 3 bài agent bổ sung tìm được (Pratas AIS, uỷ ban QH Mỹ 'destabilizing', 27 máy bay TQ) đều có ngày đăng THẬT là 20/10 hoặc trùng URL đã có sẵn trong DATA từ phiên trước, không còn bản thay thế trong khung 21-22/10. Agent B ban đầu cũng mất 1 ứng viên tốt (AFP '31 tàu Trung Quốc') vì chỉ có link radar news.google.com, không truy được bài gốc sạch kịp trong phiên. Đã chạm trần 6 agent con cả phiên nên KHÔNG giao vòng thứ hai. Xem logs/loai-tin.md."},
     {"name": "KHCN-QS", "count": 7, "target": "5-10", "min": 5, "thieu": false,
-     "reason": "5 tin CNQS Mỹ (Golden Dome, F-22/YFQ-44A Fury, Gecko Robotics AI, SLCM-N/General Dynamics, đạn pháo XM1180) + 2 cập nhật tập trận Keen Sword 26 (elephant walk Futenma, Trung Quốc điều tàu/drone bám theo). Đã bỏ 1 tin (USS Carney/Army Recognition — cổng ngày thật không đọc được metadata, không kịp tìm link đối chứng) nhưng vẫn đủ sàn."}
+     "reason": "6 tin CNQS Mỹ (Space Force bãi phóng thứ 3, tên lửa siêu vượt âm giá rẻ Tawodi, DARPA lò phản ứng hạt nhân tự hành, phi đội tiêm kích 1.509 chiếc, NGC2 Lục quân, Lockheed Martin-Kyiv/Patriot từ Báo Mới) + 1 cập nhật tập trận Keen Sword 26 (siêu bão Champi làm thu hẹp khoa mục ở Okinawa). Đã bỏ 3 tin ban đầu (Project Agincourt/AUTOWARCOM, tiểu đoàn NMESIS, THAAD/Karman — cổng ngày thật không đọc được metadata trên war.gov/washingtontimes.com) nhưng vẫn đủ sàn."}
   ],
-  "note": "Mỹ-Mali: 1 tin (thảm sát của nhóm liên kết Islamic State tại Ménaka, AP/ABC News, 20/10) — mục này không mang sàn, phần lớn ứng viên GNEWS khác trùng đúng vụ này hoặc là tin JNIM đã có trong DATA từ trước. Cổng Báo Mới còn 2 ứng viên: 'Mỹ tính nới trừng phạt đội tàu bóng tối' — truy được bài gốc tiếng Anh (gCaptain) nhưng cổng ngày thật đo bài đăng thật 19/10, ngoài khung 1 ngày cho category Kinh tế, BỎ; 'Iran tuyên bố bắn hạ UAV MQ-9 Reaper thứ 54' — là tuyên bố đơn phương của Iran (bên đối địch) về thiệt hại khí tài Mỹ, không tìm được xác nhận độc lập từ CENTCOM/Reuters/AP, BỎ theo thang xác minh. Chi tiết đầy đủ: logs/loai-tin.md."
+  "note": "Mỹ-Mali: 1 tin (Burkina Faso tái lập án tử hình đối phó JNIM/IS, Africanews) — mục này không mang sàn, phần lớn ứng viên khác bị cổng ngày thật chặn (thật 20/10, ngoài khung) hoặc trùng tin đã có (vụ thảm sát 48 dân thường Ménaka đã nạp từ phiên trước). Cổng Báo Mới còn 1 ứng viên chưa nạp: 'Chi phí sinh hoạt, vấn đề nhập cư phủ bóng bầu cử Mỹ' (Báo Tiền Phong) — truy được bài gốc U.S. News/Reuters-Ipsos nhưng cổng ngày thật đo bài đăng thật 2026-10-08, lệch 13 ngày so với khung 21-22/10, BỎ. Đã chạm TRẦN AGENT CON của phiên (05 luồng gốc A·B·C·D·BM + 01 bổ sung = 6 lần), hai mục Nội bộ Mỹ và Biển Đông vẫn hụt sàn sau vòng bổ sung thì CHỐT theo luật, không giao vòng thứ hai. Chi tiết đầy đủ từng tin bị loại: logs/loai-tin.md."
 }
