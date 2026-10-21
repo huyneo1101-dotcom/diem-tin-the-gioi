@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-21T04:42:49+07:00",
+    "lastRunAt": "2026-10-22T04:00:35+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+32 tin (5 chu de), dat san 5 ca 6 don vi",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-21"
-    }
+    },
+    "heartbeat": "2026-10-22T04:00:35+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-21T04:50:49+07:00",
