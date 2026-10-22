@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-22T06:33:35+07:00",
+  "tao_luc": "2026-10-22T07:10:00+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-21",
@@ -282,9 +282,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-22",
-      "tieu_de": "U.S. Army Yuma Test Center Commander mentors local JROTC cadets",
+      "tieu_de": "U.S. Army Yuma Test Center Commander mentors local Army JROTC cadets",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/577574/us-army-yuma-test-center-commander-mentors-local-jrotc-cadets"
+      "url": "https://www.dvidshub.net/news/577574/us-army-yuma-test-center-commander-mentors-local-army-jrotc-cadets"
     },
     {
       "lop": "RSS",
@@ -506,6 +506,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-22",
+      "tieu_de": "American Ingenuity at Work: The Army’s Strategic Capital Initiative",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/10/22/american-ingenuity-at-work-the-armys-strategic-capital-initiative/?utm_source=rss&utm_medium=rss&utm_campaign=american-ingenuity-at-work-the-armys-strategic-capital-initiative"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-22",
       "tieu_de": "Dragan Systems’ Pocket Winch and New Dragan Pod Deliver Compact, Self-Contained Lifting System for Remote Recovery",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/10/21/dragan-systems-pocket-winch-and-new-dragan-pod-deliver-compact-self-contained-lifting-system-for-remote-recovery/?utm_source=rss&utm_medium=rss&utm_campaign=dragan-systems-pocket-winch-and-new-dragan-pod-deliver-compact-self-contained-lifting-system-for-remote-recovery"
@@ -541,14 +549,6 @@
       "tieu_de": "AXL Advanced Introduces LPX Structural Shoulder Pads",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/10/21/axl-advanced-introduces-lpx-structural-shoulder-pads/?utm_source=rss&utm_medium=rss&utm_campaign=axl-advanced-introduces-lpx-structural-shoulder-pads"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-21",
-      "tieu_de": "US Army Task Force Partners With Acquisition Directorate to Accelerate Counter-Drone Tech in Africa",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/21/us-army-task-force-partners-with-acquisition-directorate-to-accelerate-counter-drone-tech-in-africa/?utm_source=rss&utm_medium=rss&utm_campaign=us-army-task-force-partners-with-acquisition-directorate-to-accelerate-counter-drone-tech-in-africa"
     },
     {
       "lop": "RSS",
@@ -666,14 +666,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-22",
-      "tieu_de": "Qatar, Turkiye, Pakistan and Indonesia sign ‘Badr’ defence pact",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/21/qatar-turkiye-pakistan-and-indonesia-sign-badr-defence-pact?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-22",
       "tieu_de": "'Targeted' attack on much-loved MP leaves Australian town heartbroken",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cmgr8q88r5eqo?at_medium=RSS&at_campaign=rss"
@@ -741,6 +733,14 @@
       "tieu_de": "Australian politician who was hit by car has lost both legs",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/australian-politician-who-was-hit-by-car-has-lost-both-legs/article71608726.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-22",
+      "tieu_de": "Pakistan, Turkiye, Qatar and Indonesia sign pact to bolster defence cooperation",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/pakistan-turkiye-qatar-and-indonesia-sign-pact-to-bolster-defence-cooperation/article71608728.ece"
     },
     {
       "lop": "RSS",
@@ -834,6 +834,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-22",
+      "tieu_de": "Outback giant yabby Australia's latest 'big thing'",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-22/big-yabby-statue-windorah-outback-queensland/107286084"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-22",
       "tieu_de": "Scatterbrained Australian approach opens door to South African victory",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-10-22/cricket-south-africa-vs-australia-day-four-analysis/107295048"
@@ -845,6 +853,14 @@
       "tieu_de": "Cutting migration risks Australia’s middle-power clout",
       "nguon": "Lowy Interpreter",
       "url": "https://www.lowyinstitute.org/the-interpreter/cutting-migration-risks-australia-s-middle-power-clout"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-22",
+      "tieu_de": "Britain near bottom of NATO rearmament table",
+      "nguon": "**UK Defence Journal**",
+      "url": "https://ukdefencejournal.org.uk/britain-near-bottom-of-nato-rearmament-table/"
     },
     {
       "lop": "RSS",
@@ -890,14 +906,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-21",
-      "tieu_de": "No decisions yet on new RAF jet trainer, says Pollard",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/no-decisions-yet-on-new-raf-jet-trainer-says-pollard/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-21",
       "tieu_de": "Royal Navy upgrades third offshore patrol vessel for night helicopter landings",
       "nguon": "**Navy Lookout (Hải quân Anh)**",
       "url": "https://www.navylookout.com/royal-navy-upgrades-third-offshore-patrol-vessel-for-night-helicopter-landings/"
@@ -933,14 +941,6 @@
       "tieu_de": "Longer fire seasons mean almost half of Australian homes face bushfire risks",
       "nguon": "ABC News Australia",
       "url": "https://www.abc.net.au/news/2026-10-22/bushfires-costing-australia-6b-annually/107272000"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-22",
-      "tieu_de": "Australian politicians say they are paying thousands for their own security upgrades amid rising threats",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/22/politicians-say-they-are-paying-thousands-for-own-security-upgrades-amid-rising-threats-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -1029,14 +1029,6 @@
       "tieu_de": "Why the humble rabbit might be Australia’s worst introduced species",
       "nguon": "The Conversation (Úc)",
       "url": "https://theconversation.com/why-the-humble-rabbit-might-be-australias-worst-introduced-species-287167"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-22",
-      "tieu_de": "When banter backfires: What a backlash against an Indonesian grooming brand in Malaysia signals",
-      "nguon": "Channel News Asia — Asia",
-      "url": "https://www.channelnewsasia.com/asia/kahf-boycott-malaysia-indonesia-consumers-6461156"
     },
     {
       "lop": "RSS",
@@ -1197,14 +1189,6 @@
       "tieu_de": "Taiwan security agency flags rise in Chinese disinformation ahead of local elections",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/east-asia/taiwan-security-agency-flags-rise-in-chinese-disinformation-ahead-of-local-elections"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-21",
-      "tieu_de": "Malaysia expects tourism fallout from Indonesia haze",
-      "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/se-asia/malaysia-expects-tourism-fallout-from-indonesia-haze"
     },
     {
       "lop": "RSS",
@@ -1565,6 +1549,15 @@
       "nguon": "USTR",
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/october/ustr-announces-2026-award-recipients",
       "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-22",
+      "tieu_de": "Trump praises supporter for allegedly punching protester during rally for Darline Graham in South Carolina – live",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/live/2026/oct/21/donald-trump-south-carolina-data-centers-midterms-ukraine-witkoff-russia-latest-news-updates",
+      "nhom": 3
     },
     {
       "lop": "RSS",
