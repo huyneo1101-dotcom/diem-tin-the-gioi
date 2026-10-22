@@ -11,3 +11,4 @@
 [22:20Z] da giao 1 agent think-tank - +6 bai (ISW, ORF, CNAS, Egmont, USSC, ISEAS) + 12 khai niem.
 [22:25Z] khong phai Chu nhat (thu Sau) - bo qua bao cao tuan.
 [22:26Z] DONE event-scan: +2 tap tran moi, +3 cap nhat tap tran, +6 bai think-tank, +12 khai niem.
+[22:27Z] SKIP phien moi: state.py claim web-scan exit 10. Kiem ngoai le - so_da_gui.py --xem co dong 2026-10-23T05:26:48+07:00 [sang] 34 tin, khop ngay hom nay va co nhan [sang]. Ban tin da toi tay thuc su, khong phai co gia. state.py show: event-scan cung DONE lastRunAt 05:25:55+07:00, +2 su kien/tap tran moi, +6 bai think-tank. Ket thuc em, khong quet lai ca web-scan lan event-scan.
