@@ -6,3 +6,8 @@
 [22:05Z] add_news.py chay nhieu luot: cong NGAY DANG THAT chan 16 tin (agent khai sai ngay/trang khong co metadata). Session dieu phoi tu WebSearch/WebFetch (khong spawn them agent) tim 4 tin thay the + 1 dateProofUrl.
 [22:08Z] DONE: +16 tin worldNews, +13 tin usNews. San: Doi ngoai My 5/5, Anh 7/5, Australia 5/5, KHCN-QS 5/5 (du). Noi bo My 3/5, Bien Dong 4/5 (thieu, da ghi scan-gaps.json + loai-tin.md, chot lo theo luat tran agent con).
 [22:10Z] START event-scan (CI, gop vao sang som).
+[22:11Z] do_tap_tran_thieu.py: tim duoc 2 cuoc moi co ten rieng (Surigao Sentinel 2026, SIMBEX-2026) - da nap qua newExercises + background/concepts.
+[22:12Z] da giao 1 agent quet dien bien tap tran + su kien ngoai giao + Mali - ket qua: +3 cap nhat tap tran (AUSTRAHIND, SIMBEX, Surigao Sentinel), 0 dipEvent (khong co dien bien moi trong khung), 0 Mali (khong tim duoc tin hop khung).
+[22:20Z] da giao 1 agent think-tank - +6 bai (ISW, ORF, CNAS, Egmont, USSC, ISEAS) + 12 khai niem.
+[22:25Z] khong phai Chu nhat (thu Sau) - bo qua bao cao tuan.
+[22:26Z] DONE event-scan: +2 tap tran moi, +3 cap nhat tap tran, +6 bai think-tank, +12 khai niem.
