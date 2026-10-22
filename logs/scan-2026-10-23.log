@@ -5,3 +5,4 @@
 [21:50Z] da giao 1 agent bo sung (Australia + Bien Dong, du tran 6/6 agent con). Tong thu ve: 36 ung vien.
 [22:05Z] add_news.py chay nhieu luot: cong NGAY DANG THAT chan 16 tin (agent khai sai ngay/trang khong co metadata). Session dieu phoi tu WebSearch/WebFetch (khong spawn them agent) tim 4 tin thay the + 1 dateProofUrl.
 [22:08Z] DONE: +16 tin worldNews, +13 tin usNews. San: Doi ngoai My 5/5, Anh 7/5, Australia 5/5, KHCN-QS 5/5 (du). Noi bo My 3/5, Bien Dong 4/5 (thieu, da ghi scan-gaps.json + loai-tin.md, chot lo theo luat tran agent con).
+[22:10Z] START event-scan (CI, gop vao sang som).
