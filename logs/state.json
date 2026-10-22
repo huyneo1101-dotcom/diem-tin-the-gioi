@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-22T04:36:50+07:00",
+    "lastRunAt": "2026-10-23T04:03:05+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+32 tin (5 chu de): 14 worldNews, 17 usNews, 1 tap tran. Hut san Noi bo My (3/5) va Bien Dong (4/5), xem scan-gaps.json",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-22"
-    }
+    },
+    "heartbeat": "2026-10-23T04:03:05+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-22T04:47:24+07:00",
