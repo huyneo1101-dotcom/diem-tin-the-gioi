@@ -1,1 +1,7 @@
 [21:03Z] START (CI) phien sang som
+[21:05Z] harvest.py: 493 ung vien. telegram_harvest.py: 10 ung vien TG.
+[21:06Z] chua kich duoc bot telegram-bot.yml (gh workflow run bi chan requires approval) - di tiep. tin_jaylam --liet-ke exit 10 (thieu SUPABASE_ANON_KEY/DT_BOT_KEY, khong doc duoc file).
+[21:30Z] da giao 5 agent con (A Noi bo My, B Uc-Anh-Bien Dong, C CNQS My, D Mali+Tap tran, BM Bao Moi) song song.
+[21:50Z] da giao 1 agent bo sung (Australia + Bien Dong, du tran 6/6 agent con). Tong thu ve: 36 ung vien.
+[22:05Z] add_news.py chay nhieu luot: cong NGAY DANG THAT chan 16 tin (agent khai sai ngay/trang khong co metadata). Session dieu phoi tu WebSearch/WebFetch (khong spawn them agent) tim 4 tin thay the + 1 dateProofUrl.
+[22:08Z] DONE: +16 tin worldNews, +13 tin usNews. San: Doi ngoai My 5/5, Anh 7/5, Australia 5/5, KHCN-QS 5/5 (du). Noi bo My 3/5, Bien Dong 4/5 (thieu, da ghi scan-gaps.json + loai-tin.md, chot lo theo luat tran agent con).

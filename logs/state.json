@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-23T04:03:05+07:00",
+    "lastRunAt": "2026-10-23T05:10:30+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+29 tin (5 chu de), Noi bo My va Bien Dong thieu san",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-10-22"
-    },
-    "heartbeat": "2026-10-23T05:10:01+07:00"
+      "sang": "2026-10-23"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-10-22T04:47:24+07:00",
