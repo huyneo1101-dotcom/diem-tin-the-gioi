@@ -12,3 +12,4 @@
 [22:25Z] khong phai Chu nhat (thu Sau) - bo qua bao cao tuan.
 [22:26Z] DONE event-scan: +2 tap tran moi, +3 cap nhat tap tran, +6 bai think-tank, +12 khai niem.
 [22:27Z] SKIP phien moi: state.py claim web-scan exit 10. Kiem ngoai le - so_da_gui.py --xem co dong 2026-10-23T05:26:48+07:00 [sang] 34 tin, khop ngay hom nay va co nhan [sang]. Ban tin da toi tay thuc su, khong phai co gia. state.py show: event-scan cung DONE lastRunAt 05:25:55+07:00, +2 su kien/tap tran moi, +6 bai think-tank. Ket thuc em, khong quet lai ca web-scan lan event-scan.
+[23:39Z] SKIP phien kich lan nua (cung ngay 2026-10-23): web-scan exit 10, event-scan exit 10. Ca hai da DONE tu truoc (05:10:30 va 05:25:55+07:00), khong co dau hieu co gia moi. Ket thuc em.
