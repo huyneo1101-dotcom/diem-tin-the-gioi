@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-10-23T06:31:46+07:00",
+  "tao_luc": "2026-10-23T07:07:55+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-22",
     "2026-10-23"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-10-23",
+      "tieu_de": "New York City bans horse-drawn carriages from June 2028",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/new-york-city-bans-horse-drawn-carriages-from-june-2028"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -61,14 +69,6 @@
       "tieu_de": "Singapore’s job as ASEAN chair: fixing how the grouping decides",
       "nguon": "Lowy Interpreter",
       "url": "https://www.lowyinstitute.org/the-interpreter/singapore-s-job-as-asean-chair-fixing-how-the-grouping-decides"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-10-22",
-      "tieu_de": "Four locations in the running to be UK City of Culture 2029",
-      "nguon": "**BBC News UK**",
-      "url": "https://www.bbc.co.uk/news/articles/c6jrw03njgxzo?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
@@ -266,6 +266,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-23",
+      "tieu_de": "Mỹ đặt h&agrave;ng 850 chiếc F-35 trong 10 năm",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/my-dat-hang-850-chiec-f-35-trong-10-nam-185261023064319596.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-23",
       "tieu_de": "Pentagon locks in 10-year F-35 jet deal",
       "nguon": "The Hill",
       "url": "https://thehill.com/policy/defense/6166652-pentagon-lockheed-f-35-deal/"
@@ -325,38 +333,6 @@
       "tieu_de": "Guantanamo Dispatches: Pentagon Reducing Rank of Top Military Commission Lawyers",
       "nguon": "Just Security",
       "url": "https://www.justsecurity.org/160438/pentagon-reducing-rank-military-commission-lawyers/?utm_source=rss&utm_medium=rss&utm_campaign=pentagon-reducing-rank-military-commission-lawyers"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-21",
-      "tieu_de": "3-43 Air Defense Artillery activates in Guam continuing a legacy of U.S. Army Air and Missile Defense",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/296239/3_43_air_defense_artillery_activates_in_guam_continuing_a_legacy_of_u_s_army_air_and_missile_defense"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-21",
-      "tieu_de": "US Army, Colombian senior military leaders converge at Fort Bragg for bi-annual exchange",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/296243/us_army_colombian_senior_military_leaders_converge_at_fort_bragg_for_bi_annual_exchange"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-22",
-      "tieu_de": "U.S. Army Garrison-Fort McCoy chaplain supports 98th ARRTC activation with invocation",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/296268/u_s_army_garrison_fort_mccoy_chaplain_supports_98th_arrtc_activation_with_invocation"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-22",
-      "tieu_de": "U.S. Army Yuma Test Center Commander mentors local Army JROTC cadets",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/296270/u_s_army_yuma_test_center_commander_mentors_local_army_jrotc_cadets"
     },
     {
       "lop": "RSS",
@@ -577,14 +553,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-22",
-      "tieu_de": "Built for the Long Haul: Mystery Ranch Sustainment Packs",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/22/built-for-the-long-haul-mystery-ranch-sustainment-packs/?utm_source=rss&utm_medium=rss&utm_campaign=built-for-the-long-haul-mystery-ranch-sustainment-packs"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-23",
       "tieu_de": "The Marine Corps has a boot problem",
       "nguon": "Sandboxx News",
@@ -629,6 +597,14 @@
       "tieu_de": "Sights and Sounds of Arlington | The Steps of a Sentinel",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1027151/sights-and-sounds-arlington-steps-sentinel"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-22",
+      "tieu_de": "U.S. Army Garrison-Fort McCoy chaplain supports 98th ARRTC activation with invocation",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/news/577567/us-army-garrison-fort-mccoy-chaplain-supports-98th-arrtc-activation-with-invocation"
     },
     {
       "lop": "RSS",
@@ -685,6 +661,14 @@
       "tieu_de": "U.S. bill calls for updating list of critical Golden Dome missile defense assets",
       "nguon": "Yonhap (Hàn Quốc)",
       "url": "https://en.yna.co.kr/view/AEN20261021000200315"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-23",
+      "tieu_de": "Pentagon sued over data breach affecting more than 3 million people",
+      "nguon": "Federal News Network — Defense",
+      "url": "https://federalnewsnetwork.com/defense-news/2026/10/pentagon-sued-over-data-breach-affecting-more-than-3-million-people/"
     },
     {
       "lop": "RSS",
@@ -882,7 +866,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-23",
-      "tieu_de": "Breaking: Commonwealth makes offer to send Australian of the Year to space",
+      "tieu_de": "Commonwealth makes offer to send Australian of the Year to space",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-10-23/australia-makes-offer-to-send-australian-of-the-year-to-space/107300194"
     },
@@ -1025,10 +1009,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-22",
-      "tieu_de": "I spent a week watching Helen Haines in action in Canberra. It was the most inspiring week of my life | Tim Berenyi",
+      "ngay": "2026-10-23",
+      "tieu_de": "Australia offers astronaut Katherine Bennell-Pegg for space mission to International Space Station",
       "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/commentisfree/2026/oct/22/helen-haines-canberra-inspiring-in-action-australia-politics-ntwnfb"
+      "url": "https://www.theguardian.com/australia-news/2026/oct/23/australian-astronaut-katherine-bennell-pegg-2028-space-mission"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-23",
+      "tieu_de": "Rebel Wilson secures another Australian court win as co-producers of The Deb awarded just $10",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/film/2026/oct/23/rebel-wilson-australian-court-win-co-producers-the-deb-film-ntwnfb"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-23",
+      "tieu_de": "Australian behind cancer vaccine rejects market slump",
+      "nguon": "Australian Financial Review",
+      "url": "https://www.afr.com/world/north-america/australian-scientist-rejects-cancer-vaccine-disappointment-20261023-p6180f?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -1045,6 +1045,14 @@
       "tieu_de": "The Snoop: Ben Roberts-Smith’s media blitz, The Australian’s participation trophy, and more",
       "nguon": "Crikey (Úc)",
       "url": "https://www.crikey.com.au/2026/10/22/ben-roberts-smith-interview-2gb-the-australian/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-23",
+      "tieu_de": "Is Australia’s gas reservation scheme really aimed at Santos?",
+      "nguon": "The Conversation (Úc)",
+      "url": "https://theconversation.com/is-australias-gas-reservation-scheme-really-aimed-at-santos-294467"
     },
     {
       "lop": "RSS",
@@ -1090,7 +1098,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-23",
-      "tieu_de": "Taiwan shuts down ahead of weakening Typhoon Champi, hundreds of flights cancelled",
+      "tieu_de": "Taiwan shuts down ahead of Typhoon Champi, hundreds of flights cancelled",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/taiwan-shuts-down-ahead-of-weakening-typhoon-champi-hundreds-of-flights-cancelled"
     },
@@ -1422,6 +1430,15 @@
       "tieu_de": "Yen on track to gain from US midterm elections and France unrest",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/markets/currencies/yen-on-track-to-gain-from-us-midterm-elections-and-france-unrest",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-23",
+      "tieu_de": "Canadian diplomats barred interacting with US midterm candidates: Reports",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/policy/international/6166951-canada-diplomats-barred-american-midterm-candidates/",
       "nhom": 5
     },
     {
