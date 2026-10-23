@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-24T06:22:29+07:00",
+  "tao_luc": "2026-10-24T06:57:39+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-23",
@@ -313,6 +313,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-24",
+      "tieu_de": "Pentagon designates Confucius Institutes in US a national security threat",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/pentagon-designates-confucius-institutes-in-us-a-national-security-threat"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-21",
       "tieu_de": "The US Army Looks to the Pacific – and Space – for Future Relevance",
       "nguon": "The Diplomat",
@@ -405,14 +413,6 @@
       "tieu_de": "Guantanamo Dispatches: Pentagon Reducing Rank of Top Military Commission Lawyers",
       "nguon": "Just Security",
       "url": "https://www.justsecurity.org/160438/pentagon-reducing-rank-military-commission-lawyers/?utm_source=rss&utm_medium=rss&utm_campaign=pentagon-reducing-rank-military-commission-lawyers"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "Pentagon designates Confucius Institutes in US a national security threat",
-      "nguon": "The Straits Times — Asia",
-      "url": "https://www.straitstimes.com/asia/pentagon-designates-confucius-institutes-in-us-a-national-security-threat"
     },
     {
       "lop": "RSS",
@@ -794,9 +794,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-24",
-      "tieu_de": "Indonesia seizes more than a tonne of ketamine from tanker",
+      "tieu_de": "Typhoon Champi hits Taiwan, killing one and injuring 350",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/23/aje-onl-nf_indonesia-seizes-more-than-a-tonne-of-ketamine-231026?traffic_source=rss"
+      "url": "https://www.aljazeera.com/news/2026/10/23/typhoon-champi-hits-taiwan-killing-one-and-injuring-350?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -954,6 +954,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-24",
+      "tieu_de": "Man extradited from Poland to face murder charge in Australia",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-24/man-extradited-from-poland-to-face-murder-charge-in-australia/107304342"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-24",
       "tieu_de": "Equipment spending fell by five billion in a year",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/equipment-spending-fell-by-five-billion-in-a-year/"
@@ -1101,6 +1109,14 @@
       "tieu_de": "Commonwealth makes offer to send Australian of the Year to space",
       "nguon": "ABC News Australia",
       "url": "https://www.abc.net.au/news/2026-10-23/australia-makes-offer-to-send-australian-of-the-year-to-space/107300194"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-24",
+      "tieu_de": "Thunderstorms, heavy rain and flash flooding predicted for much of Australia",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/2026/oct/24/thunderstorms-heavy-rain-and-flash-flooding-predicted-for-much-of-australia"
     },
     {
       "lop": "RSS",
@@ -1587,18 +1603,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-23",
-      "tieu_de": "Trump ties big promises to GOP midterm election wins",
+      "tieu_de": "The Memo: Trump backs controversial Ohio ad, pouring fuel on midterm campaign fires",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6166920-trump-midterm-campaign-promises-republicans/",
+      "url": "https://thehill.com/homenews/analysis/6167069-ramaswamy-acton-family-ad-row/",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-23",
-      "tieu_de": "The Memo: Trump backs controversial Ohio ad, pouring fuel on midterm campaign fires",
+      "tieu_de": "Trump ties big promises to GOP midterm election wins",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/analysis/6167069-ramaswamy-acton-family-ad-row/",
+      "url": "https://thehill.com/homenews/administration/6166920-trump-midterm-campaign-promises-republicans/",
       "nhom": 5
     },
     {
