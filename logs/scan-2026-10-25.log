@@ -7,3 +7,4 @@
 [23:35Z] tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY trong phien nay, khong doc duoc file Jay Lam. Ghi nhan fail-open, di tiep (gh workflow run telegram-bot.yml cung bi chan requires-approval truoc do).
 [23:33Z] DONE web-scan, da commit + push (+27 tin). Bat dau event-scan (CI, gop vao sang som)
 [23:43Z] DONE event-scan: +0 su kien/tap tran (1 ung vien Keen Sword bi chan ngay thuc, Cambrian Patrol loai vi da ket thuc), +6 bai think-tank, bao cao tuan (CN 25/10). Da commit + push.
+[23:45Z] SKIP web-scan (phien goi lai trung): claim tra exit 10 (DA XONG, lastRunAt 06:33:10+07). Kiem so_da_gui.py --xem: co dong 2026-10-25T06:45:03+07:00 [sang] 28 tin - ban tin da toi tay. Nhay sang Buoc 6 claim event-scan.
