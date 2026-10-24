@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-25T05:41:45+07:00",
+  "tao_luc": "2026-10-25T06:35:01+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-24",
@@ -49,6 +49,14 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
+      "ngay": "2026-10-25",
+      "tieu_de": "Indonesia cuts pipeline gas exports to Singapore by about 9%",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/indonesia-cuts-pipeline-gas-exports-to-singapore-by-about-9/article71621477.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
       "ngay": "2026-10-24",
       "tieu_de": "North Korea’s Kim makes unannounced visit to Chinese border city",
       "nguon": "The Hindu",
@@ -69,14 +77,6 @@
       "tieu_de": "Hai m&aacute;y bay Philippines gặp nạn, 4 phi c&ocirc;ng thiệt mạng",
       "nguon": "Thanh Niên",
       "url": "https://thanhnien.vn/hai-may-bay-philippines-gap-nan-4-phi-cong-thiet-mang-185261024141501742.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "2 máy bay Philippines va chạm trên không, cả 4 phi công thiệt mạng",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/2-may-bay-philippines-va-cham-tren-khong-ca-4-phi-cong-thiet-mang-100261024151626001.htm"
     },
     {
       "lop": "RSS",
@@ -249,22 +249,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "First U.S. Navy Destroyer Enters Phase Two of DDG MOD 2.0 Modernization",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/10/first-u-s-navy-destroyer-enters-phase-two-of-ddg-mod-2-0-modernization/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "Space Force reveals first 6 ‘operational’ contracts for civil reserve support in space monitoring",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/10/space-force-reveals-first-6-operational-contracts-for-civil-reserve-support-in-space-monitoring/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-22",
       "tieu_de": "The Pentagon has gone too far in using the Other Transaction Authority. Congress should act.",
       "nguon": "Breaking Defense",
@@ -337,26 +321,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-23",
-      "tieu_de": "Pentagon issues guidance on AI procurements to support Trump’s ‘truth-seeking’ and ‘ideological neutrality’ directives",
-      "nguon": "DefenseScoop",
-      "url": "https://defensescoop.com/2026/10/23/pentagon-guidance-ai-procurement-trump-directive/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-22",
       "tieu_de": "Former U.S. officials urge D.C. Circuit to reconsider decision in Anthropic-Pentagon fight",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/10/21/dc-circuit-decision-anthropic-pentagon-fight/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "US Army launches Project Gatekeeper to accelerate commercial software adoption, streamline cybersecurity accreditation",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/577765/us-army-launches-project-gatekeeper-accelerate-commercial-software-adoption-streamline-cybersecurity-accreditation"
     },
     {
       "lop": "RSS",
@@ -738,6 +706,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-25",
+      "tieu_de": "Kids playing pool for Australia say there's not much time for homework",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-10-25/young-snooker-champion-angelo-tsakaris-8-ball-player-adam-grace/107291894"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-25",
       "tieu_de": "Australia has an Asian history, too, you just have to look for it",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-10-25/boyer-lectures-louisa-lim-asian-australian-history/107302542"
@@ -762,25 +738,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-24",
-      "tieu_de": "Protector drone flight over Channel was not for Home Office",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/protector-drone-flight-over-channel-was-not-for-home-office/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-24",
       "tieu_de": "Bluebottle maker opens Sydney plant for forty vessels",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/bluebottle-maker-opens-sydney-plant-for-forty-vessels/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-24",
-      "tieu_de": "Review under way on array that detects nuclear tests",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/review-under-way-on-array-that-detects-nuclear-tests/"
     },
     {
       "lop": "RSS",
@@ -850,6 +810,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-24",
+      "tieu_de": "British and French paratroopers take part in major wargame in Germany",
+      "nguon": "Sky News",
+      "url": "https://news.sky.com/story/british-and-french-paratroopers-take-part-in-major-wargame-in-germany-13603116"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-24",
       "tieu_de": "Former Goldman Sachs chief leaves Britain amid tax hike fears",
       "nguon": "Sky News",
       "url": "https://news.sky.com/story/former-goldman-chief-sherwood-leaves-britain-amid-tax-hike-fears-13602963"
@@ -877,14 +845,6 @@
       "tieu_de": "‘The worst thing we could do is pick one over the other’: an Australian economist on why US-China competition is ‘a gift’",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/2026/oct/25/australia-us-china-economy-john-edwards-interview"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-25",
-      "tieu_de": "We want you! ADF recruitment rates are growing, even as the odds of conflict rise. Why are people signing up?",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/world/2026/oct/25/adf-army-recruitment-rates-rising-despite-war"
     },
     {
       "lop": "RSS",
@@ -941,14 +901,6 @@
       "tieu_de": "The People's Armed Forces Maritime Militia",
       "nguon": "RealClearWorld",
       "url": "https://www.realclearworld.com/2026/10/15/the_peoples_armed_forces_maritime_militia_1211831.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-24",
-      "tieu_de": "British Typhoons Escort French Rafales in First Joint Nuclear Strike Drill",
-      "nguon": "The Aviationist",
-      "url": "https://theaviationist.com/2026/10/23/raf-typhoons-escort-french-rafales-joint-nuclear-drill/"
     },
     {
       "lop": "RSS",
@@ -1047,42 +999,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-25",
-      "tieu_de": "Trump votes early in Florida for US midterm elections",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/trump-votes-early-in-florida-for-us-midterm-elections",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-25",
-      "tieu_de": "Will Maga die in red Ohio? Controversial ad tests Trump’s staying power in midterm elections",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/will-maga-die-in-red-ohio-controversial-ad-tests-trumps-staying-power-in-midterm-elections",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "Former US vice-president Kamala Harris returns to US campaign trail with midterms, 2028 in view",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/former-us-vice-president-kamala-harris-returns-to-us-campaign-trail-with-midterms-2028-in-view",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "Five takeaways from Trump’s midterm campaign rallies",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/five-takeaways-from-trumps-midterm-campaign-rallies",
-      "nhom": 3
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-25",
       "tieu_de": "Trump, a critic of early voting, votes early in Florida",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3372041/trump-critic-early-voting-votes-early-florida",
@@ -1145,15 +1061,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-25",
-      "tieu_de": "American embassies tighten security as Iran threat warnings intensify ahead of U.S. midterm elections",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/10/24/iran-threats-us-embassies-middle-east.html",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-24",
       "tieu_de": "Ông Trump muốn lật kèo bầu cử Alaska nếu ứng viên Cộng hòa thua",
       "nguon": "VnExpress",
@@ -1176,6 +1083,15 @@
       "tieu_de": "Vụ bịa số liệu thăm dò gây chấn động mùa bầu cử giữa kỳ Mỹ",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/vu-bia-so-lieu-tham-do-gay-chan-dong-mua-bau-cu-giua-ky-my-5135871.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-25",
+      "tieu_de": "Đảng Cộng h&ograve;a t&igrave;m c&aacute;ch đảo ngược t&igrave;nh thế bầu cử giữa kỳ Mỹ",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/dang-cong-hoa-tim-cach-dao-nguoc-tinh-the-bau-cu-giua-ky-my-185261024220550152.htm",
       "nhom": 5
     },
     {
@@ -1299,6 +1215,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-25",
+      "tieu_de": "Trump votes early in Florida for US midterm elections",
+      "nguon": "Inquirer",
+      "url": "https://globalnation.inquirer.net/343681/trump-votes-early-in-florida-for-us-midterm-elections",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-25",
       "tieu_de": "If the Democrats win the midterms, a lot of people are going to prison",
       "nguon": "Sydney Morning Herald — World",
       "url": "https://www.smh.com.au/world/north-america/if-the-democrats-win-the-midterms-a-lot-of-people-are-going-to-prison-20261025-p617w6.html?ref=rss&utm_medium=rss&utm_source=rss_world",
@@ -1316,20 +1241,11 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "Trump foreign policy hits voters in the pocketbook, imperiling Republicans in midterms",
+      "ngay": "2026-10-25",
+      "tieu_de": "Trump prepares for Iran escalation after U.S. and Israeli elections",
       "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/10/24/world/politics/trump-foreign-policy-midterms/",
+      "url": "https://www.japantimes.co.jp/news/2026/10/25/world/politics/iran-us-midterm-elections-war/",
       "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-24",
-      "tieu_de": "ICC prosecutor says court making ‘significant progress’ despite US sanctions",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/law/2026/oct/24/icc-deputy-prosecutor-nazhat-shameem-khan-marco-rubio-us-sanctions",
-      "nhom": 4
     },
     {
       "lop": "RSS",
