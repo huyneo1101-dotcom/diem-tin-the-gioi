@@ -1,1 +1,7 @@
 [22:44Z] START (CI) phien sang som
+[22:45Z] harvest.py + telegram_harvest.py xong: 347 ung vien 5 chu de + 19 ung vien TG
+[23:05Z] giao 5 agent chu de (A Noi bo My, B Uc&BD, C CNQS, D Mali+tap tran, BM Bao Moi) song song
+[23:15Z] 5 agent xong, review + loc theo khung ngay nghiem (today/yesterday, CNQS 3 ngay) truoc khi nap
+[23:20Z] giao 1 agent bo sung (doi ngoai My, Australia, Bien Dong con thieu san)
+[23:30Z] nap qua add_news.py, xoa 1 tin trung (F-35 850 Lockheed), vang sot nhip tim 46 phut -> beat_push.py ngay, khoa van con hop le
+[23:35Z] tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY trong phien nay, khong doc duoc file Jay Lam. Ghi nhan fail-open, di tiep (gh workflow run telegram-bot.yml cung bi chan requires-approval truoc do).
