@@ -5,3 +5,4 @@
 [23:20Z] giao 1 agent bo sung (doi ngoai My, Australia, Bien Dong con thieu san)
 [23:30Z] nap qua add_news.py, xoa 1 tin trung (F-35 850 Lockheed), vang sot nhip tim 46 phut -> beat_push.py ngay, khoa van con hop le
 [23:35Z] tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY trong phien nay, khong doc duoc file Jay Lam. Ghi nhan fail-open, di tiep (gh workflow run telegram-bot.yml cung bi chan requires-approval truoc do).
+[23:33Z] DONE web-scan, da commit + push (+27 tin). Bat dau event-scan (CI, gop vao sang som)
