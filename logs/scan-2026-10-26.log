@@ -6,3 +6,5 @@
 [23:25Z] gop ket qua vong bo sung, add_news.py: +1 usNews (CNQS)
 [23:26Z] khong kich duoc bot telegram-bot.yml (gh bi chan requires approval); tin_jaylam.py --liet-ke: khong co file Jay Lam nao
 [23:28Z] ghi scan-gaps.json + loai-tin.md, chuan bi commit ban tin
+[23:28Z] commit + push "Cap nhat ban tin 26/10" thanh cong
+[23:28Z] START event-scan (CI, gop vao sang som)
