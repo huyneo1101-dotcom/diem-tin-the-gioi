@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-10-26T06:28:45+07:00",
+    "lastRunAt": "2026-10-26T06:35:09+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 su kien/tap tran, +1 tap tran moi (Wallaby 2026), +6 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-10-25"
-    },
-    "heartbeat": "2026-10-26T06:35:03+07:00"
+      "sang": "2026-10-26"
+    }
   }
 }
