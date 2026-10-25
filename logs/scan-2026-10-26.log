@@ -1,1 +1,8 @@
 [22:49Z] START (CI) phien sang som
+[22:49Z] harvest.py: 319 ung vien, telegram_harvest.py: 8 ung vien
+[23:05Z] giao 4 agent song song: A Noi bo My, B Uc & Bien Dong, C CNQS My, D Mali+Tap tran
+[23:12Z] gop ket qua, add_news.py: +11 worldNews, +7 usNews, +2 tap tran
+[23:20Z] giao 1 agent bo sung duy nhat (gop 5 muc con thieu san)
+[23:25Z] gop ket qua vong bo sung, add_news.py: +1 usNews (CNQS)
+[23:26Z] khong kich duoc bot telegram-bot.yml (gh bi chan requires approval); tin_jaylam.py --liet-ke: khong co file Jay Lam nao
+[23:28Z] ghi scan-gaps.json + loai-tin.md, chuan bi commit ban tin
