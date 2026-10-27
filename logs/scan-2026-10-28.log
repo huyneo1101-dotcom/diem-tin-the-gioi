@@ -9,3 +9,4 @@
 [22:20Z] (CI) phat hien them 3 tin trung NOI DUNG (khong trung URL) qua canh bao Jaccard - go tay bang script doc/viet lai var DATA (cung co che phien 25/10 da dung cho vu F-35 850 chiec)
 [22:25Z] (CI) DONE web-scan (bu): +7 worldNews +8 usNews +1 tap tran (sau khi go trung). Ket qua gop ca ngay: Doi ngoai My 7/5, Noi bo My 9/5, Anh 9/3, Australia 6/3, Bien Dong 6/5, KHCN-QS 9/5 - DU SAN MOI MUC. scan-gaps.json + loai-tin.md da ghi chi tiet su co quet chong.
 [22:28Z] (CI) SKIP event-scan o Buoc 6 vi phien local da DONE event-scan (+5 bai think-tank) - khong lam lai de tranh trung cong.
+[21:53Z] START (CI) - phien moi 04:53 VN. claim web-scan exit 10; so_da_gui.py --xem CO dong 2026-10-28T04:52:59+07:00 [sang] 44 tin -> ban tin da toi tay thuc, SKIP em theo ngoai le. Chuyen sang Buoc 6 claim event-scan.
