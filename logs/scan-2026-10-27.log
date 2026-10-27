@@ -2,3 +2,4 @@
 [00:30Z] CHUA KICH DUOC BOT telegram-bot.yml - lenh gh bi chan "requires approval" trong moi truong CI nay. Di tiep, tu kiem tin_jaylam.py voi du lieu da co san.
 [00:31Z] tin_jaylam.py --liet-ke: exit 10, khong co file Jay Lam nao trong hang cho. Bo qua buoc 4c, di tiep nap tin.
 [00:42Z] DONE add_news.py: +14 TG, +21 US, +1 tap tran. Da dung 6/6 agent con (5 luong goc + 1 bo sung). 3 muc duoi san 1 tin (Noi bo My, Australia, Bien Dong) - ghi ro ly do trong scan-gaps.json. Chuan bi commit "Cap nhat ban tin".
+[00:42Z] Commit "Cap nhat ban tin 27/10" da push. Claim event-scan OK, bat dau Buoc 6.
