@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-27T07:05:52+07:00",
+    "lastRunAt": "2026-10-27T07:42:19+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+35 tin (5 chu de): +14 the gioi, +21 My, +1 tap tran. 3 muc duoi san 1 (Noi bo My/Australia/Bien Dong)",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-10-26"
-    },
-    "heartbeat": "2026-10-27T07:41:53+07:00"
+      "sang": "2026-10-27"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-10-26T06:35:09+07:00",

@@ -14,6 +14,18 @@
 - [US/BM] "Ông Trump bác tin đề nghị nới lỏng trừng phạt Iran..." (VietnamNet/Tiền Phong/Lào Cai, 3 bài) — TRÙNG sự kiện đã nạp qua nguồn gốc tốt hơn (The Hill, dateProofUrl rte.ie).
 - [TG/BM] "Hàn Quốc coi việc phát triển, sử dụng và vận hành tàu ngầm hạt nhân là chiến lược quốc gia" (Báo TG&VN) — thuần nội bộ Hàn Quốc, không neo được vào Úc/AUKUS/Anh/Biển Đông (siết 01/08/2026).
 
+## 2026-10-27 (phiên sáng sớm CI) — cổng Báo Mới (9 ứng viên khớp chủ đề)
+
+- [CNQS/BM] "Ukraine: Mỹ chậm chuyển hệ thống Patriot gần một tháng dù đã được thanh toán" (Báo Tin Tức TTXVN) — TRÙNG sự kiện đã nạp qua nguồn gốc Ukrainska Pravda "Zelensky: Ukraine chờ gần một tháng để Bộ trưởng Quốc phòng Mỹ phê duyệt chuyển tên lửa Patriot, NASAMS".
+- [US/BM] "Bầu cử giữa nhiệm kỳ ở Mỹ tác động thế nào đến chính sách với Hàn Quốc và Triều Tiên?" (Báo Tin Tức TTXVN) — tìm được bài gốc Yonhap (25/10) nhưng không xác định được URL gốc trực tiếp trên en.yna.co.kr qua WebSearch, chỉ có bản đăng lại; không chốt được URL đáng tin nên loại.
+- [US/BM] "Ông Trump dự báo sớm đạt thỏa thuận thuế quan với Canada" (Báo Thanh Hóa) — tin phổ biến đã được AP/Reuters/nhiều hãng lớn đưa đồng thời tại sự kiện vận động Michigan, không có góc riêng.
+- [US/BM] "Chiến dịch tranh cử vào Quốc hội Mỹ bước vào giai đoạn nước rút" (Báo An Giang) — tin tổng quan chung về không khí bầu cử, trùng nội dung phổ biến đã có nhiều nguồn khác đưa.
+- [US/BM] "Bầu cử Israel: Hé lộ sức ép với Thủ tướng Netanyahu khi nỗ lực vận động Tổng thống Trump" (Báo Tin Tức TTXVN) — truy được nguồn Axios/Times of Israel nhưng Times of Israel là trang liveblog (bị `check_url_quality` chặn) và bài gốc Axios đăng 25/10, ngoài khung 26-27/10; loại.
+- [US/BM] "Tổng thống Trump kêu gọi người dân Israel bỏ phiếu cho ông Netanyahu" (VietnamNet) — trùng sự kiện với mục ngay trên (cùng chuỗi tin Netanyahu-Trump bầu cử Israel).
+- [CNQS/BM] "Boeing tham gia sản xuất UAV chiến đấu FQ-42A cho Không quân Mỹ" (An Ninh Thủ Đô) — truy được nguồn gốc GA-ASI/Spirit Defense (không phải Boeing trực tiếp như Báo Mới viết) nhưng ngày đăng thật 23/10, ngoài khung lùi 3 ngày (24-27/10) của CNQS Mỹ.
+
+**Đã nạp (3/9):** Patriot ở Trung Đông giúp Ukraine trụ vững (Kyiv Post); Zelensky-Hegseth chậm duyệt Patriot/NASAMS (Ukrainska Pravda).
+
 ## 2026-10-10 (phiên sáng sớm CI) — cổng Báo Mới
 
 - [TG/BM] "Siêu tàu ngầm hạt nhân USS Jimmy Carter của Mỹ dài hơn 30 m để làm gì?" (Chuyên trang An Ninh Thủ Đô) — bài giải thích khí tài Mỹ chung, không neo được sự kiện thời sự mới trong khung ngày 09-10/10; không phải tin về Úc/Anh/Biển Đông.
