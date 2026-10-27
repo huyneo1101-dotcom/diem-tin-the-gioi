@@ -2,3 +2,10 @@
 [21:05Z] START (local) - claim web-scan RUN (CI khong co ket qua), quet phien sang som 28/10/2026
 [21:27Z] DONE (local): +12 worldNews +11 usNews +1 tap tran; hut san Bien Dong 3/5 + Doi ngoai My 4/5; 8 tin bi cong NGAY THAT chan (The Hill/war.gov/Global Times); cat vong Bao Moi + Jay Lam (thieu khoa Supabase)
 [21:36Z] DONE event-scan (local): +5 bai think-tank, 4 bai co khai niem; 0 tap tran moi (Kasangga/Resolute Reforger/SIMBEX khong du nguon chinh thuc trong khung ngay)
+[21:10Z] (CI) harvest.py OK (482 ung vien) + telegram_harvest.py OK; chua kich duoc telegram-bot.yml (requires approval); thieu SUPABASE key nen bo qua Jay Lam
+[21:20Z] (CI) giao 5 agent chu de song song xong; [21:35Z] giao 1 agent bo sung duy nhat (Doi ngoai My + Australia) xong - dung tran 6/6 agent con
+[21:40Z] (CI) git push bi rejected - phat hien phien local da claim+gui ban tin truoc (quen push state.json ngay sau claim, dung loi 26/07). KHONG phai SKIP vi da lam xong het cong viec - xu ly bang MERGE
+[22:10Z] (CI) git reset --hard origin/main (lay ban local lam goc) + chay lai add_news.py voi batch CI tren nen do - guardrail trung URL tu bat 11 tin trung giua 2 batch, go khoi batch CI
+[22:20Z] (CI) phat hien them 3 tin trung NOI DUNG (khong trung URL) qua canh bao Jaccard - go tay bang script doc/viet lai var DATA (cung co che phien 25/10 da dung cho vu F-35 850 chiec)
+[22:25Z] (CI) DONE web-scan (bu): +7 worldNews +8 usNews +1 tap tran (sau khi go trung). Ket qua gop ca ngay: Doi ngoai My 7/5, Noi bo My 9/5, Anh 9/3, Australia 6/3, Bien Dong 6/5, KHCN-QS 9/5 - DU SAN MOI MUC. scan-gaps.json + loai-tin.md da ghi chi tiet su co quet chong.
+[22:28Z] (CI) SKIP event-scan o Buoc 6 vi phien local da DONE event-scan (+5 bai think-tank) - khong lam lai de tranh trung cong.

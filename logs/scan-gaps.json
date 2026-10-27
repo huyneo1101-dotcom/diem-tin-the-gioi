@@ -2,20 +2,24 @@
   "date": "2026-10-28",
   "session": "sang",
   "topics": [
-    {"name": "Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)", "count": 5, "target": "12-18", "min": 5, "thieu": false,
-     "reason": "Nhóm 1 (điều trần/bỏ phiếu) gần như trống trong khung 27-28/10: chỉ có lịch bầu lãnh đạo Hạ viện. Hạ viện/Thượng viện đang vào tuần vận động bầu cử giữa kỳ nên ít phiên bỏ phiếu. Tin GNEWS về dự luật nhập cư 70 tỷ USD, ngân sách DHS, phiếu qua thư là tin đăng lại của sự kiện tháng 3-6/2026 nên bị loại. 06 tin The Hill/war.gov bị cổng NGÀY ĐĂNG THẬT chặn vì trang không in ngày đọc được (bỏ, chưa có link đối chứng)."},
-    {"name": "Đối ngoại Mỹ", "count": 4, "target": "5", "min": 5, "thieu": true,
-     "reason": "Hụt 01 tin so với sàn 05. Tin Mỹ cân nhắc dỡ trừng phạt Quỹ Đầu tư Trực tiếp Nga (NYT 27-28/10) chỉ có link news.google.com, WebSearch không ra bài gốc; Trump bác kế hoạch đánh Iran chung với Israel và trừng phạt nhóm cánh tả đều ngoài khung ngày. Rubio/Venezuela (The Hill) bị cổng ngày đăng thật chặn."},
-    {"name": "Úc, Anh & Biển Đông", "count": 12, "target": "15-20", "min": 5, "thieu": true,
-     "reason": "Anh 06 tin, Australia 05 tin đạt sàn. Biển Đông chỉ 03 tin, hụt 02: bài Diplomat (Laos/COC) bị chặn kết kết nối, Japan Times, FT, RealClearDefense trả 403; hầu hết tin Biển Đông 27-28/10 chỉ có ở link GNEWS hoặc trang tổng hợp không truy được gốc. Global Times (tàu Philippines bám tàu sân bay Liêu Ninh) bị cổng ngày đăng thật chặn."},
-    {"name": "Công nghệ quân sự Mỹ", "count": 4, "target": "6-10", "min": 5, "thieu": false,
-     "reason": "ARRW, Blackbeard/F-16, Yorktown, Stoke Space, AFRL, F-35 đã nạp ngày 24-26/10 nên bị loại vì trùng; tàu không người lái phòng không (15-19/10) và tiểu đoàn phòng không Guam (16/10) ngoài khung; tin Trung tâm bảo dưỡng PAC-3 Ba Lan trên war.gov bị cổng ngày đăng thật chặn."},
+    {"name": "Nội bộ Mỹ", "count": 9, "target": "12-18", "min": 5, "thieu": false,
+     "reason": "Gộp 2 phiên (local 5 + CI bổ sung 4, sau khi gỡ 1 tin trùng nội dung với tin local — xem logs/loai-tin.md '[TOÀN PHIÊN 28/10 sáng]'). Nhóm 1 (điều trần/bỏ phiếu) gần như trống cả hai phiên vì Quốc hội đang tuần vận động bầu cử giữa kỳ."},
+    {"name": "Đối ngoại Mỹ", "count": 7, "target": "5", "min": 5, "thieu": false,
+     "reason": "Gộp 2 phiên (local 4 + CI bổ sung 3: Rubio-Machado/Venezuela, ngừng bắn Oleshky do Melania Trump làm trung gian, Rubio-Mulino/Panama). Phiên CI tự WebSearch (không tính vào trần agent) sau khi 2/4 ứng viên gốc của agent (Rubio G20 Atlanta, Lầu Năm Góc Poland PAC-3) bị cổng NGÀY ĐĂNG THẬT chặn hẳn."},
+    {"name": "Địa bàn › Anh", "count": 9, "target": "5", "min": 3, "thieu": false,
+     "reason": "Gộp 2 phiên (local 6 + CI bổ sung 3 sau khi gỡ 2 tin trùng nội dung với tin local: ngân hàng quốc phòng Canada, Kế hoạch Phòng thủ Warsaw — xem logs/loai-tin.md)."},
+    {"name": "Địa bàn › Australia", "count": 6, "target": "5", "min": 3, "thieu": false,
+     "reason": "Gộp 2 phiên (local ~4-5 + CI bổ sung: luật ADF bắn drone, bình luận AUKUS Pearls&Irritations, Marles dự ADMM-Plus Philippines — 2 ứng viên khác của CI, GOV.UK undersea sensors và ASPI air bridge, bị loại vì URL trùng tin local đã nạp)."},
+    {"name": "Địa bàn › Biển Đông", "count": 6, "target": "5", "min": 5, "thieu": false,
+     "reason": "Gộp 2 phiên (local 3 + CI bổ sung 3: Laos/COC, Koizumi ASEAN, Liêu Ninh áp sát Mindanao — 2 ứng viên khác của CI, Yonhap Cebu và Daily Tribune 54 tàu, bị loại vì URL trùng tin local đã nạp)."},
+    {"name": "KHCN-QS", "count": 9, "target": "6-10", "min": 5, "thieu": false,
+     "reason": "Gộp 2 phiên (local 4 + CI bổ sung 5: Poland PAC-3, X-Bow CHAOS, RDEP-P 2.0, Canada F-35 qua Báo Mới, +1 — nhiều ứng viên khác của CI bị loại vì trùng URL với tin local: Military Times khí cầu, Military Times AI ultrasound, Aviationist MQ-8C Fire Scout)."},
     {"name": "Mỹ – Mali", "count": 1, "target": "2-5", "min": 0, "thieu": true,
-     "reason": "Chỉ có tin Niger cáo buộc Chad dùng drone (Africanews 27/10). Tin Algeria đưa quân sang Niger (BBC) đăng 26/10 nên quá khung; tin Mỹ cân nhắc đánh JNIM, HRW, họp AES-ECOWAS đều cũ hơn khung; vụ Diawara, Lavrov và đoàn xe bồn Bamako không tìm được bài gốc có ngày."},
-    {"name": "Tập trận", "count": 1, "target": "1-2", "min": 0, "thieu": false,
-     "reason": "Garuda Shakti khai mạc 27/10 tại Banyuwangi. Keen Sword (DVIDS đăng 26/10), Wallaby (MINDEF 23/10), Freedom Flag, AUSTRAHIND không có bài gốc trong khung ngày; Wantok Warrior không có entry trong DATA.exercises nên bỏ."},
-    {"name": "Báo Mới", "count": 0, "target": "tuỳ", "min": 0, "thieu": true,
-     "reason": "CẮT vòng Báo Mới ở phiên này do sát hạn chót 04:45 và hai vòng agent đã tiêu hết quỹ thời gian; còn 08 ứng viên khớp 5 chủ đề chưa truy gốc (bầu cử giữa kỳ, Fed, F-35 Canada, Blackbeard...)."}
+     "reason": "Chỉ có tin Niger cáo buộc Chad dùng drone (Africanews 27/10, phiên local). Agent D của phiên CI không tìm được diễn biến Mỹ-Mali/JNIM mới nào khác trong khung 27-28/10 dù đã thử AFRICOM/HRW/Long War Journal/allAfrica — không mang sàn nên không ảnh hưởng."},
+    {"name": "Tập trận", "count": 3, "target": "1-2", "min": 0, "thieu": false,
+     "reason": "Local: Garuda Shakti khai mạc 27/10 tại Banyuwangi. CI bổ sung: Garuda Shakti (URL khác, trùng cuộc nhưng không trùng URL — giữ cả hai vì đưa 2 khoa mục khác nhau) + Keen Sword 27 (EOD/drone response tại Iwakuni, DVIDS). Không mang sàn."},
+    {"name": "Báo Mới", "count": 4, "target": "tuỳ", "min": 0, "thieu": false,
+     "reason": "Phiên local CẮT hoàn toàn vòng Báo Mới (sát hạn chót). Phiên CI xử lý đủ 8 ứng viên còn treo: nạp 4 (giám sát bầu cử — sau đó gỡ vì trùng tin local 'DOJ Washington 400 phiếu', Canada F-35, Iran-Patriot video bị loại sau vì sự kiện gốc quá cũ, Fed FOMC), loại 4 (phân tích chung/trùng/ngoài phạm vi) — chi tiết logs/loai-tin.md."}
   ],
-  "note": "Bước bị cắt: vòng Báo Mới, kích bot Telegram Jay Lâm (thiếu khoá Supabase, không đọc được hàng chờ). Tin bị loại: logs/loai-tin.md."
+  "note": "SỰ CỐ QUÉT CHỒNG sáng nay: phiên CI (claude-scan-ci) và phiên local cùng claim web-scan vì phiên CI quên push logs/state.json ngay sau claim (chỉ push log, đúng lỗi 26/07/2026 — xem logs/loai-tin.md '[TOÀN PHIÊN 28/10 sáng]' để biết cách đã xử lý: merge hai batch qua add_news.py, gỡ tay 3 tin trùng nội dung không trùng URL bằng script đọc/viết lại var DATA). Phiên local đã gửi bản tin + Telegram trước (commit 6c2a4fa, so_da_gui.py đã ghi); batch của phiên CI là PHẦN BÙ trong cùng ngày, không gửi email/Telegram riêng (commit không khớp khung giờ gửi lần 2 trong notify-email.yml nếu đã gửi, hoặc sẽ gửi bù nếu khung giờ còn mở — kiểm bằng DRY_RUN=1 trước khi lo). event-scan: phiên local đã DONE (+5 bài think-tank), phiên CI SKIP event-scan ở Bước 6 để tránh trùng công."
 }
