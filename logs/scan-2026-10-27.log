@@ -4,3 +4,4 @@
 [00:42Z] DONE add_news.py: +14 TG, +21 US, +1 tap tran. Da dung 6/6 agent con (5 luong goc + 1 bo sung). 3 muc duoi san 1 tin (Noi bo My, Australia, Bien Dong) - ghi ro ly do trong scan-gaps.json. Chuan bi commit "Cap nhat ban tin".
 [00:42Z] Commit "Cap nhat ban tin 27/10" da push. Claim event-scan OK, bat dau Buoc 6.
 [00:55Z] Event-scan DONE: +2 tap tran moi (Garuda Shakti 2026, Freedom Flag 26-2), +2 cap nhat tap tran (Keen Sword 26, SIMBEX-2026), +1 su kien ngoai giao moi (Ukraine-Moldova), +5 bai think-tank (MWI, Brookings, ORF, Stimson, Timbuktu) kem khai niem. Khong co bao cao tuan (hom nay thu Ba). Chuan bi commit "Cap nhat su kien".
+[00:57Z] Phien moi: state.py claim web-scan tra exit 10 (web-scan hom nay DA XONG, lastRunAt 07:42:19+07:00). Kiem so_da_gui.py --xem: co dong 2026-10-27T07:57:01+07:00 [sang] 39 tin - ban tin da toi tay. SKIP web-scan dung quy trinh. Nhay sang Buoc 6 kiem event-scan.
