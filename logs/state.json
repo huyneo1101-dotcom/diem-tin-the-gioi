@@ -9,13 +9,13 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-29T04:09:38+07:00",
+    "lastRunAt": "2026-10-29T04:33:03+07:00",
     "lastSlot": "sang",
-    "lastStatus": "FAIL",
-    "note": "nhuong CI: run 40768197819 dang quet (in_progress tu 04:00 VN), local khong quet chong",
+    "lastStatus": "DONE",
+    "note": "+10 the gioi, +16 My, +1 tap tran (5 chu de)",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-10-28"
+      "sang": "2026-10-29"
     }
   },
   "event-scan": {

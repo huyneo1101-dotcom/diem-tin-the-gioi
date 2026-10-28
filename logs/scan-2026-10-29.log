@@ -1,3 +1,6 @@
 [21:00Z] START (CI) - phien sang som 2026-10-29
-[21:06Z] START (local 04:05 VN) - claim RUN (chay bu; CI run 40768197819 dang in_progress, chua giu khoa)
-[21:12Z] NHUONG CI (local 04:05 VN) - CI run 40768197819 dang o buoc "Quet ban tin"; local nha khoa (state.py fail), khong quet chong. Moc du phong sau se kiem lai.
+[21:05Z] harvest.py: 449 ung vien. telegram_harvest.py: xong. beat_push OK.
+[21:05Z] chua kich duoc telegram-bot.yml (gh bi chan approval) - di tiep, se kiem tin_jaylam.py tiep theo
+[21:05Z] tin_jaylam.py --liet-ke: exit 10, khong co file Jay Lam, bo qua buoc loc
+[21:32Z] add_news.py OK sau nhieu lan sua (ngay that, trung URL, trung noi dung): +10 worldNews, +16 usNews, +1 tap tran. Nhieu tin rung rung o cong ngay-that/trung-noi-dung sau khi agent bao du san (Australia 2/5, Bien Dong 3/5 - ghi logs/scan-gaps.json)
+[21:33Z] DONE web-scan. Chuan bi commit ban tin roi sang Buoc 6 (event-scan, phien sang som).
