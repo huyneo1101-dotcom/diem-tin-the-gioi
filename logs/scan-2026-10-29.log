@@ -5,3 +5,7 @@
 [21:32Z] add_news.py OK sau nhieu lan sua (ngay that, trung URL, trung noi dung): +10 worldNews, +16 usNews, +1 tap tran. Nhieu tin rung rung o cong ngay-that/trung-noi-dung sau khi agent bao du san (Australia 2/5, Bien Dong 3/5 - ghi logs/scan-gaps.json)
 [21:33Z] DONE web-scan. Chuan bi commit ban tin roi sang Buoc 6 (event-scan, phien sang som).
 [21:33Z] START event-scan (CI, gop vao sang som)
+[21:38Z] do_tap_tran_thieu.py: 3 cuoc co ten rieng, khong cai nao dang dang/hop pham vi (SIMBEX da co trong DATA, Ramaphosa Iran khong lien quan, Union Shield 2027 la ke hoach tuong lai) - khong tao the moi
+[21:50Z] event-scan agent: +1 su kien ngoai giao moi (ADMM-Plus Cebu 28-29/10), 1 cap nhat tap tran (Garuda Shakti) bi trung URL nen bo. add_news.py OK.
+[21:58Z] think-tank agent: doc 5 bai, loai 1 (Timbuktu Institute FIMI - chi la thong cao quang ba), nap 4 bai (CTC Sentinel Balochistan, ORF kiem soat xuat khau TQ, SIPRI AI quan su, Carnegie bau cu Israel) + sinh 7 khai niem. Hom nay thu Nam, bo qua bao cao tuan.
+[21:59Z] DONE event-scan.
