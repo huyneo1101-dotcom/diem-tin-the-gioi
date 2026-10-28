@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-10-28T04:26:08+07:00",
+    "lastRunAt": "2026-10-29T04:06:41+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+12 world +11 us +1 tap tran (Bien Dong 3/5, Doi ngoai My 4/5 hut san)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-10-28"
-    }
+    },
+    "heartbeat": "2026-10-29T04:06:41+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-10-28T04:32:12+07:00",
