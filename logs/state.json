@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-10-28T04:32:12+07:00",
+    "lastRunAt": "2026-10-29T04:33:26+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+5 bai think-tank, 0 tap tran moi (Kasangga/Resolute Reforger khong du nguon chinh thuc)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-10-28"
-    }
+    },
+    "heartbeat": "2026-10-29T04:33:26+07:00"
   }
 }
