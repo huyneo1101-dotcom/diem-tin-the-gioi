@@ -1,25 +1,15 @@
 {
-  "date": "2026-10-29",
+  "date": "2026-10-30",
   "session": "sang",
   "topics": [
-    {"name": "Nội bộ Mỹ", "count": 9, "target": "12-18", "min": 5, "thieu": true,
-     "reason": "Hạng 1 (điều trần + bỏ phiếu) cạn hoàn toàn: Quốc hội gần như nghỉ lập pháp sát bầu cử giữa kỳ (03/11), không có hearing/markup mới 28-29/10 (đã kiểm armedservices.house.gov, armed-services.senate.gov, judiciary.senate.gov). Nhóm biểu tình (3) không tìm được tin hợp khung. Tổng 9 tin thấp hơn chỉ tiêu 12-18; phần ngoài-đối-ngoại chỉ đạt 4/5 — xem chi tiết logs/loai-tin.md."},
-    {"name": "Đối ngoại Mỹ", "count": 5, "target": "5", "min": 5, "thieu": false,
-     "reason": "Đủ sàn sau 1 vòng agent bổ sung (OFAC Bắc Triều Tiên, cảnh báo Iran vùng Vịnh, visa Bolsonaro, Hegseth-Teodoro, Hegseth đề xuất khung Mỹ-ASEAN tại ADMM-Plus Cebu)."},
-    {"name": "Địa bàn › Anh", "count": 5, "target": "5", "min": 5, "thieu": false,
-     "reason": "Đủ sàn (ngân sách quốc phòng, Director General Innovation, dự án AETHER trinh sát tầng bình lưu, 3 tàu Vanguard, kíp mặt đất RAF huy chương thử hạt nhân). 1 tin Falklands bị loại vì trùng nội dung tin đã có — xem loai-tin.md."},
-    {"name": "Địa bàn › Australia", "count": 2, "target": "5", "min": 5, "thieu": true,
-     "reason": "Agent B báo cáo 6 tin nhưng 4/6 không qua được cổng sau khi tổng hợp: USS Colorado trùng URL tin đã có sẵn trong DATA, Wantok Warrior (EMTV) thật đăng 12/10 (quá cũ 17 ngày), Bộ QP Úc rà soát ngân sách trùng tin đã có, phi công Mỹ lái F-35 Úc (The Australian) không có URL bài cụ thể nên bị loại khi tổng hợp. Chỉ còn Đô đốc Peter Briggs cảnh báo thiếu thuỷ thủ AUKUS + Marles xác nhận tiến độ AUKUS. Đã tự WebSearch/WebFetch thêm (ngoài agent, do đã hết trần 1 vòng bổ sung) tìm thay thế (Hegseth-Marles force posture, Hudson Institute Úc-Nhật, ADF tuyển PNG) nhưng không tìm được nguồn có metadata ngày đọc được hoặc event date nằm trong khung 28-29/10 — xem logs/loai-tin.md."},
-    {"name": "Địa bàn › Biển Đông", "count": 3, "target": "5", "min": 5, "thieu": true,
-     "reason": "Agent B báo cáo 5 tin nhưng 2/5 bị loại sau tổng hợp: tin Scarborough (Philstar) sự kiện thật xảy ra 27/10 (ngoài khung hôm nay+hôm qua từ batch 29/10), tin Ấn Độ-Philippines (Asia Times) nghi là bài phân tích cũ từ ~12/10 đăng lại, không đọc được metadata ngày để xác nhận an toàn nên loại. Còn lại: Teodoro kêu gọi ASEAN đoàn kết tại ADMM Cebu, khảo sát Mỹ-Nhật là đối tác quan trọng của Philippines, Trung Quốc triệu hồi giáo viên khỏi Philippines."},
-    {"name": "KHCN-QS", "count": 5, "target": "6-10", "min": 5, "thieu": false,
-     "reason": "Chủ đề 3 (CNQS Mỹ) 4 tin + tập trận 1 tin = 5, vừa đạt sàn riêng của mục Word. 2 tin CNQS gốc (ARRW Lockheed, Castelion Blackbeard F-16) bị loại sau tổng hợp vì trùng nội dung tin đã có sẵn trong DATA từ phiên trước — khối chống-trùng 20-tin-gần-nhất đưa cho agent không đủ xa để bắt được, vì hai sự kiện đó nạp hơn 20 tin trước. 1 tin (MQ-25A) không qua được cổng ngày thật vì không tìm được dateProofUrl đọc được."},
-    {"name": "Mỹ – Mali", "count": 3, "target": "2-5", "min": 0, "thieu": false,
-     "reason": "Đủ, không mang sàn. Không kích drone tranh cãi gần Mauritania (13 dân thường), Chiến dịch Dougoukoloko của FAMa (Léré, Diabaly), phân tích Soufan Center về JNIM/IS/Africa Corps."},
-    {"name": "Tập trận", "count": 1, "target": "1-2", "min": 0, "thieu": false,
-     "reason": "Video tổng kết Keen Sword 27 (DVIDS) — hôm nay 29/10 là ngày cuối của cuộc tập trận (19-29/10)."},
-    {"name": "Báo Mới", "count": 0, "target": "tuỳ", "min": 0, "thieu": false,
-     "reason": "3 ứng viên chuyên mục khớp từ khoá đều bị loại sau khi đọc: 2 tin thương mại (thịt lợn Philippines, Poly Anh) không neo được vào quốc phòng/an ninh/chính trường tầm chiến lược; 1 tin (Bộ trưởng Vũ Hải Quân AI) xác minh là Bộ trưởng KH-CN VIỆT NAM, không liên quan Mỹ — cổng xếp nhầm nhóm do trùng từ khoá. Không có bài đã lưu (baomoiNews) nào trong hàng chờ."}
+    {"name": "Nội bộ Mỹ", "count": 11, "target": "12-18", "min": 5, "thieu": true,
+     "reason": "Hạng 1 (điều trần + bỏ phiếu) không có tin mới trong khung 29-30/10 vì Quốc hội gần như nghỉ lập pháp sát bầu cử giữa kỳ 03/11. Hai tin số liệu BEA (GDP quý III, PCE tháng 9) bị cổng ngày đăng thật chặn vì trang không in ngày và không tìm được link đối chứng; tin Lavrov dự G20 bị loại vì bài đăng 28/10. Tin Báo Mới giữ link Báo Mới do không truy được bài gốc."},
+    {"name": "Úc & Anh & Biển Đông", "count": 18, "target": "15-20", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Công nghệ quân sự Mỹ", "count": 6, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
+    {"name": "Mỹ – Mali", "count": 0, "target": "2-5", "min": 0, "thieu": true,
+     "reason": "Các ứng viên chỉ nói về Mali, Nga và JNIM, không bài nào nêu Mỹ hành động trong khung 29-30/10; tin Mỹ cân nhắc không kích Mali gần nhất từ tháng 7/2026."},
+    {"name": "Tập trận", "count": 0, "target": "1-2", "min": 0, "thieu": true,
+     "reason": "DATA.exercises chỉ có SLINEX-26 (đã kết thúc 21/09); các cuộc đang chạy (Garuda Shakti, Freedom Flag 26-2, Wallaby, AUSTRAHIND) chưa có entry khớp nên không nạp qua exerciseUpdates."}
   ],
-  "note": "Trần agent con: đã dùng đủ 5/6 (4 luồng gốc A/B/C/D + 1 bổ sung duy nhất vá Đối ngoại Mỹ) — không giao vòng thứ hai theo đúng luật, dù Australia và Biển Đông vẫn dưới sàn. Nguyên nhân chính của hai mục hụt: nhiều ứng viên ban đầu trông hợp lệ nhưng rơi rụng ở bước cuối (cổng NGÀY ĐĂNG THẬT + trùng nội dung với DATA cũ) sau khi agent đã báo cáo đủ sàn — khối chống-trùng 20-tin-gần-nhất đưa vào prompt không đủ sâu để bắt các sự kiện đã nạp quá 20 tin trước (vấp với ARRW/Castelion/Colorado). Toàn bộ quá trình loại/sửa chi tiết: logs/loai-tin.md mục '[TOÀN PHIÊN 29/10 sáng]'."
+  "note": "Chưa kích được bot Telegram và thiếu khoá Supabase nên bỏ bước lọc Jay Lâm phiên này. Tin bị loại: logs/loai-tin.md."
 }

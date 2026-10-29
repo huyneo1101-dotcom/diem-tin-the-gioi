@@ -1,3 +1,4 @@
 [21:00Z] START web-scan (CI, phien sang som)
 [21:10Z] harvest.py OK (470 ung vien) + telegram_harvest OK (14 bai TG). baomoi-pending: khong co bai hop 5 chu de ro net. gh workflow run telegram-bot.yml bi chan approval -> chua kich duoc bot, SUPABASE key thieu nen tin_jaylam cung khong doc duoc. Di tiep, bo qua buoc loc Jay Lam phien nay.
 [21:06Z] START web-scan (local, phien sang som) - claim RUN, CI 21:00Z chua thay khoa
+[21:30Z] nap xong 20 world + 22 us (agent A-E); soan scan-gaps; chot commit
