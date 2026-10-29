@@ -15,3 +15,7 @@
   ban da gui), chi ghi dong log nay. Khong mat tin thuc: ban da gui cua phien local da du san 5/5 moi muc
   (Anh/Australia/Bien Dong/Noi bo My/CNQS deu >=5), chi Doi ngoai My 11 tin gop chung Noi bo My (phien local
   khong tach rieng "Doi ngoai My" nhu phien CI). Khong can lam gi them, CA HAI pipeline da DONE that.
+[21:56Z] SKIP web-scan (CI, phien moi) - claim tra exit 10. Kiem ngoai le: so_da_gui --xem co dong
+2026-10-30T04:17:21+07:00 [sang] 38 tin + 2026-10-30T04:22:02+07:00 [sukien] 3 tin, khop dung ngay
+hom nay + nhan [sang] -> ban tin da thuc su toi tay (khong phai co noi doi). SKIP hop le, chuyen
+sang Buoc 6 (claim event-scan).
