@@ -19,3 +19,6 @@
 2026-10-30T04:17:21+07:00 [sang] 38 tin + 2026-10-30T04:22:02+07:00 [sukien] 3 tin, khop dung ngay
 hom nay + nhan [sang] -> ban tin da thuc su toi tay (khong phai co noi doi). SKIP hop le, chuyen
 sang Buoc 6 (claim event-scan).
+[21:57Z] SKIP event-scan (CI) - claim tra exit 10, da DONE 04:21:21+07 (lan chay local truoc), so
+sukien co dong 2026-10-30 04:22:02 3 tin khop ngay hom nay. Ca hai pipeline (web-scan + event-scan)
+da hoan tat thuc su trong phien truoc cua CA SANG SOM nay. KET THUC EM, khong co gi them de lam.
