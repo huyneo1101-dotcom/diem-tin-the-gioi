@@ -3,3 +3,15 @@
 [21:06Z] START web-scan (local, phien sang som) - claim RUN, CI 21:00Z chua thay khoa
 [21:30Z] nap xong 20 world + 22 us (agent A-E); soan scan-gaps; chot commit
 [21:45Z] event-scan xong: +3 tap tran, +5 think-tank
+[21:54Z] SKIP (CI) - phien local (21:06Z, "CI 21:00Z chua thay khoa") da claim+quet+gui xong ca web-scan va event-scan
+  (state.py show: web-scan DONE 04:16:56+07, event-scan DONE 04:21:21+07) trong luc CI van dang quet rieng (5+1
+  agent, ~21:50Z xong). Loi goc o CI: claim xong o Buoc 1 nhung KHONG push logs/state.json ngay (chi push dong
+  log), dung bay "log: checkpoint...harvest xong" da ghi trong SKILL.md Buoc 0 - local pull khong thay khoa nen
+  claim duoc. beat_push.py x3 lan deu tra "khong doi - khong can commit" vi ham hop_nhat_heartbeat no-op dung
+  khi pipeline da DONE o noi khac, nhung khong canh bao ro rang nen CI khong biet da bi vuot. Phat hien qua
+  git log sau khi xong agent, truoc khi commit: git fetch thay HEAD da co commit "Cap nhat ban tin 30/10: +38
+  tin" + "Cap nhat su kien 30/10". Da lam dung quy trinh: KHONG goi state.py skip/fail, git reset --hard
+  origin/main bo toan bo lo CI vua dung (23 the gioi + 16 My, da qua guardrail nhung trung lap hoan toan voi
+  ban da gui), chi ghi dong log nay. Khong mat tin thuc: ban da gui cua phien local da du san 5/5 moi muc
+  (Anh/Australia/Bien Dong/Noi bo My/CNQS deu >=5), chi Doi ngoai My 11 tin gop chung Noi bo My (phien local
+  khong tach rieng "Doi ngoai My" nhu phien CI). Khong can lam gi them, CA HAI pipeline da DONE that.
