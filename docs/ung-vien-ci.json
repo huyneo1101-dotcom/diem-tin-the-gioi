@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-10-29T07:14:58+07:00",
+  "tao_luc": "2026-10-29T08:11:18+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-28",
@@ -82,17 +82,17 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-10-28",
-      "tieu_de": "Bloomberg: 5 tỷ phú Indonesia mất gần 57 tỷ USD khi MSCI cảnh báo hạ xếp hạng thị trường",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/bloomberg-5-ty-phu-indonesia-mat-gan-57-ty-usd-khi-msci-canh-bao-ha-xep-hang-thi-truong.htm"
+      "tieu_de": "Khoảnh khắc lính cứu hỏa Indonesia vỡ òa khi trời đổ mưa",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/dt360/khoanh-khac-linh-cuu-hoa-indonesia-vo-oa-khi-troi-do-mua-20261028170945716.htm"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "2026-10-28",
-      "tieu_de": "Khoảnh khắc lính cứu hỏa Indonesia vỡ òa khi trời đổ mưa",
-      "nguon": "Dân Trí",
-      "url": "https://dantri.com.vn/dt360/khoanh-khac-linh-cuu-hoa-indonesia-vo-oa-khi-troi-do-mua-20261028170945716.htm"
+      "ngay": "2026-10-29",
+      "tieu_de": "Australia has highest rates of anorexia and bulimia globally",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/health/2026-10-29/anorexia-bulimia-cases-rising-90s-australia/107315546"
     },
     {
       "lop": "RSS",
@@ -242,9 +242,9 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-10-29",
-      "tieu_de": "Haze drives Singapore runners to shopping malls",
-      "nguon": "Inquirer",
-      "url": "https://globalnation.inquirer.net/344306/haze-drives-singapore-runners-to-shopping-malls"
+      "tieu_de": "‘You can draw the inference’: Australia reveals concerns about Chinese ballistic missile test from nuclear sub",
+      "nguon": "Crikey (Úc)",
+      "url": "https://www.crikey.com.au/2026/10/29/australia-concerns-china-ballistic-missile-test-nuclear-submarine/"
     },
     {
       "lop": "RSS",
@@ -856,6 +856,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-10-29",
+      "tieu_de": "Ba Lan giành quyền đặt trung tâm bảo dưỡng tên lửa Patriot duy nhất ngoài Mỹ",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/ba-lan-gianh-quyen-dat-trung-tam-bao-duong-ten-lua-patriot-duy-nhat-ngoai-my-462077.html"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-29",
       "tieu_de": "AUKUS partners test autonomous systems as Europe weighs maritime surveillance needs",
@@ -1041,14 +1049,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-28",
-      "tieu_de": "How Australian publishers tell if a book has been written by AI",
-      "nguon": "ABC News Australia",
-      "url": "https://www.abc.net.au/news/2026-10-28/can-australian-publishing-survive-rise-of-ai/107251850"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-29",
       "tieu_de": "Australian politics live: Labor says ATO could have handled credit card ban better; man cautioned for allegedly stalking MPs",
       "nguon": "The Guardian Australia",
@@ -1061,14 +1061,6 @@
       "tieu_de": "Australian SAS officers knew about unlawful ‘throwdowns’ on dead Afghans, report says",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/2026/oct/29/australian-sas-officers-knew-about-unlawful-throwdowns-on-dead-afghans-report-says-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-29",
-      "tieu_de": "Journo sued by VP’s husband wants Davao case moved to Manila",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2331982/journo-sued-by-vps-husband-wants-davao-case-moved-to-manila"
     },
     {
       "lop": "RSS",
@@ -1202,15 +1194,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-28",
-      "tieu_de": "US Congresswoman Rashida Tlaib condemns anti-Muslim election rhetoric",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/10/28/us-congresswoman-rashida-tlaib-condemns-anti-muslim-election-rhetoric?traffic_source=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-29",
       "tieu_de": "How do the US midterms work, and why are they so important for Trump's presidency?",
       "nguon": "Deutsche Welle",
@@ -1224,6 +1207,24 @@
       "tieu_de": "Bolsonaro flees Brazil for US after election defeat",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/bolsonaro-flees-brazil-for-us-after-election-defeat",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-29",
+      "tieu_de": "Trump says imported robotics pose national security risks but does not impose tariffs",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/trump-says-imported-robotics-pose-national-security-risks-but-does-not-impose-tariffs",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-29",
+      "tieu_de": "Trump calls for Mary Peltola to be banned from Alaska senate race",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/trump-calls-for-mary-peltola-to-be-banned-from-alaska-senate-race",
       "nhom": 5
     },
     {
@@ -1545,18 +1546,18 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-28",
-      "tieu_de": "The Memo: DOJ targets Trump foes in flurry of activity in election’s shadow",
+      "tieu_de": "Trump, Congress set to clash over Hegseth, Iran war, Ukraine after election",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/analysis/6176336-justice-department-midterm-elections/",
+      "url": "https://thehill.com/homenews/administration/6176148-trump-hegseth-defense-funding-battle/",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-28",
-      "tieu_de": "Trump, Congress set to clash over Hegseth, Iran war, Ukraine after election",
+      "tieu_de": "The Memo: DOJ targets Trump foes in flurry of activity in election’s shadow",
       "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/administration/6176148-trump-hegseth-defense-funding-battle/",
+      "url": "https://thehill.com/homenews/analysis/6176336-justice-department-midterm-elections/",
       "nhom": 5
     },
     {
@@ -1625,15 +1626,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-29",
-      "tieu_de": "Trump calls for Alaska Democratic candidate to be banned from Senate race",
-      "nguon": "Financial Times — World",
-      "url": "https://www.ft.com/content/7526e915-2590-4b42-85df-20bb89040db8?syn-25a6b1a6=1",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-28",
       "tieu_de": "America First Seafood Strategy Charts Course to Restoring U.S. Seafood Dominance",
       "nguon": "USTR",
@@ -1656,6 +1648,15 @@
       "tieu_de": "US ambassador suggests Trump could blame Canada if midterms don’t go his way",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/world/2026/oct/28/canada-ambassador-republicans-midterms",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-29",
+      "tieu_de": "Judge rebuffs Trump DoJ’s bid to order California to set aside 20,000 ballots",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/oct/28/federal-judge-trump-california-ballots",
       "nhom": 5
     },
     {
@@ -1728,6 +1729,15 @@
       "tieu_de": "Bầu cử giữa nhiệm kỳ Mỹ 2026: Cuộc đua quyết định quyền kiểm soát Quốc hội",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/bau-cu-giua-nhiem-ky-my-2026-cuoc-dua-quyet-dinh-quyen-kiem-soat-quoc-hoi-102261020090523111.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-10-29",
+      "tieu_de": "Bầu cử ở Israel vẫn giằng co, Mỹ chưa ‘chốt’ can thiệp",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/bau-cu-o-israel-van-giang-co-my-chua-chot-can-thiep-2569441.html",
       "nhom": 5
     },
     {
