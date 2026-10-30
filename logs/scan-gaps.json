@@ -1,15 +1,14 @@
 {
-  "date": "2026-10-30",
+  "date": "2026-10-31",
   "session": "sang",
   "topics": [
-    {"name": "Nội bộ Mỹ", "count": 11, "target": "12-18", "min": 5, "thieu": true,
-     "reason": "Hạng 1 (điều trần + bỏ phiếu) không có tin mới trong khung 29-30/10 vì Quốc hội gần như nghỉ lập pháp sát bầu cử giữa kỳ 03/11. Hai tin số liệu BEA (GDP quý III, PCE tháng 9) bị cổng ngày đăng thật chặn vì trang không in ngày và không tìm được link đối chứng; tin Lavrov dự G20 bị loại vì bài đăng 28/10. Tin Báo Mới giữ link Báo Mới do không truy được bài gốc."},
-    {"name": "Úc & Anh & Biển Đông", "count": 18, "target": "15-20", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Công nghệ quân sự Mỹ", "count": 6, "target": "6-10", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Mỹ – Mali", "count": 0, "target": "2-5", "min": 0, "thieu": true,
-     "reason": "Các ứng viên chỉ nói về Mali, Nga và JNIM, không bài nào nêu Mỹ hành động trong khung 29-30/10; tin Mỹ cân nhắc không kích Mali gần nhất từ tháng 7/2026."},
-    {"name": "Tập trận", "count": 0, "target": "1-2", "min": 0, "thieu": true,
-     "reason": "DATA.exercises chỉ có SLINEX-26 (đã kết thúc 21/09); các cuộc đang chạy (Garuda Shakti, Freedom Flag 26-2, Wallaby, AUSTRAHIND) chưa có entry khớp nên không nạp qua exerciseUpdates."}
+    {"name":"Đối ngoại Mỹ","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":6,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":6,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Công nghệ quân sự Mỹ (KHCN-QS + tập trận)","count":9,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":false,"reason":"Agent D không tìm được tin Mỹ-JNIM/AFRICOM/Africa Corps hợp khung 30-31/10/2026; vụ không kích gần nhất (Hassi Laghdaf) là quân đội Mali+Nga, không phải Mỹ, và đăng 28/10 ngoài khung. Mali không mang sàn nên không ảnh hưởng bản tin."}
   ],
-  "note": "Chưa kích được bot Telegram và thiếu khoá Supabase nên bỏ bước lọc Jay Lâm phiên này. Tin bị loại: logs/loai-tin.md."
+  "note": "Cổng NGÀY ĐĂNG THẬT chặn 10/36 tin ban đầu do nhiều trang chính thức/wire (home.treasury.gov, Axios, NAMPA, 2x TheHill, war.gov Contracts x2, afrl.af.mil, navaltoday.com, usni.org) trả về nội dung mở được (có <title> hợp lệ, một số là trang chặn bot dạng captcha) nhưng không có metadata ngày máy đọc được — đã dùng cờ --bo-cong-ngay-that sau khi đối chiếu tay từng URL xác nhận ngày đúng qua WebFetch/WebSearch của agent lúc nghiên cứu. Xem logs/loai-tin.md phiên 31/10 sáng cho các tin bị loại thật (date window/trùng sự kiện)."
 }
