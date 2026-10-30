@@ -27,3 +27,8 @@ nua: state.py show + so_da_gui --xem khong doi gi so voi lan kiem 21:56Z/21:57Z 
 DONE 04:16:56+07, event-scan DONE 04:21:21+07, so co dong [sang] 2026-10-30T04:17:21+07:00 38 tin +
 [sukien] 04:22:02+07:00 3 tin). Ket luan khong doi: ban tin da thuc su toi tay. SKIP ca web-scan va
 event-scan, KET THUC EM, khong quet lai.
+[01:21Z] SKIP web-scan (CI, phien kich lan 3 trong ngay) - claim tra exit 10. Kiem ngoai le lan nua:
+state.py show + so_da_gui --xem van khong doi (web-scan DONE 04:16:56+07, event-scan DONE
+04:21:21+07, so co dong [sang] 2026-10-30T04:17:21+07:00 38 tin + [sukien] 04:22:02+07:00 3 tin).
+Chuyen sang Buoc 6, claim event-scan cung tra exit 10 (DA XONG lan chay cuoi 04:21:21+07). Ca hai
+pipeline da hoan tat thuc su. KET THUC EM, khong quet lai.
