@@ -1,2 +1,3 @@
 [21:05Z] START web-scan (CI) - phien sang som 01/11/2026
 [21:05Z] START (local) - phien sang som 01/11/2026, claim web-scan RUN
+[21:07Z] SKIP web-scan (local): tranh khoa voi CI - CI claim 04:05:18, local claim 04:05:28 ghi de state.json; CI da START (commit d59db56) nen local NHUONG, khong quet chong, khong goi state.py skip/fail, huy state.json cuc bo.
