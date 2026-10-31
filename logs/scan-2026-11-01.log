@@ -1,3 +1,6 @@
 [21:05Z] START web-scan (CI) - phien sang som 01/11/2026
-[21:05Z] START (local) - phien sang som 01/11/2026, claim web-scan RUN
-[21:07Z] SKIP web-scan (local): tranh khoa voi CI - CI claim 04:05:18, local claim 04:05:28 ghi de state.json; CI da START (commit d59db56) nen local NHUONG, khong quet chong, khong goi state.py skip/fail, huy state.json cuc bo.
+[21:06Z] harvest.py: 311 ung vien (Noi bo My 132, CNQS My 70, Uc&BD 69, Tap tran 23, Mali 17)
+[21:10Z] beat truoc khi giao agent
+[21:28Z] 5 agent song song xong (A B C D BM), gop lo /tmp/new_items.json
+[21:34Z] add_news.py OK sau 3 vong sua: +11 worldNews, +19 usNews. Chua kich duoc gh workflow telegram-bot.yml (requires approval trong sandbox) - fail-open co tieng, ghi vao scan-gaps.json note.
+[21:34Z] soi_muc_cam.py --san: khong co muc cam (Doi ngoai My 5/5, Noi bo My 6/5, Anh 4/3, Australia 7/3, Bien Dong 5/5, KHCN-QS 7/5)

@@ -1,14 +1,14 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "session": "sang",
   "topics": [
     {"name":"Đối ngoại Mỹ","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":6,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Anh","count":6,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Công nghệ quân sự Mỹ (KHCN-QS + tập trận)","count":9,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":false,"reason":"Agent D không tìm được tin Mỹ-JNIM/AFRICOM/Africa Corps hợp khung 30-31/10/2026; vụ không kích gần nhất (Hassi Laghdaf) là quân đội Mali+Nga, không phải Mỹ, và đăng 28/10 ngoài khung. Mali không mang sàn nên không ảnh hưởng bản tin."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu dự luật)","count":12,"target":"12-18","min":5,"thieu":false,"reason":"Nhóm 1 (điều trần + bỏ phiếu dự luật) không tìm được tin nào đúng khung ngày 31/10-01/11 dù đã thử nhiều truy vấn tới các trang HTML uỷ ban Hạ viện/Thượng viện + RSS The Hill/foreignaffairs.house.gov — có vẻ Quốc hội ít hoạt động họp/bỏ phiếu cuối tuần ngay trước ngày bầu cử giữa kỳ 3/11. Lấy bù bằng nhóm 5 (bầu cử giữa kỳ 2026 đang nước rút) và nhóm 2 nhánh đối ngoại."},
+    {"name":"Địa bàn › Anh","count":6,"target":"≥3 (hạ riêng 18/09/2026)","min":3,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":2,"target":"≥3 (hạ riêng 18/09/2026)","min":3,"thieu":false,"reason":"Chỉ xác nhận chắc chắn 2 tin đúng khung ngày 31/10-01/11 (AUKUS submarine maintenance, phản biện kế hoạch phòng thủ tên lửa 10 tỷ USD); nhiều ứng viên khác (USS Colorado tới Perth, Thales sonar, Ghost Shark, báo cáo điều tra AUKUS) lệch khung 1-2 ngày. Cổng soi_muc_cam --san báo ĐỦ sàn 3 vì tính gộp cả tin Australia còn tồn từ phiên trước chưa gửi."},
+    {"name":"Địa bàn › Biển Đông","count":4,"target":"≥5","min":5,"thieu":false,"reason":"Batch riêng phiên này còn 4 tin sau khi loại 2 ứng viên (Malaysia COC, Philippines-Đài Loan cáp ngầm) vì ngày đăng thật lệch khung khi kiểm chéo URL slug, và 1 tin trùng URL đã có (Scarborough patrol). Cổng soi_muc_cam --san báo ĐỦ sàn 5 vì gộp thêm tin Biển Đông còn tồn từ phiên trước chưa gửi."},
+    {"name":"Công nghệ quân sự Mỹ (KHCN-QS + tập trận)","count":8,"target":"6-10","min":5,"thieu":false,"reason":""},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":false,"reason":"Agent tìm nhiều hướng (AFRICOM, Long War Journal, AllAfrica, WebSearch JNIM/Africa Corps/Sahel) nhưng diễn biến thật 31/10-01/11 (phong tỏa nhiên liệu Bamako, Algeria-Niger, HRW báo cáo) đều KHÔNG có góc hành động/quyết định của Mỹ — Mỹ vẫn chỉ 'đang cân nhắc' từ tháng 7/2026, chưa có cập nhật mới trong khung ngày. Không mang sàn nên không ảnh hưởng bản tin."}
   ],
-  "note": "Cổng NGÀY ĐĂNG THẬT chặn 10/36 tin ban đầu do nhiều trang chính thức/wire (home.treasury.gov, Axios, NAMPA, 2x TheHill, war.gov Contracts x2, afrl.af.mil, navaltoday.com, usni.org) trả về nội dung mở được (có <title> hợp lệ, một số là trang chặn bot dạng captcha) nhưng không có metadata ngày máy đọc được — đã dùng cờ --bo-cong-ngay-that sau khi đối chiếu tay từng URL xác nhận ngày đúng qua WebFetch/WebSearch của agent lúc nghiên cứu. Xem logs/loai-tin.md phiên 31/10 sáng cho các tin bị loại thật (date window/trùng sự kiện)."
+  "note": "Phiên sáng sớm 01/11/2026. AUSTRAHIND 2026 (tập trận đang bám) kết thúc đúng hôm nay nhưng chưa tìm được thông cáo/bài bế mạc thật — ứng viên tìm được chỉ là tin xem trước hoặc trùng tin đã nạp phiên trước; có thể tin tổng kết chưa kịp đăng tại giờ quét (04h VN). Loại 1 tin (Scarborough patrol, Manila Times) vì trùng URL đã có trong DATA. Loại 4 tin (The Hill Khamenei, Bloomberg early-voting, Axios pope-leo, Axios election-cheat-sheet) vì cổng NGÀY ĐĂNG THẬT không đọc được metadata ngày trên trang — nội dung có vẻ đúng thật qua kiểm tay của agent, có thể thử lại phiên sau kèm dateProofUrl. Cổng Báo Mới còn 6 ứng viên tồn đọng (2 bài bầu cử bị cổng ngày thật chặn + 4 bài Patriot/Hormuz bị loại vì trùng sự kiện đã đưa, xem logs/loai-tin.md)."
 }
