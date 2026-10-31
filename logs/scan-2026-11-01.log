@@ -10,3 +10,4 @@
 [21:45Z] agent event-scan: +1 tap tran moi (BIMSTEC), 0 su kien ngoai giao (Trilateral Arctic Pacific da co trong usNews, khong nap trung)
 [21:49Z] think-tank: +5 bai (ORF x2, USSC, Timbuktu Institute, Carnegie), +13 khai niem
 [21:49Z] Chu nhat: bao cao tuan Opus da viet va nap (us/cn/ru, 12 luan diem)
+[21:50Z] SKIP phien moi (web-scan claim exit 10): so_da_gui.py --xem co dong hom nay [sang] 31 tin (2026-11-01T04:50:29+07:00) -> ban tin da toi tay, khong quet lai. Chuyen sang kiem event-scan.
