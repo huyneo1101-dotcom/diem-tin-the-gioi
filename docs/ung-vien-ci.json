@@ -1,19 +1,11 @@
 {
-  "tao_luc": "2026-11-01T03:46:52+07:00",
+  "tao_luc": "2026-11-01T06:40:01+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-10-31",
     "2026-11-01"
   ],
   "ung_vien": [
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-10-31",
-      "tieu_de": "South Africa hammer Australia as Harmer takes career best bowling of 6-16",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/sports/2026/10/31/south-africa-hammer-australia-as-harmer-takes-career-best-bowling-of-6-16?traffic_source=rss"
-    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -50,9 +42,17 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-11-01",
-      "tieu_de": "Cyclone forecast tips quieter season for Australia",
+      "tieu_de": "Australia and Indonesia are neighbours, but can they become good friends?",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-01/bom-australia-cyclone-season-predicted-quiet/107329238"
+      "url": "https://www.abc.net.au/news/2026-11-01/boyer-lectures-australia-indonesia-neighbours-by-choice/107315382"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-01",
+      "tieu_de": "Strategy, succession planning needed for Australia after Cape Town collapse",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-01/cricket-test-decisions-needed-australia-south-africa-cape-town/107332350"
     },
     {
       "lop": "RSS",
@@ -90,9 +90,9 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-10-31",
-      "tieu_de": "US cancels G20 ‘family photo’ after Europeans, Australia object to Russia",
-      "nguon": "Sydney Morning Herald — World",
-      "url": "https://www.smh.com.au/world/north-america/us-cancels-family-photo-at-g20-after-europeans-object-to-russia-20261031-p61a6m.html?ref=rss&utm_medium=rss&utm_source=rss_world"
+      "tieu_de": "US cancels G20 ‘family photo’ after Australia, UK and others refuse to appear with Russia",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/world/2026/oct/31/us-cancels-g20-family-photo-after-australia-uk-and-others-refuse-to-appear-with-russia"
     },
     {
       "lop": "RSS",
@@ -154,22 +154,6 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-30",
-      "tieu_de": "Hanwha Philly Shipyard Selected to Build US Navy Medium Landing Ship (LSM)",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/10/hanwha-philly-shipyard-selected-to-build-us-navy-medium-landing-ship-lsm/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-31",
-      "tieu_de": "Pentagon reveals FY26 intelligence budget at $30.9 billion",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/10/pentagon-reveals-fy26-intelligence-budget-at-30-9-billion/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-30",
       "tieu_de": "Pentagon eyes ‘public-private partnerships’ to help fund FORTRESS America homeland base plan",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/10/pentagon-eyes-public-private-partnerships-to-help-fund-fortress-america-homeland-base-plan/"
@@ -181,14 +165,6 @@
       "tieu_de": "Pentagon will pick new US base location by June 2027, prioritizing 4 requirements",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/10/pentagon-will-pick-new-us-base-location-by-june-2027-prioritizing-4-requirements/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-31",
-      "tieu_de": "ESI supplying solar array components to missile defense programs",
-      "nguon": "SpaceNews",
-      "url": "https://spacenews.com/esi-supplying-solar-array-components-to-missile-defense-programs/"
     },
     {
       "lop": "RSS",
@@ -353,14 +329,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-30",
-      "tieu_de": "Record deployment for destroyer USS Spruance casts doubt over US Navy maintenance",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/your-military/2026/10/29/record-deployment-for-destroyer-uss-spruance-casts-doubt-over-us-navy-maintenance/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-10-29",
       "tieu_de": "Pentagon treating military base freezer malfunctions as suspected cyberattack, officials say",
       "nguon": "Military Times",
@@ -370,9 +338,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-01",
-      "tieu_de": "U.S. Army’s HADES Prototype Completes First Flight",
+      "tieu_de": "Rafale M Conducts Trials Aboard Indian Navy’s INS Vikrant Aircraft Carrier",
       "nguon": "The Aviationist",
-      "url": "https://theaviationist.com/2026/10/31/u-s-armys-hades-prototype-completes-first-flight/"
+      "url": "https://theaviationist.com/2026/10/31/rafale-m-conducts-trials-aboard-ins-vikrant/"
     },
     {
       "lop": "RSS",
@@ -521,14 +489,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-31",
-      "tieu_de": "Burnham opens door to formal apology for Britain’s slave trade",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/10/31/burnham-opens-door-to-formal-apology-for-britains-slave-trade?traffic_source=rss"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-01",
       "tieu_de": "German police fire water cannon during tense ‘Gen Z’ protests",
       "nguon": "South China Morning Post",
@@ -586,41 +546,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-01",
-      "tieu_de": "Submarine berth programme being recovered at Devonport",
+      "tieu_de": "Reactor core plant upgrades for Dreadnought delivered",
       "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/submarine-berth-programme-being-recovered-at-devonport/"
+      "url": "https://ukdefencejournal.org.uk/reactor-core-plant-upgrades-for-dreadnought-delivered/"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-10-31",
-      "tieu_de": "Advanced new naval anti-air missiles to arrive later this year",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/advanced-new-naval-anti-air-missiles-to-arrive-later-this-year/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-31",
-      "tieu_de": "Britain’s most powerful nuclear sub enters final build phase",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/britains-most-powerful-nuclear-sub-enters-final-build-phase/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-31",
-      "tieu_de": "SNP defence policy attacked by UK Defence Secretary",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/snp-defence-policy-attacked-by-uk-defence-secretary/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-31",
-      "tieu_de": "No plans to bring back any form of national service",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/no-plans-to-bring-back-any-form-of-national-service/"
+      "tieu_de": "Andy Burnham open to calls for formal apology for Britain’s role in slave trade",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/world/2026/oct/30/andy-burnham-call-formal-apology-britains-role-in-slave-trade"
     },
     {
       "lop": "RSS",
@@ -645,14 +581,6 @@
       "tieu_de": "British people can’t be made to pay for the wrongs of slavery – but we must confront our complicated history | Andy Burnham",
       "nguon": "**The Guardian — Politics (Anh)**",
       "url": "https://www.theguardian.com/commentisfree/2026/oct/30/british-people-slave-trade-reparations-andy-burnham"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-10-31",
-      "tieu_de": "Storm warnings for Melbourne, Canberra, Sydney and Brisbane as cold front ‘packs a punch’",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/31/weather-bom-storm-warnings-melbourne-canberra-sydney-brisbane"
     },
     {
       "lop": "RSS",
@@ -685,6 +613,14 @@
       "tieu_de": "Over 110,000 visit Manila cemeteries",
       "nguon": "Philstar (headlines)",
       "url": "https://www.philstar.com/headlines/2026/11/01/2567031/over-110000-visit-manila-cemeteries"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-01",
+      "tieu_de": "Malaysia wants to move away from Waze. Will drivers make the switch?",
+      "nguon": "Channel News Asia — Asia",
+      "url": "https://www.channelnewsasia.com/asia/waze-tuju-navigation-app-anwar-ibrahim-malaysia-6502896"
     },
     {
       "lop": "RSS",
@@ -737,6 +673,22 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-10-31",
+      "tieu_de": "Storm warnings for Melbourne, Canberra, Sydney and Brisbane as cold front ‘packs a punch’",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/oct/31/weather-bom-storm-warnings-melbourne-canberra-sydney-brisbane"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-01",
+      "tieu_de": "A new political era in the Southern Philippines",
+      "nguon": "NPR — World",
+      "url": "https://www.npr.org/2026/10/31/nx-s1-6020639/a-new-political-era-in-the-southern-philippines"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-01",
       "tieu_de": "Philippines đưa hơn 1.400 người đi sơ tán sau khi núi lửa Mayon phun trào",
       "nguon": "Nhân Dân",
@@ -749,24 +701,6 @@
       "tieu_de": "Việt Nam-Philippines thúc đẩy hợp tác trong các lĩnh vực giàu tiềm năng",
       "nguon": "Nhân Dân",
       "url": "https://nhandan.vn/viet-nam-philippines-thuc-day-hop-tac-trong-cac-linh-vuc-giau-tiem-nang-post999354.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-01",
-      "tieu_de": "What is ranked-choice voting and how does it work in US elections?",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/10/31/what-is-ranked-choice-voting-and-how-does-it-work-in-us-elections?traffic_source=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-01",
-      "tieu_de": "A cure for Trump? Why Democratic doctors are running in the 2026 midterms",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/longform/2026/10/31/a-cure-for-trump-why-democratic-doctors-are-running-in-the-2026-midterms?traffic_source=rss",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -799,15 +733,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-31",
-      "tieu_de": "'Atmosphere of fear': Trump moves to curtail voting rights ahead of the midterms",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/americas/20261031-united-states-atmosphere-of-fear-trump-moves-to-curtail-voting-rights-ahead-of-the-midterms",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-31",
       "tieu_de": "Halloween Protests & French Promises, US Mid Term Mood, What now for Israel?",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/tv-shows/the-world-this-week/20261031-halloween-protests-french-promises-us-mid-term-mood-what-now-for-israel",
@@ -817,16 +742,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-31",
-      "tieu_de": "Iran envoys meet Qatar mediators as threat looms of US strikes after midterm elections",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/middle-east/iranian-envoys-meet-qatari-mediators-as-threat-looms-of-us-strikes-after-midterms",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-31",
-      "tieu_de": "US campaign enters final weekend as Alaska, California ballot fights heat up",
+      "tieu_de": "US midterm campaign enters final weekend as Alaska, California ballot fights heat up",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/us-campaign-for-control-of-congress-enters-final-weekend",
       "nhom": 5
@@ -933,10 +849,28 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-01",
+      "tieu_de": "Cơn mưa tiền Elon Musk rót vào bầu cử giữa kỳ Mỹ",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/con-mua-tien-elon-musk-rot-vao-bau-cu-giua-ky-my-5139020.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-31",
       "tieu_de": "Những cử tri gốc Latin vỡ mộng với ông Trump",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/nhung-cu-tri-goc-latin-vo-mong-voi-ong-trump-5139054.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-01",
+      "tieu_de": "Căng thẳng ph&aacute;p l&yacute; quanh bầu cử giữa kỳ Mỹ",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/cang-thang-phap-ly-quanh-bau-cu-giua-ky-my-185261031174345164.htm",
       "nhom": 5
     },
     {
@@ -1059,15 +993,6 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-01",
-      "tieu_de": "US election officials brace for violence and intimidation at polling booths",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-01/us-midterm-election-officials-prepare-ice-agents-trump-meddling/107322620",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-31",
       "tieu_de": "Trump revives final midterm rallies after erupting over idea he was ‘sick’",
       "nguon": "Sydney Morning Herald — World",
@@ -1114,24 +1039,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-10-31",
-      "tieu_de": "Ads accusing Republican candidates of protecting Epstein fill airwaves in final midterm push",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/oct/31/political-ads-midterms-epstein-republican-candidate",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-31",
-      "tieu_de": "Trump beware: US voters are concerned about government corruption",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/us-news/2026/oct/31/trump-government-corruption-midterms-voters",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-10-31",
       "tieu_de": "Schumer girds for fight with Trump over election results",
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/10/30/2026/schumer-girds-for-fight-with-trump-over-election-results",
@@ -1162,6 +1069,15 @@
       "tieu_de": "Bầu cử giữa nhiệm kỳ Mỹ 2026: Cuộc đua quyết định quyền kiểm soát Quốc hội",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/bau-cu-giua-nhiem-ky-my-2026-cuoc-dua-quyet-dinh-quyen-kiem-soat-quoc-hoi-102261020090523111.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-01",
+      "tieu_de": "Nghịch lý kinh tế đeo bám ông Trump trước bầu cử giữa kỳ Mỹ",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/nghich-ly-kinh-te-deo-bam-ong-trump-truoc-bau-cu-giua-ky-my-2569289.html",
       "nhom": 5
     },
     {
