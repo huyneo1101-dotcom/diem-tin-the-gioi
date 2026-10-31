@@ -4,3 +4,5 @@
 [21:28Z] 5 agent song song xong (A B C D BM), gop lo /tmp/new_items.json
 [21:34Z] add_news.py OK sau 3 vong sua: +11 worldNews, +19 usNews. Chua kich duoc gh workflow telegram-bot.yml (requires approval trong sandbox) - fail-open co tieng, ghi vao scan-gaps.json note.
 [21:34Z] soi_muc_cam.py --san: khong co muc cam (Doi ngoai My 5/5, Noi bo My 6/5, Anh 4/3, Australia 7/3, Bien Dong 5/5, KHCN-QS 7/5)
+[21:34Z] web-scan DONE, commit "Cap nhat ban tin 01/11: +30 tin (5 chu de)" da push
+[21:34Z] START event-scan (CI, gop vao sang som)
