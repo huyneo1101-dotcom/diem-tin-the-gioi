@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-02T04:02:58+07:00",
+    "lastRunAt": "2026-11-02T04:55:09+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+20 tin (5 chu de): Anh 4/5, Australia 3/5, Bien Dong 2/5, Doi ngoai My 3/5, Noi bo My 4/5, KHCN-QS 5/5, Mali 0",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-11-01"
-    },
-    "heartbeat": "2026-11-02T04:54:35+07:00"
+      "sang": "2026-11-02"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-11-02T04:10:02+07:00",

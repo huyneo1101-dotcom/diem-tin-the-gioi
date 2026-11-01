@@ -1,2 +1,9 @@
 [21:03Z] START web-scan (CI, phien sang som)
-[21:05Z] SKIP web-scan (local 04:05) - claim exit 11, CI dang chay (nhip tim 1' truoc)
+[21:05Z] harvest.py + telegram_harvest.py xong: 292 ung vien RSS/GNEWS (5 chu de) + lop [TG] tu Telegram
+[21:07Z] khong kich duoc bot telegram-bot.yml (gh bi chan requires approval) - tin_jaylam --liet-ke tra exit 10 (khong co file trong khung), bo qua buoc nay
+[21:10Z] giao 4 agent luong goc (A Noi bo My, B Uc/Anh/Bien Dong, C CNQS My, D Mali+Tap tran) song song
+[21:30Z] gom xong ket qua 4 agent: A 11 tin tho, B 12 tin tho, C 4 tin, D 0 Mali + 1 tap tran (AUSTRAHIND 2026)
+[21:35Z] giao 1 agent bo sung DUY NHAT (dung tran 5/6) bu 3 muc thieu: Doi ngoai My, Australia, Bien Dong -> +1 tin Bien Dong (sau bi loai vi trung URL)
+[21:40Z] tong hop /tmp/new_items.json, chay add_news.py nhieu luot sua loi: URL live-blog, neo chu de 2 thieu tu khoa Anh, cong NGAY DANG THAT chan 9 tin (3 cuu duoc bang dateProofUrl, 4 xoa han, 2 ngoai khung thuc su)
+[21:50Z] add_news.py OK: +9 tin The gioi, +11 tin My, +1 tin tap tran. Them "_baomoiUrl" cho tin WSJ $15B (thay the ung vien Bao Moi Lau Nam Goc). Ghi logs/loai-tin.md + logs/scan-gaps.json cho 4 ung vien Bao Moi con lai (loai co ly do) va 3 muc duoi san (Doi ngoai My 3/5, Australia 3/5, Bien Dong 2/5, Anh 4/5, Noi bo My 4/5 - KHCN-QS 5/5 du)
+[21:55Z] state.py done web-scan. Chuan bi commit "Cap nhat ban tin 02/11" va day len main
