@@ -7,3 +7,5 @@
 [21:40Z] tong hop /tmp/new_items.json, chay add_news.py nhieu luot sua loi: URL live-blog, neo chu de 2 thieu tu khoa Anh, cong NGAY DANG THAT chan 9 tin (3 cuu duoc bang dateProofUrl, 4 xoa han, 2 ngoai khung thuc su)
 [21:50Z] add_news.py OK: +9 tin The gioi, +11 tin My, +1 tin tap tran. Them "_baomoiUrl" cho tin WSJ $15B (thay the ung vien Bao Moi Lau Nam Goc). Ghi logs/loai-tin.md + logs/scan-gaps.json cho 4 ung vien Bao Moi con lai (loai co ly do) va 3 muc duoi san (Doi ngoai My 3/5, Australia 3/5, Bien Dong 2/5, Anh 4/5, Noi bo My 4/5 - KHCN-QS 5/5 du)
 [21:55Z] state.py done web-scan. Chuan bi commit "Cap nhat ban tin 02/11" va day len main
+[21:56Z] commit + push "Cap nhat ban tin 02/11: +20 tin (5 chu de)" OK (203a946)
+[21:57Z] event-scan claim -> exit 10, SKIP (da xong luc 04:10:02 VN, phien CI truoc do). Ket thuc phien.
