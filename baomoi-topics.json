@@ -1,477 +1,57 @@
 {
- "generatedAt": "2026-11-02T00:59:39+0700",
- "count": 47,
+ "generatedAt": "2026-11-02T13:29:29+0700",
+ "count": 5,
  "source": "Bao Moi - quet chuyen muc the-gioi, kinh-te, khoa-hoc-cong-nghe (24h gan nhat, loc 4 chu de cua web)",
  "note": "KHO UNG VIEN — phien quet chon loc theo bo loc so thich roi moi dang, khong dang het.",
  "items": [
   {
    "date": "2026-11-02",
-   "category": "Kinh tế",
-   "title": "Gia Lai khánh thành nhà máy graphene vốn đầu tư 202 tỷ đồng",
+   "category": "Công nghệ quân sự",
+   "title": "Trung đoàn Tên lửa 282: Vững vàng trước giờ xung trận",
    "summary": "",
-   "sourceName": "Tạp chí Điện tử & Ứng dụng",
-   "sourceUrl": "https://baomoi.com/gia-lai-khanh-thanh-nha-may-graphene-von-dau-tu-202-ty-dong-c56406407.epi",
+   "sourceName": "Báo Quân Đội Nhân Dân",
+   "sourceUrl": "https://baomoi.com/trung-doan-ten-lua-282-vung-vang-truoc-gio-xung-tran-c56410396.epi",
    "region": "",
    "topic": "khoa-hoc-cong-nghe"
   },
   {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Tổng thống Phần Lan điện đàm với người đồng cấp Nga, nêu một đề xuất liên quan đến Ukraine",
-   "summary": "",
-   "sourceName": "Báo Thế Giới & Việt Nam",
-   "sourceUrl": "https://baomoi.com/tong-thong-phan-lan-dien-dam-voi-nguoi-dong-cap-nga-neu-mot-de-xuat-lien-quan-den-ukraine-c56405245.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
+   "date": "2026-11-02",
    "category": "Công nghệ quân sự",
-   "title": "Ukraine tuyên bố đánh trúng nhà máy công nghiệp quốc phòng Nga",
+   "title": "Nhu cầu điện cho AI thúc đẩy làn sóng xây lò phản ứng hạt nhân trên toàn cầu",
    "summary": "",
-   "sourceName": "Tạp chí Mekong Asean",
-   "sourceUrl": "https://baomoi.com/ukraine-tuyen-bo-danh-trung-nha-may-cong-nghiep-quoc-phong-nga-c56406145.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
+   "sourceName": "Tạp chí VnEconomy",
+   "sourceUrl": "https://baomoi.com/nhu-cau-dien-cho-ai-thuc-day-lan-song-xay-lo-phan-ung-hat-nhan-tren-toan-cau-c56408865.epi",
+   "region": "Ấn Độ Dương - Thái Bình Dương",
+   "topic": "khoa-hoc-cong-nghe"
   },
   {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Tổng thống Israel kêu gọi thỏa hiệp để thành lập chính phủ mới",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/tong-thong-israel-keu-goi-thoa-hiep-de-thanh-lap-chinh-phu-moi-c56406259.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
+   "date": "2026-11-02",
    "category": "Kinh tế",
-   "title": "Nhật Bản vượt Trung Quốc trở thành quốc gia nhập khẩu LNG lớn nhất thế giới",
-   "summary": "",
-   "sourceName": "Tạp chí Petrotimes",
-   "sourceUrl": "https://baomoi.com/nhat-ban-vuot-trung-quoc-tro-thanh-quoc-gia-nhap-khau-lng-lon-nhat-the-gioi-c56406304.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Ngoại giao",
-   "title": "Nga khẳng định ông Putin chưa bao giờ từ chối đối thoại với Tổng thống Ukraine",
-   "summary": "",
-   "sourceName": "Báo VietnamNet",
-   "sourceUrl": "https://baomoi.com/nga-khang-dinh-ong-putin-chua-bao-gio-tu-choi-doi-thoai-voi-tong-thong-ukraine-c56406048.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Biểu tình lan rộng tại châu Âu, bạo lực bùng phát ở nhiều thành phố",
-   "summary": "",
-   "sourceName": "Báo Gia Lai",
-   "sourceUrl": "https://baomoi.com/bieu-tinh-lan-rong-tai-chau-au-bao-luc-bung-phat-o-nhieu-thanh-pho-c56406040.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Ngoại giao",
-   "title": "Nỗ lực tổ chức vòng đàm phán ba bên Nga, Ukraine và Mỹ",
-   "summary": "",
-   "sourceName": "Tạp chí Petrotimes",
-   "sourceUrl": "https://baomoi.com/no-luc-to-chuc-vong-dam-phan-ba-ben-nga-ukraine-va-my-c56405989.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Lầu Năm Góc đối mặt với khoản thiệt hại lên tới 15 tỷ USD do các đòn tập kích của Iran",
-   "summary": "",
-   "sourceName": "Báo Tiền Phong",
-   "sourceUrl": "https://baomoi.com/lau-nam-goc-doi-mat-voi-khoan-thiet-hai-len-toi-15-ty-usd-do-cac-don-tap-kich-cua-iran-c56405933.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Cột mốc lịch sử khi tiêm kích Rafale M lần đầu hạ cánh trên tàu sân bay INS Vikrant",
-   "summary": "",
-   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
-   "sourceUrl": "https://baomoi.com/cot-moc-lich-su-khi-tiem-kich-rafale-m-lan-dau-ha-canh-tren-tau-san-bay-ins-vikrant-c56405866.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Leo thang tranh chấp quyền điều hành Tòa án Hiến pháp Ba Lan",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/leo-thang-tranh-chap-quyen-dieu-hanh-toa-an-hien-phap-ba-lan-c56405822.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Ngoại giao",
-   "title": "Ông Trump để ngỏ khả năng đối thoại với Triều Tiên về vụ tiền điện tử Binance",
-   "summary": "",
-   "sourceName": "Báo VietnamNet",
-   "sourceUrl": "https://baomoi.com/ong-trump-de-ngo-kha-nang-doi-thoai-voi-trieu-tien-ve-vu-tien-dien-tu-binance-c56405781.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Bulgaria bước vào vòng hai bầu cử tổng thống",
-   "summary": "",
-   "sourceName": "Báo Hà Nội Mới",
-   "sourceUrl": "https://baomoi.com/bulgaria-buoc-vao-vong-hai-bau-cu-tong-thong-c56405747.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Ấn Độ có Tham mưu trưởng Không quân mới, cam kết kề vai sát cánh cùng các lực lượng an ninh khác",
-   "summary": "",
-   "sourceName": "Báo Thế Giới & Việt Nam",
-   "sourceUrl": "https://baomoi.com/an-do-co-tham-muu-truong-khong-quan-moi-cam-ket-ke-vai-sat-canh-cung-cac-luc-luong-an-ninh-khac-c56405698.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Ngoại giao",
-   "title": "Nga muốn khởi động đàm phán về xung đột Ukraine theo thể thức ba bên",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/nga-muon-khoi-dong-dam-phan-ve-xung-dot-ukraine-theo-the-thuc-ba-ben-c56405641.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Người biểu tình quá khích ở Pháp ném bom xăng vào cảnh sát",
-   "summary": "",
-   "sourceName": "Báo VietnamNet",
-   "sourceUrl": "https://baomoi.com/nguoi-bieu-tinh-qua-khich-o-phap-nem-bom-xang-vao-canh-sat-c56405564.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Bầu cử giữa nhiệm kỳ, 'trận chiến' định hình tương lai nước Mỹ",
-   "summary": "",
-   "sourceName": "Báo Công Lý",
-   "sourceUrl": "https://baomoi.com/bau-cu-giua-nhiem-ky-tran-chien-dinh-hinh-tuong-lai-nuoc-my-c56405509.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Báo Mỹ giải thích vì sao xe tăng T-14 Armata vắng bóng trên chiến trường Ukraine",
-   "summary": "",
-   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
-   "sourceUrl": "https://baomoi.com/bao-my-giai-thich-vi-sao-xe-tang-t-14-armata-vang-bong-tren-chien-truong-ukraine-c56405422.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Bộ đội chủ lực vượt sông, diễn tập đánh địch đổ bộ đường không",
-   "summary": "",
-   "sourceName": "Báo Tiền Phong",
-   "sourceUrl": "https://baomoi.com/bo-doi-chu-luc-vuot-song-dien-tap-danh-dich-do-bo-duong-khong-c56405354.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Mỹ lao vào cuộc đua UAV giá rẻ, bắt đầu gần như từ số 0",
-   "summary": "",
-   "sourceName": "Báo Tiền Phong",
-   "sourceUrl": "https://baomoi.com/my-lao-vao-cuoc-dua-uav-gia-re-bat-dau-gan-nhu-tu-so-0-c56405361.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Tổng thống Trump nói Mỹ 'chỉ còn một, hai mục tiêu ở Iran, có thể xử lý trong 10 phút'",
-   "summary": "",
-   "sourceName": "Báo Tiền Phong",
-   "sourceUrl": "https://baomoi.com/tong-thong-trump-noi-my-chi-con-mot-hai-muc-tieu-o-iran-co-the-xu-ly-trong-10-phut-c56405362.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Ngoại giao",
-   "title": "Vòng đàm phán ba bên Nga, Ukraine và Mỹ đầu tháng 11-2026: Cơ hội thiết lập lại trật tự an ninh mới",
-   "summary": "",
-   "sourceName": "Báo Hà Nội Mới",
-   "sourceUrl": "https://baomoi.com/vong-dam-phan-ba-ben-nga-ukraine-va-my-dau-thang-11-2026-co-hoi-thiet-lap-lai-trat-tu-an-ninh-moi-c56405294.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Tàu ngầm nguyên tử Borei-A giữ vai trò gì trong bộ ba hạt nhân chiến lược của Nga?",
-   "summary": "",
-   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
-   "sourceUrl": "https://baomoi.com/tau-ngam-nguyen-tu-borei-a-giu-vai-tro-gi-trong-bo-ba-hat-nhan-chien-luoc-cua-nga-c56405289.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Lee Jung Jae từ chức giám đốc",
-   "summary": "",
-   "sourceName": "Tạp chí Tri thức",
-   "sourceUrl": "https://baomoi.com/lee-jung-jae-tu-chuc-giam-doc-c56405281.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Quân đội Israel diễn tập ứng phó nhiều tình huống khẩn cấp đồng thời",
-   "summary": "",
-   "sourceName": "Báo Thế Giới & Việt Nam",
-   "sourceUrl": "https://baomoi.com/quan-doi-israel-dien-tap-ung-pho-nhieu-tinh-huong-khan-cap-dong-thoi-c56405129.epi",
-   "region": "Trung Đông",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Ấn Độ bổ nhiệm Tư lệnh Không quân mới, tăng tốc hiện đại hóa phi đội chiến đấu",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/an-do-bo-nhiem-tu-lenh-khong-quan-moi-tang-toc-hien-dai-hoa-phi-doi-chien-dau-c56405038.epi",
-   "region": "Ấn Độ Dương - Thái Bình Dương",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Mỹ phê duyệt bán 500 tên lửa Patriot trị giá 2,1 tỷ USD cho Ukraine",
-   "summary": "",
-   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
-   "sourceUrl": "https://baomoi.com/my-phe-duyet-ban-500-ten-lua-patriot-tri-gia-2-1-ty-usd-cho-ukraine-c56405009.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Ngoại giao",
-   "title": "Tổng thống Trump đề cập khả năng đối thoại với Triều Tiên về vụ việc liên quan Binance",
-   "summary": "",
-   "sourceName": "Báo Tin Tức TTXVN",
-   "sourceUrl": "https://baomoi.com/tong-thong-trump-de-cap-kha-nang-doi-thoai-voi-trieu-tien-ve-vu-viec-lien-quan-binance-c56405584.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Đăng bài dọa bắn Tổng thống Trump, một phụ nữ người Mỹ bị bắt giữ",
+   "title": "7 ngày công nghệ: Việt Nam cấm nhập khẩu loạt thiết bị công nghệ cũ từ 2027",
    "summary": "",
    "sourceName": "Báo VTC News",
-   "sourceUrl": "https://baomoi.com/dang-bai-doa-ban-tong-thong-trump-mot-phu-nu-nguoi-my-bi-bat-giu-c56404929.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Trung Quốc lần đầu cho UAV tàng hình GJ-21 cất, hạ cánh trên tàu đổ bộ tấn công Type 076",
-   "summary": "",
-   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
-   "sourceUrl": "https://baomoi.com/trung-quoc-lan-dau-cho-uav-tang-hinh-gj-21-cat-ha-canh-tren-tau-do-bo-tan-cong-type-076-c56404872.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Kinh tế",
-   "title": "OPEC+ giữ nguyên sản lượng khai thác dầu trong tháng 12",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/opec-giu-nguyen-san-luong-khai-thac-dau-trong-thang-12-c56404981.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Bầu cử Tổng thống Bulgaria bước sang vòng hai, định hướng chính sách đối ngoại dần được hé lộ",
-   "summary": "",
-   "sourceName": "Báo Thế Giới & Việt Nam",
-   "sourceUrl": "https://baomoi.com/bau-cu-tong-thong-bulgaria-buoc-sang-vong-hai-dinh-huong-chinh-sach-doi-ngoai-dan-duoc-he-lo-c56404622.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Đức và Hà Lan tiếp nhận những xe quân sự Caracal đầu tiên",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/duc-va-ha-lan-tiep-nhan-nhung-xe-quan-su-caracal-dau-tien-c56404832.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Triều Tiên thử bom chùm gắn trên tên lửa đạn đạo chiến thuật",
-   "summary": "",
-   "sourceName": "Báo An Giang",
-   "sourceUrl": "https://baomoi.com/trieu-tien-thu-bom-chum-gan-tren-ten-lua-dan-dao-chien-thuat-c56404587.epi",
-   "region": "Đông Á",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Bulgaria bước vào bầu cử tổng thống vòng hai giữa bất đồng về vấn đề Ukraine",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/bulgaria-buoc-vao-bau-cu-tong-thong-vong-hai-giua-bat-dong-ve-van-de-ukraine-c56404575.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Ngoại giao",
-   "title": "Thổ Nhĩ Kỳ đề cử cựu Đại sứ tại Liên hợp quốc làm ứng viên Tổng Thư ký",
-   "summary": "",
-   "sourceName": "Báo Thanh Hóa",
-   "sourceUrl": "https://baomoi.com/tho-nhi-ky-de-cu-cuu-dai-su-tai-lien-hop-quoc-lam-ung-vien-tong-thu-ky-c56404831.epi",
-   "region": "",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Kinh tế",
-   "title": "Châu Âu đổi chiến lược, tìm cách giữ chân các nhà máy lọc dầu",
-   "summary": "",
-   "sourceName": "Báo Nhà báo và Công luận",
-   "sourceUrl": "https://baomoi.com/chau-au-doi-chien-luoc-tim-cach-giu-chan-cac-nha-may-loc-dau-c56404570.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "the-gioi"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Phó Thủ tướng Hồ Quốc Dũng làm việc với Viện Lúa Đồng bằng sông Cửu Long",
-   "summary": "",
-   "sourceName": "Báo Tiền Phong",
-   "sourceUrl": "https://baomoi.com/pho-thu-tuong-ho-quoc-dung-lam-viec-voi-vien-lua-dong-bang-song-cuu-long-c56406319.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Kinh tế",
-   "title": "Doanh nghiệp Việt Nam đưa giải pháp xanh ra thị trường quốc tế",
-   "summary": "",
-   "sourceName": "Báo VietnamPlus",
-   "sourceUrl": "https://baomoi.com/doanh-nghiep-viet-nam-dua-giai-phap-xanh-ra-thi-truong-quoc-te-c56406240.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Chính trị",
-   "title": "Phó Thủ tướng Hồ Quốc Dũng giao 3 nhiệm vụ trọng tâm cho Viện Lúa đồng bằng sông Cửu Long",
-   "summary": "",
-   "sourceName": "Báo Chính Phủ",
-   "sourceUrl": "https://baomoi.com/pho-thu-tuong-ho-quoc-dung-giao-3-nhiem-vu-trong-tam-cho-vien-lua-dong-bang-song-cuu-long-c56405903.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Kinh tế",
-   "title": "Singapore tìm giải pháp làm mát tiết kiệm năng lượng, hướng tới mục tiêu phát thải ròng bằng 0 vào năm 2050",
-   "summary": "",
-   "sourceName": "Báo Thế Giới & Việt Nam",
-   "sourceUrl": "https://baomoi.com/singapore-tim-giai-phap-lam-mat-tiet-kiem-nang-luong-huong-toi-muc-tieu-phat-thai-rong-bang-0-vao-nam-2050-c56405845.epi",
-   "region": "Châu Âu/NATO",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Kinh tế",
-   "title": "Phân khúc tai nghe tăng trưởng ngược thị trường",
-   "summary": "",
-   "sourceName": "Tạp chí Tri thức",
-   "sourceUrl": "https://baomoi.com/phan-khuc-tai-nghe-tang-truong-nguoc-thi-truong-c56405796.epi",
+   "sourceUrl": "https://baomoi.com/7-ngay-cong-nghe-viet-nam-cam-nhap-khau-loat-thiet-bi-cong-nghe-cu-tu-2027-c56410020.epi",
    "region": "Ấn Độ Dương - Thái Bình Dương",
    "topic": "khoa-hoc-cong-nghe"
   },
   {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "UAV MQ-25 Mỹ được thiết kế thế nào để hoạt động trên tàu sân bay?",
-   "summary": "",
-   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
-   "sourceUrl": "https://baomoi.com/uav-mq-25-my-duoc-thiet-ke-the-nao-de-hoat-dong-tren-tau-san-bay-c56405739.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Khả năng nâng hàng đáng kinh ngạc của trực thăng CH-47 Chinook",
-   "summary": "",
-   "sourceName": "Chuyên trang An Ninh Thủ Đô - Báo Công an nhân dân",
-   "sourceUrl": "https://baomoi.com/kha-nang-nang-hang-dang-kinh-ngac-cua-truc-thang-ch-47-chinook-c56405235.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Sử dụng UAV trong quản lý, bảo vệ Vườn Quốc gia Phong Nha - Kẻ Bàng",
-   "summary": "",
-   "sourceName": "Báo Công An Nhân Dân",
-   "sourceUrl": "https://baomoi.com/su-dung-uav-trong-quan-ly-bao-ve-vuon-quoc-gia-phong-nha-ke-bang-c56405120.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
+   "date": "2026-11-02",
    "category": "Kinh tế",
-   "title": "Đồng Nai: Kiến tạo động lực tăng trưởng mới từ đô thị thông minh, kinh tế số",
-   "summary": "",
-   "sourceName": "Báo Xây Dựng",
-   "sourceUrl": "https://baomoi.com/dong-nai-kien-tao-dong-luc-tang-truong-moi-tu-do-thi-thong-minh-kinh-te-so-c56404926.epi",
-   "region": "",
-   "topic": "khoa-hoc-cong-nghe"
-  },
-  {
-   "date": "2026-11-01",
-   "category": "Công nghệ quân sự",
-   "title": "Nhật Bản tăng tốc phát triển tên lửa phóng vệ tinh khẩn cấp",
+   "title": "DIGIFEST ĐỒNG NAI 2026: Kết nối công nghệ, kiến tạo động lực tăng trưởng mới",
    "summary": "",
    "sourceName": "Báo Thế Giới & Việt Nam",
-   "sourceUrl": "https://baomoi.com/nhat-ban-tang-toc-phat-trien-ten-lua-phong-ve-tinh-khan-cap-c56404838.epi",
-   "region": "Đông Á",
+   "sourceUrl": "https://baomoi.com/digifest-dong-nai-2026-ket-noi-cong-nghe-kien-tao-dong-luc-tang-truong-moi-c56409583.epi",
+   "region": "",
+   "topic": "khoa-hoc-cong-nghe"
+  },
+  {
+   "date": "2026-11-02",
+   "category": "Kinh tế",
+   "title": "Giáo sư đứng sau doanh nghiệp hơn 4.000 tỷ đồng được đề nghị xét tặng Giải thưởng Hồ Chí Minh là ai?",
+   "summary": "",
+   "sourceName": "Tạp Chí Doanh Nhân Trẻ",
+   "sourceUrl": "https://baomoi.com/giao-su-dung-sau-doanh-nghiep-hon-4-000-ty-dong-duoc-de-nghi-xet-tang-giai-thuong-ho-chi-minh-la-ai-c56408857.epi",
+   "region": "",
    "topic": "khoa-hoc-cong-nghe"
   }
  ]
