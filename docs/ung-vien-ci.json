@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-02T06:49:00+07:00",
+  "tao_luc": "2026-11-02T08:00:11+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-01",
@@ -85,14 +85,6 @@
       "tieu_de": "Singapore khẩn trương xử lý các vệt dầu loang trên vùng biển phía Nam",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/singapore-khan-truong-xu-ly-cac-vet-dau-loang-tren-vung-bien-phia-nam-post1145550.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-11-01",
-      "tieu_de": "Singapore tìm giải pháp làm mát tiết kiệm năng lượng hướng tới mục tiêu phát thải ròng bằng 0 vào năm 2050",
-      "nguon": "Báo Thế giới & Việt Nam",
-      "url": "https://baoquocte.vn/singapore-tim-giai-phap-lam-mat-tiet-kiem-nang-luong-huong-toi-muc-tieu-phat-thai-rong-bang-0-vao-nam-2050-463357.html"
     },
     {
       "lop": "HTML",
@@ -274,6 +266,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-02",
+      "tieu_de": "Boxer Amphibious Ready Group Innovates with Drone Warfare Capabilities at Sea",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/11/02/boxer-amphibious-ready-group-innovates-with-drone-warfare-capabilities-at-sea/?utm_source=rss&utm_medium=rss&utm_campaign=boxer-amphibious-ready-group-innovates-with-drone-warfare-capabilities-at-sea"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-02",
       "tieu_de": "VIKTOS Unveils the OPSEC Field Fleece: Field Proven Comfort for Fall’s Unfinished Business",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/11/01/viktos-unveils-the-opsec-field-fleece-field-proven-comfort-for-falls-unfinished-business/?utm_source=rss&utm_medium=rss&utm_campaign=viktos-unveils-the-opsec-field-fleece-field-proven-comfort-for-falls-unfinished-business"
@@ -309,14 +309,6 @@
       "tieu_de": "Maris-Tech Introduces Advanced Edge AI Platform Enabling Real-Time Video Intelligence and Autonomous UAV Operations",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/10/31/maris-tech-introduces-advanced-edge-ai-platform-enabling-real-time-video-intelligence-and-autonomous-uav-operations/?utm_source=rss&utm_medium=rss&utm_campaign=maris-tech-introduces-advanced-edge-ai-platform-enabling-real-time-video-intelligence-and-autonomous-uav-operations"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-10-31",
-      "tieu_de": "Rheinmetall Delivers First Caracal Series-Production Vehicles to the German and Dutch armed forces",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/10/31/rheinmetall-delivers-first-caracal-series-production-vehicles-to-the-german-and-dutch-armed-forces/?utm_source=rss&utm_medium=rss&utm_campaign=rheinmetall-delivers-first-caracal-series-production-vehicles-to-the-german-and-dutch-armed-forces"
     },
     {
       "lop": "RSS",
@@ -426,7 +418,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-02",
-      "tieu_de": "Live: Albanese to seek tighter rules for British backpackers in meeting with UK PM",
+      "tieu_de": "Live: Albanese to seek tighter rules for British backpackers in UK PM meeting",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-11-02/federal-politics-live-blog-albanese-chogm-nov-2/107334912"
     },
@@ -506,7 +498,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-02",
-      "tieu_de": "Malaysia is making it easier for expats' spouses to work. Will that help retain foreign talent?",
+      "tieu_de": "Malaysia to ease work restrictions on expats' spouses, but will it make a difference?",
       "nguon": "Channel News Asia — Asia",
       "url": "https://www.channelnewsasia.com/asia/malaysia-expat-visa-spouse-job-work-6502606"
     },
@@ -525,6 +517,14 @@
       "tieu_de": "Malaysia wants to move away from Waze. Will drivers make the switch?",
       "nguon": "Channel News Asia — Asia",
       "url": "https://www.channelnewsasia.com/asia/waze-tuju-navigation-app-anwar-ibrahim-malaysia-6502896"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-02",
+      "tieu_de": "Australian far-right party regains poll lead as government slips",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/australianz/australian-far-right-party-regains-poll-lead-as-government-slips"
     },
     {
       "lop": "RSS",
@@ -624,6 +624,15 @@
       "tieu_de": "Judge orders Trump administration to stop threatening US election officials",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/c8qln1539y37o?at_medium=RSS&at_campaign=rss",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-02",
+      "tieu_de": "Democrats have high hopes for midterms, but polls have let them down before",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cmg47p3edv4do?at_medium=RSS&at_campaign=rss",
       "nhom": 5
     },
     {
@@ -782,6 +791,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-02",
+      "tieu_de": "6 chủ đề n&oacute;ng trong cuộc bầu cử giữa kỳ ở Mỹ",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/6-chu-de-nong-trong-cuoc-bau-cu-giua-ky-o-my-185261021114914173.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-01",
       "tieu_de": "Tỉ ph&uacute; Elon Musk chi tiền kỷ lục cho bầu cử giữa kỳ Mỹ",
       "nguon": "Thanh Niên",
@@ -863,6 +881,15 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-02",
+      "tieu_de": "Cuộc bầu cử ở Mỹ có thể chi phối diễn biến giá vàng trong tuần này",
+      "nguon": "VnEconomy",
+      "url": "https://vneconomy.vn/cuoc-bau-cu-o-my-co-the-chi-phoi-dien-bien-gia-vang-trong-tuan-nay.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-01",
       "tieu_de": "Cuộc đua bầu cử giữa nhiệm kỳ Mỹ bước vào chặng nước rút",
       "nguon": "Dân Trí",
@@ -918,7 +945,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-02",
-      "tieu_de": "US midterms daily briefing: Trump rallies for Senators and antics in Alaska",
+      "tieu_de": "US midterms daily briefing: Antics in Alaska and Trump rallies for senators",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-11-02/us-midterms-daily-news-briefing-trump-alaska-michigan/107326672",
       "nhom": 3
@@ -972,9 +999,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-02",
-      "tieu_de": "Will anger over corruption be the deciding factor in the US midterms?",
-      "nguon": "The Conversation (Úc)",
-      "url": "https://theconversation.com/will-anger-over-corruption-be-the-deciding-factor-in-the-us-midterms-295075",
+      "tieu_de": "Will the midterms mark the end of the Trump era?",
+      "nguon": "Crikey (Úc)",
+      "url": "https://www.crikey.com.au/2026/11/02/us-midterms-election-results-donald-trump/",
       "nhom": 5
     },
     {
@@ -985,6 +1012,15 @@
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/democratic-wins-would-shift-congress-trade-debate-but-fall-short-of-us-tariff-rollbacks",
       "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-02",
+      "tieu_de": "Michigan Democrat endorses Republican as feud roils key Senate race",
+      "nguon": "Financial Times — World",
+      "url": "https://www.ft.com/content/d77e4c6f-0ac7-49ce-bca8-b30080bf9797?syn-25a6b1a6=1",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1048,6 +1084,24 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/uk-news/2026/nov/01/police-detain-325-people-at-pro-palestine-action-protest-at-us-embassy-in-london",
       "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-02",
+      "tieu_de": "Trump launches racist diatribe against Abdul El-Sayed at Iowa rally",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/2026/nov/01/trump-iowa-rally",
+      "nhom": 3
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-02",
+      "tieu_de": "Bầu cử giữa nhiệm kỳ Mỹ: Hai đảng tăng tốc vận động trong chặng nước rút",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/bau-cu-giua-nhiem-ky-my-hai-dang-tang-toc-van-dong-trong-chang-nuoc-rut-post1145588.vnp",
+      "nhom": 5
     },
     {
       "lop": "RSS",
