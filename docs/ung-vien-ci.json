@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-03T09:34:13+07:00",
+  "tao_luc": "2026-11-03T10:02:55+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-02",
@@ -521,14 +521,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-02",
-      "tieu_de": "Vương quốc Anh đề xuất áp thuế 65% với nhựa PET vượt hạn ngạch: Doanh nghiệp Việt Nam cần chủ động ứng phó",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/vuong-quoc-anh-de-xuat-ap-thue-65-voi-nhua-pet-vuot-han-ngach-doanh-nghiep-viet-nam-can-chu-dong-ung-pho.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-03",
       "tieu_de": "Opals veteran opens door to Australian return after WNBA retirement",
       "nguon": "ABC News AU (world)",
@@ -713,6 +705,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-03",
+      "tieu_de": "Malaysia to hold meetings on security threats, PM says",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/malaysia-to-hold-meetings-on-security-threats-pm-says"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-02",
       "tieu_de": "Six years after revival, Malaysia’s oldest Malay newspaper faces another crisis. What’s next?",
       "nguon": "The Straits Times — Asia",
@@ -832,15 +832,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-03",
-      "tieu_de": "US petrol prices dip ahead of midterms as voters eye costs",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/economy/2026/11/2/us-petrol-prices-dip-ahead-of-midterms-as-voters-eye-costs?traffic_source=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-03",
       "tieu_de": "US midterms campaign 'shattering' spending records to be most expensive ever",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cqkgk64z7p58o?at_medium=RSS&at_campaign=rss",
@@ -943,6 +934,15 @@
       "tieu_de": "Michigan Senate race upended as Democrat endorses Republican",
       "nguon": "South China Morning Post",
       "url": "https://www.scmp.com/news/world/united-states-canada/article/3372911/democratic-divisions-shake-pivotal-michigan-senate-race-congresswoman-breaks-ranks",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-03",
+      "tieu_de": "U.S. has conducted defensive strikes on some Iranian targets in Strait of Hormuz: official ahead of midterm elections",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-strikes-iran-strait-of-hormuz-midterm-elections-trump-netanyahu-vance/article71659244.ece",
       "nhom": 5
     },
     {
@@ -1147,15 +1147,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-02",
-      "tieu_de": "Vấn đề Trung Quốc ít nổi bật trong chiến dịch trước bầu cử Mỹ",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/van-de-trung-quoc-it-noi-bat-trong-chien-dich-truoc-bau-cu-my.htm",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-02",
       "tieu_de": "Ông Donald Trump muốn tranh cử nhiệm kỳ 3, thừa nhận hiến pháp rất chặt",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/ong-donald-trump-muon-tranh-cu-nhiem-ky-3-thua-nhan-hien-phap-rat-chat-20261102084312611.htm",
@@ -1300,7 +1291,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-03",
-      "tieu_de": "Megadonors pour ‘obscene’ sums into Trump’s midterms race",
+      "tieu_de": "Megadonors pour ‘obscene’ sums into Trump’s $16.5b midterms race",
       "nguon": "Australian Financial Review",
       "url": "https://www.afr.com/world/north-america/megadonors-pour-obscene-sums-into-trump-s-midterms-race-20261103-p61arr?ref=rss&utm_medium=rss&utm_source=rss_feed",
       "nhom": 5
@@ -1330,6 +1321,15 @@
       "tieu_de": "US Supreme Court rejects Trump, lets California count all ballots",
       "nguon": "Rappler",
       "url": "https://www.rappler.com/world/us-canada/supreme-court-decision-count-california-mail-in-ballots-2026-midterm-elections/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-03",
+      "tieu_de": "Americans vote in midterms set to upend Trump presidency",
+      "nguon": "Inquirer",
+      "url": "https://globalnation.inquirer.net/345373/americans-vote-in-midterms-set-to-upend-trump-presidency",
       "nhom": 5
     },
     {
@@ -1601,6 +1601,15 @@
       "nguon": "Nhân Dân",
       "url": "https://nhandan.vn/bau-cu-my-dang-dan-chu-va-cong-hoa-don-suc-van-dong-truoc-ngay-bo-phieu-post999614.html",
       "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Bầu cử giữa nhiệm kỳ Mỹ: Cán cân quyền lực trước giờ quyết định",
+      "nguon": "Báo Chính phủ",
+      "url": "https://baochinhphu.vn/bau-cu-giua-nhiem-ky-my-can-can-quyen-luc-truoc-gio-quyet-dinh-102261103094003769.htm",
+      "nhom": 5
     },
     {
       "lop": "RSS",
