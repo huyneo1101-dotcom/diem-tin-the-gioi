@@ -9,3 +9,4 @@
 [01:20Z] do_tap_tran_thieu.py: 21 ung vien, khong co cuoc moi du dieu kien (Koalicja/Ba Lan moi nhung chua khai mac, bat dau 09/11)
 [01:24Z] agent su kien+tap tran: rong (khong co dien bien moi, Cope South/Garuda Shakti/SEACAT khong co tin moi trong khung)
 [01:29Z] add_analyses.py: +5 bai think-tank (Belfer, USSC, ORF, CSIS, CTC Sentinel) + 6 khai niem. DONE event-scan.
+[01:30Z] SKIP (CI) phien moi luc 08:30 VN: web-scan exit 10, event-scan DONE roi. Kiem ngoai le exit 10: so_da_gui.py --xem co dong 2026-11-04T08:30:09 [sang] 31 tin va [sukien] 0 tin, ca hai lastRunAt (08:17/08:29) cach hien tai <20 phut. Ban tin da thuc su toi tay, khong phai co noi doi. Khong quet lai.
