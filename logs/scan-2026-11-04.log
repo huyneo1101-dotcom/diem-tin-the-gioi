@@ -1,3 +1,7 @@
 [00:49Z] START (CI) phien sang som
-[00:49Z] local sang som (chay bu, 07:49 VN): claim web-scan RUN, da giu khoa. Bat dau harvest + quet.
-[00:55Z] local sang som: SKIP NHUONG CI — run CI 41749636654 (START 00:49Z) dang o buoc "Quet ban tin", state.json lastRunAt 07:49:34 + heartbeat 07:53:41 la cua CI, khong phai cua local. Khong quet chong; khong goi state.py skip/fail. Local da harvest + beat (khong nap tin).
+[00:52Z] harvest.py --gop-ci: 550 ung vien (Noi bo My 265, Uc&BD 167, CNQS 56, Mali 44, Tap tran 18)
+[00:56Z] da chay --recent-titles, --baomoi-pending, cong 👍: khong co gi can xu ly truoc khi giao agent
+[01:00Z] giao 5 agent song song (A Noi bo My, B Uc/Anh/BD, C CNQS, D Mali+Tap tran, BM Bao Moi)
+[01:08Z] 5 agent xong, tong hop + review + sua loi cong (ngay that, trung URL, neo chu de 2, GNEWS, live-blog) bang WebSearch/WebFetch truc tiep
+[01:16Z] add_news.py OK: +15 the gioi (Anh 5/Australia 5/Bien Dong 5), +17 My (sau xoa 1 trung Patriot con 16), +1 tap tran (Garuda Shakti). Mali 0 (khong mang san).
+[01:17Z] DONE: +32 tin (5 chu de), ghi scan-gaps.json + loai-tin.md. state.py done. Khong kich duoc bot Telegram (gh bi chan quyen) nen BO QUA buoc loc Jay Lam.
