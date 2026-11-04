@@ -5,3 +5,4 @@
 [01:08Z] 5 agent xong, tong hop + review + sua loi cong (ngay that, trung URL, neo chu de 2, GNEWS, live-blog) bang WebSearch/WebFetch truc tiep
 [01:16Z] add_news.py OK: +15 the gioi (Anh 5/Australia 5/Bien Dong 5), +17 My (sau xoa 1 trung Patriot con 16), +1 tap tran (Garuda Shakti). Mali 0 (khong mang san).
 [01:17Z] DONE: +32 tin (5 chu de), ghi scan-gaps.json + loai-tin.md. state.py done. Khong kich duoc bot Telegram (gh bi chan quyen) nen BO QUA buoc loc Jay Lam.
+[01:18Z] START event-scan (CI, gop vao sang som)

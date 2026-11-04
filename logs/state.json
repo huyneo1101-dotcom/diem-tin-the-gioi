@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-03T04:22:09+07:00",
+    "lastRunAt": "2026-11-04T08:17:49+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+4 tap tran moi (Tiger Triumph, Cope South, Sharp Knife, Iron Mace 26), +5 bai think-tank, 0 su kien ngoai giao",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-11-03"
-    }
+    },
+    "heartbeat": "2026-11-04T08:17:49+07:00"
   }
 }
