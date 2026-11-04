@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-03T04:17:41+07:00",
+    "lastRunAt": "2026-11-04T07:49:34+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+34 tin: Noi bo My 9, Doi ngoai My 2, Anh 7, Uc 6, Bien Dong 4, CNQS 4, Mali 2, tap tran 1; thieu san: Doi ngoai My, Bien Dong",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-11-03"
-    }
+    },
+    "heartbeat": "2026-11-04T07:49:34+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-11-03T04:22:09+07:00",
