@@ -1,2 +1,3 @@
 [00:49Z] START (CI) phien sang som
 [00:49Z] local sang som (chay bu, 07:49 VN): claim web-scan RUN, da giu khoa. Bat dau harvest + quet.
+[00:55Z] local sang som: SKIP NHUONG CI — run CI 41749636654 (START 00:49Z) dang o buoc "Quet ban tin", state.json lastRunAt 07:49:34 + heartbeat 07:53:41 la cua CI, khong phai cua local. Khong quet chong; khong goi state.py skip/fail. Local da harvest + beat (khong nap tin).
