@@ -1,2 +1,5 @@
 [21:00Z] START (CI) phien sang som
-[21:05Z] SKIP (local 04:05) claim web-scan exit 11: CI dang chay (nhip tim 1' truoc), nhuong
+[21:04Z] harvest.py + telegram_harvest.py xong: 587 ung vien chu de + TG candidates
+[21:13Z] giao 4 agent luong goc (A/B/C/D) song song xong
+[21:22Z] giao 1 agent bo sung (Noi bo My doi ngoai, Australia, Bien Dong) xong
+[21:34Z] add_news.py nap xong: +20 worldNews, +17 usNews, +1 tap tran. Khong kich duoc bot Telegram (gh bi chan xin quyen) -> bo qua loc Jay Lam, fail-open co tieng
