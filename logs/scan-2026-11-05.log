@@ -5,3 +5,5 @@
 [21:34Z] add_news.py nap xong: +20 worldNews, +17 usNews, +1 tap tran. Khong kich duoc bot Telegram (gh bi chan xin quyen) -> bo qua loc Jay Lam, fail-open co tieng
 [21:36Z] DONE web-scan, commit d595b6a da push
 [21:37Z] SKIP event-scan (exit 10) - phien local da lam xong luc 04:13:49 VN (commit 7d8b2cd: +2 tap tran, +6 bai think-tank)
+[21:41Z] START (CI) phien sang som moi - claim web-scan exit 10. Kiem so da gui: co dong 2026-11-05T04:37:53+07:00 [sang] 37 tin, khop lastRunAt 04:36:51 + note +37 tin (5 chu de). Ban tin DA toi tay. SKIP em, chuyen sang kiem event-scan.
+[21:42Z] claim event-scan exit 10 (DA XONG luc 04:13:49 VN, note: +2 tap tran, +6 bai think-tank, bao cao tuan: khong). SKIP em. Ca web-scan va event-scan hom nay deu hoan tat. KET THUC PHIEN.
