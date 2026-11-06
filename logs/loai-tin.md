@@ -7,6 +7,22 @@
 
 ---
 
+## 2026-11-07 (phiên sáng sớm CI) — cổng Ngày Đăng Thật + trùng sự kiện
+
+- [US] "Hạ nghị sĩ Massie buộc Hạ viện bỏ phiếu luận tội Hegseth" (KY3) — ngày đăng thật 05/11, ngoài khung 06-07/11, cổng ngay_that.py chặn.
+- [US] "Adam Smith cam kết giám sát Lầu Năm Góc" (The Hill) — trang không in ngày ở dạng metadata đọc được, cổng ngay_that.py chặn.
+- [US] "Bộ Ngoại giao trừng phạt mạng MANPADS Iran" (state.gov) — trang không in ngày đọc được, chặn (chưa kịp tìm dateProofUrl).
+- [US] "Treasury trừng phạt mạng Ấn-Thổ giúp Iran" (al-monitor.com) — ngày đăng thật 05/11, ngoài khung, chặn.
+- [US] "Kim Yo Jong từ chối đối thoại với Washington" (Yahoo/Reuters) — ngày đăng thật 04/11, ngoài khung, chặn.
+- [US] "Ron Johnson trì hoãn bầu lãnh đạo GOP Thượng viện" (The Hill) — trang không in ngày đọc được, chặn.
+- [US] "Durbin công bố báo cáo GAO về thanh tra ICE" (judiciary.senate.gov) — ngày đăng thật 05/11, ngoài khung, chặn.
+- [US] "Halo Industries SiC loan" + "CENTCOM Vanquish Prime radar" (war.gov, 2 tin CNQS) — trang không in ngày đọc được, chặn.
+- [TG] "Malabar 2026 — ANI" + "PH-Australia live-fire drill — Inquirer" — trang không in ngày đọc được, chặn ở lượt 1 (Malabar sau đó nạp lại thành công ở lượt 2 qua nguồn DVIDS, ngày thật xác nhận 05/11 nhưng DVIDS in ngày đọc được nên qua cổng với ⚠ NGÀY THẬT).
+- [TG] exerciseUpdates Malabar 2026 (khai mạc) + Garuda Shakti 2026 (bế mạc) — cả hai ngày sự kiện thật 05/11, ngoài khung hôm nay+hôm qua (06-07/11) dành cho mục Tập trận (không được nới như CNQS), chặn.
+- [BM] 4/7 ứng viên Báo Mới ban đầu (Hegseth/ABC News, Prince Group/Treasury, Trump-Kim/Korea Times, Trump Iran options/Axios) — ngày đăng thật 04-05/11, ngoài khung, chặn.
+- [BM] "2028 presidential contenders" (Yahoo News) — ngày đăng thật 04/11, ngoài khung, chặn.
+- ⭐ [US] **TRÙNG SỰ KIỆN đã nạp cùng lô** — "Trump ký tuyên cáo biến Phòng Bầu dục thành di tích quốc gia" (Al Jazeera, lượt bổ sung) thực chất là CÙNG hành động với "Trump ký sắc lệnh công nhận Phòng Bầu dục là di tích quốc gia" đã nạp từ bản tin 06/11 — add_news.py chỉ cảnh báo Jaccard 0.50 (không chặn), điều phối viên phát hiện sau khi nạp và đã XOÁ TAY entry trùng khỏi index.html (không qua script, vì chưa có công cụ gỡ 1 tin) — xem lại nếu web có dấu hiệu lệch.
+
 ## 2026-09-30 (phiên sáng sớm CI) — cổng Báo Mới + review nội bộ
 
 - [CNQS/BM] "Tên lửa Hwasong-11Ma-1 bay thấp, hệ thống THAAD sẽ đối phó thế nào?" / "'Sát thần' Hwasong-11Ma-1 thay đổi bài toán phòng thủ tên lửa ở Đông Bắc Á ra sao?" (An Ninh Thủ Đô) — bài phân tích tên lửa TRIỀU TIÊN, THAAD chỉ là điểm tham chiếu phụ, không phải tin khí tài Mỹ cụ thể, không hợp CNQS Mỹ.
