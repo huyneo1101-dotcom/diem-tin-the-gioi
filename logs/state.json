@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-06T08:42:14+07:00",
+    "lastRunAt": "2026-11-06T08:50:41+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 tap tran moi (Malabar 2026), +6 bai think-tank, 0 su kien ngoai giao",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-11-05"
-    },
-    "heartbeat": "2026-11-06T08:48:52+07:00"
+      "sang": "2026-11-06"
+    }
   }
 }
