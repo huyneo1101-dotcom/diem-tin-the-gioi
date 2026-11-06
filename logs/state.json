@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-05T04:36:51+07:00",
+    "lastRunAt": "2026-11-06T08:08:37+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+37 tin (5 chu de): Noi bo My 9, CNQS 7, Mali 1, Anh 10, Australia 5, Bien Dong 5, tap tran Garuda Shakti",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-11-05"
-    }
+    },
+    "heartbeat": "2026-11-06T08:08:37+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-11-05T04:13:49+07:00",
