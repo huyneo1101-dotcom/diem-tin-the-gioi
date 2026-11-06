@@ -1,4 +1,2 @@
 [21:00Z] START (CI) - phien sang som web-scan
 [21:03Z] harvest.py: 487 ung vien (Noi bo My 233, Uc&BD 139, CNQS 60, Mali 28, Tap tran 27). telegram_harvest: 15 bai TG trong khung. gh workflow run telegram-bot.yml bi chan "requires approval" - chua kich duoc bot, se thu lai truoc khi doi chieu Jay Lam. Beat round 1/5 OK.
-[21:06Z] SKIP (local 04:05 VN) - claim web-scan exit 11, CI dang chay (nhip tim 2' truoc). Nhuong CI.
-[21:15Z] event-scan (local) DONE: +1 tap tran moi Southern Vanguard, +1 item Malabar (bo item Global Times vi do gan 4), +5 bai think-tank, 0 su kien ngoai giao. Commit 807bd19 da push.
