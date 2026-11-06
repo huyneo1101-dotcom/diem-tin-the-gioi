@@ -2,3 +2,5 @@
 [01:39Z] web-scan DONE: +28 tin (5 chu de), da push commit 6ec714c
 [01:42Z] START event-scan (CI, gop vao sang som)
 [01:51Z] event-scan DONE: +1 tap tran moi (Malabar 2026), +6 bai think-tank, 0 su kien ngoai giao
+[01:52Z] SKIP web-scan (exit 10, DA XONG) - kiem so_da_gui --xem: co dong 2026-11-06T08:51:42+07:00 [sang] 30 tin va [sukien] 2 tin, ban tin da toi tay thuc. Nhay sang Buoc 6 kiem event-scan.
+[01:52Z] SKIP event-scan (exit 10, DA XONG, lan chay cuoi 2026-11-06T08:50:41+07:00). Ca hai pipeline da hoan tat trong phien truoc. KET THUC EM.
