@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-05T04:13:49+07:00",
+    "lastRunAt": "2026-11-06T08:42:14+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+2 tap tran (Malabar 2026, Sea Vigil 2026), 0 su kien ngoai giao, +6 bai think-tank, bao cao tuan: khong (thu nam)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-11-05"
-    }
+    },
+    "heartbeat": "2026-11-06T08:42:14+07:00"
   }
 }
