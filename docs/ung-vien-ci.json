@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-08T03:46:55+07:00",
+  "tao_luc": "2026-11-08T06:50:48+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-07",
@@ -18,17 +18,17 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "?",
-      "tieu_de": "Singapore banks struggle with bond yield and interest rate tensions",
+      "tieu_de": "Indonesia's art deco hot spot, a century on",
       "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/finance/singapore-banks-struggle-with-bond-yield-and-interest-rate-tensions"
+      "url": "https://asia.nikkei.com/life-arts/life/destinations/indonesia-s-art-deco-hot-spot-a-century-on"
     },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "?",
-      "tieu_de": "Indonesia's GDP grows 5.5% in Q3, helped by government spending",
+      "tieu_de": "Singapore banks struggle with bond yield and interest rate tensions",
       "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/economy/indonesia-s-gdp-grows-5.5-in-q3-helped-by-government-spending"
+      "url": "https://asia.nikkei.com/business/finance/singapore-banks-struggle-with-bond-yield-and-interest-rate-tensions"
     },
     {
       "lop": "RSS",
@@ -53,6 +53,14 @@
       "tieu_de": "Singapore-based man shot dead by neighbour in India over parking dispute",
       "nguon": "The Straits Times — Asia",
       "url": "https://www.straitstimes.com/asia/south-asia/singapore-based-man-shot-dead-by-neighbour-in-india-over-parking-dispute"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "?",
+      "tieu_de": "Niềm tin chiến lược mở ra giai đoạn hợp tác mới giữa Việt Nam và Nhật Bản",
+      "nguon": "Báo Chính phủ",
+      "url": "https://baochinhphu.vn/niem-tin-chien-luoc-mo-ra-giai-doan-hop-tac-moi-giua-viet-nam-va-nhat-ban-102261107215445307.htm"
     },
     {
       "lop": "HTML",
@@ -93,22 +101,6 @@
       "tieu_de": "US, Colombian troops kick off exercise amid the Pentagon’s Western Hemisphere pivot",
       "nguon": "Defense News",
       "url": "https://www.defensenews.com/global/the-americas/2026/11/06/us-colombian-troops-kick-off-exercise-amid-the-pentagons-western-hemisphere-pivot/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-06",
-      "tieu_de": "US Air Force eyes reviving WWII air bases in the Pacific",
-      "nguon": "Defense News",
-      "url": "https://www.defensenews.com/global/asia-pacific/2026/11/06/us-air-force-eyes-reviving-wwii-air-bases-in-the-pacific/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-06",
-      "tieu_de": "The Navy’s trainer is now the biggest test of the Pentagon’s acquisition reform efforts",
-      "nguon": "Breaking Defense",
-      "url": "https://breakingdefense.com/2026/11/the-navys-trainer-is-now-the-biggest-test-of-the-pentagons-acquisition-reform-efforts/"
     },
     {
       "lop": "RSS",
@@ -201,14 +193,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "B-21 Raider MPF Groundbreaking Ceremony",
-      "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/578843/b-21-raider-mpf-groundbreaking-ceremony"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-06",
       "tieu_de": "U.S. Army honors Wisconsin son, killed on an Italian battlefield in WWI",
       "nguon": "Lục quân Mỹ",
@@ -261,6 +245,14 @@
       "tieu_de": "US Army feeds culinary soldiers new job title",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/11/06/us-army-feeds-culinary-soldiers-new-job-title/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-06",
+      "tieu_de": "US Air Force eyes reviving WWII air bases in the Pacific",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/2026/11/06/us-air-force-eyes-reviving-wwii-air-bases-in-the-pacific/"
     },
     {
       "lop": "RSS",
@@ -410,33 +402,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-08",
-      "tieu_de": "RAF flew conventional role in French nuclear exercise",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/raf-flew-conventional-role-in-french-nuclear-exercise/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-08",
       "tieu_de": "Forces pension errors probed for possible contract breaches",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/forces-pension-errors-probed-for-possible-contract-breaches/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-08",
-      "tieu_de": "Young Britons half as likely to value serving in wartime",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/young-britons-half-as-likely-to-value-serving-in-wartime/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-07",
-      "tieu_de": "Second Type 26 frigate takes final shape with twin masts",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/second-type-26-frigate-takes-final-shape-with-twin-masts/"
     },
     {
       "lop": "RSS",
@@ -453,14 +421,6 @@
       "tieu_de": "Army to set new operating model for Army Reserve",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/army-to-set-new-operating-model-for-army-reserve/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-07",
-      "tieu_de": "Defence budget dip is pension accounting, says minister",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/defence-budget-dip-is-pension-accounting-says-minister/"
     },
     {
       "lop": "RSS",
@@ -513,6 +473,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-08",
+      "tieu_de": "Australia's worth plane habits",
+      "nguon": "Sydney Morning Herald",
+      "url": "https://www.smh.com.au/national/australias-worth-plane-habits-20261108-p61cbz.html?ref=rss&utm_medium=rss&utm_source=rss_national"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-07",
       "tieu_de": "Adelaide activist charged with stalking South Australian MP",
       "nguon": "Sydney Morning Herald",
@@ -546,7 +514,15 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-08",
-      "tieu_de": "Hold the toilet paper, talk to your neighbours: Australian experts on surviving disaster",
+      "tieu_de": "Max’s journey to the grave 113 years after death, via a doctor fleeing murder charges and an Australian museum",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/2026/nov/08/max-the-skeleton-buried-adelaide-south-australia-museum"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-08",
+      "tieu_de": "Forget hoarding toilet paper, talk to your neighbours: Australian experts on surviving disaster",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/2026/nov/08/how-australians-should-prepare-for-disaster-stockpiling"
     },
@@ -714,6 +690,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-08",
+      "tieu_de": "Abdul El-Sayed slams Trump’s tariff war with Canada",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/7/abdul-el-sayed-slams-trumps-tariff-war-with-canada?traffic_source=rss",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-08",
       "tieu_de": "How did AIPAC-backed candidates fare in the US midterm elections?",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/11/7/how-did-aipac-backed-candidates-fare-in-the-us-midterm-elections?traffic_source=rss",
@@ -740,37 +725,10 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "US anti-trans ballot wins pose challenge for Democrats ahead of 2028 presidential race",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-anti-trans-ballot-wins-pose-challenge-for-democrats-ahead-of-2028-presidential-race",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "US midterms: After Texas governor Abbott’s defeat, Houston’s mayor changes course on ICE",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/us-midterms-after-texas-governor-abbotts-defeat-houstons-mayor-changes-course-on-ice",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "Trump touts plan for US air show, seeks to turn page on midterms",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/trump-touts-plan-for-us-air-show-seeks-to-turn-page-on-midterm",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "Trump confirms fresh Iran strikes days after voters punish war at polls",
-      "nguon": "South China Morning Post",
-      "url": "https://www.scmp.com/news/world/middle-east/article/3373633/trump-confirms-fresh-iran-strikes-days-after-voters-punish-war-polls",
+      "ngay": "2026-11-08",
+      "tieu_de": "Why are the U.S. midterm elections significant?",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/why-are-the-us-midterm-elections-significant/article71679440.ece",
       "nhom": 5
     },
     {
@@ -795,15 +753,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-07",
-      "tieu_de": "Wave of resignations from U.S. Justice Department after midterms",
-      "nguon": "The Hindu",
-      "url": "https://www.thehindu.com/news/international/wave-of-resignations-from-us-justice-department-after-midterms/article71676248.ece",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
       "tieu_de": "Trump replaces Susie Wiles with Stephen Miller as chief of staff after GOP’s midterm defeat",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/trump-replaces-susie-wiles-with-stephen-miller-as-chief-of-staff-after-gops-midterm-defeat/article71676063.ece",
@@ -816,15 +765,6 @@
       "tieu_de": "U.S. Attorney whose office oversaw Trump's election conspiracy probe resigns",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/us-attorney-whose-office-oversaw-trumps-election-conspiracy-probe-resigns/article71675394.ece",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "Risk of Iran war escalation remains high despite Democratic sweep in U.S. midterm elections",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/11/07/iran-war-midterm-election-oil-price-trump.html",
       "nhom": 5
     },
     {
@@ -849,36 +789,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-07",
-      "tieu_de": "Loạt lãnh đạo ở Bộ Tư pháp Mỹ từ chức sau bầu cử giữa kỳ",
-      "nguon": "VnExpress",
-      "url": "https://vnexpress.net/loat-lanh-dao-o-bo-tu-phap-my-tu-chuc-sau-bau-cu-giua-ky-5141762.html",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "Loạt quan chức Bộ Tư ph&aacute;p Mỹ từ chức sau bầu cử",
-      "nguon": "Thanh Niên",
-      "url": "https://thanhnien.vn/loat-quan-chuc-bo-tu-phap-my-tu-chuc-sau-bau-cu-185261107082346376.htm",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
       "tieu_de": "&Ocirc;ng Trump bất ngờ thay Ch&aacute;nh văn ph&ograve;ng Nh&agrave; Trắng sau thất bại bầu cử",
       "nguon": "Thanh Niên",
       "url": "https://thanhnien.vn/ong-trump-bat-ngo-thay-chanh-van-phong-nha-trang-sau-that-bai-bau-cu-185261107072725962.htm",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Cố vấn Nhà Trắng: Chính sách kinh tế Mỹ không đổi sau bầu cử giữa kỳ",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/co-van-nha-trang-chinh-sach-kinh-te-my-khong-doi-sau-bau-cu-giua-ky-100261107112401494.htm",
       "nhom": 5
     },
     {
@@ -906,15 +819,6 @@
       "tieu_de": "Cổ phiếu các ông lớn công nghệ lao dốc sau bầu cử: Cử tri Mỹ 'bất mãn ra mặt' với AI",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/co-phieu-cac-ong-lon-cong-nghe-lao-doc-sau-bau-cu-cu-tri-my-bat-man-ra-mat-voi-ai-100261106104053297.htm",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
-      "tieu_de": "Ông Trump: Bầu cử 'gian lận không thể tưởng tượng'",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/ong-trump-bau-cu-gian-lan-khong-the-tuong-tuong-100261106090856707.htm",
       "nhom": 5
     },
     {
@@ -1029,15 +933,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-07",
-      "tieu_de": "China mocks Trump’s midterm rout, but Xi faces real dilemma",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/world/asia/china-mocks-trump-s-midterm-rout-but-xi-faces-real-dilemma-20261107-p61bn9?ref=rss&utm_medium=rss&utm_source=rss_feed",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
       "tieu_de": "U.S. Targets Cuba’s Oil Tanker Fleet in New Sanctions Crackdown",
       "nguon": "gCaptain",
       "url": "https://gcaptain.com/u-s-targets-cubas-oil-tanker-fleet-in-new-sanctions-crackdown/",
@@ -1074,15 +969,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-07",
-      "tieu_de": "US share market takes nosedive after midterms",
-      "nguon": "Sydney Morning Herald — World",
-      "url": "https://www.smh.com.au/world/us-share-market-takes-nosedive-after-midterms-20261107-p61c77.html?ref=rss&utm_medium=rss&utm_source=rss_world",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
       "tieu_de": "Readout of Ambassador Greer’s Call with China’s Vice Premier He Lifeng",
       "nguon": "USTR",
       "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/readout-ambassador-greers-call-chinas-vice-premier-he-lifeng",
@@ -1101,27 +987,9 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-07",
-      "tieu_de": "Japan eyes early contribution payment to ICC as court faces U.S. sanctions",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/11/07/japan/politics/japan-contribution-icc-us-sanctions/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "Trump and U.S. Congress set to clash over economic costs of tariffs",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/business/2026/11/07/economy/trump-congress-tariffs-clash/",
-      "nhom": 4
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "Trump makes hard-liner Stephen Miller his chief of staff after midterm defeat",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/news/2026/11/07/world/politics/trump-stephen-miller-chief-of-staff/",
+      "tieu_de": "(LEAD) Trump names Stephen Miller new White House chief of staff after midterm defeat",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20261107000251315",
       "nhom": 5
     },
     {
@@ -1137,16 +1005,7 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-07",
-      "tieu_de": "US midterm results may help unite Israeli coalition to unseat Netanyahu",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/world/2026/nov/07/us-midterm-results-may-help-unite-israeli-coalition-to-unseat-netanyahu",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-07",
-      "tieu_de": "Trump’s elevation of Stephen Miller a middle finger to millions of voters",
+      "tieu_de": "Trump’s elevation of Stephen Miller is a middle finger to millions of voters",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/2026/nov/07/trump-stephen-miller-midterms",
       "nhom": 5
@@ -1158,6 +1017,15 @@
       "tieu_de": "Trump elevates Stephen Miller after midterms disaster",
       "nguon": "Semafor",
       "url": "https://www.semafor.com/article/11/06/2026/trump-elevates-stephen-miller-after-midterms-disaster",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-07",
+      "tieu_de": "Nhà Trắng: Chính sách kinh tế Mỹ sẽ không thay đổi bất chấp kết quả bầu cử",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/nha-trang-chinh-sach-kinh-te-my-se-khong-thay-doi-bat-chap-ket-qua-bau-cu-post1146725.vnp",
       "nhom": 5
     },
     {
@@ -1203,6 +1071,15 @@
       "tieu_de": "Bầu cử giữa nhiệm kỳ Mỹ 2026: Cuộc đua quyết định quyền kiểm soát Quốc hội",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/bau-cu-giua-nhiem-ky-my-2026-cuoc-dua-quyet-dinh-quyen-kiem-soat-quoc-hoi-102261020090523111.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-08",
+      "tieu_de": "Kết quả bầu cử giữa kỳ Mỹ có giúp Vùng Vịnh tránh xung đột mới?",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/ket-qua-bau-cu-giua-ky-my-co-giup-vung-vinh-tranh-xung-dot-moi-2572247.html",
       "nhom": 5
     },
     {
