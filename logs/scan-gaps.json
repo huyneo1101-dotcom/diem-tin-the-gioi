@@ -1,21 +1,13 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-08",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":4,"target":"5-10","min":5,"thieu":true,
-     "reason":"4/5 tin (Rubio Paris G7, trừng phạt mạng tiền Canada-Iran, Mỹ+9 nước lên án bản án Joshua Wong, Trump ký tuyên cáo Oval Office di tích). Thiếu 1 tin để chạm sàn — 7 ứng viên khác (MANPADS Iran/state.gov, mạng Ấn-Thổ/al-monitor, Kim Yo Jong/yahoo, Qatar-Trump/aljazeera liveblog) bị cổng ngày thật hoặc cổng URL live-blog chặn, đã dùng hết 6/6 lượt agent cho phép."},
-    {"name":"Nội bộ Mỹ","count":0,"target":"5-10","min":5,"thieu":true,
-     "reason":"0 tin mới qua được cổng ở cả 2 lô. Quốc hội đang giữa kỳ nghỉ hậu bầu cử (họp lại 9/11) nên nhóm 1 (điều trần/bỏ phiếu) cạn; các ứng viên nhóm 2-5 tìm được đều hoặc ngày thật ngoài khung (Massie/KY3, Durbin/judiciary.senate.gov) hoặc trang không in ngày đọc được (Adam Smith/thehill, Ron Johnson/thehill) hoặc trùng sự kiện đã có. Đã dùng hết 6/6 lượt agent cho phép cả phiên, không giao thêm được."},
-    {"name":"Địa bàn › Anh","count":7,"target":"3+","min":3,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":2,"target":"3+","min":3,"thieu":true,
-     "reason":"2/3 tin (Malabar 2026 qua DVIDS, phân tích ASPI AUKUS/Trung Quốc). Thiếu 1 tin. Đã dùng hết lượt agent cho phép."},
-    {"name":"Địa bàn › Biển Đông","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"4/5 tin (Philstar Teodoro, HD Hyundai đóng khinh hạm Philippines, USS Theodore Roosevelt qua Biển Đông, + phân tích ASPI AUKUS cũng chạm Biển Đông). Thiếu 1 tin để chạm sàn. Đã dùng hết lượt agent cho phép."},
-    {"name":"KHCN-QS","count":9,"target":"5","min":5,"thieu":false,"reason":"Đạt sàn (6 tin lô 1 + 3 tin lô 2, trong đó 2 tin lô 2 cũng tính vào Biển Đông). 2 tin (Halo Industries, CENTCOM radar) bị loại vì war.gov không in ngày đọc được."},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,
-     "reason":"Không mang sàn. Agent D không xác minh được tin Mali/JNIM/Sahel thật nào trong khung 06-07/11 sau nhiều vòng WebSearch — phần lớn ứng viên harvest.py là nhiễu (bóng đá, khai khoáng)."},
-    {"name":"Tập trận","count":0,"target":"1-2","min":0,"thieu":true,
-     "reason":"Không mang sàn. 2 diễn biến tìm được (Malabar 2026 khai mạc, Garuda Shakti 2026 bế mạc) đều có ngày sự kiện thật 05/11 — ngoài khung hôm nay+hôm qua (06-07/11) dành riêng cho exerciseUpdates (không được nới 3 ngày như CNQS). Phiên local (Mac) đã tự làm event-scan 07/11 riêng (xem note) nên mục này có thể đã được phủ qua kênh khác."}
+    {"name":"Nội bộ Mỹ (gồm đối ngoại Mỹ)","count":13,"target":"12-18","min":5,"thieu":false,"reason":"Nhóm 1 (điều trần/bỏ phiếu) cạn vì cuối tuần Quốc hội nghỉ, tin xoay quanh hậu bầu cử giữa kỳ; 06 bài ngày 06/11 bị loại vì ngoài khung. Hai bài Nikkei bị cổng ngày đăng thật chặn (đăng 06/11)."},
+    {"name":"Úc, Anh & Biển Đông","count":7,"target":"15-20","min":5,"thieu":true,"reason":"Anh đủ (4). Úc chỉ 1: báo cáo AUKUS độc lập công bố 04/11 và các bài ASPI/Lowy đều ngoài khung; 2 bài ABC Úc bị cổng ngày thật chặn (đăng 06/11). Biển Đông 2: WebSearch + vòng bổ sung không ra sự cố 07-08/11; tin Philstar/Rappler/Inquirer không nhắc Biển Đông; ứng viên chủ yếu là link Google News không truy được bài gốc."},
+    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"6-10","min":5,"thieu":false,"reason":"Hai tin war.gov (Office of Strategic Capital, Contracts 6/11) bị cổng bỏ vì trang không in ngày đọc được."},
+    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,"reason":"Không có bài nào ngày 07-08/11; mốc mới nhất 24/07 (WaPo nói Mỹ cân nhắc đánh JNIM, Mali phủ nhận). Ứng viên harvest toàn bóng đá/nông nghiệp/CEN-SAD."},
+    {"name":"Tập trận (Malabar 2026)","count":0,"target":"1-2","min":0,"thieu":true,"reason":"Diễn biến Malabar đã có trong bản tin trước; bài mới 07/11 chỉ có link Google News, không tìm được bài gốc."},
+    {"name":"Báo Mới","count":0,"target":"-","min":0,"thieu":true,"reason":"Bỏ vòng Báo Mới (7 ứng viên chưa xử lý) vì sát hạn chót 04:45 và đã dùng vòng bổ sung."}
   ],
-  "note": "Phiên sáng sớm 07/11 (CI) gồm 2 lô: lô 1 (+17 tin, commit 5b5a8d1, chốt ngay trước hạn chót 04:45 VN) và lô 2 bổ sung (+7 tin: +4 worldNews +3 usNews, dùng lượt agent thứ 6/6 cho phép cả phiên). Cổng NGÀY ĐĂNG THẬT (ngay_that.py) chặn tổng cộng ~16 tin ứng viên qua cả 2 lô vì nhiều nguồn tầng 1 Mỹ (state.gov, war.gov, thehill.com, aninews.in, ky3.com, al-monitor.com, judiciary.senate.gov) không in ngày ở dạng metadata đọc được, hoặc ngày thật sớm hơn khung 06-07/11 cho phép (04-05/11). Phát hiện VÀ TỰ SỬA 1 tin TRÙNG SỰ KIỆN đã nạp cùng lô ('Trump ký tuyên cáo Oval Office' trùng với bản đã có từ 06/11) — xoá tay khỏi index.html, chi tiết logs/loai-tin.md. Phát hiện phiên local (Mac) đã TỰ LÀM event-scan 07/11 song song với phiên CI này (claim lúc 04:12 VN, commit 807bd19 'Cap nhat su kien 07/11: +1 tap tran moi (Southern Vanguard), +1 cap nhat Malabar, +5 bai think-tank') — đã restore 3 file (data/analyses.json, logs/da-gui-email.json, logs/tap-tran-da-soi.json) về đúng HEAD của họ trước khi commit lô 1, để không đè lên công việc của họ. CHƯA kích được bot Telegram cho file Jay Lâm (gh workflow run telegram-bot.yml bị chặn 'requires approval' cả 2 lần thử trong phiên CI) — BỎ bước đối chiếu Jay Lâm (Bước 4c) ở phiên này, fail-open có tiếng. Còn 9 ứng viên Báo Mới hợp 5 chủ đề chưa xử lý hết (cổng BM in ra sau add_news.py) — phần lớn trùng sự kiện với tin đã nạp hoặc trùng ngày với tin bị cổng ngày thật chặn."
+  "note": "File Jay Lâm: không đọc được (thiếu SUPABASE_ANON_KEY/DT_BOT_KEY ở phiên local), bước lọc trùng bị bỏ. Tin bị loại: logs/loai-tin.md."
 }
