@@ -5,3 +5,6 @@
          truoc khi loai. Hut san moi muc tru Anh (3/3 du theo san rieng). Mali/Tap tran = 0
          (khong mang san). Chi tiet: logs/loai-tin.md + logs/scan-gaps.json
 [21:44Z] SKIP event-scan: exit 10, da xong luc 2026-11-09T04:10:27+07:00 (phien khac/cron thuc da chay)
+[21:45Z] Phien kich trung: web-scan exit 10 (da xong 04:43:41+07:00, so_da_gui xac nhan dong
+         [sang] 14 tin khop lastRunAt) + event-scan exit 10 (da xong 04:10:27+07:00). Ca hai
+         pipeline hom nay da hoan tat boi phien khac. Ket thuc em, khong lam lai.
