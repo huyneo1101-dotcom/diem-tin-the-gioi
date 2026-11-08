@@ -20,14 +20,13 @@
     "heartbeat": "2026-11-09T04:03:40+07:00"
   },
   "event-scan": {
-    "lastRunAt": "2026-11-09T04:05:40+07:00",
+    "lastRunAt": "2026-11-09T04:10:27+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "think-tank +5 bai (ASPI, Lowy, WOTR, Atlantic Council, MWI); su kien/tap tran: 0 (khong co tin moi trong 48h)",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-11-08"
-    },
-    "heartbeat": "2026-11-09T04:06:22+07:00"
+      "sang": "2026-11-09"
+    }
   }
 }
