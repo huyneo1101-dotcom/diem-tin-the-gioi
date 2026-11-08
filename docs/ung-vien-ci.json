@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-08T06:50:48+07:00",
+  "tao_luc": "2026-11-08T07:53:28+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-07",
@@ -157,14 +157,6 @@
       "tieu_de": "Tàu sân bay năng lượng hạt nhân đầu tiên trên thế giới sắp bị rã sắt vụn",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/tau-san-bay-nang-luong-hat-nhan-dau-tien-tren-the-gioi-sap-bi-ra-sat-vun-20261105101434971.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-06",
-      "tieu_de": "Top Democrat vows ‘vigorous’ oversight of Pentagon",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/newsletters/defense-national-security/6202978-asmith-pentagon-oversight-armed-services-committee/"
     },
     {
       "lop": "RSS",
@@ -360,6 +352,14 @@
     },
     {
       "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-08",
+      "tieu_de": "Nga nói châu Âu không có chỗ trên bàn đàm phán, Đức hết Patriot gửi cho Ukraine",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/nga-noi-chau-au-khong-co-cho-tren-ban-dam-phan-2572641.html"
+    },
+    {
+      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-07",
       "tieu_de": "Expanding naval blockade, US military looks to constrain Iran on land, and in Caspian Sea",
@@ -498,33 +498,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-07",
-      "tieu_de": "Just 8 per cent of licensed pilots in Australia are women",
-      "nguon": "ABC News Australia",
-      "url": "https://www.abc.net.au/news/2026-11-07/just-8-per-cent-of-licensed-pilots-in-australia-are-women/107336508"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-07",
       "tieu_de": "Tallow could help solve Australia's fuel shortages",
       "nguon": "ABC News Australia",
       "url": "https://www.abc.net.au/news/2026-11-07/animal-fat-tallow-renewable-fuel/107347312"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-08",
-      "tieu_de": "Max’s journey to the grave 113 years after death, via a doctor fleeing murder charges and an Australian museum",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/nov/08/max-the-skeleton-buried-adelaide-south-australia-museum"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-08",
-      "tieu_de": "Forget hoarding toilet paper, talk to your neighbours: Australian experts on surviving disaster",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/nov/08/how-australians-should-prepare-for-disaster-stockpiling"
     },
     {
       "lop": "RSS",
@@ -726,6 +702,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-08",
+      "tieu_de": "How Elon Musk frittered away nearly US$500 million on the midterms",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/united-states/how-elon-musk-frittered-away-nearly-us500-million-on-the-midterms",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-08",
       "tieu_de": "Why are the U.S. midterm elections significant?",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/news/international/why-are-the-us-midterm-elections-significant/article71679440.ece",
@@ -855,6 +840,15 @@
       "tieu_de": "Dấu ấn kinh tế thế giới tuần từ ngày 1-7/11/2026: Bầu cử ở Mỹ, cuộc phục hồi ngoạn mục của giá vàng, cú rơi khỏi mốc 100 USD/thùng của giá dầu",
       "nguon": "VnEconomy",
       "url": "https://vneconomy.vn/dau-an-kinh-te-the-gioi-tuan-tu-ngay-1-7112026-bau-cu-o-my-cuoc-phuc-hoi-ngoan-muc-cua-gia-vang-cu-roi-khoi-moc-100-usdthung-cua-gia-dau.htm",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-08",
+      "tieu_de": "Trump says ‘a few’ cabinet changes are in store after GOP midterm blowout",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/administration/6206322-trump-cabinet-midterm-changes/",
       "nhom": 5
     },
     {
