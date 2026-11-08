@@ -1,13 +1,71 @@
 {
-  "date": "2026-11-08",
+  "date": "2026-11-09",
   "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (gồm đối ngoại Mỹ)","count":13,"target":"12-18","min":5,"thieu":false,"reason":"Nhóm 1 (điều trần/bỏ phiếu) cạn vì cuối tuần Quốc hội nghỉ, tin xoay quanh hậu bầu cử giữa kỳ; 06 bài ngày 06/11 bị loại vì ngoài khung. Hai bài Nikkei bị cổng ngày đăng thật chặn (đăng 06/11)."},
-    {"name":"Úc, Anh & Biển Đông","count":7,"target":"15-20","min":5,"thieu":true,"reason":"Anh đủ (4). Úc chỉ 1: báo cáo AUKUS độc lập công bố 04/11 và các bài ASPI/Lowy đều ngoài khung; 2 bài ABC Úc bị cổng ngày thật chặn (đăng 06/11). Biển Đông 2: WebSearch + vòng bổ sung không ra sự cố 07-08/11; tin Philstar/Rappler/Inquirer không nhắc Biển Đông; ứng viên chủ yếu là link Google News không truy được bài gốc."},
-    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"6-10","min":5,"thieu":false,"reason":"Hai tin war.gov (Office of Strategic Capital, Contracts 6/11) bị cổng bỏ vì trang không in ngày đọc được."},
-    {"name":"Mỹ – Mali","count":0,"target":"2-5","min":0,"thieu":true,"reason":"Không có bài nào ngày 07-08/11; mốc mới nhất 24/07 (WaPo nói Mỹ cân nhắc đánh JNIM, Mali phủ nhận). Ứng viên harvest toàn bóng đá/nông nghiệp/CEN-SAD."},
-    {"name":"Tập trận (Malabar 2026)","count":0,"target":"1-2","min":0,"thieu":true,"reason":"Diễn biến Malabar đã có trong bản tin trước; bài mới 07/11 chỉ có link Google News, không tìm được bài gốc."},
-    {"name":"Báo Mới","count":0,"target":"-","min":0,"thieu":true,"reason":"Bỏ vòng Báo Mới (7 ứng viên chưa xử lý) vì sát hạn chót 04:45 và đã dùng vòng bổ sung."}
+    {
+      "name": "Đối ngoại Mỹ",
+      "count": 2,
+      "target": "5-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Agent A tìm được 5 tin hợp chủ đề (Rubio đi G7 Paris, trục xuất lãnh sự Lebanon, phản ứng Kremlin, Araghchi, điện đàm Trump-Netanyahu) nhưng cổng NGÀY ĐĂNG THẬT chặn 3/5 vì trang nguồn (state.gov, thenationalnews.com, Al Jazeera video) không in ngày ở dạng máy đọc được, và các link dateProofUrl tìm được (usnews.com, aa.com.tr) tuy có ngày nhưng là 06-07/11 — vượt khung 1 ngày so với batch 09/11. Chỉ 2 tin (Kremlin qua usnews.com, Trump-Netanyahu qua dateProofUrl infobae.com) qua được cổng. Đã dùng hết trần 6 agent của phiên, không giao thêm."
+    },
+    {
+      "name": "Nội bộ Mỹ",
+      "count": 3,
+      "target": "12-18 (còn lại sau khi tách Đối ngoại Mỹ)",
+      "min": 5,
+      "thieu": true,
+      "reason": "6/9 tin Agent A tìm được bị cổng NGÀY ĐĂNG THẬT chặn: 'Massie đưa nghị quyết luận tội Hegseth' và 'Jeffries/Oversight' không in ngày đọc được (dateProofUrl washingtontimes.com cũng không có metadata ngày); 'cloture dự luật năng lượng' (energyworkforce.org) hoá ra đăng thật 22/10 (trang nói về kế hoạch tương lai, không phải tin mới); 'video Hegseth phản bác' (NBC) đăng thật 06/11; 'Trump nghi ngờ bầu cử' (Newsweek) đăng thật 07/11 — cả hai ngoài khung 1 ngày. Chỉ giữ được 3 tin (thuế quan CNBC, 'bước lùi lịch sử' CP24, Dana White NPR). Đã dùng hết trần 6 agent."
+    },
+    {
+      "name": "Địa bàn › Anh",
+      "count": 3,
+      "target": "5+",
+      "min": 3,
+      "thieu": false,
+      "reason": ""
+    },
+    {
+      "name": "Địa bàn › Australia",
+      "count": 2,
+      "target": "5+",
+      "min": 3,
+      "thieu": true,
+      "reason": "Agent bổ sung (agent thứ 6, duy nhất của phiên) tìm được 2 tin mới (67 cơ sở quốc phòng rao bán, ASPI AUKUS) nhưng cổng NGÀY ĐĂNG THẬT chặn tin '67 cơ sở quốc phòng' vì đăng thật 07/11, ngoài khung 1 ngày so với batch 09/11. Vòng B gốc cũng mất 1 tin ('Victoria Barracks' ABC News, đăng thật 07/11) qua cùng cổng. Còn lại 2 tin (Resolve poll Albanese, ASPI AUKUS), thiếu 1 để đạt sàn riêng 3. Đã dùng hết trần 6 agent, không giao vòng hai."
+    },
+    {
+      "name": "Địa bàn › Biển Đông",
+      "count": 2,
+      "target": "5+",
+      "min": 5,
+      "thieu": true,
+      "reason": "Vòng B gốc có 4 tin (DFA Philippines rebuke, chiến dịch sinh tồn 72h, COC ASEAN, USS Theodore Roosevelt qua Biển Đông) nhưng 2 bị cổng NGÀY chặn: 'COC ASEAN-TQ' dùng URL freemalaysiatoday.com hoá ra là bài CŨ đăng 22/07/2026 (agent nhầm là tin mới khi đọc tóm tắt WebSearch); 'USS Theodore Roosevelt' (USNI News) không in ngày đọc được, link đối chứng tìm thêm (forbes.com) cũng không có metadata ngày. Agent bổ sung không tìm được tin Biển Đông mới nào qua được mọi lớp kiểm (báo cáo 0 tin, các ứng viên tìm được đều trùng tin đã loại hoặc ngoài khung). Còn 2/5. Đã dùng hết trần 6 agent."
+    },
+    {
+      "name": "CNQS Mỹ (KHCN-QS)",
+      "count": 2,
+      "target": "6-10",
+      "min": 5,
+      "thieu": true,
+      "reason": "Agent C tìm được 7 tin nhưng 5 bị loại: 'DoD/Viasat 450tr USD cho Golden Dome' và 'AI 15 lĩnh vực DAF' TRÙNG SỰ KIỆN với tin đã có sẵn trong DATA (nạp từ lô CI trước phiên này, Jaccard ~0.5) — phải revert index.html và xoá cả 2 khỏi lô; 'RTX Tomahawk/AMRAAM/SM-6' bị chặn URL trùng (đã có sẵn trong DATA); 'Thủy quân lục chiến cần 9 tàu đổ bộ' (TWZ) và 'Halo Industries vay 75tr USD' (war.gov) bị cổng NGÀY chặn vì đăng thật 05/11, vượt cả khung nới 3 ngày của CNQS (giới hạn 06/11). Chỉ còn 2 tin (F-35A hot-pit, SpaceX USSF-432). Không có diễn biến tập trận nào bù thêm (xem mục Tập trận). Đã dùng hết trần 6 agent."
+    },
+    {
+      "name": "Mỹ – Mali",
+      "count": 0,
+      "target": "2-5 (không mang sàn)",
+      "min": 0,
+      "thieu": false,
+      "reason": "22 ứng viên gom từ harvest.py toàn là nhiễu khớp từ khoá 'Mali'/'Sahel' (bóng đá CAF Women's Champions League, nhạc MP3, cờ vua Sahel Chess Festival...). Agent D WebSearch mở rộng chỉ tìm được diễn biến JNIM đốt 41 xe chở nhiên liệu Zégoua-Sikasso ngày 06/11 — ngoài khung 1 ngày. Không có tuyên bố AFRICOM/Nhà Trắng mới. Trả về 0, đúng luật thà ít còn hơn sai."
+    },
+    {
+      "name": "Tập trận",
+      "count": 0,
+      "target": "1-2 (không mang sàn)",
+      "min": 0,
+      "thieu": false,
+      "reason": "Exercise Malabar 2026 (05-12/11) đang diễn ra nhưng Agent D không tìm được diễn biến MỚI trong khung 08-09/11 — ứng viên duy nhất (tàu INS Sahyadri tới Yokosuka) đã có trong recent-titles từ trước (06/11). Chưa có tin bế mạc (dự kiến ~12/11)."
+    }
   ],
-  "note": "File Jay Lâm: không đọc được (thiếu SUPABASE_ANON_KEY/DT_BOT_KEY ở phiên local), bước lọc trùng bị bỏ. Tin bị loại: logs/loai-tin.md."
+  "note": "Phiên này cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn bất thường nhiều tin hơn các phiên trước (≥13 tin bị chặn/loại qua mọi chủ đề) — phần lớn do agent khai ngày 'hôm nay/hôm qua' nhưng khi orchestrator tự WebFetch kiểm lại thì bài thật ra cũ hơn 2-7 tháng (nghi do công cụ WebSearch của agent trả kết quả theo mức liên quan hơn ngày, agent đọc tóm tắt rồi gán nhầm ngày). Đã thử dateProofUrl cho mọi tin tầng 1/wire bị chặn trước khi loại hẳn (cứu được 2/9). Đã dùng đủ 6/6 agent con (5 luồng gốc + 1 bổ sung), đúng trần phiên, KHÔNG giao vòng hai theo luật. 2 ứng viên Báo Mới (Patriot Đức, tàu khu trục Triều Tiên) bị loại vì không neo được vào khí tài Mỹ — chi tiết: logs/loai-tin.md. File Jay Lâm: không kích được bot (gh workflow run yêu cầu approval trong phiên CI) và không đọc được hàng chờ Supabase (thiếu SUPABASE_ANON_KEY/DT_BOT_KEY) — bỏ qua bước lọc trùng."
 }

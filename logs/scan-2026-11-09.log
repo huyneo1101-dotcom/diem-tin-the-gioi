@@ -1,2 +1,6 @@
 [21:00Z] START (CI) phien sang som
-[21:05Z] SKIP (local 04:05) claim web-scan exit 11: CI dang chay (nhip tim 2' truoc), khong quet chong
+[21:43Z] DONE: giao 4 agent goc (A Noi bo My, B Uc/Anh/Bien Dong, C CNQS My, D Mali+Tap tran)
+         + 1 agent bo sung (du 6/6, dung tran). Nap +7 tin The gioi, +7 tin My (14 tin).
+         Cong NGAY DANG THAT chan manh (~13 tin), da thu dateProofUrl/WebSearch doi chieu
+         truoc khi loai. Hut san moi muc tru Anh (3/3 du theo san rieng). Mali/Tap tran = 0
+         (khong mang san). Chi tiet: logs/loai-tin.md + logs/scan-gaps.json
