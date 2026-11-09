@@ -9,3 +9,8 @@
   (tranh nha khoa phien dang/da chay). Lo +13 tin cua phien nay khong duoc dua len web.
 [21:34Z] SKIP event-scan (CI) - phien local da xong (lan chay cuoi 04:28:21 VN): +2 su
   kien/tap tran, +5 bai think-tank. Ket thuc phien CI, khong lam lai.
+[21:40Z] SKIP web-scan (CI, phien sang som) - state.py claim exit 10, ngay 2026-11-10 DA
+  XONG (lan chay cuoi 04:24:19 VN, +23 tin). Kiem ngoai le theo CLAUDE.md: so_da_gui --xem
+  CO dong [sang] ngay hom nay (04:24:57 va 04:35:41 VN) -> co dau hieu da gui thuc, SKIP
+  em hop le. Nhay sang Buoc 6: claim event-scan cung tra exit 10 (DA XONG, lan chay cuoi
+  04:28:21 VN). Ket thuc phien em, khong lam lai.
