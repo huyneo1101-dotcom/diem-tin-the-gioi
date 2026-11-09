@@ -7,3 +7,5 @@
   (git pull --rebase ra conflict voi e3cf894). Theo dung luat CLAUDE.md: huy rebase,
   reset --hard origin/main, BO HAN commit trung cua minh, KHONG goi state.py skip/fail
   (tranh nha khoa phien dang/da chay). Lo +13 tin cua phien nay khong duoc dua len web.
+[21:34Z] SKIP event-scan (CI) - phien local da xong (lan chay cuoi 04:28:21 VN): +2 su
+  kien/tap tran, +5 bai think-tank. Ket thuc phien CI, khong lam lai.
