@@ -8,3 +8,6 @@
 [21:45Z] Phien kich trung: web-scan exit 10 (da xong 04:43:41+07:00, so_da_gui xac nhan dong
          [sang] 14 tin khop lastRunAt) + event-scan exit 10 (da xong 04:10:27+07:00). Ca hai
          pipeline hom nay da hoan tat boi phien khac. Ket thuc em, khong lam lai.
+[01:13Z] Phien kich trung LAN 2: web-scan exit 10 (04:43:41+07:00, so_da_gui xac nhan) +
+         event-scan exit 10 (04:10:27+07:00). Trung lap voi dong log 21:44-21:45Z o tren.
+         Ket thuc em, khong lam lai.
