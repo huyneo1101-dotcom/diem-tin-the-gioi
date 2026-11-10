@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-10T04:24:19+07:00",
+    "lastRunAt": "2026-11-11T04:00:35+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+23 tin: Noi bo My 6, Doi ngoai My 3, Anh 4, Uc 3, Bien Dong 3, CNQS 4, Mali 0, Tap tran 0",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-11-10"
-    }
+    },
+    "heartbeat": "2026-11-11T04:00:35+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-11-10T04:28:21+07:00",
