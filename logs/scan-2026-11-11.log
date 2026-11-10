@@ -1,2 +1,8 @@
 [21:00Z] START web-scan (CI, phien sang som)
-[21:05Z] SKIP web-scan (local 04:05): claim exit 11, phien CI dang chay (nhip tim 3' truoc) - nhuong
+[21:02Z] harvest.py + telegram_harvest.py OK (409 ung vien + lop TG). CHUA kich duoc telegram-bot.yml (gh bi chan quyen requires approval) -> se doi den cuoi phien kiem lai file Jay Lam qua tin_jaylam.py --liet-ke, neu van khong co thi ghi fail-open.
+[21:03Z] tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY trong CI nay -> khong doc duoc file Jay Lam. Fail-open, bo qua Buoc 4c, ghi ro trong bao cao cuoi.
+[21:10Z] Giao 4 agent song song (A Noi bo My, B Uc/Anh/Bien Dong, C CNQS My, D Mali+Tap tran), model sonnet.
+[21:35Z] 4 agent xong. Gop + add_news.py. Cong NGAY DANG THAT chan 10 tin; mo cong --bo-cong-ngay-that cho 4 tin tru cot sau khi da WebFetch xac nhan noi dung; xoa han 6 tin (5 khong thiet yeu + Megaspeed ngoai khung thuc).
+[21:40Z] Dung 1/1 luot agent bo sung cho Doi ngoai My (thieu 1/5) -> tim duoc 1 tin Korea Times, dat san.
+[21:50Z] Soat lai bang script doi chieu Jaccard, phat hien+xoa 4 tin TRUNG SU KIEN voi DATA cu (Malabar USNI, SSN(X) Shephard, Viasat Air&Space Forces, F-35 GAO Air&Space Forces). Malabar bi xoa keo Australia xuong 4/5 -> tu WebSearch/WebFetch truc tiep tim thay the, khong ra bai hop le -> chap nhan thieu, ghi scan-gaps.json.
+[21:55Z] Ket qua cuoi: Doi ngoai My 5 - Noi bo My 7 - Anh 5 - Australia 4 (thieu 1) - Bien Dong 5 - KHCN-QS 6 - Mali 2 - Tap tran 1. Chuan bi commit "Cap nhat ban tin".
