@@ -6,3 +6,5 @@
 [21:40Z] Dung 1/1 luot agent bo sung cho Doi ngoai My (thieu 1/5) -> tim duoc 1 tin Korea Times, dat san.
 [21:50Z] Soat lai bang script doi chieu Jaccard, phat hien+xoa 4 tin TRUNG SU KIEN voi DATA cu (Malabar USNI, SSN(X) Shephard, Viasat Air&Space Forces, F-35 GAO Air&Space Forces). Malabar bi xoa keo Australia xuong 4/5 -> tu WebSearch/WebFetch truc tiep tim thay the, khong ra bai hop le -> chap nhan thieu, ghi scan-gaps.json.
 [21:55Z] Ket qua cuoi: Doi ngoai My 5 - Noi bo My 7 - Anh 5 - Australia 4 (thieu 1) - Bien Dong 5 - KHCN-QS 6 - Mali 2 - Tap tran 1. Chuan bi commit "Cap nhat ban tin".
+[21:46Z] Commit + push "Cap nhat ban tin 11/11: +36 tin (5 chu de)" (c6c0048) thanh cong. state.py done web-scan.
+[21:48Z] Buoc 6: claim event-scan -> exit 10, phien local da xong luc 04:10:53 VN ("Cap nhat su kien 11/11: +1 su kien/tap tran, +6 bai think-tank"). SKIP, khong lam lai. DONE ca phien.
