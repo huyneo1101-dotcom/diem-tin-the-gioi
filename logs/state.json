@@ -20,13 +20,13 @@
     "heartbeat": "2026-11-11T04:06:42+07:00"
   },
   "event-scan": {
-    "lastRunAt": "2026-11-10T04:28:21+07:00",
+    "lastRunAt": "2026-11-11T04:10:53+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "think-tank +5 bai (Lowy, GMF, WOTR, ACA, CEPA); tap tran moi +2 (Dynamic Merlin 26, Naseem Al Bahr 2026); su kien ngoai giao: 0; cap nhat Malabar: 0 (khong co tin moi trong 48h)",
+    "note": "+1 tap tran moi (Koalicja 26.2), +6 bai think-tank, 0 su kien ngoai giao (khong co van kien ky moi trong khung)",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-11-10"
+      "sang": "2026-11-11"
     }
   }
 }
