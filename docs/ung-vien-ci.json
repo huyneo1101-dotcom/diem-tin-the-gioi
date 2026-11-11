@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-11T03:47:05+07:00",
+  "tao_luc": "2026-11-11T07:49:10+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-10",
@@ -74,14 +74,6 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-11-11",
-      "tieu_de": "Tám nước thành viên NATO tập trận chống tàu ngầm tại biển Baltic",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tam-nuoc-thanh-vien-nato-tap-tran-chong-tau-ngam-tai-bien-baltic-post1147503.vnp"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-11-11",
       "tieu_de": "Lào huy động nguồn lực cho giai đoạn sau khi rời nhóm nước kém phát triển",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/lao-huy-dong-nguon-luc-cho-giai-doan-sau-khi-roi-nhom-nuoc-kem-phat-trien-post1147475.vnp"
@@ -98,9 +90,9 @@
       "lop": "RSS",
       "chu_de": "Mỹ – Mali",
       "ngay": "2026-11-10",
-      "tieu_de": "Violence in northern Nigeria drives tens of thousands into Niger",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/violence-in-northern-nigeria-drives-tens-of-thousands-into-niger"
+      "tieu_de": "Nearly 64,000 flee Nigeria for Niger where a humanitarian crisis is deepening",
+      "nguon": "UN News",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168779"
     },
     {
       "lop": "RSS",
@@ -193,22 +185,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-10",
-      "tieu_de": "Pentagon chief Pete Hegseth calls move to impeach him 'sabotage'",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/americas/20261110-live-pentagon-chief-pete-hegseth-calls-move-to-impeach-him-a-farce"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-11",
-      "tieu_de": "US Army member arrested in UK for suspected 'espionage' for Russia",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/uk-arrests-us-army-member-suspected-of-helping-russia"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-11",
       "tieu_de": "Explainer-How would impeaching Pentagon chief Hegseth work?",
       "nguon": "The Straits Times",
@@ -221,6 +197,14 @@
       "tieu_de": "Italy sees planned F-35 fighter jet spending rise by €7.3 billion",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/europe/italy-sees-planned-f-35-fighter-jet-spending-rise-by-eu7-3-billion"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "U.S. Army member arrested in U.K. for alleged Russian links",
+      "nguon": "The Hindu",
+      "url": "https://www.thehindu.com/news/international/us-army-member-arrested-in-uk-for-alleged-russian-links/article71687547.ece"
     },
     {
       "lop": "RSS",
@@ -274,15 +258,15 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-11",
-      "tieu_de": "UK arrests US Army member suspected of helping Russia",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-11/uk-police-say-member-of-us-army-arrested-under-national-security/107371280"
+      "tieu_de": "US Army soldier suspected of spying for Russia arrested in UK",
+      "nguon": "**BBC News UK**",
+      "url": "https://www.bbc.co.uk/news/articles/c6d7q77xgw0vo?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-11",
-      "tieu_de": "Senior US army soldier arrested in UK on suspicion of spying for Russia",
+      "tieu_de": "Senior US Army officer arrested in UK on allegations of Russia espionage",
       "nguon": "Sky News",
       "url": "https://news.sky.com/story/member-of-us-army-arrested-in-uk-over-allegations-of-espionage-involving-russia-13610748"
     },
@@ -290,9 +274,17 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-11",
-      "tieu_de": "Army Leader Day connects U.S. Army War College students with senior Army leaders",
+      "tieu_de": "US Republicans derail bid to impeach Pentagon chief Pete Hegseth",
+      "nguon": "Inquirer",
+      "url": "https://globalnation.inquirer.net/346812/us-republicans-derail-bid-to-impeach-pentagon-chief-pete-hegseth"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Not Just Child’s Play: Space Force Technicians Assist Children’s Museum with Restoration Project",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/579082/army-leader-day-connects-us-army-war-college-students-with-senior-army-leaders"
+      "url": "https://www.dvidshub.net/news/579117/not-just-childs-play-space-force-technicians-assist-childrens-museum-with-restoration-project"
     },
     {
       "lop": "RSS",
@@ -321,14 +313,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-09",
-      "tieu_de": "US Army Air defenders assess drone interceptor",
-      "nguon": "Lục quân Mỹ",
-      "url": "https://www.army.mil/article/296625/us_army_air_defenders_assess_drone_interceptor"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-10",
       "tieu_de": "Fueling Air Dominance: 593rd CSC Supports F-22 Operations During Keen Sword 27",
       "nguon": "Lục quân Mỹ",
@@ -338,9 +322,25 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-11",
+      "tieu_de": "Army Leader Day connects U.S. Army War College students with senior Army leaders",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/296669/army_leader_day_connects_u_s_army_war_college_students_with_senior_army_leaders"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-11",
       "tieu_de": "Member of U.S. Army arrested as part of UK Counter Terrorism Policing investigation",
       "nguon": "Lục quân Mỹ",
       "url": "https://www.army.mil/article/296670/member_of_u_s_army_arrested_as_part_of_uk_counter_terrorism_policing_investigation"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "HQ Battalion, U.S. Army hosts NCO Induction Ceremony",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/296675/hq_battalion_u_s_army_hosts_nco_induction_ceremony"
     },
     {
       "lop": "RSS",
@@ -369,10 +369,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-10",
-      "tieu_de": "Contracts for Nov. 9, 2026",
+      "ngay": "2026-11-11",
+      "tieu_de": "Contracts for Nov. 10, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4645461/contracts-for-nov-9-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4645969/contracts-for-nov-10-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Readout of Secretary of War Pete Hegseth's Meeting With Poland's Deputy Prime Minister and Minister of National Defense Władysław Kosiniak-Kamysz",
+      "nguon": "DoD News Releases",
+      "url": "https://www.war.gov/News/Releases/Release/Article/4646284/readout-of-secretary-of-war-pete-hegseths-meeting-with-polands-deputy-prime-min/"
     },
     {
       "lop": "RSS",
@@ -397,14 +405,6 @@
       "tieu_de": "Trump Administration Deepens Interagency Collaboration to Protect the Nation's Skies From Unmanned Threats",
       "nguon": "DoD News Releases",
       "url": "https://www.war.gov/News/Releases/Release/Article/4644512/trump-administration-deepens-interagency-collaboration-to-protect-the-nations-s/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-11",
-      "tieu_de": "DIU Awards Three Prototype Contracts For Marine Corps ALPV",
-      "nguon": "Defense Daily",
-      "url": "https://www.defensedaily.com/diu-awards-three-prototype-contracts-for-marine-corps-alpv/navy-usmc/"
     },
     {
       "lop": "RSS",
@@ -465,18 +465,26 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-10",
-      "tieu_de": "Pentagon can’t track millions of F-35 spare parts, watchdog finds",
-      "nguon": "Military Times",
-      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/11/10/pentagon-cant-track-millions-of-f-35-spare-parts-watchdog-finds/"
+      "ngay": "2026-11-11",
+      "tieu_de": "Pentagon Still Cannot Account for Billions of Dollars in F-35 Spare Parts, GAO Finds",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/11/10/pentagon-cannot-account-f-35-spare-parts/"
     },
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-11",
-      "tieu_de": "Pentagon Still Cannot Account for Billions of Dollars in F-35 Spare Parts, GAO Finds",
-      "nguon": "The Aviationist",
-      "url": "https://theaviationist.com/2026/11/10/pentagon-cannot-account-f-35-spare-parts/"
+      "tieu_de": "Rheinmetall Strengthens Belgian Air Defence: Skyranger Air Defence Systems for Belgium – Major Contract Worth Several Hundred Million Euros",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/11/10/rheinmetall-strengthens-belgian-air-defence-skyranger-air-defence-systems-for-belgium-major-contract-worth-several-hundred-million-euros/?utm_source=rss&utm_medium=rss&utm_campaign=rheinmetall-strengthens-belgian-air-defence-skyranger-air-defence-systems-for-belgium-major-contract-worth-several-hundred-million-euros"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Magpul Releases Two EHGs for Ruger LCP MAX",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/11/10/magpul-releases-two-ehgs-for-ruger-lcp-max/?utm_source=rss&utm_medium=rss&utm_campaign=magpul-releases-two-ehgs-for-ruger-lcp-max"
     },
     {
       "lop": "RSS",
@@ -509,22 +517,6 @@
       "tieu_de": "Veterans Day Deals",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/11/10/veterans-day-deals-2/?utm_source=rss&utm_medium=rss&utm_campaign=veterans-day-deals-2"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-10",
-      "tieu_de": "Genesis Arms Participates In Falcon Peak 26.2",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/11/10/genesis-arms-participates-in-falcon-peak-26-2/?utm_source=rss&utm_medium=rss&utm_campaign=genesis-arms-participates-in-falcon-peak-26-2"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-10",
-      "tieu_de": "From the Foxhole to Flight: Armaments Center’s MALET Turns Standard Rounds into Drone Munitions",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/11/10/from-the-foxhole-to-flight-armaments-centers-malet-turns-standard-rounds-into-drone-munitions/?utm_source=rss&utm_medium=rss&utm_campaign=from-the-foxhole-to-flight-armaments-centers-malet-turns-standard-rounds-into-drone-munitions"
     },
     {
       "lop": "RSS",
@@ -593,6 +585,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Pentagon declares ‘total victory’ after House Republicans block effort to impeach Pete Hegseth – US politics live",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/us-news/live/2026/nov/10/donald-trump-pete-hegseth-thomas-massie-republicans-iran-war-impeachment-midterms-latest-news-updates"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-08",
       "tieu_de": "Nga nói châu Âu không có chỗ trên bàn đàm phán, Đức hết Patriot gửi cho Ukraine",
       "nguon": "VietnamNet",
@@ -642,6 +642,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-11",
+      "tieu_de": "Why does Australia want Brits to swap Sydney for the outback?",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/cm1j3jdp7w54o?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-11",
       "tieu_de": "British counterterrorism police arrest US soldier accused of spying on behalf of Russia",
       "nguon": "Deutsche Welle",
       "url": "https://www.dw.com/en/british-counterterrorism-police-arrest-us-soldier-accused-of-spying-on-behalf-of-russia/a-79913240?maca=en-rss-en-world-4025-rdf"
@@ -657,18 +665,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-10",
-      "tieu_de": "Britain to invest $155 million in drones, sensors to counter Russian undersea threats",
+      "ngay": "2026-11-11",
+      "tieu_de": "Britain arrests senior US Army soldier suspected of ‘espionage’ for Russia",
       "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/britain-to-invest-ps90-million-in-drones-sensors-to-counter-russian-undersea-threats"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-10",
-      "tieu_de": "British police say assessing further reports about Russell Brand",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/british-police-say-assessing-further-reports-about-russell-brand"
+      "url": "https://www.straitstimes.com/world/europe/uk-arrests-us-army-member-suspected-of-helping-russia"
     },
     {
       "lop": "RSS",
@@ -677,6 +677,14 @@
       "tieu_de": "Australia tightens AI oversight rules after OpenAI agent breached government website",
       "nguon": "The Hindu",
       "url": "https://www.thehindu.com/sci-tech/technology/australia-tightens-ai-oversight-rules-after-openai-agent-breached-government-website/article71684880.ece"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-10",
+      "tieu_de": "After Trump’s Crushing Midterm Defeat: What Now for Australia?",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/11/after-trumps-crushing-midterm-defeat-what-now-for-australia/"
     },
     {
       "lop": "RSS",
@@ -714,33 +722,33 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-11",
+      "tieu_de": "Half of Australia's windfarm pipeline is in slowest-building state",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-11/queensland-wind-farm-investment-booming-but-build-slow/107346720"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-11",
+      "tieu_de": "Coral colony the size of three MCGs thriving off remote Australian island",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-11/massive-coral-colony-found-off-the-cocos-keeling-islands/107367586"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-11",
+      "tieu_de": "Legends urge Australia to 'move on' from Sandpapergate amid opposing claims",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-11/cricket-gilchrist-urges-australia-move-on-sandpaper-recollection/107371446"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-11",
       "tieu_de": "Sinner targeting Australian Open return after earlier 'impossible goal'",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-11-11/tennis-jannik-sinner-targeting-australian-open-return/107371394"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-11",
-      "tieu_de": "Australia considering world-first criminal charges for AI companies",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-11/australia-considers-criminal-charges-for-ai-companies/107368676"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-11",
-      "tieu_de": "DFAT investigates reports of another Australian killed fighting for Ukraine",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-11/dfat-investigates-australian-killed-fighting-in-ukraine/107370420"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-11",
-      "tieu_de": "The classic Australian album that September 11 derailed",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-11/gerling-interview-young-terrorists-chase-the-sun-september-11/107356402"
     },
     {
       "lop": "RSS",
@@ -757,22 +765,6 @@
       "tieu_de": "In Manila, the Quad must work for ASEAN, not around it",
       "nguon": "Lowy Interpreter",
       "url": "https://www.lowyinstitute.org/the-interpreter/in-manila-the-quad-must-work-for-asean-not-around-it"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-11",
-      "tieu_de": "Royal Navy in biggest rebuild since Second World War",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/royal-navy-in-biggest-rebuild-since-second-world-war/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-11",
-      "tieu_de": "Britain to trial Talon drone from aircraft carrier",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/britain-to-trial-talon-drone-from-aircraft-carrier/"
     },
     {
       "lop": "RSS",
@@ -826,9 +818,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-11",
-      "tieu_de": "New Royal Navy-Led Northern Navies Initiative",
+      "tieu_de": "General Sir Gwyn Jenkins addresses the International Sea Power Conference",
       "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/new-royal-navy-led-northern-navies-initiative"
+      "url": "https://www.gov.uk/government/speeches/general-sir-gwyn-jenkins-addresses-the-international-sea-power-conference"
     },
     {
       "lop": "RSS",
@@ -842,17 +834,17 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-10",
-      "tieu_de": "£90 million investment for new drones and sensors to protect undersea cables and hunt Russian submarines",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/90-million-investment-for-new-drones-and-sensors-to-protect-undersea-cables-and-hunt-russian-submarines"
+      "tieu_de": "David Walliams' career and controversies including Britain's Got Talent and Little Britain",
+      "nguon": "**BBC News UK**",
+      "url": "https://www.bbc.co.uk/news/articles/c6d7q98z1yz3o?at_medium=RSS&at_campaign=rss"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-10",
-      "tieu_de": "David Walliams' career and controversies including Britain's Got Talent and Little Britain",
-      "nguon": "**BBC News UK**",
-      "url": "https://www.bbc.co.uk/news/articles/c6d7q98z1yz3o?at_medium=RSS&at_campaign=rss"
+      "ngay": "2026-11-11",
+      "tieu_de": "Bank of England’s inflation response ‘risks higher interest rates for longer’",
+      "nguon": "**The Guardian — Politics (Anh)**",
+      "url": "https://www.theguardian.com/business/2026/nov/11/bank-of-england-inflation-response-risks-higher-interest-rates-for-longer"
     },
     {
       "lop": "RSS",
@@ -873,14 +865,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-10",
-      "tieu_de": "‘Worst defence decision ever’? AUKUS inquiry gets China wrong",
-      "nguon": "ASPI Strategist",
-      "url": "https://www.aspistrategist.org.au/worst-defence-decision-ever-aukus-inquiry-gets-china-wrong/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-11",
       "tieu_de": "Australia news LIVE: Albanese joins Bowen at UN climate talks; Teals launch donation rush ahead of controversial new rules; Meghan’s father removes ankle monitor after arrest",
       "nguon": "Sydney Morning Herald",
@@ -893,14 +877,6 @@
       "tieu_de": "The war widow, the love story – and the Australian flag stitched from Japanese rags",
       "nguon": "Sydney Morning Herald",
       "url": "https://www.smh.com.au/national/the-war-widow-the-love-story-and-the-australian-flag-stitched-from-japanese-rags-20261111-p61csk.html?ref=rss&utm_medium=rss&utm_source=rss_national"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-10",
-      "tieu_de": "Australian economy set for major boost as Black Friday looms",
-      "nguon": "Sydney Morning Herald",
-      "url": "https://www.smh.com.au/national/australian-economy-set-for-major-boost-as-black-friday-looms-20261110-p61d2t.html?ref=rss&utm_medium=rss&utm_source=rss_national"
     },
     {
       "lop": "RSS",
@@ -946,33 +922,25 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-11",
-      "tieu_de": "Anthropic lodges Australian prospectus, brokers start selling shares",
+      "tieu_de": "Wynn sues Australian ex-brothel owner after $3.3m gambling spree",
       "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/technology/anthropic-lodges-australian-prospectus-brokers-start-selling-shares-20261111-p61d4f?ref=rss&utm_medium=rss&utm_source=rss_feed"
+      "url": "https://www.afr.com/companies/games-and-wagering/wynn-sues-australian-ex-brothel-owner-after-3-3m-gambling-spree-20261111-p61clh?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-11",
-      "tieu_de": "Cricket Australia’s culture reviewer breaks silence on sandpapergate",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/companies/sport/cricket-australia-s-culture-reviewer-breaks-silence-on-sandpapergate-20261111-p61csh?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-11",
-      "tieu_de": "New antisemitism training set for corporate Australia in 2027",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/work-and-careers/workplace/new-antisemitism-training-set-for-corporate-australia-in-2027-20261111-p61cu2?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-10",
-      "tieu_de": "Angelina in Manila for ASEAN Inclusive Growth Summit",
+      "tieu_de": "LIST: Over 300 flights affected by ASEAN Summit in Manila Nov. 13–19",
       "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/11/11/2569333/angelina-manila-asean-inclusive-growth-summit"
+      "url": "https://www.philstar.com/headlines/2026/11/11/2569221/list-over-300-flights-affected-asean-summit-manila-nov-1319"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-11",
+      "tieu_de": "Balenciaga taps British designer Martine Rose as creative lead",
+      "nguon": "Inquirer",
+      "url": "https://lifestyle.inquirer.net/585686/balenciaga-taps-british-designer-martine-rose-as-creative-lead/"
     },
     {
       "lop": "RSS",
@@ -1113,6 +1081,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-11",
+      "tieu_de": "Royal Navy to Fly Northrop Grumman’s YFQ-48A from Aircraft Carrier in 2027",
+      "nguon": "The Aviationist",
+      "url": "https://theaviationist.com/2026/11/10/royal-navy-yfq-48a-aircraft-carrier-2027/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-10",
       "tieu_de": "Leonardo details Proteus’s path to autonomous anti-submarine missions for the Royal Navy",
       "nguon": "Shephard Media",
@@ -1162,6 +1138,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-11",
+      "tieu_de": "White House announces funds for law enforcement programme in several cities",
+      "nguon": "Al Jazeera",
+      "url": "https://www.aljazeera.com/news/2026/11/10/white-house-announces-funds-for-law-enforcement-programme-in-several-cities?traffic_source=rss",
+      "nhom": 2
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
       "tieu_de": "US voters want Democrats focused on ending Iran war, lowering costs: Poll",
       "nguon": "Al Jazeera",
       "url": "https://www.aljazeera.com/news/2026/11/10/most-americans-want-democrats-focused-on-ending-iran-war-lowering-costs?traffic_source=rss",
@@ -1171,10 +1156,10 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-11",
-      "tieu_de": "US petrol prices are down, but elevated inflation continues",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/11/10/us-petrol-prices-are-down-but-elevated-inflation-continues?traffic_source=rss",
-      "nhom": 4
+      "tieu_de": "Trump ally Jim Jordan elected House Republican leader after midterm defeat",
+      "nguon": "France 24",
+      "url": "https://www.france24.com/en/americas/20261110-trump-jim-jordan-elected-house-republican-leader-midterm-defeat",
+      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1188,19 +1173,19 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-10",
-      "tieu_de": "Pressure builds on Thune ahead of GOP leadership elections",
+      "ngay": "2026-11-11",
+      "tieu_de": "Scoop: Commerce Department received national security warning on Nvidia CEO affair",
       "nguon": "Axios",
-      "url": "https://www.axios.com/2026/11/09/thune-senate-republican-leadership-elections",
-      "nhom": 5
+      "url": "https://www.axios.com/2026/11/10/lutnick-nvidia-jensen-huang-china-memo",
+      "nhom": 2
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-10",
-      "tieu_de": "Trump's 2028 successors are already fighting over who to blame for GOP midterm wipeout",
-      "nguon": "CNBC",
-      "url": "https://www.cnbc.com/2026/11/10/trump-vance-rubio-republican-desantis-midterms.html",
+      "tieu_de": "Pressure builds on Thune ahead of GOP leadership elections",
+      "nguon": "Axios",
+      "url": "https://www.axios.com/2026/11/09/thune-senate-republican-leadership-elections",
       "nhom": 5
     },
     {
@@ -1252,15 +1237,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
-      "tieu_de": "Tin tức thế giới 10-11: Khả năng luận tội Bộ trưởng Chiến tranh Mỹ; Ông Trump cáo buộc gian lận bầu cử",
-      "nguon": "Tuổi Trẻ",
-      "url": "https://tuoitre.vn/tin-tuc-the-gioi-10-11-kha-nang-luan-toi-bo-truong-chien-tranh-my-ong-trump-cao-buoc-gian-lan-bau-cu-100261110045514841.htm",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "?",
       "tieu_de": "US midterms expose costs of East Asia's Trump diplomacy",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/opinion/us-midterms-expose-costs-of-east-asia-s-trump-diplomacy",
@@ -1274,6 +1250,33 @@
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/politics/international-relations/us-china-tensions/democrats-midterm-victory-puts-future-of-house-china-committee-in-doubt",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Norman gives Trump an ‘F’ on South Carolina midterm performance",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/campaign/6212326-norman-gives-trump-f-grade/",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Lawmakers react to October inflation data",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/newsletters/business-economy/6212082-lawmakers-react-to-october-inflation-data/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Whitmer presses Trump administration on tariffs, grocery reimbursements",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/state-watch/6211901-whitmer-demands-food-tariff-reimbursement/",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1351,24 +1354,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-10",
-      "tieu_de": "Returning to Washington, Republicans vent anger, frustrations after midterm drubbing",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/the-120/6209621-gop-midterm-loss-reckoning/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-10",
-      "tieu_de": "House GOP chair calls to delay leadership elections, reform rules",
-      "nguon": "The Hill",
-      "url": "https://thehill.com/homenews/6209196-jason-smith-calls-delay-gop-elections/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-10",
       "tieu_de": "Dispatch from Berlin: What Germans most want to know about the post-midterms United States",
       "nguon": "Atlantic Council",
       "url": "https://www.atlanticcouncil.org/dispatches/what-germans-most-want-to-know-about-the-post-midterms-united-states/",
@@ -1413,10 +1398,28 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-10",
+      "ngay": "2026-11-11",
       "tieu_de": "Nominations and Withdrawals Sent to the Senate",
       "nguon": "Nhà Trắng — Presidential Actions",
-      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/nominations-and-withdrawals-sent-to-the-senate-ba2b/",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/nominations-and-withdrawals-sent-to-the-senate-b6a4/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "VETERANS DAY, 2026",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/veterans-day-2026/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Presidential Determination Concerning Wildfire Suppression Activities in the United States",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/presidential-determination-concerning-wildfire-suppression-activities-in-the-united-states/",
       "nhom": 9
     },
     {
@@ -1463,6 +1466,15 @@
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/us-news/2026/nov/10/jim-jordan-house-republican-leader",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "US inflation slows less than expected in October",
+      "nguon": "Semafor",
+      "url": "https://www.semafor.com/article/11/10/2026/us-inflation-slows-less-than-expected-in-october",
+      "nhom": 4
     },
     {
       "lop": "RSS",
@@ -1530,11 +1542,38 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Quy trình luận tội một bộ trưởng nội các Mỹ diễn ra như thế nào?",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/quy-trinh-luan-toi-bo-truong-noi-cac-my-dien-ra-nhu-the-nao-2573399.html",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-11",
+      "tieu_de": "Tin tức Thế giới 11/11: Ông Trump nói bầu cử giữa kỳ &amp;apos;gian lận&amp;apos;",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/tin-tuc-the-gioi-11-11-ong-trump-noi-bau-cu-giua-ky-gian-lan-2573407.html",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-10",
       "tieu_de": "Ông Trump nói bầu cử giữa kỳ &amp;apos;gian lận&amp;apos;, Bộ trưởng Chiến tranh Mỹ bị luận tội",
       "nguon": "VietnamNet",
       "url": "https://vietnamnet.vn/ong-trump-noi-bau-cu-giua-ky-my-co-gian-lan-2573224.html",
       "nhom": 5
+    },
+    {
+      "lop": "HTML",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "?",
+      "tieu_de": "Senate Appropriations Committee Releases Two FY 2027 Funding Bills: Agriculture; Military Construction and Veterans Affairs",
+      "nguon": "Uỷ ban Chuẩn chi Thượng viện",
+      "url": "https://www.appropriations.senate.gov/news/majority/senate-appropriations-committee-releases-two-fy-2027-funding-bills-agriculture-military-construction-and-veterans-affairs",
+      "nhom": 9
     },
     {
       "lop": "HTML",
