@@ -1,2 +1,8 @@
 [21:01Z] START (CI) - phien sang som
-[21:05Z] SKIP (local) - claim web-scan exit 11: CI dang chay (nhip tim 2' truoc), khong quet chong
+[21:02Z] harvest.py: 444 ung vien. telegram_harvest.py: xong (TG lop bo sung).
+[21:02Z] gh workflow run telegram-bot.yml bi chan "requires approval" - chua kich duoc bot, di tiep.
+[21:52Z] add_news.py OK sau nhieu vong sua ngay/trung URL: +15 worldNews, +23 usNews, +1 tap tran.
+[21:52Z] Noi bo My 15 (doi ngoai 5) · Anh 5 · Australia 5 · Bien Dong 5 · CNQS 5/6 (hut 1, xem scan-gaps.json) · Mali 3 · Tap tran 1.
+[21:52Z] Bao Moi: 4 ung vien khop tu khoa deu false-positive, loai het (logs/loai-tin.md).
+[21:52Z] tin_jaylam.py: thieu SUPABASE_ANON_KEY trong moi truong nay, khong doc duoc file Jay Lam - fail-open, di tiep.
+[21:52Z] Phat hien data/analyses.json va logs/da-gui-email.json, logs/tap-tran-da-soi.json bi hoi lui (thieu du lieu cua commit event-scan concurrent acfc3f8/fdaa8ef) sau beat_push.py - da checkout HEAD -- 3 file nay de khoi phuc, KHONG lien quan lo tin cua phien nay.
