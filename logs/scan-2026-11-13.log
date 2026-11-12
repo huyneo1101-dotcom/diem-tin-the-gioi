@@ -9,3 +9,4 @@
 [21:33Z] Kiem cong Bao Moi: 7 ung vien, ca 7 loai (trung/khong hop chu de) - ghi logs/loai-tin.md + scan-gaps.json.
 [21:34Z] Chua kich duoc bot Telegram (gh bi chan) + khong co SUPABASE key -> bo qua loc Jay Lam, fail-open co tieng.
 [21:34Z] Tong ket: Doi ngoai My 5/5 - Noi bo My con lai 6 (tong 11/12, HUT) - Anh 6/5 - Australia 5/5 - Bien Dong 6/5 - KHCN-QS 6/6 - Mali 2/2-5 - Tap tran 0/1-2 (HUT, khong tim duoc dien bien moi). Da dung het 6/6 luot agent con, CHOT khong giao vong 2.
+[21:38Z] claim event-scan -> exit 10, DA XONG luc 04:09:17 (phien khac/song song da chay). SKIP buoc 6, phien web-scan coi la hoan tat.
