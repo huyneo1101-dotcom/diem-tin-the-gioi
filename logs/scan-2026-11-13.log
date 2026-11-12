@@ -1,2 +1,11 @@
 [21:00Z] START (CI) - phien sang som 2026-11-13
-[21:05Z] SKIP (local 04:05 VN) - claim exit 11: CI dang chay (nhip tim 2' truoc), nhuong CI
+[21:01Z] harvest.py: 426 ung vien (Uc&BD 178, NoiboMy 122, CNQS 57, Mali 39, Tap tran 30)
+[21:01Z] telegram_harvest.py: 8 bai trong khung ngay
+[21:01Z] chua kich duoc gh workflow telegram-bot.yml (bi chan approval) - bo qua buoc 3b, di tiep
+[21:16Z] 5 agent chu de xong (A NoiboMy 11, B UcBD 17, C CNQS 6, D Mali 2 + taptran rong, BM 2). Dang gop + loc trung + kiem khung ngay.
+[21:20Z] Gop + chay add_news.py: vuong cong neo chu de 2 (2 tin Anh viet "Anh" qua chung) - sua cau chu, qua.
+[21:28Z] add_news.py chan 7 tin vi cong NGAY DANG THAT (trang goc khong co metadata ngay doc duoc). Giao 1 agent bo sung duy nhat (vong 6/6 tran agent con) de tim dateProofUrl.
+[21:32Z] Da vay du 7/7 dateProofUrl (tu tim them 2 vi agent goi sai, mot Ecuador mot Anh/Iran). Nap thanh cong +17 worldNews +18 usNews. Doi ngoai My con 4/5, tu tim them 1 tin Witkoff-Kushner Moscow (TIME, 12/11) nap rieng -> du 5/5.
+[21:33Z] Kiem cong Bao Moi: 7 ung vien, ca 7 loai (trung/khong hop chu de) - ghi logs/loai-tin.md + scan-gaps.json.
+[21:34Z] Chua kich duoc bot Telegram (gh bi chan) + khong co SUPABASE key -> bo qua loc Jay Lam, fail-open co tieng.
+[21:34Z] Tong ket: Doi ngoai My 5/5 - Noi bo My con lai 6 (tong 11/12, HUT) - Anh 6/5 - Australia 5/5 - Bien Dong 6/5 - KHCN-QS 6/6 - Mali 2/2-5 - Tap tran 0/1-2 (HUT, khong tim duoc dien bien moi). Da dung het 6/6 luot agent con, CHOT khong giao vong 2.
