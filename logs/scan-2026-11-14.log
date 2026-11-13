@@ -5,3 +5,4 @@
 [21:04Z] tin_jaylam: khong co file (thieu SUPABASE key o moi truong nay); gh workflow run telegram-bot.yml bi chan "requires approval" - CHUA kich duoc bot, di tiep (fail-open co tieng)
 [21:05Z] SKIP web-scan (local 04:05 VN): claim exit 11, phien khac dang chay (bat dau 04:00:45+07:00, nhip tim 3' truoc) - khong quet chong
 [21:12Z] event-scan (local 04:05 VN, chay bu vi claim exit 0): +2 tap tran moi (IMNEX-26, Mitra Shakti XII-2026) +1 cap nhat Malabar, 0 su kien ngoai giao, +6 bai think-tank (13 khai niem), 2 background; commit 36889e0 da push; CN khong phai nen khong co bao cao tuan
+[21:40Z] SKIP web-scan (phien moi, local 04:40 VN): claim exit 11, phien khac dang chay thiet (bat dau 04:00:45+07:00, nhip tim 14' truoc qua beat_push, chua thoi han 30') - khong quet chong. Nhay sang Buoc 6: event-scan da DONE hom nay (04:10:44 VN, xem dong truoc) nen se tra exit 10 roi ket thuc em.
