@@ -20,13 +20,13 @@
     "heartbeat": "2026-11-14T04:02:54+07:00"
   },
   "event-scan": {
-    "lastRunAt": "2026-11-13T04:09:17+07:00",
+    "lastRunAt": "2026-11-14T04:10:44+07:00",
     "lastSlot": "sang",
     "lastStatus": "DONE",
-    "note": "13/11: 0 su kien, 0 tap tran moi/cap nhat, 4 briefing tap tran, 5 bai think-tank (ASPI, WOTR, CEPA, Brookings, LWJ) + 9 khai niem",
+    "note": "2 tap tran moi (IMNEX-26, Mitra Shakti XII), 1 cap nhat Malabar, 0 su kien ngoai giao, 6 bai think-tank + 13 khai niem, 2 background",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-11-13"
+      "sang": "2026-11-14"
     }
   }
 }
