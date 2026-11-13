@@ -1,1 +1,5 @@
 [21:00Z] START (CI) - phien sang som 14/11/2026
+[21:01Z] harvest.py: 437 ung vien ghi /tmp/ung-vien.json (Noi bo My 113, Uc&BD 166, CNQS 83, Mali 45, Tap tran 31)
+[21:02Z] telegram_harvest.py: xong - co tin breaking RAF Lakenheath (Anh) drone lockdown 14/11
+[21:03Z] baomoi-pending: 69 ung vien chuyen muc, khong co bai nao khop manh 5 chu de (chi 2 bai co the lien quan nhom 4/5 chu de 1)
+[21:04Z] tin_jaylam: khong co file (thieu SUPABASE key o moi truong nay); gh workflow run telegram-bot.yml bi chan "requires approval" - CHUA kich duoc bot, di tiep (fail-open co tieng)
