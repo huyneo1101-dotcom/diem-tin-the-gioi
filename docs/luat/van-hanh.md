@@ -248,3 +248,63 @@ lần** trước khi gạch tên. Từ 30/07 script tự đo LẠI LẺ, TUẦN 
 Dò lại về sau: `python3 scripts/probe_sources.py --json /tmp/probe-local.json` (local) và workflow
 `probe-sources.yml` (CI, ghi `docs/probe-ci.json`). **Cả hai nơi đều cần `curl_cffi`** — thiếu thì
 script vẫn chạy nhưng KÊU ra danh sách domain chưa kết luận được, đừng bỏ qua dòng đó.
+
+## Dời nguyên văn từ `CLAUDE.md` ngày 13/11/2026: commit do Actions đẩy không tự dựng lại trang (vá 21/08 và 26/08/2026)
+
+⛔ **COMMIT DO ACTIONS ĐẨY KHÔNG TỰ DỰNG LẠI TRANG — đã vá 21/08/2026, đừng gỡ.** GitHub chặn
+`GITHUB_TOKEN` kích hoạt workflow khác (chống vòng lặp), nên mọi commit `Cap nhat ban tin` của
+`claude-scan-ci` **không** chạm tới `on: push` của `pages.yml`; trang chỉ được dựng lại khi máy
+Mac tình cờ đẩy một commit sau đó. Sáng 21/08 không có commit local nào ⇒ bản tin 04:17 nạp đủ,
+email đi đủ, sổ ghi đủ, canary im lặng, mà web vẫn phục vụ bản 01:24 — **hỏng mà không phát ra
+tiếng nào**. Hai lớp vá: (i) `pages.yml` thêm nhánh `workflow_run` (nghe theo WORKFLOW nên không
+dính rào) kèm `checkout ref: main` (bỏ dòng này là dựng lại đúng bản cũ, vì `workflow_run` mang
+SHA lúc workflow gốc khởi động); (ii) `canary.py::kiem_web()` đo **bản người dùng đang thấy** —
+sha1 kiểu git blob của `index.html` trên github.io so với bản trên `main`, lệch thì nhắn Telegram.
+Bộ canh: `tests/test-canary-web-lech.py` — **10 ca (03 ca PHẢI KÊU) · `--tu-kiem` bắt 5/5 bản
+hỏng**, đã nạp `BO_TEST` của `HeThong/khoe.py`. Dựng lại tay: `gh workflow run pages.yml`.
+
+⛔ **`workflow_run` KHÔNG ĂN VỚI `claude-web-scan.yml` — vá 26/08/2026, đừng gỡ dòng kích
+thẳng.** Đo `gh api .../pages.yml/runs` nhiều ngày: dựng lại qua `workflow_run` chỉ khớp giờ
+`sync-baomoi`/`sync-preferences`, chưa từng khớp giờ phiên quét tin dù có tên trong danh sách
+nghe — web đứng bản cũ tới khi workflow khác tình cờ chạy qua. Vá: `claude-web-scan.yml` (bước
+"Kích email/push/morning") gọi thêm `gh workflow run pages.yml --ref main`, cùng cơ chế
+`actions: write` đã dùng cho `notify-email.yml`. `workflow_run` giữ làm lưới dự phòng.
+
+## Dời nguyên văn từ `CLAUDE.md` ngày 13/11/2026: trang đẩy lên Pages là bản đã cắt (21/08/2026)
+
+⛔ **TRANG ĐẨY LÊN PAGES LÀ BẢN ĐÃ CẮT — `index.html` TRONG REPO VẪN ĐỦ KHO, ĐỪNG "DỌN".**
+Từ 21/08/2026 `pages.yml` chạy `python3 scripts/cat_nhe_trang.py --tai-cho` ngay trước
+`upload-pages-artifact`: index.html còn **lát đầu** (357.088 byte thô / 108.709 nén, bớt **80%**
+so với 1.719.986 / 486.042), toàn bộ kho ra `data/kho.json` (1.515.777 byte) và trang tự nạp
+bằng `loadKho()` sau khi đã hiện chữ. Lát đầu giữ 45 tin Mỹ · 30 tin thế giới · 15 tin X · 29
+cuộc tập trận (bỏ `concepts`/`background`/`backgroundDoc`, giữ 01 item mới nhất mỗi cuộc); cà
+phê, bản tuần, ngoại giao, tin bị loại để rỗng. Đo bằng `--kiem`.
+- **Bước cắt CHỈ chạy trong runner, KHÔNG commit gì.** `main` giữ index.html đủ dữ liệu để 21
+  script Python ghi vào như cũ — đó là lý do không phải sửa `add_news.py`, `harvest.py`, …
+- ⛔ **CẤM chạy `--tai-cho` trên máy Mac rồi commit.** Bản cụt mất kho mà mọi script vẫn ghi vào
+  đấy như thường, không lệnh nào báo lỗi. Hai rào: `.gitignore` chặn `/data/kho.json`, và ca 01
+  của bộ test bắt cờ `_nhe` trong index.html của repo.
+- ⛔ **`analyses` TUYỆT ĐỐI không vào `kho.json`.** Bài think-tank có kho riêng
+  (`data/analyses.json`, tách 30/07/2026); hai lời gọi fetch chạy song song nên ghi đè là mục
+  🏛️ Think-tank trống mà không có lỗi nào hiện ra. Chặn ở cả hai đầu: `KHONG_TACH` trong
+  `cat_nhe_trang.py` và `if(k!=='analyses')` trong `loadKho()`.
+- ⚠️ **`canary.py::kiem_web()` nay so bản web với bản DỰNG LẠI** (`ban_mong_doi()` gọi chính
+  `cat_nhe()`), không so bytes thô của repo nữa — bỏ bước dựng khỏi `pages.yml` là canary kêu
+  lệch **mọi ca**, kêu oan vài lần là thôi đọc.
+- ⛔ **`sw.js` phải `ignoreSearch` cho request CÙNG GỐC — đừng gỡ.** `loadKho()` và
+  `loadAnalyses()` gắn `?t=<mốc hiện tại>` để né cache, mà `caches.match` mặc định so cả chuỗi
+  truy vấn ⇒ bản precache **không bao giờ khớp**, hàm rơi xuống trả `index.html`, `r.json()` ném
+  lỗi và `catch` nuốt gọn. Đo 21/08/2026 trên bản đang chạy: `match('data/kho.json?t=999999')`
+  trả undefined, thêm `ignoreSearch` thì trúng — tức precache offline đã **vô tác dụng từ
+  30/07/2026**, mở offline mục 🏛️ Think-tank vẫn trống dù sw.js khai precache nó. Chỉ áp cho
+  cùng gốc: chuỗi truy vấn của Supabase (`?select=cid,tags`) MANG NGHĨA.
+- Bộ canh: `tests/test-cat-nhe-trang.py` — **17 ca · `--tu-kiem` bắt 20/20 bản hỏng**, đã nạp
+  `BO_TEST` của `HeThong/khoe.py`.
+- ⚖️ **Phép cân trang: `HeThong/khoe.py::trang_diemtin_phinh()`** (nạp 21/08/2026). Kích thước
+  `index.html` trên đĩa KHÔNG nói gì về thứ người đọc tải, nên phép đo dựng lại đúng bản đã
+  cắt rồi cân byte gzip của **lát đầu**: hiện **109.127 / trần `TRAN_TRANG_DT_NEN` = 125.000**.
+  Vượt trần ⇒ VÀNG; **bước cắt mất tác dụng ⇒ ĐỎ** — `cat_nhe()` trượt vẫn trả HTML hợp lệ nên
+  `pages.yml` vẫn xanh và trang lại nặng 1,7 MB, không dấu hiệu nào. Trần là **ratchet, chỉ hạ**:
+  nới lên quá 25% so với số đo hiện tại thì chính phép đo kêu VÀNG. 05 ca trong `khoe.py --tu-kiem`.
+  ⚠️ KHÁC `canary.kiem_web()`, đừng gộp: canary hỏi *bản trên mạng có khớp bản dựng không*,
+  phép cân này hỏi *bản dựng có còn gọn không*.

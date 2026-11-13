@@ -693,3 +693,44 @@ context cho agent mà vẫn để nhánh thưa nằm cuối.
 
 **Bộ canh:** `tests/test-uu-tien-chu-de.py` — nay **14 ca**, ca 11-12 là ca PHẢI CHẶN cho đúng hai tầng
 trên, ca 13-14 là đối chứng chống nới tay; `--tu-kiem` bắt **10/10 bản hỏng**.
+
+## Dời nguyên văn từ `CLAUDE.md` ngày 13/11/2026: ngày của tin là ngày đăng thật (vá 25/08/2026)
+
+⛔ **NGÀY CỦA TIN LÀ NGÀY ĐĂNG THẬT, ĐO BẰNG CÁCH MỞ BÀI — vá 25/08/2026, đừng gỡ.**
+`check_date_window` chỉ đối chiếu trường `date` trong JSON của lô với ngày batch và với hôm
+nay, mà cả hai vế đều là con số **do chính agent viết ra**: khai `date` bằng ngày quét là lô
+đi qua cổng, dù bài đăng từ bao giờ. Đo thật 25/08 bằng cách mở lại 334 bài đã nạp và đọc
+metadata ngày: lô 15-24/08 có **03/153 bài** ngoài khung (lệch 19 · 12 · 07 ngày), lô đối
+chứng 10-31/07 có **06/164 bài**, nặng nhất là bài South China Morning Post đăng **21/12/2024**
+mang `date` 29/07/2026, lệch 585 ngày. Không phải bệnh của một phiên hay một model: hai lô
+cách nhau một tháng cho cùng tỷ lệ (2,0% và 3,7%), tức lỗ này mở suốt từ đầu.
+- **Cổng mới `scripts/ngay_that.py`**, gọi trong `add_news.py::main` ngay sau các `validate_*`:
+  mở từng `sourceUrl` (đi bằng `harvest.curl`, 08 bài song song), đọc **metadata có cấu trúc**
+  theo thứ tự `datePublished` → `article:published_time` → `<time datetime>` →
+  `citation_publication_date`, rồi so với trần `tran_ngay(category)`.
+- ⛔ **KHÔNG quét ngày trong văn bản tự do.** Bài quân sự nào cũng dày đặc ngày lịch sử; phép
+  bắt ngày trôi nổi từng gán bài 2026 thành 06/06/1944 và loại nhầm 46 bài (QuetThinkTank
+  29/07/2026). Ca 10 của bộ test canh đúng điều này.
+- ⛔ **TRANG KHÔNG IN NGÀY THÌ BỎ TIN — chỉ thị Huy 25/08/2026, nguyên văn *"trang không ghi
+  ngày thì bỏ đi"*.** Không in ngày ở đâu cả thì không có cách nào biết bài cũ hay mới. Đo
+  trước khi siết: 20/181 bài lô tháng 8 và 32/200 bài lô tháng 7 rơi vào nhóm này (11% và 16%),
+  nguồn hay gặp là DVIDS · PACOM · war.gov · Xinhua · Al Jazeera.
+- ⚠ **Nhưng TRANG KHÔNG MỞ ĐƯỢC thì vẫn GIỮ**, kèm dòng `⚠ NGÀY THẬT`. Chặn ở nhánh này là để
+  đường truyền của máy chạy quyết định bản tin có tin hay không, và nguồn nào trả 403 thì mất
+  trắng. Lằn ranh đo bằng thẻ `<title>`: CNN và CNBC tải về 300 KB **không có nổi `<title>`**
+  (trang dựng bằng JavaScript hoặc bị chặn), trong khi DVIDS/PACOM/war.gov có `<title>` đúng
+  tên bài — nhóm sau mới thật sự là "trang không in ngày". Bỏ lằn ranh này là loại oan theo
+  chất lượng mạng, ca 14 của bộ test canh đúng chỗ đó.
+- **Thêm mẫu cho nguồn không có metadata chuẩn thay vì chịu mất nguồn:** DVIDS in ngày trong
+  bảng `Date Posted: 08.22.2026` (neo vào NHÃN, không lấy `Date Taken` — đó là ngày chụp ảnh,
+  có thể trước ngày đăng hàng tuần). Nguồn nào bị loại nhiều thì soi HTML tìm neo tương tự rồi
+  bổ sung vào `doc_ngay`, đừng nới trần ngày.
+- **Đường thoát hợp lệ khi metadata nguồn ghi sai:** `--bo-cong-ngay-that="lý do"`, lý do bắt
+  buộc và được in ra.
+- **Link đối chứng (Huy chốt 29/09/2026):** trang bài không in ngày thì tin mang
+  `dateProofUrl` (link khác, cùng sự việc, có ngày) được nạp; máy đo ngày trên link đó, ngoài
+  khung vẫn chặn. Bug gốc: mục Đối ngoại Mỹ 28/09 về 0 vì 03 tin state.gov/Bloomberg bị bỏ.
+- **Bộ canh:** `tests/test-cong-ngay-that.py` — **20 ca (10 PHẢI CHẶN · 04 ca đầu-cuối) ·
+  `--tu-kiem` bắt 13/13 bản hỏng**, chạy offline qua seam `NGAYTHAT_KHO_GIA`, đã nạp `BO_TEST`
+  của `HeThong/khoe.py`. Nghiệm thu qua mạng thật 25/08: lô mang đúng URL bài SCMP 2024 bị
+  chặn với thông điệp `bài đăng THẬT ngày 2024-12-21 (đọc bằng datePublished)`.
