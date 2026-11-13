@@ -3,3 +3,4 @@
 [21:02Z] telegram_harvest.py: xong - co tin breaking RAF Lakenheath (Anh) drone lockdown 14/11
 [21:03Z] baomoi-pending: 69 ung vien chuyen muc, khong co bai nao khop manh 5 chu de (chi 2 bai co the lien quan nhom 4/5 chu de 1)
 [21:04Z] tin_jaylam: khong co file (thieu SUPABASE key o moi truong nay); gh workflow run telegram-bot.yml bi chan "requires approval" - CHUA kich duoc bot, di tiep (fail-open co tieng)
+[21:05Z] SKIP web-scan (local 04:05 VN): claim exit 11, phien khac dang chay (bat dau 04:00:45+07:00, nhip tim 3' truoc) - khong quet chong
