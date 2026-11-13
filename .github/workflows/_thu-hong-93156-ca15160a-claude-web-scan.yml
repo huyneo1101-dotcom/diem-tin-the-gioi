@@ -1,0 +1,211 @@
+name: Claude web-scan (bản tin sáng sớm)
+
+# Quét bản tin trên máy GitHub — máy Mac tắt vẫn ra bản tin. MỘT phiên/ngày theo playbook
+# 5 chủ đề: SÁNG SỚM 04:00 (ô khoá `sang`).
+#
+# ⛔ PHIÊN TỐI ĐÃ BỎ HẲN — chỉ thị Huy 18/09/2026, nguyên văn: *"chỉ cần gửi tin 4h sáng thôi,
+# không phải quét và gửi buổi tối nữa đâu"*. Hai cron tối (`47 13` = 20:47 VN mốc chính ·
+# `47 14` = 21:47 VN lớp vét) gỡ ngày đó, cùng ba mốc kích local (20:45 · 21:00 · 22:00 trong
+# `scripts/kich_ci.py::LICH`) và cron canary ca `toi`. Đo trước khi gỡ: sổ `logs/da-gui-email.json`
+# không có dòng `[toi]` nào từ 13/09 tới 18/09 — bản tối đã tự chết im 06 đêm liền, việc gỡ
+# không cắt mất thứ gì đang chạy.
+# ⛔ ĐỪNG CẮM LẠI MỐC TỐI KHI THẤY BẢN SÁNG MỎNG. Bản sáng mỏng là việc của SÀN và KHUNG NGÀY
+# (xem `scripts/soi_muc_cam.py::SAN_MOI_MUC`), không phải việc của lịch.
+# Phiên SÁNG SỚM có dự phòng local — trình tự lớp thật: `docs/LICH.md`.
+# Dùng chung khoá logs/state.json với bản local (scheduled task trên Mac):
+# bên nào claim trước thì bên kia tự SKIP, không quét chồng.
+# Thiếu secret CLAUDE_CODE_OAUTH_TOKEN thì workflow tự bỏ qua êm (local vẫn quét như cũ).
+
+on:
+  schedule:
+    # ⏱️ VÌ SAO PHÚT LẺ, KHÔNG PHẢI GIỜ TRÒN (đo thật 27/07/2026):
+    # Cron GitHub xếp hàng chung toàn cầu, và mốc `:00`/`:05` là lúc hàng triệu job cùng dồn
+    # vào. Đo 10 mốc của repo này trong 24h: 8 mốc CÓ chạy nhưng KHÔNG mốc nào đúng giờ —
+    # 08:00 → 11:30 (trễ 3h30), 08:05 → 11:47, 08:45 → 12:30 (trễ 3h45), 21:00 → 22:09,
+    # 22:00 → 22:54.
+    # => Dời sang phút LẺ, LÙI SỚM ~13' so với mốc cũ: trễ bao nhiêu cũng còn biên, mà nếu
+    #    chạy đúng giờ thì chỉ sớm hơn 13 phút, không phá thiết kế lớp.
+    # ⚠️ ĐỪNG "cho tròn lại cho đẹp" — giờ tròn chính là nguyên nhân.
+    #
+    # Trình tự lớp của ca SÁNG (bảng thật: docs/LICH.md): local 04:00 mốc CHÍNH -> local 04:05
+    # -> CI 03:47/04:47 (lưới, cron GitHub trễ 2-4h) -> local 04:35/04:40 lớp VÉT.
+    # HẠN CHÓT tới tay 04:45 (`scripts/state.py::HAN_CHOT`) — đổi lịch thì đổi mốc kích, đừng
+    # đổi hạn.
+    - cron: '47 20 * * *'   # 03:47 VN — bản tin SÁNG SỚM, mốc chính (trước: 04:00)
+    - cron: '47 21 * * *'   # 04:47 VN — sáng sớm, dự phòng CI (sau mốc local 04:35)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'normal = bản tin thật đủ 5 chủ đề · test = quét ~3 tin, email gắn [QUET TEST]'
+        type: choice
+        options: [normal, test]
+        default: normal
+
+concurrency:
+  group: claude-web-scan
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write   # để kích notify-email/notify-push sau khi push bản tin
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    # 130' chứ không phải 90': từ 28/07/2026 phiên SÁNG SỚM còn gộp thêm pipeline event-scan
+    # (sự kiện/tập trận/think-tank, Chủ nhật +báo cáo tuần Opus) trong CÙNG job — xem BƯỚC 6
+    # của .github/prompts/web-scan-ci.md.
+    timeout-minutes: 130
+    steps:
+      - name: Kiểm tra secret
+        id: gate
+        env:
+          TOK: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$TOK" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "Chưa có secret CLAUDE_CODE_OAUTH_TOKEN — bỏ qua (bản local trên Mac vẫn quét như cũ)."
+          else
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v7
+        if: steps.gate.outputs.run == 'true'
+        with:
+          fetch-depth: 0
+
+      - name: Ghi lại HEAD trước khi quét
+        id: base
+        if: steps.gate.outputs.run == 'true'
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Git identity
+        if: steps.gate.outputs.run == 'true'
+        run: |
+          git config user.name "claude-scan-ci"
+          git config user.email "noreply@anthropic.com"
+
+      - name: Setup Node
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-node@v7
+        with:
+          node-version: '20'
+
+      - name: Setup Python
+        if: steps.gate.outputs.run == 'true'
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      # Vân tay TLS Chrome — `harvest.py`/`ngay_that.py` tự dùng khi curl trần bị chặn.
+      # Vá 21/09/2026: workflow này thiếu bước cài trong khi `harvest-ci.yml` và
+      # `probe-sources.yml` đã cài từ trước — phiên sáng 21/09 cổng NGÀY THẬT chặn 12/29
+      # tin (~41%, cao bất thường) đúng vào nhóm nguồn hay chặn vân tay TLS (Bloomberg,
+      # state.gov, The Hill, Lockheed, TWZ, Zona Militar, BusinessMirror). `|| true`: thiếu
+      # gói vẫn chạy tiếp (fail-open CÓ TIẾNG qua VET_NGUON), không phải nuốt lỗi.
+      - name: Cài curl_cffi (giả vân tay TLS Chrome)
+        if: steps.gate.outputs.run == 'true'
+        run: python3 -m pip install --quiet curl_cffi || true
+
+      - name: Cài Claude Code
+        if: steps.gate.outputs.run == 'true'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Quét bản tin
+        if: steps.gate.outputs.run == 'true'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          MODE: ${{ inputs.mode || 'normal' }}
+          # 🔒 PHIÊN TEST KHÔNG ĐƯỢC ĐỤNG CỜ THẬT (vá gốc sự cố tối 29/07/2026).
+          # Nhánh test đã cố tình KHÔNG truyền `tu_dong=1` để khỏi để dấu trong sổ đã gửi;
+          # biến này là vế còn lại — khỏi để dấu trong cờ `logs/state.json`. Chiều 29/07 một
+          # phiên MODE=test chạy 17:34 đã gọi `state.py done web-scan`, chiếm ô khoá cả ngày,
+          # mà commit của nó rơi ngoài khung giờ gửi nên không có email — mọi lớp sau lần lượt
+          # exit 10 rồi SKIP, bản tin suýt mất trắng trong im lặng.
+          # Đặt ở tầng `env:` của step chứ không nhét trong prompt: `claude -p` và mọi lệnh Bash
+          # con đều thừa hưởng biến này -> cơ chế, không phải lời hứa (prompt có thể quên).
+          # Bộ test canh: tests/test-cong-phien-test.py (có ca đọc chính file yml này).
+          DIEMTIN_PHIEN_TEST: ${{ inputs.mode == 'test' && '1' || '0' }}
+          # Mã riêng đọc/ghi 2 bảng `dt_*` trên Supabase — cần cho BƯỚC 3b (lọc trùng Jay Lâm):
+          # `scripts/tin_jaylam.py` đọc hàng chờ tin Jay Lâm gửi rồi ghi lại tóm tắt + nguồn
+          # (thêm 30/07/2026). Thiếu secret thì script in cảnh báo và bỏ qua bước đó — bản tin
+          # vẫn ra nhưng KHÔNG có mục 5 (nhánh dán nguyên văn đã bỏ hẳn 01/08/2026, tin nằm
+          # chờ bản sau). KHÔNG phải service key (mục
+          # "ĐỌC dt_bot_hoi dùng MÃ RIÊNG" trong CLAUDE.md).
+          DT_BOT_KEY: ${{ secrets.DT_BOT_KEY }}
+        run: |
+          PROMPT_FILE=.github/prompts/web-scan-ci.md
+          if [ "$MODE" = "test" ]; then PROMPT_FILE=.github/prompts/web-scan-test.md; fi
+          echo "MODE=$MODE PROMPT=$PROMPT_FILE"
+          TOOLS="Bash(git *),Bash(python3 *),Bash(ls *),Bash(cat *),Bash(grep *),Bash(head *),Bash(tail *),Bash(wc *),Bash(sort *),Bash(uniq *),Bash(cut *),Bash(tr *),Bash(sleep *),Bash(date *),Bash(TZ=*),Bash(echo *),Bash(mkdir *),Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,TodoWrite"
+          # --max-turns 700 (trước 500): phiên SÁNG SỚM từ 28/07/2026 gộp thêm pipeline
+          # event-scan (BƯỚC 6 trong $PROMPT_FILE) ngay trong job này, cần thêm lượt.
+          # --model sonnet (thêm 10/10/2026, Huy chốt "tiết kiệm limit quét 4h sáng"): CI không đọc
+          # ~/.claude/settings.json của máy nên trước đó lấy model mặc định của gói; quét theo
+          # playbook là việc theo khuôn (mục 23). Khâu cần Opus (nhận định tuần) đã tự khai
+          # model "opus" ở agent con trong $PROMPT_FILE nên không bị ảnh hưởng.
+          claude -p "$(cat $PROMPT_FILE)" --model sonnet --allowedTools "$TOOLS" --max-turns 700 \
+            || { echo "claude -p lỗi (mạng/server?) — retry sau 60s"; sleep 60; claude -p "$(cat $PROMPT_FILE)" --model sonnet --allowedTools "$TOOLS" --max-turns 700; }
+
+      - name: Kích email/push/morning nếu có bản tin hoặc sự kiện mới
+        if: steps.gate.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MODE: ${{ inputs.mode || 'normal' }}
+        run: |
+          git pull --rebase origin main || true
+          # ⛔ KHÔNG dò bằng `git log <base>..HEAD` nữa (sự cố tối 31/07/2026 — Huy nhận HAI
+          # bản tin lúc 21:24 và 21:26). Khoảng đó chạy SAU `git pull` nên nuốt cả commit của
+          # PHIÊN KHÁC vừa push xen vào: run vét khởi động 14:11:17Z rồi SKIP không quét gì,
+          # phiên chính commit bản tin 14:23:49Z, run vét pull về 14:25:33Z ⇒ grep khớp commit
+          # của người ta ⇒ kích notify-email lần thứ hai. Đo git sớm hơn cũng không cứu: phiên
+          # SKIP cũng phải rebase để push nổi commit log của chính nó.
+          # Nay hỏi CỜ do chính `state.py done` của phiên NÀY ghi ra (thư mục tạm, chỉ sống
+          # trong một job). Chi tiết: .github/scripts/quyet_dinh_kich.py
+          python3 .github/scripts/quyet_dinh_kich.py > /tmp/quyet-dinh-kich.env
+          cat /tmp/quyet-dinh-kich.env
+          . /tmp/quyet-dinh-kich.env
+          if [ "$ban_tin" = "1" ]; then
+            if [ "$MODE" = "test" ]; then
+              # KHÔNG truyền tu_dong: chạy test không được ghi sổ, y như người bấm tay.
+              gh workflow run notify-email.yml -f subject_tag='[QUET TEST TU DONG] '
+            else
+              # tu_dong=1 -> notify-email ghi sổ đã gửi. Thiếu cờ này thì bản tin do CI ra
+              # không vào sổ, và bản tin TỐI cùng ngày sẽ liệt kê lại tin đã gửi buổi sáng
+              # (đo thật sáng 28/07/2026 — xem chú thích ở bước "Ghi sổ đã gửi").
+              gh workflow run notify-email.yml -f tu_dong=1
+              gh workflow run notify-push.yml || true
+            fi
+          else
+            echo "Phiên này KHÔNG tự nạp bản tin (không có cờ) — không kích email bản tin."
+          fi
+          if [ "$MODE" != "test" ] && [ "$su_kien" = "1" ]; then
+            # Kích notify-morning.yml (email 🎖️ riêng) — trước 28/07/2026 việc này nằm ở
+            # claude-event-scan.yml (đã xoá, gộp việc quét vào job này, xem BƯỚC 6 prompt).
+            gh workflow run notify-morning.yml -f tu_dong=1
+          fi
+          # ⛔ 26/08/2026 — KÍCH THẲNG pages.yml, ĐỪNG CHỈ TRÔNG VÀO `workflow_run`.
+          # Đo nhiều ngày qua `gh api .../pages.yml/runs`: mọi lần pages.yml dựng lại qua
+          # workflow_run đều khớp giờ sync-baomoi/sync-preferences (1-2 lần/ngày), CHƯA TỪNG
+          # MỘT LẦN khớp giờ hoàn tất của chính job quét tin này (2 lần/ngày) — dù workflow
+          # này có tên trong danh sách lắng nghe của pages.yml. Kết quả thật: canary bắt được
+          # bản web đứng yên tới ~50 phút hoặc lâu hơn, chờ MAY RA có sync khác chạy qua thì
+          # trang mới dựng lại. Gọi thẳng dispatch (đã có `actions: write`, đã chứng minh chạy
+          # được ở 3 lệnh `gh workflow run` phía trên) là đường THẤY ĐƯỢC, không phải để may rủi.
+          if [ "$MODE" != "test" ] && { [ "$ban_tin" = "1" ] || [ "$su_kien" = "1" ]; }; then
+            gh workflow run pages.yml --ref main
+          fi
+
+      # ĐẶT CUỐI JOB, SAU cả bước kích email — cố ý. Phiên quét này ăn cùng gói Claude
+      # với mọi phiên trên máy Mac nhưng bản ghi của nó nằm trên máy GitHub rồi biến mất
+      # cùng máy, nên `do-token.py` ở nhà đếm phần này bằng 0 và mọi ngân sách cho routine
+      # đêm đều tính thiếu đúng khoản cạnh tranh với mốc quét 04:00.
+      # Bước này CHỈ ĐỌC và CHỈ IN CON SỐ: repo công khai nên không được đẩy bản ghi phiên
+      # ra ngoài dưới bất kỳ hình thức nào. `if: always()` để phiên quét lỗi cũng biết đã
+      # tiêu bao nhiêu; `continue-on-error` để bước đo không bao giờ làm gãy bản tin.
+      # Bộ ca canh: tests/test-do-token-phien.py (có ca đọc chính file yml này).
+      - name: Đo mức tiêu thụ của phiên quét
+        if: always() && steps.gate.outputs.run == 'true'
+        # rao chan da bi go
+        run: |
+          python3 .github/scripts/do_token_phien.py
