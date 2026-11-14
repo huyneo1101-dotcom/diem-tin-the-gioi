@@ -207,7 +207,7 @@ def ca08():
     """[NGUỒN · PHẢI CHẶN] feed sống 10 item mà 0 item đọc được ngày -> KÊU MÙ NGÀY."""
     kq, khai = _soi({U_MU: {"chu_de": None, "khong_ngay": False}})
     keu = S.keu_feed(kq, khai)
-    assert any("MÙ NGÀY" in k and "Mù ngày" in k for k in keu), keu
+    assert any(S.NHAN_KHONG_RO_NGAY in k and "Mù ngày" in k for k in keu), keu
 
 
 def ca09():
@@ -217,7 +217,7 @@ def ca09():
     không phải nhét tên vào danh sách trắng trong mã.
     """
     kq, khai = _soi({U_MU: {"chu_de": None, "khong_ngay": True}})
-    assert not any("MÙ NGÀY" in k for k in S.keu_feed(kq, khai))
+    assert not any(S.NHAN_KHONG_RO_NGAY in k for k in S.keu_feed(kq, khai))
 
 
 def ca10():
@@ -235,13 +235,13 @@ def ca11():
     """
     kq, khai = _soi({U_THUONG: {"chu_de": "Nội bộ Mỹ", "khong_ngay": False}})
     keu = S.keu_feed(kq, khai)
-    assert any("CÂM CHỦ ĐỀ" in k and "Bình thường" in k for k in keu), keu
+    assert any(S.NHAN_LAC_CHU_DE in k and "Bình thường" in k for k in keu), keu
 
 
 def ca12():
     """[NGUỒN] feed KHÔNG khai chủ đề mà 0 neo -> KHÔNG kêu (nguồn rộng, kêu là kêu oan)."""
     kq, khai = _soi({U_THUONG: {"chu_de": None, "khong_ngay": False}})
-    assert not any("CÂM CHỦ ĐỀ" in k for k in S.keu_feed(kq, khai))
+    assert not any(S.NHAN_LAC_CHU_DE in k for k in S.keu_feed(kq, khai))
 
 
 def ca13():
@@ -305,7 +305,7 @@ def ca18():
     # `ngay` là ngày KHÔNG có trong sổ: `urls_ngay` trả None nên canary lùi về URL của chính
     # lần gửi này. Ca vì thế tất định, và tiện thể canh luôn nhánh lùi ấy còn sống.
     keu = can.canh_bao_muc_cam("toi", "toi", {"urls": [mot]}, "1999-01-01")
-    assert any("DƯỚI SÀN" in k for k in keu), keu
+    assert any(S.NHAN_THIEU_TIN in k for k in keu), keu
 
 
 def ca19():
@@ -325,7 +325,7 @@ def ca20():
     cho cùng một sự cố.
     """
     can = _nap("canary_test3", REPO / ".github" / "scripts" / "canary.py")
-    assert not any("DƯỚI SÀN" in k for k in
+    assert not any(S.NHAN_THIEU_TIN in k for k in
                can.canh_bao_muc_cam("toi", "toi", None, "1999-01-01"))
 
 
@@ -475,6 +475,36 @@ def ca30():
     assert H.FORCE_TOPIC_URL.get("soldiersystems.net/feed") == "CNQS Mỹ", H.FORCE_TOPIC_URL
 
 
+# ⛔ Huy chốt 14/11/2026 trên ảnh tin Telegram: *"Không dùng từ Mục hụt, và từ Nguồn câm chủ
+# đề. Hai từ này khó hiểu"* · bỏ dòng *"Nguồn chuyên 1 chủ đề…"*. Lời nhắn đi thẳng tới Huy
+# (không rành kỹ thuật) nên cấm mọi chữ nghề và mọi hướng dẫn sửa mã.
+CHU_KY_THUAT = ("HỤT", "CÂM", "FORCE_TOPIC", "harvest.", "CLAUDE.md", "parse_date",
+                " item", " neo", "sàn", "khoá", "feed")
+
+
+def ca31():
+    """[LỜI NHẮN · PHẢI CHẶN] lời nhắn cả 04 lớp không mang chữ nghề hay lệnh sửa mã."""
+    kq, _ = _soi({})
+    khai = {U_MU: {"chu_de": None, "khong_ngay": False},
+            U_THUONG: {"chu_de": "Nội bộ Mỹ", "khong_ngay": False}}
+    loi = S.keu_feed(kq, khai)
+    loi += S.keu_san([("Đối ngoại Mỹ", 1)])
+    H = S._harvest()
+    goc = dict(H.FORCE_TOPIC_URL)
+    try:
+        H.FORCE_TOPIC_URL["khong-he-co-trong-bang.invalid"] = "Nội bộ Mỹ"
+        loi += S.khai_gan_cung_tuot()
+    finally:
+        H.FORCE_TOPIC_URL.clear()
+        H.FORCE_TOPIC_URL.update(goc)
+    assert len(loi) == 4, loi
+    # Phần sau dấu "·" là tên nguồn/khoá đo được, không phải chữ của lời nhắn — chỉ soi phần lời.
+    loi_chu = [l.split("\n  · ")[0] + "\n" + "\n".join(
+        d for d in l.splitlines()[1:] if not d.startswith("  · ")) for l in loi]
+    dinh = [(c, l.splitlines()[0]) for l in loi_chu for c in CHU_KY_THUAT if c in l]
+    assert not dinh, dinh
+
+
 CA = [
     (1, "[SÀN] đủ tin mọi mục -> im", ca01),
     (2, "[SÀN · PHẢI CHẶN] tiểu mục Anh 1 tin -> KÊU", ca02),
@@ -506,6 +536,7 @@ CA = [
     (28, "[SÀN RIÊNG · PHẢI CHẶN] Anh/Australia 2 tin -> dưới sàn riêng, KÊU", ca28),
     (29, "[SÀN RIÊNG · PHẢI CHẶN] mục khác không bị lây sàn riêng 3", ca29),
     (30, "[GÁN CỨNG · PHẢI CHẶN] Soldier Systems Daily còn nguyên", ca30),
+    (31, "[LỜI NHẮN · PHẢI CHẶN] không chữ nghề, không lệnh sửa mã", ca31),
 ]
 
 # ═══════════════════════════ tự kiểm: bản hỏng ═══════════════════════════
@@ -650,6 +681,19 @@ BAN_HONG = [
         return []''',
      '''    return []''',
      [18]),
+
+    ("lời nhắn: trả lại nhãn «NGUỒN CÂM CHỦ ĐỀ» Huy đã cấm 14/11/2026",
+     "scripts/soi_muc_cam.py",
+     '''NHAN_LAC_CHU_DE = "NGUỒN KHÔNG CÓ BÀI ĐÚNG CHỦ ĐỀ"''',
+     '''NHAN_LAC_CHU_DE = "NGUỒN CÂM CHỦ ĐỀ"''',
+     [31]),
+
+    ("lời nhắn: trả lại dòng «Nguồn chuyên một chủ đề thì khai vào harvest.FORCE_TOPIC_URL»",
+     "scripts/soi_muc_cam.py",
+     '''"đã giao cho nguồn:\\n  · " + "\\n  · ".join(cam))''',
+     '''"đã giao cho nguồn:\\n  · " + "\\n  · ".join(cam)
+                  + "\\nNguồn chuyên một chủ đề thì khai vào harvest.FORCE_TOPIC_URL.")''',
+     [31]),
 ]
 
 CHEP = ("scripts/soi_muc_cam.py", "scripts/harvest.py", "scripts/topics.py",

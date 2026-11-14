@@ -5,7 +5,7 @@ description: >-
   tầng, guardrail add_news.py. Dùng khi người dùng yêu cầu "quét tin", "cập nhật bản tin", "scan
   tin", hoặc khi routine tự động chạy. Bản tin chạy 01 PHIÊN/NGÀY: SÁNG SỚM 03:47 giờ VN
   (phiên TỐI bỏ hẳn 18/09/2026 — bảng lịch thật: docs/LICH.md). 5 chủ đề: Nội bộ Mỹ (5 nhóm, 2 hạng ưu tiên) · Úc & Biển Đông · CNQS Mỹ ·
-  Mỹ–Mali · tập trận Predator's Run 2026. LỊCH/khoá/commit/push KHÔNG nằm ở file này — nguồn sự thật
+  tập trận đang diễn ra (Mali BỎ HẲN 14/11/2026). LỊCH/khoá/commit/push KHÔNG nằm ở file này — nguồn sự thật
   là docs/routine-web-scan.md; bảng nguồn/RSS xem CLAUDE.md gốc repo.
 ---
 
@@ -31,7 +31,7 @@ quyết định (Huy nâng 2 → 5 ngày 18/09/2026), vì một chủ đề đ�
 | 1. Nội bộ Mỹ | **12–18**, trong đó **≥5 neo được đối ngoại** | hai mục: Đối ngoại Mỹ (5) + Nội bộ Mỹ (5) |
 | 2. Úc & Biển Đông (địa bàn) | **15–20**, **mỗi nhánh ≥5** | ba tiểu mục: Anh · Australia · Biển Đông |
 | 3. CNQS Mỹ | **6–10** | mục KHCN-QS |
-| 4. Mỹ – Mali | 2–5 (không mang sàn) | bản sáng 🎖️ Sự kiện & Tập trận |
+| ~~4. Mỹ – Mali~~ | **BỎ HẲN 14/11/2026** — không quét | — |
 | 5. Tập trận | 1–2 (không mang sàn) | diễn biến tập trận |
 
 Best-effort ở phần VƯỢT sàn — thiếu thì thôi, KHÔNG bịa; nhưng phần DƯỚI sàn thì chưa được chốt lô,
@@ -91,16 +91,9 @@ phải đi thêm một vòng nguồn nữa (xem "SÀN CỨNG 05 TIN MỖI MỤC"
    thì có thể lấy tin xuống tận ngày 24"). 4 chủ đề còn lại VẪN chỉ hôm nay + hôm qua. `add_news.py`
    áp theo **category**: item `Công nghệ quân sự` được lùi 3 ngày (`MAX_AGE_DAYS_CNQS`), item khác lùi
    1 ngày — nên nhớ đặt đúng category, đặt sai là bị chặn oan hoặc lọt tin cũ.
-4. **Mỹ–Mali** — `usNews` (dossier `🟤 Mỹ – Mali`). Mỹ cân nhắc/triển khai quân sự ở Mali nhắm JNIM
-   (al-Qaeda): không kích drone, phản ứng Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin
-   gắn Mali/JNIM/Bamako/Sahel để tự vào dossier. Nguồn: defense.gov, state.gov, centcom.mil (AFRICOM),
-   Reuters/AP/AFP, WaPo. 2–5 bài.
-   🔄 **ĐỔI KÊNH GỬI 05/08/2026 (chỉ thị Huy), KHÔNG đổi cách quét:** tin Mali **vẫn quét, vẫn nạp
-   `usNews` y như cũ**, nhưng **RỜI khỏi file Word bản tin** và nay đi ở **bản sáng 🎖️ Sự kiện & Tập
-   trận**, cạnh tập trận và think-tank. Nguyên văn: *"bỏ mục Mali trong file word gửi tele hàng ngày.
-   Thêm mục Mali vào kết quả phần quét tập trận và thinktank."* Phiên quét KHÔNG phải làm gì thêm —
-   `make_docx.py` tự bỏ mục, `send-morning-email.js::diffMali` tự nhặt. Chi tiết + 03 bảng khoá phải
-   khớp nhau: CLAUDE.md gốc repo.
+4. ~~**Mỹ–Mali**~~ — ⛔ **BỎ HẲN 14/11/2026** (Huy chốt: *"Bỏ chủ đề Mali"*). KHÔNG quét, KHÔNG
+   giao agent, KHÔNG nạp tin Mali/Sahel/JNIM. Truy vấn, từ khoá và 02 nguồn chuyên Sahel (Long War
+   Journal · AllAfrica) đã gỡ khỏi mã và bảng nguồn. Giữ số 4 để «chủ đề 5» không lệch.
 5. **Tập trận ĐANG DIỄN RA** — cập nhật qua `exerciseUpdates`, `name` khớp **ĐÚNG** tên trong
    `DATA.exercises`. Diễn biến mới: khoa mục, bài bắn, lần đầu của từng nước, tuyên bố chỉ huy, khai
    mạc/bế mạc. 1–2 tin.
@@ -151,6 +144,15 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 > Trang mở không được (bị chặn, bản tải về không có `<title>`) thì tin vẫn nạp kèm dòng
 > `⚠ NGÀY THẬT`. Metadata nguồn ghi sai thật thì mở cổng bằng `--bo-cong-ngay-that="lý do"`,
 > KHÔNG lùi ngày batch.
+>
+> ⛔ **LỚP THỨ TƯ, cắm 14/11/2026: TIÊU ĐỀ VÀ NỘI DUNG MỌI TIN PHẢI QUA KHỬ MÙI A.I** (Huy chốt:
+> *"Nội dung và tiêu đề các bài phải chạy khử mùi A.I"*). `add_news.py` đưa `title` và từng câu
+> của `summary`, `significance` qua máy chấm `App/QuanSu/khu-mui-ai.py` (`scripts/khu_mui_tin.py`),
+> chặn cả lô nếu có câu dính. Viết ngay từ đầu cho sạch: gọi người bằng CHỨC DANH, cấm «ông/bà +
+> tên» («Tổng thư ký ITU Doreen Bogdan-Martin», không «bà Doreen»); cấm khuôn «không A mà B»,
+> «phép thử», «trần» theo nghĩa giới hạn, «chạm», «Hoa Kỳ» (viết «Mỹ»), ngoặc « ». Bị chặn thì
+> viết lại ĐÚNG câu máy nêu rồi nạp lại; cờ `--bo-cong-khu-mui="lý do"` chỉ dùng khi câu trích
+> nguyên văn nguồn. Canh bằng `tests/test-cong-khu-mui-tin.py`.
 
 **Báo Mới: được phép quét** — nhưng LỌC chỉ giữ bài hợp 5 chủ đề trên (xem Agent Báo Mới).
 
@@ -280,14 +282,14 @@ Nhúng nguyên khối `--recent-titles` vào prompt MỌI agent để né trùng
 `preferences.json` (👍/👎) chỉ là điều hướng mềm — với phạm vi tập trung này, 5 chủ đề là ưu tiên số 1.
 
 ## Bước 2 — Giao agent Sonnet (song song, `model: "sonnet"`, run_in_background:false)
-Chỉ **5 luồng** cho 5 chủ đề (gộp Mali+Predator vào 1 agent; Báo Mới 1 agent nếu có bài hợp topic):
+Chỉ **5 luồng** (luồng D chỉ còn tập trận vì Mali đã bỏ 14/11/2026; Báo Mới 1 agent nếu có bài hợp topic):
 
 | Agent | Chủ đề | Sản lượng (24h, nới 48h nếu thiếu) |
 |---|---|---|
 | A | **Nội bộ Mỹ (5 nhóm, 2 hạng)** → `usNews` cat `Chính trị`/`Kinh tế` | **12–18** (≥5 bài neo đối ngoại) — vét cạn nhóm (1) điều trần + bỏ phiếu TRƯỚC, thiếu mới lấy sang (2) sáng kiến/chiến lược các bộ · (3) biểu tình · (4) kinh tế Mỹ + Nhà Trắng/nội các · (5) bầu cử — bốn nhóm này NGANG HÀNG. Xem PHẠM VI MỚI mục 1. Prompt agent phải nêu RÕ hai hạng này và bắt agent báo lại đã cạn nhóm 1 chưa + số bài mỗi nhóm. ⛔ Nhóm 2 riêng phải nêu RÕ nhánh "đối ngoại/ngoại giao" là mục tiêu chủ động (không phải may rủi) — mục "Đối ngoại Mỹ" có sàn riêng 05 tin, xem PHẠM VI MỚI mục 1 nhóm 2. |
 | B | **Úc & Biển Đông** → `worldNews` | **15–20** — Úc (region IPAC) + Biển Đông (region Đông Á) + Anh. ⛔ Ba nhánh Anh · Australia · Biển Đông mỗi nhánh **≥5 bài**, vì file Word tách thành 03 tiểu mục có sàn riêng. Đủ tổng mà một nhánh thiếu là HỤT. |
 | C | **CNQS Mỹ** → `usNews` cat `Công nghệ quân sự` | **6–10** — khí tài/hệ thống cụ thể. |
-| D | **Mỹ–Mali + Predator's Run 2026** | Mali 2–5 (`usNews` dossier) · Predator 1–2 (`exerciseUpdates`). |
+| D | **Tập trận đang diễn ra** | 1–2 (`exerciseUpdates`). Mali bỏ hẳn 14/11/2026. |
 | BM | **Báo Mới** (nếu `--baomoi-pending` có bài hợp 5 chủ đề) | Bài ĐÃ LƯU: giữ hết (field `baomoiNews`). Ứng viên chuyên mục: **đúng chủ đề là CHO VÀO, không có trần số lượng** (Huy chốt 02/08/2026 — bỏ luật cũ «chọn 3–6 bài hợp gu nhất»), `worldNews`/`usNews` như thường. Không có bài hợp → bỏ qua agent này. |
 
 **Agent Báo Mới — TRUY NGƯỢC VỀ NGUỒN GỐC** (giữ nguyên quy tắc cũ): Báo Mới là trang tổng hợp. Với mỗi
@@ -384,7 +386,7 @@ Gộp vào `/tmp/new_items.json`:
 }
 ```
 `category` chỉ 4 giá trị hợp lệ (Kinh tế/Chính trị/Công nghệ quân sự/Ngoại giao); 5 chủ đề map: Nội bộ Mỹ→
-Chính trị, CNQS Mỹ→Công nghệ quân sự, Úc/Biển Đông→theo nội dung, Mali→Ngoại giao/CNQS/Chính trị.
+Chính trị, CNQS Mỹ→Công nghệ quân sự, Úc/Biển Đông→theo nội dung.
 
 ## Bước 4 — Chèn bằng script (guardrail chặn lần cuối)
 ```
@@ -559,7 +561,7 @@ còn hiệu lực 3 ngày nên bản tin sau vẫn lọc được phần còn l�
 - Ghi log `[$T] DONE: ...`. FAIL ở bước nào cũng VẪN push log.
 
 ## Bước 6 — Tóm tắt cuối
-Ngắn gọn: số tin mỗi chủ đề (Nội bộ Mỹ / Úc-Biển Đông / CNQS Mỹ / Mali / Predator), chủ đề nào thiếu +
+Ngắn gọn: số tin mỗi chủ đề (Nội bộ Mỹ / Úc-Biển Đông / CNQS Mỹ / Tập trận), chủ đề nào thiếu +
 lý do (đã nới 48h chưa), nguồn nổi bật, trạng thái push. KHÔNG liệt kê lại nội dung từng tin.
 
 ⚠️ **NÊU RÕ BƯỚC NÀO BỊ CẮT — ngay trong tóm tắt gửi Huy, không chỉ chôn trong `scan-gaps.json`**

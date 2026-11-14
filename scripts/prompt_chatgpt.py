@@ -10,7 +10,7 @@ chạy trên máy Huy bằng terminal — KHÔNG tốn hạn mức Claude.
 Hai chiều dùng:
 
   1) Sinh prompt (tự chạy harvest + --recent-titles rồi nhúng thẳng vào prompt):
-       python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|pitchblack
+       python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|pitchblack
      -> ghi vào ~/Claude/prompt-chatgpt/ và MỞ FINDER sẵn tại file đó. Copy TẤT CẢ, dán vào
      ChatGPT. Chạy KHÔNG có --chu-de thì ra prompt gộp 5 chủ đề — chỉ để xem, đừng dùng thật
      (quá dài, ChatGPT không mở hết link).
@@ -71,9 +71,7 @@ Báo lại: đã cạn nhóm (1) chưa, và mỗi nhóm được mấy bài.""")
 Khí tài/hệ thống CỤ THỂ của Mỹ: tên lửa, phòng không, hải quân, không gian/Space Force, laser, drone, AI quân sự, tàu ngầm, hợp đồng quốc phòng.
 ⚠️ Khí tài của nước KHÁC (Nga, Trung Quốc, Úc…) KHÔNG thuộc mục này — bỏ hoặc để chủ đề khác.
 ⚠️ Một trang "Contracts for July DD" gộp nhiều hợp đồng: chọn hợp đồng đáng đưa (khí tài cụ thể, giá trị lớn), đừng nạp cả trang; nhiều hợp đồng cùng trang thì gộp thành MỘT tin."""),
-    "mali": ("Mỹ – Mali", """**Mỹ – Mali** → `usNews` (đa số là chính sách/hành động của Mỹ), KHÔNG có `region`.
-Việc Mỹ cân nhắc/triển khai phương án quân sự ở Sahel nhắm JNIM (al-Qaeda): quyết định không kích drone, phản ứng của Mali/Nga (Africa Corps)/JNIM, diễn biến Sahel–Bamako. Tin phải gắn Mali/JNIM/Bamako/Sahel.
-⚠️ Bỏ tin Mali không liên quan an ninh (kinh tế thường, thể thao, giáo dục)."""),
+    # Mỹ – Mali BỎ HẲN 14/11/2026 (Huy chốt: "Bỏ chủ đề Mali").
     # Khối luật của chủ đề 05 sinh ĐỘNG — xem `_luat_tap_tran()`. Đặt chuỗi rỗng ở đây rồi
     # điền lúc chạy, vì dict này là hằng module-level: neo cứng tên kỳ tập trận vào đây chính
     # là một trong 05 chỗ từng phải sửa tay mỗi lần đổi kỳ (và quên là chủ đề câm).
@@ -234,10 +232,10 @@ Thà trả về 3 tin sạch còn hơn 8 tin có 1 tin bịa. Được phép tr�
 {luat_cd if luat_cd else '''1. **Nội bộ Mỹ** → `usNews`, category `Chính trị` (hoặc `Kinh tế` nếu đúng nội dung). Vét cạn hạng 1 trước — (1) **toàn bộ phiên điều trần + toàn bộ kết quả bỏ phiếu thông qua dự luật**. Thiếu mới lấy sang 4 nhóm NGANG HÀNG: (2) sáng kiến/chiến lược chính quyền trên kênh chính thống các bộ · (3) biểu tình/tuần hành/đình công · (4) kinh tế Mỹ (Fed, thuế quan, trừng phạt, số liệu) + động thái Nhà Trắng/nội các · (5) bầu cử (giữa kỳ, sơ bộ, thăm dò, quy định cử tri, redistricting). Phải là chuyện NỘI BỘ MỸ.
 2. **Úc, ANH & Biển Đông** → `worldNews`. AUKUS/quốc phòng Úc (`region: "Ấn Độ Dương - Thái Bình Dương"`) + **tin đáng chú ý về nước Anh — quốc phòng, kinh tế, chính trường, đối ngoại** (`region: "Châu Âu/NATO"`, mở phạm vi 01/09/2026) + chủ quyền/tuần tra/tập trận Biển Đông (`region: "Đông Á"`), gồm cả Malaysia, Indonesia, Brunei, Đài Loan, Việt Nam, COC ASEAN–Trung Quốc, Natuna/Bãi Tư Chính/Luconia/Bãi Cỏ Rong.
 3. **CNQS Mỹ** → `usNews`, category `Công nghệ quân sự`. Khí tài/hệ thống CỤ THỂ của Mỹ. Khí tài nước khác KHÔNG thuộc mục này.
-4. **Mỹ – Mali** → `usNews`. Mỹ cân nhắc/triển khai quân sự ở Sahel nhắm JNIM; phản ứng của Mali/Nga/JNIM. (Từ 05/08/2026 tin Mali KHÔNG vào file Word bản tin nữa mà đi ở bản sáng 🎖️ — nhưng vẫn quét và vẫn nạp `usNews` y như cũ.)
+4. ~~Mỹ – Mali~~ — BỎ HẲN 14/11/2026: KHÔNG lấy tin Mali/Sahel/JNIM.
 5. **Tập trận đang diễn ra** → `exerciseUpdates`. Tên cuộc lấy ĐÚNG từ mục Tập trận trong lô ứng viên bên dưới, sao y không sửa một ký tự.'''}
 
-Nhắm **{ {'mali': '2–5 tin', 'taptran': '1–2 tin cập nhật'}.get(key, '5–10 tin') }**{' cho chủ đề này' if ten_cd else ' mỗi chủ đề (Mali 2–5, tập trận 1–2)'}; thiếu thì để ít, KHÔNG nhồi.
+Nhắm **{ {'taptran': '1–2 tin cập nhật'}.get(key, '5–10 tin') }**{' cho chủ đề này' if ten_cd else ' mỗi chủ đề (tập trận 1–2)'}; thiếu thì để ít, KHÔNG nhồi.
 
 ## LUẬT NGUỒN
 | Nguồn | Cần xác nhận thêm? |
@@ -302,7 +300,7 @@ Sau khối JSON, thêm một khối riêng: {'chủ đề này' if ten_cd else '
     if not key:
         print(f"\n⚠️  Prompt gộp cả 5 chủ đề ({n:,} ký tự) — ChatGPT sẽ KHÔNG mở hết link, dễ bịa")
         print("   summary. Nên chạy TỪNG chủ đề, mỗi cái một đoạn chat riêng:")
-        print("   python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|mali|pitchblack")
+        print("   python3 scripts/prompt_chatgpt.py --chu-de my|uc|cnqs|pitchblack")
 
 
 def nap(path):

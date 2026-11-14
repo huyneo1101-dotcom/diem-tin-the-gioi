@@ -48,8 +48,6 @@ TRONG_YEU = [
     ("DoD Contracts", "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=400&Site=945&max=20", "RSS", False),
     ("DVIDS (toàn bộ)", "https://www.dvidshub.net/rss/all", "RSS", False),
     ("The War Zone (TWZ)", "https://www.twz.com/feed", "RSS", False),
-    ("Long War Journal (Mali)", "https://www.longwarjournal.org/feed", "RSS", False),
-    ("AllAfrica", "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf", "RSS", False),
     ("Lowy Interpreter", "https://www.lowyinstitute.org/the-interpreter/rss.xml", "RSS", False),
     ("ABC News AU", "https://www.abc.net.au/news/feed/51120/rss.xml", "RSS", False),
     ("Philstar", "https://www.philstar.com/rss/headlines", "RSS", False),

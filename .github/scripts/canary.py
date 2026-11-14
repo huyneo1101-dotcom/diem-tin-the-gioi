@@ -66,6 +66,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent.parent
 SO = pathlib.Path(os.environ.get("CANARY_SO") or (ROOT / "logs" / "da-gui-email.json"))
 STATE = ROOT / "logs" / "state.json"
 VN = zoneinfo.ZoneInfo("Asia/Ho_Chi_Minh")
+# Câu báo khi bản tin ĐÃ gửi mà còn chỗ cần xem — bộ test đọc từ đây (Huy chốt 14/11/2026).
+DA_GUI_CAN_XEM = "đã gửi nhưng còn chỗ cần xem"
 
 # Đi bằng curl chứ không urllib — máy Huy có thiết bị chèn cert nên urllib trượt
 # CERTIFICATE_VERIFY_FAILED. Chi tiết trong scripts/tg_api.py.
@@ -498,13 +500,10 @@ def main() -> int:
             print("[canary] mọi mục đủ sàn — im lặng"
                   + (" (sai giờ chỉ ghi log)." if sai_gio else "."))
             return loi_web
-        return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} có gửi nhưng CÓ MỤC HỤT.\n\n"
-                   + "\n\n".join(canh)
-                   + f"\n\nSàn Huy chốt 05/09/2026, nâng 18/09/2026: mỗi mục tối thiểu "
-                     f"{_soi_muc().SAN_MOI_MUC} tin (riêng Anh/Australia hạ tối "
-                     f"18/09/2026: {_soi_muc().SAN_RIENG_TIEU_MUC['Anh']} tin), "
-                     f"ĐẾM GỘP CẢ NGÀY.\n"
-                     f"Soi: python3 scripts/soi_muc_cam.py") + loi_web
+        # ⛔ Huy chốt 14/11/2026: bỏ chữ «MỤC HỤT» và bỏ đoạn đuôi «Sàn Huy chốt… · Soi:
+        # python3 …» — lời nhắn chỉ nói chỗ nào cần xem, không kể luật hay lệnh sửa.
+        return gui(f"⚠️ {gio_vn} {ngay_vn} — {nhan} {DA_GUI_CAN_XEM}.\n\n"
+                   + "\n\n".join(canh)) + loi_web
 
     xong, mota = trang_thai_quet(pipeline, o, ngay)
     if xong:

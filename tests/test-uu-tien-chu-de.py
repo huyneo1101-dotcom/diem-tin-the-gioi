@@ -224,7 +224,7 @@ def ca_09():
 def ca_10():
     """PHẢI CHẶN — tên chủ đề trong UU_TIEN_CHU_DE phải khớp bảng in cuối `main()`.
 
-    Lệch một ký tự (dấu gạch ngang `–` của "Mỹ – Mali" là chỗ hay lệch nhất) thì chủ đề đó
+    Lệch một ký tự (dấu gạch ngang `–` trong tên chủ đề là chỗ hay lệch nhất) thì chủ đề đó
     rơi xuống cuối trong im lặng, mà bảng vẫn in đủ 5 dòng.
     """
     m = re.search(r'for topic in \((.*?)\):', NGUON, re.S)
@@ -313,6 +313,17 @@ def ca_14():
     assert HV.nhanh_dia_ban("Chinese coast guard at Scarborough Shoal") == "Biển Đông"
 
 
+def ca_15():
+    """PHẢI CHẶN — chủ đề Mỹ – Mali đã BỎ HẲN 14/11/2026 (Huy chốt: *"Bỏ chủ đề Mali"*).
+
+    Không còn truy vấn Google News, không còn trong thứ tự giành URL. Ai dán lại dòng truy vấn
+    cũ thì phiên quét lại gom tin Sahel và lời nhắn Telegram lại kêu nguồn châu Phi.
+    """
+    dinh = [k for k in HV.GNEWS_QUERIES if "Mali" in k] + \
+           [k for k in HV.UU_TIEN_CHU_DE if "Mali" in str(k)]
+    assert not dinh, f"chủ đề Mali quay lại harvest.py: {dinh}"
+
+
 CA = [
     ("[01] PHẢI CHẶN: tin Pitch Black không bị chủ đề 02 ăn mất", ca_01),
     ("[02] sort ổn định trong cùng chủ đề", ca_02),
@@ -328,6 +339,7 @@ CA = [
     ("[12] PHẢI CHẶN: nhánh Anh thưa tin vẫn lọt trần in", ca_12),
     ("[13] đối chứng: nhánh cạn bài tự nhường slot, không cấp phát cứng", ca_13),
     ("[14] nhánh địa bàn dùng chung phép neo với tầng xuất bản", ca_14),
+    ("[15] PHẢI CHẶN: chủ đề Mali đã bỏ hẳn, không quay lại", ca_15),
 ]
 
 
@@ -354,8 +366,8 @@ BAN_HONG = [
       "    out, seen = [], set()"),
      [5]),
     ("đảo thứ tự: chủ đề 02 giành URL trước chủ đề 05 (đúng lỗi 02/08)",
-     ('UU_TIEN_CHU_DE = (topics.CHU_DE_TAP_TRAN, "Mỹ – Mali", "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")',
-      'UU_TIEN_CHU_DE = ("Úc & Biển Đông", "Mỹ – Mali", "CNQS Mỹ", topics.CHU_DE_TAP_TRAN, "Nội bộ Mỹ")'),
+     ('UU_TIEN_CHU_DE = (topics.CHU_DE_TAP_TRAN, "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")',
+      'UU_TIEN_CHU_DE = ("Úc & Biển Đông", "CNQS Mỹ", topics.CHU_DE_TAP_TRAN, "Nội bộ Mỹ")'),
      [1]),
     ("chủ đề chưa khai được cho lên ĐẦU thay vì xuống cuối",
      ("    return sorted(hits, key=lambda h: thu_tu.get(h.get(\"chu_de\"), len(thu_tu)))",
@@ -378,10 +390,15 @@ BAN_HONG = [
       """        '"Pitch Black" Australia exercise',"""),
      [7]),
     ("thêm chủ đề mới mà quên khai thứ tự giành URL",
-     ('''    "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],''',
-      '''    "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],\n'''
+     ('''        '"defense contract" OR "awarded a contract" Pentagon',\n    ],''',
+      '''        '"defense contract" OR "awarded a contract" Pentagon',\n    ],\n'''
       '''    "Chủ đề mới quên khai": ['something'],'''),
      [8]),
+    ("dán lại truy vấn chủ đề Mỹ – Mali đã bỏ 14/11/2026",
+     ('''        '"defense contract" OR "awarded a contract" Pentagon',\n    ],''',
+      '''        '"defense contract" OR "awarded a contract" Pentagon',\n    ],\n'''
+      '''    "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],'''),
+     [8, 15]),
 ]
 
 

@@ -25,12 +25,16 @@ Trang tin tĩnh (PWA) tiếng Việt, deploy tự động lên GitHub Pages khi 
 
 ⛔ **NGÀY CỦA TIN LÀ NGÀY ĐĂNG THẬT, ĐO BẰNG CÁCH MỞ BÀI (vá 25/08/2026, đừng gỡ):** cổng `scripts/ngay_that.py` gọi trong `add_news.py::main` đọc metadata có cấu trúc, CẤM quét ngày trong văn bản tự do; trang không in ngày thì BỎ tin (trừ tin mang `dateProofUrl`, Huy chốt 29/09/2026), trang không mở được thì GIỮ kèm dòng `⚠ NGÀY THẬT`; nguồn thiếu metadata thì thêm mẫu vào `doc_ngay`, đừng nới trần ngày; đường thoát `--bo-cong-ngay-that="lý do"`; canh bằng `tests/test-cong-ngay-that.py`. Cơ chế và số đo: `docs/luat/pham-vi-quet.md` mục «Dời nguyên văn từ `CLAUDE.md` ngày 13/11/2026».
 
+⛔ **TIÊU ĐỀ VÀ NỘI DUNG MỌI TIN PHẢI QUA KHỬ MÙI A.I (Huy chốt 14/11/2026, đừng gỡ):** cổng `scripts/khu_mui_tin.py` gọi trong `add_news.py::main` đo `title` và từng câu `summary`/`significance` bằng bản gốc duy nhất `App/QuanSu/khu-mui-ai.py::cau_bi_chan`, CẤM chép bảng mẫu sang repo này; chặn oan thì vá ở máy chấm kèm ca trong `QuanSu/test-khu-mui-ai.py`. Máy dự phòng GitHub không có máy chấm nên chỉ KÊU rồi cho qua; trên máy Mac thiếu máy chấm thì CHẶN. Đường thoát `--bo-cong-khu-mui="lý do"`; canh bằng `tests/test-cong-khu-mui-tin.py`.
+
+⛔ **LỜI NHẮN CẢNH BÁO TELEGRAM VIẾT CHO NGƯỜI KHÔNG RÀNH KỸ THUẬT (Huy chốt 14/11/2026):** cấm chữ «mục hụt», «nguồn câm chủ đề», «sàn», «feed», «item», «neo», tên khoá mã, và cấm dòng hướng dẫn sửa mã hay dòng kể luật («Sàn Huy chốt…», «Nguồn chuyên một chủ đề thì khai vào…», «Soi: python3…»). Nhãn đầu dòng khai ở `soi_muc_cam.NHAN_*`, câu mở ở `canary.DA_GUI_CAN_XEM`; ca 31 của `tests/test-cong-muc-cam.py` chặn chữ nghề quay lại.
+
 ⛔ **SÀN 05 TIN MỖI MỤC, ĐẾM THEO NGÀY + CỔNG «MỤC CÂM» — chốt 02 tin ngày 05/09/2026, NÂNG LÊN
 05 ngày 18/09/2026, đừng gỡ.** Nguyên văn: *"mỗi mục tối thiểu từ 2 tin đổi thành tối thiểu 5 tin"*
 · *"sàn 5 là sàn theo ngày nhé"* — cộng URL của MỌI lần gửi trong ngày rồi mới so sàn
 (`canary.urls_ngay`), nên phần gửi bù tính vào cùng ngày. Đếm theo **07 đơn vị của file Word**, không
-theo 05 chủ đề: Đối ngoại Mỹ · Nội bộ Mỹ · Địa bàn ›Anh · ›Australia · ›Biển Đông · KHCN-QS (Mali và
-Tập trận cố ý không mang sàn). Đếm gộp mục Địa bàn là che đúng lỗi sáng 05/09: mục đủ 02 tin mà tiểu
+theo 05 chủ đề: Đối ngoại Mỹ · Nội bộ Mỹ · Địa bàn ›Anh · ›Australia · ›Biển Đông · KHCN-QS (Tập
+trận cố ý không mang sàn; Mali bỏ hẳn 14/11/2026). Đếm gộp mục Địa bàn là che đúng lỗi sáng 05/09: mục đủ 02 tin mà tiểu
 mục **Anh bằng 0**. ⬇ TỐI 18/09/2026 Huy HẠ RIÊNG hai tiểu mục Anh/Australia xuống **3** (bốn mục
 còn lại vẫn giữ 5) — khai ở `soi_muc_cam.SAN_RIENG_TIEU_MUC`, tra qua `san_cho_muc()`. Sàn nâng kéo
 theo `harvest.PER_TOPIC_CAP` 20 → 36 và chỉ tiêu quét mỗi chủ đề (`.claude/skills/quet-tin/SKILL.md`).
@@ -87,7 +91,7 @@ có, commit ngay, phần thiếu ghi `logs/scan-gaps.json`. Đổi lịch thì �
 | 1 | **Nội bộ Mỹ** — hạng 1: **toàn bộ điều trần + toàn bộ kết quả bỏ phiếu**; hạng 2 (ngang hàng nhau, chỉ lấy khi hạng 1 đã cạn): sáng kiến và chiến lược chính quyền trên kênh chính thống của các bộ · biểu tình · kinh tế Mỹ và động thái bộ sậu · bầu cử | `usNews`, cat `Chính trị` (nhóm kinh tế có thể là `Kinh tế`) | hôm nay + hôm qua |
 | 2 | **Úc, ANH & Biển Đông** — mọi tin quân sự liên quan tới Úc, cả ba quân chủng; **tin đáng chú ý về nước Anh: quốc phòng, kinh tế, chính trường, đối ngoại (mở phạm vi 01/09/2026, `region: "Châu Âu/NATO"` — mở sang ANH chứ KHÔNG mở sang châu Âu)**; hoạt động quân sự và chiến tranh vùng xám ở Biển Đông; các nước ven vùng biển đó | `worldNews` | hôm nay + hôm qua |
 | 3 | **CNQS Mỹ** — khí tài, hệ thống, hợp đồng | `usNews`, cat `Công nghệ quân sự` | **lùi tới 3 ngày** |
-| 4 | **Mỹ – Mali** — Mỹ cân nhắc hoặc không kích JNIM ở Sahel | `usNews`, dossier `🟤 Mỹ – Mali` | hôm nay + hôm qua |
+| 4 | ~~Mỹ – Mali~~ — **BỎ HẲN 14/11/2026** (Huy chốt: *"Bỏ chủ đề Mali"*): không quét, đã gỡ truy vấn, từ khoá và 02 nguồn chuyên Sahel (Long War Journal · AllAfrica). Giữ số 4 để các chỗ gọi «chủ đề 5» không lệch | — | — |
 | 5 | **Tập trận đang diễn ra** | `exerciseUpdates`, `name` khớp đúng tên trong `DATA.exercises` | hôm nay + hôm qua |
 
 - ⛔ **"Nới 48h" = HÔM NAY + HÔM QUA, không phải lùi 2 ngày lịch** (chỉ thị Huy 27/07/2026). Tin cũ hơn
@@ -314,7 +318,7 @@ này (server trả gzip, parse ra nhị phân). Đừng gạch một nguồn khi
 **Cách kiểm lại về sau:** `scripts/rss_check.py` (đọc thẳng bảng này trong CLAUDE.md rồi fetch từng URL).
 
 ### Nguồn MỞ RỘNG 5 chủ đề — verify fetch thật 25/07/2026 (gộp vào để `rss_check.py` tự kiểm)
-Bổ sung cho 5 chủ đề (Nội bộ Mỹ · Úc–Biển Đông · CNQS Mỹ · Mali · Pitch Black). Chi tiết cách dùng từng
+Bổ sung cho các chủ đề (Nội bộ Mỹ · Úc–Biển Đông · CNQS Mỹ · Pitch Black). Chi tiết cách dùng từng
 nguồn xem Phụ lục trong `.claude/skills/quet-tin/SKILL.md`.
 | Nguồn | RSS URL | Kiểm 25/07 |
 |---|---|---|
@@ -375,7 +379,6 @@ news.com.au, ADBR, 9News, UK Parliament: 403/404/domain chết.
 | The War Zone (TWZ) | https://www.twz.com/feed | 44 item |
 | DefenseScoop | https://defensescoop.com/feed/ | 10 item |
 | Aviation Week | https://aviationweek.com/rss.xml | 10 item |
-| Long War Journal (Mali/JNIM) | https://www.longwarjournal.org/feed | 30 item |
 | DVIDS news (tập trận) | https://www.dvidshub.net/rss/news | 20 item |
 
 ⚠️ **Feed fetch được nhưng ĐỨNG — đừng trông vào cho tin trong ngày** (kiểm 25/07): **AMTI/CSIS** bài
@@ -654,7 +657,7 @@ chứ không phải `dig`. Chi tiết đầy đủ (số đo run CI, IP, byte t�
 | **Hải quân Mỹ** | https://www.navy.mil/Press-Office/Press-Releases/ | cả hai | **Úc & Biển Đông** · CNQS Mỹ |
 | **Thuỷ quân lục chiến Mỹ** | https://www.marines.mil/News/Press-Releases/ | cả hai | **Úc & Biển Đông** · **Pitch Black** |
 | **PACOM (Bộ Chỉ huy Ấn Độ Dương-TBD)** | https://www.pacom.mil/Media/News/News-Articles/ | **CI** | **Úc & Biển Đông** · **Pitch Black** |
-| **CENTCOM** | https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/ | **CI** | **Mỹ–Mali** · CNQS Mỹ |
+| **CENTCOM** | https://www.centcom.mil/MEDIA/PUBLIC-RELEASES/ | **CI** | CNQS Mỹ |
 | **JCS (Hội đồng Tham mưu trưởng Liên quân)** | https://www.jcs.mil/Media/News/ | **CI** | CNQS Mỹ · Úc & Biển Đông |
 | **Tuần duyên Mỹ (USCG)** | https://www.news.uscg.mil/Press-Releases/ | **CI** | Úc & Biển Đông |
 | Census Bureau | https://www.census.gov/newsroom/press-releases.html | **CI** | nhóm 4 (số liệu) |
@@ -738,7 +741,6 @@ thật hôm nay còn sống**. Cột "hợp chủ đề" = chủ đề trong 5 c
 | Shephard Media | https://www.shephardmedia.com/news/feed/ | 10 item, mới 23h | 3 + 2 Úc |
 | The Japan Times | https://www.japantimes.co.jp/feed/ | 30 item, mới 1h | 2 Biển Đông |
 | Yonhap (Hàn Quốc) | https://en.yna.co.kr/RSS/national.xml | 117 item, 0 thể thao, 2/117 neo (đo 25/09/2026; feed tổng news.xml 60/115 tin Asiad, 0 neo) | 2 Biển Đông |
-| AllAfrica | https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf | 30 item, mới 14h | 4 Mali/Sahel |
 | Federal News Network — Defense | https://federalnewsnetwork.com/category/defense-main/feed/ | 15 item, mới 10h | 1 Nội bộ Mỹ |
 | Atlantic Council | https://www.atlanticcouncil.org/feed/ | 100 item, mới 17h | tầng 3 phân tích |
 | Foreign Policy | https://foreignpolicy.com/feed/ | 25 item, mới 12h | tầng 3 phân tích |

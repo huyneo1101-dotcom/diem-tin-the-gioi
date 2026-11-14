@@ -106,7 +106,7 @@ GNEWS_QUERIES = {
         '"U.S. Air Force" OR "U.S. Navy" OR Pentagon missile OR hypersonic OR "Space Force"',
         '"defense contract" OR "awarded a contract" Pentagon',
     ],
-    "Mỹ – Mali": ['Mali OR JNIM OR Sahel OR Bamako OR "Africa Corps"'],
+    # ⛔ BỎ HẲN chủ đề Mỹ – Mali 14/11/2026 (Huy chốt: *"Bỏ chủ đề Mali"*) — không quét, không nguồn.
     # ⛔ CHỦ ĐỀ 05 KHÔNG CÒN NEO CỨNG TÊN KỲ TẬP TRẬN (05/08/2026, chỉ thị Huy: *"đang có tập
     # trận nào thì chỉ tập trung quét thông tin về tập trận đó"*). Danh sách để RỖNG ở đây;
     # truy vấn thật sinh lúc chạy từ `DATA.exercises` qua `scripts/tap_tran.py::truy_van` và
@@ -899,7 +899,7 @@ def bao_nguon_hong():
 # Nguyên tắc xếp: chủ đề HẸP đứng trước chủ đề RỘNG. Mục tập trận là hẹp nhất (một kỳ tập
 # trận đang chạy, nạp qua `exerciseUpdates` vào đúng thẻ), nên nó giành trước mục 02.
 # Chủ đề không có tên trong danh sách này thì xuống cuối, giữ nguyên thứ tự tương đối.
-UU_TIEN_CHU_DE = (topics.CHU_DE_TAP_TRAN, "Mỹ – Mali", "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")
+UU_TIEN_CHU_DE = (topics.CHU_DE_TAP_TRAN, "CNQS Mỹ", "Úc & Biển Đông", "Nội bộ Mỹ")
 
 
 def nap_tap_tran_dang_chay(hom_nay, im=False):
@@ -1077,11 +1077,10 @@ def main():
     for h in out:
         by_topic.setdefault(h["chu_de"], []).append(h)
 
-    print(f"\n=== ỨNG VIÊN THEO 5 CHỦ ĐỀ — {len(out)} bài trong khung ngày ===")
+    print(f"\n=== ỨNG VIÊN THEO 4 CHỦ ĐỀ — {len(out)} bài trong khung ngày ===")
     print(f"    (đã lọc: {bo_rac} rác · {bo_trung_data} trùng tin đã có · "
           f"{bo_trung_nhau} bản trùng nhau của cùng sự kiện)")
-    for topic in ("Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", "Mỹ – Mali",
-                  topics.CHU_DE_TAP_TRAN):
+    for topic in ("Nội bộ Mỹ", "Úc & Biển Đông", "CNQS Mỹ", topics.CHU_DE_TAP_TRAN):
         lst = by_topic.get(topic, [])
         extra = f" — in {PER_TOPIC_CAP} bài" if len(lst) > PER_TOPIC_CAP else ""
         print(f"\n-- {topic} ({len(lst)} bài{extra}) --")

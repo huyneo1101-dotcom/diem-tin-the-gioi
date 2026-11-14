@@ -56,11 +56,7 @@ TOPIC_KEYWORDS_VI = {
         "tên lửa mỹ", "drone mỹ", "uav mỹ", "hạm đội", "tàu sân bay", "khu trục",
         "siêu vượt âm", "siêu thanh", "golden dome", "phòng thủ tên lửa", "răn đe hạt nhân",
     ],
-    "Mỹ – Mali": [
-        "mali", "sahel", "jnim", "bamako", "africom", "burkina faso", "niger",
-        "wagner", "africa corps", "tuareg", "azawad", "kidal", "gao", "timbuktu",
-        "liên minh các quốc gia sahel",
-    ],
+    # ⛔ BỎ HẲN chủ đề Mỹ – Mali 14/11/2026 (Huy chốt: *"Bỏ chủ đề Mali"*) — không quét, không nguồn.
     # ⛔ NHÃN CỐ ĐỊNH "Tập trận" — KHÔNG bao giờ đổi theo tên kỳ tập trận (05/08/2026).
     # Trước đây khoá này mang tên riêng ("Predator's Run", rồi "Pitch Black") và mỗi lần đổi kỳ
     # phải sửa đủ 05 chỗ; quên một chỗ là chủ đề câm trong im lặng (đã xảy ra 2 lần).
@@ -164,11 +160,7 @@ TOPIC_KEYWORDS_EN = {
         "nuclear deterrence", "loyal wingman", "collaborative combat aircraft",
         "defense contract", "awarded a contract",
     ],
-    "Mỹ – Mali": [
-        "mali", "sahel", "jnim", "bamako", "africom", "burkina faso", "niger",
-        "wagner", "africa corps", "tuareg", "azawad", "kidal", "timbuktu",
-        "alliance of sahel states",
-    ],
+    # ⛔ BỎ HẲN chủ đề Mỹ – Mali 14/11/2026 (Huy chốt: *"Bỏ chủ đề Mali"*) — không quét, không nguồn.
     # Xem chú thích ở bảng tiếng Việt — nhãn cố định, từ khoá bơm động.
     "Tập trận": [],
     # 4 NHÓM theo thứ tự ưu tiên (chỉ thị Huy 27/07/2026) — nhóm 1 tìm TRƯỚC, thiếu mới xuống 2/3/4.

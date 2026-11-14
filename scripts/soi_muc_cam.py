@@ -91,7 +91,14 @@ SAN_RIENG_TIEU_MUC = {"Anh": 3, "Australia": 3}
 NGUONG_ITEM = 3
 # Tên 05 chủ đề như chúng được VIẾT trong cột cuối của bảng nguồn (CLAUDE.md). Dò bằng chuỗi
 # con vì cột đó viết tự do: "3 CNQS Mỹ", "**Nội bộ Mỹ nhóm 1**", "2 Biển Đông".
-TEN_CHU_DE_TRONG_BANG = ("Nội bộ Mỹ", "CNQS Mỹ", "Biển Đông", "Mali", "Tập trận", "Anh")
+# Nhãn đầu dòng của lời nhắn Telegram — một bản gốc, bộ test đọc từ đây (Huy chốt 14/11/2026:
+# cấm «mục hụt», «nguồn câm chủ đề», viết bằng chữ người không rành kỹ thuật hiểu được).
+NHAN_THIEU_TIN = "MỤC THIẾU TIN"
+NHAN_KHONG_RO_NGAY = "NGUỒN KHÔNG RÕ NGÀY ĐĂNG"
+NHAN_LAC_CHU_DE = "NGUỒN KHÔNG CÓ BÀI ĐÚNG CHỦ ĐỀ"
+NHAN_MAT_GAN = "NGUỒN BỊ TUỘT KHỎI DANH SÁCH"
+
+TEN_CHU_DE_TRONG_BANG = ("Nội bộ Mỹ", "CNQS Mỹ", "Biển Đông", "Tập trận", "Anh")
 # Dấu hiệu người viết bảng đã XÁC NHẬN feed không ghi ngày (xem docstring).
 DAU_KHONG_NGAY = "không ghi ngày"
 
@@ -188,19 +195,18 @@ def keu_feed(ket_qua: list, khai: dict = None) -> list:
             continue                      # đo không được thì im (xem docstring)
         k = khai.get(r["url"], {})
         if r["n_ngay"] == 0 and not k.get("khong_ngay"):
-            mu.append(f"{r['ten']} ({r['n']} item, 0 đọc được ngày)")
+            mu.append(f"{r['ten']} ({r['n']} bài)")
         if r["n_neo"] == 0 and k.get("chu_de"):
-            cam.append(f"{r['ten']} (khai «{k['chu_de']}», {r['n']} item, 0 neo)")
+            cam.append(f"{r['ten']} (chủ đề {k['chu_de']}: {r['n']} bài, 0 bài khớp)")
     ra = []
     if mu:
-        ra.append("🕳 FEED MÙ NGÀY — sống mà mọi item ra ngày «?» nên phiên quét loại sạch:\n  · "
-                  + "\n  · ".join(mu)
-                  + "\nFeed vốn không ghi ngày thì ghi «(feed không ghi ngày)» vào bảng nguồn "
-                    "trong CLAUDE.md; còn lại là lỗi đọc ngày trong harvest.parse_date.")
+        # ⛔ Lời nhắn Telegram viết cho người không rành kỹ thuật (Huy chốt 14/11/2026: bỏ
+        # «mục hụt», «nguồn câm chủ đề», bỏ dòng hướng dẫn sửa mã). Cách sửa nằm ở docstring.
+        ra.append(f"📅 {NHAN_KHONG_RO_NGAY} — nguồn vẫn có bài nhưng không bài nào đọc được "
+                  "ngày đăng, nên cả nguồn bị loại khỏi bản tin:\n  · " + "\n  · ".join(mu))
     if cam:
-        ra.append("🕳 NGUỒN CÂM CHỦ ĐỀ — bảng khai hẳn chủ đề mà không item nào neo được:\n  · "
-                  + "\n  · ".join(cam)
-                  + "\nNguồn chuyên một chủ đề thì khai vào harvest.FORCE_TOPIC_URL.")
+        ra.append(f"📭 {NHAN_LAC_CHU_DE} — nguồn vẫn có bài nhưng không bài nào khớp chủ đề "
+                  "đã giao cho nguồn:\n  · " + "\n  · ".join(cam))
     return ra
 
 
@@ -216,14 +222,13 @@ def khai_gan_cung_tuot() -> list:
     feeds = H.feeds_from_claude_md()
     ten = {n for n, _ in feeds}
     urls = [u for _, u in feeds]
-    mo_coi = [f"FORCE_TOPIC[{k!r}]" for k in H.FORCE_TOPIC if k not in ten]
-    mo_coi += [f"FORCE_TOPIC_URL[{k!r}]" for k in H.FORCE_TOPIC_URL
+    mo_coi = [k for k in H.FORCE_TOPIC if k not in ten]
+    mo_coi += [k for k in H.FORCE_TOPIC_URL
                if not any(k in u for u in urls)]
     if not mo_coi:
         return []
-    return ["🕳 GÁN CỨNG CHỦ ĐỀ TUỘT — khoá không còn khớp feed nào trong bảng nguồn:\n  · "
-            + "\n  · ".join(mo_coi)
-            + "\nNguồn đó nay chỉ neo được bằng từ khoá tiêu đề, tức mất phần lớn item."]
+    return [f"🔗 {NHAN_MAT_GAN} — nguồn được giao sẵn chủ đề nay không còn trong danh sách "
+            "nguồn, nên phần lớn bài của nguồn đó bị bỏ sót:\n  · " + "\n  · ".join(mo_coi)]
 
 
 # ═══════════════════════════ LỚP SÀN: mục nào dưới sàn ═══════════════════════════
@@ -282,8 +287,8 @@ def keu_san(dem: list) -> list:
     hut = [(t, n, s) for t, n, s in hut if n < s]
     if not hut:
         return []
-    return [f"📉 MỤC DƯỚI SÀN — {len(hut)}/{len(dem)} mục:\n  · "
-            + "\n  · ".join(f"{t}: {n} tin (sàn {s})" for t, n, s in hut)]
+    return [f"📉 {NHAN_THIEU_TIN} — {len(hut)}/{len(dem)} mục chưa đủ số tin tối thiểu "
+            "trong ngày:\n  · " + "\n  · ".join(f"{t}: {n} tin (cần {s})" for t, n, s in hut)]
 
 
 def urls_ngay(ngay: str) -> list | None:

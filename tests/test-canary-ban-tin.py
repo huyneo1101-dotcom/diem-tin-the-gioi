@@ -246,7 +246,7 @@ def _():
     return im_nhung_ghi_log_sai_gio(out, "04:50") and ma == 0, out
 
 
-@ca('6f. HỒI QUY 17/09: SAI GIỜ + MỤC CÂM cùng lúc → PHẢI nhắn MỤC HỤT (không kèm SAI GIỜ), '
+@ca('6f. HỒI QUY 17/09: SAI GIỜ + MỤC CÂM cùng lúc → PHẢI nhắn «còn chỗ cần xem» (không kèm SAI GIỜ), '
     'nhánh SAI GIỜ không được nuốt mất mục câm')
 def _():
     # Sự cố thật 17/09/2026: bản tin sáng gửi 04:37 (trễ hạn 04:30) NÊN CŨNG đúng lúc thiếu
@@ -254,13 +254,16 @@ def _():
     # không bao giờ chạy tới `canh_bao_muc_cam` — Huy phải tự đọc bản tin mới phát hiện.
     def gia_muc_cam(M):
         M.canh_bao_muc_cam = lambda ca, o, lan, ngay: (
-            ["📉 MỤC DƯỚI SÀN 5 TIN — 1/6 mục:\n  · Đối ngoại Mỹ: 0 tin"])
+            ["📉 MỤC THIẾU TIN — 1/6 mục chưa đủ số tin tối thiểu trong ngày:\n  · Đối ngoại Mỹ: 0 tin"])
     ma, out = chay("sang", so=so_gui("sang", "2026-07-29T04:50:00+07:00"),
                    state=state(ca="sang", ngay="2026-07-29"), luc="2026-07-29 06:15",
                    vien=gia_muc_cam)
     tin = out.split("--- DRY_RUN, không gửi ---", 1)[-1]
-    return (keu(out) and "MỤC HỤT" in tin and "SAI GIỜ" not in tin
-            and "Đối ngoại Mỹ: 0 tin" in tin), out
+    # ⛔ Huy chốt 14/11/2026: lời nhắn cấm chữ «MỤC HỤT» và đoạn đuôi «Sàn Huy chốt… · Soi:
+    # python3 …» — ca này đỏ nếu đoạn đuôi hay chữ cũ quay lại.
+    return (keu(out) and "đã gửi nhưng còn chỗ cần xem" in tin and "SAI GIỜ" not in tin
+            and "Đối ngoại Mỹ: 0 tin" in tin and "MỤC HỤT" not in tin
+            and "Sàn Huy chốt" not in tin and "Soi: python3" not in tin), out
 
 
 @ca('7. Sổ HỎNG (JSON vỡ) → PHẢI KÊU, canary không được chết câm vì file rác')

@@ -127,8 +127,8 @@ Tự xác định hai thứ:
 - **`chu_de`** — mảng chủ đề câu hỏi chạm tới, đặt tên tự do bằng tiếng Việt cho dễ đọc
   ("Kinh tế Mỹ", "Nga–Ukraine", "Biển Đông", "Bi-a"…).
 - **`trong_pham_vi`** — câu hỏi có nằm trong **5 chủ đề đang quét** không:
-  (1) Nội bộ Mỹ · (2) Úc & Biển Đông · (3) CNQS Mỹ · (4) Mỹ–Mali/Sahel ·
-  (5) Tập trận Predator's Run. Ngoài 5 cái đó → `false`.
+  (1) Nội bộ Mỹ · (2) Úc & Biển Đông · (3) CNQS Mỹ · (5) Tập trận đang diễn ra
+  (Mỹ–Mali bỏ hẳn 14/11/2026). Ngoài 4 cái đó → `false`.
 
 ### 2. Có tin nào đáng đưa lên bản tin không?
 
