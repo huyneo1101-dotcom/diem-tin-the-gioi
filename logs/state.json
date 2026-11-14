@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-14T04:10:44+07:00",
+    "lastRunAt": "2026-11-15T04:41:27+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "2 tap tran moi (IMNEX-26, Mitra Shakti XII), 1 cap nhat Malabar, 0 su kien ngoai giao, 6 bai think-tank + 13 khai niem, 2 background",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-11-14"
-    }
+    },
+    "heartbeat": "2026-11-15T04:41:27+07:00"
   }
 }
