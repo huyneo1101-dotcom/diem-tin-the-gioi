@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-14T08:04:13+07:00",
+    "lastRunAt": "2026-11-14T08:41:30+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+38 tin (5 chu de), quet bu sau khi khoa cu het han",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-11-13"
-    },
-    "heartbeat": "2026-11-14T08:41:03+07:00"
+      "sang": "2026-11-14"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-11-14T04:10:44+07:00",
