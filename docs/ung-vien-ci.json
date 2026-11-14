@@ -1,11 +1,19 @@
 {
-  "tao_luc": "2026-11-14T03:47:01+07:00",
+  "tao_luc": "2026-11-14T07:59:48+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-13",
     "2026-11-14"
   ],
   "ung_vien": [
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-14",
+      "tieu_de": "How the Jensen Huang scandal created a headache for business-friendly Singapore",
+      "nguon": "BBC World",
+      "url": "https://www.bbc.co.uk/news/articles/ck1exevgql4qo?at_medium=RSS&at_campaign=rss"
+    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -37,6 +45,14 @@
       "tieu_de": "Why Singapore keeps turning up in the fight over Nvidia chips and China",
       "nguon": "CNBC",
       "url": "https://www.cnbc.com/2026/11/13/nvidia-jensen-huang-alice-spy-megaspeed-.html"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-13",
+      "tieu_de": "Why Indonesia Is Falling Behind in Combating Information Disorder",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/11/why-indonesia-is-falling-behind-in-combating-information-disorder/"
     },
     {
       "lop": "RSS",
@@ -85,14 +101,6 @@
       "tieu_de": "Nvidia case puts Singapore, Malaysia companies in spotlight",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/business/technology/nvidia-case-puts-singapore-malaysia-companies-in-spotlight"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "Indonesia, Thailand, Philippines to set up shared oil reserves",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/energy/indonesia-thailand-philippines-to-set-up-shared-oil-reserves"
     },
     {
       "lop": "RSS",
@@ -165,14 +173,6 @@
       "tieu_de": "Indonesia’s Prabowo rushes end of Jokowi era with son’s ouster",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/11/13/asia-pacific/politics/prabowo-consolidates-power/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-11-13",
-      "tieu_de": "El Nino, climate change supercharged Indonesia fires, study says",
-      "nguon": "The Japan Times",
-      "url": "https://www.japantimes.co.jp/environment/2026/11/13/el-nino-climate-change-indonesia-fires/"
     },
     {
       "lop": "RSS",
@@ -274,7 +274,7 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-14",
-      "tieu_de": "Pentagon rebrands principle AI shop as ‘Super Intelligence Office’",
+      "tieu_de": "Pentagon rebrands principal AI shop as ‘Super Intelligence Office’",
       "nguon": "Breaking Defense",
       "url": "https://breakingdefense.com/2026/11/pentagon-rebrands-principle-ai-shop-as-super-intelligence-office/"
     },
@@ -297,10 +297,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-13",
-      "tieu_de": "Will Democrats try to strip US-Israel initiative from Pentagon funding?",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/11/13/will-democrats-try-to-strip-us-israel-initiative-from-pentagon-funding?traffic_source=rss"
+      "ngay": "2026-11-14",
+      "tieu_de": "US air force responds to suspected drone activity over UK airbase",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/us-air-force-responds-to-suspected-drone-activity-over-uk-airbase"
     },
     {
       "lop": "RSS",
@@ -309,6 +309,14 @@
       "tieu_de": "Iran showcases missiles as military targets US army radar in Bahrain",
       "nguon": "Africanews",
       "url": "http://www.africanews.com/2026/11/13/iran-showcases-missiles-as-military-targets-us-army-radar-in-bahrain/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "Italy cạn tên lửa 'Patriot của châu Âu', không thể viện trợ Ukraine",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/italy-can-ten-lua-patriot-cua-chau-au-khong-the-vien-tro-ukraine-5144172.html"
     },
     {
       "lop": "RSS",
@@ -333,6 +341,14 @@
       "tieu_de": "Hạ viện bác nỗ lực luận tội Bộ trưởng Quốc phòng, Lầu Năm Góc lên tiếng",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/ha-vien-bac-no-luc-luan-toi-bo-truong-quoc-phong-lau-nam-goc-len-tieng-20261111090617657.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "Hegseth directs Pentagon CFO to transform military pay systems",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/newsletters/defense-national-security/6220214-hegseth-directs-pentagon-cfo-to-transform-military-pay-systems/"
     },
     {
       "lop": "RSS",
@@ -379,7 +395,7 @@
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-13",
       "tieu_de": "Sentinel at Tomb of the Unknown Soldier awarded medal by Hegseth",
-      "nguon": "The Hill",
+      "nguon": "The Hill — Defense",
       "url": "https://thehill.com/policy/defense/6216510-hegseth-awards-sentinel-medal/"
     },
     {
@@ -397,6 +413,14 @@
       "tieu_de": "BAE Systems receives US Navy contract for Virginia propulsors",
       "nguon": "Naval Technology",
       "url": "https://www.naval-technology.com/news/bae-systems-submarine-propulsors/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "Suspected Drones Over RAF Lakenheath Just Triggered Security Response: U.S. Air Force (Updated)",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/air/suspected-drones-over-raf-lakenheath-just-triggered-security-response-u-s-air-force"
     },
     {
       "lop": "RSS",
@@ -426,9 +450,17 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-14",
-      "tieu_de": "Pioneer Valley support integral to Patriot Wing mission success",
+      "tieu_de": "Marine Corps advances plans for reserve integration at Blount Island",
       "nguon": "DVIDS news (tập trận)",
-      "url": "https://www.dvidshub.net/news/579327/pioneer-valley-support-integral-patriot-wing-mission-success"
+      "url": "https://www.dvidshub.net/news/579352/marine-corps-advances-plans-reserve-integration-blount-island"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "Patriot Wing Airmen construct local operational RADR training pad",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/579340/patriot-wing-airmen-construct-local-operational-radr-training-pad"
     },
     {
       "lop": "RSS",
@@ -481,10 +513,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-13",
-      "tieu_de": "Contracts for Nov. 12, 2026",
+      "ngay": "2026-11-14",
+      "tieu_de": "Contracts for Nov. 13, 2026",
       "nguon": "DoD Contracts",
-      "url": "https://www.war.gov/News/Contracts/Contract/Article/4647086/contracts-for-nov-12-2026/"
+      "url": "https://www.war.gov/News/Contracts/Contract/Article/4648154/contracts-for-nov-13-2026/"
     },
     {
       "lop": "RSS",
@@ -570,6 +602,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-14",
+      "tieu_de": "Lawsuit says Pentagon’s future warfare panel lacks transparency and balance",
+      "nguon": "Military Times",
+      "url": "https://www.militarytimes.com/news/pentagon-congress/2026/11/13/lawsuit-says-pentagons-future-warfare-panel-lacks-transparency-and-balance/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
       "tieu_de": "US Air Force adopts new Force Design focusing on sensors and autonomy",
       "nguon": "Military Times",
       "url": "https://www.militarytimes.com/news/your-military/2026/11/13/us-air-force-adopts-new-force-design-focusing-on-sensors-and-autonomy/"
@@ -581,6 +621,22 @@
       "tieu_de": "USAF and Northrop Grumman Confirm B-21 Raider’s First Weapon Release",
       "nguon": "The Aviationist",
       "url": "https://theaviationist.com/2026/11/13/b-21-raider-first-weapon-release/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "Marconi Technologies Awarded Contract to Deliver Critical Communications for Patriot Air and Missile Defense System",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/11/13/marconi-technologies-awarded-contract-to-deliver-critical-communications-for-patriot-air-and-missile-defense-system/?utm_source=rss&utm_medium=rss&utm_campaign=marconi-technologies-awarded-contract-to-deliver-critical-communications-for-patriot-air-and-missile-defense-system"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "NEXTORCH P09 4-in-1 Multi-Function Duty Flashlight",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/11/13/nextorch-p09-4-in-1-multi-function-duty-flashlight/?utm_source=rss&utm_medium=rss&utm_campaign=nextorch-p09-4-in-1-multi-function-duty-flashlight"
     },
     {
       "lop": "RSS",
@@ -617,10 +673,10 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-13",
-      "tieu_de": "Global Ordnance and ARQUIMEA Sign Teaming Agreement to Expand Drone and Counter-Drone Capabilities for US Forces",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/11/12/global-ordnance-and-arquimea-sign-teaming-agreement-to-expand-drone-and-counter-drone-capabilities-for-us-forces/?utm_source=rss&utm_medium=rss&utm_campaign=global-ordnance-and-arquimea-sign-teaming-agreement-to-expand-drone-and-counter-drone-capabilities-for-us-forces"
+      "ngay": "2026-11-14",
+      "tieu_de": "Has the Pentagon lost track of billions of dollars’ worth of F-35 parts? Not exactly",
+      "nguon": "Sandboxx News",
+      "url": "https://www.sandboxx.us/news/has-the-pentagon-lost-track-of-billions-of-dollars-worth-of-f-35-parts-not-exactly/"
     },
     {
       "lop": "RSS",
@@ -637,6 +693,14 @@
       "tieu_de": "US Air Force eyes reviving WWII air bases in the Pacific",
       "nguon": "Sandboxx News",
       "url": "https://www.sandboxx.us/news/us-air-force-eyes-reviving-wwii-air-bases-in-the-pacific/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "NATO Forward Land Forces Battle Group-Poland welcomes new U.S. Army commander during Transfer of Authority Ceremony at BPTA: B-Roll",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1029755/nato-forward-land-forces-battle-group-poland-welcomes-new-us-army-commander-during-transfer-authority-ceremony-bpta-b"
     },
     {
       "lop": "RSS",
@@ -661,14 +725,6 @@
       "tieu_de": "U.S. Army Air Defenders in Europe Assess C-UAS Interceptor",
       "nguon": "DVIDS (toàn bộ)",
       "url": "https://www.dvidshub.net/video/1029696/us-army-air-defenders-europe-assess-c-uas-interceptor"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-13",
-      "tieu_de": "NATO Forward Land Forces Battle Group-Poland welcomes new U.S. Army commander during Transfer of Authority Ceremony at BPTA",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/news/579199/nato-forward-land-forces-battle-group-poland-welcomes-new-us-army-commander-during-transfer-authority-ceremony-bpta"
     },
     {
       "lop": "RSS",
@@ -745,6 +801,14 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "Mỹ thử nghiệm thành công vũ khí trên máy bay ném bom tàng hình B-21 Raider",
+      "nguon": "VietnamPlus (TTXVN)",
+      "url": "https://www.vietnamplus.vn/my-thu-nghiem-thanh-cong-vu-khi-tren-may-bay-nem-bom-tang-hinh-b-21-raider-post1148193.vnp"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-11",
       "tieu_de": "Iran tuyên bố tiêm kích F-35 của Mỹ không thể giúp tàu thuyền đi qua Hormuz",
       "nguon": "VietnamNet",
@@ -810,6 +874,22 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "?",
+      "tieu_de": "Did we really see a black hole? Australian team says 'yes'",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/business/science/did-we-really-see-a-black-hole-australian-team-says-yes"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
+      "tieu_de": "No grass, no problem: Playing sand golf in the Australian outback",
+      "nguon": "Nikkei Asia",
+      "url": "https://asia.nikkei.com/life-arts/life/no-grass-no-problem-playing-sand-golf-in-the-australian-outback"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "?",
       "tieu_de": "Quad leaders eye Manila meeting on economic, strategic security",
       "nguon": "Nikkei Asia",
       "url": "https://asia.nikkei.com/politics/international-relations/indo-pacific/quad-leaders-eye-manila-meeting-on-economic-strategic-security"
@@ -849,30 +929,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Malaysia seeks Taiwan meeting restart as Anwar defends China stance",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/malaysia-seeks-taiwan-meeting-restart-as-anwar-defends-china-stance"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Taiwan emphasizes APEC China presence as it walks diplomatic tightrope",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/apec/taiwan-emphasizes-apec-china-presence-as-it-walks-diplomatic-tightrope"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Ukraine defense tech unicorn cultivates Taiwan and Japan supply chain ties",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/business/aerospace-defense-industries/ukraine-defense-tech-unicorn-cultivates-taiwan-and-japan-supply-chain-ties"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-13",
       "tieu_de": "Khoảnh khắc đuôi máy bay British Airways va quệt đường băng khi hạ cánh",
       "nguon": "Dân Trí",
@@ -882,25 +938,33 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-14",
-      "tieu_de": "Trump to rule on tariffs for Australian lamb after trade commissioners disagree",
+      "tieu_de": "Australia wins six Youth Olympics medals as African Games hailed",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-14/us-trade-investigation-into-lamb-imports-decision-handed-down/107385510"
+      "url": "https://www.abc.net.au/news/2026-11-14/youth-olympic-games-2026-senegal-six-medals/107385766"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-14",
-      "tieu_de": "Australia, Philippines to ink defence deal amid South China Sea tensions",
+      "tieu_de": "Australian cricket urged to stop 'eating itself' as Sandpapergate rolls on",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-14/major-defence-deal-astralia-philippines-clashes-china/107381694"
+      "url": "https://www.abc.net.au/news/2026-11-14/feuding-sandpapergate-cricketers-told-to-move-on-greg-chappel/107385674"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-14",
-      "tieu_de": "Australia must develop digital resilience, experts warn, but it will cost",
+      "tieu_de": "Police seeking witnesses after violent home invasion in Canberra",
       "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-14/microsoft-outage-and-cloud-providers-tech-risk-in-australia/107383316"
+      "url": "https://www.abc.net.au/news/2026-11-14/police-call-witnesses-hackett-home-invasion/107385772"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-14",
+      "tieu_de": "Exhibition celebrating 'unbridled messiness' of womanhood opens in Canberra",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-14/act-mother-maiden-crone-exhibition-national-portrait-gallery/107383094"
     },
     {
       "lop": "RSS",
@@ -1001,6 +1065,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-14",
+      "tieu_de": "Trump to rule on tariffs for Australian lamb after trade commissioners disagree",
+      "nguon": "ABC News Australia",
+      "url": "https://www.abc.net.au/news/2026-11-14/us-trade-investigation-into-lamb-imports-decision-handed-down/107385510"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-13",
       "tieu_de": "Outlook outage expected to cost Australian businesses billions of dollars",
       "nguon": "ABC News Australia",
@@ -1009,10 +1081,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-13",
-      "tieu_de": "Australia defends climate record after Greta Thunberg's 'snail' swipe",
-      "nguon": "ABC News Australia",
-      "url": "https://www.abc.net.au/news/2026-11-13/chris-bowen-seeks-pragmatic-consensus-nto-inal-cop31-talks/107380860"
+      "ngay": "2026-11-14",
+      "tieu_de": "Street photography through an Australian lens – in pictures",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/artanddesign/gallery/2026/nov/14/australian-street-photography-awards-gallery"
     },
     {
       "lop": "RSS",
@@ -1029,6 +1101,14 @@
       "tieu_de": "Bob Carr on the ‘lie’ of Aukus and Trump’s upcoming meeting with Albanese - podcast",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/australia-news/audio/2026/nov/13/bob-carr-on-aukus-trump-and-albanese-australian-politics-podcast"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-13",
+      "tieu_de": "What’s behind Australia’s surge in teen extremism?",
+      "nguon": "The Guardian Australia",
+      "url": "https://www.theguardian.com/australia-news/2026/nov/13/australia-surge-in-teen-extremism-ntwnfb"
     },
     {
       "lop": "RSS",
@@ -1065,6 +1145,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-14",
+      "tieu_de": "Psychic Fever catches on in the Philippines",
+      "nguon": "Inquirer",
+      "url": "https://lifestyle.inquirer.net/585906/psychic-fever-catches-on-in-the-philippines/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-13",
       "tieu_de": "Australia commits $60m workforce package for AUKUS",
       "nguon": "Naval Technology",
@@ -1093,6 +1181,14 @@
       "tieu_de": "Rural Australian communities are hosting the clean energy boom. Are they getting a fair say?",
       "nguon": "The Conversation (Úc)",
       "url": "https://theconversation.com/rural-australian-communities-are-hosting-the-clean-energy-boom-are-they-getting-a-fair-say-296254"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-14",
+      "tieu_de": "ASEAN leaders gather in Manila with South China Sea, Myanmar in focus",
+      "nguon": "Channel News Asia — Asia",
+      "url": "https://www.channelnewsasia.com/asia/asean-summit-manila-south-china-sea-myanmar-6549311"
     },
     {
       "lop": "RSS",
@@ -1186,14 +1282,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-13",
-      "tieu_de": "What’s behind Australia’s surge in teen extremism?",
-      "nguon": "The Guardian — World",
-      "url": "https://www.theguardian.com/australia-news/2026/nov/13/australia-surge-in-teen-extremism-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-13",
       "tieu_de": "Kết nối doanh nghiệp du lịch Việt Nam-Brunei, mở cơ hội hợp tác du lịch Halal",
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/ket-noi-doanh-nghiep-du-lich-viet-nam-brunei-mo-co-hoi-hop-tac-du-lich-halal-post1148119.vnp"
@@ -1226,24 +1314,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-13",
-      "tieu_de": "Why midterm vote-counting is taking so long in America's largest state",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/cqly4ljvr4pjo?at_medium=RSS&at_campaign=rss",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-13",
-      "tieu_de": "Midterms: What does the 'blue tsunami' mean for US media?",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/tv-shows/scoop/20261113-what-does-the-blue-tsunami-mean-for-us-media",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-13",
       "tieu_de": "Mexico's Sheinbaum says migrant caravan not moving toward US now as Trump threatens tariffs",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/no-migrant-caravans-headed-to-us-says-mexico-president",
@@ -1271,6 +1341,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-13",
+      "tieu_de": "Japan and the US Need an Allied Technology Market, Not New Tariffs",
+      "nguon": "The Diplomat",
+      "url": "https://thediplomat.com/2026/11/japan-and-the-us-need-an-allied-technology-market-not-new-tariffs/",
+      "nhom": 4
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-13",
       "tieu_de": "Thêm bộ trưởng Mỹ 'dọn nhà vào doanh trại'",
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/them-bo-truong-my-don-nha-vao-doanh-trai-5144412.html",
@@ -1293,6 +1372,15 @@
       "nguon": "VnExpress",
       "url": "https://vnexpress.net/jensen-huang-bi-yeu-cau-ra-dieu-tran-truoc-uy-ban-thuong-vien-my-5144110.html",
       "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-14",
+      "tieu_de": "&Ocirc;ng Jensen Huang đối mặt tr&aacute;t triệu tập từ quốc hội Mỹ",
+      "nguon": "Thanh Niên",
+      "url": "https://thanhnien.vn/ong-jensen-huang-doi-mat-trat-trieu-tap-tu-quoc-hoi-my-185261113202033574.htm",
+      "nhom": 9
     },
     {
       "lop": "RSS",
@@ -1397,6 +1485,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-14",
+      "tieu_de": "Colorado Democrat beats Maga firebrand Lauren Boebert in House race",
+      "nguon": "Financial Times — World",
+      "url": "https://www.ft.com/content/ed6db87e-829a-41b4-a687-554847d6f904?syn-25a6b1a6=1",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-14",
       "tieu_de": "Bessent blames Lutnick’s commerce department for failure to blacklist Megaspeed",
       "nguon": "Financial Times — World",
       "url": "https://www.ft.com/content/ce6d292e-eaaa-4c23-b909-34276e1a1e8d?syn-25a6b1a6=1",
@@ -1442,6 +1539,15 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-14",
+      "tieu_de": "United States Seeks Mexico’s Review of Alleged Denial of Workers’ Rights at Industrias FG",
+      "nguon": "USTR",
+      "url": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/november/united-states-seeks-mexicos-review-alleged-denial-workers-rights-industrias-fg",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-14",
       "tieu_de": "Nvidia scandal: US treasury chief blames Lutnick’s commerce department over alleged lack of action",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/technology/2026/nov/13/nvidia-scandal-sparks-us-national-security-concerns-china",
@@ -1464,15 +1570,6 @@
       "nguon": "VietnamPlus (TTXVN)",
       "url": "https://www.vietnamplus.vn/my-trieu-tap-cuu-ceo-nvidia-va-bo-truong-thuong-mai-dieu-tran-truoc-quoc-hoi-post1148151.vnp",
       "nhom": 1
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-13",
-      "tieu_de": "Tổng thống Mỹ cảnh báo tăng gấp đôi thuế quan đối với hàng hóa Mexico",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/tong-thong-my-canh-bao-tang-gap-doi-thue-quan-doi-voi-hang-hoa-mexico-post1147971.vnp",
-      "nhom": 4
     },
     {
       "lop": "RSS",
