@@ -1,19 +1,23 @@
 {
-  "date": "2026-11-12",
+  "date": "2026-11-14",
   "session": "sang",
   "topics": [
-    {"name": "Nội bộ Mỹ", "count": 11, "target": "12-18", "min": 12, "thieu": true,
-     "reason": "Phần ngoài 'Đối ngoại Mỹ' (Richard Star Act, điều trần Jensen Huang, 2 dự luật ngân sách FY27, markup Thương mại Thượng viện, đe doạ thuế quan Mexico, phản ứng Sheinbaum) chỉ ra được 6 tin — dưới chỉ tiêu tổng 12-18 dù vẫn ≥5. Nhiều ứng viên hạng 1 khác (7 dự luật doanh nghiệp nhỏ, luận tội Hegseth, OMB Hal Duncan, TCAVA) hoặc ngày thật ngoài khung 12-13/11 (TCAVA đăng thật 11/11) hoặc đã có sẵn trong DATA từ phiên trước. Đã dùng hết lượt agent bổ sung duy nhất (trần agent con) cho việc vá cổng NGÀY ĐĂNG THẬT + sàn Đối ngoại Mỹ nên không tìm thêm được. Tổng cả 2 mục (6+5=11) vẫn dưới 12."},
-    {"name": "Đối ngoại Mỹ", "count": 5, "target": "≥5", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Anh", "count": 6, "target": "5-20", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Australia", "count": 5, "target": "5-20", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Địa bàn › Biển Đông", "count": 6, "target": "5-20", "min": 5, "thieu": false, "reason": ""},
-    {"name": "Công nghệ quân sự Mỹ (KHCN-QS)", "count": 6, "target": "6-10", "min": 6, "thieu": false, "reason": ""},
-    {"name": "Mỹ – Mali", "count": 2, "target": "2-5", "min": 2, "thieu": false, "reason": ""},
-    {"name": "Tập trận đang diễn ra", "count": 0, "target": "1-2", "min": 1, "thieu": true,
-     "reason": "Duy nhất 'Dynamic Merlin 26' (NATO, săn ngầm Baltic) còn ongoing trong khung ngày (09-13/11), các cuộc khác đã kết thúc trước 12/11. Agent D đã WebSearch/WebFetch UK Defence Journal, Navy Lookout, NATO MARCOM, armees.com nhưng không tìm được diễn biến MỚI ngoài nội dung đã có sẵn trong DATA (ngày 09/11) — mọi nguồn chỉ lặp lại khung khai mạc, không có tin khoa mục/bế mạc mới ngày 12-13/11. Chấp nhận 0, không bịa diễn biến."},
-    {"name": "Báo Mới", "count": 0, "target": "tuỳ", "min": 0, "thieu": false,
-     "reason": "7 ứng viên cổng --recent-titles khớp từ khoá 5 chủ đề sau khi đã nạp lô chính, cả 7 LOẠI: tin thuế quan Mexico (VietnamPlus) TRÙNG sự kiện đã nạp từ Bloomberg/Yahoo trong lô chính; 5 bản tin khủng hoảng bằng cấp Phó Tổng thống Indonesia Gibran (nội bộ chính trị Indonesia, không neo được Biển Đông dù khớp từ khoá 'Indonesia'); phát ngôn Zelensky bình luận bầu cử Mỹ (không phải diễn biến nội bộ Mỹ hay đối ngoại do Mỹ khởi xướng). Chi tiết logs/loai-tin.md."}
+    {"name":"Đối ngoại Mỹ","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Nội bộ Mỹ","count":17,"target":"5-13","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Anh","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"KHCN-QS","count":14,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Mỹ – Mali","count":1,"target":"2-5","min":0,"thieu":false,
+     "reason":"Không mang sàn. Chỉ còn 1 tin đạt chuẩn (JNIM-ISSP leo thang ở Burkina Faso, Al Jazeera) — ứng viên BAMEX Bamako (military.africa) bị cổng NGÀY ĐĂNG THẬT chặn vì bài thật đăng 09/11, ngoài khung 3 ngày tính từ batch 14/11; 22 ứng viên Google News khác toàn nhiễu (trận bóng Mali vs Rwanda vòng loại CAN 2027)."},
+    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
+     "reason":"Không mang sàn. Các cuộc đang chạy (IMNEX-26, Mitra Shakti XII, Malabar 2026) đã được phiên event-scan 04:10 giờ VN cùng ngày cập nhật đầy đủ; agent D không tìm thấy diễn biến THỰC SỰ MỚI nào ngoài thông tin đã nạp (INS Sahyadri rời Yokosuka sau Malabar, kết thúc Naseem Al Bahr kỳ 15 — cả hai đã có trong DATA)."}
   ],
-  "note": "Lô chính (5 agent chủ đề + 1 agent bổ sung duy nhất, đúng trần agent con 6 lượt/phiên) ban đầu bị cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn 7 tin vì trang gốc (The Hill, 2×state.gov, Senate Appropriations, Bloomberg, 2×Naval News) không có metadata ngày đọc được dạng cấu trúc — đã vá bằng dateProofUrl (link thứ hai cùng sự việc, có ngày đọc được: Stripes, ExecutiveGov, Japan Daily Sun, defconlevel.com, Yahoo, Marine Log, Manila Times) cho cả 7, không dùng cờ --bo-cong-ngay-that. 2 tin Anh (Streeting 41%, Hybrid Navy) ban đầu bị cổng NEO CHỦ ĐỀ 2 chặn vì chỉ viết 'Anh' (quá chung, không khớp bảng NEO_ANH) — đã sửa câu chữ thêm 'nước Anh'/'Vương quốc Anh' đúng sự thật, không đổi nội dung. gh workflow run telegram-bot.yml bị chặn 'requires approval' trong CI nên KHÔNG kích được bot — BỎ QUA bước lọc file Jay Lâm (Bước 4c) hoàn toàn, fail-open có tiếng, ghi trong logs/scan-2026-11-13.log. Phiên dùng ĐỦ 6/6 lượt agent con cho phép (5 luồng gốc A-B-C-D-BM + 1 bổ sung vá cổng ngày thật/sàn Đối ngoại Mỹ) — Nội bộ Mỹ tổng và Tập trận hụt sàn được CHỐT, không giao vòng thứ hai."
+  "note": "Phiên quét bù: khoá web-scan bị giữ bởi một phiên CI khác bắt đầu 04:00:45 giờ VN nhưng chết giữa chừng (không beat sau 04:40, không FAIL/DONE) — phiên này claim thành công lúc 08:04 VN sau khi khoá hết hạn (>30'). Vì bắt đầu quét sau 07:00 VN, cổng khung giờ của notify-email.yml không tự bắn Telegram — đã kích workflow_dispatch bằng tay ngay sau khi push để gửi bù. Chi tiết đầy đủ các tin bị loại/cứu bằng dateProofUrl: logs/loai-tin.md (mục 'TOÀN PHIÊN 14/11 sáng — QUÉT BÙ'). Trần agent con: đã dùng 5/6 (4 luồng gốc A·B·C·D + 1 bổ sung Anh/Australia/Biển Đông); tin Rubio ICC (Đối ngoại Mỹ, item thứ 5) được orchestrator tự WebSearch/WebFetch trực tiếp, không tốn thêm lượt agent."
 }
