@@ -1,23 +1,21 @@
 {
-  "date": "2026-11-14",
+  "date": "2026-11-15",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":5,"target":"5","min":5,"thieu":false,
+    {"name":"Đối ngoại Mỹ","count":5,"target":"5-10","min":5,"thieu":false,
      "reason":""},
-    {"name":"Nội bộ Mỹ","count":17,"target":"5-13","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Địa bàn › Anh","count":5,"target":"5","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,
-     "reason":""},
-    {"name":"KHCN-QS","count":14,"target":"5","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Mỹ – Mali","count":1,"target":"2-5","min":0,"thieu":false,
-     "reason":"Không mang sàn. Chỉ còn 1 tin đạt chuẩn (JNIM-ISSP leo thang ở Burkina Faso, Al Jazeera) — ứng viên BAMEX Bamako (military.africa) bị cổng NGÀY ĐĂNG THẬT chặn vì bài thật đăng 09/11, ngoài khung 3 ngày tính từ batch 14/11; 22 ứng viên Google News khác toàn nhiễu (trận bóng Mali vs Rwanda vòng loại CAN 2027)."},
+    {"name":"Nội bộ Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"Đã giao đủ trần 6 agent cả phiên (5 luồng gốc + 1 bổ sung duy nhất). Nhiều ứng viên bị cổng NGÀY ĐĂNG THẬT chặn: ngày sự kiện thật cũ hơn khung 14-15/11 (NPR voter roll 11-13, Warren/FTC letter 11-12, Courtney/Hải quân letter 11-12, Law360 thẩm phán Cook 11-13, Fortune tariff refund 11-12), hoặc trang không in ngày đăng ở dạng metadata đọc được (state.gov Singapore + G7 Taiwan/Cuba, USTR Mexico, GOP 2028 thehill.com). Không đủ thời gian trong trần agent để tìm dateProofUrl cho từng tin .gov. Chỉ CNN (viện trợ y tế, 11-14) qua được cổng ở vòng bổ sung."},
+    {"name":"Địa bàn › Anh","count":1,"target":"3+","min":3,"thieu":true,
+     "reason":"Đã giao đủ trần 6 agent. Agent B tìm 5 ứng viên Anh nhưng 4/5 bị chặn: Talon IQ (Navy Lookout) ngày thật 11-10 ngoài khung; RAF Lakenheath drone trùng sự kiện đã có trong DATA; Type 26/mine-hunting USV Na Uy (Naval News) trùng 100% sự kiện tin đã nạp phiên trước (cùng 90 triệu bảng, cùng Na Uy); Atlantic Net 90m (Navy Lookout) ngày thật 11-13 ngoài khung. Vòng bổ sung tìm thêm CPA Burnham/EU (nguồn aggregator yếu + ngoài khung) — loại. Chỉ Bank of England (Huw Pill) qua được cổng."},
+    {"name":"Địa bàn › Australia","count":2,"target":"3+","min":3,"thieu":true,
+     "reason":"Đã giao đủ trần 6 agent. Agent B tìm 4 ứng viên Australia, 3/4 ngày thật ngoài khung 1-4 ngày (11-11, 11-12: đại sứ Mỹ AUKUS, đầu tư 88 triệu đào tạo lao động, HMAS Stalwart Biển Đông). Vòng bổ sung tìm thêm VEEM (Naval News) cùng ngày thật 11-11 — loại. Chỉ 'Trung Quốc yêu cầu Australia ngừng thổi phồng' qua được cổng."},
+    {"name":"Địa bàn › Biển Đông","count":3,"target":"5+","min":5,"thieu":true,
+     "reason":"Đã giao đủ trần 6 agent. Agent B tìm 6 ứng viên, nhưng Philippines Navy bảo vệ ASEAN Summit (Manila Times) và Philippines ngư dân (RFA) có ngày thật 11-13 ngoài khung. Vòng bổ sung tìm Taiwan News (10 máy bay/8 tàu TQ quanh Đài Loan) nhưng trang không in ngày đăng đọc được, không đủ thời gian tìm dateProofUrl; Jakarta Post Natuna là bài opinion + ngoài khung — cả hai loại. Giữ được: Malaysia COC 90%, ASEAN Maritime Center, Melaka election."},
+    {"name":"KHCN-QS","count":90,"target":"5-10","min":5,"thieu":false,
+     "reason":"Đạt sàn rộng (gộp cửa sổ 3 ngày 12-15/11, gồm tin các phiên trước còn trong khung CNQS)."},
     {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
-     "reason":"Không mang sàn. Các cuộc đang chạy (IMNEX-26, Mitra Shakti XII, Malabar 2026) đã được phiên event-scan 04:10 giờ VN cùng ngày cập nhật đầy đủ; agent D không tìm thấy diễn biến THỰC SỰ MỚI nào ngoài thông tin đã nạp (INS Sahyadri rời Yokosuka sau Malabar, kết thúc Naseem Al Bahr kỳ 15 — cả hai đã có trong DATA)."}
+     "reason":"Diễn biến kết thúc Malabar 2026 (IANS) bị cổng NGÀY chặn vì ngày sự kiện thật 11-13 ngoài khung 1 ngày so với batch 11-15. Không có diễn biến mới khác trong khung 14-15/11. Mục này không mang sàn bắt buộc."}
   ],
-  "note": "Phiên quét bù: khoá web-scan bị giữ bởi một phiên CI khác bắt đầu 04:00:45 giờ VN nhưng chết giữa chừng (không beat sau 04:40, không FAIL/DONE) — phiên này claim thành công lúc 08:04 VN sau khi khoá hết hạn (>30'). Vì bắt đầu quét sau 07:00 VN, cổng khung giờ của notify-email.yml không tự bắn Telegram — đã kích workflow_dispatch bằng tay ngay sau khi push để gửi bù. Chi tiết đầy đủ các tin bị loại/cứu bằng dateProofUrl: logs/loai-tin.md (mục 'TOÀN PHIÊN 14/11 sáng — QUÉT BÙ'). Trần agent con: đã dùng 5/6 (4 luồng gốc A·B·C·D + 1 bổ sung Anh/Australia/Biển Đông); tin Rubio ICC (Đối ngoại Mỹ, item thứ 5) được orchestrator tự WebSearch/WebFetch trực tiếp, không tốn thêm lượt agent."
+  "note": "Phiên dùng đủ trần 6 agent (5 luồng gốc A/B/C/D/BM + 1 agent bổ sung duy nhất gộp 4 mục thiếu), đã CHỐT lô theo đúng luật TRẦN AGENT CON — không giao vòng thứ hai. Nguyên nhân chính của tỷ lệ chặn cao ở vòng này là cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py): nhiều nguồn .gov/.mil/báo chuyên ngành không in ngày đăng ở dạng metadata máy đọc được, và nhiều ứng viên khác có ngày sự kiện thật cũ hơn khung hôm nay+hôm qua dù agent khai ngày mới hơn. Chi tiết từng tin: logs/loai-tin.md mục '[TOÀN PHIÊN 15/11 sáng (CI)]'. Báo Mới: 4 ứng viên cũ (Hùng Cao/Courtney, S-300VM Saudi, RAF Lakenheath trùng, Nhật Bản ngân sách QP) đều đã được agent BM xử lý — 1 bị cổng NGÀY chặn (Courtney thật ra 11-12), 3 loại đúng vì không neo chủ đề hoặc trùng tin."
 }
