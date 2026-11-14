@@ -866,13 +866,8 @@ def main() -> None:
     # ở dưới — cờ được quảng cáo trong thông điệp lỗi mà không ai đọc còn tệ hơn không có cờ.
     tham_so, bo_cong_do_gan, co_co = [], "", False
     bo_cong_ngay_that, co_co_ngay = "", False
-    bo_cong_khu_mui, co_co_mui = "", False
     for x in sys.argv[1:]:
-        if x == "--bo-cong-khu-mui" or x.startswith("--bo-cong-khu-mui="):
-            # Cùng khuôn hai cờ dưới: phải kèm lý do, lý do được in ra (cổng dựng 14/11/2026).
-            co_co_mui = True
-            bo_cong_khu_mui = x.split("=", 1)[1].strip() if "=" in x else ""
-        elif x == "--bo-cong-ngay-that" or x.startswith("--bo-cong-ngay-that="):
+        if x == "--bo-cong-ngay-that" or x.startswith("--bo-cong-ngay-that="):
             # Đường thoát HỢP LỆ cho trường hợp metadata của nguồn ghi sai ngày (hiếm, nhưng
             # có): phải kèm lý do và lý do được in ra, để lần sau còn đọc lại được vì sao lô
             # đó đi qua cổng. Cờ trần không lý do bị từ chối, y như `--bo-cong-do-gan`.
@@ -891,10 +886,6 @@ def main() -> None:
         print("--bo-cong-ngay-that phải kèm LÝ DO: --bo-cong-ngay-that=\"...\"", file=sys.stderr)
         sys.exit(1)
 
-    if co_co_mui and not bo_cong_khu_mui:
-        print("--bo-cong-khu-mui phải kèm LÝ DO: --bo-cong-khu-mui=\"...\"", file=sys.stderr)
-        sys.exit(1)
-
     if co_co and not bo_cong_do_gan:
         print("--bo-cong-do-gan phải kèm LÝ DO: --bo-cong-do-gan=\"...\"", file=sys.stderr)
         sys.exit(1)
@@ -904,8 +895,7 @@ def main() -> None:
             "Dùng: add_news.py <new_items.json>  |  add_news.py --recent-titles [N]"
             "  |  add_news.py --baomoi-pending"
             "\n      (thêm --bo-cong-do-gan=\"lý do\" để hạ cổng độ gần xuống mức cảnh báo)"
-            "\n      (thêm --bo-cong-ngay-that=\"lý do\" để bỏ cổng ngày đăng thật)"
-            "\n      (thêm --bo-cong-khu-mui=\"lý do\" để bỏ cổng khử mùi A.I)",
+            "\n      (thêm --bo-cong-ngay-that=\"lý do\" để bỏ cổng ngày đăng thật)",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -941,12 +931,12 @@ def main() -> None:
     validate_new_events(new_dip_events, ref)
     validate_new_events(new_exercises, ref, "newExercises", check_dates=False)
 
-    # CỔNG KHỬ MÙI A.I — Huy chốt 14/11/2026: *"Nội dung và tiêu đề các bài phải chạy khử mùi
-    # A.I"*. Đặt TRƯỚC cổng ngày đăng thật vì cổng này đo tại chỗ, không gọi mạng: lô hỏng giọng
-    # bị trả về ngay, không tốn lượt mở bài. Cơ chế + vì sao máy dự phòng GitHub chỉ kêu mà
-    # không chặn: `scripts/khu_mui_tin.py`.
+    # KHỬ MÙI A.I — Huy chốt 14/11/2026: *"Nội dung và tiêu đề các bài phải chạy khử mùi A.I"*,
+    # rồi cùng ngày: *"đừng có chặn tin, chỉ thay đổi cách dịch, cách viết thôi"*. Agent quét tự
+    # chạy `scripts/khu_mui_tin.py` và viết lại câu TRƯỚC khi gọi file này; ở đây chỉ IN NHẮC,
+    # tuyệt đối không chặn lô. Đặt trước cổng ngày đăng thật vì đo tại chỗ, không gọi mạng.
     import khu_mui_tin  # noqa: E402,PLC0415
-    for dong in khu_mui_tin.kiem_lo(new_items, bo_cong_khu_mui):
+    for dong in khu_mui_tin.kiem_lo(new_items):
         print("  " + dong)
 
     # CỔNG NGÀY ĐĂNG THẬT — mở chính bài ra đo, không tin `date` do agent khai.

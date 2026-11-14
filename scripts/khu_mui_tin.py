@@ -15,9 +15,13 @@ oan («điều trần», họ «Trần», «giữa kỳ 3/11», «trát đòi»)
 302-305 của `QuanSu/test-khu-mui-ai.py`). Sau vá còn 09/77 tin bị chặn, đều là lỗi giọng
 thật: «bà + tên riêng» thay cho chức danh, khuôn «không A mà B», «phép thử», «chạm».
 
-⚠ Máy chạy dự phòng trên GitHub không có thư mục `App/QuanSu`. Ở đó cổng KÊU một dòng rồi
-cho qua, để bản tin dự phòng vẫn tới tay; trên máy Mac mà thiếu máy chấm thì CHẶN, vì đó là
-dấu hiệu đường dẫn đã trôi chứ không phải môi trường khác.
+⛔ KHÔNG BAO GIỜ CHẶN TIN (Huy chốt 14/11/2026, nguyên văn: *"đừng có chặn tin, chỉ thay đổi cách
+dịch, cách viết thôi"*). Khử mùi là việc của NGƯỜI VIẾT tin, làm TRƯỚC khi nạp: agent quét chạy
+`python3 scripts/khu_mui_tin.py <new_items.json>`, viết lại đúng câu bị nêu, rồi mới gọi
+`add_news.py`. Trong `add_news.py` cổng chỉ in nhắc, lô vẫn nạp đủ. Thiếu máy chấm (máy dự phòng
+GitHub không có thư mục `App/QuanSu`) cũng chỉ in một dòng.
+
+Dùng: python3 scripts/khu_mui_tin.py <new_items.json>   # mã 1 = còn câu nên viết lại
 """
 import importlib.util
 import os
@@ -82,33 +86,53 @@ def cac_cau_cua_lo(new_items: dict) -> list:
     return ra
 
 
-def kiem_lo(new_items: dict, bo_cong: str = "") -> list:
-    """Trả danh sách dòng cảnh báo để in. Ném ValueError khi có câu bị chặn.
-
-    `bo_cong` = lý do bỏ cổng (cờ `--bo-cong-khu-mui="..."`): vẫn đo và in, nhưng không chặn.
-    """
+def cau_can_viet_lai(new_items: dict) -> tuple:
+    """(số câu đã đo, [dòng mô tả câu nên viết lại]). Máy chấm thiếu thì số câu = -1."""
     cau = cac_cau_cua_lo(new_items)
-    if not cau:
-        return []
     may = nap_may_cham()
     if may is None:
-        if os.environ.get("GITHUB_ACTIONS"):
-            return [f"⚠ CỔNG KHỬ MÙI KHÔNG CHẠY: máy dự phòng không có {KHU_MUI.name} — "
-                    f"{len(cau)} câu nạp mà chưa qua khử mùi"]
-        raise ValueError(f"CỔNG KHỬ MÙI: không thấy máy chấm ở {KHU_MUI} — đường dẫn đã trôi, "
-                         "sửa KHU_MUI trong scripts/khu_mui_tin.py hoặc đặt DIEMTIN_KHU_MUI")
+        return -1, []
     hong = []
     for nhan, c in cau:
         chan, _diem, ghi, _ngay = may.cau_bi_chan(c)
         if chan:
             ly_do = [g.strip() for g in ghi if g.startswith("    ") or "—" in g][:2]
             hong.append(f"{nhan}: {c[:140]}\n      " + "\n      ".join(ly_do))
+    return len(cau), hong
+
+
+def kiem_lo(new_items: dict) -> list:
+    """Dòng nhắc để `add_news.py` in. KHÔNG ném lỗi, KHÔNG chặn tin dù câu có mùi."""
+    if not cac_cau_cua_lo(new_items):
+        return []
+    n, hong = cau_can_viet_lai(new_items)
+    if n < 0:
+        return [f"⚠ khử mùi KHÔNG CHẠY: không thấy máy chấm {KHU_MUI} — lô vẫn nạp đủ"]
     if not hong:
-        return [f"✓ khử mùi: {len(cau)} câu tiêu đề và nội dung đều qua"]
-    if bo_cong:
-        return [f"⚠ CỔNG KHỬ MÙI bị bỏ qua theo cờ — lý do: {bo_cong}"] + \
-               ["  · " + h for h in hong]
-    raise ValueError(
-        "CỔNG KHỬ MÙI A.I chặn %d/%d câu (Huy chốt 14/11/2026: tiêu đề và nội dung mọi tin phải "
-        "qua khử mùi). Viết lại đúng câu bị nêu theo gợi ý rồi nạp lại:\n  - %s"
-        % (len(hong), len(cau), "\n  - ".join(hong)))
+        return [f"✓ khử mùi: {n} câu tiêu đề và nội dung đều sạch"]
+    return [f"⚠ khử mùi: {len(hong)}/{n} câu nên viết lại lần sau (lô VẪN NẠP ĐỦ, không chặn tin):"] \
+        + ["  · " + h for h in hong]
+
+
+def main(argv) -> int:
+    import json
+    if len(argv) != 2:
+        print(__doc__)
+        return 2
+    lo = json.loads(pathlib.Path(argv[1]).read_text(encoding="utf-8"))
+    n, hong = cau_can_viet_lai(lo)
+    if n < 0:
+        print(f"⚠ không thấy máy chấm {KHU_MUI} — tự soát theo LỚP THỨ TƯ trong SKILL.md")
+        return 0
+    if not hong:
+        print(f"✓ {n} câu tiêu đề và nội dung đều sạch — nạp được")
+        return 0
+    print(f"✗ {len(hong)}/{n} câu nên viết lại (sửa cách viết, GIỮ NGUYÊN tin) rồi chạy lại:")
+    for h in hong:
+        print("  - " + h)
+    return 1
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(main(sys.argv))

@@ -146,13 +146,15 @@ thì **NỚI thành 48 giờ** cho riêng chủ đề đó. KHÔNG nới quá 48
 > KHÔNG lùi ngày batch.
 >
 > ⛔ **LỚP THỨ TƯ, cắm 14/11/2026: TIÊU ĐỀ VÀ NỘI DUNG MỌI TIN PHẢI QUA KHỬ MÙI A.I** (Huy chốt:
-> *"Nội dung và tiêu đề các bài phải chạy khử mùi A.I"*). `add_news.py` đưa `title` và từng câu
-> của `summary`, `significance` qua máy chấm `App/QuanSu/khu-mui-ai.py` (`scripts/khu_mui_tin.py`),
-> chặn cả lô nếu có câu dính. Viết ngay từ đầu cho sạch: gọi người bằng CHỨC DANH, cấm «ông/bà +
+> *"Nội dung và tiêu đề các bài phải chạy khử mùi A.I"*). ⛔ **KHÔNG BAO GIỜ BỎ TIN vì lý do này**
+> (Huy chốt cùng ngày: *"đừng có chặn tin, chỉ thay đổi cách dịch, cách viết thôi"*). TRƯỚC khi gọi
+> `add_news.py`, chạy `python3 scripts/khu_mui_tin.py <new_items.json>`: máy chấm
+> `App/QuanSu/khu-mui-ai.py` soát `title` và từng câu `summary`, `significance`; mã 1 thì viết lại
+> ĐÚNG câu bị nêu, giữ nguyên tin, chạy lại tới khi sạch. `add_news.py` chỉ in nhắc, không chặn lô.
+> Viết ngay từ đầu cho sạch: gọi người bằng CHỨC DANH, cấm «ông/bà +
 > tên» («Tổng thư ký ITU Doreen Bogdan-Martin», không «bà Doreen»); cấm khuôn «không A mà B»,
-> «phép thử», «trần» theo nghĩa giới hạn, «chạm», «Hoa Kỳ» (viết «Mỹ»), ngoặc « ». Bị chặn thì
-> viết lại ĐÚNG câu máy nêu rồi nạp lại; cờ `--bo-cong-khu-mui="lý do"` chỉ dùng khi câu trích
-> nguyên văn nguồn. Canh bằng `tests/test-cong-khu-mui-tin.py`.
+> «phép thử», «trần» theo nghĩa giới hạn, «chạm», «Hoa Kỳ» (viết «Mỹ»), ngoặc « ». Canh bằng
+> `tests/test-cong-khu-mui-tin.py`.
 
 **Báo Mới: được phép quét** — nhưng LỌC chỉ giữ bài hợp 5 chủ đề trên (xem Agent Báo Mới).
 

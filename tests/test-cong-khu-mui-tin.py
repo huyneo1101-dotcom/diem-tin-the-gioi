@@ -43,12 +43,13 @@ SACH = tin("Thượng viện Mỹ mở phiên điều trần về ngân sách qu
            "Phiên điều trần cho thấy mức ưu tiên của Quốc hội với ngành đóng tàu.")
 
 
-def _chan(lo):
-    try:
-        K.kiem_lo(lo)
-    except ValueError as e:
-        return True, str(e)
-    return False, ""
+BAN = tin("Mỹ hoan nghênh bà Doreen Bogdan-Martin tái đắc cử Tổng thư ký ITU",
+          "Bộ Ngoại giao Mỹ ra thông cáo hoan nghênh kết quả bầu cử.")
+
+
+def _bao(lo):
+    """Dòng nhắc của cổng. Ném lỗi ở đây là SAI — Huy cấm chặn tin 14/11/2026."""
+    return "\n".join(K.kiem_lo(lo))
 
 
 CA = []
@@ -61,80 +62,98 @@ def ca(ten):
     return boc
 
 
-@ca("1. PHẢI CHẶN — tiêu đề mang «bà + tên riêng» thay cho chức danh")
+@ca("1. PHẢI BÁO — tiêu đề mang «bà + tên riêng» thay cho chức danh")
 def _():
-    chan, msg = _chan({"usNews": [tin("Mỹ hoan nghênh bà Doreen Bogdan-Martin tái đắc cử Tổng thư ký ITU",
-                                      "Bộ Ngoại giao Mỹ ra thông cáo hoan nghênh kết quả bầu cử.")]})
-    return chan and "usNews[0].title" in msg, msg
+    ra = _bao({"usNews": [BAN]})
+    return "usNews[0].title" in ra and "nên viết lại" in ra, ra
 
 
-@ca("2. PHẢI CHẶN — lỗi nằm ở CÂU THỨ HAI của nội dung (tách câu không được hụt)")
+@ca("2. PHẢI BÁO — lỗi nằm ở CÂU THỨ HAI của nội dung (tách câu không được hụt)")
 def _():
-    chan, msg = _chan({"worldNews": [tin(
+    ra = _bao({"worldNews": [tin(
         "Australia ký hợp đồng mua thêm tàu ngầm",
         "Bộ Quốc phòng Australia ký hợp đồng ngày 13/11. Canberra không kỳ vọng ra thoả thuận mới "
         "mà coi đây là điểm khởi đầu đối thoại.")]})
-    return chan and "summary câu 2" in msg, msg
+    return "summary câu 2" in ra, ra
 
 
-@ca("3. PHẢI CHẶN — tin diễn biến tập trận (exerciseUpdates) cũng phải qua cổng")
+@ca("3. PHẢI BÁO — tin diễn biến tập trận (exerciseUpdates) cũng được soát")
 def _():
-    chan, msg = _chan({"exerciseUpdates": [{"name": "Tập trận X", "items": [tin(
+    ra = _bao({"exerciseUpdates": [{"name": "Tập trận X", "items": [tin(
         "Cuộc tập trận là phép thử cho khả năng phối hợp của hai lực lượng")]}]})
-    return chan and "exerciseUpdates[0].items[0]" in msg, msg
+    return "exerciseUpdates[0].items[0]" in ra, ra
 
 
-@ca("4. Tin sạch, có «điều trần» — phải QUA")
+@ca("4. Tin sạch, có «điều trần» — không nhắc gì")
 def _():
-    chan, msg = _chan({"usNews": [SACH]})
-    return not chan, msg
+    ra = _bao({"usNews": [SACH]})
+    return "đều sạch" in ra and "nên viết lại" not in ra, ra
 
 
-@ca("5. Cờ bỏ cổng có lý do — không chặn, nhưng vẫn in câu lỗi")
+@ca("5. PHẢI CHẶN — câu có mùi KHÔNG được làm chặn tin (Huy cấm chặn 14/11/2026)")
 def _():
-    lo = {"usNews": [tin("Mỹ hoan nghênh bà Doreen Bogdan-Martin tái đắc cử")]}
-    ra = K.kiem_lo(lo, "nguồn chính thức dùng nguyên cách gọi")
-    return any("bị bỏ qua theo cờ" in d for d in ra) and any("bà Doreen" in d for d in ra), ra
+    try:
+        ra = K.kiem_lo({"usNews": [BAN, SACH]})
+    except Exception as e:                                             # noqa: BLE001
+        return False, f"cổng ném {type(e).__name__} — tin bị chặn: {e}"
+    return any("VẪN NẠP ĐỦ" in d for d in ra), ra
 
 
-@ca("6. PHẢI CHẶN — thiếu máy chấm trên máy Mac thì chặn; trên máy dự phòng GitHub chỉ kêu")
+@ca("6. PHẢI CHẶN — thiếu máy chấm (máy Mac lẫn máy dự phòng GitHub) chỉ in nhắc, không chặn")
 def _():
-    goc_km, goc_may, goc_gh = K.KHU_MUI, K._may, os.environ.pop("GITHUB_ACTIONS", None)
+    goc_km, goc_may = K.KHU_MUI, K._may
     try:
         K.KHU_MUI, K._may = pathlib.Path("/khong/co/khu-mui-ai.py"), None
-        chan, msg = _chan({"usNews": [SACH]})
-        os.environ["GITHUB_ACTIONS"] = "true"
         ra = K.kiem_lo({"usNews": [SACH]})
+    except Exception as e:                                             # noqa: BLE001
+        return False, f"cổng ném {type(e).__name__}: {e}"
     finally:
         K.KHU_MUI, K._may = goc_km, goc_may
-        os.environ.pop("GITHUB_ACTIONS", None)
-        if goc_gh is not None:
-            os.environ["GITHUB_ACTIONS"] = goc_gh
-    return chan and any("KHÔNG CHẠY" in d for d in ra), (msg, ra)
+    return any("KHÔNG CHẠY" in d for d in ra), ra
 
 
-@ca("7. PHẢI CHẶN — add_news.py gọi cổng khử mùi TRƯỚC cổng ngày đăng thật")
+@ca("7. PHẢI CHẶN — add_news.py gọi khử mùi TRƯỚC cổng ngày đăng thật")
 def _():
     ng = (THU / "add_news.py").read_text(encoding="utf-8")
-    i = ng.find("khu_mui_tin.kiem_lo(new_items, bo_cong_khu_mui)")
+    i = ng.find("khu_mui_tin.kiem_lo(new_items)")
     j = ng.find("ngay_that.kiem_lo(")
     return 0 < i < j, f"vị trí gọi khử mùi {i}, gọi ngày đăng thật {j}"
 
 
+@ca("8. PHẢI CHẶN — lệnh tự soát của agent trả mã 1 khi còn câu nên viết lại, 0 khi sạch")
+def _():
+    import json
+    import subprocess
+    d = pathlib.Path(tempfile.mkdtemp(prefix="_khumuitin-"))
+    try:
+        (d / "ban.json").write_text(json.dumps({"usNews": [BAN]}, ensure_ascii=False), encoding="utf-8")
+        (d / "sach.json").write_text(json.dumps({"usNews": [SACH]}, ensure_ascii=False), encoding="utf-8")
+        ma = [subprocess.run([sys.executable, str(THU / "khu_mui_tin.py"), str(d / f)],
+                             capture_output=True, text=True).returncode for f in ("ban.json", "sach.json")]
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+    return ma == [1, 0], f"mã thoát (lô bẩn, lô sạch) = {ma}"
+
+
 BAN_HONG = [
+    # ca 3 cũng đặt lỗi ở tiêu đề nên đỏ theo — đúng thiết kế, không phải nhiễu.
     ("tiêu đề không được đo", "khu_mui_tin.py",
-     # ca 3 và 5 cũng đặt lỗi ở tiêu đề nên đỏ theo — đúng thiết kế, không phải nhiễu.
-     'TRUONG_TIEU_DE = ("title", "name")', "TRUONG_TIEU_DE = ()", [1, 3, 5]),
+     'TRUONG_TIEU_DE = ("title", "name")', "TRUONG_TIEU_DE = ()", [1, 3, 5, 8]),
     ("tách câu chỉ giữ câu đầu", "khu_mui_tin.py",
      '    return [c.strip() for c in re.split(r"(?<=[.!?])\\s+", t) if c.strip()]',
      '    return [c.strip() for c in re.split(r"(?<=[.!?])\\s+", t) if c.strip()][:1]', [2]),
     ("bỏ sót tin sự kiện và tập trận", "khu_mui_tin.py",
      "    for mang in MANG_SU_KIEN:", "    for mang in ():", [3]),
-    ("thiếu máy chấm thì im lặng cho qua ở mọi nơi", "khu_mui_tin.py",
-     '        if os.environ.get("GITHUB_ACTIONS"):', "        if True:", [6]),
-    ("add_news.py thôi gọi cổng khử mùi", "add_news.py",
-     "    for dong in khu_mui_tin.kiem_lo(new_items, bo_cong_khu_mui):",
-     "    for dong in []:", [7]),
+    ("câu có mùi lại làm CHẶN tin (lối cũ Huy đã bỏ)", "khu_mui_tin.py",
+     '    return [f"⚠ khử mùi: {len(hong)}/{n}',
+     '    raise ValueError(str(hong))\n    return [f"⚠ khử mùi: {len(hong)}/{n}', [1, 2, 3, 5]),
+    ("thiếu máy chấm thì chặn tin", "khu_mui_tin.py",
+     '        return [f"⚠ khử mùi KHÔNG CHẠY',
+     '        raise ValueError("thiếu máy chấm")\n        return [f"⚠ khử mùi KHÔNG CHẠY', [6]),
+    ("add_news.py thôi gọi khử mùi", "add_news.py",
+     "    for dong in khu_mui_tin.kiem_lo(new_items):", "    for dong in []:", [7]),
+    ("lệnh tự soát luôn trả 0 (agent không biết phải viết lại)", "khu_mui_tin.py",
+     "    print(f\"✗ {len(hong)}/{n} câu nên viết lại", "    return 0\n    print(f\"✗ {len(hong)}/{n} câu nên viết lại", [8]),
 ]
 
 
