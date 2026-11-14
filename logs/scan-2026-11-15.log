@@ -5,3 +5,4 @@
 [21:38Z] harvest.py+telegram_harvest.py xong, 5 agent song song xong, 1 agent bo sung (tran 6/6) xong. add_news.py nap +3 worldNews, +8 usNews. San hut: Noi bo My 3/5, Anh 1/3, Australia 2/3, Bien Dong 3/5 - da CHOT lo theo luat TRAN AGENT CON, ghi scan-gaps.json.
 [21:38Z] gh workflow run telegram-bot.yml bi chan "requires approval" - chua kich duoc bot hut file Jay Lam. tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY trong moi truong CI nay - khong doc duoc file Jay Lam, bo qua buoc loc trung Jay Lam cho phien nay.
 [21:41Z] START event-scan (CI, gop vao sang som)
+[04:50 VN] SKIP web-scan (local sang): phien CI da DONE luc 04:38 (+11 tin, commit aa60f83) trong luc local dang quet (claim local 04:35); khoa bi cuop -> DUNG, khong nap, khong goi state.py skip/fail. Lo local da dung agent A-D+BM (36 tin, qua khu mui) con o /tmp/new_items.json, chua nap.
