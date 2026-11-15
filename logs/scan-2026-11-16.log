@@ -11,3 +11,5 @@
 [21:38Z] add_news.py OK: +14 worldNews, +8 usNews. Anh 6/5 Australia 5/5 Bien Dong 4/5(thieu) Noi bo My 5/5 Doi ngoai My 1/5(thieu nang) CNQS 5/5
 [21:39Z] ghi logs/scan-gaps.json: Doi ngoai My va Bien Dong thieu san, da het 6/6 agent khong giao vong 3
 [21:39Z] tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY tren CI, bo qua buoc 4c, fail-open co tieng
+[21:40Z] web-scan DONE, da commit+push "Cap nhat ban tin 16/11: +22 tin (4 chu de)"
+[21:40Z] START event-scan (CI, gop vao sang som)
