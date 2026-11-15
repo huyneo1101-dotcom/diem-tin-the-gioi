@@ -13,3 +13,10 @@
 [21:39Z] tin_jaylam.py --liet-ke: thieu SUPABASE_ANON_KEY/DT_BOT_KEY tren CI, bo qua buoc 4c, fail-open co tieng
 [21:40Z] web-scan DONE, da commit+push "Cap nhat ban tin 16/11: +22 tin (4 chu de)"
 [21:40Z] START event-scan (CI, gop vao sang som)
+[21:40Z] do_tap_tran_thieu.py: 0 cuoc co ten moi dang nap; 6 muc khong ten deu khong dang nap the moi
+[21:40Z] agent event-scan: +1 su kien ngoai giao moi (Phap-Campuchia 29 van kien, 15/11), 0 dien bien Mitra Shakti XII moi
+[21:40Z] add_news.py: nap su kien Phap-Campuchia OK
+[21:41Z] add_analyses.py --candidates: 231 ung vien (186 RSS + 45 HTML); giao agent chon 5 bai (CFR x3, Belfer, Small Wars Journal) -> nap OK, tong Phan tich 1241 bai
+[21:41Z] set_analysis_concepts.py: gan 9 khai niem cho 5 bai moi
+[21:41Z] thu Hai (khong phai Chu nhat) -> bo qua bao cao tuan
+[21:41Z] event-scan DONE: +1 su kien, +5 bai think-tank
