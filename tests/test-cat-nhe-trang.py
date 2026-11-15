@@ -35,6 +35,27 @@ sys.path.insert(0, str(REPO / "scripts"))
 from cat_nhe_trang import LAT_TIN, cat_nhe, da_cat  # noqa: E402
 
 
+# Node tìm bằng ĐƯỜNG DẪN, không tìm trần theo PATH (vá 15/11/2026). Đo 14-15/11/2026: PATH
+# của phiên Claude và của LaunchAgent là `~/.local/bin:/usr/local/bin:/usr/bin:/bin:...`,
+# KHÔNG có `/opt/homebrew/bin` — nơi Homebrew đặt node — nên `subprocess.run(["node", ...])`
+# ném FileNotFoundError và 02 ca chạy-thật đỏ dù mã index.html không đổi gì. Không tìm ra
+# node ở đâu cả thì ca vẫn ĐỎ, kèm lời nói rõ là thiếu node (fail về phía KÊU, không bỏ qua).
+NODE_UNG_VIEN = ("/opt/homebrew/bin/node", "/usr/local/bin/node")
+
+
+def _node() -> str:
+    import os  # noqa: PLC0415
+    import shutil  # noqa: PLC0415
+    tim = shutil.which("node")
+    if tim:
+        return tim
+    for p in NODE_UNG_VIEN:
+        if os.access(p, os.X_OK):
+            return p
+    raise RuntimeError("không tìm thấy node (PATH và %s) — ca chạy-thật KHÔNG đo được"
+                       % ", ".join(NODE_UNG_VIEN))
+
+
 def _than_loadKho(html: str) -> str:
     """Thân hàm loadKho, cắt ở khai báo cấp cao nhất kế tiếp (không neo vào tên hàm sau —
     xem bài học cùng kiểu ở tests/test-tach-analyses.py::_than_loadAnalyses)."""
@@ -141,7 +162,7 @@ def ca_mang_yeu_khong_nap_san(html, sw, pages, canary):
           ";function thu(c){goi=0;navigator.connection=c;napKhiRanh();return goi;}"
           "console.log(JSON.stringify([thu(null),thu({effectiveType:'4g'}),"
           "thu({effectiveType:'3g'}),thu({saveData:true,effectiveType:'4g'})]));")
-    p = subprocess.run(["node", "-e", js], capture_output=True, text=True)
+    p = subprocess.run([_node(), "-e", js], capture_output=True, text=True)
     if p.returncode != 0:
         return "không chạy được napKhiRanh() bằng node: %s" % p.stderr.strip()[:200]
     ra = json.loads(p.stdout.strip())
@@ -168,7 +189,7 @@ def ca_khosan_dung_hai_chieu(html, sw, pages, canary):
           "DATA={_nhe:1};KHO_LOADED=false;r.push(khoSan());"
           "DATA={_nhe:1};KHO_LOADED=true;r.push(khoSan());"
           "console.log(JSON.stringify(r));")
-    p = subprocess.run(["node", "-e", js], capture_output=True, text=True)
+    p = subprocess.run([_node(), "-e", js], capture_output=True, text=True)
     if p.returncode != 0:
         return "không chạy được khoSan() bằng node: %s" % p.stderr.strip()[:200]
     ra = json.loads(p.stdout.strip())
@@ -400,6 +421,37 @@ BAN_HONG = [
 ]
 
 
+def _tu_kiem_tim_node(html) -> int:
+    """Hai chiều của cách tìm node (vá 15/11/2026), đo trên ca khoSan():
+    (i) PATH thiếu `/opt/homebrew/bin` như phiên Claude/LaunchAgent thì ca VẪN chạy được —
+        chiều này đỏ đúng lỗi 14/11/2026; (ii) không có node ở đâu cả thì ca phải ĐỎ, không
+        được lặng lẽ cho qua."""
+    import os  # noqa: PLC0415
+    global NODE_UNG_VIEN
+    hong = 0
+    path_cu, ung_vien_cu = os.environ.get("PATH", ""), NODE_UNG_VIEN
+    try:
+        os.environ["PATH"] = "/usr/bin:/bin:/usr/sbin:/sbin"
+        ly_do = ca_khosan_dung_hai_chieu(html, "", "", "")
+        ok = ly_do is None
+        print(f"{'✅' if ok else '❌'} PATH thiếu /opt/homebrew/bin vẫn tìm được node"
+              + ("" if ok else f"\n     → {ly_do}"))
+        hong += 0 if ok else 1
+        NODE_UNG_VIEN = ("/khong/co/node",)
+        try:
+            ly_do = ca_khosan_dung_hai_chieu(html, "", "", "")
+        except Exception as ex:  # noqa: BLE001 — chay() cũng tính ngoại lệ là ca không đạt
+            ly_do = f"ngoại lệ: {ex}"
+        ok = ly_do is not None and "node" in ly_do
+        print(f"{'✅' if ok else '❌'} không có node ở đâu cả thì ca chạy-thật BÁO ĐỎ"
+              + ("" if ok else f"\n     → ca trả {ly_do!r} — thiếu node mà vẫn xanh"))
+        hong += 0 if ok else 1
+    finally:
+        os.environ["PATH"] = path_cu
+        NODE_UNG_VIEN = ung_vien_cu
+    return hong
+
+
 def tu_kiem() -> int:
     print("=== Chạy trên bản THẬT (mọi ca phải đạt) ===")
     if chay():
@@ -424,6 +476,7 @@ def tu_kiem() -> int:
         print(f"{'✅' if do else '❌'} {ten}\n     → ca '{ca_phai_do}' "
               f"{'báo không đạt, đúng như khai' if do else 'VẪN ĐẠT — ca đó vô dụng'}")
         hong += 0 if do else 1
+    hong += _tu_kiem_tim_node(goc["html"])
     print()
     print("TỰ KIỂM ĐẠT — bộ ca này thật sự bắt được lỗi" if not hong
           else f"✗ {hong} bản hỏng KHÔNG bị bắt")

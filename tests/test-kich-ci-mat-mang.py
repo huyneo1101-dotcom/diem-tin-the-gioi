@@ -17,7 +17,10 @@ Chạy:
     python3 tests/test-kich-ci-mat-mang.py --tu-kiem
 
 Chạy hoàn toàn offline: `gh` giả bằng script shell, phép đo mạng ghim bằng
-KICHCI_MANG_GIA, nhịp chờ hạ xuống 1 giây bằng KICHCI_NHIP_GIAY.
+KICHCI_MANG_GIA, nhịp chờ hạ xuống 1 giây bằng KICHCI_NHIP_GIAY, và mọi `time.sleep` của
+kich_ci.py chạy trên ĐỒNG HỒ ẢO (đếm giây mà không ngủ thật, xem VO_DONG_HO) để cả bộ xong
+chừng 10 giây.
+    python3 tests/test-kich-ci-mat-mang.py --chi-ca 11   # chạy riêng một ca
 """
 import contextlib
 import os
@@ -100,9 +103,48 @@ def san(kich_ban, mang_gia, tran_phut=1, nhip_giay=1):
         shutil.rmtree(d, ignore_errors=True)
 
 
+# ── ĐỒNG HỒ ẢO (vá 15/11/2026) ─────────────────────────────────────────────────────────
+# Đo 14/11/2026: cả bộ chạy QUÁ 300 giây, `--tu-kiem` chạy lại cả bộ 06 lần nên ~30 phút ⇒
+# chẳng ai chạy nổi, hai ca đỏ thật cũng sẽ nằm im. Thời gian chết toàn là `time.sleep` THẬT:
+# ca 01/02/04/09 mỗi ca ngồi hết trần chờ 01 phút, ca 05 đốt 03 lần × 20 giây nghỉ cứng
+# (`CHO_GIUA_HAI_LAN`, không có seam), ca 03/08 nghỉ 08 giây chờ GitHub hiện run.
+# Cách vá: chạy kich_ci.py qua một lớp vỏ thay `time.sleep` bằng giấc ngủ ẢO — logic của
+# script vẫn đếm đủ từng giây (trần, nhịp, số lần thử y nguyên), chỉ giấc ngủ thật nhân với
+# TI_LE_NGU_THAT (mặc định 0 = không ngủ thật). Đo 15/11/2026: chia 50 lần vẫn mất 9 giây/ca,
+# 60 lần sleep(0,02) ra ~0,15 giây mỗi lần — nhiều khả năng macOS gộp nhịp hẹn giờ của tiến
+# trình nền. Tổng giây ảo in ra stderr dạng `__NGU_AO__=<giây>` để ca đo thời gian đo bằng
+# giây ẢO — ổn định, không phụ thuộc máy đang bận hay rảnh. KHÔNG sửa kich_ci.py:
+# script đó là đường kích bản tin sáng 04:00, đổi nó chỉ để test nhanh là đặt rủi ro sai chỗ.
+TI_LE_NGU_THAT = float(os.environ.get("KICHCI_TEST_TI_LE_NGU") or 0)   # 1 = ngủ thật như cũ
+VO_DONG_HO = r'''
+import atexit, runpy, sys, time
+_that, _ao = time.sleep, [0.0]
+def _ngu(s):
+    _ao[0] += s
+    if %r:
+        _that(s * %r)
+time.sleep = _ngu
+atexit.register(lambda: sys.stderr.write("__NGU_AO__=%%.1f\n" %% _ao[0]))
+duong = sys.argv[1]
+sys.argv = sys.argv[1:]
+runpy.run_path(duong, run_name="__main__")
+'''
+
+
 def chay(env, args, timeout=90):
-    return subprocess.run([sys.executable, str(KICH_PY), *args],
+    return subprocess.run([sys.executable, "-I", "-c", VO_DONG_HO % (TI_LE_NGU_THAT, TI_LE_NGU_THAT),
+                           str(KICH_PY), *args],
                           capture_output=True, text=True, env=env, timeout=timeout)
+
+
+def ngu_ao(r) -> float:
+    """Tổng giây ngủ ẢO của một lần chạy. Không đọc được thì NÉM LỖI (fail về phía KÊU):
+    trả 0 là ca đo thời gian xanh oan đúng lúc đồng hồ ảo đã gãy."""
+    for dong in (r.stderr or "").splitlines():
+        if dong.startswith("__NGU_AO__="):
+            return float(dong.split("=", 1)[1])
+    raise RuntimeError(f"không thấy __NGU_AO__ trong stderr — vỏ đồng hồ ảo không chạy: "
+                       f"{(r.stderr or '').strip()[-200:]}")
 
 
 CA = []
@@ -206,8 +248,34 @@ def _():
         t0 = time.time()
         r = chay(env, ["--wf", "claude-web-scan.yml"], timeout=120)
         mat = time.time() - t0
-    # trần 1 phút + nhịp 1 giây => phải xong dưới ~80 giây, không nhân đôi
-    return mat < 80, f"mất {mat:.0f}s (trần chờ 60s) · exit={r.returncode}"
+    # trần 1 phút + nhịp 1 giây => phải xong dưới ~80 giây ẢO, không nhân đôi. Đo bằng giây
+    # ảo (đồng hồ ảo, 15/11/2026); giữ thêm trần giây thật cho trường hợp treo ngoài sleep.
+    ao = ngu_ao(r)
+    return (ao < 80 and mat < 80), \
+        f"ngủ ảo {ao:.0f}s · thật {mat:.0f}s (trần chờ 60s) · exit={r.returncode}"
+
+
+@ca('11. Đồng hồ ảo phải THẬT SỰ rút ngắn giấc ngủ (nếu không, bộ chạy hàng phút và bị bỏ chạy)')
+def _():
+    # mạng rớt một nhịp rồi về: chờ 1 giây + nghỉ 8 giây xác minh = 9 giây ẢO.
+    with san("mang-roi-ok", mang_gia="1") as (d, env):
+        t0 = time.time()
+        r = chay(env, ["--wf", "claude-web-scan.yml"])
+        mat = time.time() - t0
+    ao = ngu_ao(r)
+    return (ao >= 9 and mat < ao * 0.6), \
+        f"ngủ ảo {ao:.1f}s mà mất thật {mat:.1f}s — đồng hồ ảo không rút ngắn được giấc ngủ"
+
+
+@ca('12. PHẢI CHẶN: mạng "về" mà gh vẫn báo lỗi mạng thì chỉ chờ thêm MỘT vòng rồi dừng')
+def _():
+    # Đo được mạng (seam = 1) nhưng `gh` vẫn trả lỗi mạng mỗi lần: rào `_da_cho_mang` phải
+    # cắt sau vòng thứ hai. Gỡ rào là đệ quy không đáy — job 04:00 treo tới khi launchd giết.
+    with san("mang", mang_gia="1") as (d, env):
+        r = chay(env, ["--wf", "claude-web-scan.yml"], timeout=20)
+    so_vong = r.stdout.count("MẤT MẠNG — chờ mạng về")
+    return (r.returncode == 1 and so_vong == 2), \
+        f"exit={r.returncode} · số vòng chờ {so_vong} (phải đúng 2)"
 
 
 @ca('10. Seam đo mạng phải THẬT SỰ ghim được (nếu không, mọi ca trên đo mạng thật)')
@@ -253,6 +321,11 @@ BAN_HONG = [
      KICH_THAT, "KICH_CI_PY", "kich_ci.py",
      ('    gia = (os.environ.get("KICHCI_MANG_GIA") or "").strip()', '    gia = ""'),
      [10]),
+    ("kich_ci.py: gỡ rào chống lặp _da_cho_mang (mạng 'về' mà gh vẫn lỗi ⇒ đệ quy không đáy)",
+     KICH_THAT, "KICH_CI_PY", "kich_ci.py",
+     ("                    return kich(wf, _da_cho_mang=True) if not _da_cho_mang else False",
+      "                    return kich(wf, _da_cho_mang=True)"),
+     [12]),
 ]
 
 
@@ -285,6 +358,16 @@ def tu_kiem() -> int:
             print(f"        │ ⚠ ca {sorted(thieu)} VẪN XANH trên bản hỏng → test không bắt "
                   f"được lỗi này.")
         shutil.rmtree(d, ignore_errors=True)
+    # Bản hỏng của CHÍNH đồng hồ ảo: tỉ lệ 1 = ngủ thật như cũ. Ca 11 phải đỏ, không thì
+    # đồng hồ ảo gãy lúc nào bộ test cũng lại chạy hàng phút mà không ai hay.
+    env = dict(os.environ, KICHCI_TEST_TI_LE_NGU="1")
+    r = subprocess.run([sys.executable, str(pathlib.Path(__file__).resolve()), "--chi-ca", "11"],
+                       capture_output=True, text=True, env=env, timeout=120)
+    ok = "  ✗ 11." in r.stdout
+    print(f"  {'✓' if ok else '✗'} đồng hồ ảo gãy (tỉ lệ 1, ngủ thật như cũ)")
+    print(f"        │ ca 11 {'đỏ, đúng như khai' if ok else 'VẪN XANH — ca 11 vô dụng'}")
+    if not ok:
+        hong += 1
     print("═" * 78)
     if hong:
         print(f"✗ {hong}/{len(BAN_HONG)} phép thử tự kiểm THẤT BẠI.")
@@ -300,7 +383,12 @@ def main() -> int:
     print(f"(bản đang thử: {KICH_PY})")
     print("─" * 78)
     hong = 0
-    for ten, f in CA:
+    chi = sys.argv[sys.argv.index("--chi-ca") + 1] if "--chi-ca" in sys.argv else None
+    ds = [(t, f) for t, f in CA if chi is None or t.startswith(f"{int(chi):02d}.")]
+    if not ds:
+        print(f"✗ --chi-ca {chi}: không có ca nào mang số đó")
+        return 1
+    for ten, f in ds:
         try:
             ok, out = f()
         except Exception as e:                                   # noqa: BLE001
@@ -312,9 +400,9 @@ def main() -> int:
                 print(f"        │ {dong}")
     print("─" * 78)
     if hong:
-        print(f"✗ {hong}/{len(CA)} ca HỎNG — mất mạng vẫn có thể làm mất nguyên một bản tin.")
+        print(f"✗ {hong}/{len(ds)} ca HỎNG — mất mạng vẫn có thể làm mất nguyên một bản tin.")
         return 1
-    print(f"✓ {len(CA)}/{len(CA)} ca đạt — mất mạng thì chờ, lỗi khác thì báo ngay.")
+    print(f"✓ {len(ds)}/{len(ds)} ca đạt — mất mạng thì chờ, lỗi khác thì báo ngay.")
     return 0
 
 

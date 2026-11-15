@@ -298,8 +298,10 @@ phê, bản tuần, ngoại giao, tin bị loại để rỗng. Đo bằng `--ki
   trả undefined, thêm `ignoreSearch` thì trúng — tức precache offline đã **vô tác dụng từ
   30/07/2026**, mở offline mục 🏛️ Think-tank vẫn trống dù sw.js khai precache nó. Chỉ áp cho
   cùng gốc: chuỗi truy vấn của Supabase (`?select=cid,tags`) MANG NGHĨA.
-- Bộ canh: `tests/test-cat-nhe-trang.py` — **17 ca · `--tu-kiem` bắt 20/20 bản hỏng**, đã nạp
-  `BO_TEST` của `HeThong/khoe.py`.
+- Bộ canh: `tests/test-cat-nhe-trang.py` — **17 ca · `--tu-kiem` bắt 20/20 bản hỏng + 02 phép tìm
+  node**, đã nạp `BO_TEST` của `HeThong/khoe.py`. ⚠️ 02 ca chạy-thật gọi node: tìm theo PATH rồi lùi
+  về `/opt/homebrew/bin/node` (vá 15/11/2026 — PATH của phiên Claude và LaunchAgent không có
+  `/opt/homebrew/bin`, gọi `"node"` trần là 02 ca đỏ oan dù mã không đổi). Thiếu node hẳn thì ca ĐỎ.
 - ⚖️ **Phép cân trang: `HeThong/khoe.py::trang_diemtin_phinh()`** (nạp 21/08/2026). Kích thước
   `index.html` trên đĩa KHÔNG nói gì về thứ người đọc tải, nên phép đo dựng lại đúng bản đã
   cắt rồi cân byte gzip của **lát đầu**: hiện **109.127 / trần `TRAN_TRANG_DT_NEN` = 125.000**.
