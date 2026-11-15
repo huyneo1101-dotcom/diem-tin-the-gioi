@@ -1,1 +1,2 @@
 [21:00Z] START (CI) - phien sang som 2026-11-16
+[04:05 VN] FAIL web-scan (local sang): pull --rebase bi chan boi index.html sua do + file NONG .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml (phien khac dang go); remote co 19 commit moi (rev-list HEAD..origin/main). Khong stash, khong commit ho. Khong claim, khong quet.
