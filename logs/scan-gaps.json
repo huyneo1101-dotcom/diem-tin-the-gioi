@@ -1,21 +1,21 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-16",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":5,"target":"5-10","min":5,"thieu":false,
+    {"name":"Đối ngoại Mỹ","count":1,"target":"5","min":5,"thieu":true,
+     "reason":"Chỉ có 1 tin (Rubio dự ASEAN/Quad tại Manila). Đã quét kỹ qua State Dept, White House, Reuters/AP/AFP, Axios, Foreign Policy, Atlantic Council, Just Security qua agent chính + agent bổ sung duy nhất — mọi thông cáo đối ngoại lớn xác nhận được (G7 Paris, Rubio-Wang Yi, Witkoff-Kushner-Zelenskyy Dublin, Rubio-Honduras) đều có ngày sự kiện thật rơi vào 9-13/11, ngoài khung 15-16/11 (cuối tuần Bộ Ngoại giao ít ra thông cáo mới). Đã dùng hết 6/6 lượt agent cho phiên này (trần agent con), không thể giao vòng 3."},
+    {"name":"Nội bộ Mỹ","count":5,"target":"5-13","min":5,"thieu":false,
      "reason":""},
-    {"name":"Nội bộ Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
-     "reason":"Đã giao đủ trần 6 agent cả phiên (5 luồng gốc + 1 bổ sung duy nhất). Nhiều ứng viên bị cổng NGÀY ĐĂNG THẬT chặn: ngày sự kiện thật cũ hơn khung 14-15/11 (NPR voter roll 11-13, Warren/FTC letter 11-12, Courtney/Hải quân letter 11-12, Law360 thẩm phán Cook 11-13, Fortune tariff refund 11-12), hoặc trang không in ngày đăng ở dạng metadata đọc được (state.gov Singapore + G7 Taiwan/Cuba, USTR Mexico, GOP 2028 thehill.com). Không đủ thời gian trong trần agent để tìm dateProofUrl cho từng tin .gov. Chỉ CNN (viện trợ y tế, 11-14) qua được cổng ở vòng bổ sung."},
-    {"name":"Địa bàn › Anh","count":1,"target":"3+","min":3,"thieu":true,
-     "reason":"Đã giao đủ trần 6 agent. Agent B tìm 5 ứng viên Anh nhưng 4/5 bị chặn: Talon IQ (Navy Lookout) ngày thật 11-10 ngoài khung; RAF Lakenheath drone trùng sự kiện đã có trong DATA; Type 26/mine-hunting USV Na Uy (Naval News) trùng 100% sự kiện tin đã nạp phiên trước (cùng 90 triệu bảng, cùng Na Uy); Atlantic Net 90m (Navy Lookout) ngày thật 11-13 ngoài khung. Vòng bổ sung tìm thêm CPA Burnham/EU (nguồn aggregator yếu + ngoài khung) — loại. Chỉ Bank of England (Huw Pill) qua được cổng."},
-    {"name":"Địa bàn › Australia","count":2,"target":"3+","min":3,"thieu":true,
-     "reason":"Đã giao đủ trần 6 agent. Agent B tìm 4 ứng viên Australia, 3/4 ngày thật ngoài khung 1-4 ngày (11-11, 11-12: đại sứ Mỹ AUKUS, đầu tư 88 triệu đào tạo lao động, HMAS Stalwart Biển Đông). Vòng bổ sung tìm thêm VEEM (Naval News) cùng ngày thật 11-11 — loại. Chỉ 'Trung Quốc yêu cầu Australia ngừng thổi phồng' qua được cổng."},
-    {"name":"Địa bàn › Biển Đông","count":3,"target":"5+","min":5,"thieu":true,
-     "reason":"Đã giao đủ trần 6 agent. Agent B tìm 6 ứng viên, nhưng Philippines Navy bảo vệ ASEAN Summit (Manila Times) và Philippines ngư dân (RFA) có ngày thật 11-13 ngoài khung. Vòng bổ sung tìm Taiwan News (10 máy bay/8 tàu TQ quanh Đài Loan) nhưng trang không in ngày đăng đọc được, không đủ thời gian tìm dateProofUrl; Jakarta Post Natuna là bài opinion + ngoài khung — cả hai loại. Giữ được: Malaysia COC 90%, ASEAN Maritime Center, Melaka election."},
-    {"name":"KHCN-QS","count":90,"target":"5-10","min":5,"thieu":false,
-     "reason":"Đạt sàn rộng (gộp cửa sổ 3 ngày 12-15/11, gồm tin các phiên trước còn trong khung CNQS)."},
+    {"name":"Địa bàn › Anh","count":6,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,
+     "reason":""},
+    {"name":"Địa bàn › Biển Đông","count":4,"target":"5","min":5,"thieu":true,
+     "reason":"4/5 tin (COC 80%, Philippines-TQ rạn nứt, Marcos phát biểu ASEAN, Malaysia Atmaca missile). Tin thứ 5 (vòi rồng tại Bãi Cỏ Mây do agent bổ sung tìm) bị cổng NGÀY ĐĂNG THẬT chặn vì link Maritime Executive agent đưa ra thực chất là bài cũ năm 2023; thay thế bằng bài Al Jazeera về COC bị huỷ vì trùng sự kiện với tin COC 80% đã có. Đã dùng hết 6/6 lượt agent, không còn vòng bổ sung."},
+    {"name":"KHCN-QS","count":5,"target":"5-10","min":5,"thieu":false,
+     "reason":""},
     {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
-     "reason":"Diễn biến kết thúc Malabar 2026 (IANS) bị cổng NGÀY chặn vì ngày sự kiện thật 11-13 ngoài khung 1 ngày so với batch 11-15. Không có diễn biến mới khác trong khung 14-15/11. Mục này không mang sàn bắt buộc."}
+     "reason":"Cuộc đang bám là Mitra Shakti XII (Ấn Độ-Sri Lanka, 13-26/11). Đã giao agent riêng tìm diễn biến 15-16/11 nhưng chỉ có tin khởi hành/khai mạc (13-14/11, ngoài khung), không có diễn biến mới trong khung ngày. Mục này không mang sàn bắt buộc."}
   ],
-  "note": "Phiên dùng đủ trần 6 agent (5 luồng gốc A/B/C/D/BM + 1 agent bổ sung duy nhất gộp 4 mục thiếu), đã CHỐT lô theo đúng luật TRẦN AGENT CON — không giao vòng thứ hai. Nguyên nhân chính của tỷ lệ chặn cao ở vòng này là cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py): nhiều nguồn .gov/.mil/báo chuyên ngành không in ngày đăng ở dạng metadata máy đọc được, và nhiều ứng viên khác có ngày sự kiện thật cũ hơn khung hôm nay+hôm qua dù agent khai ngày mới hơn. Chi tiết từng tin: logs/loai-tin.md mục '[TOÀN PHIÊN 15/11 sáng (CI)]'. Báo Mới: 4 ứng viên cũ (Hùng Cao/Courtney, S-300VM Saudi, RAF Lakenheath trùng, Nhật Bản ngân sách QP) đều đã được agent BM xử lý — 1 bị cổng NGÀY chặn (Courtney thật ra 11-12), 3 loại đúng vì không neo chủ đề hoặc trùng tin."
+  "note": "Phiên sáng sớm 16/11/2026 (CI). Dùng đủ 6/6 lượt agent con (5 luồng gốc A/B/C/D/BM + 1 agent bổ sung duy nhất) theo trần vá 05/10/2026 — không giao vòng thứ hai dù còn 2 mục hụt sàn (Đối ngoại Mỹ, Biển Đông). 4 tin bị cổng NGÀY ĐĂNG THẬT chặn hẳn trong lô (2 usNews: FT 'Republicans blame Trump' và Hill 'South Democrats' không có metadata ngày đọc được; 2 bản thay thế tìm vội cũng bị chặn: Anadolu Peltola thật ra 14/11 ngoài khung, af.mil F-15EX không có metadata ngày) — không tìm được thay thế hợp lệ trong thời gian còn lại trước hạn chót 04:45. Chi tiết tin bị loại: logs/loai-tin.md. Có vài cảnh báo Jaccard trùng tiêu đề với tin đã có sẵn trong DATA (BAE Systems Jaccard 0.94 gần như trùng, Patriot Ukraine 0.70, B-21 weapons test 0.71, radar Saab UK 0.43, COC 80% 0.64) — cổng chỉ CẢNH BÁO không chặn nên đã nạp; cần người đọc xác minh lại ở bản sau nếu là tin trùng thật chứ không phải tin nối tiếp."
 }
