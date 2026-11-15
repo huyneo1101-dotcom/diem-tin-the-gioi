@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-15T04:38:33+07:00",
+    "lastRunAt": "2026-11-16T04:00:40+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+11 tin (5 chu de, Noi bo My/Anh/Australia/Bien Dong hut san, da ghi scan-gaps.json)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-11-15"
-    }
+    },
+    "heartbeat": "2026-11-16T04:00:40+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-11-15T04:57:52+07:00",
