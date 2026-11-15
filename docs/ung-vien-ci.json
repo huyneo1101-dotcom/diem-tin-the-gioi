@@ -1,19 +1,11 @@
 {
-  "tao_luc": "2026-11-15T03:46:43+07:00",
+  "tao_luc": "2026-11-15T08:14:16+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-14",
     "2026-11-15"
   ],
   "ung_vien": [
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-11-14",
-      "tieu_de": "How the Jensen Huang scandal created a headache for business-friendly Singapore",
-      "nguon": "BBC World",
-      "url": "https://www.bbc.co.uk/news/articles/ck1exevgql4qo?at_medium=RSS&at_campaign=rss"
-    },
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
@@ -69,14 +61,6 @@
       "tieu_de": "'Plastic farmers' in Indonesia unaware of the dangers of burning waste",
       "nguon": "ABC News Australia",
       "url": "https://www.abc.net.au/news/2026-11-14/plastic-farmers-in-indonesia-unaware-of-waste-burning-dangers/107274506"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-11-15",
-      "tieu_de": "Bohol-Panglao airport wins sustainability award in Singapore",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2341434/bohol-panglao-airport-wins-sustainability-award-in-singapore"
     },
     {
       "lop": "RSS",
@@ -146,9 +130,9 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-14",
-      "tieu_de": "US air force responds to suspected drone activity over UK airbase",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/us-air-force-responds-to-suspected-drone-activity-over-uk-airbase"
+      "tieu_de": "US Air Force responds to suspected drone activity over UK airbase",
+      "nguon": "South China Morning Post",
+      "url": "https://www.scmp.com/news/world/united-states-canada/article/3374414/us-air-force-responds-suspected-drone-activity-over-uk-airbase"
     },
     {
       "lop": "RSS",
@@ -309,6 +293,14 @@
       "tieu_de": "Space Force activates special operations component command in Tampa",
       "nguon": "Lực lượng Không gian Mỹ",
       "url": "https://www.spaceforce.mil/News/Article-Display/Article/4646632/space-force-activates-special-operations-component-command-in-tampa/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-15",
+      "tieu_de": "NATO Forward Land Forces Battle Group-Poland welcomes new U.S. Army commander during Transfer of Authority Ceremony at BPTA",
+      "nguon": "Lục quân Mỹ",
+      "url": "https://www.army.mil/article/296768/nato_forward_land_forces_battle_group_poland_welcomes_new_u_s_army_commander_during_transfer_of_authority_ceremony_at_bpta"
     },
     {
       "lop": "RSS",
@@ -505,14 +497,6 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-14",
-      "tieu_de": "NATO Forward Land Forces Battle Group-Poland welcomes new U.S. Army commander during Transfer of Authority Ceremony at BPTA: B-Roll",
-      "nguon": "DVIDS (toàn bộ)",
-      "url": "https://www.dvidshub.net/video/1029755/nato-forward-land-forces-battle-group-poland-welcomes-new-us-army-commander-during-transfer-authority-ceremony-bpta-b"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-13",
       "tieu_de": "Veterans Day Salute to U.S. Army Corps of Engineers, Jacksonville District",
       "nguon": "DVIDS (toàn bộ)",
@@ -592,19 +576,27 @@
     },
     {
       "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-14",
-      "tieu_de": "Mỹ thử nghiệm thành công vũ khí trên máy bay ném bom tàng hình B-21 Raider",
-      "nguon": "VietnamPlus (TTXVN)",
-      "url": "https://www.vietnamplus.vn/my-thu-nghiem-thanh-cong-vu-khi-tren-may-bay-nem-bom-tang-hinh-b-21-raider-post1148193.vnp"
-    },
-    {
-      "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-15",
       "tieu_de": "Philippines wins first Eurovision Song Contest Asia",
       "nguon": "BBC World",
       "url": "https://www.bbc.co.uk/news/articles/cqrlgnx9dx6eo?at_medium=RSS&at_campaign=rss"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-15",
+      "tieu_de": "Britain’s Prince William to be joined by wife Kate for visit to India",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/uks-prince-william-to-be-joined-by-wife-kate-for-visit-to-india"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-15",
+      "tieu_de": "British government to expand, accelerate youth job guarantee programme",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/british-government-to-expand-accelerate-youth-job-guarantee-programme"
     },
     {
       "lop": "RSS",
@@ -737,22 +729,6 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "Can these true crime sleuths solve Australia's most infamous cold cases?",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-15/true-crime-festival-victor-harbor-cold-cases/107354812"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-14",
-      "tieu_de": "Australia's newest fast-bowling sensation tipped for big things from a young age",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-14/mahli-beardman-junior-cricket-celebration/107386108"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-14",
       "tieu_de": "Hide and seek in the Baltic – inside NATO’s submarine hunt",
       "nguon": "**UK Defence Journal**",
@@ -785,18 +761,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-14",
-      "tieu_de": "Warner accuses Cricket Australia of 'cover-up'",
+      "ngay": "2026-11-15",
+      "tieu_de": "Australia looking to repeat ODI success",
       "nguon": "Sydney Morning Herald",
-      "url": "https://www.smh.com.au/national/warner-accuses-cricket-australia-of-cover-up-20261114-p61e6i.html?ref=rss&utm_medium=rss&utm_source=rss_national"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-14",
-      "tieu_de": "Microsoft ‘deeply sorry’ for global outage that could have billion-dollar impact on Australia",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/nov/14/microsoft-deeply-sorry-for-global-disruption-that-could-have-billion-dollar-impact-on-australia"
+      "url": "https://www.smh.com.au/national/australia-looking-to-repeat-odi-success-20261115-p61e89.html?ref=rss&utm_medium=rss&utm_source=rss_national"
     },
     {
       "lop": "RSS",
@@ -817,10 +785,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-14",
-      "tieu_de": "British backpackers baulk at Australian visa shake-up",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/world/europe/british-backpackers-baulk-at-australian-visa-shake-up-20261114-p61c6g?ref=rss&utm_medium=rss&utm_source=rss_feed"
+      "ngay": "2026-11-15",
+      "tieu_de": "What to expect as 49th ASEAN Summit begins in Manila",
+      "nguon": "Rappler",
+      "url": "https://www.rappler.com/philippines/expectations-49th-asean-summit-november-2026/"
     },
     {
       "lop": "RSS",
@@ -829,6 +797,14 @@
       "tieu_de": "Thousands of students protest vs Pax Silica, Trump’s arrival in Manila",
       "nguon": "Rappler",
       "url": "https://www.rappler.com/philippines/student-protest-pax-silica-donald-trump-visit-manila-asean/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-15",
+      "tieu_de": "ASEAN’s ‘talk shop’ reputation meets Filipinos’ price worries in Manila",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/11/15/2570113/aseans-talk-shop-reputation-meets-filipinos-price-worries-manila"
     },
     {
       "lop": "RSS",
@@ -849,26 +825,26 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-14",
-      "tieu_de": "Philippines to deepen ties with Brazil on energy, agriculture",
-      "nguon": "Philstar (headlines)",
-      "url": "https://www.philstar.com/headlines/2026/11/15/2570270/philippines-deepen-ties-brazil-energy-agriculture"
+      "ngay": "2026-11-15",
+      "tieu_de": "Global powers converge on Manila as Asean summit kicks off",
+      "nguon": "Inquirer",
+      "url": "https://globalnation.inquirer.net/347612/global-powers-converge-on-manila-as-asean-summit-kicks-off"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-15",
-      "tieu_de": "Manila archbishop issues guidelines for Simbang Gabi",
+      "tieu_de": "Asean to establish Manila-based maritime center",
       "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2341426/manila-archbishop-sets-guidelines-for-simbang-gabi"
+      "url": "https://globalnation.inquirer.net/347606/asean-to-establish-manila-based-maritime-center"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-14",
-      "tieu_de": "Fair weather to prevail over Metro Manila, other parts of PH Sunday",
-      "nguon": "Inquirer",
-      "url": "https://newsinfo.inquirer.net/2341374/fair-weather-to-prevail-over-metro-manila-other-parts-of-ph-sunday"
+      "ngay": "2026-11-15",
+      "tieu_de": "Australian travellers prepare for delays after US groundings",
+      "nguon": "Sydney Morning Herald — World",
+      "url": "https://www.smh.com.au/world/australian-travellers-prepare-for-delays-after-us-groundings-20261115-p61e79.html?ref=rss&utm_medium=rss&utm_source=rss_world"
     },
     {
       "lop": "RSS",
@@ -954,6 +930,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-14",
+      "tieu_de": "Microsoft ‘deeply sorry’ for global outage that could have billion-dollar impact on Australia",
+      "nguon": "The Guardian — World",
+      "url": "https://www.theguardian.com/australia-news/2026/nov/14/microsoft-deeply-sorry-for-global-disruption-that-could-have-billion-dollar-impact-on-australia"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-14",
       "tieu_de": "US-bound flights out of Australia delayed after telecommunications outage grounded American planes",
       "nguon": "The Guardian — World",
       "url": "https://www.theguardian.com/australia-news/2026/nov/14/us-bound-flights-out-of-australia-grounded-as-telecommunications-outage-affects-american-travel"
@@ -989,15 +973,6 @@
       "tieu_de": "Prime Minister Le Minh Hung arrives in Philippines for 49th ASEAN Summit",
       "nguon": "Báo Thế giới & Việt Nam",
       "url": "https://en.baoquocte.vn/prime-minister-le-minh-hung-arrives-in-philippines-for-49th-asean-summit-469009.html"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-14",
-      "tieu_de": "After midterm sweep, US Democrats split over Trump, cost-cutting agenda",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/united-states/after-midterm-sweep-democrats-split-over-trump-cost-cutting-agenda",
-      "nhom": 5
     },
     {
       "lop": "RSS",
@@ -1078,15 +1053,6 @@
       "tieu_de": "How Trump’s midterm gerrymandering flopped",
       "nguon": "Financial Times — World",
       "url": "https://www.ft.com/content/d99f635f-6223-45fc-8429-2ac36b28d080?syn-25a6b1a6=1",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-14",
-      "tieu_de": "Martin Wolf on the US midterms: Trump loses. European populism lives on.",
-      "nguon": "Financial Times — World",
-      "url": "https://www.ft.com/content/094acead-5c40-4609-87fd-f02b171eb42c?syn-25a6b1a6=1",
       "nhom": 5
     },
     {
