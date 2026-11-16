@@ -1,2 +1,3 @@
 [21:05Z] FAIL web-scan (local sang 04:05 VN): repo co viec do chua commit (index.html, data/analyses.json sua do + _thu-hong-93156-ca15160a-claude-web-scan.yml bi xoa, phien khac dang go); pull --rebase bi chan, origin/main hon 18 commit. Khong claim, khong quet, de CI/moc du phong lo.
 [21:15Z] START (CI) phien sang som 2026-11-17, da claim web-scan thanh cong.
+[21:36Z] SKIP web-scan (local luoi cuoi 04:35 VN): CI da claim 21:15Z, beat 21:20Z dang chay; repo local con file do (index.html, data/analyses.json, state.json... + 1 workflow bi xoa), pull --rebase bi chan, origin/main hon 2 commit. Khong claim, khong quet, khong goi state.py fail de khoi de len khoa cua CI.
