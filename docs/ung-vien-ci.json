@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-16T07:13:40+07:00",
+  "tao_luc": "2026-11-16T08:20:57+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-15",
@@ -77,6 +77,14 @@
       "tieu_de": "Niềm tin chiến lược mở ra giai đoạn hợp tác mới giữa Việt Nam và Nhật Bản",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/niem-tin-chien-luoc-mo-ra-giai-doan-hop-tac-moi-giua-viet-nam-va-nhat-ban-102261107215445307.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-16",
+      "tieu_de": "Thủ tướng Chính phủ Lê Minh Hưng trao đổi hợp tác với lãnh đạo Lào Philippines Singapore và gặp song phương Thủ tướng Australia",
+      "nguon": "Báo Thế giới & Việt Nam",
+      "url": "https://baoquocte.vn/thu-tuong-chinh-phu-le-minh-hung-trao-doi-hop-tac-voi-lanh-dao-lao-philippines-singapore-va-gap-song-phuong-thu-tuong-australia-469481.html"
     },
     {
       "lop": "RSS",
@@ -362,6 +370,14 @@
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-16",
+      "tieu_de": "US Air Force Force Design 2026: Designing the Air Force for the Future Fight",
+      "nguon": "Soldier Systems Daily",
+      "url": "https://soldiersystems.net/2026/11/16/us-air-force-force-design-2026-designing-the-air-force-for-the-future-fight/?utm_source=rss&utm_medium=rss&utm_campaign=us-air-force-force-design-2026-designing-the-air-force-for-the-future-fight"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-16",
       "tieu_de": "T.REX ARMS Launches a Global Map Server for Creating Feature-Rich Military-Style Maps",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/11/15/t-rex-arms-launches-a-global-map-server-for-creating-feature-rich-military-style-maps/?utm_source=rss&utm_medium=rss&utm_campaign=t-rex-arms-launches-a-global-map-server-for-creating-feature-rich-military-style-maps"
@@ -397,14 +413,6 @@
       "tieu_de": "US Army Air Defenders Assess Drone Interceptor",
       "nguon": "Soldier Systems Daily",
       "url": "https://soldiersystems.net/2026/11/14/us-army-air-defenders-assess-drone-interceptor/?utm_source=rss&utm_medium=rss&utm_campaign=us-army-air-defenders-assess-drone-interceptor"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-14",
-      "tieu_de": "Marconi Technologies Awarded Contract to Deliver Critical Communications for Patriot Air and Missile Defense System",
-      "nguon": "Soldier Systems Daily",
-      "url": "https://soldiersystems.net/2026/11/13/marconi-technologies-awarded-contract-to-deliver-critical-communications-for-patriot-air-and-missile-defense-system/?utm_source=rss&utm_medium=rss&utm_campaign=marconi-technologies-awarded-contract-to-deliver-critical-communications-for-patriot-air-and-missile-defense-system"
     },
     {
       "lop": "RSS",
@@ -602,14 +610,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "Designs offer first look at new North Canberra Hospital",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-16/early-designs-for-new-north-canberra-hospital/107387498"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-16",
       "tieu_de": "Rutte recalls Norway telling US it is Russia’s sub target",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/rutte-recalls-norway-telling-us-it-is-russias-sub-target/"
@@ -722,17 +722,25 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "Australian families are thinking bigger and looking to invest globally",
+      "tieu_de": "Will the music stop for Firmus?; Australia’s top universities revealed; Matt Comyn has CEO succession on parade",
       "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/companies/financial-services/australian-families-are-thinking-bigger-and-looking-to-invest-globally-20261116-p617rw?ref=rss&utm_medium=rss&utm_source=rss_feed"
+      "url": "https://www.afr.com/markets/equity-markets/will-the-music-stop-for-firmus-australia-s-top-universities-revealed-matt-comyn-has-ceo-succession-on-parade-20261116-p61ehn?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "How we score and rank Australian universities",
+      "tieu_de": "What Australia’s first MICHELIN-star chefs want you to order",
       "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/work-and-careers/education/how-we-score-and-rank-australian-universities-20261116-p61b8i?ref=rss&utm_medium=rss&utm_source=rss_feed"
+      "url": "https://www.afr.com/life-and-luxury/food-and-wine/what-australia-s-first-michelin-star-chefs-want-you-to-order-20261116-p61bp0?ref=rss&utm_medium=rss&utm_source=rss_feed"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "Australian families are thinking bigger and looking to invest globally",
+      "nguon": "Australian Financial Review",
+      "url": "https://www.afr.com/companies/financial-services/australian-families-are-thinking-bigger-and-looking-to-invest-globally-20261116-p617rw?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -794,14 +802,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "PH-Australia new pact clears way for joint drills",
-      "nguon": "Inquirer",
-      "url": "https://www.inquirer.net/495878/ph-australia-new-pact-clears-way-for-joint-drills/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-16",
       "tieu_de": "‘Davidson Window’ Admiral Hopes He Was Wrong On China’s Ability To Take Taiwan By 2027",
       "nguon": "The War Zone (TWZ)",
       "url": "https://www.twz.com/news-features/davidson-window-admiral-hopes-he-was-wrong-on-chinas-ability-to-take-taiwan-by-2027"
@@ -825,18 +825,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "Australian travellers prepare for delays after US groundings",
+      "ngay": "2026-11-16",
+      "tieu_de": "Unwanted migrants are flooding Europe. Some are seizing on a divisive Australian solution",
       "nguon": "Sydney Morning Herald — World",
-      "url": "https://www.smh.com.au/world/australian-travellers-prepare-for-delays-after-us-groundings-20261115-p61e79.html?ref=rss&utm_medium=rss&utm_source=rss_world"
+      "url": "https://www.smh.com.au/world/europe/unwanted-migrants-are-flooding-europe-some-are-seizing-on-a-divisive-australian-solution-20261116-p61ees.html?ref=rss&utm_medium=rss&utm_source=rss_world"
     },
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-15",
-      "tieu_de": "How Australian Kate Whiteman took down the biggest sex traffickers since Jeffrey Epstein",
+      "tieu_de": "Australian travellers prepare for delays after US groundings",
       "nguon": "Sydney Morning Herald — World",
-      "url": "https://www.smh.com.au/world/north-america/how-australian-kate-whiteman-took-down-the-biggest-sex-traffickers-since-jeffrey-epstein-20261115-p61cof.html?ref=rss&utm_medium=rss&utm_source=rss_world"
+      "url": "https://www.smh.com.au/world/australian-travellers-prepare-for-delays-after-us-groundings-20261115-p61e79.html?ref=rss&utm_medium=rss&utm_source=rss_world"
     },
     {
       "lop": "RSS",
@@ -946,9 +946,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "(LEAD) Lee set to depart for ASEAN, APEC summits in Manila, Shenzhen",
+      "tieu_de": "(2nd LD) Lee departs for ASEAN, APEC summits in Manila, Shenzhen",
       "nguon": "Yonhap (Hàn Quốc)",
-      "url": "https://en.yna.co.kr/view/AEN20261116000851315"
+      "url": "https://en.yna.co.kr/view/AEN20261116000852315"
     },
     {
       "lop": "RSS",
@@ -1011,11 +1011,29 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-16",
+      "tieu_de": "Bộ trưởng Mỹ đặt thời hạn 10 ngày với cuộc điều tra tại Nvidia",
+      "nguon": "VnExpress",
+      "url": "https://vnexpress.net/bo-truong-my-dat-thoi-han-10-ngay-voi-cuoc-dieu-tra-tai-nvidia-5145003.html",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
       "ngay": "?",
       "tieu_de": "Vì sao ông Trump chưa quyết tấn công Iran sau bầu cử?",
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/vi-sao-ong-trump-chua-quyet-tan-cong-iran-sau-bau-cu-100261114195240718.htm",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-16",
+      "tieu_de": "Đề nghị của Bộ trưởng Mỹ tới Nvidia sau khi ông Jensen Huang từ chức",
+      "nguon": "Dân Trí",
+      "url": "https://dantri.com.vn/the-gioi/de-nghi-cua-bo-truong-my-toi-nvidia-sau-khi-ong-jensen-huang-tu-chuc-20261116070615698.htm",
+      "nhom": 9
     },
     {
       "lop": "RSS",
@@ -1060,15 +1078,6 @@
       "tieu_de": "Some Republicans say rising stars should sit out 2028 after midterm shellacking",
       "nguon": "The Hill",
       "url": "https://thehill.com/homenews/campaign/6219720-gop-candidates-considering-2032/",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-15",
-      "tieu_de": "After midterm sweep, Democrats split over Trump, cost-cutting agenda",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/world/us-canada/democrats-split-over-trump-cost-cutting-agenda/",
       "nhom": 5
     },
     {
