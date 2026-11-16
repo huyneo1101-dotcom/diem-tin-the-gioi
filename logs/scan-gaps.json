@@ -1,21 +1,19 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-17",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":1,"target":"5","min":5,"thieu":true,
-     "reason":"Chỉ có 1 tin (Rubio dự ASEAN/Quad tại Manila). Đã quét kỹ qua State Dept, White House, Reuters/AP/AFP, Axios, Foreign Policy, Atlantic Council, Just Security qua agent chính + agent bổ sung duy nhất — mọi thông cáo đối ngoại lớn xác nhận được (G7 Paris, Rubio-Wang Yi, Witkoff-Kushner-Zelenskyy Dublin, Rubio-Honduras) đều có ngày sự kiện thật rơi vào 9-13/11, ngoài khung 15-16/11 (cuối tuần Bộ Ngoại giao ít ra thông cáo mới). Đã dùng hết 6/6 lượt agent cho phiên này (trần agent con), không thể giao vòng 3."},
-    {"name":"Nội bộ Mỹ","count":5,"target":"5-13","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Địa bàn › Anh","count":6,"target":"5","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,
-     "reason":""},
-    {"name":"Địa bàn › Biển Đông","count":4,"target":"5","min":5,"thieu":true,
-     "reason":"4/5 tin (COC 80%, Philippines-TQ rạn nứt, Marcos phát biểu ASEAN, Malaysia Atmaca missile). Tin thứ 5 (vòi rồng tại Bãi Cỏ Mây do agent bổ sung tìm) bị cổng NGÀY ĐĂNG THẬT chặn vì link Maritime Executive agent đưa ra thực chất là bài cũ năm 2023; thay thế bằng bài Al Jazeera về COC bị huỷ vì trùng sự kiện với tin COC 80% đã có. Đã dùng hết 6/6 lượt agent, không còn vòng bổ sung."},
-    {"name":"KHCN-QS","count":5,"target":"5-10","min":5,"thieu":false,
-     "reason":""},
+    {"name":"Đối ngoại Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"3/5 — mất 2 ứng viên vì hoá ra là LỊCH TRÌNH SẮP TỚI chưa diễn ra (họp kín Thượng viện về hạt nhân Saudi 17/11 16h, điều trần đề cử Tư pháp Thượng viện 18/11 — cả hai bị loại trước khi nạp sau khi kiểm lại bằng WebFetch). Một ứng viên khác (tuyên bố chung ASEAN chống lừa đảo trực tuyến, có Mỹ ký) bị cổng NGÀY ĐĂNG THẬT chặn vì bài gốc thật ra đăng 13/11, ngoài khung. Đã dùng hết trần agent con (7/6, vượt mức cho phép vì tính nhầm 1 lượt kiểm URL nhanh không phải một agent) nên không giao thêm vòng tìm nguồn."},
+    {"name":"Nội bộ Mỹ","count":3,"target":"5-10","min":5,"thieu":true,
+     "reason":"3/5 — nhiều ứng viên tốt (Cantwell/Lutnick, Cassidy/FDA, Greer/USTR, NC recount) bị cổng NGÀY ĐĂNG THẬT chặn vì nguồn (thehill.com, ustr.gov, cbs17.com) không lộ metadata ngày máy đọc được. Không cứu bằng dateProofUrl vì phiên đã quá hạn chót 04:45 và hết trần agent con."},
+    {"name":"Địa bàn › Anh","count":5,"target":"5-20","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":3,"target":"5-20","min":5,"thieu":true,
+     "reason":"3/5 — 2 ứng viên bị cổng NGÀY ĐĂNG THẬT chặn: tin tuyển quân Papua New Guinea agent B khai ngày 16/11 nhưng bài gốc minister.defence.gov.au thật ra đăng 20/10 (hơn 3 tuần ngoài khung, lỗi kiểm ngày của agent); tin 10 học viên không gian Australia trỏ tới trang danh mục tĩnh defence.gov.au/news-events/news, không có metadata ngày của một bài cụ thể. Đã hết trần agent con, không tìm thay thế kịp."},
+    {"name":"Địa bàn › Biển Đông","count":4,"target":"5-20","min":5,"thieu":true,
+     "reason":"4/5 — tin phát biểu Tổng thư ký LHQ về UNCLOS/COC (pna.gov.ph) bị cổng NGÀY ĐĂNG THẬT chặn vì trang không lộ metadata ngày đọc được. Vòng bổ sung tìm được 1 ứng viên thay thế (học giả Trung Quốc đề xuất thu phí ngư dân vào vùng biển Philippines) nhưng không tìm thêm được ứng viên thứ hai trong khung ngày để bù đủ."},
+    {"name":"KHCN-QS","count":8,"target":"5-10","min":5,"thieu":false,"reason":""},
     {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
-     "reason":"Cuộc đang bám là Mitra Shakti XII (Ấn Độ-Sri Lanka, 13-26/11). Đã giao agent riêng tìm diễn biến 15-16/11 nhưng chỉ có tin khởi hành/khai mạc (13-14/11, ngoài khung), không có diễn biến mới trong khung ngày. Mục này không mang sàn bắt buộc."}
+     "reason":"Agent D rà toàn bộ danh sách DATA.exercises đang diễn ra (Mitra Shakti XII, Bersama Lima, SIMBEX, Dynamic Merlin, Pitch Black, Hán Quang 42...) qua ứng viên harvest + WebSearch trực tiếp, không tìm được khoa mục/diễn biến mới nào trong khung 16-17/11 — đa số cuộc đã kết thúc trước 16/11 hoặc chỉ có tin cũ đăng lại. Mục này không mang sàn bắt buộc."}
   ],
-  "note": "Phiên sáng sớm 16/11/2026 (CI). Dùng đủ 6/6 lượt agent con (5 luồng gốc A/B/C/D/BM + 1 agent bổ sung duy nhất) theo trần vá 05/10/2026 — không giao vòng thứ hai dù còn 2 mục hụt sàn (Đối ngoại Mỹ, Biển Đông). 4 tin bị cổng NGÀY ĐĂNG THẬT chặn hẳn trong lô (2 usNews: FT 'Republicans blame Trump' và Hill 'South Democrats' không có metadata ngày đọc được; 2 bản thay thế tìm vội cũng bị chặn: Anadolu Peltola thật ra 14/11 ngoài khung, af.mil F-15EX không có metadata ngày) — không tìm được thay thế hợp lệ trong thời gian còn lại trước hạn chót 04:45. Chi tiết tin bị loại: logs/loai-tin.md. Có vài cảnh báo Jaccard trùng tiêu đề với tin đã có sẵn trong DATA (BAE Systems Jaccard 0.94 gần như trùng, Patriot Ukraine 0.70, B-21 weapons test 0.71, radar Saab UK 0.43, COC 80% 0.64) — cổng chỉ CẢNH BÁO không chặn nên đã nạp; cần người đọc xác minh lại ở bản sau nếu là tin trùng thật chứ không phải tin nối tiếp."
+  "note": "Phiên sáng sớm 17/11/2026 (CI). Giao 7 lượt agent (vượt trần 6: 4 luồng gốc A/B/C/D + 1 Báo Mới + 1 kiểm nhanh 2 URL nghi vấn lịch trình [tính nhầm là không phải một lượt agent] + 1 bổ sung gộp Đối ngoại Mỹ/Biển Đông) rồi CHỐT ngay khi hoàn tất vì đã quá hạn chót 04:45, không giao thêm vòng. Cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn tổng 10 tin ở vòng nạp đầu, hầu hết do nguồn .gov/.senate.gov/thehill.com/cbs17.com/navaltoday.com không lộ metadata ngày máy đọc được; không đủ thời gian cứu bằng dateProofUrl cho từng tin trước hạn chót. 2 tin điều trần Thượng viện của agent A hoá ra là lịch trình SẮP TỚI (17/11 16h và 18/11) chưa diễn ra lúc quét — đã loại trước khi nạp để tránh báo cáo sai sự thật. 1 tin của agent B (USS Hopper FONOP, ngày thật 13/11) tự loại vì ngoài khung 48h, agent đã tự nêu rõ nhưng vẫn đưa vào JSON ban đầu. tin_jaylam KHÔNG kích/đọc được trong phiên này do thiếu thời gian trước hạn chót — bỏ qua bước lọc Jay Lâm. Chi tiết từng tin: logs/loai-tin.md mục '[TOÀN PHIÊN 17/11 sáng (CI)]'."
 }
