@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-16T03:46:39+07:00",
+  "tao_luc": "2026-11-16T07:13:40+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-15",
@@ -65,6 +65,14 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
+      "ngay": "2026-11-16",
+      "tieu_de": "Pacific Update - 47th Annual Kanto Plains Special Olympics - No Graphics",
+      "nguon": "DVIDS (toàn bộ)",
+      "url": "https://www.dvidshub.net/video/1029877/pacific-update-47th-annual-kanto-plains-special-olympics-no-graphics"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
       "ngay": "?",
       "tieu_de": "Niềm tin chiến lược mở ra giai đoạn hợp tác mới giữa Việt Nam và Nhật Bản",
       "nguon": "Báo Chính phủ",
@@ -93,14 +101,6 @@
       "tieu_de": "Navy relieves commander of destroyer USS Michael Murphy",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/news/navy-uss-michael-murphy-caitlin-cunningham-fired/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-15",
-      "tieu_de": "Pentagon eyes smaller troop cuts across Europe in reversal",
-      "nguon": "The Straits Times",
-      "url": "https://www.straitstimes.com/world/europe/pentagon-eyes-smaller-troop-cuts-across-europe-in-reversal"
     },
     {
       "lop": "RSS",
@@ -193,26 +193,18 @@
     {
       "lop": "RSS",
       "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-13",
-      "tieu_de": "BAE Systems receives US Navy contract for Virginia propulsors",
-      "nguon": "Naval Technology",
-      "url": "https://www.naval-technology.com/news/bae-systems-submarine-propulsors/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-14",
-      "tieu_de": "Destroyer That Has Been Deployed Longer Than Any Since WWII Returns Home",
-      "nguon": "The War Zone (TWZ)",
-      "url": "https://www.twz.com/sea/destroyer-that-has-been-deployed-longer-than-any-since-wwii-returns-home"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
       "ngay": "2026-11-14",
       "tieu_de": "Air Force validates B-21 Raider weapons release after test",
       "nguon": "DefenseScoop",
       "url": "https://defensescoop.com/2026/11/13/air-force-b-21-raider-weapons-release-test/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "CNQS Mỹ",
+      "ngay": "2026-11-16",
+      "tieu_de": "DINFOS memorializes training rooms for Maj. Megan M. McClung during Marine Corps birthday ceremony",
+      "nguon": "DVIDS news (tập trận)",
+      "url": "https://www.dvidshub.net/news/579376/dinfos-memorializes-training-rooms-maj-megan-m-mcclung-during-marine-corps-birthday-ceremony"
     },
     {
       "lop": "RSS",
@@ -473,18 +465,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "Malaysia Selects Roketsan’s ATMACA to Replace NSM on Littoral Combat Ships",
-      "nguon": "Naval News",
-      "url": "https://www.navalnews.com/naval-news/2026/11/malaysia-selects-roketsans-atmaca-to-replace-nsm-on-littoral-combat-ships/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "British tourist smashes Jesus statue outside Vilnius church",
+      "ngay": "2026-11-16",
+      "tieu_de": "Australia, Canada, Italy and the UK urge Israel to allow aid into Gaza",
       "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/video/newsfeed/2026/11/15/british-tourist-smashes-jesus-statue-outside-vilnius-church?traffic_source=rss"
+      "url": "https://www.aljazeera.com/news/2026/11/15/australia-canada-italy-and-the-uk-urge-israel-to-allow-aid-into-gaza?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -493,6 +477,22 @@
       "tieu_de": "The Philippines and Australia strengthen joint military deterrence at ASEAN summit",
       "nguon": "France 24",
       "url": "https://www.france24.com/en/the-philippines-and-australia-strengthen-joint-military-deterrence-at-asean-summit"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "Britain’s Prince Harry visits war-wounded in Ukraine",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/britains-prince-harry-visits-war-wounded-in-ukraine"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-15",
+      "tieu_de": "British PM’s speeches are mostly all his own work, says UK government, after aide AI photos",
+      "nguon": "The Straits Times",
+      "url": "https://www.straitstimes.com/world/europe/pms-speeches-are-mostly-all-his-own-work-says-uk-government-after-aide-ai-photos"
     },
     {
       "lop": "RSS",
@@ -585,18 +585,18 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "?",
-      "tieu_de": "Meta, chat app Line help Taiwan combat online fraud",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/spotlight/society/crime/meta-chat-app-line-help-taiwan-combat-online-fraud"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-15",
       "tieu_de": "Tổng thống Mỹ sẽ tham dự Hội nghị Cấp cao ASEAN tại Philippines",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/tong-thong-my-se-tham-du-hoi-nghi-cap-cao-asean-tai-philippines-20261115170134911.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "Solomon Islands opposition accuses Australia of 'chequebook diplomacy'",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-16/solomon-islands-opposition-accuses-australia-checkbook-diplomacy/107388844"
     },
     {
       "lop": "RSS",
@@ -610,14 +610,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "Australia's super nest egg to top $5 trillion. How well is it serving us?",
-      "nguon": "ABC News AU (world)",
-      "url": "https://www.abc.net.au/news/2026-11-16/is-super-serving-its-members-in-retirement/107387284"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-16",
       "tieu_de": "Rutte recalls Norway telling US it is Russia’s sub target",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/rutte-recalls-norway-telling-us-it-is-russias-sub-target/"
@@ -626,41 +618,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "Coulport nuclear base strike suspended after new pay offer",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/coulport-nuclear-base-strike-suspended-after-new-pay-offer/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-16",
       "tieu_de": "Kongsberg chief warns of undersea countermeasures gap",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/kongsberg-chief-warns-of-undersea-countermeasures-gap/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "UK Atlantic Net sub-hunting network to go live within months",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/uk-atlantic-net-sub-hunting-network-to-go-live-within-months/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "Royal Navy buys Saab radars for drone-hunting boats",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/royal-navy-buys-saab-radars-for-drone-hunting-boats/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "Birkenhead lined up to build Arctic Hunter drone sub hunters",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/birkenhead-lined-up-to-build-arctic-hunter-drone-sub-hunters/"
     },
     {
       "lop": "RSS",
@@ -682,14 +642,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-15",
-      "tieu_de": "Peers urge Prime Minister to lead defence industry shake-up",
-      "nguon": "**UK Defence Journal**",
-      "url": "https://ukdefencejournal.org.uk/peers-urge-prime-minister-to-lead-defence-industry-shake-up/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
       "tieu_de": "New surveillance drone lands on HMS Queen Elizabeth",
       "nguon": "**UK Defence Journal**",
       "url": "https://ukdefencejournal.org.uk/new-surveillance-drone-lands-on-hms-queen-elizabeth/"
@@ -701,14 +653,6 @@
       "tieu_de": "Royal Navy Trident submarine completes record 217-day patrol",
       "nguon": "**Navy Lookout (Hải quân Anh)**",
       "url": "https://www.navylookout.com/royal-navy-trident-submarine-completes-record-217-day-patrol/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-16",
-      "tieu_de": "Royal Navy submariners welcomed home after deterrent patrol keeping UK safe",
-      "nguon": "**GOV.UK — Bộ Quốc phòng Anh**",
-      "url": "https://www.gov.uk/government/news/royal-navy-submariners-welcomed-home-after-deterrent-patrol-keeping-uk-safe"
     },
     {
       "lop": "RSS",
@@ -746,15 +690,7 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "Fiji should operate its Bluebottles jointly with Australia",
-      "nguon": "ASPI Strategist",
-      "url": "https://www.aspistrategist.org.au/fiji-should-operate-its-bluebottles-jointly-with-australia/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-16",
-      "tieu_de": "Australia news LIVE: Albanese apologises for crude hot mic moment with Bowen during climate talks; Senate to vote on new domestic gas reservation laws",
+      "tieu_de": "Australia news LIVE: PM apologises for crude hot mic moment with Bowen during climate talks; Australia signs new defence pact with the Philippines",
       "nguon": "Sydney Morning Herald",
       "url": "https://www.smh.com.au/national/australia-news-live-albanese-apologises-for-crude-hot-mic-moment-with-bowen-during-climate-talks-senate-to-vote-on-new-domestic-gas-reservation-laws-20261116-p61ecy.html?ref=rss&utm_medium=rss&utm_source=rss_national"
     },
@@ -769,10 +705,10 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-15",
-      "tieu_de": "Gender-diverse Australian sailors barred from US submarines despite Aukus deal, documents reveal",
+      "ngay": "2026-11-16",
+      "tieu_de": "How sensitive data from Centrelink and other Australian agencies may have been fed to Palantir software",
       "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/nov/16/gender-diverse-australian-sailors-barred-from-us-submarines-despite-aukus-deal-documents-reveal-ntwnfb"
+      "url": "https://www.theguardian.com/technology/2026/nov/16/personal-data-centrelink-ato-ndis-palantir"
     },
     {
       "lop": "RSS",
@@ -786,17 +722,9 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
-      "tieu_de": "ASX to wobble; Australian dollar hits 10-month lows",
+      "tieu_de": "Australian families are thinking bigger and looking to invest globally",
       "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/markets/equity-markets/asx-to-wobble-australian-dollar-hits-10-month-lows-20261116-p61e95?ref=rss&utm_medium=rss&utm_source=rss_feed"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-16",
-      "tieu_de": "The 32-year itch: Inside Australia’s mission to win the America’s Cup",
-      "nguon": "Australian Financial Review",
-      "url": "https://www.afr.com/companies/sport/the-32-year-itch-inside-australia-s-mission-to-win-the-america-s-cup-20261116-p611o0?ref=rss&utm_medium=rss&utm_source=rss_feed"
+      "url": "https://www.afr.com/companies/financial-services/australian-families-are-thinking-bigger-and-looking-to-invest-globally-20261116-p617rw?ref=rss&utm_medium=rss&utm_source=rss_feed"
     },
     {
       "lop": "RSS",
@@ -826,6 +754,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-16",
+      "tieu_de": "LIVE Coverage: 49th ASEAN Summit in Manila",
+      "nguon": "Philstar (headlines)",
+      "url": "https://www.philstar.com/headlines/2026/11/16/2569914/live-coverage-49th-asean-summit-manila"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
       "tieu_de": "South Korea pushes stronger ties with Philippines",
       "nguon": "Philstar (headlines)",
       "url": "https://www.philstar.com/headlines/2026/11/16/2570390/south-korea-pushes-stronger-ties-philippines"
@@ -845,6 +781,30 @@
       "tieu_de": "Philippines, Australia forge updated defense cooperation",
       "nguon": "Philstar (headlines)",
       "url": "https://www.philstar.com/headlines/2026/11/16/2570387/philippines-australia-forge-updated-defense-cooperation"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "COC unresolved as PH turns over Asean helm",
+      "nguon": "Inquirer",
+      "url": "https://globalnation.inquirer.net/347925/coc-unresolved-as-ph-turns-over-asean-helm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "PH-Australia new pact clears way for joint drills",
+      "nguon": "Inquirer",
+      "url": "https://www.inquirer.net/495878/ph-australia-new-pact-clears-way-for-joint-drills/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "‘Davidson Window’ Admiral Hopes He Was Wrong On China’s Ability To Take Taiwan By 2027",
+      "nguon": "The War Zone (TWZ)",
+      "url": "https://www.twz.com/news-features/davidson-window-admiral-hopes-he-was-wrong-on-chinas-ability-to-take-taiwan-by-2027"
     },
     {
       "lop": "RSS",
@@ -961,6 +921,14 @@
     {
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "World leaders at Manila summit seek trade to offset U.S. risks",
+      "nguon": "The Japan Times",
+      "url": "https://www.japantimes.co.jp/news/2026/11/16/asia-pacific/politics/manila-summit-trade-us-risks/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-15",
       "tieu_de": "Taiwan Indigenous farmer revives climate-resilient millet",
       "nguon": "The Japan Times",
@@ -973,6 +941,14 @@
       "tieu_de": "Australia and Philippines upgrade defense ties with focus on China",
       "nguon": "The Japan Times",
       "url": "https://www.japantimes.co.jp/news/2026/11/15/asia-pacific/australia-philippines-defense-upgrade-china/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-16",
+      "tieu_de": "(LEAD) Lee set to depart for ASEAN, APEC summits in Manila, Shenzhen",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20261116000851315"
     },
     {
       "lop": "RSS",
@@ -1018,15 +994,6 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-15",
-      "tieu_de": "'Record number of women elected' to US Congress & governorships across country in midterm elections",
-      "nguon": "France 24",
-      "url": "https://www.france24.com/en/tv-shows/spotlight/20261115-record-number-of-women-elected-to-us-congress-governorships-across-country-in-midterm-elections",
-      "nhom": 5
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-15",
       "tieu_de": "Battle for young male US voters intensifies after their midterm rebuke of Republicans",
       "nguon": "The Straits Times",
       "url": "https://www.straitstimes.com/world/united-states/battle-for-young-male-voters-intensifies-after-us-midterm-rebuke-of-republicans",
@@ -1049,6 +1016,15 @@
       "nguon": "Tuổi Trẻ",
       "url": "https://tuoitre.vn/vi-sao-ong-trump-chua-quyet-tan-cong-iran-sau-bau-cu-100261114195240718.htm",
       "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-16",
+      "tieu_de": "Cassidy says questions remain about Trump’s FDA pick ahead of committee vote",
+      "nguon": "The Hill",
+      "url": "https://thehill.com/homenews/senate/6221636-cassidy-questions-trumps-fda-pick/",
+      "nhom": 1
     },
     {
       "lop": "RSS",
@@ -1098,19 +1074,28 @@
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
-      "ngay": "2026-11-15",
-      "tieu_de": "Republicans blame everyone but Trump for midterm drubbing",
+      "ngay": "2026-11-16",
+      "tieu_de": "US Democrats win final two Senate seats; Coalition likely to easily win Victorian election",
+      "nguon": "The Conversation (Úc)",
+      "url": "https://theconversation.com/us-democrats-win-final-two-senate-seats-coalition-likely-to-easily-win-victorian-election-296423",
+      "nhom": 5
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-16",
+      "tieu_de": "Trump loses. European populism lives on | Martin Wolf on the US midterms",
       "nguon": "Financial Times — World",
-      "url": "https://www.ft.com/content/d21caa78-65c1-4570-bec8-2ef71b5d65e7?syn-25a6b1a6=1",
+      "url": "https://www.ft.com/video/a850f929-d16a-40a0-bdd8-c153452016fc?syn-25a6b1a6=1",
       "nhom": 5
     },
     {
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-15",
-      "tieu_de": "Martin Wolf on the US midterms: Trump loses. European populism lives on",
+      "tieu_de": "Republicans blame everyone but Trump for midterm drubbing",
       "nguon": "Financial Times — World",
-      "url": "https://www.ft.com/content/7b3ba864-75ca-4862-b54d-abd088444bd3?syn-25a6b1a6=1",
+      "url": "https://www.ft.com/content/d21caa78-65c1-4570-bec8-2ef71b5d65e7?syn-25a6b1a6=1",
       "nhom": 5
     },
     {
