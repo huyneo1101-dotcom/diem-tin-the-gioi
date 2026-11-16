@@ -3,3 +3,4 @@
 [22:08Z] DONE: +12 tin worldNews (Anh 5/5, Australia 3/5, Bien Dong 4/5), +12 tin usNews (Doi ngoai My 3/5, Noi bo My 3/5, KHCN-QS 8/5), +0 tap tran. Qua han chot 04:45, dung lai va chot lo. Chi tiet logs/scan-gaps.json va logs/loai-tin.md.
 [22:09Z] START event-scan (CI, gop vao sang som).
 [22:21Z] DONE event-scan: +3 TAP TRAN MOI (Exercise Grungy Zion 6, Exercise Trident 2026, Exercise Sea Vigil-26), +0 su kien ngoai giao moi (DEFA trung voi su kien da co, loai), +5 bai think-tank (CSIS, Brookings, MP-IDSA, Belfer Center, PRIF) kem 9 khai niem cho 4 bai. Khong phai Chu nhat, bo qua bao cao tuan.
+[22:22Z] SKIP phien moi: web-scan claim tra exit 10 (DA XONG, lan chay cuoi 05:09:03+07). Kiem ngoai le theo luat: so_da_gui.py --xem co dong 2026-11-17T05:22:33+07:00 [sang] 24 tin -- ban tin DA gui toi tay, khong phai co noi doi. event-scan claim cung tra exit 10 (DA XONG, lan chay cuoi 05:21:44+07:00). Hai pipeline deu xong, khong quet lai, ket thuc em.
