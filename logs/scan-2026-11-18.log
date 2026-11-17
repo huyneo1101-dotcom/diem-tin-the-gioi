@@ -1,2 +1,3 @@
 [21:00Z] START (CI) - phien sang som, web-scan claimed OK
 [04:05+07] FAIL web-scan (local sang som): repo co viec do chua commit (index.html, data/analyses.json, .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml bi xoa) + remote co 23 commit moi -> pull --rebase bi chan, khong dong bo duoc. Khong stash, khong commit ho. Moc CI/local sau se quet lai.
+[04:35+07] SKIP/FAIL web-scan (local lưới cuối): repo còn file tracked bị sửa (index.html, data/analyses.json, state.json...) do phiên khác đang gõ + remote có 3 commit mới -> pull --rebase bị chặn; CI đã claim 21:00Z (04:00 VN). Không stash, không commit hộ, không quét chồng, không gọi state.py (không giữ khoá).
