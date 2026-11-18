@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-18T09:33:01+07:00",
+  "tao_luc": "2026-11-18T10:05:23+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-17",
@@ -74,7 +74,7 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-11-18",
-      "tieu_de": "Live: Cricket Australia CEO addresses media as Sandpapergate saga continues",
+      "tieu_de": "Live: Cricket Australia announces Sandpapergate 'forum' for players and staff",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-11-18/cricket-australia-sandpapergate-khawaja-warner-greenberg/107398200"
     },
@@ -114,6 +114,14 @@
       "lop": "RSS",
       "chu_de": "Tập trận",
       "ngay": "2026-11-18",
+      "tieu_de": "Cricket Australia opens forum into Sandpapergate",
+      "nguon": "Sydney Morning Herald",
+      "url": "https://www.smh.com.au/national/cricket-australia-opens-forum-into-sandpapergate-20261118-p61fa3.html?ref=rss&utm_medium=rss&utm_source=rss_national"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-18",
       "tieu_de": "Singapore Airlines plane forced to land in Rocky after cabin fills with smoke",
       "nguon": "Sydney Morning Herald",
       "url": "https://www.smh.com.au/national/queensland/singapore-airlines-plane-forced-to-land-in-rocky-after-cabin-fills-with-smoke-20261118-p61f7u.html?ref=rss&utm_medium=rss&utm_source=rss_national"
@@ -141,14 +149,6 @@
       "tieu_de": "James Talarico’s ‘love thy neighbour’ message won over Texas. Is Australia ready to embrace a new Christian left? | Brigid Delaney",
       "nguon": "The Guardian Australia",
       "url": "https://www.theguardian.com/commentisfree/2026/nov/18/is-australia-ready-to-embrace-a-new-christian-left-religion-politics-ntwnfb"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
-      "ngay": "2026-11-17",
-      "tieu_de": "Labor policy backflip will allow more backpackers to work in regional Australia",
-      "nguon": "The Guardian Australia",
-      "url": "https://www.theguardian.com/australia-news/2026/nov/17/labor-backpacker-policy-backflip-work-regional-australia-holiday-visas"
     },
     {
       "lop": "RSS",
@@ -245,6 +245,14 @@
       "tieu_de": "Singapore to push for single ASEAN market, closer energy and digital links as 2027 chair: PM Wong",
       "nguon": "Channel News Asia — Asia",
       "url": "https://www.channelnewsasia.com/singapore/asean-chairmanship-lawrence-wong-philippines-6556511"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-18",
+      "tieu_de": "Australia’s gender pay gap declines to lowest on record",
+      "nguon": "The Straits Times — Asia",
+      "url": "https://www.straitstimes.com/asia/australianz/australias-gender-pay-gap-declines-to-lowest-on-record"
     },
     {
       "lop": "RSS",
@@ -357,14 +365,6 @@
       "tieu_de": "Troops in unsafe barracks can get temporary housing on or off base, Pentagon says",
       "nguon": "Task & Purpose",
       "url": "https://taskandpurpose.com/news/barracks-emergency-orders/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "CNQS Mỹ",
-      "ngay": "2026-11-18",
-      "tieu_de": "US Navy chief says Iran war has put ‘strain’ on maritime forces",
-      "nguon": "Al Jazeera",
-      "url": "https://www.aljazeera.com/news/2026/11/17/us-navy-chief-says-iran-war-has-put-strain-on-maritime-forces?traffic_source=rss"
     },
     {
       "lop": "RSS",
@@ -866,14 +866,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-17",
-      "tieu_de": "Việt Nam – Vương quốc Anh: Mở rộng hợp tác thương mại nông sản,  thúc đẩy tăng trưởng xanh",
-      "nguon": "VnEconomy",
-      "url": "https://vneconomy.vn/viet-nam-vuong-quoc-anh-mo-rong-hop-tac-thuong-mai-nong-san-thuc-day-tang-truong-xanh.htm"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-17",
       "tieu_de": "Malaysia-Taiwan: Anwar’s China line triggers a quiet investment freeze",
       "nguon": "Lowy Interpreter",
       "url": "https://www.lowyinstitute.org/the-interpreter/malaysia-taiwan-anwar-s-china-line-triggers-a-quiet-investment-freeze"
@@ -1034,6 +1026,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-18",
+      "tieu_de": "Rappler Recap: PH ends ASEAN chairship with gains, but Myanmar and COC unresolved",
+      "nguon": "Rappler",
+      "url": "https://www.rappler.com/philippines/video-recap-closing-49th-asean-summit-november-17-2026/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-18",
       "tieu_de": "Trump to meet Marcos in Manila before China talks",
       "nguon": "Rappler",
       "url": "https://www.rappler.com/philippines/trump-meet-marcos-manila-china-talks/"
@@ -1045,14 +1045,6 @@
       "tieu_de": "Trump in Manila for state visit, ASEAN meetings | The wRap",
       "nguon": "Rappler",
       "url": "https://www.rappler.com/video/daily-wrap/november-17-2026/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-17",
-      "tieu_de": "Trump meets regional allies in Manila ahead of China visit",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/philippines/trump-meets-regional-allies-asean-special-summit-2026/"
     },
     {
       "lop": "RSS",
@@ -1125,6 +1117,14 @@
       "tieu_de": "Why is a South China Sea Code of Conduct still unfinished after decades of talks?",
       "nguon": "Channel News Asia — Asia",
       "url": "https://www.channelnewsasia.com/asia/cna-explains-south-china-sea-talks-unfinished-asean-6558131"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-17",
+      "tieu_de": "Trump meets regional allies in Manila ahead of China visit",
+      "nguon": "Channel News Asia — Asia",
+      "url": "https://www.channelnewsasia.com/asia/trump-meets-regional-allies-in-manila-ahead-china-visit-6557351"
     },
     {
       "lop": "RSS",
