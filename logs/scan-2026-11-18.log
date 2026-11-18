@@ -3,3 +3,4 @@
 [21:38Z] START event-scan (CI, gop vao sang som)
 [21:46Z] DONE event-scan: 0 su kien/tap tran moi (Quad Manila trung tin da dang trong web-scan, bo qua). Nap +5 bai think-tank (PRIF, Brookings, USSC, EUISS, ORF) + 7 khai niem. Khong phai Chu nhat, bo qua bao cao tuan.
 [21:48Z] SKIP phien moi (CI) - web-scan claim exit 10 (da xong luc 04:38:17+07). Kiem ngoai le: so_da_gui co dong [sang] 33 tin luc 04:47:58+07 nen co khong noi doi, ban tin da toi tay thuc. event-scan cung DONE luc 04:47:02+07. Khong quet lai, khong lam gi them.
+[02:36Z] SKIP phien moi (CI) - web-scan claim exit 12 (SAI GIO): 09:36 gio VN ngoai khung "sang" (03:00-09:00), cron GitHub tre. KHONG dung --bo-cong-gio. Chuyen sang kiem event-scan theo quy trinh.
