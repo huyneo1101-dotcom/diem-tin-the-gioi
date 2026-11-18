@@ -5,3 +5,5 @@
 [21:48Z] SKIP phien moi (CI) - web-scan claim exit 10 (da xong luc 04:38:17+07). Kiem ngoai le: so_da_gui co dong [sang] 33 tin luc 04:47:58+07 nen co khong noi doi, ban tin da toi tay thuc. event-scan cung DONE luc 04:47:02+07. Khong quet lai, khong lam gi them.
 [02:36Z] SKIP phien moi (CI) - web-scan claim exit 12 (SAI GIO): 09:36 gio VN ngoai khung "sang" (03:00-09:00), cron GitHub tre. KHONG dung --bo-cong-gio. Chuyen sang kiem event-scan theo quy trinh.
 [02:37Z] SKIP event-scan (CI) - claim cung exit 12 (SAI GIO): 09:37 gio VN ngoai khung "sang". Ca hai pipeline da SKIP, ket thuc em.
+[03:08Z] SKIP phien moi (CI) - web-scan claim exit 12 (SAI GIO): 10:08 gio VN ngoai khung "sang" (03:00-09:00), cron GitHub tre. KHONG dung --bo-cong-gio. Chuyen sang kiem event-scan theo quy trinh.
+[03:08Z] SKIP event-scan (CI) - claim cung exit 12 (SAI GIO): 10:08 gio VN ngoai khung "sang". Ca hai pipeline da SKIP, ket thuc em.
