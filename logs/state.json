@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-19T05:07:16+07:00",
+    "lastRunAt": "2026-11-19T05:18:43+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+2 su kien/tap tran (Sea Vigil-26 update, Brave Hussar-26 moi), +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-11-18"
-    },
-    "heartbeat": "2026-11-19T05:13:34+07:00"
+      "sang": "2026-11-19"
+    }
   }
 }
