@@ -11,3 +11,7 @@
 [21:44Z] add_news.py OK: +14 worldNews +14 usNews
 [21:45Z] gh workflow run telegram-bot.yml BI CHAN (requires approval) - chua kich duoc bot Jay Lam, tin_jaylam.py --liet-ke thieu secret SUPABASE_ANON_KEY/DT_BOT_KEY nen khong doc duoc - BO QUA buoc Jay Lam, di tiep
 [21:46Z] START event-scan (CI, gop vao sang som) - claim OK (RUN, phien sang)
+[21:50Z] do_tap_tran_thieu.py: Sahayata Setu (An Do) da ket thuc 19/11, khong nap moi
+[21:52Z] agent event-scan xong: +3 su kien ngoai giao moi (An Do-Nhat 2+2, Pakistan-Qatar, Nigeria-Mozambique) + 1 cap nhat (Greenland)
+[21:54Z] add_analyses.py: +5 bai think-tank (CNAS, Wilson Center, Defense Priorities, ORF, Carnegie) + set_analysis_concepts.py: 8 khai niem
+[21:56Z] DONE event-scan - khong phai Chu nhat (thu 6), bo qua bao cao tuan
