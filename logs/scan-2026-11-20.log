@@ -10,3 +10,4 @@
 [21:40Z] sua cong NGAY DANG THAT: 12 tin bi chan, cuu 4 bang dateProofUrl, 2 doi sourceUrl, 6 bo han
 [21:44Z] add_news.py OK: +14 worldNews +14 usNews
 [21:45Z] gh workflow run telegram-bot.yml BI CHAN (requires approval) - chua kich duoc bot Jay Lam, tin_jaylam.py --liet-ke thieu secret SUPABASE_ANON_KEY/DT_BOT_KEY nen khong doc duoc - BO QUA buoc Jay Lam, di tiep
+[21:46Z] START event-scan (CI, gop vao sang som) - claim OK (RUN, phien sang)
