@@ -1,3 +1,12 @@
 [21:03Z] START (CI) - phien sang som
-[21:05Z] FAIL (local 04:05 VN) - repo co viec do chua commit (index.html, data/analyses.json, workflow _thu-hong-*) + origin/main hon 21 commit; khong pull duoc, khong stash/commit ho. CI da START 21:03Z nen nhuong CI.
-[21:36Z] SKIP (local 04:35 VN) - CI web-scan dang chay (START 21:03Z, remote co beat 04:20 VN); repo local con file NONG/CAN NGUOI cua phien khac (index.html, data/analyses.json, logs/state.json...) + origin/main hon 1 commit, khong pull duoc; khong stash/commit ho, khong claim, khong goi state.py fail de khong ghi de khoa cua CI.
+[21:03Z] claim web-scan OK (RUN, chay bu sang som)
+[21:04Z] harvest.py --gop-ci: 364 ung vien (Noi bo My 114, Uc&BD 142, CNQS 77, Tap tran 31)
+[21:05Z] (local 04:05 VN) phien local FAIL/nhuong CI - repo local co viec do chua commit, khong anh huong phien CI nay
+[21:07Z] beat 1
+[21:12Z] agent A (Noi bo My) + B (Uc/Anh/BD) + C (CNQS) + D (Tap tran) xong song song
+[21:13Z] beat 2
+[21:20Z] agent bo sung (Uc + Doi ngoai My) xong - da dung het tran 6 agent
+[21:35Z] (local 04:35 VN) phien local SKIP - CI dang chay, nhuong dung
+[21:40Z] sua cong NGAY DANG THAT: 12 tin bi chan, cuu 4 bang dateProofUrl, 2 doi sourceUrl, 6 bo han
+[21:44Z] add_news.py OK: +14 worldNews +14 usNews
+[21:45Z] gh workflow run telegram-bot.yml BI CHAN (requires approval) - chua kich duoc bot Jay Lam, tin_jaylam.py --liet-ke thieu secret SUPABASE_ANON_KEY/DT_BOT_KEY nen khong doc duoc - BO QUA buoc Jay Lam, di tiep
