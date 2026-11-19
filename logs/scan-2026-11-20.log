@@ -1,1 +1,2 @@
 [21:03Z] START (CI) - phien sang som
+[21:05Z] FAIL (local 04:05 VN) - repo co viec do chua commit (index.html, data/analyses.json, workflow _thu-hong-*) + origin/main hon 21 commit; khong pull duoc, khong stash/commit ho. CI da START 21:03Z nen nhuong CI.
