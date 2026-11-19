@@ -15,3 +15,4 @@
 [21:52Z] agent event-scan xong: +3 su kien ngoai giao moi (An Do-Nhat 2+2, Pakistan-Qatar, Nigeria-Mozambique) + 1 cap nhat (Greenland)
 [21:54Z] add_analyses.py: +5 bai think-tank (CNAS, Wilson Center, Defense Priorities, ORF, Carnegie) + set_analysis_concepts.py: 8 khai niem
 [21:56Z] DONE event-scan - khong phai Chu nhat (thu 6), bo qua bao cao tuan
+[21:58Z] SKIP phien moi (CI) - web-scan DA DONE 04:45:50 + so_da_gui co dong [sang] 04:57:14 cung ngay (ban tin da toi tay); event-scan DA DONE 04:56:14. Khong quet lai.
