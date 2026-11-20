@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-20T04:56:14+07:00",
+    "lastRunAt": "2026-11-21T04:33:31+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+3 su kien ngoai giao moi, +1 cap nhat (Greenland), +5 bai think-tank",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-11-20"
-    }
+    },
+    "heartbeat": "2026-11-21T04:33:31+07:00"
   }
 }
