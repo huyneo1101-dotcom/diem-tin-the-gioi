@@ -16,3 +16,4 @@
 [21:54Z] add_analyses.py: +5 bai think-tank (CNAS, Wilson Center, Defense Priorities, ORF, Carnegie) + set_analysis_concepts.py: 8 khai niem
 [21:56Z] DONE event-scan - khong phai Chu nhat (thu 6), bo qua bao cao tuan
 [21:58Z] SKIP phien moi (CI) - web-scan DA DONE 04:45:50 + so_da_gui co dong [sang] 04:57:14 cung ngay (ban tin da toi tay); event-scan DA DONE 04:56:14. Khong quet lai.
+[01:54Z] SKIP phien moi (CI, claim web-scan exit 10) - kiem lai 3 lenh bat buoc: state.py show xac nhan web-scan+event-scan lastStatus=DONE ngay 2026-11-20; so_da_gui --xem co dong 2026-11-20T04:57:14+07:00 [sang] 28 tin cung ngay. Dung dung dieu kien NGOAI LE (khong phai lastRunAt<20p noi dung gia). Khong quet lai web-scan, khong claim lai event-scan.
