@@ -17,3 +17,4 @@
 [21:56Z] DONE event-scan - khong phai Chu nhat (thu 6), bo qua bao cao tuan
 [21:58Z] SKIP phien moi (CI) - web-scan DA DONE 04:45:50 + so_da_gui co dong [sang] 04:57:14 cung ngay (ban tin da toi tay); event-scan DA DONE 04:56:14. Khong quet lai.
 [01:54Z] SKIP phien moi (CI, claim web-scan exit 10) - kiem lai 3 lenh bat buoc: state.py show xac nhan web-scan+event-scan lastStatus=DONE ngay 2026-11-20; so_da_gui --xem co dong 2026-11-20T04:57:14+07:00 [sang] 28 tin cung ngay. Dung dung dieu kien NGOAI LE (khong phai lastRunAt<20p noi dung gia). Khong quet lai web-scan, khong claim lai event-scan.
+[02:35Z] SKIP phien moi (CI, claim web-scan exit 12 SAI GIO) - "SKIP - 09:36 nam NGOAI khung cua o \"sang\" (03:00-09:00 gio VN). Cron GitHub tre bat dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet. Moc dung gio se lam. Chay bu tay: them --bo-cong-gio \"<ly do>\"." - KHONG them --bo-cong-gio de lach (dung luat). Ket thuc em.
