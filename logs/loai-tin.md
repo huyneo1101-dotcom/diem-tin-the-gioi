@@ -1821,3 +1821,13 @@ Sau vòng bổ sung + nhiều lượt WebSearch trực tiếp của phiên đi�
   Tin "Lục quân Anh / Kế hoạch tu bổ BoE / Hoàng tử Harry / Leonardo drone Cornwall" ban đầu bị cổng `check_neo_chu_de_2` chặn vì văn bản không chứa cụm neo "Anh" đúng mẫu `topics.NEO_ANH` (chỉ ghi "Lục quân Anh"/"Ngân hàng Trung ương Anh" chứ không "Vương quốc Anh") — đã sửa câu chữ thêm "Vương quốc Anh" để tự neo, giữ nguyên nội dung.
   Kết quả cuối: Đối ngoại Mỹ 2/5 (HỤT) · Nội bộ Mỹ (còn lại) 5/5 · Anh 5/5 · Australia 4/5 (HỤT 1) · Biển Đông 5/5 · KHCN-QS 7/5. Tập trận: 0 tin (Brave Hussar-26/Trident 2026/Mitra Shakti XII không có diễn biến mới trong khung 19-20/11, không mang sàn).
   ⚠️ Môi trường CI thiếu module Python `docx` nên không chạy được `soi_muc_cam.py --san` để đo chính xác theo `make_docx.py` thật — số liệu trên tính tay. Chi tiết: `logs/scan-gaps.json`.
+
+## 2026-11-21 (phien sang som CI)
+
+- [Báo Mới, CNQS Mỹ] "Một hệ thống Patriot có giá bằng 2 tiểu đoàn S-400" (Chuyên trang An Ninh Thủ Đô) — bài kiến thức/so sánh khí tài, không gắn sự kiện có ngày cụ thể trong khung 19-21/11, loại.
+- [Báo Mới, CNQS Mỹ] "F/A-18A/B Hornet: Những phiên bản đầu tiên đặt nền móng cho tiêm kích hải quân Mỹ" (Chuyên trang An Ninh Thủ Đô) — bài lịch sử khí tài, không có ngày sự kiện cụ thể, loại.
+- [worldNews, Australia] "Labor senator says AUKUS inquiry an insult to Australia sovereignty / AUKUS inquiry scepticism runs only one way" (James Paterson, Yahoo News Australia) — cổng NGÀY ĐĂNG THẬT đọc ra ngày đăng thật 2026-11-05, ngoài khung 1 ngày (bài thật sự cũ, không phải lỗi thiếu metadata) — loại, không dùng cờ bỏ cổng.
+- [worldNews, Australia] "Kaine agrees with Colby on value of AUKUS review" (ExchangeMonitor) — cổng NGÀY ĐĂNG THẬT đọc ra ngày đăng thật 2026-11-18, ngoài khung 2 ngày — loại, không dùng cờ bỏ cổng.
+- [usNews, CNQS Mỹ] "Raytheon chọn Ursa Major và Avio USA làm nguồn cung thứ hai cho động cơ tên lửa Tomahawk" (Breaking Defense) — phát hiện SAU KHI đã nạp: trùng sự kiện với tin đã có trên web ngày 18/11 (cùng hợp đồng Tomahawk, chỉ khác câu chữ) — đã GỠ khỏi index.html ngay trong phiên này để tránh trùng.
+- [usNews, CNQS Mỹ] "Báo cáo GAO: Lầu Năm Góc thiếu kế hoạch toàn diện xử lý tình trạng thiếu đạn dược" (DefenseScoop) — trùng sự kiện với tin GAO đạn dược đã có trên web ngày 19/11 — đã GỠ khỏi index.html.
+- [usNews, CNQS Mỹ] "Thiếu sợi chịu nhiệt nhập từ Pháp đe dọa dây chuyền sản xuất tên lửa Patriot của Mỹ" (VnExpress) — trùng sự kiện với tin sợi chịu nhiệt Patriot đã có trên web ngày 18/11 — đã GỠ khỏi index.html, thay bằng tin Daniel Defense NULL556 để giữ sàn KHCN-QS.

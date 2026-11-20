@@ -1,18 +1,17 @@
 {
-  "date": "2026-11-20",
+  "date": "2026-11-21",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":2,"target":"5-10","min":5,"thieu":true,
-     "reason":"2/5 — Trump thúc giục Tập Cận Bình mua nông sản tại Thâm Quyến; Bộ Ngoại giao/Tài chính Mỹ chế tài băng nhóm Comanchero/'Ndrangheta. Nhiều ứng viên khác (fact sheet Nhà Trắng về thoả thuận Đông Nam Á, phiên xét đề cử đại sứ Haiti/OPCW của Uỷ ban Đối ngoại Thượng viện, Monaco National Day) bị CỔNG NGÀY ĐĂNG THẬT chặn: sự kiện thật xảy ra 17-18/11 (ngoài khung 1 ngày) hoặc trang .senate.gov/.gov không in ngày đọc được và không tìm được link đối chứng hợp lệ trong khung. Đã dùng hết trần 6 agent (5 luồng + 1 bổ sung) + tự WebSearch thêm nhưng không đủ."},
-    {"name":"Nội bộ Mỹ","count":5,"target":"5-10","min":5,"thieu":false,
-     "reason":"Đạt sàn nhưng dưới chỉ tiêu — tổng chủ đề 1 (gồm Đối ngoại) chỉ 7/12-18 vì cổng ngày đăng thật chặn nhiều ứng viên hạng 1 (điều trần/bỏ phiếu Thượng viện) do trang .gov không in ngày đọc được."},
-    {"name":"Địa bàn › Anh","count":5,"target":"3-8","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":4,"target":"3-8","min":5,"thieu":true,
-     "reason":"4/5 — thiếu 1 tin. Ứng viên thứ 5 (phát biểu Thứ trưởng Quốc phòng Mỹ Colby về AUKUS tại hội nghị Submarine League) bị cổng ngày đăng thật chặn vì sự kiện thật diễn ra 12/11, ngoài khung. Diễn tập Kasangga Úc-Philippines loại vì bắn đạn thật thật diễn ra 8/11 dù báo đăng lại 19/11; họp không quân Indonesia-Australia loại vì diễn ra 18/11, ngoài khung. Hợp đồng khinh hạm Nhật-Úc (Australian Defence Magazine) không có ngày đọc được, không tìm được link đối chứng kịp. Đã dùng hết trần 6 agent, không giao thêm vòng."},
+    {"name":"Đối ngoại Mỹ","count":7,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Nội bộ Mỹ","count":7,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":8,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":5,"target":"5-10","min":5,"thieu":false,
+     "reason":"Sát sàn: harvest.py hôm nay gần như trắng tin AUKUS/quốc phòng Úc trực tiếp (chỉ ra được GNEWS radar), phải tự WebSearch bổ sung mạnh. 2 ứng viên GNEWS ban đầu (Paterson AUKUS probe 'giả hiệu', Kaine-Colby AUKUS review) bị cổng NGÀY ĐĂNG THẬT phát hiện ngày đăng thật quá cũ (05/11 và 18/11, ngoài khung 20-21/11) nên phải loại và bù bằng tin Seahawk helicopter (Breaking Defense) để giữ đúng sàn 5."},
     {"name":"Địa bàn › Biển Đông","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"KHCN-QS","count":7,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"KHCN-QS","count":5,"target":"5-10","min":5,"thieu":false,
+     "reason":"Sát sàn: 3/8 ứng viên CNQS ban đầu bị phát hiện SAU KHI nạp là trùng sự kiện với tin đã có trên web từ 18-19/11 (Raytheon/Ursa Major Tomahawk, báo cáo GAO đạn dược, sợi chịu nhiệt Patriot — cùng sự kiện, nguồn khác, ngày đăng lại khác) nên đã gỡ khỏi index.html ngay trong phiên và bù 1 tin mới (Daniel Defense NULL556) để giữ đúng sàn 5. Không có diễn biến tập trận mới (xem mục Tập trận) nên không cộng thêm từ đó."},
     {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
-     "reason":"Agent D kiểm 3 cuộc đang diễn ra (Brave Hussar-26, Exercise Trident 2026, Mitra Shakti XII) qua WebSearch — không có diễn biến mới nào có ngày sự kiện đúng 19-20/11, chỉ thấy tin khai mạc/thăm viếng từ 13-16/11. Không mang sàn, chấp nhận 0."}
+     "reason":"3 cuộc đang chạy (Brave Hussar-26, Exercise Trident 2026, Mitra Shakti XII-2026) đều không có diễn biến mới đăng trong khung 20-21/11 qua WebSearch — mọi nguồn chỉ lặp lại tin khai mạc cũ (13-16/11). Không mang sàn bắt buộc, chấp nhận 0."}
   ],
-  "note": "Phiên sáng sớm 20/11/2026 (CI). Giao đúng trần 6/6 agent (4 luồng gốc A/B/C/D + 1 bổ sung gộp Đối ngoại Mỹ/Australia; không có agent Báo Mới riêng vì chỉ 2 ứng viên khớp, đã gộp xử lý trong agent B). Cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn 12 tin ở vòng nạp đầu — hầu hết do trang .gov/.senate.gov/báo không in metadata ngày đọc được: cứu 4/12 bằng dateProofUrl (link thứ hai cùng sự việc có ngày đọc được: UK Defence Journal, Báo Mới, ProFarmer, CP24), 2/12 cứu bằng cách đổi sourceUrl sang bài khác có metadata (ENR, Defense News) cùng sự kiện, 6/12 bị BỎ hẳn vì sự kiện thật ngoài khung thật (Colby AUKUS 12/11, Eurasia Review Laos COC phân tích dựa trên sự kiện 16-18/11, Senate Banking markup không xác minh được ngày, foreign.senate.gov/press là URL chung không trỏ bài cụ thể, Nhà Trắng fact sheet SEA deals thật ra đăng 18/11, CalMatters California GOP thật ra đăng 17/11). Hai mục Đối ngoại Mỹ và Địa bàn›Australia hụt sàn sau vòng bổ sung, không giao vòng thứ hai theo luật trần agent con. Tin bị loại: xem logs/loai-tin.md."
+  "note": "Phiên sáng sớm 21/11/2026 (CI). Giao 4/6 agent (luồng gốc A Nội bộ Mỹ · B Úc&Biển Đông&Anh · C CNQS Mỹ · D Tập trận), không cần vòng bổ sung vì mọi mục đạt sàn ngay sau vòng đầu (sau khi gỡ 3 tin CNQS trùng sự kiện và bù 1 tin thay thế). Đã kiểm floor cả 07 đơn vị bằng script độc lập tái dùng đúng hàm phân loại của make_docx.py (la_doi_ngoai_my/tieu_muc_dia_ban/la_qs_khcn): Đối ngoại Mỹ 7 · Nội bộ Mỹ 7 · Anh 8 · Australia 5 · Biển Đông 5 · KHCN-QS 5 — 0 tin rơi ra ngoài mọi mục. 2 ứng viên Báo Mới chuyên mục CNQS (So sánh giá Patriot/S-400, lịch sử F/A-18 Hornet) bị loại vì là bài kiến thức không gắn ngày sự kiện cụ thể. Không kích được telegram-bot.yml (gh bị chặn, cần phê duyệt mà phiên CI không có người trực) nên không đối chiếu được file Jay Lâm; tin_jaylam.py cũng báo thiếu SUPABASE_ANON_KEY/DT_BOT_KEY trong môi trường CI này. Tin bị loại chi tiết: xem logs/loai-tin.md."
 }

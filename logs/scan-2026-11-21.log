@@ -1,2 +1,11 @@
 [20:56Z] START web-scan (CI) phien sang som
-[04:12 VN] FAIL web-scan (local sang): repo local cham 16 commit so voi origin/main, pull --rebase bi chan boi file tracked sua do (index.html, data/analyses.json; file workflow _thu-hong-* bi xoa cuc bo). Khong stash, khong commit ho. Chua claim, khong quet.
+[20:56Z] harvest.py: 392 ung vien (Noi bo My 142, Uc&BD 127, CNQS 84, Tap tran 39)
+[20:57Z] telegram_harvest.py: 8 bai trong khung ngay
+[21:10Z] 4 agent chu de xong (A Noi bo My, B Uc&BD, C CNQS, D Tap tran=rong hop le)
+[21:25Z] add_news.py nap xong: +18 worldNews +21 usNews, sau do go 3 tin CNQS trung su kien
+         (Raytheon/Ursa Major, GAO munitions, Patriot soi chiu nhiet - da co tren web tu 18-19/11)
+         va nap bu 1 tin CNQS (Daniel Defense NULL556) de giu san KHCN-QS >=5
+[21:25Z] da kiem floor 07 don vi bang script rieng: Doi ngoai My 7, Noi bo My 7, Anh 8,
+         Australia 5, Bien Dong 5, KHCN-QS 5 - tat ca dat san, 0 tin roi ra ngoai muc
+[21:31Z] gh workflow run telegram-bot.yml BI CHAN (requires approval, khong co nguoi bam) -
+         CHUA kich duoc bot Jay Lam, di tiep theo fail-open co tieng
