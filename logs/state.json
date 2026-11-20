@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-20T04:45:50+07:00",
+    "lastRunAt": "2026-11-21T03:56:49+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+14 tin (4 chu de, hut san Doi ngoai My 2/5 va Australia 4/5)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-11-20"
-    }
+    },
+    "heartbeat": "2026-11-21T03:56:49+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-11-20T04:56:14+07:00",
