@@ -1,1 +1,2 @@
 [20:56Z] START web-scan (CI) phien sang som
+[04:12 VN] FAIL web-scan (local sang): repo local cham 16 commit so voi origin/main, pull --rebase bi chan boi file tracked sua do (index.html, data/analyses.json; file workflow _thu-hong-* bi xoa cuc bo). Khong stash, khong commit ho. Chua claim, khong quet.
