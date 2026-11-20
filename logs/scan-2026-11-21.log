@@ -18,3 +18,7 @@
          check_date_window chan vi ky 19/11, cu hon 1 ngay so voi hom nay thuc 21/11 - da ghi
          vao logs/loai-tin.md, khong dung co bo-cong vi khong co co cho dipEvents
 [21:45Z] DONE event-scan
+[21:47Z] SKIP web-scan (CI, phien sang som) - state.py claim tra exit 10, da xong luc 04:33:18.
+         Kiem so_da_gui --xem: co dong 2026-11-21T04:46:37+07:00 [sang] 38 tin - ban tin da toi tay.
+         Nhay sang claim event-scan: cung exit 10, da xong luc 04:45:20 (+1 su kien/tap tran,
+         +6 bai think-tank). Khong co viec gi them, ket thuc em.
