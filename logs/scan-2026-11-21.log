@@ -11,3 +11,10 @@
          CHUA kich duoc bot Jay Lam, di tiep theo fail-open co tieng
 [21:32Z] state.py done web-scan "+37 tin (4 chu de)" - commit + push xong
 [21:33Z] START event-scan (CI, gop vao sang som)
+[21:40Z] do_tap_tran_thieu.py: tim duoc 1 cuoc tap tran moi co ten rieng (HARIMAU SHAKTI-VI)
+[21:45Z] da nap: +1 tap tran moi (HARIMAU SHAKTI-VI, An Do - Malaysia) qua nguon PIB chinh thuc
+         +6 bai think-tank (ASPI, Lowy, Fulcrum, CEPA, Long War Journal, Jamestown) + 7 khai niem
+         1 su kien ngoai giao moi tim duoc (Tuyen bo Shenzhen Trump-Xi-Putin) nhung bi cong
+         check_date_window chan vi ky 19/11, cu hon 1 ngay so voi hom nay thuc 21/11 - da ghi
+         vao logs/loai-tin.md, khong dung co bo-cong vi khong co co cho dipEvents
+[21:45Z] DONE event-scan
