@@ -29,3 +29,6 @@
          SAI GIO: "09:50 nam ngoai khung cua o sang (03:00-09:00 gio VN). Cron GitHub tre bat
          dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet." Khong dung
          --bo-cong-gio de lach, ket thuc em theo dung luat.
+[02:51Z] SKIP (CI, phien khac cung ngay VN, 09:51 gio VN) - state.py claim web-scan lai tra
+         exit 12 SAI GIO, dung thong diep nhu dong 02:50Z ngay tren (cron tre nhieu lan lien
+         tiep). Khong dung --bo-cong-gio, ket thuc em, khong lam gi them.
