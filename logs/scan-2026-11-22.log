@@ -1,1 +1,2 @@
 [21:00Z] START (CI) phien sang som
+[21:05Z] SKIP (local 04:05) repo co viec do chua commit cua phien khac (index.html, data/analyses.json sua dang do; .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml bi xoa, file NONG), pull --rebase bi chan, HEAD..origin/main = 17 commit; khong claim, CI 03:47 da START (log remote). Khong stash, khong commit ho.
