@@ -1,5 +1,5 @@
 {
-  "tao_luc": "2026-11-21T08:41:15+07:00",
+  "tao_luc": "2026-11-21T09:44:13+07:00",
   "moi_truong": "CI",
   "khung_ngay": [
     "2026-11-20",
@@ -81,14 +81,6 @@
     {
       "lop": "RSS",
       "chu_de": "Tập trận",
-      "ngay": "?",
-      "tieu_de": "Macron pitches closer Malaysia ties to reduce reliance on US, China",
-      "nguon": "Nikkei Asia",
-      "url": "https://asia.nikkei.com/politics/international-relations/macron-pitches-closer-malaysia-ties-to-reduce-reliance-on-us-china"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Tập trận",
       "ngay": "2026-11-20",
       "tieu_de": "Mở rộng thanh toán số xuyên biên giới: Người Việt đã có thể quét mã QR thanh toán khi chi tiêu, mua sắm tại Singapore",
       "nguon": "VnEconomy",
@@ -117,6 +109,14 @@
       "tieu_de": "Chiến sự Ukraine 20/11: Giai đoạn quyết định ở Donbass dường như đã bắt đầu",
       "nguon": "Dân Trí",
       "url": "https://dantri.com.vn/the-gioi/chien-su-ukraine-2011-giai-doan-quyet-dinh-o-donbass-duong-nhu-da-bat-dau-20261120085312714.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-21",
+      "tieu_de": "Australia-wide rallies warn freebirths will soar under new rules",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-21/homebirth-rallies-midwife-insurance-freebirth/107412380"
     },
     {
       "lop": "RSS",
@@ -341,6 +341,14 @@
       "tieu_de": "Niềm tin chiến lược mở ra giai đoạn hợp tác mới giữa Việt Nam và Nhật Bản",
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/niem-tin-chien-luoc-mo-ra-giai-doan-hop-tac-moi-giua-viet-nam-va-nhat-ban-102261107215445307.htm"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Tập trận",
+      "ngay": "2026-11-20",
+      "tieu_de": "Malaysia đau đầu tìm giải pháp cho vấn nạn ‘xe ma’",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/malaysia-dau-dau-tim-giai-phap-cho-van-nan-xe-ma-2576550.html"
     },
     {
       "lop": "RSS",
@@ -874,6 +882,14 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-21",
+      "tieu_de": "Experts say AI 'spy-tech' has infiltrated Australian uni exams",
+      "nguon": "ABC News AU (world)",
+      "url": "https://www.abc.net.au/news/2026-11-21/inside-the-new-high-tech-era-of-exam-cheating-australia/107403692"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-21",
       "tieu_de": "Canberra United star on 'reclaiming the narrative' as she marks 200 games",
       "nguon": "ABC News AU (world)",
       "url": "https://www.abc.net.au/news/2026-11-21/act-michelle-heyman-200-games-milestone-canberra-united/107407628"
@@ -970,14 +986,6 @@
       "lop": "RSS",
       "chu_de": "Úc & Biển Đông",
       "ngay": "2026-11-21",
-      "tieu_de": "‘A new imperial age:’ Yuval Harari warns Philippines of foreign AI dependence",
-      "nguon": "Rappler",
-      "url": "https://www.rappler.com/technology/yuval-harari-maria-ressa-artificial-intelligence-social-good-summit-2026/"
-    },
-    {
-      "lop": "RSS",
-      "chu_de": "Úc & Biển Đông",
-      "ngay": "2026-11-21",
       "tieu_de": "[Vantage Point] The nickel wealth the Philippines gets to keep",
       "nguon": "Rappler",
       "url": "https://www.rappler.com/voices/thought-leaders/vantage-point-nickel-wealth-philippines-gets-keep/"
@@ -1053,6 +1061,14 @@
       "tieu_de": "Taiwan and Japan Intercept Russian Tu-95 Bombers Flying Back from Vietnam",
       "nguon": "The Aviationist",
       "url": "https://theaviationist.com/2026/11/19/taiwan-japan-intercept-russian-tu-95/"
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Úc & Biển Đông",
+      "ngay": "2026-11-21",
+      "tieu_de": "Lee says he is visiting Ulsan after 4-day trip to Philippines, China",
+      "nguon": "Yonhap (Hàn Quốc)",
+      "url": "https://en.yna.co.kr/view/AEN20261121001000320"
     },
     {
       "lop": "RSS",
@@ -1145,6 +1161,24 @@
       "lop": "RSS",
       "chu_de": "Nội bộ Mỹ",
       "ngay": "2026-11-21",
+      "tieu_de": "NATIONAL ADOPTION MONTH, 2026",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/national-adoption-month-2026/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-21",
+      "tieu_de": "PROTECTING THE EXECUTIVE’S PRIVILEGES AND ENHANCING EFFICIENCIES IN FEDERAL CONTRACTING",
+      "nguon": "Nhà Trắng — Presidential Actions",
+      "url": "https://www.whitehouse.gov/presidential-actions/2026/11/protecting-the-executives-privileges-and-enhancing-efficiencies-in-federal-contracting/",
+      "nhom": 9
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-21",
       "tieu_de": "Federal Reserve announces College Fed Challenge winners",
       "nguon": "Cục Dự trữ Liên bang",
       "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20261120b.htm",
@@ -1203,6 +1237,15 @@
       "nguon": "Báo Chính phủ",
       "url": "https://baochinhphu.vn/bau-cu-giua-nhiem-ky-my-cuoc-dua-quyet-liet-truoc-gio-bo-phieu-102261102084120937.htm",
       "nhom": 1
+    },
+    {
+      "lop": "RSS",
+      "chu_de": "Nội bộ Mỹ",
+      "ngay": "2026-11-21",
+      "tieu_de": "Mỹ áp trừng phạt mới với các nhà buôn dầu Iran",
+      "nguon": "VietnamNet",
+      "url": "https://vietnamnet.vn/my-ap-trung-phat-moi-voi-cac-nha-buon-dau-iran-2577250.html",
+      "nhom": 4
     },
     {
       "lop": "HTML",
