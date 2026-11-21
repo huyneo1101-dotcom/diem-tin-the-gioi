@@ -22,3 +22,6 @@
          Kiem so_da_gui --xem: co dong 2026-11-21T04:46:37+07:00 [sang] 38 tin - ban tin da toi tay.
          Nhay sang claim event-scan: cung exit 10, da xong luc 04:45:20 (+1 su kien/tap tran,
          +6 bai think-tank). Khong co viec gi them, ket thuc em.
+[01:47Z] SKIP (phien CI khac, cung ngay VN) - claim lai web-scan va event-scan, ca hai van
+         exit 10 dung nhu dong 21:47Z da ghi. Khong co gi moi de lam, ket thuc em, khong commit
+         them (khong co thay doi noi dung).
