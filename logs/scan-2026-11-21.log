@@ -25,3 +25,7 @@
 [01:47Z] SKIP (phien CI khac, cung ngay VN) - claim lai web-scan va event-scan, ca hai van
          exit 10 dung nhu dong 21:47Z da ghi. Khong co gi moi de lam, ket thuc em, khong commit
          them (khong co thay doi noi dung).
+[02:50Z] SKIP (CI, phien khac cung ngay VN, 09:50 gio VN) - state.py claim web-scan tra exit 12
+         SAI GIO: "09:50 nam ngoai khung cua o sang (03:00-09:00 gio VN). Cron GitHub tre bat
+         dinh 2-4h nen phien nay khong phai ca that; KHONG claim, KHONG quet." Khong dung
+         --bo-cong-gio de lach, ket thuc em theo dung luat.
