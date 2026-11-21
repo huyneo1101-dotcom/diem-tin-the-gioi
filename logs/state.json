@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-22T04:00:43+07:00",
+    "lastRunAt": "2026-11-22T04:56:15+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+9 tin The gioi, +12 tin My (5 chu de, mot so muc hut san do cong ngay that chan)",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-11-21"
-    },
-    "heartbeat": "2026-11-22T04:00:43+07:00"
+      "sang": "2026-11-22"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-11-21T04:45:20+07:00",

@@ -1,17 +1,17 @@
 {
-  "date": "2026-11-21",
+  "date": "2026-11-22",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":7,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Nội bộ Mỹ","count":7,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Anh","count":8,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":5,"target":"5-10","min":5,"thieu":false,
-     "reason":"Sát sàn: harvest.py hôm nay gần như trắng tin AUKUS/quốc phòng Úc trực tiếp (chỉ ra được GNEWS radar), phải tự WebSearch bổ sung mạnh. 2 ứng viên GNEWS ban đầu (Paterson AUKUS probe 'giả hiệu', Kaine-Colby AUKUS review) bị cổng NGÀY ĐĂNG THẬT phát hiện ngày đăng thật quá cũ (05/11 và 18/11, ngoài khung 20-21/11) nên phải loại và bù bằng tin Seahawk helicopter (Breaking Defense) để giữ đúng sàn 5."},
-    {"name":"Địa bàn › Biển Đông","count":5,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"KHCN-QS","count":5,"target":"5-10","min":5,"thieu":false,
-     "reason":"Sát sàn: 3/8 ứng viên CNQS ban đầu bị phát hiện SAU KHI nạp là trùng sự kiện với tin đã có trên web từ 18-19/11 (Raytheon/Ursa Major Tomahawk, báo cáo GAO đạn dược, sợi chịu nhiệt Patriot — cùng sự kiện, nguồn khác, ngày đăng lại khác) nên đã gỡ khỏi index.html ngay trong phiên và bù 1 tin mới (Daniel Defense NULL556) để giữ đúng sàn 5. Không có diễn biến tập trận mới (xem mục Tập trận) nên không cộng thêm từ đó."},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
-     "reason":"3 cuộc đang chạy (Brave Hussar-26, Exercise Trident 2026, Mitra Shakti XII-2026) đều không có diễn biến mới đăng trong khung 20-21/11 qua WebSearch — mọi nguồn chỉ lặp lại tin khai mạc cũ (13-16/11). Không mang sàn bắt buộc, chấp nhận 0."}
+    {"name":"Đối ngoại Mỹ","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Tìm được 4 bài đạt chuẩn qua 2 vòng agent (OFAC Iran, Zelensky đàm phán ba bên, USTR Section 301, Rubio điện đàm UAE), nhưng cổng NGÀY ĐĂNG THẬT (ngay_that.py) chặn 2/4 vì Bloomberg (Greer/USTR) và state.gov (Rubio-UAE) không in metadata ngày đọc được — hết hạn chót 04:45 nên không kịp tìm link dateProofUrl thay thế. Còn lại 2 bài (OFAC Iran, Zelensky)."},
+    {"name":"Nội bộ Mỹ","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":5,"target":"3-10","min":3,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":2,"target":"3-10","min":3,"thieu":true,
+     "reason":"Agent B và 1 vòng bổ sung đều không tìm được tin quốc phòng/an ninh/đối ngoại Úc đúng khung ngày 21-22/11 ngoài 2 bài đã có (Albanese-Lý Cường đối thoại AI; phân tích AUKUS-Indonesia). Đã loại 1 bài (cảnh báo lưới điện Victoria từ trung tâm dữ liệu) vì không neo quốc phòng/đối ngoại dù có chữ 'Australia'. WebSearch thêm (ASPI, SMH, ABC News AU, defence.gov.au) chỉ ra tin từ 3/11-19/11, ngoài khung."},
+    {"name":"Địa bàn › Biển Đông","count":2,"target":"5-10","min":5,"thieu":true,
+     "reason":"Có 4 bài đạt chuẩn (Liêu Ninh qua Luzon, Mỹ-Philippines lắp radar Palawan, PhilSA cảnh báo mảnh vỡ tên lửa, Philippines triển khai tên lửa diệt hạm Dagit-PA) nhưng cổng NGÀY ĐĂNG THẬT chặn 2 bài USNI News (không có metadata ngày đọc được) — hết hạn chót nên không kịp tìm dateProofUrl. 1 bài khác (Marcos-Wang Yi về COC, Philstar) bị loại vì đã có trên web từ trước (trùng URL)."},
+    {"name":"KHCN-QS","count":4,"target":"5-10","min":5,"thieu":true,
+     "reason":"CNQS Mỹ có 5 bài đạt chuẩn nhưng cổng NGÀY ĐĂNG THẬT chặn hợp đồng Lockheed Trident/F-35 (war.gov Contracts page không in metadata ngày) — còn 4 bài. Tập trận đang diễn ra không có diễn biến mới đạt chuẩn (0 bài, không mang sàn riêng)."}
   ],
-  "note": "Phiên sáng sớm 21/11/2026 (CI). Giao 4/6 agent (luồng gốc A Nội bộ Mỹ · B Úc&Biển Đông&Anh · C CNQS Mỹ · D Tập trận), không cần vòng bổ sung vì mọi mục đạt sàn ngay sau vòng đầu (sau khi gỡ 3 tin CNQS trùng sự kiện và bù 1 tin thay thế). Đã kiểm floor cả 07 đơn vị bằng script độc lập tái dùng đúng hàm phân loại của make_docx.py (la_doi_ngoai_my/tieu_muc_dia_ban/la_qs_khcn): Đối ngoại Mỹ 7 · Nội bộ Mỹ 7 · Anh 8 · Australia 5 · Biển Đông 5 · KHCN-QS 5 — 0 tin rơi ra ngoài mọi mục. 2 ứng viên Báo Mới chuyên mục CNQS (So sánh giá Patriot/S-400, lịch sử F/A-18 Hornet) bị loại vì là bài kiến thức không gắn ngày sự kiện cụ thể. Không kích được telegram-bot.yml (gh bị chặn, cần phê duyệt mà phiên CI không có người trực) nên không đối chiếu được file Jay Lâm; tin_jaylam.py cũng báo thiếu SUPABASE_ANON_KEY/DT_BOT_KEY trong môi trường CI này. Tin bị loại chi tiết: xem logs/loai-tin.md."
+  "note": "Phiên quét sáng 22/11/2026 (CI). 4 luồng agent gốc (Nội bộ Mỹ, Úc & Biển Đông, CNQS Mỹ, Tập trận) + 1 agent bổ sung (đối ngoại Mỹ/Úc/Biển Đông) — đã dùng 5/6 trần agent con. Nguyên nhân chính của các mục hụt KHÔNG phải thiếu nguồn mà là cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn nhiều bài từ nguồn tầng 1 (war.gov, state.gov, USNI News, Bloomberg) vì trang không in metadata ngày đọc được — các bài này đều đã xác minh đúng sự kiện qua agent nhưng không kịp bổ sung dateProofUrl trước hạn chót 04:45. Tin bị loại ghi ở logs/loai-tin.md. 2 tin trùng với web (GAO munitions report dạng The Hill, Marcos/Philstar COC) và 1 tin lạc chủ đề (Australia energy grid) đã bị phát hiện và loại trong review. 4 ứng viên Báo Mới đã xử lý — không bài nào đạt chuẩn (xem logs/loai-tin.md). Không kích được telegram-bot.yml (gh bị chặn, cần phê duyệt) nên không đối chiếu được file Jay Lâm; tin_jaylam.py cũng báo thiếu SUPABASE_ANON_KEY/DT_BOT_KEY trong môi trường CI này."
 }
