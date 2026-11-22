@@ -112,16 +112,46 @@ create table if not exists push_subs (
 );
 alter table push_subs enable row level security;
 
--- Ai cũng được tự đăng ký / cập nhật / xoá đăng ký của thiết bị mình (không cần đăng nhập).
-drop policy if exists push_insert on push_subs;
-create policy push_insert on push_subs for insert to anon, authenticated with check (true);
+-- ⛔ 22/11/2026 — NGƯỜI LẠ CHỈ ĐƯỢC THÊM. Bản cũ mở SELECT/UPDATE/DELETE cho anon (using true):
+-- đo giả vai trong giao dịch huỷ ngang, người lạ cầm khoá công khai đọc trọn danh sách, xoá sạch
+-- đăng ký, đổi endpoint, và chèn endpoint máy lạ để máy GitHub Actions gửi tin tới đó.
+-- Bản gốc + phép đo + hoàn tác: HeThong/bao-mat/2026-11-22-khoa-push-subs.sql; cổng canh:
+-- HeThong/canh-ro-ri-supabase.py (lớp «bảng chỉ thêm»).
 drop policy if exists push_update on push_subs;
-create policy push_update on push_subs for update to anon, authenticated using (true) with check (true);
 drop policy if exists push_delete on push_subs;
-create policy push_delete on push_subs for delete to anon, authenticated using (true);
--- Cho phép đọc để Action (dùng publishable key) lấy danh sách thiết bị mà gửi push.
 drop policy if exists push_select on push_subs;
-create policy push_select on push_subs for select to anon, authenticated using (true);
+drop policy if exists push_insert on push_subs;
+create policy push_insert on push_subs for insert to anon, authenticated with check (
+  endpoint ~ '^https://(fcm\.googleapis\.com|[a-z0-9-]+\.google\.com|updates\.push\.services\.mozilla\.com|[a-z0-9.-]+\.notify\.windows\.com|web\.push\.apple\.com)/'
+  and length(endpoint) <= 1000
+  and p256dh ~ '^[A-Za-z0-9_-]{80,100}={0,2}$'
+  and auth ~ '^[A-Za-z0-9_-]{16,32}={0,2}$'
+);
+-- Không cấp SELECT: đăng ký lại trùng endpoint trả 23505, trang coi là đã đăng ký
+-- (`on conflict do nothing` đòi quyền đọc cột nên cố ý không dùng).
+revoke select, update, delete, truncate, references, trigger on push_subs from anon, authenticated;
+
+-- Huỷ đăng ký: phải cầm ĐÚNG endpoint (chuỗi bí mật riêng của từng máy).
+create or replace function public.push_huy_dang_ky(p_endpoint text) returns void
+  language sql security definer set search_path = '' as $$
+  delete from public.push_subs where endpoint = p_endpoint
+$$;
+revoke all on function public.push_huy_dang_ky(text) from public, anon, authenticated;
+grant execute on function public.push_huy_dang_ky(text) to anon, authenticated;
+
+-- Máy gửi trên GitHub (`.github/scripts/send-push.js`) đọc danh sách bằng header x-dt-key
+-- (secret DT_BOT_KEY, kiểm bằng dt_ma_hop_le()). search_path phải có `extensions` vì
+-- dt_ma_hop_le() gọi digest() không ghi schema.
+create or replace function public.push_ds_gui() returns table(endpoint text, p256dh text, auth text)
+  language plpgsql stable security definer set search_path = public, extensions, pg_temp as $$
+begin
+  if not coalesce(public.dt_ma_hop_le(), false) then
+    raise exception 'thieu hoac sai ma x-dt-key' using errcode = '42501';
+  end if;
+  return query select s.endpoint, s.p256dh, s.auth from public.push_subs s;
+end $$;
+revoke all on function public.push_ds_gui() from public, anon, authenticated;
+grant execute on function public.push_ds_gui() to anon, authenticated;
 
 -- ============================================================================
 -- cafe_deleted — danh sách quán cà phê bị XOÁ GLOBAL (áp cho MỌI người dùng).

@@ -87,12 +87,41 @@ def doc_exercises(duong_dan=None):
     return exs if isinstance(exs, list) else []
 
 
+def dates_chu(d):
+    """Bản Python của `index.html::datesChu` — đưa ô `dates` về chuỗi "dd/mm/yyyy".
+
+    Lượt quét sự kiện CI từ 27/10/2026 ghi dạng `{"start": "YYYY-MM-DD", "end": ...}`; trước
+    bản vá 22/11/2026 `str(dict)` không khớp mẫu nào nên cuộc tập trận rơi về `status` cũ
+    trong im lặng, còn phía web thì vỡ cả trang.
+    """
+    if d is None:
+        return ""
+    if isinstance(d, str):
+        return d
+    if not isinstance(d, dict):
+        return str(d)
+
+    def ngay(x):
+        m = re.fullmatch(r"(\d{4})-(\d{2})-(\d{2})", str(x or "").strip())
+        return (int(m.group(3)), int(m.group(2)), int(m.group(1))) if m else None
+    a, b = ngay(d.get("start")), ngay(d.get("end"))
+    if not a:
+        return ""
+    if not b or a == b:
+        return "%d/%d/%d" % a
+    if a[1:] == b[1:]:
+        return "%d-%d/%d/%d" % (a[0], b[0], a[1], a[2])
+    if a[2] == b[2]:
+        return "%d/%d - %d/%d/%d" % (a[0], a[1], b[0], b[1], b[2])
+    return "%d/%d/%d - %d/%d/%d" % (a + b)
+
+
 def doc_dai_ngay(dates):
     """Bản Python của `index.html::evRange`. Trả (a, b) dạng số YYYYMMDD, hoặc None.
 
     THỨ TỰ 03 MẪU PHẢI GIỮ NGUYÊN — xem cảnh báo ở docstring đầu file.
     """
-    s = re.sub(r"[–—]", "-", str(dates or ""))
+    s = re.sub(r"[–—]", "-", dates_chu(dates))
     m = re.search(r"(\d{1,2})/(\d{1,2})\s*-\s*(\d{1,2})/(\d{1,2})/(\d{4})", s)
     if m:
         d1, mo1, d2, mo2, y = (int(x) for x in m.groups())

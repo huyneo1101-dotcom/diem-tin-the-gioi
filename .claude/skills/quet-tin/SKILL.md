@@ -367,6 +367,8 @@ cổng: phiên sáng 27/07 bỏ hẳn vòng Báo Mới khi Huy giục quét nhan
 Session điều phối **tự review từng tin** theo ràng buộc chất lượng, loại tin không đạt (sai khung giờ,
 link rác/không khớp, trùng, không đúng 5 chủ đề, tin "nội bộ Mỹ" nhưng không neo được vào nước Mỹ…).
 
+⛔ **GỠ MỘT TIN ĐÃ NẠP (trùng sự kiện, sai chủ đề…) CHỈ BẰNG `python3 scripts/prune_news.py <file_urls.txt>`, CẤM viết mã tại chỗ sửa `index.html`** (vá 22/11/2026): lượt quét CI 07/10 tự viết mã gỡ 03 tin trùng, cắt nhầm 670 dòng mã ⇒ trang trắng 46 ngày. Sửa `index.html` bằng bất kỳ đường nào thì chạy `python3 scripts/kiem_trang_chay.py` trước khi commit — mã khác 0 là DỪNG, không đẩy.
+
 **Ghi tin bị loại** vào `logs/loai-tin.md` (dạng chữ: `[chủ đề] tiêu đề (nguồn, ngày) — lý do`). Field
 `rejectedNews` trong JSON là TUỲ CHỌN với phạm vi mới (không bắt buộc gom tin loại như trước) — chỉ thêm
 nếu có tin đúng chủ đề nhưng lệch khung giờ, đáng để người dùng cứu.

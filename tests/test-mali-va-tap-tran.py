@@ -446,6 +446,41 @@ def ca_25():
             f"parse sai {s!r}: {TT.doc_dai_ngay(s)} (mong {mong})"
 
 
+def ca_30():
+    """PHẢI CHẶN — ô `dates` dạng {start,end} (lượt quét sự kiện CI ghi từ 27/10/2026) phải đọc
+    ra đúng dải. Trước vá 22/11/2026 `str(dict)` không khớp mẫu nào ⇒ None ⇒ rơi về `status` cũ."""
+    bo = [({"start": "2026-11-19", "end": "2026-11-30"}, (20261119, 20261130)),
+          ({"start": "2026-10-30", "end": "2026-11-03"}, (20261030, 20261103)),
+          ({"start": "2026-10-25", "end": ""}, (20261025, 20261025)),
+          ({"start": "2026-11-19", "end": "2026-11-19"}, (20261119, 20261119)),
+          ({"start": "", "end": ""}, None)]
+    for d, mong in bo:
+        assert TT.doc_dai_ngay(d) == mong, f"parse sai {d!r}: {TT.doc_dai_ngay(d)} (mong {mong})"
+
+
+def ca_31():
+    """Đối chứng — `datesChu` phía JS (index.html) ra ĐÚNG chuỗi `dates_chu` phía Python (jsc thật)."""
+    jsc = ("/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Helpers/jsc")
+    if not os.path.exists(jsc):
+        return  # máy không có jsc thì bỏ qua, đừng đỏ oan
+    html = (REPO_THU / "index.html").read_text(encoding="utf-8")
+    i = html.index("function datesChu(")
+    src = html[i:html.index("function evRange(", i)]
+    bo = [{"start": "2026-11-19", "end": "2026-11-30"}, {"start": "2026-10-30", "end": "2026-11-03"},
+          {"start": "2026-12-30", "end": "2027-01-02"}, {"start": "2026-10-25", "end": ""}, "7–8/7/2026"]
+    thu = src + "\n" + "".join("print(datesChu(%s));\n" % json.dumps(x, ensure_ascii=False) for x in bo)
+    d = pathlib.Path(tempfile.mkdtemp())
+    try:
+        f = d / "thu.js"
+        f.write_text(thu, encoding="utf-8")
+        r = subprocess.run([jsc, str(f)], capture_output=True, text=True)
+        ra = (r.stdout or "").strip().split("\n")
+        mong = [TT.dates_chu(x) for x in bo]
+        assert ra == mong, f"datesChu JS lệch Python: {ra!r} (mong {mong!r}) · stderr={r.stderr[:200]!r}"
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 CA = [
     ("[01] PHẢI CHẶN: .docx KHÔNG còn mục Mỹ – Mali", ca_01),
     ("[02] PHẢI CHẶN: tin Mali không rơi sang mục khác của .docx", ca_02),
@@ -476,6 +511,8 @@ CA = [
     ("[27] PHẢI CHẶN: khoá Mali khớp theo BIÊN TỪ ở cả ba nơi ('Malice' không phải Mali)", ca_27),
     ("[28] đối chứng: tin Sahel thật vẫn nhận đủ", ca_28),
     ("[29] đối chứng: laTinMali phía JS cũng theo biên từ (jsc thật)", ca_29),
+    ("[30] PHẢI CHẶN: ô dates dạng {start,end} đọc ra đúng dải", ca_30),
+    ("[31] đối chứng: datesChu JS khớp dates_chu Python (jsc thật)", ca_31),
 ]
 
 # (nhãn, (tìm, thay), các ca PHẢI ĐỎ)

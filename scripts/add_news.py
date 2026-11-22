@@ -920,6 +920,16 @@ def main() -> None:
     ref = parse_date(date)
     sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
+    # Ô `dates` của sự kiện mới phải là CHUỖI "dd/mm/yyyy" (vá 22/11/2026). Lượt quét sự kiện CI
+    # từ 27/10 ghi dạng {"start","end"} ISO; trang đọc `.replace()` trên đối tượng nên vỡ, còn
+    # `tap_tran.doc_dai_ngay` rơi về `status` cũ trong im lặng. Đưa về chuỗi ngay tại cửa ghi.
+    import tap_tran  # noqa: E402,PLC0415
+    for ev in new_dip_events + new_exercises:
+        if isinstance(ev, dict) and ev.get("dates") is not None and not isinstance(ev["dates"], str):
+            cu = ev["dates"]
+            ev["dates"] = tap_tran.dates_chu(cu)
+            print(f"  ⚠ dates dạng {type(cu).__name__} đã đưa về chuỗi: {cu!r} → {ev['dates']!r}")
+
     validate_news_items(world_new, "worldNews", ref)
     validate_news_items(us_new, "usNews", ref)
     # baomoiNews áp ĐÚNG khung ngày như tin thường (yêu cầu 22/07: bài Báo Mới chỉ lên web

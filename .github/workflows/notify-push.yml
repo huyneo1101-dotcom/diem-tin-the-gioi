@@ -39,6 +39,7 @@ jobs:
         if: steps.chk.outputs.go == '1'
         env:
           VAPID_PRIVATE: ${{ secrets.VAPID_PRIVATE }}
+          DT_BOT_KEY: ${{ secrets.DT_BOT_KEY }}
           NEWS_DATE: ${{ steps.chk.outputs.date }}
         run: |
           npm install web-push@3 --no-save

@@ -46,8 +46,15 @@ jobs:
       # KHÔNG commit gì, `main` vẫn giữ index.html đủ dữ liệu cho 21 script Python ghi vào.
       # ⚠️ Bỏ bước này thì trang vẫn chạy (nặng như cũ) NHƯNG canary sẽ kêu lệch mỗi ca, vì
       # `canary.kiem_web()` so bản web với bản ĐÃ CẮT dựng lại từ main.
+      # ⛔ 22/11/2026 — CỔNG TRANG CHẠY ĐƯỢC. Lượt quét CI 07/10 cắt nhầm 670 dòng mã, trang
+      # trắng suốt 46 ngày mà bước này vẫn đẩy lên đều đặn. Hỏng thì DỪNG: Pages giữ bản đang
+      # chạy, `canary.kiem_web()` kêu lệch ở lượt sau. Đo cả bản đủ lẫn bản đã cắt.
+      - name: Cong trang chay duoc (ban du)
+        run: python3 scripts/kiem_trang_chay.py index.html
       - name: Dung ban nhe (tach kho ra data/kho.json)
         run: python3 scripts/cat_nhe_trang.py --tai-cho
+      - name: Cong trang chay duoc (ban nhe)
+        run: python3 scripts/kiem_trang_chay.py index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
