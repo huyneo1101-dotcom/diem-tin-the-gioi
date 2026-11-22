@@ -55,6 +55,17 @@ jobs:
         run: python3 scripts/cat_nhe_trang.py --tai-cho
       - name: Cong trang chay duoc (ban nhe)
         run: python3 scripts/kiem_trang_chay.py index.html
+      # ⛔ 22/11/2026 — MỞ TRANG BẰNG TRÌNH DUYỆT THẬT. Cổng trên chỉ DỊCH mã; lỗi chỉ lộ lúc chạy
+      # (ô `dates` dạng {start,end} làm `.replace` ném TypeError, trang trắng dù cú pháp lành)
+      # phải mở thật mới thấy. Dùng Chrome cài sẵn của máy GitHub, không tải trình duyệt.
+      - name: Setup Python (mo trang that)
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Cong mo trang that (ban nhe)
+        run: |
+          python -m pip install --quiet playwright==1.62.0
+          python scripts/kiem_trang_mo_that.py .
 
       - name: Setup Pages
         uses: actions/configure-pages@v6
