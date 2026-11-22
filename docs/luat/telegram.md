@@ -520,7 +520,7 @@ nội dung nhận về là đã đảo (01/08: từ NGUỒN TIN thành BỘ LỌ
 
 | Mảnh | Việc |
 |---|---|
-| Bảng Supabase `dt_jaylam_inbox` | `chat_id, ten, ten_file, noi_dung, ngay_vn, da_gop, created_at, tieu_de, tom_tat, da_xu_ly` (+ `nguon_ten, nguon_url, la_cnqs` — **di sản thiết kế cũ, KHÔNG còn ai ghi/đọc**). RLS: INSERT mở cho anon (giống `dt_bot_hoi`) · SELECT/UPDATE chỉ qua `dt_ma_hop_le()` (mã `x-dt-key`) |
+| Bảng Supabase `dt_jaylam_inbox` | `chat_id, ten, ten_file, noi_dung, ngay_vn, da_gop, created_at, tieu_de, tom_tat, da_xu_ly` (+ `nguon_ten, nguon_url, la_cnqs` — **di sản thiết kế cũ, KHÔNG còn ai ghi/đọc**). RLS: INSERT · SELECT · UPDATE đều chỉ qua `dt_ma_hop_le()` (mã `x-dt-key`) — từ 22/11/2026 INSERT không còn mở trần cho anon, cùng `dt_bot_hoi` và `dt_ho_so_doc_gia` (lý do: `HeThong/bao-mat/2026-11-22-siet-rls-kho-chung.sql`) |
 | `scripts/docx_text.py` | Bóc chữ từ `.docx` bằng `zipfile` + regex trên `word/document.xml` — KHÔNG cần `python-docx` chỉ để ĐỌC |
 | `scripts/telegram_bot.py::xu_ly_tin_jaylam()` | Chạy NGAY trong `--doc` (rẻ, không cần `claude -p`, giống lệnh `/xoa`): **bỏ qua file của CHAT CHỦ** (xem `_la_chat_chu`), từ chối nếu không phải `.docx`, tải bằng `tg_api.tai_file()`, trích chữ, ghi Supabase (`da_gop=false`), xác nhận NGẮN cho người gửi, và **gửi bản sao file về chat chủ** |
 | `scripts/tin_jaylam.py` | Bước của PHIÊN QUÉT (CẢ HAI buổi): `--liet-ke` in dữ liệu đối chiếu + đóng sổ dòng hết khung · `--ghi` lưu bảng đối chiếu trích từ file · `--ghi-loai` ghi sổ `logs/trung-jaylam.json`. Xem mục "ĐẢO NGUYÊN TẮC" ngay trên |
