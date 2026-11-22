@@ -19,10 +19,14 @@ File JSON là một object:
 VÌ SAO SUPABASE CHỨ KHÔNG PHẢI FILE TRONG REPO: repo `diem-tin-the-gioi` là PUBLIC —
 lưu câu hỏi của người khác vào repo là công khai với cả internet.
 
-VÌ SAO ANON KEY LÀ ĐỦ: RLS trên `dt_bot_hoi` chỉ mở INSERT cho anon, không mở SELECT.
-Đã kiểm thật: chèn trả 201, đọc trả `[]` dù bảng có dữ liệu. Nên workflow ghi được mà
-KHÔNG cần service key — tránh phải nhét một credential mở-toàn-database vào GitHub secret
-của một repo public. Việc ĐỌC (tổng hợp hồ sơ) là đường riêng, có quyền riêng.
+VÌ SAO KHÔNG DÙNG SERVICE KEY: credential mở-toàn-database không được nằm trong GitHub
+secret của một repo public. Ghi đi bằng anon key KÈM mã `x-dt-key` (env `DT_BOT_KEY`, cùng
+mã ho_so_doc_gia.py dùng) — mã này chỉ mở 3 bảng dt_*.
+
+⛔ TỪ 22/11/2026 INSERT KHÔNG CÒN MỞ TRẦN CHO ANON (RLS `with check (dt_ma_hop_le())`).
+Cơ chế gây vấp trước đó: khoá công khai nằm trong mọi app dùng chung kho này, nên người lạ
+chèn được dòng tuỳ ý; `tin_de_xuat` của bảng này được phiên quét tin trên máy Mac đọc lại
+trong chế độ không hỏi quyền ⇒ chữ người lạ gõ đi thẳng vào một phiên Claude chạy được lệnh.
 
 Key lấy theo thứ tự: biến môi trường `SUPABASE_ANON_KEY` → moi từ `index.html` (nó vốn
 công khai trong đó, không phải bí mật).
@@ -54,10 +58,25 @@ def anon_key():
     return m.group(0) if m else ""
 
 
+def dt_key():
+    k = os.environ.get("DT_BOT_KEY", "").strip()
+    if k:
+        return k
+    try:
+        return pathlib.Path(os.environ.get("DT_KEY_FILE", "/Users/Huy/Claude/.dt-bot-key")
+                            ).read_text(encoding="utf-8").strip()
+    except OSError:
+        return ""
+
+
 def ghi(ban_ghi):
-    key = anon_key()
+    key, ma = anon_key(), dt_key()
     if not key:
         print("Không tìm được anon key (env SUPABASE_ANON_KEY hoặc trong index.html).",
+              file=sys.stderr)
+        return 1
+    if not ma:
+        print("Thiếu mã DT_BOT_KEY — bảng dt_bot_hoi đã khoá chiều ghi (22/11/2026).",
               file=sys.stderr)
         return 1
     # curl chứ không phải urllib: máy Huy có cert chèn giữa làm urllib trượt
@@ -65,6 +84,7 @@ def ghi(ban_ghi):
     p = subprocess.run(
         ["curl", "-sS", "--max-time", "30", "-X", "POST", f"{URL}/rest/v1/{BANG}",
          "-H", f"apikey: {key}", "-H", f"Authorization: Bearer {key}",
+         "-H", f"x-dt-key: {ma}",
          "-H", "Content-Type: application/json",
          "-H", "Prefer: return=minimal",
          "-w", "\n@@%{http_code}",

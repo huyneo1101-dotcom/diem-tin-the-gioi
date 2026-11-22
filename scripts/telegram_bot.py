@@ -249,11 +249,19 @@ JAYLAM_MAX_CHARS = 200000
 def luu_tin_jaylam(chat, ten, ten_file, noi_dung):
     """Ghi một tin Jay Lâm gửi vào bảng `dt_jaylam_inbox`. Trả True/False.
 
-    RLS insert mở cho anon (giống `dt_bot_hoi`, xem `bot_luu.py`) — không cần mã riêng để ghi,
-    chỉ cần mã riêng (`x-dt-key`) để ĐỌC LẠI lúc gộp cuối ngày (`gop_tin_jaylam.py`).
+    Từ 22/11/2026 GHI cũng phải kèm mã `x-dt-key` (RLS insert đổi từ `true` sang
+    `dt_ma_hop_le()`). Cơ chế gây vấp trước đó: khoá công khai nằm trong mọi app dùng chung
+    kho Supabase này (5 app `pages.dev` + Điểm Tin), nên người lạ chèn được dòng tuỳ ý vào
+    bảng; phiên quét tin trên máy Mac đọc nguyên văn `noi_dung` qua `tin_jaylam.py --liet-ke`
+    trong chế độ không hỏi quyền ⇒ chữ người lạ gõ đi thẳng vào một phiên Claude có quyền chạy
+    lệnh trên máy. Thiếu mã thì KÊU rồi trả False, không gửi mù để nhận 401 câm.
     """
-    key = _anon_key()
+    key, dt_key = _anon_key(), _dt_bot_key()
     if not key:
+        return False
+    if not dt_key:
+        print("[jaylam] THIẾU mã DT_BOT_KEY — bảng dt_jaylam_inbox đã khoá chiều ghi, "
+              "không lưu được tin", file=sys.stderr)
         return False
     ngay_vn = datetime.datetime.now(VN).date().isoformat()
     ban_ghi = {"chat_id": chat, "ten": ten, "ten_file": ten_file,
@@ -262,6 +270,7 @@ def luu_tin_jaylam(chat, ten, ten_file, noi_dung):
         ["curl", "-sS", "--max-time", "30", "-X", "POST",
          f"{SUPABASE_URL}/rest/v1/{JAYLAM_BANG}",
          "-H", f"apikey: {key}", "-H", f"Authorization: Bearer {key}",
+         "-H", f"x-dt-key: {dt_key}",
          "-H", "Content-Type: application/json", "-H", "Prefer: return=minimal",
          "-w", "\n@@%{http_code}", "-d", json.dumps(ban_ghi, ensure_ascii=False)],
         capture_output=True, text=True)
