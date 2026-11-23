@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-24T04:35:24+07:00",
+    "lastRunAt": "2026-11-24T04:44:49+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+10 tin (usNews 4, worldNews 6), chot sat han 04:45, nhieu muc duoi san",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-11-23"
-    },
-    "heartbeat": "2026-11-24T04:43:36+07:00"
+      "sang": "2026-11-24"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-11-23T04:23:01+07:00",

@@ -1,21 +1,22 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":2,"target":"5+","min":5,"thieu":true,
-     "reason":"Chỉ có 2 tin ngày 22/11 về đối ngoại do Mỹ chủ động (Tổng thống Trump cảnh báo tấn công Iran sau năm mới; Ân xá Quốc tế cảnh báo Mỹ sắp trừng phạt toàn Tòa Hình sự Quốc tế). Tin thương mại Mỹ-Canada và cuộc gặp ba bên Mỹ-Trung-Nga ở Thâm Quyến đã nạp ở mục Nội bộ Mỹ. Dự luật cấp phép năng lượng 62-33 của Thượng viện ngày 19-20/11 quá khung ngày, trang điều trần OMB bị chặn truy cập, sắc lệnh nhà thầu đã đăng ngày 21/11. Đã thử The Hill, Fox, CTV, Rappler, Straits Times; các trang Reuters, AP, state.gov không tải được từ máy quét."},
-    {"name":"Nội bộ Mỹ","count":6,"target":"5-10","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Anh","count":5,"target":"5","min":3,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":2,"target":"3-5","min":3,"thieu":true,
-     "reason":"Chỉ tìm được 02 tin Úc trong khung 22-23/11 (tranh luận AUKUS với báo cáo CBO của Mỹ; Greater Sunrise ở Timor-Leste). Tin Úc-Trung về đối thoại AI ra ngày 21/11 nên quá khung. SMH, AFR, Guardian Australia và Straits Times bị chặn khi mở bài nên không xác minh được ngày thật."},
-    {"name":"Địa bàn › Biển Đông","count":3,"target":"5+","min":5,"thieu":true,
-     "reason":"Chỉ có 03 tin trong khung ngày: Philippines và Pháp tập hợp tác hàng hải ở biển Sulu, Trung Quốc và Việt Nam tuần tra chung lần thứ 41 ở vịnh Bắc Bộ, cùng một tin Philippines. Các tin nóng như dự thảo COC, hội nghị Quad ở Manila và tàu ngầm Mỹ va đáy biển đều ra từ 15 đến 17/11 nên quá khung; bài Inquirer về sáng kiến an ninh Philippines đăng 21/11 bị cổng ngày thật chặn; DW và The Hindu không tải được. Nhóm Scarborough, Natuna và Việt Nam không có bài ngày 22-23/11."},
-    {"name":"Công nghệ quân sự Mỹ","count":6,"target":"6-10","min":5,"thieu":false,
-     "reason":"Đủ sàn nhưng dưới chỉ tiêu 6-10 ở mức thấp. Tin Dugway laser (16/11), Nikon Tomahawk (22/10) và kế hoạch 15 thiết giáp hạm (báo cáo tháng 8) ngoài khung; trang hợp đồng DoD ngày 20/11 bị 403; tin kế hoạch Zumwalt của Naval News ngày 21/11 không in ngày đọc được nên bị cổng chặn."},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":true,
-     "reason":"Không có tin trong khung ngày. Tin duy nhất tìm được là HARIMAU SHAKTI-VI khai mạc 19/11 nên ngoài khung hôm nay và hôm qua; Mountain Guardian khai mạc từ 05/10 và tập trận Jodhpur là Veer Guardian tháng 9; Mitra Shakti XII và Brave Hussar-26 không có bài gốc kèm ngày."},
-    {"name":"Báo Mới","count":0,"target":"theo bài hợp chủ đề","min":0,"thieu":true,
-     "reason":"Bỏ vòng truy bài gốc cho 05 ứng viên Báo Mới chuyên mục CNQS (Arrow-3 châu Âu, F-35C trên USS John F. Kennedy, kinh phí nâng cấp F-35, Bộ trưởng Đức xin lỗi, nổ gần căn cứ Baltic) vì sát hạn chót 04:45 và đã dùng đủ 06 lần agent con."}
+    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, nhóm 2-5)","count":2,"target":"12-18","min":5,"thieu":true,
+     "reason":"Phiên quét local sáng 24/11 chạy sát hạn 04:45, các agent con bị chặn Bash/curl nên không mở được The Hill, Axios, FT, các trang uỷ ban Thượng viện (403). Điều trần 03/12 của uỷ ban Ngân hàng Thượng viện về CEO Nvidia đăng 23/11 nhưng trang The Hill không in ngày và không có link đối chứng nên bị cổng ngày thật chặn, đành bỏ. Không có kết quả bỏ phiếu mới trong khung 23-24/11 tìm được; BAAJA (62-33, 19/11) và thông cáo Bộ Tài chính về Hezbollah (18/11) quá cũ."},
+    {"name":"Đối ngoại Mỹ","count":1,"target":"5","min":5,"thieu":true,
+     "reason":"Chỉ nạp được 01 tin: Bộ Tài chính Mỹ trừng phạt mạng ngân hàng ngầm Iran (23/11). Các tin phong toả hải quân Iran, Trump cân nhắc tấn công sau năm mới mới có qua kênh Telegram/Báo Mới, chưa truy được bài gốc kịp hạn chót."},
+    {"name":"Anh","count":4,"target":"5","min":3,"thieu":false,"reason":""},
+    {"name":"Úc","count":1,"target":"5","min":3,"thieu":true,
+     "reason":"Chỉ nạp được 01 tin (Năm Du lịch Trung-Úc, ABC). SMH, Straits Times, CNA, SCMP trả 403/chặn với agent; tin Marles/AUKUS trên Google News trùng sự kiện 22/11 đã có."},
+    {"name":"Biển Đông","count":1,"target":"5","min":5,"thieu":true,
+     "reason":"Chỉ nạp được 01 tin (Philippines gia hạn miễn thị thực cho công dân Trung Quốc, Philstar). Bài Lowy Interpreter về Mỹ và Philippines đăng 20/11, quá khung; Rappler, USNI, SCMP bị chặn; gói quốc phòng Mỹ-Philippines và đường băng Antelope Reef đăng 19-20/11."},
+    {"name":"Công nghệ quân sự Mỹ","count":2,"target":"6-10","min":5,"thieu":true,
+     "reason":"Chỉ nạp được 02 tin (Soldier Systems Daily). war.gov, Naval News (503 rồi trang không in ngày nên cổng ngày thật chặn tin USS Michael Monsoor/CPS), Army Recognition, ASDNews bị chặn; CAMP, SPIDER, HiBaLL, GAO đăng 12-20/11 quá khung."},
+    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
+     "reason":"Harimau Shakti-VI và Brave Hussar-26 không có diễn biến mới 23-24/11. Tin Mitra Shakti XII chỉ có qua trang tổng hợp OMMCOM, bài gốc nằm trên X nên bỏ theo thang xác minh."},
+    {"name":"Báo Mới","count":0,"target":"","min":0,"thieu":false,
+     "reason":"Cổng Báo Mới còn 05 ứng viên chưa xử lý (Seattle biểu tình ICE, pháo điện từ Nhật, hai bài thương mại Việt Nam-Malaysia, ảnh tổng hợp) do sát hạn chót 04:45, chưa truy gốc kịp."}
   ],
-  "note": "Cổng ngày đăng thật chặn 11/15 tin của The Hill vì trang không in metadata ngày cho máy; đã mở cổng bằng cờ kèm lý do vì agent mở bài và xác nhận ngày 22/11 trong nội dung. Lô sáng nay nạp 15 tin Mỹ, 13 tin thế giới."
+  "note": "Phiên local 04:44 chốt lô 10 tin (6 worldNews + 4 usNews) vì sát hạn. Mô hình agent con bị chặn Bash/curl nên độ phủ nguồn thấp; không giao vòng bổ sung."
 }
