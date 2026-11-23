@@ -5,3 +5,4 @@
 [21:39Z] SKIP web-scan + event-scan (CI): ca hai da DONE hom nay (web-scan 04:19:52+07, event-scan 04:23:01+07). So da gui co dong 2026-11-23T04:20:25+07:00 [sang] 32 tin — ban tin da toi tay. Khong lam lai.
 [01:08Z] SKIP web-scan (CI, lan goi moi): exit 10, web-scan da DONE 04:19:52+07. Kiem ngoai le: so_da_gui co dong 2026-11-23 [sang] (04:20:25 32 tin + 04:39:39 14 tin) — ban tin da toi tay thuc su. Chuyen sang claim event-scan.
 [01:09Z] SKIP event-scan (CI): exit 10, da DONE 04:23:01+07 (+4 bai think-tank, 0 su kien/tap tran). Phien ket thuc em, khong lam lai.
+[01:58Z] SKIP web-scan (CI, lan goi moi): exit 10, web-scan da DONE 04:19:52+07. Kiem lai ngoai le: so_da_gui co dong 2026-11-23 [sang] (04:20:25 32 tin + 04:39:39 14 tin) — ban tin da toi tay thuc su, khong phai co noi doi. Chuyen sang claim event-scan.
