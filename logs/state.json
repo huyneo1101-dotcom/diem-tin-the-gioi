@@ -9,14 +9,15 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-23T04:19:52+07:00",
+    "lastRunAt": "2026-11-24T04:00:43+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+29 tin: 16 Mỹ + 13 thế giới (Úc 2, Anh 5, Biển Đông 3, tập trận 0); hụt sàn Đối ngoại Mỹ/Australia/Biển Đông",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-09-12",
       "sang": "2026-11-23"
-    }
+    },
+    "heartbeat": "2026-11-24T04:00:43+07:00"
   },
   "event-scan": {
     "lastRunAt": "2026-11-23T04:23:01+07:00",
