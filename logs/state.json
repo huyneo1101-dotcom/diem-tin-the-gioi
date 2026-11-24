@@ -9,15 +9,14 @@
     }
   },
   "web-scan": {
-    "lastRunAt": "2026-11-25T04:03:12+07:00",
+    "lastRunAt": "2026-11-25T04:40:56+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+22 tin (4 chu de: Noi bo My 6, Uc+Anh+BienDong 15, CNQS 9, tap tran 2); Doi ngoai My/Noi bo My/Bien Dong hut san, da ghi scan-gaps.json",
     "lastSuccess": {
       "toi": "2026-09-12",
-      "sang": "2026-11-24"
-    },
-    "heartbeat": "2026-11-25T04:40:51+07:00"
+      "sang": "2026-11-25"
+    }
   },
   "event-scan": {
     "lastRunAt": "2026-11-24T04:57:32+07:00",

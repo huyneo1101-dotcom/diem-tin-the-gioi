@@ -1,22 +1,63 @@
 {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "session": "sang",
   "topics": [
-    {"name":"Nội bộ Mỹ (điều trần + bỏ phiếu, nhóm 2-5)","count":2,"target":"12-18","min":5,"thieu":true,
-     "reason":"Phiên quét local sáng 24/11 chạy sát hạn 04:45, các agent con bị chặn Bash/curl nên không mở được The Hill, Axios, FT, các trang uỷ ban Thượng viện (403). Điều trần 03/12 của uỷ ban Ngân hàng Thượng viện về CEO Nvidia đăng 23/11 nhưng trang The Hill không in ngày và không có link đối chứng nên bị cổng ngày thật chặn, đành bỏ. Không có kết quả bỏ phiếu mới trong khung 23-24/11 tìm được; BAAJA (62-33, 19/11) và thông cáo Bộ Tài chính về Hezbollah (18/11) quá cũ."},
-    {"name":"Đối ngoại Mỹ","count":1,"target":"5","min":5,"thieu":true,
-     "reason":"Chỉ nạp được 01 tin: Bộ Tài chính Mỹ trừng phạt mạng ngân hàng ngầm Iran (23/11). Các tin phong toả hải quân Iran, Trump cân nhắc tấn công sau năm mới mới có qua kênh Telegram/Báo Mới, chưa truy được bài gốc kịp hạn chót."},
-    {"name":"Anh","count":4,"target":"5","min":3,"thieu":false,"reason":""},
-    {"name":"Úc","count":1,"target":"5","min":3,"thieu":true,
-     "reason":"Chỉ nạp được 01 tin (Năm Du lịch Trung-Úc, ABC). SMH, Straits Times, CNA, SCMP trả 403/chặn với agent; tin Marles/AUKUS trên Google News trùng sự kiện 22/11 đã có."},
-    {"name":"Biển Đông","count":1,"target":"5","min":5,"thieu":true,
-     "reason":"Chỉ nạp được 01 tin (Philippines gia hạn miễn thị thực cho công dân Trung Quốc, Philstar). Bài Lowy Interpreter về Mỹ và Philippines đăng 20/11, quá khung; Rappler, USNI, SCMP bị chặn; gói quốc phòng Mỹ-Philippines và đường băng Antelope Reef đăng 19-20/11."},
-    {"name":"Công nghệ quân sự Mỹ","count":2,"target":"6-10","min":5,"thieu":true,
-     "reason":"Chỉ nạp được 02 tin (Soldier Systems Daily). war.gov, Naval News (503 rồi trang không in ngày nên cổng ngày thật chặn tin USS Michael Monsoor/CPS), Army Recognition, ASDNews bị chặn; CAMP, SPIDER, HiBaLL, GAO đăng 12-20/11 quá khung."},
-    {"name":"Tập trận đang diễn ra","count":0,"target":"1-2","min":0,"thieu":false,
-     "reason":"Harimau Shakti-VI và Brave Hussar-26 không có diễn biến mới 23-24/11. Tin Mitra Shakti XII chỉ có qua trang tổng hợp OMMCOM, bài gốc nằm trên X nên bỏ theo thang xác minh."},
-    {"name":"Báo Mới","count":0,"target":"","min":0,"thieu":false,
-     "reason":"Cổng Báo Mới còn 05 ứng viên chưa xử lý (Seattle biểu tình ICE, pháo điện từ Nhật, hai bài thương mại Việt Nam-Malaysia, ảnh tổng hợp) do sát hạn chót 04:45, chưa truy gốc kịp."}
+    {
+      "name": "Đối ngoại Mỹ",
+      "count": 2,
+      "target": "5",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nạp được 2 tin (Megaspeed blacklist liên quan Trung Quốc, thẩm phán ICC người Canada chỉ trích nước Anh). Nhiều ứng viên tốt bị cổng NGÀY ĐĂNG THẬT chặn vì trang không in ngày đọc được (Bloomberg ×2: tariff hike 16 nước, Zelensky-Congress; The Hill: điều trần Jensen Huang 3/12) hoặc ngày thật lệch nhiều ngày so với ngày agent khai (Treasury Iran sanctions Operation Economic Outcast thật ra 23/11, ngoài khung 24-25/11). Đã dùng hết 1/1 lượt agent bổ sung theo trần agent con (6/6), không còn lượt để tìm dateProofUrl hoặc nguồn thay thế."
+    },
+    {
+      "name": "Nội bộ Mỹ",
+      "count": 4,
+      "target": "12-18",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nạp được 4 tin (ICC speech ban ruling, consumer confidence, DOJ anti-scam crackdown, Trump-Dem healthcare). Mất Victoria Broderick Tennessee win và điều trần Jensen Huang vì cổng NGÀY ĐĂNG THẬT (Forbes/The Hill không in ngày đọc được hoặc ngày thật ngoài khung). Thượng viện Mỹ nghỉ họp Lễ Tạ ơn tuần 24-28/11 nên không có phiên điều trần/bỏ phiếu mới (nhóm 1 hạng ưu tiên cao nhất trống hẳn). Đã dùng hết lượt agent bổ sung."
+    },
+    {
+      "name": "Địa bàn › Anh",
+      "count": 7,
+      "target": "5",
+      "min": 3,
+      "thieu": false,
+      "reason": ""
+    },
+    {
+      "name": "Địa bàn › Australia",
+      "count": 5,
+      "target": "5",
+      "min": 3,
+      "thieu": false,
+      "reason": ""
+    },
+    {
+      "name": "Địa bàn › Biển Đông",
+      "count": 2,
+      "target": "5",
+      "min": 5,
+      "thieu": true,
+      "reason": "Nạp được 2 tin (Marcos COC 85-90%, ASEAN cảnh báo Thái Lan-Campuchia). Nhiều ứng viên hợp chủ đề bị loại: Teodoro COC distrust (Inquirer.net, ngày thật 16/11 — quá cũ 9 ngày so với ngày agent khai 24/11), SCMP Anwar-Trung Quốc (không có metadata ngày), Indonesia nghe lén điện thoại tổng thống (không neo được vào Úc/AUKUS/vùng biển Biển Đông — thuần chính trị nội bộ), tàu dân binh Trung Quốc va chạm PCG gần đảo Panata/Loaita (hai nguồn độc lập đều ghi ngày thật 23/11, ngoài khung 24-25/11). Đã dùng hết lượt agent bổ sung."
+    },
+    {
+      "name": "Công nghệ quân sự Mỹ (KHCN-QS)",
+      "count": 8,
+      "target": "6-10",
+      "min": 5,
+      "thieu": false,
+      "reason": ""
+    },
+    {
+      "name": "Tập trận đang diễn ra",
+      "count": 2,
+      "target": "1-2",
+      "min": 0,
+      "thieu": false,
+      "reason": ""
+    }
   ],
-  "note": "Phiên local 04:44 chốt lô 10 tin (6 worldNews + 4 usNews) vì sát hạn. Mô hình agent con bị chặn Bash/curl nên độ phủ nguồn thấp; không giao vòng bổ sung."
+  "note": "Trần agent con cả phiên (6/6: 5 luồng gốc A-B-C-D-BM + 1 bổ sung gộp 3 mục hụt) đã dùng hết — 3 mục còn hụt sàn (Đối ngoại Mỹ, Nội bộ Mỹ, Biển Đông) được CHỐT theo đúng luật, không giao vòng thứ hai. Cổng NGÀY ĐĂNG THẬT là nguyên nhân chặn chính trong phiên này — xem chi tiết từng tin bị loại ở logs/loai-tin.md (mục phiên sáng sớm 25/11). Cổng Báo Mới còn 7 ứng viên chưa xử lý được, đã ghi lý do từng bài vào logs/loai-tin.md (chủ yếu trùng sự kiện đã nạp qua nguồn khác, hoặc bị cổng ngày chặn)."
 }
