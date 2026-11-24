@@ -19,14 +19,13 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-25T04:41:16+07:00",
+    "lastRunAt": "2026-11-25T04:51:47+07:00",
     "lastSlot": "sang",
-    "lastStatus": "RUNNING",
-    "note": "dang quet",
+    "lastStatus": "DONE",
+    "note": "+1 su kien ngoai giao, +2 tap tran moi (Tiger Flag, Sahayata Setu 2026), +5 bai think-tank",
     "lastSuccess": {
       "toi": "2026-07-24",
-      "sang": "2026-11-24"
-    },
-    "heartbeat": "2026-11-25T04:51:38+07:00"
+      "sang": "2026-11-25"
+    }
   }
 }

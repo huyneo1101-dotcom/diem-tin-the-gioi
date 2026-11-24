@@ -5,3 +5,7 @@
 [21:40Z] chua kich duoc bot telegram-bot.yml (gh requires approval) nhung tin_jaylam.py --liet-ke bao khong co file Jay Lam nao -> bo qua Buoc 4c
 [21:40Z] CHOT lo: Doi ngoai My 2/5, Noi bo My 4/5, Anh 7/3, Australia 5/3, Bien Dong 2/5, KHCN-QS 8/5, tap tran 2 -> ghi scan-gaps.json
 [21:41Z] START event-scan (CI, gop vao sang som)
+[22:00Z] do_tap_tran_thieu.py: 2 tap tran moi (Tiger Flag, Sahayata Setu 2026) + 1 su kien ngoai giao (Singapore-Australia lan 11) -> nap qua add_news.py
+[22:05Z] bo sung background+concepts cho 2 tap tran moi + nap 5 bai think-tank (ASPI, RUSI, Lowy x2, ECFR) + concepts cho 3/5 bai
+[22:06Z] khong phai Chu nhat (thu 4) -> bo qua bao cao tuan
+[22:06Z] DONE event-scan
