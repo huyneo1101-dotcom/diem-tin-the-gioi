@@ -1,1 +1,2 @@
 [21:03Z] START phien sang som (CI)
+[04:05 VN] FAIL web-scan (local sang som): pull --rebase bi chan boi file tracked bi xoa do cua phien khac (.github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml, don_ton_du.py bao NONG); remote moi hon 12 commit nen khong dong bo duoc. Khong quet. Mốc dự phòng sau tự quét lại.
