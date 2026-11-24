@@ -4,3 +4,4 @@
 [21:37Z] agent bo sung (6/6 tran) xong, nap lo 2: +5 worldNews +3 usNews; phat hien 1 tin trung (Anh/Nga CEO briefing, da nap 25/09) -> prune_news.py go lai
 [21:40Z] chua kich duoc bot telegram-bot.yml (gh requires approval) nhung tin_jaylam.py --liet-ke bao khong co file Jay Lam nao -> bo qua Buoc 4c
 [21:40Z] CHOT lo: Doi ngoai My 2/5, Noi bo My 4/5, Anh 7/3, Australia 5/3, Bien Dong 2/5, KHCN-QS 8/5, tap tran 2 -> ghi scan-gaps.json
+[21:41Z] START event-scan (CI, gop vao sang som)

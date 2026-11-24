@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-24T04:57:32+07:00",
+    "lastRunAt": "2026-11-25T04:41:16+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "Phien local da +3 bai think-tank (ASPI/Lowy); CI bo sung +1 dien bien ngoai giao (Thai Lan - Campuchia), +1 tap tran moi (Exercise Narrow Waters 26.2, co boi canh+khai niem), +6 bai think-tank (Belfer/ORF/Brookings/Egmont/MP-IDSA/USSC)",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-11-24"
-    }
+    },
+    "heartbeat": "2026-11-25T04:41:16+07:00"
   }
 }
