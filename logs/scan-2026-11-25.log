@@ -1,2 +1,3 @@
 [21:03Z] START phien sang som (CI)
 [04:05 VN] FAIL web-scan (local sang som): pull --rebase bi chan boi file tracked bi xoa do cua phien khac (.github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml, don_ton_du.py bao NONG); remote moi hon 12 commit nen khong dong bo duoc. Khong quet. Mốc dự phòng sau tự quét lại.
+[04:37 VN] FAIL web-scan (local sang som, mốc 04:35): lặp đúng lỗi 04:05 — pull --rebase vẫn bị chặn (file workflow _thu-hong-* bị xoá dở + index.html/data/analyses.json/state.json sửa dở), remote mới hơn 2 commit. Không stash, không commit hộ. Không quét.
