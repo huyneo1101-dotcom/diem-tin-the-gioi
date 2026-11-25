@@ -10,3 +10,4 @@
 [22:06Z] khong phai Chu nhat (thu 4) -> bo qua bao cao tuan
 [22:06Z] DONE event-scan
 [21:53Z] SKIP phien moi: web-scan + event-scan hom nay DA XONG (lan chay cuoi 04:40:56 va 04:51:47 +07:00); so_da_gui --xem co dong hom nay [sang] 28 tin + [sukien] 2 tin -> ban tin da toi tay thuc, khong quet lai
+[03:45Z] SKIP phien moi: state.py claim web-scan exit 12 (SAI GIO) - 10:45 gio VN nam ngoai khung "sang" 03:00-09:00, cron GitHub tre bat dinh. KHONG dung --bo-cong-gio de lach, ket thuc em.
