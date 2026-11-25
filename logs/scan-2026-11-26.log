@@ -7,3 +7,4 @@
 [21:38Z] Gom ket qua 5 agent, giao 1 agent bo sung (Bien Dong + Noi bo My thuan noi dia) - dung het tran 6 agent con
 [21:44Z] add_news.py OK: +13 worldNews, +15 usNews, +2 tap tran. generatedAt=2026-11-25. Bien Dong hut san (2/5), ghi scan-gaps.json + loai-tin.md
 [04:55 VN] (local sang som) Phien local da quet xong +25 tin nhung CI push ban tin 26/11 (78baae3, +28 tin) TRUOC -> commit local xung dot index.html/logs, da bo (rebase --skip), KHONG push; lay ban CI. Nguyen nhan: local claim luc CI dang quet (state.json cua CI chua push khoa RUNNING, khong phat hien duoc o buoc claim). Khong claim event-scan vi CI van dang chay.
+[21:48Z] (phien CI nay) claim web-scan: exit 10 DA XONG (lastRunAt 2026-11-26T04:44:24+07:00, cach hien tai ~3 phut). Kiem so_da_gui --xem: co dong 2026-11-26T04:47:43+07:00 [sang] 56 tin -> ban tin da toi tay thuc. SKIP web-scan, nhay sang claim event-scan.
