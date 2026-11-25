@@ -9,3 +9,6 @@
 [04:55 VN] (local sang som) Phien local da quet xong +25 tin nhung CI push ban tin 26/11 (78baae3, +28 tin) TRUOC -> commit local xung dot index.html/logs, da bo (rebase --skip), KHONG push; lay ban CI. Nguyen nhan: local claim luc CI dang quet (state.json cua CI chua push khoa RUNNING, khong phat hien duoc o buoc claim). Khong claim event-scan vi CI van dang chay.
 [21:48Z] (phien CI nay) claim web-scan: exit 10 DA XONG (lastRunAt 2026-11-26T04:44:24+07:00, cach hien tai ~3 phut). Kiem so_da_gui --xem: co dong 2026-11-26T04:47:43+07:00 [sang] 56 tin -> ban tin da toi tay thuc. SKIP web-scan, nhay sang claim event-scan.
 [21:49Z] START event-scan (CI, gop vao sang som). Thu 5 (khong Chu nhat) -> bo qua bao cao tuan.
+[21:50Z] do_tap_tran_thieu.py: 1 cuoc co ten rieng (Exercise Kasangga - da xac minh KET THUC 11/11/2026, khong tao the moi), 29 muc khong ten (hoat dong chung, doc qua khong dang tao the).
+[21:58Z] add_news.py OK: +1 dipEvent MOI (Hiep uoc an ninh Australia - Solomon Islands), +1 item tap tran (HARIMAU SHAKTI-VI). Khong co newExercises nen bo qua buoc background/concepts tap tran.
+[22:00Z] add_analyses.py OK: +5 bai think-tank (Lowy, ASPI, CFR, War on the Rocks, ORF), phu Uc/AUKUS + Dai Loan-TQ + Anh + phan tich toan cau. set_analysis_concepts.py: +2 khai niem (SM-6, bau cu 9 trong 1 Dai Loan).
