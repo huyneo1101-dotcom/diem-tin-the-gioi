@@ -4,23 +4,23 @@
   "topics": [
     {
       "name": "Đối ngoại Mỹ",
-      "count": 2,
+      "count": 5,
       "target": "5",
       "min": 5,
-      "thieu": true,
-      "reason": "Nạp được 2 tin (Megaspeed blacklist liên quan Trung Quốc, thẩm phán ICC người Canada chỉ trích nước Anh). Nhiều ứng viên tốt bị cổng NGÀY ĐĂNG THẬT chặn vì trang không in ngày đọc được (Bloomberg ×2: tariff hike 16 nước, Zelensky-Congress; The Hill: điều trần Jensen Huang 3/12) hoặc ngày thật lệch nhiều ngày so với ngày agent khai (Treasury Iran sanctions Operation Economic Outcast thật ra 23/11, ngoài khung 24-25/11). Đã dùng hết 1/1 lượt agent bổ sung theo trần agent con (6/6), không còn lượt để tìm dateProofUrl hoặc nguồn thay thế."
+      "thieu": false,
+      "reason": ""
     },
     {
       "name": "Nội bộ Mỹ",
-      "count": 4,
-      "target": "12-18",
+      "count": 5,
+      "target": "5",
       "min": 5,
-      "thieu": true,
-      "reason": "Nạp được 4 tin (ICC speech ban ruling, consumer confidence, DOJ anti-scam crackdown, Trump-Dem healthcare). Mất Victoria Broderick Tennessee win và điều trần Jensen Huang vì cổng NGÀY ĐĂNG THẬT (Forbes/The Hill không in ngày đọc được hoặc ngày thật ngoài khung). Thượng viện Mỹ nghỉ họp Lễ Tạ ơn tuần 24-28/11 nên không có phiên điều trần/bỏ phiếu mới (nhóm 1 hạng ưu tiên cao nhất trống hẳn). Đã dùng hết lượt agent bổ sung."
+      "thieu": false,
+      "reason": ""
     },
     {
       "name": "Địa bàn › Anh",
-      "count": 7,
+      "count": 6,
       "target": "5",
       "min": 3,
       "thieu": false,
@@ -40,24 +40,16 @@
       "target": "5",
       "min": 5,
       "thieu": true,
-      "reason": "Nạp được 2 tin (Marcos COC 85-90%, ASEAN cảnh báo Thái Lan-Campuchia). Nhiều ứng viên hợp chủ đề bị loại: Teodoro COC distrust (Inquirer.net, ngày thật 16/11 — quá cũ 9 ngày so với ngày agent khai 24/11), SCMP Anwar-Trung Quốc (không có metadata ngày), Indonesia nghe lén điện thoại tổng thống (không neo được vào Úc/AUKUS/vùng biển Biển Đông — thuần chính trị nội bộ), tàu dân binh Trung Quốc va chạm PCG gần đảo Panata/Loaita (hai nguồn độc lập đều ghi ngày thật 23/11, ngoài khung 24-25/11). Đã dùng hết lượt agent bổ sung."
+      "reason": "Chỉ nạp được 2 tin (máy bay ném bom H-6 Trung Quốc gần Scarborough/Luzon; diễn tập Philippines quanh Batanes/Basco gần Đài Loan). Nhiều ứng viên khác bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang không in ngày đọc được và không tìm được link đối chứng hợp lệ: tuần tra BrahMos Luzon Strait (USNI News), cảnh báo nội bộ Bộ Ngoại giao Philippines (The Diplomat, thật ra đăng 23/11 — ngoài khung). Tin tuần tra Cảnh sát biển Việt Nam-Trung Quốc (Tuổi Trẻ) bị loại vì ngày đăng thật là 22/11, quá cũ. Vụ tàu dân binh Trung Quốc áp sát đảo Panata (23/11, BusinessWorld) bị loại từ đầu vì ngoài khung 24-25/11. Đã dùng hết 1/1 lượt agent bổ sung theo trần agent con (6/6) — không còn lượt để tìm thêm nguồn, đành chốt lô ở mức 2/5."
     },
     {
-      "name": "Công nghệ quân sự Mỹ (KHCN-QS)",
-      "count": 8,
-      "target": "6-10",
+      "name": "KHCN-QS",
+      "count": 7,
+      "target": "5",
       "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Tập trận đang diễn ra",
-      "count": 2,
-      "target": "1-2",
-      "min": 0,
       "thieu": false,
       "reason": ""
     }
   ],
-  "note": "Trần agent con cả phiên (6/6: 5 luồng gốc A-B-C-D-BM + 1 bổ sung gộp 3 mục hụt) đã dùng hết — 3 mục còn hụt sàn (Đối ngoại Mỹ, Nội bộ Mỹ, Biển Đông) được CHỐT theo đúng luật, không giao vòng thứ hai. Cổng NGÀY ĐĂNG THẬT là nguyên nhân chặn chính trong phiên này — xem chi tiết từng tin bị loại ở logs/loai-tin.md (mục phiên sáng sớm 25/11). Cổng Báo Mới còn 7 ứng viên chưa xử lý được, đã ghi lý do từng bài vào logs/loai-tin.md (chủ yếu trùng sự kiện đã nạp qua nguồn khác, hoặc bị cổng ngày chặn)."
+  "note": "Nhiều ứng viên hợp lệ bị CỔNG NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn vì trang nguồn không in ngày đọc được bằng metadata chuẩn (Bloomberg ×2, The Hill, Al Arabiya, Law.com) — một số cứu được bằng dateProofUrl (link đối chứng cùng sự việc có ngày đọc được), số còn lại phải bỏ. Báo Mới còn 1 ứng viên hợp chủ đề chưa nạp: 'Mỹ sắp công bố thuế quan mới với 16 đối tác thương mại lớn' (Bnews) — xác minh qua WebFetch là CÙNG sự kiện với tin USTR 14 đối tác đã nạp (cùng điều tra Section 301 dư thừa công suất công nghiệp), nên loại vì trùng, ghi logs/loai-tin.md. Trần 06 agent con đã dùng hết (05 luồng gốc A-B-C-D-BM + 01 agent bổ sung), không giao vòng thứ hai theo đúng luật — mục Biển Đông chốt dưới sàn."
 }

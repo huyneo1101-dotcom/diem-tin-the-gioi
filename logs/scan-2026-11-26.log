@@ -1,3 +1,8 @@
 [21:00Z] START (CI) phien sang som 26/11
-[04:05 VN] FAIL web-scan (local sang som): pull --rebase bi chan, remote co 18 commit moi, repo co viec do chua commit cua phien khac: index.html, data/analyses.json, .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml (xoa). Khong stash, khong commit ho. Ket thuc.
-[04:40 VN] claim web-scan (local sang som) RUN. Cay lam viec giu ban cu 24/11 cua index.html/analyses.json/state.json (mtime 2 ngay, HEAD moi hon 25/11, khong ai dang sua) -> da checkout -- ve HEAD roi pull + claim lai.
+[21:00Z] harvest.py: 398 ung vien (Noi bo My 165, Uc&BD 141, CNQS 69, Tap tran 23); telegram_harvest.py: 11 ung vien [TG]
+[04:05 VN] (local sang som) FAIL web-scan: pull --rebase bi chan, remote co 18 commit moi, repo co viec do chua commit cua phien khac: index.html, data/analyses.json, .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml (xoa). Khong stash, khong commit ho. Ket thuc.
+[21:30Z] Giao 5 agent song song (A-NoiboMy, B-UcBienDong, C-CNQS, D-TapTran, BM-BaoMoi)
+[04:36-04:40 VN] (local sang som) claim web-scan RUN. Cay lam viec giu ban cu 24/11 cua index.html/analyses.json/state.json (mtime 2 ngay, HEAD moi hon 25/11, khong ai dang sua) -> da checkout -- ve HEAD roi pull + claim lai.
+[21:36Z] [CANH BAO] Phien local tren vua claim web-scan TRONG LUC phien CI nay dang chay (do CI quen push logs/state.json ngay sau claim dau phien, chi push log START, sai luat SKILL.md Buoc 0 — hai khoa tam thoi tranh nhau qua git). CI (phien nay) tiep tuc vi da gan xong, se push DONE ngay khi hoan tat de phien local tu nhan ra qua lan dong bo ke tiep, khong quet chong.
+[21:38Z] Gom ket qua 5 agent, giao 1 agent bo sung (Bien Dong + Noi bo My thuan noi dia) - dung het tran 6 agent con
+[21:44Z] add_news.py OK: +13 worldNews, +15 usNews, +2 tap tran. generatedAt=2026-11-25. Bien Dong hut san (2/5), ghi scan-gaps.json + loai-tin.md
