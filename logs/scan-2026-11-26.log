@@ -12,3 +12,4 @@
 [21:50Z] do_tap_tran_thieu.py: 1 cuoc co ten rieng (Exercise Kasangga - da xac minh KET THUC 11/11/2026, khong tao the moi), 29 muc khong ten (hoat dong chung, doc qua khong dang tao the).
 [21:58Z] add_news.py OK: +1 dipEvent MOI (Hiep uoc an ninh Australia - Solomon Islands), +1 item tap tran (HARIMAU SHAKTI-VI). Khong co newExercises nen bo qua buoc background/concepts tap tran.
 [22:00Z] add_analyses.py OK: +5 bai think-tank (Lowy, ASPI, CFR, War on the Rocks, ORF), phu Uc/AUKUS + Dai Loan-TQ + Anh + phan tich toan cau. set_analysis_concepts.py: +2 khai niem (SM-6, bau cu 9 trong 1 Dai Loan).
+[03:07Z] SKIP web-scan: claim exit 12 (SAI GIO) - 10:07 gio VN nam ngoai khung o "sang" (03:00-09:00), cron GitHub tre bat dinh. Khong claim, khong quet, khong dung --bo-cong-gio. Ket thuc em (phien sang som 26/11 da xong tu truoc, xem cac dong phia tren).
