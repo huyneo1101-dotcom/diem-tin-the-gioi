@@ -2,3 +2,5 @@
 [21:27Z] DONE web-scan: +30 tin (5 chu de) - Doi ngoai My 5, Noi bo My 5, Anh 5, Australia 5, Bien Dong 5, KHCN-QS 5 (CNQS 5 + tap tran 0). Gỡ 1 tin trùng SLCM-N (prune_news.py). 8 ứng viên Báo Mới khớp chủ đề đều trùng sự kiện đã nạp qua nguồn khác - xem loai-tin.md. Tiep tuc Buoc 6 (event-scan) trong cung phien.
 [21:28Z] START event-scan (CI, gop vao sang som)
 [21:34Z] DONE event-scan: +1 tap tran moi (Surya Kiran 2026 An Do-Nepal, kem background+concepts), +5 bai think-tank (ORF x2, SWP Berlin, EUISS, SIPRI, kem concepts). Khong co su kien ngoai giao moi dang dua, khong co dien bien moi cho Narrow Waters 26.2/HARIMAU SHAKTI-VI trong khung 48h. Khong phai Chu nhat nen bo qua bao cao tuan.
+[21:40Z] SKIP web-scan (CI, phien sau) - exit 10, so da gui co dong 2026-11-27T04:35:50+07:00 [sang] 31 tin, lastRunAt web-scan 04:27:33+07:00. Ban tin da toi tay thuc, khong phai co noi doi. Chuyen sang kiem Buoc 6 (event-scan).
+[21:40Z] SKIP event-scan (CI, phien sau) - exit 10, lastRunAt 2026-11-27T04:35:00+07:00, da co +1 tap tran +5 bai think-tank. Ca web-scan va event-scan hom nay deu da xong. Ket thuc em.
