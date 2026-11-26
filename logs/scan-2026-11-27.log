@@ -1,1 +1,2 @@
 [21:03Z] START (CI) phien sang som
+[04:07 VN] FAIL local sang (chua claim): repo co viec do chua commit: .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml (tracked, bi xoa, file NONG cua phien khac); pull --rebase bi chan, origin/main hon 15 commit. Khong stash, khong commit ho. Khong claim nen khong ghi state.
