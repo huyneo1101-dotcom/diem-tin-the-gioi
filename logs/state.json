@@ -19,13 +19,14 @@
     }
   },
   "event-scan": {
-    "lastRunAt": "2026-11-26T05:00:46+07:00",
+    "lastRunAt": "2026-11-27T04:28:32+07:00",
     "lastSlot": "sang",
-    "lastStatus": "DONE",
-    "note": "+1 su kien ngoai giao (Uc-Solomon Islands), +1 tap tran update (HARIMAU SHAKTI-VI), +5 bai think-tank",
+    "lastStatus": "RUNNING",
+    "note": "dang quet",
     "lastSuccess": {
       "toi": "2026-07-24",
       "sang": "2026-11-26"
-    }
+    },
+    "heartbeat": "2026-11-27T04:28:32+07:00"
   }
 }
