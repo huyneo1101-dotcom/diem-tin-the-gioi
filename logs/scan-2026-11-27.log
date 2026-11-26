@@ -1,2 +1,2 @@
 [21:03Z] START (CI) phien sang som
-[04:07 VN] FAIL local sang (chua claim): repo co viec do chua commit: .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml (tracked, bi xoa, file NONG cua phien khac); pull --rebase bi chan, origin/main hon 15 commit. Khong stash, khong commit ho. Khong claim nen khong ghi state.
+[21:27Z] DONE web-scan: +30 tin (5 chu de) - Doi ngoai My 5, Noi bo My 5, Anh 5, Australia 5, Bien Dong 5, KHCN-QS 5 (CNQS 5 + tap tran 0). Gỡ 1 tin trùng SLCM-N (prune_news.py). 8 ứng viên Báo Mới khớp chủ đề đều trùng sự kiện đã nạp qua nguồn khác - xem loai-tin.md. Tiep tuc Buoc 6 (event-scan) trong cung phien.

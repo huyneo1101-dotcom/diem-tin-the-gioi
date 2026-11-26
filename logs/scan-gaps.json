@@ -1,55 +1,13 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-27",
   "session": "sang",
   "topics": [
-    {
-      "name": "Đối ngoại Mỹ",
-      "count": 5,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Nội bộ Mỹ",
-      "count": 5,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Địa bàn › Anh",
-      "count": 6,
-      "target": "5",
-      "min": 3,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Địa bàn › Australia",
-      "count": 5,
-      "target": "5",
-      "min": 3,
-      "thieu": false,
-      "reason": ""
-    },
-    {
-      "name": "Địa bàn › Biển Đông",
-      "count": 2,
-      "target": "5",
-      "min": 5,
-      "thieu": true,
-      "reason": "Chỉ nạp được 2 tin (máy bay ném bom H-6 Trung Quốc gần Scarborough/Luzon; diễn tập Philippines quanh Batanes/Basco gần Đài Loan). Nhiều ứng viên khác bị CỔNG NGÀY ĐĂNG THẬT chặn vì trang không in ngày đọc được và không tìm được link đối chứng hợp lệ: tuần tra BrahMos Luzon Strait (USNI News), cảnh báo nội bộ Bộ Ngoại giao Philippines (The Diplomat, thật ra đăng 23/11 — ngoài khung). Tin tuần tra Cảnh sát biển Việt Nam-Trung Quốc (Tuổi Trẻ) bị loại vì ngày đăng thật là 22/11, quá cũ. Vụ tàu dân binh Trung Quốc áp sát đảo Panata (23/11, BusinessWorld) bị loại từ đầu vì ngoài khung 24-25/11. Đã dùng hết 1/1 lượt agent bổ sung theo trần agent con (6/6) — không còn lượt để tìm thêm nguồn, đành chốt lô ở mức 2/5."
-    },
-    {
-      "name": "KHCN-QS",
-      "count": 7,
-      "target": "5",
-      "min": 5,
-      "thieu": false,
-      "reason": ""
-    }
+    {"name":"Đối ngoại Mỹ","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Nội bộ Mỹ","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Anh","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"KHCN-QS","count":5,"target":"5","min":5,"thieu":false,"reason":"Đủ sàn nhờ 5 tin chủ đề CNQS Mỹ (Dark Eagle, F-35 P&W, Patriot, Space Force Guardian, giám sát Bắc Cực); không có diễn biến tập trận mới đạt chuẩn trong khung 48h (HARIMAU SHAKTI-VI chỉ có tin ngày 25/11, ngoài khung; Narrow Waters 26.2 chỉ có tin khai mạc đã nạp trước đó, không có khoa mục mới)."}
   ],
-  "note": "Nhiều ứng viên hợp lệ bị CỔNG NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn vì trang nguồn không in ngày đọc được bằng metadata chuẩn (Bloomberg ×2, The Hill, Al Arabiya, Law.com) — một số cứu được bằng dateProofUrl (link đối chứng cùng sự việc có ngày đọc được), số còn lại phải bỏ. Báo Mới còn 1 ứng viên hợp chủ đề chưa nạp: 'Mỹ sắp công bố thuế quan mới với 16 đối tác thương mại lớn' (Bnews) — xác minh qua WebFetch là CÙNG sự kiện với tin USTR 14 đối tác đã nạp (cùng điều tra Section 301 dư thừa công suất công nghiệp), nên loại vì trùng, ghi logs/loai-tin.md. Trần 06 agent con đã dùng hết (05 luồng gốc A-B-C-D-BM + 01 agent bổ sung), không giao vòng thứ hai theo đúng luật — mục Biển Đông chốt dưới sàn."
+  "note": "Sàn mọi mục đúng đạt mức tối thiểu 5, không dư nhiều, do cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn 9 tin ở vòng nạp đầu — trang không in ngày đọc được (Financial Times, The Hill x2, USTR.gov, SCMP, Sky News) hoặc ngày thật lệch khung (Nhà Trắng/Melania thật 25/11 nhưng hôm nay đã 27/11 — quá 48h; DefenseScoop thật 23/11 ngoài khung CNQS 3 ngày; Canadian Inquirer thật 25/11 ngoài khung 1 ngày). Đã thay bằng nguồn khác cùng sự kiện (CNBC, Channel News Asia, The Straits Times, VietnamPlus, Tuổi Trẻ, Air & Space Forces Magazine, Federal News Network) hoặc bỏ hẳn khi không còn nguồn thay. Phát hiện và gỡ 1 tin trùng (SLCM-N Raytheon, đã có từ 25/11 qua Naval News) bằng scripts/prune_news.py. 8 ứng viên Báo Mới hợp chủ đề đều trùng sự kiện đã nạp qua nguồn khác trong chính phiên này — xem logs/loai-tin.md. Đã dùng đủ 5/6 trần agent con (A/B/C/D/BM), không cần vòng bổ sung."
 }
