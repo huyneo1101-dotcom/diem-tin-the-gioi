@@ -1,2 +1,3 @@
 [21:00Z] START web-scan (CI, phien sang som)
 [21:05Z] FAIL web-scan (local sang som 04:05 VN): pull --rebase bi chan boi file tracked sua do (index.html, data/analyses.json, .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml bi xoa); repo tut sau origin/main 24 commit. Khong stash, khong commit ho. Khong quet. CI 03:47/04:47 la mốc chinh.
+[21:36Z] FAIL web-scan (local sang som 04:35 VN): pull --rebase van bi chan (tracked sua do: index.html, data/analyses.json, state.json, baomoi-*.json, docs/ung-vien-ci.json, logs/*.json; 01 workflow bi xoa); origin/main co 02 commit moi (beat CI 04:13, baomoi 595cc6a). Khong claim, khong stash, khong commit ho, khong goi state.py fail de khoi de len khoa CI. Khong quet.
