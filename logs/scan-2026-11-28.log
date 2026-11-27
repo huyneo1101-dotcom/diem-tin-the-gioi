@@ -7,3 +7,7 @@
 [21:56Z] Agent bo sung xong. Tu kiem lai tung URL bang WebFetch/WebSearch: loai 5 tin sai ngay thuc (Babcock 26/11, ASPI AUKUS 13/11, Bessent-Iran-economy ArabNews 20/11, Washington Times Trump-Thanksgiving 26/11, Challenger3 khong doc duoc ngay). Nap qua add_news.py, bat 3 tin TRUNG voi tin da co trong DATA (GDP-fake, Raytheon-SLCM-N, RTX-F135) da go bang prune_news.py. kiem_trang_chay.py: OK.
 [21:59Z] DONE web-scan. +22 tin: Doi ngoai My 4/5 (hut, Thanksgiving recess), Noi bo My 7/5, Anh 5/5, Australia 6/5, Bien Dong 4/5 (hut, 1 tin bi phan mục giành ve Australia), KHCN-QS 5/5 (4 CNQS + 1 Harimau Shakti-VI). scan-gaps.json + loai-tin.md da ghi. kiem_trang_chay.py OK. Da push ba93d939.
 [22:00Z] START event-scan (CI, gop vao sang som)
+[22:02Z] do_tap_tran_thieu.py: 19 ung vien KHONG TEN, khong cuoc nao du chuan nap exerciseUpdates trong khung 27-28/11. Giao 1 agent event-scan.
+[22:08Z] Agent xong: +1 dipEventUpdates (Mecca Pact S-PDC lan 2 Islamabad 27/11), 1 newDipEvent bi loai vi ngay thuc 26/11 ngoai khung 1 ngay, 1 cuoc tap tran moi (Golden Dragon 2026 TQ-Campuchia) ghi nhan nhung chua nap (khong co dien bien trong khung). 4 ung vien Bao Mo deu trung/ngoai pham vi - da ghi loai-tin.md.
+[22:09Z] add_analyses.py --candidates: 240 ung vien. Giao 1 agent chon 5 bai think-tank (ASPI AUKUS, ECFR hat nhan My-Trung-Nga, ORF CPEC Pakistan, AGSI Iran, East Asia Forum ASEAN) + sinh khai niem cho 3/5 bai. kiem_trang_chay.py: OK.
+[22:10Z] DONE event-scan. Khong phai Chu nhat (thu 7) nen khong bao cao tuan.
