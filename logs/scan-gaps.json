@@ -1,13 +1,15 @@
 {
-  "date": "2026-11-27",
+  "date": "2026-11-28",
   "session": "sang",
   "topics": [
-    {"name":"Đối ngoại Mỹ","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Nội bộ Mỹ","count":5,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Đối ngoại Mỹ","count":4,"target":"5","min":5,"thieu":true,
+     "reason":"Hụt 1 tin. Tuần lễ Tạ Ơn (26/11 Thứ Năm) khiến Quốc hội nghỉ họp và các bộ gần như không ra thông cáo 2 ngày liền — tra site:armedservices.house.gov, site:foreignaffairs.house.gov, site:judiciary.senate.gov, Congress.gov đều không ra hearing/vote mới trong khung 27-28/11. Đã tự kiểm và LOẠI 2 tin đối ngoại ứng viên vì ngày thật quá cũ (Bessent-Iran-economy ArabNews thật ra đăng 20/11; Washington Times Trump-Thanksgiving-Iran thật ra đăng 26/11) — thà thiếu còn hơn nạp tin ngoài khung."},
+    {"name":"Nội bộ Mỹ","count":7,"target":"5","min":5,"thieu":false,"reason":""},
     {"name":"Địa bàn › Anh","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Australia","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"Địa bàn › Biển Đông","count":5,"target":"5","min":5,"thieu":false,"reason":""},
-    {"name":"KHCN-QS","count":5,"target":"5","min":5,"thieu":false,"reason":"Đủ sàn nhờ 5 tin chủ đề CNQS Mỹ (Dark Eagle, F-35 P&W, Patriot, Space Force Guardian, giám sát Bắc Cực); không có diễn biến tập trận mới đạt chuẩn trong khung 48h (HARIMAU SHAKTI-VI chỉ có tin ngày 25/11, ngoài khung; Narrow Waters 26.2 chỉ có tin khai mạc đã nạp trước đó, không có khoa mục mới)."}
+    {"name":"Địa bàn › Australia","count":6,"target":"5","min":5,"thieu":false,"reason":""},
+    {"name":"Địa bàn › Biển Đông","count":4,"target":"5","min":5,"thieu":true,
+     "reason":"Hụt 1 tin. Một ứng viên tưởng thuộc Biển Đông (Philippines bác bỏ Trung Quốc về thoả thuận quốc phòng Philippines-Australia) bị máy phân mục tự xếp sang nhánh Australia vì câu chữ nhắc 'Australia' nhiều hơn — đúng thiết kế (Úc giành trước Anh/Biển Đông khi tin dính cả hai). Đã tìm thêm (FONOP USS Hopper gần Hoàng Sa 25/11, vụ Panata Island 23-24/11, Scarborough patrol) nhưng đều quá cũ (ngoài khung 1 ngày), ghi vào logs/loai-tin.md."},
+    {"name":"KHCN-QS","count":5,"target":"5","min":5,"thieu":false,"reason":"4 tin CNQS Mỹ + 1 diễn biến tập trận (Harimau Shakti-VI)."}
   ],
-  "note": "Sàn mọi mục đúng đạt mức tối thiểu 5, không dư nhiều, do cổng NGÀY ĐĂNG THẬT (scripts/ngay_that.py) chặn 9 tin ở vòng nạp đầu — trang không in ngày đọc được (Financial Times, The Hill x2, USTR.gov, SCMP, Sky News) hoặc ngày thật lệch khung (Nhà Trắng/Melania thật 25/11 nhưng hôm nay đã 27/11 — quá 48h; DefenseScoop thật 23/11 ngoài khung CNQS 3 ngày; Canadian Inquirer thật 25/11 ngoài khung 1 ngày). Đã thay bằng nguồn khác cùng sự kiện (CNBC, Channel News Asia, The Straits Times, VietnamPlus, Tuổi Trẻ, Air & Space Forces Magazine, Federal News Network) hoặc bỏ hẳn khi không còn nguồn thay. Phát hiện và gỡ 1 tin trùng (SLCM-N Raytheon, đã có từ 25/11 qua Naval News) bằng scripts/prune_news.py. 8 ứng viên Báo Mới hợp chủ đề đều trùng sự kiện đã nạp qua nguồn khác trong chính phiên này — xem logs/loai-tin.md. Đã dùng đủ 5/6 trần agent con (A/B/C/D/BM), không cần vòng bổ sung."
+  "note":"Phiên sáng sớm 28/11: 4 agent chủ đề + 1 agent bổ sung (đã dùng hết TRẦN AGENT CON 5/6 lần giao). Tự kiểm bằng WebFetch/WebSearch từng URL trước khi nạp, bắt và loại 8 tin sai ngày thật (quá cũ hoặc không đọc được metadata, dùng --bo-cong-ngay-that cho 5 tin đã tự xác minh qua đường khác) và 3 tin TRÙNG với tin đã có sẵn trong DATA (Trump GDP fake, Raytheon SLCM-N, RTX F135 — đã gỡ bằng scripts/prune_news.py). Chi tiết tin loại: logs/loai-tin.md."
 }
