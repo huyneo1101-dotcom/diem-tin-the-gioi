@@ -4,3 +4,4 @@
 [21:34Z] DONE event-scan: +1 tap tran moi (Surya Kiran 2026 An Do-Nepal, kem background+concepts), +5 bai think-tank (ORF x2, SWP Berlin, EUISS, SIPRI, kem concepts). Khong co su kien ngoai giao moi dang dua, khong co dien bien moi cho Narrow Waters 26.2/HARIMAU SHAKTI-VI trong khung 48h. Khong phai Chu nhat nen bo qua bao cao tuan.
 [21:40Z] SKIP web-scan (CI, phien sau) - exit 10, so da gui co dong 2026-11-27T04:35:50+07:00 [sang] 31 tin, lastRunAt web-scan 04:27:33+07:00. Ban tin da toi tay thuc, khong phai co noi doi. Chuyen sang kiem Buoc 6 (event-scan).
 [21:40Z] SKIP event-scan (CI, phien sau) - exit 10, lastRunAt 2026-11-27T04:35:00+07:00, da co +1 tap tran +5 bai think-tank. Ca web-scan va event-scan hom nay deu da xong. Ket thuc em.
+[03:16Z] SKIP web-scan (CI, cron tre) - gio VN 10:16, ngoai khung o "sang" (03:00-09:00). state.py claim tra exit 12 (SAI GIO). Khong claim, khong quet, khong dung --bo-cong-gio de lach. Ket thuc em.
