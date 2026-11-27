@@ -1,3 +1,8 @@
 [21:00Z] START web-scan (CI, phien sang som)
 [21:05Z] FAIL web-scan (local sang som 04:05 VN): pull --rebase bi chan boi file tracked sua do (index.html, data/analyses.json, .github/workflows/_thu-hong-93156-ca15160a-claude-web-scan.yml bi xoa); repo tut sau origin/main 24 commit. Khong stash, khong commit ho. Khong quet. CI 03:47/04:47 la mốc chinh.
+[21:07Z] harvest.py +270 ung vien, telegram_harvest.py +15 ung vien. Beat 1.
+[21:35Z] Giao 4 agent song song (A Noi bo My, B Uc&BienDong, C CNQS My, D Tap tran). Beat 2.
 [21:36Z] FAIL web-scan (local sang som 04:35 VN): pull --rebase van bi chan (tracked sua do: index.html, data/analyses.json, state.json, baomoi-*.json, docs/ung-vien-ci.json, logs/*.json; 01 workflow bi xoa); origin/main co 02 commit moi (beat CI 04:13, baomoi 595cc6a). Khong claim, khong stash, khong commit ho, khong goi state.py fail de khoi de len khoa CI. Khong quet.
+[21:50Z] 4 agent xong. Hut san: Noi bo My 7 bai, Uc&BienDong thieu nhanh Australia/BienDong. Giao 1 agent bo sung (TRAN AGENT CON - vong cuoi).
+[21:56Z] Agent bo sung xong. Tu kiem lai tung URL bang WebFetch/WebSearch: loai 5 tin sai ngay thuc (Babcock 26/11, ASPI AUKUS 13/11, Bessent-Iran-economy ArabNews 20/11, Washington Times Trump-Thanksgiving 26/11, Challenger3 khong doc duoc ngay). Nap qua add_news.py, bat 3 tin TRUNG voi tin da co trong DATA (GDP-fake, Raytheon-SLCM-N, RTX-F135) da go bang prune_news.py. kiem_trang_chay.py: OK.
+[21:59Z] DONE web-scan. +22 tin: Doi ngoai My 4/5 (hut, Thanksgiving recess), Noi bo My 7/5, Anh 5/5, Australia 6/5, Bien Dong 4/5 (hut, 1 tin bi phan mục giành ve Australia), KHCN-QS 5/5 (4 CNQS + 1 Harimau Shakti-VI). scan-gaps.json + loai-tin.md da ghi. kiem_trang_chay.py OK. Chuan bi commit "Cap nhat ban tin 28/11".
