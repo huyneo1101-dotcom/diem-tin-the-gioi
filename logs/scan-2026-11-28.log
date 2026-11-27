@@ -11,3 +11,4 @@
 [22:08Z] Agent xong: +1 dipEventUpdates (Mecca Pact S-PDC lan 2 Islamabad 27/11), 1 newDipEvent bi loai vi ngay thuc 26/11 ngoai khung 1 ngay, 1 cuoc tap tran moi (Golden Dragon 2026 TQ-Campuchia) ghi nhan nhung chua nap (khong co dien bien trong khung). 4 ung vien Bao Mo deu trung/ngoai pham vi - da ghi loai-tin.md.
 [22:09Z] add_analyses.py --candidates: 240 ung vien. Giao 1 agent chon 5 bai think-tank (ASPI AUKUS, ECFR hat nhan My-Trung-Nga, ORF CPEC Pakistan, AGSI Iran, East Asia Forum ASEAN) + sinh khai niem cho 3/5 bai. kiem_trang_chay.py: OK.
 [22:10Z] DONE event-scan. Khong phai Chu nhat (thu 7) nen khong bao cao tuan.
+[22:12Z] SKIP web-scan (CI, phien sang som, lan claim moi) - exit 10, DA XONG lan chay cuoi 2026-11-28T04:59:26+07:00. So da gui co dong 2026-11-28T05:11:45+07:00 [sang] 26 tin => ban tin da toi tay, khong quet lai. event-scan claim cung exit 10 (DA XONG 05:10:34+07:00). Ket thuc em.
